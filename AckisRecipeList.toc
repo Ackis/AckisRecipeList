@@ -1,0 +1,62 @@
+﻿## Title: Ackis Recipe List
+## Title-enUS: Ackis Recipe List
+## Title-enGB: Ackis Recipe List
+## Title-koKR: Ackis의 제조법 리스트
+## Title-deDE: Ackis Rezeptliste
+
+## Notes: Displays a list of missing recipes for your trade skills.  Works with all trade skills, including rogue poisons and hunter beast training.
+## Notes-enUS: Displays a list of missing recipes for your trade skills.  Works with all trade skills, including rogue poisons and hunter beast training.
+## Notes-enGB: Displays a list of missing recipes for your trade skills.  Works with all trade skills, including rogue poisons and hunter beast training.
+## Notes-frFR: Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs et les capacités des familiers des chasseurs.
+## Notes-deDE: Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen. (noch nicht vollständig übersetzt)
+## Notes-esES: Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador.
+## Notes-zhCN: 全面详细的商业技能信息插件，包括毒药和宠物技能.
+## Notes-koKR: 캐릭터가 배우지 못한 제조법을 표시합니다. 모든 전문기술 및 도적의 독과 사냥꾼의 야수 훈련도 포함합니다.
+ 
+## Author: Ackis
+## X-Author-Server: Illidan US
+## X-Author-Faction: Horde
+## eMail: ackis AT shaw DOT ca
+## X-email: ackis AT shaw DOT ca
+## X-License: MIT modified with notification clause
+## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
+
+## Interface: 20400
+## Version: 0.937
+## X-Revision: $Rev$
+## X-Date: $Date$
+
+## X-credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan, Zhinjio
+
+## X-Category: Tradeskill
+## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU
+## X-Website: http://www.wowwiki.com/AckisRecipeList/
+## X-Feedback: http://www.curse.com/downloads/details/10057/
+## X-AceForum: 11798
+## X-RelSite-Curse: 10057
+## X-RelSite-WoWI: 8512
+## X-RelSite-WoWUI: 5061
+
+## X-LoadOn-Slash: /arl
+## Dependencies:
+## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0
+## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, Skillet, ATSW, Manufac
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+## SavedVariables: ARLDB
+
+embeds.xml
+# Hack because LibAboutPanel is on CF SVN and not WoWAce SVN
+# Remove this when WoWAce merges with CF and embeds are handled correctly by the packager
+libs\LibAboutPanel\lib.xml
+
+# Localization files
+local.xml
+
+AckisRecipeList.lua
+ARLFrame.lua
+ARLColour.lua
+
+# Recipe database files
+database.xml
