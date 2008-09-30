@@ -1,18 +1,18 @@
 package-as: AckisRecipeList
 
 externals:
-    /libs/AceLocale-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceLocale-3.0/
-    /libs/AceConfig-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceConfig-3.0/
-    /libs/LibBabble-Boss-3.0: http://svn.wowace.com/wowace/trunk/LibBabble-Boss-3.0/
-    /libs/AceEvent-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceEvent-3.0/
-    /libs/LibBabble-Zone-3.0: http://svn.wowace.com/wowace/trunk/LibBabble-Zone-3.0/
-    /libs/CallbackHandler-1.0: http://svn.wowace.com/wowace/trunk/Ace3/CallbackHandler-1.0/
-    /libs/AceConsole-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceConsole-3.0/
-    /libs/LibStub: http://svn.wowace.com/wowace/tags/LibStub/1.0/
-    /libs/LibBabble-Faction-3.0: http://svn.wowace.com/wowace/trunk/LibBabble-Faction-3.0/
-    /libs/AceDBOptions-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceDBOptions-3.0/
-    /DataMiner: svn://svn.curseforge.net/wow/data-tools/mainline/trunk/
-    /libs/AceDB-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceDB-3.0/
-    /libs/LibAboutPanel: svn://svn.curseforge.net/wow/libaboutpanel/mainline/trunk/
-    /libs/AceGUI-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceGUI-3.0/
-    /libs/AceAddon-3.0: http://svn.wowace.com/wowace/trunk/Ace3/AceAddon-3.0/
+	libs/LibStub: svn://svn.wowace.com/wow/libstub/mainline/tags/1.0
+	libs/CallbackHandler-1.0: svn://svn.wowace.com/wow/callbackhandler/mainline/tags/1.0.3/CallbackHandler-1.0
+	libs/AceLocale-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceLocale-3.0
+	libs/AceConfig-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConfig-3.0
+	libs/AceEvent-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceEvent-3.0
+	libs/AceConsole-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConsole-3.0
+	libs/AceDBOptions-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceDBOptions-3.0
+	libs/AceDB-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceDB-3.0
+	libs/AceGUI-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceGUI-3.0
+	libs/AceAddon-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceAddon-3.0
+	libs/LibBabble-Faction-3.0: svn://svn.wowace.com/wow/lib-babble-faction-3-0/mainline/trunk
+	libs/LibBabble-Boss-3.0: svn://svn.wowace.com/wow/lib-babble-boss-3-0/mainline/trunk
+	libs/LibBabble-Zone-3.0: svn://svn.wowace.com/wow/lib-babble-zone-3-0/mainline/trunk
+	DataMiner: svn://svn.curseforge.net/wow/data-tools/mainline/trunk
+	libs/LibAboutPanel: svn://svn.curseforge.net/wow/libaboutpanel/mainline/trunk
