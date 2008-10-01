@@ -46,10 +46,8 @@
 
 ## SavedVariables: ARLDB
 
+# Library files
 embeds.xml
-# Hack because LibAboutPanel is on CF SVN and not WoWAce SVN
-# Remove this when WoWAce merges with CF and embeds are handled correctly by the packager
-libs\LibAboutPanel\lib.xml
 
 # Localization files
 local.xml
