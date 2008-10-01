@@ -1,4 +1,10 @@
-package-as: AckisRecipeList
+# Package file as:
+package-as: ARL
+
+# File list to ignore:
+ignore:
+ - .pkgmeta
+ - ARLDataminer.rb
 
 externals:
 	libs/LibStub: svn://svn.wowace.com/wow/libstub/mainline/tags/1.0
