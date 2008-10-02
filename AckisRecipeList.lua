@@ -207,7 +207,6 @@ AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon("Ackis Recipe List", "AceCons
 
 local addon = AckisRecipeList
 
--- We should probably clean thes up and use arguments/return values
 -- Global variables which are used between multiple files
 addon.RecipeListing = nil
 addon.SortedRecipeIndex = nil
