@@ -467,7 +467,7 @@ local function giveFilter()
 				desc      = L["SPECIALITY_TOGGLE"],
 				type      = "toggle",
 				get       = function() return addon.db.profile.filters.general.specialty end,
-				set       = function() addon.db.profile.filters.general.specialty = not addon.db.profile.specialty end,
+				set       = function() addon.db.profile.filters.general.specialty = not addon.db.profile.filters.general.specialty end,
 				order     = 15,
 			},
 			skill =
