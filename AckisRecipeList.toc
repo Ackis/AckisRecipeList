@@ -31,15 +31,9 @@
 ## X-Category: Tradeskill
 ## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU
 ## X-Website: http://www.wowwiki.com/AckisRecipeList/
-## X-Feedback: http://www.curse.com/downloads/details/10057/
-## X-AceForum: 11798
-## X-RelSite-Curse: 10057
-## X-RelSite-WoWI: 8512
-## X-RelSite-WoWUI: 5061
+## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 
-## X-LoadOn-Slash: /arl
 ## Dependencies:
-## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0
 ## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, Skillet, ATSW, Manufac
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
