@@ -258,8 +258,18 @@ EOF
 						unless npc[:id] == 0
 
 							acquire << { "type" => 1, "id" => npc[:id] }
-							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							unless npc[:react].nil?
+
+								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							else
+
+								flags << 1 << 2
+
+							end
+
 							$trainers[npc[:id]] = {:name => npc[:name]}
 							$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
 
@@ -297,8 +307,18 @@ EOF
 
 							acquire << {"type" => 6, "id" => npc[:id], "faction" => $reps[details[:faction]][:id],"factionlevel" => (factionlevels.has_key?(details[:faction_level]) ? factionlevels[details[:faction_level]] : details[:faction_level])}
 							$vendors[npc[:id]] = {:name => npc[:name]}
-							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							unless npc[:react].nil?
+
+								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							else
+
+								flags << 1 << 2
+
+							end
+
 							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
 
 							if react_a < 3
@@ -348,8 +368,18 @@ EOF
 
 							acquire << {"type" => 2, "id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
-							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							unless npc[:react].nil?
+
+								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							else
+
+								flags << 1 << 2
+
+							end
+
 							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
 
 							if react_a < 3
