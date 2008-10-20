@@ -258,27 +258,27 @@ EOF
 						unless npc[:id] == 0
 
 							acquire << { "type" => 1, "id" => npc[:id] }
+							$trainers[npc[:id]] = {:name => npc[:name]}
 
 							unless npc[:react].nil?
 
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
+								if react_a < 3
+									flags << 1
+								end
+
+								if react_h < 3
+									flags << 2
+								end
+
+								$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+
 							else
 
 								flags << 1 << 2
 
-							end
-
-							$trainers[npc[:id]] = {:name => npc[:name]}
-							$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
-
-							if react_a < 3
-								flags << 1
-							end
-
-							if react_h < 3
-								flags << 2
 							end
 
 						end
@@ -313,20 +313,24 @@ EOF
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
+								if react_a < 3
+
+									flags << 1
+
+								end
+
+								if react_h < 3
+
+									flags << 2
+
+								end
+
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+
 							else
 
 								flags << 1 << 2
 
-							end
-
-							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
-
-							if react_a < 3
-								flags << 1
-							end
-
-							if react_h < 3
-								flags << 2
 							end
 
 							if npc[:locs]
@@ -374,23 +378,23 @@ EOF
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
+								if react_a < 3
+
+									flags << 1
+
+								end
+
+								if react_h < 3
+
+									flags << 2
+
+								end
+
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+
 							else
 
 								flags << 1 << 2
-
-							end
-
-							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
-
-							if react_a < 3
-
-								flags << 1
-
-							end
-
-							if react_h < 3
-
-								flags << 2
 
 							end
 
