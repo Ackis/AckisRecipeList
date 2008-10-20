@@ -134,7 +134,6 @@ L["InitiateScanSpecial"] = "%1$s 검색 - %2$s 숙련도에 %3$s 분류의 제�
 L["RecipeListSummary"] = "\n당신은 총 %2$s개의 제조법 중 %1$s개를 배웠습니다 (%3$s%%).\n미습득한 제조법은  %4$s개 입니다."
 L["UnknownTradeSkill"] = "이 애드온이 지원하지 않는 전문기술 창을 열었습니다.  해당 기술은 %s 입니다.  이 정보를 애드온의 제작자에게 전달해주세요."
 L["OpenTradeSkillWindow"] = "전문기술 창을 연 후에 기술 검색 해주세요."
-L["TwoCraftingWindows"] = "전문기술 차이 이미 열려 있습니다. 빠진 제조법의 검색을 위해 창을 닫고 다시 열어 주십시오."
 L["SpellIDCache"] = "주문 ID: %s은 캐쉬에 없습니다. http://wow.curseforge.com/projects/ackis-recipe-list/tickets/에 전문기술과 주문ID를 검색해서 올려주십시오."
 L["FactionError"] = "경고: %s의 평판 레벨을 알 수 없습니다."
 L["MissingFromDBWarning"] = "검색된 리스트에 제조법이 없습니다. 아마도 주문ID가 다르거나 검색시 인터넷 상태로 인한 것일 수 있습니다."

@@ -3,7 +3,6 @@
 ..\FrameXML\UI.xsd">
 
 <Include file="RecipeDB\ARL-Alchemy.lua"/>
-<Include file="RecipeDB\ARL-BeastTrain.lua"/>
 <Include file="RecipeDB\ARL-BlackSmith.lua"/>
 <Include file="RecipeDB\ARL-Cook.lua"/>
 <Include file="RecipeDB\ARL-Enchant.lua"/>
@@ -12,10 +11,15 @@
 <Include file="RecipeDB\ARL-Inscription.lua"/>
 <Include file="RecipeDB\ARL-Jewelcraft.lua"/>
 <Include file="RecipeDB\ARL-LeatherWork.lua"/>
-<Include file="RecipeDB\ARL-RoguePoison.lua"/>
 <Include file="RecipeDB\ARL-RuneForge.lua"/>
 <Include file="RecipeDB\ARL-Smelt.lua"/>
 <Include file="RecipeDB\ARL-Tailor.lua"/>
+
+<Include file="RecipeDB\ARL-Mob.lua"/>
+<Include file="RecipeDB\ARL-Quest.lua"/>
+<Include file="RecipeDB\ARL-Reputation.lua"/>
+<Include file="RecipeDB\ARL-Seasonal.lua"/>
+<Include file="RecipeDB\ARL-Trainer.lua"/>
 <Include file="RecipeDB\ARL-Vendor.lua"/>
 
 </Ui>

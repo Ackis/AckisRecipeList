@@ -1,4 +1,5 @@
 ﻿--[[
+
 ****************************************************************************************
 
 ARLColour.lua
@@ -11,10 +12,12 @@ $Rev$
 Code adopted from Crayon library
 
 ****************************************************************************************
+
 ]]--
 
 
-local addon = AckisRecipeList
+local MODNAME			= "Ackis Recipe List"
+local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --[[
 
@@ -35,11 +38,33 @@ local BLUE		= "0000ff"
 local CYAN		= "00ffff"
 local BLACK		= "000000"
 local GREY		= "666666"
+local MIDGREY	= "858585"
 local NEUTRAL	= "bfbfbf"
 local FRIENDLY	= WHITE
 local HONORED	= "00ff00"
 local REVERED	= "3f66e5"
 local EXALTED	= "9933cc"
+
+local TRAINER	= "d9cb9e"
+local VENDOR	= "aad372"
+local QUEST		= "2359ff"
+local REP		= "ff7c0a"
+local SEASON	= "80590e"
+local MOBDROP	= "ffffc0"
+
+local POOR		= "919191"
+local COMMON	= WHITE
+local UNCOMMON	= "00A900"
+local RARE		= "0062C3"
+local EPIC		= "B343FF"
+local LEGENDARY	= "FA9900"
+local ARTIFACT	= "e5cc80"
+
+local HIGH		= WHITE
+local NORMAL	= "ffd100"
+
+local HORDE		= "ff0000"
+local ALLIANCE	= "00ffff"
 
 --[[
 
@@ -82,6 +107,89 @@ end
 -- Converts text to Exalted Colour
 function addon:Exalted(text)
 	return self:Colourize(EXALTED, text)
+end
+
+function addon:Horde(text)
+	return self:Colourize(RED, text)
+end
+
+function addon:Alliance(text)
+	return self:Colourize(CYAN, text)
+end
+
+function addon:Coords(text)
+	return self:Colourize(WHITE, text)
+end
+
+function addon:Trainer( text )
+	return self:Colourize( TRAINER, text )
+end
+
+function addon:Vendor( text )
+	return self:Colourize( VENDOR, text )
+end
+
+function addon:Quest( text )
+	return self:Colourize( QUEST, text )
+end
+
+function addon:Rep( text )
+	return self:Colourize( REP, text )
+end
+
+function addon:Season( text )
+	return self:Colourize( SEASON, text )
+end
+
+function addon:MobDrop( text )
+	return self:Colourize( MOBDROP, text )
+end
+
+-- Rarity Colors
+function addon:Poor( text )
+	return self:Colourize( POOR, text )
+end
+
+function addon:Common( text )
+	return self:Colourize( COMMON, text )
+end
+
+function addon:Uncommon( text )
+	return self:Colourize( UNCOMMON, text )
+end
+
+function addon:Rare( text )
+	return self:Colourize( RARE, text )
+end
+
+function addon:Epic( text )
+	return self:Colourize( EPIC, text )
+end
+
+function addon:Legendary( text )
+	return self:Colourize( LEGENDARY, text )
+end
+
+function addon:Artifact( text )
+	return self:Colourize( ARTIFACT, text )
+end
+
+function addon:RarityColor( rarityColor, text )
+	if ( rarityColor == 1 ) then
+		return self:Colourize( POOR, text )
+	elseif ( rarityColor == 2 ) then
+		return self:Colourize( COMMON, text )
+	elseif ( rarityColor == 3 ) then
+		return self:Colourize( UNCOMMON, text )
+	elseif ( rarityColor == 4 ) then
+		return self:Colourize( RARE, text )
+	elseif ( rarityColor == 5 ) then
+		return self:Colourize( EPIC, text )
+	elseif ( rarityColor == 6 ) then
+		return self:Colourize( LEGENDARY, text )
+	else
+		return self:Colourize( ARTIFACT, text )
+	end
 end
 
 -- Converts text to Red
@@ -147,4 +255,54 @@ end
 -- Converts text to Grey
 function addon:Grey(text)
 	return self:Colourize(GREY, text)
+end
+
+-- Converts text to Middle Grey
+function addon:MidGrey(text)
+	return self:Colourize(MIDGREY, text)
+end
+
+-- Standard bliz yellowish sort of thing
+function addon:Normal( text )
+	return self:Colourize( NORMAL, text )
+end
+
+-- used for tooltip rgb stuff
+function addon:hexcolor( colorstring )
+	if ( colorstring == "NEUTRAL" )			then return NEUTRAL
+	elseif ( colorstring == "FRIENDLY" )	then return FRIENDLY
+	elseif ( colorstring == "HONORED" )		then return HONORED
+	elseif ( colorstring == "REVERED" )		then return REVERED
+	elseif ( colorstring == "EXALTED" )		then return EXALTED
+
+	elseif ( colorstring == "TRAINER" )		then return TRAINER
+	elseif ( colorstring == "VENDOR" )		then return VENDOR
+	elseif ( colorstring == "QUEST" )		then return QUEST
+	elseif ( colorstring == "REP" )			then return REP
+	elseif ( colorstring == "SEASON" )		then return SEASON
+	elseif ( colorstring == "MOBDROP" )		then return MOBDROP
+
+	elseif ( colorstring == "POOR" )		then return POOR
+	elseif ( colorstring == "COMMON" )		then return COMMON
+	elseif ( colorstring == "UNCOMMON" )	then return UNCOMMON
+	elseif ( colorstring == "RARE" )		then return RARE
+	elseif ( colorstring == "EPIC" )		then return EPIC
+	elseif ( colorstring == "LEGENDARY" )	then return LEGENDARY
+	elseif ( colorstring == "ARTIFACT" )	then return ARTIFACT
+
+	elseif ( colorstring == "HORDE" )		then return HORDE
+	elseif ( colorstring == "ALLIANCE" )	then return ALLIANCE
+
+	elseif ( colorstring == "BLACK" )		then return BLACK
+	elseif ( colorstring == "ORANGE" )		then return ORANGE
+	elseif ( colorstring == "GREEN" )		then return GREEN
+	elseif ( colorstring == "YELLOW" )		then return YELLOW
+	elseif ( colorstring == "GREY")			then return GREY
+	elseif ( colorstring == "MIDGREY")		then return MIDGREY
+
+	elseif ( colorstring == "HIGH" )		then return HIGH
+--	elseif ( colorstring == "NORMAL" )		then return NORMAL
+	else
+		return NORMAL
+	end
 end
