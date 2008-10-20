@@ -47,19 +47,19 @@ local arlTooltip = _G["arlTooltip"]
 
 -- To make tabbing between professions easier
 local SortedProfessions = {
-	{ name = "Alchemy",			texture = "alchemy" },		-- 1
-	{ name = "Beast Training",	texture = "beast" },		-- 2
-	{ name = "Blacksmithing",	texture = "blacksmith" },	-- 3
-	{ name = "Cooking",			texture = "cooking" },		-- 4
-	{ name = "Enchanting",		texture = "enchant" },		-- 5
-	{ name = "Engineering",		texture = "engineer" },		-- 6
-	{ name = "First Aid",		texture = "firstaid" },		-- 7
-	{ name = "Inscribing",		texture = "inscribe" },		-- 8
-	{ name = "Jewelcrafting",	texture = "jewel" },		-- 9
-	{ name = "Leatherworking",	texture = "leather" },		-- 10
-	{ name = "Poisons",			texture = "poison" },		-- 11
-	{ name = "Mining",			texture = "smelting" },		-- 12
-	{ name = "Tailoring",		texture = "tailor" },		-- 13
+	{ name = GetSpellInfo(2259),	texture = "alchemy" },		-- 1
+	{ name = GetSpellInfo(5149),	texture = "beast" },		-- 2
+	{ name = GetSpellInfo(2018),	texture = "blacksmith" },	-- 3
+	{ name = GetSpellInfo(2550),	texture = "cooking" },		-- 4
+	{ name = GetSpellInfo(7411),	texture = "enchant" },		-- 5
+	{ name = GetSpellInfo(4036),	texture = "engineer" },		-- 6
+	{ name = GetSpellInfo(746),		texture = "firstaid" },		-- 7
+	{ name = GetSpellInfo(45357),	texture = "inscribe" },		-- 8
+	{ name = GetSpellInfo(25229),	texture = "jewel" },		-- 9
+	{ name = GetSpellInfo(2108),	texture = "leather" },		-- 10
+	{ name = GetSpellInfo(2842),	texture = "poison" },		-- 11
+	{ name = GetSpellInfo(2575),	texture = "smelting" },		-- 12
+	{ name = GetSpellInfo(3908),	texture = "tailor" },		-- 13
 }
 local MaxProfessions = 13
 
