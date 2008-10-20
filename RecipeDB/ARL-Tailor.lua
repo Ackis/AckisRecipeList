@@ -696,9 +696,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val2id3val3id4val3id5val32id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 7636, 80, 6243, 2, 3908)
-	self:addTradeFlags(RecipeDB, 7636, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 7636, 80, 6243, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 7636, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
 	-- Blue Overalls -- 7639
@@ -1140,9 +1140,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val15id5val51id6val10id19
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12062, 205, 10010, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12062, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12062, 205, 10010, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12062, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
 	-- Stormcloth Gloves -- 12063
@@ -1150,9 +1150,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val36id6val16id19val16id20
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12063, 205, 10011, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12063, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,54,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12063, 205, 10011, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12063, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,54,56)
 	-- No acquire information
 
 	-- Orange Martial Shirt -- 12064
@@ -1198,9 +1198,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val8id3val8id5val59id6val10id19val29id20
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12068, 210, 10020, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12068, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,53,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12068, 210, 10020, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12068, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,53,56)
 	-- No acquire information
 
 	-- Cindercloth Robe -- 12069
@@ -1344,9 +1344,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val10id4val10id5val51id6val14id19
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12083, 225, 10032, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12083, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12083, 225, 10032, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12083, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
 	-- Red Mageweave Headband -- 12084
@@ -1383,9 +1383,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val48id6val21id19
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12087, 230, 10038, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12087, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12087, 230, 10038, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12087, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
 	-- Cindercloth Boots -- 12088
@@ -1413,9 +1413,9 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val10id3val45id6val16id19
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12090, 235, 10039, 2, 3908)
-	self:addTradeFlags(RecipeDB, 12090, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 12090, 235, 10039, 2, 3908)
+	--self:addTradeFlags(RecipeDB, 12090, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
 	-- White Wedding Dress -- 12091
