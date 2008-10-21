@@ -1657,9 +1657,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 27958, 305, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 27958, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 27958, 305, nil, 1, 7411)
+	--self:addTradeFlags(RecipeDB, 27958, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Enchant Chest - Exceptional Stats -- 27960
@@ -1817,9 +1817,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Recipe BoP, 
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28021, 315, 22445, 1, 7411)
-	self:addTradeFlags(RecipeDB, 28021, 3,21,22,23,24,25,26,27,28,29,30,41)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 28021, 315, 22445, 1, 7411)
+	--self:addTradeFlags(RecipeDB, 28021, 3,21,22,23,24,25,26,27,28,29,30,41)
 	-- No acquire information
 
 	-- Large Prismatic Shard -- 28022
@@ -2106,9 +2106,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 44383, 310, nil, 1, 7411)
-	--self:addTradeFlags(RecipeDB, 44383, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 44383, 310, nil, 1, 7411)
+	self:addTradeFlags(RecipeDB, 44383, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Enchant Cloak - Superior Frost Resistance -- 44483
@@ -2595,9 +2595,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 47672, 340, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 47672, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 47672, 340, nil, 1, 7411)
+	--self:addTradeFlags(RecipeDB, 47672, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
 	-- Enchant Cloak - Haste -- 47898
