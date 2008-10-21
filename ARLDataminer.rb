@@ -1022,7 +1022,18 @@ EOF
 			if type == "Monster"
 
 				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db}, #{k}, L[\"#{v[:name]}\"], ")
+				lookup_lua.print("self:addLookupList(#{db}, #{k}, ")
+
+				if $bosslist.include?(v[:name])
+
+					lookup_lua.print("BBOSS[\"#{v[:name]}\"], ")
+					$localstring.delete(v[:name])
+
+				else
+
+					lookup_lua.print("L[\"#{v[:name]}\"], ")
+
+				end
 
 				if locs.keys[0]
 
@@ -1123,6 +1134,7 @@ $proftable = {"Alchemy" 			=> 2259,
 				"Runeforging"		=> 28481
 				}
 
+$bosslist = ["Ras Frostwhisper"]
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
