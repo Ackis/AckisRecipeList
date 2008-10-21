@@ -34,7 +34,6 @@ local DEBUG = false
 
 -- We should probably clean thes up and use arguments/return values
 -- Global variables which are used between multiple files
-addon.SkillType = nil
 
 addon.playerProfession = ""
 addon.MaxFilterIndex = 129
@@ -300,10 +299,12 @@ end
 
 function addon:TRADE_SKILL_SHOW()
 
-	addon.SkillType = "Trade"
+	addon:OpenTradeWindow()
 
 	if (addon.ScanButton and not Skillet) then
+
 		self:ShowScanButton()
+
 	end
 
 end
@@ -315,14 +316,18 @@ end
 
 function addon:TRADE_SKILL_CLOSE()
 
-	addon.SkillType = nil
+	addon:CloseTradeWindow()
 
 	if (addon.db.profile.closeguionskillclose and addon.Frame) then
+
 		self:CloseWindow()
+
 	end
 
 	if (addon.ScanButton and not Skillet) then
+
 		addon.ScanButton:Hide()
+
 	end
 
 end
@@ -1250,6 +1255,30 @@ do
 
 	local playerdata = nil
 
+	local tradewindowopened = false
+
+	-- Description: Toggles the flag that a trade window is opened
+	-- Expected result: Flag is toggled on
+	-- Input: None
+	-- Output: None
+
+	function addon:OpenTradeWindow()
+
+		tradewindowopened = true
+
+	end
+
+	-- Description: Toggles the flag that a trade window is opened
+	-- Expected result: Flag is toggled on
+	-- Input: None
+	-- Output: None
+
+	function addon:CloseTradeWindow()
+
+		tradewindowopened = false
+
+	end
+
 	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
 	-- Expected result: Reputation table is updated with appropiate levels
 	-- Input: None
@@ -1273,13 +1302,13 @@ do
 	function addon:AckisRecipeList_Command(textdump)
 
 		-- If we don't have a trade skill window open, lets return out of here
-		if (addon.SkillType == nil) then
+		if (not tradewindowopened) then
 
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 
 		-- Trade type skills
-		elseif (addon.SkillType == "Trade") then
+		else
 
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 			if (playerdata == nil) then

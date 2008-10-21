@@ -196,13 +196,14 @@ function addon:ShowScanButton()
 		addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
 		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
 		addon.ScanButton:SetWidth(80)
-	elseif (addon.SkillType == "Trade") then
+	else
 	-- Anchor to trade window
 		addon.ScanButton:SetParent(TradeSkillFrame)
 		addon.ScanButton:ClearAllPoints()
 		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",10,0)
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 	end
+
 	addon.ScanButton:SetFrameStrata("DIALOG")
 	addon.ScanButton:Show()
 
