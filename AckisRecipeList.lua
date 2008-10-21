@@ -85,8 +85,8 @@ end
 addon.addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 
 -- Global constants which are used between multiple files
-addon.ARLTitle = "ARL (v." .. addon.addonversion .. ")"
-addon.FullTitle = "Ackis Recipe List (v." .. addon.addonversion .. ")"
+--addon.ARLTitle = "ARL (v." .. addon.addonversion .. ")"
+--addon.FullTitle = "Ackis Recipe List (v." .. addon.addonversion .. ")"
 
 -- We use line breaks quite often lets make it a constant send you can't use \t in WoW
 addon.br = "\n    - " -- Nuke this
