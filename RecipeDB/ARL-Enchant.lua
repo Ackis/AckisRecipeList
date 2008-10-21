@@ -9,8 +9,8 @@ Enchanting data for all of AckisRecipeList
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 276 found from data mining.
-1 ignored.
-54 WotLK ignored.
+2 ignored.
+55 WotLK ignored.
 
 ************************************************************************
 

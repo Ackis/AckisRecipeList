@@ -1,5 +1,5 @@
-﻿## Title: Ackis Recipe List
-## Title-enUS: Ackis Recipe List
+﻿## Title: Ackis Recipe List (3.02 Beta 5)
+## Title-enUS: Ackis Recipe List (3.02 Beta 5)
 ## Title-koKR: Ackis의 제조법 리스트
 ## Title-deDE: Ackis Rezeptliste
 
@@ -18,7 +18,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 30000
-## Version: Beta 5
+## Version: Beta 5 r921
 ## X-Revision: $Rev$
 ## X-Date: $Date$
 

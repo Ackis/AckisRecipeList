@@ -760,6 +760,7 @@ L["Randal Worth"] = true
 L["Ranik"] = true
 L["Rann Flamespinner"] = true
 L["Rartar"] = true
+L["Ras Frostwhisper"] = true
 L["Rathis Tomber"] = true
 L["Rawrk"] = true
 L["Razaani Spell-Thief"] = true
@@ -1093,3 +1094,4 @@ L["Zul'jin"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["\"Cookie\" McWeaksauce"] = true
+
