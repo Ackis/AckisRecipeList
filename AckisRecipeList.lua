@@ -68,7 +68,6 @@ local tremove = table.remove
 local tsort = table.sort
 local tinsert = table.insert
 local sfind = string.find
-local InterfaceOptionsFrame_OpenToFrame = InterfaceOptionsFrame_OpenToFrame
 local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
 local guildname = GetGuildInfo("player")
@@ -88,9 +87,6 @@ addon.addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 -- Global constants which are used between multiple files
 --addon.ARLTitle = "ARL (v." .. addon.addonversion .. ")"
 --addon.FullTitle = "Ackis Recipe List (v." .. addon.addonversion .. ")"
-
--- We use line breaks quite often lets make it a constant send you can't use \t in WoW
-addon.br = "\n    - " -- Nuke this
 
 --[[
 
@@ -426,7 +422,7 @@ function addon:GetTradeSpecialty(SpecialtyTable, playerdata)
 		-- We have a match, return that spell name
 		elseif (SpecialtyTable[playerdata.playerProfession]) and (SpecialtyTable[playerdata.playerProfession][spellName]) then
 
-			local _, _, ID =  string.find(GetSpellLink(spellName), "spell:(%d+)")
+			local _, _, ID =  sfind(GetSpellLink(spellName), "spell:(%d+)")
 			return ID
 
 		end
@@ -1476,7 +1472,7 @@ do
 		else
 
 			self:Print("Debug: Found (known) Recipes: " .. playerdata.foundRecipes)
-			self:Print("Debug: Total Recipes: " .. playerdata.totalRecipes)
+			self:Print("Debug: Total Recipes in Database: " .. playerdata.totalRecipes)
 			self:Print("Debug: Filtered Recipes: " .. playerdata.filteredRecipes)
 			self:CreateFrame(RecipeList, sortedindex, playerdata, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,

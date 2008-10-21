@@ -138,7 +138,7 @@ function ReDisplay( )
 		pbMax = playerData.totalRecipes
 	-- We're removing filtered recipes from the final count
 	else
-		pbMax = playerData.totalRecipes - playerData.filteredRecipes
+		pbMax = playerData.totalRecipes - playerData.filteredRecipes + playerdata.foundRecipes
 	end
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
 	ARL_ProgressBar:SetValue( pbCur )
