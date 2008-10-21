@@ -107,17 +107,6 @@ StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	hideOnEscape = 1
 };
 
--- Closes the frame
-function addon:CloseWindow()
-	addon.Frame:Hide()
-
-	addon.ResetOkayARL = true
-
-	if (addon.ResetOkayBlizz and addon.ResetOkayARL) then
-		addon:ResetVariables()
-	end
-end
-
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
@@ -138,7 +127,7 @@ function ReDisplay( )
 		pbMax = playerData.totalRecipes
 	-- We're removing filtered recipes from the final count
 	else
-		pbMax = playerData.totalRecipes - playerData.filteredRecipes + playerData.foundRecipes
+		pbMax = playerData.totalRecipes - (playerData.filteredRecipes - playerData.foundRecipes)
 	end
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
 	ARL_ProgressBar:SetValue( pbCur )
@@ -154,6 +143,7 @@ end
 
 -- Create the scan button and add it to Skillet if applicable
 function addon:CreateScanButton()
+
 	-- Create the scan button
 	if (not addon.ScanButton) then
 		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
@@ -183,6 +173,7 @@ function addon:CreateScanButton()
 	end )
 	addon.ScanButton:SetText(L["Scan Skills"])
 	addon.ScanButton:Enable()
+
 end
 
 -- Adds a button to the trade skill/skillet skill window allowing you to scan
@@ -2250,8 +2241,6 @@ function addon:CreateFrame(
 	local pbMin = 0
 	local pbMax = 100
 	local pbCur = 50
-
-	addon.ResetOkayARL = false
 
 	sortedRecipeIndex = sortedRI
 	recipeDB = rDB
