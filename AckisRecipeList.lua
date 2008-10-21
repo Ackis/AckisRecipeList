@@ -30,6 +30,7 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+local DEBUG = false
 
 -- We should probably clean thes up and use arguments/return values
 -- Global variables which are used between multiple files
@@ -625,7 +626,9 @@ end
 
 function addon:ScanForKnownRecipes(RecipeDB, playerdata)
 
-	self:Print("DEBUG: Scanning for known recipes.")
+	if DEBUG then
+		self:Print("DEBUG: Scanning for known recipes.")
+	end
 
 	-- Clear the "Have Materials" check box
 	if not Skillet and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
@@ -713,7 +716,9 @@ do
 
 	local function CreateRepTable()
 
-		addon:Print("DEBUG: Creating rep filter table")
+		if DEBUG then
+			addon:Print("DEBUG: Creating rep filter table")
+		end
 		local repdb = addon.db.profile.filters.rep
 
 		reptable = {
@@ -757,7 +762,6 @@ do
 
 	function addon:ClearRepTable()
 
-		self:Print("DEBUG: Clearing rep filter table")
 		reptable = nil
 
 	end
@@ -1073,7 +1077,9 @@ do
 		end
 
 		-- If we get here it means that no flags matched our values
-		self:Print("DEBUG: No filter flags matched for: " .. Recipe["Name"])
+		if DEBUG then
+			self:Print("DEBUG: No filter flags matched for: " .. Recipe["Name"])
+		end
 
 		return false
 
@@ -1088,8 +1094,8 @@ end
 
 function addon:PopulateRepFilters(RepTable)
 
-	self:Print("DEBUG: Updating Rep Filters")
 	local repfilters = addon.db.profile.filters.rep
+
 	RepTable[BFAC["The Scryers"]] = repfilters.scryer
 	RepTable[BFAC["The Aldor"]] = repfilters.aldor
 	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
@@ -1434,7 +1440,9 @@ do
 
 			-- Get the current profession Specialty
 			playerdata.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerdata)
-			self:Print("DEBUG: Player specialty: " .. playerdata.playerSpecialty)
+			if DEBUG then
+				self:Print("DEBUG: Player specialty: " .. playerdata.playerSpecialty)
+			end
 
 			-- Add the recipes to the database
 			InitializeRecipes(RecipeList, playerdata)
@@ -1499,7 +1507,9 @@ function addon:SortMissingRecipes(RecipeDB)
 	-- Find out how he want to sort
 	local sorttype = addon.db.profile.sorting
 
-	self:Print("DEBUG: Sorting recipe array by: " .. sorttype)
+	if DEBUG then
+		self:Print("DEBUG: Sorting recipe array by: " .. sorttype)
+	end
 
 	-- Get all the indexes of the RecipeListing
 	for n, v in pairs(RecipeDB) do

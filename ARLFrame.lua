@@ -133,8 +133,10 @@ function ReDisplay( )
 	local pbCur = playerData.foundRecipes
 	local pbMin = 0
 	local pbMax = 100
+	-- Include filtered recipes in overall count, so we just display the total number of recipes
 	if ( addon.db.profile.includefiltered == true ) then
 		pbMax = playerData.totalRecipes
+	-- We're removing filtered recipes from the final count
 	else
 		pbMax = playerData.totalRecipes - playerData.filteredRecipes
 	end
