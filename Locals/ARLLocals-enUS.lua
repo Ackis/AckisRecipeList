@@ -256,52 +256,17 @@ L["Obtained From"]		= true
 L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
 L["Required Skill"]		= true
 
--- Reputation Level String
-L["Neutral"]	= true
-L["Friendly"]	= true
-L["Honored"]	= true
-L["Revered"]	= true
-L["Exalted"]	= true
-
 -- Popup Strings
 L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 
-------------------------------------------
--- Non-gui text
+-- Error/warning Text
 L["MissingFromDB"] = ": is is missing from the database. \nPlease inform the author of the add-on about this recipe."
-L["MissingRecipePrefix"] = "Missing Recipe: "
-L["InitiateScan"] = "Scanning %s for missing recipes at skill level %s.\n"
-L["InitiateScanSpecial"] = "Scanning %s - %s for missing recipes at skill level %s.\n"
-L["RecipeListSummary"] = "\nYou know %s out of %s total recipes (%s%%).\nYou are missing %s recipes."
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
-L["FactionError"] = "Warning: Reputation level of %s is unknown."
-L["MissingFromDBWarning"] = "A recipe not in the database has been detected.  Tere may be some lag while we scan for the missing recipe spell ID."
 
--- Recipe Database
-L["LimitedSupply"] = "Limited Supply Vendor"
-
--- Common quests/drops
-L["DMCACHE"] = "Knot Thimblejack's Cache"
-L["Gordok Ogre Suit"] = true
-L["Gordok Ogre Suit Obt"] = "The Gordok Ogre Suit"
-L["Spectral Essence Obt"] = "Kirtonos the Herald (allows you to see the vendor Magnus Frostwake near Scholomance)"
-L["TrueBelieverQuest"] = "True Believers - Rare"
-
--- Raid Drop Obtain Info
-L["ADNaxx"] = "Trainer: Master Craftsman Omarion in the Deathknight Wing of Naxxramas."
-L["MOLTENCORE"] = "Raid Bind on Pickup Drop: Random bosses in MC."
-L["AQ20/AQ40"] = "Raid BoP Mob Drop: Random bosses in AQ20/AQ40."
-L["SSC/TKBoP"] = "Raid Bind on Pickup Drop: Random bosses and mobs in SSC/TK."
-L["SSC/TKBoE"] = "Raid Bind on Equip Drop: Random bosses and mobs in SSC/TK."
-L["BT/HYJALBoP"] = "Raid Bind on Pickup Drop: Random bosses and mobs in Hyjal/BT."
-L["HYJALBoP"] = "Raid Bind on Pickup Drop: Random bosses in Hyjal."
-L["SunwellBoP"] = "Raid Bind on Pickup Drop: Random bosses and mobs in Sunwell."
-L["SunwellBoE"] = "Raid Bind on Equip Drop: Random bosses and mobs in Sunwell."
-L["BT/HYJALBoE"] = "Raid Bind on Equip Drop: Random bosses and mobs in Hyjal/BT."
-L["ZA"] = "Raid Bind on Pickup Drop: Random bosses in Zul'Aman."
+-- Drop Obtain Info
 L["Unknown"] = "Unknown Drop: The drop location of this recipe is unknown.  Please contribute by posting on the Ackis Recipe List thread at www.wowace.com/forums"
 L["Unknown Zone"] = true
 
@@ -312,7 +277,7 @@ L["Lunar Festival"] = true
 L["Darkmoon Faire"] = true
 L["Seasonal"] = true
 
--- Monster/Quest/Trainer/Vendor strings:
+-- Monster/Quest/Trainer/Vendor (autogeneratored) strings:
 
 L["40 Tickets - Schematic: Steam Tonk Controller"] = true
 L["A Binding Contract"] = true
@@ -1076,7 +1041,6 @@ L["Randal Worth"] = true
 L["Ranik"] = true
 L["Rann Flamespinner"] = true
 L["Rartar"] = true
-L["Ras Frostwhisper"] = true
 L["Rathis Tomber"] = true
 L["Rawrk"] = true
 L["Razaani Spell-Thief"] = true

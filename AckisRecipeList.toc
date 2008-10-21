@@ -36,6 +36,7 @@
 
 ## SavedVariables: ARLDB2
 
+# Libraries
 embeds.xml
 
 # Localization files

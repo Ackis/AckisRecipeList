@@ -501,7 +501,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6661, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Murloc Scale Belt -- 6702
-	-- Instance: 1581 - type1category3maxlevel20territory2minlevel15nameThe Deadminesid1581
+	-- Instance: 1581 - type1minlevel15category3maxlevel20nameThe Deadminesterritory2id1581
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
@@ -513,7 +513,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6702, 3, 1732, 3, 3385, 2, 843, 2, 3556, 2, 4186)
 
 	-- Murloc Scale Breastplate -- 6703
-	-- Instance: 1581 - type1category3maxlevel20territory2minlevel15nameThe Deadminesid1581
+	-- Instance: 1581 - type1minlevel15category3maxlevel20nameThe Deadminesterritory2id1581
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
@@ -627,7 +627,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7156, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Deviate Scale Cloak -- 7953
-	-- Instance: 718 - type1category3maxlevel21territory4minlevel15nameWailing Cavernsid718
+	-- Instance: 718 - type1minlevel15category3maxlevel21nameWailing Cavernsterritory4id718
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloak, 
 	-- Item Stats: 
@@ -638,7 +638,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7953, 2, 5783)
 
 	-- Deviate Scale Gloves -- 7954
-	-- Instance: 718 - type1category3maxlevel21territory4minlevel15nameWailing Cavernsid718
+	-- Instance: 718 - type1minlevel15category3maxlevel21nameWailing Cavernsterritory4id718
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -787,7 +787,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9146, 2, 6731)
 
 	-- Earthen Leather Shoulders -- 9147
-	-- Instance: 2367 - type5category3maxlevel68territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -906,8 +906,8 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9206, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Dusky Boots -- 9207
-	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
-	-- Instance: 722 - type1category3maxlevel40territory4minlevel33nameRazorfen Downsid722
+	-- Instance: 796 - type1minlevel34category3maxlevel45nameScarlet Monasteryterritory4id796
+	-- Instance: 722 - type1minlevel33category3maxlevel40nameRazorfen Downsterritory4id722
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1385,7 +1385,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19053, 2, 12957)
 
 	-- Red Dragonscale Breastplate -- 19054
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: Healing, 
@@ -1426,7 +1426,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19059, 3, 7035)
 
 	-- Green Dragonscale Leggings -- 19060
-	-- Instance: 1477 - type1category3maxlevel55territory1minlevel50nameThe Temple of Atal'Hakkarid1477
+	-- Instance: 1477 - type1minlevel50category3maxlevel55nameThe Temple of Atal'Hakkarterritory1id1477
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1580,7 +1580,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19075, 3, 7027)
 
 	-- Volcanic Breastplate -- 19076
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1672,7 +1672,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19084, 2, 12959)
 
 	-- Black Dragonscale Breastplate -- 19085
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1745,7 +1745,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Wicked Leather Belt -- 19092
 	-- Trainer
-	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58category3maxlevel60nameStratholmeterritory1id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1766,7 +1766,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Black Dragonscale Shoulders -- 19094
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1798,7 +1798,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Wicked Leather Armor -- 19098
 	-- Trainer
-	-- Instance: 2057 - type1category3maxlevel60territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1minlevel58category3maxlevel60nameScholomanceterritory1id2057
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1819,7 +1819,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19100, 3, 7029)
 
 	-- Volcanic Shoulders -- 19101
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1831,7 +1831,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Runic Leather Armor -- 19102
 	-- Trainer
-	-- Instance: 2057 - type1category3maxlevel60territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1minlevel58category3maxlevel60nameScholomanceterritory1id2057
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1843,7 +1843,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Runic Leather Shoulders -- 19103
 	-- Trainer
-	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58category3maxlevel60nameStratholmeterritory1id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1874,7 +1874,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Black Dragonscale Leggings -- 19107
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1912,7 +1912,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20650, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Corehound Boots -- 20853
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -1923,7 +1923,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20853, 2, 12944)
 
 	-- Molten Helm -- 20854
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: Tanking, 
@@ -1934,7 +1934,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20854, 2, 12944)
 
 	-- Black Dragonscale Boots -- 20855
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -1998,7 +1998,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Girdle of Insight -- 22921
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -2009,7 +2009,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22921, 3, 14338)
 
 	-- Mongoose Boots -- 22922
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -2020,7 +2020,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22922, 3, 14338)
 
 	-- Swift Flight Bracers -- 22923
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -2031,7 +2031,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22923, 3, 14338)
 
 	-- Chromatic Cloak -- 22926
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloak, 
 	-- Item Stats: 
@@ -2051,7 +2051,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Shifting Cloak -- 22928
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloak, 
 	-- Item Stats: Tanking, 
@@ -2125,7 +2125,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23706, 6, 529, 3, 10856, 6, 529, 3, 10857, 6, 529, 3, 11536)
 
 	-- Lava Belt -- 23707
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -2136,7 +2136,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23707, 2, 12944)
 
 	-- Chromatic Gauntlets -- 23708
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -2147,7 +2147,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23708, 2, 12944)
 
 	-- Corehound Belt -- 23709
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: Healing, 
@@ -2158,7 +2158,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23709, 2, 12944)
 
 	-- Molten Belt -- 23710
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -2481,7 +2481,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32458, 6, 934, 3, 19331)
 
 	-- Riding Crop -- 32461
-	-- Instance: 2367 - type5category3maxlevel68territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
@@ -2660,8 +2660,8 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32482, 2, 16689, 2, 16748)
 
 	-- Stylin' Purple Hat -- 32485
-	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
-	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
+	-- Instance: 3789 - expansion1type5minlevel70category3nameAuchindoun: Shadow Labrynthterritory1id3789
+	-- Instance: 3789 - expansion1type5minlevel70category3nameAuchindoun: Shadow Labrynthterritory1id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
@@ -2672,7 +2672,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32485, 3, 18667, 3, 19304)
 
 	-- Stylin' Adventure Hat -- 32487
-	-- Instance: 2367 - type5category3maxlevel68territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: Caster DPS, 
@@ -2683,7 +2683,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32487, 3, 17820)
 
 	-- Stylin' Crimson Hat -- 32488
-	-- Instance: 3791 - type5category3maxlevel69territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsid3791
+	-- Instance: 3791 - expansion1type5minlevel67category3maxlevel69nameAuchindoun: Sethekk Hallsterritory1id3791
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -2694,10 +2694,10 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32488, 3, 18322)
 
 	-- Stylin' Jungle Hat -- 32489
-	-- Instance: 2366 - type5category3territory1expansion1minlevel70nameThe Caverns of Time: The Black Morassid2366
-	-- Instance: 2366 - type5category3territory1expansion1minlevel70nameThe Caverns of Time: The Black Morassid2366
-	-- Instance: 2366 - type5category3territory1expansion1minlevel70nameThe Caverns of Time: The Black Morassid2366
-	-- Instance: 2366 - type5category3territory1expansion1minlevel70nameThe Caverns of Time: The Black Morassid2366
+	-- Instance: 2366 - expansion1type5minlevel70category3nameThe Caverns of Time: The Black Morassterritory1id2366
+	-- Instance: 2366 - expansion1type5minlevel70category3nameThe Caverns of Time: The Black Morassterritory1id2366
+	-- Instance: 2366 - expansion1type5minlevel70category3nameThe Caverns of Time: The Black Morassterritory1id2366
+	-- Instance: 2366 - expansion1type5minlevel70category3nameThe Caverns of Time: The Black Morassterritory1id2366
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: Caster DPS, 
@@ -2840,7 +2840,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32503, 6, 941, 3, 20241)
 
 	-- Shadow Armor Kit -- 35520
-	-- Instance: 3791 - type5category3maxlevel69territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsid3791
+	-- Instance: 3791 - expansion1type5minlevel67category3maxlevel69nameAuchindoun: Sethekk Hallsterritory1id3791
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2850,7 +2850,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 35520, 3, 18320)
 
 	-- Flame Armor Kit -- 35521
-	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - expansion1type5minlevel70category3nameTempest Keep: The Arcatrazterritory1id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2860,7 +2860,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 35521, 3, 20898)
 
 	-- Frost Armor Kit -- 35522
-	-- Instance: 3715 - type5category3territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715
+	-- Instance: 3715 - expansion1type5minlevel70category3nameCoilfang Reservoir: The Steamvaultterritory1id3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2870,7 +2870,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 35522, 3, 17797)
 
 	-- Nature Armor Kit -- 35523
-	-- Instance: 3717 - type5category3maxlevel64territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensid3717
+	-- Instance: 3717 - expansion1type5minlevel62category3maxlevel64nameCoilfang Reservoir: The Slave Pensterritory1id3717
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2880,7 +2880,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 35523, 3, 17941)
 
 	-- Arcane Armor Kit -- 35524
-	-- Instance: 2366 - type5category3territory1expansion1minlevel70nameThe Caverns of Time: The Black Morassid2366
+	-- Instance: 2366 - expansion1type5minlevel70category3nameThe Caverns of Time: The Black Morassterritory1id2366
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 

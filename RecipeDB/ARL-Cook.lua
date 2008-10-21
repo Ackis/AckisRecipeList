@@ -739,7 +739,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22480, 2, 4782, 2, 7733, 2, 8125)
 
 	-- Runn Tum Tuber Surprise -- 22761
-	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
+	-- Instance: 2557 - type1minlevel58category3maxlevel60nameDire Maulterritory1id2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1058,7 +1058,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 43761, 3, 18940, 3, 18962, 3, 24393)
 
 	-- Spicy Hot Talbuk -- 43765
-	-- Instance: 3716 - type5category3maxlevel65territory1expansion1minlevel63nameCoilfang Reservoir: The Underbogid3716
+	-- Instance: 3716 - expansion1type5minlevel63category3maxlevel65nameCoilfang Reservoir: The Underbogterritory1id3716
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

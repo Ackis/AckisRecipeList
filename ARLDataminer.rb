@@ -952,6 +952,7 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:#{funcstub}(#{db})
 
@@ -1134,7 +1135,7 @@ $proftable = {"Alchemy" 			=> 2259,
 				"Runeforging"		=> 28481
 				}
 
-$bosslist = ["Ras Frostwhisper"]
+$bosslist = ["Ras Frostwhisper","Onyxia","Gyth","General Drakkisath","Balnazzar","Goraluk Anvilcrack","Cannon Master Willey","Magmadar","Garr","Golemagg the Incinerator","Gehennas","Shazzrah","Lord Kazzak","Pusillin"]
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
