@@ -63,7 +63,7 @@ local ARTIFACT	= "e5cc80"
 local HIGH		= WHITE
 local NORMAL	= "ffd100"
 
-local HORDE		= "ff0000"
+local HORDE		= RED
 local ALLIANCE	= "00ffff"
 
 --[[
@@ -299,6 +299,7 @@ function addon:hexcolor( colorstring )
 	elseif ( colorstring == "YELLOW" )		then return YELLOW
 	elseif ( colorstring == "GREY")			then return GREY
 	elseif ( colorstring == "MIDGREY")		then return MIDGREY
+	elseif ( colorstring == "RED")			then return RED
 
 	elseif ( colorstring == "HIGH" )		then return HIGH
 --	elseif ( colorstring == "NORMAL" )		then return NORMAL

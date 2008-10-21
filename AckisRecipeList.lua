@@ -596,11 +596,11 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 		if (Faction == 1) then
 
-			DB[ID]["Faction"] = BFAC["Horde"]
+			DB[ID]["Faction"] = BFAC["Alliance"]
 
 		elseif (Faction == 2) then
 
-			DB[ID]["Faction"] = BFAC["Alliance"]
+			DB[ID]["Faction"] = BFAC["Horde"]
 
 		elseif (Faction == 3) then
 

@@ -890,15 +890,15 @@ function SetRecipeButtonTooltip ( bIndex )
 			gttAdd( 0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor( "HIGH" ) )
 			-- check if the recipe is excluded
 			if ( exclude[rIndex] == true ) then
-				clr1 = addon:hexcolor( "HORDE" )
+				clr1 = addon:hexcolor( "RED" )
 				gttAdd( 0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1 )
 			end
 			-- Add in skill level requirement, colored correctly
 			clr1 = addon:hexcolor( "NORMAL" )
 			local recipeSkill = recipeDB[rIndex]["Level"]
 			local playerSkill = playerData.playerProfessionLevel
-			if ( recipeSkill > playerSkill ) then
-				clr2 = addon:hexcolor( "HORDE" )
+			if (recipeSkill > playerSkill) then
+				clr2 = addon:hexcolor("RED")
 			elseif ( ( playerSkill - recipeSkill ) < 20 ) then
 				clr2 = addon:hexcolor( "ORANGE" )
 			elseif ( ( playerSkill - recipeSkill ) < 30 ) then
@@ -938,10 +938,10 @@ function SetRecipeButtonTooltip ( bIndex )
 						local vndr = vendorDB[v["ID"]]
 						local cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 						clr1 = addon:hexcolor( "VENDOR" )
-						if ( vndr["Faction"] == BFAC["Horde"] ) then
+						if (vndr["Faction"] == BFAC["Horde"]) then
 							clr2 = addon:hexcolor( "HORDE" )
 						elseif ( vndr["Faction"] == BFAC["Alliance"] ) then
-							clr2 = addon:hexcolor( "ALLIANCE" )
+							clr2 = addon:hexcolor("ALLIANCE")
 						else
 							clr2 = addon:hexcolor( "NEUTRAL" )
 						end
