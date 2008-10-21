@@ -18,7 +18,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 30000
-## Version: Beta 4
+## Version: Beta 5
 ## X-Revision: $Rev$
 ## X-Date: $Date$
 
