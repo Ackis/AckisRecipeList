@@ -107,6 +107,13 @@ StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	hideOnEscape = 1
 };
 
+-- Closes the frame
+function addon:CloseWindow()
+
+	addon.Frame:Hide()
+
+end
+
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
