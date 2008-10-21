@@ -1525,7 +1525,9 @@ function addon:SortMissingRecipes(RecipeDB)
 
 	-- Get all the indexes of the RecipeListing
 	for n, v in pairs(RecipeDB) do
+
 		tinsert(SortedRecipeIndex, n)
+
 	end
 
 	if (sorttype == L["Skill"]) then

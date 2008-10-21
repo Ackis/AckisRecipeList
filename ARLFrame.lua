@@ -1004,19 +1004,19 @@ function SetRecipeButtonTooltip ( bIndex )
 
 						local rStr = ""
 						if ( rplvl == 0 ) then
-							rStr = L["Neutral"]
+							rStr = BFAC["Neutral"]
 							clr1 = addon:hexcolor( "NEUTRAL" )
 						elseif ( rplvl == 1 ) then
-							rStr = L["Friendly"]
+							rStr = BFAC["Neutral"]
 							clr1 = addon:hexcolor( "FRIENDLY" )
 						elseif ( rplvl == 2 ) then
-							rStr = L["Honored"]
+							rStr = BFAC["Honored"]
 							clr1 = addon:hexcolor( "HONORED" )
 						elseif ( rplvl == 3 ) then
-							rStr = L["Revered"]
+							rStr = BFAC["Revered"]
 							clr1 = addon:hexcolor( "REVERED" )
 						else
-							rStr = L["Exalted"]
+							rStr = BFAC["Exalted"]
 							clr1 = addon:hexcolor( "EXALTED" )
 						end
 						if ( repvndr["Faction"] == BFAC["Horde"] ) then
@@ -1179,19 +1179,19 @@ function SetRecipeButtonTooltip ( bIndex )
 
 						local rStr = ""
 						if ( rplvl == 0 ) then
-							rStr = L["Neutral"]
+							rStr = BFAC["Neutral"]
 							clr1 = addon:hexcolor( "NEUTRAL" )
 						elseif ( rplvl == 1 ) then
-							rStr = L["Friendly"]
+							rStr = BFAC["Neutral"]
 							clr1 = addon:hexcolor( "FRIENDLY" )
 						elseif ( rplvl == 2 ) then
-							rStr = L["Honored"]
+							rStr = BFAC["Honored"]
 							clr1 = addon:hexcolor( "HONORED" )
 						elseif ( rplvl == 3 ) then
-							rStr = L["Revered"]
+							rStr = BFAC["Revered"]
 							clr1 = addon:hexcolor( "REVERED" )
 						else
-							rStr = L["Exalted"]
+							rStr = BFAC["Exalted"]
 							clr1 = addon:hexcolor( "EXALTED" )
 						end
 						if ( repvndr["Faction"] == BFAC["Horde"] ) then
@@ -1500,11 +1500,11 @@ function expandEntry( dsIndex )
 				dsIndex = dsIndex + 1
 
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				if ( rplvl == 0 ) then rStr = addon:Neutral( L["Neutral"] .. " : " )
-				elseif ( rplvl == 1 ) then rStr = addon:Friendly( L["Friendly"] .. " : " )
-				elseif ( rplvl == 2 ) then rStr = addon:Honored( L["Honored"] .. " : " )
-				elseif ( rplvl == 3 ) then rStr = addon:Revered( L["Revered"] .. " : " )
-				else rStr = addon:Exalted( L["Exalted"] .. " : " ) end
+				if ( rplvl == 0 ) then rStr = addon:Neutral( BFAC["Neutral"] .. " : " )
+				elseif ( rplvl == 1 ) then rStr = addon:Friendly( BFAC["Neutral"] .. " : " )
+				elseif ( rplvl == 2 ) then rStr = addon:Honored( BFAC["Honored"] .. " : " )
+				elseif ( rplvl == 3 ) then rStr = addon:Revered( BFAC["Revered"] .. " : " )
+				else rStr = addon:Exalted( BFAC["Exalted"] .. " : " ) end
 
 				if ( repvndr["Faction"] == BFAC["Horde"] ) then
 					nStr = addon:Horde( repvndr["Name"] )
