@@ -150,7 +150,7 @@ L["Display"]				= "Anzeige"
 L["SORTING_DESC"]			= "Change the way in which displayed recipes are sorted."
 L["Version"]				= "Version: "
 L["Name"]					= true
-L["Skill"]					= true
+L["Skill"]					= "Sachkenntnis"
 L["Acquisition"]			= "Quelle"
 
 -- Filter Config Options
@@ -162,7 +162,7 @@ L["Item"]					= true
 L["Armor"]					= true
 L["Weapons"]				= true
 L["Player Type"]			= true
-L["Reputation"]				= true
+L["Reputation"]				= "Ruf"
 L["Old World"]				= true
 L["Burning Crusade"]		= true
 L["Wrath of the Lich King"]	= true

@@ -1121,6 +1121,7 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.handofvengeance
 	RepTable[BFAC["The Taunka"]] = repfilters.taunka
 	RepTable[BFAC["Warsong Offensive"]] = repfilters.warsongoffensive
+
 end
 
 -- Description: Scans the recipe listing and updates the filters according to user preferences
