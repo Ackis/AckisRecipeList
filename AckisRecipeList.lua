@@ -32,21 +32,17 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local DEBUG = false
 
--- We should probably clean thes up and use arguments/return values
--- Global variables which are used between multiple files
+local MaxFilterIndex = 129
 
-addon.playerProfession = ""
-addon.MaxFilterIndex = 129
 
+-- Global Frame Variables
 addon.optionsFrame = {}
-
--- Frame variables
 addon.ScanButton = nil
 addon.Frame = nil
-
 -- tooltip needs to be global so I can access individual lines in it and 
 -- modify then
 _G["arlTooltip"]= nil
+
 
 -- Make global API calls local to speed things up
 local GetNumTradeSkills = GetNumTradeSkills
@@ -77,15 +73,6 @@ if (guildname == "Team Ice") then
 	return
 
 end
-
--- Constants which are used everytime the add-on is loaded
-
--- New Shiny addonversion without Revision
-addon.addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
-
--- Global constants which are used between multiple files
---addon.ARLTitle = "ARL (v." .. addon.addonversion .. ")"
---addon.FullTitle = "Ackis Recipe List (v." .. addon.addonversion .. ")"
 
 --[[
 
@@ -412,7 +399,7 @@ end
 -- Input: Specialty Table and Current Profession
 -- Output: String of current Specialty
 
-function addon:GetTradeSpecialty(SpecialtyTable, playerdata)
+function addon:GetTradeSpecialty(SpecialtyTable, playerData)
 
 	--Scan the first 25 entries
 	for index=1,25,1 do
@@ -425,7 +412,7 @@ function addon:GetTradeSpecialty(SpecialtyTable, playerdata)
 			return ""
 
 		-- We have a match, return that spell name
-		elseif (SpecialtyTable[playerdata.playerProfession]) and (SpecialtyTable[playerdata.playerProfession][spellName]) then
+		elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
 
 			local _, _, ID =  sfind(GetSpellLink(spellName), "spell:(%d+)")
 			return ID
@@ -490,7 +477,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	RecipeDB[SpellID]["Flags"] = {}
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	for i=1,addon.MaxFilterIndex,1 do
+	for i=1,MaxFilterIndex,1 do
 
 		RecipeDB[SpellID]["Flags"][tonumber(i)] = false
 
@@ -625,7 +612,7 @@ end
 -- Input: Recipe Array
 -- Output: The total number of recipes known
 
-function addon:ScanForKnownRecipes(RecipeDB, playerdata)
+function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 	if DEBUG then
 		self:Print("DEBUG: Scanning for known recipes.")
@@ -660,7 +647,7 @@ function addon:ScanForKnownRecipes(RecipeDB, playerdata)
 
 	end
 
-	playerdata.foundRecipes = 0
+	playerData.foundRecipes = 0
 
 	-- Scan through all recipes
 	for i = 1, GetNumTradeSkills() do
@@ -681,7 +668,7 @@ function addon:ScanForKnownRecipes(RecipeDB, playerdata)
 
 				-- Update array that recipe was found
 				RecipeDB[SpellID]["Known"] = true
-				playerdata.foundRecipes = playerdata.foundRecipes + 1
+				playerData.foundRecipes = playerData.foundRecipes + 1
 
 			-- We didn't find it in our database, lets notify people that we don't have it
 			else
@@ -1141,15 +1128,15 @@ end
 -- Input: Recipe Array, Skill level for current profession, name of current profession, and current profession Specialty
 -- Output: Number of recipes that are filtered
 
-function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerdata)
+function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
-	local playerProfessionLevel = playerdata.playerProfessionLevel
-	local playerProfession = playerdata.playerProfession
-	local playerSpecialty = playerdata.playerSpecialty
-	local playerFaction = playerdata.playerFaction
-	local playerClass = playerdata.playerClass
+	local playerProfessionLevel = playerData.playerProfessionLevel
+	local playerProfession = playerData.playerProfession
+	local playerSpecialty = playerData.playerSpecialty
+	local playerFaction = playerData.playerFaction
+	local playerClass = playerData.playerClass
 
-	playerdata.filteredRecipes = 0
+	playerData.filteredRecipes = 0
 
 	-- Parse through all the entries in the Recipe array
 	for RecipeID in pairs(RecipeDB) do
@@ -1159,7 +1146,7 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerdata)
 
 		if (displayflag == false) then
 
-			playerdata.filteredRecipes = playerdata.filteredRecipes + 1
+			playerData.filteredRecipes = playerData.filteredRecipes + 1
 
 		end
 
@@ -1183,7 +1170,7 @@ end
 -- Input: RecipeDB, Current Profession we're examining
 -- Output: Total number of recipes in the database
 
-local function InitializeRecipes(RecipeDB, playerdata)
+local function InitializeRecipes(RecipeDB, playerData)
 
 	-- Table of all possible professions with init functions
 	local professiontable =
@@ -1207,12 +1194,12 @@ local function InitializeRecipes(RecipeDB, playerdata)
 	}
 
 	-- Thanks to sylvanaar/xinhuan for the code snippet
-	local a = professiontable[playerdata.playerProfession]
+	local a = professiontable[playerData.playerProfession]
 
 	if a then
-		playerdata.totalRecipes = a(addon, RecipeDB)
+		playerData.totalRecipes = a(addon, RecipeDB)
 	else
-		addon:Print(L["UnknownTradeSkill"]:format(playerdata.playerProfession))
+		addon:Print(L["UnknownTradeSkill"]:format(playerData.playerProfession))
 	end
 
 end
@@ -1253,7 +1240,7 @@ do
 	local AllSpecialtiesTable = nil
 	local SpecialtyTable = nil
 
-	local playerdata = nil
+	local playerData = nil
 
 	local tradewindowopened = false
 
@@ -1286,9 +1273,9 @@ do
 
 	function addon:SetRepDB()
 
-		if (playerdata and playerdata["Reputation"]) then
+		if (playerData and playerData["Reputation"]) then
 
-			self:GetFactionLevels(playerdata["Reputation"])
+			self:GetFactionLevels(playerData["Reputation"])
 
 		end
 
@@ -1311,18 +1298,18 @@ do
 		else
 
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
-			if (playerdata == nil) then
+			if (playerData == nil) then
 
-				playerdata = {}
+				playerData = {}
 
-				playerdata.playerFaction = UnitFactionGroup("player")
+				playerData.playerFaction = UnitFactionGroup("player")
 				local _
-				_, playerdata.playerClass = UnitClass("player")
+				_, playerData.playerClass = UnitClass("player")
 
-				playerdata["Reputation"] = {}
-				self:GetFactionLevels(playerdata["Reputation"])
+				playerData["Reputation"] = {}
+				self:GetFactionLevels(playerData["Reputation"])
 
-				playerdata["Professions"] = {
+				playerData["Professions"] = {
 					[GetSpellInfo(2259)] = false, -- Alchemy
 					[GetSpellInfo(2018)] = false, -- Blacksmithing
 					[GetSpellInfo(2550)] = false, -- Cooking
@@ -1338,7 +1325,7 @@ do
 					[GetSpellInfo(28481)] = false, -- Runeforging
 				}
 
-				self:GetKnownProfessions(playerdata["Professions"])
+				self:GetKnownProfessions(playerData["Professions"])
 
 				-- All Alchemy Specialties
 				local AlchemySpec = {
@@ -1461,25 +1448,25 @@ do
 			end
 
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
-			playerdata.playerProfession, playerdata.playerProfessionLevel = GetTradeSkillLine()
+			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
 
 			-- Get the current profession Specialty
-			playerdata.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerdata)
+			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
 			if DEBUG then
-				self:Print("DEBUG: Player specialty: " .. playerdata.playerSpecialty)
+				self:Print("DEBUG: Player specialty: " .. playerData.playerSpecialty)
 			end
 
 			-- Add the recipes to the database
-			InitializeRecipes(RecipeList, playerdata)
+			InitializeRecipes(RecipeList, playerData)
 
 			-- Scan all recipes and mark the ones which ones we know
-			self:ScanForKnownRecipes(RecipeList, playerdata)
+			self:ScanForKnownRecipes(RecipeList, playerData)
 
 			-- Update the table containing which reps to display
 			self:PopulateRepFilters(RepFilters)
 
 			-- Add filtering flags to the recipes
-			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerdata)
+			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
@@ -1500,10 +1487,10 @@ do
 
 		else
 
-			self:Print("Debug: Found (known) Recipes: " .. playerdata.foundRecipes)
-			self:Print("Debug: Total Recipes in Database: " .. playerdata.totalRecipes)
-			self:Print("Debug: Filtered Recipes: " .. playerdata.filteredRecipes)
-			self:CreateFrame(RecipeList, sortedindex, playerdata, AllSpecialtiesTable,
+			self:Print("Debug: Found (known) Recipes: " .. playerData.foundRecipes)
+			self:Print("Debug: Total Recipes in Database: " .. playerData.totalRecipes)
+			self:Print("Debug: Filtered Recipes: " .. playerData.filteredRecipes)
+			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList)
 

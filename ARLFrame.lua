@@ -249,12 +249,13 @@ end
 function addon.resetTitle( )
 	-- reset the frame title line
 	local myTitle = ""
+	local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 	if ( addon.Frame._Expanded == true ) then
 		local aFil, tFil = addon.numFilters()
-		myTitle = "ARL (v." .. addon.addonversion .. ") - " .. currentProfession ..
+		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession ..
 			" (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
 	else
-		myTitle = "ARL (v." .. addon.addonversion .. ") - " .. currentProfession
+		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession
 	end
 --	addon.Frame.HeadingText:SetText( addon:White( myTitle ) )
 	addon.Frame.HeadingText:SetText( addon:Normal( myTitle ) )
