@@ -1135,7 +1135,7 @@ $proftable = {"Alchemy" 			=> 2259,
 				"Runeforging"		=> 28481
 				}
 
-$bosslist = ["Ras Frostwhisper","Onyxia","Gyth","General Drakkisath","Balnazzar","Goraluk Anvilcrack","Cannon Master Willey","Magmadar","Garr","Golemagg the Incinerator","Gehennas","Shazzrah","Lord Kazzak","Pusillin"]
+$bosslist = ["Ras Frostwhisper","Onyxia","Gyth","General Drakkisath","Balnazzar","Goraluk Anvilcrack","Cannon Master Willey","Magmadar","Garr","Golemagg the Incinerator","Gehennas","Shazzrah","Lord Kazzak","Pusillin","Darkmaster Gandling","Mijan","Azuregos","Golem Lord Argelmach","Pyromancer Loregrain","Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman"]
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
