@@ -215,7 +215,7 @@ function addon:OnInitialize()
 				}
 			}
 		}
-	} )
+	})
 
 end
 
@@ -1564,7 +1564,7 @@ function addon:GetExclusions(RecipeDB)
 	for i in pairs(exclusionlist) do
 		-- We may have a recipe in the exclusion list that has not been scanned yet
 		-- check if the entry exists in RecipeDB first
-		if ( RecipeDB[i] ) then
+		if (RecipeDB[i]) then
 			RecipeDB[i]["Display"] = false
 		end
 	end
