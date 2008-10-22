@@ -239,7 +239,7 @@ function addon:OnEnable()
 	if (Manufac) then
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
-			name = L["Scan Skills"],
+			name = L["Scan Recipes"],
 			desc = L["Scan Skills Long"],
 			func = function() addon:AckisRecipeList_Command() end,
 			order = 550,

@@ -51,7 +51,7 @@ L["Profile Options"]		= "프로필 설정"
 
 -- Config Descriptions
 L["MAIN_OPTIONS_DESC"]		= "주된 설정"
-L["Scan Skills"]			= "기술 검색"
+L["Scan Recipes"]			= "기술 검색"
 L["SCAN_RECIPES_DESC"]		= "전문기술창을 열어 빠진 제조법을 조사합니다."
 L["Text Dump"]				= "구분 표시"
 L["TEXT_DUMP_DESC"]			= "다른 클라이언트로부터 복사한 형식을 컴마 단위로 구분하여 표시합니다."

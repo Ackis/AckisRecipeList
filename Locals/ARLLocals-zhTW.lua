@@ -111,7 +111,7 @@ L["OpenTradeSkillWindow"] = "請先打開一個想要掃瞄的交易技能。"
 -- GUI Text
 L["Close"] = "關閉"
 L["ScanButton"] = "掃瞄配方"
-L["Scan Skills"] = "掃瞄"
+L["Scan Recipes"] = "掃瞄"
 L["FILTER_OPEN"] = "過濾 >>>"
 L["FILTER_CLOSE"] = "<<< 過濾"
 L["Reset"] = "重置"

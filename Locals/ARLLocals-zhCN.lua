@@ -142,7 +142,7 @@ L["MissingFromDBWarning"] = "检测到一个不在数据库里的配方，我们
 -- GUI Text
 L["Close"] = "关闭"
 L["ScanButton"] = "扫描配方"
-L["Scan Skills"] = "扫描"
+L["Scan Recipes"] = "扫描"
 L["FILTER_OPEN"] = "过滤 >>>"
 L["FILTER_CLOSE"] = "<<< 过滤"
 L["Reset"] = "重置"

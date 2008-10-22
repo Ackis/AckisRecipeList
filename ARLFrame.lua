@@ -181,7 +181,7 @@ function addon:CreateScanButton()
 	addon.ScanButton:SetScript("OnLeave", function()
 		GameTooltip:Hide()
 	end )
-	addon.ScanButton:SetText(L["Scan Skills"])
+	addon.ScanButton:SetText(L["Scan Recipes"])
 	addon.ScanButton:Enable()
 
 end

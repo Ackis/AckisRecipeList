@@ -140,7 +140,7 @@ L["MissingFromDBWarning"] = "Une recette non présente dans la base de données 
 -- GUI Text
 L["Close"] = "Fermer"
 L["ScanButton"] = "Analyser"
-L["Scan Skills"] = "Analyser"
+L["Scan Recipes"] = "Analyser"
 L["FILTER_OPEN"] = "Filtre >>>"
 L["FILTER_CLOSE"] = "<<< Filtre"
 L["Reset"] = "Réinitialiser"
