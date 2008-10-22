@@ -26,6 +26,7 @@ local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 local modularOptions = {}
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
+local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 
 -- Description: Function which provides "profiles" options table
 -- Expected result: modularOptions extended with Ace3 profiles options
@@ -974,7 +975,7 @@ local function fullOptions()
 						version = {
 							order	= 11,
 							type	= "description",
-							name	= L["Version"] .. addon.addonversion .. "\n",
+							name	= L["Version"] .. addonversion .. "\n",
 						},
 						run = {
 							order	= 12,
