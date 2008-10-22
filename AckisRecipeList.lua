@@ -1138,6 +1138,7 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	local playerSpecialty = playerData.playerSpecialty
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
+	local scanList = playerData.scannedSkills
 
 	playerData.filteredRecipes = 0
 
@@ -1153,11 +1154,13 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 		end
 
-		if (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
+		if (scanList[playerProfession]) and (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
 
 			playerData.otherRecipes = playerData.otherRecipes + 1
 
 		end
+
+		scanList[playerProfession] = true
 
 		-- Set the display flag
 		RecipeDB[RecipeID]["Display"] = displayflag
@@ -1315,6 +1318,7 @@ do
 				local _
 				_, playerData.playerClass = UnitClass("player")
 				playerData.otherRecipes = 0
+				playerData.scannedSkills = {}
 
 				playerData["Reputation"] = {}
 				self:GetFactionLevels(playerData["Reputation"])
