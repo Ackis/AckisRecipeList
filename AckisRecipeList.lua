@@ -544,10 +544,12 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		i = i + 2
 
 		if (AcquireType == 6) then
+
 			local RepLevel, RepVendor = select(i, ...)
 			RecipeDB[SpellID]["Acquire"][index]["RepLevel"] = RepLevel
 			RecipeDB[SpellID]["Acquire"][index]["RepVendor"] = RepVendor
 			i = i + 2
+
 		end
 
 		index = index + 1
@@ -1141,13 +1143,19 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 	-- Parse through all the entries in the Recipe array
 	for RecipeID in pairs(RecipeDB) do
---self:Print(RecipeID)
+
 		-- Determine if we are to display this recipe or not
 		local displayflag = self:CheckDisplayRecipe(RecipeDB[RecipeID], AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
 		if (displayflag == false) then
 
 			playerData.filteredRecipes = playerData.filteredRecipes + 1
+
+		end
+
+		if (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
+
+			playerData.otherRecipes = playerData.otherRecipes + 1
 
 		end
 
@@ -1306,6 +1314,7 @@ do
 				playerData.playerFaction = UnitFactionGroup("player")
 				local _
 				_, playerData.playerClass = UnitClass("player")
+				playerData.otherRecipes = 0
 
 				playerData["Reputation"] = {}
 				self:GetFactionLevels(playerData["Reputation"])
@@ -1491,6 +1500,8 @@ do
 			self:Print("Debug: Found (known) Recipes: " .. playerData.foundRecipes)
 			self:Print("Debug: Total Recipes in Database: " .. playerData.totalRecipes)
 			self:Print("Debug: Filtered Recipes: " .. playerData.filteredRecipes)
+			self:Print("Debug: Other Recipes: " .. playerData.otherRecipes)
+
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList)
