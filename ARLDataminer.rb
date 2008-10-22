@@ -262,6 +262,14 @@ EOF
 
 							unless npc[:react].nil?
 
+								# NPC React Flags:
+								# 1 = friendly
+								# 2 = neutral
+								# 3 = hostile
+								# ARL Flags:
+								# 0 = neutral
+								#  1 = Alliance
+								# 2 = Horde
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
@@ -273,7 +281,7 @@ EOF
 									flags << 2
 								end
 
-								$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+								$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
@@ -314,18 +322,14 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-
 									flags << 1
-
 								end
 
 								if react_h < 3
-
 									flags << 2
-
 								end
 
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
@@ -379,18 +383,14 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-
 									flags << 1
-
 								end
 
 								if react_h < 3
-
 									flags << 2
-
 								end
 
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
@@ -680,43 +680,6 @@ EOF
 
 		# Item Stats:
 		# :item_stats => [{:val=>x, id=> y}]
-		# IDs:
-		# 1 = Strength
-		# 2 = Agility
-		# 3 = Stamina
-		# 4 = Intelligence
-		# 5 = Spirit
-		# 6 = Armor
-		# 7 = Weapon Damage
-		# 8 = Weapon Speed
-		# 9 = Attack Power
-		# 10 = 
-		# 11 = Melee Critical Strike
-		# 12 = Expertise rating
-		# 13 = 
-		# 14 = Ranged Weapon Damage
-		# 15 = Ranged Weapon Speed
-		# 16 = Ranged Attack Power
-		# 17 = Hit Rating
-		# 18 = Ranged Critical Strike
-		# 19 = Spell Damage
-		# 20 = Healing
-		# 21 = Spell Hit Rating
-		# 22 = Spell Critical Strike
-		# 23 = Spell Penetration
-		# 24 = Mana per 5
-		# 25 =
-		# 26 = Dodge
-		# 27 = Parry
-		# 28 = Shield Block Rating
-		# 29 = Resillience
-		# 30 = Melee Haste
-		# 31 = Defense
-		# 32 = Resist
-		# 33 = Fire Resist
-		# 34 = Resist
-		# 35 = Resist
-		# 36 = Resist
 
 		unless details[:item_stats] == nil
 
@@ -1139,55 +1102,74 @@ $bosslist = ["Ras Frostwhisper","Onyxia","Gyth","General Drakkisath","Balnazzar"
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
-# Discovery: 28583, 28580, 28584, 28585, 28582, 28581, 28587, 28588, 28589, 28590, 28591, 28586, 41458, 41500, 41501, 41502, 41503
-# Seasonal: 21923 - 1
-alchemy = recipes.get_alchemy_list
-create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],[],[28583, 28580, 28584, 28585, 28582, 28581, 28587, 28588, 28589, 28590, 28591, 28586, 41458, 41500, 41501, 41502, 41503],{21923 => 1},[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905],{})
+$debug = false
 
-# Seasonal: 21913 - 1
-blacksmithing = recipes.get_blacksmithing_list
-create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[],[],[],{21913 => 1},[52567,52568,52569,52570,52571,52572],{})
+if $debug
 
-# Seasonal: 21143 - 1, 21144 - 1, 45022 - 1
-cooking = recipes.get_cooking_list
-create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],[],[],{21143 => 1,21144 => 1,45022 => 1},[44438, 45547, 45559,45571, 53056],{})
+	firstaid = recipes.get_firstaid_list
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],[],[],{},[45545, 45546, 51801],{})
 
-# Seasonal: 21931 - 1, 46578 - 4
-enchanting = recipes.get_enchanting_list
-create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],[],[],{21931 => 1, 46578 => 4},[27958,47672,44558,44613,44632,44633,44634,44635,44636,44637,44638,44645,47898,47899,47901,44582,44584,44588,44589,44590,44591,44592,44595,44596,44597,44598,44612,44613,44616,44621,44623,44625,44629,44630,44631,44529,44555,44556,44528,44524,44513,44483,44484,44488,44489,44492,44494,44496,44497,44500,44506,44508,44509,44510,44575],{})
+	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
-# Seasonal: 21940 - 1, 26416, 26417, 26418, 26420, 26421, 26422, 26423, 26424, 26425, 26442, 26426, 26427, 26428, 26443 - 2
-eng = recipes.get_engineering_list
-create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[],[],[],{21940 => 1,26416 => 2,26417 => 2,26418 => 2,26420 => 2,26421 => 2,26422 => 2,26423 => 2,26424 => 2,26425 => 2,26426 => 2,26427 => 2,26428 => 2,26442 => 2,26443 => 2},[53280,53281],{})
+	create_lookup_db("./RecipeDB/ARL-Vendor.lua","Vendor","VendorDB","InitVendor",$vendors,maps,[])
 
-firstaid = recipes.get_firstaid_list
-create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],[],[],{},[45545, 45546, 51801],{})
+	create_lookup_db("./RecipeDB/ARL-Mob.lua","Monster","MobDB","InitMob",$monsters,maps,[])
 
-inscription = recipes.get_inscription_list
-create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],[],[],{},[],{})
+	create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
 
-# PVP: 31101, 43493
-jewelcrafting = recipes.get_jewelcrafting_list
-create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[53844],[31101, 43493],[],{},(53830..54023).to_a,{})
+else
 
-# Seasonal: 21943 - 1, 44953 - 1
-leatherworking = recipes.get_leatherworking_list
-create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
+	# Discovery: 28583, 28580, 28584, 28585, 28582, 28581, 28587, 28588, 28589, 28590, 28591, 28586, 41458, 41500, 41501, 41502, 41503
+	# Seasonal: 21923 - 1
+	alchemy = recipes.get_alchemy_list
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],[],[28583, 28580, 28584, 28585, 28582, 28581, 28587, 28588, 28589, 28590, 28591, 28586, 41458, 41500, 41501, 41502, 41503],{21923 => 1},[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905],{})
 
-smelting = recipes.get_mining_list
-create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],[],[],{},[49252, 49258, 53417],{})
+	# Seasonal: 21913 - 1
+	blacksmithing = recipes.get_blacksmithing_list
+	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[],[],[],{21913 => 1},[52567,52568,52569,52570,52571,52572],{})
 
-# Seasonal: 21945 - 1, 44958 - 1, 44950 - 1, 26407 - 1, 26403 - 2
-tailoring = recipes.get_tailoring_list
-create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],[],[],{21945 => 1, 44958 => 1, 44950 => 1, 26407 => 1, 26403 => 2},[],{})
+	# Seasonal: 21143 - 1, 21144 - 1, 45022 - 1
+	cooking = recipes.get_cooking_list
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],[],[],{21143 => 1,21144 => 1,45022 => 1},[44438, 45547, 45559,45571, 53056],{})
 
-create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
+	# Seasonal: 21931 - 1, 46578 - 4
+	enchanting = recipes.get_enchanting_list
+	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],[],[],{21931 => 1, 46578 => 4},[27958,47672,44558,44613,44632,44633,44634,44635,44636,44637,44638,44645,47898,47899,47901,44582,44584,44588,44589,44590,44591,44592,44595,44596,44597,44598,44612,44613,44616,44621,44623,44625,44629,44630,44631,44529,44555,44556,44528,44524,44513,44483,44484,44488,44489,44492,44494,44496,44497,44500,44506,44508,44509,44510,44575],{})
 
-create_lookup_db("./RecipeDB/ARL-Vendor.lua","Vendor","VendorDB","InitVendor",$vendors,maps,[])
+	# Seasonal: 21940 - 1, 26416, 26417, 26418, 26420, 26421, 26422, 26423, 26424, 26425, 26442, 26426, 26427, 26428, 26443 - 2
+	eng = recipes.get_engineering_list
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[],[],[],{21940 => 1,26416 => 2,26417 => 2,26418 => 2,26420 => 2,26421 => 2,26422 => 2,26423 => 2,26424 => 2,26425 => 2,26426 => 2,26427 => 2,26428 => 2,26442 => 2,26443 => 2},[53280,53281],{})
 
-create_lookup_db("./RecipeDB/ARL-Mob.lua","Monster","MobDB","InitMob",$monsters,maps,[])
+	firstaid = recipes.get_firstaid_list
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],[],[],{},[45545, 45546, 51801],{})
 
-create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
+	inscription = recipes.get_inscription_list
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],[],[],{},[],{})
+
+	# PVP: 31101, 43493
+	jewelcrafting = recipes.get_jewelcrafting_list
+	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[53844],[31101, 43493],[],{},(53830..54023).to_a,{})
+
+	# Seasonal: 21943 - 1, 44953 - 1
+	leatherworking = recipes.get_leatherworking_list
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
+
+	smelting = recipes.get_mining_list
+	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],[],[],{},[49252, 49258, 53417],{})
+
+	# Seasonal: 21945 - 1, 44958 - 1, 44950 - 1, 26407 - 1, 26403 - 2
+	tailoring = recipes.get_tailoring_list
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],[],[],{21945 => 1, 44958 => 1, 44950 => 1, 26407 => 1, 26403 => 2},[],{})
+
+	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
+
+	create_lookup_db("./RecipeDB/ARL-Vendor.lua","Vendor","VendorDB","InitVendor",$vendors,maps,[])
+
+	create_lookup_db("./RecipeDB/ARL-Mob.lua","Monster","MobDB","InitMob",$monsters,maps,[])
+
+	create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
+
+end
 
 puts "\nGenerating Local file .. #{$localstring.length} strings to process"
 

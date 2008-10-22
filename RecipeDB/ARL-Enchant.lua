@@ -249,7 +249,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7863, 1, 1317, 1, 3011, 1, 3345, 1, 4213, 1, 4616, 1, 5157, 1, 7949, 1, 11072, 1, 11073, 1, 11074, 1, 16633, 1, 16725, 1, 19249, 1, 19250, 1, 19251)
 
 	-- Enchant Boots - Minor Agility -- 7867
-	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
+	-- Instance: 2367 - type5territory1expansion1minlevel66category3nameCaverns of Time: Old Hillsbrad Foothillsmaxlevel68id2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -567,9 +567,9 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13687, 7, 2)
 
 	-- Enchant Shield - Lesser Block -- 13689
-	-- Instance: 796 - type1minlevel34category3maxlevel45nameScarlet Monasteryterritory4id796
-	-- Instance: 796 - type1minlevel34category3maxlevel45nameScarlet Monasteryterritory4id796
-	-- Instance: 722 - type1minlevel33category3maxlevel40nameRazorfen Downsterritory4id722
+	-- Instance: 796 - type1territory4minlevel34category3nameScarlet Monasterymaxlevel45id796
+	-- Instance: 796 - type1territory4minlevel34category3nameScarlet Monasterymaxlevel45id796
+	-- Instance: 722 - type1territory4minlevel33category3nameRazorfen Downsmaxlevel40id722
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -742,7 +742,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13890, 1, 11072, 1, 11073, 1, 11074, 1, 19250, 1, 19251)
 
 	-- Enchant Weapon - Fiery Weapon -- 13898
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -909,7 +909,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 14810, 1, 11072, 1, 11073, 1, 11074, 1, 19250, 1, 19251)
 
 	-- Smoking Heart of the Mountain -- 15596
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -986,7 +986,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Gloves - Greater Strength -- 20013
 	-- Trainer
-	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
+	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -997,7 +997,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Cloak - Greater Resistance -- 20014
 	-- Trainer
-	-- Instance: 1477 - type1minlevel50category3maxlevel55nameThe Temple of Atal'Hakkarterritory1id1477
+	-- Instance: 1477 - type1territory1minlevel50category3nameThe Temple of Atal'Hakkarmaxlevel55id1477
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
@@ -1091,7 +1091,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20029, 3, 7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
-	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
+	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1101,7 +1101,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20030, 3, 10317)
 
 	-- Enchant Weapon - Superior Striking -- 20031
-	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
+	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1111,7 +1111,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20031, 3, 9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
-	-- Instance: 2057 - type1minlevel58category3maxlevel60nameScholomanceterritory1id2057
+	-- Instance: 2057 - type1territory1minlevel58category3nameScholomancemaxlevel60id2057
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1121,7 +1121,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20032, 3, 10499)
 
 	-- Enchant Weapon - Unholy Weapon -- 20033
-	-- Instance: 2017 - type1minlevel58category3maxlevel60nameStratholmeterritory1id2017
+	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1140,7 +1140,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20034, 3, 4494, 3, 9451)
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
-	-- Instance: 2057 - type1minlevel58category3maxlevel60nameScholomanceterritory1id2057
+	-- Instance: 2057 - type1territory1minlevel58category3nameScholomancemaxlevel60id2057
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1150,7 +1150,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20035, 3, 10469)
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
-	-- Instance: 2017 - type1minlevel58category3maxlevel60nameStratholmeterritory1id2017
+	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1219,7 +1219,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22750, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
 	-- Enchant Weapon - Strength -- 23799
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1259,7 +1259,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23802, 6, 529, 3, 10856, 6, 529, 3, 10857, 6, 529, 3, 11536)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1269,7 +1269,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23803, 2, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1509,7 +1509,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27913, 7, 2)
 
 	-- Enchant Bracer - Fortitude -- 27914
-	-- Instance: 3715 - expansion1type5minlevel70category3nameCoilfang Reservoir: The Steamvaultterritory1id3715
+	-- Instance: 3715 - type5territory1expansion1minlevel70category3nameCoilfang Reservoir: The Steamvaultid3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1578,7 +1578,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27944, 1, 18753, 1, 18773, 1, 19252, 1, 19540)
 
 	-- Enchant Shield - Intellect -- 27945
-	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
+	-- Instance: 2367 - type5territory1expansion1minlevel66category3nameCaverns of Time: Old Hillsbrad Foothillsmaxlevel68id2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1615,7 +1615,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27948, 7, 2)
 
 	-- Enchant Boots - Fortitude -- 27950
-	-- Instance: 3792 - expansion1type5minlevel64category3maxlevel66nameAuchindoun: Mana-Tombsterritory1id3792
+	-- Instance: 3792 - type5territory1expansion1minlevel64category3nameAuchindoun: Mana-Tombsmaxlevel66id3792
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1625,7 +1625,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27950, 3, 18317)
 
 	-- Enchant Boots - Dexterity -- 27951
-	-- Instance: 3790 - expansion1type5minlevel65category3maxlevel67nameAuchindoun: Auchenai Cryptsterritory1id3790
+	-- Instance: 3790 - type5territory1expansion1minlevel65category3nameAuchindoun: Auchenai Cryptsmaxlevel67id3790
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1710,7 +1710,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27968, 3, 20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971
-	-- Instance: 3714 - expansion1type5minlevel70category3nameHellfire Citadel: The Shattered Hallsterritory1id3714
+	-- Instance: 3714 - type5territory1expansion1minlevel70category3nameHellfire Citadel: The Shattered Hallsid3714
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1738,7 +1738,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27975, 3, 20614, 3, 22242, 3, 22243)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
-	-- Instance: 3848 - expansion1type5minlevel70category3nameTempest Keep: The Arcatrazterritory1id3848
+	-- Instance: 3848 - type5territory1expansion1minlevel70category3nameTempest Keep: The Arcatrazid3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2582,7 +2582,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 46594, 6, 1077, 2, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
-	-- Instance: 4095 - expansion1type1minlevel70limit5category3maxlevel70nameMagisters' Terraceterritory1id4095
+	-- Instance: 4095 - type1territory1expansion1minlevel70limit5category3nameMagisters' Terracemaxlevel70id4095
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 

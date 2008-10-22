@@ -528,7 +528,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26911, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778)
 
 	-- Figurine - Black Diamond Crab -- 26912
-	-- Instance: 1583 - type1minlevel58category3maxlevel60nameBlackrock Spireterritory1id1583
+	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: Tanking, 
@@ -539,7 +539,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26912, 3, 9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
-	-- Instance: 1584 - type1minlevel55category3maxlevel60nameBlackrock Depthsterritory1id1584
+	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -942,7 +942,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31053, 3, 19826)
 
 	-- Khorium Band of Frost -- 31054
-	-- Instance: 3715 - expansion1type5minlevel70category3nameCoilfang Reservoir: The Steamvaultterritory1id3715
+	-- Instance: 3715 - type5territory1expansion1minlevel70category3nameCoilfang Reservoir: The Steamvaultid3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring, 
 	-- Item Stats: 
@@ -953,7 +953,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31054, 3, 17722)
 
 	-- Khorium Inferno Band -- 31055
-	-- Instance: 3791 - expansion1type5minlevel67category3maxlevel69nameAuchindoun: Sethekk Hallsterritory1id3791
+	-- Instance: 3791 - type5territory1expansion1minlevel67category3nameAuchindoun: Sethekk Hallsmaxlevel69id3791
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring, 
 	-- Item Stats: 
@@ -1128,7 +1128,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31076, 7, 3)
 
 	-- Coronet of the Verdant Flame -- 31077
-	-- Instance: 3847 - expansion1type5minlevel70category3nameTempest Keep: The Botanicaterritory1id3847
+	-- Instance: 3847 - type5territory1expansion1minlevel70category3nameTempest Keep: The Botanicaid3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -1139,7 +1139,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31077, 3, 18422)
 
 	-- Circlet of Arcane Might -- 31078
-	-- Instance: 2367 - expansion1type5minlevel66category3maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
+	-- Instance: 2367 - type5territory1expansion1minlevel66category3nameCaverns of Time: Old Hillsbrad Foothillsmaxlevel68id2367
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
