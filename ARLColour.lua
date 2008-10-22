@@ -121,74 +121,74 @@ function addon:Coords(text)
 	return self:Colourize(WHITE, text)
 end
 
-function addon:Trainer( text )
-	return self:Colourize( TRAINER, text )
+function addon:Trainer(text)
+	return self:Colourize(TRAINER, text)
 end
 
-function addon:Vendor( text )
-	return self:Colourize( VENDOR, text )
+function addon:Vendor(text)
+	return self:Colourize(VENDOR, text)
 end
 
-function addon:Quest( text )
-	return self:Colourize( QUEST, text )
+function addon:Quest(text)
+	return self:Colourize(QUEST, text)
 end
 
-function addon:Rep( text )
-	return self:Colourize( REP, text )
+function addon:Rep(text)
+	return self:Colourize(REP, text)
 end
 
-function addon:Season( text )
-	return self:Colourize( SEASON, text )
+function addon:Season(text)
+	return self:Colourize(SEASON, text)
 end
 
-function addon:MobDrop( text )
-	return self:Colourize( MOBDROP, text )
+function addon:MobDrop(text)
+	return self:Colourize(MOBDROP, text)
 end
 
 -- Rarity Colors
-function addon:Poor( text )
-	return self:Colourize( POOR, text )
+function addon:Poor(text)
+	return self:Colourize(POOR, text)
 end
 
-function addon:Common( text )
-	return self:Colourize( COMMON, text )
+function addon:Common(text)
+	return self:Colourize(COMMON, text)
 end
 
-function addon:Uncommon( text )
-	return self:Colourize( UNCOMMON, text )
+function addon:Uncommon(text)
+	return self:Colourize(UNCOMMON, text)
 end
 
-function addon:Rare( text )
-	return self:Colourize( RARE, text )
+function addon:Rare(text)
+	return self:Colourize(RARE, text)
 end
 
-function addon:Epic( text )
-	return self:Colourize( EPIC, text )
+function addon:Epic(text)
+	return self:Colourize(EPIC, text)
 end
 
-function addon:Legendary( text )
-	return self:Colourize( LEGENDARY, text )
+function addon:Legendary(text)
+	return self:Colourize(LEGENDARY, text)
 end
 
-function addon:Artifact( text )
-	return self:Colourize( ARTIFACT, text )
+function addon:Artifact(text)
+	return self:Colourize(ARTIFACT, text)
 end
 
-function addon:RarityColor( rarityColor, text )
-	if ( rarityColor == 1 ) then
-		return self:Colourize( POOR, text )
-	elseif ( rarityColor == 2 ) then
-		return self:Colourize( COMMON, text )
-	elseif ( rarityColor == 3 ) then
-		return self:Colourize( UNCOMMON, text )
-	elseif ( rarityColor == 4 ) then
-		return self:Colourize( RARE, text )
-	elseif ( rarityColor == 5 ) then
-		return self:Colourize( EPIC, text )
-	elseif ( rarityColor == 6 ) then
-		return self:Colourize( LEGENDARY, text )
+function addon:RarityColor(rarityColor, text)
+	if (rarityColor == 1) then
+		return self:Colourize(POOR, text)
+	elseif (rarityColor == 2) then
+		return self:Colourize(COMMON, text)
+	elseif (rarityColor == 3) then
+		return self:Colourize(UNCOMMON, text)
+	elseif (rarityColor == 4) then
+		return self:Colourize(RARE, text)
+	elseif (rarityColor == 5) then
+		return self:Colourize(EPIC, text)
+	elseif (rarityColor == 6) then
+		return self:Colourize(LEGENDARY, text)
 	else
-		return self:Colourize( ARTIFACT, text )
+		return self:Colourize(ARTIFACT, text)
 	end
 end
 
@@ -263,46 +263,46 @@ function addon:MidGrey(text)
 end
 
 -- Standard bliz yellowish sort of thing
-function addon:Normal( text )
-	return self:Colourize( NORMAL, text )
+function addon:Normal(text)
+	return self:Colourize(NORMAL, text)
 end
 
 -- used for tooltip rgb stuff
-function addon:hexcolor( colorstring )
-	if ( colorstring == "NEUTRAL" )			then return NEUTRAL
-	elseif ( colorstring == "FRIENDLY" )	then return FRIENDLY
-	elseif ( colorstring == "HONORED" )		then return HONORED
-	elseif ( colorstring == "REVERED" )		then return REVERED
-	elseif ( colorstring == "EXALTED" )		then return EXALTED
+function addon:hexcolor(colorstring)
+	if (colorstring == "NEUTRAL")			then return NEUTRAL
+	elseif (colorstring == "FRIENDLY")	then return FRIENDLY
+	elseif (colorstring == "HONORED")		then return HONORED
+	elseif (colorstring == "REVERED")		then return REVERED
+	elseif (colorstring == "EXALTED")		then return EXALTED
 
-	elseif ( colorstring == "TRAINER" )		then return TRAINER
-	elseif ( colorstring == "VENDOR" )		then return VENDOR
-	elseif ( colorstring == "QUEST" )		then return QUEST
-	elseif ( colorstring == "REP" )			then return REP
-	elseif ( colorstring == "SEASON" )		then return SEASON
-	elseif ( colorstring == "MOBDROP" )		then return MOBDROP
+	elseif (colorstring == "TRAINER")		then return TRAINER
+	elseif (colorstring == "VENDOR")		then return VENDOR
+	elseif (colorstring == "QUEST")		then return QUEST
+	elseif (colorstring == "REP")			then return REP
+	elseif (colorstring == "SEASON")		then return SEASON
+	elseif (colorstring == "MOBDROP")		then return MOBDROP
 
-	elseif ( colorstring == "POOR" )		then return POOR
-	elseif ( colorstring == "COMMON" )		then return COMMON
-	elseif ( colorstring == "UNCOMMON" )	then return UNCOMMON
-	elseif ( colorstring == "RARE" )		then return RARE
-	elseif ( colorstring == "EPIC" )		then return EPIC
-	elseif ( colorstring == "LEGENDARY" )	then return LEGENDARY
-	elseif ( colorstring == "ARTIFACT" )	then return ARTIFACT
+	elseif (colorstring == "POOR")		then return POOR
+	elseif (colorstring == "COMMON")		then return COMMON
+	elseif (colorstring == "UNCOMMON")	then return UNCOMMON
+	elseif (colorstring == "RARE")		then return RARE
+	elseif (colorstring == "EPIC")		then return EPIC
+	elseif (colorstring == "LEGENDARY")	then return LEGENDARY
+	elseif (colorstring == "ARTIFACT")	then return ARTIFACT
 
-	elseif ( colorstring == "HORDE" )		then return HORDE
-	elseif ( colorstring == "ALLIANCE" )	then return ALLIANCE
+	elseif (colorstring == "HORDE")		then return HORDE
+	elseif (colorstring == "ALLIANCE")	then return ALLIANCE
 
-	elseif ( colorstring == "BLACK" )		then return BLACK
-	elseif ( colorstring == "ORANGE" )		then return ORANGE
-	elseif ( colorstring == "GREEN" )		then return GREEN
-	elseif ( colorstring == "YELLOW" )		then return YELLOW
-	elseif ( colorstring == "GREY")			then return GREY
-	elseif ( colorstring == "MIDGREY")		then return MIDGREY
-	elseif ( colorstring == "RED")			then return RED
+	elseif (colorstring == "BLACK")		then return BLACK
+	elseif (colorstring == "ORANGE")		then return ORANGE
+	elseif (colorstring == "GREEN")		then return GREEN
+	elseif (colorstring == "YELLOW")		then return YELLOW
+	elseif (colorstring == "GREY")			then return GREY
+	elseif (colorstring == "MIDGREY")		then return MIDGREY
+	elseif (colorstring == "RED")			then return RED
 
-	elseif ( colorstring == "HIGH" )		then return HIGH
---	elseif ( colorstring == "NORMAL" )		then return NORMAL
+	elseif (colorstring == "HIGH")		then return HIGH
+--	elseif (colorstring == "NORMAL")		then return NORMAL
 	else
 		return NORMAL
 	end

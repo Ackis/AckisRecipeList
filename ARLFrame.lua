@@ -61,6 +61,7 @@ local SortedProfessions = {
 	{ name = GetSpellInfo(2575),	texture = "smelting" },		-- 12
 	{ name = GetSpellInfo(3908),	texture = "tailor" },		-- 13
 }
+
 local MaxProfessions = 13
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
@@ -107,7 +108,11 @@ StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	hideOnEscape = 1
 };
 
--- Closes the frame
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:CloseWindow()
 
 	addon.Frame:Hide()
@@ -119,6 +124,11 @@ end
 -- Input: Total recipes, total filtered, total found, and total from other professions
 -- Output: Total recipeswithout the filtered ones for a given profession
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 local function GetFilteredRecipes(total, filtered, found, other)
 
 	return (total - filtered) + found - other
@@ -128,6 +138,11 @@ end
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function ReDisplay()
 
@@ -164,7 +179,11 @@ function ReDisplay()
 
 end
 
--- Create the scan button and add it to Skillet if applicable
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:CreateScanButton()
 
 	-- Create the scan button
@@ -210,7 +229,10 @@ function addon:CreateScanButton()
 
 end
 
--- Adds a button to the trade skill/skillet skill window allowing you to scan
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon:ShowScanButton()
 
@@ -238,6 +260,11 @@ function addon:ShowScanButton()
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:TooltipDisplay(this, textLabel)
 
 	this:SetScript("OnEnter",
@@ -255,6 +282,11 @@ function addon:TooltipDisplay(this, textLabel)
 		)
 
 end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon.numFilters()
 
@@ -280,6 +312,11 @@ function addon.numFilters()
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.resetTitle()
 
 	-- reset the frame title line
@@ -296,6 +333,11 @@ function addon.resetTitle()
 	addon.Frame.HeadingText:SetText(addon:Normal(myTitle))
 
 end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon.filterSwitch(val)
 	-- This function is the all-encompassing checkbox handler for the ZJGUI
@@ -457,6 +499,11 @@ function addon.filterSwitch(val)
 	addon.resetTitle()
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.ToggleFilters()
 	local xPos = addon.Frame:GetLeft()
 	local yPos = addon.Frame:GetBottom()
@@ -530,6 +577,11 @@ function addon.ToggleFilters()
 	addon.resetTitle()
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, logo )
 	local pushdown = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [25] = 1, [26] = 1, [27] = 1, [28] = 1, [29] = 1,
@@ -555,6 +607,11 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 
 	addon:TooltipDisplay(cButton, ttText, 1)
 end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon:GenericCreateButton(
 	bName, parentFrame,	bHeight, bWidth,
@@ -673,7 +730,12 @@ function addon:GenericCreateButton(
 	return button
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Generic function for creating my expanded panel buttons
+
 function addon:CreateExpCB(bName, bTex, panelIndex)
 	local ExpTextureSize = 34
 
@@ -771,7 +833,11 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 	end
 end
 
--- Allows the scan button to close the scan window
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:ToggleFrame()
 
 	if (addon.Frame and addon.Frame:IsVisible()) then
@@ -786,6 +852,10 @@ function addon:ToggleFrame()
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Set the texture on the switcher button.
 
 function SetSwitcherTexture(tex)
@@ -811,7 +881,12 @@ function SetSwitcherTexture(tex)
 	ARL_SwitcherButton:SetDisabledTexture(ARL_S_DTexture)
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- converting from hex to rgb (Thanks Maldivia)
+
 function toRGB(hex)
 
 	local r, g, b = hex:match("(..)(..)(..)")
@@ -819,9 +894,14 @@ function toRGB(hex)
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
+
 function gttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- negative number. subtract from 12 to get fontsize
@@ -869,7 +949,12 @@ function gttAdd(
 	end
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Switch the displayed profession in the main panel
+
 function addon.SwitchProfs()
 	-- Known professions should be in playerData["Professions"]
 
@@ -914,6 +999,11 @@ function addon.SwitchProfs()
 	ReDisplay()
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function ClearRecipeButtonTooltip(bIndex)
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
@@ -923,7 +1013,12 @@ function ClearRecipeButtonTooltip(bIndex)
 	rButton:SetScript("OnLeave", function () end)
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- This sets the tooltip on the button during a recipelist update
+
 function SetRecipeButtonTooltip (bIndex)
 
 	local exclude = addon.db.profile.exclusionlist
@@ -1453,7 +1548,12 @@ function SetRecipeButtonTooltip (bIndex)
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Scrollframe update stuff
+
 function RecipeList_Update()
 
 	-- Clear out the current buttons
@@ -1520,6 +1620,38 @@ function RecipeList_Update()
 	end
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function CheckDisplayFaction(faction)
+
+	if (filterDB.general.faction ~= true) then
+
+		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+
+			return true
+
+		else
+
+			return false
+
+		end
+
+	else
+
+		return true
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function expandEntry(dsIndex)
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
@@ -1532,152 +1664,233 @@ function expandEntry(dsIndex)
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+
 		local pad = "  "
+		local display
+
 		-- set the string based on type of acquire
 		--[[ 1 = Trainer , 2 = Vendor, 3 = Mob, 4 = Quest, 5 = Seasonal, 6 = Reputation --]]
+		-- Trainer
 		if (v["Type"] == 1) then
-			-- Trainer
+
 			-- Trainerdb : 	Trainer: ID, Name, Location, Coords, Faction
-			local display = false
 			local trnr = trainerDB[v["ID"]]
-			if (filterDB.general.faction ~= true) then
-				if ((trnr["Faction"] == BFAC[myFaction]) or
-					 (trnr["Faction"] == BFAC["Neutral"]) or
-					 (trnr["Faction"] == nil)) then
-					display = true
-				end
-			else
-				display = true
-			end
+
+			display = CheckDisplayFaction(trnr["Faction"])
+
 			if (display == true) then
+
 				-- properly colourize
 				local tStr = addon:Trainer(L["Trainer"] .. " : ")
 				local nStr = ""
-				local cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
+				local cStr = ""
 
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+				if (trnr["Coordx"] ~= "0") and (trnr["Coordy"] ~= "0") then
+
+					cSte = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
+
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				if (trnr["Faction"] == BFAC["Horde"]) then
+
 					nStr = addon:Horde(trnr["Name"])
+
 				elseif (trnr["Faction"] == BFAC["Alliance"]) then
+
 					nStr = addon:Alliance(trnr["Name"])
+
 				else
+
 					nStr = addon:Neutral(trnr["Name"])
-				end						
+
+				end
+
 				t.String = pad .. tStr .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+
 			end
-		elseif ((v["Type"] == 2) and 
-				 (filterDB.obtain.vendor == true)) then
-			-- Vendor
+
+		-- Vendor
+		elseif ((v["Type"] == 2) and (filterDB.obtain.vendor == true)) then
+
 			-- VendorDB : ID, Name, Location, Coords, Faction
-			local display = false
 			local vndr = vendorDB[v["ID"]]
-			if (filterDB.general.faction ~= true) then
-				if ((vndr["Faction"] == BFAC[myFaction]) or
-					 (vndr["Faction"] == BFAC["Neutral"]) or
-					 (vndr["Faction"] == nil)) then
-					display = true
-				end
-			else
-				display = true
-			end
+
+			display = CheckDisplayFaction(vndr["Faction"])
+
 			if (display == true) then
+
 				-- properly colourize
 				local tStr = addon:Vendor(L["Vendor"] .. " : ")
 				local nStr = ""
-				local cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
+				local cStr = ""
 
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+				if (vndr["Coordx"] ~= "0") and (vndr["Coordy"] ~= "0") then
+
+					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
+
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				if (vndr["Faction"] == BFAC["Horde"]) then
+
 					nStr = addon:Horde(vndr["Name"])
+
 				elseif (vndr["Faction"] == BFAC["Alliance"]) then
+
 					nStr = addon:Alliance(vndr["Name"])
+
 				else
+
 					nStr = addon:Neutral(vndr["Name"])
-				end						
+
+				end
+
 				t.String = pad .. tStr .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				t.String = pad .. pad .. vndr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+
 			end
+
+		-- Mob Drop Obtain
 		elseif ((v["Type"] == 3) and (filterDB.obtain.mobdrop == true)) then
-			-- Mob Drop Obtain
+
 			-- MobDB: ID, Name, Zone, Coordx, Coordy
 			local mob = mobDB[v["ID"]]
 
 			-- properly colourize
 			local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
 			local nStr = ""
-			local cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+			local cStr = ""
 
-			t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+			if (mob["Coordx"] ~= "0") and (mob["Coordy"] ~= "0") then
+
+				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+
+			end
+
+			t = {}
+			t.IsRecipe = false
+			t.sID = recipeIndex
+			t.IsExpanded = true
+
 			nStr = addon:Horde(mob["Name"])
 			t.String = pad .. tStr .. nStr
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-			t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+			t = {}
+			t.IsRecipe = false
+			t.sID = recipeIndex
+			t.IsExpanded = true
+
 			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif ((v["Type"] == 4) and
-				 (filterDB.obtain.quest)) then
-			-- Quest Obtain
+
+		-- Quest Obtain
+		elseif ((v["Type"] == 4) and (filterDB.obtain.quest)) then
+
 			-- Quest: ID, Name, Location, Coords to start, Faction
-			local display = false
+
 			local qst = questDB[v["ID"]]
-			if (qst) then
-				if (filterDB.general.faction ~= true) then
-					if ((qst["Faction"] == BFAC[myFaction]) or
-						 (qst["Faction"] == BFAC["Neutral"]) or
-						 (qst["Faction"] == nil)) then
-						display = true
-					end
-				else
-					display = true
-				end
-			end
+
+			display = CheckDisplayFaction(qst["Faction"])
+
 			if (display == true) then
+
 				-- properly colourize
 				local tStr = addon:Quest(L["Quest"] .. " : ")
 				local nStr = ""
-				local cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
+				local cStr = ""
 
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+				if (qst["Coordx"] ~= "0") and (qst["Coordy"] ~= "0") then
+
+					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
+
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				if (qst["Faction"] == BFAC["Horde"]) then
+
 					nStr = addon:Horde(qst["Name"])
+
 				elseif (qst["Faction"] == BFAC["Alliance"]) then
+
 					nStr = addon:Alliance(qst["Name"])
+
 				else
+
 					nStr = addon:Neutral(qst["Name"])
-				end						
+
+				end
+
 				t.String = pad .. tStr .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
 				t.String = pad .. pad .. qst["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+
 			end
+
+		-- Seasonal
 		elseif (v["Type"] == 5) then
+
 			-- Seasonal: ID, Name
 			local ssnname = seasonDB[v["ID"]]["Name"]
-			t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+			t = {}
+			t.IsRecipe = false
+			t.sID = recipeIndex
+			t.IsExpanded = true
+
 			local tStr = addon:Season(L["Seasonal"] .. " : " .. ssnname)
+
 			t.String = pad .. tStr
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+
 		elseif (v["Type"] == 6) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
@@ -1686,34 +1899,38 @@ function expandEntry(dsIndex)
 			-- Rep: RepName
 			--   RepLevel: RepVndrName
 			--     RepVndrLoc (Cx,Cy)
-			local display = false
+
 			local repfac = repDB[v["ID"]]
 			local repname = repfac["Name"] -- name
 			local rplvl = v["RepLevel"]
 			local repvndr = vendorDB[v["RepVendor"]]
 
-			if (filterDB.general.faction ~= true) then
-				if ((repvndr["Faction"] == BFAC[myFaction]) or
-					 (repvndr["Faction"] == BFAC["Neutral"]) or
-					 (repvndr["Faction"] == nil)) then
-					display = true
-				end
-			else
-				display = true
-			end
+			display = CheckDisplayFaction(repvndr["Faction"])
+
 			if (display == true) then
+
 				-- properly colourize
 				local tStr = addon:Rep(L["Reputation"] .. " : ")
 				local nStr = ""
 				local rStr = ""
-				local cStr = addon:Coords("(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")")
+				local cStr = ""
 
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+				if (repvndr["Coordx"] ~= "0") and (repvndr["Coordy"] ~= "0") then
+
+					cStr = addon:Coords("(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")")
+
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				t.String = pad .. tStr .. repname
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
+				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 				if (rplvl == 0) then rStr = addon:Neutral(BFAC["Neutral"] .. " : ")
 				elseif (rplvl == 1) then rStr = addon:Friendly(BFAC["Neutral"] .. " : ")
 				elseif (rplvl == 2) then rStr = addon:Honored(BFAC["Honored"] .. " : ")
@@ -1721,28 +1938,54 @@ function expandEntry(dsIndex)
 				else rStr = addon:Exalted(BFAC["Exalted"] .. " : ") end
 
 				if (repvndr["Faction"] == BFAC["Horde"]) then
+
 					nStr = addon:Horde(repvndr["Name"])
+
 				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+
 					nStr = addon:Alliance(repvndr["Name"])
+
 				else
+
 					nStr = addon:Neutral(repvndr["Name"])
-				end						
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				t.String = pad .. pad .. rStr .. nStr 
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
 				t.String = pad .. pad .. pad .. repvndr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+
 			end
+
+		-- World Drop
 		elseif ((v["Type"] == 7) and (filterDB.obtain.worlddrop == true)) then
-			t = {}; t.IsRecipe = false; t.sID = recipeIndex; t.IsExpanded = true
+
+			t = {}
+			t.IsRecipe = false
+			t.sID = recipeIndex
+			t.IsExpanded = true
+
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+
 		else
+
 			t = {}
 			t.IsRecipe = false
 			t.sID = recipeIndex
@@ -1750,10 +1993,13 @@ function expandEntry(dsIndex)
 			t.String = "Unhandled Acquire Case"
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+
 		end
+
 	end
 	
 	return dsIndex
+
 end
 
 -- What to do if someone clicks on a recipe button
@@ -1820,6 +2066,11 @@ function addon.RecipeItem_OnClick(button)
 end
 
 -- Rep Filtering panel switcher
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.RepFilterSwitch(whichrep)
 	-- 1	ARL_RepOldWorldCB		Old World Rep
 	-- 2	ARL_RepBCCB				Burning Crusade
@@ -1885,6 +2136,11 @@ function addon.RepFilterSwitch(whichrep)
 		ARL_RepLKCB:SetChecked(false)
 	end
 end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon.setFlyawayState () 
 	-- This function sets all the current options in the flyaway panel to make
@@ -2022,6 +2278,11 @@ function addon.setFlyawayState ()
 	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.resetFilters() 
 	local filterdb = addon.db.profile.filters
 	-- reset all filters to their default values
@@ -2116,6 +2377,11 @@ function addon.resetFilters()
 	addon.resetTitle()
 	addon.Flyaway:Hide()
 end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 
 function addon.DoFlyaway(panel)
 	-- This is going to manage the flyaway panel, as well as checking or unchecking the
@@ -2330,8 +2596,13 @@ function addon.DoFlyaway(panel)
 	end
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- This does the initial fillup of the DisplayStrings structure.
 -- This won't run if all we're doing is expanding/contracting a recipe
+
 function initDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 	DisplayStrings = nil
@@ -2371,8 +2642,13 @@ function initDisplayStrings()
 	end
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- This does an initial fillup of the DisplayStrings, as above.
 -- However, in this case, it expands every recipe
+
 function expandallDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 	DisplayStrings = nil
@@ -2420,6 +2696,11 @@ function expandallDisplayStrings()
 	end
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.ExpandAll_Clicked()
 	-- Called when the expand all button is clicked
 	if (ARL_ExpandButton:GetText() == L["EXPANDALL"]) then
@@ -2434,7 +2715,12 @@ function addon.ExpandAll_Clicked()
 	RecipeList_Update()
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Creates the initial frame to display recipes into
+
 function addon:CreateFrame(
 	rDB,		-- RecipeList
 	sortedRI,	-- sortedindex
@@ -3354,6 +3640,11 @@ function addon:CreateFrame(
 	addon.Frame:Show()
 end
 
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
