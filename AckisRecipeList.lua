@@ -1161,8 +1161,6 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 		end
 
-		scanList[playerProfession] = true
-
 		-- Set the display flag
 		RecipeDB[RecipeID]["Display"] = displayflag
 
