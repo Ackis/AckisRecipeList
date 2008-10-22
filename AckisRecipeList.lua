@@ -1224,15 +1224,33 @@ function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
 	if (not input) or (input and input:trim() == "") or (input == string.lower(L["About"]))then
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
+
+		if (self.optionsFrame["About"]) then
+
+			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
+
+		else
+
+			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+
+		end
+
 	elseif (input == string.lower(L["Sorting"])) or (input == string.lower(L["Sort"]))  or (input == string.lower(L["Display"])) then
+
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+
 	elseif (input == string.lower(L["Profile"])) then
+
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
+
 	elseif (input == string.lower(L["Filter"])) then
+
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
+
 	else
+		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
+
 	end
 
 end

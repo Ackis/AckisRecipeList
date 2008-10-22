@@ -1114,7 +1114,15 @@ function addon:SetupOptions()
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
 	-- Add in the about panel to the Bliz options (but not the ace3 config)
-	self.optionsFrame["About"] = LibStub("LibAboutPanel").new(MODNAME, MODNAME)
+	if LibStub:GetLibrary("LibAboutPanel", true) then
+
+		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
+
+	else
+
+		self:Print("Lib About Panel not loaded.")
+
+	end
 
 	-- Fill up our modular options...
 	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
