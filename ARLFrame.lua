@@ -135,8 +135,7 @@ function ReDisplay( )
 		pbMax = playerData.totalRecipes
 	-- We're removing filtered recipes from the final count
 	else
-		pbMax = playerData.totalRecipes - (playerData.filteredRecipes + playerData.foundRecipes)
-		--pbMax = playerData.foundRecipes + (playerData.totalRecipes - playerData.filteredRecipes)
+		pbMax = (playerData.totalRecipes - playerData.filteredRecipes) + playerData.foundRecipes
 	end
 
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
@@ -3130,7 +3129,7 @@ function addon:CreateFrame(
 	if ( addon.db.profile.includefiltered == true ) then
 		pbMax = cPlayer.totalRecipes
 	else
-		pbMax = cPlayer.totalRecipes - cPlayer.filteredRecipes
+		pbMax = cPlayer.totalRecipes - cPlayer.filteredRecipes + cPlayer.foundRecipes 
 	end
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
 	ARL_ProgressBar:SetValue( pbCur )
