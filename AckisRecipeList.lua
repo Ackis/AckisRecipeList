@@ -1138,9 +1138,9 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	local playerSpecialty = playerData.playerSpecialty
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
-	local scanList = playerData.scannedSkills
 
 	playerData.filteredRecipes = 0
+	playerData.otherRecipes = 0
 
 	-- Parse through all the entries in the Recipe array
 	for RecipeID in pairs(RecipeDB) do
@@ -1154,7 +1154,8 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 		end
 
-		if (scanList[playerProfession]) and (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
+		-- If the recipes aren't for the current profession, lets add it to the list
+		if (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
 
 			playerData.otherRecipes = playerData.otherRecipes + 1
 
@@ -1317,8 +1318,6 @@ do
 				playerData.playerFaction = UnitFactionGroup("player")
 				local _
 				_, playerData.playerClass = UnitClass("player")
-				playerData.otherRecipes = 0
-				playerData.scannedSkills = {}
 
 				playerData["Reputation"] = {}
 				self:GetFactionLevels(playerData["Reputation"])

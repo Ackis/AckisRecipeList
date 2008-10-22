@@ -135,7 +135,7 @@ function ReDisplay( )
 		pbMax = playerData.totalRecipes
 	-- We're removing filtered recipes from the final count
 	else
-		pbMax = (playerData.totalRecipes - playerData.filteredRecipes) + playerData.foundRecipes
+		pbMax = (playerData.totalRecipes - playerData.filteredRecipes) + playerData.foundRecipes - playerData.otherRecipes
 	end
 
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
@@ -881,6 +881,7 @@ end
 
 -- This sets the tooltip on the button during a recipelist update
 function SetRecipeButtonTooltip ( bIndex )
+
 	local exclude = addon.db.profile.exclusionlist
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
@@ -919,13 +920,20 @@ function SetRecipeButtonTooltip ( bIndex )
 			gttAdd( 0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor( "NORMAL" ) )
 				-- loop through acquire methods, display each
 				for k, v in pairs( recipeDB[rIndex]["Acquire"]) do
-					if ( v["Type"] == 1 ) then				-- Trainer
+					-- Trainer
+					if (v["Type"] == 1) then
+
 						-- Trainer:				TrainerName
 						-- TrainerZone			TrainerCoords
 						local trnr = trainerDB[v["ID"]]
-						local cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
+						local cStr = ""
+
+						if (trnr["Coordx"] ~= "0") and (trnr["Coordy"] ~= "0") then
+							cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
+						end
+
 						clr1 = addon:hexcolor( "TRAINER" )
-						if ( trnr["Faction"] == BFAC["Horde"] ) then
+						if (trnr["Faction"] == BFAC["Horde"]) then
 							clr2 = addon:hexcolor( "HORDE" )
 						elseif ( trnr["Faction"] == BFAC["Alliance"] ) then
 							clr2 = addon:hexcolor( "ALLIANCE" )
@@ -936,35 +944,45 @@ function SetRecipeButtonTooltip ( bIndex )
 						clr1 = addon:hexcolor( "NORMAL" )
 						clr2 = addon:hexcolor( "HIGH" )
 						gttAdd( 1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2 )
-					elseif ( v["Type"] == 2 ) then			-- Vendor
+					-- Vendor
+					elseif ( v["Type"] == 2 ) then
 						-- Vendor:					VendorName
 						-- VendorZone				VendorCoords
 						local vndr = vendorDB[v["ID"]]
 						local cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-						clr1 = addon:hexcolor( "VENDOR" )
+						clr1 = addon:hexcolor("VENDOR")
 						if (vndr["Faction"] == BFAC["Horde"]) then
-							clr2 = addon:hexcolor( "HORDE" )
-						elseif ( vndr["Faction"] == BFAC["Alliance"] ) then
+							clr2 = addon:hexcolor("HORDE")
+						elseif (vndr["Faction"] == BFAC["Alliance"]) then
 							clr2 = addon:hexcolor("ALLIANCE")
 						else
-							clr2 = addon:hexcolor( "NEUTRAL" )
+							clr2 = addon:hexcolor("NEUTRAL")
 						end
 						gttAdd( 0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2 )
 						clr1 = addon:hexcolor( "NORMAL" )
 						clr2 = addon:hexcolor( "HIGH" )
 						gttAdd( 1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2 )
-					elseif ( v["Type"] == 3 ) then			-- Mob Drop
+					-- Mob Drop
+					elseif ( v["Type"] == 3 ) then
 						-- Mob Drop:				Mob Name
 						-- MobZone					MobCoords
 						local mob = mobDB[v["ID"]]
-						local cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
-						clr1 = addon:hexcolor( "MOBDROP" )
-						clr2 = addon:hexcolor( "HORDE" )
+						local cStr = ""
+
+						if (mob["Coordx"] ~= "0") and (mob["Coordy"] ~= "0") then
+
+							cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+
+						end
+
+						clr1 = addon:hexcolor("MOBDROP")
+						clr2 = addon:hexcolor("HORDE")
 						gttAdd( 0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2 )
 						clr1 = addon:hexcolor( "NORMAL" )
 						clr2 = addon:hexcolor( "HIGH" )
 						gttAdd( 1, -2, 1, 0, mob["Location"], clr1, cStr, clr2 )
-					elseif ( v["Type"] == 4 ) then			-- Quest
+					-- Quest
+					elseif ( v["Type"] == 4 ) then
 						-- Quest:					QuestName
 						-- QuestZone				QuestCoords
 						local qst = questDB[v["ID"]]
@@ -983,7 +1001,8 @@ function SetRecipeButtonTooltip ( bIndex )
 							clr2 = addon:hexcolor( "HIGH" )
 							gttAdd( 1, -2, 1, 0, qst["Location"], clr1, cStr, clr2 )
 						end
-					elseif ( v["Type"] == 5 ) then			-- Seasonal
+					-- Seasonal
+					elseif ( v["Type"] == 5 ) then
 						-- Seasonal:				SeasonEventName
 						local ssnname = seasonDB[v["ID"]]["Name"]
 						clr1 = addon:hexcolor( "SEASON" )
@@ -3129,7 +3148,7 @@ function addon:CreateFrame(
 	if ( addon.db.profile.includefiltered == true ) then
 		pbMax = cPlayer.totalRecipes
 	else
-		pbMax = cPlayer.totalRecipes - cPlayer.filteredRecipes + cPlayer.foundRecipes 
+		pbMax = cPlayer.totalRecipes - cPlayer.filteredRecipes + cPlayer.foundRecipes - cPlayer.otherRecipes
 	end
 	ARL_ProgressBar:SetMinMaxValues( pbMin, pbMax)
 	ARL_ProgressBar:SetValue( pbCur )
