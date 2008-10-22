@@ -394,7 +394,7 @@ local function giveFilter()
 						weapons = {
 							order	= 4,
 							type	= "group",
-							name	= L["Weapons"],
+							name	= L["Weapon"],
 							desc	= L["FILTERING_WEAPONS_DESC"],
 							args	= {
 								header1 = {
