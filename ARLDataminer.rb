@@ -1152,7 +1152,7 @@ else
 
 	# Seasonal: 21943 - 1, 44953 - 1
 	leatherworking = recipes.get_leatherworking_list
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
 
 	smelting = recipes.get_mining_list
 	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],[],[],{},[49252, 49258, 53417],{})
