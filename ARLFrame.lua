@@ -369,6 +369,7 @@ function addon.filterSwitch(val)
 			armordb.necklace = true
 			armordb.ring = true
 			armordb.trinket = true
+			armordb.shield = true
 			ARL_ArmorClothCB:SetChecked(true)
 			ARL_ArmorLeatherCB:SetChecked(true)
 			ARL_ArmorMailCB:SetChecked(true)
@@ -377,6 +378,7 @@ function addon.filterSwitch(val)
 			ARL_ArmorNecklaceCB:SetChecked(true)
 			ARL_ArmorRingCB:SetChecked(true)
 			ARL_ArmorTrinketCB:SetChecked(true)
+			ARL_ArmorShieldCB:SetChecked(true)
 			ARL_ArmorNoneCB:SetChecked(false)
 		end
 	elseif (val == 20) then
@@ -390,6 +392,7 @@ function addon.filterSwitch(val)
 			armordb.necklace = false
 			armordb.ring = false
 			armordb.trinket = false
+			armordb.shield = false
 			ARL_ArmorClothCB:SetChecked(false)
 			ARL_ArmorLeatherCB:SetChecked(false)
 			ARL_ArmorMailCB:SetChecked(false)
@@ -398,6 +401,7 @@ function addon.filterSwitch(val)
 			ARL_ArmorNecklaceCB:SetChecked(false)
 			ARL_ArmorRingCB:SetChecked(false)
 			ARL_ArmorTrinketCB:SetChecked(false)
+			ARL_ArmorShieldCB:SetChecked(true)
 			ARL_ArmorAllCB:SetChecked(false)
 		end
 	elseif ((val == 21) or (val == 22) or (val == 23) or (val == 24) or
@@ -410,7 +414,8 @@ function addon.filterSwitch(val)
 			if ((armordb.cloth == true) and (armordb.leather == true) and
 				 (armordb.mail == true) and (armordb.plate == true) and
 				 (armordb.cloak == true) and (armordb.necklace == true) and
-				 (armordb.ring == true) and (armordb.trinket == true)) then
+				 (armordb.ring == true) and (armordb.trinket == true) and
+				 (armordb.shield == true)) then
 				ARL_ArmorAllCB:SetChecked(true)
 			end
 			ARL_ArmorNoneCB:SetChecked(false)
@@ -419,7 +424,8 @@ function addon.filterSwitch(val)
 			if ((armordb.cloth == false) and (armordb.leather == false) and
 				 (armordb.mail == false) and (armordb.plate == false) and
 				 (armordb.cloak == false) and (armordb.necklace == false) and
-				 (armordb.ring == false) and (armordb.trinket == false)) then
+				 (armordb.ring == false) and (armordb.trinket == false) and
+				 (armordb.shield == false)) then
 				ARL_ArmorNoneCB:SetChecked(true)
 			end
 			ARL_ArmorAllCB:SetChecked(false)
@@ -2231,7 +2237,8 @@ function addon.setFlyawayState()
 	if ((armordb.cloth == true) and (armordb.leather == true) and
 		 (armordb.mail == true) and (armordb.plate == true) and
 		 (armordb.cloak == true) and (armordb.necklace == true) and
-		 (armordb.ring == true) and (armordb.trinket == true)) then
+		 (armordb.ring == true) and (armordb.trinket == true) and
+		 (armoddb.shield == true)) then
 		ARL_ArmorAllCB:SetChecked(true)
 	else
 		ARL_ArmorAllCB:SetChecked(false)
@@ -2239,7 +2246,8 @@ function addon.setFlyawayState()
 	if ((armordb.cloth == false) and (armordb.leather == false) and
 		 (armordb.mail == false) and (armordb.plate == false) and
 		 (armordb.cloak == false) and (armordb.necklace == false) and
-		 (armordb.ring == false) and (armordb.trinket == false)) then
+		 (armordb.ring == false) and (armordb.trinket == false) and
+		 (armodb.shield == true)) then
 		ARL_ArmorNoneCB:SetChecked(true)
 	else
 		ARL_ArmorNoneCB:SetChecked(false)
@@ -2252,6 +2260,7 @@ function addon.setFlyawayState()
 	ARL_ArmorNecklaceCB:SetChecked(armordb.necklace)
 	ARL_ArmorRingCB:SetChecked(armordb.ring)
 	ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
+	ARL_ArmorShieldCB:SetChecked(armordb.shield)
 	-- Weapon Options
 	if ((weapondb.onehand == true) and (weapondb.twohand == true) and
 		 (weapondb.dagger == true) and (weapondb.axe == true) and
@@ -2369,6 +2378,7 @@ function addon.resetFilters()
 	filterdb.item.armor.mail = true
 	filterdb.item.armor.plate = true
 	filterdb.item.armor.trinket = true
+	filterdb.item.armor.shield = true
 	filterdb.item.armor.cloak = true
 	filterdb.item.armor.ring = true
 	filterdb.item.armor.necklace = true
@@ -3309,6 +3319,7 @@ function addon:CreateFrame(
 --
 --				() Cloak	() Necklace
 --				() Rings	() Trinkets 
+--				() Shield
 			local ARL_ArmorText = addon.Fly_Item:CreateFontString("ARL_ArmorText", "OVERLAY", "GameFontHighlight")
 				ARL_ArmorText:SetText(L["Armor"] .. ":")
 				ARL_ArmorText:SetPoint("TOPLEFT", addon.Fly_Item, "TOPLEFT", 5, -8)
@@ -3346,6 +3357,9 @@ function addon:CreateFrame(
 			local ARL_ArmorTrinketCB = CreateFrame("CheckButton", "ARL_ArmorTrinketCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 6, 2, 0)
 				ARL_ArmorTrinketCBText:SetText(L["Trinket"])
+			local ARL_ArmorShieldCB = CreateFrame("CheckButton", "ARL_ArmorShieldCB", addon.Fly_Item, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 68, 6, 2, 0)
+				ARL_ArmorShieldCBText:SetText(L["Shield"])
 --			Weapon:
 --				() All		() None
 --				() 1H		() 2H
@@ -3744,6 +3758,7 @@ function addon:CreateFrame(
 			[65] = { cb = ARL_ArmorNecklaceCB,			svroot = filterdb.item.armor,	svval = "necklace" },
 			[66] = { cb = ARL_ArmorRingCB,				svroot = filterdb.item.armor,	svval = "ring" },
 			[67] = { cb = ARL_ArmorTrinketCB,			svroot = filterdb.item.armor,	svval = "trinket" },
+			[68] = { cb = ARL_ArmorShieldCB,			svroot = filterdb.item.shield,	svval = "shield" },
 		-- Weapon Options
 			[25] = { cb = ARL_WeaponAllCB,				svroot = "special case",		svval = "" },
 			[26] = { cb = ARL_WeaponNoneCB,				svroot = "special case",		svval = "" },
