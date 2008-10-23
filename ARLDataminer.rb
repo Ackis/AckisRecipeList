@@ -862,7 +862,7 @@ EOF
 		acquire.clear  
 
 		proflua.puts ""
-		
+
 	end
 
 	puts "Processing #{profession} data complete..."
