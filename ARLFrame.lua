@@ -131,7 +131,9 @@ end
 
 local function GetFilteredRecipes(total, filtered, found, other)
 
-	return (total - filtered) + found - other
+	local totalfiltered = filtered - other
+	local actualfiltered = total - totalfiltered
+	return total - actualfiltered
 
 end
 
