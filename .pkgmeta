@@ -2,6 +2,7 @@
 package-as: AckisRecipeList
 
 optional-dependencies:
+ - advanced-trade-skill-window
  - atsw
  - skillet
  - manufac
