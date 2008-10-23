@@ -133,7 +133,8 @@ local function GetFilteredRecipes(total, filtered, found, other)
 
 	local totalfiltered = filtered - other
 	local actualfiltered = total - totalfiltered
-	return total - actualfiltered
+
+	return found + actualfiltered
 
 end
 
@@ -150,8 +151,11 @@ function ReDisplay()
 
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
+
 	if (not addon.db.profile.ignoreexclusionlist) then
+
 		addon:GetExclusions(recipeDB)
+
 	end
 	initDisplayStrings()
 
@@ -162,10 +166,14 @@ function ReDisplay()
 
 	-- Include filtered recipes in overall count, so we just display the total number of recipes
 	if (addon.db.profile.includefiltered == true) then
+
 		pbMax = playerData.totalRecipes
+
 	-- We're removing filtered recipes from the final count
 	else
+
 		pbMax = GetFilteredRecipes(playerData.totalRecipes, playerData.filteredRecipes, playerData.foundRecipes, playerData.otherRecipes)
+
 	end
 
 	ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
@@ -594,7 +602,8 @@ end
 -- Input: 
 -- Output: 
 
-function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, logo )
+function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, logo)
+
 	local pushdown = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [25] = 1, [26] = 1, [27] = 1, [28] = 1, [29] = 1,
 		[30] = 1, [31] = 1, [32] = 1, [33] = 1, [34] = 1, [68] = 1, [35] = 1, [36] = 1, [37] = 1,
@@ -618,6 +627,7 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 	end
 
 	addon:TooltipDisplay(cButton, ttText, 1)
+
 end
 
 -- Description: 
@@ -735,11 +745,15 @@ function addon:GenericCreateButton(
 	text:SetText(initText)		
 
 	button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
+
 	if (tooltipText ~= "") then
+
 		addon:TooltipDisplay(button, tooltipText)
+
 	end
 
 	return button
+
 end
 
 -- Description: 
@@ -902,6 +916,7 @@ end
 function toRGB(hex)
 
 	local r, g, b = hex:match("(..)(..)(..)")
+
 	return (tonumber(r,16) / 256) , (tonumber(g,16) / 256) , (tonumber(b,16) / 256)
 
 end
@@ -1570,10 +1585,12 @@ function RecipeList_Update()
 
 	-- Clear out the current buttons
 	for i = 1, maxVisibleRecipes do
+
 		addon.RecipeListButton[i]:SetText("")
 		addon.RecipeListButton[i].sI = 0
 		addon.PlusListButton[i]:Hide()
 		ClearRecipeButtonTooltip(i)
+
 	end
 
 	local entries = #DisplayStrings
@@ -1581,34 +1598,44 @@ function RecipeList_Update()
 	FauxScrollFrame_Update(ARL_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
 
 	if (entries > 0) then
+
 		-- now fill in our buttons
 		local listOffset = FauxScrollFrame_GetOffset(ARL_RecipeScrollFrame)
-		-- addon.Print("listOffset = " .. listOffset)
 		local buttonIndex = 1
 		local stringsIndex = buttonIndex + listOffset
 
 		local stayInLoop = true
+
 		while (stayInLoop == true) do
-			-- addon.Print("buttonIndex/stringsIndex = " .. buttonIndex .. "/" .. stringsIndex)
-			-- addon.PlusListButton = {},  addon.RecipeListButton = {}
+
 			if (DisplayStrings[stringsIndex].IsRecipe) then
+
 				-- display the + symbol
 				addon.PlusListButton[buttonIndex]:Show()
+
 				-- Is it expanded or not?
 				if (DisplayStrings[stringsIndex].IsExpanded) then
+
 					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
 					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
 					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+
 				else
+
 					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
 					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+
 				end
+
 			else
+
 				addon.PlusListButton[buttonIndex]:Hide()
+
 			end
+
 			addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
 			addon.RecipeListButton[buttonIndex].sI = stringsIndex
 
@@ -1617,19 +1644,30 @@ function RecipeList_Update()
 
 			buttonIndex = buttonIndex + 1
 			stringsIndex = stringsIndex + 1
-			if ((buttonIndex > maxVisibleRecipes) or
-				 (stringsIndex > entries)) then
+
+			if ((buttonIndex > maxVisibleRecipes) or (stringsIndex > entries)) then
+
 				stayInLoop = false
+
 			end
+
 		end
+
 	else
+--TODOfix popups for when everything is fileterd
 		-- If the recipetotal > 0 that means we've already scanned this recipe
 		if (playerData.totalRecipes > 0) then
+
 			StaticPopup_Show("ARL_NOTSCANNED")
+
 		else
+
 			StaticPopup_Show("ARL_ALLFILTERED")
+
 		end
+
 	end
+
 end
 
 -- Description: 
@@ -1637,7 +1675,7 @@ end
 -- Input: 
 -- Output: 
 
-local function CheckDisplayFaction(faction)
+local function CheckDisplayFaction(filterDB, faction)
 
 	if (filterDB.general.faction ~= true) then
 
@@ -1665,13 +1703,15 @@ end
 -- Output: 
 
 function expandEntry(dsIndex)
+
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
 	-- occurs
-	local filterDB = addon.db.profile.filters
 
+	local filterDB = addon.db.profile.filters
 	local recipeIndex = DisplayStrings[dsIndex].sID
+
 	dsIndex = dsIndex + 1
 
 	-- Need to loop through the available acquires and put them all in
@@ -1688,7 +1728,7 @@ function expandEntry(dsIndex)
 			-- Trainerdb : 	Trainer: ID, Name, Location, Coords, Faction
 			local trnr = trainerDB[v["ID"]]
 
-			display = CheckDisplayFaction(trnr["Faction"])
+			display = CheckDisplayFaction(filterDB, trnr["Faction"])
 
 			if (display == true) then
 
@@ -1744,7 +1784,7 @@ function expandEntry(dsIndex)
 			-- VendorDB : ID, Name, Location, Coords, Faction
 			local vndr = vendorDB[v["ID"]]
 
-			display = CheckDisplayFaction(vndr["Faction"])
+			display = CheckDisplayFaction(filterDB, vndr["Faction"])
 
 			if (display == true) then
 
@@ -1838,7 +1878,7 @@ function expandEntry(dsIndex)
 
 			local qst = questDB[v["ID"]]
 
-			display = CheckDisplayFaction(qst["Faction"])
+			display = CheckDisplayFaction(filterDB, qst["Faction"])
 
 			if (display == true) then
 
@@ -1917,7 +1957,7 @@ function expandEntry(dsIndex)
 			local rplvl = v["RepLevel"]
 			local repvndr = vendorDB[v["RepVendor"]]
 
-			display = CheckDisplayFaction(repvndr["Faction"])
+			display = CheckDisplayFaction(filterDB, repvndr["Faction"])
 
 			if (display == true) then
 
@@ -2020,6 +2060,7 @@ end
 -- Output: 
 
 function addon.RecipeItem_OnClick(button)
+
 	local clickedIndex = addon.RecipeListButton[button].sI
 	local isRecipe = DisplayStrings[clickedIndex].IsRecipe
 	local isExpanded = DisplayStrings[clickedIndex].IsExpanded
@@ -2620,42 +2661,68 @@ end
 -- This won't run if all we're doing is expanding/contracting a recipe
 
 function initDisplayStrings()
+
 	local exclude = addon.db.profile.exclusionlist
+
 	DisplayStrings = nil
 	DisplayStrings = {}
+
 	local insertIndex = 1
+
 	for i = 1, #sortedRecipeIndex do
+
 		local recipeIndex = sortedRecipeIndex[i]
-		if ((recipeDB[recipeIndex]["Display"] == true) and
-			 (recipeDB[recipeIndex]["Search"] == true)) then
+
+		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+
 			local t = {}
 			-- add in recipe difficulty coloring
 			local recStr = ""
+
 			if (exclude[recipeIndex] == true) then
+
 				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
+
 			else
+
 				recStr = recipeDB[recipeIndex]["Name"]
+
 			end
+
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
 			local playerSkill = playerData.playerProfessionLevel
+
 			if (recipeSkill > playerSkill) then
+
 				t.String = addon:Red(recStr)
+
 			elseif ((playerSkill - recipeSkill) < 20) then
+
 				t.String = addon:Orange(recStr)
+
 			elseif ((playerSkill - recipeSkill) < 30) then
+
 				t.String = addon:Yellow(recStr)
+
 			elseif ((playerSkill - recipeSkill) < 40) then
+
 				t.String = addon:Green(recStr)
+
 			else
+
 				t.String = addon:MidGrey(recStr)
+
 			end
+
 			t.sID = recipeIndex
 			t.IsRecipe = true
 			t.IsExpanded = false
 			tinsert(DisplayStrings, insertIndex, t)
 			insertIndex = insertIndex + 1
 		end
+
 	end
+
 end
 
 -- Description: 
@@ -2666,6 +2733,7 @@ end
 -- However, in this case, it expands every recipe
 
 function expandallDisplayStrings()
+
 	local exclude = addon.db.profile.exclusionlist
 	DisplayStrings = nil
 	DisplayStrings = {}
