@@ -267,6 +267,7 @@ function addon:OnEnable()
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
 
+		self:Print("Enabling Manufac integration.")
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan Recipes"],
@@ -281,6 +282,7 @@ function addon:OnEnable()
 	if (Skillet) and (Skillet.GetNumTradeSkills) and 
 	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) then
 
+		self:Print("Enabling Skillet advanced features.")
 		GetNumTradeSkills = Skillet.GetNumTradeSkills
 		GetTradeSkillLine = Skillet.GetTradeSkillLine
 		GetTradeSkillInfo = Skillet.GetTradeSkillInfo
@@ -304,12 +306,16 @@ function addon:OnDisable()
 
 	-- If we disable the addon when the GUI is up, hide it.
 	if (addon.Frame) then
+
 		addon.Frame:Hide()
+		
 	end
 
 	-- Remove the option from Manufac
 	if Manufac then
+
 		Manufac.options.args.ARLScan = nil
+
 	end
 
 end
