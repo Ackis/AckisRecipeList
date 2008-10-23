@@ -221,11 +221,13 @@ function addon:CreateScanButton()
 				GameTooltip:Show()
 			end
 		)
+
 	addon.ScanButton:SetScript("OnLeave",
 			function()
 				GameTooltip:Hide()
 			end
 		)
+
 	addon.ScanButton:SetText(L["Scan Recipes"])
 	addon.ScanButton:Enable()
 
@@ -238,14 +240,14 @@ end
 
 function addon:ShowScanButton()
 
-	-- Add to ATSW
+	-- Anchor to ATSW
 	if (ATSWFrame) then
 
 		addon.ScanButton:SetParent(ATSWFrame)
 		addon.ScanButton:ClearAllPoints()
 		addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
 		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
-		addon.ScanButton:SetWidth(80)
+		addon.ScanButton:SetWidth(90)
 
 	-- Anchor to trade window
 	else
@@ -342,6 +344,7 @@ end
 -- Output: 
 
 function addon.filterSwitch(val)
+
 	-- This function is the all-encompassing checkbox handler for the ZJGUI
 	local armordb = addon.db.profile.filters.item.armor
 	local weapondb = addon.db.profile.filters.item.weapon
@@ -499,6 +502,7 @@ function addon.filterSwitch(val)
 	end
 
 	addon.resetTitle()
+
 end
 
 -- Description: 
@@ -507,8 +511,10 @@ end
 -- Output: 
 
 function addon.ToggleFilters()
+
 	local xPos = addon.Frame:GetLeft()
 	local yPos = addon.Frame:GetBottom()
+
 	if (addon.Frame._Expanded == true) then
 		-- Adjust the frame size and texture
 --		addon.Frame:Hide()
@@ -547,6 +553,7 @@ function addon.ToggleFilters()
 		-- and finally, show our frame
 --		addon.Frame:Show()
 	else
+
 		-- Adjust the frame size and texture
 --		addon.Frame:Hide()
 		addon.Frame:ClearAllPoints()
@@ -557,6 +564,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 		addon.Frame._Expanded = true
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_CLOSE"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
@@ -575,8 +583,10 @@ function addon.ToggleFilters()
 		-- and finally, show our frame
 --		addon.Frame:Show()
 	end
+
 	-- Reset our title
 	addon.resetTitle()
+
 end
 
 -- Description: 
@@ -2004,7 +2014,11 @@ function expandEntry(dsIndex)
 
 end
 
--- What to do if someone clicks on a recipe button
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.RecipeItem_OnClick(button)
 	local clickedIndex = addon.RecipeListButton[button].sI
 	local isRecipe = DisplayStrings[clickedIndex].IsRecipe
@@ -2789,8 +2803,10 @@ function addon:CreateFrame(
 	end
 
 	if (not addon.Frame) then
+
 		-- Create the main frame
 		addon.Frame = CreateFrame("Frame", "addon.Frame", UIParent)
+
 		--Allows ARL to be closed with the Escape key
 		tinsert(UISpecialFrames, "addon.Frame")
 
@@ -2807,12 +2823,29 @@ function addon:CreateFrame(
 		addon.Frame:EnableMouse(true)
 		addon.Frame:EnableKeyboard(true)
 		addon.Frame:SetMovable(true)
-		addon.Frame:SetScript("OnMouseDown", function() addon.Frame:StartMoving() end)
+
+		addon.Frame:SetScript("OnMouseDown",
+				function()
+					addon.Frame:StartMoving()
+				end
+			)
+
 		addon.Frame:SetScript("OnHide", function() self:CloseWindow() end)
 		addon.Frame:SetScript("OnMouseUp", function() addon.Frame:StopMovingOrSizing() end)
 
 		addon.Frame:ClearAllPoints()
-		addon.Frame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+
+		-- Anchor frame to ATSW
+		if (ATSWFrame) then
+
+			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+
+		else
+
+			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+
+		end
+
 		addon.Frame:Show()
 		addon.Frame._Expanded = false
 
@@ -2827,9 +2860,11 @@ function addon:CreateFrame(
 			ARL_SwitcherButton:SetWidth(64)
 			ARL_SwitcherButton:SetHeight(64)
 			ARL_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
-			ARL_SwitcherButton:SetScript("OnClick", function()
-				addon.SwitchProfs(cPlayer)
-			end)
+			ARL_SwitcherButton:SetScript("OnClick",
+				function()
+					addon.SwitchProfs(cPlayer)
+				end
+			)
 
 		-- Stuff in the non-expanded frame (or both)
 		local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", addon.Frame, "UIPanelCloseButton")
@@ -3611,6 +3646,7 @@ function addon:CreateFrame(
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
 		}
 	end
+
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.uiscale)
 	arlTooltip:SetScale (addon.db.profile.tooltipscale)
@@ -3628,11 +3664,17 @@ function addon:CreateFrame(
 
 	-- Update our progressbar
 	pbCur = cPlayer.foundRecipes
+
 	if (addon.db.profile.includefiltered == true) then
+
 		pbMax = cPlayer.totalRecipes
+
 	else
+
 		pbMax = GetFilteredRecipes(cPlayer.totalRecipes, cPlayer.filteredRecipes, cPlayer.foundRecipes, cPlayer.otherRecipes)
+
 	end
+
 	ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
 	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
@@ -3640,6 +3682,7 @@ function addon:CreateFrame(
 	-- And update our scrollframe
 	RecipeList_Update()
 	addon.Frame:Show()
+
 end
 
 
