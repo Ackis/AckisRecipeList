@@ -79,6 +79,7 @@ local GetSpellInfo = GetSpellInfo
 local GetSpellName = GetSpellName
 local GetTradeSkillLine = GetTradeSkillLine
 local GetTradeSkillInfo = GetTradeSkillInfo
+local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
 
 local select = select
 local format = format
@@ -283,9 +284,10 @@ function addon:OnEnable()
 	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) then
 
 		self:Print("Enabling Skillet advanced features.")
-		GetNumTradeSkills = Skillet.GetNumTradeSkills
-		GetTradeSkillLine = Skillet.GetTradeSkillLine
-		GetTradeSkillInfo = Skillet.GetTradeSkillInfo
+		GetNumTradeSkills = function(...) Skillet:GetNumTradeSkills(...) end
+		GetTradeSkillLine = function(...) Skillet:GetTradeSkillLine(...) end
+		GetTradeSkillInfo = function(...) Skillet:GetTradeSkillInfo(...) end
+		GetTradeSkillRecipeLink = function(...) Skillet:GetTradeSkillRecipeLink(...) end
 
 	end
 
