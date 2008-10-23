@@ -372,20 +372,28 @@ end
 -- Output: None, array is referenced
 
 function addon:GetFactionLevels(RepTable)
+
 -- Bug here when I reload UI
 	if (not RepTable) then
+
 		return
+
 	end
 
 	for i=1,GetNumFactions(),1 do
+
 		local name,_,replevel = GetFactionInfo(i)
 
 		-- If the rep is greater than neutral
 		if (replevel > 4) then
-		-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
+		
+			-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
 			RepTable[name] = replevel - 4
+
 		end
+
 	end
+
 end
 
 -- Description: Scans first 25 spellbook slots to identify all applicable professions
@@ -561,6 +569,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 	local i = 1
 
 	while (i < numvars) do
+
 		-- Create the space for the current Acquire method
 		RecipeDB[SpellID]["Acquire"][index] = {}
 
@@ -582,7 +591,9 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		end
 
 		index = index + 1
+
 	end
+
 end
 
 -- Description: Adds a specific entry (ie: vendor, mob, etc) to the lookup list
@@ -1532,10 +1543,10 @@ do
 		else
 
 			if (DEBUG) then
-			self:Print("Debug: Found (known) Recipes: " .. playerData.foundRecipes)
-			self:Print("Debug: Total Recipes in Database: " .. playerData.totalRecipes)
-			self:Print("Debug: Filtered Recipes: " .. playerData.filteredRecipes)
-			self:Print("Debug: Other Recipes: " .. playerData.otherRecipes)
+				self:Print("Debug: Found (known) Recipes: " .. playerData.foundRecipes)
+				self:Print("Debug: Total Recipes in Database: " .. playerData.totalRecipes)
+				self:Print("Debug: Filtered Recipes: " .. playerData.filteredRecipes)
+				self:Print("Debug: Other Recipes: " .. playerData.otherRecipes)
 			end
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,

@@ -2200,7 +2200,8 @@ end
 -- Input: 
 -- Output: 
 
-function addon.setFlyawayState () 
+function addon.setFlyawayState()
+
 	-- This function sets all the current options in the flyaway panel to make
 	-- sure they are consistent with the SV options. This is run every time the
 	-- Flyaway panel "OnShow" triggers
@@ -2629,6 +2630,7 @@ function addon.DoFlyaway(panel)
 	end
 
 	if (ChangeFilters == true) then
+
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
 		if ((panel == 3) or (panel == 4)) then
@@ -2694,7 +2696,80 @@ function initDisplayStrings()
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
 			local playerSkill = playerData.playerProfessionLevel
 
-			if (recipeSkill > playerSkill) then
+			local sorttype = addon.db.profile.sorting
+
+			if (sorttype == L["Skill"]) then
+
+				recStr = "[" .. recipeSkill .. "] - " .. recStr
+
+			else
+
+				recStr = recStr .. " - [" .. recipeSkill .. "]"
+
+			end
+
+			local checkFactions = true
+			local playerRep = playerData["Reputation"]
+			local playerFaction = playerData.playerFaction
+
+			-- Scan through all acquire types
+			for i in pairs(recipeDB[recipeIndex]["Acquire"]) do
+
+				-- If it's a repuitation type
+				if (recipeDB[recipeIndex]["Acquire"][i]["Type"] == 6) then
+
+					local repid = recipeDB[recipeIndex]["Acquire"][i]["ID"]
+
+					-- If it's Honor Hold/Thrallmar
+					if (repid == 946) or (repid == 947) then
+
+						-- If the player is Alliance look at Honor Hold only
+						if (playerFaction == BFAC["Alliance"]) then
+
+							repid = 946
+
+						-- If the player is Horde look at Thrallmar only
+						else
+
+							repid = 947
+
+						end
+
+					-- If it's Kureni/Mag'har	
+					elseif (repid == 941) or (repid == 978) then
+
+						-- If the player is Alliance look at Kureni only
+						if (playerFaction == BFAC["Alliance"]) then
+
+							repid = 978
+
+						-- If the player is Horde look at Mag'har only
+						else
+
+							repid = 941
+
+						end
+
+					end
+
+					if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < recipeDB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+
+						checkFactions = false
+
+					else
+
+						-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
+						-- This should allow recipes which have multiple reputations to work correctly
+						checkFactions = true
+						break
+
+					end
+
+				end
+
+			end
+
+			if ((recipeSkill > playerSkill) or (not checkFactions)) then
 
 				t.String = addon:Red(recStr)
 
@@ -2713,18 +2788,6 @@ function initDisplayStrings()
 			else
 
 				t.String = addon:MidGrey(recStr)
-
-			end
-
-			local sorttype = addon.db.profile.sorting
-
-			if (sorttype == L["Skill"]) then
-
-				t.String = "[" .. recipeSkill .. "] - " .. t.String
-
-			else
-
-				t.String = t.String .. " - [" .. recipeSkill .. "]"
 
 			end
 
