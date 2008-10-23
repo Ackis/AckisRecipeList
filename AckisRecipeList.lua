@@ -266,6 +266,7 @@ function addon:OnEnable()
 
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
+
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan Recipes"],
@@ -273,6 +274,17 @@ function addon:OnEnable()
 			func = function() addon:AckisRecipeList_Command() end,
 			order = 550,
 		}
+
+	end
+
+	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
+	if (Skillet) and (Skillet.GetNumTradeSkills) and 
+	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) then
+
+		GetNumTradeSkills = Skillet.GetNumTradeSkills
+		GetTradeSkillLine = Skillet.GetTradeSkillLine
+		GetTradeSkillInfo = Skillet.GetTradeSkillInfo
+
 	end
 
 	-- Populate the repuatation level
