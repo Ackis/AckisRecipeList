@@ -157,6 +157,7 @@ function ReDisplay()
 		addon:GetExclusions(recipeDB)
 
 	end
+
 	initDisplayStrings()
 
 	-- Update our progressbar
@@ -1102,7 +1103,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local trnr = trainerDB[v["ID"]]
 						local cStr = ""
 
-						if (trnr["Coordx"] ~= "0") and (trnr["Coordy"] ~= "0") then
+						if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 
 							cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
 
@@ -1131,7 +1132,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local vndr = vendorDB[v["ID"]]
 						local cStr = ""
 
-						if (vndr["Coordx"] ~= "0") and (vndr["Coordy"] ~= "0") then
+						if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 
 							cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 
@@ -1160,7 +1161,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local mob = mobDB[v["ID"]]
 						local cStr = ""
 
-						if (mob["Coordx"] ~= "0") and (mob["Coordy"] ~= "0") then
+						if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
 
 							cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
 
@@ -1184,7 +1185,7 @@ function SetRecipeButtonTooltip (bIndex)
 
 							local cStr = ""
 
-							if (qst["Coordx"] ~= "0") and (qst["Coordy"] ~= "0") then
+							if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
 
 								cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 
@@ -1229,7 +1230,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local repvndr = vendorDB[v["RepVendor"]]
 						local cStr = ""
 
-						if (repvndr["Coordx"] ~= "0") and (repvndr["Coordy"] ~= "0") then
+						if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
 
 							cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
 
@@ -1361,7 +1362,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local trnr = trainerDB[v["ID"]]
 						local cStr = ""
 
-						if (trnr["Coordx"] ~= "0") and (trnr["Coordy"] ~= "0") then
+						if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 
 							cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
 
@@ -1390,7 +1391,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local vndr = vendorDB[v["ID"]]
 						local cStr = ""
 
-						if (vndr["Coordx"] ~= "0") and (vndr["Coordy"] ~= "0") then
+						if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 
 							cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 
@@ -1419,7 +1420,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local mob = mobDB[v["ID"]]
 						local cStr = ""
 
-						if (mob["Coordx"] ~= "0") and (mob["Coordy"] ~= "0") then
+						if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
 
 							cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
 
@@ -1443,7 +1444,7 @@ function SetRecipeButtonTooltip (bIndex)
 
 							local cStr = ""
 
-							if (qst["Coordx"] ~= "0") and (qst["Coordy"] ~= "0") then
+							if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
 
 								cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 
@@ -1488,7 +1489,7 @@ function SetRecipeButtonTooltip (bIndex)
 						local repvndr = vendorDB[v["RepVendor"]]
 						local cStr = ""
 
-						if (repvndr["Coordx"] ~= "0") and (repvndr["Coordy"] ~= "0") then
+						if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
 
 							cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
 
@@ -1737,7 +1738,7 @@ function expandEntry(dsIndex)
 				local nStr = ""
 				local cStr = ""
 
-				if (trnr["Coordx"] ~= "0") and (trnr["Coordy"] ~= "0") then
+				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 
 					cSte = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
 
@@ -1793,7 +1794,7 @@ function expandEntry(dsIndex)
 				local nStr = ""
 				local cStr = ""
 
-				if (vndr["Coordx"] ~= "0") and (vndr["Coordy"] ~= "0") then
+				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 
 					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
 
@@ -1845,7 +1846,7 @@ function expandEntry(dsIndex)
 			local nStr = ""
 			local cStr = ""
 
-			if (mob["Coordx"] ~= "0") and (mob["Coordy"] ~= "0") then
+			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
 
 				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
 
@@ -1887,7 +1888,7 @@ function expandEntry(dsIndex)
 				local nStr = ""
 				local cStr = ""
 
-				if (qst["Coordx"] ~= "0") and (qst["Coordy"] ~= "0") then
+				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
 
 					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
 
@@ -1967,7 +1968,7 @@ function expandEntry(dsIndex)
 				local rStr = ""
 				local cStr = ""
 
-				if (repvndr["Coordx"] ~= "0") and (repvndr["Coordy"] ~= "0") then
+				if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
 
 					cStr = addon:Coords("(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")")
 
@@ -2676,6 +2677,7 @@ function initDisplayStrings()
 		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 
 			local t = {}
+
 			-- add in recipe difficulty coloring
 			local recStr = ""
 
@@ -2714,11 +2716,24 @@ function initDisplayStrings()
 
 			end
 
+			local sorttype = addon.db.profile.sorting
+
+			if (sorttype == L["Skill"]) then
+
+				t.String = "[" .. recipeSkill .. "] - " .. t.String
+
+			else
+
+				t.String = t.String .. " - [" .. recipeSkill .. "]"
+
+			end
+
 			t.sID = recipeIndex
 			t.IsRecipe = true
 			t.IsExpanded = false
 			tinsert(DisplayStrings, insertIndex, t)
 			insertIndex = insertIndex + 1
+
 		end
 
 	end
@@ -2740,8 +2755,7 @@ function expandallDisplayStrings()
 	local insertIndex = 1
 	for i = 1, #sortedRecipeIndex do
 		local recipeIndex = sortedRecipeIndex[i]
-		if ((recipeDB[recipeIndex]["Display"] == true) and
-			 (recipeDB[recipeIndex]["Search"] == true)) then
+		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 			local t = {}
 			-- add in recipe difficulty coloring
 			local recStr = ""
@@ -2786,6 +2800,7 @@ end
 -- Output: 
 
 function addon.ExpandAll_Clicked()
+
 	-- Called when the expand all button is clicked
 	if (ARL_ExpandButton:GetText() == L["EXPANDALL"]) then
 		ARL_ExpandButton:SetText(L["CONTRACTALL"])
@@ -2797,6 +2812,7 @@ function addon.ExpandAll_Clicked()
 		initDisplayStrings()
 	end
 	RecipeList_Update()
+
 end
 
 -- Description: 
@@ -2806,6 +2822,7 @@ end
 -- Creates the initial frame to display recipes into
 
 function addon:CreateFrame(
+
 	rDB,		-- RecipeList
 	sortedRI,	-- sortedindex
 	cPlayer,	-- playerdata
@@ -2824,14 +2841,18 @@ function addon:CreateFrame(
 		.playerSpecialty == Specialty if any or ""
 		.totalRecipes == Total recipes added to the database
 		.foundRecipes == Total recipes found that the player knows
+		.otherRecipes == Total non-profession recipes in the database
 		.filteredRecipes == Total recipes filtered
+		.playerFaction == Faction of the player
 		["Professions"] == list of all professions with the ones the player knows set as true
 		["Reputation"] == Reputation levels, what I had in current ARLform was if you didn't have the rep level, it would display it in red
 --]]
 
-	myFaction = UnitFactionGroup("player")
+	myFaction = cPlayer.playerFaction
+
 	local HonorHold_Thrallmar_FactionText = ""
 	local Kurenai_Maghar_FactionText = ""
+
 	-- Values forthe progressbar (defaults)
 	local pbMin = 0
 	local pbMax = 100
@@ -2854,20 +2875,28 @@ function addon:CreateFrame(
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
+
 		if (v.name == currentProfession) then
+
 			currentProfIndex = k
 			break
+
 		end
+
 	end
 
 	-- Adding a check in to see if we're Horde or Alliance, and change the displayed reputation
 	-- strings to be faction correct (eg, Honor Hold / Thrallmar)
 	if (myFaction == "Alliance") then
+
 		HonorHold_Thrallmar_FactionText = BFAC["Honor Hold"]
 		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
+
 	else
+
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
+
 	end
 
 	if (not addon.Frame) then
@@ -3618,6 +3647,7 @@ function addon:CreateFrame(
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
+
 		FilterValueMap = {
 		-- General Options
 			[1]  = { cb = ARL_ClassCB,					svroot = filterdb.general,		svval = "class" },
@@ -3713,6 +3743,7 @@ function addon:CreateFrame(
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
 		}
+
 	end
 
 	-- reset the scale
@@ -3724,6 +3755,7 @@ function addon:CreateFrame(
 
 	-- Reset our addon title text
 	addon.resetTitle()
+
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 
