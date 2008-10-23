@@ -847,17 +847,13 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 			cbText:SetJustifyH("LEFT")
 			cButton.text = cbText
 
-
-		-- Temporary disable on the Item Type Filter until the db can dig that stuff out
-		if (bName == "ARL_ExpItemOptCB") then
-			cbText:SetText(addon:Grey(ExpButtonText[panelIndex]))
-		end
-
 		-- And throw up a tooltip
 		addon:TooltipDisplay(cButton, ExpButtonTT[panelIndex])
 		cButton:Hide()
 		return cButton
+
 	end
+
 end
 
 -- Description: 
@@ -2459,6 +2455,7 @@ function addon.DoFlyaway(panel)
 	ARL_RepOldWorldCB:SetChecked(false)
 	ARL_RepBCCB:SetChecked(false)
 	ARL_RepLKCB:SetChecked(false)
+
 	if (panel == 1) then
 		if (ARL_ExpGeneralOptCB:GetChecked()) then
 			-- uncheck all other buttons
@@ -2471,7 +2468,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1])) 
 			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
---			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 			-- display the correct subframe with all the buttons and such, hide the others
@@ -2487,6 +2484,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ChangeFilters = false
 		end
+
 	elseif (panel == 2) then
 		if (ARL_ExpObtainOptCB:GetChecked()) then
 			-- uncheck all other buttons
@@ -2499,7 +2497,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2])) 
 			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
---			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 			-- display the correct subframe with all the buttons and such, hide the others
@@ -2527,7 +2525,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 			ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3])) 
---			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 			-- display the correct subframe with all the buttons and such, hide the others
@@ -2583,7 +2581,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
---			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5])) 
 			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 			-- display the correct subframe with all the buttons and such, hide the others
@@ -2611,7 +2609,7 @@ function addon.DoFlyaway(panel)
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
---			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
 			-- display the correct subframe with all the buttons and such, hide the others
