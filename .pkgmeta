@@ -1,6 +1,11 @@
 # Package file as:
 package-as: AckisRecipeList
 
+optional-dependencies:
+ - atsw
+ - skillet
+ - manufac
+
 # File list to ignore:
 ignore:
  - .pkgmeta
