@@ -6,8 +6,8 @@ ARLDataminer.rb
 
 Datamining for all of AckisRecipeList
 
-$Date: 2008-09-27 01:46:02 -0600 (Sat, 27 Sep 2008) $
-$Rev: 82098 $
+$Date: $
+$Rev: $
 
 ****************************************************************************************
 
