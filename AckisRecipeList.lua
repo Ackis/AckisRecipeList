@@ -1577,6 +1577,34 @@ do
 
 	end
 
+
+	-- Description: API for external addons to get recipe information from ARL
+	-- Expected result: The recipe information is returned if it exists
+	-- Input: The spellID of the recipe.
+	-- Output: A table containing all its information
+
+	function addon:GetRecipeData(spellID)
+
+		if (RecipeList) then
+
+			if (RecipeList[spellID]) then
+
+				return RecipeList[spellID]
+
+			else
+
+				return nil
+
+			end
+
+		else
+
+			return nil
+
+		end
+
+	end
+
 end
 
 --[[
