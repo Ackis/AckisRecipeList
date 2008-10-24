@@ -1,4 +1,4 @@
-﻿=begin
+=begin
 
 ****************************************************************************************
 
@@ -37,7 +37,7 @@ def create_faction_db()
 	puts "Generating Reputation file..."
 
 	# Open the reputation file
-	replua = File.open("./RecipeDB/ARL-Reputation.lua", "w")
+	replua = File.open("./RecipeDB/ARL-Reputation.lua", "w:utf-8")
 
 	# Faction file header
 	header=<<EOF
