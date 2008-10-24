@@ -980,7 +980,7 @@ local function fullOptions()
 						run = {
 							order	= 12,
 							type	= "execute",
-							name	= L["Scan Recipes"],
+							name	= L["Scan"],
 							desc	= L["SCAN_RECIPES_DESC"],
 							func	= function(info) addon:AckisRecipeList_Command(false) end,
 						},

@@ -50,7 +50,7 @@ L["Profile Options"]		= "Options du profil"
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Configuration des options principales"
-L["Scan Recipes"]			= "Analyser"
+L["Scan"]			= "Analyser"
 L["SCAN_RECIPES_DESC"]		= "Analyse une fenêtre de métier ouverte à la recherche de recettes manquantes."
 L["Text Dump"]				= "Texte brut"
 L["TEXT_DUMP_DESC"]			= "Affiche toutes les recettes dans un format de valeurs séparées par des virgules permettant d'être copié/collé dans un autre client."

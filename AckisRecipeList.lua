@@ -271,7 +271,7 @@ function addon:OnEnable()
 		self:Print("Enabling Manufac integration.")
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
-			name = L["Scan Recipes"],
+			name = L["Scan"],
 			desc = L["Scan Skills Long"],
 			func = function() addon:AckisRecipeList_Command() end,
 			order = 550,

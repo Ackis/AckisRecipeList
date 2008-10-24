@@ -237,7 +237,7 @@ function addon:CreateScanButton()
 			end
 		)
 
-	addon.ScanButton:SetText(L["Scan Recipes"])
+	addon.ScanButton:SetText(L["Scan"])
 	addon.ScanButton:Enable()
 
 end

@@ -50,7 +50,7 @@ L["Profile Options"]		= true
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
-L["Scan Recipes"]			= true
+L["Scan"]			= true
 L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes."
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma seperated value format which can be copied and pasted into another client."
