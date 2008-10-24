@@ -280,14 +280,15 @@ function addon:OnEnable()
 	end
 
 	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
-	if (Skillet) and (Skillet.GetNumTradeSkills) and 
-	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) then
+	if (Skillet) and (Skillet.GetNumTradeSkills) and
+	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
+	(Skillet.GetTradeSkillRecipeLink) then
 
 		self:Print("Enabling Skillet advanced features.")
-		GetNumTradeSkills = function(...) Skillet:GetNumTradeSkills(...) end
-		GetTradeSkillLine = function(...) Skillet:GetTradeSkillLine(...) end
-		GetTradeSkillInfo = function(...) Skillet:GetTradeSkillInfo(...) end
-		GetTradeSkillRecipeLink = function(...) Skillet:GetTradeSkillRecipeLink(...) end
+		GetNumTradeSkills = function(...) return Skillet:GetNumTradeSkills(...) end
+		GetTradeSkillLine = function(...) return Skillet:GetTradeSkillLine(...) end
+		GetTradeSkillInfo = function(...) return Skillet:GetTradeSkillInfo(...) end
+		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
 
 	end
 

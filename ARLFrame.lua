@@ -3008,6 +3008,10 @@ function addon:CreateFrame(
 
 			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
 
+		elseif (Skillet) then
+
+			addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+
 		else
 
 			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
