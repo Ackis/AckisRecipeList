@@ -1550,6 +1550,7 @@ do
 				self:GetExclusions(RecipeList)
 
 			end
+
 		end
 
 		-- Sort the recipe list now
@@ -1600,6 +1601,25 @@ do
 		else
 
 			return nil
+
+		end
+
+	end
+
+	-- Description: API for external addons to get recipe information from ARL
+	-- Expected result: The recipe information is returned if it exists
+	-- Input: None
+	-- Output: All the tables containing reference data
+
+	function addon:GetRecipeSets()
+
+		if (RecipeList) then
+
+			return MobList, QuestList, ReputationList, TrainerList, SeasonalList, VendorList
+
+		else
+
+			return nil, nil, nil, nil, nil, nil
 
 		end
 
