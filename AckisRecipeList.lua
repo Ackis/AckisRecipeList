@@ -1351,7 +1351,8 @@ do
 			local recipeacquire = RecipeList[SpellID]["Acquire"]
 
 			for i in pairs(recipeacquire) do
-
+--/script AckisRecipeList:Print(AckisRecipeList:GetRecipeLocations())
+				self:Print(i .. " " .. recipeacquire[i]["Type"])
 				-- Trainer
 				if (recipeacquire[i]["Type"] == 1) then
 
