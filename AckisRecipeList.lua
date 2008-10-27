@@ -5,6 +5,8 @@
 AckisRecipeList
 $Date$
 $Rev$
+Project: @project-revision@
+Version: @project-version@
 
 Author: Ackis on Illidan US Horde
 GUI done by Zhinjio
