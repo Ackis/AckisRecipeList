@@ -1637,41 +1637,68 @@ end
 
 ]]--
 
--- Description: Sorts the recipe Database depending on the settings defined in the database.
--- Expected result: A sorted array indexing values in the RecipeDB is returned.
--- Input: The Recipe Database
--- Output: A pointer to an array containing sorted values
+do
 
-function addon:SortMissingRecipes(RecipeDB)
+	-- Sorting functions
 
-	-- Create a new array for the sorted index
-	local SortedRecipeIndex = {}
+	local sortFuncs = {}
 
-	-- Find out how he want to sort
-	local sorttype = addon.db.profile.sorting
+	sortfunc[L['Skill']] = function(a, b) 
 
-	-- Get all the indexes of the RecipeListing
-	for n, v in pairs(RecipeDB) do
-
-		tinsert(SortedRecipeIndex, n)
+		return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
 
 	end
 
-	if (sorttype == L["Skill"]) then
+	sortfunc[L['Name']] = function(a, b)
 
-		tsort(SortedRecipeIndex, function(a,b) return RecipeDB[a]["Level"] < RecipeDB[b]["Level"] end)
-
-	elseif (sorttype == L["Name"]) then
-
-		tsort(SortedRecipeIndex, function(a,b) return RecipeDB[a]["Name"] < RecipeDB[b]["Name"] end)
-
-	elseif (sorttype == L["Acquisition"]) then
-
-		tsort(SortedRecipeIndex, function(a,b) return RecipeDB[a]["Acquire"][1]["Type"] < RecipeDB[b]["Acquire"][1]["Type"] end)
+		return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
 
 	end
 
-	return SortedRecipeIndex
+	sortfunc[L['Acquisition']] = function (a, b)
+
+		local reca = RecipeDB[a]["Acquire"][1]
+		local recb = RecipeDB[b]["Acquire"][1]
+
+		if (reca) and (recb) then
+
+			return reca["Type"] < recb["Type"]
+
+		else
+
+			return not not reca
+
+		end
+
+	end
+
+	sortfunc[L["Location"]] = function (a, b)
+
+	end
+
+
+	-- Description: Sorts the recipe Database depending on the settings defined in the database.
+	-- Expected result: A sorted array indexing values in the RecipeDB is returned.
+	-- Input: The Recipe Database
+	-- Output: A pointer to an array containing sorted values
+
+	function addon:SortMissingRecipes(RecipeDB)
+
+		-- Create a new array for the sorted index
+		local SortedRecipeIndex = {}
+
+		-- Get all the indexes of the RecipeListing
+		for n, v in pairs(RecipeDB) do
+
+			tinsert(SortedRecipeIndex, n)
+
+		end
+
+		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
+
+		return SortedRecipeIndex
+
+	end
 
 end
 

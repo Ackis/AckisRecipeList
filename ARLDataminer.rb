@@ -237,6 +237,7 @@ EOF
 		proflua.puts "\t-- #{name} -- #{details[:spellid]}"
 
 		details[:method].split(",").each do |method|
+
 			case method
 
 			# trainers
@@ -503,6 +504,7 @@ EOF
 					$quests[quest[:id]] = {:name => quest[:name]}
 
 					if quest[:side] == 1
+
 						flags << 1 << 2
 						$quests[quest[:id]][:faction] = 0
 
@@ -933,8 +935,6 @@ EOF
 
 	sorted_keys.each do |k|
 		v = list[k]
-
-	#list.each_pair do |k,v|
 
 		if count == 50
 

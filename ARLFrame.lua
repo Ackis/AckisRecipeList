@@ -2308,7 +2308,7 @@ function addon.setFlyawayState()
 		 (armordb.mail == true) and (armordb.plate == true) and
 		 (armordb.cloak == true) and (armordb.necklace == true) and
 		 (armordb.ring == true) and (armordb.trinket == true) and
-		 (armoddb.shield == true)) then
+		 (armordb.shield == true)) then
 		ARL_ArmorAllCB:SetChecked(true)
 	else
 		ARL_ArmorAllCB:SetChecked(false)
