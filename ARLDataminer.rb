@@ -9,6 +9,7 @@ Datamining for all of AckisRecipeList
 $Date: $
 $Rev: $
 $Rev: 962 $
+@project-revision@
 
 ****************************************************************************************
 

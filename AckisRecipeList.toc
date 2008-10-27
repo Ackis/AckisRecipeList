@@ -19,7 +19,7 @@
 
 ## Interface: 30000
 ## Version: Beta 6 r962
-## X-Revision: $Rev$
+## X-Revision: @project-revision@ $Rev$
 ## X-Date: $Date$
 
 ## X-credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan

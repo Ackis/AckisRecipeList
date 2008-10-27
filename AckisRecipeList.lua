@@ -90,6 +90,7 @@ local pairs = pairs
 local table = table
 local next = next
 local tremove = table.remove
+local tconcat = table.concat
 local tsort = table.sort
 local tinsert = table.insert
 local sfind = string.find
@@ -503,6 +504,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	RecipeDB[SpellID]["ItemID"] = ItemID or nil
 	RecipeDB[SpellID]["Rarity"] = Rarity
 	RecipeDB[SpellID]["Profession"] = GetSpellInfo(Profession)
+	RecipeDB[SpellID]["Locations"] = nil
 
 	-- Get the recipe link from the spell ID
 	local spellLink = GetSpellLink(SpellID)
@@ -638,6 +640,10 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 	if (Loc) then
 
 		DB[ID]["Location"] = Loc
+
+	else
+
+		DB[ID]["Location"] = L["Unknown Zone"]
 
 	end
 
@@ -1326,6 +1332,46 @@ do
 	local playerData = nil
 
 	local tradewindowopened = false
+	local locationlist = nil
+
+	-- Description: Determines all the locations a given recipe can be obtained
+	-- Expected result: Listing of all locations for a given recipe are provided.
+	-- Input: Spell ID for the recipe we want to get information for
+	-- Output: Listing of all locations ofr a given recipe
+
+	function addon:GetRecipeLocations(SpellID)
+
+		if (RecipeList) and (RecipeList[SpellID]) then
+
+			locationlist = {}
+
+			local recipeacquire = RecipeList[SpellID]["Acquire"]
+
+			for i in pairs(recipeacquire) do
+
+				-- Trainer
+				if (recipeacquire[i]["Type"] == 1) then
+
+					if (TrainerList) then
+
+						-- Add the location to the list
+						tinsert(locationlist,TrainerList[recipeacquire[i]["ID"]]["Location"])
+
+					end
+
+				end
+
+			end
+
+			return tconcat(locationlist,",")
+
+		else
+
+			return nil
+
+		end
+
+	end
 
 	-- Description: Toggles the flag that a trade window is opened
 	-- Expected result: Flag is toggled on
@@ -1582,7 +1628,6 @@ do
 
 	end
 
-
 	-- Description: API for external addons to get recipe information from ARL
 	-- Expected result: The recipe information is returned if it exists
 	-- Input: The spellID of the recipe.
@@ -1833,6 +1878,6 @@ function addon:GetTextDump(RecipeDB)
 
 	end
 
-	return table.concat(texttable,"\n")
+	return tconcat(texttable,"\n")
 
 end

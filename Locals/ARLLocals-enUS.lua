@@ -269,7 +269,6 @@ L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a t
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 
 -- Drop Obtain Info
-L["Unknown"] = "Unknown Drop: The drop location of this recipe is unknown.  Please contribute by posting on the Ackis Recipe List thread at www.wowace.com/forums"
 L["Unknown Zone"] = true
 
 -- Special Event information
