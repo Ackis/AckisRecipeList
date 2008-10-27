@@ -7,6 +7,8 @@ zhCN localization strings for Ackis Recipe List
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 Original translated by: iCat (msn: lucifer_icat@hotmail.com)
 Currently maintaince by: Kurax, 冰焱妩魅 @ CWDG

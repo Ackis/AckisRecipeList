@@ -8,6 +8,8 @@ Colouring functions for ARL
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 Code adopted from Crayon library
 

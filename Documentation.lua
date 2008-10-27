@@ -8,6 +8,8 @@ Is all just text but keeping in .lua form so editors can collapse sections easil
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 ]]--

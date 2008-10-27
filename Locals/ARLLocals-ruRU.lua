@@ -7,6 +7,8 @@ ruRU localization strings for Ackis Recipe List
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 Original translated by: 
 Currently maintaince by: 

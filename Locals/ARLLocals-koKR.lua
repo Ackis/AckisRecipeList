@@ -7,6 +7,8 @@ koKR localization strings for Ackis Recipe List
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 Original translated by: damjau
 Currently maintaince by: next96

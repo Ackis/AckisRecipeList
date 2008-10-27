@@ -3,8 +3,9 @@
 ************************************************************************
 
 AckisRecipeList
-File $Date$
-File Revision: $Rev$
+
+$Date$
+$Rev$
 Project revision: @project-revision@
 Project version: @project-version@
 

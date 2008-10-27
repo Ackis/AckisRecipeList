@@ -8,6 +8,8 @@ Ace3 Configuration options for ARL
 
 $Date$
 $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 

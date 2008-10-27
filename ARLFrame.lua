@@ -6,8 +6,8 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-File $Date$
-File Revision: $Rev$
+$Date$
+$Rev$
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -2319,7 +2319,7 @@ function addon.setFlyawayState()
 		 (armordb.mail == false) and (armordb.plate == false) and
 		 (armordb.cloak == false) and (armordb.necklace == false) and
 		 (armordb.ring == false) and (armordb.trinket == false) and
-		 (armodb.shield == true)) then
+		 (armordb.shield == true)) then
 		ARL_ArmorNoneCB:SetChecked(true)
 	else
 		ARL_ArmorNoneCB:SetChecked(false)
