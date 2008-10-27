@@ -97,10 +97,19 @@ StaticPopupDialogs["ARL_NOTSCANNED"] = {
 	exclusive = 1,
 	whileDead = 1,
 	hideOnEscape = 1
-};
+}
 
 StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	text = L["ALL_FILTERED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+StaticPopupDialogs["ARL_ALLKNOWN"] = {
+	text = L["ARL_ALLKNOWN"],
 	button1 = L["Ok"],
 	timeout = 0,
 	exclusive = 1,
@@ -335,14 +344,20 @@ function addon.resetTitle()
 	-- reset the frame title line
 	local myTitle = ""
 	local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+
 	if (addon.Frame._Expanded == true) then
+
 		local aFil, tFil = addon.numFilters()
+
 		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession ..
 			" (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
+
 	else
+
 		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession
+
 	end
---	addon.Frame.HeadingText:SetText(addon:White(myTitle))
+
 	addon.Frame.HeadingText:SetText(addon:Normal(myTitle))
 
 end
@@ -908,6 +923,7 @@ function SetSwitcherTexture(tex)
 	ARL_SwitcherButton:SetNormalTexture(ARL_S_NTexture)
 	ARL_SwitcherButton:SetPushedTexture(ARL_S_PTexture)
 	ARL_SwitcherButton:SetDisabledTexture(ARL_S_DTexture)
+
 end
 
 -- Description: 
@@ -1035,12 +1051,14 @@ end
 -- Output: 
 
 function ClearRecipeButtonTooltip(bIndex)
+
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
 	pButton:SetScript("OnEnter", function () end)
 	pButton:SetScript("OnLeave", function () end)
 	rButton:SetScript("OnEnter", function () end)
 	rButton:SetScript("OnLeave", function () end)
+
 end
 
 -- Description: 
@@ -1656,16 +1674,27 @@ function RecipeList_Update()
 
 		end
 
+	-- Entries are 0 here
 	else
---TODOfix popups for when everything is fileterd
-		-- If the recipetotal > 0 that means we've already scanned this recipe
-		if (playerData.totalRecipes > 0) then
+
+		-- If the recipe total is at 0, it means we have not scanned the profession yet
+		if (playerData.totalRecipes == 0) then
 
 			StaticPopup_Show("ARL_NOTSCANNED")
 
-		else
+		-- We know all the recipes
+		elseif (playerData.foundRecipes == playerData.totalRecipes) then
+
+			StaticPopup_Show("ARL_ALLKNOWN")
+
+		-- Our filters are actually filtering something
+		elseif ((playerData.totalRecipes - (playerData.filteredRecipes - playerData.otherRecipes)) > 0) then
 
 			StaticPopup_Show("ARL_ALLFILTERED")
+
+		else
+
+			addon:Print("No recipes to display.")
 
 		end
 

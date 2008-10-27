@@ -259,6 +259,7 @@ L["Required Skill"]		= true
 -- Popup Strings
 L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
+L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
 
 -- Error/warning Text
 L["MissingFromDB"] = ": is is missing from the database. \nPlease inform the author of the add-on about this recipe."
