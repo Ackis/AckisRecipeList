@@ -6,8 +6,10 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-$Date$
-$Rev$
+File $Date$
+File Revision: $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 

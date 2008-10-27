@@ -3,10 +3,10 @@
 ************************************************************************
 
 AckisRecipeList
-$Date$
-$Rev$
-Project: @project-revision@
-Version: @project-version@
+File $Date$
+File Revision: $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 Author: Ackis on Illidan US Horde
 GUI done by Zhinjio
@@ -1690,19 +1690,19 @@ do
 
 	local sortFuncs = {}
 
-	sortfunc[L['Skill']] = function(a, b) 
+	sortFuncs[L['Skill']] = function(a, b) 
 
 		return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
 
 	end
 
-	sortfunc[L['Name']] = function(a, b)
+	sortFuncs[L['Name']] = function(a, b)
 
 		return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
 
 	end
 
-	sortfunc[L['Acquisition']] = function (a, b)
+	sortFuncs[L['Acquisition']] = function (a, b)
 
 		local reca = RecipeDB[a]["Acquire"][1]
 		local recb = RecipeDB[b]["Acquire"][1]
@@ -1719,7 +1719,7 @@ do
 
 	end
 
-	sortfunc[L["Location"]] = function (a, b)
+	sortFuncs[L["Location"]] = function (a, b)
 
 	end
 

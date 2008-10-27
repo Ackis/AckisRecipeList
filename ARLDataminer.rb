@@ -6,10 +6,10 @@ ARLDataminer.rb
 
 Datamining for all of AckisRecipeList
 
-$Date: $
-$Rev: $
-$Rev: 962 $
-@project-revision@
+File $Date$
+File Revision: $Rev$
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 
