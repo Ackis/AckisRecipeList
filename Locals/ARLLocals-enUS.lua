@@ -50,7 +50,7 @@ L["Profile Options"]		= true
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
-L["Scan"]			= true
+L["Scan"]					= true
 L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes."
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma seperated value format which can be copied and pasted into another client."
@@ -84,7 +84,7 @@ L["Obtain"]					= true
 L["Binding"]				= true
 L["Item"]					= true
 L["Armor"]					= true
-L["Weapon"]				= true
+L["Weapon"]					= true
 L["Player Type"]			= true
 L["Reputation"]				= true
 L["Old World"]				= true
@@ -92,29 +92,29 @@ L["Burning Crusade"]		= true
 L["Wrath of the Lich King"]	= true
 
 -- Filter Configuration Descriptions
-L["FILTERING_OPTIONS_DESC"]		= "Allows you to customize which recipes are filtered."
-L["General Filtering Options"]	= true
-L["FILTERING_GENERAL_DESC"]		= "Configuration for several more general filter types."
-L["Obtain Filtering Options"]	= true
-L["FILTERING_OBTAIN_DESC"]		= "Configuration for which methods of obtaining recipes are included in the scan."
-L["Binding Filtering Options"]	= true
-L["FILTERING_BINDING_DESC"]		= "Configuration for which types of binding are included in the scan."
-L["Item Filtering Options"]		= true
-L["FILTERING_ITEM_DESC"]		= "Configuration for which item types are included in the scan."
-L["Armor Filtering Options"]	= true
-L["FILTERING_Armor_DESC"]		= "Configuration for which types of armor are included in the scan."
-L["Weapon Filtering Options"]	= true
-L["FILTERING_WEAPONS_DESC"]		= "Configuration for which types of weapons are included in the scan."
-L["Player Type Filtering Options"]	= true
-L["FILTERING_PLAYERTYPE_DESC"]	= "Configuration for items matching which player types are included in the scan."
-L["Reputation Filtering Options"]	= true
-L["FILTERING_REP_DESC"]			= "Configuration for which reputation reward recipes are included in the scan."
-L["Old World Rep. Filtering Options"]	= true
-L["FILTERING_OLDWORLD_DESC"]	= "Configuration for which Old World Reputation reward recipes are included in the scan."
+L["FILTERING_OPTIONS_DESC"]					= "Allows you to customize which recipes are filtered."
+L["General Filtering Options"]				= true
+L["FILTERING_GENERAL_DESC"]					= "Configuration for several more general filter types."
+L["Obtain Filtering Options"]				= true
+L["FILTERING_OBTAIN_DESC"]					= "Configuration for which methods of obtaining recipes are included in the scan."
+L["Binding Filtering Options"]				= true
+L["FILTERING_BINDING_DESC"]					= "Configuration for which types of binding are included in the scan."
+L["Item Filtering Options"]					= true
+L["FILTERING_ITEM_DESC"]					= "Configuration for which item types are included in the scan."
+L["Armor Filtering Options"]				= true
+L["FILTERING_Armor_DESC"]					= "Configuration for which types of armor are included in the scan."
+L["Weapon Filtering Options"]				= true
+L["FILTERING_WEAPONS_DESC"]					= "Configuration for which types of weapons are included in the scan."
+L["Player Type Filtering Options"]			= true
+L["FILTERING_PLAYERTYPE_DESC"]				= "Configuration for items matching which player types are included in the scan."
+L["Reputation Filtering Options"]			= true
+L["FILTERING_REP_DESC"]						= "Configuration for which reputation reward recipes are included in the scan."
+L["Old World Rep. Filtering Options"]		= true
+L["FILTERING_OLDWORLD_DESC"]				= "Configuration for which Old World Reputation reward recipes are included in the scan."
 L["Burning Crusade Rep. Filtering Options"]	= true
-L["FILTERING_BC_DESC"]			= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
-L["Lich King Rep. Filtering Options"]	= true
-L["FILTERING_WOTLK_DESC"]		= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
+L["Lich King Rep. Filtering Options"]		= true
+L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
 
 -- General Filter UI Elements and their associated descriptions
 L["Faction"]				= true
@@ -265,6 +265,7 @@ L["MissingFromDB"] = ": is is missing from the database. \nPlease inform the aut
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
+L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 
 -- Drop Obtain Info
 L["Unknown"] = "Unknown Drop: The drop location of this recipe is unknown.  Please contribute by posting on the Ackis Recipe List thread at www.wowace.com/forums"

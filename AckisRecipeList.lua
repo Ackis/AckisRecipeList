@@ -500,7 +500,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	RecipeDB[SpellID] = {}
 	-- Set the information passed
 	RecipeDB[SpellID]["Level"] = SkillLevel
-	RecipeDB[SpellID]["ItemID"] = ItemID
+	RecipeDB[SpellID]["ItemID"] = ItemID or nil
 	RecipeDB[SpellID]["Rarity"] = Rarity
 	RecipeDB[SpellID]["Profession"] = GetSpellInfo(Profession)
 
@@ -508,9 +508,13 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	local spellLink = GetSpellLink(SpellID)
 
 	if (spellLink ~= nil) then
+
 		RecipeDB[SpellID]["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
+
 	else
+
 		RecipeDB[SpellID]["RecipeLink"] = nil
+
 	end
 
 	-- Get the recipe name now
