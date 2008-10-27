@@ -5,8 +5,8 @@ ARLLocals-enUS.lua
 
 enUS localization strings for Ackis Recipe List
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -77,6 +77,7 @@ L["SORTING_DESC"]			= "Change the way in which displayed recipes are sorted."
 L["Version"]				= "Version: "
 L["Name"]					= true
 L["Skill"]					= true
+L["Location"]				= true
 L["Acquisition"]			= true
 
 -- Filter Config Options

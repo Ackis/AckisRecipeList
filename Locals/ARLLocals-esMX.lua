@@ -3,10 +3,10 @@
 
 ARLLocals-esMX.lua
 
-esES localization strings for Ackis Recipe List
+esMX localization strings for Ackis Recipe List
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 

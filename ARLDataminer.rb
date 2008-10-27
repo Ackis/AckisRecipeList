@@ -6,8 +6,8 @@ ARLDataminer.rb
 
 Datamining for all of AckisRecipeList
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -56,8 +56,8 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-\$Date: \$
-\$Rev: \$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -201,8 +201,8 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-\$Date: \$
-\$Rev: \$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -904,8 +904,8 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-\$Date: \$
-\$Rev: \$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 

@@ -2,10 +2,10 @@
 
 ************************************************************************
 
-AckisRecipeList
+AckisRecipeList.lua
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -1691,46 +1691,45 @@ do
 
 	local sortFuncs = {}
 
-	sortFuncs[L['Skill']] = function(a, b) 
-
-		return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
-
-	end
-
-	sortFuncs[L['Name']] = function(a, b)
-
-		return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-
-	end
-
-	sortFuncs[L['Acquisition']] = function (a, b)
-
-		local reca = RecipeDB[a]["Acquire"][1]
-		local recb = RecipeDB[b]["Acquire"][1]
-
-		if (reca) and (recb) then
-
-			return reca["Type"] < recb["Type"]
-
-		else
-
-			return not not reca
-
-		end
-
-	end
-
-	sortFuncs[L["Location"]] = function (a, b)
-
-	end
-
-
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
 	-- Expected result: A sorted array indexing values in the RecipeDB is returned.
 	-- Input: The Recipe Database
 	-- Output: A pointer to an array containing sorted values
 
 	function addon:SortMissingRecipes(RecipeDB)
+
+		sortFuncs[L['Skill']] = function(a, b) 
+
+			return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+
+		end
+
+		sortFuncs[L['Name']] = function(a, b)
+
+			return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+
+		end
+
+		sortFuncs[L['Acquisition']] = function (a, b)
+
+			local reca = RecipeDB[a]["Acquire"][1]
+			local recb = RecipeDB[b]["Acquire"][1]
+
+			if (reca) and (recb) then
+
+				return reca["Type"] < recb["Type"]
+
+			else
+
+				return not not reca
+
+			end
+
+		end
+
+		sortFuncs[L["Location"]] = function (a, b)
+
+		end
 
 		-- Create a new array for the sorted index
 		local SortedRecipeIndex = {}

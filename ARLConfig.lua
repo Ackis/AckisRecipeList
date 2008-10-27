@@ -6,8 +6,8 @@ ARLConfig.lua
 
 Ace3 Configuration options for ARL
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 

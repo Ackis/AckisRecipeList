@@ -6,8 +6,8 @@ ARLColour.lua
 
 Colouring functions for ARL
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
