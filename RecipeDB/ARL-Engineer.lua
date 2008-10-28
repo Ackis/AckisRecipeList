@@ -1887,9 +1887,9 @@ function addon:InitEngineering(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 30343, 315, 23770, 1, 4036)
-	self:addTradeFlags(RecipeDB, 30343, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- recipecount = recipecount + 1
+	-- self:addTradeSkill(RecipeDB, 30343, 315, 23770, 1, 4036)
+	-- self:addTradeFlags(RecipeDB, 30343, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Green Smoke Flare -- 30344
