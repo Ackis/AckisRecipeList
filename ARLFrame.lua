@@ -85,8 +85,6 @@ local ExpButtonTT = {
 	L["FILTERING_REP_DESC"]			-- 6
 }
 
--- For wotlk code differences
-local GameVersion = select(4, GetBuildInfo())
 
 -- Define the static popups we're going to call when people don't have a
 -- scanned or don't are blocking all recipes from being displayed
@@ -198,6 +196,128 @@ function ReDisplay()
 
 	-- And update our scrollframe
 	RecipeList_Update()
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+
+	local fac = false
+
+	-- Scan through all acquire types
+	for i in pairs(DB[recipeIndex]["Acquire"]) do
+
+		-- If it's a repuitation type
+		if (DB[recipeIndex]["Acquire"][i]["Type"] == 6) then
+
+			local repid = DB[recipeIndex]["Acquire"][i]["ID"]
+
+			-- If it's Honor Hold/Thrallmar
+			if (repid == 946) or (repid == 947) then
+
+				-- If the player is Alliance look at Honor Hold only
+				if (playerFaction == BFAC["Alliance"]) then
+
+					repid = 946
+
+				-- If the player is Horde look at Thrallmar only
+				else
+
+					repid = 947
+
+				end
+
+			-- If it's Kureni/Mag'har	
+			elseif (repid == 941) or (repid == 978) then
+
+				-- If the player is Alliance look at Kureni only
+				if (playerFaction == BFAC["Alliance"]) then
+
+					repid = 978
+
+				-- If the player is Horde look at Mag'har only
+				else
+
+					repid = 941
+
+				end
+
+			end
+
+			if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+
+				fac = false
+
+			else
+
+				-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
+				-- This should allow recipes which have multiple reputations to work correctly
+				fac = true
+				break
+
+			end
+
+		end
+
+	end
+
+	return fac
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+
+	if ((recipeSkill > playerSkill) or (not hasFaction)) then
+
+		return addon:Red(recStr)
+
+	elseif ((playerSkill - recipeSkill) < 20) then
+
+		return addon:Orange(recStr)
+
+	elseif ((playerSkill - recipeSkill) < 30) then
+
+		return addon:Yellow(recStr)
+
+	elseif ((playerSkill - recipeSkill) < 40) then
+
+		return addon:Green(recStr)
+
+	else
+
+		return addon:MidGrey(recStr)
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function SetSortString(recipeSkill, recStr)
+
+	local sorttype = addon.db.profile.sorting
+
+	if (sorttype == L["Skill"]) then
+
+		return "[" .. recipeSkill .. "] - " .. recStr
+
+	else
+
+		return recStr .. " - [" .. recipeSkill .. "]"
+
+	end
 
 end
 
@@ -2776,100 +2896,11 @@ function initDisplayStrings()
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
 			local playerSkill = playerData.playerProfessionLevel
 
-			local sorttype = addon.db.profile.sorting
+			recStr = SetSortString(recipeSkill, recStr)
 
-			if (sorttype == L["Skill"]) then
+			local hasFaction = checkFactions(DB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
-				recStr = "[" .. recipeSkill .. "] - " .. recStr
-
-			else
-
-				recStr = recStr .. " - [" .. recipeSkill .. "]"
-
-			end
-
-			local checkFactions = true
-			local playerRep = playerData["Reputation"]
-			local playerFaction = playerData.playerFaction
-
-			-- Scan through all acquire types
-			for i in pairs(recipeDB[recipeIndex]["Acquire"]) do
-
-				-- If it's a repuitation type
-				if (recipeDB[recipeIndex]["Acquire"][i]["Type"] == 6) then
-
-					local repid = recipeDB[recipeIndex]["Acquire"][i]["ID"]
-
-					-- If it's Honor Hold/Thrallmar
-					if (repid == 946) or (repid == 947) then
-
-						-- If the player is Alliance look at Honor Hold only
-						if (playerFaction == BFAC["Alliance"]) then
-
-							repid = 946
-
-						-- If the player is Horde look at Thrallmar only
-						else
-
-							repid = 947
-
-						end
-
-					-- If it's Kureni/Mag'har	
-					elseif (repid == 941) or (repid == 978) then
-
-						-- If the player is Alliance look at Kureni only
-						if (playerFaction == BFAC["Alliance"]) then
-
-							repid = 978
-
-						-- If the player is Horde look at Mag'har only
-						else
-
-							repid = 941
-
-						end
-
-					end
-
-					if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < recipeDB[recipeIndex]["Acquire"][i]["RepLevel"]) then
-
-						checkFactions = false
-
-					else
-
-						-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
-						-- This should allow recipes which have multiple reputations to work correctly
-						checkFactions = true
-						break
-
-					end
-
-				end
-
-			end
-
-			if ((recipeSkill > playerSkill) or (not checkFactions)) then
-
-				t.String = addon:Red(recStr)
-
-			elseif ((playerSkill - recipeSkill) < 20) then
-
-				t.String = addon:Orange(recStr)
-
-			elseif ((playerSkill - recipeSkill) < 30) then
-
-				t.String = addon:Yellow(recStr)
-
-			elseif ((playerSkill - recipeSkill) < 40) then
-
-				t.String = addon:Green(recStr)
-
-			else
-
-				t.String = addon:MidGrey(recStr)
-
-			end
+			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 
 			t.sID = recipeIndex
 			t.IsRecipe = true
@@ -2893,48 +2924,65 @@ end
 function expandallDisplayStrings()
 
 	local exclude = addon.db.profile.exclusionlist
+
 	DisplayStrings = nil
 	DisplayStrings = {}
+
 	local insertIndex = 1
+
 	for i = 1, #sortedRecipeIndex do
+
 		local recipeIndex = sortedRecipeIndex[i]
+
 		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+
 			local t = {}
+
 			-- add in recipe difficulty coloring
 			local recStr = ""
+
 			if (exclude[recipeIndex] == true) then
+
 				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
+
 			else
+
 				recStr = recipeDB[recipeIndex]["Name"]
+
 			end
+
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
 			local playerSkill = playerData.playerProfessionLevel
-			if (recipeSkill > playerSkill) then
-				t.String = addon:Red(recStr)
-			elseif ((playerSkill - recipeSkill) < 20) then
-				t.String = addon:Orange(recStr)
-			elseif ((playerSkill - recipeSkill) < 30) then
-				t.String = addon:Yellow(recStr)
-			elseif ((playerSkill - recipeSkill) < 40) then
-				t.String = addon:Green(recStr)
-			else
-				t.String = addon:MidGrey(recStr)
-			end
+
+			recStr = SetSortString(recipeSkill, recStr)
+
+			local hasFaction = checkFactions(DB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+
+			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+
 			t.sID = sortedRecipeIndex[i]
 			t.IsRecipe = true
+
 			if (recipeDB[recipeIndex]["Acquire"]) then
+
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
 				tinsert(DisplayStrings, insertIndex, t)
 				insertIndex = expandEntry(insertIndex)
+
 			else
+
 				t.IsExpanded = false
 				tinsert(DisplayStrings, insertIndex, t)
 				insertIndex = insertIndex + 1
+
 			end
+
 		end
+
 	end
+
 end
 
 -- Description: 
