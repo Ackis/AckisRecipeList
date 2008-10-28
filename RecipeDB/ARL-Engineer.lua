@@ -2168,12 +2168,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Furious Gizmatic Goggles -- 40274
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, SC Class, 
 	-- Item Stats: 
 	-- Item Stats: val48id1val28id3val1296id6val38id11val38id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 40274, 350, 32461, 1, 4036)
-	self:addTradeFlags(RecipeDB, 40274, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,59)
+	self:addTradeFlags(RecipeDB, 40274, 1,2,3,25,29,37,41,47,59)
 	self:addTradeAcquire(RecipeDB, 40274, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
@@ -2188,62 +2188,62 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Justicebringer 2000 Specs -- 41311
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, SC Class, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val29id3val13id4val1296id6val34id19val101id20val39id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41311, 350, 32472, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41311, 1,3,21,22,23,24,25,26,27,28,29,30,37,41,47,53,59)
+	self:addTradeFlags(RecipeDB, 41311, 1,3,25,37,41,47,53,59)
 	self:addTradeAcquire(RecipeDB, 41311, 1, 17634, 1, 18775)
 
 	-- Tankatronic Goggles -- 41312
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, SC Class, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val67id3val1296id6val22id26val38id31
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41312, 350, 32473, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41312, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,52,59)
+	self:addTradeFlags(RecipeDB, 41312, 1,2,3,25,29,37,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 41312, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, SC Class, 
 	-- Item Stats: 
 	-- Item Stats: val28id3val726id6val96id9val38id11val96id16val38id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41314, 350, 32474, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41314, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,58)
+	self:addTradeFlags(RecipeDB, 41314, 1,2,3,23,27,37,41,47,58)
 	self:addTradeAcquire(RecipeDB, 41314, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Gadgetstorm Goggles -- 41315
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, SC Class, 
 	-- Item Stats: Caster DPS, Caster DPS, 
 	-- Item Stats: val28id3val726id6val60id19val60id20val12id21val40id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41315, 350, 32476, 4, 4036)
-	self:addTradeFlags(RecipeDB, 41315, 3,21,22,23,24,25,26,27,28,29,30,37,41,47,54,58)
+	self:addTradeFlags(RecipeDB, 41315, 3,27,37,41,47,54,58)
 	-- No acquire information
 
 	-- Living Replicator Specs -- 41316
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Mail, SC Class, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val14id3val38id4val726id6val39id19val115id20val9id24
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41316, 350, 32475, 4, 4036)
-	self:addTradeFlags(RecipeDB, 41316, 3,21,22,23,24,25,26,27,28,29,30,37,41,47,53,58)
+	self:addTradeFlags(RecipeDB, 41316, 3,27,37,41,47,53,58)
 	-- No acquire information
 
 	-- Deathblow X11 Goggles -- 41317
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Leather, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Leather, SC Class, 
 	-- Item Stats: 
 	-- Item Stats: val48id2val28id3val326id6val76id9val76id16
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41317, 350, 32478, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41317, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,57)
+	self:addTradeFlags(RecipeDB, 41317, 1,2,3,22,28,37,41,47,57)
 	self:addTradeAcquire(RecipeDB, 41317, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Wonderheal XT40 Shades -- 41318
@@ -2258,32 +2258,32 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Magnified Moon Specs -- 41319
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Leather, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Leather, SC Class, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val22id3val24id4val326id6val55id19val55id20val41id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41319, 350, 32480, 4, 4036)
-	self:addTradeFlags(RecipeDB, 41319, 3,21,22,23,24,25,26,27,28,29,30,37,41,47,54,57)
+	self:addTradeFlags(RecipeDB, 41319, 3,22,37,41,47,54,57)
 	-- No acquire information
 
 	-- Destruction Holo-gogs -- 41320
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Cloth, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Cloth, SC Class, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val22id3val24id4val174id6val69id19val69id20val29id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41320, 350, 32494, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41320, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,54,56)
+	self:addTradeFlags(RecipeDB, 41320, 1,2,3,24,26,29,37,41,47,54,56)
 	self:addTradeAcquire(RecipeDB, 41320, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Powerheal 4000 Lens -- 41321
 	-- Trainer
-	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Cloth, 
+	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Cloth, SC Class, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val14id3val38id4val28id5val174id6val37id19val110id20
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41321, 350, 32495, 4, 4036)
-	self:addTradeFlags(RecipeDB, 41321, 3,21,22,23,24,25,26,27,28,29,30,37,41,47,53,56)
+	self:addTradeFlags(RecipeDB, 41321, 3,26,37,41,47,53,56)
 	-- No acquire information
 
 	-- Adamantite Arrow Maker -- 43676
