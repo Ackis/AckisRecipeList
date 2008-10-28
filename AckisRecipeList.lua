@@ -624,6 +624,9 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 	end
 
+	-- Populate the location field with all the data
+	RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
+
 end
 
 -- Description: Adds a specific entry (ie: vendor, mob, etc) to the lookup list
@@ -1335,7 +1338,10 @@ do
 	local playerData = nil
 
 	local tradewindowopened = false
+
+	-- Variables for getting the locations
 	local locationlist = nil
+	local locationchecklist = nil
 
 	-- Description: Determines all the locations a given recipe can be obtained
 	-- Expected result: Listing of all locations for a given recipe are provided.
@@ -1347,19 +1353,91 @@ do
 		if (RecipeList) and (RecipeList[SpellID]) then
 
 			locationlist = {}
+			locationchecklist = {}
 
 			local recipeacquire = RecipeList[SpellID]["Acquire"]
 
 			for i in pairs(recipeacquire) do
 --/script AckisRecipeList:Print(AckisRecipeList:GetRecipeLocations())
-				self:Print(i .. " " .. recipeacquire[i]["Type"])
+
 				-- Trainer
 				if (recipeacquire[i]["Type"] == 1) then
 
 					if (TrainerList) then
 
+						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
+
+						if (not locationchecklist[location]) then
+
+							-- Add the location to the list
+							tinsert(locationlist,location)
+							locationchecklist[location] = true
+
+						end
+
+					end
+
+				-- Vendor
+				elseif (recipeacquire[i]["Type"] == 2) then
+
+					if (VendorList) then
+
+						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
+
+						if (not locationchecklist[location]) then
+
+							-- Add the location to the list
+							tinsert(locationlist,location)
+							locationchecklist[location] = true
+
+						end
+
+					end
+
+				-- Mob Drop
+				elseif (recipeacquire[i]["Type"] == 3) then
+
+					if (MobList) then
+
+						local location = MobList[recipeacquire[i]["ID"]]["Location"]
+
+						if (not locationchecklist[location]) then
+
+							-- Add the location to the list
+							tinsert(locationlist,location)
+							locationchecklist[location] = true
+
+						end
+
+					end
+
+				-- Quest
+				elseif (recipeacquire[i]["Type"] == 4) then
+
+					if (QuestList) then
+
+						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
+
+						if (not locationchecklist[location]) then
+
+							-- Add the location to the list
+							tinsert(locationlist,location)
+							locationchecklist[location] = true
+
+						end
+
+					end
+
+				-- World Drop
+				elseif (recipeacquire[i]["Type"] == 7) then
+
+					local location = L["World Drop"]
+
+					if (not locationchecklist[location]) then
+
 						-- Add the location to the list
-						tinsert(locationlist,TrainerList[recipeacquire[i]["ID"]]["Location"])
+						tinsert(locationlist,location)
+						locationchecklist[location] = true
 
 					end
 
