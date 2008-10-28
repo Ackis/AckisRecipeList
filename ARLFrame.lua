@@ -2898,7 +2898,7 @@ function initDisplayStrings()
 
 			recStr = SetSortString(recipeSkill, recStr)
 
-			local hasFaction = checkFactions(DB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
 			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 
@@ -2956,7 +2956,7 @@ function expandallDisplayStrings()
 
 			recStr = SetSortString(recipeSkill, recStr)
 
-			local hasFaction = checkFactions(DB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
 			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 

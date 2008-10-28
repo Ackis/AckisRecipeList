@@ -11,8 +11,10 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ************************************************************************
 
