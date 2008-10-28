@@ -36,8 +36,10 @@
 
 ## SavedVariables: ARLDB2
 
+#@no-lib-strip@
 # Libraries
 embeds.xml
+#@end-no-lib-strip@
 
 # Localization files
 local.xml
