@@ -2584,7 +2584,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 46594, 6, 1077, 2, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
-	-- Instance: 4095 - type1category3maxlevel70territory1expansion1minlevel70limit5nameMagisters' Terraceid4095
+	-- Instance: 4095 - type1category3maxlevel70territory1expansion1minlevel70nameMagisters' Terracelimit5id4095
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 

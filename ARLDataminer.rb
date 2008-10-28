@@ -1213,7 +1213,17 @@ else
 		26428 => {:id => 7, :type => 2},
 		26442 => {:id => 7, :type => 2},
 		26443 => {:id => 7, :type => 2},
-		41318 => {:id => "class", :type => 22}
+		40274 => {:id => "class", :type => [25, 29]},
+		41311 => {:id => "class", :type => [25]},
+		41312 => {:id => "class", :type => [25, 29]},
+		41314 => {:id => "class", :type => [23, 27]},
+		41315 => {:id => "class", :type => [27]},
+		41316 => {:id => "class", :type => [27]},
+		41317 => {:id => "class", :type => [22, 28]},
+		41318 => {:id => "class", :type => [22]},
+		41319 => {:id => "class", :type => [22]},
+		41320 => {:id => "class", :type => [24, 26, 29]},
+		41321 => {:id => "class", :type => [26]},
 		}
 	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,[53280,53281])
 
