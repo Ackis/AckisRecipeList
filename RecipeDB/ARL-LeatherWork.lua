@@ -1111,9 +1111,9 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloak, 
 	-- Item Stats: 
 	-- Item Stats: val10id2val3id3val30id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 10550, 230, 8195, 2, 2108)
-	self:addTradeFlags(RecipeDB, 10550, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,60)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 10550, 230, 8195, 2, 2108)
+	--self:addTradeFlags(RecipeDB, 10550, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,60)
 	-- No acquire information
 
 	-- Turtle Scale Helm -- 10552
@@ -1868,9 +1868,9 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val15id1val15id2val15id3val14id4val14id5val605id6val14id11val14id18val9id33
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 19106, 300, 15141, 4, 2108)
-	self:addTradeFlags(RecipeDB, 19106, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 19106, 300, 15141, 4, 2108)
+	--self:addTradeFlags(RecipeDB, 19106, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	-- No acquire information
 
 	-- Black Dragonscale Leggings -- 19107

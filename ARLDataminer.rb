@@ -1146,7 +1146,7 @@ else
 
 	# Seasonal: 21940 - 1, 26416, 26417, 26418, 26420, 26421, 26422, 26423, 26424, 26425, 26442, 26426, 26427, 26428, 26443 - 2
 	eng = recipes.get_engineering_list
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343],[],[],{21940 => 1,26416 => 2,26417 => 2,26418 => 2,26420 => 2,26421 => 2,26422 => 2,26423 => 2,26424 => 2,26425 => 2,26426 => 2,26427 => 2,26428 => 2,26442 => 2,26443 => 2},[53280,53281],{})
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],[],[],{21940 => 1,26416 => 2,26417 => 2,26418 => 2,26420 => 2,26421 => 2,26422 => 2,26423 => 2,26424 => 2,26425 => 2,26426 => 2,26427 => 2,26428 => 2,26442 => 2,26443 => 2},[53280,53281],{})
 
 	firstaid = recipes.get_firstaid_list
 	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],[],[],{},[45545, 45546, 51801],{})
@@ -1160,7 +1160,7 @@ else
 
 	# Seasonal: 21943 - 1, 44953 - 1
 	leatherworking = recipes.get_leatherworking_list
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106],[],[],{21943 => 1,44953 => 1},(50935..53690).to_a,{})
 
 	smelting = recipes.get_mining_list
 	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],[],[],{},[49252, 49258, 53417],{})
