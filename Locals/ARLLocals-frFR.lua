@@ -52,7 +52,7 @@ L["Profile Options"]		= "Options du profil"
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Configuration des options principales"
-L["Scan"]			= "Analyser"
+L["Scan"]					= "Analyser"
 L["SCAN_RECIPES_DESC"]		= "Analyse une fenêtre de métier ouverte à la recherche de recettes manquantes."
 L["Text Dump"]				= "Texte brut"
 L["TEXT_DUMP_DESC"]			= "Affiche toutes les recettes dans un format de valeurs séparées par des virgules permettant d'être copié/collé dans un autre client."
@@ -77,6 +77,7 @@ L["SORTING_DESC"]			= "Change la façon dont les recettes affichées sont triée
 L["Version"]				= "Version : "
 L["Name"]					= "Nom"
 L["Skill"]					= "Compétence"
+L["Location"]				= "Emplacement"
 L["Acquisition"]			= "Acquisition"
 
 -- Filter Config Options
@@ -85,7 +86,7 @@ L["General"]				= "Général"
 L["Obtain"]					= "Obtention"
 L["Binding"]				= "Lien"
 L["Item"]					= "Objet"
-L["Armour"]					= "Armure"
+L["Armor"]					= "Armure"
 L["Weapon"]					= "Arme"
 L["Player Type"]			= "Type de joueur"
 L["Reputation"]				= "Réputation"
@@ -94,29 +95,29 @@ L["Burning Crusade"]		= "Burning Crusade"
 L["Wrath of the Lich King"]	= "Wrath of the Lich King"
 
 -- Filter Configuration Descriptions
-L["FILTERING_OPTIONS_DESC"]		= "Vous permet de personnaliser les recettes qui sont filtrées."
-L["General Filtering Options"]	= true
-L["FILTERING_GENERAL_DESC"]		= "Configuration for several more general filter types."
-L["Obtain Filtering Options"]	= true
-L["FILTERING_OBTAIN_DESC"]		= "Configuration for which methods of obtaining recipes are included in the scan."
-L["Binding Filtering Options"]	= true
-L["FILTERING_BINDING_DESC"]		= "Configuration for which types of binding are included in the scan."
-L["Item Filtering options"]		= true
-L["FILTERING_ITEM_DESC"]		= "Configuration for which item types are included in the scan."
-L["Armour Filtering Options"]	= true
-L["FILTERING_ARMOUR_DESC"]		= "Configuration for which types of armor are included in the scan."
-L["Weapon Filtering Options"]	= true
-L["FILTERING_WEAPONS_DESC"]		= "Configuration for which types of weapons are included in the scan."
-L["Player Type Filtering Options"]	= true
-L["FILTERING_PLAYERTYPE_DESC"]	= "Configuration for items matching which player types are included in the scan."
-L["Reputation Filtering Options"]	= true
-L["FILTERING_REP_DESC"]			= "Configuration for which reputation reward recipes are included in the scan."
-L["Old World Rep. Filtering Options"]	= true
-L["FILTERING_OLDWORLD_DESC"]	= "Configuration for which Old World Reputation reward recipes are included in the scan."
-L["Burning Crusade Rep. Filtering Options"]	= true
-L["FILTERING_BC_DESC"]			= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
-L["Lich King Rep. Filtering Options"]	= true
-L["FILTERING_WOTLK_DESC"]		= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["FILTERING_OPTIONS_DESC"]					= "Vous permet de personnaliser les recettes qui sont filtrées."
+L["General Filtering Options"]				= "Filtrage général"
+L["FILTERING_GENERAL_DESC"]					= "Configuration de quelques autres types de filtre."
+L["Obtain Filtering Options"]				= "Filtrage des obtentions"
+L["FILTERING_OBTAIN_DESC"]					= "Configuration des moyens d'obtention à intégrer dans l'analyse."
+L["Binding Filtering Options"]				= "Filtrage des liens"
+L["FILTERING_BINDING_DESC"]					= "Configuration des types de lien à intégrer dans l'analyse."
+L["Item Filtering Options"]					= "Filtrage des objets"
+L["FILTERING_ITEM_DESC"]					= "Configuration des types d'objet à intégrer dans l'analyse."
+L["Armor Filtering Options"]				= "Filtrage des armures"
+L["FILTERING_Armor_DESC"]					= "Configuration des types d'armure à intégrer dans l'analyse."
+L["Weapon Filtering Options"]				= "Filtrage des armes"
+L["FILTERING_WEAPONS_DESC"]					= "Configuration des types d'arme à intégrer dans l'analyse."
+L["Player Type Filtering Options"]			= "Filtrage des types de joueur"
+L["FILTERING_PLAYERTYPE_DESC"]				= "Configuration des types de joueur et leurs objets correspondants à intégrer dans l'analyse."
+L["Reputation Filtering Options"]			= "Filtrage des réputations"
+L["FILTERING_REP_DESC"]						= "Configuration des factions offrant des recettes à intégrer dans l'analyse."
+L["Old World Rep. Filtering Options"]		= "Filtrage des réput de WoW classique"
+L["FILTERING_OLDWORLD_DESC"]				= "Configuration des factions de WoW classique offrant des recettes à intégrer dans l'analyse."
+L["Burning Crusade Rep. Filtering Options"]	= "Filtrage des réput. de BC"
+L["FILTERING_BC_DESC"]						= "Configuration des factions de Burning Crusade offrant des recettes à intégrer dans l'analyse."
+L["Lich King Rep. Filtering Options"]		= "Filtrage des réput. de WotLK"
+L["FILTERING_WOTLK_DESC"]					= "Configuration des factions de Wrath of the Lich King offrant des recettes à intégrer dans l'analyse."
 
 -- General Filter UI Elements and their associated descriptions
 L["Faction"]				= "Faction"
@@ -261,15 +262,16 @@ L["Required Skill"]		= "Compétence requise"
 -- Popup Strings
 L["NOTSCANNED"]		= "Vous n'avez pas encore analysé ce métier. Veuillez ouvrir ce métier et cliquer sur Analyser."
 L["ALL_FILTERED"]	= "Même si vous avez déjà analysé ce métier, vos filtres empêchent actuellement toute recette d'être affichée. Veuillez changer vos filtres et essayez à nouveau."
+L["ARL_ALLKNOWN"]	= "Vous connaissez toutes les recettes de ce métier."
 
 -- Error/warning Text
 L["MissingFromDB"] = ": n'est pas présent dans la base de données. \nVeuillez en informer l'auteur de cet addon."
 L["UnknownTradeSkill"] = "Vous avez ouvert une fenêtre de métier qui n'est pas supporté par cet addon. Le métier en question est %s. Veuillez en informer l'auteur de cet addon."
 L["OpenTradeSkillWindow"] = "Veuillez ouvrir la fenêtre de métier à analyser."
 L["SpellIDCache"] = "L'ID du sort %s n'est pas dans votre cache local.  Veuillez soumettre un ticket (en anglais) sur http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ en indiquant l'ID du sort et la profession que vous analysiez."
+L["NoItemLink"] = "Cet objet n'a pas de lien ou n'était pas dans votre cache."
 
 -- Drop Obtain Info
-L["Unknown"] = "Butin inconnu : le moyen d'obtenir cette recette est inconnu. Veuillez en informer l'auteur de cet addon."
 L["Unknown Zone"] = "Zone inconnue"
 
 -- Special Event information
@@ -279,7 +281,7 @@ L["Lunar Festival"] = "Fête lunaire"
 L["Darkmoon Faire"] = "Foire de Sombrelune"
 L["Seasonal"] = "Saisonnier"
 
--- Monster/Quest/Trainer/Vendor strings:
+-- Monster/Quest/Trainer/Vendor (autogeneratored) strings:
 
 L["40 Tickets - Schematic: Steam Tonk Controller"] = true
 L["A Binding Contract"] = true
@@ -1043,7 +1045,6 @@ L["Randal Worth"] = true
 L["Ranik"] = true
 L["Rann Flamespinner"] = true
 L["Rartar"] = true
-L["Ras Frostwhisper"] = true
 L["Rathis Tomber"] = true
 L["Rawrk"] = true
 L["Razaani Spell-Thief"] = true
