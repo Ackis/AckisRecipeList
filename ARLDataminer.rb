@@ -1150,59 +1150,16 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
-$debug = true
+$debug = false
 
 if $debug
 
-	#firstaid = recipes.get_firstaid_list
-	#faspecaillist = {
-	#	27033 => {:id => 12},
-	#	27032 => {:id => 7, :type => 1}
-#		}
-	#create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801])
-
-	eng = recipes.get_engineering_list
-	engspecaillist = {
-		21940 => {:id => 7, :type => 1},
-		26416 => {:id => 7, :type => 2},
-		26417 => {:id => 7, :type => 2},
-		26418 => {:id => 7, :type => 2},
-		26420 => {:id => 7, :type => 2},
-		26421 => {:id => 7, :type => 2},
-		26422 => {:id => 7, :type => 2},
-		26423 => {:id => 7, :type => 2},
-		26424 => {:id => 7, :type => 2},
-		26425 => {:id => 7, :type => 2},
-		26426 => {:id => 7, :type => 2},
-		26427 => {:id => 7, :type => 2},
-		26428 => {:id => 7, :type => 2},
-		26442 => {:id => 7, :type => 2},
-		26443 => {:id => 7, :type => 2},
-		40274 => {:id => "class", :type => [25, 29]},
-		41311 => {:id => "class", :type => [25]},
-		41312 => {:id => "class", :type => [25, 29]},
-		41314 => {:id => "class", :type => [23, 27]},
-		41315 => {:id => "class", :type => [27]},
-		41316 => {:id => "class", :type => [27]},
-		41317 => {:id => "class", :type => [22, 28]},
-		41318 => {:id => "class", :type => [22]},
-		41319 => {:id => "class", :type => [22]},
-		41320 => {:id => "class", :type => [24, 26, 29]},
-		41321 => {:id => "class", :type => [26]},
-		12899 => {:id => "specialty", :type => 20219},
-		12895 => {:id => "specialty", :type => 20219},
-		15633 => {:id => "specialty", :type => 20219},
-		12902 => {:id => "specialty", :type => 20219},
-		12897 => {:id => "specialty", :type => 20219},
-		12903 => {:id => "specialty", :type => 20219},
-		12905 => {:id => "specialty", :type => 20219},
-		12906 => {:id => "specialty", :type => 20219},
-		12907 => {:id => "specialty", :type => 20219},
-		12759 => {:id => "specialty", :type => 20219},
-		30568 => {:id => "specialty", :type => 20219},
-		30570 => {:id => "specialty", :type => 20219},
+	firstaid = recipes.get_firstaid_list
+	faspecaillist = {
+		27033 => {:id => 12},
+		27032 => {:id => 7, :type => 1}
 		}
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,[53280,53281])
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801])
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -1353,6 +1310,8 @@ $localstring.sort!
 
 # TODO: Can I open the current file and just remove some text and append this to it?
 local_lua = File.open("./Locals/LocalStrings-enUS.lua", "w")
+
+local_lua.puts "\t-- Do not translate anything below this line without talking to Ackis first please."
 
 $localstring.each do |k|
 
