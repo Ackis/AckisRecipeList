@@ -571,7 +571,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val41id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 8895, 225, 7189, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 8895, 225, 7189, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 8895, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	self:addTradeAcquire(RecipeDB, 8895, 1, 8126)
 
@@ -865,7 +866,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val15id3val190id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12717, 205, 10542, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12717, 205, 10542, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12717, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,58)
 	self:addTradeAcquire(RecipeDB, 12717, 1, 8126)
 
@@ -875,7 +877,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val44id6val15id33
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12718, 205, 10543, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12718, 205, 10543, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12718, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,56)
 	self:addTradeAcquire(RecipeDB, 12718, 1, 8126)
 
@@ -912,7 +915,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12754, 195, 10586, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12754, 195, 10586, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12754, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 12754, 1, 8126, 1, 8738)
 
@@ -921,7 +925,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12755, 190, 10587, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12755, 190, 10587, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12755, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,63)
 	self:addTradeAcquire(RecipeDB, 12755, 1, 8126, 1, 8738)
 
@@ -931,7 +936,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val15id3val50id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12758, 245, 10588, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12758, 245, 10588, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12758, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	self:addTradeAcquire(RecipeDB, 12758, 1, 8126, 1, 8738)
 
@@ -950,7 +956,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12760, 165, 10646, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12760, 165, 10646, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12760, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 12760, 1, 8126)
 
@@ -1061,7 +1068,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 12908, 240, 10727, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 12908, 240, 10727, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 12908, 1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,47,63)
 	self:addTradeAcquire(RecipeDB, 12908, 1, 8126, 1, 8738)
 
@@ -1071,7 +1079,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 13240, 1, 10577, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 13240, 1, 10577, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 13240, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
@@ -1089,7 +1098,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoP, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 15628, 205, 11825, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 15628, 205, 11825, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 15628, 3,21,22,23,24,25,26,27,28,29,30,37,41)
 	-- No acquire information
 
@@ -2013,7 +2023,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 30558, 305, 23826, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 30558, 305, 23826, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 30558, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 30558, 1, 8126, 1, 8738)
 
@@ -2022,7 +2033,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 30560, 320, 23827, 1, 4036)
+	-- Recipe Specialty of 20222
+	self:addTradeSkill(RecipeDB, 30560, 320, 23827, 1, 4036, 20222)
 	self:addTradeFlags(RecipeDB, 30560, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 30560, 1, 8126, 1, 8738)
 

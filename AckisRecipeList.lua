@@ -1767,7 +1767,7 @@ do
 
 	-- Sorting functions
 
-	local sortFuncs = {}
+	local sortFuncs = nil
 
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
 	-- Expected result: A sorted array indexing values in the RecipeDB is returned.
@@ -1776,36 +1776,41 @@ do
 
 	function addon:SortMissingRecipes(RecipeDB)
 
-		sortFuncs[L['Skill']] = function(a, b) 
+		if (not sortFuncs) then
 
-			return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+			sortFuncs[L['Skill']] = function(a, b) 
 
-		end
-
-		sortFuncs[L['Name']] = function(a, b)
-
-			return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-
-		end
-
-		sortFuncs[L['Acquisition']] = function (a, b)
-
-			local reca = RecipeDB[a]["Acquire"][1]
-			local recb = RecipeDB[b]["Acquire"][1]
-
-			if (reca) and (recb) then
-
-				return reca["Type"] < recb["Type"]
-
-			else
-
-				return not not reca
+				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
 
 			end
 
-		end
+			sortFuncs[L['Name']] = function(a, b)
 
-		sortFuncs[L["Location"]] = function (a, b)
+				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs[L['Acquisition']] = function (a, b)
+
+				local reca = RecipeDB[a]["Acquire"][1]
+				local recb = RecipeDB[b]["Acquire"][1]
+
+				if (reca) and (recb) then
+
+					return reca["Type"] < recb["Type"]
+
+				else
+
+					return not not reca
+
+				end
+
+			end
+
+			sortFuncs[L["Location"]] = function (a, b)
+
+			end
 
 		end
 

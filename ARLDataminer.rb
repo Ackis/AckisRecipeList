@@ -1150,7 +1150,7 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
-$debug = false
+$debug = true
 
 if $debug
 
@@ -1243,16 +1243,28 @@ else
 		41319 => {:id => "class", :type => [22]},
 		41320 => {:id => "class", :type => [24, 26, 29]},
 		41321 => {:id => "class", :type => [26]},
-		12899 => {:id => "specialty", :type => 20219},
+		8895 => {:id => "specialty", :type => 20222},
+		12717 => {:id => "specialty", :type => 20222},
+		12718 => {:id => "specialty", :type => 20222},
+		12754 => {:id => "specialty", :type => 20222},
+		12755 => {:id => "specialty", :type => 20222},
+		12758 => {:id => "specialty", :type => 20222},
+		12759 => {:id => "specialty", :type => 20219},
+		12760 => {:id => "specialty", :type => 20222},
 		12895 => {:id => "specialty", :type => 20219},
-		15633 => {:id => "specialty", :type => 20219},
-		12902 => {:id => "specialty", :type => 20219},
 		12897 => {:id => "specialty", :type => 20219},
+		12899 => {:id => "specialty", :type => 20219},
+		12902 => {:id => "specialty", :type => 20219},
 		12903 => {:id => "specialty", :type => 20219},
 		12905 => {:id => "specialty", :type => 20219},
 		12906 => {:id => "specialty", :type => 20219},
 		12907 => {:id => "specialty", :type => 20219},
-		12759 => {:id => "specialty", :type => 20219},
+		12908 => {:id => "specialty", :type => 20222},
+		13240 => {:id => "specialty", :type => 20222},
+		15633 => {:id => "specialty", :type => 20219},
+		15628 => {:id => "specialty", :type => 20222},
+		30558 => {:id => "specialty", :type => 20222},
+		30560 => {:id => "specialty", :type => 20222},
 		30568 => {:id => "specialty", :type => 20219},
 		30570 => {:id => "specialty", :type => 20219},
 		}
