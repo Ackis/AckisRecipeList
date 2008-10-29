@@ -14,8 +14,10 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ************************************************************************
 
@@ -466,10 +468,10 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3863, 7, 2)
 
 	-- Star Belt -- 3864
-	-- Instance: 1176 - type1territory1minlevel43category3nameZul'Farrakmaxlevel47id1176
-	-- Instance: 796 - type1territory4minlevel34category3nameScarlet Monasterymaxlevel45id796
-	-- Instance: 1337 - type1territory1minlevel39category3nameUldamanmaxlevel47id1337
-	-- Instance: 1337 - type1territory1minlevel39category3nameUldamanmaxlevel47id1337
+	-- Instance: 1176 - type1category3maxlevel47territory1minlevel43nameZul'Farrakid1176
+	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
+	-- Instance: 1337 - type1category3maxlevel47territory1minlevel39nameUldamanid1337
+	-- Instance: 1337 - type1category3maxlevel47territory1minlevel39nameUldamanid1337
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -582,7 +584,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6521, 1, 1346, 1, 2399, 1, 2627, 1, 3004, 1, 3363, 1, 3704, 1, 4159, 1, 4576, 1, 5153, 1, 5567, 1, 11049, 1, 11052, 1, 11557, 1, 16640, 1, 16729, 1, 17487, 1, 18749, 1, 18772)
 
 	-- Red Linen Bag -- 6686
-	-- Instance: 1581 - type1territory2minlevel15category3nameThe Deadminesmaxlevel20id1581
+	-- Instance: 1581 - type1category3maxlevel20territory2minlevel15nameThe Deadminesid1581
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -594,7 +596,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Red Woolen Bag -- 6688
 	-- Mob Drop
-	-- Instance: 2367 - type5territory1expansion1minlevel66category3nameCaverns of Time: Old Hillsbrad Foothillsmaxlevel68id2367
+	-- Instance: 2367 - type5category3maxlevel68territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1659,7 +1661,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Wizardweave Leggings -- 18421
 	-- Trainer
-	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
+	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: 
@@ -1765,7 +1767,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Ghostweave Pants -- 18441
 	-- Trainer
-	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
+	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: 
@@ -1894,7 +1896,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18453, 7, 2, 1, 2399, 1, 11052, 1, 18749, 1, 18772)
 
 	-- Gloves of Spell Mastery -- 18454
-	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
+	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
 	-- Raid: 3429 - Ruins of Ahn'Qiraj
 	-- Raid: 2717 - Molten Core
 	-- Raid: 2159 - Onyxia's Lair
@@ -1908,12 +1910,12 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18454, 3, 6109, 3, 10184, 3, 10318, 3, 12101, 3, 14888, 3, 14889, 3, 14890, 3, 15325)
 
 	-- Bottomless Bag -- 18455
-	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
+	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
 	-- Raid: 1977 - Zul'Gurub
 	-- Raid: 3429 - Ruins of Ahn'Qiraj
 	-- Raid: 2717 - Molten Core
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
+	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1923,7 +1925,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18455, 3, 6109, 3, 8724, 3, 10184, 3, 10372, 3, 10440, 3, 11356, 3, 11658, 3, 15323)
 
 	-- Truefaith Vestments -- 18456
-	-- Instance: 2017 - type1territory1minlevel58category3nameStratholmemaxlevel60id2017
+	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: Priest, Item BoP, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Healing, 
@@ -1934,7 +1936,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18456, 3, 10813)
 
 	-- Robe of the Archmage -- 18457
-	-- Instance: 1583 - type1territory1minlevel58category3nameBlackrock Spiremaxlevel60id1583
+	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: Mage, Item BoP, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -1945,7 +1947,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18457, 3, 9264)
 
 	-- Robe of the Void -- 18458
-	-- Instance: 2057 - type1territory1minlevel58category3nameScholomancemaxlevel60id2057
+	-- Instance: 2057 - type1category3maxlevel60territory1minlevel58nameScholomanceid2057
 	-- Mob Drop
 	-- Flags: Warlock, Item BoP, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -1975,7 +1977,7 @@ function addon:InitTailoring(RecipeDB)
 	-- No acquire information
 
 	-- Flarecore Mantle -- 20848
-	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
+	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -1986,7 +1988,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20848, 2, 12944)
 
 	-- Flarecore Gloves -- 20849
-	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
+	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: Priest, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -1998,12 +2000,12 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Green Holiday Shirt -- 21945
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 21945, 190, 17723, 1, 3908)
-	self:addTradeFlags(RecipeDB, 21945, 3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 21945, 5, 1)
+	self:addTradeFlags(RecipeDB, 21945, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Flarecore Wraps -- 22759
 	-- Raid: 2717 - Molten Core
@@ -2041,7 +2043,7 @@ function addon:InitTailoring(RecipeDB)
 	-- No acquire information
 
 	-- Felcloth Gloves -- 22867
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2052,7 +2054,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22867, 3, 14338)
 
 	-- Inferno Gloves -- 22868
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2063,7 +2065,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22868, 3, 14338)
 
 	-- Mooncloth Gloves -- 22869
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2074,7 +2076,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22869, 3, 14338)
 
 	-- Cloak of Warding -- 22870
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloak, 
 	-- Item Stats: Tanking, 
@@ -2085,7 +2087,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22870, 3, 14338)
 
 	-- Mooncloth Robe -- 22902
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: 
@@ -2140,7 +2142,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23665, 6, 529, 3, 10856, 6, 529, 3, 10857, 6, 529, 3, 11536)
 
 	-- Flarecore Robe -- 23666
-	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
+	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -2151,7 +2153,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23666, 2, 12944)
 
 	-- Flarecore Leggings -- 23667
-	-- Instance: 1584 - type1territory1minlevel55category3nameBlackrock Depthsmaxlevel60id1584
+	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -2260,22 +2262,22 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Festival Dress -- 26403
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val3id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26403, 235, 21154, 2, 3908)
-	self:addTradeFlags(RecipeDB, 26403, 3,7,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
-	self:addTradeAcquire(RecipeDB, 26403, 5, 2)
+	self:addTradeFlags(RecipeDB, 26403, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	-- No acquire information
 
 	-- Festive Red Pant Suit -- 26407
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26407, 235, 21542, 2, 3908)
-	self:addTradeFlags(RecipeDB, 26407, 3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 26407, 5, 1)
+	self:addTradeFlags(RecipeDB, 26407, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Bolt of Netherweave -- 26745
 	-- Trainer
@@ -2603,7 +2605,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26781, 3, 16408)
 
 	-- Arcanoweave Bracers -- 26782
-	-- Instance: 3848 - type5territory1expansion1minlevel70category3nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2614,7 +2616,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26782, 3, 20869)
 
 	-- Arcanoweave Boots -- 26783
-	-- Instance: 3849 - type5territory1expansion1minlevel70category3nameTempest Keep: The Mechanarid3849
+	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2625,7 +2627,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26783, 3, 19168)
 
 	-- Arcanoweave Robe -- 26784
-	-- Instance: 3849 - type5territory1expansion1minlevel70category3nameTempest Keep: The Mechanarid3849
+	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -2656,7 +2658,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27659, 2, 15198, 2, 15419)
 
 	-- Big Bag of Enchantment -- 27660
-	-- Instance: 2557 - type1territory1minlevel58category3nameDire Maulmaxlevel60id2557
+	-- Instance: 2557 - type1category3maxlevel60territory1minlevel58nameDire Maulid2557
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -2939,7 +2941,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31450, 7, 4)
 
 	-- Whitemend Pants -- 31451
-	-- Instance: 3848 - type5territory1expansion1minlevel70category3nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Healing, 
@@ -2950,7 +2952,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31451, 3, 20885)
 
 	-- Spellstrike Pants -- 31452
-	-- Instance: 3789 - type5territory1expansion1minlevel70category3nameAuchindoun: Shadow Labrynthid3789
+	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, Caster DPS, 
@@ -2961,7 +2963,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31452, 3, 18708)
 
 	-- Battlecast Pants -- 31453
-	-- Instance: 3847 - type5territory1expansion1minlevel70category3nameTempest Keep: The Botanicaid3847
+	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -2972,7 +2974,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31453, 3, 17978)
 
 	-- Whitemend Hood -- 31454
-	-- Instance: 3847 - type5territory1expansion1minlevel70category3nameTempest Keep: The Botanicaid3847
+	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Healing, 
@@ -2983,7 +2985,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31454, 3, 17977)
 
 	-- Spellstrike Hood -- 31455
-	-- Instance: 3714 - type5territory1expansion1minlevel70category3nameHellfire Citadel: The Shattered Hallsid3714
+	-- Instance: 3714 - type5category3territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, Caster DPS, 
@@ -2994,7 +2996,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31455, 3, 16807)
 
 	-- Battlecast Hood -- 31456
-	-- Instance: 3715 - type5territory1expansion1minlevel70category3nameCoilfang Reservoir: The Steamvaultid3715
+	-- Instance: 3715 - type5category3territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -3287,23 +3289,23 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Green Winter Clothes -- 44950
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val3id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 44950, 250, 34087, 2, 3908)
-	self:addTradeFlags(RecipeDB, 44950, 3,7,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
-	self:addTradeAcquire(RecipeDB, 44950, 5, 1)
+	self:addTradeFlags(RecipeDB, 44950, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	-- No acquire information
 
 	-- Red Winter Clothes -- 44958
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
 	-- Item Stats: val3id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 44958, 250, 34085, 2, 3908)
-	self:addTradeFlags(RecipeDB, 44958, 3,7,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
-	self:addTradeAcquire(RecipeDB, 44958, 5, 1)
+	self:addTradeFlags(RecipeDB, 44958, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
+	-- No acquire information
 
 	-- Sunfire Handwraps -- 46128
 	-- Raid: 4075 - Sunwell Plateau
