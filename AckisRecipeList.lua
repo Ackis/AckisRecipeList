@@ -1782,6 +1782,8 @@ do
 
 		if (not sortFuncs) then
 
+			sortFuncs = {}
+
 			sortFuncs[L['Skill']] = function(a, b) 
 
 				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
@@ -1812,6 +1814,7 @@ do
 
 			end
 
+			-- Will only sort based off of the first acquire type
 			sortFuncs[L["Location"]] = function (a, b)
 
 				return (string.match(RecipeDB[a]["Locations"],"(%w+),") < string.match(RecipeDB[b]["Locations"],"(%w+),"))
