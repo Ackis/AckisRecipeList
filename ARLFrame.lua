@@ -2537,102 +2537,48 @@ end
 -- Description: 
 -- Expected result: 
 -- Input: 
+-- Output:
+
+local function recursiveReset(t)
+
+	-- Thanks to Antiarc for this code
+
+	for k, v in pairs(t) do
+
+		if type(v) == "table" then
+
+			recursiveReset(v)
+
+		else
+
+			t[k] = true
+
+		end
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
 -- Output: 
 
 function addon.resetFilters() 
+
 	local filterdb = addon.db.profile.filters
-	-- reset all filters to their default values
-	filterdb.general.faction = true
+
+	-- Reset all filters to true
+	recursiveReset(addon.db.profile.filters)
+
+	-- Reset specific filters to false
 	filterdb.general.class = false
 	filterdb.general.specialty = false
-	filterdb.general.skill = true
 	filterdb.general.known = false
-	filterdb.general.unknown = true
-
-	filterdb.obtain.trainer = true
-	filterdb.obtain.vendor = true
-	filterdb.obtain.instance = true
-	filterdb.obtain.raid = true
-	filterdb.obtain.seasonal = true
-	filterdb.obtain.quest = true
-	filterdb.obtain.pvp = true
-	filterdb.obtain.discovery = true
-	filterdb.obtain.worlddrop = true
-	filterdb.obtain.mobdrop = true
-
-	filterdb.binding.itemboe = true
-	filterdb.binding.itembop = true
-	filterdb.binding.recipebop = true
-	filterdb.binding.recipeboe = true
-
-	filterdb.item.armor.cloth = true
-	filterdb.item.armor.leather = true
-	filterdb.item.armor.mail = true
-	filterdb.item.armor.plate = true
-	filterdb.item.armor.trinket = true
-	filterdb.item.armor.shield = true
-	filterdb.item.armor.cloak = true
-	filterdb.item.armor.ring = true
-	filterdb.item.armor.necklace = true
-
-	filterdb.item.weapon.onehand = true
-	filterdb.item.weapon.twohand = true
-	filterdb.item.weapon.axe = true
-	filterdb.item.weapon.sword = true
-	filterdb.item.weapon.mace = true
-	filterdb.item.weapon.polearm = true
-	filterdb.item.weapon.dagger = true
-	filterdb.item.weapon.fist = true
-	filterdb.item.weapon.staff = true
-	filterdb.item.weapon.wand = true
-	filterdb.item.weapon.thrown = true
-	filterdb.item.weapon.bow = true
-	filterdb.item.weapon.crossbow = true
-	filterdb.item.weapon.ammo = true
-
-	filterdb.player.melee = true
-	filterdb.player.tank = true
-	filterdb.player.healer = true
-	filterdb.player.caster = true
-
-	filterdb.rep.aldor = true
-	filterdb.rep.scryer = true
-	filterdb.rep.argentdawn = true
-	filterdb.rep.ashtonguedeathsworn = true
-	filterdb.rep.cenarioncircle = true
-	filterdb.rep.cenarionexpedition = true
-	filterdb.rep.consortium = true
-	filterdb.rep.hellfire = true
-	filterdb.rep.keepersoftime = true
-	filterdb.rep.nagrand = true
-	filterdb.rep.lowercity = true
-	filterdb.rep.scaleofthesands = true
-	filterdb.rep.shatar = true
-	filterdb.rep.shatteredsun = true
-	filterdb.rep.sporeggar = true
-	filterdb.rep.thoriumbrotherhood = true
-	filterdb.rep.timbermaw = true
-	filterdb.rep.violeteye = true
-	filterdb.rep.zandalar = true
--- Below this is WotLK stuff. May need to be changed post beta.
-	filterdb.rep.argentcrusade = true
-	filterdb.rep.frenzyheart = true
-	filterdb.rep.ebonblade = true
-	filterdb.rep.kirintor = true
-	filterdb.rep.sonsofhodir = true
-	filterdb.rep.kaluak = true
-	filterdb.rep.oracles = true
-	filterdb.rep.wyrmrest = true
-	filterdb.rep.silvercovenant = true
-	filterdb.rep.sunreavers = true
-	filterdb.rep.explorersleague = true
-	filterdb.rep.valiance = true
-	filterdb.rep.handofvengeance = true
-	filterdb.rep.taunka = true
-	filterdb.rep.warsongoffensive = true
 
 	addon.resetTitle()
 	addon.Flyaway:Hide()
+
 end
 
 -- Description: 
