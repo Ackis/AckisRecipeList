@@ -1244,6 +1244,8 @@ else
 		41320 => {:id => "class", :type => [24, 26, 29]},
 		41321 => {:id => "class", :type => [26]},
 		8895 => {:id => "specialty", :type => 20222},
+		12715 => {:id => "specialty", :type => 20222},
+		12716 => {:id => "specialty", :type => 20222},
 		12717 => {:id => "specialty", :type => 20222},
 		12718 => {:id => "specialty", :type => 20222},
 		12754 => {:id => "specialty", :type => 20222},
