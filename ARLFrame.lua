@@ -662,6 +662,88 @@ end
 -- Input: 
 -- Output: 
 
+local function HideARL_ExpOptCB(ignorevalue)
+
+			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
+			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
+			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
+			ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
+
+	if (ignorevalue ~= "general") then
+
+		ARL_ExpGeneralOptCB:SetChecked(false)
+		ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
+
+	else
+
+		ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1]))
+
+	end
+
+	if (ignorevalue ~= "obtain") then
+
+		ARL_ExpObtainOptCB:SetChecked(false)
+		ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
+
+	else
+
+		ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2]))
+
+	end
+
+	if (ignorevalue ~= "binding") then
+
+		ARL_ExpBindingOptCB:SetChecked(false)
+		ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
+
+	else
+
+		ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3]))
+
+	end
+
+	if (ignorevalue ~= "item") then
+
+		ARL_ExpItemOptCB:SetChecked(false)
+		ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
+
+	else
+
+		ARL_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
+
+	end
+
+	if (ignorevalue ~= "player") then
+
+		ARL_ExpPlayerOptCB:SetChecked(false)
+		ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
+
+	else
+
+		ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5]))
+
+	end
+
+	if (ignorevalue ~= "rep") then
+
+		ARL_ExpRepOptCB:SetChecked(false)
+		ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+
+	else
+
+		ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon.ToggleFilters()
 
 	local xPos = addon.Frame:GetLeft()
@@ -689,14 +771,11 @@ function addon.ToggleFilters()
 		ARL_ExpItemOptCB:Hide()
 		ARL_ExpPlayerOptCB:Hide()
 		ARL_ExpRepOptCB:Hide()
-		-- uncheck them as well
-		ARL_ExpGeneralOptCB:SetChecked(false)
-		ARL_ExpObtainOptCB:SetChecked(false)
-		ARL_ExpBindingOptCB:SetChecked(false)
-		ARL_ExpItemOptCB:SetChecked(false)
-		ARL_ExpPlayerOptCB:SetChecked(false)
-		ARL_ExpRepOptCB:SetChecked(false)
-		-- hide the flyaway
+
+		-- Uncheck the five buttons
+		HideARL_ExpOptCB()
+
+		-- Hide the flyaway panel
 		addon.Flyaway:Hide()
 
 		ARL_ResetButton:Hide()
@@ -2577,6 +2656,11 @@ function addon.resetFilters()
 	filterdb.general.known = false
 
 	addon.resetTitle()
+
+	-- Uncheck the five buttons
+	HideARL_ExpOptCB()
+
+	-- Hide the flyaway panel
 	addon.Flyaway:Hide()
 
 end
@@ -2587,6 +2671,7 @@ end
 -- Output: 
 
 function addon.DoFlyaway(panel)
+
 	-- This is going to manage the flyaway panel, as well as checking or unchecking the
 	-- buttons that got us here in the first place
 	--
@@ -2597,6 +2682,7 @@ function addon.DoFlyaway(panel)
 	-- 4	ARL_ExpItemOptCB			Item Filters
 
 	local ChangeFilters = false
+
 	addon.Fly_Rep_OW:Hide()
 	addon.Fly_Rep_BC:Hide()
 	addon.Fly_Rep_LK:Hide()
@@ -2605,20 +2691,12 @@ function addon.DoFlyaway(panel)
 	ARL_RepLKCB:SetChecked(false)
 
 	if (panel == 1) then
+
 		if (ARL_ExpGeneralOptCB:GetChecked()) then
+
 			-- uncheck all other buttons
-			ARL_ExpObtainOptCB:SetChecked(false)
-			ARL_ExpBindingOptCB:SetChecked(false)
-			ARL_ExpItemOptCB:SetChecked(false)
-			ARL_ExpPlayerOptCB:SetChecked(false)
-			ARL_ExpRepOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+			HideARL_ExpOptCB("general")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Show()
 			addon.Fly_Obtain:Hide()
@@ -2628,26 +2706,20 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Hide()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
 			ChangeFilters = false
+
 		end
 
 	elseif (panel == 2) then
+
 		if (ARL_ExpObtainOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			ARL_ExpGeneralOptCB:SetChecked(false)
-			ARL_ExpBindingOptCB:SetChecked(false)
-			ARL_ExpItemOptCB:SetChecked(false)
-			ARL_ExpPlayerOptCB:SetChecked(false)
-			ARL_ExpRepOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+
+			HideARL_ExpOptCB("obtain")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Show()
@@ -2657,25 +2729,20 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Hide()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 			ChangeFilters = false
+
 		end
+
 	elseif (panel == 3) then
+
 		if (ARL_ExpBindingOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			ARL_ExpGeneralOptCB:SetChecked(false)
-			ARL_ExpObtainOptCB:SetChecked(false)
-			ARL_ExpItemOptCB:SetChecked(false)
-			ARL_ExpPlayerOptCB:SetChecked(false)
-			ARL_ExpRepOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+
+			HideARL_ExpOptCB("binding")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
@@ -2685,25 +2752,20 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Hide()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
 			ChangeFilters = false
+
 		end
+
 	elseif (panel == 4) then
+
 		if (ARL_ExpItemOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			ARL_ExpGeneralOptCB:SetChecked(false)
-			ARL_ExpObtainOptCB:SetChecked(false)
-			ARL_ExpBindingOptCB:SetChecked(false)
-			ARL_ExpPlayerOptCB:SetChecked(false)
-			ARL_ExpRepOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+
+			HideARL_ExpOptCB("item")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
@@ -2713,25 +2775,20 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Hide()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
 			ChangeFilters = false
+
 		end
+
 	elseif (panel == 5) then
+
 		if (ARL_ExpPlayerOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			ARL_ExpGeneralOptCB:SetChecked(false)
-			ARL_ExpObtainOptCB:SetChecked(false)
-			ARL_ExpBindingOptCB:SetChecked(false)
-			ARL_ExpItemOptCB:SetChecked(false)
-			ARL_ExpRepOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+
+			HideARL_ExpOptCB("player")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
@@ -2741,25 +2798,20 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Hide()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ChangeFilters = false
+
 		end
+
 	elseif (panel == 6) then
+
 		if (ARL_ExpRepOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			ARL_ExpGeneralOptCB:SetChecked(false)
-			ARL_ExpObtainOptCB:SetChecked(false)
-			ARL_ExpBindingOptCB:SetChecked(false)
-			ARL_ExpItemOptCB:SetChecked(false)
-			ARL_ExpPlayerOptCB:SetChecked(false)
-			-- change text colors to match selection
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
+
+			HideARL_ExpOptCB("rep")
+
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
@@ -2769,10 +2821,14 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Rep:Show()
 
 			ChangeFilters = true
+
 		else
+
 			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
 			ChangeFilters = false
+
 		end
+
 	end
 
 	if (ChangeFilters == true) then
@@ -2780,26 +2836,35 @@ function addon.DoFlyaway(panel)
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
 		if ((panel == 3) or (panel == 4)) then
+
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
+
 		elseif ((panel == 1) or (panel == 2) or (panel == 5) or (panel == 6)) then
+
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(136)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
+
 		end
+
 		-- Change the filters to the current panel
 		addon.Flyaway:Show()
+
 	else
+
 		-- We're hiding, don't bother changing anything
 		addon.Flyaway:Hide()
+
 	end
+
 end
 
 -- Description: 
@@ -3237,7 +3302,6 @@ function addon:CreateFrame(
 
 		ARL_ExpItemOptCB = addon:CreateExpCB("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
 		ARL_ExpItemOptCB:SetPoint("TOPLEFT", ARL_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
-		--ARL_ExpItemOptCB:Disable()
 
 		ARL_ExpPlayerOptCB = addon:CreateExpCB("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
 		ARL_ExpPlayerOptCB:SetPoint("TOPLEFT", ARL_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
