@@ -143,7 +143,15 @@ local function GetFilteredRecipes(total, filtered, found, other)
 	local totalfiltered = filtered - other
 	local actualfiltered = total - totalfiltered
 
-	return found + actualfiltered
+	if (not addon.db.profile.filters.general.known) then
+
+		return found + actualfiltered
+
+	else
+
+		return found
+
+	end
 
 end
 
