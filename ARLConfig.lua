@@ -1084,9 +1084,8 @@ local function fullOptions()
 							name	= L["Sorting"],
 							desc	= L["SORTING_DESC"],
 							get		= function() return addon.db.profile.sorting end,
-							-- This will probably cause people in multiple locals to have issues
 							set		= function(info,name) addon.db.profile.sorting = name end,
-							values	= function() return {Name = L["Name"], Skill = L["Skill"], Acquisition = L["Acquisition"]} end,
+							values	= function() return {Name = L["Name"], Skill = L["Skill"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
 						},
 					},
 				},

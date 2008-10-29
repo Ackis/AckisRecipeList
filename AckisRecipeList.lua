@@ -1444,6 +1444,10 @@ do
 
 			end
 
+			-- Sort the list by the name
+			tsort(locationlist, function(a, b) return a < b end)
+
+			-- Return the list as a string
 			return tconcat(locationlist,",")
 
 		else
@@ -1809,6 +1813,8 @@ do
 			end
 
 			sortFuncs[L["Location"]] = function (a, b)
+
+				return (string.match(RecipeDB[a]["Locations"],"(%w+),") < string.match(RecipeDB[b]["Locations"],"(%w+),"))
 
 			end
 
