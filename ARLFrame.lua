@@ -2683,6 +2683,9 @@ function addon.resetFilters()
 	-- Hide the flyaway panel
 	addon.Flyaway:Hide()
 
+	-- Reset the display
+	ReDisplay()
+
 end
 
 -- Description: 
