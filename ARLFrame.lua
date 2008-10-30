@@ -214,7 +214,7 @@ end
 
 local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 
-	local fac = false
+	local fac = true
 
 	-- Scan through all acquire types
 	for i in pairs(DB[recipeIndex]["Acquire"]) do
@@ -1293,8 +1293,10 @@ function SetRecipeButtonTooltip (bIndex)
 
 				-- check if the recipe is excluded
 				if (exclude[rIndex] == true) then
+
 					clr1 = addon:hexcolor("RED")
 					gttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
+
 				end
 
 				-- Add in skill level requirement, colored correctly
@@ -1563,15 +1565,25 @@ function SetRecipeButtonTooltip (bIndex)
 				local playerSkill = playerData.playerProfessionLevel
 
 				if (recipeSkill > playerSkill) then
+
 					clr2 = addon:hexcolor("RED")
+
 				elseif ((playerSkill - recipeSkill) < 20) then
+
 					clr2 = addon:hexcolor("ORANGE")
+
 				elseif ((playerSkill - recipeSkill) < 30) then
+
 					clr2 = addon:hexcolor("YELLOW")
+
 				elseif ((playerSkill - recipeSkill) < 40) then
-					clr2 = addon:hexcolor("GREEN") 
+
+					clr2 = addon:hexcolor("GREEN")
+
 				else
+
 					clr2 = addon:hexcolor("MIDGREY")
+
 				end
 
 				gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)

@@ -1448,11 +1448,19 @@ do
 			tsort(locationlist, function(a, b) return a < b end)
 
 			-- Return the list as a string
-			return tconcat(locationlist,",")
+			if (#locationlist == 0)then
+
+				return ""
+
+			else
+
+				return tconcat(locationlist,",")
+
+			end
 
 		else
 
-			return nil
+			return ""
 
 		end
 
@@ -1817,7 +1825,14 @@ do
 			-- Will only sort based off of the first acquire type
 			sortFuncs[L["Location"]] = function (a, b)
 
-				return (string.match(RecipeDB[a]["Locations"],"(%w+),") < string.match(RecipeDB[b]["Locations"],"(%w+),"))
+				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+				local reca = RecipeDB[a]["Locations"] or ""
+				local recb = RecipeDB[b]["Locations"] or ""
+
+				reca = string.match(reca,"(%w+),") or ""
+				recb = string.match(recb,"(%w+),") or ""
+
+				return (reca < recb)
 
 			end
 
