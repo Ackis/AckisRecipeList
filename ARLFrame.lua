@@ -546,7 +546,7 @@ function addon.filterSwitch(val)
 			ARL_ArmorNecklaceCB:SetChecked(false)
 			ARL_ArmorRingCB:SetChecked(false)
 			ARL_ArmorTrinketCB:SetChecked(false)
-			ARL_ArmorShieldCB:SetChecked(true)
+			ARL_ArmorShieldCB:SetChecked(false)
 			ARL_ArmorAllCB:SetChecked(false)
 		end
 	elseif ((val == 21) or (val == 22) or (val == 23) or (val == 24) or
@@ -588,6 +588,7 @@ function addon.filterSwitch(val)
 			weapondb.wand = true
 			weapondb.thrown = true
 			weapondb.ammo = true
+			weapondb.fist = true
 			ARL_Weapon1HCB:SetChecked(true)
 			ARL_Weapon2HCB:SetChecked(true)
 			ARL_WeaponDaggerCB:SetChecked(true)
@@ -598,6 +599,7 @@ function addon.filterSwitch(val)
 			ARL_WeaponWandCB:SetChecked(true)
 			ARL_WeaponThrownCB:SetChecked(true)
 			ARL_WeaponAmmoCB:SetChecked(true)
+			ARL_WeaponFistCB:SetChecked(true)
 			ARL_WeaponNoneCB:SetChecked(false)
 		end
 	elseif (val == 26) then
@@ -613,6 +615,7 @@ function addon.filterSwitch(val)
 			weapondb.wand = false
 			weapondb.thrown = false
 			weapondb.ammo = false
+			weapondb.fist = false
 			ARL_Weapon1HCB:SetChecked(false)
 			ARL_Weapon2HCB:SetChecked(false)
 			ARL_WeaponDaggerCB:SetChecked(false)
@@ -623,6 +626,7 @@ function addon.filterSwitch(val)
 			ARL_WeaponWandCB:SetChecked(false)
 			ARL_WeaponThrownCB:SetChecked(false)
 			ARL_WeaponAmmoCB:SetChecked(false)
+			ARL_WeaponFistCB:SetChecked(false)
 			ARL_WeaponAllCB:SetChecked(false)
 		end
 	elseif ((val == 34) or (val == 36) or (val == 37)) then
@@ -637,7 +641,8 @@ function addon.filterSwitch(val)
 				 (weapondb.dagger == true) and (weapondb.axe == true) and
 				 (weapondb.mace == true) and (weapondb.sword == true) and
 				 (weapondb.polearm == true) and (weapondb.wand == true) and
-				 (weapondb.thrown == true) and (weapondb.ammo == true)) then
+				 (weapondb.thrown == true) and (weapondb.ammo == true) and
+				 (weapondb.fist == true)) then
 				ARL_WeaponAllCB:SetChecked(true)
 			end
 			ARL_WeaponNoneCB:SetChecked(false)
@@ -647,7 +652,8 @@ function addon.filterSwitch(val)
 				 (weapondb.dagger == false) and (weapondb.axe == false) and
 				 (weapondb.mace == false) and (weapondb.sword == false) and
 				 (weapondb.polearm == false) and (weapondb.wand == false) and
-				 (weapondb.thrown == false) and (weapondb.ammo == false)) then
+				 (weapondb.thrown == false) and (weapondb.ammo == false) and
+				 (weapondb.thrown == false)) then
 				ARL_WeaponNoneCB:SetChecked(true)
 			end
 			ARL_WeaponAllCB:SetChecked(false)
@@ -3561,7 +3567,6 @@ function addon:CreateFrame(
 			local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 84, 12, 2, 0)
 				ARL_WeaponFistCBText:SetText(L["Fist"])
-
 			local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 13, 1, 0)
 				ARL_WeaponStaffCBText:SetText(L["Staff"])
