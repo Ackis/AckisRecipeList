@@ -160,10 +160,14 @@ L["BOEFilter"]				= "Item Bind on Equip"
 L["BOE_DESC"]				= "Recipes that make Bind on Equip items should be included in the scan."
 L["BOPFilter"]				= "Item Bind on Pickup"
 L["BOP_DESC"]				= "Recipes that make Bind on Pickup items should be included in the scan."
+L["BOAFilter"]				= "Item Bind to Account"
+L["BOA_DESC"]				= "Recipes that make Bind to Account items should be included in the scan."
 L["RecipeBOEFilter"]		= "Recipe Bind on Equip"
 L["RECIPE_BOE_DESC"]		= "Recipes that are Bind on Equip should be included in the scan."
 L["RecipeBOPFilter"]		= "Recipe Bind on Pickup"
 L["RECIPE_BOP_DESC"]		= "Recipes that are Bind on Pickup should be included in the scan."
+L["RecipeBOAFilter"]		= "Recipe Bind to Account"
+L["RECIPE_BOA_DESC"]		= "Recipes that are Bind to Account should be included in the scan."
 
 -- Item - Armor UI Elements and their associated descriptions
 L["Cloth"]					= true

@@ -1177,37 +1177,56 @@ function gttAdd(
 
 	local a, b, c = toRGB(hexcolor1)
 	local d, e, f = 0, 0, 0
-	if (hexcolor2) then d, e, f = toRGB(hexcolor2) end
+
+	if (hexcolor2) then
+
+		d, e, f = toRGB(hexcolor2)
+
+	end
+
 	-- Add in our left hand padding
 	local looppad = leftPad
 	local leftStr = str1
+
 	while (looppad > 0) do
+
 		leftStr = "  " .. leftStr
 		looppad = looppad - 1
+
 	end
+
 	-- Are we adding a single or double line?
 	local double = false
+
 	if (str2) then
+
 		arlTooltip:AddDoubleLine(leftStr, str2, a, b, c, d, e, f)
 		double = true
+
 	else
+
 		arlTooltip:AddLine(leftStr, a, b, c, wraptext)
+
 	end
+
 	-- are we changing fontsize or narrow?
 	if ((narrow == 1) or (textSize ~= 0)) then
+
 		local font = "Fonts\\FRIZQT__.TTF"
 		if (narrow == 1) then font = "Fonts\\ARIALN.TTF" end
 		local fontsize = 11
 		if (textSize ~= 0) then fontsize = fontsize + textSize end
 			
 		local numlines = arlTooltip:NumLines()
-		local mytext1 = _G[ "arlTooltipTextLeft" .. numlines ]
+		local mytext1 = _G["arlTooltipTextLeft" .. numlines]
 		mytext1:SetFont(font, fontsize)
 		if (double == true) then
-			local mytext2 = _G[ "arlTooltipTextRight" .. numlines ]
+			local mytext2 = _G["arlTooltipTextRight" .. numlines]
 			mytext2:SetFont(font, fontsize)
 		end
+
 	end
+
 end
 
 -- Description: 
@@ -1324,8 +1343,52 @@ function SetRecipeButtonTooltip (bIndex)
 				end
 
 				gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+
 				-- spacer
 				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+				-- Binding info
+				clr1 = addon:hexcolor("NORMAL")
+
+				if (recipeDB[rIndex]["Flags"][36]) then
+
+					gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][37]) then
+
+					gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][38]) then
+
+					gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][39]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][40]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][41]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+
+				end
+
+				-- spacer
+				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
 				-- obtain info
 				gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
@@ -1593,8 +1656,52 @@ function SetRecipeButtonTooltip (bIndex)
 				end
 
 				gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+
 				-- spacer
 				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+				-- Binding info
+				clr1 = addon:hexcolor("NORMAL")
+
+				if (recipeDB[rIndex]["Flags"][36]) then
+
+					gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][37]) then
+
+					gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][38]) then
+
+					gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][39]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][40]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+
+				end
+
+				if (recipeDB[rIndex]["Flags"][41]) then
+
+					gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+
+				end
+
+				-- spacer
+				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
 				-- obtain info
 				gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
