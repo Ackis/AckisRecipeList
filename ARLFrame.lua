@@ -3420,7 +3420,7 @@ function addon:CreateFrame(
 			ARL_ResetButton:Hide()
 
 		local ARL_ApplyButton = addon:GenericCreateButton("ARL_ApplyButton", addon.Frame,
-			22, 69, "RIGHT", ARL_CloseButton, "LEFT", -80, 0, "GameFontNormalSmall",
+			22, 69, "RIGHT", ARL_CloseButton, "LEFT", -82, 0, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["Apply"], "CENTER", L["APPLY_DESC"], 1)
 			ARL_ApplyButton:SetScript("OnClick", ReDisplay)
 			ARL_ApplyButton:Hide()
