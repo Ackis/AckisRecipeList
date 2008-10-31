@@ -663,7 +663,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3513, 7, 2)
 
 	-- Golden Scale Boots -- 3515
-	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
+	-- Instance: 796 - type1minlevel34maxlevel45category3territory4nameScarlet Monasteryid796
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1080,7 +1080,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val15id3val469id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 9970, 235, 7934, 2, 2018)
+	self:addTradeSkill(RecipeDB, 9970, 245, 7934, 2, 2018)
 	self:addTradeFlags(RecipeDB, 9970, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 9970, 7, 2)
 
@@ -1332,7 +1332,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 14380, 1, 2836, 1, 3355, 1, 4258, 1, 16583, 1, 16669, 1, 16823, 1, 19341)
 
 	-- Dark Iron Pulverizer -- 15292
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace, 
 	-- Item Stats: 
@@ -1343,12 +1343,12 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15292, 3, 9028)
 
 	-- Dark Iron Mail -- 15293
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -1359,8 +1359,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15293, 3, 8900, 3, 8901, 3, 8907, 3, 8911, 3, 8920, 3, 8983)
 
 	-- Dark Iron Sunderer -- 15294
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe, 
 	-- Item Stats: 
@@ -1371,9 +1371,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15294, 3, 9554, 3, 10043)
 
 	-- Dark Iron Shoulders -- 15295
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -1384,7 +1384,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15295, 3, 8891, 3, 8894, 3, 8899)
 
 	-- Dark Iron Plate -- 15296
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -1405,12 +1405,12 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15972, 1, 2836, 1, 3355, 1, 4258, 1, 16583, 1, 16669, 1, 16823, 1, 19341)
 
 	-- Searing Golden Blade -- 15973
-	-- Instance: 1337 - type1category3maxlevel47territory1minlevel39nameUldamanid1337
-	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
-	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
-	-- Instance: 796 - type1category3maxlevel45territory4minlevel34nameScarlet Monasteryid796
-	-- Instance: 1176 - type1category3maxlevel47territory1minlevel43nameZul'Farrakid1176
-	-- Instance: 1176 - type1category3maxlevel47territory1minlevel43nameZul'Farrakid1176
+	-- Instance: 1337 - type1minlevel39maxlevel47category3territory1nameUldamanid1337
+	-- Instance: 796 - type1minlevel34maxlevel45category3territory4nameScarlet Monasteryid796
+	-- Instance: 796 - type1minlevel34maxlevel45category3territory4nameScarlet Monasteryid796
+	-- Instance: 796 - type1minlevel34maxlevel45category3territory4nameScarlet Monasteryid796
+	-- Instance: 1176 - type1minlevel43maxlevel47category3territory1nameZul'Farrakid1176
+	-- Instance: 1176 - type1minlevel43maxlevel47category3territory1nameZul'Farrakid1176
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Dagger, Armor, Trinket, 
 	-- Item Stats: 
@@ -1739,7 +1739,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Lionheart Helm -- 16729
 	-- Raid: 2677 - Blackwing Lair
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 3714 - type5category3territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714
+	-- Instance: 3714 - type5minlevel70category3territory1nameHellfire Citadel: The Shattered Hallsexpansion1id3714
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate, 
 	-- Item Stats: 
@@ -1781,7 +1781,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Stronghold Gauntlets -- 16741
 	-- Raid: 2717 - Molten Core
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2057 - type1category3maxlevel60territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1minlevel58maxlevel60category3territory1nameScholomanceid2057
 	-- Raid: 3428 - Ahn'Qiraj
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate, 
@@ -1824,9 +1824,9 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Invulnerable Mail -- 16746
 	-- Raid: 2677 - Blackwing Lair
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2057 - type1category3maxlevel60territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1minlevel58maxlevel60category3territory1nameScholomanceid2057
 	-- Raid: 1977 - Zul'Gurub
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
@@ -1976,7 +1976,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Hammer of the Titans -- 16988
-	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58maxlevel60category3territory1nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace, 
 	-- Item Stats: 
@@ -1987,7 +1987,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16988, 3, 10438)
 
 	-- Arcanite Champion -- 16990
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Sword, 
 	-- Item Stats: 
@@ -1998,7 +1998,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16990, 3, 10899)
 
 	-- Annihilator -- 16991
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe, 
 	-- Item Stats: 
@@ -2019,7 +2019,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16992, 3, 1844)
 
 	-- Masterwork Stormhammer -- 16993
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace, 
 	-- Item Stats: 
@@ -2030,7 +2030,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16993, 3, 10899)
 
 	-- Arcanite Reaper -- 16994
-	-- Instance: 1583 - type1category3maxlevel60territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe, Armor, Trinket, 
 	-- Item Stats: 
@@ -2041,7 +2041,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16994, 3, 9596)
 
 	-- Heartseeker -- 16995
-	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58maxlevel60category3territory1nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Dagger, Armor, Trinket, 
 	-- Item Stats: 
@@ -2056,7 +2056,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 19666, 80, 15869, 1, 2018)
+	self:addTradeSkill(RecipeDB, 19666, 100, 15869, 1, 2018)
 	self:addTradeFlags(RecipeDB, 19666, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 19666, 1, 1383, 1, 2836, 1, 2998, 1, 3136, 1, 3355, 1, 3478, 1, 4258, 1, 4596, 1, 5511, 1, 10276, 1, 16583, 1, 16669, 1, 16724, 1, 16823, 1, 19341)
 
@@ -2065,7 +2065,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 19667, 130, 15870, 1, 2018)
+	self:addTradeSkill(RecipeDB, 19667, 150, 15870, 1, 2018)
 	self:addTradeFlags(RecipeDB, 19667, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 19667, 1, 1383, 1, 2836, 1, 2998, 1, 3136, 1, 3355, 1, 3478, 1, 4258, 1, 4596, 1, 5511, 1, 10276, 1, 16583, 1, 16669, 1, 16724, 1, 16823, 1, 19341)
 
@@ -2074,7 +2074,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 19668, 180, 15871, 1, 2018)
+	self:addTradeSkill(RecipeDB, 19668, 200, 15871, 1, 2018)
 	self:addTradeFlags(RecipeDB, 19668, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 19668, 1, 2836, 1, 3355, 1, 4258, 1, 16583, 1, 16669, 1, 16823, 1, 19341)
 
@@ -2083,7 +2083,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 19669, 265, 15872, 1, 2018)
+	self:addTradeSkill(RecipeDB, 19669, 275, 15872, 1, 2018)
 	self:addTradeFlags(RecipeDB, 19669, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 19669, 1, 2836, 1, 16583, 1, 16823, 1, 19341)
 
@@ -2098,7 +2098,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20201, 1, 2836, 1, 16583, 1, 16823, 1, 19341)
 
 	-- Fiery Chain Girdle -- 20872
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -2109,7 +2109,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20872, 2, 12944)
 
 	-- Fiery Chain Shoulders -- 20873
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
@@ -2120,7 +2120,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20873, 2, 12944)
 
 	-- Dark Iron Bracers -- 20874
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -2131,7 +2131,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20874, 2, 12944)
 
 	-- Dark Iron Leggings -- 20876
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -2142,7 +2142,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20876, 2, 12944)
 
 	-- Dark Iron Reaver -- 20890
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Sword, 
 	-- Item Stats: 
@@ -2153,7 +2153,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20890, 2, 12944)
 
 	-- Dark Iron Destroyer -- 20897
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Axe, 
 	-- Item Stats: 
@@ -2195,7 +2195,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 22757, 280, 18262, 3, 2018)
+	self:addTradeSkill(RecipeDB, 22757, 300, 18262, 3, 2018)
 	self:addTradeFlags(RecipeDB, 22757, 6,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 22757, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
@@ -2244,7 +2244,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23633, 6, 529, 3, 10856, 6, 529, 3, 10857, 6, 529, 3, 11536)
 
 	-- Dark Iron Helm -- 23636
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -2255,7 +2255,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23636, 2, 12944)
 
 	-- Dark Iron Gauntlets -- 23637
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
@@ -2266,7 +2266,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23637, 2, 12944)
 
 	-- Black Amnesty -- 23638
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Dagger, 
 	-- Item Stats: 
@@ -2277,7 +2277,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23638, 2, 12944)
 
 	-- Blackfury -- 23639
-	-- Instance: 1584 - type1category3maxlevel60territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Polearm, Armor, Trinket, 
 	-- Item Stats: 
@@ -2494,7 +2494,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Titanic Leggings -- 27829
 	-- Raid: 2677 - Blackwing Lair
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2017 - type1category3maxlevel60territory1minlevel58nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58maxlevel60category3territory1nameStratholmeid2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate, 
 	-- Item Stats: 
@@ -2714,7 +2714,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val47id1val179-269id7val3.2id8
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29566, 315, 23502, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29566, 325, 23502, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29566, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,70)
 	self:addTradeAcquire(RecipeDB, 29566, 2, 16670, 2, 16713, 2, 19662)
 
@@ -2724,7 +2724,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val25id2val39id3val203-305id7val3.5id8val52id9val52id16
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29568, 320, 23503, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29568, 330, 23503, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29568, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,68)
 	self:addTradeAcquire(RecipeDB, 29568, 2, 16670, 2, 16713, 2, 19662)
 
@@ -2734,7 +2734,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val74-138id7val1.9id8val10id11val10id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29569, 320, 23504, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29569, 330, 23504, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29569, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,72)
 	self:addTradeAcquire(RecipeDB, 29569, 2, 16670, 2, 16713, 2, 19662)
 
@@ -2744,7 +2744,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val15id3val68-128id7val1.7id8val16id26
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29571, 325, 23505, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29571, 335, 23505, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29571, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,47,52,63,69)
 	self:addTradeAcquire(RecipeDB, 29571, 2, 16670, 2, 16713, 2, 19662)
 
@@ -2754,7 +2754,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val22id1val24id3val458id6val4id9val4id16
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29603, 325, 23506, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29603, 335, 23506, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29603, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 29603, 2, 19342, 2, 19694)
 
@@ -2764,7 +2764,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val24id1val34id3val655id6val6id9val6id16
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29605, 325, 23508, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29605, 335, 23508, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29605, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 29605, 2, 19342, 2, 19694)
 
@@ -2774,7 +2774,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val34id1val40id3val1077id6val8id9val8id16
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29606, 330, 23507, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29606, 340, 23507, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29606, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 29606, 2, 19342, 2, 19694)
 
@@ -2785,7 +2785,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val21id3val644id6val3id31val30id32
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29608, 345, 23510, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29608, 355, 23510, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29608, 2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,110)
 	self:addTradeAcquire(RecipeDB, 29608, 6, 934, 1, 19331)
 
@@ -2796,7 +2796,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val27id3val1154id6val40id32
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29610, 350, 23509, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29610, 360, 23509, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29610, 2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,110)
 	self:addTradeAcquire(RecipeDB, 29610, 6, 934, 3, 19331)
 
@@ -2807,7 +2807,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val21id3val787id6val30id32
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29611, 345, 23511, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29611, 355, 23511, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29611, 2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,110)
 	self:addTradeAcquire(RecipeDB, 29611, 6, 934, 2, 19331)
 
@@ -2818,7 +2818,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val1019id6val4id31val40id32
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29613, 355, 23512, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29613, 365, 23512, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29613, 2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,110)
 	self:addTradeAcquire(RecipeDB, 29613, 6, 934, 4, 19331)
 
@@ -2829,7 +2829,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val15id3val497id6val28id33
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29614, 340, 23515, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29614, 350, 23515, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29614, 1,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,101)
 	self:addTradeAcquire(RecipeDB, 29614, 6, 932, 1, 19321)
 
@@ -2840,7 +2840,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val19id3val930id6val40id33
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29615, 345, 23516, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29615, 355, 23516, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29615, 1,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,101)
 	self:addTradeAcquire(RecipeDB, 29615, 6, 932, 4, 19321)
 
@@ -2851,7 +2851,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val21id3val722id6val30id33
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29616, 350, 23514, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29616, 360, 23514, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29616, 1,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,101)
 	self:addTradeAcquire(RecipeDB, 29616, 6, 932, 2, 19321)
 
@@ -2862,40 +2862,40 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val19id3val1164id6val4id31val40id33
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29617, 355, 23513, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29617, 365, 23513, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29617, 1,4,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,101)
 	self:addTradeAcquire(RecipeDB, 29617, 6, 932, 3, 19321)
 
 	-- Felsteel Gloves -- 29619
-	-- Instance: 3790 - type5category3maxlevel67territory1expansion1minlevel65nameAuchindoun: Auchenai Cryptsid3790
+	-- Instance: 3790 - type5minlevel65maxlevel67category3territory1nameAuchindoun: Auchenai Cryptsexpansion1id3790
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val943id6val25id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29619, 350, 23517, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29619, 360, 23517, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29619, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29619, 3, 18497)
 
 	-- Felsteel Leggings -- 29620
-	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - type5minlevel70category3territory1nameTempest Keep: The Arcatrazexpansion1id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val39id3val1257id6val33id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29620, 350, 23518, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29620, 360, 23518, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29620, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29620, 3, 20900)
 
 	-- Felsteel Helm -- 29621
-	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
+	-- Instance: 3789 - type5minlevel70category3territory1nameAuchindoun: Shadow Labrynthexpansion1id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val1284id6val33id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29621, 355, 23519, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29621, 365, 23519, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29621, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29621, 3, 18830)
 
@@ -2905,7 +2905,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val30id3val831id6val26id29val20id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29622, 355, 23532, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29622, 365, 23532, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29622, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29622, 7, 4)
 
@@ -2915,7 +2915,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val30id3val21id4val649id6val25id19val25id20val8id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29628, 350, 23524, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29628, 360, 23524, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29628, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,54,59)
 	self:addTradeAcquire(RecipeDB, 29628, 3, 18203)
 
@@ -2925,7 +2925,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val42id3val28id4val1010id6val33id19val33id20val11id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29629, 350, 23523, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29629, 360, 23523, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29629, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,54,59)
 	self:addTradeAcquire(RecipeDB, 29629, 3, 20878)
 
@@ -2935,7 +2935,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val31id3val21id4val800id6val26id19val26id20val8id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29630, 355, 23525, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29630, 365, 23525, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29630, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,54,59)
 	self:addTradeAcquire(RecipeDB, 29630, 3, 18873)
 
@@ -2945,7 +2945,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val35id1val728id6val27id11val27id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29642, 355, 23520, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29642, 365, 23520, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29642, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 29642, 3, 17136)
 
@@ -2955,7 +2955,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val45id1val946id6val37id11val37id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29643, 355, 23521, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29643, 365, 23521, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29643, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 29643, 3, 16952)
 
@@ -2965,29 +2965,29 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val50id1val1164id6val29id11val29id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29645, 360, 23522, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29645, 370, 23522, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29645, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 29645, 3, 21454, 3, 23305, 3, 23324)
 
 	-- Swiftsteel Gloves -- 29648
-	-- Instance: 3792 - type5category3maxlevel66territory1expansion1minlevel64nameAuchindoun: Mana-Tombsid3792
+	-- Instance: 3792 - type5minlevel64maxlevel66category3territory1nameAuchindoun: Mana-Tombsexpansion1id3792
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val3id2val407id6val50id9val50id16val10id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29648, 360, 23526, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29648, 370, 23526, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29648, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	self:addTradeAcquire(RecipeDB, 29648, 3, 18314)
 
 	-- Earthpeace Breastplate -- 29649
-	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
+	-- Instance: 3847 - type5minlevel70category3territory1nameTempest Keep: The Botanicaexpansion1id3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val652id6val31id19val92id20val16id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29649, 360, 23527, 3, 2018)
+	self:addTradeSkill(RecipeDB, 29649, 370, 23527, 3, 2018)
 	self:addTradeFlags(RecipeDB, 29649, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,53,58)
 	self:addTradeAcquire(RecipeDB, 29649, 3, 17975)
 
@@ -3006,7 +3006,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29656, 340, 23529, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29656, 350, 23529, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29656, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
 	self:addTradeAcquire(RecipeDB, 29656, 6, 942, 2, 17904)
 
@@ -3016,7 +3016,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29657, 350, 23530, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29657, 360, 23530, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29657, 1,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
 	self:addTradeAcquire(RecipeDB, 29657, 6, 946, 4, 17657)
 
@@ -3026,7 +3026,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val30id3val465id6val40id9val27id11val40id16val27id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29658, 355, 23531, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29658, 365, 23531, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29658, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,58)
 	self:addTradeAcquire(RecipeDB, 29658, 7, 4)
 
@@ -3036,7 +3036,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val28id1val36id3val831id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29662, 355, 23533, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29662, 365, 23533, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29662, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 29662, 7, 4)
 
@@ -3046,7 +3046,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val21id3val28id4val604id6val44id9val22id11val44id16val22id18val9id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29663, 355, 23534, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29663, 365, 23534, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29663, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,58)
 	self:addTradeAcquire(RecipeDB, 29663, 7, 4)
 
@@ -3056,7 +3056,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val47id3val1366id6val23id29val23id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29664, 355, 23535, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29664, 365, 23535, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29664, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29664, 7, 4)
 
@@ -3066,7 +3066,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, Caster DPS, 
 	-- Item Stats: val40id3val22id4val1080id6val26id19val26id20val9id24val15id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29668, 355, 23536, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29668, 365, 23536, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29668, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,52,54,59)
 	self:addTradeAcquire(RecipeDB, 29668, 7, 4)
 
@@ -3076,7 +3076,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val26id1val15id3val581id6val22id11val22id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29669, 355, 23537, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29669, 365, 23537, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29669, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,59)
 	self:addTradeAcquire(RecipeDB, 29669, 7, 4)
 
@@ -3086,7 +3086,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val39id3val581id6val10id26val17id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29671, 355, 23538, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29671, 365, 23538, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29671, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,52,59)
 	self:addTradeAcquire(RecipeDB, 29671, 7, 4)
 
@@ -3096,7 +3096,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Healing, 
 	-- Item Stats: val12id3val14id4val581id6val19id19val57id20val18id22
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29672, 355, 23539, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29672, 365, 23539, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29672, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,53,59)
 	self:addTradeAcquire(RecipeDB, 29672, 7, 4)
 
@@ -3105,13 +3105,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - type5minlevel70category3territory1nameTempest Keep: The Arcatrazexpansion1id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Sword, 
 	-- Item Stats: 
 	-- Item Stats: val26id2val15id3val128-239id7val2.2id8
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29692, 355, 23540, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29692, 365, 23540, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29692, 5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
 	self:addTradeAcquire(RecipeDB, 29692, 3, 15547, 3, 16171, 3, 18260, 3, 19779, 3, 20036, 3, 20714, 3, 20910, 3, 21298, 3, 22052)
 
@@ -3121,7 +3121,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val50id1val286-430id7val3.3id8
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29693, 355, 23541, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29693, 365, 23541, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29693, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,69)
 	self:addTradeAcquire(RecipeDB, 29693, 7, 4)
 
@@ -3131,7 +3131,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val128-239id7val2.2id8val21id11val21id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29694, 355, 23542, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29694, 365, 23542, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29694, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,68)
 	self:addTradeAcquire(RecipeDB, 29694, 7, 4)
 
@@ -3141,7 +3141,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val295-443id7val3.4id8val112id9val30id11val112id16val30id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29695, 355, 23543, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29695, 365, 23543, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29695, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,68)
 	self:addTradeAcquire(RecipeDB, 29695, 7, 4)
 
@@ -3153,7 +3153,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val16id3val140-261id7val2.4id8val50id9val50id16
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29696, 355, 23544, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29696, 365, 23544, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29696, 6,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,70)
 	self:addTradeAcquire(RecipeDB, 29696, 3, 16409, 3, 16525, 3, 20514, 3, 21941)
 
@@ -3163,7 +3163,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val50id1val46id3val286-430id7val3.3id8val21id11val21id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29697, 355, 23546, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29697, 365, 23546, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29697, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,70)
 	self:addTradeAcquire(RecipeDB, 29697, 7, 4)
 
@@ -3173,7 +3173,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val19id4val27.6-113.6id7val1.7id8val168id19val168id20val21id22
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29698, 355, 23554, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29698, 365, 23554, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29698, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,54,63,72)
 	self:addTradeAcquire(RecipeDB, 29698, 7, 4)
 
@@ -3187,20 +3187,20 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val81-152id7val1.4id8val40id9val20id11val40id16val20id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29699, 355, 23555, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29699, 365, 23555, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29699, 6,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63,72)
 	self:addTradeAcquire(RecipeDB, 29699, 3, 16409, 3, 16460, 3, 16595, 3, 18554, 3, 21229, 3, 22254, 3, 22384)
 
 	-- Hand of Eternity -- 29700
-	-- Instance: 3717 - type5category3maxlevel64territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensid3717
-	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
+	-- Instance: 3717 - type5minlevel62maxlevel64category3territory1nameCoilfang Reservoir: The Slave Pensexpansion1id3717
+	-- Instance: 3847 - type5minlevel70category3territory1nameTempest Keep: The Botanicaexpansion1id3847
 	-- Raid: 3457 - Karazhan
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace, Armor, Trinket, 
 	-- Item Stats: Healing, 
 	-- Item Stats: val20id4val35.38-131.38id7val1.9id8val106id19val317id20val7id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29700, 355, 23556, 4, 2018)
+	self:addTradeSkill(RecipeDB, 29700, 365, 23556, 4, 2018)
 	self:addTradeFlags(RecipeDB, 29700, 5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,53,63,70)
 	self:addTradeAcquire(RecipeDB, 29700, 3, 16409, 3, 17957, 3, 19513, 3, 19756, 3, 20496, 3, 22241, 3, 22394)
 
@@ -3209,7 +3209,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29728, 330, 23575, 1, 2018)
+	self:addTradeSkill(RecipeDB, 29728, 340, 23575, 1, 2018)
 	self:addTradeFlags(RecipeDB, 29728, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 29728, 2, 16583, 2, 19373)
 
@@ -3232,14 +3232,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 32284, 1, 16583, 1, 16823, 1, 19341)
 
 	-- Greater Rune of Warding -- 32285
-	-- Instance: 3714 - type5category3territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714
+	-- Instance: 3714 - type5minlevel70category3territory1nameHellfire Citadel: The Shattered Hallsexpansion1id3714
 	-- Mob Drop
 	-- Cenarion Expedition - Honored
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 32285, 340, 25521, 1, 2018)
+	self:addTradeSkill(RecipeDB, 32285, 350, 25521, 1, 2018)
 	self:addTradeFlags(RecipeDB, 32285, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,103)
 	self:addTradeAcquire(RecipeDB, 32285, 3, 17671, 6, 942, 2, 17904)
 
@@ -3259,7 +3259,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 32656, 340, 25844, 1, 2018)
+	self:addTradeSkill(RecipeDB, 32656, 350, 25844, 1, 2018)
 	self:addTradeFlags(RecipeDB, 32656, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 32656, 2, 19662)
 
@@ -3269,7 +3269,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 32657, 365, 25845, 1, 2018)
+	self:addTradeSkill(RecipeDB, 32657, 375, 25845, 1, 2018)
 	self:addTradeFlags(RecipeDB, 32657, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 32657, 2, 16583, 2, 19373)
 
@@ -3464,7 +3464,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 34608, 340, 28421, 1, 2018)
+	self:addTradeSkill(RecipeDB, 34608, 350, 28421, 1, 2018)
 	self:addTradeFlags(RecipeDB, 34608, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
 	self:addTradeAcquire(RecipeDB, 34608, 6, 942, 2, 17904)
 
@@ -3745,7 +3745,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, Caster DPS, 
 	-- Item Stats: val48id3val13id4val904id6val21id19val21id20val19id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 36389, 365, 30034, 4, 2018)
+	self:addTradeSkill(RecipeDB, 36389, 375, 30034, 4, 2018)
 	self:addTradeFlags(RecipeDB, 36389, 10,21,22,23,24,25,26,27,28,29,30,36,41,47,52,54,59)
 	self:addTradeAcquire(RecipeDB, 36389, 7, 4)
 
@@ -3755,7 +3755,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val41id1val21id3val904id6val24id11val24id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 36390, 365, 30032, 4, 2018)
+	self:addTradeSkill(RecipeDB, 36390, 375, 30032, 4, 2018)
 	self:addTradeFlags(RecipeDB, 36390, 10,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 36390, 7, 4)
 
@@ -3765,7 +3765,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, Caster DPS, 
 	-- Item Stats: val48id3val22id4val1105id6val27id19val27id20val17id28val26id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 36391, 365, 30033, 4, 2018)
+	self:addTradeSkill(RecipeDB, 36391, 375, 30033, 4, 2018)
 	self:addTradeFlags(RecipeDB, 36391, 10,21,22,23,24,25,26,27,28,29,30,37,41,47,52,54,59)
 	self:addTradeAcquire(RecipeDB, 36391, 7, 4)
 
@@ -3775,7 +3775,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id3val1105id6val25id28val32id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 36392, 365, 30031, 4, 2018)
+	self:addTradeSkill(RecipeDB, 36392, 375, 30031, 4, 2018)
 	self:addTradeFlags(RecipeDB, 36392, 10,21,22,23,24,25,26,27,28,29,30,37,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 36392, 7, 4)
 
@@ -3786,7 +3786,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val45id3val1450id6val14id31val60id34
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38473, 365, 31364, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38473, 375, 31364, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38473, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,103)
 	self:addTradeAcquire(RecipeDB, 38473, 6, 942, 4, 17904)
 
@@ -3797,7 +3797,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val55id3val1269id6val60id34
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38475, 365, 31367, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38475, 375, 31367, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38475, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,59,103)
 	self:addTradeAcquire(RecipeDB, 38475, 6, 942, 3, 17904)
 
@@ -3808,7 +3808,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val58id3val1178id6val28id31val50id34
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38476, 365, 31368, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38476, 375, 31368, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38476, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,103)
 	self:addTradeAcquire(RecipeDB, 38476, 6, 942, 3, 17904)
 
@@ -3820,7 +3820,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id3val1450id6val10id31val60id35
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38477, 365, 31369, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38477, 375, 31369, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38477, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,114)
 	self:addTradeAcquire(RecipeDB, 38477, 6, 967, 2, 16388)
 
@@ -3832,7 +3832,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val55id3val1110id6val60id35
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38478, 365, 31370, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38478, 375, 31370, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38478, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,59,114)
 	self:addTradeAcquire(RecipeDB, 38478, 6, 967, 3, 16388)
 
@@ -3844,7 +3844,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val64id3val1030id6val20id31val50id35
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38479, 365, 31371, 4, 2018)
+	self:addTradeSkill(RecipeDB, 38479, 375, 31371, 4, 2018)
 	self:addTradeFlags(RecipeDB, 38479, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59,114)
 	self:addTradeAcquire(RecipeDB, 38479, 6, 967, 2, 16388)
 
@@ -3856,7 +3856,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val40id3val1122id6val54id36
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 40033, 365, 32402, 1, 2018)
+	self:addTradeSkill(RecipeDB, 40033, 375, 32402, 1, 2018)
 	self:addTradeFlags(RecipeDB, 40033, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,59,102)
 	self:addTradeAcquire(RecipeDB, 40033, 6, 1012, 2, 23159)
 
@@ -3868,7 +3868,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val30id3val714id6val40id36
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 40034, 365, 32403, 1, 2018)
+	self:addTradeSkill(RecipeDB, 40034, 375, 32403, 1, 2018)
 	self:addTradeFlags(RecipeDB, 40034, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,59,102)
 	self:addTradeAcquire(RecipeDB, 40034, 6, 1012, 1, 23159)
 
@@ -3880,7 +3880,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val54id3val1428id6val72id36
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 40035, 365, 32404, 1, 2018)
+	self:addTradeSkill(RecipeDB, 40035, 375, 32404, 1, 2018)
 	self:addTradeFlags(RecipeDB, 40035, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,59,102)
 	self:addTradeAcquire(RecipeDB, 40035, 6, 1012, 2, 23159)
 
@@ -3892,7 +3892,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val40id3val918id6val54id36
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 40036, 365, 32401, 1, 2018)
+	self:addTradeSkill(RecipeDB, 40036, 375, 32401, 1, 2018)
 	self:addTradeFlags(RecipeDB, 40036, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,59,102)
 	self:addTradeAcquire(RecipeDB, 40036, 6, 1012, 1, 23159)
 
@@ -3902,7 +3902,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val35id1val32id3val772id6val27id30
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 41132, 365, 32568, 4, 2018)
+	self:addTradeSkill(RecipeDB, 41132, 375, 32568, 4, 2018)
 	self:addTradeFlags(RecipeDB, 41132, 10,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 41132, 7, 4)
 
@@ -3912,7 +3912,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val47id1val29id3val1324id6val35id30
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 41133, 365, 32570, 4, 2018)
+	self:addTradeSkill(RecipeDB, 41133, 375, 32570, 4, 2018)
 	self:addTradeFlags(RecipeDB, 41133, 10,21,22,23,24,25,26,27,28,29,30,37,41,47,59)
 	self:addTradeAcquire(RecipeDB, 41133, 7, 4)
 
@@ -3922,7 +3922,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Healing, 
 	-- Item Stats: val21id3val23id4val772id6val22id19val64id20
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 41134, 365, 32571, 4, 2018)
+	self:addTradeSkill(RecipeDB, 41134, 375, 32571, 4, 2018)
 	self:addTradeFlags(RecipeDB, 41134, 10,21,22,23,24,25,26,27,28,29,30,36,41,47,53,59)
 	self:addTradeAcquire(RecipeDB, 41134, 7, 4)
 
@@ -3932,7 +3932,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Healing, 
 	-- Item Stats: val31id3val28id4val1324id6val27id19val81id20
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 41135, 365, 32573, 4, 2018)
+	self:addTradeSkill(RecipeDB, 41135, 375, 32573, 4, 2018)
 	self:addTradeFlags(RecipeDB, 41135, 10,21,22,23,24,25,26,27,28,29,30,37,41,47,53,59)
 	self:addTradeAcquire(RecipeDB, 41135, 7, 4)
 
@@ -3942,13 +3942,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val32id1val12id3val873id6val17id11val17id18
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 42662, 355, 33173, 3, 2018)
+	self:addTradeSkill(RecipeDB, 42662, 365, 33173, 3, 2018)
 	self:addTradeFlags(RecipeDB, 42662, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 42662, 3, 21050, 3, 21059, 3, 21060, 3, 21061)
 
 	-- Adamantite Weapon Chain -- 42688
 	-- Raid: 3959 - Black Temple
-	-- Instance: 2367 - type5category3maxlevel68territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - type5minlevel66maxlevel68category3territory1nameCaverns of Time: Old Hillsbrad Foothillsexpansion1id2367
 	-- Raid: 3457 - Karazhan
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -3970,17 +3970,17 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Hammer of Righteous Might -- 43846
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3791 - type5category3maxlevel69territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsid3791
+	-- Instance: 3791 - type5minlevel67maxlevel69category3territory1nameAuchindoun: Sethekk Hallsexpansion1id3791
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
+	-- Instance: 3849 - type5minlevel70category3territory1nameTempest Keep: The Mechanarexpansion1id3849
 	-- Raid: 3457 - Karazhan
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace, Armor, Trinket, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val55id3val37id4val93.8-185.8id7val2.1id8val168id19val168id20val15id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 43846, 355, 32854, 4, 2018)
+	self:addTradeSkill(RecipeDB, 43846, 365, 32854, 4, 2018)
 	self:addTradeFlags(RecipeDB, 43846, 5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,54,63,70)
 	self:addTradeAcquire(RecipeDB, 43846, 3, 16409, 3, 16492, 3, 16504, 3, 16525, 3, 19168, 3, 19429, 3, 22323, 3, 23051, 3, 23169)
 
@@ -3993,7 +3993,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Healing, 
 	-- Item Stats: val33id3val31id4val1239id6val28id19val84id20val36id22val9id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 46140, 340, 34380, 4, 2018)
+	self:addTradeSkill(RecipeDB, 46140, 365, 34380, 4, 2018)
 	self:addTradeFlags(RecipeDB, 46140, 6,11,21,22,23,24,25,26,27,28,29,30,36,41,47,53,59)
 	self:addTradeAcquire(RecipeDB, 46140, 3, 25363, 3, 25369, 3, 25371)
 
@@ -4005,7 +4005,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val45id1val45id3val1239id6val36id30
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 46141, 340, 34378, 4, 2018)
+	self:addTradeSkill(RecipeDB, 46141, 365, 34378, 4, 2018)
 	self:addTradeFlags(RecipeDB, 46141, 6,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	self:addTradeAcquire(RecipeDB, 46141, 3, 25369, 3, 25371)
 
@@ -4019,7 +4019,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: Healing, 
 	-- Item Stats: val40id3val51id4val1983id6val38id19val114id20val34id22val16id24
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 46142, 340, 34379, 4, 2018)
+	self:addTradeSkill(RecipeDB, 46142, 365, 34379, 4, 2018)
 	self:addTradeFlags(RecipeDB, 46142, 6,11,21,22,23,24,25,26,27,28,29,30,37,41,47,53,59)
 	self:addTradeAcquire(RecipeDB, 46142, 3, 25363, 3, 25367, 3, 25369, 3, 25507)
 
@@ -4031,7 +4031,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val61id1val55id3val1983id6val41id11val41id18val280id41
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 46144, 340, 34377, 4, 2018)
+	self:addTradeSkill(RecipeDB, 46144, 365, 34377, 4, 2018)
 	self:addTradeFlags(RecipeDB, 46144, 6,21,22,23,24,25,26,27,28,29,30,37,41,47,59)
 	self:addTradeAcquire(RecipeDB, 46144, 3, 25369, 3, 25371)
 

@@ -90,7 +90,7 @@ function addon:InitInscription(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 48248, 45, 37118, 1, 45357)
+	self:addTradeSkill(RecipeDB, 48248, 25, 37118, 1, 45357)
 	self:addTradeFlags(RecipeDB, 48248, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
