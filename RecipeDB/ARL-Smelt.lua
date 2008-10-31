@@ -251,9 +251,9 @@ function addon:InitSmelting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
-	self:addTradeFlags(RecipeDB, 22967, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 53417, 325, 17771, 5, 2575)
+	--self:addTradeFlags(RecipeDB, 53417, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	return recipecount

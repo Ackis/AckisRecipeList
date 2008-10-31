@@ -1150,7 +1150,7 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 
 #TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
 
-$debug = true
+$debug = false
 
 if $debug
 
