@@ -41,7 +41,7 @@ local normalFont = "Fonts\\FRIZQT__.TTF"
 
 -- Fix for font issues on koKR
 
-if (locale == "koKR") then
+if (locale == "koKR") or (locale == "zhTW") or (locale == "zhCN") then
 
 	narrowFont = "Fonts\\2002.TTF"
 
