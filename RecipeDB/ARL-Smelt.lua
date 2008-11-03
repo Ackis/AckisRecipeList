@@ -256,6 +256,15 @@ function addon:InitSmelting(RecipeDB)
 	--self:addTradeFlags(RecipeDB, 53417, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
+	-- Smelt Elementium -- 22967
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
+	self:addTradeFlags(RecipeDB, 22967, 3,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
 	return recipecount
 
 end

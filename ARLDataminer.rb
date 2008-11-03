@@ -1148,7 +1148,9 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Magmadar","Shazzrah","Lord Kazzak","Pusillin","Darkmaster Gandling","Mijan","Pyromancer Loregrain",
 	"Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman"]
 
-#TODO: for these functions, how can I do it so I can set a debug parameter which would only cause First Aid to run?
+# Manual entries to the vendor, etc list
+$vendors[15165] = {:name => "Haughty Modiste"}
+$vendors[15165][:faction] => 3
 
 $debug = false
 
