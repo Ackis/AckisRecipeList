@@ -1929,11 +1929,15 @@ function addon:GetExclusions(RecipeDB)
 	local exclusionlist = addon.db.profile.exclusionlist
 
 	for i in pairs(exclusionlist) do
+
 		-- We may have a recipe in the exclusion list that has not been scanned yet
 		-- check if the entry exists in RecipeDB first
 		if (RecipeDB[i]) then
+
 			RecipeDB[i]["Display"] = false
+
 		end
+
 	end
 
 end
@@ -1955,6 +1959,19 @@ function addon:ToggleExcludeRecipe(SpellID)
 	else
 
 		exclusionlist[SpellID] = true
+
+	end
+
+end
+
+function addon:ViewExclusionList()
+
+	local exclusionlist = addon.db.profile.exclusionlist
+
+	-- Parse all items in the exclusion list
+	for i in pairs(exclusionlist) do
+
+		self:Print(i .. ": " .. GetSpellInfo(i))
 
 	end
 

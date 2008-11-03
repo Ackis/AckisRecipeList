@@ -993,8 +993,15 @@ local function fullOptions()
 							desc	= L["TEXT_DUMP_DESC"],
 							func	= function(info) addon:AckisRecipeList_Command(true) end,
 						},
-						spacer1 = {
+						textdump = {	
 							order	= 14,
+							type	= "execute",
+							name	= L["View Exclusion List"],
+							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
+							func	= function(info) addon:ViewExclusionList() end,
+						},
+						spacer1 = {
+							order	= 15,
 							type	= "description",
 							name	= "\n",
 						},

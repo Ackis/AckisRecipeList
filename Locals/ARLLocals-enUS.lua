@@ -56,6 +56,8 @@ L["Scan"]					= true
 L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes."
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma seperated value format which can be copied and pasted into another client."
+L["View Exclusion List"]	= true
+L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
 L["DISPLAY_SETTINGS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
 
@@ -257,7 +259,7 @@ L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in t
 
 -- Common Tooltip Strings (where different from above)
 L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat"
-L["ALT_CLICK"]			= "Alt-Click to add this recipe to your ignore list"
+L["ALT_CLICK"]			= "Alt-Click to add/remove this recipe to your ignore list"
 L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat"
 L["Obtained From"]		= true
 L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
