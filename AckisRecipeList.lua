@@ -614,6 +614,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		if (AcquireType == 6) then
 
 			local RepLevel, RepVendor = select(i, ...)
+
 			RecipeDB[SpellID]["Acquire"][index]["RepLevel"] = RepLevel
 			RecipeDB[SpellID]["Acquire"][index]["RepVendor"] = RepVendor
 			i = i + 2
@@ -734,6 +735,7 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 			-- Get the trade skill link for the specified recipe
 			local SpellLink = GetTradeSkillRecipeLink(i)
+
 			-- Get the SpellID from the spell link
 			local _,_,SpellString = sfind(SpellLink, "enchant:(%d+)")
 			local SpellID = tonumber(SpellString)
@@ -894,19 +896,28 @@ do
 
 		-- Display both horde and alliance factions?
 		if (generaldb.faction == false) then
+
 			-- We want to filter out all the Horde only recipes
 			if (playerFaction == BFAC["Alliance"]) then
+
 				-- Filter out Horde only
 				if (flags[1] == false) and (flags[2] == true) then
+
 					return false
+
 				end
 			-- We want to filter out all the Alliance only recipes
 			else
+
 				-- Filter out Alliance only
 				if (flags[2] == false) and (flags[1] == true) then
+
 					return false
+
 				end
+
 			end
+
 		end
 
 		-- Display all skill levels?
@@ -1266,17 +1277,21 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(2575)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
-		[GetSpellInfo(45357)] = addon.InitInscription,
-		[GetSpellInfo(28481)] = addon.InitRuneforging,
+		--[GetSpellInfo(45357)] = addon.InitInscription,
+		--[GetSpellInfo(28481)] = addon.InitRuneforging,
 	}
 
 	-- Thanks to sylvanaar/xinhuan for the code snippet
 	local a = professiontable[playerProfession]
 
 	if a then
+
 		playerData.totalRecipes = a(addon, RecipeDB)
+
 	else
-		addon:Print(L["UnknownTradeSkill"]:format(playerData.playerProfession))
+
+		addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
+
 	end
 
 end
