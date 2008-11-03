@@ -1247,7 +1247,7 @@ end
 -- Input: RecipeDB, Current Profession we're examining
 -- Output: Total number of recipes in the database
 
-local function InitializeRecipes(RecipeDB, playerData)
+local function InitializeRecipes(RecipeDB, playerProfession)
 
 	-- Table of all possible professions with init functions
 	local professiontable =
@@ -1271,7 +1271,7 @@ local function InitializeRecipes(RecipeDB, playerData)
 	}
 
 	-- Thanks to sylvanaar/xinhuan for the code snippet
-	local a = professiontable[playerData.playerProfession]
+	local a = professiontable[playerProfession]
 
 	if a then
 		playerData.totalRecipes = a(addon, RecipeDB)
@@ -1676,7 +1676,7 @@ do
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
 
 			-- Add the recipes to the database
-			InitializeRecipes(RecipeList, playerData)
+			InitializeRecipes(RecipeList, playerData.playerProfession)
 
 			-- Scan all recipes and mark the ones which ones we know
 			self:ScanForKnownRecipes(RecipeList, playerData)
