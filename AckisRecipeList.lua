@@ -1518,6 +1518,169 @@ do
 
 	end
 
+	-- Description: Initializes and adds data relavent to the player character
+	-- Expected result: playerData table created with appropiate data
+	-- Input: playerData table
+	-- Output: None, it's referenced
+
+	local function InitPlayerData(pData)
+
+		pData = {}
+
+		pData.playerFaction = UnitFactionGroup("player")
+		local _
+		_, pData.playerClass = UnitClass("player")
+
+		pData["Reputation"] = {}
+
+		addon:GetFactionLevels(pData["Reputation"])
+
+		pData["Professions"] = {
+			[GetSpellInfo(2259)] = false, -- Alchemy
+			[GetSpellInfo(2018)] = false, -- Blacksmithing
+			[GetSpellInfo(2550)] = false, -- Cooking
+			[GetSpellInfo(7411)] = false, -- Enchanting
+			[GetSpellInfo(4036)] = false, -- Engineering
+			[GetSpellInfo(746)] = false, -- First Aid
+			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
+			[GetSpellInfo(2108)] = false, -- Leatherworking
+			[GetSpellInfo(2575)] = false, -- Smelting
+			[GetSpellInfo(3908)] = false, -- Tailoring
+			[GetSpellInfo(25229)] = false, -- Jewelcrafting
+			[GetSpellInfo(45357)] = false, -- Inscription
+			[GetSpellInfo(28481)] = false, -- Runeforging
+		}
+
+		addon:GetKnownProfessions(pData["Professions"])
+
+		-- All Alchemy Specialties
+		local AlchemySpec = {
+			[GetSpellInfo(28674)] = true,
+			[GetSpellInfo(28678)] = true,
+			[GetSpellInfo(28676)] = true,
+		}
+
+		-- All Blacksmithing Specialties
+		local BlacksmithSpec = {
+			[GetSpellInfo(9788)] = true, -- Armorsmith
+			[GetSpellInfo(17041)] = true, -- Master Axesmith
+			[GetSpellInfo(17040)] = true, -- Master Hammersmith
+			[GetSpellInfo(17039)] = true, -- Master Swordsmith
+			[GetSpellInfo(9787)] = true, -- Weaponsmith
+		}
+
+		-- All Engineering Specialties
+		local EngineeringSpec = {
+			[GetSpellInfo(20219)] = true, -- Gnomish
+			[GetSpellInfo(20222)] = true, -- Goblin
+		}
+
+		-- All Leatherworking Specialties
+		local LeatherworkSpec = {
+			[GetSpellInfo(10657)] = true, -- Dragonscale
+			[GetSpellInfo(10659)] = true, -- Elemental
+			[GetSpellInfo(10661)] = true, -- Tribal
+		}
+
+		-- All Tailoring Specialties
+		local TailorSpec = {
+			[GetSpellInfo(26797)] = true, -- Spellfire
+			[GetSpellInfo(26801)] = true, -- Shadoweave
+			[GetSpellInfo(26798)] = true, -- Primal Mooncloth
+		}
+
+		-- List of classes which have Specialties
+		SpecialtyTable = {
+			[GetSpellInfo(2259)] = AlchemySpec,
+			[GetSpellInfo(2018)] = BlacksmithSpec,
+			[GetSpellInfo(4036)] = EngineeringSpec,
+			[GetSpellInfo(2108)] = LeatherworkSpec,
+			[GetSpellInfo(3908)] = TailorSpec,
+		}
+
+		-- List containing all possible Specialties
+		AllSpecialtiesTable = {}
+
+		-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
+		for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+
+	end
+
+	-- Description: Initalizes all the recipe databases to their initial
+	-- Expected result: All internal databases are initalized to starting values (empty)
+	-- Input: None
+	-- Output: Tables are local in scope, not to the function.
+
+	local function InitDatabases()
+
+		-- Initializes the mob list
+		if (MobList == nil) then
+
+			MobList = {}
+			addon:InitMob(MobList)
+
+		end
+
+		-- Initializes the quest list
+		if (QuestList == nil) then
+
+			QuestList = {}
+			addon:InitQuest(QuestList)
+
+		end
+
+		-- Initializes the reputation list
+		if (ReputationList == nil) then
+
+			ReputationList = {}
+			addon:InitReputation(ReputationList)
+
+		end
+
+		-- Initializes the trainer list
+		if (TrainerList == nil) then
+
+			TrainerList = {}
+			addon:InitTrainer(TrainerList)
+
+		end
+
+		-- Initializes the season list
+		if (SeasonalList == nil) then
+
+			SeasonalList = {}
+			addon:InitSeasons(SeasonalList)
+
+		end
+
+		-- Initializes the vendor list
+		if (VendorList == nil) then
+
+			VendorList = {}
+			addon:InitVendor(VendorList)
+
+		end
+
+		-- Initializes the reputation filters
+		-- Don't assign values no because we do a scan later on
+		if (RepFilters == nil) then
+
+			RepFilters = {}
+
+		end
+
+		-- Initializes the recipe list
+		if (RecipeList == nil) then
+
+			RecipeList = {}
+
+		end
+
+	end
+
 	-- Description: Function called when the scan button is clicked.   Parses recipes and displays output
 	-- Expected result: A gui window of all recipes accoring to filter is printed out
 	-- Input: None
@@ -1537,150 +1700,14 @@ do
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 			if (playerData == nil) then
 
-				playerData = {}
-
-				playerData.playerFaction = UnitFactionGroup("player")
-				local _
-				_, playerData.playerClass = UnitClass("player")
-
-				playerData["Reputation"] = {}
-				self:GetFactionLevels(playerData["Reputation"])
-
-				playerData["Professions"] = {
-					[GetSpellInfo(2259)] = false, -- Alchemy
-					[GetSpellInfo(2018)] = false, -- Blacksmithing
-					[GetSpellInfo(2550)] = false, -- Cooking
-					[GetSpellInfo(7411)] = false, -- Enchanting
-					[GetSpellInfo(4036)] = false, -- Engineering
-					[GetSpellInfo(746)] = false, -- First Aid
-					--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
-					[GetSpellInfo(2108)] = false, -- Leatherworking
-					[GetSpellInfo(2575)] = false, -- Smelting
-					[GetSpellInfo(3908)] = false, -- Tailoring
-					[GetSpellInfo(25229)] = false, -- Jewelcrafting
-					[GetSpellInfo(45357)] = false, -- Inscription
-					[GetSpellInfo(28481)] = false, -- Runeforging
-				}
-
-				self:GetKnownProfessions(playerData["Professions"])
-
-				-- All Alchemy Specialties
-				local AlchemySpec = {
-					[GetSpellInfo(28674)] = true,
-					[GetSpellInfo(28678)] = true,
-					[GetSpellInfo(28676)] = true,
-				}
-
-				-- All Blacksmithing Specialties
-				local BlacksmithSpec = {
-					[GetSpellInfo(9788)] = true, -- Armorsmith
-					[GetSpellInfo(17041)] = true, -- Master Axesmith
-					[GetSpellInfo(17040)] = true, -- Master Hammersmith
-					[GetSpellInfo(17039)] = true, -- Master Swordsmith
-					[GetSpellInfo(9787)] = true, -- Weaponsmith
-				}
-
-				-- All Engineering Specialties
-				local EngineeringSpec = {
-					[GetSpellInfo(20219)] = true, -- Gnomish
-					[GetSpellInfo(20222)] = true, -- Goblin
-				}
-
-				-- All Leatherworking Specialties
-				local LeatherworkSpec = {
-					[GetSpellInfo(10657)] = true, -- Dragonscale
-					[GetSpellInfo(10659)] = true, -- Elemental
-					[GetSpellInfo(10661)] = true, -- Tribal
-				}
-
-				-- All Tailoring Specialties
-				local TailorSpec = {
-					[GetSpellInfo(26797)] = true, -- Spellfire
-					[GetSpellInfo(26801)] = true, -- Shadoweave
-					[GetSpellInfo(26798)] = true, -- Primal Mooncloth
-				}
-
-				-- List of classes which have Specialties
-				SpecialtyTable = {
-					[GetSpellInfo(2259)] = AlchemySpec,
-					[GetSpellInfo(2018)] = BlacksmithSpec,
-					[GetSpellInfo(4036)] = EngineeringSpec,
-					[GetSpellInfo(2108)] = LeatherworkSpec,
-					[GetSpellInfo(3908)] = TailorSpec,
-				}
-
-				-- List containing all possible Specialties
-				AllSpecialtiesTable = {}
-
-				-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
-				for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
-				for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
-				for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
-				for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+				InitPlayerData(playerData)
 
 			end
 
-			-- Initializes the mob list
-			if (MobList == nil) then
-
-				MobList = {}
-				self:InitMob(MobList)
-
-			end
-
-			-- Initializes the quest list
-			if (QuestList == nil) then
-
-				QuestList = {}
-				self:InitQuest(QuestList)
-
-			end
-
-			-- Initializes the reputation list
-			if (ReputationList == nil) then
-
-				ReputationList = {}
-				self:InitReputation(ReputationList)
-
-			end
-
-			-- Initializes the trainer list
-			if (TrainerList == nil) then
-
-				TrainerList = {}
-				self:InitTrainer(TrainerList)
-
-			end
-
-			-- Initializes the season list
-			if (SeasonalList == nil) then
-
-				SeasonalList = {}
-				self:InitSeasons(SeasonalList)
-
-			end
-
-			-- Initializes the vendor list
-			if (VendorList == nil) then
-
-				VendorList = {}
-				self:InitVendor(VendorList)
-
-			end
-
-			-- Initializes the reputation filters
-			-- Don't assign values no because we do a scan later on
-			if (RepFilters == nil) then
-
-				RepFilters = {}
-
-			end
-
-			-- Initializes the recipe list
-			-- Note there is no reset function implemented yet
+			-- Lets create all the databases needed if this is the first time everything has been run.
 			if (RecipeList == nil) then
 
-				RecipeList = {}
+				InitDatabases()
 
 			end
 
@@ -1722,15 +1749,49 @@ do
 
 		else
 
-			if (DEBUG) then
-				self:Print("Debug: Found (known) Recipes: " .. playerData.foundRecipes)
-				self:Print("Debug: Total Recipes in Database: " .. playerData.totalRecipes)
-				self:Print("Debug: Filtered Recipes: " .. playerData.filteredRecipes)
-				self:Print("Debug: Other Recipes: " .. playerData.otherRecipes)
-			end
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList)
+
+		end
+
+	end
+
+	-- Description: API for external addons to initialize the recipe database with a specific profession
+	-- Expected result: Recipe database is updated with recipe information for the current profession
+	-- Input: Profession of the database needed
+	-- Output: An indicator if the process was successful
+
+	function addon:AddRecipeData(profession)
+
+		if (RecipeList) then
+
+			InitializeRecipes(RecipeList, profession)
+			return true
+
+		else
+
+			return false
+
+		end
+
+	end
+
+	-- Description: API for external addons to initialize the recipe database
+	-- Expected result: Recipe database is returned along with sub-databases
+	-- Input: None
+	-- Output: An indicator if the recipe database was initialized successfully, along with all the reference tables.
+
+	function addon:InitRecipeData()
+
+		if (RecipeList) then
+
+			return false
+
+		else
+
+			InitDatabases()
+			return true, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 
 		end
 
@@ -1758,25 +1819,6 @@ do
 		else
 
 			return nil
-
-		end
-
-	end
-
-	-- Description: API for external addons to get recipe information from ARL
-	-- Expected result: The recipe information is returned if it exists
-	-- Input: None
-	-- Output: All the tables containing reference data
-
-	function addon:GetRecipeSets()
-
-		if (RecipeList) then
-
-			return MobList, QuestList, ReputationList, TrainerList, SeasonalList, VendorList
-
-		else
-
-			return nil, nil, nil, nil, nil, nil
 
 		end
 
