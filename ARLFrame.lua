@@ -1623,11 +1623,28 @@ function SetRecipeButtonTooltip (bIndex)
 
 				end
 
+				-- Spacer
 				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
 				clr1 = addon:hexcolor("NORMAL")
+
+				local spelllink = recipeDB[rIndex]["RecipeLink"]
+
+				if (spelllink) then
+
+					gttAdd(0, 0, 0, 0, spelllink, clr1)
+
+				end
+
+				-- Spacer
+				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+				clr1 = addon:hexcolor("NORMAL")
+
 				gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
 				gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
 				gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
+
 				arlTooltip:Show()
 
 			end
@@ -1936,8 +1953,24 @@ function SetRecipeButtonTooltip (bIndex)
 
 				end
 
+				-- Spacer
 				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
 				clr1 = addon:hexcolor("NORMAL")
+
+				local spelllink = recipeDB[rIndex]["RecipeLink"]
+
+				if (spelllink) then
+
+					gttAdd(0, 0, 0, 0, spelllink, clr1)
+
+				end
+
+				-- Spacer
+				gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+				clr1 = addon:hexcolor("NORMAL")
+
 				gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
 				gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
 				gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
