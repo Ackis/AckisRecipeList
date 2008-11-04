@@ -4042,7 +4042,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Bracers of Shackled Souls
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 52733, 365, 32399, 4)
+	self:addTradeSkill(RecipeDB, 52733, 365, 32399, 4, 2108)
 	self:addTradeFlags(RecipeDB, 52733, 1,2,21,22,23,24,25,26,27,28,29,30)
 
 	return recipecount
