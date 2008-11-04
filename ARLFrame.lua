@@ -2340,41 +2340,62 @@ function addon.RepFilterSwitch(whichrep)
 	-- 2	ARL_RepBCCB				Burning Crusade
 	-- 3	ARL_RepLKCB				Wrath of the Lich King
 	local ShowPanel = false
+
 	if (whichrep == 1) then
+
 		if (ARL_RepOldWorldCB:GetChecked()) then
+
 			ShowPanel = true
 			addon.Fly_Rep_OW:Show()
 			addon.Fly_Rep_BC:Hide()
 			addon.Fly_Rep_LK:Hide()
 			ARL_RepBCCB:SetChecked(false)
 			ARL_RepLKCB:SetChecked(false)
+
 		else
+
 			ShowPanel = false
+
 		end
+
 	elseif (whichrep == 2) then
+
 		if (ARL_RepBCCB:GetChecked()) then
+
 			ShowPanel = true
 			addon.Fly_Rep_OW:Hide()
 			addon.Fly_Rep_BC:Show()
 			addon.Fly_Rep_LK:Hide()
 			ARL_RepOldWorldCB:SetChecked(false)
 			ARL_RepLKCB:SetChecked(false)
+
 		else
+
 			ShowPanel = false
+
 		end
+
 	else -- whichrep == 3 (WotLK)
+
 		if (ARL_RepLKCB:GetChecked()) then
+
 			ShowPanel = true
 			addon.Fly_Rep_OW:Hide()
 			addon.Fly_Rep_BC:Hide()
 			addon.Fly_Rep_LK:Show()
 			ARL_RepOldWorldCB:SetChecked(false)
 			ARL_RepBCCB:SetChecked(false)
+
 		else
+
 			ShowPanel = false
+
 		end
+
 	end
+
 	if (ShowPanel == true) then
+
 		addon.flyTexture:ClearAllPoints()
 		addon.Flyaway:SetWidth(296)
 		addon.Flyaway:SetHeight(312)
@@ -2385,7 +2406,9 @@ function addon.RepFilterSwitch(whichrep)
 		addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
 		addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
 		addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
+
 	else
+
 		addon.flyTexture:ClearAllPoints()
 		addon.Flyaway:SetWidth(136)
 		addon.Flyaway:SetHeight(312)
@@ -2398,7 +2421,9 @@ function addon.RepFilterSwitch(whichrep)
 		ARL_RepOldWorldCB:SetChecked(false)
 		ARL_RepBCCB:SetChecked(false)
 		ARL_RepLKCB:SetChecked(false)
+
 	end
+
 end
 
 -- Description: 
@@ -3107,7 +3132,6 @@ function addon:CreateFrame(
 
 		-- Stuff in the non-expanded frame (or both)
 		local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", addon.Frame, "UIPanelCloseButton")
-			--ARL_CloseXButton:SetFrameLevel(5)
 			ARL_CloseXButton:SetScript("OnClick",
 				function(this)
 					this:GetParent():Hide()
@@ -3134,14 +3158,10 @@ function addon:CreateFrame(
 		local ARL_SearchButton = addon:GenericCreateButton("ARL_SearchButton", addon.Frame,
 			25, 74, "TOPLEFT", ARL_SortButton, "BOTTOMRIGHT", 41, -2, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
-			-- Disable this until searching is working
-			ARL_SearchButton:Disable()
 
 		local ARL_ClearButton = addon:GenericCreateButton("ARL_ClearButton", addon.Frame,
 			28, 28, "RIGHT", ARL_SearchButton, "LEFT", 3, -1, "GameFontNormalSmall",
 			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-			-- Disable this until searching is working
-			ARL_ClearButton:Disable()
 
 		local ARL_CloseButton = addon:GenericCreateButton("ARL_CloseButton", addon.Frame,
 			22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
@@ -3181,25 +3201,39 @@ function addon:CreateFrame(
 		-- The main recipe list buttons and scrollframe
 		addon.PlusListButton = {}
 		addon.RecipeListButton = {}
+
 		for i = 1, maxVisibleRecipes do
+
 			local Temp_Plus = addon:GenericCreateButton("ARL_PlusListButton" .. i, addon.Frame,
 				16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall",
 				"GameFontHighlightSmall", "", "LEFT", "", 2)
+
 			local Temp_Recipe = addon:GenericCreateButton("ARL_RecipeListButton" .. i, addon.Frame,
 				16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall",
 				"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+
 			if not (i == 1) then
+
 				Temp_Plus:SetPoint("TOPLEFT", addon.PlusListButton[i-1], "BOTTOMLEFT", 0, 3)
 				Temp_Recipe:SetPoint("TOPLEFT", addon.RecipeListButton[i-1], "BOTTOMLEFT", 0, 3)
+
 			end
-			Temp_Plus:SetScript("OnClick", function ()
-				addon.RecipeItem_OnClick(i)
-			end)
-			Temp_Recipe:SetScript("OnClick", function ()
-				addon.RecipeItem_OnClick(i)
-			end)
+
+			Temp_Plus:SetScript("OnClick",
+				function ()
+					addon.RecipeItem_OnClick(i)
+				end
+			)
+
+			Temp_Recipe:SetScript("OnClick",
+				function ()
+					addon.RecipeItem_OnClick(i)
+				end
+			)
+
 			addon.PlusListButton[i] = Temp_Plus
 			addon.RecipeListButton[i] = Temp_Recipe
+
 		end
 
 		local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame",
@@ -3207,9 +3241,11 @@ function addon:CreateFrame(
 		ARL_RecipeScrollFrame:SetHeight(322)
 		ARL_RecipeScrollFrame:SetWidth(243)
 		ARL_RecipeScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
-		ARL_RecipeScrollFrame:SetScript("OnVerticalScroll", function(self, arg1)
-			FauxScrollFrame_OnVerticalScroll(self, arg1, 16, RecipeList_Update)
-		end)
+		ARL_RecipeScrollFrame:SetScript("OnVerticalScroll",
+			function(self, arg1)
+				FauxScrollFrame_OnVerticalScroll(self, arg1, 16, RecipeList_Update)
+			end
+		)
 
 		-- Stuff that appears on the main frame only when expanded
 
@@ -3894,6 +3930,7 @@ function addon:CreateFrame(
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.uiscale)
 	arlTooltip:SetScale (addon.db.profile.tooltipscale)
+
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
 	addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
