@@ -1325,10 +1325,9 @@ end
 -- Input: 
 -- Output: 
 
-local function GenerateTooltipContent(owner, rIndex)
+local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	local clr1, clr2 = "", ""
-	local playerFaction = playerData.playerFaction
 
 	arlTooltip:ClearLines()
 	arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
@@ -1698,15 +1697,16 @@ end
 
 function SetRecipeButtonTooltip(bIndex)
 
-	local exclude = addon.db.profile.exclusionlist
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
 	local dStringIndex = rButton.sI
 	local rIndex = DisplayStrings[dStringIndex].sID
+	local playerFaction = playerData.playerFaction
+	local exclude = addon.db.profile.exclusionlist
 
 	pButton:SetScript("OnEnter",
 			function (pButton)
-				GenerateTooltipContent(pButton, rIndex)
+				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
 			end
 		)
 
@@ -1718,7 +1718,7 @@ function SetRecipeButtonTooltip(bIndex)
 
 	rButton:SetScript("OnEnter",
 			function (rButton)
-				GenerateTooltipContent(rButton, rIndex)
+				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
 			end
 		)
 
