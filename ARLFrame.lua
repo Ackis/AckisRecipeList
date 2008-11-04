@@ -3158,10 +3158,47 @@ function addon:CreateFrame(
 		local ARL_SearchButton = addon:GenericCreateButton("ARL_SearchButton", addon.Frame,
 			25, 74, "TOPLEFT", ARL_SortButton, "BOTTOMRIGHT", 41, -2, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+			ARL_SearchButton:SetScript("OnClick",
+				function(this)
+
+					local searchtext = ARL_SearchText:GetText()
+					searchtext = searchtext:trim()
+					
+					if (searchtext ~= "") then
+
+						addon:SearchRecipeDB(recipeDB, searchtext)
+						RecipeList_Update()
+
+					end
+
+				end
+			)
+
+		local ARL_SearchText = CreateFrame("ARL_SearchText", nil, addon.Frame, "InputBoxTemplate")
+			ARL_CloseButton:SetText(L["SEARCH_BOX_DESC"])
+			ARL_CloseButton:SetScript("OnClick",
+				function(this)
+					if (this:GetText() == L["SEARCH_BOX_DESC"]) then
+
+						this:SetText("")
+
+					end
+
+				end
+			)
 
 		local ARL_ClearButton = addon:GenericCreateButton("ARL_ClearButton", addon.Frame,
 			28, 28, "RIGHT", ARL_SearchButton, "LEFT", 3, -1, "GameFontNormalSmall",
 			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+			ARL_ClearButton:SetScript("OnClick",
+				function()
+
+					addon:ResetSearch(recipeDB)
+					ARL_ClearButton:SetText(L["SEARCH_BOX_DESC"])
+					RecipeList_Update()
+
+				end
+			)
 
 		local ARL_CloseButton = addon:GenericCreateButton("ARL_CloseButton", addon.Frame,
 			22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",

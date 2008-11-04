@@ -245,6 +245,7 @@ L["CONTRACTALL"]			= "- All"
 L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
 L["Search"]					= true
 L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
+L["SEARCH_BOX_DESC"]		= "Enter text to search"
 L["CLEAR_DESC"]				= "Clear the search textbox."
 L["Close"]					= "Exit"
 L["CLOSE_DESC"]				= "Close the Ackis Recipe List Window."
