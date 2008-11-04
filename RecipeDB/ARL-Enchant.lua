@@ -14,10 +14,10 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2008-11-03T22:59:33Z 
+File revision: 1017 
+Project revision: 1020
+Project version: r1020
 
 ************************************************************************
 
@@ -45,7 +45,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20026, 255, nil, 1, 7411)
 	self:addTradeFlags(RecipeDB, 20026, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 20026, 1, 11189)
+	self:addTradeAcquire(RecipeDB, 20026, 2, 11189)
 
 	-- Enchant Bracer - Minor Health -- 7418
 	-- Trainer

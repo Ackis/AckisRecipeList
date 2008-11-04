@@ -1286,7 +1286,7 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 
 	if a then
 
-		playerData.totalRecipes = a(addon, RecipeDB)
+		return a(addon, RecipeDB)
 
 	else
 
@@ -1523,9 +1523,9 @@ do
 	-- Input: playerData table
 	-- Output: None, it's referenced
 
-	local function InitPlayerData(pData)
+	local function InitPlayerData()
 
-		pData = {}
+		local pData = {}
 
 		pData.playerFaction = UnitFactionGroup("player")
 		local _
@@ -1606,6 +1606,8 @@ do
 		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+
+		return pData
 
 	end
 
@@ -1700,7 +1702,7 @@ do
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 			if (playerData == nil) then
 
-				InitPlayerData(playerData)
+				playerData = InitPlayerData()
 
 			end
 
@@ -1718,7 +1720,7 @@ do
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
 
 			-- Add the recipes to the database
-			InitializeRecipes(RecipeList, playerData.playerProfession)
+			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
 
 			-- Scan all recipes and mark the ones which ones we know
 			self:ScanForKnownRecipes(RecipeList, playerData)
