@@ -108,7 +108,7 @@ function addon:InitFirstAid(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7935, 130, 6453, 2, 746)
-	self:addTradeFlags(RecipeDB, 7935, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 7935, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 7935, 7, 2)
 
 	-- Mageweave Bandage -- 10840

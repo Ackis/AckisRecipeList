@@ -200,8 +200,8 @@ Item Flags
 	as follows:
 
 	-- How to obtain (flags 1 - 20 for growth):
-		-- 1 = Alliance faction only
-		-- 2 = Horde faction only
+		-- 1 = Alliance faction
+		-- 2 = Horde faction
 		-- 3 = Trainer
 		-- 4 = Vendor
 		-- 5 = Instance

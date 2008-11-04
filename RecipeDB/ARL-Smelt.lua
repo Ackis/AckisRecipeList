@@ -226,7 +226,7 @@ function addon:InitSmelting(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46353, 375, 35128, 3, 2575)
-	self:addTradeFlags(RecipeDB, 46353, 6,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 46353, 1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 46353, 3, 25363, 3, 25367, 3, 25368, 3, 25369, 3, 25370, 3, 25371, 3, 25372, 3, 25486, 3, 25506, 3, 25507)
 
 	-- Smelt Cobalt -- 49252
@@ -262,7 +262,7 @@ function addon:InitSmelting(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
-	self:addTradeFlags(RecipeDB, 22967, 3,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 22967, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	return recipecount

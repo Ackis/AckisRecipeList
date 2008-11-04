@@ -273,10 +273,12 @@ EOF
 								# 1 = friendly
 								# 2 = neutral
 								# 3 = hostile
+
 								# ARL Flags:
 								# 0 = neutral
 								#  1 = Alliance
 								# 2 = Horde
+
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
@@ -443,6 +445,8 @@ EOF
 			when 'dropped-by'
 
 				data = details[:method_drops]
+				# Cheat and say that it's both horde/alliance
+				flags << 1 << 2
 
 				# Instance, mob, or raid drop
 				unless data.length > 10
@@ -491,6 +495,8 @@ EOF
 				# World drop
 				else
 
+					# Cheat and say that it's both horde/alliance
+					flags << 1 << 2
 					flags << 10
 					proflua.puts "\t-- World Drop"
 					acquire << {"type" => 7, "id" => details[:rarity]}
@@ -686,7 +692,23 @@ EOF
 			when 12
 
 				proflua.print("Discovery, ")
-				flags << 12
+				flags << 1 << 2 << 12
+				flags.delete(3)
+				flags.delete(4)
+				flags.delete(5)
+				flags.delete(6)
+
+			when "meleedps"
+
+				flags << 51
+
+			when "Alliance"
+
+				flags << 1
+
+			when "Horde"
+
+				flags << 2
 
 			when "class"
 
@@ -1048,7 +1070,15 @@ EOF
 
 				else
 
-					lookup_lua.print("L[\"Unknown Zone\"], ")
+					if $bosszonemap[v[:name]]
+
+						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"], ")
+
+					else
+
+						lookup_lua.print("L[\"Unknown Zone\"], ")
+
+					end
 
 				end
 
@@ -1146,11 +1176,31 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Golemagg the Incinerator","Goraluk Anvilcrack","Gyth","Hex Lord Malacrass","High Botanist Freywinn",
 	"Hydromancer Thespia","Ras Frostwhisper","Onyxia","General Drakkisath","Balnazzar","Cannon Master Willey",
 	"Magmadar","Shazzrah","Lord Kazzak","Pusillin","Darkmaster Gandling","Mijan","Pyromancer Loregrain",
-	"Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman"]
+	"Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman","Halazzi","Akil'zon",
+	"Nalorakk","Jan'alai","Zul'jin"]
+
+$bosszonemap = {
+	"Magmadar" => "Molten Core",
+	"Golemagg the Incinerator" => "Molten Core",
+	"Baron Geddon" => "Molten Core",
+	"Garr" => "Molten Core",
+	"Shazzrah" => "Molten Core",
+	"Lucifron" => "Molten Core",
+	"Lord Kazzak" => "Hellfire Peninsula",
+	"Rift Keeper" => "The Black Morass",
+	"Halazzi" => "Zul'Aman",
+	"Akil'zon" => "Zul'Aman",
+	"Nalorakk" => "Zul'Aman",
+	"Jan'alai" => "Zul'Aman",
+	"Zul'jin" => "Zul'Aman",
+	"Shadowsword Lifeshaper" => "Sunwell Plateau",
+}
 
 # Manual entries to the vendor, etc list
 $vendors[15165] = {:name => "Haughty Modiste"}
-$vendors[15165][:faction] => 3
+$vendors[15165][:faction] = 3
+$quests[2756] = {:name => "The Old Ways"}
+$quests[2756][:faction] = 2
 
 $debug = false
 
@@ -1192,15 +1242,16 @@ else
 		41501 => {:id => 12},
 		41502 => {:id => 12},
 		41503 => {:id => 12},
-		21923 => {:id => 7, :type => 1}
+		21923 => {:id => 7, :type => 1},
+		47050 => {:id => "meleedps"},
 		}
 	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905])
 
 	blacksmithing = recipes.get_blacksmithing_list
 	bsspeciallist = {
-		21913 => {:id => 7, :type => 1}
+		21913 => {:id => 7, :type => 1},
 		}
-	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[],bsspeciallist,[52567,52568,52569,52570,52571,52572])
+	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[9957],bsspeciallist,[52567,52568,52569,52570,52571,52572])
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
@@ -1296,7 +1347,7 @@ else
 		21943 => {:id => 7, :type => 1},
 		44953 => {:id => 7, :type => 1}
 		}
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106],lwspecaillist,(50935..53690).to_a)
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,(50935..53690).to_a)
 
 	smelting = recipes.get_mining_list
 	smeltingspecaillist = {

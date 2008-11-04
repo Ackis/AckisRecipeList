@@ -121,7 +121,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3928, 75, 4401, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3928, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3928, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3928, 7, 2)
 
 	-- Coarse Blasting Powder -- 3929
@@ -167,7 +167,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3933, 100, 4367, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3933, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3933, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3933, 7, 2)
 
 	-- Flying Tiger Goggles -- 3934
@@ -225,7 +225,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val5id4val6id5val31id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3940, 120, 4373, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3940, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
+	self:addTradeFlags(RecipeDB, 3940, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
 	self:addTradeAcquire(RecipeDB, 3940, 7, 2)
 
 	-- Small Bronze Bomb -- 3941
@@ -247,13 +247,13 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3942, 1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Flame Deflector -- 3944
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3944, 125, 4376, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3944, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3944, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3944, 3, 7800)
 
 	-- Heavy Blasting Powder -- 3945
@@ -304,7 +304,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3950, 1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Minor Recombobulator -- 3952
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
@@ -329,7 +329,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val19-35id14val1.7id15
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3954, 145, 4383, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3954, 10,21,22,23,24,25,26,27,28,29,30,36,40,46)
+	self:addTradeFlags(RecipeDB, 3954, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,46)
 	self:addTradeAcquire(RecipeDB, 3954, 7, 2)
 
 	-- Explosive Sheep -- 3955
@@ -370,13 +370,13 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3958, 1, 5174, 1, 8736, 1, 11017, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Discombobulator Ray -- 3959
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3959, 160, 4388, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3959, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3959, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3959, 3, 7800)
 
 	-- Portable Bronze Mortar -- 3960
@@ -385,7 +385,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3960, 165, 4403, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3960, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3960, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3960, 7, 2)
 
 	-- Gyrochronatom -- 3961
@@ -431,7 +431,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val15id4val40id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3966, 185, 4393, 3, 4036)
-	self:addTradeFlags(RecipeDB, 3966, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
+	self:addTradeFlags(RecipeDB, 3966, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
 	self:addTradeAcquire(RecipeDB, 3966, 7, 3)
 
 	-- Big Iron Bomb -- 3967
@@ -449,7 +449,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3968, 195, 4395, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3968, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3968, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3968, 7, 2)
 
 	-- Mechanical Dragonling -- 3969
@@ -462,7 +462,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3969, 2, 2687)
 
 	-- Gnomish Cloaking Device -- 3971
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
@@ -478,7 +478,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3972, 200, 4398, 2, 4036)
-	self:addTradeFlags(RecipeDB, 3972, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3972, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3972, 7, 2)
 
 	-- Silver Contact -- 3973
@@ -537,7 +537,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7430, 1, 1702, 1, 2857, 1, 3290, 1, 3412, 1, 3494, 1, 4586, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11025, 1, 11026, 1, 11028, 1, 11029, 1, 11031, 1, 11037, 1, 16667, 1, 16668, 1, 16726, 1, 16743, 1, 17222, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Flash Bomb -- 8243
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
 	-- Quest Reward
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -562,7 +562,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 8339, 100, 6714, 2, 4036)
-	self:addTradeFlags(RecipeDB, 8339, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 8339, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 8339, 7, 2)
 
 	-- Goblin Rocket Boots -- 8895
@@ -577,7 +577,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 8895, 1, 8126)
 
 	-- Gnomish Universal Remote -- 9269
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
@@ -597,9 +597,9 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9271, 1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Goblin Jumper Cables -- 9273
-	-- Instance: 721 - type1minlevel24maxlevel33category3territory2nameGnomereganid721
+	-- Instance: 721 - type1minlevel24maxlevel33category3nameGnomereganterritory2id721
 	-- Mob Drop
-	-- Instance: 2367 - type5minlevel66maxlevel68category3territory1nameCaverns of Time: Old Hillsbrad Foothillsexpansion1id2367
+	-- Instance: 2367 - expansion1type5minlevel66maxlevel68category3nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -642,7 +642,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val9id3val9id5val38id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12587, 175, 10499, 2, 4036)
-	self:addTradeFlags(RecipeDB, 12587, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
+	self:addTradeFlags(RecipeDB, 12587, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
 	self:addTradeAcquire(RecipeDB, 12587, 7, 2)
 
 	-- Mithril Tube -- 12589
@@ -737,7 +737,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val47id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12607, 220, 10501, 2, 4036)
-	self:addTradeFlags(RecipeDB, 12607, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
+	self:addTradeFlags(RecipeDB, 12607, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
 	self:addTradeAcquire(RecipeDB, 12607, 7, 2)
 
 	-- Mithril Heavy-bore Rifle -- 12614
@@ -747,15 +747,15 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val53-99id14val2.9id15val14id16
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12614, 220, 10510, 2, 4036)
-	self:addTradeFlags(RecipeDB, 12614, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
+	self:addTradeFlags(RecipeDB, 12614, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
 	self:addTradeAcquire(RecipeDB, 12614, 7, 2)
 
 	-- Spellpower Goggles Xtreme -- 12615
 	-- Trainer
-	-- Instance: 2100 - type1minlevel43maxlevel49category3territory1nameMaraudonid2100
+	-- Instance: 2100 - type1minlevel43maxlevel49category3nameMaraudonterritory1id2100
 	-- Raid: 2677 - Blackwing Lair
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2100 - type1minlevel43maxlevel49category3territory1nameMaraudonid2100
+	-- Instance: 2100 - type1minlevel43maxlevel49category3nameMaraudonterritory1id2100
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
@@ -772,7 +772,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val8id2val30id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12616, 225, 10518, 2, 4036)
-	self:addTradeFlags(RecipeDB, 12616, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,60)
+	self:addTradeFlags(RecipeDB, 12616, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,60)
 	self:addTradeAcquire(RecipeDB, 12616, 7, 2)
 
 	-- Deepdive Helmet -- 12617
@@ -810,7 +810,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12620, 240, 10548, 3, 4036)
-	self:addTradeFlags(RecipeDB, 12620, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 12620, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 12620, 7, 3)
 
 	-- Mithril Gyro-Shot -- 12621
@@ -1111,7 +1111,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	-- Recipe Specialty of 20219
 	self:addTradeSkill(RecipeDB, 15633, 205, 11826, 2, 4036, 20219)
-	self:addTradeFlags(RecipeDB, 15633, 11,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB, 15633, 1,2,11,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB, 15633, 3, 1964)
 
 	-- Salt Shaker -- 19567
@@ -1167,7 +1167,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19793, 265, 15996, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19793, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 19793, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 19793, 7, 2)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
@@ -1191,24 +1191,24 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19795, 1, 8736, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Dark Iron Rifle -- 19796
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Gun, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val68-127id14val2.7id15
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19796, 275, 16004, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19796, 5,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
+	self:addTradeFlags(RecipeDB, 19796, 1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
 	self:addTradeAcquire(RecipeDB, 19796, 3, 8897, 3, 9026)
 
 	-- Dark Iron Bomb -- 19799
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19799, 285, 16005, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19799, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 19799, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 19799, 3, 8920)
 
 	-- Thorium Shells -- 19800
@@ -1241,18 +1241,18 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19815, 2, 11185)
 
 	-- Voice Amplification Modulator -- 19819
-	-- Instance: 2017 - type1minlevel58maxlevel60category3territory1nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58maxlevel60category3nameStratholmeterritory1id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Amulet, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19819, 290, 16009, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19819, 5,21,22,23,24,25,26,27,28,29,30,36,40,47)
+	self:addTradeFlags(RecipeDB, 19819, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,47)
 	self:addTradeAcquire(RecipeDB, 19819, 3, 10426)
 
 	-- Master Engineer's Goggles -- 19825
 	-- Trainer
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth, 
 	-- Item Stats: 
@@ -1268,7 +1268,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19830, 300, 16022, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19830, 11,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeFlags(RecipeDB, 19830, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
 	self:addTradeAcquire(RecipeDB, 19830, 3, 7437)
 
 	-- Arcane Bomb -- 19831
@@ -1277,7 +1277,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19831, 300, 16040, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19831, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 19831, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 19831, 7, 2)
 
 	-- Flawless Arcanite Rifle -- 19833
@@ -1287,7 +1287,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val9id11val83-155id14val3id15val10id16val9id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19833, 300, 16007, 2, 4036)
-	self:addTradeFlags(RecipeDB, 19833, 11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
+	self:addTradeFlags(RecipeDB, 19833, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
 	self:addTradeAcquire(RecipeDB, 19833, 3, 8561)
 
 	-- SnowMaster 9000 -- 21940
@@ -1320,7 +1320,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22793, 300, 18283, 3, 4036)
-	self:addTradeFlags(RecipeDB, 22793, 6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 22793, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 22793, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
 	-- Core Marksman Rifle -- 22795
@@ -1337,7 +1337,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val79-148id14val2.5id15val22id16val10id17
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22795, 300, 18282, 3, 4036)
-	self:addTradeFlags(RecipeDB, 22795, 6,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB, 22795, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
 	self:addTradeAcquire(RecipeDB, 22795, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
 	-- Force Reactive Disk -- 22797
@@ -1354,7 +1354,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val11id3val2916id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22797, 300, 18168, 3, 4036)
-	self:addTradeFlags(RecipeDB, 22797, 6,21,22,23,24,25,26,27,28,29,30,36,41,47,64)
+	self:addTradeFlags(RecipeDB, 22797, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,47,64)
 	self:addTradeAcquire(RecipeDB, 22797, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
 	-- Red Firework -- 23066
@@ -1422,14 +1422,14 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23077, 2, 11185)
 
 	-- Goblin Jumper Cables XL -- 23078
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	-- Recipe Specialty of 20222
 	self:addTradeSkill(RecipeDB, 23078, 265, 18587, 2, 4036, 20222)
-	self:addTradeFlags(RecipeDB, 23078, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 23078, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 23078, 3, 9499)
 
 	-- Major Recombobulator -- 23079
@@ -1450,47 +1450,47 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23080, 2, 11185)
 
 	-- Hyper-Radiant Flame Reflector -- 23081
-	-- Instance: 1583 - type1minlevel58maxlevel60category3territory1nameBlackrock Spireid1583
+	-- Instance: 1583 - type1minlevel58maxlevel60category3nameBlackrock Spireterritory1id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val18id33
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23081, 290, 18638, 2, 4036)
-	self:addTradeFlags(RecipeDB, 23081, 5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeFlags(RecipeDB, 23081, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
 	self:addTradeAcquire(RecipeDB, 23081, 3, 10264)
 
 	-- Ultra-Flash Shadow Reflector -- 23082
-	-- Instance: 2017 - type1minlevel58maxlevel60category3territory1nameStratholmeid2017
+	-- Instance: 2017 - type1minlevel58maxlevel60category3nameStratholmeterritory1id2017
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val20id36
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23082, 300, 18639, 2, 4036)
-	self:addTradeFlags(RecipeDB, 23082, 5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeFlags(RecipeDB, 23082, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
 	self:addTradeAcquire(RecipeDB, 23082, 3, 10426)
 
 	-- Alarm-O-Bot -- 23096
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	-- Recipe Specialty of 20219
 	self:addTradeSkill(RecipeDB, 23096, 265, 18645, 2, 4036, 20219)
-	self:addTradeFlags(RecipeDB, 23096, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 23096, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 23096, 3, 8920)
 
 	-- World Enlarger -- 23129
-	-- Instance: 1584 - type1minlevel55maxlevel60category3territory1nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1minlevel55maxlevel60category3nameBlackrock Depthsterritory1id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	-- Recipe Specialty of 20219
 	self:addTradeSkill(RecipeDB, 23129, 260, 18660, 2, 4036, 20219)
-	self:addTradeFlags(RecipeDB, 23129, 5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 23129, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 23129, 3, 8920)
 
 	-- Dimensional Ripper - Everlook -- 23486
@@ -1559,7 +1559,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26416, 125, 21558, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26416, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26416, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26416, 5, 2, 3, 15909)
 
 	-- Small Green Rocket -- 26417
@@ -1568,7 +1568,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26417, 125, 21559, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26417, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26417, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26417, 5, 2, 3, 15909)
 
 	-- Small Red Rocket -- 26418
@@ -1577,7 +1577,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26418, 125, 21557, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26418, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26418, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26418, 5, 2, 3, 15909)
 
 	-- Large Blue Rocket -- 26420
@@ -1586,7 +1586,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26420, 175, 21589, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26420, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26420, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26420, 5, 2, 3, 15909)
 
 	-- Large Green Rocket -- 26421
@@ -1595,7 +1595,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26421, 175, 21590, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26421, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26421, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26421, 5, 2, 3, 15909)
 
 	-- Large Red Rocket -- 26422
@@ -1604,7 +1604,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26422, 175, 21592, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26422, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26422, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26422, 5, 2, 3, 15909)
 
 	-- Blue Rocket Cluster -- 26423
@@ -1640,7 +1640,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26426, 275, 21714, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26426, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26426, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26426, 5, 2, 3, 15909)
 
 	-- Large Green Rocket Cluster -- 26427
@@ -1649,7 +1649,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26427, 275, 21716, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26427, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26427, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26427, 5, 2, 3, 15909)
 
 	-- Large Red Rocket Cluster -- 26428
@@ -1658,7 +1658,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 26428, 275, 21718, 2, 4036)
-	self:addTradeFlags(RecipeDB, 26428, 7,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 26428, 1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 26428, 5, 2, 3, 15909)
 
 	-- Firework Launcher -- 26442
@@ -1797,7 +1797,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val12id3val13id11val104-194id14val2.4id15val13id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30314, 360, 23747, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30314, 11,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB, 30314, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
 	self:addTradeAcquire(RecipeDB, 30314, 3, 19960)
 
 	-- Ornate Khorium Rifle -- 30315
@@ -1807,7 +1807,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val14id2val144-268id14val3.1id15
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30315, 375, 23748, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30315, 10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
+	self:addTradeFlags(RecipeDB, 30315, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,46,47,63)
 	self:addTradeAcquire(RecipeDB, 30315, 7, 3)
 
 	-- Cogspinner Goggles -- 30316
@@ -1827,7 +1827,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val46id3val100id6val36id19val36id20val31id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30317, 340, 23761, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30317, 10,21,22,23,24,25,26,27,28,29,30,36,40,47,54,56)
+	self:addTradeFlags(RecipeDB, 30317, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,47,54,56)
 	self:addTradeAcquire(RecipeDB, 30317, 7, 3)
 
 	-- Ultra-Spectropic Detection Goggles -- 30318
@@ -1847,7 +1847,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val232id6val84id9val84id16
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30325, 360, 23763, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30325, 11,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 30325, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 30325, 3, 19755)
 
 	-- Adamantite Scope -- 30329
@@ -1865,7 +1865,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30332, 360, 23765, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30332, 11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 30332, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 30332, 3, 20207)
 
 	-- Stabilized Eternium Scope -- 30334
@@ -1876,7 +1876,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30334, 375, 23766, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30334, 6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 30334, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 30334, 3, 15550, 3, 16152)
 
 	-- Crashin' Thrashin' Robot -- 30337
@@ -1885,7 +1885,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30337, 325, 23767, 2, 4036)
-	self:addTradeFlags(RecipeDB, 30337, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 30337, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 30337, 7, 2)
 
 	-- White Smoke Flare -- 30341
@@ -1996,7 +1996,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30551, 330, 33092, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30551, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 30551, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 30551, 7, 3)
 
 	-- Mana Potion Injector -- 30552
@@ -2005,18 +2005,18 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30552, 345, 33093, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30552, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 30552, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 30552, 7, 3)
 
 	-- Rocket Boots Xtreme -- 30556
-	-- Instance: 3715 - type5minlevel70category3territory1nameCoilfang Reservoir: The Steamvaultexpansion1id3715
+	-- Instance: 3715 - expansion1type5minlevel70category3nameCoilfang Reservoir: The Steamvaultterritory1id3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val196id6val80id9val80id16
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 30556, 355, 23824, 3, 4036)
-	self:addTradeFlags(RecipeDB, 30556, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 30556, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 30556, 3, 17796)
 
 	-- The Bigger One -- 30558
@@ -2141,7 +2141,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 32814, 335, 25886, 2, 4036)
-	self:addTradeFlags(RecipeDB, 32814, 10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 32814, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 32814, 7, 2)
 
 	-- Dimensional Ripper - Area 52 -- 36954
@@ -2317,7 +2317,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43676, 335, 20475, 2, 4036)
-	self:addTradeFlags(RecipeDB, 43676, 11,21,22,23,24,25,26,27,28,29,30,36,41,46)
+	self:addTradeFlags(RecipeDB, 43676, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,46)
 	self:addTradeAcquire(RecipeDB, 43676, 3, 19707)
 
 	-- Flying Machine -- 44155
@@ -2344,7 +2344,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 44391, 360, 34113, 2, 4036)
-	self:addTradeFlags(RecipeDB, 44391, 11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 44391, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 44391, 3, 23385, 3, 23386)
 
 	-- Wonderheal XT68 Shades -- 46106
@@ -2375,7 +2375,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val33id3val51id4val41id5val216id6val46id19val137id20
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46108, 375, 35181, 4, 4036)
-	self:addTradeFlags(RecipeDB, 46108, 6,26,37,41,47,53,56)
+	self:addTradeFlags(RecipeDB, 46108, 1,2,6,26,37,41,47,53,56)
 	self:addTradeAcquire(RecipeDB, 46108, 3, 25367)
 
 	-- Hyper-Magnified Moon Specs -- 46109
@@ -2406,7 +2406,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val41id3val37id4val216id6val86id19val86id20val42id22
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46111, 375, 34847, 4, 4036)
-	self:addTradeFlags(RecipeDB, 46111, 6,11,26,37,41,47,54,56)
+	self:addTradeFlags(RecipeDB, 46111, 1,2,6,11,26,37,41,47,54,56)
 	self:addTradeAcquire(RecipeDB, 46111, 3, 25507)
 
 	-- Lightning Etched Specs -- 46112
@@ -2427,7 +2427,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val47id3val902id6val124id9val51id11val124id16val51id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46113, 375, 34356, 4, 4036)
-	self:addTradeFlags(RecipeDB, 46113, 6,11,23,37,41,47,58)
+	self:addTradeFlags(RecipeDB, 46113, 1,2,6,11,23,37,41,47,58)
 	self:addTradeAcquire(RecipeDB, 46113, 3, 25363)
 
 	-- Mayhem Projection Goggles -- 46114
@@ -2439,7 +2439,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val62id1val47id3val1611id6val51id11val51id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46114, 375, 34354, 4, 4036)
-	self:addTradeFlags(RecipeDB, 46114, 6,11,30,37,41,47,59)
+	self:addTradeFlags(RecipeDB, 46114, 1,2,6,11,30,37,41,47,59)
 	self:addTradeAcquire(RecipeDB, 46114, 3, 25363, 3, 25369)
 
 	-- Hard Khorium Goggles -- 46115
@@ -2463,14 +2463,14 @@ function addon:InitEngineering(RecipeDB)
 	-- No acquire information
 
 	-- Rocket Boots Xtreme Lite -- 46697
-	-- Instance: 3849 - type5minlevel70category3territory1nameTempest Keep: The Mechanarexpansion1id3849
+	-- Instance: 3849 - expansion1type5minlevel70category3nameTempest Keep: The Mechanarterritory1id3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val105id6val47id19val47id20
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46697, 355, 35581, 3, 4036)
-	self:addTradeFlags(RecipeDB, 46697, 5,21,22,23,24,25,26,27,28,29,30,36,41,47,54,56)
+	self:addTradeFlags(RecipeDB, 46697, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,47,54,56)
 	self:addTradeAcquire(RecipeDB, 46697, 3, 19219)
 
 	-- Explosive Triggers -- 53280

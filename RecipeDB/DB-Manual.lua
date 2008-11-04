@@ -15,6 +15,18 @@ Project version: r1020
 
 ]]--
 
+-- Blacksmithing
+
+	-- Orcish War Leggings -- 9957
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Item Stats: 
+	-- Item Stats: val17id1val208id6
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 9957, 230, 7929, 2, 2018)
+	self:addTradeFlags(RecipeDB, 9957, 2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 9957, 4, 2756)
+
 -- Enchanting
 
 	-- Enchant Chest - Major Health -- 20026
@@ -63,7 +75,14 @@ Project version: r1020
 
 -- Leatherworking
 
-	-- Bracers of Shackled Souls
+	-- Bracers of Shackled Souls -- 52733
+	-- Ashtongue Deathsworn - Friendly
+	-- Raid: 3959 - Black Temple
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Item Stats: 
+	-- Item Stats: val30id3val400id6val40id36
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 52733, 365, 32399, 4, 2108)
-	self:addTradeFlags(RecipeDB, 52733, 1,2,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeSkill(RecipeDB, 52733, 375, 32399, 1, 2108)
+	self:addTradeFlags(RecipeDB, 52733, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,58,102)
+	self:addTradeAcquire(RecipeDB, 52733, 6, 1012, 1, 23159)

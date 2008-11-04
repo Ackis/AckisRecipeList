@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-79 found from data mining.  0 ignored.
+80 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -71,6 +71,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 2753, L["Trampled Under Foot"], BZONE["Orgrimmar"], 78.61, 21.11, 2)
 	self:addLookupList(QuestDB, 2754, L["Horns of Frenzy"], BZONE["Orgrimmar"], 78.61, 21.11, 2)
 	self:addLookupList(QuestDB, 2755, L["Joys of Omosh"], BZONE["Orgrimmar"], 78.61, 21.11, 2)
+	self:addLookupList(QuestDB, 2756, L["The Old Ways"], BZONE["Orgrimmar"], 80.27, 21.52, 2)
 	self:addLookupList(QuestDB, 2758, L["The Origins of Smithing"], BZONE["Stormwind City"], 55.93, 16.16, 1)
 	self:addLookupList(QuestDB, 2761, L["Smelt On, Smelt Off"], BZONE["Stranglethorn Vale"], 50.65, 20.87, 0)
 	self:addLookupList(QuestDB, 2762, L["The Great Silver Deceiver"], BZONE["Stranglethorn Vale"], 50.65, 20.87, 0)

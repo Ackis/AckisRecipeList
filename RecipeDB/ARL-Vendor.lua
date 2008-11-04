@@ -9,7 +9,7 @@ Vendor data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-320 found from data mining.  0 ignored.
+321 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -252,6 +252,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB, 14637, L["Zorbin Fandazzle"], BZONE["Feralas"], 45.06, 44.02, 0)
 	self:addLookupList(VendorDB, 14738, L["Otho Moji'ko"], BZONE["The Hinterlands"], 79.36, 78.91, 2)
 	self:addLookupList(VendorDB, 14921, L["Rin'wosho the Trader"], BZONE["Stranglethorn Vale"], 14.85, 16.20, 0)
+	self:addLookupList(VendorDB, 15165, L["Haughty Modiste"], BZONE["Tanaris"], 66.03, 21.36, 3)
 	self:addLookupList(VendorDB, 15176, L["Vargus"], BZONE["Silithus"], 51.50, 37.98, 0)
 	self:addLookupList(VendorDB, 15179, L["Mishta"], BZONE["Silithus"], 49.48, 36.16, 0)
 	self:addLookupList(VendorDB, 15198, L["Blackwing"], L["Unknown Zone"], 0, 0, 0)
