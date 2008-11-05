@@ -4,10 +4,10 @@
 
 AckisRecipeList.lua
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2008-11-04T00:41:27Z 
+File revision: 1021 
+Project revision: 1028
+Project version: r1028
 
 Author: Ackis on Illidan US Horde
 GUI done by Zhinjio

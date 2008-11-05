@@ -6,10 +6,10 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2008-11-04T22:46:16Z 
+File revision: 1028 
+Project revision: 1028
+Project version: r1028
 
 ****************************************************************************************
 
@@ -3167,20 +3167,8 @@ function addon:CreateFrame(
 					if (searchtext ~= "") then
 
 						addon:SearchRecipeDB(recipeDB, searchtext)
+						initDisplayStrings()
 						RecipeList_Update()
-
-					end
-
-				end
-			)
-
-		local ARL_SearchText = CreateFrame("ARL_SearchText", nil, addon.Frame, "InputBoxTemplate")
-			ARL_CloseButton:SetText(L["SEARCH_BOX_DESC"])
-			ARL_CloseButton:SetScript("OnClick",
-				function(this)
-					if (this:GetText() == L["SEARCH_BOX_DESC"]) then
-
-						this:SetText("")
 
 					end
 
@@ -3194,11 +3182,33 @@ function addon:CreateFrame(
 				function()
 
 					addon:ResetSearch(recipeDB)
-					ARL_ClearButton:SetText(L["SEARCH_BOX_DESC"])
+					ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+					initDisplayStrings()
 					RecipeList_Update()
 
 				end
 			)
+
+		ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", addon.Frame, "InputBoxTemplate")
+			ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+			ARL_SearchText:SetScript("OnEditFocusGained",
+				function(this)
+
+					if (this:GetText() == L["SEARCH_BOX_DESC"]) then
+
+						this:SetText("")
+
+					end
+
+				end
+			)
+			ARL_SearchText:EnableMouse(true)
+			ARL_SearchText:SetAutoFocus(false)
+			ARL_SearchText:SetFontObject(ChatFontNormal)
+			ARL_SearchText:SetWidth(135)
+			ARL_SearchText:SetHeight(270)
+			ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 4, -1)
+			ARL_SearchText:Show()
 
 		local ARL_CloseButton = addon:GenericCreateButton("ARL_CloseButton", addon.Frame,
 			22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
@@ -3966,7 +3976,7 @@ function addon:CreateFrame(
 
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.uiscale)
-	arlTooltip:SetScale (addon.db.profile.tooltipscale)
+	arlTooltip:SetScale(addon.db.profile.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
