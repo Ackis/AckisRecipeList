@@ -6,8 +6,8 @@ Documentation.lua
 Documentation to keep the other files nice and tidy
 Is all just text but keeping in .lua form so editors can collapse sections easily.
 
-$Date$
-$Rev$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 

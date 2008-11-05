@@ -6,10 +6,10 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-File date: 2008-11-04T22:46:16Z 
-File revision: 1028 
-Project revision: 1028
-Project version: r1028
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 

@@ -20,7 +20,7 @@
 ## Interface: 30000
 ## Version: Beta 9 @project-revision@
 ## X-Revision: @project-revision@
-## X-Date: $Date$
+## X-Date: @file-date-iso@
 
 ## X-credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan
 
