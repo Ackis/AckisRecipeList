@@ -34,17 +34,35 @@ local sortedRecipeIndex = {}
 local DisplayStrings = {}
 local myFaction = ""
 
--- Constants for use within this file
-local locale = GetLocale()
-local narrowFont = "Fonts\\ARIALN.TTF"
-local normalFont = "Fonts\\FRIZQT__.TTF"
+local narrowFont = nil
+local normalFont = nil
 
--- Fix for font issues on koKR
+-- Fallback in case the user doesn't have LSM-3.0 installed
+if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 
-if (locale == "koKR") or (locale == "zhTW") or (locale == "zhCN") then
+	local locale = GetLocale()
 
-	narrowFont = "Fonts\\2002.TTF"
-	normalFont = "Fonts\\2002.TTF"
+	-- Fix for font issues on koKR
+
+	if (locale == "koKR") then
+
+		narrowFont = "Fonts\\2002.TTF"
+		normalFont = "Fonts\\2002.TTF"
+
+	else
+
+		narrowFont = "Fonts\\ARIALN.TTF"
+		normalFont = "Fonts\\FRIZQT__.TTF"
+
+	end
+
+else
+
+	-- Register LSM 3.0
+	local LSM3 = LibStub("LibSharedMedia-3.0")
+
+	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
+	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 
 end
 

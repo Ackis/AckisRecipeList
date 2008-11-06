@@ -1208,6 +1208,8 @@ end
 -- Input: Recipe Array, Skill level for current profession, name of current profession, and current profession Specialty
 -- Output: Number of recipes that are filtered
 
+-- http://ace.pastey.net/100849
+
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 	local playerProfessionLevel = playerData.playerProfessionLevel
