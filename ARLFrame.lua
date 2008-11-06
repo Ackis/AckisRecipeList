@@ -703,6 +703,7 @@ function addon.filterSwitch(val)
 	addon.resetTitle()
 
 	-- Make sure our apply button gets enabled
+	ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
 	ARL_ApplyButton:Enable()
 
 end
@@ -1857,6 +1858,7 @@ function RecipeList_Update()
 	end
 
 	-- Make sure our apply button gets disabled
+	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
 	ARL_ApplyButton:Disable()
 	
 end
@@ -3335,7 +3337,7 @@ function addon:CreateFrame(
 			ARL_ResetButton:Hide()
 
 		local ARL_ApplyButton = addon:GenericCreateButton("ARL_ApplyButton", addon.Frame,
-			22, 69, "RIGHT", ARL_CloseButton, "LEFT", -82, 0, "GameFontNormalSmall",
+			22, 69, "RIGHT", ARL_CloseButton, "LEFT", -82, 0, "GameFontDisableSmall",
 			"GameFontHighlightSmall", L["Apply"], "CENTER", L["APPLY_DESC"], 1)
 			ARL_ApplyButton:SetScript("OnClick", ReDisplay)
 			ARL_ApplyButton:Hide()
