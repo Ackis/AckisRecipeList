@@ -1722,24 +1722,28 @@ function SetRecipeButtonTooltip(bIndex)
 	pButton:SetScript("OnEnter",
 			function (pButton)
 				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
+				arlTooltip2:Show()
 			end
 		)
 
 	pButton:SetScript("OnLeave",
 			function()
 				arlTooltip:Hide()
+				arlTooltip2:Hide()
 			end
 		)
 
 	rButton:SetScript("OnEnter",
 			function (rButton)
 				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
+				arlTooltip2:Show()
 			end
 		)
 
 	rButton:SetScript("OnLeave",
 			function()
 				arlTooltip:Hide()
+				arlTooltip2:Hide()
 			end
 		)
 
@@ -3994,6 +3998,7 @@ function addon:CreateFrame(
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.uiscale)
 	arlTooltip:SetScale(addon.db.profile.tooltipscale)
+	arlTooltip2:SetScale(addon.db.profile.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
