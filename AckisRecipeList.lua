@@ -1788,7 +1788,7 @@ do
 
 		if (RecipeList) then
 
-			return false
+			return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 
 		else
 
