@@ -702,6 +702,9 @@ function addon.filterSwitch(val)
 
 	addon.resetTitle()
 
+	-- Make sure our apply button gets enabled
+	ARL_ApplyButton:Enable()
+
 end
 
 -- Description: 
@@ -1853,6 +1856,9 @@ function RecipeList_Update()
 
 	end
 
+	-- Make sure our apply button gets disabled
+	ARL_ApplyButton:Disable()
+	
 end
 
 -- Description: 
@@ -3202,6 +3208,11 @@ function addon:CreateFrame(
 
 					addon:ResetSearch(recipeDB)
 					ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+					
+					-- Make sure our expand all button is set to expandall
+					ARL_ExpandButton:SetText(L["EXPANDALL"])
+					addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
 					initDisplayStrings()
 					RecipeList_Update()
 
