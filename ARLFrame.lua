@@ -78,6 +78,7 @@ local allSpecTable = {}
 local playerData = {}
 
 local arlTooltip = _G["arlTooltip"]
+local arlTooltip2 = _G["arlTooltip2"]
 
 -- To make tabbing between professions easier
 local SortedProfessions = {
@@ -1686,24 +1687,20 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	clr1 = addon:hexcolor("NORMAL")
 
-	local spelllink = recipeDB[rIndex]["RecipeLink"]
-
-	if (spelllink) then
-
-		gttAdd(0, 0, 0, 0, spelllink, clr1)
-
-	end
-
-	-- Spacer
-	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-	clr1 = addon:hexcolor("NORMAL")
-
 	gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
 	gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
 	gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
 
+	local spelllink = recipeDB[rIndex]["RecipeLink"]
+
+	if (spelllink) then
+
+		arlTooltip2:SetHyperlink(spelllink)
+
+	end
+
 	arlTooltip:Show()
+	arlTooltip2:Show()
 
 end
 
@@ -3083,10 +3080,10 @@ function addon:CreateFrame(
 	if (not addon.Frame) then
 
 		-- Create the main frame
-		addon.Frame = CreateFrame("Frame", "addon.Frame", UIParent)
+		addon.Frame = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
 
 		--Allows ARL to be closed with the Escape key
-		tinsert(UISpecialFrames, "addon.Frame")
+		tinsert(UISpecialFrames, "AckisRecipeList.Frame")
 
 		addon.Frame:SetWidth(293)
 		addon.Frame:SetHeight(447)
@@ -3261,7 +3258,9 @@ function addon:CreateFrame(
  			ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
 
 		-- I'm going to use my own tooltip for recipebuttons
-		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", nil, "GameTooltipTemplate")
+		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
+		arlTooltip2 = CreateFrame("GameTooltip", "arlTooltip2", arlTooltip, "GameTooltipTemplate")
+		arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
 
 		-- The main recipe list buttons and scrollframe
 		addon.PlusListButton = {}

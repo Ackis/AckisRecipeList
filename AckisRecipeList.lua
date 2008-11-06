@@ -73,7 +73,8 @@ addon.ScanButton = nil
 addon.Frame = nil
 -- tooltip needs to be global so I can access individual lines in it and 
 -- modify then
-_G["arlTooltip"]= nil
+_G["arlTooltip"] = nil
+_G["arlTooltip2"] = nil
 
 
 -- Make global API calls local to speed things up
