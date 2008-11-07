@@ -689,7 +689,7 @@ end
 
 ]]--
 
-local function GetID(SpellLink)
+local function GetIDFromLink(SpellLink)
 
 	return select(3,sfind(SpellLink, "\124H%w+:(%d+):"))
 
@@ -745,7 +745,7 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 			local SpellLink = GetTradeSkillRecipeLink(i)
 
 			-- Get the SpellID from the spell link or enchant link (to account for Skillet)
-			local SpellID = tonumber(GetID(SpellLink))
+			local SpellID = tonumber(GetIDFromLink(SpellLink))
 
 			-- Spell ID is in RecipeDB so lets flag it as known
 			if (RecipeDB[SpellID]) then
