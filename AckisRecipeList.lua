@@ -287,13 +287,14 @@ function addon:OnEnable()
 	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
 	if (Skillet) and (Skillet.GetNumTradeSkills) and
 	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
-	(Skillet.GetTradeSkillRecipeLink) then
+	(Skillet.GetTradeSkillRecipeLink) and (Skillet.ExpandTradeSkillSubClass) then
 
 		self:Print("Enabling Skillet advanced features.")
 		GetNumTradeSkills = function(...) return Skillet:GetNumTradeSkills(...) end
 		GetTradeSkillLine = function(...) return Skillet:GetTradeSkillLine(...) end
 		GetTradeSkillInfo = function(...) return Skillet:GetTradeSkillInfo(...) end
 		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
+		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
 
 	end
 
@@ -688,6 +689,12 @@ end
 
 ]]--
 
+local function GetID(SpellLink)
+
+	return select(3,sfind(SpellLink, "\124H%w+:(%d+):"))
+
+end
+
 -- Description: Scans the recipe listing and marks known recipes as true in the database
 -- Expected result: The array of Recipes will have all known recipes toggles to true
 -- Input: Recipe Array
@@ -737,9 +744,8 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 			-- Get the trade skill link for the specified recipe
 			local SpellLink = GetTradeSkillRecipeLink(i)
 
-			-- Get the SpellID from the spell link
-			local _,_,SpellString = sfind(SpellLink, "enchant:(%d+)")
-			local SpellID = tonumber(SpellString)
+			-- Get the SpellID from the spell link or enchant link (to account for Skillet)
+			local SpellID = tonumber(GetID(SpellLink))
 
 			-- Spell ID is in RecipeDB so lets flag it as known
 			if (RecipeDB[SpellID]) then
