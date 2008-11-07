@@ -744,8 +744,10 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 			-- Get the trade skill link for the specified recipe
 			local SpellLink = GetTradeSkillRecipeLink(i)
 
+			local SpellString = GetIDFromLink(SpellLink)
+
 			-- Get the SpellID from the spell link or enchant link (to account for Skillet)
-			local SpellID = tonumber(GetIDFromLink(SpellLink))
+			local SpellID = tonumber(SpellString)
 
 			-- Spell ID is in RecipeDB so lets flag it as known
 			if (RecipeDB[SpellID]) then
