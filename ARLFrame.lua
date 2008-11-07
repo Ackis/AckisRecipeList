@@ -1699,12 +1699,19 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	if (spelllink) then
 
+		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
+--		arlTooltip2:ClearAllPoints()
+		arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
 		arlTooltip2:SetHyperlink(spelllink)
+		arlTooltip2:Show()
+
+	else
+
+		arlTooltip2:Hide()
 
 	end
 
 	arlTooltip:Show()
-	arlTooltip2:Show()
 
 end
 
@@ -1726,7 +1733,6 @@ function SetRecipeButtonTooltip(bIndex)
 	pButton:SetScript("OnEnter",
 			function (pButton)
 				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
-				arlTooltip2:Show()
 			end
 		)
 
@@ -1740,7 +1746,6 @@ function SetRecipeButtonTooltip(bIndex)
 	rButton:SetScript("OnEnter",
 			function (rButton)
 				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
-				arlTooltip2:Show()
 			end
 		)
 
@@ -3279,8 +3284,7 @@ function addon:CreateFrame(
 
 		-- I'm going to use my own tooltip for recipebuttons
 		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
-		arlTooltip2 = CreateFrame("GameTooltip", "arlTooltip2", arlTooltip, "GameTooltipTemplate")
-		arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
+		arlTooltip2 = CreateFrame("GameTooltip", "arlTooltip2", addon.Frame, "GameTooltipTemplate")
 
 		-- The main recipe list buttons and scrollframe
 		addon.PlusListButton = {}
