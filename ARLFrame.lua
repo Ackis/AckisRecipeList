@@ -3172,7 +3172,7 @@ function addon:CreateFrame(
 			ARL_FilterButton:SetScript("OnClick", addon.ToggleFilters)
 
 		local ARL_SortButton = addon:GenericCreateButton("ARL_SortButton", addon.Frame,
-			25, 90, "TOPLEFT", addon.Frame, "TOPLEFT", 80, -40, "GameFontNormalSmall",
+			25, 90, "TOPLEFT", addon.Frame, "TOPLEFT", 80, -40, "GameFontDisableSmall",
 			"GameFontHighlightSmall", L["Sorting"], "CENTER", L["SORTING_DESC"], 1)
 			-- Disable until we have sorting figured out
 			ARL_SortButton:Disable()
@@ -3210,10 +3210,13 @@ function addon:CreateFrame(
 
 					addon:ResetSearch(recipeDB)
 					ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-					
+
 					-- Make sure our expand all button is set to expandall
 					ARL_ExpandButton:SetText(L["EXPANDALL"])
 					addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+					-- Make sure to clear the focus of the searchbox
+					ARL_SearchText:ClearFocus()
 
 					initDisplayStrings()
 					RecipeList_Update()
@@ -3238,7 +3241,7 @@ function addon:CreateFrame(
 			ARL_SearchText:SetAutoFocus(false)
 			ARL_SearchText:SetFontObject(ChatFontNormal)
 			ARL_SearchText:SetWidth(135)
-			ARL_SearchText:SetHeight(270)
+			ARL_SearchText:SetHeight(12)
 			ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 4, -1)
 			ARL_SearchText:Show()
 
