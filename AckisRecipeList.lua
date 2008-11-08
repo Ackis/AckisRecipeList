@@ -4,10 +4,10 @@
 
 AckisRecipeList.lua
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2008-11-07T19:36:04Z 
+File revision: 1044 
+Project revision: 1044
+Project version: r1044
 
 Author: Ackis on Illidan US Horde
 GUI done by Zhinjio
@@ -98,6 +98,7 @@ local tconcat = table.concat
 local tsort = table.sort
 local tinsert = table.insert
 local sfind = string.find
+local smatch = string.match
 local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
 local guildname = GetGuildInfo("player")
@@ -478,7 +479,7 @@ function addon:GetTradeSpecialty(SpecialtyTable, playerData)
 		-- We have a match, return that spell name
 		elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
 
-			local _, _, ID =  sfind(GetSpellLink(spellName), "spell:(%d+)")
+			local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
 			return ID
 
 		end
@@ -516,7 +517,8 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 
 	if (spellLink ~= nil) then
 
-		RecipeDB[SpellID]["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
+		--RecipeDB[SpellID]["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
+		RecipeDB[SpellID]["RecipeLink"] = spellLink
 
 	else
 
@@ -691,7 +693,9 @@ end
 
 local function GetIDFromLink(SpellLink)
 
-	return select(3,sfind(SpellLink, "\124H%w+:(%d+):"))
+	--return smatch(SpellLink, "|H%w+:(%d+)")
+	-- Faster matching per Neffi
+	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 
 end
 
