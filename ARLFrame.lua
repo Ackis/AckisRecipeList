@@ -161,31 +161,33 @@ function addon:CloseWindow()
 
 end
 
--- Description: Provides the total number of recipes for a specific profession minus the filtered ones
--- Expected result: An integer which will be used for the progress bar is provided
--- Input: Total recipes, total filtered, total found, and total from other professions
--- Output: Total recipeswithout the filtered ones for a given profession
+-- Description: Updates the progress bar based on the number of known / total recipes
+-- Expected result: the progression bar shows the correct information based on settings and filters
+-- Input: playerdata data structure
+-- Output: none
+local function SetProgressBar(playerData)
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+	local pbCur, pbMax
 
-local function GetFilteredRecipes(total, filtered, found, other)
 
-	local totalfiltered = filtered - other
-	local actualfiltered = total - totalfiltered
+	if (addon.db.profile.includefiltered == true) then
 
-	if (not addon.db.profile.filters.general.known) then
+		pbCur = playerData.recipes_known
+		pbMax = playerData.recipes_total
 
-		return found + actualfiltered
-
+	-- We're removing filtered recipes from the final count
 	else
 
-		return found
+		pbCur = playerData.recipes_known_filtered
+		pbMax = playerData.recipes_total_filtered
 
 	end
 
+	addon:Print("SetProgressBar:", addon.db.profile.includefiltered, playerData.recipes_known_filtered, "/", playerData.recipes_total_filtered, "-", playerData.recipes_known, "/", playerData.recipes_total, "-", playerData.foundRecipes, "/", playerData.totalRecipes)
+
+	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
+	ARL_ProgressBar:SetValue(pbCur)
+	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
 end
 
 -- Under various conditions, I'm going to have to redisplay my recipe list
@@ -210,26 +212,7 @@ function ReDisplay()
 
 	initDisplayStrings()
 
-	-- Update our progressbar
-	local pbCur = playerData.foundRecipes
-	local pbMin = 0
-	local pbMax = 100
-
-	-- Include filtered recipes in overall count, so we just display the total number of recipes
-	if (addon.db.profile.includefiltered == true) then
-
-		pbMax = playerData.totalRecipes
-
-	-- We're removing filtered recipes from the final count
-	else
-
-		pbMax = GetFilteredRecipes(playerData.totalRecipes, playerData.filteredRecipes, playerData.foundRecipes, playerData.otherRecipes)
-
-	end
-
-	ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
-	ARL_ProgressBar:SetValue(pbCur)
-	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+	SetProgressBar(playerData)
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -1840,17 +1823,17 @@ function RecipeList_Update()
 	else
 
 		-- If the recipe total is at 0, it means we have not scanned the profession yet
-		if (playerData.totalRecipes == 0) then
+		if (playerData.recipes_total == 0) then
 
 			StaticPopup_Show("ARL_NOTSCANNED")
 
 		-- We know all the recipes
-		elseif (playerData.foundRecipes == playerData.totalRecipes) then
+		elseif (playerData.recipes_known == playerData.recipes_total) then
 
 			StaticPopup_Show("ARL_ALLKNOWN")
 
 		-- Our filters are actually filtering something
-		elseif ((playerData.totalRecipes - (playerData.filteredRecipes - playerData.otherRecipes)) > 0) then
+		elseif (playerData.recipes_total_filtered == 0) then
 
 			StaticPopup_Show("ARL_ALLFILTERED")
 
@@ -4034,21 +4017,7 @@ function addon:CreateFrame(
 	initDisplayStrings()
 
 	-- Update our progressbar
-	pbCur = cPlayer.foundRecipes
-
-	if (addon.db.profile.includefiltered == true) then
-
-		pbMax = cPlayer.totalRecipes
-
-	else
-
-		pbMax = GetFilteredRecipes(cPlayer.totalRecipes, cPlayer.filteredRecipes, cPlayer.foundRecipes, cPlayer.otherRecipes)
-
-	end
-
-	ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
-	ARL_ProgressBar:SetValue(pbCur)
-	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+	SetProgressBar(cPlayer)
 
 	-- And update our scrollframe
 	RecipeList_Update()

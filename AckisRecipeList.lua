@@ -897,16 +897,6 @@ do
 			return false
 		end
 
-		-- Include known
-		if (generaldb.known == false) and (Recipe["Known"] == true) then
-			return false
-		end
-
-		-- Include unknown
-		if (generaldb.unknown == false) and (Recipe["Known"] == false) then
-			return false
-		end
-
 		-- Display both horde and alliance factions?
 		if (generaldb.faction == false) then
 
@@ -1234,22 +1224,43 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	playerData.filteredRecipes = 0
 	playerData.otherRecipes = 0
 
+	playerData.recipes_total = 0
+	playerData.recipes_known = 0
+	playerData.recipes_total_filtered = 0
+	playerData.recipes_known_filtered = 0
+
+	local displayflag = false
+
 	-- Parse through all the entries in the Recipe array
-	for RecipeID in pairs(RecipeDB) do
+	for RecipeID, Recipe in pairs(RecipeDB) do
+
+		-- only interested in the current profession
+		if (Recipe["Profession"] == playerProfession) then
 
 		-- Determine if we are to display this recipe or not
-		local displayflag = self:CheckDisplayRecipe(RecipeDB[RecipeID], AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
+			displayflag = self:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
-		if (displayflag == false) then
+			playerData.recipes_total = playerData.recipes_total + 1
+			playerData.recipes_known = playerData.recipes_known + (Recipe["Known"] == true and 1 or 0)
 
-			playerData.filteredRecipes = playerData.filteredRecipes + 1
+			if displayflag == true then
+				playerData.recipes_total_filtered = playerData.recipes_total_filtered + 1
+				playerData.recipes_known_filtered = playerData.recipes_known_filtered + (Recipe["Known"] == true and 1 or 0)
 
-		end
+				-- Include known
+				if (addon.db.profile.filters.general.known == false) and (Recipe["Known"] == true) then
+					displayflag = false
+				end
 
-		-- If the recipes aren't for the current profession, lets add it to the list
-		if (RecipeDB[RecipeID]["Profession"] ~= playerProfession) then
+				-- Include unknown
+				if (addon.db.profile.filters.general.unknown == false) and (Recipe["Known"] == false) then
+					displayflag = false
+				end
+			end
 
-			playerData.otherRecipes = playerData.otherRecipes + 1
+		else
+
+				displayflag = false
 
 		end
 
