@@ -1177,7 +1177,8 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Hydromancer Thespia","Ras Frostwhisper","Onyxia","General Drakkisath","Balnazzar","Cannon Master Willey",
 	"Magmadar","Shazzrah","Lord Kazzak","Pusillin","Darkmaster Gandling","Mijan","Pyromancer Loregrain",
 	"Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman","Halazzi","Akil'zon",
-	"Nalorakk","Jan'alai","Zul'jin"]
+	"Nalorakk","Jan'alai","Zul'jin","Theka the Martyr","Plugger Spazzring","Bannok Grimaxe","Quartermaster Zigris",
+	"Solakar Flamewreath","Maleki the Pallid"]
 
 $bosszonemap = {
 	"Magmadar" => "Molten Core",
@@ -1194,6 +1195,33 @@ $bosszonemap = {
 	"Jan'alai" => "Zul'Aman",
 	"Zul'jin" => "Zul'Aman",
 	"Shadowsword Lifeshaper" => "Sunwell Plateau",
+	"Scarlet Monastery" => "Scarlet Monestary",
+	"Scarlet Myrmidon" => "Scarlet Monestary",
+	"Scarlet Chaplain" => "Scarlet Monestary",
+	"Scarlet Wizard" => "Scarlet Monestary",
+	"Scarab" => "Zul'Farrak",
+	"Theka the Martyr" => "Zul'Farrak",
+	"Sul'lithuz Broodling" => "Zul'Farrak",
+	"Overmaster Pyron" => "Searing Gorge",
+	"Spirestone Battle Mage" => "Blackrock Spire",
+	"Spirestone Warlord" => "Blackrock Spire",
+	"Firebrand Grunt" => "Blackrock Spire",
+	"Firebrand Invoker" => "Blackrock Spire",
+	"Plugger Spazzring" => "Blackrock Depths",
+	"Ribbly Screwspigot" => "Blackrock Depths",
+	"Bannok Grimaxe" => "Blackrock Spire",
+	"Quartermaster Zigris" => "Blackrock Spire",
+	"Solakar Flamewreath" => "Blackrock Spire",
+	"Gyth" => "Blackrock Spire",
+	"General Drakkisath" => "Blackrock Spire",
+	"Ghoul Ravener" => "Stratholme",
+	"Crypt Crawler" => "Stratholme",
+	"Crimson Battle Mage" => "Stratholme",
+	"Crimson Inquisitor" => "Stratholme",
+	"Baron Rivendare" => "Stratholme",
+	"Scholomance Adept" => "Scholomance",
+	"Balnazzar" => "Stratholme",
+	"Goraluk Anvilcrack" => "Blackrock Spire", 
 }
 
 # Manual entries to the vendor, etc list
@@ -1251,7 +1279,8 @@ else
 	bsspeciallist = {
 		21913 => {:id => 7, :type => 1},
 		}
-	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[9957],bsspeciallist,[52567,52568,52569,52570,52571,52572])
+	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
+	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,[52567,52568,52569,52570,52571,52572])
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
@@ -1285,9 +1314,9 @@ else
 		26428 => {:id => 7, :type => 2},
 		26442 => {:id => 7, :type => 2},
 		26443 => {:id => 7, :type => 2},
-		40274 => {:id => "class", :type => [25, 29]},
+		40274 => {:id => "class", :type => [25, 30]},
 		41311 => {:id => "class", :type => [25]},
-		41312 => {:id => "class", :type => [25, 29]},
+		41312 => {:id => "class", :type => [25, 30]},
 		41314 => {:id => "class", :type => [23, 27]},
 		41315 => {:id => "class", :type => [27]},
 		41316 => {:id => "class", :type => [27]},
@@ -1340,7 +1369,7 @@ else
 		31101 => {:id => 9},
 		43493 => {:id => 9}
 		}
-	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[53844],jcspecaillist,(53830..54023).to_a)
+	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,(53830..54023).to_a)
 
 	leatherworking = recipes.get_leatherworking_list
 	lwspecaillist = {
