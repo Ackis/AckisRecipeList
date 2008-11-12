@@ -337,6 +337,8 @@ Item Acquire methods (and associated database values)
 		RepVendor		- Index into VendorList
 	Acquire Type = 7								( World Drop )
 		ID				- Rarity Level
+	Acquire Type = 8								( Custom )
+		ID				- Custom string
 
 
 	** - Reputation Level :

@@ -15,6 +15,7 @@
 <Include file="RecipeDB\ARL-Smelt.lua"/>
 <Include file="RecipeDB\ARL-Tailor.lua"/>
 
+<Include file="RecipeDB\ARL-Custom.lua"/>
 <Include file="RecipeDB\ARL-Mob.lua"/>
 <Include file="RecipeDB\ARL-Quest.lua"/>
 <Include file="RecipeDB\ARL-Reputation.lua"/>

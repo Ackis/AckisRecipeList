@@ -73,6 +73,7 @@ local vendorDB = {}
 local questDB = {}
 local repDB = {}
 local seasonDB = {}
+local customDB = {}
 local mobDB = {}
 local allSpecTable = {}
 local playerData = {}
@@ -1652,33 +1653,43 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
+
 				clr1 = addon:hexcolor("COMMON")
+
 			elseif (v["ID"] == 2) then
+
 				clr1 = addon:hexcolor("UNCOMMON")
+
 			elseif (v["ID"] == 3) then
+
 				clr1 = addon:hexcolor("RARE")
+
 			elseif (v["ID"] == 4) then
+
 				clr1 = addon:hexcolor("EPIC")
+
 			else
+
 				clr1 = addon:hexcolor("NORMAL")
+
 			end
 
 			gttAdd(0, -1, 0, 0, L["World Drop"], clr1)
 
-		-- Unhandled/Discovery
+		-- Custom entry
+		elseif (v["Type"] == 8) then
+
+			-- Seasonal:				SeasonEventName
+			local customname = customDB[v["ID"]]["Name"]
+
+			clr1 = addon:hexcolor("NORMAL")
+			gttAdd(0, -1, 0, 0, customname, clr1)
+
+		-- Unhandled
 		else
 
 			clr1 = addon:hexcolor("NORMAL")
-
-			if (recipeDB[rIndex]["Flags"][12]) then
-
-				gttAdd(0, -1, 1, 0, L["Discovery"], clr1)
-
-			else
-
-				gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
-
-			end
+			gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
 
 		end
 
@@ -2057,7 +2068,7 @@ function expandEntry(dsIndex)
 			t.sID = recipeIndex
 			t.IsExpanded = true
 
-			nStr = addon:Horde(mob["Name"])
+			nStr = addon:Red(mob["Name"])
 			t.String = pad .. tStr .. nStr
 
 			tinsert(DisplayStrings, dsIndex, t)
@@ -2237,12 +2248,30 @@ function expandEntry(dsIndex)
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 
+		-- Custom
+		elseif (v["Type"] == 8) then
+
+			-- Custom: ID, Name
+			local customname = customDB[v["ID"]]["Name"]
+
+			t = {}
+			t.IsRecipe = false
+			t.sID = recipeIndex
+			t.IsExpanded = true
+
+			local tStr = addon:Normal(customname)
+
+			t.String = pad .. tStr
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
+
 		else
 
 			t = {}
 			t.IsRecipe = false
 			t.sID = recipeIndex
 			t.IsExpanded = true
+
 			t.String = "Unhandled Acquire Case"
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
@@ -3030,7 +3059,8 @@ function addon:CreateFrame(
 	qList,		-- QuestList
 	rList,		-- ReputationList
 	sList,		-- SeasonalList
-	mList)		-- MobList
+	mList,		-- MobList
+	cList)		-- Customlist
 
 --[[
 	cPlayer is a table containing:
@@ -3067,6 +3097,7 @@ function addon:CreateFrame(
 	repDB = rList
 	seasonDB = sList
 	mobDB = mList
+	customDB = cList
 
 	-- reset current display items
 	DisplayStrings = {}

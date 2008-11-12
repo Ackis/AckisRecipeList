@@ -152,10 +152,73 @@ EOF
 
 end
 
+# Creates the faction database
+
+def create_custom_db()
+
+	puts "Generating Custom file..."
+
+	# Open the reputation file
+	customlua = File.open("./RecipeDB/ARL-Custom.lua", "w:utf-8")
+
+	# Faction file header
+	header=<<EOF
+--[[
+
+************************************************************************
+
+ARL-Custom.lua
+
+Custom acquire data for all of Ackis Recipe List
+
+Auto-generated using ARLDataminer.rb	
+Entries to this file will be overwritten
+
+************************************************************************
+
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
+
+************************************************************************
+
+Format:
+
+	self:addLookupList(CustomDB, Rep ID, Rep Name)
+
+************************************************************************
+
+]]--
+
+local MODNAME			= "Ackis Recipe List"
+local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+
+function addon:InitCustom(CustomDB)
+
+	self:addLookupList(CustomDB, 1, "Discovered by making elxiris or flasks using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 5, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate.")
+	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
+	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
+
+end
+
+EOF
+
+	customlua.puts(header)
+	customlua.close
+
+end
+
 # Creates a database file for the specific recipe
 # TODO: Optimize the code for this function
 
-def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,specialcase,wrathignore)
+def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,specialcase,wrathignore,manual)
 
 	factionlevels = {"Neutral"	=> 0,"Friendly" => 1,"Honored"	=> 2,"Revered"	=> 3,"Exalted"	=> 4}
 	classes = {"Deathknight" => 21,"Druid" => 22,"Hunter" => 23,"Mage"=> 24,"Paladin"=>25,"Priest"=>26,"Shaman"=>27,"Rogue"=> 28,"Warlock"=>29,"Warrior"=>30}
@@ -698,6 +761,7 @@ EOF
 
 				proflua.print("Discovery, ")
 				flags << 1 << 2 << 12
+				acquire << {"type" => 8, "id" => specialcase[details[:spellid]][:type]}
 				flags.delete(3)
 				flags.delete(4)
 				flags.delete(5)
@@ -714,6 +778,23 @@ EOF
 			when "Horde"
 
 				flags << 2
+
+			when "Daily"
+
+				proflua.print("Daily, ")
+				flags.delete(3)
+				flags.delete(4)
+				flags.delete(5)
+				flags.delete(6)
+				flags.delete(7)
+				flags.delete(8)
+				flags.delete(9)
+				flags.delete(10)
+				flags.delete(11)
+				flags << 1 << 2
+				specialcase[details[:spellid]][:type].each do |i|
+					acquire << {"type" => 8, "id" => i}
+				end
 
 			when "class"
 
@@ -935,6 +1016,7 @@ EOF
 
 	puts "Processing #{profession} data complete..."
 
+	proflua.puts(manual)
 	proflua.puts "\treturn recipecount\n\nend"
 	proflua.close
 
@@ -1286,7 +1368,26 @@ $debug = true
 
 if $debug
 
+	create_custom_db()
 	create_faction_db()
+
+	cooking = recipes.get_cooking_list
+	cookingspeciallist = {
+		21143 => {:id => 7, :type => 1},
+		21144 => {:id => 7, :type => 1},
+		45022 => {:id => 7, :type => 1},
+		43772 => {:id => "Daily", :type => [5]},
+		43765 => {:id => "Daily", :type => [5]},
+		43761 => {:id => "Daily", :type => [6]},
+		43707 => {:id => "Daily", :type => [6]},
+		43758 => {:id => "Daily", :type => [5,6]},
+		43779 => {:id => "Daily", :type => [5,6]},
+		45695 => {:id => "Daily", :type => [7]},
+		}
+	cookmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,[44438, 45547, 45559,45571, 53056],cookmanual)
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -1298,53 +1399,89 @@ if $debug
 
 else
 
+	create_custom_db()
 	create_faction_db()
 
 	alchemy = recipes.get_alchemy_list
 	alchspeciallist = {
-		28583 => {:id => 12},
-		28580 => {:id => 12},
-		28584 => {:id => 12},
-		28585 => {:id => 12},
-		28582 => {:id => 12},
-		28581 => {:id => 12},
-		28587 => {:id => 12},
-		28588 => {:id => 12},
-		28589 => {:id => 12},
-		28590 => {:id => 12},
-		28591 => {:id => 12},
-		28586 => {:id => 12},
-		41458 => {:id => 12},
-		41500 => {:id => 12},
-		41501 => {:id => 12},
-		41502 => {:id => 12},
-		41503 => {:id => 12},
+		28580 => {:id => 12, :type => [3]},
+		28581 => {:id => 12, :type => [3]},
+		28582 => {:id => 12, :type => [3]},
+		28583 => {:id => 12, :type => [3]},
+		28584 => {:id => 12, :type => [3]},
+		28585 => {:id => 12, :type => [3]},
+		28586 => {:id => 12, :type => [2]},
+		28587 => {:id => 12, :type => [1]},
+		28588 => {:id => 12, :type => [1]},
+		28589 => {:id => 12, :type => [1]},
+		28590 => {:id => 12, :type => [1]},
+		28591 => {:id => 12, :type => [1]},
+		41458 => {:id => 12, :type => [4]},
+		41500 => {:id => 12, :type => [4]},
+		41501 => {:id => 12, :type => [4]},
+		41502 => {:id => 12, :type => [4]},
+		41503 => {:id => 12, :type => [4]},
 		21923 => {:id => 7, :type => 1},
 		47050 => {:id => "meleedps"},
 		}
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905])
+	alchmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905],alchmanual)
 
 	blacksmithing = recipes.get_blacksmithing_list
 	bsspeciallist = {
 		21913 => {:id => 7, :type => 1},
 		}
+	bsmanual=<<EOF
+	-- Orcish War Leggings -- 9957
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Item Stats: 
+	-- Item Stats: val17id1val208id6
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 9957, 230, 7929, 2, 2018)
+	self:addTradeFlags(RecipeDB, 9957, 2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 9957, 4, 2756)
+
+EOF
 	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
-	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,[52567,52568,52569,52570,52571,52572])
+	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,[52567,52568,52569,52570,52571,52572],bsmanual)
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
 		21143 => {:id => 7, :type => 1},
 		21144 => {:id => 7, :type => 1},
-		45022 => {:id => 7, :type => 1}
+		45022 => {:id => 7, :type => 1},
+		43772 => {:id => "Daily", :type => [5]},
+		43765 => {:id => "Daily", :type => [5]},
+		43761 => {:id => "Daily", :type => [6]},
+		43707 => {:id => "Daily", :type => [6]},
+		43758 => {:id => "Daily", :type => [5,6]},
+		43779 => {:id => "Daily", :type => [5,6]},
+		45695 => {:id => "Daily", :type => [7]},
 		}
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,[44438, 45547, 45559,45571, 53056])
+	cookmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,[44438, 45547, 45559,45571, 53056],cookmanual)
 
 	enchanting = recipes.get_enchanting_list
 	enchantingspeciallist = {
 		21931 => {:id => 7, :type => 1},
 		46578 => {:id => 7, :type => 4}
 		}
-	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,[27958,47672,44558,44613,44632,44633,44634,44635,44636,44637,44638,44645,47898,47899,47901,44582,44584,44588,44589,44590,44591,44592,44595,44596,44597,44598,44612,44613,44616,44621,44623,44625,44629,44630,44631,44529,44555,44556,44528,44524,44513,44483,44484,44488,44489,44492,44494,44496,44497,44500,44506,44508,44509,44510,44575])
+	enchantmanual=<<EOF
+	-- Enchant Chest - Major Health -- 20026
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 20026, 255, nil, 1, 7411)
+	self:addTradeFlags(RecipeDB, 20026, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 20026, 2, 11189)
+EOF
+	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,[27958,47672,44558,44613,44632,44633,44634,44635,44636,44637,44638,44645,47898,47899,47901,44582,44584,44588,44589,44590,44591,44592,44595,44596,44597,44598,44612,44613,44616,44621,44623,44625,44629,44630,44631,44529,44555,44556,44528,44524,44513,44483,44484,44488,44489,44492,44494,44496,44497,44500,44506,44508,44509,44510,44575],enchantmanual)
 
 	eng = recipes.get_engineering_list
 	engspecaillist = {
@@ -1401,41 +1538,102 @@ else
 		30568 => {:id => "specialty", :type => 20219},
 		30570 => {:id => "specialty", :type => 20219},
 		}
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,[53280,53281])
+	engmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,[53280,53281],engmanual)
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
 		}
-	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801])
+	famanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801],famanual)
 
 	inscription = recipes.get_inscription_list
 	insspecaillist = {
 		}
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,[])
+	inscriptionmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,[],inscriptionmanual)
 
 	jewelcrafting = recipes.get_jewelcrafting_list
 	jcspecaillist = {
 		31101 => {:id => 9},
 		43493 => {:id => 9}
 		}
-	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,(53830..54023).to_a)
+	jcmanual=<<EOF
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,(53830..54023).to_a,jcmanual)
 
 	leatherworking = recipes.get_leatherworking_list
 	lwspecaillist = {
 		21943 => {:id => 7, :type => 1},
 		44953 => {:id => 7, :type => 1}
 		}
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,(50935..53690).to_a)
+	lwmanual=<<EOF
+	-- Bracers of Shackled Souls -- 52733
+	-- Ashtongue Deathsworn - Friendly
+	-- Raid: 3959 - Black Temple
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Item Stats: 
+	-- Item Stats: val30id3val400id6val40id36
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 52733, 375, 32399, 1, 2108)
+	self:addTradeFlags(RecipeDB, 52733, 1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,47,58,102)
+	self:addTradeAcquire(RecipeDB, 52733, 6, 1012, 1, 23159)
+
+EOF
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,(50935..53690).to_a,lwmanual)
 
 	smelting = recipes.get_mining_list
 	smeltingspecaillist = {
 		}
-	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,[49252, 49258, 53417])
+	smeltmanual=<<EOF
+	-- Smelt Elementium -- 22967
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
+	self:addTradeFlags(RecipeDB, 22967, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,[49252, 49258, 53417],smeltmanual)
 
 	tailoring = recipes.get_tailoring_list
 	tailoringspecaillist = {
 		}
-	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,[])
+	tailoringmanual=<<EOF
+	-- Mycah's Botanical Bag (50194)
+	-- Vendor
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50194, 375, 38225, 3, 3908)
+	self:addTradeFlags(RecipeDB, 50194, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,113)
+	self:addTradeAcquire(RecipeDB, 50194, 6, 970, 1, 18382)
+
+	-- Haliscan Pantaloons
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50647, 245, 38278, 1, 3908)
+	self:addTradeFlags(RecipeDB, 50647, 1,2,3,21,22,23,24,25,26,27,28,29,30)
+
+	-- Dress Shoes
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 49677, 250, 49677, 1, 3908)
+	self:addTradeFlags(RecipeDB, 49677, 1,2,3,21,22,23,24,25,26,27,28,29,30)
+
+	-- Haliscan Jacket
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50644, 250, 38277, 1, 3908)
+	self:addTradeFlags(RecipeDB, 50644, 1,2,3,21,22,23,24,25,26,27,28,29,30)
+
+EOF
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,[],tailoringmanual)
 
 	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 

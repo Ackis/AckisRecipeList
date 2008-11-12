@@ -1370,6 +1370,7 @@ do
 
 	local RecipeList = nil
 
+	local CustomList = nil
 	local MobList = nil
 	local QuestList = nil
 	local ReputationList = nil
@@ -1648,6 +1649,14 @@ do
 
 	local function InitDatabases()
 
+		-- Initializes the custom list
+		if (CustomList == nil) then
+
+			CustomList = {}
+			addon:InitCustom(CustomList)
+
+		end
+
 		-- Initializes the mob list
 		if (MobList == nil) then
 
@@ -1788,7 +1797,7 @@ do
 
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
-								SeasonalList, MobList)
+								SeasonalList, MobList, CustomList)
 
 		end
 
