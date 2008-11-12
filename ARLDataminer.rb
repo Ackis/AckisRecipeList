@@ -137,7 +137,12 @@ EOF
 		end
 
 		$reps[key][:id]}.each do |k|
-			replua.puts "\tself:addLookupList(RepDB, #{$reps[k][:id]}, BFAC[\"#{k}\"]) -- Acquire Flag: #{$reps[k][:flag]}"
+
+			if $reps[k][:flag]
+
+				replua.puts "\tself:addLookupList(RepDB, #{$reps[k][:id]}, BFAC[\"#{k}\"]) -- Acquire Flag: #{$reps[k][:flag]}"
+
+			end
 
 	end
 
@@ -1155,8 +1160,6 @@ maps = WoWDBMaps.new
 $dungeons = maps.get_dungeon_maps
 $raids = maps.get_raid_maps
 
-create_faction_db()
-
 $proftable = {"Alchemy" 			=> 2259,
 				"Blacksmithing" 	=> 2018,
 				"Cooking"			=> 2550,
@@ -1279,16 +1282,11 @@ $vendors[15165][:faction] = 3
 $quests[2756] = {:name => "The Old Ways"}
 $quests[2756][:faction] = 2
 
-$debug = false
+$debug = true
 
 if $debug
 
-	firstaid = recipes.get_firstaid_list
-	faspecaillist = {
-		27033 => {:id => 12},
-		27032 => {:id => 7, :type => 1}
-		}
-	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801])
+	create_faction_db()
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -1299,6 +1297,8 @@ if $debug
 	#create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
 
 else
+
+	create_faction_db()
 
 	alchemy = recipes.get_alchemy_list
 	alchspeciallist = {
