@@ -9,7 +9,7 @@ Blacksmithing data for all of AckisRecipeList
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 391 found from data mining.
-1 ignored.
+11 ignored.
 6 WotLK ignored.
 
 ************************************************************************
@@ -143,9 +143,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val4id3val77id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 2671, 115, 2867, 2, 2018)
-	self:addTradeFlags(RecipeDB, 2671, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 2671, 115, 2867, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 2671, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	-- No acquire information
 
 	-- Patterned Bronze Bracers -- 2672
@@ -765,9 +765,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val4id3val151id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 8366, 70, 6730, 2, 2018)
-	self:addTradeFlags(RecipeDB, 8366, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 8366, 70, 6730, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 8366, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	-- No acquire information
 
 	-- Ironforge Breastplate -- 8367
@@ -785,9 +785,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val170id6val12id9val12id16
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 8368, 140, 6733, 2, 2018)
-	self:addTradeFlags(RecipeDB, 8368, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 8368, 140, 6733, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 8368, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	-- No acquire information
 
 	-- Iron Buckle -- 8768
@@ -970,9 +970,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val9id3val10id5val153id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 9942, 220, 7925, 2, 2018)
-	self:addTradeFlags(RecipeDB, 9942, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 9942, 220, 7925, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 9942, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	-- No acquire information
 
 	-- Ornate Mithril Pants -- 9945
@@ -1842,9 +1842,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Sword, 
 	-- Item Stats: 
 	-- Item Stats: val22id1val116-175id7val3.6id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16960, 260, 12764, 2, 2018)
-	self:addTradeFlags(RecipeDB, 16960, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,69)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16960, 260, 12764, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 16960, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,69)
 	-- No acquire information
 
 	-- Bleakwood Hew -- 16965
@@ -1852,9 +1852,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Axe, 
 	-- Item Stats: 
 	-- Item Stats: val11id1val5id3val100-151id7val2.7id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16965, 270, 12769, 3, 2018)
-	self:addTradeFlags(RecipeDB, 16965, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,68)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16965, 270, 12769, 3, 2018)
+	--self:addTradeFlags(RecipeDB, 16965, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,68)
 	-- No acquire information
 
 	-- Inlaid Thorium Hammer -- 16967
@@ -1862,9 +1862,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Mace, 
 	-- Item Stats: 
 	-- Item Stats: val23id1val100-151id7val3id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16967, 270, 12772, 2, 2018)
-	self:addTradeFlags(RecipeDB, 16967, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,70)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16967, 270, 12772, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 16967, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,70)
 	-- No acquire information
 
 	-- Ornate Thorium Handaxe -- 16969
@@ -1922,9 +1922,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoP, Recipe BoP, Weapon, Axe, 
 	-- Item Stats: 
 	-- Item Stats: val5id1val5id2val5id3val54-102id7val2.3id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16980, 285, 12779, 2, 2018)
-	self:addTradeFlags(RecipeDB, 16980, 3,21,22,23,24,25,26,27,28,29,30,37,41,46,68)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16980, 285, 12779, 2, 2018)
+	--self:addTradeFlags(RecipeDB, 16980, 3,21,22,23,24,25,26,27,28,29,30,37,41,46,68)
 	-- No acquire information
 
 	-- Serenity -- 16983
@@ -1960,9 +1960,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoP, Recipe BoP, Weapon, Fist, 
 	-- Item Stats: 
 	-- Item Stats: val35-67id7val1.3id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16986, 300, 12795, 3, 2018)
-	self:addTradeFlags(RecipeDB, 16986, 3,21,22,23,24,25,26,27,28,29,30,37,41,46,79)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16986, 300, 12795, 3, 2018)
+	--self:addTradeFlags(RecipeDB, 16986, 3,21,22,23,24,25,26,27,28,29,30,37,41,46,79)
 	-- No acquire information
 
 	-- Darkspear -- 16987
@@ -1970,9 +1970,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Polearm, 
 	-- Item Stats: 
 	-- Item Stats: val131-197id7val3.2id8
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 16987, 300, 12802, 3, 2018)
-	self:addTradeFlags(RecipeDB, 16987, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,71)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB, 16987, 300, 12802, 3, 2018)
+	--self:addTradeFlags(RecipeDB, 16987, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,71)
 	-- No acquire information
 
 	-- Hammer of the Titans -- 16988

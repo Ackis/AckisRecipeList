@@ -9,7 +9,7 @@ Leatherworking data for all of AckisRecipeList
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 389 found from data mining.
-4 ignored.
+5 ignored.
 2756 WotLK ignored.
 
 ************************************************************************

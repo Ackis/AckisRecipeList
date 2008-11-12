@@ -165,6 +165,7 @@ end
 -- Expected result: the progression bar shows the correct information based on settings and filters
 -- Input: playerdata data structure
 -- Output: none
+
 local function SetProgressBar(playerData)
 
 	local pbCur, pbMax
@@ -183,11 +184,10 @@ local function SetProgressBar(playerData)
 
 	end
 
-	addon:Print("SetProgressBar:", addon.db.profile.includefiltered, playerData.recipes_known_filtered, "/", playerData.recipes_total_filtered, "-", playerData.recipes_known, "/", playerData.recipes_total, "-", playerData.foundRecipes, "/", playerData.totalRecipes)
-
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
 	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+
 end
 
 -- Under various conditions, I'm going to have to redisplay my recipe list

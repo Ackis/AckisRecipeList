@@ -1211,8 +1211,6 @@ end
 -- Input: Recipe Array, Skill level for current profession, name of current profession, and current profession Specialty
 -- Output: Number of recipes that are filtered
 
--- http://ace.pastey.net/100849
-
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 	local playerProfessionLevel = playerData.playerProfessionLevel
@@ -1237,25 +1235,31 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 		-- only interested in the current profession
 		if (Recipe["Profession"] == playerProfession) then
 
-		-- Determine if we are to display this recipe or not
+			-- Determine if we are to display this recipe or not
 			displayflag = self:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
 			playerData.recipes_total = playerData.recipes_total + 1
 			playerData.recipes_known = playerData.recipes_known + (Recipe["Known"] == true and 1 or 0)
 
-			if displayflag == true then
+			if (displayflag == true) then
+
 				playerData.recipes_total_filtered = playerData.recipes_total_filtered + 1
 				playerData.recipes_known_filtered = playerData.recipes_known_filtered + (Recipe["Known"] == true and 1 or 0)
 
 				-- Include known
 				if (addon.db.profile.filters.general.known == false) and (Recipe["Known"] == true) then
+
 					displayflag = false
+
 				end
 
 				-- Include unknown
 				if (addon.db.profile.filters.general.unknown == false) and (Recipe["Known"] == false) then
+
 					displayflag = false
+
 				end
+
 			end
 
 		else
@@ -1298,13 +1302,12 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(746)] = addon.InitFirstAid,
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
-		--[GetSpellInfo(3273)] = addon.InitFirstAid,
 		[GetSpellInfo(2108)] = addon.InitLeatherworking,
 		[GetSpellInfo(2575)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
-		--[GetSpellInfo(45357)] = addon.InitInscription,
-		--[GetSpellInfo(28481)] = addon.InitRuneforging,
+		[GetSpellInfo(45357)] = addon.InitInscription,
+		[GetSpellInfo(28481)] = addon.InitRuneforging,
 	}
 
 	-- Thanks to sylvanaar/xinhuan for the code snippet
@@ -1760,7 +1763,11 @@ do
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
 
-				self:GetExclusions(RecipeList)
+				playerData.excludedRecipes = self:GetExclusions(RecipeList)
+
+			else
+
+				playerData.excludedRecipes = 0
 
 			end
 
@@ -1955,6 +1962,7 @@ end
 function addon:GetExclusions(RecipeDB)
 
 	local exclusionlist = addon.db.profile.exclusionlist
+	local count = 0
 
 	for i in pairs(exclusionlist) do
 
@@ -1963,10 +1971,13 @@ function addon:GetExclusions(RecipeDB)
 		if (RecipeDB[i]) then
 
 			RecipeDB[i]["Display"] = false
+			count = count + 1
 
 		end
 
 	end
+
+	return count
 
 end
 

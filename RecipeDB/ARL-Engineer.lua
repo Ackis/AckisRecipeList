@@ -2198,7 +2198,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val48id1val28id3val1296id6val38id11val38id18
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 40274, 350, 32461, 1, 4036)
-	self:addTradeFlags(RecipeDB, 40274, 1,2,3,25,29,37,41,47,59)
+	self:addTradeFlags(RecipeDB, 40274, 1,2,3,25,30,37,41,47,59)
 	self:addTradeAcquire(RecipeDB, 40274, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
@@ -2228,7 +2228,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val67id3val1296id6val22id26val38id31
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 41312, 350, 32473, 1, 4036)
-	self:addTradeFlags(RecipeDB, 41312, 1,2,3,25,29,37,41,47,52,59)
+	self:addTradeFlags(RecipeDB, 41312, 1,2,3,25,30,37,41,47,52,59)
 	self:addTradeAcquire(RecipeDB, 41312, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Surestrike Goggles v2.0 -- 41314
