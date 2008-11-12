@@ -148,7 +148,16 @@ StaticPopupDialogs["ARL_ALLKNOWN"] = {
 	exclusive = 1,
 	whileDead = 1,
 	hideOnEscape = 1
-};
+}
+
+StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
+	text = L["ARL_ALLKNOWN"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
 
 -- Description: 
 -- Expected result: 
@@ -170,7 +179,6 @@ local function SetProgressBar(playerData)
 
 	local pbCur, pbMax
 
-
 	if (addon.db.profile.includefiltered == true) then
 
 		pbCur = playerData.recipes_known
@@ -181,6 +189,13 @@ local function SetProgressBar(playerData)
 
 		pbCur = playerData.recipes_known_filtered
 		pbMax = playerData.recipes_total_filtered
+
+	end
+
+	if (not addon.db.profile.includeexcluded) then
+
+		pbCur = pbCur - playerData.excluded_recipes_known
+		pbMax = pbMax - playerData.excluded_recipes_unknown
 
 	end
 
@@ -1819,7 +1834,7 @@ function RecipeList_Update()
 
 		end
 
-	-- Entries are 0 here
+	-- Entries are 0 here, so we have 0 to display
 	else
 
 		-- If the recipe total is at 0, it means we have not scanned the profession yet
@@ -1833,13 +1848,18 @@ function RecipeList_Update()
 			StaticPopup_Show("ARL_ALLKNOWN")
 
 		-- Our filters are actually filtering something
-		elseif (playerData.recipes_total_filtered == 0) then
+		elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) ~= 0) then
 
 			StaticPopup_Show("ARL_ALLFILTERED")
 
+		-- Our exclusion list is preventing something from being displayed
+		elseif (playerData.excluded_recipes_unknown ~= 0) then
+
+			StaticPopup_Show("ARL_ALLEXCLUDED")
+
 		else
 
-			addon:Print("No recipes to display.")
+			addon:Print(L["NO_DISPLAY"])
 
 		end
 

@@ -64,6 +64,8 @@ L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
 L["FILTERCOUNT_DESC"]		= "Include filtered recipes in the count of total recipes."
+L["Include Excluded"]		= true
+L["EXCLUDECOUNT_DESC"]		= "Include excluded recipes in the count of total recipes."
 L["Close GUI"]				= "Close with Tradeskill UI"
 L["CLOSEGUI_DESC"]			= "Close the ARL window when the crafting window is closed."
 L["Display Exclusions"]		= true
@@ -270,6 +272,8 @@ L["Required Skill"]		= true
 L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
+L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
+L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
 L["MissingFromDB"] = ": is missing from the database. \nPlease inform the author of the add-on about this recipe."

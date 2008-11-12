@@ -141,6 +141,7 @@ function addon:OnInitialize()
 
 			-- Display Options
 			includefiltered = false,
+			includeexcluded = false,
 			closeguionskillclose = false,
 			ignoreexclusionlist = false,
 			uiscale = 1,
@@ -1763,11 +1764,12 @@ do
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
 
-				playerData.excludedRecipes = self:GetExclusions(RecipeList)
+				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList)
 
 			else
 
-				playerData.excludedRecipes = 0
+				playerData.excluded_recipes_known = 0
+				playerData.excluded_recipes_unknown = 0
 
 			end
 
@@ -1962,7 +1964,8 @@ end
 function addon:GetExclusions(RecipeDB)
 
 	local exclusionlist = addon.db.profile.exclusionlist
-	local count = 0
+	local countknown = 0
+	local countunknown = 0
 
 	for i in pairs(exclusionlist) do
 
@@ -1971,13 +1974,22 @@ function addon:GetExclusions(RecipeDB)
 		if (RecipeDB[i]) then
 
 			RecipeDB[i]["Display"] = false
-			count = count + 1
+
+			if (RecipeDB[i]["Known"] == false) then
+
+				countknown = countknown + 1
+
+			else
+
+				countunknown = countunknown + 1
+
+			end
 
 		end
 
 	end
 
-	return count
+	return countknown, countunknown
 
 end
 

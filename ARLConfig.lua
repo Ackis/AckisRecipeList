@@ -1024,8 +1024,16 @@ local function fullOptions()
 							get		= function() return addon.db.profile.includefiltered end,
 							set		= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
 						},
+						includeexcluded = {
+							order	= 22,
+							type	= "toggle",
+							name	= L["Include Excluded"],
+							desc	= L["EXCLUDECOUNT_DESC"],
+							get		= function() return addon.db.profile.includeexcluded end,
+							set		= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
+						},
 						closegui = {
-							order	= 23,
+							order	= 25,
 							type	= "toggle",
 							name	= L["Close GUI"],
 							desc	= L["CLOSEGUI_DESC"],
@@ -1033,7 +1041,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 						},
 						ignoreexclusionlist = {
-							order	= 24,
+							order	= 26,
 							type	= "toggle",
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
@@ -1041,7 +1049,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
 						},
 						uiscale = {
-							order	= 25,
+							order	= 30,
 							type	= "range",
 							name	= L["UI Scale"],
 							desc	= L["UI_SCALE_DESC"],
@@ -1056,7 +1064,7 @@ local function fullOptions()
 									  end,
 						},
 						tooltipscale = {
-							order	= 26,
+							order	= 31,
 							type	= "range",
 							name	= L["Tooltip Scale"],
 							desc	= L["TOOLTIP_SCALE_DESC"],
@@ -1071,22 +1079,22 @@ local function fullOptions()
 									  end,
 						},
 						spacer2 = {
-							order	= 27,
+							order	= 32,
 							type	= "description",
 							name	= "\n",
 						},
 						header3 = {
-							order	= 30,
+							order	= 40,
 							type	= "header",
 							name	= L["Sorting Settings"],
 						},
 						longdesc =	{
-							order	= 31,
+							order	= 41,
 							type	= "description",
 							name	= L["SORTING_SETTINGS_DESC"] .. "\n",
 						},
 						sorting = {
-							order	= 32,
+							order	= 45,
 							type	= "select",
 							name	= L["Sorting"],
 							desc	= L["SORTING_DESC"],
