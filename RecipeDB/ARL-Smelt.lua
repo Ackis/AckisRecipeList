@@ -8,9 +8,8 @@ Smelting data for all of AckisRecipeList
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
-23 found from data mining.
+25 found from data mining.
 0 ignored.
-3 WotLK ignored.
 
 ************************************************************************
 
@@ -138,6 +137,15 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 16153, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 16153, 1, 1681, 1, 1701, 1, 3001, 1, 3137, 1, 3175, 1, 3357, 1, 3555, 1, 4254, 1, 4598, 1, 5392, 1, 5513, 1, 6297, 1, 8128, 1, 16663, 1, 16752, 1, 17488, 1, 18747, 1, 18779, 1, 18804)
 
+	-- Smelt Elementium -- 22967
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
+	self:addTradeFlags(RecipeDB, 22967, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
 	-- Smelt Fel Iron -- 29356
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -170,7 +178,7 @@ function addon:InitSmelting(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 29360, 330, 23448, 1, 2575)
+	self:addTradeSkill(RecipeDB, 29360, 305, 23448, 1, 2575)
 	self:addTradeFlags(RecipeDB, 29360, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 29360, 1, 18747, 1, 18779)
 
@@ -211,49 +219,48 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 35751, 1, 18747, 1, 18779)
 
 	-- Smelt Hardened Khorium -- 46353
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Raid: 4075 - Sunwell Plateau
-	-- Mob Drop
+	-- World Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46353, 375, 35128, 3, 2575)
-	self:addTradeFlags(RecipeDB, 46353, 1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 46353, 3, 25363, 3, 25367, 3, 25368, 3, 25369, 3, 25370, 3, 25371, 3, 25372, 3, 25486, 3, 25506, 3, 25507)
+	self:addTradeFlags(RecipeDB, 46353, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 46353, 7, 3)
 
 	-- Smelt Cobalt -- 49252
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 49252, 325, 36916, 1, 2575)
-	--self:addTradeFlags(RecipeDB, 49252, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 49252, 325, 36916, 1, 2575)
+	self:addTradeFlags(RecipeDB, 49252, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Smelt Saronite -- 49258
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 49258, 400, 36913, 1, 2575)
-	--self:addTradeFlags(RecipeDB, 49258, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 49258, 400, 36913, 1, 2575)
+	self:addTradeFlags(RecipeDB, 49258, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
-	-- Smelt Elementium -- 53417
+	-- Smelt Titansteel -- 55208
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 53417, 325, 17771, 5, 2575)
-	--self:addTradeFlags(RecipeDB, 53417, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 55208, 450, 37663, 2, 2575)
+	self:addTradeFlags(RecipeDB, 55208, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Smelt Titanium -- 55211
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 55211, 450, 41163, 2, 2575)
+	self:addTradeFlags(RecipeDB, 55211, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Smelt Elementium -- 22967

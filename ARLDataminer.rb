@@ -106,6 +106,7 @@ EOF
 		"Sporeggar" => 113,
 		"The Violet Eye" => 114,
 		"Argent Crusade" => 115,
+		"Horde Expedition" => 130,
 		"Frenzyheart Tribe" => 116,
 		"Knights of the Ebon Blade" => 117,
 		"Kirin Tor" => 118,
@@ -120,12 +121,15 @@ EOF
 		"The Hand of Vengeance" => 127,
 		"The Taunka" => 128,
 		"Warsong Offensive" => 129,
+		"Alliance Vanguard" => 131,
 	}
 
 	# Get the list of reputations 	 
 	factions = WoWDBFactions.new
 
-	$reps = factions.get_faction_list 
+	$reps = factions.get_faction_list
+	#$reps["Horde Expedition"] = {:id => 1052}
+	$reps["Alliance Vanguard"] = {:id => 1037}
 
 	# Parse the list and add the info to the file and a reputations look up file
 	$reps.keys.sort_by {|key|	
@@ -218,7 +222,7 @@ end
 # Creates a database file for the specific recipe
 # TODO: Optimize the code for this function
 
-def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,specialcase,wrathignore,manual)
+def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,specialcase,manual)
 
 	factionlevels = {"Neutral"	=> 0,"Friendly" => 1,"Honored"	=> 2,"Revered"	=> 3,"Exalted"	=> 4}
 	classes = {"Deathknight" => 21,"Druid" => 22,"Hunter" => 23,"Mage"=> 24,"Paladin"=>25,"Priest"=>26,"Shaman"=>27,"Rogue"=> 28,"Warlock"=>29,"Warrior"=>30}
@@ -265,7 +269,6 @@ Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 #{recipes.length} found from data mining.
 #{ignorerecipe.length} ignored.
-#{wrathignore.length} WotLK ignored.
 
 ************************************************************************
 
@@ -761,7 +764,9 @@ EOF
 
 				proflua.print("Discovery, ")
 				flags << 1 << 2 << 12
-				acquire << {"type" => 8, "id" => specialcase[details[:spellid]][:type]}
+				specialcase[details[:spellid]][:type].each do |i|
+					acquire << {"type" => 8, "id" => i}
+				end
 				flags.delete(3)
 				flags.delete(4)
 				flags.delete(5)
@@ -889,7 +894,7 @@ EOF
 
 		proflua.puts "\n\t-- Item Stats: #{details[:item_stats]}\n"
 
-		if ignorerecipe.include?(details[:spellid]) or wrathignore.include?(details[:spellid])
+		if ignorerecipe.include?(details[:spellid])
 
 			proflua.print("\t--")
 
@@ -901,7 +906,7 @@ EOF
 
 		proflua.puts "recipecount = recipecount + 1"
 
-		if ignorerecipe.include?(details[:spellid]) or wrathignore.include?(details[:spellid])
+		if ignorerecipe.include?(details[:spellid])
 
 			proflua.print("\t--")
 
@@ -911,35 +916,48 @@ EOF
 
 		end
 
-# TODO: Make it so that if a certain parameter is blank, add a default value of nil into it and a comment so that it compiles properly
-		if details[:specialty]
+		proflua.print("self:addTradeSkill(RecipeDB, #{details[:spellid]}, ")
 
-			proflua.puts "-- Recipe Specialty of #{details[:specialty]}"
-			proflua.print("\t")
+		# If we have a skill which it's learned at, we'll use it, if not use 1
+		if details[:learned]
 
-			if details[:produces]
-
-				proflua.puts "self:addTradeSkill(RecipeDB, #{details[:spellid]}, #{details[:learned]}, #{details[:produces].first}, #{details[:rarity]}, #{$proftable[profession]}, #{details[:specialty]})"
-
-			else
-
-				# This trade skill entry does not produce anything (ie: enchanting) so we nil the item ID and set the rarity to be 1 (common).
-				proflua.puts "self:addTradeSkill(RecipeDB, #{details[:spellid]}, #{details[:learned]}, nil, 1, #{$proftable[profession]}, #{details[:specialty]})"
-
-			end
+			proflua.print("#{details[:learned]}, ")
 
 		else
 
-			if details[:produces]
+			proflua.print("1, ")
 
-				proflua.puts "self:addTradeSkill(RecipeDB, #{details[:spellid]}, #{details[:learned]}, #{details[:produces].first}, #{details[:rarity]}, #{$proftable[profession]})"
+		end
 
-			else
+		if details[:produces]
 
-				# This trade skill entry does not produce anything (ie: enchanting) so we nil the item ID and set the rarity to be 1 (common).
-				proflua.puts "self:addTradeSkill(RecipeDB, #{details[:spellid]}, #{details[:learned]}, nil, 1, #{$proftable[profession]})"
+			proflua.print("#{details[:produces].first}, ")
 
-			end
+		else
+
+			proflua.print("nil, ")
+
+		end
+
+		if details[:rarity]
+
+			proflua.print("#{details[:rarity]}, ")
+
+		else
+
+			proflua.print("1, ")
+
+		end
+
+		proflua.print("#{$proftable[profession]}")
+
+		if details[:specialty]
+
+			proflua.print(", #{details[:specialty]}) -- Speciality\n")
+
+		else
+
+			proflua.print(")\n")
 
 		end
 
@@ -954,7 +972,7 @@ EOF
 
 		else
 
-			if ignorerecipe.include?(details[:spellid]) or wrathignore.include?(details[:spellid])
+			if ignorerecipe.include?(details[:spellid])
 
 				proflua.print("\t--")
 
@@ -981,7 +999,7 @@ EOF
 
 			temp = []
 
-			for id in %w(5 7 3 4 1 2 6)
+			for id in %w(5 7 3 4 1 2 6 8)
 
 				for entry in acquiredordered.select { |entry| entry["type"] == id.to_i }
 
@@ -993,7 +1011,7 @@ EOF
 
 			temp.flatten!
 
-			if ignorerecipe.include?(details[:spellid]) or wrathignore.include?(details[:spellid])
+			if ignorerecipe.include?(details[:spellid])
 
 				proflua.print("\t--")
 
@@ -1364,30 +1382,39 @@ $vendors[15165][:faction] = 3
 $quests[2756] = {:name => "The Old Ways"}
 $quests[2756][:faction] = 2
 
-$debug = true
+$debug = false
 
 if $debug
 
 	create_custom_db()
 	create_faction_db()
 
-	cooking = recipes.get_cooking_list
-	cookingspeciallist = {
-		21143 => {:id => 7, :type => 1},
-		21144 => {:id => 7, :type => 1},
-		45022 => {:id => 7, :type => 1},
-		43772 => {:id => "Daily", :type => [5]},
-		43765 => {:id => "Daily", :type => [5]},
-		43761 => {:id => "Daily", :type => [6]},
-		43707 => {:id => "Daily", :type => [6]},
-		43758 => {:id => "Daily", :type => [5,6]},
-		43779 => {:id => "Daily", :type => [5,6]},
-		45695 => {:id => "Daily", :type => [7]},
+	alchemy = recipes.get_alchemy_list
+	alchspeciallist = {
+		28580 => {:id => 12, :type => [3]},
+		28581 => {:id => 12, :type => [3]},
+		28582 => {:id => 12, :type => [3]},
+		28583 => {:id => 12, :type => [3]},
+		28584 => {:id => 12, :type => [3]},
+		28585 => {:id => 12, :type => [3]},
+		28586 => {:id => 12, :type => [2]},
+		28587 => {:id => 12, :type => [1]},
+		28588 => {:id => 12, :type => [1]},
+		28589 => {:id => 12, :type => [1]},
+		28590 => {:id => 12, :type => [1]},
+		28591 => {:id => 12, :type => [1]},
+		41458 => {:id => 12, :type => [4]},
+		41500 => {:id => 12, :type => [4]},
+		41501 => {:id => 12, :type => [4]},
+		41502 => {:id => 12, :type => [4]},
+		41503 => {:id => 12, :type => [4]},
+		21923 => {:id => 7, :type => 1},
+		47050 => {:id => "meleedps"},
 		}
-	cookmanual=<<EOF
+	alchmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,[44438, 45547, 45559,45571, 53056],cookmanual)
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -1427,7 +1454,7 @@ else
 	alchmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,[53771,53773,53774,53775,53776,53777,53779,53780,53781,53782,53783,53784,53812,53836,53837,53838,53839,53840,53841,53842,53847,53895,53899,53905],alchmanual)
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	blacksmithing = recipes.get_blacksmithing_list
 	bsspeciallist = {
@@ -1446,7 +1473,7 @@ EOF
 
 EOF
 	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
-	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,[52567,52568,52569,52570,52571,52572],bsmanual)
+	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
@@ -1464,7 +1491,7 @@ EOF
 	cookmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,[44438, 45547, 45559,45571, 53056],cookmanual)
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
 
 	enchanting = recipes.get_enchanting_list
 	enchantingspeciallist = {
@@ -1481,7 +1508,7 @@ EOF
 	self:addTradeFlags(RecipeDB, 20026, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 20026, 2, 11189)
 EOF
-	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,[27958,47672,44558,44613,44632,44633,44634,44635,44636,44637,44638,44645,47898,47899,47901,44582,44584,44588,44589,44590,44591,44592,44595,44596,44597,44598,44612,44613,44616,44621,44623,44625,44629,44630,44631,44529,44555,44556,44528,44524,44513,44483,44484,44488,44489,44492,44494,44496,44497,44500,44506,44508,44509,44510,44575],enchantmanual)
+	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,enchantmanual)
 
 	eng = recipes.get_engineering_list
 	engspecaillist = {
@@ -1541,7 +1568,7 @@ EOF
 	engmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,[53280,53281],engmanual)
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
@@ -1549,7 +1576,7 @@ EOF
 	famanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,[45545, 45546, 51801],famanual)
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
 
 	inscription = recipes.get_inscription_list
 	insspecaillist = {
@@ -1557,7 +1584,7 @@ EOF
 	inscriptionmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,[],inscriptionmanual)
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,inscriptionmanual)
 
 	jewelcrafting = recipes.get_jewelcrafting_list
 	jcspecaillist = {
@@ -1567,7 +1594,7 @@ EOF
 	jcmanual=<<EOF
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,(53830..54023).to_a,jcmanual)
+	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,jcmanual)
 
 	leatherworking = recipes.get_leatherworking_list
 	lwspecaillist = {
@@ -1588,7 +1615,7 @@ EOF
 	self:addTradeAcquire(RecipeDB, 52733, 6, 1012, 1, 23159)
 
 EOF
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,(50935..53690).to_a,lwmanual)
+	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual)
 
 	smelting = recipes.get_mining_list
 	smeltingspecaillist = {
@@ -1604,7 +1631,7 @@ EOF
 	-- No acquire information
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,[49252, 49258, 53417],smeltmanual)
+	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual)
 
 	tailoring = recipes.get_tailoring_list
 	tailoringspecaillist = {
@@ -1633,7 +1660,7 @@ EOF
 	self:addTradeFlags(RecipeDB, 50644, 1,2,3,21,22,23,24,25,26,27,28,29,30)
 
 EOF
-	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,[],tailoringmanual)
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
 
 	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 

@@ -8,9 +8,8 @@ Cooking data for all of AckisRecipeList
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
-122 found from data mining.
+160 found from data mining.
 1 ignored.
-5 WotLK ignored.
 
 ************************************************************************
 
@@ -81,7 +80,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2542, 50, 724, 1, 2550)
-	self:addTradeFlags(RecipeDB, 2542, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 2542, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 2542, 4, 22, 2, 340)
 
 	-- Westfall Stew -- 2543
@@ -91,7 +90,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2543, 75, 733, 1, 2550)
-	self:addTradeFlags(RecipeDB, 2543, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 2543, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 2543, 4, 38, 2, 340)
 
 	-- Crab Cake -- 2544
@@ -129,7 +128,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2547, 100, 1082, 1, 2550)
-	self:addTradeFlags(RecipeDB, 2547, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 2547, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 2547, 4, 92, 2, 340)
 
 	-- Succulent Pork Ribs -- 2548
@@ -149,7 +148,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2549, 100, 1017, 1, 2550)
-	self:addTradeFlags(RecipeDB, 2549, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 2549, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 2549, 4, 90, 2, 340)
 
 	-- Beer Basted Boar Ribs -- 2795
@@ -159,7 +158,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2795, 10, 2888, 1, 2550)
-	self:addTradeFlags(RecipeDB, 2795, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 2795, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 2795, 4, 384, 2, 340)
 
 	-- Crocolisk Steak -- 3370
@@ -169,7 +168,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3370, 80, 3662, 1, 2550)
-	self:addTradeFlags(RecipeDB, 3370, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3370, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3370, 4, 385, 2, 340)
 
 	-- Blood Sausage -- 3371
@@ -179,7 +178,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3371, 60, 3220, 1, 2550)
-	self:addTradeFlags(RecipeDB, 3371, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3371, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3371, 4, 418, 2, 340)
 
 	-- Murloc Fin Soup -- 3372
@@ -189,7 +188,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3372, 90, 3663, 1, 2550)
-	self:addTradeFlags(RecipeDB, 3372, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3372, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3372, 4, 127, 2, 340)
 
 	-- Crocolisk Gumbo -- 3373
@@ -199,7 +198,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3373, 120, 3664, 1, 2550)
-	self:addTradeFlags(RecipeDB, 3373, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3373, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3373, 4, 471, 2, 340)
 
 	-- Curiously Tasty Omelet -- 3376
@@ -219,7 +218,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3377, 110, 3666, 1, 2550)
-	self:addTradeFlags(RecipeDB, 3377, 1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 3377, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 3377, 4, 93, 2, 340)
 
 	-- Big Bear Steak -- 3397
@@ -240,7 +239,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3398, 125, 3727, 1, 2550)
 	self:addTradeFlags(RecipeDB, 3398, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 3398, 4, 501, 2, 3489, 2, 12245)
+	self:addTradeAcquire(RecipeDB, 3398, 4, 501, 2, 12245)
 
 	-- Tasty Lion Steak -- 3399
 	-- Quest Reward
@@ -295,7 +294,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6414, 35, 5474, 1, 2550)
-	self:addTradeFlags(RecipeDB, 6414, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 6414, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 6414, 2, 3081)
 
 	-- Fillet of Frenzy -- 6415
@@ -377,7 +376,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7213, 175, 6038, 1, 2550)
-	self:addTradeFlags(RecipeDB, 7213, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 7213, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 7213, 2, 2664)
 
 	-- Brilliant Smallfish -- 7751
@@ -387,7 +386,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7751, 1, 6290, 1, 2550)
 	self:addTradeFlags(RecipeDB, 7751, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7751, 2, 66, 2, 1684, 2, 3029, 2, 3550, 2, 4265, 2, 4574, 2, 5494, 2, 5940, 2, 8508)
+	self:addTradeAcquire(RecipeDB, 7751, 2, 66, 2, 1684, 2, 3550, 2, 4265, 2, 4574, 2, 5494, 2, 5940, 2, 8508)
 
 	-- Slitherskin Mackerel -- 7752
 	-- Vendor
@@ -399,13 +398,14 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7752, 2, 3550, 2, 4305, 2, 5162, 2, 5942, 2, 10118)
 
 	-- Longjaw Mud Snapper -- 7753
+	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7753, 50, 4592, 1, 2550)
 	self:addTradeFlags(RecipeDB, 7753, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7753, 2, 66, 2, 1684, 2, 3027, 2, 4265, 2, 4574, 2, 5162, 2, 5748, 2, 5940)
+	self:addTradeAcquire(RecipeDB, 7753, 2, 66, 2, 1684, 2, 4265, 2, 4574, 2, 5162, 2, 5748, 2, 5940)
 
 	-- Loch Frenzy Delight -- 7754
 	-- Vendor
@@ -423,16 +423,17 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7755, 100, 4593, 1, 2550)
 	self:addTradeFlags(RecipeDB, 7755, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7755, 2, 2383, 2, 2397, 2, 3027, 2, 3029, 2, 3497, 2, 4553, 2, 5494)
+	self:addTradeAcquire(RecipeDB, 7755, 2, 2383, 2, 2397, 2, 4553, 2, 5494)
 
 	-- Rainbow Fin Albacore -- 7827
+	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7827, 50, 5095, 1, 2550)
 	self:addTradeFlags(RecipeDB, 7827, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7827, 2, 3178, 2, 3333, 2, 3497, 2, 4305, 2, 4307, 2, 4553, 2, 5494, 2, 5748, 2, 5942, 2, 10118)
+	self:addTradeAcquire(RecipeDB, 7827, 2, 3178, 2, 3333, 2, 4305, 2, 4307, 2, 4553, 2, 5494, 2, 5748, 2, 5942, 2, 10118)
 
 	-- Rockscale Cod -- 7828
 	-- Vendor
@@ -467,25 +468,24 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 8607, 40, 6890, 1, 2550)
-	self:addTradeFlags(RecipeDB, 8607, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 8607, 2, 1465, 2, 3556)
+	self:addTradeFlags(RecipeDB, 8607, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 8607, 2, 1465)
 
 	-- Thistle Tea -- 9513
-	-- Vendor
-	-- Quest Reward
+	-- Trainer
 	-- Flags: Rogue, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 9513, 60, 7676, 2, 2550)
-	self:addTradeFlags(RecipeDB, 9513, 1,2,4,8,28,36,41)
-	self:addTradeAcquire(RecipeDB, 9513, 4, 2359, 4, 2478, 2, 6779)
+	self:addTradeSkill(RecipeDB, 9513, 60, 7676, 1, 2550)
+	self:addTradeFlags(RecipeDB, 9513, 3,28,36,41)
+	-- No acquire information
 
 	-- Goldthorn Tea -- 13028
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 13028, 175, 10841, 1, 2550)
+	self:addTradeSkill(RecipeDB, 13028, 145, 10841, 1, 2550)
 	self:addTradeFlags(RecipeDB, 13028, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -505,7 +505,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 15855, 175, 12210, 1, 2550)
 	self:addTradeFlags(RecipeDB, 15855, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 15855, 2, 734, 2, 1148, 2, 2810, 2, 2821, 2, 4879, 2, 4897, 2, 12245)
+	self:addTradeAcquire(RecipeDB, 15855, 2, 734, 2, 1148, 2, 2810, 2, 2821, 2, 12245)
 
 	-- Hot Wolf Ribs -- 15856
 	-- Vendor
@@ -526,13 +526,14 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15861, 2, 734, 2, 1148, 2, 12245)
 
 	-- Carrion Surprise -- 15863
+	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 15863, 175, 12213, 1, 2550)
 	self:addTradeFlags(RecipeDB, 15863, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 15863, 2, 989, 2, 4879, 2, 9636, 2, 12245)
+	self:addTradeAcquire(RecipeDB, 15863, 2, 989, 2, 9636, 2, 12245)
 
 	-- Mystery Stew -- 15865
 	-- Vendor
@@ -541,7 +542,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 15865, 175, 12214, 1, 2550)
 	self:addTradeFlags(RecipeDB, 15865, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 15865, 2, 4897, 2, 8150, 2, 12246)
+	self:addTradeAcquire(RecipeDB, 15865, 2, 8150, 2, 12246)
 
 	-- Dragonbreath Chili -- 15906
 	-- Vendor
@@ -550,7 +551,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 15906, 200, 12217, 1, 2550)
 	self:addTradeFlags(RecipeDB, 15906, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 15906, 2, 4879, 2, 4897, 2, 12246)
+	self:addTradeAcquire(RecipeDB, 15906, 2, 12246)
 
 	-- Heavy Kodo Stew -- 15910
 	-- Vendor
@@ -562,6 +563,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15910, 2, 8150, 2, 9636, 2, 12245)
 
 	-- Spiced Chili Crab -- 15915
+	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -603,7 +605,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 18239, 225, 13927, 1, 2550)
-	self:addTradeFlags(RecipeDB, 18239, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 18239, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 18239, 2, 2664)
 
 	-- Grilled Squid -- 18240
@@ -621,7 +623,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 18241, 225, 13930, 1, 2550)
-	self:addTradeFlags(RecipeDB, 18241, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 18241, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 18241, 2, 2664)
 
 	-- Hot Smoked Bass -- 18242
@@ -630,7 +632,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 18242, 240, 13929, 1, 2550)
-	self:addTradeFlags(RecipeDB, 18242, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 18242, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 18242, 2, 2664)
 
 	-- Nightfin Soup -- 18243
@@ -687,7 +689,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB, 20626, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 20626, 2, 8139)
 
-	-- Mithril Headed Trout -- 20916
+	-- Mithril Head Trout -- 20916
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -697,30 +699,23 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20916, 2, 2383, 2, 2664, 2, 3178, 2, 3333, 2, 4307, 2, 4574, 2, 5162, 2, 12033, 2, 12962)
 
 	-- Gingerbread Cookie -- 21143
-	-- No location information
-	-- No location information
-	-- No location information
-	-- No location information
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Seasonal, 
+	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 21143, 1, 17197, 1, 2550)
-	self:addTradeFlags(RecipeDB, 21143, 1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 21143, 5, 1, 2, 13420, 2, 13429, 2, 13432, 2, 13433)
+	self:addTradeFlags(RecipeDB, 21143, 1,2,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 21143, 5, 1)
 
 	-- Egg Nog -- 21144
-	-- No location information
-	-- No location information
-	-- No location information
-	-- No location information
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Seasonal, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 21144, 35, 17198, 1, 2550)
-	self:addTradeFlags(RecipeDB, 21144, 1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 21144, 5, 1, 2, 13420, 2, 13429, 2, 13432, 2, 13433)
+	self:addTradeFlags(RecipeDB, 21144, 3,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 21144, 5, 1)
 
 	-- Spider Sausage -- 21175
 	-- Trainer
@@ -732,32 +727,33 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 21175, 1, 1355, 1, 1382, 1, 1430, 1, 1699, 1, 3026, 1, 3067, 1, 3087, 1, 3399, 1, 4210, 1, 4552, 1, 5159, 1, 5482, 1, 6286, 1, 8306, 1, 16253, 1, 16277, 1, 16676, 1, 16719, 1, 17246, 1, 18987, 1, 18988, 1, 18993, 1, 19185, 1, 19369)
 
 	-- Tender Wolf Steak -- 22480
+	-- Instance: 1176 - type1maxlevel47category3territory1minlevel43nameZul'Farrakid1176
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22480, 225, 18045, 1, 2550)
-	self:addTradeFlags(RecipeDB, 22480, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 22480, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 22480, 2, 4782, 2, 7733, 2, 8125)
 
 	-- Runn Tum Tuber Surprise -- 22761
-	-- Instance: 2557 - type1maxlevel60category3territory1minlevel58nameDire Maulid2557
+	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22761, 275, 18254, 2, 2550)
-	self:addTradeFlags(RecipeDB, 22761, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 22761, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 22761, 3, 14354)
 
 	-- Heavy Crocolisk Stew -- 24418
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 24418, 150, 20074, 1, 2550)
-	self:addTradeFlags(RecipeDB, 24418, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 24418, 2, 4879)
+	self:addTradeFlags(RecipeDB, 24418, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Smoked Desert Dumplings -- 24801
 	-- Trainer
@@ -784,7 +780,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25704, 80, 21072, 1, 2550)
 	self:addTradeFlags(RecipeDB, 25704, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 25704, 2, 2381, 2, 2397, 2, 2664, 2, 3027, 2, 3085, 2, 3400, 2, 4223, 2, 4265, 2, 4553, 2, 5160, 2, 5483, 2, 8307, 2, 12033, 2, 14738, 2, 16253, 2, 16677, 2, 16718, 2, 17246, 2, 19195)
+	self:addTradeAcquire(RecipeDB, 25704, 2, 2381, 2, 2397, 2, 2664, 2, 3085, 2, 3400, 2, 4223, 2, 4265, 2, 4553, 2, 5160, 2, 5483, 2, 12033, 2, 14738, 2, 16253, 2, 16677, 2, 16718, 2, 17246, 2, 19195)
 
 	-- Sagefish Delight -- 25954
 	-- Vendor
@@ -793,7 +789,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25954, 175, 21217, 1, 2550)
 	self:addTradeFlags(RecipeDB, 25954, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 25954, 2, 2381, 2, 2397, 2, 2664, 2, 3027, 2, 3085, 2, 3400, 2, 4223, 2, 4265, 2, 4553, 2, 5160, 2, 5483, 2, 8307, 2, 12033, 2, 14738, 2, 16253, 2, 16677, 2, 16718, 2, 17246, 2, 19195)
+	self:addTradeAcquire(RecipeDB, 25954, 2, 2381, 2, 2397, 2, 2664, 2, 3085, 2, 3400, 2, 4223, 2, 4265, 2, 4553, 2, 5160, 2, 5483, 2, 12033, 2, 14738, 2, 16253, 2, 16677, 2, 16718, 2, 17246, 2, 19195)
 
 	-- Crunchy Spider Surprise -- 28267
 	-- Vendor
@@ -805,22 +801,13 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB, 28267, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 28267, 4, 9171, 2, 16253, 2, 18427)
 
-	-- Crystal Throat Lozenge -- 30047
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
-	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 30047, 285, 23683, , 2550)
-	--self:addTradeFlags(RecipeDB, 30047, 3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
-
 	-- Lynx Steak -- 33276
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 33276, 1, 27635, 1, 2550)
-	self:addTradeFlags(RecipeDB, 33276, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 33276, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 33276, 2, 16262)
 
 	-- Roasted Moongraze Tenderloin -- 33277
@@ -838,7 +825,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 33278, 50, 27636, 1, 2550)
-	self:addTradeFlags(RecipeDB, 33278, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB, 33278, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB, 33278, 2, 16253)
 
 	-- Buzzard Bites -- 33279
@@ -993,7 +980,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 38867, 335, 31672, 1, 2550)
 	self:addTradeFlags(RecipeDB, 38867, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 38867, 4, 10860, 2, 21113)
+	self:addTradeAcquire(RecipeDB, 38867, 4, 10860, 2, 20916, 2, 21113)
 
 	-- Crunchy Serpent -- 38868
 	-- Vendor
@@ -1003,7 +990,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 38868, 335, 31673, 1, 2550)
 	self:addTradeFlags(RecipeDB, 38868, 1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 38868, 4, 10860, 2, 21113)
+	self:addTradeAcquire(RecipeDB, 38868, 4, 10860, 2, 20916, 2, 21113)
 
 	-- Stewed Trout -- 42296
 	-- Trainer
@@ -1033,68 +1020,52 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 42305, 1, 19186)
 
 	-- Skullfish Soup -- 43707
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43707, 325, 33825, 2, 2550)
 	self:addTradeFlags(RecipeDB, 43707, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43707, 3, 19678, 3, 24393)
+	self:addTradeAcquire(RecipeDB, 43707, 8, 6)
 
 	-- Stormchops -- 43758
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43758, 300, 33866, 3, 2550)
 	self:addTradeFlags(RecipeDB, 43758, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43758, 3, 19246, 3, 19338, 3, 19351, 3, 24393)
+	self:addTradeAcquire(RecipeDB, 43758, 8, 5, 8, 6)
 
 	-- Broiled Bloodfin -- 43761
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43761, 300, 33867, 2, 2550)
 	self:addTradeFlags(RecipeDB, 43761, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43761, 3, 18940, 3, 18962, 3, 24393)
+	self:addTradeAcquire(RecipeDB, 43761, 8, 6)
 
 	-- Spicy Hot Talbuk -- 43765
-	-- Instance: 3716 - type5maxlevel65category3territory1expansion1minlevel63nameCoilfang Reservoir: The Underbogid3716
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43765, 325, 33872, 2, 2550)
 	self:addTradeFlags(RecipeDB, 43765, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43765, 3, 2457, 3, 13797, 3, 17723, 3, 19045, 3, 20613, 3, 20807, 3, 24393)
+	self:addTradeAcquire(RecipeDB, 43765, 8, 5)
 
 	-- Kibler's Bits -- 43772
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43772, 300, 33874, 2, 2550)
 	self:addTradeFlags(RecipeDB, 43772, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43772, 3, 19246, 3, 24393, 3, 24416)
+	self:addTradeAcquire(RecipeDB, 43772, 8, 5)
 
 	-- Delicious Chocolate Cake -- 43779
-	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 43779, 1, 33924, 3, 2550)
 	self:addTradeFlags(RecipeDB, 43779, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 43779, 3, 19034, 3, 19047, 3, 19318, 3, 20807, 3, 24393)
-
-	-- Shoveltusk Soup -- 44438
-	-- Quest Reward
-	-- Flags: All classes, Item BoE, Recipe BoP, 
-	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 44438, 350, 34125, 1, 2550)
-	--self:addTradeFlags(RecipeDB, 44438, 8,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB, 44438, 4, 11155)
+	self:addTradeAcquire(RecipeDB, 43779, 8, 5, 8, 6)
 
 	-- Hot Apple Cider -- 45022
 	-- Trainer
@@ -1105,32 +1076,230 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB, 45022, 3,7,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 45022, 5, 1)
 
-	-- Succulent Orca Stew -- 45547
+	-- Mammoth Meal -- 45549
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 45547, 375, 39691, 1, 2550)
-	--self:addTradeFlags(RecipeDB, 45547, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45549, 285, 34748, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45549, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
-	-- Cooked Northrend Meat -- 45559
+	-- Shoveltusk Steak -- 45550
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 45559, 375, 34758, , 2550)
-	--self:addTradeFlags(RecipeDB, 45559, 3,21,22,23,24,25,26,27,28,29,30,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45550, 285, 34749, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45550, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
-	-- Cooked Northrend Fish -- 45571
+	-- Wyrm Delight -- 45551
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 45571, 375, 34770, , 2550)
-	--self:addTradeFlags(RecipeDB, 45571, 3,21,22,23,24,25,26,27,28,29,30,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45551, 285, 34750, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45551, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
+
+	-- Roasted Worg -- 45552
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45552, 285, 34751, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45552, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Rhino Dogs -- 45553
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45553, 285, 34752, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45553, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Feast -- 45554
+	-- Trainer
+	-- Flags: All classes, Item BoP, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45554, 325, 34753, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45554, 3,21,22,23,24,25,26,27,28,29,30,37,41)
+	-- No acquire information
+
+	-- Mega Mammoth Meal -- 45555
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45555, 400, 34754, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45555, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45555, 2, 31031, 2, 31032)
+
+	-- Tender Shoveltusk Steak -- 45556
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45556, 400, 34755, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45556, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45556, 2, 31031, 2, 31032)
+
+	-- Spiced Wyrm Burger -- 45557
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45557, 400, 34756, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45557, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45557, 2, 31031, 2, 31032)
+
+	-- Very Burnt Worg -- 45558
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45558, 400, 34757, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45558, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45558, 2, 31031, 2, 31032)
+
+	-- Mighty Rhino Dogs -- 45559
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45559, 400, 34758, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45559, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45559, 2, 31031, 2, 31032)
+
+	-- Smoked Rockfin -- 45560
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45560, 320, 34759, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45560, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Grilled Bonescale -- 45561
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45561, 320, 34760, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45561, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Sauteed Goby -- 45562
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45562, 320, 34761, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45562, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Grilled Sculpin -- 45563
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45563, 285, 34762, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45563, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Smoked Salmon -- 45564
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45564, 285, 34763, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45564, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Poached Nettlefish -- 45565
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45565, 285, 34764, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45565, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Pickled Fangtooth -- 45566
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45566, 285, 34765, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45566, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Poached Northern Sculpin -- 45567
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45567, 400, 34766, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45567, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45567, 2, 31031, 2, 31032)
+
+	-- Firecracker Salmon -- 45568
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45568, 400, 34767, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45568, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45568, 2, 31031, 2, 31032)
+
+	-- Baked Manta Ray -- 45569
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45569, 285, 42942, 1, 2550)
+	self:addTradeFlags(RecipeDB, 45569, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Imperial Manta Steak -- 45570
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45570, 400, 34769, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45570, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45570, 2, 31031, 2, 31032)
+
+	-- Spicy Blue Nettlefish -- 45571
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45571, 400, 34768, 2, 2550)
+	self:addTradeFlags(RecipeDB, 45571, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45571, 2, 31031, 2, 31032)
 
 	-- Captain Rumsey's Lager -- 45695
 	-- Flags: All classes, Item BoE, Recipe BoP, Daily, 
@@ -1138,7 +1307,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 45695, 100, 34832, 2, 2550)
 	self:addTradeFlags(RecipeDB, 45695, 1,2,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 45695, 8, 6)
+	self:addTradeAcquire(RecipeDB, 45695, 8, 7)
 
 	-- Charred Bear Kabobs -- 46684
 	-- Vendor
@@ -1162,10 +1331,212 @@ function addon:InitCooking(RecipeDB)
 	-- Quest Reward
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 53056, 375, 39520, 1, 2550)
-	--self:addTradeFlags(RecipeDB, 53056, 8,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB, 53056, 4, 12645)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 53056, 375, 39520, 1, 2550)
+	self:addTradeFlags(RecipeDB, 53056, 8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 53056, 4, 12645)
+
+	-- Northern Stew -- 57421
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57421, 320, 34747, 1, 2550)
+	self:addTradeFlags(RecipeDB, 57421, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Fish Feast -- 57423
+	-- Trainer
+	-- Flags: All classes, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57423, 360, 43015, 1, 2550)
+	self:addTradeFlags(RecipeDB, 57423, 3,21,22,23,24,25,26,27,28,29,30,41)
+	-- No acquire information
+
+	-- Spicy Fried Herring -- 57433
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57433, 400, 42993, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57433, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57433, 2, 31031, 2, 31032)
+
+	-- Rhinolicious Wyrmsteak -- 57434
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57434, 400, 42994, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57434, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57434, 2, 31031, 2, 31032)
+
+	-- Critter Bites -- 57435
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57435, 400, 43004, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57435, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57435, 2, 31031, 2, 31032)
+
+	-- Hearty Rhino -- 57436
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57436, 400, 42995, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57436, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
+	self:addTradeAcquire(RecipeDB, 57436, 2, 31031, 2, 31032)
+
+	-- Snapper Extreme -- 57437
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57437, 400, 42996, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57437, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57437, 2, 31031, 2, 31032)
+
+	-- Blackened Worg Steak -- 57438
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57438, 400, 42997, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57438, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57438, 2, 31031, 2, 31032)
+
+	-- Cuttlesteak -- 57439
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57439, 400, 42998, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57439, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57439, 2, 31031, 2, 31032)
+
+	-- Spiced Mammoth Treats -- 57440
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57440, 400, 43005, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57440, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57440, 2, 31031, 2, 31032)
+
+	-- Blackened Dragonfin -- 57441
+	-- No location information
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57441, 400, 42999, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57441, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57441, 2, 31031, 2, 31032)
+
+	-- Dragonfin Filet -- 57442
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57442, 400, 43000, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57442, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57442, 2, 31032)
+
+	-- Tracker Snacks -- 57443
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 57443, 400, 43001, 2, 2550)
+	self:addTradeFlags(RecipeDB, 57443, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 57443, 2, 31032)
+
+	-- Dalaran Clam Chowder -- 58065
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58065, 285, 43268, 1, 2550)
+	self:addTradeFlags(RecipeDB, 58065, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Tasty Cupcake -- 58512
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58512, 350, 43490, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58512, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 58512, 7, 2)
+
+	-- Last Week's Mammoth -- 58521
+	-- World Drop
+	-- Flags: Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58521, 350, 43488, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58521, 1,2,10,36,41)
+	self:addTradeAcquire(RecipeDB, 58521, 7, 2)
+
+	-- Bad Clams -- 58523
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58523, 350, 43491, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58523, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 58523, 7, 2)
+
+	-- Haunted Herring -- 58525
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58525, 350, 43492, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58525, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 58525, 7, 2)
+
+	-- Gigantic Feast -- 58527
+	-- No location information
+	-- Vendor
+	-- Flags: All classes, Item BoP, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58527, 425, 43478, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58527, 1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB, 58527, 2, 31032)
+
+	-- Small Feast -- 58528
+	-- No location information
+	-- Vendor
+	-- Flags: Item BoP, Recipe BoP, 
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 58528, 425, 43480, 2, 2550)
+	self:addTradeFlags(RecipeDB, 58528, 1,2,4,37,41)
+	self:addTradeAcquire(RecipeDB, 58528, 2, 31032)
 
 
 	return recipecount

@@ -54,6 +54,20 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 990, BFAC["The Scale of the Sands"]) -- Acquire Flag: 109
 	self:addLookupList(RepDB, 1011, BFAC["Lower City"]) -- Acquire Flag: 107
 	self:addLookupList(RepDB, 1012, BFAC["Ashtongue Deathsworn"]) -- Acquire Flag: 102
+	self:addLookupList(RepDB, 1037, BFAC["Alliance Vanguard"]) -- Acquire Flag: 131
+	self:addLookupList(RepDB, 1050, BFAC["Valiance Expedition"]) -- Acquire Flag: 126
+	self:addLookupList(RepDB, 1052, BFAC["Horde Expedition"]) -- Acquire Flag: 130
+	self:addLookupList(RepDB, 1064, BFAC["The Taunka"]) -- Acquire Flag: 128
+	self:addLookupList(RepDB, 1067, BFAC["The Hand of Vengeance"]) -- Acquire Flag: 127
+	self:addLookupList(RepDB, 1073, BFAC["The Kalu'ak"]) -- Acquire Flag: 120
 	self:addLookupList(RepDB, 1077, BFAC["Shattered Sun Offensive"]) -- Acquire Flag: 112
+	self:addLookupList(RepDB, 1085, BFAC["Warsong Offensive"]) -- Acquire Flag: 129
+	self:addLookupList(RepDB, 1090, BFAC["Kirin Tor"]) -- Acquire Flag: 118
+	self:addLookupList(RepDB, 1091, BFAC["The Wyrmrest Accord"]) -- Acquire Flag: 122
+	self:addLookupList(RepDB, 1098, BFAC["Knights of the Ebon Blade"]) -- Acquire Flag: 117
+	self:addLookupList(RepDB, 1104, BFAC["Frenzyheart Tribe"]) -- Acquire Flag: 116
+	self:addLookupList(RepDB, 1105, BFAC["The Oracles"]) -- Acquire Flag: 121
+	self:addLookupList(RepDB, 1106, BFAC["Argent Crusade"]) -- Acquire Flag: 115
+	self:addLookupList(RepDB, 1119, BFAC["The Sons of Hodir"]) -- Acquire Flag: 119
 
 end

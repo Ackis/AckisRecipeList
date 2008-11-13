@@ -8,9 +8,8 @@ First Aid data for all of AckisRecipeList
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
-19 found from data mining.
+17 found from data mining.
 1 ignored.
-3 WotLK ignored.
 
 ************************************************************************
 
@@ -164,7 +163,7 @@ function addon:InitFirstAid(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 27032, 330, 21990, 1, 746)
 	self:addTradeFlags(RecipeDB, 27032, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 27032, 2, 18990, 2, 18991)
+	self:addTradeAcquire(RecipeDB, 27032, 2, 18990, 2, 18991, 2, 26947)
 
 	-- Heavy Netherweave Bandage -- 27033
 	-- Vendor
@@ -173,42 +172,24 @@ function addon:InitFirstAid(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 27033, 360, 21991, 1, 746)
 	self:addTradeFlags(RecipeDB, 27033, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 27033, 2, 18990, 2, 18991)
-
-	-- Crystal Infused Bandage -- 30021
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
-	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 30021, 225, 23684, 1, 746)
-	--self:addTradeFlags(RecipeDB, 30021, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 27033, 2, 18990, 2, 18991, 2, 26947)
 
 	-- Frostweave Bandage -- 45545
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 45545, 350, 34721, 1, 746)
-	--self:addTradeFlags(RecipeDB, 45545, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45545, 350, 34721, 1, 746)
+	self:addTradeFlags(RecipeDB, 45545, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Heavy Frostweave Bandage -- 45546
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 45546, 400, 34722, 2, 746)
-	--self:addTradeFlags(RecipeDB, 45546, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
-
-	-- Dense Frostweave Bandage -- 51801
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
-	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 51801, 450, 38640, 2, 746)
-	--self:addTradeFlags(RecipeDB, 51801, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 45546, 400, 34722, 2, 746)
+	self:addTradeFlags(RecipeDB, 45546, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 
