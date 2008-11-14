@@ -1615,7 +1615,7 @@ EOF
 		}
 	inscriptionmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,inscriptionmanual)
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[],insspecaillist,inscriptionmanual)
 
 	jewelcrafting = recipes.get_jewelcrafting_list
 	jcspecaillist = {
