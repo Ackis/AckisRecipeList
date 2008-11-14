@@ -250,6 +250,7 @@ function addon:OnInitialize()
 					taunka = true,
 					warsongoffensive = true,
 					hordeexpedition = true,
+					alliancevanguard = true,
 				}
 			}
 		}

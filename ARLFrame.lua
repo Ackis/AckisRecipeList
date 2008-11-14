@@ -2633,6 +2633,8 @@ function addon.setFlyawayState()
 	ARL_RepHandOfVengeanceCB:SetChecked(filterdb.rep.handofvengeance)
 	ARL_RepTaunkaCB:SetChecked(filterdb.rep.taunka)
 	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
+	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.alliancevanguard)
+	ARL_RepHordeExpeditionCB:SetChecked(filterdb.rep.hordeexpedition)
 end
 
 -- Description: 
@@ -3871,6 +3873,8 @@ function addon:CreateFrame(
 --			() The Hand of Vengeance
 --			() The Taunka
 --			() Warsong Offensive
+--			() Alliance Vanguard
+--			() Horde Expedition
 			local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepArgentCrusadeCB, addon.Fly_Rep_LK,
 					string.format(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 1, 1, 0)
@@ -3946,6 +3950,16 @@ function addon:CreateFrame(
 					string.format(L["SPECIFIC_REP_DESC"], BFAC["Warsong Offensive"]), 83, 15, 1, 0)
 				ARL_RepWarsongOffensiveCBText:SetText(BFAC["Warsong Offensive"])
 				ARL_RepWarsongOffensiveCBText:SetFont(narrowFont, 11)
+			local ARL_RepAllianceVanguardCB = CreateFrame("CheckButton", "ARL_RepAllianceVanguardCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_RepAllianceVanguardCB, addon.Fly_Rep_LK,
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 83, 16, 1, 0)
+				ARL_RepAllianceVanguardCBText:SetText(BFAC["Alliance Vanguard"])
+				ARL_RepAllianceVanguardCBText:SetFont(narrowFont, 11)
+			local ARL_RepHordeExpeditionCB = CreateFrame("CheckButton", "ARL_RepHordeExpeditionCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_RepHordeExpeditionCB, addon.Fly_Rep_LK,
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 83, 17, 1, 0)
+				ARL_RepHordeExpeditionCBText:SetText(BFAC["Horde Expedition"])
+				ARL_RepHordeExpeditionCBText:SetFont(narrowFont, 11)
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
@@ -4045,6 +4059,8 @@ function addon:CreateFrame(
 			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
+			[84] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
+			[85] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
 		}
 
 	end
