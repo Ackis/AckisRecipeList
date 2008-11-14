@@ -534,6 +534,7 @@ function addon.filterSwitch(val)
 	-- This function is the all-encompassing checkbox handler for the ZJGUI
 	local armordb = addon.db.profile.filters.item.armor
 	local weapondb = addon.db.profile.filters.item.weapon
+
 	-- Special cases first, then general case
 	if (val == 19) then
 		-- Armor "All" checkbox
