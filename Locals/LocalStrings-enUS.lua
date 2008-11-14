@@ -1,4 +1,4 @@
-	-- Do not translate anything below this line without talking to Ackis first please.
+-- Do not translate anything below this line without talking to Ackis first please.
 L["40 Tickets - Schematic: Steam Tonk Controller"] = true
 L["A Binding Contract"] = true
 L["Aaron Hollman"] = true

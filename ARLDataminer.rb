@@ -254,7 +254,7 @@ def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,s
 
 	end
 
-	proflua = File.open(file, "w")
+	proflua = File.open(file, "w:utf-8")
 
 	profheader =<<EOF
 --[[
@@ -1045,7 +1045,7 @@ end
 def create_lookup_db(file,type,db,funcstub,list,maps,ignorelist)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
-	lookup_lua = File.open(file, "w")
+	lookup_lua = File.open(file, "w:utf-8")
 
 # TODO: Different headers depending on type (ie: trainer would not have the line BFAC in it for example)
 	header =<<EOF
@@ -1642,9 +1642,9 @@ $localstring.uniq!
 $localstring.sort!
 
 # TODO: Can I open the current file and just remove some text and append this to it?
-local_lua = File.open("./Locals/LocalStrings-enUS.lua", "w")
+local_lua = File.open("./Locals/LocalStrings-enUS.lua", "w:utf-8")
 
-local_lua.puts "\t-- Do not translate anything below this line without talking to Ackis first please."
+local_lua.puts "-- Do not translate anything below this line without talking to Ackis first please."
 
 $localstring.each do |k|
 
