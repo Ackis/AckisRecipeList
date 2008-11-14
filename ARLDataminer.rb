@@ -1548,7 +1548,7 @@ L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your 
 L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
-L["MissingFromDB"] = ": is missing from the database. \nPlease inform the author of the add-on about this recipe."
+L["MissingFromDB"] = ": is missing from the database. \\nPlease inform the author of the add-on about this recipe."
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."

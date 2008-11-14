@@ -9,7 +9,7 @@ Inscription data for all of AckisRecipeList
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 351 found from data mining.
-15 ignored.
+0 ignored.
 
 ************************************************************************
 
@@ -86,45 +86,45 @@ function addon:InitInscription(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50598, 65, 2290, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50598, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50598, 65, 2290, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50598, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Intellect III -- 50599
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50599, 160, 4419, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50599, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50599, 160, 4419, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50599, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Intellect IV -- 50600
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50600, 210, 10308, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50600, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50600, 210, 10308, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50600, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Intellect V -- 50601
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50601, 255, 27499, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50601, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50601, 255, 27499, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50601, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Intellect VI -- 50602
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50602, 300, 33458, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50602, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50602, 300, 33458, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50602, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Intellect VII -- 50603
@@ -149,45 +149,45 @@ function addon:InitInscription(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50605, 65, 1712, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50605, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50605, 65, 1712, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50605, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Spirit III -- 50606
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50606, 155, 4424, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50606, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50606, 155, 4424, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50606, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Spirit IV -- 50607
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50607, 205, 10306, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50607, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50607, 205, 10306, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50607, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Spirit V -- 50608
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50608, 250, 27501, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50608, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50608, 250, 27501, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50608, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Spirit VI -- 50609
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50609, 295, 33460, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50609, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50609, 295, 33460, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50609, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Spirit VII -- 50610
@@ -212,45 +212,45 @@ function addon:InitInscription(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50612, 65, 1711, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50612, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50612, 65, 1711, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50612, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Stamina III -- 50614
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50614, 150, 4422, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50614, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50614, 150, 4422, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50614, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Stamina IV -- 50616
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50616, 200, 10307, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50616, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50616, 200, 10307, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50616, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Stamina V -- 50617
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50617, 245, 27502, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50617, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50617, 245, 27502, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50617, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Stamina VI -- 50618
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB, 50618, 290, 33461, 1, 45357)
-	--self:addTradeFlags(RecipeDB, 50618, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 50618, 290, 33461, 1, 45357)
+	self:addTradeFlags(RecipeDB, 50618, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scroll of Stamina VII -- 50619

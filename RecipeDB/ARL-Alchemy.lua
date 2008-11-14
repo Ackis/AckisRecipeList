@@ -233,7 +233,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3449, 165, 3824, 1, 2259)
 	self:addTradeFlags(RecipeDB, 3449, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 3449, 2, 2481, 2, 4878)
+	self:addTradeAcquire(RecipeDB, 3449, 2, 2481)
 
 	-- Elixir of Fortitude -- 3450
 	-- Trainer
@@ -300,7 +300,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 4942, 4, 715)
 
 	-- Rage Potion -- 6617
-	-- Instance: 2437 - type1maxlevel16category3territory4minlevel13nameRagefire Chasmid2437
+	-- Instance: 2437 - type1maxlevel16category3territory4nameRagefire Chasmid2437minlevel13
 	-- Vendor
 	-- Flags: Warrior, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -310,7 +310,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6617, 2, 1669, 2, 1685, 2, 3335, 2, 3499)
 
 	-- Great Rage Potion -- 6618
-	-- Instance: 2437 - type1maxlevel16category3territory4minlevel13nameRagefire Chasmid2437
+	-- Instance: 2437 - type1maxlevel16category3territory4nameRagefire Chasmid2437minlevel13
 	-- Vendor
 	-- Flags: Warrior, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -356,13 +356,13 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Holy Protection Potion -- 7255
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7255, 100, 6051, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7255, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 7255, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 7255, 2, 3490)
 
 	-- Shadow Protection Potion -- 7256
 	-- Vendor
@@ -370,8 +370,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7256, 135, 6048, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7256, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7256, 2, 2393)
+	self:addTradeFlags(RecipeDB, 7256, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 7256, 2, 2393, 2, 3956)
 
 	-- Fire Protection Potion -- 7257
 	-- Vendor
@@ -379,8 +379,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7257, 165, 6049, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7257, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7257, 2, 2380)
+	self:addTradeFlags(RecipeDB, 7257, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 7257, 2, 4083)
 
 	-- Frost Protection Potion -- 7258
 	-- Vendor
@@ -398,7 +398,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7259, 190, 6052, 1, 2259)
 	self:addTradeFlags(RecipeDB, 7259, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7259, 2, 2848, 2, 5594)
+	self:addTradeAcquire(RecipeDB, 7259, 2, 2848, 2, 8157)
 
 	-- Blackmouth Oil -- 7836
 	-- Trainer
@@ -573,7 +573,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 11465, 1, 1386, 1, 7948, 1, 16588, 1, 18802, 1, 19052)
 
 	-- Gift of Arthas -- 11466
-	-- Instance: 2057 - type1maxlevel60category3territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceid2057minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -592,7 +592,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 11467, 1, 1386, 1, 7948, 1, 16588, 1, 18802, 1, 19052)
 
 	-- Elixir of Dream Vision -- 11468
-	-- Instance: 1477 - type1maxlevel55category3territory1minlevel50nameThe Temple of Atal'Hakkarid1477
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarid1477minlevel50
 	-- Raid: 2159 - Onyxia's Lair
 	-- No location information
 	-- Mob Drop
@@ -613,13 +613,13 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Ghost Dye -- 11473
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 11473, 245, 9210, 1, 2259)
-	self:addTradeFlags(RecipeDB, 11473, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 11473, 2, 8158)
+	self:addTradeFlags(RecipeDB, 11473, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Elixir of Shadow Power -- 11476
 	-- Trainer
@@ -767,13 +767,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17559, 6, 529, 2, 10856, 6, 529, 2, 10857, 6, 529, 2, 11536)
 
 	-- Transmute: Fire to Earth -- 17560
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 17560, 275, 7076, 2, 2259)
-	self:addTradeFlags(RecipeDB, 17560, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 17560, 4,5,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 17560, 2, 9499)
 
 	-- Transmute: Earth to Water -- 17561
@@ -796,7 +796,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17562, 2, 11278)
 
 	-- Transmute: Undeath to Water -- 17563
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -815,7 +815,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17564, 3, 6518)
 
 	-- Transmute: Life to Earth -- 17565
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -871,8 +871,8 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17573, 1, 1386, 1, 7948, 1, 16588, 1, 18802, 1, 19052)
 
 	-- Greater Fire Protection Potion -- 17574
-	-- Instance: 1583 - type1maxlevel60category3territory1minlevel58nameBlackrock Spireid1583
-	-- Instance: 1583 - type1maxlevel60category3territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -927,7 +927,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Major Mana Potion -- 17580
-	-- Instance: 2057 - type1maxlevel60category3territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceid2057minlevel58
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -939,7 +939,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Alchemist's Stone -- 17632
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
@@ -1077,7 +1077,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Transmute: Elemental Fire -- 25146
 	-- Thorium Brotherhood - Friendly
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1261,7 +1261,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Transmute: Primal Air to Fire -- 28566
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -1311,8 +1311,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Major Fire Protection Potion -- 28571
-	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
-	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarid3849minlevel70
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarid3849minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1322,7 +1322,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 28571, 3, 19168, 3, 19221)
 
 	-- Major Frost Protection Potion -- 28572
-	-- Instance: 3792 - type5maxlevel66category3territory1expansion1minlevel64nameAuchindoun: Mana-Tombsid3792
+	-- Instance: 3792 - type5maxlevel66category3territory1expansion1nameAuchindoun: Mana-Tombsid3792minlevel64
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1378,7 +1378,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Ironshield Potion -- 28579
-	-- Instance: 2367 - type5maxlevel68category3territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - type5maxlevel68category3territory1expansion1nameCaverns of Time: Old Hillsbrad Foothillsid2367minlevel66
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

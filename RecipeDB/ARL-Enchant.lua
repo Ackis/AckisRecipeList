@@ -86,13 +86,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Chest - Minor Mana -- 7443
 	-- World Drop
-	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7443, 20, nil, 2, 7411)
-	self:addTradeFlags(RecipeDB, 7443, 1,2,4,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7443, 7, 2, 2, 18753)
+	self:addTradeFlags(RecipeDB, 7443, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 7443, 7, 2)
 
 	-- Enchant Cloak - Minor Resistance -- 7454
 	-- Trainer
@@ -200,7 +199,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7793, 100, nil, 1, 7411)
 	self:addTradeFlags(RecipeDB, 7793, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7793, 2, 3012, 2, 3346, 2, 5158)
+	self:addTradeAcquire(RecipeDB, 7793, 2, 3012, 2, 3346, 2, 5158, 2, 5758)
 
 	-- Runed Silver Rod -- 7795
 	-- Trainer
@@ -567,7 +566,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13687, 7, 2)
 
 	-- Enchant Shield - Lesser Block -- 13689
-	-- Instance: 796 - type1maxlevel45category3territory4minlevel34nameScarlet Monasteryid796
+	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryid796minlevel34
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -704,7 +703,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13858, 1, 11072, 1, 11073, 1, 11074, 1, 19250, 1, 19251)
 
 	-- Enchant Gloves - Advanced Herbalism -- 13868
-	-- Instance: 1477 - type1maxlevel55category3territory1minlevel50nameThe Temple of Atal'Hakkarid1477
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarid1477minlevel50
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -741,8 +740,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13890, 1, 11072, 1, 11073, 1, 11074, 1, 19250, 1, 19251)
 
 	-- Enchant Weapon - Fiery Weapon -- 13898
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -779,7 +778,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13917, 1, 11073, 1, 19251)
 
 	-- Enchant Bracer - Deflection -- 13931
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -854,8 +852,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 13945, 7, 2)
 
 	-- Enchant Gloves - Riding Skill -- 13947
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 2159 - Onyxia's Lair
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -915,8 +913,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 14810, 1, 11072, 1, 11073, 1, 11074, 1, 19250, 1, 19251)
 
 	-- Smoking Heart of the Mountain -- 15596
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -1099,8 +1097,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20029, 3, 7444, 3, 7448, 3, 7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
-	-- Instance: 1583 - type1maxlevel60category3territory1minlevel58nameBlackrock Spireid1583
-	-- Instance: 1583 - type1maxlevel60category3territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1110,7 +1108,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20030, 3, 10317, 3, 10366)
 
 	-- Enchant Weapon - Superior Striking -- 20031
-	-- Instance: 1583 - type1maxlevel60category3territory1minlevel58nameBlackrock Spireid1583
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1120,7 +1118,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20031, 3, 9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
-	-- Instance: 2057 - type1maxlevel60category3territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceid2057minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1149,8 +1147,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20034, 3, 4494, 3, 9451)
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
-	-- Instance: 2057 - type1maxlevel60category3territory1minlevel58nameScholomanceid2057
-	-- Instance: 2057 - type1maxlevel60category3territory1minlevel58nameScholomanceid2057
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceid2057minlevel58
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceid2057minlevel58
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1220,7 +1218,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22750, 3, 11982, 3, 11988, 3, 12056, 3, 12057, 3, 12118, 3, 12259, 3, 12264)
 
 	-- Enchant Weapon - Strength -- 23799
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1260,7 +1258,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23802, 6, 529, 3, 10856, 6, 529, 3, 10857, 6, 529, 3, 11536)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1270,13 +1268,14 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23803, 2, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
-	-- Trainer
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23804, 300, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 23804, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 23804, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 23804, 2, 12944)
 
 	-- Enchant Gloves - Threat -- 25072
 	-- Raid: 3428 - Ahn'Qiraj
@@ -1312,13 +1311,14 @@ function addon:InitEnchanting(RecipeDB)
 	-- Raid: 3428 - Ahn'Qiraj
 	-- Raid: 3428 - Ahn'Qiraj
 	-- Raid: 3428 - Ahn'Qiraj
+	-- Raid: 3428 - Ahn'Qiraj
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25074, 300, nil, 3, 7411)
 	self:addTradeFlags(RecipeDB, 25074, 1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 25074, 3, 15263, 3, 15348, 3, 15370, 3, 15510, 3, 15511, 3, 15516, 3, 15517, 3, 15544)
+	self:addTradeAcquire(RecipeDB, 25074, 3, 15263, 3, 15348, 3, 15370, 3, 15509, 3, 15510, 3, 15511, 3, 15516, 3, 15517, 3, 15544)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	-- Raid: 3428 - Ahn'Qiraj
@@ -1372,22 +1372,24 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 25080, 3, 15263, 3, 15299, 3, 15339, 3, 15341, 3, 15348, 3, 15369, 3, 15509, 3, 15510, 3, 15516, 3, 15517)
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
-	-- Trainer
+	-- Cenarion Circle - Friendly
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25081, 300, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 25081, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 25081, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,63,97)
+	self:addTradeAcquire(RecipeDB, 25081, 6, 609, 1, 15419)
 
 	-- Enchant Cloak - Greater Nature Resistance -- 25082
-	-- Trainer
+	-- Cenarion Circle - Honored
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25082, 300, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 25082, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 25082, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,63,97)
+	self:addTradeAcquire(RecipeDB, 25082, 6, 609, 2, 15419)
 
 	-- Enchant Cloak - Stealth -- 25083
 	-- Raid: 3428 - Ahn'Qiraj
@@ -1434,52 +1436,52 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 25086, 3, 15263, 3, 15299, 3, 15341, 3, 15369, 3, 15509, 3, 15510, 3, 15516, 3, 15517)
 
 	-- Minor Wizard Oil -- 25124
-	-- Instance: 717 - type1maxlevel32category3territory2minlevel24nameThe Stockadeid717
+	-- Instance: 717 - type1maxlevel32category3territory2nameThe Stockadeid717minlevel24
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25124, 45, 20744, 1, 7411)
 	self:addTradeFlags(RecipeDB, 25124, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 25124, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 19234, 2, 19537, 2, 19663, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
+	self:addTradeAcquire(RecipeDB, 25124, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 5758, 2, 15419, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 18951, 2, 19234, 2, 19537, 2, 19540, 2, 19663, 2, 26569, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
 
 	-- Minor Mana Oil -- 25125
-	-- Instance: 717 - type1maxlevel32category3territory2minlevel24nameThe Stockadeid717
+	-- Instance: 717 - type1maxlevel32category3territory2nameThe Stockadeid717minlevel24
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25125, 150, 20745, 1, 7411)
 	self:addTradeFlags(RecipeDB, 25125, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 25125, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 19234, 2, 19537, 2, 19663, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
+	self:addTradeAcquire(RecipeDB, 25125, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 5758, 2, 15419, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 18951, 2, 19234, 2, 19537, 2, 19540, 2, 19663, 2, 26569, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
 
 	-- Lesser Wizard Oil -- 25126
-	-- Instance: 717 - type1maxlevel32category3territory2minlevel24nameThe Stockadeid717
+	-- Instance: 717 - type1maxlevel32category3territory2nameThe Stockadeid717minlevel24
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25126, 200, 20746, 1, 7411)
 	self:addTradeFlags(RecipeDB, 25126, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 25126, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 19234, 2, 19537, 2, 19663, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
+	self:addTradeAcquire(RecipeDB, 25126, 2, 1318, 2, 3012, 2, 3346, 2, 4228, 2, 4617, 2, 5158, 2, 5757, 2, 5758, 2, 15419, 2, 16635, 2, 16722, 2, 18753, 2, 18773, 2, 18951, 2, 19234, 2, 19537, 2, 19540, 2, 19663, 2, 26569, 2, 27030, 2, 27054, 2, 27147, 2, 28714)
 
 	-- Lesser Mana Oil -- 25127
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25127, 250, 20747, 1, 7411)
-	self:addTradeFlags(RecipeDB, 25127, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 25127, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 25127, 2, 15419)
 
 	-- Wizard Oil -- 25128
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 25128, 275, 20750, 1, 7411)
-	self:addTradeFlags(RecipeDB, 25128, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 25128, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 25128, 2, 15419)
 
 	-- Brilliant Wizard Oil -- 25129
 	-- Zandalar Tribe - Honored
@@ -1558,7 +1560,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27913, 7, 2)
 
 	-- Enchant Bracer - Fortitude -- 27914
-	-- Instance: 3715 - type5category3territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715
+	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultid3715minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1599,7 +1601,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Healing Power -- 27926
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
@@ -1629,7 +1631,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27944, 1, 18753, 1, 18773, 1, 19252, 1, 19540)
 
 	-- Enchant Shield - Intellect -- 27945
-	-- Instance: 2367 - type5maxlevel68category3territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367
+	-- Instance: 2367 - type5maxlevel68category3territory1expansion1nameCaverns of Time: Old Hillsbrad Foothillsid2367minlevel66
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1666,7 +1668,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27948, 7, 2)
 
 	-- Enchant Boots - Fortitude -- 27950
-	-- Instance: 3792 - type5maxlevel66category3territory1expansion1minlevel64nameAuchindoun: Mana-Tombsid3792
+	-- Instance: 3792 - type5maxlevel66category3territory1expansion1nameAuchindoun: Mana-Tombsid3792minlevel64
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1676,7 +1678,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27950, 3, 18317)
 
 	-- Enchant Boots - Dexterity -- 27951
-	-- Instance: 3790 - type5maxlevel67category3territory1expansion1minlevel65nameAuchindoun: Auchenai Cryptsid3790
+	-- Instance: 3790 - type5maxlevel67category3territory1expansion1nameAuchindoun: Auchenai Cryptsid3790minlevel65
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1761,7 +1763,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27968, 3, 20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971
-	-- Instance: 3714 - type5category3territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714
+	-- Instance: 3714 - type5category3territory1expansion1nameHellfire Citadel: The Shattered Hallsid3714minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1789,7 +1791,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 27975, 3, 22242, 3, 23385)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
-	-- Instance: 3848 - type5category3territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848
+	-- Instance: 3848 - type5category3territory1expansion1nameTempest Keep: The Arcatrazid3848minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -1831,9 +1833,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - type5maxlevel64category3territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensid3717
-	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
-	-- Instance: 3789 - type5category3territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789
+	-- Instance: 3717 - type5maxlevel64category3territory1expansion1nameCoilfang Reservoir: The Slave Pensid3717minlevel62
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthid3789minlevel70
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthid3789minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1844,8 +1846,8 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Battlemaster -- 28004
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3562 - type5maxlevel62category3territory1expansion1minlevel60nameHellfire Citadel: Hellfire Rampartsid3562
-	-- Instance: 3791 - type5maxlevel69category3territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsid3791
+	-- Instance: 3562 - type5maxlevel62category3territory1expansion1nameHellfire Citadel: Hellfire Rampartsid3562minlevel60
+	-- Instance: 3791 - type5maxlevel69category3territory1expansion1nameAuchindoun: Sethekk Hallsid3791minlevel67
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -2016,7 +2018,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Gloves - Major Healing -- 33999
 	-- The Sha'tar - Honored
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -2085,7 +2087,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaid3847minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -2097,8 +2099,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Boar's Speed -- 34008
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3716 - type5maxlevel65category3territory1expansion1minlevel63nameCoilfang Reservoir: The Underbogid3716
-	-- Instance: 3849 - type5category3territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849
+	-- Instance: 3716 - type5maxlevel65category3territory1expansion1nameCoilfang Reservoir: The Underbogid3716minlevel63
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarid3849minlevel70
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -2118,7 +2120,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Major Healing -- 34010
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1minlevel55nameBlackrock Depthsid1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -2291,7 +2293,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Weapon - Icebreaker -- 44524
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2337,7 +2338,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Bracers - Greater Assault -- 44575
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2347,7 +2347,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 44575, 2, 32514)
 
 	-- Enchant Weapon - Lifeward -- 44576
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2402,7 +2401,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Cloak - Titanweave -- 44591
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2475,7 +2473,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Weapon - Giant Slayer -- 44621
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2494,7 +2491,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Gloves - Armsman -- 44625
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2522,7 +2518,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Cloak - Shadow Armor -- 44631
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2632,7 +2627,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Cloak - Wisdom -- 47899
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -2651,7 +2645,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Boots - Tuskarr's Vitality -- 47901
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2661,7 +2654,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 47901, 2, 32514)
 
 	-- Enchant Weapon - Accuracy -- 59619
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2671,7 +2663,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 59619, 2, 32514)
 
 	-- Enchant Weapon - Berserking -- 59621
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2781,7 +2772,6 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant 2H Weapon - Massacre -- 60691
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2791,7 +2781,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60691, 2, 32514)
 
 	-- Enchant Chest - Powerful Stats -- 60692
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2801,7 +2790,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60692, 2, 32514)
 
 	-- Enchant Weapon - Superior Potency -- 60707
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2811,7 +2799,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60707, 2, 32514)
 
 	-- Enchant Weapon - Mighty Spellpower -- 60714
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2821,7 +2808,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60714, 2, 32514)
 
 	-- Enchant Boots - Greater Assault -- 60763
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -2831,7 +2817,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60763, 2, 32514)
 
 	-- Enchant Bracers - Superior Spellpower -- 60767
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

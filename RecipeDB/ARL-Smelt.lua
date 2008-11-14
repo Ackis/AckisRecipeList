@@ -263,6 +263,7 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 55211, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
+
 	return recipecount
 
 end
