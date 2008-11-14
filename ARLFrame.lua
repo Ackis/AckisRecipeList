@@ -1710,7 +1710,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
 --		arlTooltip2:ClearAllPoints()
-		arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
+		--arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
+		arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
 		arlTooltip2:SetHyperlink(spelllink)
 		arlTooltip2:Show()
 
