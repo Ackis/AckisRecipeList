@@ -9,7 +9,7 @@ Vendor data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-306 found from data mining.  0 ignored.
+307 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -169,6 +169,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB, 6568, L["Vizzklick"], BZONE["Tanaris"], 50.98, 27.10, 0)
 	self:addLookupList(VendorDB, 6576, L["Brienna Starglow"], BZONE["Thousand Needles"], 9.217, 18.82, 1)
 	self:addLookupList(VendorDB, 6730, L["Jinky Twizzlefixxit"], BZONE["Thousand Needles"], 77.82, 77.76, 0)
+	self:addLookupList(VendorDB, 6731, L["Harlown Darkweave"], BZONE["Ashenvale"], 17.96, 59.92, 1)
 	self:addLookupList(VendorDB, 6777, L["Zan Shivsproket"], BZONE["Alterac Mountains"], 85.92, 79.93, 0)
 	self:addLookupList(VendorDB, 7733, L["Innkeeper Fizzgrimble"], BZONE["Ironforge"], 56.29, 80.60, 0)
 	self:addLookupList(VendorDB, 7852, L["Pratt McGrubben"], BZONE["Feralas"], 30.02, 42.92, 0)
@@ -182,7 +183,6 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB, 8145, L["Sheendra Tallgrass"], BZONE["Feralas"], 75.22, 42.94, 0)
 	self:addLookupList(VendorDB, 8150, L["Janet Hommers"], BZONE["Ironforge"], 38.19, 45.46, 1)
 	self:addLookupList(VendorDB, 8157, L["Logannas"], BZONE["Feralas"], 32.70, 44.07, 0)
-	self:addLookupList(VendorDB, 8161, L["Harggan"], BZONE["The Hinterlands"], 13.43, 43.78, 0)
 	self:addLookupList(VendorDB, 8176, L["Gharash"], BZONE["Swamp of Sorrows"], 45.71, 51.76, 0)
 	self:addLookupList(VendorDB, 8307, L["Tarban Hearthgrain"], BZONE["The Barrens"], 54.85, 32.61, 2)
 	self:addLookupList(VendorDB, 8363, L["Shadi Mistrunner"], BZONE["Thunder Bluff"], 40.45, 61.99, 2)
@@ -329,13 +329,14 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB, 29511, L["Lalla Brightweave"], BZONE["Dalaran"], 36.06, 32.63, 0)
 	self:addLookupList(VendorDB, 29512, L["Ainderu Summerleaf"], BZONE["Dalaran"], 35.08, 32.69, 0)
 	self:addLookupList(VendorDB, 30431, L["Veteran Crusader Aliocha Segard"], BZONE["Icecrown"], 86.60, 75.16, 0)
+	self:addLookupList(VendorDB, 30489, L["Morgan Day"], BZONE["Wintergrasp"], 38.88, 15.79, 1)
 	self:addLookupList(VendorDB, 31031, L["Misensi"], BZONE["Dalaran"], 67.94, 35.84, 0)
 	self:addLookupList(VendorDB, 31032, L["Derek Odds"], BZONE["Dalaran"], 39.55, 64.37, 0)
 	self:addLookupList(VendorDB, 31910, L["Geen"], BZONE["Sholazar Basin"], 53.38, 55.15, 0)
 	self:addLookupList(VendorDB, 31911, L["Tanak"], BZONE["Sholazar Basin"], 55.11, 69.45, 0)
 	self:addLookupList(VendorDB, 31916, L["Tanaika"], BZONE["Howling Fjord"], 25.75, 58.63, 0)
 	self:addLookupList(VendorDB, 32287, L["Archmage Alvareaux"], BZONE["Dalaran"], 25.95, 46.76, 0)
-	self:addLookupList(VendorDB, 32294, L["Knight Dameron"], BZONE["Wintergrasp"], 45.88, 15.41, 0)
+	self:addLookupList(VendorDB, 32294, L["Knight Dameron"], BZONE["Wintergrasp"], 46.45, 15.60, 0)
 	self:addLookupList(VendorDB, 32296, L["Stone Guard Mukar"], BZONE["Wintergrasp"], 41.50, 14.91, 0)
 	self:addLookupList(VendorDB, 32514, L["Vanessa Sellers"], BZONE["Dalaran"], 38.59, 40.41, 0)
 	self:addLookupList(VendorDB, 32533, L["Cielstrasza"], BZONE["Dragonblight"], 59.91, 53.72, 0)

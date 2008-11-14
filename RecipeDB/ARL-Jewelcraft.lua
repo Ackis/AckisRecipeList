@@ -529,7 +529,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26911, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778)
 
 	-- Figurine - Black Diamond Crab -- 26912
-	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
+	-- Instance: 1583 - type1category3territory1minlevel58nameBlackrock Spireid1583maxlevel60
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: Tanking, 
@@ -540,7 +540,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26912, 3, 9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -941,7 +941,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31053, 3, 19826)
 
 	-- Khorium Band of Frost -- 31054
-	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultid3715minlevel70
+	-- Instance: 3715 - type5category3territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring, 
 	-- Item Stats: 
@@ -952,7 +952,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31054, 3, 17722)
 
 	-- Khorium Inferno Band -- 31055
-	-- Instance: 3791 - type5maxlevel69category3territory1expansion1nameAuchindoun: Sethekk Hallsid3791minlevel67
+	-- Instance: 3791 - type5category3territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsid3791maxlevel69
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring, 
 	-- Item Stats: 
@@ -1128,7 +1128,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31076, 7, 3)
 
 	-- Coronet of Verdant Flame -- 31077
-	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaid3847minlevel70
+	-- Instance: 3847 - type5category3territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -1139,7 +1139,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31077, 3, 18422)
 
 	-- Circlet of Arcane Might -- 31078
-	-- Instance: 2367 - type5maxlevel68category3territory1expansion1nameCaverns of Time: Old Hillsbrad Foothillsid2367minlevel66
+	-- Instance: 2367 - type5category3territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsid2367maxlevel68
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth, 
 	-- Item Stats: 
@@ -1184,7 +1184,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Talasite Owl -- 31082
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket, 
@@ -1612,7 +1612,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Insightful Earthstorm Diamond -- 32870
 	-- The Sha'tar - Friendly
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -1772,7 +1772,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Ring of Arcane Shielding -- 37855
 	-- The Sha'tar - Honored
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring, 
@@ -2441,7 +2441,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Kailee's Rose -- 42588
 	-- The Sha'tar - Honored
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoP, Recipe BoP, 
@@ -2486,7 +2486,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Blood of Amber -- 42592
 	-- The Sha'tar - Revered
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoP, Recipe BoP, 
@@ -2589,7 +2589,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Quick Dawnstone -- 46403
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -2602,7 +2602,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Reckless Noble Topaz -- 46404
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -2615,7 +2615,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Forceful Talasite -- 46405
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -2773,7 +2773,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Purified Shadowsong Amethyst -- 48789
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
@@ -3605,7 +3605,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53955, 390, 40011, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53955, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB, 53955, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53955, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Brilliant Autumn's Glow -- 53956
 	-- Trainer
@@ -3653,7 +3653,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53960, 390, 40016, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53960, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53960, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53960, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Quick Autumn's Glow -- 53961
 	-- Vendor
@@ -3733,7 +3733,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53968, 390, 40028, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53968, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB, 53968, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53968, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Balanced Twilight Opal -- 53969
 	-- Trainer
@@ -3834,7 +3834,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53978, 390, 40040, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53978, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53978, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53978, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Deadly Monarch Topaz -- 53979
 	-- Trainer
@@ -3864,7 +3864,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53981, 390, 40045, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53981, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53981, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53981, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Deft Monarch Topaz -- 53982
 	-- Trainer
@@ -3912,7 +3912,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53986, 390, 40050, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53986, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53986, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53986, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Reckless Monarch Topaz -- 53987
 	-- Vendor
@@ -3950,7 +3950,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53990, 390, 40054, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53990, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53990, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 53990, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Stark Monarch Topaz -- 53991
 	-- Vendor
@@ -4041,7 +4041,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54000, 390, 40090, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54000, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 54000, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 54000, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Forceful Forest Emerald -- 54001
 	-- Vendor
@@ -4091,7 +4091,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54005, 390, 40102, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54005, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 54005, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 54005, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Intricate Forest Emerald -- 54006
 	-- Vendor
@@ -4142,7 +4142,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54010, 390, 40103, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54010, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 54010, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 54010, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Energized Forest Emerald -- 54011
 	-- Vendor
@@ -4172,7 +4172,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54013, 390, 40101, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54013, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB, 54013, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 54013, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Shattered Forest Emerald -- 54014
 	-- Vendor
@@ -4182,7 +4182,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54014, 390, 40106, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54014, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB, 54014, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 54014, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Precise Bloodstone -- 54017
 	-- Trainer
@@ -4240,7 +4240,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 55387, 420, 41378, 3, 25229)
 	self:addTradeFlags(RecipeDB, 55387, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 55387, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 55387, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Impassive Skyflare Diamond -- 55388
 	-- Vendor
@@ -4249,7 +4249,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 55388, 420, 41379, 3, 25229)
 	self:addTradeFlags(RecipeDB, 55388, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 55388, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 55388, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Chaotic Skyflare Diamond -- 55389
 	-- Vendor
@@ -4286,7 +4286,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 55393, 420, 41335, 3, 25229)
 	self:addTradeFlags(RecipeDB, 55393, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 55393, 2, 32294, 2, 32296)
+	self:addTradeAcquire(RecipeDB, 55393, 2, 30489, 2, 32294, 2, 32296)
 
 	-- Swift Skyflare Diamond -- 55394
 	-- Trainer

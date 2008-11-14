@@ -723,7 +723,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 21175, 1, 1355, 1, 1382, 1, 1430, 1, 1699, 1, 3026, 1, 3067, 1, 3087, 1, 3399, 1, 4210, 1, 4552, 1, 5159, 1, 5482, 1, 6286, 1, 8306, 1, 16253, 1, 16277, 1, 16676, 1, 16719, 1, 17246, 1, 18987, 1, 18988, 1, 18993, 1, 19185, 1, 19369)
 
 	-- Tender Wolf Steak -- 22480
-	-- Instance: 1176 - type1maxlevel47category3territory1nameZul'Farrakid1176minlevel43
+	-- Instance: 1176 - type1category3territory1minlevel43nameZul'Farrakid1176maxlevel47
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 

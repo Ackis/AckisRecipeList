@@ -377,9 +377,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3774, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Guardian Belt -- 3775
-	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryid796minlevel34
-	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryid796minlevel34
-	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryid796minlevel34
+	-- Instance: 796 - type1category3territory4minlevel34nameScarlet Monasteryid796maxlevel45
+	-- Instance: 796 - type1category3territory4minlevel34nameScarlet Monasteryid796maxlevel45
+	-- Instance: 796 - type1category3territory4minlevel34nameScarlet Monasteryid796maxlevel45
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
@@ -421,7 +421,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3778, 2, 2699)
 
 	-- Barbaric Belt -- 3779
-	-- Instance: 1176 - type1maxlevel47category3territory1nameZul'Farrakid1176minlevel43
+	-- Instance: 1176 - type1category3territory1minlevel43nameZul'Farrakid1176maxlevel47
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -507,9 +507,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6661, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Murloc Scale Belt -- 6702
-	-- Instance: 1581 - type1maxlevel20category3territory2nameThe Deadminesid1581minlevel15
+	-- Instance: 1581 - type1category3territory2minlevel15nameThe Deadminesid1581maxlevel20
 	-- Mob Drop
-	-- Instance: 206 - type1maxlevel72category3territory1expansion2nameUtgarde Keepid206minlevel70
+	-- Instance: 206 - type1category3territory1expansion2minlevel70nameUtgarde Keepid206maxlevel72
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -520,9 +520,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6702, 3, 1732, 3, 3256, 3, 3385, 2, 843, 2, 3556, 2, 4186)
 
 	-- Murloc Scale Breastplate -- 6703
-	-- Instance: 1581 - type1maxlevel20category3territory2nameThe Deadminesid1581minlevel15
+	-- Instance: 1581 - type1category3territory2minlevel15nameThe Deadminesid1581maxlevel20
 	-- Mob Drop
-	-- Instance: 206 - type1maxlevel72category3territory1expansion2nameUtgarde Keepid206minlevel70
+	-- Instance: 206 - type1category3territory1expansion2minlevel70nameUtgarde Keepid206maxlevel72
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -634,7 +634,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7156, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Deviate Scale Cloak -- 7953
-	-- Instance: 718 - type1maxlevel21category3territory4nameWailing Cavernsid718minlevel15
+	-- Instance: 718 - type1category3territory4minlevel15nameWailing Cavernsid718maxlevel21
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloak, 
 	-- Item Stats: 
@@ -645,7 +645,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7953, 2, 5783)
 
 	-- Deviate Scale Gloves -- 7954
-	-- Instance: 718 - type1maxlevel21category3territory4nameWailing Cavernsid718minlevel15
+	-- Instance: 718 - type1category3territory4minlevel15nameWailing Cavernsid718maxlevel21
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -784,14 +784,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9145, 1, 1385, 1, 3007, 1, 3365, 1, 3703, 1, 3967, 1, 4212, 1, 4588, 1, 5127, 1, 5564, 1, 8153, 1, 11081, 1, 11084, 1, 11097, 1, 11098, 1, 16688, 1, 16728, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Herbalist's Gloves -- 9146
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val55id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9146, 135, 7349, 2, 2108)
-	self:addTradeFlags(RecipeDB, 9146, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 9146, 1,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB, 9146, 2, 6731)
 
 	-- Earthen Leather Shoulders -- 9147
 	-- Vendor
@@ -912,7 +912,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9206, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Dusky Boots -- 9207
-	-- Instance: 1176 - type1maxlevel47category3territory1nameZul'Farrakid1176minlevel43
+	-- Instance: 1176 - type1category3territory1minlevel43nameZul'Farrakid1176maxlevel47
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
@@ -1421,9 +1421,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19059, 3, 7035)
 
 	-- Green Dragonscale Leggings -- 19060
-	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarid1477minlevel50
-	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarid1477minlevel50
-	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarid1477minlevel50
+	-- Instance: 1477 - type1category3territory1minlevel50nameThe Temple of Atal'Hakkarid1477maxlevel55
+	-- Instance: 1477 - type1category3territory1minlevel50nameThe Temple of Atal'Hakkarid1477maxlevel55
+	-- Instance: 1477 - type1category3territory1minlevel50nameThe Temple of Atal'Hakkarid1477maxlevel55
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail, 
 	-- Item Stats: 
@@ -1573,7 +1573,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19075, 3, 7027)
 
 	-- Volcanic Breastplate -- 19076
-	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireid1583minlevel58
+	-- Instance: 1583 - type1category3territory1minlevel58nameBlackrock Spireid1583maxlevel60
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
@@ -1721,7 +1721,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20650, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Corehound Boots -- 20853
-	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsid1584minlevel55
+	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 

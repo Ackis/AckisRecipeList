@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-77 found from data mining.  0 ignored.
+76 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -69,7 +69,6 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 2753, L["Trampled Under Foot"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
 	self:addLookupList(QuestDB, 2754, L["Horns of Frenzy"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
 	self:addLookupList(QuestDB, 2755, L["Joys of Omosh"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
-	self:addLookupList(QuestDB, 2756, L["The Old Ways"], BZONE["Orgrimmar"], 80.29, 22.67, 2)
 	self:addLookupList(QuestDB, 2758, L["The Origins of Smithing"], BZONE["Stormwind City"], 57.32, 16.66, 1)
 	self:addLookupList(QuestDB, 2761, L["Smelt On, Smelt Off"], BZONE["Stranglethorn Vale"], 49.98, 20.97, 0)
 	self:addLookupList(QuestDB, 2762, L["The Great Silver Deceiver"], BZONE["Stranglethorn Vale"], 49.98, 20.97, 0)
@@ -89,7 +88,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 3402, L["The Undermarket"], BZONE["Tanaris"], 50.98, 27.10, 0)
 	self:addLookupList(QuestDB, 4161, L["Recipe of the Kaldorei"], BZONE["Teldrassil"], 57.16, 61.48, 1)
 	self:addLookupList(QuestDB, 5124, L["Fiery Plate Gauntlets"], BZONE["Winterspring"], 60.68, 38.66, 0)
-	self:addLookupList(QuestDB, 5127, L["The Demon Forge"], BZONE["Winterspring"], 63.73, 73.71, 1)
+	self:addLookupList(QuestDB, 5127, L["The Demon Forge"], BZONE["Winterspring"], 63.73, 73.71, 0)
 	self:addLookupList(QuestDB, 5305, L["Sweet Serenity"], BZONE["Winterspring"], 61.20, 35.97, 0)
 	self:addLookupList(QuestDB, 5306, L["Snakestone of the Shadow Huntress"], BZONE["Winterspring"], 61.42, 37.04, 0)
 	self:addLookupList(QuestDB, 5307, L["Corruption"], BZONE["Winterspring"], 61.32, 39.12, 0)

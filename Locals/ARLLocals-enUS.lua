@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 ****************************************************************************************
 
 ARLLocals-enUS.lua
@@ -279,7 +279,7 @@ L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your 
 L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
-L["MissingFromDB"] = ": is missing from the database. Please inform the author of the add-on about this recipe."
+L["MissingFromDB"] = ": is missing from the database. \nPlease inform the author of the add-on about this recipe."
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
@@ -705,8 +705,8 @@ L["Hama"] = true
 L["Hamanar"] = true
 L["Hammered Patron"] = true
 L["Hammon Karwn"] = true
-L["Harggan"] = true
 L["Harklan Moongrove"] = true
+L["Harlown Darkweave"] = true
 L["Harn Longcast"] = true
 L["Hatefury Shadowstalker"] = true
 L["Haughty Modiste"] = true
@@ -849,7 +849,6 @@ L["Loro"] = true
 L["Lorokeem"] = true
 L["Lucan Cordell"] = true
 L["Lucc"] = true
-L["Lucifron"] = true
 L["Lyna"] = true
 L["Lynalis"] = true
 L["Mack Diver"] = true
@@ -898,6 +897,7 @@ L["Mok'Nathal Treats"] = true
 L["Moonglow Vest"] = true
 L["Moonrage Tailor"] = true
 L["Moordo"] = true
+L["Morgan Day"] = true
 L["Mossflayer Shadowhunter"] = true
 L["Mot Dawnstrider"] = true
 L["Muaat"] = true
@@ -908,7 +908,6 @@ L["Mumman"] = true
 L["Murk Spitter"] = true
 L["Murk Worm"] = true
 L["Murkblood Raider"] = true
-L["Murmur"] = true
 L["Mutant Horror"] = true
 L["Muuran"] = true
 L["Mycah"] = true
@@ -930,7 +929,6 @@ L["Nerrist"] = true
 L["Nessa Shadowsong"] = true
 L["Nexus Stalker"] = true
 L["Nexus-Prince Shaffar"] = true
-L["Nightbane"] = true
 L["Nimar the Slayer"] = true
 L["Nissa Firestone"] = true
 L["Nixx Sprocketspring"] = true
@@ -1171,7 +1169,6 @@ L["The Crone"] = true
 L["The Demon Forge"] = true
 L["The Great Moongraze Hunt"] = true
 L["The Great Silver Deceiver"] = true
-L["The Old Ways"] = true
 L["The Origins of Smithing"] = true
 L["The Rescue"] = true
 L["The Taste Test"] = true
