@@ -4074,28 +4074,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB, 60994, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,56)
 	-- No acquire information
 
-	-- Mycah's Botanical Bag (50194)
-	-- Vendor
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50194, 375, 38225, 3, 3908)
-	self:addTradeFlags(RecipeDB, 50194, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,113)
-	self:addTradeAcquire(RecipeDB, 50194, 6, 970, 1, 18382)
-
-	-- Haliscan Pantaloons
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50647, 245, 38278, 1, 3908)
-	self:addTradeFlags(RecipeDB, 50647, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
-	-- Dress Shoes
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 49677, 250, 49677, 1, 3908)
-	self:addTradeFlags(RecipeDB, 49677, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
-	-- Haliscan Jacket
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50644, 250, 38277, 1, 3908)
-	self:addTradeFlags(RecipeDB, 50644, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
 	return recipecount
 
 end

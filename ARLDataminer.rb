@@ -1452,7 +1452,6 @@ else
 		47050 => {:id => "meleedps"},
 		}
 	alchmanual=<<EOF
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
@@ -1470,7 +1469,6 @@ EOF
 	self:addTradeSkill(RecipeDB, 9957, 230, 7929, 2, 2018)
 	self:addTradeFlags(RecipeDB, 9957, 2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	self:addTradeAcquire(RecipeDB, 9957, 4, 2756)
-
 EOF
 	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
 	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
@@ -1489,7 +1487,6 @@ EOF
 		45695 => {:id => "Daily", :type => [7]},
 		}
 	cookmanual=<<EOF
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
 
@@ -1574,7 +1571,6 @@ EOF
 	faspecaillist = {
 		}
 	famanual=<<EOF
-
 EOF
 	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
 
@@ -1582,7 +1578,6 @@ EOF
 	insspecaillist = {
 		}
 	inscriptionmanual=<<EOF
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[50598,50599,50600,50601,50602,50605,50606,50607,50608,50609,50612,50614,50616,50617,50618],insspecaillist,inscriptionmanual)
 
@@ -1592,7 +1587,6 @@ EOF
 		43493 => {:id => 9}
 		}
 	jcmanual=<<EOF
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,jcmanual)
 
@@ -1621,15 +1615,6 @@ EOF
 	smeltingspecaillist = {
 		}
 	smeltmanual=<<EOF
-	-- Smelt Elementium -- 22967
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
-	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 22967, 325, 17771, 5, 2575)
-	self:addTradeFlags(RecipeDB, 22967, 1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual)
 
@@ -1637,28 +1622,6 @@ EOF
 	tailoringspecaillist = {
 		}
 	tailoringmanual=<<EOF
-	-- Mycah's Botanical Bag (50194)
-	-- Vendor
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50194, 375, 38225, 3, 3908)
-	self:addTradeFlags(RecipeDB, 50194, 1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,113)
-	self:addTradeAcquire(RecipeDB, 50194, 6, 970, 1, 18382)
-
-	-- Haliscan Pantaloons
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50647, 245, 38278, 1, 3908)
-	self:addTradeFlags(RecipeDB, 50647, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
-	-- Dress Shoes
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 49677, 250, 49677, 1, 3908)
-	self:addTradeFlags(RecipeDB, 49677, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
-	-- Haliscan Jacket
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 50644, 250, 38277, 1, 3908)
-	self:addTradeFlags(RecipeDB, 50644, 1,2,3,21,22,23,24,25,26,27,28,29,30)
-
 EOF
 	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
 
