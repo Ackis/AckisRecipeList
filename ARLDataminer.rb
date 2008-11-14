@@ -31,6 +31,7 @@ $quests = Hash.new
 $monsters = Hash.new
 $vendors = Hash.new
 $localstring = Array.new
+$unknownzone = Array.new
 
 # Creates the faction database
 
@@ -1182,6 +1183,7 @@ EOF
 					else
 
 						lookup_lua.print("L[\"Unknown Zone\"], ")
+						$unknownzone << v[:name]
 
 					end
 
@@ -1583,6 +1585,27 @@ EOF
 
 end
 
+def create_unknownzone_list()
+
+	puts "\nGenerating Ubknown file .. #{$unknownzone.length} strings to process"
+
+	$unknownzone.compact!
+	$unknownzone.uniq!
+	$unknownzone.sort!
+
+	zone_lua = File.open("UnknownZone.lua", "w:utf-8")
+
+	$unknownzone.each do |k|
+
+		zone_lua.puts "\t\"#{k}\" = "
+
+	end
+
+	zone_lua.puts "\n"
+	zone_lua.close
+
+end
+
 recipes = WoWDBRecipes.new
 maps = WoWDBMaps.new
 
@@ -1616,7 +1639,8 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Epoch Hunter","Blackheart the Inciter","Pathaleon the Calculator","Mechano-Lord Capacitus","Nethermancer Sepethrea",
 	"Dalliah the Doomsayer","The Prophet Skeram","Emperor Vek'lor","Viscidus","Ossirian the Unscarred","Moam",
 	"General Rajaxx","Kurinnaxx","Ayamiss the Hunter","Buru the Gorger","Princess Huhuran","Fankriss the Unyielding",
-	"Lord Kri","Battleguard Sartura","Ouro","Princess Yauj","Vem","Midnight","Grand Warlock Nethekurse"]
+	"Lord Kri","Battleguard Sartura","Ouro","Princess Yauj","Vem","Midnight","Grand Warlock Nethekurse","Lucifron",
+	"Nightbane","Murmur"]
 
 $bosszonemap = {
 	"Magmadar" => "Molten Core",
@@ -1670,6 +1694,7 @@ $bosszonemap = {
 	"Magister Kalendris" => "Dire Maul",
 	"Cruelfin" => "Bloodmyst Isle",
 	"Attumen the Huntsman" => "Karazhan",
+	"Nightbane" => "Karazhan",
 	"Moroes" => "Karazhan",
 	"Terestian Illhoof" => "Karazhan",
 	"Coldmist Widow" => "Karazhan",
@@ -1742,10 +1767,10 @@ $bosszonemap = {
 }
 
 # Manual entries to the vendor, etc list
-$vendors[15165] = {:name => "Haughty Modiste"}
-$vendors[15165][:faction] = 3
-$quests[2756] = {:name => "The Old Ways"}
-$quests[2756][:faction] = 2
+#$vendors[15165] = {:name => "Haughty Modiste"}
+#$vendors[15165][:faction] = 3
+#$quests[2756] = {:name => "The Old Ways"}
+#$quests[2756][:faction] = 2
 
 $debug = false
 
@@ -1999,6 +2024,8 @@ EOF
 	create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
 
 	create_localization_db()
+
+	create_unknownzone_list()
 
 end
 
