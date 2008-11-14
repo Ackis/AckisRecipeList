@@ -3864,7 +3864,7 @@ function addon:CreateFrame(
 --			() The Kalu'ak
 --			() The Oracles
 --			() The Wyrmrest Accord
---			() The Silver Convenant
+--			() The Silver Covenant
 --			() The Sunreavers
 --			() Explorer's League
 --			() Valiance Expedition
@@ -3913,8 +3913,8 @@ function addon:CreateFrame(
 				ARL_RepWyrmrestCBText:SetFont(narrowFont, 11)
 			local ARL_RepSilverCovenantCB = CreateFrame("CheckButton", "ARL_RepSilverCovenantCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepSilverCovenantCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["The Silver Convenant"]), 77, 9, 1, 0)
-				ARL_RepSilverCovenantCBText:SetText(BFAC["The Silver Convenant"])
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["The Silver Covenant"]), 77, 9, 1, 0)
+				ARL_RepSilverCovenantCBText:SetText(BFAC["The Silver Covenant"])
 				ARL_RepSilverCovenantCBText:SetFont(narrowFont, 11)
 			local ARL_RepSunreaversCB = CreateFrame("CheckButton", "ARL_RepSunreaversCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepSunreaversCB, addon.Fly_Rep_LK,

@@ -815,6 +815,14 @@ local function giveFilter()
 									type	= "description",
 									name	= L["FILTERING_WOTLK_DESC"] .. "\n",
 								},
+								AllianceVanguard = {
+									order	= 9,
+									type	= "toggle",
+									name	= BFAC["Alliance Vanguard"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Alliance Vanguard"]),
+									get		= function() return addon.db.profile.filters.rep.alliancevanguard end,
+									set		= function() addon.db.profile.filters.rep.alliancevanguard = not addon.db.profile.filters.rep.alliancevanguard end,
+								},
 								ArgentCrusade = {
 									order	= 10,
 									type	= "toggle",
@@ -831,8 +839,16 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.frenzyheart end,
 									set		= function() addon.db.profile.filters.rep.frenzyheart = not addon.db.profile.filters.rep.frenzyheart end,
 								},
+								HordeExpidition = {
+									order	= 15,
+									type	= "toggle",
+									name	= BFAC["Horde Expedition"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Horde Expedition"]),
+									get		= function() return addon.db.profile.filters.rep.hordeexpedition end,
+									set		= function() addon.db.profile.filters.rep.hordeexpedition = not addon.db.profile.filters.rep.hordeexpedition end,
+								},
 								EbonBlade = {
-									order	= 12,
+									order	= 16,
 									type	= "toggle",
 									name	= BFAC["Knights of the Ebon Blade"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Knights of the Ebon Blade"]),
@@ -840,7 +856,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.ebonblade = not addon.db.profile.filters.rep.ebonblade end,
 								},
 								KirinTor = {
-									order	= 13,
+									order	= 17,
 									type	= "toggle",
 									name	= BFAC["Kirin Tor"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Kirin Tor"]),
@@ -848,7 +864,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.kirintor = not addon.db.profile.filters.rep.kirintor end,
 								},
 								SonsOfHodir = {
-									order	= 14,
+									order	= 20,
 									type	= "toggle",
 									name	= BFAC["The Sons of Hodir"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Sons of Hodir"]),
@@ -856,7 +872,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.sonsofhodir = not addon.db.profile.filters.rep.sonsofhodir end,
 								},
 								Kaluak = {
-									order	= 15,
+									order	= 21,
 									type	= "toggle",
 									name	= BFAC["The Kalu'ak"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Kalu'ak"]),
@@ -864,7 +880,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.kaluak = not addon.db.profile.filters.rep.kaluak end,
 								},
 								Oracles = {
-									order	= 16,
+									order	= 22,
 									type	= "toggle",
 									name	= BFAC["The Oracles"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Oracles"]),
@@ -872,7 +888,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.oracles = not addon.db.profile.filters.rep.oracles end,
 								},
 								Wyrmrest = {
-									order	= 17,
+									order	= 25,
 									type	= "toggle",
 									name	= BFAC["The Wyrmrest Accord"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Wyrmrest Accord"]),
@@ -880,15 +896,15 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.wyrmrest = not addon.db.profile.filters.rep.wyrmrest end,
 								},
 								SilverCovenant = {
-									order	= 18,
+									order	= 26,
 									type	= "toggle",
-									name	= BFAC["The Silver Convenant"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Silver Convenant"]),
+									name	= BFAC["The Silver Covenant"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Silver Covenant"]),
 									get		= function() return addon.db.profile.filters.rep.silvercovenant end,
 									set		= function() addon.db.profile.filters.rep.silvercovenant = not addon.db.profile.filters.rep.silvercovenant end,
 								},
 								Sunreavers = {
-									order	= 19,
+									order	= 27,
 									type	= "toggle",
 									name	= BFAC["The Sunreavers"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Sunreavers"]),
@@ -896,7 +912,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.sunreavers = not addon.db.profile.filters.rep.sunreavers end,
 								},
 								ExplorersLeague = {
-									order	= 20,
+									order	= 28,
 									type	= "toggle",
 									name	= BFAC["Explorer's League"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Explorer's League"]),
@@ -904,7 +920,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.explorersleague = not addon.db.profile.filters.rep.explorersleague end,
 								},
 								ValianceExpedition = {
-									order	= 21,
+									order	= 29,
 									type	= "toggle",
 									name	= BFAC["Valiance Expedition"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Valiance Expedition"]),
@@ -912,7 +928,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.valiance = not addon.db.profile.filters.rep.valiance end,
 								},
 								HandOfVengeance = {
-									order	= 22,
+									order	= 35,
 									type	= "toggle",
 									name	= BFAC["The Hand of Vengeance"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Hand of Vengeance"]),
@@ -920,7 +936,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.valiance = not addon.db.profile.filters.rep.valiance end,
 								},
 								Taunka = {
-									order	= 23,
+									order	= 36,
 									type	= "toggle",
 									name	= BFAC["The Taunka"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Taunka"]),
@@ -928,7 +944,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.taunka = not addon.db.profile.filters.rep.taunka end,
 								},
 								WarsongOffensive = {
-									order	= 24,
+									order	= 37,
 									type	= "toggle",
 									name	= BFAC["Warsong Offensive"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Warsong Offensive"]),

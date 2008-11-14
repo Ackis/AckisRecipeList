@@ -249,6 +249,7 @@ function addon:OnInitialize()
 					handofvengeance = true,
 					taunka = true,
 					warsongoffensive = true,
+					hordeexpedition = true,
 				}
 			}
 		}
