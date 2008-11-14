@@ -476,7 +476,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 84
+	local MaxFilters = 86
 
 	local total = 0
 	local active = 0
@@ -3953,12 +3953,12 @@ function addon:CreateFrame(
 				ARL_RepWarsongOffensiveCBText:SetFont(narrowFont, 11)
 			local ARL_RepAllianceVanguardCB = CreateFrame("CheckButton", "ARL_RepAllianceVanguardCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepAllianceVanguardCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 83, 16, 1, 0)
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 85, 16, 1, 0)
 				ARL_RepAllianceVanguardCBText:SetText(BFAC["Alliance Vanguard"])
 				ARL_RepAllianceVanguardCBText:SetFont(narrowFont, 11)
 			local ARL_RepHordeExpeditionCB = CreateFrame("CheckButton", "ARL_RepHordeExpeditionCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepHordeExpeditionCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 83, 17, 1, 0)
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 86, 17, 1, 0)
 				ARL_RepHordeExpeditionCBText:SetText(BFAC["Horde Expedition"])
 				ARL_RepHordeExpeditionCBText:SetFont(narrowFont, 11)
 
@@ -4060,8 +4060,8 @@ function addon:CreateFrame(
 			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
-			[84] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
-			[85] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
+			[85] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
+			[86] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
 		}
 
 	end

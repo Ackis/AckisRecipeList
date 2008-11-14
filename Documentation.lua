@@ -186,6 +186,8 @@ addon.db.profile---->
 			handofvengeance		= true [ | false ]
 			taunka			= true [ | false ]
 			warsongoffensive		= true [ | false ]
+			alliancevanguard		= true [ | false ]
+			hordeexpedition		= true [ | false ]
 		}
 	}
 ************************************************************************
@@ -310,6 +312,7 @@ Item Flags
 			-- 128 = The Taunka
 			-- 129 = Warsong Offensive
 			-- 130 = Horde Expedition
+			-- 130 = Alliance Vanguard
 
 ************************************************************************
 --]]
@@ -348,6 +351,7 @@ Item Acquire methods (and associated database values)
 		2 = Honored 
 		3 = Revered 
 		4 = Exalted 
+
 ************************************************************************
 --]]
 
@@ -372,7 +376,7 @@ Table Structures:
 
 	Rarity colours:
 		0 -		poor			#919191
-		1 -		common			#ffffff
+		1 -		common		#ffffff
 		2 -		uncommon		#00A900
 		3 -		rare			#0062C3
 		4 -		epic			#B343FF
@@ -439,7 +443,7 @@ Table Structures:
 
 --[[
 ************************************************************************
-Tooltip format: (acquire order : 5 7 3 4 1 2 6 )
+Tooltip format: (acquire order : 5 7 3 4 1 2 6 8)
 
 Recipe Name
 
