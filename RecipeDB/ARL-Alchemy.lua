@@ -320,13 +320,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6618, 2, 3335, 2, 4226)
 
 	-- Free Action Potion -- 6624
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6624, 150, 5634, 1, 2259)
-	self:addTradeFlags(RecipeDB, 6624, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 6624, 2, 3348, 2, 4226)
+	self:addTradeFlags(RecipeDB, 6624, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Elixir of Water Breathing -- 7179
 	-- Trainer
@@ -2041,7 +2041,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53937, 400, 40215, 1, 2259)
+	self:addTradeSkill(RecipeDB, 53937, 400, 40215, 2, 2259)
 	self:addTradeFlags(RecipeDB, 53937, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -2068,7 +2068,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53942, 400, 40216, 1, 2259)
+	self:addTradeSkill(RecipeDB, 53942, 400, 40216, 2, 2259)
 	self:addTradeFlags(RecipeDB, 53942, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 

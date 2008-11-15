@@ -676,7 +676,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7630, 55, 6240, 1, 3908)
 	self:addTradeFlags(RecipeDB, 7630, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
-	self:addTradeAcquire(RecipeDB, 7630, 2, 66, 2, 3364, 2, 3485, 2, 3522, 2, 4189)
+	self:addTradeAcquire(RecipeDB, 7630, 2, 3364, 2, 3485, 2, 3522, 2, 4189)
 
 	-- Blue Linen Robe -- 7633
 	-- Vendor
@@ -717,7 +717,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7643, 115, 6264, 1, 3908)
 	self:addTradeFlags(RecipeDB, 7643, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
-	self:addTradeAcquire(RecipeDB, 7643, 2, 1474, 2, 2669, 2, 4577)
+	self:addTradeAcquire(RecipeDB, 7643, 2, 1454, 2, 1474, 2, 2669, 2, 4577)
 
 	-- Stylish Blue Shirt -- 7892
 	-- World Drop
@@ -3615,7 +3615,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 55996, 390, 41250, 1, 3908)
+	self:addTradeSkill(RecipeDB, 55996, 400, 41250, 2, 3908)
 	self:addTradeFlags(RecipeDB, 55996, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3624,7 +3624,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 55997, 390, 41252, 1, 3908)
+	self:addTradeSkill(RecipeDB, 55997, 400, 41252, 2, 3908)
 	self:addTradeFlags(RecipeDB, 55997, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3633,7 +3633,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 55998, 390, 41253, 1, 3908)
+	self:addTradeSkill(RecipeDB, 55998, 400, 41253, 2, 3908)
 	self:addTradeFlags(RecipeDB, 55998, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3683,13 +3683,15 @@ function addon:InitTailoring(RecipeDB)
 	-- No acquire information
 
 	-- Abyssal Bag -- 56004
-	-- Trainer
+	-- Knights of the Ebon Blade - Revered
+	-- No location information
+	-- Vendor
 	-- Flags: Warlock, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 56004, 435, 41597, 1, 3908)
-	self:addTradeFlags(RecipeDB, 56004, 3,29,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 56004, 1,2,4,29,36,41,117)
+	self:addTradeAcquire(RecipeDB, 56004, 6, 1098, 3, 32538)
 
 	-- Glacial Bag -- 56005
 	-- Trainer

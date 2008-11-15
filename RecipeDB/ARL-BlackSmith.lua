@@ -4271,7 +4271,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val48id1val63id3val1321id6val41id29val31id44
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 54980, 400, 40958, 2, 2018)
+	self:addTradeSkill(RecipeDB, 54980, 375, 40958, 2, 2018)
 	self:addTradeFlags(RecipeDB, 54980, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	-- No acquire information
 

@@ -454,13 +454,13 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3968, 7, 2)
 
 	-- Mechanical Dragonling -- 3969
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3969, 200, 4396, 1, 4036)
-	self:addTradeFlags(RecipeDB, 3969, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 3969, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB, 3969, 2, 2687)
 
 	-- Gnomish Cloaking Device -- 3971
 	-- Instance: 721 - type1category3territory2minlevel24nameGnomereganid721maxlevel33
@@ -707,7 +707,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 12597, 210, 10546, 1, 4036)
 	self:addTradeFlags(RecipeDB, 12597, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 12597, 2, 9544)
+	self:addTradeAcquire(RecipeDB, 12597, 2, 8679, 2, 9544)
 
 	-- Mithril Casing -- 12599
 	-- Trainer

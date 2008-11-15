@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-76 found from data mining.  0 ignored.
+75 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -38,7 +38,7 @@ local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitQuest(QuestDB)
 
-	self:addLookupList(QuestDB, 22, L["Goretusk Liver Pie"], BZONE["Westfall"], 55.77, 30.92, 1)
+	self:addLookupList(QuestDB, 22, L["Goretusk Liver Pie"], L["Unknown Zone"], 0, 0, 0)
 	self:addLookupList(QuestDB, 38, L["Westfall Stew"], BZONE["Westfall"], 55.77, 30.92, 1)
 	self:addLookupList(QuestDB, 90, L["Seasoned Wolf Kabobs"], BZONE["Duskwood"], 73.65, 43.17, 1)
 	self:addLookupList(QuestDB, 92, L["Redridge Goulash"], BZONE["Redridge Mountains"], 22.84, 44.07, 1)
@@ -47,7 +47,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 296, L["Ormer's Revenge"], BZONE["Wetlands"], 38.02, 51.17, 1)
 	self:addLookupList(QuestDB, 384, L["Beer Basted Boar Ribs"], BZONE["Dun Morogh"], 47.18, 53.33, 1)
 	self:addLookupList(QuestDB, 385, L["Crocolisk Hunting"], BZONE["Loch Modan"], 82.16, 61.94, 1)
-	self:addLookupList(QuestDB, 418, L["Thelsamar Blood Sausages"], BZONE["Loch Modan"], 35.09, 49.06, 1)
+	self:addLookupList(QuestDB, 418, L["Thelsamar Blood Sausages"], L["Unknown Zone"], 0, 0, 0)
 	self:addLookupList(QuestDB, 429, L["Wild Hearts"], BZONE["Silverpine Forest"], 43.49, 41.06, 2)
 	self:addLookupList(QuestDB, 471, L["Apprentice's Duties"], BZONE["Wetlands"], 8.931, 56.09, 1)
 	self:addLookupList(QuestDB, 498, L["The Rescue"], BZONE["Hillsbrad Foothills"], 63.15, 20.31, 2)
@@ -69,7 +69,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 2753, L["Trampled Under Foot"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
 	self:addLookupList(QuestDB, 2754, L["Horns of Frenzy"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
 	self:addLookupList(QuestDB, 2755, L["Joys of Omosh"], BZONE["Orgrimmar"], 79.25, 23.85, 2)
-	self:addLookupList(QuestDB, 2758, L["The Origins of Smithing"], BZONE["Stormwind City"], 57.32, 16.66, 1)
+	self:addLookupList(QuestDB, 2758, L["The Origins of Smithing"], BZONE["Stormwind City"], 57.35, 16.75, 1)
 	self:addLookupList(QuestDB, 2761, L["Smelt On, Smelt Off"], BZONE["Stranglethorn Vale"], 49.98, 20.97, 0)
 	self:addLookupList(QuestDB, 2762, L["The Great Silver Deceiver"], BZONE["Stranglethorn Vale"], 49.98, 20.97, 0)
 	self:addLookupList(QuestDB, 2763, L["The Art of the Imbue"], BZONE["Stranglethorn Vale"], 49.98, 20.97, 0)
@@ -113,6 +113,5 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB, 9635, L["The Zapthrottle Mote Extractor!"], BZONE["Zangarmarsh"], 34.39, 51.28, 2)
 	self:addLookupList(QuestDB, 9636, L["The Zapthrottle Mote Extractor!"], BZONE["Zangarmarsh"], 68.48, 51.19, 1)
 	self:addLookupList(QuestDB, 10860, L["Mok'Nathal Treats"], BZONE["Blade's Edge Mountains"], 76.06, 61.84, 2)
-	self:addLookupList(QuestDB, 12645, L["The Taste Test"], L["Unknown Zone"], 0, 0, 0)
 
 end

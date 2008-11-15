@@ -1024,13 +1024,13 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20016, 1, 11073, 1, 19251)
 
 	-- Enchant Shield - Greater Stamina -- 20017
-	-- Trainer
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20017, 265, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 20017, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 20017, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 20017, 2, 4229, 2, 4561)
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	-- World Drop
@@ -2189,7 +2189,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 44483, 395, nil, 1, 7411)
+	self:addTradeSkill(RecipeDB, 44483, 400, nil, 2, 7411)
 	self:addTradeFlags(RecipeDB, 44483, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
@@ -2234,7 +2234,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 44494, 395, nil, 1, 7411)
+	self:addTradeSkill(RecipeDB, 44494, 400, nil, 2, 7411)
 	self:addTradeFlags(RecipeDB, 44494, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
@@ -2333,7 +2333,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 44556, 395, nil, 1, 7411)
+	self:addTradeSkill(RecipeDB, 44556, 400, nil, 2, 7411)
 	self:addTradeFlags(RecipeDB, 44556, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
@@ -2755,11 +2755,11 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Cloak - Major Agility -- 60663
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60663, 410, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 60663, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 60663, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
 	-- Enchant Gloves - Crusher -- 60668

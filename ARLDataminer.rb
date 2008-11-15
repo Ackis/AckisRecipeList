@@ -130,7 +130,7 @@ EOF
 
 	$reps = factions.get_faction_list
 	#$reps["Horde Expedition"] = {:id => 1052}
-	$reps["Alliance Vanguard"] = {:id => 1037}
+	#$reps["Alliance Vanguard"] = {:id => 1037}
 
 	# Parse the list and add the info to the file and a reputations look up file
 	$reps.keys.sort_by {|key|	

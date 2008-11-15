@@ -3102,14 +3102,16 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Deadly Huge Citrine -- 53877
-	-- Trainer
+	-- Knights of the Ebon Blade - Friendly
+	-- No location information
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val6id2
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53877, 350, 39952, 2, 25229)
-	self:addTradeFlags(RecipeDB, 53877, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 53877, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,117)
+	self:addTradeAcquire(RecipeDB, 53877, 6, 1098, 1, 32538)
 
 	-- Glinting Huge Citrine -- 53878
 	-- Trainer
@@ -3552,9 +3554,9 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
-	-- Item Stats: val112id6
+	-- Item Stats: val16id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53950, 380, 40002, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53950, 390, 40002, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53950, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
@@ -3696,14 +3698,16 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Glowing Twilight Opal -- 53965
-	-- Trainer
+	-- Knights of the Ebon Blade - Exalted
+	-- No location information
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53965, 380, 40025, 3, 25229)
-	self:addTradeFlags(RecipeDB, 53965, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 53965, 390, 40025, 3, 25229)
+	self:addTradeFlags(RecipeDB, 53965, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,117)
+	self:addTradeAcquire(RecipeDB, 53965, 6, 1098, 4, 32538)
 
 	-- Purified Twilight Opal -- 53966
 	-- Trainer
@@ -3771,7 +3775,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val8id27
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53972, 380, 40032, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53972, 390, 40032, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53972, 3,21,22,23,24,25,26,27,28,29,30,36,41,52)
 	-- No acquire information
 
@@ -3925,13 +3929,15 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53987, 2, 28721)
 
 	-- Wicked Monarch Topaz -- 53988
-	-- Trainer
+	-- Knights of the Ebon Blade - Revered
+	-- No location information
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53988, 390, 40052, 3, 25229)
-	self:addTradeFlags(RecipeDB, 53988, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 53988, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,117)
+	self:addTradeAcquire(RecipeDB, 53988, 6, 1098, 3, 32538)
 
 	-- Pristine Monarch Topaz -- 53989
 	-- Trainer
@@ -4160,7 +4166,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 54012, 380, 40098, 3, 25229)
+	self:addTradeSkill(RecipeDB, 54012, 390, 40098, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54012, 3,21,22,23,24,25,26,27,28,29,30,36,41,54)
 	-- No acquire information
 

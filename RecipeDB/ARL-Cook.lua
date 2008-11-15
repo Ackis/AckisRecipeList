@@ -1306,13 +1306,13 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 46688, 2, 2803, 2, 2806)
 
 	-- Kungaloosh -- 53056
-	-- Quest Reward
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53056, 375, 39520, 1, 2550)
-	self:addTradeFlags(RecipeDB, 53056, 8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 53056, 4, 12645)
+	self:addTradeFlags(RecipeDB, 53056, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Northern Stew -- 57421
 	-- Trainer
@@ -1325,11 +1325,11 @@ function addon:InitCooking(RecipeDB)
 
 	-- Fish Feast -- 57423
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoP, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 57423, 360, 43015, 1, 2550)
-	self:addTradeFlags(RecipeDB, 57423, 3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 57423, 3,21,22,23,24,25,26,27,28,29,30,37,41)
 	-- No acquire information
 
 	-- Spicy Fried Herring -- 57433
