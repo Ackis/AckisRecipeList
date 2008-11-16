@@ -3269,6 +3269,22 @@ function addon:CreateFrame(
 
 		ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", addon.Frame, "InputBoxTemplate")
 			ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+			ARL_SearchText:SetScript("OnEnterPressed",
+				function(this)
+
+					local searchtext = ARL_SearchText:GetText()
+					searchtext = searchtext:trim()
+					
+					if (searchtext ~= "") then
+
+						addon:SearchRecipeDB(recipeDB, searchtext)
+						initDisplayStrings()
+						RecipeList_Update()
+
+					end
+
+				end
+			)
 			ARL_SearchText:SetScript("OnEditFocusGained",
 				function(this)
 
