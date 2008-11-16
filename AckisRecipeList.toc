@@ -1,5 +1,5 @@
-## Title: Ackis Recipe List (3.02 Beta 8)
-## Title-enUS: Ackis Recipe List (3.02 Beta 8)
+## Title: Ackis Recipe List (3.02 Beta 9)
+## Title-enUS: Ackis Recipe List (3.02 Beta 9)
 ## Title-koKR: Ackis의 제조법 리스트
 ## Title-deDE: Ackis Rezeptliste
 
