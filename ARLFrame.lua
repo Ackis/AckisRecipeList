@@ -3280,6 +3280,17 @@ function addon:CreateFrame(
 
 				end
 			)
+			ARL_SearchText:SetScript("OnEditFocusLost",
+				function(this)
+
+					if (this:GetText() == "") then
+
+						this:SetText(L["SEARCH_BOX_DESC"])
+
+					end
+
+				end
+			)
 			ARL_SearchText:EnableMouse(true)
 			ARL_SearchText:SetAutoFocus(false)
 			ARL_SearchText:SetFontObject(ChatFontNormal)
