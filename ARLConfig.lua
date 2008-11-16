@@ -914,8 +914,8 @@ local function giveFilter()
 								ExplorersLeague = {
 									order	= 28,
 									type	= "toggle",
-									name	= BFAC["Explorer's League"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Explorer's League"]),
+									name	= BFAC["Explorers' League"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Explorers' League"]),
 									get		= function() return addon.db.profile.filters.rep.explorersleague end,
 									set		= function() addon.db.profile.filters.rep.explorersleague = not addon.db.profile.filters.rep.explorersleague end,
 								},
