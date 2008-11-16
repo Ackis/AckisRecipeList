@@ -3956,8 +3956,8 @@ function addon:CreateFrame(
 				ARL_RepSunreaversCBText:SetFont(narrowFont, 11)
 			local ARL_RepExplorersLeagueCB = CreateFrame("CheckButton", "ARL_RepExplorersLeagueCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepExplorersLeagueCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["Explorer's League"]), 79, 11, 1, 0)
-				ARL_RepExplorersLeagueCBText:SetText(BFAC["Explorer's League"])
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Explorers' League"]), 79, 11, 1, 0)
+				ARL_RepExplorersLeagueCBText:SetText(BFAC["Explorers' League"])
 				ARL_RepExplorersLeagueCBText:SetFont(narrowFont, 11)
 			local ARL_RepValianceCB = CreateFrame("CheckButton", "ARL_RepValianceCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepValianceCB, addon.Fly_Rep_LK,

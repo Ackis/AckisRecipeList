@@ -1201,7 +1201,7 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
 	RepTable[BFAC["The Silver Covenant"]] = repfilters.silvercovenant
 	RepTable[BFAC["The Sunreavers"]] = repfilters.sunreavers
-	RepTable[BFAC["Explorer's League"]] = repfilters.explorersleague
+	RepTable[BFAC["Explorers' League"]] = repfilters.explorersleague
 	RepTable[BFAC["Valiance Expedition"]] = repfilters.valiance
 	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.handofvengeance
 	RepTable[BFAC["The Taunka"]] = repfilters.taunka
