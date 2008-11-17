@@ -3226,8 +3226,9 @@ function addon:CreateFrame(
 			ARL_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
 		local ARL_SearchButton = addon:GenericCreateButton("ARL_SearchButton", addon.Frame,
-			25, 74, "TOPLEFT", ARL_SortButton, "BOTTOMRIGHT", 41, -2, "GameFontNormalSmall",
+			25, 74, "TOPLEFT", ARL_SortButton, "BOTTOMRIGHT", 41, -2, "GameFontDisableSmall",
 			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+			ARL_SearchButton:Disable()
 			ARL_SearchButton:SetScript("OnClick",
 				function(this)
 
@@ -3236,9 +3237,14 @@ function addon:CreateFrame(
 					
 					if (searchtext ~= "") then
 
+						ARL_LastSearchedText = searchtext
+
 						addon:SearchRecipeDB(recipeDB, searchtext)
 						initDisplayStrings()
 						RecipeList_Update()
+
+						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						ARL_SearchButton:Disable()
 
 					end
 
@@ -3261,6 +3267,9 @@ function addon:CreateFrame(
 					-- Make sure to clear the focus of the searchbox
 					ARL_SearchText:ClearFocus()
 
+					-- Make sure to clear text for last search
+					ARL_LastSearchedText = ""
+
 					initDisplayStrings()
 					RecipeList_Update()
 
@@ -3277,9 +3286,14 @@ function addon:CreateFrame(
 					
 					if (searchtext ~= "") then
 
+						ARL_LastSearchedText = searchtext
+
 						addon:SearchRecipeDB(recipeDB, searchtext)
 						initDisplayStrings()
 						RecipeList_Update()
+
+						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						ARL_SearchButton:Disable()
 
 					end
 
@@ -3302,6 +3316,23 @@ function addon:CreateFrame(
 					if (this:GetText() == "") then
 
 						this:SetText(L["SEARCH_BOX_DESC"])
+
+					end
+
+				end
+			)
+			ARL_SearchText:SetScript("OnTextChanged",
+				function(this)
+
+					if (this:GetText() ~= "" and this:GetText() ~= L["SEARCH_BOX_DESC"] and this:GetText() ~= ARL_LastSearchedText) then
+
+						ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
+						ARL_SearchButton:Enable()
+						
+					else
+
+						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						ARL_SearchButton:Disable()
 
 					end
 
