@@ -1006,13 +1006,13 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20014, 1, 11073, 1, 19251)
 
 	-- Enchant Cloak - Superior Defense -- 20015
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20015, 285, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 20015, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 20015, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB, 20015, 2, 12022)
 
 	-- Enchant Shield - Superior Spirit -- 20016
 	-- Trainer
@@ -1024,13 +1024,13 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20016, 1, 11073, 1, 19251)
 
 	-- Enchant Shield - Greater Stamina -- 20017
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20017, 265, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 20017, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 20017, 2, 4229, 2, 4561)
+	self:addTradeFlags(RecipeDB, 20017, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	-- World Drop
@@ -1070,13 +1070,13 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20025, 7, 2)
 
 	-- Enchant Chest - Major Health -- 20026
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20026, 275, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 20026, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 20026, 2, 11189)
+	self:addTradeFlags(RecipeDB, 20026, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Chest - Major Mana -- 20028
 	-- Trainer
@@ -1268,14 +1268,13 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23803, 2, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23804, 300, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 23804, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 23804, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23804, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Gloves - Threat -- 25072
 	-- Raid: 3428 - Ahn'Qiraj
@@ -2491,13 +2490,13 @@ function addon:InitEnchanting(RecipeDB)
 	-- No acquire information
 
 	-- Enchant Gloves - Armsman -- 44625
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 44625, 435, nil, 2, 7411)
-	self:addTradeFlags(RecipeDB, 44625, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 44625, 2, 32514)
+	self:addTradeSkill(RecipeDB, 44625, 425, nil, 1, 7411)
+	self:addTradeFlags(RecipeDB, 44625, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Weapon - Exceptional Spellpower -- 44629
 	-- Trainer

@@ -215,7 +215,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3939, 120, 4372, 1, 4036)
 	self:addTradeFlags(RecipeDB, 3939, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46)
-	self:addTradeAcquire(RecipeDB, 3939, 2, 2682, 2, 6730)
+	self:addTradeAcquire(RecipeDB, 3939, 2, 6730)
 
 	-- Shadow Goggles -- 3940
 	-- World Drop
@@ -310,7 +310,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3952, 140, 4381, 1, 4036)
 	self:addTradeFlags(RecipeDB, 3952, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB, 3952, 2, 2682, 2, 2683, 2, 3495)
+	self:addTradeAcquire(RecipeDB, 3952, 2, 2683, 2, 3495)
 
 	-- Bronze Framework -- 3953
 	-- Trainer
@@ -351,13 +351,13 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3956, 1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Ice Deflector -- 3957
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3957, 155, 4386, 1, 4036)
-	self:addTradeFlags(RecipeDB, 3957, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 3957, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 3957, 2, 2684)
 
 	-- Iron Strut -- 3958
 	-- Trainer
@@ -579,12 +579,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Gnomish Universal Remote -- 9269
 	-- Instance: 721 - type1category3territory2minlevel24nameGnomereganid721maxlevel33
 	-- Mob Drop
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9269, 125, 7506, 1, 4036)
-	self:addTradeFlags(RecipeDB, 9269, 1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB, 9269, 3, 7800)
+	self:addTradeFlags(RecipeDB, 9269, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB, 9269, 3, 7800, 2, 5175, 2, 6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	-- Trainer
@@ -1336,13 +1337,13 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23067, 2, 1304, 2, 5175)
 
 	-- Green Firework -- 23068
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23068, 150, 9313, 1, 4036)
-	self:addTradeFlags(RecipeDB, 23068, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 23068, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 23068, 2, 2838, 2, 3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	-- Vendor
@@ -1372,14 +1373,14 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23071, 1, 8736, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Gyrofreeze Ice Reflector -- 23077
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val15id35
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23077, 260, 18634, 1, 4036)
-	self:addTradeFlags(RecipeDB, 23077, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 23077, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB, 23077, 2, 11185)
 
 	-- Goblin Jumper Cables XL -- 23078
 	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
@@ -1400,13 +1401,13 @@ function addon:InitEngineering(RecipeDB)
 	-- No acquire information
 
 	-- Powerful Seaforium Charge -- 23080
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23080, 275, 18594, 1, 4036)
-	self:addTradeFlags(RecipeDB, 23080, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 23080, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 23080, 2, 11185)
 
 	-- Hyper-Radiant Flame Reflector -- 23081
 	-- Instance: 1583 - type1category3territory1minlevel58nameBlackrock Spireid1583maxlevel60

@@ -482,15 +482,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3491, 1, 1383, 1, 2836, 1, 2998, 1, 3136, 1, 3355, 1, 3478, 1, 4258, 1, 4596, 1, 5511, 1, 10276, 1, 16583, 1, 16669, 1, 16724, 1, 16823, 1, 19341)
 
 	-- Hardened Iron Shortsword -- 3492
-	-- Instance: 721 - type1category3territory2minlevel24nameGnomereganid721maxlevel33
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Sword, 
 	-- Item Stats: 
 	-- Item Stats: val5id3val21-39id7val1.8id8
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3492, 160, 3849, 1, 2018)
-	self:addTradeFlags(RecipeDB, 3492, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
-	self:addTradeAcquire(RecipeDB, 3492, 2, 2843, 2, 3356)
+	self:addTradeFlags(RecipeDB, 3492, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
+	self:addTradeAcquire(RecipeDB, 3492, 2, 3356, 2, 5512)
 
 	-- Jade Serpentblade -- 3493
 	-- World Drop
@@ -510,7 +509,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3494, 155, 3851, 1, 2018)
 	self:addTradeFlags(RecipeDB, 3494, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,70)
-	self:addTradeAcquire(RecipeDB, 3494, 2, 8878, 2, 9179)
+	self:addTradeAcquire(RecipeDB, 3494, 2, 1471, 2, 8878, 2, 9179, 2, 26081)
 
 	-- Golden Iron Destroyer -- 3495
 	-- World Drop
@@ -550,7 +549,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3498, 185, 3855, 1, 2018)
 	self:addTradeFlags(RecipeDB, 3498, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,68)
-	self:addTradeAcquire(RecipeDB, 3498, 2, 1146)
+	self:addTradeAcquire(RecipeDB, 3498, 2, 1146, 2, 2483)
 
 	-- Shadow Crescent Axe -- 3500
 	-- World Drop
@@ -2109,15 +2108,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20872, 2, 12944)
 
 	-- Fiery Chain Shoulders -- 20873
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val10id3val14id4val341id6val25id33
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20873, 300, 16988, 3, 2018)
-	self:addTradeFlags(RecipeDB, 20873, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	self:addTradeAcquire(RecipeDB, 20873, 2, 12944)
+	self:addTradeFlags(RecipeDB, 20873, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	-- No acquire information
 
 	-- Dark Iron Bracers -- 20874
 	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
@@ -2131,15 +2129,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20874, 2, 12944)
 
 	-- Dark Iron Leggings -- 20876
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
 	-- Item Stats: val14id3val863id6val30id33
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 20876, 300, 17013, 3, 2018)
-	self:addTradeFlags(RecipeDB, 20876, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
-	self:addTradeAcquire(RecipeDB, 20876, 2, 12944)
+	self:addTradeFlags(RecipeDB, 20876, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
+	-- No acquire information
 
 	-- Dark Iron Reaver -- 20890
 	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
@@ -2255,37 +2252,34 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23636, 2, 12944)
 
 	-- Dark Iron Gauntlets -- 23637
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
 	-- Item Stats: val12id2val16id3val565id6val28id33
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23637, 300, 19164, 1, 2018)
-	self:addTradeFlags(RecipeDB, 23637, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
-	self:addTradeAcquire(RecipeDB, 23637, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23637, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
+	-- No acquire information
 
 	-- Black Amnesty -- 23638
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Dagger, 
 	-- Item Stats: 
 	-- Item Stats: val53-100id7val1.6id8
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23638, 300, 19166, 1, 2018)
-	self:addTradeFlags(RecipeDB, 23638, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,46,72)
-	self:addTradeAcquire(RecipeDB, 23638, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23638, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,72)
+	-- No acquire information
 
 	-- Blackfury -- 23639
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Weapon, Polearm, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val35id1val15id3val105-158id7val2.1id8val10id33val14id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23639, 300, 19167, 1, 2018)
-	self:addTradeFlags(RecipeDB, 23639, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,71)
-	self:addTradeAcquire(RecipeDB, 23639, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23639, 3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,71)
+	-- No acquire information
 
 	-- Ebon Hand -- 23650
 	-- Trainer
@@ -4246,24 +4240,24 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Reinforced Cobalt Shoulders -- 54978
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
 	-- Item Stats: val28id1val42id3val1052id6val27id29val27id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54978, 375, 40956, 2, 2018)
-	self:addTradeFlags(RecipeDB, 54978, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 54978, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
+	self:addTradeAcquire(RecipeDB, 54978, 3, 27333)
 
 	-- Reinforced Cobalt Helm -- 54979
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
 	-- Item Stats: val40id1val60id3val1197id6val40id29val40id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54979, 375, 40957, 2, 2018)
-	self:addTradeFlags(RecipeDB, 54979, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 54979, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
+	self:addTradeAcquire(RecipeDB, 54979, 3, 26270)
 
 	-- Reinforced Cobalt Legplates -- 54980
 	-- Trainer
@@ -4276,14 +4270,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Reinforced Cobalt Chestpiece -- 54981
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate, 
 	-- Item Stats: 
 	-- Item Stats: val47id1val64id3val1545id6val43id29val38id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54981, 375, 40959, 2, 2018)
-	self:addTradeFlags(RecipeDB, 54981, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 54981, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
+	self:addTradeAcquire(RecipeDB, 54981, 3, 28123)
 
 	-- Saronite Protector -- 55013
 	-- Trainer

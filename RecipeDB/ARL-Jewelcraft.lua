@@ -2589,42 +2589,36 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Quick Dawnstone -- 46403
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val8id30
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46403, 350, 35315, 3, 25229)
-	self:addTradeFlags(RecipeDB, 46403, 1,2,4,5,6,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB, 46403, 6, 1077, 4, 25950, 6, 1077, 4, 27666)
+	self:addTradeFlags(RecipeDB, 46403, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeAcquire(RecipeDB, 46403, 6, 1077, 4, 25950)
 
 	-- Reckless Noble Topaz -- 46404
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val4id30val5id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46404, 350, 35316, 3, 25229)
-	self:addTradeFlags(RecipeDB, 46404, 1,2,4,5,6,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB, 46404, 6, 1077, 4, 25950, 6, 1077, 4, 27666)
+	self:addTradeFlags(RecipeDB, 46404, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeAcquire(RecipeDB, 46404, 6, 1077, 4, 25950)
 
 	-- Forceful Talasite -- 46405
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val6id3val4id30
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 46405, 350, 35318, 3, 25229)
-	self:addTradeFlags(RecipeDB, 46405, 1,2,4,5,6,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB, 46405, 6, 1077, 4, 25950, 6, 1077, 4, 27666)
+	self:addTradeFlags(RecipeDB, 46405, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeAcquire(RecipeDB, 46405, 6, 1077, 4, 25950)
 
 	-- Eternal Earthstorm Diamond -- 46597
 	-- Shattered Sun Offensive - Revered
@@ -2773,16 +2767,14 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Purified Shadowsong Amethyst -- 48789
 	-- Shattered Sun Offensive - Exalted
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Raid: 3457 - Karazhan
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	-- Item Stats: val5id5val6id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 48789, 375, 37503, 1, 25229)
-	self:addTradeFlags(RecipeDB, 48789, 1,2,4,5,6,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB, 48789, 6, 1077, 4, 25950, 6, 1077, 4, 27666)
+	self:addTradeFlags(RecipeDB, 48789, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeAcquire(RecipeDB, 48789, 6, 1077, 4, 25950)
 
 	-- Bold Scarlet Ruby -- 53830
 	-- Vendor
@@ -3103,7 +3095,6 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Deadly Huge Citrine -- 53877
 	-- Knights of the Ebon Blade - Friendly
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -3551,21 +3542,21 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53949, 2, 28721)
 
 	-- Fractured Scarlet Ruby -- 53950
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
 	-- Item Stats: val16id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53950, 390, 40002, 3, 25229)
-	self:addTradeFlags(RecipeDB, 53950, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 53950, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
+	self:addTradeAcquire(RecipeDB, 53950, 3, 29570)
 
 	-- Precise Scarlet Ruby -- 53951
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53951, 380, 40003, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53951, 390, 40003, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53951, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3643,7 +3634,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id31
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53959, 380, 40015, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53959, 390, 40015, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53959, 3,21,22,23,24,25,26,27,28,29,30,36,41,52)
 	-- No acquire information
 
@@ -3699,7 +3690,6 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Glowing Twilight Opal -- 53965
 	-- Knights of the Ebon Blade - Exalted
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -3755,7 +3745,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53970, 380, 40030, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53970, 390, 40030, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53970, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3846,7 +3836,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val8id2
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53979, 380, 40043, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53979, 390, 40043, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53979, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3876,7 +3866,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val8id2val8id30
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53982, 380, 40046, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53982, 390, 40046, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53982, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -3930,7 +3920,6 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Wicked Monarch Topaz -- 53988
 	-- Knights of the Ebon Blade - Revered
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -3990,13 +3979,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53993, 6, 1091, 4, 32533)
 
 	-- Accurate Monarch Topaz -- 53994
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53994, 390, 40058, 3, 25229)
-	self:addTradeFlags(RecipeDB, 53994, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 53994, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 53994, 3, 28379, 3, 28851, 3, 29402)
 
 	-- Timeless Forest Emerald -- 53995
 	-- Trainer
@@ -4004,7 +3993,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id4
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53995, 380, 40085, 3, 25229)
+	self:addTradeSkill(RecipeDB, 53995, 390, 40085, 3, 25229)
 	self:addTradeFlags(RecipeDB, 53995, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -4161,14 +4150,14 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 54011, 2, 28721)
 
 	-- Radiant Forest Emerald -- 54012
-	-- Trainer
+	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54012, 390, 40098, 3, 25229)
-	self:addTradeFlags(RecipeDB, 54012, 3,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 54012, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeAcquire(RecipeDB, 54012, 3, 29792)
 
 	-- Tense Forest Emerald -- 54013
 	-- Vendor
@@ -4205,7 +4194,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: 
 	-- Item Stats: val8id1val8id30
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 54019, 380, 40041, 3, 25229)
+	self:addTradeSkill(RecipeDB, 54019, 390, 40041, 3, 25229)
 	self:addTradeFlags(RecipeDB, 54019, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 

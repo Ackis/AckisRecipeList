@@ -411,14 +411,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3777, 7, 2)
 
 	-- Gem-studded Leather Belt -- 3778
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val8id3val6id5val65id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3778, 185, 4262, 1, 2108)
-	self:addTradeFlags(RecipeDB, 3778, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 3778, 2, 2699)
+	self:addTradeFlags(RecipeDB, 3778, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Barbaric Belt -- 3779
 	-- Instance: 1176 - type1category3territory1minlevel43nameZul'Farrakid1176maxlevel47
@@ -468,24 +468,24 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3818, 1, 1385, 1, 3007, 1, 3365, 1, 3703, 1, 3967, 1, 4212, 1, 4588, 1, 5127, 1, 5564, 1, 8153, 1, 11081, 1, 11084, 1, 11097, 1, 11098, 1, 16688, 1, 16728, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Raptor Hide Harness -- 4096
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val13id3val98id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 4096, 165, 4455, 2, 2108)
-	self:addTradeFlags(RecipeDB, 4096, 2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 4096, 2, 2819)
+	self:addTradeFlags(RecipeDB, 4096, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Raptor Hide Belt -- 4097
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val6id1val6id3val55id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 4097, 165, 4456, 2, 2108)
-	self:addTradeFlags(RecipeDB, 4097, 1,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 4097, 2, 2816)
+	self:addTradeFlags(RecipeDB, 4097, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Kodo Hide Bag -- 5244
 	-- Quest Reward
@@ -534,13 +534,14 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Thick Murloc Armor -- 6704
 	-- Mob Drop
+	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val9id1val8id3val100id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6704, 170, 5782, 2, 2108)
-	self:addTradeFlags(RecipeDB, 6704, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 6704, 3, 938, 3, 1160)
+	self:addTradeFlags(RecipeDB, 6704, 1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB, 6704, 3, 938, 3, 1160, 2, 2393)
 
 	-- Murloc Scale Bracers -- 6705
 	-- Mob Drop
@@ -551,7 +552,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6705, 190, 5783, 2, 2108)
 	self:addTradeFlags(RecipeDB, 6705, 1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 6705, 3, 1561, 2, 2846)
+	self:addTradeAcquire(RecipeDB, 6705, 3, 1561, 2, 4897)
 
 	-- Handstitched Leather Vest -- 7126
 	-- Trainer
@@ -594,14 +595,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7147, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Barbaric Leggings -- 7149
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val7id2val7id3val7id5val87id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7149, 170, 5963, 1, 2108)
-	self:addTradeFlags(RecipeDB, 7149, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 7149, 2, 3958, 2, 4877)
+	self:addTradeFlags(RecipeDB, 7149, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Barbaric Shoulders -- 7151
 	-- Trainer
@@ -645,15 +646,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7953, 2, 5783)
 
 	-- Deviate Scale Gloves -- 7954
-	-- Instance: 718 - type1category3territory4minlevel15nameWailing Cavernsid718maxlevel21
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val3id2val3id3val49id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7954, 105, 6467, 1, 2108)
-	self:addTradeFlags(RecipeDB, 7954, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 7954, 2, 5783)
+	self:addTradeFlags(RecipeDB, 7954, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Deviate Scale Belt -- 7955
 	-- Quest Reward
@@ -892,14 +892,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9201, 1, 3007, 1, 4212, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Green Whelp Bracers -- 9202
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val8id5val47id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9202, 190, 7386, 2, 2108)
-	self:addTradeFlags(RecipeDB, 9202, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 9202, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB, 9202, 2, 7854)
 
 	-- Dusky Belt -- 9206
 	-- Trainer
@@ -1452,17 +1452,17 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19061, 270, 15061, 1, 2108)
 	self:addTradeFlags(RecipeDB, 19061, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 19061, 2, 7852)
+	self:addTradeAcquire(RecipeDB, 19061, 2, 7854)
 
 	-- Ironfeather Shoulders -- 19062
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val20id4val8id5val117id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19062, 270, 15067, 1, 2108)
-	self:addTradeFlags(RecipeDB, 19062, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 19062, 2, 12958)
+	self:addTradeFlags(RecipeDB, 19062, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Chimeric Boots -- 19063
 	-- World Drop
@@ -1495,14 +1495,14 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19065, 1, 11097, 1, 11098, 1, 18754, 1, 18771, 1, 19187, 1, 21087)
 
 	-- Frostsaber Boots -- 19066
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val99id6val12id35val12id36
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 19066, 275, 15071, 1, 2108)
-	self:addTradeFlags(RecipeDB, 19066, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 19066, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB, 19066, 2, 11189)
 
 	-- Stormshroud Pants -- 19067
 	-- Vendor
@@ -2061,7 +2061,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23399, 155, 18948, 1, 2108)
 	self:addTradeFlags(RecipeDB, 23399, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 23399, 2, 4225)
+	self:addTradeAcquire(RecipeDB, 23399, 2, 4225, 2, 4589)
 
 	-- Might of the Timbermaw -- 23703
 	-- Timbermaw Hold - Honored
@@ -2119,37 +2119,34 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23707, 2, 12944)
 
 	-- Chromatic Gauntlets -- 23708
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val318id6val5id33val5id34val5id35val5id36val21id44val44id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23708, 300, 19157, 1, 2108)
-	self:addTradeFlags(RecipeDB, 23708, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	self:addTradeAcquire(RecipeDB, 23708, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23708, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	-- No acquire information
 
 	-- Corehound Belt -- 23709
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val16id4val135id6val12id33val33id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23709, 300, 19162, 1, 2108)
-	self:addTradeFlags(RecipeDB, 23709, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	self:addTradeAcquire(RecipeDB, 23709, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23709, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Molten Belt -- 23710
-	-- Instance: 1584 - type1category3territory1minlevel55nameBlackrock Depthsid1584maxlevel60
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val28id2val16id3val135id6val12id33
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 23710, 300, 19163, 1, 2108)
-	self:addTradeFlags(RecipeDB, 23710, 1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	self:addTradeAcquire(RecipeDB, 23710, 2, 12944)
+	self:addTradeFlags(RecipeDB, 23710, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Primal Batskin Jerkin -- 24121
 	-- Zandalar Tribe - Revered
@@ -4547,7 +4544,6 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Reinforced Quiver -- 60647
 	-- Knights of the Ebon Blade - Honored
-	-- No location information
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket, 
 	-- Item Stats: 
@@ -4688,32 +4684,32 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Eviscerator's Bindings -- 60704
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val39id2val38id3val230id6val26id29val26id44val50id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60704, 420, 43435, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60704, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60704, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60704, 2, 32515)
 
 	-- Eviscerator's Gauntlets -- 60705
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val329id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60705, 425, 43436, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60705, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60705, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60705, 2, 32515)
 
 	-- Eviscerator's Waistguard -- 60706
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val296id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60706, 425, 43437, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60706, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60706, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60706, 2, 32515)
 
 	-- Eviscerator's Legguards -- 60711
@@ -4728,32 +4724,32 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Eviscerator's Treads -- 60712
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val362id6val34id29val34id44val58id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60712, 425, 43439, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60712, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60712, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60712, 2, 32515)
 
 	-- Overcast Headguard -- 60715
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val46id5val428id6val46id29val81id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60715, 420, 43261, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60715, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60715, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60715, 2, 32515)
 
 	-- Overcast Spaulders -- 60716
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val395id6val34id29val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60716, 420, 43262, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60716, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60716, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60716, 2, 32515)
 
 	-- Overcast Chestguard -- 60718
@@ -4768,42 +4764,42 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Overcast Bracers -- 60720
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val39id3val26id4val25id5val230id6val26id29val44id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60720, 420, 43264, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60720, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60720, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60720, 2, 32515)
 
 	-- Overcast Handwraps -- 60721
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val329id6val34id29val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60721, 425, 43265, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60721, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60721, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60721, 2, 32515)
 
 	-- Overcast Belt -- 60723
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val296id6val34id29val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60723, 425, 43266, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60723, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60723, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60723, 2, 32515)
 
 	-- Overcast Leggings -- 60725
 	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val46id5val461id6val46id29val81id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60725, 425, 43271, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60725, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60725, 1,2,4,36,41,47,57)
 	self:addTradeAcquire(RecipeDB, 60725, 2, 32515)
 
 	-- Overcast Boots -- 60727
@@ -4818,22 +4814,22 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Swiftarrow Helm -- 60728
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val46id2val69id3val46id4val952id6val46id29val45id44val92id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60728, 420, 43447, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60728, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60728, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Swiftarrow Shoulderguards -- 60729
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val878id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60729, 420, 43449, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60729, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60729, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Swiftarrow Hauberk -- 60730
@@ -4848,12 +4844,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Swiftarrow Bracers -- 60731
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val26id2val39id3val25id4val512id6val25id29val26id44val50id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60731, 420, 43444, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60731, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60731, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Swiftarrow Gauntlets -- 60732
@@ -4868,52 +4864,52 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Swiftarrow Belt -- 60734
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val659id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60734, 425, 43442, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60734, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60734, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Swiftarrow Leggings -- 60735
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val46id2val69id3val46id4val1025id6val46id29val45id44val92id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60735, 425, 43448, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60735, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60735, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Swiftarrow Boots -- 60737
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val805id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60737, 425, 43443, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60737, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60737, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Stormhide Crown -- 60743
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Vendor
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val952id6val46id29val18id47val80id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60743, 420, 43455, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60743, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 60743, 1,2,4,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 60743, 2, 32515)
 
 	-- Stormhide Shoulders -- 60746
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val878id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60746, 420, 43457, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60746, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60746, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Stormhide Hauberk -- 60747
@@ -4928,52 +4924,52 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Stormhide Wristguards -- 60748
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val37id3val26id4val512id6val26id29val10id47val46id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60748, 420, 43452, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60748, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60748, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Stormhide Grips -- 60749
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val732id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60749, 425, 43454, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60749, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60749, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Stormhide Belt -- 60750
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Vendor
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val659id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60750, 425, 43450, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60750, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 60750, 1,2,4,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 60750, 2, 32515)
 
 	-- Stormhide Legguards -- 60751
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val1025id6val46id29val18id47val80id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60751, 425, 43456, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60751, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60751, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Stormhide Stompers -- 60752
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val805id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60752, 425, 43451, 3, 2108)
-	self:addTradeFlags(RecipeDB, 60752, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60752, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Giantmaim Legguards -- 60754
@@ -5008,12 +5004,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Revenant's Treads -- 60757
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val49id3val51id4val862id6val66id46val77id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60757, 440, 43469, 4, 2108)
-	self:addTradeFlags(RecipeDB, 60757, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 60757, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Trollwoven Spaulders -- 60758
@@ -5038,12 +5034,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Earthgiving Legguards -- 60760
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Leather, 
 	-- Item Stats: 
 	-- Item Stats: val78id3val64id4val89id5val494id6val105id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60760, 440, 43495, 4, 2108)
-	self:addTradeFlags(RecipeDB, 60760, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	self:addTradeFlags(RecipeDB, 60760, 3,36,41,47,57)
 	-- No acquire information
 
 	-- Earthgiving Boots -- 60761
@@ -5108,12 +5104,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Icy Scale Boots -- 61002
 	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Flags: Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val129id3val884id6val86id35
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 61002, 420, 43595, 4, 2108)
-	self:addTradeFlags(RecipeDB, 61002, 3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 61002, 3,36,41,47,58)
 	-- No acquire information
 
 	-- Bracers of Shackled Souls -- 52733

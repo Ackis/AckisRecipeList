@@ -1649,8 +1649,8 @@ $bosszonemap = {
 # Manual entries to the vendor, etc list
 #$vendors[15165] = {:name => "Haughty Modiste"}
 #$vendors[15165][:faction] = 3
-#$quests[2756] = {:name => "The Old Ways"}
-#$quests[2756][:faction] = 2
+$quests[2756] = {:name => "The Old Ways"}
+$quests[2756][:faction] = 2
 
 $debug = false
 

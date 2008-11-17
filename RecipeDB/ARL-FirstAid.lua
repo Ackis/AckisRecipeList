@@ -184,14 +184,13 @@ function addon:InitFirstAid(RecipeDB)
 	-- No acquire information
 
 	-- Heavy Frostweave Bandage -- 45546
-	-- No location information
-	-- Mob Drop
+	-- World Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 45546, 400, 34722, 2, 746)
-	self:addTradeFlags(RecipeDB, 45546, 1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB, 45546, 3, 27871, 3, 29646)
+	self:addTradeFlags(RecipeDB, 45546, 1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 45546, 7, 2)
 
 
 	return recipecount

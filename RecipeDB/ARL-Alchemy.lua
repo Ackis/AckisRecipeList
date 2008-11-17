@@ -320,13 +320,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6618, 2, 3335, 2, 4226)
 
 	-- Free Action Potion -- 6624
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6624, 150, 5634, 1, 2259)
-	self:addTradeFlags(RecipeDB, 6624, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 6624, 1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 6624, 2, 5178)
 
 	-- Elixir of Water Breathing -- 7179
 	-- Trainer
@@ -361,26 +361,26 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7255, 100, 6051, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7255, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7255, 2, 3490)
+	self:addTradeFlags(RecipeDB, 7255, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 7255, 2, 1685, 2, 3134, 2, 3490)
 
 	-- Shadow Protection Potion -- 7256
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7256, 135, 6048, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7256, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7256, 2, 2393, 2, 3956)
+	self:addTradeFlags(RecipeDB, 7256, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Fire Protection Potion -- 7257
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7257, 165, 6049, 1, 2259)
-	self:addTradeFlags(RecipeDB, 7257, 2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7257, 2, 4083)
+	self:addTradeFlags(RecipeDB, 7257, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Frost Protection Potion -- 7258
 	-- Vendor
@@ -389,7 +389,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7258, 190, 6050, 1, 2259)
 	self:addTradeFlags(RecipeDB, 7258, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7258, 2, 2812, 2, 2848)
+	self:addTradeAcquire(RecipeDB, 7258, 2, 2848)
 
 	-- Nature Protection Potion -- 7259
 	-- Vendor
@@ -398,7 +398,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7259, 190, 6052, 1, 2259)
 	self:addTradeFlags(RecipeDB, 7259, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7259, 2, 2848, 2, 8157)
+	self:addTradeAcquire(RecipeDB, 7259, 2, 2848, 2, 5594)
 
 	-- Blackmouth Oil -- 7836
 	-- Trainer
@@ -613,13 +613,13 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Ghost Dye -- 11473
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 11473, 245, 9210, 1, 2259)
-	self:addTradeFlags(RecipeDB, 11473, 3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 11473, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 11473, 2, 8157)
 
 	-- Elixir of Shadow Power -- 11476
 	-- Trainer
@@ -1282,14 +1282,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 28567, 6, 970, 3, 18382)
 
 	-- Transmute: Primal Fire to Earth -- 28568
-	-- The Mag'har - Revered
-	-- Vendor
+	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28568, 350, 22452, 2, 2259)
-	self:addTradeFlags(RecipeDB, 28568, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB, 28568, 6, 941, 3, 20241)
+	self:addTradeFlags(RecipeDB, 28568, 3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Transmute: Primal Water to Air -- 28569
 	-- Cenarion Expedition - Revered
@@ -2059,7 +2058,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 53939, 400, 40214, 1, 2259)
+	self:addTradeSkill(RecipeDB, 53939, 400, 40214, 2, 2259)
 	self:addTradeFlags(RecipeDB, 53939, 3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 

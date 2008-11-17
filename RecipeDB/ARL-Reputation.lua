@@ -59,6 +59,7 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 1052, BFAC["Horde Expedition"]) -- Acquire Flag: 130
 	self:addLookupList(RepDB, 1064, BFAC["The Taunka"]) -- Acquire Flag: 128
 	self:addLookupList(RepDB, 1067, BFAC["The Hand of Vengeance"]) -- Acquire Flag: 127
+	self:addLookupList(RepDB, 1068, BFAC["Explorers' League"]) -- Acquire Flag: 125
 	self:addLookupList(RepDB, 1073, BFAC["The Kalu'ak"]) -- Acquire Flag: 120
 	self:addLookupList(RepDB, 1077, BFAC["Shattered Sun Offensive"]) -- Acquire Flag: 112
 	self:addLookupList(RepDB, 1085, BFAC["Warsong Offensive"]) -- Acquire Flag: 129
