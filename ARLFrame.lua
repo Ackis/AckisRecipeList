@@ -434,7 +434,7 @@ function addon:ShowScanButton()
 
 		addon.ScanButton:SetParent(TradeSkillFrame)
 		addon.ScanButton:ClearAllPoints()
-		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",10,0)
+		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",3,0)
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	end
@@ -476,7 +476,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 86
+	local MaxFilters = 87
 
 	local total = 0
 	local active = 0
@@ -2471,7 +2471,7 @@ function addon.RepFilterSwitch(whichrep)
 
 		addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
 		addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
-		addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -20)
+		addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -4)
 
 	else
 
@@ -4012,12 +4012,12 @@ function addon:CreateFrame(
 				ARL_RepWarsongOffensiveCBText:SetFont(narrowFont, 11)
 			local ARL_RepAllianceVanguardCB = CreateFrame("CheckButton", "ARL_RepAllianceVanguardCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepAllianceVanguardCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 85, 16, 1, 0)
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 86, 16, 1, 0)
 				ARL_RepAllianceVanguardCBText:SetText(BFAC["Alliance Vanguard"])
 				ARL_RepAllianceVanguardCBText:SetFont(narrowFont, 11)
 			local ARL_RepHordeExpeditionCB = CreateFrame("CheckButton", "ARL_RepHordeExpeditionCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepHordeExpeditionCB, addon.Fly_Rep_LK,
-					string.format(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 86, 17, 1, 0)
+					string.format(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 87, 17, 1, 0)
 				ARL_RepHordeExpeditionCBText:SetText(BFAC["Horde Expedition"])
 				ARL_RepHordeExpeditionCBText:SetFont(narrowFont, 11)
 
@@ -4119,8 +4119,8 @@ function addon:CreateFrame(
 			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
-			[85] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
-			[86] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
+			[86] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
+			[87] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
 		}
 
 	end
