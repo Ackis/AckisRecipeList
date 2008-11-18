@@ -3,15 +3,15 @@
 ..\FrameXML\UI.xsd">
 
 <Include file="RecipeDB\ARL-Alchemy.lua"/>
-<Include file="RecipeDB\ARL-BlackSmith.lua"/>
+<Include file="RecipeDB\ARL-Blacksmith.lua"/>
 <Include file="RecipeDB\ARL-Cook.lua"/>
 <Include file="RecipeDB\ARL-Enchant.lua"/>
 <Include file="RecipeDB\ARL-Engineer.lua"/>
 <Include file="RecipeDB\ARL-FirstAid.lua"/>
 <Include file="RecipeDB\ARL-Inscription.lua"/>
 <Include file="RecipeDB\ARL-Jewelcraft.lua"/>
-<Include file="RecipeDB\ARL-LeatherWork.lua"/>
-<Include file="RecipeDB\ARL-RuneForge.lua"/>
+<Include file="RecipeDB\ARL-Leatherwork.lua"/>
+<Include file="RecipeDB\ARL-Runeforge.lua"/>
 <Include file="RecipeDB\ARL-Smelt.lua"/>
 <Include file="RecipeDB\ARL-Tailor.lua"/>
 

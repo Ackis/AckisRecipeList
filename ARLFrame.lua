@@ -33,6 +33,7 @@ local FilterValueMap = {}
 local sortedRecipeIndex = {}
 local DisplayStrings = {}
 local myFaction = ""
+local ApplyFilterState = nil
 
 local narrowFont = nil
 local normalFont = nil
@@ -84,18 +85,17 @@ local arlTooltip2 = _G["arlTooltip2"]
 -- To make tabbing between professions easier
 local SortedProfessions = {
 	{ name = GetSpellInfo(2259),	texture = "alchemy" },		-- 1
-	{ name = GetSpellInfo(5149),	texture = "beast" },		-- 2
-	{ name = GetSpellInfo(2018),	texture = "blacksmith" },	-- 3
-	{ name = GetSpellInfo(2550),	texture = "cooking" },		-- 4
-	{ name = GetSpellInfo(7411),	texture = "enchant" },		-- 5
-	{ name = GetSpellInfo(4036),	texture = "engineer" },		-- 6
-	{ name = GetSpellInfo(746),		texture = "firstaid" },		-- 7
-	{ name = GetSpellInfo(45357),	texture = "inscribe" },		-- 8
-	{ name = GetSpellInfo(25229),	texture = "jewel" },		-- 9
-	{ name = GetSpellInfo(2108),	texture = "leather" },		-- 10
-	{ name = GetSpellInfo(2842),	texture = "poison" },		-- 11
-	{ name = GetSpellInfo(2575),	texture = "smelting" },		-- 12
-	{ name = GetSpellInfo(3908),	texture = "tailor" },		-- 13
+	{ name = GetSpellInfo(2018),	texture = "blacksmith" },	-- 2
+	{ name = GetSpellInfo(2550),	texture = "cooking" },		-- 3
+	{ name = GetSpellInfo(7411),	texture = "enchant" },		-- 4
+	{ name = GetSpellInfo(4036),	texture = "engineer" },		-- 5
+	{ name = GetSpellInfo(746),		texture = "firstaid" },		-- 6
+	{ name = GetSpellInfo(45357),	texture = "inscribe" },		-- 7
+	{ name = GetSpellInfo(25229),	texture = "jewel" },		-- 8
+	{ name = GetSpellInfo(2108),	texture = "leather" },		-- 9
+	{ name = GetSpellInfo(2842),	texture = "poison" },		-- 10
+	{ name = GetSpellInfo(2575),	texture = "smelting" },		-- 11
+	{ name = GetSpellInfo(3908),	texture = "tailor" },		-- 12
 }
 
 local MaxProfessions = 13
@@ -409,6 +409,14 @@ function addon:CreateScanButton()
 		)
 
 	addon.ScanButton:SetText(L["Scan"])
+	addon.ScanButton:SetFrameStrata("PARENT")
+
+	local buttonparent = addon.ScanButton:GetParent()
+	local framelevel = buttonparent:GetFrameLevel()
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	addon.ScanButton:SetFrameLevel(framelevel + 1)
+
 	addon.ScanButton:Enable()
 
 end
@@ -434,12 +442,11 @@ function addon:ShowScanButton()
 
 		addon.ScanButton:SetParent(TradeSkillFrame)
 		addon.ScanButton:ClearAllPoints()
-		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",3,0)
+		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	end
 
-	addon.ScanButton:SetFrameStrata("HIGH")
 	addon.ScanButton:Show()
 
 end
@@ -702,9 +709,47 @@ function addon.filterSwitch(val)
 
 	addon.resetTitle()
 
-	-- Make sure our apply button gets enabled
-	ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
-	ARL_ApplyButton:Enable()
+	if (not ApplyFilterState) then
+
+		ApplyFilterState = {}
+
+	end
+
+	local found = false
+
+	for i,j in pairs(ApplyFilterState) do
+
+		-- We have this value in our filter state, so we're toggling it off again
+		if (j == val) then
+
+			tremove(ApplyFilterState, j)
+			found = true
+			break
+
+		end
+
+	end
+
+	-- New filter we haven't played with before
+	if (not found) then
+
+		tinsert(ApplyFilterState, val)
+
+	end
+
+	-- Make sure our apply button gets enabled if we have a different state than the original
+
+	if (#ApplyFilterState ~= 0) then
+
+		ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
+		ARL_ApplyButton:Enable()
+
+	else
+
+		ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
+		ARL_ApplyButton:Disable()
+	
+	end
 
 end
 
@@ -1879,6 +1924,7 @@ function RecipeList_Update()
 	end
 
 	-- Make sure our apply button gets disabled
+	ApplyFilterState = nil
 	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
 	ARL_ApplyButton:Disable()
 	
@@ -3147,7 +3193,7 @@ function addon:CreateFrame(
 		addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
 		addon.bgTexture:SetAllPoints(addon.Frame)
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-		addon.Frame:SetFrameStrata("MEDIUM")
+		addon.Frame:SetFrameStrata("DIALOG")
 		addon.Frame:SetHitRectInsets(5, 5, 5, 5)
 
 		addon.Frame:EnableMouse(true)
@@ -3364,7 +3410,6 @@ function addon:CreateFrame(
 			ARL_ProgressBar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
 			ARL_ProgressBar:SetOrientation("HORIZONTAL")
 			ARL_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
-			--ARL_ProgressBar:SetFrameStrata("LOW")
 
 			ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
 			ARL_ProgressBar:SetValue(pbCur)
@@ -3420,8 +3465,7 @@ function addon:CreateFrame(
 
 		end
 
-		local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame",
-			addon.Frame, "FauxScrollFrameTemplate")
+		local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
 		ARL_RecipeScrollFrame:SetHeight(322)
 		ARL_RecipeScrollFrame:SetWidth(243)
 		ARL_RecipeScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
@@ -3474,7 +3518,6 @@ function addon:CreateFrame(
 			addon.flyTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-			--addon.Flyaway:SetFrameStrata("LOW")
 			addon.Flyaway:SetHitRectInsets(5, 5, 5, 5)
 
 			addon.Flyaway:EnableMouse(true)
@@ -3492,7 +3535,6 @@ function addon:CreateFrame(
 		addon.Fly_General = CreateFrame("Frame", "addon.Fly_General", addon.Flyaway)
 			addon.Fly_General:SetWidth(210)
 			addon.Fly_General:SetHeight(280)
-			--addon.Fly_General:SetFrameStrata("MEDIUM")
 			addon.Fly_General:EnableMouse(true)
 			addon.Fly_General:EnableKeyboard(true)
 			addon.Fly_General:SetMovable(false)
@@ -3525,7 +3567,6 @@ function addon:CreateFrame(
 		addon.Fly_Obtain = CreateFrame("Frame", "addon.Fly_Obtain", addon.Flyaway)
 			addon.Fly_Obtain:SetWidth(210)
 			addon.Fly_Obtain:SetHeight(280)
-			--addon.Fly_Obtain:SetFrameStrata("MEDIUM")
 			addon.Fly_Obtain:EnableMouse(true)
 			addon.Fly_Obtain:EnableKeyboard(true)
 			addon.Fly_Obtain:SetMovable(false)
@@ -3570,7 +3611,6 @@ function addon:CreateFrame(
 		addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
 			addon.Fly_Binding:SetWidth(210)
 			addon.Fly_Binding:SetHeight(280)
-			--addon.Fly_Binding:SetFrameStrata("MEDIUM")
 			addon.Fly_Binding:EnableMouse(true)
 			addon.Fly_Binding:EnableKeyboard(true)
 			addon.Fly_Binding:SetMovable(false)
@@ -3596,7 +3636,6 @@ function addon:CreateFrame(
 		addon.Fly_Item = CreateFrame("Frame", "addon.Fly_Item", addon.Flyaway)
 			addon.Fly_Item:SetWidth(210)
 			addon.Fly_Item:SetHeight(280)
-			--addon.Fly_Item:SetFrameStrata("MEDIUM")
 			addon.Fly_Item:EnableMouse(true)
 			addon.Fly_Item:EnableKeyboard(true)
 			addon.Fly_Item:SetMovable(false)
@@ -3725,7 +3764,6 @@ function addon:CreateFrame(
 		addon.Fly_Player= CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
 			addon.Fly_Player:SetWidth(112)
 			addon.Fly_Player:SetHeight(280)
-			--addon.Fly_Player:SetFrameStrata("MEDIUM")
 			addon.Fly_Player:EnableMouse(true)
 			addon.Fly_Player:EnableKeyboard(true)
 			addon.Fly_Player:SetMovable(false)
@@ -3749,7 +3787,6 @@ function addon:CreateFrame(
 		addon.Fly_Rep = CreateFrame("Frame", "addon.Fly_Rep", addon.Flyaway)
 			addon.Fly_Rep:SetWidth(112)
 			addon.Fly_Rep:SetHeight(280)
-			--addon.Fly_Rep:SetFrameStrata("MEDIUM")
 			addon.Fly_Rep:EnableMouse(true)
 			addon.Fly_Rep:EnableKeyboard(true)
 			addon.Fly_Rep:SetMovable(false)
@@ -3777,7 +3814,6 @@ function addon:CreateFrame(
 			addon.Fly_Rep_OW= CreateFrame("Frame", "addon.Fly_Rep_OW", addon.Fly_Rep)
 			addon.Fly_Rep_OW:SetWidth(150)
 			addon.Fly_Rep_OW:SetHeight(280)
-			--addon.Fly_Rep_OW:SetFrameStrata("MEDIUM")
 			addon.Fly_Rep_OW:EnableMouse(true)
 			addon.Fly_Rep_OW:EnableKeyboard(true)
 			addon.Fly_Rep_OW:SetMovable(false)
@@ -3817,7 +3853,6 @@ function addon:CreateFrame(
 			addon.Fly_Rep_BC= CreateFrame("Frame", "addon.Fly_Rep_BC", addon.Fly_Rep)
 			addon.Fly_Rep_BC:SetWidth(150)
 			addon.Fly_Rep_BC:SetHeight(280)
-			--addon.Fly_Rep_BC:SetFrameStrata("MEDIUM")
 			addon.Fly_Rep_BC:EnableMouse(true)
 			addon.Fly_Rep_BC:EnableKeyboard(true)
 			addon.Fly_Rep_BC:SetMovable(false)
@@ -3912,7 +3947,6 @@ function addon:CreateFrame(
 			addon.Fly_Rep_LK= CreateFrame("Frame", "addon.Fly_Rep_LK", addon.Fly_Rep)
 			addon.Fly_Rep_LK:SetWidth(150)
 			addon.Fly_Rep_LK:SetHeight(280)
-			--addon.Fly_Rep_LK:SetFrameStrata("MEDIUM")
 			addon.Fly_Rep_LK:EnableMouse(true)
 			addon.Fly_Rep_LK:EnableKeyboard(true)
 			addon.Fly_Rep_LK:SetMovable(false)

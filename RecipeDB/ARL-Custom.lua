@@ -40,6 +40,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 5, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate.")
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
+	self:addLookupList(CustomDB, 8, "Learnt by default when learning the profession.")
 
 end
 

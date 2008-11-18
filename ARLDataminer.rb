@@ -32,6 +32,8 @@ $monsters = Hash.new
 $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
+$instancemobs = Array.new
+$missingdataacquire = Hash.new
 
 # Creates the faction database
 
@@ -145,7 +147,7 @@ EOF
 
 			if $reps[k][:flag]
 
-				replua.puts "\tself:addLookupList(RepDB, #{$reps[k][:id]}, BFAC[\"#{k}\"]) -- Acquire Flag: #{$reps[k][:flag]}"
+				replua.puts "\tself:addLookupList(RepDB, #{$reps[k][:id]},BFAC[\"#{k}\"]) -- Acquire Flag: #{$reps[k][:flag]}"
 
 			end
 
@@ -210,6 +212,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 5, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate.")
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
+	self:addLookupList(CustomDB, 8, "Learnt by default when learning the profession.")
 
 end
 
@@ -538,11 +541,13 @@ EOF
 
 										flags << 5
 										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										$instancemobs << npc[:name]
 
 									elsif $raids[loc]
 
 										flags << 6
 										proflua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+										$instancemobs << npc[:name]
 
 									else
 
@@ -655,7 +660,7 @@ EOF
 				if classes.has_key?(ctype)
 
 					flags << classes[ctype]
-					proflua.print("#{ctype}, ")
+					proflua.print("#{ctype},")
 
 				end
 
@@ -716,14 +721,14 @@ EOF
 
 			unless details[:weapon_hands].nil?
 
-				proflua.print("#{details[:weapon_hands]}, ")
+				proflua.print("#{details[:weapon_hands]},")
 				flags << weapons[details[:weapon_hands]]
 
 			end
 
 			unless details[:weapon_slot].nil?
 
-				proflua.print("#{details[:weapon_slot]}, ")
+				proflua.print("#{details[:weapon_slot]},")
 				flags << weapons[details[:weapon_slot]]
 
 			end
@@ -739,7 +744,7 @@ EOF
 
 			unless details[:armor_type].nil?
 
-				proflua.print("#{details[:armor_type]}, ")
+				proflua.print("#{details[:armor_type]},")
 				flags << armors[details[:armor_type]]
 
 			end
@@ -772,6 +777,10 @@ EOF
 				flags.delete(4)
 				flags.delete(5)
 				flags.delete(6)
+
+			when "Trainer"
+
+				acquire << {"type" => 8, "id" => 8}
 
 			when "meleedps"
 
@@ -917,12 +926,12 @@ EOF
 
 		end
 
-		proflua.print("self:addTradeSkill(RecipeDB, #{details[:spellid]}, ")
+		proflua.print("self:addTradeSkill(RecipeDB, #{details[:spellid]},")
 
 		# If we have a skill which it's learned at, we'll use it, if not use 1
 		if details[:learned]
 
-			proflua.print("#{details[:learned]}, ")
+			proflua.print("#{details[:learned]},")
 
 		else
 
@@ -932,7 +941,7 @@ EOF
 
 		if details[:produces]
 
-			proflua.print("#{details[:produces].first}, ")
+			proflua.print("#{details[:produces].first},")
 
 		else
 
@@ -942,7 +951,7 @@ EOF
 
 		if details[:rarity]
 
-			proflua.print("#{details[:rarity]}, ")
+			proflua.print("#{details[:rarity]},")
 
 		else
 
@@ -983,7 +992,7 @@ EOF
 
 			end
 
-			proflua.puts "self:addTradeFlags(RecipeDB, #{details[:spellid]}, #{flags.join(",")})"
+			proflua.puts "self:addTradeFlags(RecipeDB, #{details[:spellid]},#{flags.join(",")})"
 
 		end
 
@@ -993,6 +1002,7 @@ EOF
 		if acquire.length == 0 
 
 			proflua.puts "\t-- No acquire information"
+			$missingdataacquire[details[:spellid]] = {:sname => name, :data => details, :sprof => profession}
 
 		else
 
@@ -1023,7 +1033,7 @@ EOF
 			end
 
 
-			proflua.puts "self:addTradeAcquire(RecipeDB, #{details[:spellid]}, #{temp.join(", ")})"
+			proflua.puts "self:addTradeAcquire(RecipeDB, #{details[:spellid]},#{temp.join(", ")})"
 
 		end
 	 
@@ -1074,7 +1084,7 @@ Project version: @project-version@
 
 Format:
 
-	self:addLookupList(#{db}, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	self:addLookupList(#{db},NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 
 ************************************************************************
 
@@ -1155,7 +1165,7 @@ EOF
 			if type == "Monster"
 
 				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db}, #{k}, ")
+				lookup_lua.print("self:addLookupList(#{db},#{k},")
 
 				if $bosslist.include?(v[:name])
 
@@ -1191,7 +1201,7 @@ EOF
 
 				if x and y
 
-					lookup_lua.print("#{x}, #{y})")
+					lookup_lua.print("#{x},#{y})")
 
 				else
 
@@ -1204,7 +1214,7 @@ EOF
 			else
 
 				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db}, #{k}, L[\"#{v[:name]}\"], ")
+				lookup_lua.print("self:addLookupList(#{db},#{k},L[\"#{v[:name]}\"], ")
 
 				if locs.keys[0]
 
@@ -1218,7 +1228,7 @@ EOF
 
 				if x and y
 
-					lookup_lua.print("#{x}, #{y}, ")
+					lookup_lua.print("#{x},#{y},")
 
 				else
 
@@ -1585,24 +1595,53 @@ EOF
 
 end
 
-def create_unknownzone_list()
+# Provides a document containing statistics
 
-	puts "\nGenerating Ubknown file .. #{$unknownzone.length} strings to process"
+def create_stats_list()
+
+	puts "\nGenerating stats file..."
 
 	$unknownzone.compact!
 	$unknownzone.uniq!
 	$unknownzone.sort!
 
-	zone_lua = File.open("UnknownZone.lua", "w:utf-8")
+	stats_lua = File.open("RecipeStats.txt", "w:utf-8")
+
+	stats_lua.puts("Unknown zones:")
 
 	$unknownzone.each do |k|
 
-		zone_lua.puts "\t\"#{k}\" = "
+		stats_lua.puts "\t{\"#{k}\" => \"\"},"
 
 	end
 
-	zone_lua.puts "\n"
-	zone_lua.close
+	stats_lua.puts "\n"
+
+	stats_lua.puts("Instance mobs:")
+
+	$instancemobs.compact!
+	$instancemobs.uniq!
+	$instancemobs.sort!
+
+	$instancemobs.each do |k|
+
+		stats_lua.puts "\t\"#{k}\","
+
+	end
+
+	stats_lua.puts "\n"	
+
+	stats_lua.puts("No acquire information:")
+
+	$missingdataacquire.each_pair do |k,l|
+
+		stats_lua.puts "#{k} - #{l[:sname]} - #{l[:sprof]}"
+
+	end
+
+	stats_lua.puts "\n"	
+
+	stats_lua.close
 
 end
 
@@ -1643,48 +1682,289 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Nightbane","Murmur"]
 
 $bosszonemap = {
-
+	{"Abomination" => "Hyjal Summit"},
+	{"Akil'zon" => "Zul'Aman"},
+	{"Amani Dragonhawk" => "Zul'Aman"},
+	{"Amani Elder Lynx" => "Zul'Aman"},
+	{"Amani'shi Axe Thrower" => "Zul'Aman"},
+	{"Amani'shi Beast Tamer" => "Zul'Aman"},
+	{"Amani'shi Guardian" => "Zul'Aman"},
+	{"Amani'shi Handler" => "Zul'Aman"},
+	{"Amani'shi Scout" => "Zul'Aman"},
+	{"Amani'shi Tribesman" => "Zul'Aman"},
+	{"Amani'shi Warbringer" => "Zul'Aman"},
+	{"Amani'shi Wind Walker" => "Zul'Aman"},
+	{"Anetheron" => "Hyjal Summit"},
+	{"Anguished Dead" => "Scarlet Monastery"},
+	{"Anvilrage Captain" => "Blackrock Depths"},
+	{"Anvilrage Marshal" => "Blackrock Depths"},
+	{"Anvilrage Overseer" => "Blackrock Depths"},
+	{"Anvilrage Soldier" => "Blackrock Depths"},
+	{"Apocalypse Guard" => "Sunwell Plateau"},
+	{"Arcane Anomaly" => "Karazhan"},
+	{"Arcane Protector" => "Karazhan"},
+	{"Arcatraz Sentinel" => "The Arcatraz"},
+	{"Archimonde" => "Hyjal Summit"},
+	{"Atal'ai Deathwalker" => "Sunken Temple"},
+	{"Atal'ai Warrior" => "Sunken Temple"},
+	{"Atal'ai Witch Doctor" => "Sunken Temple"},
+	{"Attumen the Huntsman" => "Karazhan"},
+	{"Auchenai Monk" => "Auchenai Crypts"},
+	{"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj"},
+	{"Azgalor" => "Hyjal Summit"},
+	{"Bannok Grimaxe" => "Blackrock Spire"},
+	{"Banshee" => "Hyjal Summit"},
+	{"Baron Geddon" => "Molten Core"},
+	{"Battleguard Sartura" => "Temple of Ahn'Qiraj"},
+	{"Blackhand Elite" => "Blackrock Spire"},
+	{"Blackheart the Inciter" => "Shadow Labyrinth"},
+	{"Bleeding Hollow Darkcaster" => "Hellfire Ramparts"},
+	{"Bloodhound" => "Blackrock Depths"},
+	{"Bloodwarder Legionnaire" => "The Eye"},
+	{"Bloodwarder Vindicator" => "The Eye"},
+	{"Bog Giant" => "The Underbog"},
+	{"Bonechewer Destroyer" => "Hellfire Ramparts"},
+	{"Burrowing Thundersnout" => "Blackrock Depths"},
+	{"Buru the Gorger" => "Ruins of Ahn'Qiraji"},
+	{"Cabal Acolyte" => "Shadow Labyrinth"},
+	{"Cabal Cultist" => "Shadow Labyrinth"},
+	{"Cabal Fanatic" => "Shadow Labyrinth"},
+	{"Cabal Spellbinder" => "Shadow Labyrinth"},
+	{"Cannon Master Willey" => "Stratholme"},
+	{"Captain Skarloc" => "Old Hillsbrad Foothills"},
+	{"Cataclysm Hound" => "Sunwell Plateau"},
+	{"Chrono Lord Deja" => "The Black Morass"},
+	{"Cobalt Serpent" => "Sethekk Halls"},
+	{"Coilfang Champion" => "The Slave Pens"},
+	{"Coilfang Hate-Screamer" => "Serpentshrine Cavern"},
+	{"Coilfang Myrmidon" => "The Steamvault"},
+	{"Coilfang Oracle" => "The Steamvault"},
+	{"Coilfang Serpentguard" => "Serpentshrine Cavern"},
+	{"Coilfang Shatterer" => "Serpentshrine Cavern"},
+	{"Coilfang Siren" => "The Steamvault"},
+	{"Coilfang Sorceress" => "The Steamvault"},
+	{"Coilfang Technician" => "The Slave Pens"},
+	{"Coilfang Warrior" => "The Steamvault"},
+	{"Coilskar Sea-Caller" => "Black Temple"},
+	{"Commander Sarannis" => "The Botanica"},
+	{"Crimson Inquisitor" => "Stratholme"},
+	{"Crimson Sorcerer" => "Stratholme"},
+	{"Crypt Fiend" => "Hyjal Summit"},
+	{"Crystalcore Mechanic" => "The Eye"},
+	{"Dalliah the Doomsayer" => "The Arcatraz"},
+	{"Dark Screecher" => "Blackrock Depths"},
+	{"Darkmaster Gandling" => "Scholomance"},
+	{"Darkwater Crocolisk" => "Tanaris"},
+	{"Darkweaver Syth" => "Sethekk Halls"},
+	{"Deep Stinger" => "Blackrock Depths"},
+	{"Defias Pirate" => "The Deadmines"},
+	{"Defias Squallshaper" => "The Deadmines"},
+	{"Don Carlos" => "Old Hillsbrad Foothills"},
+	{"Doomfire Destroyer" => "Sunwell Plateau"},
+	{"Doomforge Craftsman" => "Blackrock Depths"},
+	{"Doomforge Dragoon" => "Blackrock Depths"},
+	{"Dragonmaw Wind Reaver" => "Black Temple"},
+	{"Durnholde Lookout" => "Old Hillsbrad Foothills"},
+	{"Durnholde Rifleman" => "Old Hillsbrad Foothills"},
+	{"Durnholde Tracking Hound" => "Old Hillsbrad Foothills"},
+	{"Emperor Vek'lor" => "Temple of Ahn'Qiraj"},
+	{"Emperor Vek'nilash" => "Temple of Ahn'Qiraj"},
+	{"Epoch Hunter" => "Old Hillsbrad Foothills"},
+	{"Eredar Deathbringer" => "The Arcatraz"},
+	{"Ethereal Priest" => "Mana-tombs"},
+	{"Ethereal Scavenger" => "Mana-tombs"},
+	{"Ethereal Spellbinder" => "Mana-tombs"},
+	{"Ethereal Thief" => "Karazhan"},
+	{"Ethereum Smuggler" => "Magister's Terrace"},
+	{"Exarch Maladaar" => "Auchenai Crypts"},
+	{"Fankriss the Unyielding" => "Temple of Ahn'Qiraj"},
+	{"Fel Orc Convert" => "The Shattered Halls"},
+	{"Fel Rager" => "Bladge's Edge Mountains"},
+	{"Fel Stalker" => "Hyjal Summit"},
+	{"Felguard Annihilator" => "The Blood Furnace"},
+	{"Firebrand Grunt" => "Blackrock Spire"},
+	{"Firebrand Invoker" => "Blackrock Spire"},
+	{"Firebrand Legionnaire" => "Blackrock Spire"},
+	{"Firebrand Pyromancer" => "Blackrock Spire"},
+	{"Fleshbeast" => "Karazhan"},
+	{"Frost Wyrm" => "Hyjal Summit"},
+	{"Gargantuan Abyssal" => "The Arcatraz"},
+	{"Gargoyle" => "Hyjal Summit"},
+	{"Garr" => "Molten Core"},
+	{"Gehennas" => "Molten Core"},
+	{"General Drakkisath" => "Blackrock Spire"},
+	{"General Rajaxx" => "Ruins of Ahn'Qiraj"},
+	{"Ghaz'an" => "The Underbog"},
+	{"Ghostly Philanthropist" => "Karazhan"},
+	{"Ghostly Steward" => "Karazhan"},
+	{"Ghoul" => "Hyjal Summit"},
+	{"Giant Infernal" => "Hyjal Summit"},
+	{"Golem Lord Argelmach" => "Blackrock Depths"},
+	{"Golemagg the Incinerator" => "Molten Core"},
+	{"Goraluk Anvilcrack" => "Blackrock Spire"},
+	{"Grand Warlock Nethekurse" => "The Shattered Halls"},
+	{"Greater Bogstrok" => "The Slave Pens"},
+	{"Greater Fleshbeast" => "Karazhan"},
+	{"Grizzle" => "Blackrock Depths"},
+	{"Gronn-Priest" => "Gruul's Lair"},
+	{"Halazzi" => "Zul'Aman"},
+	{"Hammered Patron" => "Blackrock Depths"},
+	{"Hex Lord Malacrass" => "Zul'Aman"},
+	{"High Botanist Freywinn" => "The Botanica"},
+	{"Homunculus" => "Karazhan"},
+	{"Hydromancer Thespia" => "The Steamvault"},
+	{"Ironbark Protector" => "Dire Maul"},
+	{"Jan'alai" => "Zul'Aman"},
+	{"Kaz'rogal" => "Hyjal Summit"},
+	{"Kurinnaxx" => "Ruins of Ahn'Qiraj"},
+	{"Lord Kazzak" => "Blasted Lands"},
+	{"Lord Kri" => "Temple of Ahn'Qiraj"},
+	{"Lord Roccor" => "Blackrock Depths"},
+	{"Loro" => "Sunken Temple"},
+	{"Lucifron" => "Molten Core"},
+	{"Magical Horror" => "Karazhan"},
+	{"Magister Kalendris" => "Dire Maul"},
+	{"Magmadar" => "Molten Core"},
+	{"Maleki the Pallid" => "Stratholme"},
+	{"Mana Warp" => "Karazhan"},
+	{"Mechano-Lord Capacitus" => "The Mechanar"},
+	{"Mekgineer Steamrigger" => "The Steamvault"},
+	{"Mekgineer Thermaplugg" => "Gnomeregan"},
+	{"Mennu the Betrayer" => "The Slave Pens"},
+	{"Midnight" => "Karazhan"},
+	{"Mijan" => "Sunken Temple"},
+	{"Moam" => "Ruins of Ahn'Qiraj"},
+	{"Moroes" => "Karazhan"},
+	{"Murk Worm" => "Sunken Temple"},
+	{"Murmur" => "Shadow Labyrinth"},
+	{"Nalorakk" => "Zul'Aman"},
+	{"Nethermancer Sepethrea" => "The Mechanar"},
+	{"Nethervine Inciter" => "The Botanica"},
+	{"Nexus Stalker" => "Mana-tombs"},
+	{"Nexus-Prince Shaffar" => "Mana-tombs"},
+	{"Nightbane" => "Karazhan"},
+	{"Oblivion Mage" => "Sunwell Plateau"},
+	{"Onyxia" => "Onyxia's Lair"},
+	{"Ossirian the Unscarred" => "Ruins of Ahn'Qiraj"},
+	{"Ouro" => "Temple of Ahn'Qiraj"},
+	{"Painbringer" => "Sunwell Plateau"},
+	{"Pathaleon the Calculator" => "The Mechanar"},
+	{"Phantom Attendant" => "Karazhan"},
+	{"Phantom Guardsman" => "Karazhan"},
+	{"Phantom Guest" => "Karazhan"},
+	{"Phantom Stagehand" => "Karazhan"},
+	{"Phantom Valet" => "Karazhan"},
+	{"Phoenix-Hawk" => "The Eye"},
+	{"Phoenix-Hawk Hatchling" => "The Eye"},
+	{"Plugger Spazzring" => "Blackrock Depths"},
+	{"Priestess Delrissa" => "Magisters' Terrace"},
+	{"Priestess of Torment" => "Sunwell Plateau"},
+	{"Princess Huhuran" => "Temple of Ahn'Qiraj"},
+	{"Princess Yauj" => "Temple of Ahn'Qiraj"},
+	{"Pusillin" => "Dire Maul"},
+	{"Pyromancer Loregrain" => "Blackrock Depths"},
+	{"Quartermaster Zigris" => "Blackrock Spire"},
+	{"Rabid Warhound" => "The Shattered Halls"},
+	{"Rage Talon Dragon Guard" => "Blackrock Spire"},
+	{"Rage Winterchill" => "Hyjal Summit"},
+	{"Raging Skeleton" => "Auchenai Crypts"},
+	{"Ribbly Screwspigot" => "Blackrock Depths"},
+	{"Ribbly's Crony" => "Blackrock Depths"},
+	{"Rift Keeper" => "The Black Morass"},
+	{"Rift Lord" => "The Black Morass"},
+	{"Risen Bonewarder" => "Scholomance"},
+	{"Risen Construct" => "Scholomance"},
+	{"Sable Jaguar" => "The Black Morass"},
+	{"Sandfury Blood Drinker" => "Zul'Farrak"},
+	{"Sandfury Shadowcaster" => "Zul'Farrak"},
+	{"Scarlet Adept" => "Scarlet Monastery"},
+	{"Scarlet Centurion" => "Scarlet Monastery"},
+	{"Scarlet Gallant" => "Scarlet Monastery"},
+	{"Scarlet Monk" => "Scarlet Monastery"},
+	{"Scarlet Protector" => "Scarlet Monastery"},
+	{"Scholomance Adept" => "Scholomance"},
+	{"Scholomance Necromancer" => "Scholomance"},
+	{"Serpentshrine Sporebat" => "Serpentshrine Cavern"},
+	{"Sethekk Initiate" => "Sethekk Halls"},
+	{"Sethekk Prophet" => "Sethekk Halls"},
+	{"Sethekk Ravenguard" => "Sethekk Halls"},
+	{"Shade of Aran" => "Karazhan"},
+	{"Shadow Pillager" => "Karazhan"},
+	{"Shadowforge Peasant" => "Blackrock Depths"},
+	{"Shadowmoon Reaver" => "Black Temple"},
+	{"Shadowsword Assassin" => "Sunwell Plateau"},
+	{"Shadowsword Guardian" => "Sunwell Plateau"},
+	{"Shadowsword Vanquisher" => "Sunwell Plateau"},
+	{"Shadowy Necromancer" => "Hyjal Summit"},
+	{"Shattered Hand Centurion" => "The Shattered Halls"},
+	{"Shattered Hand Reaver" => "The Shattered Halls"},
+	{"Shazzrah" => "Molten Core"},
+	{"Shrike Bat" => "Uldaman"},
+	{"Skeletal Usher" => "Karazhan"},
+	{"Solakar Flamewreath" => "Blackrock Spire"},
+	{"Sorcerous Shade" => "Karazhan"},
+	{"Spawn of Hakkar" => "Sunken Temple"},
+	{"Spectral Charger" => "Karazhan"},
+	{"Spectral Performer" => "Karazhan"},
+	{"Spectral Researcher" => "Scholomance"},
+	{"Spectral Servant" => "Karazhan"},
+	{"Spectral Stable Hand" => "Karazhan"},
+	{"Spectral Stallion" => "Karazhan"},
+	{"Spell Shade" => "Karazhan"},
+	{"Spirestone Warlord" => "Blackrock Spire"},
+	{"Splinterbone Centurion" => "Razorfen Downs"},
+	{"Stonevault Oracle" => "Uldaman"},
+	{"Stonevault Pillager" => "Uldaman"},
+	{"Sunblade Arch Mage" => "Sunwell Plateau"},
+	{"Sunblade Blood Knight" => "Magisters' Terrace"},
+	{"Sunblade Cabalist" => "Sunwell Plateau"},
+	{"Sunblade Dawn Priest" => "Sunwell Plateau"},
+	{"Sunblade Dusk Priest" => "Sunwell Plateau"},
+	{"Sunblade Mage Guard" => "Magisters' Terrace"},
+	{"Sunblade Protector" => "Sunwell Plateau"},
+	{"Sunblade Slayer" => "Sunwell Plateau"},
+	{"Sunblade Vindicator" => "Sunwell Plateau"},
+	{"Sunseeker Astromage" => "The Mechanar"},
+	{"Sunseeker Botanist" => "The Botanica"},
+	{"Sunseeker Harvester" => "The Botanica"},
+	{"Syphoner" => "Karazhan"},
+	{"Terestian Illhoof" => "Karazhan"},
+	{"The Crone" => "Karazhan"},
+	{"The Prophet Skeram" => "Temple of Ahn'Qiraj"},
+	{"Thorngrin the Tender" => "The Botanica"},
+	{"Thuzadin Shadowcaster" => "Stratholme"},
+	{"Time-Lost Shadowmage" => "Sethekk Halls"},
+	{"Twilight Darkcaster" => "Ahn'kahet: The Old Kingdom"},
+	{"Twilight Emissary" => "Blackrock Depths"},
+	{"Unchained Doombringer" => "The Arcatraz"},
+	{"Underbat" => "The Underbog"},
+	{"Unliving Atal'ai" => "Sunken Temple"},
+	{"Vashj'ir Honor Guard" => "Serpentshrine Cavern"},
+	{"Vem" => "Temple of Ahn'Qiraj"},
+	{"Viscidus" => "Temple of Ahn'Qiraj"},
+	{"Warlord Kalithresh" => "The Steamvault"},
+	{"Warp Splinter" => "The Botanica"},
+	{"Weapon Technician" => "Blackrock Depths"},
+	{"Wrath Hammer Construct" => "Blackrock Depths"},
+	{"Zul'jin" => "Zul'Aman"},
+	{"Zulian Tiger" => "Zul'Gurub"},
 }
 
-# Manual entries to the vendor, etc list
-#$vendors[15165] = {:name => "Haughty Modiste"}
-#$vendors[15165][:faction] = 3
-$quests[2756] = {:name => "The Old Ways"}
-$quests[2756][:faction] = 2
-
-$debug = false
+$debug = true
 
 if $debug
 
 	create_custom_db()
 	create_faction_db()
 
-	alchemy = recipes.get_alchemy_list
-	alchspeciallist = {
-		28580 => {:id => 12, :type => [3]},
-		28581 => {:id => 12, :type => [3]},
-		28582 => {:id => 12, :type => [3]},
-		28583 => {:id => 12, :type => [3]},
-		28584 => {:id => 12, :type => [3]},
-		28585 => {:id => 12, :type => [3]},
-		28586 => {:id => 12, :type => [2]},
-		28587 => {:id => 12, :type => [1]},
-		28588 => {:id => 12, :type => [1]},
-		28589 => {:id => 12, :type => [1]},
-		28590 => {:id => 12, :type => [1]},
-		28591 => {:id => 12, :type => [1]},
-		41458 => {:id => 12, :type => [4]},
-		41500 => {:id => 12, :type => [4]},
-		41501 => {:id => 12, :type => [4]},
-		41502 => {:id => 12, :type => [4]},
-		41503 => {:id => 12, :type => [4]},
-		21923 => {:id => 7, :type => 1},
-		47050 => {:id => "meleedps"},
+	runeforging = recipes.get_runeforging_list
+	runeforgingspecaillist = {
 		}
-	alchmanual=<<EOF
-
+	runeforgingmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
+	create_profession_db("./RecipeDB/ARL-Runeforge.lua","Runeforging",recipes,maps,"InitRuneforging",runeforging,[],runeforgingspecaillist,runeforgingmanual)
+
+	#create_stats_list()
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -1740,8 +2020,13 @@ EOF
 	self:addTradeFlags(RecipeDB, 9957, 2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	self:addTradeAcquire(RecipeDB, 9957, 4, 2756)
 EOF
+
+	# Add the Orcish War Leggings quest
+	$quests[2756] = {:name => "The Old Ways"}
+	$quests[2756][:faction] = 2
+
 	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
-	create_profession_db("./RecipeDB/ARL-BlackSmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
+	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
@@ -1839,6 +2124,7 @@ EOF
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
+		3275 => {:id => "Trainer"},
 		}
 	famanual=<<EOF
 EOF
@@ -1879,7 +2165,7 @@ EOF
 	self:addTradeAcquire(RecipeDB, 52733, 6, 1012, 1, 23159)
 
 EOF
-	create_profession_db("./RecipeDB/ARL-LeatherWork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual)
+	create_profession_db("./RecipeDB/ARL-Leatherwork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual)
 
 	smelting = recipes.get_mining_list
 	smeltingspecaillist = {
@@ -1895,6 +2181,13 @@ EOF
 EOF
 	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
 
+	runeforging = recipes.get_runeforging_list
+	runeforgingspecaillist = {
+		}
+	runeforgingmanual=<<EOF
+EOF
+	create_profession_db("./RecipeDB/ARL-Runeforge.lua","Runeforging",recipes,maps,"InitRuneforging",runeforging,[],runeforgingspecaillist,runeforgingmanual)
+
 	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
 	create_lookup_db("./RecipeDB/ARL-Vendor.lua","Vendor","VendorDB","InitVendor",$vendors,maps,[])
@@ -1905,7 +2198,7 @@ EOF
 
 	create_localization_db()
 
-	create_unknownzone_list()
+	create_stats_list()
 
 end
 
