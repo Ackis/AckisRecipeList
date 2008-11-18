@@ -1092,6 +1092,7 @@ local function fullOptions()
 							set		= function( info, v ) 
 										addon.db.profile.tooltipscale = v
 										if ( arlTooltip ) then arlTooltip:SetScale( v ) end
+										if ( arlTooltip2 ) then arlTooltip:SetScale( v ) end
 									  end,
 						},
 						spacer2 = {
