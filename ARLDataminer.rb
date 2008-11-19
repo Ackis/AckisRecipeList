@@ -429,7 +429,7 @@ EOF
 									if $dungeons[loc]
 
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
 
 									end
 
@@ -490,7 +490,7 @@ EOF
 									if $dungeons[loc]
 
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
 
 									end
 
@@ -541,7 +541,7 @@ EOF
 									if $dungeons[loc]
 
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
 										$instancemobs << npc[:name]
 
 									elsif $raids[loc]
@@ -1721,6 +1721,48 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Nightbane","Murmur"]
 
 $bosszonemap = {
+	#"40 Tickets - Schematic: Steam Tonk Controller" => "",
+	"A Binding Contract" => "Blackrock Depths",
+	"Aged Dalaran Wizard" => "Old Hillsbrad Foothills",
+	"Amani'shi Flame Caster" => "Zul'Aman",
+	"Annora" => "Uldaman",
+	"Anub'arak" => "Azjol-Nerub",
+	"Cluster Launcher" => "Moonglade",
+	"Cyanigosa" => "The Violet Hold",
+	"Drakkari Bat" => "Drak'Tharon Keep",
+	"Drakkari Earthshaker" => "Gundrak",
+	"Enchanted Thorium Platemail: Volume I" => "Dire Maul",
+	"Enchanted Thorium Platemail: Volume II" => "Dire Maul",
+	"Enchanted Thorium Platemail: Volume III" => "Dire Maul",
+	"Festive Recipes" => "Moonglade",
+	"Firework Launcher" => "Moonglade",
+	"Flash Bomb Recipe" => "Badlands",
+	"Flesheating Ghoul" => "Drak'Tharon Keep",
+	"Herald Volazj" => "Ahn'kahet: The Old Kingdom",
+	"Imperial Plate Belt" => "Tanaris",
+	"Imperial Plate Boots" => "Tanaris",
+	"Imperial Plate Bracer" => "Tanaris",
+	"Imperial Plate Chest" => "Tanaris",
+	"Imperial Plate Helm" => "Tanaris",
+	"Imperial Plate Leggings" => "Tanaris",
+	"Imperial Plate Shoulders" => "Tanaris",
+	"Indormi" => "Hyjal Summit",
+	"Ingvar the Plunderer" => "Howling Fjord",
+	"Keristrasza" => "Borean Tundra",
+	"King Ymiron" => "Howling Fjord",
+	"Koren" => "Karazhan",
+	"Lieutenant General Andorov" => "Ruins of Ahn'Qiraj",
+	"Loken" => "The Storm Peaks",
+	"Lokhtos Darkbargainer" => "Blackrock Depths",
+	"Okuno" => "Black Temple",
+	"Risen Drakkari Soulmage" => "Drak'Tharon Keep",
+	"Risen Drakkari Warrior" => "Drak'Tharon Keep",
+	"Shen'dralar Provisioner" => "Dire Maul",
+	"Sister of Torment" => "Magisters' Terrace",
+	"The Prophet Tharon'ja" => "Grizzly Hills",
+	"Thomas Yance" => "Old Hillsbrad Foothills",
+	"Twilight Worshipper" => "Ahn'kahet: The Old Kingdom",
+	"Ythyar" => "Karazhan",
 	"Abomination" => "Hyjal Summit",
 	"Akil'zon" => "Zul'Aman",
 	"Amani Dragonhawk" => "Zul'Aman",
