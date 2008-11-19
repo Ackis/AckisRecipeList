@@ -1754,21 +1754,88 @@ $proftable = {"Alchemy" 			=> 2259,
 				"Runeforging"		=> 28481
 				}
 
-$bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare",
-	"Chrono Lord Deja","Emeriss","Emperor Vek\'nilash","Garr","Gehennas","Golem Lord Argelmach",
-	"Golemagg the Incinerator","Goraluk Anvilcrack","Gyth","Hex Lord Malacrass","High Botanist Freywinn",
-	"Hydromancer Thespia","Ras Frostwhisper","Onyxia","General Drakkisath","Balnazzar","Cannon Master Willey",
-	"Magmadar","Shazzrah","Lord Kazzak","Pusillin","Darkmaster Gandling","Mijan","Pyromancer Loregrain",
-	"Lord Roccor","Overmaster Pyron","Grizzle","Ribbly Screwspigot","Attumen the Huntsman","Halazzi","Akil'zon",
-	"Nalorakk","Jan'alai","Zul'jin","Theka the Martyr","Plugger Spazzring","Bannok Grimaxe","Quartermaster Zigris",
-	"Solakar Flamewreath","Maleki the Pallid","Mekgineer Thermaplugg","Magister Kalendris","Attumen the Huntsman",
-	"Moroes","Terestian Illhoof","Shade of Aran","Rage Winterchill","Mekgineer Steamrigger","Warlord Kalithresh",
-	"Anetheron","Azgalor","Captain Skarloc","Kaz'rogal","Mennu the Betrayer","Thorngrin the Tender","Warp Splinter",
-	"Epoch Hunter","Blackheart the Inciter","Pathaleon the Calculator","Mechano-Lord Capacitus","Nethermancer Sepethrea",
-	"Dalliah the Doomsayer","The Prophet Skeram","Emperor Vek'lor","Viscidus","Ossirian the Unscarred","Moam",
-	"General Rajaxx","Kurinnaxx","Ayamiss the Hunter","Buru the Gorger","Princess Huhuran","Fankriss the Unyielding",
-	"Lord Kri","Battleguard Sartura","Ouro","Princess Yauj","Vem","Midnight","Grand Warlock Nethekurse","Lucifron",
-	"Nightbane","Murmur"]
+$bosslist = [
+	"Akil'zon",
+	"Anetheron",
+	"Anub'arak",
+	"Archimonde",
+	"Attumen the Huntsman",
+	"Azgalor",
+	"Bannok Grimaxe",
+	"Baron Geddon",
+	"Battleguard Sartura",
+	"Blackheart the Inciter",
+	"Captain Skarloc",
+	"Chrono Lord Deja",
+	"Commander Sarannis",
+	"Dalliah the Doomsayer",
+	"Darkmaster Gandling",
+	"Emperor Vek'lor",
+	"Emperor Vek'nilash",
+	"Epoch Hunter",
+	"Exarch Maladaar",
+	"Fankriss the Unyielding",
+	"Garr",
+	"Gehennas",
+	"General Drakkisath",
+	"Ghaz'an",
+	"Golem Lord Argelmach",
+	"Golemagg the Incinerator",
+	"Goraluk Anvilcrack",
+	"Grand Warlock Nethekurse",
+	"Grizzle",
+	"Halazzi",
+	"Herald Volazj",
+	"Hex Lord Malacrass",
+	"High Botanist Freywinn",
+	"Homunculus",
+	"Hydromancer Thespia",
+	"Jan'alai",
+	"Kaz'rogal",
+	"Keristrasza",
+	"Lord Kri",
+	"Lord Roccor",
+	"Loro",
+	"Lucifron",
+	"Magmadar",
+	"Mechano-Lord Capacitus",
+	"Mekgineer Steamrigger",
+	"Mekgineer Thermaplugg",
+	"Mennu the Betrayer",
+	"Midnight",
+	"Mijan",
+	"Moroes",
+	"Murmur",
+	"Nalorakk",
+	"Nethermancer Sepethrea",
+	"Nethervine Inciter",
+	"Nexus-Prince Shaffar",
+	"Nightbane",
+	"Onyxia",
+	"Ouro",
+	"Overmaster Pyron",
+	"Pathaleon the Calculator",
+	"Plugger Spazzring",
+	"Princess Huhuran",
+	"Princess Yauj",
+	"Pyromancer Loregrain",
+	"Quartermaster Zigris",
+	"Rage Winterchill",
+	"Ribbly Screwspigot",
+	"Shade of Aran",
+	"Shazzrah",
+	"Solakar Flamewreath",
+	"Terestian Illhoof",
+	"The Crone",
+	"The Prophet Skeram",
+	"Thorngrin the Tender",
+	"Vem",
+	"Viscidus",
+	"Warlord Kalithresh",
+	"Warp Splinter",
+	"Zul'jin",
+	"Lord Kazzak",
+]
 
 $bosszonemap = {
 	#"40 Tickets - Schematic: Steam Tonk Controller" => "",
@@ -2081,48 +2148,32 @@ $bosszonemap = {
 	"Zulian Tiger" => "Zul'Gurub",
 }
 
+# Neutral = 0
 # Alliance = 1
 # Horde = 2
 $factionmap = {
 	"Wild Hearts" => "2",
+	"Flash Bomb Recipe" => "0",
+	"Imperial Plate Belt" => "0",
+	"Imperial Plate Boots" => "0",
+	"Imperial Plate Bracer" => "0",
+	"Imperial Plate Chest" => "0",
+	"Imperial Plate Helm" => "0",
+	"Imperial Plate Leggings" => "0",
+	"Imperial Plate Shoulders" => "0",
+	"Firework Launcher" => "0",
+	"Festive Recipes" => "0",
+	"Cluster Launcher" => "0",
+	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
 }
 
 $hordefactionlist = ["Thunder Bluff","Orgrimmar","Durotar","Undercity","Mulgore"]
 
 $alliancefactionlist = ["Stormwind City","Darnassus","Ironforge","Westfall"]
 
-$debug = true
+$debug = false
 
 if $debug
-
-	create_custom_db()
-	create_faction_db()
-
-	alchemy = recipes.get_alchemy_list
-	alchspeciallist = {
-		28580 => {:id => 12, :type => [3]},
-		28581 => {:id => 12, :type => [3]},
-		28582 => {:id => 12, :type => [3]},
-		28583 => {:id => 12, :type => [3]},
-		28584 => {:id => 12, :type => [3]},
-		28585 => {:id => 12, :type => [3]},
-		28586 => {:id => 12, :type => [2]},
-		28587 => {:id => 12, :type => [1]},
-		28588 => {:id => 12, :type => [1]},
-		28589 => {:id => 12, :type => [1]},
-		28590 => {:id => 12, :type => [1]},
-		28591 => {:id => 12, :type => [1]},
-		41458 => {:id => 12, :type => [4]},
-		41500 => {:id => 12, :type => [4]},
-		41501 => {:id => 12, :type => [4]},
-		41502 => {:id => 12, :type => [4]},
-		41503 => {:id => 12, :type => [4]},
-		21923 => {:id => 7, :type => 1},
-		47050 => {:id => "meleedps"},
-		}
-	alchmanual=<<EOF
-EOF
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	#create_stats_list()
 
