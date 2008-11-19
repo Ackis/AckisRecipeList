@@ -246,7 +246,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3942,1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Flame Deflector -- 3944
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -303,7 +303,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3950,1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Minor Recombobulator -- 3952
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket,
 	-- Item Stats: 
@@ -369,7 +369,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3958,1, 5174, 1, 8736, 1, 11017, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Discombobulator Ray -- 3959
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -425,7 +425,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Craftsman's Monocle -- 3966
 	-- No location information
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth,
 	-- Item Stats: 
@@ -463,7 +463,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3969,2, 2687)
 
 	-- Gnomish Cloaking Device -- 3971
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket,
@@ -538,7 +538,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7430,1, 1702, 1, 2857, 1, 3290, 1, 3412, 1, 3494, 1, 4586, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11025, 1, 11026, 1, 11028, 1, 11029, 1, 11031, 1, 11037, 1, 16667, 1, 16668, 1, 16726, 1, 16743, 1, 17222, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Flash Bomb -- 8243
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Quest Reward
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -577,7 +577,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 8895,1, 8126)
 
 	-- Gnomish Universal Remote -- 9269
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket,
@@ -597,7 +597,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9271,1, 1676, 1, 3412, 1, 5174, 1, 5518, 1, 8736, 1, 11017, 1, 11029, 1, 11031, 1, 16667, 1, 16726, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Goblin Jumper Cables -- 9273
-	-- Instance: 721 - type1territory2minlevel24nameGnomereganmaxlevel33id721category3
+	-- Instance: 721 - type1maxlevel33category3territory2nameGnomereganminlevel24id721
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -799,8 +799,8 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 12619,1, 8736, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Sniper Scope -- 12620
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
 	-- Raid: 2159 - Onyxia's Lair
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -1127,7 +1127,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19792,3, 12397, 1, 8736, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Lifelike Mechanical Toad -- 19793
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1156,7 +1156,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19795,1, 8736, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576)
 
 	-- Dark Iron Rifle -- 19796
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Gun,Armor, Trinket,
 	-- Item Stats: 
@@ -1167,7 +1167,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 19796,3, 8897)
 
 	-- Dark Iron Bomb -- 19799
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1384,7 +1384,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23077,2, 11185)
 
 	-- Goblin Jumper Cables XL -- 23078
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1411,7 +1411,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23080,2, 11185)
 
 	-- Hyper-Radiant Flame Reflector -- 23081
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Trinket,
 	-- Item Stats: 
@@ -1433,7 +1433,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23082,3, 10426)
 
 	-- Alarm-O-Bot -- 23096
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1443,7 +1443,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 23096,3, 8920)
 
 	-- World Enlarger -- 23129
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -1957,7 +1957,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 30552,7, 3)
 
 	-- Rocket Boots Xtreme -- 30556
-	-- Instance: 3715 - type5territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715category3
+	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultminlevel70id3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Leather,
 	-- Item Stats: 
@@ -2431,7 +2431,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 46116,3, 25367, 3, 25369, 3, 25599)
 
 	-- Rocket Boots Xtreme Lite -- 46697
-	-- Instance: 3849 - type5territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849category3
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarminlevel70id3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 

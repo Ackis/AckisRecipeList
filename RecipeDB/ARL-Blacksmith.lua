@@ -2,7 +2,7 @@
 
 ************************************************************************
 
-ARL-BlackSmith.lua
+ARL-Blacksmith.lua
 
 Blacksmithing data for all of AckisRecipeList
 
@@ -489,7 +489,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3492,160,3849,1,2018)
 	self:addTradeFlags(RecipeDB, 3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
-	self:addTradeAcquire(RecipeDB, 3492,2, 3356, 2, 5512)
+	self:addTradeAcquire(RecipeDB, 3492,2, 3356)
 
 	-- Jade Serpentblade -- 3493
 	-- World Drop
@@ -662,7 +662,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3513,7, 2)
 
 	-- Golden Scale Boots -- 3515
-	-- Instance: 796 - type1territory4minlevel34nameScarlet Monasterymaxlevel45id796category3
+	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryminlevel34id796
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail,
 	-- Item Stats: 
@@ -721,8 +721,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7223,1, 2836, 1, 3355, 1, 4258, 1, 16583, 1, 16669, 1, 16823, 1, 19341)
 
 	-- Steel Weapon Chain -- 7224
-	-- Instance: 796 - type1territory4minlevel34nameScarlet Monasterymaxlevel45id796category3
-	-- Instance: 1176 - type1territory1minlevel43nameZul'Farrakmaxlevel47id1176category3
+	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryminlevel34id796
+	-- Instance: 1176 - type1maxlevel47category3territory1nameZul'Farrakminlevel43id1176
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -1057,9 +1057,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 9964,7, 2)
 
 	-- Mithril Scale Shoulders -- 9966
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
-	-- Instance: 1176 - type1territory1minlevel43nameZul'Farrakmaxlevel47id1176category3
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
+	-- Instance: 1176 - type1maxlevel47category3territory1nameZul'Farrakminlevel43id1176
 	-- Raid: 2159 - Onyxia's Lair
 	-- No location information
 	-- Mob Drop
@@ -1239,9 +1239,9 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 10007,1, 7232, 1, 11146, 1, 11178, 1, 20124)
 
 	-- Runed Mithril Hammer -- 10009
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
-	-- Instance: 1477 - type1territory1minlevel50nameThe Temple of Atal'Hakkarmaxlevel55id1477category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
+	-- Instance: 1477 - type1maxlevel55category3territory1nameThe Temple of Atal'Hakkarminlevel50id1477
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace,
@@ -1343,11 +1343,11 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 14380,1, 2836, 1, 3355, 1, 4258, 1, 16583, 1, 16669, 1, 16823, 1, 19341)
 
 	-- Dark Iron Pulverizer -- 15292
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace,
 	-- Item Stats: 
@@ -1358,7 +1358,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15292,3, 8921, 3, 8926, 3, 8927, 3, 8928, 3, 9028)
 
 	-- Dark Iron Mail -- 15293
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail,
 	-- Item Stats: 
@@ -1369,8 +1369,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 15293,3, 8907)
 
 	-- Dark Iron Sunderer -- 15294
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe,
 	-- Item Stats: 
@@ -1390,8 +1390,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Plate -- 15296
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Plate,
 	-- Item Stats: 
@@ -1640,7 +1640,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Storm Gauntlets -- 16661
 	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2057 - type1territory1minlevel58nameScholomancemaxlevel60id2057category3
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceminlevel58id2057
 	-- No location information
 	-- Mob Drop
 	-- Vendor
@@ -1703,7 +1703,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16667,4, 5127)
 
 	-- Whitesoul Helm -- 16724
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate,
@@ -1735,7 +1735,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16726,3, 4364)
 
 	-- Helm of the Great Chief -- 16728
-	-- Instance: 2057 - type1territory1minlevel58nameScholomancemaxlevel60id2057category3
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceminlevel58id2057
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail,
 	-- Item Stats: 
@@ -1824,7 +1824,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16745,4, 7649)
 
 	-- Invulnerable Mail -- 16746
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail,
 	-- Item Stats: Tanking, 
@@ -1984,7 +1984,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16988,3, 10438)
 
 	-- Arcanite Champion -- 16990
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Sword,
 	-- Item Stats: 
@@ -1995,7 +1995,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16990,3, 10899)
 
 	-- Annihilator -- 16991
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe,
 	-- Item Stats: 
@@ -2016,7 +2016,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16992,3, 1844)
 
 	-- Masterwork Stormhammer -- 16993
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace,
 	-- Item Stats: 
@@ -2027,7 +2027,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 16993,3, 10899)
 
 	-- Arcanite Reaper -- 16994
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe,Armor, Trinket,
 	-- Item Stats: 
@@ -2115,7 +2115,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Bracers -- 20874
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
 	-- Item Stats: 
@@ -2845,7 +2845,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 29617,6, 932, 3, 19321)
 
 	-- Felsteel Gloves -- 29619
-	-- Instance: 3790 - type5territory1expansion1minlevel65nameAuchindoun: Auchenai Cryptsmaxlevel67id3790category3
+	-- Instance: 3790 - type5maxlevel67category3territory1expansion1nameAuchindoun: Auchenai Cryptsminlevel65id3790
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
 	-- Item Stats: Tanking, 
@@ -2856,7 +2856,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 29619,3, 18497)
 
 	-- Felsteel Leggings -- 29620
-	-- Instance: 3848 - type5territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848category3
+	-- Instance: 3848 - type5category3territory1expansion1nameTempest Keep: The Arcatrazminlevel70id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
 	-- Item Stats: Tanking, 
@@ -2867,7 +2867,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 29620,3, 20900)
 
 	-- Felsteel Helm -- 29621
-	-- Instance: 3789 - type5territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789category3
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthminlevel70id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
 	-- Item Stats: Tanking, 
@@ -2951,7 +2951,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 29645,3, 21454, 3, 23305)
 
 	-- Swiftsteel Gloves -- 29648
-	-- Instance: 3792 - type5territory1expansion1minlevel64nameAuchindoun: Mana-Tombsmaxlevel66id3792category3
+	-- Instance: 3792 - type5maxlevel66category3territory1expansion1nameAuchindoun: Mana-Tombsminlevel64id3792
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail,
 	-- Item Stats: 
@@ -2962,7 +2962,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 29648,3, 18314)
 
 	-- Earthpeace Breastplate -- 29649
-	-- Instance: 3847 - type5territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847category3
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaminlevel70id3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail,
 	-- Item Stats: 
@@ -3028,7 +3028,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3789 - type5territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789category3
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthminlevel70id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Mail,
 	-- Item Stats: 
@@ -3041,8 +3041,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Helm of the Stalwart Defender -- 29664
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3714 - type5territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714category3
-	-- Instance: 3847 - type5territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847category3
+	-- Instance: 3714 - type5category3territory1expansion1nameHellfire Citadel: The Shattered Hallsminlevel70id3714
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaminlevel70id3847
 	-- Raid: 3805 - Zul'Aman
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate,
@@ -3055,7 +3055,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Oathkeeper's Helm -- 29668
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3716 - type5territory1expansion1minlevel63nameCoilfang Reservoir: The Underbogmaxlevel65id3716category3
+	-- Instance: 3716 - type5maxlevel65category3territory1expansion1nameCoilfang Reservoir: The Underbogminlevel63id3716
 	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate,
@@ -3095,7 +3095,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - type5territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensmaxlevel64id3717category3
+	-- Instance: 3717 - type5maxlevel64category3territory1expansion1nameCoilfang Reservoir: The Slave Pensminlevel62id3717
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Plate,
 	-- Item Stats: 
@@ -3146,8 +3146,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Felsteel Reaper -- 29695
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - type5territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensmaxlevel64id3717category3
-	-- Instance: 3792 - type5territory1expansion1minlevel64nameAuchindoun: Mana-Tombsmaxlevel66id3792category3
+	-- Instance: 3717 - type5maxlevel64category3territory1expansion1nameCoilfang Reservoir: The Slave Pensminlevel62id3717
+	-- Instance: 3792 - type5maxlevel66category3territory1expansion1nameAuchindoun: Mana-Tombsminlevel64id3792
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Axe,Armor, Trinket,
 	-- Item Stats: 
@@ -3159,7 +3159,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Runic Hammer -- 29696
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - type5territory1expansion1minlevel62nameCoilfang Reservoir: The Slave Pensmaxlevel64id3717category3
+	-- Instance: 3717 - type5maxlevel64category3territory1expansion1nameCoilfang Reservoir: The Slave Pensminlevel62id3717
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Mace,Armor, Trinket,
 	-- Item Stats: 
@@ -3185,7 +3185,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Eternium Runed Blade -- 29698
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3789 - type5territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789category3
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthminlevel70id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Weapon, Dagger,Armor, Trinket,
 	-- Item Stats: 

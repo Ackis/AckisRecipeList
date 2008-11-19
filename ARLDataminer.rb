@@ -32,6 +32,7 @@ $monsters = Hash.new
 $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
+$unknownfaction = Array.new
 $instancemobs = Array.new
 $missingdataacquire = Hash.new
 
@@ -1169,12 +1170,12 @@ EOF
 
 				if $bosslist.include?(v[:name])
 
-					lookup_lua.print("BBOSS[\"#{v[:name]}\"], ")
+					lookup_lua.print("BBOSS[\"#{v[:name]}\"],")
 					$localstring.delete(v[:name])
 
 				else
 
-					lookup_lua.print("L[\"#{v[:name]}\"], ")
+					lookup_lua.print("L[\"#{v[:name]}\"],")
 					# Add the name to the list of localization strings
 					$localstring << v[:name]
 
@@ -1182,17 +1183,17 @@ EOF
 
 				if locs.keys[0]
 
-					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"], ")
+					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
 
 				else
 
 					if $bosszonemap[v[:name]]
 
-						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"], ")
+						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
 
 					else
 
-						lookup_lua.print("L[\"Unknown Zone\"], ")
+						lookup_lua.print("L[\"Unknown Zone\"],")
 						$unknownzone << v[:name]
 
 					end
@@ -1205,7 +1206,7 @@ EOF
 
 				else
 
-					lookup_lua.print("0, 0)")
+					lookup_lua.print("0,0)")
 
 				end
 
@@ -1214,15 +1215,26 @@ EOF
 			else
 
 				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db},#{k},L[\"#{v[:name]}\"], ")
+				lookup_lua.print("self:addLookupList(#{db},#{k},L[\"#{v[:name]}\"],")
 
 				if locs.keys[0]
 
-					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"], ")
+					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
 
 				else
 
-					lookup_lua.print("L[\"Unknown Zone\"], ")
+					if $bosszonemap[v[:name]]
+
+						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
+						locs.keys[0] = $bosszonemap[v[:name]]
+
+					else
+
+						lookup_lua.print("L[\"Unknown Zone\"],")
+						locs.keys[0] = "Unknown Zone"
+						$unknownzone << v[:name]
+
+					end
 
 				end
 
@@ -1232,7 +1244,7 @@ EOF
 
 				else
 
-					lookup_lua.print("0, 0, ")
+					lookup_lua.print("0,0,")
 
 				end
 
@@ -1243,9 +1255,26 @@ EOF
 
 				else
 
-					lookup_lua.print("0)")
+					# hack because not all factions have both info detected
+					if $hordefactionlist.include?(locs.keys[0])
+
+						lookup_lua.print("2)")
+
+					elsif $alliancefactionlist.include?(locs.keys[0])
+
+						lookup_lua.print("1)")
+
+					else
+
+						lookup_lua.print("0)")
+
+					end
+
+					$unknownfaction << "#{v[:name]} - #{locs.keys[0]}"
+					#$unknownfaction << v[:name]
 
 				end
+
 				lookup_lua.print("\n")
 
 				# Add the name to the list of localization strings
@@ -1611,7 +1640,17 @@ def create_stats_list()
 
 	$unknownzone.each do |k|
 
-		stats_lua.puts "\t{\"#{k}\" => \"\"},"
+		stats_lua.puts "\t\"#{k}\" => \"\","
+
+	end
+
+	stats_lua.puts "\n"
+
+	stats_lua.puts("Unknown faction:")
+
+	$unknownfaction.each do |k|
+
+		stats_lua.puts "#{k},"
 
 	end
 
@@ -1682,275 +1721,279 @@ $bosslist = ["Anetheron","Archimonde","Azuregos","Baron Geddon","Baron Rivendare
 	"Nightbane","Murmur"]
 
 $bosszonemap = {
-	{"Abomination" => "Hyjal Summit"},
-	{"Akil'zon" => "Zul'Aman"},
-	{"Amani Dragonhawk" => "Zul'Aman"},
-	{"Amani Elder Lynx" => "Zul'Aman"},
-	{"Amani'shi Axe Thrower" => "Zul'Aman"},
-	{"Amani'shi Beast Tamer" => "Zul'Aman"},
-	{"Amani'shi Guardian" => "Zul'Aman"},
-	{"Amani'shi Handler" => "Zul'Aman"},
-	{"Amani'shi Scout" => "Zul'Aman"},
-	{"Amani'shi Tribesman" => "Zul'Aman"},
-	{"Amani'shi Warbringer" => "Zul'Aman"},
-	{"Amani'shi Wind Walker" => "Zul'Aman"},
-	{"Anetheron" => "Hyjal Summit"},
-	{"Anguished Dead" => "Scarlet Monastery"},
-	{"Anvilrage Captain" => "Blackrock Depths"},
-	{"Anvilrage Marshal" => "Blackrock Depths"},
-	{"Anvilrage Overseer" => "Blackrock Depths"},
-	{"Anvilrage Soldier" => "Blackrock Depths"},
-	{"Apocalypse Guard" => "Sunwell Plateau"},
-	{"Arcane Anomaly" => "Karazhan"},
-	{"Arcane Protector" => "Karazhan"},
-	{"Arcatraz Sentinel" => "The Arcatraz"},
-	{"Archimonde" => "Hyjal Summit"},
-	{"Atal'ai Deathwalker" => "Sunken Temple"},
-	{"Atal'ai Warrior" => "Sunken Temple"},
-	{"Atal'ai Witch Doctor" => "Sunken Temple"},
-	{"Attumen the Huntsman" => "Karazhan"},
-	{"Auchenai Monk" => "Auchenai Crypts"},
-	{"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj"},
-	{"Azgalor" => "Hyjal Summit"},
-	{"Bannok Grimaxe" => "Blackrock Spire"},
-	{"Banshee" => "Hyjal Summit"},
-	{"Baron Geddon" => "Molten Core"},
-	{"Battleguard Sartura" => "Temple of Ahn'Qiraj"},
-	{"Blackhand Elite" => "Blackrock Spire"},
-	{"Blackheart the Inciter" => "Shadow Labyrinth"},
-	{"Bleeding Hollow Darkcaster" => "Hellfire Ramparts"},
-	{"Bloodhound" => "Blackrock Depths"},
-	{"Bloodwarder Legionnaire" => "The Eye"},
-	{"Bloodwarder Vindicator" => "The Eye"},
-	{"Bog Giant" => "The Underbog"},
-	{"Bonechewer Destroyer" => "Hellfire Ramparts"},
-	{"Burrowing Thundersnout" => "Blackrock Depths"},
-	{"Buru the Gorger" => "Ruins of Ahn'Qiraji"},
-	{"Cabal Acolyte" => "Shadow Labyrinth"},
-	{"Cabal Cultist" => "Shadow Labyrinth"},
-	{"Cabal Fanatic" => "Shadow Labyrinth"},
-	{"Cabal Spellbinder" => "Shadow Labyrinth"},
-	{"Cannon Master Willey" => "Stratholme"},
-	{"Captain Skarloc" => "Old Hillsbrad Foothills"},
-	{"Cataclysm Hound" => "Sunwell Plateau"},
-	{"Chrono Lord Deja" => "The Black Morass"},
-	{"Cobalt Serpent" => "Sethekk Halls"},
-	{"Coilfang Champion" => "The Slave Pens"},
-	{"Coilfang Hate-Screamer" => "Serpentshrine Cavern"},
-	{"Coilfang Myrmidon" => "The Steamvault"},
-	{"Coilfang Oracle" => "The Steamvault"},
-	{"Coilfang Serpentguard" => "Serpentshrine Cavern"},
-	{"Coilfang Shatterer" => "Serpentshrine Cavern"},
-	{"Coilfang Siren" => "The Steamvault"},
-	{"Coilfang Sorceress" => "The Steamvault"},
-	{"Coilfang Technician" => "The Slave Pens"},
-	{"Coilfang Warrior" => "The Steamvault"},
-	{"Coilskar Sea-Caller" => "Black Temple"},
-	{"Commander Sarannis" => "The Botanica"},
-	{"Crimson Inquisitor" => "Stratholme"},
-	{"Crimson Sorcerer" => "Stratholme"},
-	{"Crypt Fiend" => "Hyjal Summit"},
-	{"Crystalcore Mechanic" => "The Eye"},
-	{"Dalliah the Doomsayer" => "The Arcatraz"},
-	{"Dark Screecher" => "Blackrock Depths"},
-	{"Darkmaster Gandling" => "Scholomance"},
-	{"Darkwater Crocolisk" => "Tanaris"},
-	{"Darkweaver Syth" => "Sethekk Halls"},
-	{"Deep Stinger" => "Blackrock Depths"},
-	{"Defias Pirate" => "The Deadmines"},
-	{"Defias Squallshaper" => "The Deadmines"},
-	{"Don Carlos" => "Old Hillsbrad Foothills"},
-	{"Doomfire Destroyer" => "Sunwell Plateau"},
-	{"Doomforge Craftsman" => "Blackrock Depths"},
-	{"Doomforge Dragoon" => "Blackrock Depths"},
-	{"Dragonmaw Wind Reaver" => "Black Temple"},
-	{"Durnholde Lookout" => "Old Hillsbrad Foothills"},
-	{"Durnholde Rifleman" => "Old Hillsbrad Foothills"},
-	{"Durnholde Tracking Hound" => "Old Hillsbrad Foothills"},
-	{"Emperor Vek'lor" => "Temple of Ahn'Qiraj"},
-	{"Emperor Vek'nilash" => "Temple of Ahn'Qiraj"},
-	{"Epoch Hunter" => "Old Hillsbrad Foothills"},
-	{"Eredar Deathbringer" => "The Arcatraz"},
-	{"Ethereal Priest" => "Mana-tombs"},
-	{"Ethereal Scavenger" => "Mana-tombs"},
-	{"Ethereal Spellbinder" => "Mana-tombs"},
-	{"Ethereal Thief" => "Karazhan"},
-	{"Ethereum Smuggler" => "Magister's Terrace"},
-	{"Exarch Maladaar" => "Auchenai Crypts"},
-	{"Fankriss the Unyielding" => "Temple of Ahn'Qiraj"},
-	{"Fel Orc Convert" => "The Shattered Halls"},
-	{"Fel Rager" => "Bladge's Edge Mountains"},
-	{"Fel Stalker" => "Hyjal Summit"},
-	{"Felguard Annihilator" => "The Blood Furnace"},
-	{"Firebrand Grunt" => "Blackrock Spire"},
-	{"Firebrand Invoker" => "Blackrock Spire"},
-	{"Firebrand Legionnaire" => "Blackrock Spire"},
-	{"Firebrand Pyromancer" => "Blackrock Spire"},
-	{"Fleshbeast" => "Karazhan"},
-	{"Frost Wyrm" => "Hyjal Summit"},
-	{"Gargantuan Abyssal" => "The Arcatraz"},
-	{"Gargoyle" => "Hyjal Summit"},
-	{"Garr" => "Molten Core"},
-	{"Gehennas" => "Molten Core"},
-	{"General Drakkisath" => "Blackrock Spire"},
-	{"General Rajaxx" => "Ruins of Ahn'Qiraj"},
-	{"Ghaz'an" => "The Underbog"},
-	{"Ghostly Philanthropist" => "Karazhan"},
-	{"Ghostly Steward" => "Karazhan"},
-	{"Ghoul" => "Hyjal Summit"},
-	{"Giant Infernal" => "Hyjal Summit"},
-	{"Golem Lord Argelmach" => "Blackrock Depths"},
-	{"Golemagg the Incinerator" => "Molten Core"},
-	{"Goraluk Anvilcrack" => "Blackrock Spire"},
-	{"Grand Warlock Nethekurse" => "The Shattered Halls"},
-	{"Greater Bogstrok" => "The Slave Pens"},
-	{"Greater Fleshbeast" => "Karazhan"},
-	{"Grizzle" => "Blackrock Depths"},
-	{"Gronn-Priest" => "Gruul's Lair"},
-	{"Halazzi" => "Zul'Aman"},
-	{"Hammered Patron" => "Blackrock Depths"},
-	{"Hex Lord Malacrass" => "Zul'Aman"},
-	{"High Botanist Freywinn" => "The Botanica"},
-	{"Homunculus" => "Karazhan"},
-	{"Hydromancer Thespia" => "The Steamvault"},
-	{"Ironbark Protector" => "Dire Maul"},
-	{"Jan'alai" => "Zul'Aman"},
-	{"Kaz'rogal" => "Hyjal Summit"},
-	{"Kurinnaxx" => "Ruins of Ahn'Qiraj"},
-	{"Lord Kazzak" => "Blasted Lands"},
-	{"Lord Kri" => "Temple of Ahn'Qiraj"},
-	{"Lord Roccor" => "Blackrock Depths"},
-	{"Loro" => "Sunken Temple"},
-	{"Lucifron" => "Molten Core"},
-	{"Magical Horror" => "Karazhan"},
-	{"Magister Kalendris" => "Dire Maul"},
-	{"Magmadar" => "Molten Core"},
-	{"Maleki the Pallid" => "Stratholme"},
-	{"Mana Warp" => "Karazhan"},
-	{"Mechano-Lord Capacitus" => "The Mechanar"},
-	{"Mekgineer Steamrigger" => "The Steamvault"},
-	{"Mekgineer Thermaplugg" => "Gnomeregan"},
-	{"Mennu the Betrayer" => "The Slave Pens"},
-	{"Midnight" => "Karazhan"},
-	{"Mijan" => "Sunken Temple"},
-	{"Moam" => "Ruins of Ahn'Qiraj"},
-	{"Moroes" => "Karazhan"},
-	{"Murk Worm" => "Sunken Temple"},
-	{"Murmur" => "Shadow Labyrinth"},
-	{"Nalorakk" => "Zul'Aman"},
-	{"Nethermancer Sepethrea" => "The Mechanar"},
-	{"Nethervine Inciter" => "The Botanica"},
-	{"Nexus Stalker" => "Mana-tombs"},
-	{"Nexus-Prince Shaffar" => "Mana-tombs"},
-	{"Nightbane" => "Karazhan"},
-	{"Oblivion Mage" => "Sunwell Plateau"},
-	{"Onyxia" => "Onyxia's Lair"},
-	{"Ossirian the Unscarred" => "Ruins of Ahn'Qiraj"},
-	{"Ouro" => "Temple of Ahn'Qiraj"},
-	{"Painbringer" => "Sunwell Plateau"},
-	{"Pathaleon the Calculator" => "The Mechanar"},
-	{"Phantom Attendant" => "Karazhan"},
-	{"Phantom Guardsman" => "Karazhan"},
-	{"Phantom Guest" => "Karazhan"},
-	{"Phantom Stagehand" => "Karazhan"},
-	{"Phantom Valet" => "Karazhan"},
-	{"Phoenix-Hawk" => "The Eye"},
-	{"Phoenix-Hawk Hatchling" => "The Eye"},
-	{"Plugger Spazzring" => "Blackrock Depths"},
-	{"Priestess Delrissa" => "Magisters' Terrace"},
-	{"Priestess of Torment" => "Sunwell Plateau"},
-	{"Princess Huhuran" => "Temple of Ahn'Qiraj"},
-	{"Princess Yauj" => "Temple of Ahn'Qiraj"},
-	{"Pusillin" => "Dire Maul"},
-	{"Pyromancer Loregrain" => "Blackrock Depths"},
-	{"Quartermaster Zigris" => "Blackrock Spire"},
-	{"Rabid Warhound" => "The Shattered Halls"},
-	{"Rage Talon Dragon Guard" => "Blackrock Spire"},
-	{"Rage Winterchill" => "Hyjal Summit"},
-	{"Raging Skeleton" => "Auchenai Crypts"},
-	{"Ribbly Screwspigot" => "Blackrock Depths"},
-	{"Ribbly's Crony" => "Blackrock Depths"},
-	{"Rift Keeper" => "The Black Morass"},
-	{"Rift Lord" => "The Black Morass"},
-	{"Risen Bonewarder" => "Scholomance"},
-	{"Risen Construct" => "Scholomance"},
-	{"Sable Jaguar" => "The Black Morass"},
-	{"Sandfury Blood Drinker" => "Zul'Farrak"},
-	{"Sandfury Shadowcaster" => "Zul'Farrak"},
-	{"Scarlet Adept" => "Scarlet Monastery"},
-	{"Scarlet Centurion" => "Scarlet Monastery"},
-	{"Scarlet Gallant" => "Scarlet Monastery"},
-	{"Scarlet Monk" => "Scarlet Monastery"},
-	{"Scarlet Protector" => "Scarlet Monastery"},
-	{"Scholomance Adept" => "Scholomance"},
-	{"Scholomance Necromancer" => "Scholomance"},
-	{"Serpentshrine Sporebat" => "Serpentshrine Cavern"},
-	{"Sethekk Initiate" => "Sethekk Halls"},
-	{"Sethekk Prophet" => "Sethekk Halls"},
-	{"Sethekk Ravenguard" => "Sethekk Halls"},
-	{"Shade of Aran" => "Karazhan"},
-	{"Shadow Pillager" => "Karazhan"},
-	{"Shadowforge Peasant" => "Blackrock Depths"},
-	{"Shadowmoon Reaver" => "Black Temple"},
-	{"Shadowsword Assassin" => "Sunwell Plateau"},
-	{"Shadowsword Guardian" => "Sunwell Plateau"},
-	{"Shadowsword Vanquisher" => "Sunwell Plateau"},
-	{"Shadowy Necromancer" => "Hyjal Summit"},
-	{"Shattered Hand Centurion" => "The Shattered Halls"},
-	{"Shattered Hand Reaver" => "The Shattered Halls"},
-	{"Shazzrah" => "Molten Core"},
-	{"Shrike Bat" => "Uldaman"},
-	{"Skeletal Usher" => "Karazhan"},
-	{"Solakar Flamewreath" => "Blackrock Spire"},
-	{"Sorcerous Shade" => "Karazhan"},
-	{"Spawn of Hakkar" => "Sunken Temple"},
-	{"Spectral Charger" => "Karazhan"},
-	{"Spectral Performer" => "Karazhan"},
-	{"Spectral Researcher" => "Scholomance"},
-	{"Spectral Servant" => "Karazhan"},
-	{"Spectral Stable Hand" => "Karazhan"},
-	{"Spectral Stallion" => "Karazhan"},
-	{"Spell Shade" => "Karazhan"},
-	{"Spirestone Warlord" => "Blackrock Spire"},
-	{"Splinterbone Centurion" => "Razorfen Downs"},
-	{"Stonevault Oracle" => "Uldaman"},
-	{"Stonevault Pillager" => "Uldaman"},
-	{"Sunblade Arch Mage" => "Sunwell Plateau"},
-	{"Sunblade Blood Knight" => "Magisters' Terrace"},
-	{"Sunblade Cabalist" => "Sunwell Plateau"},
-	{"Sunblade Dawn Priest" => "Sunwell Plateau"},
-	{"Sunblade Dusk Priest" => "Sunwell Plateau"},
-	{"Sunblade Mage Guard" => "Magisters' Terrace"},
-	{"Sunblade Protector" => "Sunwell Plateau"},
-	{"Sunblade Slayer" => "Sunwell Plateau"},
-	{"Sunblade Vindicator" => "Sunwell Plateau"},
-	{"Sunseeker Astromage" => "The Mechanar"},
-	{"Sunseeker Botanist" => "The Botanica"},
-	{"Sunseeker Harvester" => "The Botanica"},
-	{"Syphoner" => "Karazhan"},
-	{"Terestian Illhoof" => "Karazhan"},
-	{"The Crone" => "Karazhan"},
-	{"The Prophet Skeram" => "Temple of Ahn'Qiraj"},
-	{"Thorngrin the Tender" => "The Botanica"},
-	{"Thuzadin Shadowcaster" => "Stratholme"},
-	{"Time-Lost Shadowmage" => "Sethekk Halls"},
-	{"Twilight Darkcaster" => "Ahn'kahet: The Old Kingdom"},
-	{"Twilight Emissary" => "Blackrock Depths"},
-	{"Unchained Doombringer" => "The Arcatraz"},
-	{"Underbat" => "The Underbog"},
-	{"Unliving Atal'ai" => "Sunken Temple"},
-	{"Vashj'ir Honor Guard" => "Serpentshrine Cavern"},
-	{"Vem" => "Temple of Ahn'Qiraj"},
-	{"Viscidus" => "Temple of Ahn'Qiraj"},
-	{"Warlord Kalithresh" => "The Steamvault"},
-	{"Warp Splinter" => "The Botanica"},
-	{"Weapon Technician" => "Blackrock Depths"},
-	{"Wrath Hammer Construct" => "Blackrock Depths"},
-	{"Zul'jin" => "Zul'Aman"},
-	{"Zulian Tiger" => "Zul'Gurub"},
+	"Abomination" => "Hyjal Summit",
+	"Akil'zon" => "Zul'Aman",
+	"Amani Dragonhawk" => "Zul'Aman",
+	"Amani Elder Lynx" => "Zul'Aman",
+	"Amani'shi Axe Thrower" => "Zul'Aman",
+	"Amani'shi Beast Tamer" => "Zul'Aman",
+	"Amani'shi Guardian" => "Zul'Aman",
+	"Amani'shi Handler" => "Zul'Aman",
+	"Amani'shi Scout" => "Zul'Aman",
+	"Amani'shi Tribesman" => "Zul'Aman",
+	"Amani'shi Warbringer" => "Zul'Aman",
+	"Amani'shi Wind Walker" => "Zul'Aman",
+	"Anetheron" => "Hyjal Summit",
+	"Anguished Dead" => "Scarlet Monastery",
+	"Anvilrage Captain" => "Blackrock Depths",
+	"Anvilrage Marshal" => "Blackrock Depths",
+	"Anvilrage Overseer" => "Blackrock Depths",
+	"Anvilrage Soldier" => "Blackrock Depths",
+	"Apocalypse Guard" => "Sunwell Plateau",
+	"Arcane Anomaly" => "Karazhan",
+	"Arcane Protector" => "Karazhan",
+	"Arcatraz Sentinel" => "The Arcatraz",
+	"Archimonde" => "Hyjal Summit",
+	"Atal'ai Deathwalker" => "Sunken Temple",
+	"Atal'ai Warrior" => "Sunken Temple",
+	"Atal'ai Witch Doctor" => "Sunken Temple",
+	"Attumen the Huntsman" => "Karazhan",
+	"Auchenai Monk" => "Auchenai Crypts",
+	"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj",
+	"Azgalor" => "Hyjal Summit",
+	"Bannok Grimaxe" => "Blackrock Spire",
+	"Banshee" => "Hyjal Summit",
+	"Baron Geddon" => "Molten Core",
+	"Battleguard Sartura" => "Temple of Ahn'Qiraj",
+	"Blackhand Elite" => "Blackrock Spire",
+	"Blackheart the Inciter" => "Shadow Labyrinth",
+	"Bleeding Hollow Darkcaster" => "Hellfire Ramparts",
+	"Bloodhound" => "Blackrock Depths",
+	"Bloodwarder Legionnaire" => "The Eye",
+	"Bloodwarder Vindicator" => "The Eye",
+	"Bog Giant" => "The Underbog",
+	"Bonechewer Destroyer" => "Hellfire Ramparts",
+	"Burrowing Thundersnout" => "Blackrock Depths",
+	"Buru the Gorger" => "Ruins of Ahn'Qiraji",
+	"Cabal Acolyte" => "Shadow Labyrinth",
+	"Cabal Cultist" => "Shadow Labyrinth",
+	"Cabal Fanatic" => "Shadow Labyrinth",
+	"Cabal Spellbinder" => "Shadow Labyrinth",
+	"Cannon Master Willey" => "Stratholme",
+	"Captain Skarloc" => "Old Hillsbrad Foothills",
+	"Cataclysm Hound" => "Sunwell Plateau",
+	"Chrono Lord Deja" => "The Black Morass",
+	"Cobalt Serpent" => "Sethekk Halls",
+	"Coilfang Champion" => "The Slave Pens",
+	"Coilfang Hate-Screamer" => "Serpentshrine Cavern",
+	"Coilfang Myrmidon" => "The Steamvault",
+	"Coilfang Oracle" => "The Steamvault",
+	"Coilfang Serpentguard" => "Serpentshrine Cavern",
+	"Coilfang Shatterer" => "Serpentshrine Cavern",
+	"Coilfang Siren" => "The Steamvault",
+	"Coilfang Sorceress" => "The Steamvault",
+	"Coilfang Technician" => "The Slave Pens",
+	"Coilfang Warrior" => "The Steamvault",
+	"Coilskar Sea-Caller" => "Black Temple",
+	"Commander Sarannis" => "The Botanica",
+	"Crimson Inquisitor" => "Stratholme",
+	"Crimson Sorcerer" => "Stratholme",
+	"Crypt Fiend" => "Hyjal Summit",
+	"Crystalcore Mechanic" => "The Eye",
+	"Dalliah the Doomsayer" => "The Arcatraz",
+	"Dark Screecher" => "Blackrock Depths",
+	"Darkmaster Gandling" => "Scholomance",
+	"Darkwater Crocolisk" => "Tanaris",
+	"Darkweaver Syth" => "Sethekk Halls",
+	"Deep Stinger" => "Blackrock Depths",
+	"Defias Pirate" => "The Deadmines",
+	"Defias Squallshaper" => "The Deadmines",
+	"Don Carlos" => "Old Hillsbrad Foothills",
+	"Doomfire Destroyer" => "Sunwell Plateau",
+	"Doomforge Craftsman" => "Blackrock Depths",
+	"Doomforge Dragoon" => "Blackrock Depths",
+	"Dragonmaw Wind Reaver" => "Black Temple",
+	"Durnholde Lookout" => "Old Hillsbrad Foothills",
+	"Durnholde Rifleman" => "Old Hillsbrad Foothills",
+	"Durnholde Tracking Hound" => "Old Hillsbrad Foothills",
+	"Emperor Vek'lor" => "Temple of Ahn'Qiraj",
+	"Emperor Vek'nilash" => "Temple of Ahn'Qiraj",
+	"Epoch Hunter" => "Old Hillsbrad Foothills",
+	"Eredar Deathbringer" => "The Arcatraz",
+	"Ethereal Priest" => "Mana-tombs",
+	"Ethereal Scavenger" => "Mana-tombs",
+	"Ethereal Spellbinder" => "Mana-tombs",
+	"Ethereal Thief" => "Karazhan",
+	"Ethereum Smuggler" => "Magister's Terrace",
+	"Exarch Maladaar" => "Auchenai Crypts",
+	"Fankriss the Unyielding" => "Temple of Ahn'Qiraj",
+	"Fel Orc Convert" => "The Shattered Halls",
+	"Fel Rager" => "Bladge's Edge Mountains",
+	"Fel Stalker" => "Hyjal Summit",
+	"Felguard Annihilator" => "The Blood Furnace",
+	"Firebrand Grunt" => "Blackrock Spire",
+	"Firebrand Invoker" => "Blackrock Spire",
+	"Firebrand Legionnaire" => "Blackrock Spire",
+	"Firebrand Pyromancer" => "Blackrock Spire",
+	"Fleshbeast" => "Karazhan",
+	"Frost Wyrm" => "Hyjal Summit",
+	"Gargantuan Abyssal" => "The Arcatraz",
+	"Gargoyle" => "Hyjal Summit",
+	"Garr" => "Molten Core",
+	"Gehennas" => "Molten Core",
+	"General Drakkisath" => "Blackrock Spire",
+	"General Rajaxx" => "Ruins of Ahn'Qiraj",
+	"Ghaz'an" => "The Underbog",
+	"Ghostly Philanthropist" => "Karazhan",
+	"Ghostly Steward" => "Karazhan",
+	"Ghoul" => "Hyjal Summit",
+	"Giant Infernal" => "Hyjal Summit",
+	"Golem Lord Argelmach" => "Blackrock Depths",
+	"Golemagg the Incinerator" => "Molten Core",
+	"Goraluk Anvilcrack" => "Blackrock Spire",
+	"Grand Warlock Nethekurse" => "The Shattered Halls",
+	"Greater Bogstrok" => "The Slave Pens",
+	"Greater Fleshbeast" => "Karazhan",
+	"Grizzle" => "Blackrock Depths",
+	"Gronn-Priest" => "Gruul's Lair",
+	"Halazzi" => "Zul'Aman",
+	"Hammered Patron" => "Blackrock Depths",
+	"Hex Lord Malacrass" => "Zul'Aman",
+	"High Botanist Freywinn" => "The Botanica",
+	"Homunculus" => "Karazhan",
+	"Hydromancer Thespia" => "The Steamvault",
+	"Ironbark Protector" => "Dire Maul",
+	"Jan'alai" => "Zul'Aman",
+	"Kaz'rogal" => "Hyjal Summit",
+	"Kurinnaxx" => "Ruins of Ahn'Qiraj",
+	"Lord Kazzak" => "Blasted Lands",
+	"Lord Kri" => "Temple of Ahn'Qiraj",
+	"Lord Roccor" => "Blackrock Depths",
+	"Loro" => "Sunken Temple",
+	"Lucifron" => "Molten Core",
+	"Magical Horror" => "Karazhan",
+	"Magister Kalendris" => "Dire Maul",
+	"Magmadar" => "Molten Core",
+	"Maleki the Pallid" => "Stratholme",
+	"Mana Warp" => "Karazhan",
+	"Mechano-Lord Capacitus" => "The Mechanar",
+	"Mekgineer Steamrigger" => "The Steamvault",
+	"Mekgineer Thermaplugg" => "Gnomeregan",
+	"Mennu the Betrayer" => "The Slave Pens",
+	"Midnight" => "Karazhan",
+	"Mijan" => "Sunken Temple",
+	"Moam" => "Ruins of Ahn'Qiraj",
+	"Moroes" => "Karazhan",
+	"Murk Worm" => "Sunken Temple",
+	"Murmur" => "Shadow Labyrinth",
+	"Nalorakk" => "Zul'Aman",
+	"Nethermancer Sepethrea" => "The Mechanar",
+	"Nethervine Inciter" => "The Botanica",
+	"Nexus Stalker" => "Mana-tombs",
+	"Nexus-Prince Shaffar" => "Mana-tombs",
+	"Nightbane" => "Karazhan",
+	"Oblivion Mage" => "Sunwell Plateau",
+	"Onyxia" => "Onyxia's Lair",
+	"Ossirian the Unscarred" => "Ruins of Ahn'Qiraj",
+	"Ouro" => "Temple of Ahn'Qiraj",
+	"Painbringer" => "Sunwell Plateau",
+	"Pathaleon the Calculator" => "The Mechanar",
+	"Phantom Attendant" => "Karazhan",
+	"Phantom Guardsman" => "Karazhan",
+	"Phantom Guest" => "Karazhan",
+	"Phantom Stagehand" => "Karazhan",
+	"Phantom Valet" => "Karazhan",
+	"Phoenix-Hawk" => "The Eye",
+	"Phoenix-Hawk Hatchling" => "The Eye",
+	"Plugger Spazzring" => "Blackrock Depths",
+	"Priestess Delrissa" => "Magisters' Terrace",
+	"Priestess of Torment" => "Sunwell Plateau",
+	"Princess Huhuran" => "Temple of Ahn'Qiraj",
+	"Princess Yauj" => "Temple of Ahn'Qiraj",
+	"Pusillin" => "Dire Maul",
+	"Pyromancer Loregrain" => "Blackrock Depths",
+	"Quartermaster Zigris" => "Blackrock Spire",
+	"Rabid Warhound" => "The Shattered Halls",
+	"Rage Talon Dragon Guard" => "Blackrock Spire",
+	"Rage Winterchill" => "Hyjal Summit",
+	"Raging Skeleton" => "Auchenai Crypts",
+	"Ribbly Screwspigot" => "Blackrock Depths",
+	"Ribbly's Crony" => "Blackrock Depths",
+	"Rift Keeper" => "The Black Morass",
+	"Rift Lord" => "The Black Morass",
+	"Risen Bonewarder" => "Scholomance",
+	"Risen Construct" => "Scholomance",
+	"Sable Jaguar" => "The Black Morass",
+	"Sandfury Blood Drinker" => "Zul'Farrak",
+	"Sandfury Shadowcaster" => "Zul'Farrak",
+	"Scarlet Adept" => "Scarlet Monastery",
+	"Scarlet Centurion" => "Scarlet Monastery",
+	"Scarlet Gallant" => "Scarlet Monastery",
+	"Scarlet Monk" => "Scarlet Monastery",
+	"Scarlet Protector" => "Scarlet Monastery",
+	"Scholomance Adept" => "Scholomance",
+	"Scholomance Necromancer" => "Scholomance",
+	"Serpentshrine Sporebat" => "Serpentshrine Cavern",
+	"Sethekk Initiate" => "Sethekk Halls",
+	"Sethekk Prophet" => "Sethekk Halls",
+	"Sethekk Ravenguard" => "Sethekk Halls",
+	"Shade of Aran" => "Karazhan",
+	"Shadow Pillager" => "Karazhan",
+	"Shadowforge Peasant" => "Blackrock Depths",
+	"Shadowmoon Reaver" => "Black Temple",
+	"Shadowsword Assassin" => "Sunwell Plateau",
+	"Shadowsword Guardian" => "Sunwell Plateau",
+	"Shadowsword Vanquisher" => "Sunwell Plateau",
+	"Shadowy Necromancer" => "Hyjal Summit",
+	"Shattered Hand Centurion" => "The Shattered Halls",
+	"Shattered Hand Reaver" => "The Shattered Halls",
+	"Shazzrah" => "Molten Core",
+	"Shrike Bat" => "Uldaman",
+	"Skeletal Usher" => "Karazhan",
+	"Solakar Flamewreath" => "Blackrock Spire",
+	"Sorcerous Shade" => "Karazhan",
+	"Spawn of Hakkar" => "Sunken Temple",
+	"Spectral Charger" => "Karazhan",
+	"Spectral Performer" => "Karazhan",
+	"Spectral Researcher" => "Scholomance",
+	"Spectral Servant" => "Karazhan",
+	"Spectral Stable Hand" => "Karazhan",
+	"Spectral Stallion" => "Karazhan",
+	"Spell Shade" => "Karazhan",
+	"Spirestone Warlord" => "Blackrock Spire",
+	"Splinterbone Centurion" => "Razorfen Downs",
+	"Stonevault Oracle" => "Uldaman",
+	"Stonevault Pillager" => "Uldaman",
+	"Sunblade Arch Mage" => "Sunwell Plateau",
+	"Sunblade Blood Knight" => "Magisters' Terrace",
+	"Sunblade Cabalist" => "Sunwell Plateau",
+	"Sunblade Dawn Priest" => "Sunwell Plateau",
+	"Sunblade Dusk Priest" => "Sunwell Plateau",
+	"Sunblade Mage Guard" => "Magisters' Terrace",
+	"Sunblade Protector" => "Sunwell Plateau",
+	"Sunblade Slayer" => "Sunwell Plateau",
+	"Sunblade Vindicator" => "Sunwell Plateau",
+	"Sunseeker Astromage" => "The Mechanar",
+	"Sunseeker Botanist" => "The Botanica",
+	"Sunseeker Harvester" => "The Botanica",
+	"Syphoner" => "Karazhan",
+	"Terestian Illhoof" => "Karazhan",
+	"The Crone" => "Karazhan",
+	"The Prophet Skeram" => "Temple of Ahn'Qiraj",
+	"Thorngrin the Tender" => "The Botanica",
+	"Thuzadin Shadowcaster" => "Stratholme",
+	"Time-Lost Shadowmage" => "Sethekk Halls",
+	"Twilight Darkcaster" => "Ahn'kahet: The Old Kingdom",
+	"Twilight Emissary" => "Blackrock Depths",
+	"Unchained Doombringer" => "The Arcatraz",
+	"Underbat" => "The Underbog",
+	"Unliving Atal'ai" => "Sunken Temple",
+	"Vashj'ir Honor Guard" => "Serpentshrine Cavern",
+	"Vem" => "Temple of Ahn'Qiraj",
+	"Viscidus" => "Temple of Ahn'Qiraj",
+	"Warlord Kalithresh" => "The Steamvault",
+	"Warp Splinter" => "The Botanica",
+	"Weapon Technician" => "Blackrock Depths",
+	"Wrath Hammer Construct" => "Blackrock Depths",
+	"Zul'jin" => "Zul'Aman",
+	"Zulian Tiger" => "Zul'Gurub",
 }
 
-$debug = true
+$hordefactionlist = ["Thunder Bluff","Orgrimmar","Durotar","Undercity","Mulgore"]
+
+$alliancefactionlist = ["Stormwind City","Darnassus","Ironforge","Westfall"]
+
+$debug = false
 
 if $debug
 

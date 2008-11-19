@@ -407,8 +407,8 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3857,2, 2670)
 
 	-- Shadow Hood -- 3858
-	-- Instance: 796 - type1territory4minlevel34nameScarlet Monasterymaxlevel45id796category3
-	-- Instance: 796 - type1territory4minlevel34nameScarlet Monasterymaxlevel45id796category3
+	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryminlevel34id796
+	-- Instance: 796 - type1maxlevel45category3territory4nameScarlet Monasteryminlevel34id796
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Cloth,
 	-- Item Stats: 
@@ -579,7 +579,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 6521,1, 1346, 1, 2399, 1, 2627, 1, 3004, 1, 3363, 1, 3704, 1, 4159, 1, 4576, 1, 5153, 1, 5567, 1, 11049, 1, 11052, 1, 11557, 1, 16640, 1, 16729, 1, 17487, 1, 18749, 1, 18772)
 
 	-- Red Linen Bag -- 6686
-	-- Instance: 1581 - type1territory2minlevel15nameThe Deadminesmaxlevel20id1581category3
+	-- Instance: 1581 - type1maxlevel20category3territory2nameThe Deadminesminlevel15id1581
 	-- Mob Drop
 	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, 
@@ -1655,8 +1655,8 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18421,1, 2399, 1, 11052, 1, 18749, 1, 18772)
 
 	-- Cloak of Fire -- 18422
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloak,
 	-- Item Stats: 
@@ -1899,7 +1899,7 @@ function addon:InitTailoring(RecipeDB)
 	-- No acquire information
 
 	-- Robe of the Archmage -- 18457
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: Item BoP, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -1910,7 +1910,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 18457,3, 9264)
 
 	-- Robe of the Void -- 18458
-	-- Instance: 2057 - type1territory1minlevel58nameScholomancemaxlevel60id2057category3
+	-- Instance: 2057 - type1maxlevel60category3territory1nameScholomanceminlevel58id2057
 	-- Mob Drop
 	-- Flags: Item BoP, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -1950,7 +1950,7 @@ function addon:InitTailoring(RecipeDB)
 	-- No acquire information
 
 	-- Flarecore Gloves -- 20849
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Vendor
 	-- Flags: Priest,Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2544,7 +2544,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26781,3, 16408)
 
 	-- Arcanoweave Bracers -- 26782
-	-- Instance: 3848 - type5territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848category3
+	-- Instance: 3848 - type5category3territory1expansion1nameTempest Keep: The Arcatrazminlevel70id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2555,7 +2555,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26782,3, 20869)
 
 	-- Arcanoweave Boots -- 26783
-	-- Instance: 3849 - type5territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849category3
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarminlevel70id3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2566,7 +2566,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26783,3, 19168)
 
 	-- Arcanoweave Robe -- 26784
-	-- Instance: 3849 - type5territory1expansion1minlevel70nameTempest Keep: The Mechanarid3849category3
+	-- Instance: 3849 - type5category3territory1expansion1nameTempest Keep: The Mechanarminlevel70id3849
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2842,7 +2842,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3716 - type5territory1expansion1minlevel63nameCoilfang Reservoir: The Underbogmaxlevel65id3716category3
+	-- Instance: 3716 - type5maxlevel65category3territory1expansion1nameCoilfang Reservoir: The Underbogminlevel63id3716
 	-- Raid: 3845 - Tempest Keep
 	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
 	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
@@ -2860,8 +2860,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
 	-- Raid: 3457 - Karazhan
-	-- Instance: 3714 - type5territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714category3
-	-- Instance: 3715 - type5territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715category3
+	-- Instance: 3714 - type5category3territory1expansion1nameHellfire Citadel: The Shattered Hallsminlevel70id3714
+	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultminlevel70id3715
 	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
 	-- No location information
 	-- Raid: 3805 - Zul'Aman
@@ -2895,7 +2895,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31450,7, 4)
 
 	-- Whitemend Pants -- 31451
-	-- Instance: 3848 - type5territory1expansion1minlevel70nameTempest Keep: The Arcatrazid3848category3
+	-- Instance: 3848 - type5category3territory1expansion1nameTempest Keep: The Arcatrazminlevel70id3848
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2906,7 +2906,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31451,3, 20885)
 
 	-- Spellstrike Pants -- 31452
-	-- Instance: 3789 - type5territory1expansion1minlevel70nameAuchindoun: Shadow Labrynthid3789category3
+	-- Instance: 3789 - type5category3territory1expansion1nameAuchindoun: Shadow Labrynthminlevel70id3789
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2917,7 +2917,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31452,3, 18708)
 
 	-- Battlecast Pants -- 31453
-	-- Instance: 3847 - type5territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847category3
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaminlevel70id3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2928,7 +2928,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31453,3, 17978)
 
 	-- Whitemend Hood -- 31454
-	-- Instance: 3847 - type5territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847category3
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaminlevel70id3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2939,8 +2939,8 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31454,3, 17977)
 
 	-- Spellstrike Hood -- 31455
-	-- Instance: 3714 - type5territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714category3
-	-- Instance: 3714 - type5territory1expansion1minlevel70nameHellfire Citadel: The Shattered Hallsid3714category3
+	-- Instance: 3714 - type5category3territory1expansion1nameHellfire Citadel: The Shattered Hallsminlevel70id3714
+	-- Instance: 3714 - type5category3territory1expansion1nameHellfire Citadel: The Shattered Hallsminlevel70id3714
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -2951,7 +2951,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31455,3, 16807, 3, 17669)
 
 	-- Battlecast Hood -- 31456
-	-- Instance: 3715 - type5territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715category3
+	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultminlevel70id3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -3629,7 +3629,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Green Lumberjack Shirt -- 55996
 	-- No location information
-	-- Instance: 4416 - type1territory1expansion2minlevel76nameGundrakmaxlevel78id4416category3
+	-- Instance: 4416 - type1maxlevel78category3territory1expansion2nameGundrakminlevel76id4416
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
@@ -3640,8 +3640,8 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Red Workman's Shirt -- 55997
 	-- No location information
-	-- Instance: 4494 - type1territory1expansion2minlevel73nameAzjol-Nerub: Ahn'kahet: The Old Kingdommaxlevel75id4494category3
-	-- Instance: 4494 - type1territory1expansion2minlevel73nameAzjol-Nerub: Ahn'kahet: The Old Kingdommaxlevel75id4494category3
+	-- Instance: 4494 - type1maxlevel75category3territory1expansion2nameAzjol-Nerub: Ahn'kahet: The Old Kingdomminlevel73id4494
+	-- Instance: 4494 - type1maxlevel75category3territory1expansion2nameAzjol-Nerub: Ahn'kahet: The Old Kingdomminlevel73id4494
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 

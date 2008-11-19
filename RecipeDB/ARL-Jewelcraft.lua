@@ -529,7 +529,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26911,1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778)
 
 	-- Figurine - Black Diamond Crab -- 26912
-	-- Instance: 1583 - type1territory1minlevel58nameBlackrock Spiremaxlevel60id1583category3
+	-- Instance: 1583 - type1maxlevel60category3territory1nameBlackrock Spireminlevel58id1583
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket,
 	-- Item Stats: Tanking, 
@@ -540,7 +540,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 26912,3, 9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
-	-- Instance: 1584 - type1territory1minlevel55nameBlackrock Depthsmaxlevel60id1584category3
+	-- Instance: 1584 - type1maxlevel60category3territory1nameBlackrock Depthsminlevel55id1584
 	-- Mob Drop
 	-- Flags: All classes, Item BoP, Recipe BoP, Armor, Trinket,
 	-- Item Stats: 
@@ -941,7 +941,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31053,3, 19826)
 
 	-- Khorium Band of Frost -- 31054
-	-- Instance: 3715 - type5territory1expansion1minlevel70nameCoilfang Reservoir: The Steamvaultid3715category3
+	-- Instance: 3715 - type5category3territory1expansion1nameCoilfang Reservoir: The Steamvaultminlevel70id3715
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring,
 	-- Item Stats: 
@@ -952,7 +952,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31054,3, 17722)
 
 	-- Khorium Inferno Band -- 31055
-	-- Instance: 3791 - type5territory1expansion1minlevel67nameAuchindoun: Sethekk Hallsmaxlevel69id3791category3
+	-- Instance: 3791 - type5maxlevel69category3territory1expansion1nameAuchindoun: Sethekk Hallsminlevel67id3791
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Ring,
 	-- Item Stats: 
@@ -1128,7 +1128,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31076,7, 3)
 
 	-- Coronet of Verdant Flame -- 31077
-	-- Instance: 3847 - type5territory1expansion1minlevel70nameTempest Keep: The Botanicaid3847category3
+	-- Instance: 3847 - type5category3territory1expansion1nameTempest Keep: The Botanicaminlevel70id3847
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -1139,7 +1139,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 31077,3, 18422)
 
 	-- Circlet of Arcane Might -- 31078
-	-- Instance: 2367 - type5territory1expansion1minlevel66nameCaverns of Time: Old Hillsbrad Foothillsmaxlevel68id2367category3
+	-- Instance: 2367 - type5maxlevel68category3territory1expansion1nameCaverns of Time: Old Hillsbrad Foothillsminlevel66id2367
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Cloth,
 	-- Item Stats: 
@@ -3585,7 +3585,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53950,3, 29570)
 
 	-- Precise Scarlet Ruby -- 53951
-	-- Instance: 4494 - type1territory1expansion2minlevel73nameAzjol-Nerub: Ahn'kahet: The Old Kingdommaxlevel75id4494category3
+	-- Instance: 4494 - type1maxlevel75category3territory1expansion2nameAzjol-Nerub: Ahn'kahet: The Old Kingdomminlevel73id4494
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -3776,7 +3776,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Infused Twilight Opal -- 53970
-	-- Instance: 4277 - type1territory1expansion2minlevel72nameAzjol-Nerub: Azjol-Nerubmaxlevel74id4277category3
+	-- Instance: 4277 - type1maxlevel74category3territory1expansion2nameAzjol-Nerub: Azjol-Nerubminlevel72id4277
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -3804,7 +3804,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53972,390,40032,3,25229)
 	self:addTradeFlags(RecipeDB, 53972,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB, 53972,3, 29370, 3, 29376)
+	self:addTradeAcquire(RecipeDB, 53972,3, 29370, 3, 29376, 3, 30208)
 
 	-- Puissant Twilight Opal -- 53973
 	-- Trainer
@@ -3868,7 +3868,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53978,2, 30489, 2, 32294, 2, 32296)
 
 	-- Deadly Monarch Topaz -- 53979
-	-- Instance: 4265 - type1territory1expansion2minlevel71nameThe Nexus: The Nexusmaxlevel73id4265category3
+	-- Instance: 4265 - type1maxlevel73category3territory1expansion2nameThe Nexus: The Nexusminlevel71id4265
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

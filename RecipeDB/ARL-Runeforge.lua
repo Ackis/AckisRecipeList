@@ -1,27 +1,43 @@
 --[[
 
-ARL-RuneForge.lua
+************************************************************************
+
+ARL-Runeforge.lua
 
 Runeforging data for all of AckisRecipeList
 
-$Date$
-$Rev$
+Auto-generated using ARLDataminer.rb
+Entries to this file will be overwritten
+0 found from data mining.
+0 ignored.
+
+************************************************************************
+
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
+
+************************************************************************
+
+Format:
+
+	self:addTradeSkill(RecipeDB, Spell ID, Skill Level, Item ID, Rarity, Specialty)
+
+************************************************************************
 
 ]]--
 
-local L			= LibStub("AceLocale-3.0"):GetLocale("Ackis Recipe List")
+local MODNAME			= "Ackis Recipe List"
+local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local addon = AckisRecipeList
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-function addon:InitRuneforging()
+function addon:InitRuneforging(RecipeDB)
 
-	self:addTradeSkillSpell(53323, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(53331, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(53341, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(53342, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(53343, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(53344, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(54446, 1, L["Trainer"],1)
-	self:addTradeSkillSpell(54447, 1, L["Trainer"],1)
+	local recipecount = 0
+
+
+	return recipecount
 
 end
