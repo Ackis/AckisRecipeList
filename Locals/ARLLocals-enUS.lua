@@ -52,6 +52,7 @@ L["General Settings"]		= true
 L["Display Settings"]		= true
 L["Sorting Settings"]		= true
 L["Profile Options"]		= true
+L["ARL Documentation"]		= true
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
@@ -63,6 +64,13 @@ L["View Exclusion List"]	= true
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
 L["DISPLAY_SETTINGS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
+L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
+
+-- UI Documentation
+L["Using Filters"]			= true
+L["USING_FILTERS_DESC"]		= "Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.\\nWith the first type of filter, these match the properities of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is availible as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan."
+L["Reporting Bugs"]			= true
+L["REPORTING_BUGS_DESC"]	= "When reporting a bug, please make sure you do the following:\\n1) Download the latest version, availible from http://www.wowace.com/projects/arl/files/\\n2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/\\n2a) Disable addons such as Skillet or ATSW.\\n3) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.\\n4) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help."
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
