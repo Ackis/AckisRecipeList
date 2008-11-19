@@ -1310,7 +1310,7 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
 		[GetSpellInfo(45357)] = addon.InitInscription,
-		[GetSpellInfo(28481)] = addon.InitRuneforging,
+		[GetSpellInfo(53428)] = addon.InitRuneforging,
 	}
 
 	-- Thanks to sylvanaar/xinhuan for the code snippet
@@ -1581,7 +1581,7 @@ do
 			[GetSpellInfo(3908)] = false, -- Tailoring
 			[GetSpellInfo(25229)] = false, -- Jewelcrafting
 			[GetSpellInfo(45357)] = false, -- Inscription
-			[GetSpellInfo(28481)] = false, -- Runeforging
+			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 
 		addon:GetKnownProfessions(pData["Professions"])

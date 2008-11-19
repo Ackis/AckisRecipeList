@@ -38,7 +38,6 @@ function addon:InitFirstAid(RecipeDB)
 	local recipecount = 0
 
 	-- Linen Bandage -- 3275
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

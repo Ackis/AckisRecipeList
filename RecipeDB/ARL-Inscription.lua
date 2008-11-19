@@ -281,7 +281,6 @@ function addon:InitInscription(RecipeDB)
 	-- No acquire information
 
 	-- Ivory Ink -- 52738
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
@@ -291,7 +290,6 @@ function addon:InitInscription(RecipeDB)
 	-- No acquire information
 
 	-- Armor Vellum -- 52739
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket,
 	-- Item Stats: 
@@ -301,7 +299,6 @@ function addon:InitInscription(RecipeDB)
 	-- No acquire information
 
 	-- Weapon Vellum -- 52840
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 

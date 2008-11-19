@@ -44,7 +44,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2538,5,2679,1,2550)
 	self:addTradeFlags(RecipeDB, 2538,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2538,8, 8)
 
 	-- Spiced Wolf Meat -- 2539
 	-- Trainer
@@ -62,7 +62,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2540,5,2681,1,2550)
 	self:addTradeFlags(RecipeDB, 2540,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2540,8, 8)
 
 	-- Coyote Steak -- 2541
 	-- Trainer
@@ -458,7 +458,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 8604,5,6888,1,2550)
 	self:addTradeFlags(RecipeDB, 8604,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 8604,8, 8)
 
 	-- Smoked Bear Meat -- 8607
 	-- Vendor
@@ -695,7 +695,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20916,2, 2383, 2, 2664, 2, 3178, 2, 3333, 2, 4307, 2, 4574, 2, 5162, 2, 12033, 2, 12962)
 
 	-- Gingerbread Cookie -- 21143
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, Seasonal, 
 	-- Item Stats: 
@@ -732,13 +731,12 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 22480,2, 4782, 2, 7733, 2, 8125)
 
 	-- Runn Tum Tuber Surprise -- 22761
-	-- No location information
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 22761,275,18254,2,2550)
-	self:addTradeFlags(RecipeDB, 22761,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB, 22761,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 22761,3, 14354)
 
 	-- Heavy Crocolisk Stew -- 24418

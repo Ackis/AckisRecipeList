@@ -53,7 +53,7 @@ local function giveFilter()
 	if (not filterOptions) then
 
 		filterOptions = {
-			order = 6,
+			order = 1,
 			type = "group",
 			name = L["Filtering Options"],
 			desc = L["FILTERING_OPTIONS_DESC"],
@@ -1133,6 +1133,57 @@ local function fullOptions()
 	end
 
 	return options
+
+end
+
+local documentation = nil
+
+local function giveDocs()
+
+	if (not documentation) then
+
+		documentation = {
+			order = 1,
+			type = "group",
+			name = L["ARL Documentation"],
+			desc = L["ARL_DOC_DESC"],
+			args = {
+				header1 = {
+					order	= 1,
+					type	= "header",
+					name	= L["ARL Documentation"],
+				},
+				desc1 = {
+					order	= 2,
+					type	= "description",
+					name	= L["ARL_DOC_DESC"],
+				},
+				header2 = {
+					order	= 3,
+					type	= "header",
+					name	= L["Using Filters"],
+				},
+				desc2 = {
+					order	= 4,
+					type	= "description",
+					name	= L["USING_FILTERS_DESC"],
+				},
+				header2 = {
+					order	= 5,
+					type	= "header",
+					name	= L["Reporting Bugs"],
+				},
+				desc2 = {
+					order	= 6,
+					type	= "description",
+					name	= L["REPORTING_BUGS_DESC"],
+				},
+			},
+		}
+
+	end
+
+	return documentation
 
 end
 

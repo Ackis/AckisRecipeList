@@ -82,23 +82,23 @@ local playerData = {}
 local arlTooltip = _G["arlTooltip"]
 local arlTooltip2 = _G["arlTooltip2"]
 
--- To make tabbing between professions easier
-local SortedProfessions = {
-	{ name = GetSpellInfo(2259),	texture = "alchemy" },		-- 1
-	{ name = GetSpellInfo(2018),	texture = "blacksmith" },	-- 2
-	{ name = GetSpellInfo(2550),	texture = "cooking" },		-- 3
-	{ name = GetSpellInfo(7411),	texture = "enchant" },		-- 4
-	{ name = GetSpellInfo(4036),	texture = "engineer" },		-- 5
-	{ name = GetSpellInfo(746),		texture = "firstaid" },		-- 6
-	{ name = GetSpellInfo(45357),	texture = "inscribe" },		-- 7
-	{ name = GetSpellInfo(25229),	texture = "jewel" },		-- 8
-	{ name = GetSpellInfo(2108),	texture = "leather" },		-- 9
-	{ name = GetSpellInfo(2842),	texture = "poison" },		-- 10
-	{ name = GetSpellInfo(2575),	texture = "smelting" },		-- 11
-	{ name = GetSpellInfo(3908),	texture = "tailor" },		-- 12
-}
+-- To make tabbing between professions easier 
+	local SortedProfessions = { 
+		{ name = GetSpellInfo(2259),	texture = "alchemy" },	-- 1 
+		{ name = GetSpellInfo(2018),	texture = "blacksmith" }, -- 2 
+		{ name = GetSpellInfo(2550),	texture = "cooking" },	-- 3 
+		{ name = GetSpellInfo(7411),	texture = "enchant" },	-- 4 
+		{ name = GetSpellInfo(4036),	texture = "engineer" },	-- 5 
+		{ name = GetSpellInfo(746),		texture = "firstaid" },	-- 6 
+		{ name = GetSpellInfo(45357),	texture = "inscribe" },	-- 7 
+		{ name = GetSpellInfo(25229),	texture = "jewel" },	-- 8 
+		{ name = GetSpellInfo(2108),	texture = "leather" },	-- 9 
+		{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
+		{ name = GetSpellInfo(2575),	texture = "smelting" },	-- 11 
+		{ name = GetSpellInfo(3908),	texture = "tailor" },	-- 12 
+	} 
 
-local MaxProfessions = 13
+	local MaxProfessions = 12
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {

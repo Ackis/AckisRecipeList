@@ -38,14 +38,13 @@ function addon:InitSmelting(RecipeDB)
 	local recipecount = 0
 
 	-- Smelt Copper -- 2657
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2657,1,2840,1,2575)
 	self:addTradeFlags(RecipeDB, 2657,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2657,8, 8)
 
 	-- Smelt Silver -- 2658
 	-- Trainer

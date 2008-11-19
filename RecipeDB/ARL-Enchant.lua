@@ -56,7 +56,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 7420,1, 1317, 1, 3011, 1, 3345, 1, 3606, 1, 4213, 1, 4616, 1, 5157, 1, 5695, 1, 11065, 1, 11066, 1, 11067, 1, 11068, 1, 11070, 1, 11071, 1, 11072, 1, 11073, 1, 11074, 1, 16160, 1, 16633, 1, 16634, 1, 16725, 1, 16742, 1, 19248, 1, 19249, 1, 19250, 1, 19251)
 
 	-- Runed Copper Rod -- 7421
-	-- Default profession that you learn when picking up a profession, no reason to get acquire information for it.
 	-- Trainer
 	-- Flags: All classes, Item BoP, Recipe BoP, 
 	-- Item Stats: 
@@ -2810,14 +2809,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 60767,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 60767,2, 32514)
 
-	-- Enchant Chest - Major Health -- 20026
-	-- Trainer
-	-- Flags: All classes, Item BoE, Recipe BoE, 
-	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 20026, 255, nil, 1, 7411)
-	self:addTradeFlags(RecipeDB, 20026, 1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 20026, 2, 11189)
+
 	return recipecount
 
 end

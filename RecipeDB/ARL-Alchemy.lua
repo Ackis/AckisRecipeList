@@ -44,7 +44,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2329,15,2454,1,2259)
 	self:addTradeFlags(RecipeDB, 2329,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2329,8, 8)
 
 	-- Minor Healing Potion -- 2330
 	-- Trainer
@@ -53,7 +53,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2330,15,118,1,2259)
 	self:addTradeFlags(RecipeDB, 2330,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2330,8, 8)
 
 	-- Minor Mana Potion -- 2331
 	-- Trainer
@@ -80,7 +80,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2333,125,3390,1,2259)
 	self:addTradeFlags(RecipeDB, 2333,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB, 2333,8, 8)
 
 	-- Elixir of Minor Fortitude -- 2334
 	-- Trainer
@@ -381,22 +381,22 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Frost Protection Potion -- 7258
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7258,190,6050,1,2259)
-	self:addTradeFlags(RecipeDB, 7258,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7258,2, 2848)
+	self:addTradeFlags(RecipeDB, 7258,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Nature Protection Potion -- 7259
-	-- Vendor
-	-- Flags: All classes, Item BoE, Recipe BoE, 
+	-- Trainer
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7259,190,6052,1,2259)
-	self:addTradeFlags(RecipeDB, 7259,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 7259,2, 5594)
+	self:addTradeFlags(RecipeDB, 7259,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Blackmouth Oil -- 7836
 	-- Trainer
