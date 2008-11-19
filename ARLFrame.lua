@@ -409,13 +409,14 @@ function addon:CreateScanButton()
 		)
 
 	addon.ScanButton:SetText(L["Scan"])
-	addon.ScanButton:SetFrameStrata("PARENT")
 
 	local buttonparent = addon.ScanButton:GetParent()
 	local framelevel = buttonparent:GetFrameLevel()
+	local framestrata = buttonparent:GetFrameStrata()
 
 	-- Set the frame level of the button to be 1 deeper than its parent
 	addon.ScanButton:SetFrameLevel(framelevel + 1)
+	addon.ScanButton:SetFrameStrata(framestrata)
 
 	addon.ScanButton:Enable()
 
