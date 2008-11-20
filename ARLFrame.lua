@@ -3093,6 +3093,41 @@ function addon.ExpandAll_Clicked()
 
 end
 
+function ARL_DD_Sort_Initialize()
+	k = L["Name"]
+		info.text = k
+		info.arg1 = info.text
+		info.func = ARL_DD_Sort_OnClick
+		info.checked = ( addon.db.profile.sorting == k )
+		UIDropDownMenu_AddButton( info )
+	k = L["Skill"]
+		info.text = k
+		info.arg1 = info.text
+		info.func = ARL_DD_Sort_OnClick
+		info.checked = ( addon.db.profile.sorting == k )
+		UIDropDownMenu_AddButton( info )
+	k = L["Acquisition"]
+		info.text = k
+		info.arg1 = info.text
+		info.func = ARL_DD_Sort_OnClick
+		info.checked = ( addon.db.profile.sorting == k )
+		UIDropDownMenu_AddButton( info )
+	k = L["Location"]
+		info.text = k
+		info.arg1 = info.text
+		info.func = ARL_DD_Sort_OnClick
+		info.checked = ( addon.db.profile.sorting == k )
+		UIDropDownMenu_AddButton( info )
+	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
+end
+
+function ARL_DD_Sort_OnClick( button, value )
+	CloseDropDownMenus()
+	addon.db.profile.sorting = value
+	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
+	ReDisplay()
+end
+
 -- Description: 
 -- Expected result: 
 -- Input: 
@@ -3261,19 +3296,19 @@ function addon:CreateFrame(
 			"GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 			ARL_FilterButton:SetScript("OnClick", addon.ToggleFilters)
 
-		local ARL_SortButton = addon:GenericCreateButton("ARL_SortButton", addon.Frame,
-			25, 90, "TOPLEFT", addon.Frame, "TOPLEFT", 80, -40, "GameFontDisableSmall",
-			"GameFontHighlightSmall", L["Sorting"], "CENTER", L["SORTING_DESC"], 1)
-			-- Disable until we have sorting figured out
-			ARL_SortButton:Disable()
+		local ARL_DD_Sort = CreateFrame( "Frame", "ARL_DD_Sort", addon.Frame, "UIDropDownMenuTemplate" )
+		ARL_DD_Sort:SetPoint( "TOPLEFT", addon.Frame, "TOPLEFT", 55, -39 )
+		ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+		ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
+		UIDropDownMenu_SetWidth( ARL_DD_Sort, 100 )
 
 		local ARL_ExpandButton = addon:GenericCreateButton("ARL_ExpandButton", addon.Frame,
-			21, 40, "TOPRIGHT", ARL_SortButton, "BOTTOMLEFT", -26, -6, "GameFontNormalSmall",
+			21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, -1, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 			ARL_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
 		local ARL_SearchButton = addon:GenericCreateButton("ARL_SearchButton", addon.Frame,
-			25, 74, "TOPLEFT", ARL_SortButton, "BOTTOMRIGHT", 41, -2, "GameFontDisableSmall",
+			25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 12, 1, "GameFontDisableSmall",
 			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
 			ARL_SearchButton:Disable()
 			ARL_SearchButton:SetScript("OnClick",
@@ -4162,6 +4197,9 @@ function addon:CreateFrame(
 		}
 
 	end
+
+	-- Initialize dropdown
+	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize
 
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.uiscale)
