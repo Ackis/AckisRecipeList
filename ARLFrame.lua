@@ -716,40 +716,31 @@ function addon.filterSwitch(val)
 
 	end
 
-	local found = false
+	-- We have this toggled one way
+	if (ApplyFilterState[val]) then
+
+		ApplyFilterState[val] = not ApplyFilterState[val]
+
+	-- Hasn't been toggled
+	else
+
+		ApplyFilterState[val] = true
+
+	end
+
+	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
+	ARL_ApplyButton:Disable()
 
 	for i,j in pairs(ApplyFilterState) do
 
-		-- We have this value in our filter state, so we're toggling it off again
-		if (j == val) then
+		if (j == true) then
 
-			tremove(ApplyFilterState, j)
-			found = true
+			ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
+			ARL_ApplyButton:Enable()
 			break
 
 		end
 
-	end
-
-	-- New filter we haven't played with before
-	if (not found) then
-
-		tinsert(ApplyFilterState, val)
-
-	end
-
-	-- Make sure our apply button gets enabled if we have a different state than the original
-
-	if (#ApplyFilterState ~= 0) then
-
-		ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
-		ARL_ApplyButton:Enable()
-
-	else
-
-		ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
-		ARL_ApplyButton:Disable()
-	
 	end
 
 end
