@@ -3089,6 +3089,11 @@ function addon.ExpandAll_Clicked()
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function ARL_DD_Sort_Initialize()
 	k = L["Name"]
 		info.text = k
@@ -3117,11 +3122,32 @@ function ARL_DD_Sort_Initialize()
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function ARL_DD_Sort_OnClick( button, value )
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
 	ReDisplay()
+end
+
+-- Description: Saves the frame position into the database 
+-- Expected result: Frame coordinates are saved
+-- Input: None
+-- Output: Database values updated with frame position
+
+local function SaveFramePosition()
+
+	local p = self.db.profile
+
+	local _, _, _, offsetx, offsety = addon.Frame:GetPoint()
+
+	p.offsetx = offsetx
+	p.offsety = offsety
+
 end
 
 -- Description: 
@@ -3239,9 +3265,16 @@ function addon:CreateFrame(
 			)
 
 		addon.Frame:SetScript("OnHide", function() self:CloseWindow() end)
-		addon.Frame:SetScript("OnMouseUp", function() addon.Frame:StopMovingOrSizing() end)
+		addon.Frame:SetScript("OnMouseUp",
+				function()
+					addon.Frame:StopMovingOrSizing()
+					SaveFramePosition()
+				end
+			)
 
 		addon.Frame:ClearAllPoints()
+
+		local p = self.db.profile
 
 		-- Anchor frame to ATSW
 		if (ATSWFrame) then
@@ -3254,7 +3287,7 @@ function addon:CreateFrame(
 
 		else
 
-			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", p.offsetx, p.offsety)
 
 		end
 

@@ -137,6 +137,10 @@ function addon:OnInitialize()
 	self.db:RegisterDefaults(
 	{
 		profile = {
+			-- Frame options
+			offsetx = 0,
+			offsety = 0,
+
 			-- Sorting Options
 			sorting = L["Skill"],
 
