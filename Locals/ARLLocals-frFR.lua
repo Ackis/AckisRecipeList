@@ -52,6 +52,7 @@ L["General Settings"]		= "Paramètres généraux"
 L["Display Settings"]		= "Paramètres d'affichage"
 L["Sorting Settings"]		= "Paramètre de tri"
 L["Profile Options"]		= "Options du profil"
+L["ARL Documentation"]		= "Documentation d'ARL"
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Configuration des options principales"
@@ -63,6 +64,7 @@ L["View Exclusion List"]	= "Voir liste des exclus"
 L["VIEW_EXCLUSION_LIST_DESC"] = "Affiche la liste de toutes les recettes exclues."
 L["DISPLAY_SETTINGS_DESC"]	= "Vous permet de personnaliser le comportement de l'IUG."
 L["SORTING_SETTINGS_DESC"]	= "Vous permet de personnaliser la façon dont les recettes affichées sont triées."
+L["ARL_DOC_DESC"]			= "Documentation pour Ackis Recipe List"
 
 -- UI Documentation
 --L["Using Filters"]			= true
@@ -73,6 +75,8 @@ L["SORTING_SETTINGS_DESC"]	= "Vous permet de personnaliser la façon dont les re
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= "Compter les filtrées"
 L["FILTERCOUNT_DESC"]		= "Intègre ou non les recettes filtrées dans le nombre total de recettes."
+L["Include Excluded"]		= "Inclure les exclus"
+L["EXCLUDECOUNT_DESC"]		= "Intègre ou non les recettes exclues dans le compte du total des recettes."
 L["Close GUI"]				= "Fermer l'IUG"
 L["CLOSEGUI_DESC"]			= "Ferme la fenêtre d'ARL quand la fenêtre de métier est fermée."
 L["Display Exclusions"]		= "Montrer les exclus"
@@ -279,6 +283,8 @@ L["Required Skill"]		= "Compétence requise"
 L["NOTSCANNED"]		= "Vous n'avez pas encore analysé ce métier. Veuillez ouvrir ce métier et cliquer sur Analyser."
 L["ALL_FILTERED"]	= "Même si vous avez déjà analysé ce métier, vos filtres empêchent actuellement toute recette d'être affichée. Veuillez changer vos filtres et essayez à nouveau."
 L["ARL_ALLKNOWN"]	= "Vous connaissez toutes les recettes de ce métier."
+--L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
+--L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
 L["MissingFromDB"] = ": n'est pas présent dans la base de données. \nVeuillez en informer l'auteur de cet addon."
