@@ -315,7 +315,7 @@ EOF
 	ordered_keys.each do |name|
 
 		details = recipes[name]
-		proflua.puts "\t-- #{name} -- #{details[:spellid]}"
+		proflua.print("\t-- #{name} -- #{details[:spellid]}")
 
 		details[:method].split(",").each do |method|
 
@@ -423,17 +423,11 @@ EOF
 								npc[:locs].each do |loc|
 
 									if $dungeons[loc]
-
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
-
 									end
 
 									if $raids[loc]
-
 										flags << 6
-										proflua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
-
 									end
 
 								end
@@ -480,17 +474,11 @@ EOF
 								npc[:locs].each do |loc|
 
 									if $dungeons[loc]
-
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
-
 									end
 
 									if $raids[loc]
-
 										flags << 6
-										proflua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
-
 									end
 
 								end
@@ -522,83 +510,47 @@ EOF
 
 							# The NPC has a location mined
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-
 										flags << 5
-										proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
 										$instancemobs << npc[:name]
-
 									elsif $raids[loc]
-
 										flags << 6
-										proflua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
 										$instancemobs << npc[:name]
-
 									else
-
 										flags << 11
-
 									end
-
 								end
-
 							# There was no NPC location mined
 							else
-
 								# The NPC has been manually added to our list
 								if $bosszonemap[npc[:name]]
-
 									found = false
-
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
-
 										if dname == $bosszonemap[npc[:name]]
-
 											flags << 5
-											proflua.puts "\t-- Instance: #{dname}"
 											found = true
 											$instancemobs << npc[:name]
-
 										end
-
 									end
-
 									if not found
-
 										# Go through all the raids
 										$raids.each_pair do |id,dname|
-
 											if dname == $bosszonemap[npc[:name]]
-
 												flags << 6
-												proflua.puts "\t-- Raid: #{dname}"
 												found = true
 												$instancemobs << npc[:name]
-
 											end
-
 										end
-
 									end
-
 									if not found
-
 										flags << 11
-
 									end
-
 								end
-
 							end
-
 						end
-
 					end
-
 				# World drop
 				else
 
@@ -644,17 +596,10 @@ EOF
 						quest[:questinfo][:quest_zones].values do |loc|
 
 							if $dungeons[loc]
-
 								flags << 5
-								proflua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
-
 							end
-
 							if $raids[loc]
-
 								flags << 6
-								proflua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
-
 							end
 
 						end
@@ -800,7 +745,6 @@ EOF
 
 			when "ADNaxx40H"
 
-				proflua.print("ADNaxx40, ")
 				# Remove all the acquire flags
 				flags.delete(3)
 				flags.delete(4)
