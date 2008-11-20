@@ -1763,7 +1763,7 @@ $bosslist = [
 
 $bosszonemap = {
 	"40 Tickets - Schematic: Steam Tonk Controller" => "Darkmoon Faire",
-	"Master Craftsman Omarion" => "Naxxaramas",
+	"Master Craftsman Omarion" => "Naxxramas",
 	"Azure Ley-Whelp" => "The Oculus",
 	"Bloodaxe Raider" => "Blackrock Spire",
 	"Forgotten One" => "Ahn'kahet: The Old Kingdom",
