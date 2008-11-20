@@ -2332,102 +2332,107 @@ end
 function addon.RecipeItem_OnClick(button)
 
 	local clickedIndex = addon.RecipeListButton[button].sI
-	local isRecipe = DisplayStrings[clickedIndex].IsRecipe
-	local isExpanded = DisplayStrings[clickedIndex].IsExpanded
-	local dString = DisplayStrings[clickedIndex].String
-	local clickedSpellIndex = DisplayStrings[clickedIndex].sID
-	local traverseIndex = 0
 
-	-- First, check if this is a "modified" click, and react appropriately
-	if (IsShiftKeyDown()) then
+	-- Don't do anything if they've clicked on an empty button
+	if ( clickedIndex ~= nil ) then
+		local isRecipe = DisplayStrings[clickedIndex].IsRecipe
+		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
+		local dString = DisplayStrings[clickedIndex].String
+		local clickedSpellIndex = DisplayStrings[clickedIndex].sID
+		local traverseIndex = 0
 
-		local itemID = recipeDB[clickedSpellIndex]["ItemID"]
-		local _, itemLink = GetItemInfo(itemID)
+		-- First, check if this is a "modified" click, and react appropriately
+		if (IsShiftKeyDown()) then
 
-		if (itemLink) then
+			local itemID = recipeDB[clickedSpellIndex]["ItemID"]
+			local _, itemLink = GetItemInfo(itemID)
 
-			ChatFrameEditBox:Insert(itemLink)
+			if (itemLink) then
+
+				ChatFrameEditBox:Insert(itemLink)
+
+			else
+
+				addon:Print(L["NoItemLink"])
+
+			end
+
+		elseif (IsControlKeyDown()) then
+
+			ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
+
+		elseif (IsAltKeyDown()) then
+
+			-- Code needed here to insert this item into the "Ignore List"
+			addon:ToggleExcludeRecipe(clickedSpellIndex)
+			ReDisplay()
 
 		else
 
-			addon:Print(L["NoItemLink"])
+			-- three possibilities here
+			-- 1) We clicked on the recipe button on a closed recipe
+			-- 2) We clicked on the recipe button of an open recipe
+			-- 3) we clicked on the expanded text of an open recipe
+			if (isRecipe) then
 
-		end
+				if (isExpanded) then
 
-	elseif (IsControlKeyDown()) then
+					-- get rid of our expanded lines
+					traverseIndex = clickedIndex + 1
 
-		ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
+					while (DisplayStrings[traverseIndex].IsRecipe == false) do
 
-	elseif (IsAltKeyDown()) then
+						tremove(DisplayStrings, traverseIndex)
 
-		-- Code needed here to insert this item into the "Ignore List"
-		addon:ToggleExcludeRecipe(clickedSpellIndex)
-		ReDisplay()
+						-- if this is the last entry in the whole list, we should break out
+						if not DisplayStrings[traverseIndex] then
 
-	else
+							break
 
-		-- three possibilities here
-		-- 1) We clicked on the recipe button on a closed recipe
-		-- 2) We clicked on the recipe button of an open recipe
-		-- 3) we clicked on the expanded text of an open recipe
-		if (isRecipe) then
+						end
 
-			if (isExpanded) then
+					end
 
-				-- get rid of our expanded lines
-				traverseIndex = clickedIndex + 1
+					DisplayStrings[clickedIndex].IsExpanded = false
+
+				else
+
+					-- add in our expanded lines
+					expandEntry(clickedIndex)
+					-- set our current recipe to expanded
+					DisplayStrings[clickedIndex].IsExpanded = true
+
+				end
+
+			else
+
+				-- this inherently implies that we're on an expanded recipe
+				-- first, back up in the list of buttons until we find our recipe line
+				traverseIndex = clickedIndex - 1
+
+				while (DisplayStrings[traverseIndex].IsRecipe == false) do
+
+					traverseIndex = traverseIndex - 1
+
+				end
+
+				-- unexpand it
+				DisplayStrings[traverseIndex].IsExpanded = false
+				-- now remove the expanded lines until we get to a recipe again
+				traverseIndex = traverseIndex + 1
 
 				while (DisplayStrings[traverseIndex].IsRecipe == false) do
 
 					tremove(DisplayStrings, traverseIndex)
 
-					-- if this is the last entry in the whole list, we should break out
-					if not DisplayStrings[traverseIndex] then
-
-						break
-
-					end
-
 				end
 
-				DisplayStrings[clickedIndex].IsExpanded = false
-
-			else
-
-				-- add in our expanded lines
-				expandEntry(clickedIndex)
-				-- set our current recipe to expanded
-				DisplayStrings[clickedIndex].IsExpanded = true
-
 			end
 
-		else
-
-			-- this inherently implies that we're on an expanded recipe
-			-- first, back up in the list of buttons until we find our recipe line
-			traverseIndex = clickedIndex - 1
-
-			while (DisplayStrings[traverseIndex].IsRecipe == false) do
-
-				traverseIndex = traverseIndex - 1
-
-			end
-
-			-- unexpand it
-			DisplayStrings[traverseIndex].IsExpanded = false
-			-- now remove the expanded lines until we get to a recipe again
-			traverseIndex = traverseIndex + 1
-
-			while (DisplayStrings[traverseIndex].IsRecipe == false) do
-
-				tremove(DisplayStrings, traverseIndex)
-
-			end
+			-- finally, call our scrollframe updater
+			RecipeList_Update()
 
 		end
-
-		-- finally, call our scrollframe updater
-		RecipeList_Update()
 
 	end
 
