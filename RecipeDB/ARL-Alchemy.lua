@@ -36,7 +36,7 @@ local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 function addon:InitAlchemy(RecipeDB)
 
 	local recipecount = 0
-
+--[[
 	-- Elixir of Lion's Strength -- 2329
 
 	-- Item Stats: 
@@ -2020,7 +2020,7 @@ Discovery,
 	self:addTradeSkill(RecipeDB,60893,400,nil, 1, 2259)
 	self:addTradeFlags(RecipeDB,60893,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
-
+--]]
 
 	return recipecount
 
