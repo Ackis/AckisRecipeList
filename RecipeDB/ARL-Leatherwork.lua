@@ -540,14 +540,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Murloc Scale Bracers -- 6705
 	-- Mob Drop
-	-- Vendor
 	-- Flags: All classes, Item BoE, Recipe BoE, Armor, Leather,
 	-- Item Stats: 
 	-- Item Stats: val5id1val6id3val47id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 6705,190,5783,2,2108)
-	self:addTradeFlags(RecipeDB, 6705,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB, 6705,3, 1561, 2, 4897)
+	self:addTradeFlags(RecipeDB, 6705,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB, 6705,3, 1561)
 
 	-- Handstitched Leather Vest -- 7126
 	-- Trainer

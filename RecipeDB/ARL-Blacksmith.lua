@@ -486,7 +486,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 3492,160,3849,1,2018)
 	self:addTradeFlags(RecipeDB, 3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
-	self:addTradeAcquire(RecipeDB, 3492,2, 3356)
+	self:addTradeAcquire(RecipeDB, 3492,2, 3356, 2, 5512)
 
 	-- Jade Serpentblade -- 3493
 	-- World Drop
@@ -1088,11 +1088,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Ornate Mithril Breastplate -- 9972
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
-	-- Item Stats: 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
+	-- Item Stats: Tanking, 
+	-- Item Stats: val463id6val12id26val14id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9972,240,7935,2,2018)
-	self:addTradeFlags(RecipeDB, 9972,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 9972,3,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59)
 	-- No acquire information
 
 	-- Truesilver Breastplate -- 9974
@@ -1107,20 +1108,22 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Ornate Mithril Boots -- 9979
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
-	-- Item Stats: 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
+	-- Item Stats: Tanking, 
+	-- Item Stats: val324id6val12id26
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9979,245,7936,2,2018)
-	self:addTradeFlags(RecipeDB, 9979,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 9979,3,21,22,23,24,25,26,27,28,29,30,36,41,47,52,59)
 	-- No acquire information
 
 	-- Ornate Mithril Helm -- 9980
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Plate,
 	-- Item Stats: 
+	-- Item Stats: val10id1val383id6val14id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9980,245,7937,2,2018)
-	self:addTradeFlags(RecipeDB, 9980,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 9980,3,21,22,23,24,25,26,27,28,29,30,36,41,47,59)
 	-- No acquire information
 
 	-- Copper Claymore -- 9983

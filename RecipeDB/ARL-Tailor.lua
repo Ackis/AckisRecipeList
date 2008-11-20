@@ -714,7 +714,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7643,115,6264,1,3908)
 	self:addTradeFlags(RecipeDB, 7643,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
-	self:addTradeAcquire(RecipeDB, 7643,2, 1474, 2, 2669, 2, 4168, 2, 4577)
+	self:addTradeAcquire(RecipeDB, 7643,2, 1474, 2, 2669, 2, 4168)
 
 	-- Stylish Blue Shirt -- 7892
 	-- World Drop
@@ -2975,12 +2975,12 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Heavy Netherweave Net -- 31461
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 31461,315,24269,1,3908)
-	self:addTradeFlags(RecipeDB, 31461,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 31461,325,24269,1,3908)
+	self:addTradeFlags(RecipeDB, 31461,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 31461,1, 24315)
 
 	-- Belt of Blasting -- 36315
 	-- World Drop
@@ -3572,22 +3572,24 @@ function addon:InitTailoring(RecipeDB)
 	-- Red Lumberjack Shirt -- 55993
 	-- Instance: 4228 - The Nexus: The Oculus
 	-- No location information
+	-- Instance: 4494 - Azjol-Nerub: Ahn'kahet: The Old Kingdom
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 55993,400,41248,2,3908)
 	self:addTradeFlags(RecipeDB, 55993,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 55993,3, 27636, 3, 27972, 3, 29451)
+	self:addTradeAcquire(RecipeDB, 55993,3, 27636, 3, 27972, 3, 29451, 3, 30414)
 
 	-- Blue Lumberjack Shirt -- 55994
+	-- Instance: 4494 - Azjol-Nerub: Ahn'kahet: The Old Kingdom
 	-- Mob Drop
 	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 55994,400,41249,2,3908)
-	self:addTradeFlags(RecipeDB, 55994,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB, 55994,3, 26635)
+	self:addTradeFlags(RecipeDB, 55994,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 55994,3, 26635, 3, 30414)
 
 	-- Yellow Lumberjack Shirt -- 55995
 	-- Trainer

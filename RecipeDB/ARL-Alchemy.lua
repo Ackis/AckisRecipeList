@@ -39,12 +39,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lion's Strength -- 2329
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 2329,15,2454,1,2259)
-	self:addTradeFlags(RecipeDB, 2329,3,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 2329,8, 8)
+	self:addTradeFlags(RecipeDB, 2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 2329,1, 2454, 8, 8)
 
 	-- Minor Healing Potion -- 2330
 	-- Trainer
@@ -75,12 +75,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lesser Agility -- 2333
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 2333,125,3390,1,2259)
-	self:addTradeFlags(RecipeDB, 2333,3,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 2333,8, 8)
+	self:addTradeSkill(RecipeDB, 2333,140,3390,2,2259)
+	self:addTradeFlags(RecipeDB, 2333,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 2333,7, 2, 1, 3390, 8, 8)
 
 	-- Elixir of Minor Fortitude -- 2334
 	-- Trainer
@@ -192,12 +193,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Ogre's Strength -- 3188
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 3188,135,3391,1,2259)
-	self:addTradeFlags(RecipeDB, 3188,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 3188,150,3391,1,2259)
+	self:addTradeFlags(RecipeDB, 3188,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 3188,7, 1, 1, 3391)
 
 	-- Elixir of Minor Agility -- 3230
 	-- World Drop
@@ -246,13 +248,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3450,7, 1, 1, 1386, 1, 4160, 1, 4611, 1, 7948, 1, 16588, 1, 18802, 1, 19052)
 
 	-- Mighty Troll's Blood Elixir -- 3451
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 3451,160,3826,1,2259)
-	self:addTradeFlags(RecipeDB, 3451,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 3451,180,3826,1,2259)
+	self:addTradeFlags(RecipeDB, 3451,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 3451,7, 1)
 
 	-- Mana Potion -- 3452
 	-- Trainer
@@ -346,12 +348,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Minor Defense -- 7183
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 7183,15,5997,1,2259)
-	self:addTradeFlags(RecipeDB, 7183,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 7183,1,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 7183,1, 5997)
 
 	-- Holy Protection Potion -- 7255
 	-- Vendor
@@ -600,13 +602,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 11468,3, 1822, 3, 4467, 3, 5474, 3, 5481, 3, 5714, 3, 10184, 3, 12397)
 
 	-- Elixir of Giants -- 11472
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 11472,220,9206,1,2259)
-	self:addTradeFlags(RecipeDB, 11472,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 11472,245,9206,2,2259)
+	self:addTradeFlags(RecipeDB, 11472,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 11472,7, 2)
 
 	-- Ghost Dye -- 11473
 	-- Vendor
@@ -619,21 +621,22 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Shadow Power -- 11476
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 11476,225,9264,1,2259)
-	self:addTradeFlags(RecipeDB, 11476,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 11476,250,9264,2,2259)
+	self:addTradeFlags(RecipeDB, 11476,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 11476,1, 9264, 2, 1313, 2, 4610)
 
 	-- Elixir of Demonslaying -- 11477
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 11477,225,9224,1,2259)
-	self:addTradeFlags(RecipeDB, 11477,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 11477,250,9224,1,2259)
+	self:addTradeFlags(RecipeDB, 11477,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 11477,2, 8177, 2, 8178)
 
 	-- Elixir of Detect Demon -- 11478
 	-- Trainer
@@ -718,12 +721,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Superior Defense -- 17554
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17554,240,13445,1,2259)
-	self:addTradeFlags(RecipeDB, 17554,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17554,265,13445,1,2259)
+	self:addTradeFlags(RecipeDB, 17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17554,1, 13445, 2, 3348)
 
 	-- Elixir of the Sages -- 17555
 	-- Trainer
@@ -840,13 +844,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17570,7, 2)
 
 	-- Elixir of the Mongoose -- 17571
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17571,255,13452,1,2259)
-	self:addTradeFlags(RecipeDB, 17571,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17571,280,13452,2,2259)
+	self:addTradeFlags(RecipeDB, 17571,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17571,3, 6201, 3, 7106, 3, 8959)
 
 	-- Purification Potion -- 17572
 	-- Trainer
@@ -948,58 +952,63 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 17632,6, 935, 3, 21432)
 
 	-- Flask of Petrification -- 17634
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Instance: 1583 - Blackrock Spire
+	-- Raid: 2159 - Onyxia's Lair
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17634,300,13506,1,2259)
-	self:addTradeFlags(RecipeDB, 17634,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17634,300,13506,2,2259)
+	self:addTradeFlags(RecipeDB, 17634,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17634,3, 9692, 3, 10184, 3, 10381)
 
 	-- Flask of the Titans -- 17635
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Instance: 1583 - Blackrock Spire
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17635,300,13510,1,2259)
-	self:addTradeFlags(RecipeDB, 17635,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17635,300,13510,2,2259)
+	self:addTradeFlags(RecipeDB, 17635,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17635,3, 10363)
 
 	-- Flask of Distilled Wisdom -- 17636
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17636,300,13511,1,2259)
-	self:addTradeFlags(RecipeDB, 17636,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeSkill(RecipeDB, 17636,300,13511,2,2259)
+	self:addTradeFlags(RecipeDB, 17636,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Flask of Supreme Power -- 17637
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Instance: 2057 - Scholomance
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17637,300,13512,1,2259)
-	self:addTradeFlags(RecipeDB, 17637,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17637,300,13512,2,2259)
+	self:addTradeFlags(RecipeDB, 17637,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17637,3, 10508)
 
 	-- Flask of Chromatic Resistance -- 17638
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Instance: 1583 - Blackrock Spire
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 17638,300,13513,1,2259)
-	self:addTradeFlags(RecipeDB, 17638,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 17638,300,13513,2,2259)
+	self:addTradeFlags(RecipeDB, 17638,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 17638,3, 10339)
 
 	-- Elixir of Frost Power -- 21923
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Seasonal, 
+	-- Flags: All classes, Item BoE, Recipe BoE, Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 21923,170,17708,1,2259)
-	self:addTradeFlags(RecipeDB, 21923,3,7,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 21923,5, 1)
+	self:addTradeSkill(RecipeDB, 21923,190,17708,1,2259)
+	self:addTradeFlags(RecipeDB, 21923,1,2,3,7,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 21923,5, 1, 1, 17708)
 
 	-- Major Rejuvenation Potion -- 22732
 	-- Raid: 2717 - Molten Core
@@ -1035,13 +1044,14 @@ function addon:InitAlchemy(RecipeDB)
 	-- No acquire information
 
 	-- Mageblood Elixir -- 24365
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Zandalar Tribe - Revered
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 24365,250,20007,1,2259)
-	self:addTradeFlags(RecipeDB, 24365,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 24365,275,20007,1,2259)
+	self:addTradeFlags(RecipeDB, 24365,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,100)
+	self:addTradeAcquire(RecipeDB, 24365,6, 270, 3, 14921)
 
 	-- Greater Dreamless Sleep Potion -- 24366
 	-- Zandalar Tribe - Friendly
@@ -1064,13 +1074,14 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 24367,6, 270, 4, 14921)
 
 	-- Major Troll's Blood Elixir -- 24368
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Zandalar Tribe - Honored
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 24368,265,20004,1,2259)
-	self:addTradeFlags(RecipeDB, 24368,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 24368,290,20004,1,2259)
+	self:addTradeFlags(RecipeDB, 24368,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,100)
+	self:addTradeAcquire(RecipeDB, 24368,6, 270, 2, 14921)
 
 	-- Transmute: Elemental Fire -- 25146
 	-- Thorium Brotherhood - Friendly
@@ -1084,22 +1095,23 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 25146,6, 59, 1, 12944)
 
 	-- Elixir of Greater Firepower -- 26277
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 26277,225,21546,1,2259)
-	self:addTradeFlags(RecipeDB, 26277,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 26277,250,21546,2,2259)
+	self:addTradeFlags(RecipeDB, 26277,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 26277,3, 5843, 3, 5844, 3, 5846, 3, 8637, 3, 9318)
 
 	-- Elixir of Camouflage -- 28543
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28543,305,22823,1,2259)
-	self:addTradeFlags(RecipeDB, 28543,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 28543,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28543,1, 22823, 2, 16588, 2, 16641, 2, 16705, 2, 18802)
 
 	-- Elixir of Major Strength -- 28544
 	-- Trainer
@@ -1130,12 +1142,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Frost Power -- 28549
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28549,320,22827,1,2259)
-	self:addTradeFlags(RecipeDB, 28549,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 28549,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28549,1, 22827, 2, 18005, 2, 18017)
 
 	-- Insane Strength Potion -- 28550
 	-- World Drop
@@ -1156,13 +1169,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 28551,1, 16588, 1, 18802, 1, 19052)
 
 	-- Elixir of the Searching Eye -- 28552
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28552,325,22830,1,2259)
-	self:addTradeFlags(RecipeDB, 28552,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 28552,325,22830,2,2259)
+	self:addTradeFlags(RecipeDB, 28552,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28552,7, 2)
 
 	-- Elixir of Major Agility -- 28553
 	-- Honor Hold - Honored
@@ -1195,30 +1208,35 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Firepower -- 28556
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- The Scryers - Revered
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28556,345,22833,1,2259)
-	self:addTradeFlags(RecipeDB, 28556,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 28556,345,22833,2,2259)
+	self:addTradeFlags(RecipeDB, 28556,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,110)
+	self:addTradeAcquire(RecipeDB, 28556,1, 22833, 6, 934, 3, 19331)
 
 	-- Elixir of Major Defense -- 28557
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28557,345,22834,1,2259)
-	self:addTradeFlags(RecipeDB, 28557,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 28557,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28557,1, 22834, 2, 18005, 2, 19837)
 
 	-- Elixir of Major Shadow Power -- 28558
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Lower City - Revered
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28558,350,22835,1,2259)
-	self:addTradeFlags(RecipeDB, 28558,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 28558,350,22835,2,2259)
+	self:addTradeFlags(RecipeDB, 28558,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeAcquire(RecipeDB, 28558,1, 22835, 6, 1011, 3, 21655)
 
 	-- Major Dreamless Sleep Potion -- 28562
 	-- Vendor
@@ -1300,13 +1318,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 28569,6, 942, 3, 17904)
 
 	-- Elixir of Major Mageblood -- 28570
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28570,360,22840,1,2259)
-	self:addTradeFlags(RecipeDB, 28570,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 28570,355,22840,2,2259)
+	self:addTradeFlags(RecipeDB, 28570,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28570,7, 2)
 
 	-- Major Fire Protection Potion -- 28571
 	-- Instance: 3849 - Tempest Keep: The Mechanar
@@ -1368,12 +1386,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Empowerment -- 28578
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- World Drop
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 28578,370,22848,1,2259)
-	self:addTradeFlags(RecipeDB, 28578,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 28578,365,22848,2,2259)
+	self:addTradeFlags(RecipeDB, 28578,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB, 28578,7, 2, 1, 22848)
 
 	-- Ironshield Potion -- 28579
 	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
@@ -1450,48 +1469,48 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of Fortification -- 28587
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Discovery, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Discovery, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28587,370,22851,1,2259)
-	self:addTradeFlags(RecipeDB, 28587,1,2,12,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 28587,8, 1)
+	self:addTradeFlags(RecipeDB, 28587,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 28587,1, 22851, 8, 1)
 
 	-- Flask of Mighty Restoration -- 28588
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Discovery, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Discovery, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28588,370,22853,1,2259)
-	self:addTradeFlags(RecipeDB, 28588,1,2,12,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 28588,8, 1)
+	self:addTradeFlags(RecipeDB, 28588,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 28588,1, 22853, 8, 1)
 
 	-- Flask of Relentless Assault -- 28589
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Discovery, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Discovery, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28589,370,22854,1,2259)
-	self:addTradeFlags(RecipeDB, 28589,1,2,12,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 28589,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB, 28589,8, 1)
 
 	-- Flask of Blinding Light -- 28590
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Discovery, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Discovery, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28590,370,22861,1,2259)
-	self:addTradeFlags(RecipeDB, 28590,1,2,12,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 28590,8, 1)
+	self:addTradeFlags(RecipeDB, 28590,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 28590,1, 22861, 8, 1)
 
 	-- Flask of Pure Death -- 28591
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, Discovery, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Discovery, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 28591,370,22866,1,2259)
-	self:addTradeFlags(RecipeDB, 28591,1,2,12,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB, 28591,8, 1)
+	self:addTradeFlags(RecipeDB, 28591,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 28591,1, 22866, 8, 1)
 
 	-- Transmute: Primal Might -- 29688
 	-- Vendor
@@ -1577,13 +1596,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 38070,1, 16588, 1, 18802, 1, 19052)
 
 	-- Fel Strength Elixir -- 38960
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Mob Drop
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 38960,335,31679,1,2259)
-	self:addTradeFlags(RecipeDB, 38960,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 38960,335,31679,3,2259)
+	self:addTradeFlags(RecipeDB, 38960,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 38960,3, 19740, 3, 19755, 3, 21302, 3, 21314)
 
 	-- Fel Mana Potion -- 38961
 	-- Mob Drop
@@ -1613,13 +1632,14 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 39636,1, 16588, 1, 18802, 1, 19052)
 
 	-- Earthen Elixir -- 39637
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Cenarion Expedition - Honored
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 39637,320,32063,1,2259)
-	self:addTradeFlags(RecipeDB, 39637,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 39637,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeAcquire(RecipeDB, 39637,6, 942, 2, 17904)
 
 	-- Elixir of Draenic Wisdom -- 39638
 	-- Trainer
@@ -1631,13 +1651,13 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 39638,1, 16588, 1, 18802, 1, 19052)
 
 	-- Elixir of Ironskin -- 39639
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 39639,330,32068,1,2259)
-	self:addTradeFlags(RecipeDB, 39639,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB, 39639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB, 39639,2, 18821, 2, 18822)
 
 	-- Cauldron of Major Arcane Protection -- 41458
 	-- Trainer
@@ -1685,13 +1705,14 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 41503,8, 4)
 
 	-- Flask of Chromatic Wonder -- 42736
-	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- The Violet Eye - Honored
+	-- Vendor
+	-- Flags: All classes, Item BoE, Recipe BoE, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 42736,375,33208,1,2259)
-	self:addTradeFlags(RecipeDB, 42736,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB, 42736,375,33208,2,2259)
+	self:addTradeFlags(RecipeDB, 42736,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,114)
+	self:addTradeAcquire(RecipeDB, 42736,6, 967, 2, 18255)
 
 	-- Mad Alchemist's Potion -- 45061
 	-- Trainer
@@ -1901,47 +1922,47 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Mighty Agility -- 53840
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53840,385,39666,1,2259)
-	self:addTradeFlags(RecipeDB, 53840,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53840,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Wrath Elixir -- 53841
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53841,345,40068,1,2259)
-	self:addTradeFlags(RecipeDB, 53841,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53841,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Spellpower Elixir -- 53842
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53842,360,40070,1,2259)
-	self:addTradeFlags(RecipeDB, 53842,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53842,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Spirit -- 53847
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53847,380,40072,1,2259)
-	self:addTradeFlags(RecipeDB, 53847,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53847,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Guru's Elixir -- 53848
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53848,370,40076,1, 2259)
-	self:addTradeFlags(RecipeDB, 53848,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53848,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Crazy Alchemist's Potion -- 53895
@@ -1955,20 +1976,20 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Mighty Fortitude -- 53898
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53898,385,40078,1, 2259)
-	self:addTradeFlags(RecipeDB, 53898,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53898,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Lesser Flask of Toughness -- 53899
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53899,370,40079,1,2259)
-	self:addTradeFlags(RecipeDB, 53899,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53899,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Potion of Nightmares -- 53900
@@ -1982,29 +2003,29 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of the Frost Wyrm -- 53901
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53901,435,40082,1,2259)
-	self:addTradeFlags(RecipeDB, 53901,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53901,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Flask of Stoneblood -- 53902
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53902,435,40083,1,2259)
-	self:addTradeFlags(RecipeDB, 53902,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53902,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Flask of Endless Rage -- 53903
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 53903,435,40084,1,2259)
-	self:addTradeFlags(RecipeDB, 53903,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 53903,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Powerful Rejuvenation Potion -- 53904
@@ -2081,29 +2102,29 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of Pure Mojo -- 54213
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54213,435,40404,1,2259)
-	self:addTradeFlags(RecipeDB, 54213,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 54213,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Mighty Strength -- 54218
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54218,380,40073,1, 2259)
-	self:addTradeFlags(RecipeDB, 54218,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 54218,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Protection -- 54220
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 54220,400,40097,1, 2259)
-	self:addTradeFlags(RecipeDB, 54220,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 54220,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Potion of Speed -- 54221
@@ -2126,11 +2147,11 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Mighty Mageblood -- 56519
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 56519,400,40109,1, 2259)
-	self:addTradeFlags(RecipeDB, 56519,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 56519,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Transmute: Skyflare Diamond -- 57425
@@ -2180,65 +2201,65 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Accuracy -- 60354
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60354,400,44325,1, 2259)
-	self:addTradeFlags(RecipeDB, 60354,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60354,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Deadly Strikes -- 60355
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60355,400,44327,1, 2259)
-	self:addTradeFlags(RecipeDB, 60355,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60355,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Mighty Defense -- 60356
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60356,400,44328,1, 2259)
-	self:addTradeFlags(RecipeDB, 60356,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60356,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Expertise -- 60357
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60357,400,44329,1, 2259)
-	self:addTradeFlags(RecipeDB, 60357,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60357,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Armor Piercing -- 60365
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Trinket,
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60365,400,44330,1, 2259)
-	self:addTradeFlags(RecipeDB, 60365,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60365,3,21,22,23,24,25,26,27,28,29,30,36,41,47,63)
 	-- No acquire information
 
 	-- Elixir of Lightning Speed -- 60366
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60366,400,44331,1,2259)
-	self:addTradeFlags(RecipeDB, 60366,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60366,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Elixir of Mighty Thoughts -- 60367
 	-- Trainer
-	-- Flags: All classes, Recipe BoP, 
+	-- Flags: All classes, Item BoE, Recipe BoP, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 60367,385,44332,1, 2259)
-	self:addTradeFlags(RecipeDB, 60367,3,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB, 60367,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Mercurial Alchemist Stone -- 60396
