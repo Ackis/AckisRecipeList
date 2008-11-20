@@ -99,6 +99,7 @@ local tsort = table.sort
 local tinsert = table.insert
 local sfind = string.find
 local smatch = string.match
+local tolower = string.lower
 local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
 local guildname = GetGuildInfo("player")
@@ -1336,7 +1337,7 @@ end
 function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
-	if (not input) or (input and input:trim() == "") or (input == string.lower(L["About"]))then
+	if (not input) or (input and input:trim() == "") or (input == tolower(L["About"]))then
 
 		if (self.optionsFrame["About"]) then
 
@@ -1348,15 +1349,15 @@ function addon:ChatCommand(input)
 
 		end
 
-	elseif (input == string.lower(L["Sorting"])) or (input == string.lower(L["Sort"]))  or (input == string.lower(L["Display"])) then
+	elseif (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
 
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 
-	elseif (input == string.lower(L["Profile"])) then
+	elseif (input == tolower(L["Profile"])) then
 
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
 
-	elseif (input == string.lower(L["Filter"])) then
+	elseif (input == tolower(L["Filter"])) then
 
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
 
@@ -2052,26 +2053,39 @@ end
 
 function addon:SearchRecipeDB(RecipeDB, searchstring)
 
+	local lowerstring = tolower(searchstring)
+
 	-- Go through the entire database
 	for SpellID in pairs(RecipeDB) do
 
+		-- Get the Spell object
+		local recipe = RecipeDB[SpellID]
+
+		-- Set the search as false automatically
+		recipe["Search"] = false
+
 		-- Allow us to search by spell ID
-		if sfind(SpellID,searchstring) or
+		if sfind(tolower(SpellID),lowerstring) or
 
-		-- Allow us to search byitem ID
-		sfind(RecipeDB[SpellID]["ItemID"],searchstring) or
+			-- Allow us to search byitem ID
+			sfind(tolower(recipe["ItemID"]),lowerstring) or
 
-		-- Allow us to search by name
-		sfind(RecipeDB[SpellID]["Name"],searchstring) then
+			-- Allow us to search by name
+			sfind(tolower(recipe["Name"]),lowerstring) or
 
-		-- Allow us to search in the Acquire information
-		--sfind(RecipeDB[SpellID]["Name"],searchstring) then
+			-- Allow us to search by locations
+			sfind(recipe["Locations"],lowerstring) or
 
-			RecipeDB[SpellID]["Search"] = true
+			-- Allow us to search by specialty
+			sfind(recipe["Specialty"],lowerstring) or
+			
+			-- Allow us to search by skill level
+			sfind(recipe["Level"],lowerstring) or
 
-		else
+			-- Allow us to search by Rarity
+			sfind(recipe["Rarity"],lowerstring) then
 
-			RecipeDB[SpellID]["Search"] = false
+				recipe["Search"] = true
 
 		end
 

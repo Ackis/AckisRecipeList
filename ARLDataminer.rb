@@ -379,8 +379,6 @@ EOF
 
 				end
 
-				proflua.puts "\t-- Trainer"
-
 			# vendors
 			when 'sold-by'
 
@@ -390,7 +388,6 @@ EOF
 				# Reputation vendor
 				unless details[:faction].nil?
 
-					proflua.puts "\t-- #{details[:faction]} - #{details[:faction_level]}"
 					flags << $reps[details[:faction]][:flag]
 
 					data.each do |npc|
@@ -440,10 +437,6 @@ EOF
 									end
 
 								end
-
-							else
-
-								proflua.puts "\t-- No location information"
 
 							end
 
@@ -502,10 +495,6 @@ EOF
 
 								end
 
-							else
-
-								proflua.puts "\t-- No location information"
-
 							end
 
 						end
@@ -513,8 +502,6 @@ EOF
 					end
 
 				end
-
-				proflua.puts "\t-- Vendor"
 
 			# Mob drops
 			when 'dropped-by'
@@ -604,10 +591,6 @@ EOF
 
 									end
 
-								else
-
-									proflua.puts "\t-- No location information"
-
 								end
 
 							end
@@ -616,15 +599,12 @@ EOF
 
 					end
 
-					proflua.puts "\t-- Mob Drop"
-
 				# World drop
 				else
 
 					# Cheat and say that it's both horde/alliance
 					flags << 1 << 2
 					flags << 10
-					proflua.puts "\t-- World Drop"
 					acquire << {"type" => 7, "id" => details[:rarity]}
 
 				end
@@ -679,28 +659,19 @@ EOF
 
 						end
 
-					else
-
-						proflua.puts "\t-- No location information"
-
 					end
 
 				end
 
-				proflua.puts "\t-- Quest Reward"
-
 			end
 
 		end
-
-		proflua.print("\t-- Flags: ")
 
 		# Add class flags
 
 		if details[:classes].nil?
 
 			flags << 21 << 22 << 23 << 24 << 25 << 26 << 27 << 28 << 29 << 30
-			proflua.print("All classes, ")
 
 		else
 
@@ -709,7 +680,6 @@ EOF
 				if classes.has_key?(ctype)
 
 					flags << classes[ctype]
-					proflua.print("#{ctype},")
 
 				end
 
@@ -718,106 +688,60 @@ EOF
 		end
 
 		# Add item and recipe BoE/BoP/BoA flags
-
 		if details[:item_binds] == "BOE"
-
-			proflua.print("Item BoE, ")
 			flags << 36
-
 		end
-
 		if details[:item_binds] == "BOP"
-
-			proflua.print("Item BoP, ")
 			flags << 37
-
 		end
-
 		if details[:item_binds] == "BOA"
-
-			proflua.print("Item BoA, ")
 			flags << 38
-
 		end
-
 		if details[:recipe_binds] == "BOE"
-
-			proflua.print("Recipe BoE, ")
 			flags << 40
-
 		end
-
 		if details[:recipe_binds] == "BOP"
-
-			proflua.print("Recipe BoP, ")
 			flags << 41
-
 		end
-
 		if details[:recipe_binds] == "BOA"
-
-			proflua.print("Recipe BoA, ")
 			flags << 42
-
 		end
 
 		# Add weapon flags
-
 		if details[:is_weapon]
-
-			proflua.print("Weapon, ")
 			flags << 46
-
 			unless details[:weapon_hands].nil?
-
-				proflua.print("#{details[:weapon_hands]},")
 				flags << weapons[details[:weapon_hands]]
-
 			end
-
 			unless details[:weapon_slot].nil?
-
-				proflua.print("#{details[:weapon_slot]},")
 				flags << weapons[details[:weapon_slot]]
-
 			end
-
 		end
 
 		# Add armor flags
-
 		if details[:is_armor]
-
-			proflua.print("Armor, ")
 			flags << 47
-
 			unless details[:armor_type].nil?
-
-				proflua.print("#{details[:armor_type]},")
 				flags << armors[details[:armor_type]]
-
 			end
-
 		end
 
+		# Handle special cases
 		if specialcase[details[:spellid]]
 
 			case specialcase[details[:spellid]][:id]
 
 			when 7
 
-				proflua.print("Seasonal, ")
 				flags << 7
 				acquire << {"type" => 5, "id" => specialcase[details[:spellid]][:type]}
 
 			when 9
 
-				proflua.print("PVP, ")
 				flags << 9
 
 			when 12
 
-				proflua.print("Discovery, ")
 				flags << 1 << 2 << 12
 				specialcase[details[:spellid]][:type].each do |i|
 					acquire << {"type" => 8, "id" => i}
@@ -845,7 +769,6 @@ EOF
 
 			when "Daily"
 
-				proflua.print("Daily, ")
 				flags.delete(3)
 				flags.delete(4)
 				flags.delete(5)
@@ -862,7 +785,7 @@ EOF
 
 			when "class"
 
-				proflua.print("SC Class, ")
+				# Remove all the other class flags
 				flags.delete(21)
 				flags.delete(22)
 				flags.delete(23)
@@ -874,6 +797,64 @@ EOF
 				flags.delete(29)
 				flags.delete(30)
 				flags.concat(specialcase[details[:spellid]][:type])
+
+			when "ADNaxx40H"
+
+				proflua.print("ADNaxx40, ")
+				# Remove all the acquire flags
+				flags.delete(3)
+				flags.delete(4)
+				flags.delete(5)
+				flags.delete(6)
+				flags.delete(7)
+				flags.delete(8)
+				flags.delete(9)
+				flags.delete(10)
+				flags.delete(11)
+				flags.delete(12)
+				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
+				flags << 1 << 2 << 4 << 6 << 96
+				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 2}
+				$vendors[16365] = {:name => "Master Craftsman Omarion"}
+				$vendors[16365][:faction] = 0
+
+			when "ADNaxx40R"
+
+				# Remove all the acquire flags
+				flags.delete(3)
+				flags.delete(4)
+				flags.delete(5)
+				flags.delete(6)
+				flags.delete(7)
+				flags.delete(8)
+				flags.delete(9)
+				flags.delete(10)
+				flags.delete(11)
+				flags.delete(12)
+				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
+				flags << 1 << 2 << 4 << 6 << 96
+				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 3}
+				$vendors[16365] = {:name => "Master Craftsman Omarion"}
+				$vendors[16365][:faction] = 0
+
+			when "ADNaxx40E"
+
+				# Remove all the acquire flags
+				flags.delete(3)
+				flags.delete(4)
+				flags.delete(5)
+				flags.delete(6)
+				flags.delete(7)
+				flags.delete(8)
+				flags.delete(9)
+				flags.delete(10)
+				flags.delete(11)
+				flags.delete(12)
+				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
+				flags << 1 << 2 << 4 << 6 << 96
+				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 4}
+				$vendors[16365] = {:name => "Master Craftsman Omarion"}
+				$vendors[16365][:faction] = 0
 
 			when "specialty"
 
@@ -975,7 +956,7 @@ EOF
 
 		end
 
-		proflua.print("self:addTradeSkill(RecipeDB, #{details[:spellid]},")
+		proflua.print("self:addTradeSkill(RecipeDB,#{details[:spellid]},")
 
 		# If we have a skill which it's learned at, we'll use it, if not use 1
 		if details[:learned]
@@ -1012,7 +993,7 @@ EOF
 
 		if details[:specialty]
 
-			proflua.print(", #{details[:specialty]}) -- Speciality\n")
+			proflua.print(",#{details[:specialty]})")
 
 		else
 
@@ -1026,22 +1007,16 @@ EOF
 		flags.sort!
 
 		if flags.length == 0
-
 			proflua.puts "\t-- No filter flags"
-
 		else
 
 			if ignorerecipe.include?(details[:spellid])
-
 				proflua.print("\t--")
-
 			else
-
 				proflua.print("\t")
-
 			end
 
-			proflua.puts "self:addTradeFlags(RecipeDB, #{details[:spellid]},#{flags.join(",")})"
+			proflua.puts "self:addTradeFlags(RecipeDB,#{details[:spellid]},#{flags.join(",")})"
 
 		end
 
@@ -1072,17 +1047,13 @@ EOF
 			temp.flatten!
 
 			if ignorerecipe.include?(details[:spellid])
-
 				proflua.print("\t--")
-
 			else
-
 				proflua.print("\t")
-
 			end
 
 
-			proflua.puts "self:addTradeAcquire(RecipeDB, #{details[:spellid]},#{temp.join(", ")})"
+			proflua.puts "self:addTradeAcquire(RecipeDB,#{details[:spellid]},#{temp.join(",")})"
 
 		end
 	 
@@ -1312,9 +1283,9 @@ EOF
 
 						lookup_lua.print("1)")
 
-					elsif $factionmap[k]
+					elsif $factionmap[v[:name]]
 
-						lookup_lua.print("#{$factionmap[k]})")
+						lookup_lua.print("#{$factionmap[v[:name]]})")
 
 					else
 
@@ -1763,6 +1734,7 @@ $proftable = {"Alchemy" 			=> 2259,
 				}
 
 $bosslist = [
+	"Sjonnir The Ironshaper",
 	"Akil'zon",
 	"Anetheron",
 	"Anub'arak",
@@ -1792,6 +1764,7 @@ $bosslist = [
 	"Goraluk Anvilcrack",
 	"Grand Warlock Nethekurse",
 	"Grizzle",
+	"Gyth",
 	"Halazzi",
 	"Herald Volazj",
 	"Hex Lord Malacrass",
@@ -1827,6 +1800,7 @@ $bosslist = [
 	"Pyromancer Loregrain",
 	"Quartermaster Zigris",
 	"Rage Winterchill",
+	"Ras Frostwhisper",
 	"Ribbly Screwspigot",
 	"Shade of Aran",
 	"Shazzrah",
@@ -1845,6 +1819,19 @@ $bosslist = [
 
 $bosszonemap = {
 	#"40 Tickets - Schematic: Steam Tonk Controller" => "",
+	"Master Craftsman Omarion" => "Naxxaramas",
+	"Azure Ley-Whelp" => "The Oculus",
+	"Bloodaxe Raider" => "Blackrock Spire",
+	"Forgotten One" => "Ahn'kahet: The Old Kingdom",
+	"Gorgolon the All-seeing" => "",
+	"Great-father Winter" => "",
+	"Illidari Defiler" => "Black Temple",
+	"Lightning Construct" => "Halls of Stone",
+	"Ravaged Cadaver" => "Stratholme",
+	"Sjonnir The Ironshaper" => "Sjonnir The Ironshaper",
+	"Skeletal Fiend (Enraged Form)" => "Duskwood",
+	"Storm Fury" => "Black Temple",
+	"Gorgolon the All-seeing" => "Blade's Edge Mountains",
 	"A Binding Contract" => "Blackrock Depths",
 	"Aged Dalaran Wizard" => "Old Hillsbrad Foothills",
 	"Amani'shi Flame Caster" => "Zul'Aman",
@@ -1861,6 +1848,7 @@ $bosszonemap = {
 	"Firework Launcher" => "Moonglade",
 	"Flash Bomb Recipe" => "Badlands",
 	"Flesheating Ghoul" => "Drak'Tharon Keep",
+	"Gyth" => "Blackrock Spire",
 	"Herald Volazj" => "Ahn'kahet: The Old Kingdom",
 	"Imperial Plate Belt" => "Tanaris",
 	"Imperial Plate Boots" => "Tanaris",
@@ -1878,6 +1866,7 @@ $bosszonemap = {
 	"Loken" => "The Storm Peaks",
 	"Lokhtos Darkbargainer" => "Blackrock Depths",
 	"Okuno" => "Black Temple",
+	"Ras Frostwhisper" => "Scholomance",
 	"Risen Drakkari Soulmage" => "Drak'Tharon Keep",
 	"Risen Drakkari Warrior" => "Drak'Tharon Keep",
 	"Shen'dralar Provisioner" => "Dire Maul",
@@ -2171,6 +2160,7 @@ $factionmap = {
 	"Festive Recipes" => "0",
 	"Cluster Launcher" => "0",
 	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
+	"Great-father Winter" => "0",
 }
 
 $hordefactionlist = ["Thunder Bluff","Orgrimmar","Durotar","Undercity","Mulgore"]
@@ -2231,24 +2221,26 @@ EOF
 		2663 => {:id => "Trainer"},
 		3115 => {:id => "Trainer"},
 		21913 => {:id => 7, :type => 1},
+		28242 => {:id => "ADNaxx40E"},
+		28243 => {:id => "ADNaxx40R"},
+		28244 => {:id => "ADNaxx40R"},
 		}
 	bsmanual=<<EOF
 	-- Orcish War Leggings -- 9957
-	-- Trainer
+	-- Quest
 	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
 	-- Item Stats: 
 	-- Item Stats: val17id1val208id6
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 9957, 230, 7929, 2, 2018)
-	self:addTradeFlags(RecipeDB, 9957, 2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	self:addTradeAcquire(RecipeDB, 9957, 4, 2756)
+	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018)
+	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 9957,4,2756)
 EOF
 
 	# Add the Orcish War Leggings quest
 	$quests[2756] = {:name => "The Old Ways"}
 	$quests[2756][:faction] = 2
 
-	# Special reps: Icebane Bracers (28244), Icebane Gauntlets (226700, Icebane Breastplate (28242) <-- unobtainable (AD Naxx)
 	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
 
 	cooking = recipes.get_cooking_list
@@ -2370,7 +2362,13 @@ EOF
 		2149 => {:id => "Trainer"},
 		2152 => {:id => "Trainer"},
 		21943 => {:id => 7, :type => 1},
-		44953 => {:id => 7, :type => 1}
+		44953 => {:id => 7, :type => 1},
+		28219 => {:id => "ADNaxx40E"},
+		28220 => {:id => "ADNaxx40R"},
+		28221 => {:id => "ADNaxx40R"},
+		28222 => {:id => "ADNaxx40E"},
+		28223 => {:id => "ADNaxx40R"},
+		28224 => {:id => "ADNaxx40R"},
 		}
 	lwmanual=<<EOF
 EOF
@@ -2388,6 +2386,10 @@ EOF
 	tailoringspecaillist = {
 		2385 => {:id => "Trainer"},
 		2387 => {:id => "Trainer"},
+		28207 => {:id => "ADNaxx40E"},
+		28209 => {:id => "ADNaxx40R"},
+		28205 => {:id => "ADNaxx40R"},
+		28208 => {:id => "ADNaxx40H"},
 		}
 	tailoringmanual=<<EOF
 EOF

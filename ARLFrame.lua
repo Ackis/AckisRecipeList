@@ -3314,6 +3314,10 @@ function addon:CreateFrame(
 					-- Make sure to clear the focus of the searchbox
 					ARL_SearchText:ClearFocus()
 
+					-- Disable the search button since we're not searching for anything now
+					ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					ARL_SearchButton:Disable()
+
 					-- Make sure to clear text for last search
 					ARL_LastSearchedText = ""
 
@@ -3322,7 +3326,6 @@ function addon:CreateFrame(
 
 				end
 			)
-
 		ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", addon.Frame, "InputBoxTemplate")
 			ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 			ARL_SearchText:SetScript("OnEnterPressed",
@@ -3331,7 +3334,7 @@ function addon:CreateFrame(
 					local searchtext = ARL_SearchText:GetText()
 					searchtext = searchtext:trim()
 					
-					if (searchtext ~= "") then
+					if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 
 						ARL_LastSearchedText = searchtext
 
