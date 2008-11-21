@@ -82,6 +82,9 @@ local playerData = {}
 local arlTooltip = _G["arlTooltip"]
 local arlTooltip2 = _G["arlTooltip2"]
 
+local ARL_SearchText,ARL_LastSearchedText
+local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB
+
 -- To make tabbing between professions easier 
 	local SortedProfessions = { 
 		{ name = GetSpellInfo(2259),	texture = "alchemy" },	-- 1 
@@ -215,7 +218,7 @@ end
 -- Input: 
 -- Output: 
 
-function ReDisplay()
+local function ReDisplay()
 
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
@@ -1191,7 +1194,7 @@ end
 -- Output: 
 -- Set the texture on the switcher button.
 
-function SetSwitcherTexture(tex)
+local function SetSwitcherTexture(tex)
 -- This is really only called the first time its displayed. It should reflect the first
 -- profession the user has selected, or that shows up in his lists.
 
@@ -1221,7 +1224,7 @@ end
 -- Output: 
 -- converting from hex to rgb (Thanks Maldivia)
 
-function toRGB(hex)
+local function toRGB(hex)
 
 	local r, g, b = hex:match("(..)(..)(..)")
 
@@ -1237,7 +1240,7 @@ end
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
 
-function gttAdd(
+local function gttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- negative number. subtract from 12 to get fontsize
 	narrow,			-- if 1, use ARIALN instead of FRITZQ
@@ -1369,7 +1372,7 @@ end
 -- Input: 
 -- Output: 
 
-function ClearRecipeButtonTooltip(bIndex)
+local function ClearRecipeButtonTooltip(bIndex)
 
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
@@ -1769,7 +1772,7 @@ end
 -- Output: 
 -- This sets the tooltip on the button during a recipelist update
 
-function SetRecipeButtonTooltip(bIndex)
+local function SetRecipeButtonTooltip(bIndex)
 
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
@@ -1812,7 +1815,7 @@ end
 -- Output: 
 -- Scrollframe update stuff
 
-function RecipeList_Update()
+local function RecipeList_Update()
 
 	-- Clear out the current buttons
 	for i = 1, maxVisibleRecipes do
@@ -1954,7 +1957,7 @@ end
 -- Input: 
 -- Output: 
 
-function expandEntry(dsIndex)
+local function expandEntry(dsIndex)
 
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
@@ -1970,7 +1973,7 @@ function expandEntry(dsIndex)
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 
 		local pad = "  "
-		local display
+		local cSte,t,display
 
 		-- set the string based on type of acquire
 		--[[ 1 = Trainer , 2 = Vendor, 3 = Mob, 4 = Quest, 5 = Seasonal, 6 = Reputation --]]
@@ -2946,7 +2949,7 @@ end
 -- This does the initial fillup of the DisplayStrings structure.
 -- This won't run if all we're doing is expanding/contracting a recipe
 
-function initDisplayStrings()
+local function initDisplayStrings()
 
 	local exclude = addon.db.profile.exclusionlist
 
@@ -3004,7 +3007,7 @@ end
 -- This does an initial fillup of the DisplayStrings, as above.
 -- However, in this case, it expands every recipe
 
-function expandallDisplayStrings()
+local function expandallDisplayStrings()
 
 	local exclude = addon.db.profile.exclusionlist
 
@@ -3094,7 +3097,10 @@ end
 -- Input: 
 -- Output: 
 
-function ARL_DD_Sort_Initialize()
+local function ARL_DD_Sort_Initialize()
+
+	local k
+
 	k = L["Name"]
 		info.text = k
 		info.arg1 = info.text
@@ -3120,6 +3126,7 @@ function ARL_DD_Sort_Initialize()
 		info.checked = ( addon.db.profile.sorting == k )
 		UIDropDownMenu_AddButton( info )
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
+
 end
 
 -- Description: 
@@ -3127,7 +3134,7 @@ end
 -- Input: 
 -- Output: 
 
-function ARL_DD_Sort_OnClick( button, value )
+local function ARL_DD_Sort_OnClick( button, value )
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )

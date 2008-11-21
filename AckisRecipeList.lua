@@ -84,6 +84,7 @@ local GetSpellName = GetSpellName
 local GetTradeSkillLine = GetTradeSkillLine
 local GetTradeSkillInfo = GetTradeSkillInfo
 local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
+local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
 
 local select = select
 local format = format
