@@ -38,7 +38,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	local recipecount = 0
 
 	-- Delicate Copper Wire -- 25255
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25255,1,20816,1,25229)
@@ -46,7 +45,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Bronze Setting -- 25278
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25278,50,20817,1,25229)
@@ -54,7 +52,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25278,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Elegant Silver Ring -- 25280
-
 	-- Item Stats: 
 	-- Item Stats: val2id4val2id5
 	recipecount = recipecount + 1
@@ -63,7 +60,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25280,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Inlaid Malachite Ring -- 25283
-
 	-- Item Stats: 
 	-- Item Stats: val2id2
 	recipecount = recipecount + 1
@@ -72,7 +68,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25283,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Simple Pearl Ring -- 25284
-
 	-- Item Stats: 
 	-- Item Stats: val4id45
 	recipecount = recipecount + 1
@@ -81,7 +76,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25284,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Gloom Band -- 25287
-
 	-- Item Stats: 
 	-- Item Stats: val5id5
 	recipecount = recipecount + 1
@@ -90,7 +84,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25287,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Heavy Silver Ring -- 25305
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25305,90,20826,1,25229)
@@ -98,7 +91,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25305,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Ring of Silver Might -- 25317
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val4id3
 	recipecount = recipecount + 1
@@ -107,7 +99,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25317,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Ring of Twilight Shadows -- 25318
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val4id4
 	recipecount = recipecount + 1
@@ -116,7 +107,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25318,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Heavy Golden Necklace of Battle -- 25320
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val5id3
 	recipecount = recipecount + 1
@@ -125,7 +115,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25320,2,1286,2,3367,2,16624,2,17512)
 
 	-- Moonsoul Crown -- 25321
-
 	-- Item Stats: 
 	-- Item Stats: val6id4val39id6val6id24
 	recipecount = recipecount + 1
@@ -134,7 +123,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25321,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Wicked Moonstone Ring -- 25323
-
 	-- Item Stats: 
 	-- Item Stats: val5id4val5id49
 	recipecount = recipecount + 1
@@ -143,7 +131,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25323,2,3499,2,3954)
 
 	-- Amulet of the Moon -- 25339
-
 	-- Item Stats: 
 	-- Item Stats: val4id4val4id5
 	recipecount = recipecount + 1
@@ -152,7 +139,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25339,2,4229,2,4561,2,16624,2,17512)
 
 	-- Solid Bronze Ring -- 25490
-
 	-- Item Stats: 
 	-- Item Stats: val30id6
 	recipecount = recipecount + 1
@@ -161,7 +147,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25490,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Braided Copper Ring -- 25493
-
 	-- Item Stats: 
 	-- Item Stats: val1id5
 	recipecount = recipecount + 1
@@ -170,7 +155,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Barbaric Iron Collar -- 25498
-
 	-- Item Stats: 
 	-- Item Stats: val10id48
 	recipecount = recipecount + 1
@@ -179,7 +163,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25498,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Pendant of the Agate Shield -- 25610
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val4id1val4id3val6id31
 	recipecount = recipecount + 1
@@ -188,7 +171,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25610,2,1448,2,4877)
 
 	-- Heavy Iron Knuckles -- 25612
-
 	-- Item Stats: 
 	-- Item Stats: val18-35id7val1.6id8
 	recipecount = recipecount + 1
@@ -197,7 +179,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25612,2,2381,2,2393)
 
 	-- Golden Dragon Ring -- 25613
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val4id31val10id48
 	recipecount = recipecount + 1
@@ -206,7 +187,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25613,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Silver Rose Pendant -- 25614
-
 	-- Item Stats: 
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,25614,145,20956,2,25229)
@@ -214,7 +194,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Mithril Filigree -- 25615
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25615,150,20963,1,25229)
@@ -222,7 +201,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25615,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Blazing Citrine Ring -- 25617
-
 	-- Item Stats: 
 	-- Item Stats: val9id49
 	recipecount = recipecount + 1
@@ -231,7 +209,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25617,2,2381,2,9636)
 
 	-- Jade Pendant of Blasting -- 25618
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val8id49
 	recipecount = recipecount + 1
@@ -240,7 +217,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25618,7,2)
 
 	-- The Jade Eye -- 25619
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val5id3val6id31
 	recipecount = recipecount + 1
@@ -249,7 +225,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25619,2,4775,2,5163,2,16624,2,17512)
 
 	-- Engraved Truesilver Ring -- 25620
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val3id2val3id3val3id4val3id5
 	recipecount = recipecount + 1
@@ -258,7 +233,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25620,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Citrine Ring of Rapid Healing -- 25621
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25621,180,20961,1,25229)
@@ -266,7 +240,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25621,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Citrine Pendant of Golden Healing -- 25622
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val11id49
 	recipecount = recipecount + 1
@@ -275,7 +248,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25622,7,2)
 
 	-- Figurine - Jade Owl -- 26872
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val2id5
 	recipecount = recipecount + 1
@@ -284,7 +256,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26872,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Figurine - Golden Hare -- 26873
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26873,200,21756,2,25229)
@@ -292,7 +263,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26873,7,2)
 
 	-- Aquamarine Signet -- 26874
-
 	-- Item Stats: 
 	-- Item Stats: val20id48
 	recipecount = recipecount + 1
@@ -301,7 +271,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26874,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Figurine - Black Pearl Panther -- 26875
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26875,215,21758,1,25229)
@@ -309,7 +278,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26875,2,989,2,4897)
 
 	-- Aquamarine Pendant of the Warrior -- 26876
-
 	-- Item Stats: 
 	-- Item Stats: val20id48
 	recipecount = recipecount + 1
@@ -318,7 +286,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26876,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Ruby Crown of Restoration -- 26878
-
 	-- Item Stats: 
 	-- Item Stats: val9id4val53id6val26id49
 	recipecount = recipecount + 1
@@ -327,7 +294,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26878,2,2810,2,2821)
 
 	-- Thorium Setting -- 26880
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26880,215,21752,1,25229)
@@ -335,7 +301,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26880,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Figurine - Truesilver Crab -- 26881
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val5id31
 	recipecount = recipecount + 1
@@ -344,7 +309,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26881,2,1148,2,4897)
 
 	-- Figurine - Truesilver Boar -- 26882
-
 	-- Item Stats: 
 	-- Item Stats: val8id48
 	recipecount = recipecount + 1
@@ -353,7 +317,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26882,7,2)
 
 	-- Ruby Pendant of Fire -- 26883
-
 	-- Item Stats: 
 	-- Item Stats: val13id49
 	recipecount = recipecount + 1
@@ -362,7 +325,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26883,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Truesilver Healing Ring -- 26885
-
 	-- Item Stats: 
 	-- Item Stats: val13id49
 	recipecount = recipecount + 1
@@ -371,7 +333,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26885,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- The Aquamarine Ward -- 26887
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id26
 	recipecount = recipecount + 1
@@ -380,7 +341,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26887,7,2)
 
 	-- Gem Studded Band -- 26896
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val16id49
 	recipecount = recipecount + 1
@@ -389,7 +349,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26896,7,2)
 
 	-- Opal Necklace of Impact -- 26897
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26897,250,21766,1,25229)
@@ -397,7 +356,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26897,2,5163,2,8363,2,16624,2,17512)
 
 	-- Figurine - Ruby Serpent -- 26900
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val4id4
 	recipecount = recipecount + 1
@@ -406,7 +364,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26900,7,2)
 
 	-- Simple Opal Ring -- 26902
-
 	-- Item Stats: 
 	-- Item Stats: val12id2
 	recipecount = recipecount + 1
@@ -415,7 +372,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26902,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Sapphire Signet -- 26903
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26903,265,21768,1,25229)
@@ -423,7 +379,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26903,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Emerald Crown of Destruction -- 26906
-
 	-- Item Stats: 
 	-- Item Stats: val64id6val14id44val30id49
 	recipecount = recipecount + 1
@@ -432,7 +387,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26906,2,15179)
 
 	-- Onslaught Ring -- 26907
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val24id48
 	recipecount = recipecount + 1
@@ -441,7 +395,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26907,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Sapphire Pendant of Winter Night -- 26908
-
 	-- Item Stats: 
 	-- Item Stats: val16id49
 	recipecount = recipecount + 1
@@ -450,7 +403,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26908,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Figurine - Emerald Owl -- 26909
-
 	-- Item Stats: 
 	-- Item Stats: val2id24
 	recipecount = recipecount + 1
@@ -459,7 +411,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26909,7,2)
 
 	-- Ring of Bitter Shadows -- 26910
-
 	-- Item Stats: 
 	-- Item Stats: val16id49
 	recipecount = recipecount + 1
@@ -468,7 +419,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26910,2,12941)
 
 	-- Living Emerald Pendant -- 26911
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val19id49
 	recipecount = recipecount + 1
@@ -477,8 +427,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26911,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Figurine - Black Diamond Crab -- 26912
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id31
 	recipecount = recipecount + 1
@@ -487,8 +435,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26912,3,9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val9id2
 	recipecount = recipecount + 1
@@ -497,7 +443,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26914,3,8983)
 
 	-- Necklace of the Diamond Tower -- 26915
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val17id31val3id32val3id33val3id34val3id35val3id36
 	recipecount = recipecount + 1
@@ -506,7 +451,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26915,2,11189)
 
 	-- Band of Natural Fire -- 26916
-
 	-- Item Stats: 
 	-- Item Stats: val23id49
 	recipecount = recipecount + 1
@@ -515,7 +459,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26916,1,18751,1,18774,1,19063,1,19539)
 
 	-- Arcanite Sword Pendant -- 26918
-
 	-- Item Stats: 
 	-- Item Stats: val40id48
 	--recipecount = recipecount + 1
@@ -524,7 +467,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Blood Crown -- 26920
-
 	-- Item Stats: 
 	-- Item Stats: val75id6val28id44
 	--recipecount = recipecount + 1
@@ -533,7 +475,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Woven Copper Ring -- 26925
-
 	-- Item Stats: 
 	-- Item Stats: val1id4
 	recipecount = recipecount + 1
@@ -542,7 +483,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Heavy Copper Ring -- 26926
-
 	-- Item Stats: 
 	-- Item Stats: val2id3
 	recipecount = recipecount + 1
@@ -551,7 +491,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26926,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Thick Bronze Necklace -- 26927
-
 	-- Item Stats: 
 	-- Item Stats: val3id3
 	recipecount = recipecount + 1
@@ -560,7 +499,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26927,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Ornate Tigerseye Necklace -- 26928
-
 	-- Item Stats: 
 	-- Item Stats: val2id5
 	recipecount = recipecount + 1
@@ -569,7 +507,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26928,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Teardrop Blood Garnet -- 28903
-
 	-- Item Stats: 
 	-- Item Stats: val7id49
 	recipecount = recipecount + 1
@@ -578,7 +515,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Bold Blood Garnet -- 28905
-
 	-- Item Stats: 
 	-- Item Stats: val6id1
 	recipecount = recipecount + 1
@@ -587,7 +523,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Runed Blood Garnet -- 28906
-
 	-- Item Stats: 
 	-- Item Stats: val7id49
 	recipecount = recipecount + 1
@@ -596,7 +531,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28906,6,934,1,19331)
 
 	-- Delicate Blood Garnet -- 28907
-
 	-- Item Stats: 
 	-- Item Stats: val6id2
 	recipecount = recipecount + 1
@@ -605,7 +539,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28907,6,933,2,20242,6,933,2,23007)
 
 	-- Inscribed Flame Spessarite -- 28910
-
 	-- Item Stats: 
 	-- Item Stats: val3id1
 	recipecount = recipecount + 1
@@ -614,7 +547,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Luminous Flame Spessarite -- 28912
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val4id49
 	recipecount = recipecount + 1
@@ -623,7 +555,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28912,6,933,1,20242,6,933,1,23007)
 
 	-- Glinting Flame Spessarite -- 28914
-
 	-- Item Stats: 
 	-- Item Stats: val3id2
 	recipecount = recipecount + 1
@@ -632,7 +563,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Potent Flame Spessarite -- 28915
-
 	-- Item Stats: 
 	-- Item Stats: val4id49
 	recipecount = recipecount + 1
@@ -641,7 +571,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28915,6,1011,1,21655)
 
 	-- Radiant Deep Peridot -- 28916
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val4id23
 	recipecount = recipecount + 1
@@ -650,7 +579,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Jagged Deep Peridot -- 28917
-
 	-- Item Stats: 
 	-- Item Stats: val4id3
 	recipecount = recipecount + 1
@@ -659,7 +587,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Enduring Deep Peridot -- 28918
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val4id3val3id31
 	recipecount = recipecount + 1
@@ -668,7 +595,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28918,6,946,1,17657)
 
 	-- Dazzling Deep Peridot -- 28924
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val1id24val1id38
 	recipecount = recipecount + 1
@@ -677,7 +603,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28924,6,934,2,19331)
 
 	-- Glowing Shadow Draenite -- 28925
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val4id49
 	recipecount = recipecount + 1
@@ -686,7 +611,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Royal Shadow Draenite -- 28927
-
 	-- Item Stats: 
 	-- Item Stats: val1id24val1id38val4id49
 	recipecount = recipecount + 1
@@ -695,7 +619,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28927,6,932,2,19321)
 
 	-- Shifting Shadow Draenite -- 28933
-
 	-- Item Stats: 
 	-- Item Stats: val3id2val4id3
 	recipecount = recipecount + 1
@@ -704,7 +627,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28933,6,933,1,20242,6,933,1,23007)
 
 	-- Sovereign Shadow Draenite -- 28936
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val4id3
 	recipecount = recipecount + 1
@@ -713,7 +635,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Brilliant Golden Draenite -- 28938
-
 	-- Item Stats: 
 	-- Item Stats: val6id4
 	recipecount = recipecount + 1
@@ -722,7 +643,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Gleaming Golden Draenite -- 28944
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28944,305,23114,2,25229)
@@ -730,7 +650,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28944,6,932,1,19321)
 
 	-- Thick Golden Draenite -- 28947
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id31
 	recipecount = recipecount + 1
@@ -739,7 +658,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28947,6,933,2,20242,6,933,2,23007)
 
 	-- Rigid Golden Draenite -- 28948
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28948,325,23116,2,25229)
@@ -747,7 +665,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Solid Azure Moonstone -- 28950
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -756,7 +673,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Sparkling Azure Moonstone -- 28953
-
 	-- Item Stats: 
 	-- Item Stats: val6id5
 	recipecount = recipecount + 1
@@ -765,7 +681,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- No acquire information
 
 	-- Stormy Azure Moonstone -- 28955
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val8id23
 	recipecount = recipecount + 1
@@ -774,7 +689,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28955,7,2)
 
 	-- Lustrous Azure Moonstone -- 28957
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38
 	recipecount = recipecount + 1
@@ -783,7 +697,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28957,6,933,2,20242,6,933,2,23007)
 
 	-- Fel Iron Blood Ring -- 31048
-
 	-- Item Stats: 
 	-- Item Stats: val48id48
 	recipecount = recipecount + 1
@@ -792,7 +705,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31048,1,18751,1,18774,1,19063,1,19539)
 
 	-- Golden Draenite Ring -- 31049
-
 	-- Item Stats: 
 	-- Item Stats: val16id4val19id49
 	recipecount = recipecount + 1
@@ -801,7 +713,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31049,1,18751,1,18774,1,19063,1,19539)
 
 	-- Azure Moonstone Ring -- 31050
-
 	-- Item Stats: 
 	-- Item Stats: val30id49
 	recipecount = recipecount + 1
@@ -810,7 +721,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31050,1,18751,1,18774,1,19063,1,19539)
 
 	-- Thick Adamantite Necklace -- 31051
-
 	-- Item Stats: 
 	-- Item Stats: val42id3
 	recipecount = recipecount + 1
@@ -819,7 +729,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31051,1,18751,1,18774,1,19063,1,19539)
 
 	-- Heavy Adamantite Ring -- 31052
-
 	-- Item Stats: 
 	-- Item Stats: val42id3
 	recipecount = recipecount + 1
@@ -828,7 +737,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31052,1,18751,1,18774,1,19063,1,19539)
 
 	-- Khorium Band of Shadows -- 31053
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val7id24val22id49
 	recipecount = recipecount + 1
@@ -837,8 +745,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31053,3,19826)
 
 	-- Khorium Band of Frost -- 31054
-	-- Instance: 3715 - Coilfang Reservoir: The Steamvault
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val7id24val22id49
 	recipecount = recipecount + 1
@@ -847,8 +753,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31054,3,17722)
 
 	-- Khorium Inferno Band -- 31055
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val7id24val22id49
 	recipecount = recipecount + 1
@@ -857,7 +761,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31055,3,18472)
 
 	-- Khorium Band of Leaves -- 31056
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val7id24val22id49
 	recipecount = recipecount + 1
@@ -866,7 +769,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31056,3,19984)
 
 	-- Arcane Khorium Band -- 31057
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val7id24val22id49
 	recipecount = recipecount + 1
@@ -875,7 +777,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31057,3,18866)
 
 	-- Heavy Felsteel Ring -- 31058
-
 	-- Item Stats: 
 	-- Item Stats: val25id1val21id3val13id29
 	recipecount = recipecount + 1
@@ -884,7 +785,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31058,7,3)
 
 	-- Delicate Eternium Ring -- 31060
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val25id2val15id3val16id26
 	recipecount = recipecount + 1
@@ -893,7 +793,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31060,7,3)
 
 	-- Blazing Eternium Band -- 31061
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val18id4val8id24
 	recipecount = recipecount + 1
@@ -902,7 +801,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31061,7,3)
 
 	-- Pendant of Frozen Flame -- 31062
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val30id33
 	recipecount = recipecount + 1
@@ -911,7 +809,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31062,6,989,3,21643)
 
 	-- Pendant of Thawing -- 31063
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val30id35
 	recipecount = recipecount + 1
@@ -920,7 +817,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31063,6,1011,3,21655)
 
 	-- Pendant of Withering -- 31064
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val30id34
 	recipecount = recipecount + 1
@@ -929,7 +825,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31064,6,934,3,19331)
 
 	-- Pendant of Shadow's End -- 31065
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val30id36
 	recipecount = recipecount + 1
@@ -938,7 +833,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31065,6,932,3,19321)
 
 	-- Pendant of the Null Rune -- 31066
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val30id32
 	recipecount = recipecount + 1
@@ -947,7 +841,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31066,6,933,3,20242,6,933,3,23007)
 
 	-- Thick Felsteel Necklace -- 31067
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val23id29
 	recipecount = recipecount + 1
@@ -956,7 +849,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31067,7,3)
 
 	-- Living Ruby Pendant -- 31068
-
 	-- Item Stats: 
 	-- Item Stats: val24id3val15id4val6id24val19id49
 	recipecount = recipecount + 1
@@ -965,7 +857,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31068,7,3)
 
 	-- Braided Eternium Chain -- 31070
-
 	-- Item Stats: 
 	-- Item Stats: val21id45
 	recipecount = recipecount + 1
@@ -974,7 +865,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31070,7,3)
 
 	-- Eye of the Night -- 31071
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val15id23val26id44val16id45
 	recipecount = recipecount + 1
@@ -983,7 +873,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31071,7,3)
 
 	-- Embrace of the Dawn -- 31072
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val19id4val7id24
 	recipecount = recipecount + 1
@@ -992,7 +881,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31072,7,3)
 
 	-- Chain of the Twilight Owl -- 31076
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val19id4val18id31val21id49
 	recipecount = recipecount + 1
@@ -1001,8 +889,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31076,7,3)
 
 	-- Coronet of Verdant Flame -- 31077
-	-- Instance: 3847 - Tempest Keep: The Botanica
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val40id4val138id6
 	recipecount = recipecount + 1
@@ -1011,8 +897,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31077,3,18422)
 
 	-- Circlet of Arcane Might -- 31078
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-
 	-- Item Stats: 
 	-- Item Stats: val39id3val27id4val27id5val138id6val120id49
 	recipecount = recipecount + 1
@@ -1021,7 +905,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31078,3,18096)
 
 	-- Figurine - Felsteel Boar -- 31079
-
 	-- Item Stats: 
 	-- Item Stats: val68id48
 	recipecount = recipecount + 1
@@ -1030,7 +913,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31079,6,1011,3,21655)
 
 	-- Figurine - Dawnstone Crab -- 31080
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val32id31
 	recipecount = recipecount + 1
@@ -1039,7 +921,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31080,6,946,3,17657)
 
 	-- Figurine - Living Ruby Serpent -- 31081
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val23id4
 	recipecount = recipecount + 1
@@ -1048,10 +929,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31081,6,989,3,21643)
 
 	-- Figurine - Talasite Owl -- 31082
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	-- Item Stats: val14id24
 	recipecount = recipecount + 1
@@ -1060,7 +937,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31082,6,935,3,21432)
 
 	-- Figurine - Nightseye Panther -- 31083
-
 	-- Item Stats: 
 	-- Item Stats: val54id48
 	recipecount = recipecount + 1
@@ -1069,7 +945,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31083,6,942,3,17904)
 
 	-- Bold Living Ruby -- 31084
-
 	-- Item Stats: 
 	-- Item Stats: val8id1
 	recipecount = recipecount + 1
@@ -1078,7 +953,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31084,7,3)
 
 	-- Delicate Living Ruby -- 31085
-
 	-- Item Stats: 
 	-- Item Stats: val8id2
 	recipecount = recipecount + 1
@@ -1087,7 +961,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31085,7,3)
 
 	-- Teardrop Living Ruby -- 31087
-
 	-- Item Stats: 
 	-- Item Stats: val9id49
 	recipecount = recipecount + 1
@@ -1096,7 +969,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31087,7,3)
 
 	-- Runed Living Ruby -- 31088
-
 	-- Item Stats: 
 	-- Item Stats: val9id49
 	recipecount = recipecount + 1
@@ -1105,7 +977,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31088,7,3)
 
 	-- Bright Living Ruby -- 31089
-
 	-- Item Stats: 
 	-- Item Stats: val16id48
 	recipecount = recipecount + 1
@@ -1114,7 +985,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31089,7,3)
 
 	-- Subtle Living Ruby -- 31090
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id26
 	recipecount = recipecount + 1
@@ -1123,7 +993,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31090,7,3)
 
 	-- Flashing Living Ruby -- 31091
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id27
 	recipecount = recipecount + 1
@@ -1132,7 +1001,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31091,7,3)
 
 	-- Solid Star of Elune -- 31092
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -1141,7 +1009,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31092,7,3)
 
 	-- Lustrous Star of Elune -- 31094
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
@@ -1150,7 +1017,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31094,7,3)
 
 	-- Stormy Star of Elune -- 31095
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
@@ -1159,7 +1025,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31095,7,3)
 
 	-- Brilliant Dawnstone -- 31096
-
 	-- Item Stats: 
 	-- Item Stats: val8id4
 	recipecount = recipecount + 1
@@ -1168,7 +1033,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31096,7,3)
 
 	-- Smooth Dawnstone -- 31097
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31097,350,24048,3,25229)
@@ -1176,7 +1040,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31097,7,3)
 
 	-- Rigid Dawnstone -- 31098
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31098,350,24051,3,25229)
@@ -1184,7 +1047,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31098,7,3)
 
 	-- Gleaming Dawnstone -- 31099
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31099,350,24050,3,25229)
@@ -1192,7 +1054,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31099,7,3)
 
 	-- Thick Dawnstone -- 31100
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id31
 	recipecount = recipecount + 1
@@ -1201,7 +1062,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31100,7,3)
 
 	-- Mystic Dawnstone -- 31101
-PVP, 
 	-- Item Stats: 
 	-- Item Stats: val8id29
 	recipecount = recipecount + 1
@@ -1210,7 +1070,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31101,2,21474,2,21485)
 
 	-- Sovereign Nightseye -- 31102
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val6id3
 	recipecount = recipecount + 1
@@ -1219,7 +1078,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31102,7,3)
 
 	-- Shifting Nightseye -- 31103
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val6id3
 	recipecount = recipecount + 1
@@ -1228,7 +1086,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31103,7,3)
 
 	-- Glowing Nightseye -- 31104
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val5id49
 	recipecount = recipecount + 1
@@ -1237,7 +1094,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31104,7,3)
 
 	-- Royal Nightseye -- 31105
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38val5id49
 	recipecount = recipecount + 1
@@ -1246,7 +1102,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31105,7,3)
 
 	-- Inscribed Noble Topaz -- 31106
-
 	-- Item Stats: 
 	-- Item Stats: val4id1
 	recipecount = recipecount + 1
@@ -1255,7 +1110,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31106,7,3)
 
 	-- Potent Noble Topaz -- 31107
-
 	-- Item Stats: 
 	-- Item Stats: val5id49
 	recipecount = recipecount + 1
@@ -1264,7 +1118,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31107,7,3)
 
 	-- Luminous Noble Topaz -- 31108
-
 	-- Item Stats: 
 	-- Item Stats: val4id4val5id49
 	recipecount = recipecount + 1
@@ -1273,7 +1126,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31108,7,3)
 
 	-- Glinting Noble Topaz -- 31109
-
 	-- Item Stats: 
 	-- Item Stats: val4id2
 	recipecount = recipecount + 1
@@ -1282,7 +1134,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31109,7,3)
 
 	-- Enduring Talasite -- 31110
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id3val4id31
 	recipecount = recipecount + 1
@@ -1291,7 +1142,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31110,7,3)
 
 	-- Radiant Talasite -- 31111
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val5id23
 	recipecount = recipecount + 1
@@ -1300,7 +1150,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31111,7,3)
 
 	-- Dazzling Talasite -- 31112
-
 	-- Item Stats: 
 	-- Item Stats: val4id4val2id24val2id38
 	recipecount = recipecount + 1
@@ -1309,7 +1158,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31112,7,3)
 
 	-- Jagged Talasite -- 31113
-
 	-- Item Stats: 
 	-- Item Stats: val6id3
 	recipecount = recipecount + 1
@@ -1318,7 +1166,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31113,7,3)
 
 	-- Sparkling Star of Elune -- 31149
-
 	-- Item Stats: 
 	-- Item Stats: val8id5
 	recipecount = recipecount + 1
@@ -1327,7 +1174,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,31149,7,3)
 
 	-- Malachite Pendant -- 32178
-
 	-- Item Stats: 
 	-- Item Stats: val2id2
 	recipecount = recipecount + 1
@@ -1336,7 +1182,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32178,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Tigerseye Band -- 32179
-
 	-- Item Stats: 
 	-- Item Stats: val2id1
 	recipecount = recipecount + 1
@@ -1345,7 +1190,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32179,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Rough Stone Statue -- 32259
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32259,10,25498,1,25229)
@@ -1353,7 +1197,6 @@ PVP,
 	-- No acquire information
 
 	-- Coarse Stone Statue -- 32801
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32801,50,25880,1,25229)
@@ -1361,7 +1204,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32801,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Heavy Stone Statue -- 32807
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32807,100,25881,1,25229)
@@ -1369,7 +1211,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32807,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Solid Stone Statue -- 32808
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32808,155,25882,1,25229)
@@ -1377,7 +1218,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32808,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Dense Stone Statue -- 32809
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32809,205,25883,1,25229)
@@ -1385,7 +1225,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32809,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Primal Stone Statue -- 32810
-
 	-- Item Stats: 
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,32810,280,25884,1,25229)
@@ -1393,8 +1232,6 @@ PVP,
 	-- No acquire information
 
 	-- Powerful Earthstorm Diamond -- 32866
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val18id3
 	recipecount = recipecount + 1
@@ -1403,8 +1240,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32866,6,933,2,17518)
 
 	-- Bracing Earthstorm Diamond -- 32867
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val14id49
 	recipecount = recipecount + 1
@@ -1413,7 +1248,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32867,6,933,3,17518)
 
 	-- Tenacious Earthstorm Diamond -- 32868
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id31
 	recipecount = recipecount + 1
@@ -1422,7 +1256,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32868,7,3)
 
 	-- Brutal Earthstorm Diamond -- 32869
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32869,365,25899,3,25229)
@@ -1430,10 +1263,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32869,7,3)
 
 	-- Insightful Earthstorm Diamond -- 32870
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	-- Item Stats: val12id4
 	recipecount = recipecount + 1
@@ -1442,7 +1271,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32870,6,935,1,21432)
 
 	-- Destructive Skyfire Diamond -- 32871
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32871,365,25890,3,25229)
@@ -1450,7 +1278,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32871,7,3)
 
 	-- Mystical Skyfire Diamond -- 32872
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32872,365,25893,3,25229)
@@ -1458,7 +1285,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32872,7,3)
 
 	-- Swift Skyfire Diamond -- 32873
-
 	-- Item Stats: 
 	-- Item Stats: val24id48
 	recipecount = recipecount + 1
@@ -1467,7 +1293,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32873,6,933,2,20242,6,933,2,23007)
 
 	-- Enigmatic Skyfire Diamond -- 32874
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32874,365,25895,1,25229)
@@ -1475,7 +1300,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,32874,6,989,2,21643)
 
 	-- Smooth Golden Draenite -- 34069
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34069,325,28290,2,25229)
@@ -1483,7 +1307,6 @@ PVP,
 	-- No acquire information
 
 	-- Bright Blood Garnet -- 34590
-
 	-- Item Stats: 
 	-- Item Stats: val12id48
 	recipecount = recipecount + 1
@@ -1492,7 +1315,6 @@ PVP,
 	-- No acquire information
 
 	-- Golden Ring of Power -- 34955
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val5id4val5id5val6id49
 	recipecount = recipecount + 1
@@ -1501,7 +1323,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,34955,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Truesilver Commander's Ring -- 34959
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val7id2val6id3
 	recipecount = recipecount + 1
@@ -1510,7 +1331,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,34959,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Glowing Thorium Band -- 34960
-
 	-- Item Stats: 
 	-- Item Stats: val4id24val12id49
 	recipecount = recipecount + 1
@@ -1519,7 +1339,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,34960,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Emerald Lion Ring -- 34961
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val5id2val5id3val6id4val5id5
 	recipecount = recipecount + 1
@@ -1528,7 +1347,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,34961,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Brilliant Necklace -- 36523
-
 	-- Item Stats: 
 	-- Item Stats: val2id1val2id2val1id3val2id4val2id5
 	recipecount = recipecount + 1
@@ -1537,7 +1355,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,36523,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Heavy Jade Ring -- 36524
-
 	-- Item Stats: 
 	-- Item Stats: val6id44
 	recipecount = recipecount + 1
@@ -1546,7 +1363,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,36524,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Red Ring of Destruction -- 36525
-
 	-- Item Stats: 
 	-- Item Stats: val9id44
 	recipecount = recipecount + 1
@@ -1555,7 +1371,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,36525,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Diamond Focus Ring -- 36526
-
 	-- Item Stats: 
 	-- Item Stats: val8id4val4id24
 	recipecount = recipecount + 1
@@ -1564,7 +1379,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,36526,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Bronze Band of Force -- 37818
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,37818,65,30804,1,25229)
@@ -1572,10 +1386,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,37818,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Ring of Arcane Shielding -- 37855
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id29val30id32
 	recipecount = recipecount + 1
@@ -1584,7 +1394,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,37855,6,935,2,21432)
 
 	-- Mercurial Adamantite -- 38068
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38068,305,31079,1,25229)
@@ -1592,7 +1401,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,38068,1,18751,1,18774,1,19063,1,19539)
 
 	-- Bronze Torc -- 38175
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38175,80,31154,1,25229)
@@ -1600,7 +1408,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,38175,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- The Frozen Eye -- 38503
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val35id35
 	recipecount = recipecount + 1
@@ -1609,7 +1416,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,38503,6,967,2,18255)
 
 	-- The Natural Ward -- 38504
-
 	-- Item Stats: 
 	-- Item Stats: val28id3val35id34
 	recipecount = recipecount + 1
@@ -1618,7 +1424,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,38504,6,942,4,17904)
 
 	-- Great Golden Draenite -- 39451
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39451,325,31860,2,25229)
@@ -1626,7 +1431,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39451,3,23281)
 
 	-- Great Dawnstone -- 39452
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39452,350,31861,3,25229)
@@ -1634,7 +1438,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39452,7,3)
 
 	-- Balanced Shadow Draenite -- 39455
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val6id48
 	recipecount = recipecount + 1
@@ -1643,7 +1446,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39455,3,23061,3,23261,3,23281)
 
 	-- Infused Shadow Draenite -- 39458
-
 	-- Item Stats: 
 	-- Item Stats: val1id24val1id38val6id48
 	recipecount = recipecount + 1
@@ -1652,7 +1454,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39458,3,23261,3,23281,3,23282,3,23354)
 
 	-- Infused Nightseye -- 39462
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38val8id48
 	recipecount = recipecount + 1
@@ -1661,7 +1462,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39462,7,3)
 
 	-- Balanced Nightseye -- 39463
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val8id48
 	recipecount = recipecount + 1
@@ -1670,7 +1470,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39463,7,3)
 
 	-- Veiled Flame Spessarite -- 39466
-
 	-- Item Stats: 
 	-- Item Stats: val4id49
 	recipecount = recipecount + 1
@@ -1679,7 +1478,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39466,3,23261,3,23282)
 
 	-- Wicked Flame Spessarite -- 39467
-
 	-- Item Stats: 
 	-- Item Stats: val6id48
 	recipecount = recipecount + 1
@@ -1688,7 +1486,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39467,3,23061)
 
 	-- Veiled Noble Topaz -- 39470
-
 	-- Item Stats: 
 	-- Item Stats: val5id49
 	recipecount = recipecount + 1
@@ -1697,7 +1494,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39470,7,3)
 
 	-- Wicked Noble Topaz -- 39471
-
 	-- Item Stats: 
 	-- Item Stats: val8id48
 	recipecount = recipecount + 1
@@ -1706,8 +1502,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39471,7,3)
 
 	-- Bold Crimson Spinel -- 39705
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id1
 	recipecount = recipecount + 1
@@ -1716,8 +1510,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39705,6,990,1,23437)
 
 	-- Delicate Crimson Spinel -- 39706
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id2
 	recipecount = recipecount + 1
@@ -1726,8 +1518,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39706,6,990,1,23437)
 
 	-- Teardrop Crimson Spinel -- 39710
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val12id49
 	recipecount = recipecount + 1
@@ -1736,8 +1526,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39710,6,990,1,23437)
 
 	-- Runed Crimson Spinel -- 39711
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val12id49
 	recipecount = recipecount + 1
@@ -1746,8 +1534,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39711,6,990,1,23437)
 
 	-- Bright Crimson Spinel -- 39712
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val20id48
 	recipecount = recipecount + 1
@@ -1756,8 +1542,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39712,6,990,1,23437)
 
 	-- Subtle Crimson Spinel -- 39713
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val10id26
 	recipecount = recipecount + 1
@@ -1766,12 +1550,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39713,6,990,1,23437)
 
 	-- Flashing Crimson Spinel -- 39714
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val10id27
 	recipecount = recipecount + 1
@@ -1780,8 +1558,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39714,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Solid Empyrean Sapphire -- 39715
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val15id3
 	recipecount = recipecount + 1
@@ -1790,8 +1566,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39715,6,990,1,23437)
 
 	-- Sparkling Empyrean Sapphire -- 39716
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id5
 	recipecount = recipecount + 1
@@ -1800,8 +1574,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39716,6,990,1,23437)
 
 	-- Lustrous Empyrean Sapphire -- 39717
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val4id24val4id38
 	recipecount = recipecount + 1
@@ -1810,12 +1582,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39717,6,990,1,23437)
 
 	-- Stormy Empyrean Sapphire -- 39718
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val13id23
 	recipecount = recipecount + 1
@@ -1824,8 +1590,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39718,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Brilliant Lionseye -- 39719
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id4
 	recipecount = recipecount + 1
@@ -1834,8 +1598,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39719,6,990,1,23437)
 
 	-- Smooth Lionseye -- 39720
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39720,375,32205,4,25229)
@@ -1843,8 +1605,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39720,6,990,1,23437)
 
 	-- Rigid Lionseye -- 39721
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39721,375,32206,4,25229)
@@ -1852,8 +1612,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39721,6,990,3,23437)
 
 	-- Gleaming Lionseye -- 39722
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39722,375,32207,4,25229)
@@ -1861,8 +1619,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39722,6,990,1,23437)
 
 	-- Thick Lionseye -- 39723
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val10id31
 	recipecount = recipecount + 1
@@ -1871,12 +1627,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39723,6,990,1,23437)
 
 	-- Mystic Lionseye -- 39724
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id29
 	recipecount = recipecount + 1
@@ -1885,12 +1635,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39724,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Great Lionseye -- 39725
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39725,375,32210,4,25229)
@@ -1898,12 +1642,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39725,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Sovereign Shadowsong Amethyst -- 39727
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val7id3
 	recipecount = recipecount + 1
@@ -1912,12 +1650,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39727,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Shifting Shadowsong Amethyst -- 39728
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id2val7id3
 	recipecount = recipecount + 1
@@ -1926,8 +1658,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39728,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Balanced Shadowsong Amethyst -- 39729
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val10id48
 	recipecount = recipecount + 1
@@ -1936,8 +1666,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39729,6,990,2,23437)
 
 	-- Infused Shadowsong Amethyst -- 39730
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38val10id48
 	recipecount = recipecount + 1
@@ -1946,8 +1674,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39730,6,990,2,23437)
 
 	-- Glowing Shadowsong Amethyst -- 39731
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val6id49
 	recipecount = recipecount + 1
@@ -1956,8 +1682,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39731,6,990,2,23437)
 
 	-- Royal Shadowsong Amethyst -- 39732
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38val6id49
 	recipecount = recipecount + 1
@@ -1966,12 +1690,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39732,6,990,3,23437)
 
 	-- Inscribed Pyrestone -- 39733
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id1
 	recipecount = recipecount + 1
@@ -1980,8 +1698,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39733,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Potent Pyrestone -- 39734
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val6id49
 	recipecount = recipecount + 1
@@ -1990,8 +1706,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39734,6,990,2,23437)
 
 	-- Luminous Pyrestone -- 39735
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id4val6id49
 	recipecount = recipecount + 1
@@ -2000,8 +1714,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39735,6,990,2,23437)
 
 	-- Glinting Pyrestone -- 39736
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id2
 	recipecount = recipecount + 1
@@ -2010,12 +1722,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39736,6,990,2,23437)
 
 	-- Veiled Pyrestone -- 39737
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val6id49
 	recipecount = recipecount + 1
@@ -2024,8 +1730,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39737,3,17767,3,17808,3,17842,3,17888,3,17968)
 
 	-- Wicked Pyrestone -- 39738
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id48
 	recipecount = recipecount + 1
@@ -2034,8 +1738,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39738,6,990,3,23437)
 
 	-- Enduring Seaspray Emerald -- 39739
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val7id3val5id31
 	recipecount = recipecount + 1
@@ -2044,8 +1746,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39739,6,990,3,23437)
 
 	-- Radiant Seaspray Emerald -- 39740
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val6id23
 	recipecount = recipecount + 1
@@ -2054,8 +1754,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39740,6,990,2,23437)
 
 	-- Dazzling Seaspray Emerald -- 39741
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id4val2id24val2id38
 	recipecount = recipecount + 1
@@ -2064,8 +1762,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39741,6,990,2,23437)
 
 	-- Jagged Seaspray Emerald -- 39742
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val7id3
 	recipecount = recipecount + 1
@@ -2074,7 +1770,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39742,6,990,2,23437)
 
 	-- Relentless Earthstorm Diamond -- 39961
-
 	-- Item Stats: 
 	-- Item Stats: val12id2
 	recipecount = recipecount + 1
@@ -2083,7 +1778,6 @@ PVP,
 	-- No acquire information
 
 	-- Thundering Skyfire Diamond -- 39963
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39963,365,32410,3,25229)
@@ -2091,7 +1785,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,39963,7,3)
 
 	-- Necklace of the Deep -- 40514
-
 	-- Item Stats: 
 	-- Item Stats: val21id2val20id3
 	recipecount = recipecount + 1
@@ -2100,7 +1793,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,40514,1,18751,1,18774,1,19063,1,19539)
 
 	-- Brilliant Pearl Band -- 41414
-
 	-- Item Stats: 
 	-- Item Stats: val15id5val28id49
 	recipecount = recipecount + 1
@@ -2109,7 +1801,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,41414,1,18751,1,18774,1,19063,1,19539)
 
 	-- The Black Pearl -- 41415
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val25id49
 	recipecount = recipecount + 1
@@ -2118,7 +1809,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,41415,1,18751,1,18774,1,19063,1,19539)
 
 	-- Crown of the Sea Witch -- 41418
-
 	-- Item Stats: 
 	-- Item Stats: val42id3val20id4val20id5val127id6val28id49
 	recipecount = recipecount + 1
@@ -2127,7 +1817,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,41418,1,18751,1,18774,1,19063,1,19539)
 
 	-- Purified Jaggal Pearl -- 41420
-
 	-- Item Stats: 
 	-- Item Stats: val3id5val4id49
 	recipecount = recipecount + 1
@@ -2136,7 +1825,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,41420,1,18751,1,18774,1,19063,1,19539)
 
 	-- Purified Shadow Pearl -- 41429
-
 	-- Item Stats: 
 	-- Item Stats: val4id5val5id49
 	recipecount = recipecount + 1
@@ -2145,7 +1833,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,41429,1,18751,1,18774,1,19063,1,19539)
 
 	-- Don Julio's Heart -- 42558
-
 	-- Item Stats: 
 	-- Item Stats: val14id49
 	recipecount = recipecount + 1
@@ -2154,10 +1841,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42558,6,933,3,20242,6,933,3,23007)
 
 	-- Kailee's Rose -- 42588
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	-- Item Stats: val14id49
 	recipecount = recipecount + 1
@@ -2166,7 +1849,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42588,6,935,2,21432)
 
 	-- Crimson Sun -- 42589
-
 	-- Item Stats: 
 	-- Item Stats: val24id48
 	recipecount = recipecount + 1
@@ -2175,7 +1857,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42589,6,933,3,20242,6,933,3,23007)
 
 	-- Falling Star -- 42590
-
 	-- Item Stats: 
 	-- Item Stats: val18id3
 	recipecount = recipecount + 1
@@ -2184,7 +1865,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42590,6,1011,3,21655)
 
 	-- Stone of Blades -- 42591
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42591,360,33143,1,25229)
@@ -2192,10 +1872,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42591,6,989,3,21643)
 
 	-- Blood of Amber -- 42592
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42592,360,33140,1,25229)
@@ -2203,7 +1879,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42592,6,935,3,21432)
 
 	-- Facet of Eternity -- 42593
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id31
 	recipecount = recipecount + 1
@@ -2212,7 +1887,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,42593,6,989,2,21643)
 
 	-- Steady Talasite -- 43493
-PVP, 
 	-- Item Stats: 
 	-- Item Stats: val6id3val4id29
 	recipecount = recipecount + 1
@@ -2221,7 +1895,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,43493,2,18821,2,18822)
 
 	-- Chaotic Skyfire Diamond -- 44794
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44794,365,34220,3,25229)
@@ -2229,7 +1902,6 @@ PVP,
 	-- No acquire information
 
 	-- Loop of Forged Power -- 46122
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val28id4val19id45val30id46val34id49
 	recipecount = recipecount + 1
@@ -2238,7 +1910,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46122,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
 
 	-- Ring of Flowing Life -- 46123
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val28id4val8id24val30id46val34id49
 	recipecount = recipecount + 1
@@ -2247,7 +1918,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46123,3,25363,3,25367,3,25369,3,25370)
 
 	-- Hard Khorium Band -- 46124
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val42id3val28id46val58id48
 	recipecount = recipecount + 1
@@ -2256,7 +1926,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46124,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
 
 	-- Pendant of Sunfire -- 46125
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val19id4val25id44val25id46val36id49
 	recipecount = recipecount + 1
@@ -2265,7 +1934,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46125,3,25369,3,25370,3,25599)
 
 	-- Amulet of Flowing Life -- 46126
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val19id4val11id24val25id46val34id49
 	recipecount = recipecount + 1
@@ -2274,7 +1942,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46126,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
 
 	-- Hard Khorium Choker -- 46127
-
 	-- Item Stats: 
 	-- Item Stats: val42id3val29id46val62id48
 	recipecount = recipecount + 1
@@ -2283,9 +1950,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46127,3,25363,3,25367,3,25369,3,25371,3,25507)
 
 	-- Quick Dawnstone -- 46403
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val8id30
 	recipecount = recipecount + 1
@@ -2294,9 +1958,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46403,6,1077,4,25950,6,1077,4,27666)
 
 	-- Reckless Noble Topaz -- 46404
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val4id30val5id49
 	recipecount = recipecount + 1
@@ -2305,9 +1966,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46404,6,1077,4,25950,6,1077,4,27666)
 
 	-- Forceful Talasite -- 46405
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val4id30
 	recipecount = recipecount + 1
@@ -2316,7 +1974,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46405,6,1077,4,25950,6,1077,4,27666)
 
 	-- Eternal Earthstorm Diamond -- 46597
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id31
 	recipecount = recipecount + 1
@@ -2325,7 +1982,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46597,6,1077,3,25032)
 
 	-- Ember Skyfire Diamond -- 46601
-
 	-- Item Stats: 
 	-- Item Stats: val14id49
 	recipecount = recipecount + 1
@@ -2334,7 +1990,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46601,6,1077,3,25032)
 
 	-- Figurine - Empyrean Tortoise -- 46775
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val42id31
 	recipecount = recipecount + 1
@@ -2343,7 +1998,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46775,6,1077,3,25032)
 
 	-- Figurine - Khorium Boar -- 46776
-
 	-- Item Stats: 
 	-- Item Stats: val84id48
 	recipecount = recipecount + 1
@@ -2352,7 +2006,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46776,6,1077,3,25032)
 
 	-- Figurine - Crimson Serpent -- 46777
-
 	-- Item Stats: 
 	-- Item Stats: val49id3val33id4
 	recipecount = recipecount + 1
@@ -2361,7 +2014,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46777,6,1077,3,25032)
 
 	-- Figurine - Shadowsong Panther -- 46778
-
 	-- Item Stats: 
 	-- Item Stats: val80id48
 	recipecount = recipecount + 1
@@ -2370,7 +2022,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46778,6,1077,3,25032)
 
 	-- Figurine - Seaspray Albatross -- 46779
-
 	-- Item Stats: 
 	-- Item Stats: val18id24
 	recipecount = recipecount + 1
@@ -2379,7 +2030,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46779,6,1077,3,25032)
 
 	-- Regal Nightseye -- 46803
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id3val4id26
 	recipecount = recipecount + 1
@@ -2388,8 +2038,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,46803,6,1077,3,25032)
 
 	-- Forceful Seaspray Emerald -- 47053
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val5id30
 	recipecount = recipecount + 1
@@ -2398,8 +2046,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,47053,6,990,2,23437)
 
 	-- Steady Seaspray Emerald -- 47054
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val5id29
 	recipecount = recipecount + 1
@@ -2408,8 +2054,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,47054,6,990,2,23437)
 
 	-- Reckless Pyrestone -- 47055
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id30val6id49
 	recipecount = recipecount + 1
@@ -2418,8 +2062,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,47055,6,990,2,23437)
 
 	-- Quick Lionseye -- 47056
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val10id30
 	recipecount = recipecount + 1
@@ -2428,7 +2070,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,47056,6,990,2,23437)
 
 	-- Brilliant Glass -- 47280
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,47280,320,35945,3,25229)
@@ -2436,9 +2077,6 @@ PVP,
 	-- No acquire information
 
 	-- Purified Shadowsong Amethyst -- 48789
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val5id5val6id49
 	recipecount = recipecount + 1
@@ -2447,7 +2085,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,48789,6,1077,4,25950,6,1077,4,27666)
 
 	-- Bold Scarlet Ruby -- 53830
-
 	-- Item Stats: 
 	-- Item Stats: val16id1
 	recipecount = recipecount + 1
@@ -2456,7 +2093,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53830,2,28721)
 
 	-- Bold Bloodstone -- 53831
-
 	-- Item Stats: 
 	-- Item Stats: val12id1
 	recipecount = recipecount + 1
@@ -2465,7 +2101,6 @@ PVP,
 	-- No acquire information
 
 	-- Delicate Bloodstone -- 53832
-
 	-- Item Stats: 
 	-- Item Stats: val12id2
 	recipecount = recipecount + 1
@@ -2474,7 +2109,6 @@ PVP,
 	-- No acquire information
 
 	-- Runed Bloodstone -- 53834
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53834,335,39911,2,25229)
@@ -2482,7 +2116,6 @@ PVP,
 	-- No acquire information
 
 	-- Bright Bloodstone -- 53835
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53835,335,39906,2,25229)
@@ -2490,7 +2123,6 @@ PVP,
 	-- No acquire information
 
 	-- Subtle Bloodstone -- 53843
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id26
 	recipecount = recipecount + 1
@@ -2499,7 +2131,6 @@ PVP,
 	-- No acquire information
 
 	-- Flashing Bloodstone -- 53844
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id27
 	recipecount = recipecount + 1
@@ -2508,7 +2139,6 @@ PVP,
 	-- No acquire information
 
 	-- Fractured Bloodstone -- 53845
-
 	-- Item Stats: 
 	-- Item Stats: val12id6
 	recipecount = recipecount + 1
@@ -2517,7 +2147,6 @@ PVP,
 	-- No acquire information
 
 	-- Brilliant Sun Crystal -- 53852
-
 	-- Item Stats: 
 	-- Item Stats: val12id4
 	recipecount = recipecount + 1
@@ -2526,7 +2155,6 @@ PVP,
 	-- No acquire information
 
 	-- Smooth Sun Crystal -- 53853
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53853,335,39914,2,25229)
@@ -2534,7 +2162,6 @@ PVP,
 	-- No acquire information
 
 	-- Rigid Sun Crystal -- 53854
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53854,335,39915,2,25229)
@@ -2542,7 +2169,6 @@ PVP,
 	-- No acquire information
 
 	-- Thick Sun Crystal -- 53855
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id31
 	recipecount = recipecount + 1
@@ -2551,7 +2177,6 @@ PVP,
 	-- No acquire information
 
 	-- Quick Sun Crystal -- 53856
-
 	-- Item Stats: 
 	-- Item Stats: val12id30
 	recipecount = recipecount + 1
@@ -2560,7 +2185,6 @@ PVP,
 	-- No acquire information
 
 	-- Mystic Sun Crystal -- 53857
-
 	-- Item Stats: 
 	-- Item Stats: val12id29
 	recipecount = recipecount + 1
@@ -2569,7 +2193,6 @@ PVP,
 	-- No acquire information
 
 	-- Sovereign Shadow Crystal -- 53859
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val9id3
 	recipecount = recipecount + 1
@@ -2578,7 +2201,6 @@ PVP,
 	-- No acquire information
 
 	-- Shifting Shadow Crystal -- 53860
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val9id3
 	recipecount = recipecount + 1
@@ -2587,7 +2209,6 @@ PVP,
 	-- No acquire information
 
 	-- Tenuous Shadow Crystal -- 53861
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val2id24val2id38
 	recipecount = recipecount + 1
@@ -2596,7 +2217,6 @@ PVP,
 	-- No acquire information
 
 	-- Glowing Shadow Crystal -- 53862
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -2605,7 +2225,6 @@ PVP,
 	-- No acquire information
 
 	-- Purified Shadow Crystal -- 53863
-
 	-- Item Stats: 
 	-- Item Stats: val6id5
 	recipecount = recipecount + 1
@@ -2614,7 +2233,6 @@ PVP,
 	-- No acquire information
 
 	-- Royal Shadow Crystal -- 53864
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38
 	recipecount = recipecount + 1
@@ -2623,7 +2241,6 @@ PVP,
 	-- No acquire information
 
 	-- Mysterious Shadow Crystal -- 53865
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val8id23
 	recipecount = recipecount + 1
@@ -2632,7 +2249,6 @@ PVP,
 	-- No acquire information
 
 	-- Balanced Shadow Crystal -- 53866
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -2641,7 +2257,6 @@ PVP,
 	-- No acquire information
 
 	-- Infused Shadow Crystal -- 53867
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38
 	recipecount = recipecount + 1
@@ -2650,7 +2265,6 @@ PVP,
 	-- No acquire information
 
 	-- Regal Shadow Crystal -- 53868
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id3val6id26
 	recipecount = recipecount + 1
@@ -2659,7 +2273,6 @@ PVP,
 	-- No acquire information
 
 	-- Defender's Shadow Crystal -- 53869
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id3val6id27
 	recipecount = recipecount + 1
@@ -2668,7 +2281,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53869,6,1073,2,31916,6,1073,2,32763)
 
 	-- Puissant Shadow Crystal -- 53870
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val6id6
 	recipecount = recipecount + 1
@@ -2677,7 +2289,6 @@ PVP,
 	-- No acquire information
 
 	-- Guardian's Shadow Crystal -- 53871
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -2686,7 +2297,6 @@ PVP,
 	-- No acquire information
 
 	-- Inscribed Huge Citrine -- 53872
-
 	-- Item Stats: 
 	-- Item Stats: val6id1
 	recipecount = recipecount + 1
@@ -2695,7 +2305,6 @@ PVP,
 	-- No acquire information
 
 	-- Etched Huge Citrine -- 53873
-
 	-- Item Stats: 
 	-- Item Stats: val6id1
 	recipecount = recipecount + 1
@@ -2704,7 +2313,6 @@ PVP,
 	-- No acquire information
 
 	-- Champion's Huge Citrine -- 53874
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id1val6id31
 	recipecount = recipecount + 1
@@ -2713,7 +2321,6 @@ PVP,
 	-- No acquire information
 
 	-- Resplendent Huge Citrine -- 53875
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val6id29
 	recipecount = recipecount + 1
@@ -2722,7 +2329,6 @@ PVP,
 	-- No acquire information
 
 	-- Fierce Huge Citrine -- 53876
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val6id30
 	recipecount = recipecount + 1
@@ -2731,7 +2337,6 @@ PVP,
 	-- No acquire information
 
 	-- Deadly Huge Citrine -- 53877
-
 	-- Item Stats: 
 	-- Item Stats: val6id2
 	recipecount = recipecount + 1
@@ -2740,7 +2345,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53877,6,1098,1,32538)
 
 	-- Glinting Huge Citrine -- 53878
-
 	-- Item Stats: 
 	-- Item Stats: val6id2
 	recipecount = recipecount + 1
@@ -2749,7 +2353,6 @@ PVP,
 	-- No acquire information
 
 	-- Lucent Huge Citrine -- 53879
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val6id29
 	recipecount = recipecount + 1
@@ -2758,7 +2361,6 @@ PVP,
 	-- No acquire information
 
 	-- Deft Huge Citrine -- 53880
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val6id30
 	recipecount = recipecount + 1
@@ -2767,7 +2369,6 @@ PVP,
 	-- No acquire information
 
 	-- Luminous Huge Citrine -- 53881
-
 	-- Item Stats: 
 	-- Item Stats: val6id4
 	recipecount = recipecount + 1
@@ -2776,7 +2377,6 @@ PVP,
 	-- No acquire information
 
 	-- Potent Huge Citrine -- 53882
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53882,335,39956,2,25229)
@@ -2784,7 +2384,6 @@ PVP,
 	-- No acquire information
 
 	-- Veiled Huge Citrine -- 53883
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53883,335,39957,2,25229)
@@ -2792,7 +2391,6 @@ PVP,
 	-- No acquire information
 
 	-- Durable Huge Citrine -- 53884
-
 	-- Item Stats: 
 	-- Item Stats: val6id29
 	recipecount = recipecount + 1
@@ -2801,7 +2399,6 @@ PVP,
 	-- No acquire information
 
 	-- Reckless Huge Citrine -- 53885
-
 	-- Item Stats: 
 	-- Item Stats: val6id30
 	recipecount = recipecount + 1
@@ -2810,7 +2407,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53885,6,1104,1,31911)
 
 	-- Wicked Huge Citrine -- 53886
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53886,335,39960,2,25229)
@@ -2818,7 +2414,6 @@ PVP,
 	-- No acquire information
 
 	-- Pristine Huge Citrine -- 53887
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53887,335,39961,2,25229)
@@ -2826,7 +2421,6 @@ PVP,
 	-- No acquire information
 
 	-- Empowered Huge Citrine -- 53888
-
 	-- Item Stats: 
 	-- Item Stats: val6id29
 	recipecount = recipecount + 1
@@ -2835,7 +2429,6 @@ PVP,
 	-- No acquire information
 
 	-- Stark Huge Citrine -- 53889
-
 	-- Item Stats: 
 	-- Item Stats: val6id30
 	recipecount = recipecount + 1
@@ -2844,7 +2437,6 @@ PVP,
 	-- No acquire information
 
 	-- Stalwart Huge Citrine -- 53890
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id26val6id31
 	recipecount = recipecount + 1
@@ -2853,7 +2445,6 @@ PVP,
 	-- No acquire information
 
 	-- Glimmering Huge Citrine -- 53891
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id27val6id31
 	recipecount = recipecount + 1
@@ -2862,7 +2453,6 @@ PVP,
 	-- No acquire information
 
 	-- Accurate Huge Citrine -- 53892
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53892,335,39966,2,25229)
@@ -2870,7 +2460,6 @@ PVP,
 	-- No acquire information
 
 	-- Resolute Huge Citrine -- 53893
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id31
 	recipecount = recipecount + 1
@@ -2879,7 +2468,6 @@ PVP,
 	-- No acquire information
 
 	-- Timeless Dark Jade -- 53894
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val6id4
 	recipecount = recipecount + 1
@@ -2888,7 +2476,6 @@ PVP,
 	-- No acquire information
 
 	-- Jagged Dark Jade -- 53916
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -2897,7 +2484,6 @@ PVP,
 	-- No acquire information
 
 	-- Vivid Dark Jade -- 53917
-
 	-- Item Stats: 
 	-- Item Stats: val9id3
 	recipecount = recipecount + 1
@@ -2906,7 +2492,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53917,6,1105,1,31910)
 
 	-- Enduring Dark Jade -- 53918
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id3val6id31
 	recipecount = recipecount + 1
@@ -2915,7 +2500,6 @@ PVP,
 	-- No acquire information
 
 	-- Steady Dark Jade -- 53919
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val6id29
 	recipecount = recipecount + 1
@@ -2924,7 +2508,6 @@ PVP,
 	-- No acquire information
 
 	-- Forceful Dark Jade -- 53920
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val6id30
 	recipecount = recipecount + 1
@@ -2933,7 +2516,6 @@ PVP,
 	-- No acquire information
 
 	-- Seer's Dark Jade -- 53921
-
 	-- Item Stats: 
 	-- Item Stats: val6id4val6id5
 	recipecount = recipecount + 1
@@ -2942,7 +2524,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53921,6,1073,1,31916,6,1073,1,32763)
 
 	-- Misty Dark Jade -- 53922
-
 	-- Item Stats: 
 	-- Item Stats: val6id5
 	recipecount = recipecount + 1
@@ -2951,7 +2532,6 @@ PVP,
 	-- No acquire information
 
 	-- Shining Dark Jade -- 53923
-
 	-- Item Stats: 
 	-- Item Stats: val6id5
 	recipecount = recipecount + 1
@@ -2960,7 +2540,6 @@ PVP,
 	-- No acquire information
 
 	-- Turbid Dark Jade -- 53924
-
 	-- Item Stats: 
 	-- Item Stats: val6id5val6id29
 	recipecount = recipecount + 1
@@ -2969,7 +2548,6 @@ PVP,
 	-- No acquire information
 
 	-- Intricate Dark Jade -- 53925
-
 	-- Item Stats: 
 	-- Item Stats: val6id5val6id30
 	recipecount = recipecount + 1
@@ -2978,7 +2556,6 @@ PVP,
 	-- No acquire information
 
 	-- Dazzling Dark Jade -- 53926
-
 	-- Item Stats: 
 	-- Item Stats: val6id4val2id24val2id38
 	recipecount = recipecount + 1
@@ -2987,7 +2564,6 @@ PVP,
 	-- No acquire information
 
 	-- Sundered Dark Jade -- 53927
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38
 	recipecount = recipecount + 1
@@ -2996,7 +2572,6 @@ PVP,
 	-- No acquire information
 
 	-- Lambent Dark Jade -- 53928
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val2id38
 	recipecount = recipecount + 1
@@ -3005,7 +2580,6 @@ PVP,
 	-- No acquire information
 
 	-- Opaque Dark Jade -- 53929
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val6id29val2id38
 	recipecount = recipecount + 1
@@ -3014,7 +2588,6 @@ PVP,
 	-- No acquire information
 
 	-- Energized Dark Jade -- 53930
-
 	-- Item Stats: 
 	-- Item Stats: val2id24val6id30val2id38
 	recipecount = recipecount + 1
@@ -3023,7 +2596,6 @@ PVP,
 	-- No acquire information
 
 	-- Radiant Dark Jade -- 53931
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val8id23
 	recipecount = recipecount + 1
@@ -3032,7 +2604,6 @@ PVP,
 	-- No acquire information
 
 	-- Tense Dark Jade -- 53932
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val8id23
 	recipecount = recipecount + 1
@@ -3041,7 +2612,6 @@ PVP,
 	-- No acquire information
 
 	-- Shattered Dark Jade -- 53933
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val8id23val6id30
 	recipecount = recipecount + 1
@@ -3050,7 +2620,6 @@ PVP,
 	-- No acquire information
 
 	-- Solid Chalcedony -- 53934
-
 	-- Item Stats: 
 	-- Item Stats: val18id3
 	recipecount = recipecount + 1
@@ -3059,7 +2628,6 @@ PVP,
 	-- No acquire information
 
 	-- Sparkling Chalcedony -- 53940
-
 	-- Item Stats: 
 	-- Item Stats: val12id5
 	recipecount = recipecount + 1
@@ -3068,7 +2636,6 @@ PVP,
 	-- No acquire information
 
 	-- Lustrous Chalcedony -- 53941
-
 	-- Item Stats: 
 	-- Item Stats: val5id24val5id38
 	recipecount = recipecount + 1
@@ -3077,7 +2644,6 @@ PVP,
 	-- No acquire information
 
 	-- Stormy Chalcedony -- 53943
-
 	-- Item Stats: 
 	-- Item Stats: val5id24val5id38
 	recipecount = recipecount + 1
@@ -3086,7 +2652,6 @@ PVP,
 	-- No acquire information
 
 	-- Delicate Scarlet Ruby -- 53945
-
 	-- Item Stats: 
 	-- Item Stats: val16id2
 	recipecount = recipecount + 1
@@ -3095,7 +2660,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53945,2,28721)
 
 	-- Runed Scarlet Ruby -- 53946
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53946,390,39998,3,25229)
@@ -3103,7 +2667,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53946,6,1090,4,32287)
 
 	-- Bright Scarlet Ruby -- 53947
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53947,380,39999,3,25229)
@@ -3111,7 +2674,6 @@ PVP,
 	-- No acquire information
 
 	-- Subtle Scarlet Ruby -- 53948
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id26
 	recipecount = recipecount + 1
@@ -3120,7 +2682,6 @@ PVP,
 	-- No acquire information
 
 	-- Flashing Scarlet Ruby -- 53949
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id27
 	recipecount = recipecount + 1
@@ -3129,7 +2690,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53949,2,28721)
 
 	-- Fractured Scarlet Ruby -- 53950
-
 	-- Item Stats: 
 	-- Item Stats: val16id6
 	recipecount = recipecount + 1
@@ -3138,8 +2698,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53950,3,29570)
 
 	-- Precise Scarlet Ruby -- 53951
-	-- Instance: 4494 - Azjol-Nerub: Ahn'kahet: The Old Kingdom
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53951,390,40003,3,25229)
@@ -3147,7 +2705,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53951,3,29311)
 
 	-- Solid Sky Sapphire -- 53952
-
 	-- Item Stats: 
 	-- Item Stats: val24id3
 	recipecount = recipecount + 1
@@ -3156,7 +2713,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53952,2,28721)
 
 	-- Sparkling Sky Sapphire -- 53953
-
 	-- Item Stats: 
 	-- Item Stats: val16id5
 	recipecount = recipecount + 1
@@ -3165,7 +2721,6 @@ PVP,
 	-- No acquire information
 
 	-- Lustrous Sky Sapphire -- 53954
-
 	-- Item Stats: 
 	-- Item Stats: val6id24val6id38
 	recipecount = recipecount + 1
@@ -3174,7 +2729,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53954,2,28721)
 
 	-- Stormy Sky Sapphire -- 53955
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val20id23
 	recipecount = recipecount + 1
@@ -3183,7 +2737,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53955,2,30489,2,32294,2,32296)
 
 	-- Brilliant Autumn's Glow -- 53956
-
 	-- Item Stats: 
 	-- Item Stats: val16id4
 	recipecount = recipecount + 1
@@ -3192,7 +2745,6 @@ PVP,
 	-- No acquire information
 
 	-- Smooth Autumn's Glow -- 53957
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53957,390,40013,3,25229)
@@ -3200,7 +2752,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53957,6,1119,4,32540)
 
 	-- Rigid Autumn's Glow -- 53958
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53958,390,40014,3,25229)
@@ -3208,7 +2759,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53958,2,28721)
 
 	-- Thick Autumn's Glow -- 53959
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id31
 	recipecount = recipecount + 1
@@ -3217,7 +2767,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53959,3,31134)
 
 	-- Mystic Autumn's Glow -- 53960
-
 	-- Item Stats: 
 	-- Item Stats: val16id29
 	recipecount = recipecount + 1
@@ -3226,7 +2775,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53960,2,30489,2,32294,2,32296)
 
 	-- Quick Autumn's Glow -- 53961
-
 	-- Item Stats: 
 	-- Item Stats: val16id30
 	recipecount = recipecount + 1
@@ -3235,7 +2783,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53961,2,28721)
 
 	-- Sovereign Twilight Opal -- 53962
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val12id3
 	recipecount = recipecount + 1
@@ -3244,7 +2791,6 @@ PVP,
 	-- No acquire information
 
 	-- Shifting Twilight Opal -- 53963
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val12id3
 	recipecount = recipecount + 1
@@ -3253,7 +2799,6 @@ PVP,
 	-- No acquire information
 
 	-- Tenuous Twilight Opal -- 53964
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val3id24val3id38
 	recipecount = recipecount + 1
@@ -3262,7 +2807,6 @@ PVP,
 	-- No acquire information
 
 	-- Glowing Twilight Opal -- 53965
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -3271,7 +2815,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53965,6,1098,4,32538)
 
 	-- Purified Twilight Opal -- 53966
-
 	-- Item Stats: 
 	-- Item Stats: val8id5
 	recipecount = recipecount + 1
@@ -3280,7 +2823,6 @@ PVP,
 	-- No acquire information
 
 	-- Royal Twilight Opal -- 53967
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
@@ -3289,7 +2831,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53967,2,28721)
 
 	-- Mysterious Twilight Opal -- 53968
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
@@ -3298,7 +2839,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53968,2,30489,2,32294,2,32296)
 
 	-- Balanced Twilight Opal -- 53969
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -3307,8 +2847,6 @@ PVP,
 	-- No acquire information
 
 	-- Infused Twilight Opal -- 53970
-	-- Instance: 4277 - Azjol-Nerub: Azjol-Nerub
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
@@ -3317,7 +2855,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53970,3,29120)
 
 	-- Regal Twilight Opal -- 53971
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val8id26
 	recipecount = recipecount + 1
@@ -3326,7 +2863,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53971,2,28721)
 
 	-- Defender's Twilight Opal -- 53972
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val8id27
 	recipecount = recipecount + 1
@@ -3335,7 +2871,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53972,3,29370,3,29376,3,30160,3,30208)
 
 	-- Puissant Twilight Opal -- 53973
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id6
 	recipecount = recipecount + 1
@@ -3344,7 +2879,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53973,2,28721)
 
 	-- Guardian's Twilight Opal -- 53974
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -3353,7 +2887,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53974,6,1106,3,30431)
 
 	-- Inscribed Monarch Topaz -- 53975
-
 	-- Item Stats: 
 	-- Item Stats: val8id1
 	recipecount = recipecount + 1
@@ -3362,7 +2895,6 @@ PVP,
 	-- No acquire information
 
 	-- Etched Monarch Topaz -- 53976
-
 	-- Item Stats: 
 	-- Item Stats: val8id1
 	recipecount = recipecount + 1
@@ -3371,7 +2903,6 @@ PVP,
 	-- No acquire information
 
 	-- Champion's Monarch Topaz -- 53977
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id1val8id31
 	recipecount = recipecount + 1
@@ -3380,7 +2911,6 @@ PVP,
 	-- No acquire information
 
 	-- Resplendent Monarch Topaz -- 53978
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val8id29
 	recipecount = recipecount + 1
@@ -3389,8 +2919,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53978,2,30489,2,32294,2,32296)
 
 	-- Deadly Monarch Topaz -- 53979
-	-- Instance: 4265 - The Nexus: The Nexus
-
 	-- Item Stats: 
 	-- Item Stats: val8id2
 	recipecount = recipecount + 1
@@ -3399,7 +2927,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53979,3,26723)
 
 	-- Glinting Monarch Topaz -- 53980
-
 	-- Item Stats: 
 	-- Item Stats: val8id2
 	recipecount = recipecount + 1
@@ -3408,7 +2935,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53980,2,28721)
 
 	-- Lucent Monarch Topaz -- 53981
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val8id29
 	recipecount = recipecount + 1
@@ -3417,7 +2943,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53981,2,30489,2,32294,2,32296)
 
 	-- Deft Monarch Topaz -- 53982
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val8id30
 	recipecount = recipecount + 1
@@ -3426,7 +2951,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53982,3,27978)
 
 	-- Luminous Monarch Topaz -- 53983
-
 	-- Item Stats: 
 	-- Item Stats: val8id4
 	recipecount = recipecount + 1
@@ -3435,7 +2959,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53983,2,28721)
 
 	-- Potent Monarch Topaz -- 53984
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53984,390,40048,3,25229)
@@ -3443,7 +2966,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53984,2,28721)
 
 	-- Veiled Monarch Topaz -- 53985
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53985,390,40049,3,25229)
@@ -3451,7 +2973,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53985,2,28721)
 
 	-- Durable Monarch Topaz -- 53986
-
 	-- Item Stats: 
 	-- Item Stats: val8id29
 	recipecount = recipecount + 1
@@ -3460,7 +2981,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53986,2,30489,2,32294,2,32296)
 
 	-- Reckless Monarch Topaz -- 53987
-
 	-- Item Stats: 
 	-- Item Stats: val8id30
 	recipecount = recipecount + 1
@@ -3469,7 +2989,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53987,2,28721)
 
 	-- Wicked Monarch Topaz -- 53988
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53988,390,40052,3,25229)
@@ -3477,7 +2996,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53988,6,1098,3,32538)
 
 	-- Pristine Monarch Topaz -- 53989
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53989,380,40053,3,25229)
@@ -3485,7 +3003,6 @@ PVP,
 	-- No acquire information
 
 	-- Empowered Monarch Topaz -- 53990
-
 	-- Item Stats: 
 	-- Item Stats: val8id29
 	recipecount = recipecount + 1
@@ -3494,7 +3011,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53990,2,30489,2,32294,2,32296)
 
 	-- Stark Monarch Topaz -- 53991
-
 	-- Item Stats: 
 	-- Item Stats: val8id30
 	recipecount = recipecount + 1
@@ -3503,7 +3019,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53991,2,28721)
 
 	-- Stalwart Monarch Topaz -- 53992
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id26val8id31
 	recipecount = recipecount + 1
@@ -3512,7 +3027,6 @@ PVP,
 	-- No acquire information
 
 	-- Glimmering Monarch Topaz -- 53993
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id27val8id31
 	recipecount = recipecount + 1
@@ -3521,7 +3035,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53993,6,1091,4,32533)
 
 	-- Accurate Monarch Topaz -- 53994
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53994,390,40058,3,25229)
@@ -3529,7 +3042,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53994,3,28379,3,28851,3,29402)
 
 	-- Timeless Forest Emerald -- 53995
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id4
 	recipecount = recipecount + 1
@@ -3538,7 +3050,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53995,3,26632)
 
 	-- Jagged Forest Emerald -- 53996
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -3547,7 +3058,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53996,6,1104,3,31911)
 
 	-- Vivid Forest Emerald -- 53997
-
 	-- Item Stats: 
 	-- Item Stats: val12id3
 	recipecount = recipecount + 1
@@ -3556,7 +3066,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53997,2,28721)
 
 	-- Enduring Forest Emerald -- 53998
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val8id31
 	recipecount = recipecount + 1
@@ -3565,7 +3074,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,53998,2,28721)
 
 	-- Steady Forest Emerald -- 54000
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id29
 	recipecount = recipecount + 1
@@ -3574,7 +3082,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54000,2,30489,2,32294,2,32296)
 
 	-- Forceful Forest Emerald -- 54001
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val8id30
 	recipecount = recipecount + 1
@@ -3583,7 +3090,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54001,2,28721)
 
 	-- Seer's Forest Emerald -- 54002
-
 	-- Item Stats: 
 	-- Item Stats: val8id4val8id5
 	recipecount = recipecount + 1
@@ -3592,7 +3098,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54002,2,28721)
 
 	-- Misty Forest Emerald -- 54003
-
 	-- Item Stats: 
 	-- Item Stats: val8id5
 	recipecount = recipecount + 1
@@ -3601,7 +3106,6 @@ PVP,
 	-- No acquire information
 
 	-- Shining Forest Emerald -- 54004
-
 	-- Item Stats: 
 	-- Item Stats: val8id5
 	recipecount = recipecount + 1
@@ -3610,7 +3114,6 @@ PVP,
 	-- No acquire information
 
 	-- Turbid Forest Emerald -- 54005
-
 	-- Item Stats: 
 	-- Item Stats: val8id5val8id29
 	recipecount = recipecount + 1
@@ -3619,7 +3122,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54005,2,30489,2,32294,2,32296)
 
 	-- Intricate Forest Emerald -- 54006
-
 	-- Item Stats: 
 	-- Item Stats: val8id5val8id30
 	recipecount = recipecount + 1
@@ -3628,7 +3130,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54006,2,28721)
 
 	-- Dazzling Forest Emerald -- 54007
-
 	-- Item Stats: 
 	-- Item Stats: val8id4val3id24val3id38
 	recipecount = recipecount + 1
@@ -3637,7 +3138,6 @@ PVP,
 	-- No acquire information
 
 	-- Sundered Forest Emerald -- 54008
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
@@ -3646,7 +3146,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54008,6,1105,3,31910)
 
 	-- Lambent Forest Emerald -- 54009
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val3id38
 	recipecount = recipecount + 1
@@ -3655,7 +3154,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54009,2,28721)
 
 	-- Opaque Forest Emerald -- 54010
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val8id29val3id38
 	recipecount = recipecount + 1
@@ -3664,7 +3162,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54010,2,30489,2,32294,2,32296)
 
 	-- Energized Forest Emerald -- 54011
-
 	-- Item Stats: 
 	-- Item Stats: val3id24val8id30val3id38
 	recipecount = recipecount + 1
@@ -3673,7 +3170,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54011,2,28721)
 
 	-- Radiant Forest Emerald -- 54012
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
@@ -3682,7 +3178,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54012,3,29792,3,29793)
 
 	-- Tense Forest Emerald -- 54013
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23
 	recipecount = recipecount + 1
@@ -3691,7 +3186,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54013,2,30489,2,32294,2,32296)
 
 	-- Shattered Forest Emerald -- 54014
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val10id23val8id30
 	recipecount = recipecount + 1
@@ -3700,7 +3194,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,54014,2,30489,2,32294,2,32296)
 
 	-- Precise Bloodstone -- 54017
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54017,335,39910,2,25229)
@@ -3708,16 +3201,14 @@ PVP,
 	-- No acquire information
 
 	-- Fierce Monarch Topaz -- 54019
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val8id30
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54019,390,40041,3,25229)
 	self:addTradeFlags(RecipeDB,54019,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,54019,3,23954)
+	self:addTradeAcquire(RecipeDB,54019,3,23954,3,29735)
 
 	-- Resolute Monarch Topaz -- 54023
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id31
 	recipecount = recipecount + 1
@@ -3726,7 +3217,6 @@ PVP,
 	-- No acquire information
 
 	-- Effulgent Skyflare Diamond -- 55384
-
 	-- Item Stats: 
 	-- Item Stats: val32id3
 	recipecount = recipecount + 1
@@ -3735,7 +3225,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55384,2,28721)
 
 	-- Tireless Skyflare Diamond -- 55386
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55386,420,41375,3,25229)
@@ -3743,7 +3232,6 @@ PVP,
 	-- No acquire information
 
 	-- Forlorn Skyflare Diamond -- 55387
-
 	-- Item Stats: 
 	-- Item Stats: val10id49
 	recipecount = recipecount + 1
@@ -3752,7 +3240,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55387,2,30489,2,32294,2,32296)
 
 	-- Impassive Skyflare Diamond -- 55388
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55388,420,41379,3,25229)
@@ -3760,7 +3247,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55388,2,30489,2,32294,2,32296)
 
 	-- Chaotic Skyflare Diamond -- 55389
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55389,420,41285,3,25229)
@@ -3768,7 +3254,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55389,2,28721)
 
 	-- Destructive Skyflare Diamond -- 55390
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55390,420,41307,3,25229)
@@ -3776,7 +3261,6 @@ PVP,
 	-- No acquire information
 
 	-- Ember Skyflare Diamond -- 55392
-
 	-- Item Stats: 
 	-- Item Stats: val25id49
 	recipecount = recipecount + 1
@@ -3785,7 +3269,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55392,2,28721)
 
 	-- Enigmatic Skyflare Diamond -- 55393
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55393,420,41335,3,25229)
@@ -3793,7 +3276,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55393,2,30489,2,32294,2,32296)
 
 	-- Swift Skyflare Diamond -- 55394
-
 	-- Item Stats: 
 	-- Item Stats: val42id48
 	recipecount = recipecount + 1
@@ -3802,7 +3284,6 @@ PVP,
 	-- No acquire information
 
 	-- Thundering Skyflare Diamond -- 55395
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55395,420,41400,3,25229)
@@ -3810,7 +3291,6 @@ PVP,
 	-- No acquire information
 
 	-- Insightful Earthsiege Diamond -- 55396
-
 	-- Item Stats: 
 	-- Item Stats: val21id4
 	recipecount = recipecount + 1
@@ -3819,7 +3299,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55396,2,28721)
 
 	-- Bracing Earthsiege Diamond -- 55397
-
 	-- Item Stats: 
 	-- Item Stats: val25id49
 	recipecount = recipecount + 1
@@ -3828,7 +3307,6 @@ PVP,
 	-- No acquire information
 
 	-- Eternal Earthsiege Diamond -- 55398
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val21id31
 	recipecount = recipecount + 1
@@ -3837,7 +3315,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55398,3,28923)
 
 	-- Powerful Earthsiege Diamond -- 55399
-
 	-- Item Stats: 
 	-- Item Stats: val32id3
 	recipecount = recipecount + 1
@@ -3846,7 +3323,6 @@ PVP,
 	-- No acquire information
 
 	-- Relentless Earthsiege Diamond -- 55400
-
 	-- Item Stats: 
 	-- Item Stats: val21id2
 	recipecount = recipecount + 1
@@ -3855,7 +3331,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55400,2,28721)
 
 	-- Austere Earthsiege Diamond -- 55401
-
 	-- Item Stats: 
 	-- Item Stats: val32id3
 	recipecount = recipecount + 1
@@ -3864,7 +3339,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55401,3,26861)
 
 	-- Persistent Earthsiege Diamond -- 55402
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55402,420,41381,3,25229)
@@ -3872,7 +3346,6 @@ PVP,
 	-- No acquire information
 
 	-- Trenchant Earthsiege Diamond -- 55403
-
 	-- Item Stats: 
 	-- Item Stats: val10id49
 	recipecount = recipecount + 1
@@ -3881,7 +3354,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55403,2,28721)
 
 	-- Invigorating Earthsiege Diamond -- 55404
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55404,420,41385,3,25229)
@@ -3889,7 +3361,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55404,2,28721)
 
 	-- Beaming Earthsiege Diamond -- 55405
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55405,420,41389,3,25229)
@@ -3897,7 +3368,6 @@ PVP,
 	-- No acquire information
 
 	-- Revitalizing Skyflare Diamond -- 55407
-
 	-- Item Stats: 
 	-- Item Stats: val8id24val8id38
 	recipecount = recipecount + 1
@@ -3906,7 +3376,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,55407,2,28721)
 
 	-- Bold Dragon's Eye -- 56049
-
 	-- Item Stats: 
 	-- Item Stats: val27id1
 	recipecount = recipecount + 1
@@ -3915,7 +3384,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56049,2,28721)
 
 	-- Delicate Dragon's Eye -- 56052
-
 	-- Item Stats: 
 	-- Item Stats: val27id2
 	recipecount = recipecount + 1
@@ -3924,7 +3392,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56052,2,28721)
 
 	-- Runed Dragon's Eye -- 56053
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56053,370,42144,3,25229)
@@ -3932,7 +3399,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56053,2,28721)
 
 	-- Bright Dragon's Eye -- 56054
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56054,370,36766,3,25229)
@@ -3940,7 +3406,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56054,2,28721)
 
 	-- Subtle Dragon's Eye -- 56055
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id26
 	recipecount = recipecount + 1
@@ -3949,7 +3414,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56055,2,28721)
 
 	-- Flashing Dragon's Eye -- 56056
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id27
 	recipecount = recipecount + 1
@@ -3958,7 +3422,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56056,2,28721)
 
 	-- Brilliant Dragon's Eye -- 56074
-
 	-- Item Stats: 
 	-- Item Stats: val27id4
 	recipecount = recipecount + 1
@@ -3967,7 +3430,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56074,2,28721)
 
 	-- Fractured Dragon's Eye -- 56076
-
 	-- Item Stats: 
 	-- Item Stats: val27id6
 	recipecount = recipecount + 1
@@ -3976,7 +3438,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56076,2,28721)
 
 	-- Lustrous Dragon's Eye -- 56077
-
 	-- Item Stats: 
 	-- Item Stats: val11id24val11id38
 	recipecount = recipecount + 1
@@ -3985,7 +3446,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56077,2,28721)
 
 	-- Mystic Dragon's Eye -- 56079
-
 	-- Item Stats: 
 	-- Item Stats: val27id29
 	recipecount = recipecount + 1
@@ -3994,7 +3454,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56079,2,28721)
 
 	-- Precise Dragon's Eye -- 56081
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56081,370,42154,3,25229)
@@ -4002,7 +3461,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56081,2,28721)
 
 	-- Quick Dragon's Eye -- 56083
-
 	-- Item Stats: 
 	-- Item Stats: val27id30
 	recipecount = recipecount + 1
@@ -4011,7 +3469,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56083,2,28721)
 
 	-- Rigid Dragon's Eye -- 56084
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56084,370,42156,3,25229)
@@ -4019,7 +3476,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56084,2,28721)
 
 	-- Smooth Dragon's Eye -- 56085
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56085,370,42149,3,25229)
@@ -4027,7 +3483,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56085,2,28721)
 
 	-- Solid Dragon's Eye -- 56086
-
 	-- Item Stats: 
 	-- Item Stats: val41id3
 	recipecount = recipecount + 1
@@ -4036,7 +3491,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56086,2,28721)
 
 	-- Sparkling Dragon's Eye -- 56087
-
 	-- Item Stats: 
 	-- Item Stats: val27id5
 	recipecount = recipecount + 1
@@ -4045,7 +3499,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56087,2,28721)
 
 	-- Stormy Dragon's Eye -- 56088
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val35id23
 	recipecount = recipecount + 1
@@ -4054,7 +3507,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56088,2,28721)
 
 	-- Thick Dragon's Eye -- 56089
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id31
 	recipecount = recipecount + 1
@@ -4063,7 +3515,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56089,2,28721)
 
 	-- Bloodstone Band -- 56193
-
 	-- Item Stats: 
 	-- Item Stats: val16id44val4id45val44id48
 	recipecount = recipecount + 1
@@ -4072,7 +3523,6 @@ PVP,
 	-- No acquire information
 
 	-- Sun Rock Ring -- 56194
-
 	-- Item Stats: 
 	-- Item Stats: val12id4val8id44val25id49
 	recipecount = recipecount + 1
@@ -4081,7 +3531,6 @@ PVP,
 	-- No acquire information
 
 	-- Jade Dagger Pendant -- 56195
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val19id44val64id48
 	recipecount = recipecount + 1
@@ -4090,7 +3539,6 @@ PVP,
 	-- No acquire information
 
 	-- Blood Sun Necklace -- 56196
-
 	-- Item Stats: 
 	-- Item Stats: val22id46val12id47val40id49
 	recipecount = recipecount + 1
@@ -4099,7 +3547,6 @@ PVP,
 	-- No acquire information
 
 	-- Dream Signet -- 56197
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56197,420,42340,3,25229)
@@ -4107,7 +3554,6 @@ PVP,
 	-- No acquire information
 
 	-- Ruby Hare -- 56199
-
 	-- Item Stats: 
 	-- Item Stats: val62id3
 	recipecount = recipecount + 1
@@ -4116,7 +3562,6 @@ PVP,
 	-- No acquire information
 
 	-- Twilight Serpent -- 56201
-
 	-- Item Stats: 
 	-- Item Stats: val42id45
 	recipecount = recipecount + 1
@@ -4125,7 +3570,6 @@ PVP,
 	-- No acquire information
 
 	-- Sapphire Owl -- 56202
-
 	-- Item Stats: 
 	-- Item Stats: val42id4val2id24
 	recipecount = recipecount + 1
@@ -4134,7 +3578,6 @@ PVP,
 	-- No acquire information
 
 	-- Emerald Boar -- 56203
-
 	-- Item Stats: 
 	-- Item Stats: val84id48
 	recipecount = recipecount + 1
@@ -4143,7 +3586,6 @@ PVP,
 	-- No acquire information
 
 	-- Dark Jade Focusing Lens -- 56205
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56205,340,41367,2,25229)
@@ -4151,7 +3593,6 @@ PVP,
 	-- No acquire information
 
 	-- Shadow Crystal Focusing Lens -- 56206
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56206,350,42420,2,25229)
@@ -4159,7 +3600,6 @@ PVP,
 	-- No acquire information
 
 	-- Shadow Jade Focusing Lens -- 56208
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56208,360,42421,1, 25229)
@@ -4167,7 +3607,6 @@ PVP,
 	-- No acquire information
 
 	-- Titanium Impact Band -- 56496
-
 	-- Item Stats: 
 	-- Item Stats: val33id2val51id3val84id48
 	recipecount = recipecount + 1
@@ -4176,7 +3615,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56496,2,28721)
 
 	-- Titanium Earthguard Ring -- 56497
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val50id1val63id3val34id26val25id31
 	recipecount = recipecount + 1
@@ -4185,7 +3623,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56497,2,28721)
 
 	-- Titanium Spellshock Ring -- 56498
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val33id4val42id44val54id49
 	recipecount = recipecount + 1
@@ -4194,7 +3631,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56498,2,28721)
 
 	-- Titanium Impact Choker -- 56499
-
 	-- Item Stats: 
 	-- Item Stats: val33id2val51id3val84id48
 	recipecount = recipecount + 1
@@ -4203,7 +3639,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56499,2,28721)
 
 	-- Titanium Earthguard Chain -- 56500
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id1val63id3val350id6val34id31
 	recipecount = recipecount + 1
@@ -4212,7 +3647,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56500,2,28721)
 
 	-- Titanium Spellshock Necklace -- 56501
-
 	-- Item Stats: 
 	-- Item Stats: val43id3val36id4val41id44val49id49
 	recipecount = recipecount + 1
@@ -4221,7 +3655,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,56501,2,28721)
 
 	-- Enchanted Pearl -- 56530
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56530,340,42701,1, 25229)
@@ -4229,7 +3662,6 @@ PVP,
 	-- No acquire information
 
 	-- Enchanted Tear -- 56531
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56531,380,42702,3,25229)
@@ -4237,7 +3669,6 @@ PVP,
 	-- No acquire information
 
 	-- Crystal Citrine Necklace -- 58141
-
 	-- Item Stats: 
 	-- Item Stats: val19id4val17id5val20id49
 	recipecount = recipecount + 1
@@ -4246,7 +3677,6 @@ PVP,
 	-- No acquire information
 
 	-- Crystal Chalcedony Amulet -- 58142
-
 	-- Item Stats: 
 	-- Item Stats: val19id3val17id44val42id48
 	recipecount = recipecount + 1
@@ -4255,7 +3685,6 @@ PVP,
 	-- No acquire information
 
 	-- Earthshadow Ring -- 58143
-
 	-- Item Stats: 
 	-- Item Stats: val21id4val29id5val26id49
 	recipecount = recipecount + 1
@@ -4264,7 +3693,6 @@ PVP,
 	-- No acquire information
 
 	-- Jade Ring of Slaying -- 58144
-
 	-- Item Stats: 
 	-- Item Stats: val43id3val21id12val52id48
 	recipecount = recipecount + 1
@@ -4273,7 +3701,6 @@ PVP,
 	-- No acquire information
 
 	-- Stoneguard Band -- 58145
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val20id1val39id3val16id31
 	recipecount = recipecount + 1
@@ -4282,7 +3709,6 @@ PVP,
 	-- No acquire information
 
 	-- Shadowmight Ring -- 58146
-
 	-- Item Stats: 
 	-- Item Stats: val15id3val10id44val26id46
 	recipecount = recipecount + 1
@@ -4291,7 +3717,6 @@ PVP,
 	-- No acquire information
 
 	-- Ring of Earthen Might -- 58147
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val38id1val34id3val350id6val26id26
 	recipecount = recipecount + 1
@@ -4300,7 +3725,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58147,2,28721)
 
 	-- Ring of Scarlet Shadows -- 58148
-
 	-- Item Stats: 
 	-- Item Stats: val31id44val38id45val68id48
 	recipecount = recipecount + 1
@@ -4309,7 +3733,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58148,2,28721)
 
 	-- Windfire Band -- 58149
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val35id44val35id46
 	recipecount = recipecount + 1
@@ -4318,7 +3741,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58149,2,28721)
 
 	-- Ring of Northern Tears -- 58150
-
 	-- Item Stats: 
 	-- Item Stats: val39id44val31id45val36id49
 	recipecount = recipecount + 1
@@ -4327,7 +3749,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58150,2,28721)
 
 	-- Savage Titanium Ring -- 58492
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val32id29val33id44val32id48
 	recipecount = recipecount + 1
@@ -4336,7 +3757,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58492,2,28721)
 
 	-- Savage Titanium Band -- 58507
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val32id29val33id46val19id49
 	recipecount = recipecount + 1
@@ -4345,7 +3765,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58507,2,28721)
 
 	-- Titanium Frostguard Ring -- 58954
-
 	-- Item Stats: 
 	-- Item Stats: val100id3val68id35
 	recipecount = recipecount + 1
@@ -4354,7 +3773,6 @@ PVP,
 	self:addTradeAcquire(RecipeDB,58954,2,28721)
 
 	-- Monarch Crab -- 59759
-
 	-- Item Stats: 
 	-- Item Stats: val63id3
 	recipecount = recipecount + 1

@@ -38,7 +38,6 @@ function addon:InitCooking(RecipeDB)
 	local recipecount = 0
 
 	-- Charred Wolf Meat -- 2538
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2538,5,2679,1,2550)
@@ -46,7 +45,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2538,8,8)
 
 	-- Spiced Wolf Meat -- 2539
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2539,10,2680,1,2550)
@@ -54,7 +52,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2539,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Roasted Boar Meat -- 2540
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2540,5,2681,1,2550)
@@ -62,7 +59,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2540,8,8)
 
 	-- Coyote Steak -- 2541
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2541,50,2684,1,2550)
@@ -70,7 +66,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2541,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Goretusk Liver Pie -- 2542
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550)
@@ -78,7 +73,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2542,4,22,2,340)
 
 	-- Westfall Stew -- 2543
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
@@ -86,7 +80,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2544,75,2683,1,2550)
@@ -94,7 +87,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2544,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Cooked Crab Claw -- 2545
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2545,85,2682,1,2550)
@@ -102,7 +94,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2545,7,1,2,340)
 
 	-- Dry Pork Ribs -- 2546
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2546,80,2687,1,2550)
@@ -110,7 +101,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2546,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Redridge Goulash -- 2547
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2547,100,1082,1,2550)
@@ -118,7 +108,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2547,4,92,2,340)
 
 	-- Succulent Pork Ribs -- 2548
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2548,110,2685,1,2550)
@@ -126,7 +115,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2548,7,1,2,340)
 
 	-- Seasoned Wolf Kabob -- 2549
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2549,100,1017,1,2550)
@@ -134,7 +122,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2549,4,90,2,340)
 
 	-- Beer Basted Boar Ribs -- 2795
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2795,10,2888,1,2550)
@@ -142,7 +129,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2795,4,384,2,340)
 
 	-- Crocolisk Steak -- 3370
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3370,80,3662,1,2550)
@@ -150,7 +136,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3370,4,385,2,340)
 
 	-- Blood Sausage -- 3371
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3371,60,3220,1,2550)
@@ -158,7 +143,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3371,4,418,2,340)
 
 	-- Murloc Fin Soup -- 3372
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3372,90,3663,1,2550)
@@ -166,7 +150,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3372,4,127,2,340)
 
 	-- Crocolisk Gumbo -- 3373
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3373,120,3664,1,2550)
@@ -174,7 +157,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3373,4,471,2,340)
 
 	-- Curiously Tasty Omelet -- 3376
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3376,130,3665,1,2550)
@@ -182,7 +164,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3376,4,296,2,340,2,1148,2,2821)
 
 	-- Gooey Spider Cake -- 3377
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3377,110,3666,1,2550)
@@ -190,7 +171,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3377,4,93,2,340)
 
 	-- Big Bear Steak -- 3397
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3397,110,3726,1,2550)
@@ -198,7 +178,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3397,4,498,2,3960,2,12246)
 
 	-- Hot Lion Chops -- 3398
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3398,125,3727,1,2550)
@@ -206,7 +185,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3398,4,501,2,3489,2,12245)
 
 	-- Tasty Lion Steak -- 3399
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3399,150,3728,1,2550)
@@ -214,7 +192,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3399,4,564)
 
 	-- Soothing Turtle Bisque -- 3400
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3400,175,3729,1,2550)
@@ -222,7 +199,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3400,4,555,4,7321)
 
 	-- Barbecued Buzzard Wing -- 4094
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,4094,175,4457,1,2550)
@@ -230,7 +206,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,4094,4,703,1,2818,2,2814,2,12246)
 
 	-- Kaldorei Spider Kabob -- 6412
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6412,10,5472,1,2550)
@@ -238,7 +213,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6412,4,4161)
 
 	-- Scorpid Surprise -- 6413
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6413,20,5473,1,2550)
@@ -246,7 +220,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6413,2,3881)
 
 	-- Roasted Kodo Meat -- 6414
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6414,35,5474,1,2550)
@@ -254,7 +227,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6414,2,3081)
 
 	-- Fillet of Frenzy -- 6415
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6415,50,5476,1,2550)
@@ -262,7 +234,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6415,2,4200)
 
 	-- Strider Stew -- 6416
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6416,50,5477,1,2550)
@@ -270,7 +241,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6416,4,2178,2,3482)
 
 	-- Dig Rat Stew -- 6417
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6417,90,5478,1,2550)
@@ -278,7 +248,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6417,4,862)
 
 	-- Crispy Lizard Tail -- 6418
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6418,100,5479,1,2550)
@@ -286,7 +255,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6418,2,3482)
 
 	-- Lean Venison -- 6419
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6419,110,5480,1,2550)
@@ -294,7 +262,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6419,2,3960,2,12245)
 
 	-- Boiled Clams -- 6499
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6499,50,5525,1,2550)
@@ -302,7 +269,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6499,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Goblin Deviled Clams -- 6500
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6500,125,5527,1,2550)
@@ -310,7 +276,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6500,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Clam Chowder -- 6501
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6501,90,5526,1,2550)
@@ -318,7 +283,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6501,2,4305,2,4307)
 
 	-- Giant Clam Scorcho -- 7213
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7213,175,6038,1,2550)
@@ -326,7 +290,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7213,2,2664)
 
 	-- Brilliant Smallfish -- 7751
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550)
@@ -334,7 +297,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,5494,2,5940,2,8508)
 
 	-- Slitherskin Mackerel -- 7752
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7752,1,787,1,2550)
@@ -342,7 +304,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7752,2,3550,2,4305,2,5162,2,5942,2,10118)
 
 	-- Longjaw Mud Snapper -- 7753
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7753,50,4592,1,2550)
@@ -350,7 +311,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4265,2,4574,2,5162,2,5748,2,5940)
 
 	-- Loch Frenzy Delight -- 7754
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7754,50,6316,1,2550)
@@ -358,7 +318,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7754,2,1684)
 
 	-- Bristle Whisker Catfish -- 7755
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7755,100,4593,1,2550)
@@ -366,7 +325,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7755,2,2383,2,2397,2,3027,2,3029,2,3497,2,4553,2,5494)
 
 	-- Rainbow Fin Albacore -- 7827
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7827,50,5095,1,2550)
@@ -374,7 +332,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7827,2,3178,2,3333,2,3497,2,4305,2,4307,2,4553,2,5494,2,5748,2,5942,2,10118)
 
 	-- Rockscale Cod -- 7828
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7828,175,4594,1,2550)
@@ -382,7 +339,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7828,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2,5162,2,12033,2,12962)
 
 	-- Savory Deviate Delight -- 8238
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8238,85,6657,2,2550)
@@ -390,7 +346,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8238,7,2)
 
 	-- Herb Baked Egg -- 8604
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8604,5,6888,1,2550)
@@ -398,7 +353,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8604,8,8)
 
 	-- Smoked Bear Meat -- 8607
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8607,40,6890,1,2550)
@@ -406,7 +360,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8607,2,1465,2,3556)
 
 	-- Thistle Tea -- 9513
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9513,60,7676,1,2550)
@@ -414,7 +367,6 @@ function addon:InitCooking(RecipeDB)
 	-- No acquire information
 
 	-- Goldthorn Tea -- 13028
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13028,145,10841,1,2550)
@@ -422,7 +374,6 @@ function addon:InitCooking(RecipeDB)
 	-- No acquire information
 
 	-- Lean Wolf Steak -- 15853
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15853,125,12209,1,2550)
@@ -430,7 +381,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15853,2,12246)
 
 	-- Roast Raptor -- 15855
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15855,175,12210,1,2550)
@@ -438,7 +388,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15855,2,734,2,1148,2,2810,2,2821,2,4879,2,4897,2,12245)
 
 	-- Hot Wolf Ribs -- 15856
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15856,175,13851,1,2550)
@@ -446,7 +395,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15856,2,7947,2,8145,2,12246)
 
 	-- Jungle Stew -- 15861
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15861,175,12212,1,2550)
@@ -454,7 +402,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15861,2,734,2,1148,2,12245)
 
 	-- Carrion Surprise -- 15863
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15863,175,12213,1,2550)
@@ -462,7 +409,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15863,2,989,2,4879,2,9636,2,12245)
 
 	-- Mystery Stew -- 15865
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15865,175,12214,1,2550)
@@ -470,7 +416,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15865,2,4897,2,8150,2,12246)
 
 	-- Dragonbreath Chili -- 15906
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15906,200,12217,1,2550)
@@ -478,7 +423,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15906,2,4879,2,4897,2,12246)
 
 	-- Heavy Kodo Stew -- 15910
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15910,200,12215,1,2550)
@@ -486,7 +430,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15910,2,8150,2,9636,2,12245)
 
 	-- Spiced Chili Crab -- 15915
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15915,225,12216,1,2550)
@@ -494,7 +437,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15915,2,989,2,1149,2,4305)
 
 	-- Monster Omelet -- 15933
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15933,225,12218,1,2550)
@@ -502,7 +444,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15933,2,2803,2,2806,2,11187)
 
 	-- Crispy Bat Wing -- 15935
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15935,1,12224,1,2550)
@@ -510,7 +451,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15935,2,2118)
 
 	-- Spotted Yellowtail -- 18238
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18238,225,6887,1,2550)
@@ -518,7 +458,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18238,2,8137)
 
 	-- Cooked Glossy Mightfish -- 18239
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18239,225,13927,1,2550)
@@ -526,7 +465,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18239,2,2664)
 
 	-- Grilled Squid -- 18240
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18240,240,13928,1,2550)
@@ -534,7 +472,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18240,2,8137)
 
 	-- Filet of Redgill -- 18241
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18241,225,13930,1,2550)
@@ -542,7 +479,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18241,2,2664)
 
 	-- Hot Smoked Bass -- 18242
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18242,240,13929,1,2550)
@@ -550,7 +486,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18242,2,2664)
 
 	-- Nightfin Soup -- 18243
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18243,250,13931,1,2550)
@@ -558,7 +493,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18243,2,8137)
 
 	-- Poached Sunscale Salmon -- 18244
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18244,250,13932,1,2550)
@@ -566,7 +500,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18244,2,8137)
 
 	-- Lobster Stew -- 18245
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18245,275,13933,1,2550)
@@ -574,7 +507,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18245,2,7947,2,8145)
 
 	-- Mightfish Steak -- 18246
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18246,275,13934,1,2550)
@@ -582,7 +514,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18246,2,7947,2,8145)
 
 	-- Baked Salmon -- 18247
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18247,275,13935,1,2550)
@@ -590,7 +521,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,18247,2,7947,2,8145)
 
 	-- Undermine Clam Chowder -- 20626
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20626,225,16766,1,2550)
@@ -598,7 +528,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20626,2,8139)
 
 	-- Mithril Head Trout -- 20916
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20916,175,8364,1,2550)
@@ -606,7 +535,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20916,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2,5162,2,12033,2,12962)
 
 	-- Gingerbread Cookie -- 21143
-Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21143,1,17197,1,2550)
@@ -614,7 +542,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,21143,5,1)
 
 	-- Egg Nog -- 21144
-Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21144,35,17198,1,2550)
@@ -622,7 +549,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,21144,5,1)
 
 	-- Spider Sausage -- 21175
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21175,200,17222,1,2550)
@@ -630,7 +556,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,21175,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Tender Wolf Steak -- 22480
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22480,225,18045,1,2550)
@@ -638,7 +563,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,22480,2,4782,2,7733,2,8125)
 
 	-- Runn Tum Tuber Surprise -- 22761
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22761,275,18254,2,2550)
@@ -646,7 +570,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,22761,3,14354)
 
 	-- Heavy Crocolisk Stew -- 24418
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,24418,150,20074,1,2550)
@@ -654,7 +577,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24418,2,4879)
 
 	-- Smoked Desert Dumplings -- 24801
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,24801,285,20452,1,2550)
@@ -662,7 +584,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25659,300,21023,4,2550)
@@ -670,7 +591,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,25659,4,8586)
 
 	-- Smoked Sagefish -- 25704
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25704,80,21072,1,2550)
@@ -678,7 +598,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Sagefish Delight -- 25954
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25954,175,21217,1,2550)
@@ -686,7 +605,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Crunchy Spider Surprise -- 28267
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28267,60,22645,1,2550)
@@ -694,7 +612,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,28267,4,9171,2,16253,2,18427)
 
 	-- Lynx Steak -- 33276
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33276,1,27635,1,2550)
@@ -702,7 +619,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33276,2,16262)
 
 	-- Roasted Moongraze Tenderloin -- 33277
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33277,1,24105,1,2550)
@@ -710,7 +626,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33277,4,9454)
 
 	-- Bat Bites -- 33278
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33278,50,27636,1,2550)
@@ -718,7 +633,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33278,2,16253)
 
 	-- Buzzard Bites -- 33279
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33279,300,27651,1,2550)
@@ -726,7 +640,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33279,4,9356)
 
 	-- Ravager Dog -- 33284
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33284,300,27655,1,2550)
@@ -734,7 +647,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33284,2,16585,2,16826)
 
 	-- Sporeling Snack -- 33285
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33285,310,27656,1,2550)
@@ -742,7 +654,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33285,2,18382)
 
 	-- Blackened Basilisk -- 33286
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33286,315,27657,1,2550)
@@ -750,7 +661,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33286,2,18957,2,19038)
 
 	-- Roasted Clefthoof -- 33287
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33287,325,27658,1,2550)
@@ -758,7 +668,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33287,2,20096,2,20097)
 
 	-- Warp Burger -- 33288
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33288,325,27659,1,2550)
@@ -766,7 +675,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33288,2,18957,2,19038)
 
 	-- Talbuk Steak -- 33289
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33289,325,27660,1,2550)
@@ -774,7 +682,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33289,2,20096,2,20097)
 
 	-- Blackened Trout -- 33290
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33290,300,27661,1,2550)
@@ -782,7 +689,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33290,2,18015,2,20028)
 
 	-- Feltail Delight -- 33291
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33291,300,27662,1,2550)
@@ -790,7 +696,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33291,2,18011,2,20028)
 
 	-- Blackened Sporefish -- 33292
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33292,310,27663,1,2550)
@@ -798,7 +703,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33292,2,18911)
 
 	-- Grilled Mudfish -- 33293
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33293,320,27664,1,2550)
@@ -806,7 +710,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33293,2,20096,2,20097)
 
 	-- Poached Bluefish -- 33294
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33294,320,27665,1,2550)
@@ -814,7 +717,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33294,2,20096,2,20097)
 
 	-- Golden Fish Sticks -- 33295
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33295,325,27666,1,2550)
@@ -822,7 +724,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33295,2,18960,2,19296)
 
 	-- Spicy Crawdad -- 33296
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33296,350,27667,1,2550)
@@ -830,7 +731,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,33296,2,18960,2,19296)
 
 	-- Clam Bar -- 36210
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36210,300,30155,1,2550)
@@ -838,7 +738,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,36210,2,18382)
 
 	-- Spice Bread -- 37836
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,37836,20,30816,1,2550)
@@ -846,7 +745,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,37836,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Mok'Nathal Shortribs -- 38867
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38867,335,31672,1,2550)
@@ -854,7 +752,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,38867,4,10860,2,20916,2,21113)
 
 	-- Crunchy Serpent -- 38868
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38868,335,31673,1,2550)
@@ -862,7 +759,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,38868,4,10860,2,20916,2,21113)
 
 	-- Stewed Trout -- 42296
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42296,315,33048,1,2550)
@@ -870,7 +766,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,42296,1,19186)
 
 	-- Fisherman's Feast -- 42302
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42302,365,33052,1,2550)
@@ -878,7 +773,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,42302,1,19186)
 
 	-- Hot Buttered Trout -- 42305
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42305,365,33053,1,2550)
@@ -886,7 +780,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,42305,1,19186)
 
 	-- Skullfish Soup -- 43707
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43707,325,33825,2,2550)
@@ -894,7 +787,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43707,8,6)
 
 	-- Stormchops -- 43758
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43758,300,33866,3,2550)
@@ -902,7 +794,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43758,8,5,8,6)
 
 	-- Broiled Bloodfin -- 43761
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43761,300,33867,2,2550)
@@ -910,7 +801,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43761,8,6)
 
 	-- Spicy Hot Talbuk -- 43765
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43765,325,33872,2,2550)
@@ -918,7 +808,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43765,8,5)
 
 	-- Kibler's Bits -- 43772
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43772,300,33874,2,2550)
@@ -926,7 +815,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43772,8,5)
 
 	-- Delicious Chocolate Cake -- 43779
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43779,1,33924,3,2550)
@@ -934,7 +822,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,43779,8,5,8,6)
 
 	-- Hot Apple Cider -- 45022
-Seasonal, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45022,325,34411,1,2550)
@@ -942,7 +829,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45022,5,1)
 
 	-- Mammoth Meal -- 45549
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45549,285,34748,1, 2550)
@@ -950,7 +836,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Shoveltusk Steak -- 45550
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45550,285,34749,1, 2550)
@@ -958,7 +843,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Wyrm Delight -- 45551
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45551,285,34750,1, 2550)
@@ -966,7 +850,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Roasted Worg -- 45552
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45552,285,34751,1, 2550)
@@ -974,7 +857,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Rhino Dogs -- 45553
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45553,285,34752,1, 2550)
@@ -982,7 +864,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Feast -- 45554
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45554,325,34753,1, 2550)
@@ -990,7 +871,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Mega Mammoth Meal -- 45555
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45555,400,34754,2,2550)
@@ -998,7 +878,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45555,2,31031,2,31032)
 
 	-- Tender Shoveltusk Steak -- 45556
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45556,400,34755,2,2550)
@@ -1006,7 +885,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45556,2,31031,2,31032)
 
 	-- Spiced Wyrm Burger -- 45557
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45557,400,34756,2,2550)
@@ -1014,7 +892,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45557,2,31031,2,31032)
 
 	-- Very Burnt Worg -- 45558
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45558,400,34757,2,2550)
@@ -1022,7 +899,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45558,2,31031,2,31032)
 
 	-- Mighty Rhino Dogs -- 45559
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45559,400,34758,2,2550)
@@ -1030,7 +906,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45559,2,31031,2,31032)
 
 	-- Smoked Rockfin -- 45560
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45560,320,34759,1, 2550)
@@ -1038,7 +913,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Grilled Bonescale -- 45561
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45561,320,34760,1, 2550)
@@ -1046,7 +920,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Sauteed Goby -- 45562
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45562,320,34761,1, 2550)
@@ -1054,7 +927,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Grilled Sculpin -- 45563
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45563,285,34762,1, 2550)
@@ -1062,7 +934,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Smoked Salmon -- 45564
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45564,285,34763,1, 2550)
@@ -1070,7 +941,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Poached Nettlefish -- 45565
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45565,285,34764,1, 2550)
@@ -1078,7 +948,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Pickled Fangtooth -- 45566
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45566,285,34765,1, 2550)
@@ -1086,7 +955,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Poached Northern Sculpin -- 45567
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45567,400,34766,2,2550)
@@ -1094,7 +962,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45567,2,31031,2,31032)
 
 	-- Firecracker Salmon -- 45568
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45568,400,34767,2,2550)
@@ -1102,7 +969,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45568,2,31031,2,31032)
 
 	-- Baked Manta Ray -- 45569
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45569,285,42942,1, 2550)
@@ -1110,7 +976,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Imperial Manta Steak -- 45570
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45570,400,34769,2,2550)
@@ -1118,7 +983,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45570,2,31031,2,31032)
 
 	-- Spicy Blue Nettlefish -- 45571
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45571,400,34768,2,2550)
@@ -1126,7 +990,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45571,2,31031,2,31032)
 
 	-- Captain Rumsey's Lager -- 45695
-Daily, 
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45695,100,34832,2,2550)
@@ -1134,7 +997,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,45695,8,7)
 
 	-- Charred Bear Kabobs -- 46684
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46684,250,35563,1,2550)
@@ -1142,7 +1004,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,46684,2,2803,2,2806)
 
 	-- Juicy Bear Burger -- 46688
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46688,250,35565,1,2550)
@@ -1150,7 +1011,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,46688,2,2803,2,2806)
 
 	-- Kungaloosh -- 53056
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
@@ -1158,7 +1018,6 @@ Daily,
 	-- No acquire information
 
 	-- Northern Stew -- 57421
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57421,320,34747,1, 2550)
@@ -1166,7 +1025,6 @@ Daily,
 	-- No acquire information
 
 	-- Fish Feast -- 57423
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57423,360,43015,1, 2550)
@@ -1174,7 +1032,6 @@ Daily,
 	-- No acquire information
 
 	-- Spicy Fried Herring -- 57433
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57433,400,42993,2,2550)
@@ -1182,7 +1039,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57433,2,31031,2,31032)
 
 	-- Rhinolicious Wyrmsteak -- 57434
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57434,400,42994,2,2550)
@@ -1190,7 +1046,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57434,2,31031,2,31032)
 
 	-- Critter Bites -- 57435
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57435,400,43004,2,2550)
@@ -1198,7 +1053,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57435,2,31031,2,31032)
 
 	-- Hearty Rhino -- 57436
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57436,400,42995,2,2550)
@@ -1206,7 +1060,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57436,2,31031,2,31032)
 
 	-- Snapper Extreme -- 57437
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57437,400,42996,2,2550)
@@ -1214,7 +1067,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57437,2,31031,2,31032)
 
 	-- Blackened Worg Steak -- 57438
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57438,400,42997,2,2550)
@@ -1222,7 +1074,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57438,2,31031,2,31032)
 
 	-- Cuttlesteak -- 57439
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57439,400,42998,2,2550)
@@ -1230,7 +1081,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57439,2,31031,2,31032)
 
 	-- Spiced Mammoth Treats -- 57440
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57440,400,43005,2,2550)
@@ -1238,7 +1088,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57440,2,31031,2,31032)
 
 	-- Blackened Dragonfin -- 57441
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57441,400,42999,2,2550)
@@ -1246,7 +1095,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57441,2,31031,2,31032)
 
 	-- Dragonfin Filet -- 57442
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57442,400,43000,2,2550)
@@ -1254,7 +1102,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57442,2,31031,2,31032)
 
 	-- Tracker Snacks -- 57443
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57443,400,43001,2,2550)
@@ -1262,7 +1109,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,57443,2,31031,2,31032)
 
 	-- Dalaran Clam Chowder -- 58065
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58065,285,43268,1, 2550)
@@ -1270,7 +1116,6 @@ Daily,
 	-- No acquire information
 
 	-- Tasty Cupcake -- 58512
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58512,350,43490,2,2550)
@@ -1278,7 +1123,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,58512,7,2)
 
 	-- Last Week's Mammoth -- 58521
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58521,350,43488,2,2550)
@@ -1286,7 +1130,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,58521,7,2)
 
 	-- Bad Clams -- 58523
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58523,350,43491,2,2550)
@@ -1294,7 +1137,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,58523,7,2)
 
 	-- Haunted Herring -- 58525
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58525,350,43492,2,2550)
@@ -1302,7 +1144,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,58525,7,2)
 
 	-- Gigantic Feast -- 58527
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58527,425,43478,2,2550)
@@ -1310,7 +1151,6 @@ Daily,
 	self:addTradeAcquire(RecipeDB,58527,2,31031,2,31032)
 
 	-- Small Feast -- 58528
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58528,425,43480,2,2550)

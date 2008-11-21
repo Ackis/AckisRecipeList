@@ -1,11 +1,11 @@
 Unknown zones:
-	"40 Tickets - Schematic: Steam Tonk Controller" => "",
 	"Azure Captain" => "",
 	"Azure Sorceror" => "",
 	"Azure Stalker" => "",
 	"Drakkari God Hunter" => "",
 	"Drakkari Medicine Man" => "",
 	"Drakkari Shaman" => "",
+	"Kodo Hide Bag" => "",
 	"Living Ruby Serpent" => "",
 	"Novos the Summoner" => "",
 	"Outland Children's Week Dark Portal Trigger" => "",
@@ -13,6 +13,7 @@ Unknown zones:
 	"Outland Children's Week Silvermoon 01 Trigger" => "",
 	"Portal Guardian" => "",
 	"Risen Drakkari Death Knight" => "",
+	"Savage Worg" => "",
 
 Unknown faction:
 Skeletal Fiend (Enraged Form) - ,
@@ -21,6 +22,7 @@ Gorgolon the All-seeing - ,
 Outland Children's Week Dark Portal Trigger - ,
 Outland Children's Week Exodar 01 Trigger - ,
 Outland Children's Week Silvermoon 01 Trigger - ,
+Kodo Hide Bag - ,
 
 Instance mobs:
 	"Abomination",
@@ -620,6 +622,7 @@ No acquire information:
 60600 - Frostscale Helm - Leatherworking
 58336 - Glyph of Unending Breath - Inscription
 58478 - Scroll of Agility IV - Inscription
+7255 - Holy Protection Potion - Alchemy
 24801 - Smoked Desert Dumplings - Cooking
 60601 - Dark Frostscale Leggings - Leatherworking
 54941 - Spiked Cobalt Shoulders - Blacksmithing
@@ -1148,8 +1151,8 @@ No acquire information:
 57277 - Glyph of Voidwalker - Inscription
 56994 - Glyph of Aimed Shot - Inscription
 54023 - Resolute Monarch Topaz - Jewelcrafting
-55014 - Saronite Bulwark - Blacksmithing
 53882 - Potent Huge Citrine - Jewelcrafting
+55014 - Saronite Bulwark - Blacksmithing
 56995 - Glyph of Arcane Shot - Inscription
 57703 - Hunter's Ink - Inscription
 53883 - Veiled Huge Citrine - Jewelcrafting

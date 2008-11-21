@@ -38,7 +38,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	local recipecount = 0
 
 	-- Rough Sharpening Stone -- 2660
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2660,1,2862,1,2018)
@@ -46,7 +45,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2660,8,8)
 
 	-- Copper Chain Belt -- 2661
-
 	-- Item Stats: 
 	-- Item Stats: val61id6
 	recipecount = recipecount + 1
@@ -55,7 +53,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2661,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Copper Chain Pants -- 2662
-
 	-- Item Stats: 
 	-- Item Stats: val83id6
 	recipecount = recipecount + 1
@@ -64,7 +61,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2662,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Copper Bracers -- 2663
-
 	-- Item Stats: 
 	-- Item Stats: val35id6
 	recipecount = recipecount + 1
@@ -73,7 +69,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2663,8,8)
 
 	-- Runed Copper Bracers -- 2664
-
 	-- Item Stats: 
 	-- Item Stats: val68id6
 	recipecount = recipecount + 1
@@ -82,7 +77,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2664,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Coarse Sharpening Stone -- 2665
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2665,50,2863,1,2018)
@@ -90,7 +84,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2665,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Runed Copper Belt -- 2666
-
 	-- Item Stats: 
 	-- Item Stats: val86id6
 	recipecount = recipecount + 1
@@ -99,7 +92,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2666,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Runed Copper Breastplate -- 2667
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val3id3val162id6
 	recipecount = recipecount + 1
@@ -108,7 +100,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2667,7,2)
 
 	-- Rough Bronze Leggings -- 2668
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val4id5val149id6
 	recipecount = recipecount + 1
@@ -117,7 +108,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2668,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
 
 	-- Rough Bronze Cuirass -- 2670
-
 	-- Item Stats: 
 	-- Item Stats: val168id6
 	recipecount = recipecount + 1
@@ -126,7 +116,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2670,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Rough Bronze Bracers -- 2671
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val77id6
 	--recipecount = recipecount + 1
@@ -135,7 +124,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Patterned Bronze Bracers -- 2672
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val80id6
 	recipecount = recipecount + 1
@@ -144,7 +132,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2672,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Silvered Bronze Breastplate -- 2673
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val5id3val4id5val186id6
 	recipecount = recipecount + 1
@@ -153,7 +140,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2673,7,2)
 
 	-- Heavy Sharpening Stone -- 2674
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2674,110,2871,1,2018)
@@ -161,7 +147,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2674,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Shining Silver Breastplate -- 2675
-
 	-- Item Stats: 
 	-- Item Stats: val14id1val6id3val214id6
 	recipecount = recipecount + 1
@@ -170,7 +155,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2675,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Copper Mace -- 2737
-
 	-- Item Stats: 
 	-- Item Stats: val6-11id7val2.2id8
 	recipecount = recipecount + 1
@@ -179,7 +163,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2737,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Copper Axe -- 2738
-
 	-- Item Stats: 
 	-- Item Stats: val5-10id7val1.9id8
 	recipecount = recipecount + 1
@@ -188,7 +171,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2738,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Copper Shortsword -- 2739
-
 	-- Item Stats: 
 	-- Item Stats: val5-11id7val2.1id8
 	recipecount = recipecount + 1
@@ -197,7 +179,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2739,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Bronze Mace -- 2740
-
 	-- Item Stats: 
 	-- Item Stats: val18-34id7val2.6id8
 	recipecount = recipecount + 1
@@ -206,7 +187,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2740,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Bronze Axe -- 2741
-
 	-- Item Stats: 
 	-- Item Stats: val15-29id7val2.1id8
 	recipecount = recipecount + 1
@@ -215,7 +195,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2741,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Bronze Shortsword -- 2742
-
 	-- Item Stats: 
 	-- Item Stats: val16-31id7val2.1id8
 	recipecount = recipecount + 1
@@ -224,7 +203,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2742,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Rough Weightstone -- 3115
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3115,1,3239,1,2018)
@@ -232,7 +210,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3115,8,8)
 
 	-- Coarse Weightstone -- 3116
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3116,50,3240,1,2018)
@@ -240,7 +217,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3116,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Heavy Weightstone -- 3117
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3117,110,3241,1,2018)
@@ -248,7 +224,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3117,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Heavy Copper Broadsword -- 3292
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val27-41id7val2.7id8
 	recipecount = recipecount + 1
@@ -257,7 +232,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3292,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Copper Battle Axe -- 3293
-
 	-- Item Stats: 
 	-- Item Stats: val3id3val23-35id7val3.2id8
 	recipecount = recipecount + 1
@@ -266,7 +240,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3293,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Thick War Axe -- 3294
-
 	-- Item Stats: 
 	-- Item Stats: val1id1val1id3val15-28id7val2.5id8
 	recipecount = recipecount + 1
@@ -275,7 +248,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3294,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Deadly Bronze Poniard -- 3295
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val16-30id7val1.8id8
 	recipecount = recipecount + 1
@@ -284,7 +256,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3295,7,2)
 
 	-- Heavy Bronze Mace -- 3296
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val25-47id7val2.8id8
 	recipecount = recipecount + 1
@@ -293,7 +264,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3296,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Mighty Iron Hammer -- 3297
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val30-57id7val2.8id8
 	recipecount = recipecount + 1
@@ -302,7 +272,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3297,7,2)
 
 	-- Copper Chain Boots -- 3319
-
 	-- Item Stats: 
 	-- Item Stats: val65id6
 	recipecount = recipecount + 1
@@ -311,7 +280,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3319,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Rough Grinding Stone -- 3320
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3320,5,3470,1,2018)
@@ -319,7 +287,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3320,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245)
 
 	-- Copper Chain Vest -- 3321
-
 	-- Item Stats: 
 	-- Item Stats: val1id1val108id6
 	recipecount = recipecount + 1
@@ -328,7 +295,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3321,7,2)
 
 	-- Runed Copper Gauntlets -- 3323
-
 	-- Item Stats: 
 	-- Item Stats: val73id6
 	recipecount = recipecount + 1
@@ -337,7 +303,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3323,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Runed Copper Pants -- 3324
-
 	-- Item Stats: 
 	-- Item Stats: val2id1val2id3val113id6
 	recipecount = recipecount + 1
@@ -346,7 +311,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3324,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Gemmed Copper Gauntlets -- 3325
-
 	-- Item Stats: 
 	-- Item Stats: val90id6
 	recipecount = recipecount + 1
@@ -355,7 +319,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3325,7,2)
 
 	-- Coarse Grinding Stone -- 3326
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3326,50,3478,1,2018)
@@ -363,7 +326,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3326,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245)
 
 	-- Rough Bronze Shoulders -- 3328
-
 	-- Item Stats: 
 	-- Item Stats: val124id6
 	recipecount = recipecount + 1
@@ -372,7 +334,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3328,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Silvered Bronze Shoulders -- 3330
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val3id3val3id5val137id6
 	recipecount = recipecount + 1
@@ -381,7 +342,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3330,7,2)
 
 	-- Silvered Bronze Boots -- 3331
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val4id3val3id5val128id6
 	recipecount = recipecount + 1
@@ -390,7 +350,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3331,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Silvered Bronze Gauntlets -- 3333
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val4id3val3id5val118id6
 	recipecount = recipecount + 1
@@ -399,7 +358,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3333,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Green Iron Boots -- 3334
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val7id3val134id6
 	recipecount = recipecount + 1
@@ -408,7 +366,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3334,7,2)
 
 	-- Green Iron Gauntlets -- 3336
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val6id3val124id6
 	recipecount = recipecount + 1
@@ -417,7 +374,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3336,7,2)
 
 	-- Heavy Grinding Stone -- 3337
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3337,100,3486,1,2018)
@@ -425,7 +381,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3337,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
 
 	-- Big Bronze Knife -- 3491
-
 	-- Item Stats: 
 	-- Item Stats: val3id3val13-25id7val1.9id8
 	recipecount = recipecount + 1
@@ -434,7 +389,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3491,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Hardened Iron Shortsword -- 3492
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val21-39id7val1.8id8
 	recipecount = recipecount + 1
@@ -443,7 +397,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3492,2,2843,2,3356,2,5512)
 
 	-- Jade Serpentblade -- 3493
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val4id2val33-62id7val2.6id8
 	recipecount = recipecount + 1
@@ -452,7 +405,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3493,7,2)
 
 	-- Solid Iron Maul -- 3494
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val59-89id7val3.5id8
 	recipecount = recipecount + 1
@@ -461,7 +413,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val4id3val50-76id7val2.75id8
 	recipecount = recipecount + 1
@@ -470,7 +421,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3495,7,2)
 
 	-- Moonsteel Broadsword -- 3496
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val12id5val55-83id7val2.8id8
 	recipecount = recipecount + 1
@@ -479,7 +429,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
-
 	-- Item Stats: 
 	-- Item Stats: val78-118id7val3.4id8val14id44
 	recipecount = recipecount + 1
@@ -488,7 +437,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3497,7,2)
 
 	-- Massive Iron Axe -- 3498
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val7id3val71-108id7val3.5id8
 	recipecount = recipecount + 1
@@ -497,7 +445,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3498,2,1146,2,2483)
 
 	-- Shadow Crescent Axe -- 3500
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val10id3val58-87id7val2.5id8
 	recipecount = recipecount + 1
@@ -506,7 +453,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3500,7,2)
 
 	-- Green Iron Bracers -- 3501
-
 	-- Item Stats: 
 	-- Item Stats: val86id6
 	recipecount = recipecount + 1
@@ -515,7 +461,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3501,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823)
 
 	-- Green Iron Helm -- 3502
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val11id3val171id6
 	recipecount = recipecount + 1
@@ -524,7 +469,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3502,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Golden Scale Coif -- 3503
-
 	-- Item Stats: 
 	-- Item Stats: val10id1val10id5val181id6
 	recipecount = recipecount + 1
@@ -533,7 +477,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Green Iron Shoulders -- 3504
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val7id3val153id6
 	recipecount = recipecount + 1
@@ -542,7 +485,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3504,7,2)
 
 	-- Golden Scale Shoulders -- 3505
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val6id5val160id6
 	recipecount = recipecount + 1
@@ -551,7 +493,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3505,7,3)
 
 	-- Green Iron Leggings -- 3506
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val8id3val176id6
 	recipecount = recipecount + 1
@@ -560,7 +501,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3506,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Golden Scale Leggings -- 3507
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val5id5val184id6
 	recipecount = recipecount + 1
@@ -569,7 +509,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3507,7,2)
 
 	-- Green Iron Hauberk -- 3508
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val11id3val358id6
 	recipecount = recipecount + 1
@@ -578,7 +517,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3508,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Golden Scale Cuirass -- 3511
-
 	-- Item Stats: 
 	-- Item Stats: val14id1val6id5val231id6
 	recipecount = recipecount + 1
@@ -587,7 +525,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3511,7,2)
 
 	-- Polished Steel Boots -- 3513
-
 	-- Item Stats: 
 	-- Item Stats: val11id3val151id6
 	recipecount = recipecount + 1
@@ -596,8 +533,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3513,7,2)
 
 	-- Golden Scale Boots -- 3515
-	-- Instance: 796 - Scarlet Monastery
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val8id5val159id6
 	recipecount = recipecount + 1
@@ -606,7 +541,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3515,3,4301)
 
 	-- Pearl-handled Dagger -- 6517
-
 	-- Item Stats: 
 	-- Item Stats: val2id2val2id3val13-26id7val1.7id8
 	recipecount = recipecount + 1
@@ -615,7 +549,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6517,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Iridescent Hammer -- 6518
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val3id3val18-34id7val1.8id8
 	recipecount = recipecount + 1
@@ -624,7 +557,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6518,7,2)
 
 	-- Iron Shield Spike -- 7221
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7221,150,6042,2,2018)
@@ -632,7 +564,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7221,7,2)
 
 	-- Iron Counterweight -- 7222
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7222,165,6043,2,2018)
@@ -640,7 +571,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7222,7,2)
 
 	-- Golden Scale Bracers -- 7223
-
 	-- Item Stats: 
 	-- Item Stats: val91id6
 	recipecount = recipecount + 1
@@ -649,9 +579,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7223,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Steel Weapon Chain -- 7224
-	-- Instance: 796 - Scarlet Monastery
-	-- Instance: 1176 - Zul'Farrak
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7224,190,6041,2,2018)
@@ -659,7 +586,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7224,3,4292,3,5648,3,24830)
 
 	-- Heavy Copper Maul -- 7408
-
 	-- Item Stats: 
 	-- Item Stats: val21-32id7val2.8id8
 	recipecount = recipecount + 1
@@ -668,7 +594,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7408,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Rough Bronze Boots -- 7817
-
 	-- Item Stats: 
 	-- Item Stats: val106id6
 	recipecount = recipecount + 1
@@ -677,7 +602,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7817,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Silver Rod -- 7818
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -686,7 +610,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7818,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
 
 	-- Ironforge Chain -- 8366
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val151id6
 	--recipecount = recipecount + 1
@@ -695,7 +618,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Ironforge Breastplate -- 8367
-
 	-- Item Stats: 
 	-- Item Stats: val3id1val3id3val198id6
 	recipecount = recipecount + 1
@@ -704,7 +626,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8367,4,1618)
 
 	-- Ironforge Gauntlets -- 8368
-
 	-- Item Stats: 
 	-- Item Stats: val170id6val12id48
 	--recipecount = recipecount + 1
@@ -713,7 +634,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Iron Buckle -- 8768
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8768,145,7071,1,2018)
@@ -721,7 +641,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8768,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Copper Dagger -- 8880
-
 	-- Item Stats: 
 	-- Item Stats: val5-10id7val1.5id8
 	recipecount = recipecount + 1
@@ -730,7 +649,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8880,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Barbaric Iron Shoulders -- 9811
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val6id2val153id6
 	recipecount = recipecount + 1
@@ -739,7 +657,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9811,4,2752)
 
 	-- Barbaric Iron Breastplate -- 9813
-
 	-- Item Stats: 
 	-- Item Stats: val12id1val204id6
 	recipecount = recipecount + 1
@@ -748,7 +665,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9813,4,2751)
 
 	-- Barbaric Iron Helm -- 9814
-
 	-- Item Stats: 
 	-- Item Stats: val9id1val9id2val173id6
 	recipecount = recipecount + 1
@@ -757,7 +673,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9814,4,2754)
 
 	-- Barbaric Iron Boots -- 9818
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val7id2val149id6
 	recipecount = recipecount + 1
@@ -766,7 +681,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9818,4,2753)
 
 	-- Barbaric Iron Gloves -- 9820
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val137id6
 	recipecount = recipecount + 1
@@ -775,7 +689,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9820,4,2755)
 
 	-- Steel Breastplate -- 9916
-
 	-- Item Stats: 
 	-- Item Stats: val381id6
 	recipecount = recipecount + 1
@@ -784,7 +697,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9916,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Solid Sharpening Stone -- 9918
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9918,190,7964,1,2018)
@@ -792,7 +704,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9918,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Solid Grinding Stone -- 9920
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9920,190,7966,1,2018)
@@ -800,7 +711,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9920,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823)
 
 	-- Solid Weightstone -- 9921
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9921,190,7965,1,2018)
@@ -808,7 +718,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9921,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Heavy Mithril Shoulder -- 9926
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val225id6
 	recipecount = recipecount + 1
@@ -817,7 +726,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9926,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Heavy Mithril Gauntlet -- 9928
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val268id6
 	recipecount = recipecount + 1
@@ -826,7 +734,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9928,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Mithril Scale Pants -- 9931
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val11id5val208id6val12id26
 	recipecount = recipecount + 1
@@ -835,7 +742,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9931,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Heavy Mithril Pants -- 9933
-
 	-- Item Stats: 
 	-- Item Stats: val11id3val417id6
 	recipecount = recipecount + 1
@@ -844,7 +750,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9933,7,2)
 
 	-- Steel Plate Helm -- 9935
-
 	-- Item Stats: 
 	-- Item Stats: val355id6
 	recipecount = recipecount + 1
@@ -853,7 +758,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9935,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Mithril Scale Bracers -- 9937
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val7id5val106id6
 	recipecount = recipecount + 1
@@ -862,7 +766,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9937,2,8176)
 
 	-- Mithril Shield Spike -- 9939
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9939,215,7967,3,2018)
@@ -870,7 +773,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9939,7,3)
 
 	-- Mithril Scale Gloves -- 9942
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val10id5val153id6
 	--recipecount = recipecount + 1
@@ -879,7 +781,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Ornate Mithril Pants -- 9945
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id1val375id6val12id26
 	recipecount = recipecount + 1
@@ -888,7 +789,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9945,4,2761)
 
 	-- Ornate Mithril Gloves -- 9950
-
 	-- Item Stats: 
 	-- Item Stats: val268id6val14id44
 	recipecount = recipecount + 1
@@ -897,7 +797,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9950,4,2762)
 
 	-- Ornate Mithril Shoulder -- 9952
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val5id1val327id6val12id26
 	recipecount = recipecount + 1
@@ -906,7 +805,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9952,4,2763)
 
 	-- Truesilver Gauntlets -- 9954
-
 	-- Item Stats: 
 	-- Item Stats: val16id1val7id3val300id6
 	recipecount = recipecount + 1
@@ -915,7 +813,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9954,1,5164,1,7230,1,11177,1,20125)
 
 	-- Orcish War Leggings -- 9957
-
 	-- Item Stats: 
 	-- Item Stats: val17id1val208id6
 	--recipecount = recipecount + 1
@@ -924,7 +821,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Heavy Mithril Breastplate -- 9959
-
 	-- Item Stats: 
 	-- Item Stats: val15id3val536id6
 	recipecount = recipecount + 1
@@ -933,7 +829,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9959,1,2836,1,16583,1,16823,1,19341)
 
 	-- Mithril Coif -- 9961
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val13id5val206id6
 	recipecount = recipecount + 1
@@ -942,7 +837,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9961,1,2836,1,16583,1,16823,1,19341)
 
 	-- Mithril Spurs -- 9964
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9964,235,7969,2,2018)
@@ -950,11 +844,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9964,7,2)
 
 	-- Mithril Scale Shoulders -- 9966
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1176 - Zul'Farrak
-	-- Raid: 2159 - Onyxia's Lair
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val10id5val194id6
 	recipecount = recipecount + 1
@@ -963,7 +852,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9966,3,5267,3,5271,3,5649,3,5846,3,10184,3,12397)
 
 	-- Heavy Mithril Boots -- 9968
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val382id6
 	recipecount = recipecount + 1
@@ -972,7 +860,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9968,1,2836,1,16583,1,16823,1,19341)
 
 	-- Heavy Mithril Helm -- 9970
-
 	-- Item Stats: 
 	-- Item Stats: val15id3val469id6
 	recipecount = recipecount + 1
@@ -981,7 +868,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9970,7,2)
 
 	-- Ornate Mithril Breastplate -- 9972
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val463id6val12id26val14id44
 	recipecount = recipecount + 1
@@ -990,7 +876,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Truesilver Breastplate -- 9974
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val519id6
 	recipecount = recipecount + 1
@@ -999,7 +884,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9974,1,5164,1,7230,1,11177,1,20125)
 
 	-- Ornate Mithril Boots -- 9979
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val324id6val12id26
 	recipecount = recipecount + 1
@@ -1008,7 +892,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Ornate Mithril Helm -- 9980
-
 	-- Item Stats: 
 	-- Item Stats: val10id1val383id6val14id44
 	recipecount = recipecount + 1
@@ -1017,7 +900,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Copper Claymore -- 9983
-
 	-- Item Stats: 
 	-- Item Stats: val15-23id7val3id8
 	recipecount = recipecount + 1
@@ -1026,7 +908,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9983,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Bronze Warhammer -- 9985
-
 	-- Item Stats: 
 	-- Item Stats: val37-57id7val3.1id8
 	recipecount = recipecount + 1
@@ -1035,7 +916,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9985,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Bronze Greatsword -- 9986
-
 	-- Item Stats: 
 	-- Item Stats: val38-58id7val3id8
 	recipecount = recipecount + 1
@@ -1044,7 +924,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9986,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Bronze Battle Axe -- 9987
-
 	-- Item Stats: 
 	-- Item Stats: val39-59id7val2.9id8
 	recipecount = recipecount + 1
@@ -1053,7 +932,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9987,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Heavy Mithril Axe -- 9993
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val45-85id7val2.7id8
 	recipecount = recipecount + 1
@@ -1062,7 +940,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9993,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Blue Glittering Axe -- 9995
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val32-61id7val1.8id8
 	recipecount = recipecount + 1
@@ -1071,7 +948,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9995,7,2)
 
 	-- Wicked Mithril Blade -- 9997
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val4id2val43-80id7val2.3id8
 	recipecount = recipecount + 1
@@ -1080,7 +956,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9997,7,2)
 
 	-- Big Black Mace -- 10001
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val46-86id7val2.4id8
 	recipecount = recipecount + 1
@@ -1089,7 +964,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10001,1,2836,1,16583,1,16823,1,19341)
 
 	-- The Shatterer -- 10003
-
 	-- Item Stats: 
 	-- Item Stats: val53-99id7val2.4id8
 	recipecount = recipecount + 1
@@ -1098,7 +972,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10003,1,7232,1,11146,1,11178,1,20124)
 
 	-- Dazzling Mithril Rapier -- 10005
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val34-63id7val1.7id8
 	recipecount = recipecount + 1
@@ -1107,7 +980,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10005,7,2)
 
 	-- Phantom Blade -- 10007
-
 	-- Item Stats: 
 	-- Item Stats: val59-111id7val2.6id8
 	recipecount = recipecount + 1
@@ -1116,10 +988,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10007,1,7232,1,11146,1,11178,1,20124)
 
 	-- Runed Mithril Hammer -- 10009
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val4id3val41-76id7val2id8
 	recipecount = recipecount + 1
@@ -1128,7 +996,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10009,3,5256,3,5259,3,5853,3,7109,3,8921,3,12397)
 
 	-- Blight -- 10011
-
 	-- Item Stats: 
 	-- Item Stats: val93-141id7val2.7id8
 	recipecount = recipecount + 1
@@ -1137,7 +1004,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10011,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Ebon Shiv -- 10013
-
 	-- Item Stats: 
 	-- Item Stats: val9id2val32-59id7val1.5id8
 	recipecount = recipecount + 1
@@ -1146,7 +1012,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10013,2,11278)
 
 	-- Truesilver Champion -- 10015
-
 	-- Item Stats: 
 	-- Item Stats: val108-162id7val3id8
 	recipecount = recipecount + 1
@@ -1155,7 +1020,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10015,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Inlaid Mithril Cylinder -- 11454
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11454,200,9060,1,2018)
@@ -1163,7 +1027,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,11454,1,7406,1,7944)
 
 	-- Golden Scale Gauntlets -- 11643
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val4id5val146id6
 	recipecount = recipecount + 1
@@ -1172,7 +1035,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,11643,4,2758)
 
 	-- Silvered Bronze Leggings -- 12259
-
 	-- Item Stats: 
 	-- Item Stats: val7id1val6id3val6id5val176id6
 	recipecount = recipecount + 1
@@ -1181,7 +1043,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,12259,7,2)
 
 	-- Rough Copper Vest -- 12260
-
 	-- Item Stats: 
 	-- Item Stats: val81id6
 	recipecount = recipecount + 1
@@ -1190,7 +1051,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Golden Rod -- 14379
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -1199,7 +1059,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,14379,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Truesilver Rod -- 14380
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -1208,12 +1067,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,14380,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Dark Iron Pulverizer -- 15292
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val140-211id7val3.7id8
 	recipecount = recipecount + 1
@@ -1222,8 +1075,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15292,3,8921,3,8926,3,8927,3,8928,3,9028)
 
 	-- Dark Iron Mail -- 15293
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val433id6val12id33
 	recipecount = recipecount + 1
@@ -1232,9 +1083,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15293,3,8907)
 
 	-- Dark Iron Sunderer -- 15294
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val101-153id7val2.6id8
 	recipecount = recipecount + 1
@@ -1243,7 +1091,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15294,3,9554,3,10043)
 
 	-- Dark Iron Shoulders -- 15295
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val514id6val10id33
 	recipecount = recipecount + 1
@@ -1252,9 +1099,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Plate -- 15296
-	-- Instance: 1584 - Blackrock Depths
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val817id6val19id33
 	recipecount = recipecount + 1
@@ -1263,7 +1107,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15296,3,9543,3,10043)
 
 	-- Glinting Steel Dagger -- 15972
-
 	-- Item Stats: 
 	-- Item Stats: val19-37id7val1.5id8val12id48
 	recipecount = recipecount + 1
@@ -1272,7 +1115,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15972,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Searing Golden Blade -- 15973
-
 	-- Item Stats: 
 	-- Item Stats: val21-39id7val1.4id8val8id49
 	recipecount = recipecount + 1
@@ -1281,7 +1123,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dense Grinding Stone -- 16639
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16639,250,12644,1,2018)
@@ -1289,7 +1130,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16639,1,2836,1,16583,1,16823,1,19341)
 
 	-- Dense Weightstone -- 16640
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16640,250,12643,1,2018)
@@ -1297,7 +1137,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16640,1,2836,1,16583,1,16823,1,19341)
 
 	-- Dense Sharpening Stone -- 16641
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16641,250,12404,1,2018)
@@ -1305,7 +1144,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16641,1,2836,1,16583,1,16823,1,19341)
 
 	-- Thorium Armor -- 16642
-
 	-- Item Stats: 
 	-- Item Stats: val480id6val8id32val8id33val8id34val8id35val8id36
 	recipecount = recipecount + 1
@@ -1314,7 +1152,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16642,7,2)
 
 	-- Thorium Belt -- 16643
-
 	-- Item Stats: 
 	-- Item Stats: val270id6val6id32val6id33val6id34val6id35val6id36
 	recipecount = recipecount + 1
@@ -1323,7 +1160,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16643,7,2)
 
 	-- Thorium Bracers -- 16644
-
 	-- Item Stats: 
 	-- Item Stats: val214id6val5id32val5id33val5id34val5id35val5id36
 	recipecount = recipecount + 1
@@ -1332,8 +1168,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16644,7,2)
 
 	-- Radiant Belt -- 16645
-	-- Raid: 2159 - Onyxia's Lair
-
 	-- Item Stats: 
 	-- Item Stats: val159id6val12id35val12id36
 	recipecount = recipecount + 1
@@ -1342,7 +1176,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16645,3,10184)
 
 	-- Imperial Plate Shoulders -- 16646
-
 	-- Item Stats: 
 	-- Item Stats: val12id1val11id3val380id6
 	recipecount = recipecount + 1
@@ -1351,7 +1184,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16646,4,7659)
 
 	-- Imperial Plate Belt -- 16647
-
 	-- Item Stats: 
 	-- Item Stats: val12id1val11id3val285id6
 	recipecount = recipecount + 1
@@ -1360,7 +1192,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16647,4,7653)
 
 	-- Radiant Breastplate -- 16648
-
 	-- Item Stats: 
 	-- Item Stats: val293id6val16id35val16id36
 	recipecount = recipecount + 1
@@ -1369,7 +1200,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16648,7,2)
 
 	-- Imperial Plate Bracers -- 16649
-
 	-- Item Stats: 
 	-- Item Stats: val9id1val8id3val225id6
 	recipecount = recipecount + 1
@@ -1378,7 +1208,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16649,4,7655)
 
 	-- Wildthorn Mail -- 16650
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val11id5val322id6val28id49
 	recipecount = recipecount + 1
@@ -1387,9 +1216,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16650,7,2)
 
 	-- Thorium Shield Spike -- 16651
-	-- Raid: 2159 - Onyxia's Lair
-	-- Raid: 1977 - Zul'Gurub
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16651,275,12645,2,2018)
@@ -1397,7 +1223,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16651,3,10184,3,11361)
 
 	-- Thorium Boots -- 16652
-
 	-- Item Stats: 
 	-- Item Stats: val367id6val7id32val7id33val7id34val7id35val7id36
 	recipecount = recipecount + 1
@@ -1406,7 +1231,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16652,7,2)
 
 	-- Thorium Helm -- 16653
-
 	-- Item Stats: 
 	-- Item Stats: val434id6val10id32val10id33val10id34val10id35val10id36
 	recipecount = recipecount + 1
@@ -1415,7 +1239,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16653,7,2)
 
 	-- Radiant Gloves -- 16654
-
 	-- Item Stats: 
 	-- Item Stats: val192id6val12id35val12id36
 	recipecount = recipecount + 1
@@ -1424,7 +1247,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16654,7,2)
 
 	-- Fiery Plate Gauntlets -- 16655
-
 	-- Item Stats: 
 	-- Item Stats: val379id6val10id33
 	recipecount = recipecount + 1
@@ -1433,7 +1255,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16655,4,5124)
 
 	-- Radiant Boots -- 16656
-
 	-- Item Stats: 
 	-- Item Stats: val215id6val15id35val15id36
 	recipecount = recipecount + 1
@@ -1442,7 +1263,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16656,7,2)
 
 	-- Imperial Plate Boots -- 16657
-
 	-- Item Stats: 
 	-- Item Stats: val13id1val12id3val386id6
 	recipecount = recipecount + 1
@@ -1451,7 +1271,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16657,4,7654)
 
 	-- Imperial Plate Helm -- 16658
-
 	-- Item Stats: 
 	-- Item Stats: val18id1val17id3val456id6
 	recipecount = recipecount + 1
@@ -1460,7 +1279,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16658,4,7657)
 
 	-- Radiant Circlet -- 16659
-
 	-- Item Stats: 
 	-- Item Stats: val258id6val18id35val18id36
 	recipecount = recipecount + 1
@@ -1469,7 +1287,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16659,3,6553)
 
 	-- Dawnbringer Shoulders -- 16660
-
 	-- Item Stats: 
 	-- Item Stats: val10id5val455id6val23id49
 	recipecount = recipecount + 1
@@ -1478,9 +1295,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Storm Gauntlets -- 16661
-	-- Raid: 2159 - Onyxia's Lair
-	-- Instance: 2057 - Scholomance
-
 	-- Item Stats: 
 	-- Item Stats: val7id4val218id6val10id33val18id49
 	recipecount = recipecount + 1
@@ -1489,7 +1303,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16661,3,10184,3,10491,3,12397,2,11278)
 
 	-- Thorium Leggings -- 16662
-
 	-- Item Stats: 
 	-- Item Stats: val499id6val10id32val10id33val10id34val10id35val10id36
 	recipecount = recipecount + 1
@@ -1498,7 +1311,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16662,7,2)
 
 	-- Imperial Plate Chest -- 16663
-
 	-- Item Stats: 
 	-- Item Stats: val18id1val17id3val570id6
 	recipecount = recipecount + 1
@@ -1507,7 +1319,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16663,4,7656)
 
 	-- Runic Plate Shoulders -- 16664
-
 	-- Item Stats: 
 	-- Item Stats: val527id6val10id33val10id34
 	recipecount = recipecount + 1
@@ -1516,7 +1327,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Runic Plate Boots -- 16665
-
 	-- Item Stats: 
 	-- Item Stats: val492id6val10id33val10id34
 	recipecount = recipecount + 1
@@ -1525,7 +1335,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16665,3,1836)
 
 	-- Demon Forged Breastplate -- 16667
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val597id6
 	recipecount = recipecount + 1
@@ -1534,8 +1343,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16667,4,5127)
 
 	-- Whitesoul Helm -- 16724
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val15id4val15id5val629id6val19id49
 	recipecount = recipecount + 1
@@ -1544,7 +1351,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16724,3,8899,3,11459)
 
 	-- Radiant Leggings -- 16725
-
 	-- Item Stats: 
 	-- Item Stats: val286id6val18id35val18id36
 	recipecount = recipecount + 1
@@ -1553,7 +1359,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16725,7,2)
 
 	-- Runic Plate Helm -- 16726
-
 	-- Item Stats: 
 	-- Item Stats: val621id6val13id33val13id34
 	recipecount = recipecount + 1
@@ -1562,8 +1367,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16726,3,4364)
 
 	-- Helm of the Great Chief -- 16728
-	-- Instance: 2057 - Scholomance
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val30id5val292id6
 	recipecount = recipecount + 1
@@ -1572,7 +1375,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16728,3,10488)
 
 	-- Lionheart Helm -- 16729
-
 	-- Item Stats: 
 	-- Item Stats: val18id1val645id6val28id44val20id45
 	recipecount = recipecount + 1
@@ -1581,7 +1383,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Imperial Plate Leggings -- 16730
-
 	-- Item Stats: 
 	-- Item Stats: val18id1val18id3val507id6
 	recipecount = recipecount + 1
@@ -1590,7 +1391,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16730,4,7658)
 
 	-- Runic Breastplate -- 16731
-
 	-- Item Stats: 
 	-- Item Stats: val738id6val15id33val15id34
 	recipecount = recipecount + 1
@@ -1599,7 +1399,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16731,3,4368)
 
 	-- Runic Plate Leggings -- 16732
-
 	-- Item Stats: 
 	-- Item Stats: val665id6val14id33val14id34
 	recipecount = recipecount + 1
@@ -1608,7 +1407,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16732,3,1885)
 
 	-- Stronghold Gauntlets -- 16741
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val504id6val20id27val14id44
 	recipecount = recipecount + 1
@@ -1617,7 +1415,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Enchanted Thorium Helm -- 16742
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id1val25id3val526id6val13id31
 	recipecount = recipecount + 1
@@ -1626,7 +1423,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16742,4,7651)
 
 	-- Enchanted Thorium Leggings -- 16744
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val20id1val21id3val575id6val12id31
 	recipecount = recipecount + 1
@@ -1635,7 +1431,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16744,4,7650)
 
 	-- Enchanted Thorium Breastplate -- 16745
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id1val26id3val657id6val13id31
 	recipecount = recipecount + 1
@@ -1644,8 +1439,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16745,4,7649)
 
 	-- Invulnerable Mail -- 16746
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val611id6val20id31
 	recipecount = recipecount + 1
@@ -1654,7 +1447,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16746,3,10899)
 
 	-- Thorium Greatsword -- 16960
-
 	-- Item Stats: 
 	-- Item Stats: val22id1val116-175id7val3.6id8
 	--recipecount = recipecount + 1
@@ -1663,7 +1455,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Bleakwood Hew -- 16965
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val5id3val100-151id7val2.7id8
 	--recipecount = recipecount + 1
@@ -1672,7 +1463,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Inlaid Thorium Hammer -- 16967
-
 	-- Item Stats: 
 	-- Item Stats: val23id1val100-151id7val3id8
 	--recipecount = recipecount + 1
@@ -1681,7 +1471,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Ornate Thorium Handaxe -- 16969
-
 	-- Item Stats: 
 	-- Item Stats: val10id1val43-81id7val1.9id8
 	recipecount = recipecount + 1
@@ -1690,7 +1479,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16969,2,11278)
 
 	-- Dawn's Edge -- 16970
-
 	-- Item Stats: 
 	-- Item Stats: val53-100id7val2.1id8val14id44
 	recipecount = recipecount + 1
@@ -1699,7 +1487,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16970,4,5306)
 
 	-- Huge Thorium Battleaxe -- 16971
-
 	-- Item Stats: 
 	-- Item Stats: val114-172id7val3.3id8val24id12
 	recipecount = recipecount + 1
@@ -1708,7 +1495,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16971,2,11278)
 
 	-- Enchanted Battlehammer -- 16973
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val100-150id7val2.6id8val20id27val20id45
 	recipecount = recipecount + 1
@@ -1717,7 +1503,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16973,4,5305)
 
 	-- Blazing Rapier -- 16978
-
 	-- Item Stats: 
 	-- Item Stats: val44-82id7val1.7id8
 	recipecount = recipecount + 1
@@ -1726,7 +1511,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16978,4,5307)
 
 	-- Rune Edge -- 16980
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val5id2val5id3val54-102id7val2.3id8
 	--recipecount = recipecount + 1
@@ -1735,7 +1519,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Serenity -- 16983
-
 	-- Item Stats: 
 	-- Item Stats: val52-98id7val2id8
 	recipecount = recipecount + 1
@@ -1744,7 +1527,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Volcanic Hammer -- 16984
-
 	-- Item Stats: 
 	-- Item Stats: val60-113id7val2.5id8
 	recipecount = recipecount + 1
@@ -1753,7 +1535,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16984,3,7040,3,7047,3,10119)
 
 	-- Corruption -- 16985
-
 	-- Item Stats: 
 	-- Item Stats: val30id1val30id3val-40id5val119-179id7val3id8
 	recipecount = recipecount + 1
@@ -1762,7 +1543,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Blood Talon -- 16986
-
 	-- Item Stats: 
 	-- Item Stats: val35-67id7val1.3id8
 	--recipecount = recipecount + 1
@@ -1771,7 +1551,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Darkspear -- 16987
-
 	-- Item Stats: 
 	-- Item Stats: val131-197id7val3.2id8
 	--recipecount = recipecount + 1
@@ -1780,7 +1559,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Hammer of the Titans -- 16988
-
 	-- Item Stats: 
 	-- Item Stats: val15id1val163-246id7val3.8id8
 	recipecount = recipecount + 1
@@ -1789,8 +1567,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16988,3,10438)
 
 	-- Arcanite Champion -- 16990
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val129-194id7val3id8
 	recipecount = recipecount + 1
@@ -1799,8 +1575,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16990,3,10899)
 
 	-- Annihilator -- 16991
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val49-92id7val1.7id8
 	recipecount = recipecount + 1
@@ -1809,7 +1583,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16991,3,9736)
 
 	-- Frostguard -- 16992
-
 	-- Item Stats: 
 	-- Item Stats: val66-124id7val2.3id8
 	recipecount = recipecount + 1
@@ -1818,8 +1591,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16992,3,1844)
 
 	-- Masterwork Stormhammer -- 16993
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val58-108id7val2id8
 	recipecount = recipecount + 1
@@ -1828,8 +1599,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16993,3,10899)
 
 	-- Arcanite Reaper -- 16994
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val153-256id7val3.8id8val62id48
 	recipecount = recipecount + 1
@@ -1838,7 +1607,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16994,3,9596)
 
 	-- Heartseeker -- 16995
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val49-92id7val1.7id8val14id44
 	recipecount = recipecount + 1
@@ -1847,7 +1615,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,16995,3,10997)
 
 	-- Silver Skeleton Key -- 19666
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19666,100,15869,1,2018)
@@ -1855,7 +1622,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19666,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Golden Skeleton Key -- 19667
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19667,150,15870,1,2018)
@@ -1863,7 +1629,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19667,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Truesilver Skeleton Key -- 19668
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19668,200,15871,1,2018)
@@ -1871,7 +1636,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19668,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Arcanite Skeleton Key -- 19669
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19669,275,15872,1,2018)
@@ -1879,7 +1643,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19669,1,2836,1,16583,1,16823,1,19341)
 
 	-- Arcanite Rod -- 20201
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -1888,7 +1651,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20201,1,2836,1,16583,1,16823,1,19341)
 
 	-- Fiery Chain Girdle -- 20872
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val9id4val8id5val245id6val24id33
 	recipecount = recipecount + 1
@@ -1897,7 +1659,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Fiery Chain Shoulders -- 20873
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val14id4val341id6val25id33
 	recipecount = recipecount + 1
@@ -1906,8 +1667,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Bracers -- 20874
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val436id6val18id33
 	recipecount = recipecount + 1
@@ -1916,7 +1675,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20874,2,12944)
 
 	-- Dark Iron Leggings -- 20876
-
 	-- Item Stats: 
 	-- Item Stats: val14id3val863id6val30id33
 	recipecount = recipecount + 1
@@ -1925,7 +1683,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Reaver -- 20890
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val71-134id7val2.4id8val6id33
 	recipecount = recipecount + 1
@@ -1934,7 +1691,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Dark Iron Destroyer -- 20897
-
 	-- Item Stats: 
 	-- Item Stats: val10id1val71-134id7val2.4id8val6id33
 	recipecount = recipecount + 1
@@ -1943,7 +1699,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- No acquire information
 
 	-- Sulfuron Hammer -- 21161
-
 	-- Item Stats: 
 	-- Item Stats: val176-295id7val3.7id8
 	recipecount = recipecount + 1
@@ -1952,7 +1707,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,21161,4,7604)
 
 	-- Edge of Winter -- 21913
-Seasonal, 
 	-- Item Stats: 
 	-- Item Stats: val3id3val30-56id7val2.1id8
 	recipecount = recipecount + 1
@@ -1961,14 +1715,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,21913,5,1)
 
 	-- Elemental Sharpening Stone -- 22757
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22757,300,18262,3,2018)
@@ -1976,7 +1722,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,22757,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
 
 	-- Heavy Timbermaw Belt -- 23628
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val193id6val42id48
 	recipecount = recipecount + 1
@@ -1985,7 +1730,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23628,6,576,2,11557)
 
 	-- Heavy Timbermaw Boots -- 23629
-
 	-- Item Stats: 
 	-- Item Stats: val23id3val258id6val20id48
 	recipecount = recipecount + 1
@@ -1994,7 +1738,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23629,6,576,3,11557)
 
 	-- Girdle of the Dawn -- 23632
-
 	-- Item Stats: 
 	-- Item Stats: val21id1val9id3val341id6
 	recipecount = recipecount + 1
@@ -2003,7 +1746,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23632,6,529,2,10856,6,529,2,10857,6,529,2,11536)
 
 	-- Gloves of the Dawn -- 23633
-
 	-- Item Stats: 
 	-- Item Stats: val23id1val10id3val417id6
 	recipecount = recipecount + 1
@@ -2012,7 +1754,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23633,6,529,3,10856,6,529,3,10857,6,529,3,11536)
 
 	-- Dark Iron Helm -- 23636
-
 	-- Item Stats: 
 	-- Item Stats: val20id3val845id6val35id33
 	recipecount = recipecount + 1
@@ -2021,7 +1762,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Iron Gauntlets -- 23637
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val16id3val565id6val28id33
 	recipecount = recipecount + 1
@@ -2030,7 +1770,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Black Amnesty -- 23638
-
 	-- Item Stats: 
 	-- Item Stats: val53-100id7val1.6id8
 	recipecount = recipecount + 1
@@ -2039,7 +1778,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Blackfury -- 23639
-
 	-- Item Stats: 
 	-- Item Stats: val35id1val15id3val105-158id7val2.1id8val10id33val14id44
 	recipecount = recipecount + 1
@@ -2048,7 +1786,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Ebon Hand -- 23650
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val90-168id7val2.5id8val7id33
 	recipecount = recipecount + 1
@@ -2057,7 +1794,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Blackguard -- 23652
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id3val65-121id7val1.8id8val20id27
 	recipecount = recipecount + 1
@@ -2066,7 +1802,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nightfall -- 23653
-
 	-- Item Stats: 
 	-- Item Stats: val187-282id7val3.5id8
 	recipecount = recipecount + 1
@@ -2075,7 +1810,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Bloodsoul Breastplate -- 24136
-
 	-- Item Stats: 
 	-- Item Stats: val9id2val13id3val381id6val28id44
 	recipecount = recipecount + 1
@@ -2084,7 +1818,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24136,6,270,3,14921)
 
 	-- Bloodsoul Shoulders -- 24137
-
 	-- Item Stats: 
 	-- Item Stats: val24id2val10id3val286id6
 	recipecount = recipecount + 1
@@ -2093,7 +1826,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24137,6,270,2,14921)
 
 	-- Bloodsoul Gauntlets -- 24138
-
 	-- Item Stats: 
 	-- Item Stats: val10id2val17id3val238id6val14id44
 	recipecount = recipecount + 1
@@ -2102,7 +1834,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24138,6,270,1,14921)
 
 	-- Darksoul Breastplate -- 24139
-
 	-- Item Stats: 
 	-- Item Stats: val32id3val736id6val10id45
 	recipecount = recipecount + 1
@@ -2111,7 +1842,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24139,6,270,3,14921)
 
 	-- Darksoul Leggings -- 24140
-
 	-- Item Stats: 
 	-- Item Stats: val22id3val722id6val20id45
 	recipecount = recipecount + 1
@@ -2120,7 +1850,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24140,6,270,2,14921)
 
 	-- Darksoul Shoulders -- 24141
-
 	-- Item Stats: 
 	-- Item Stats: val24id3val507id6val10id45
 	recipecount = recipecount + 1
@@ -2129,7 +1858,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24141,6,270,1,14921)
 
 	-- Dark Iron Boots -- 24399
-
 	-- Item Stats: 
 	-- Item Stats: val741id6val28id33
 	recipecount = recipecount + 1
@@ -2138,7 +1866,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Darkrune Gauntlets -- 24912
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val8id3val410id6val10id28val20id36
 	recipecount = recipecount + 1
@@ -2147,7 +1874,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Darkrune Helm -- 24913
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val534id6val25id36val14id44
 	recipecount = recipecount + 1
@@ -2156,7 +1882,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Darkrune Breastplate -- 24914
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val14id3val657id6val12id26val25id36
 	recipecount = recipecount + 1
@@ -2165,7 +1890,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Heavy Obsidian Belt -- 27585
-
 	-- Item Stats: 
 	-- Item Stats: val25id1val397id6val5id32val5id33val5id34val5id35val5id36
 	recipecount = recipecount + 1
@@ -2174,7 +1898,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27585,6,609,1,15176)
 
 	-- Jagged Obsidian Shield -- 27586
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val3040id6val9id28val5id32val5id33val5id34val5id35val5id36
 	recipecount = recipecount + 1
@@ -2183,8 +1906,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27586,6,609,3,15471)
 
 	-- Thick Obsidian Breastplate -- 27587
-	-- Raid: 3428 - Ahn'Qiraj
-
 	-- Item Stats: 
 	-- Item Stats: val38id1val16id3val929id6
 	recipecount = recipecount + 1
@@ -2193,7 +1914,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27587,3,15263)
 
 	-- Light Obsidian Belt -- 27588
-
 	-- Item Stats: 
 	-- Item Stats: val224id6val5id32val5id33val5id34val5id35val5id36val14id44val32id48
 	recipecount = recipecount + 1
@@ -2202,7 +1922,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27588,6,609,2,15176)
 
 	-- Black Grasp of the Destroyer -- 27589
-
 	-- Item Stats: 
 	-- Item Stats: val318id6val14id44val28id48
 	recipecount = recipecount + 1
@@ -2211,7 +1930,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27589,3,15340)
 
 	-- Obsidian Mail Tunic -- 27590
-
 	-- Item Stats: 
 	-- Item Stats: val523id6val14id44val76id48
 	recipecount = recipecount + 1
@@ -2220,7 +1938,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,27590,6,609,4,15471)
 
 	-- Titanic Leggings -- 27829
-
 	-- Item Stats: 
 	-- Item Stats: val30id1val683id6val14id44val20id45
 	recipecount = recipecount + 1
@@ -2229,7 +1946,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Persuader -- 27830
-
 	-- Item Stats: 
 	-- Item Stats: val86-161id7val2.7id8val14id44val10id45
 	recipecount = recipecount + 1
@@ -2238,7 +1954,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Sageblade -- 27832
-
 	-- Item Stats: Caster DPS, 
 	-- Item Stats: val14id3val6id4val49-100id7val1.8id8val10id23val20id49
 	recipecount = recipecount + 1
@@ -2247,7 +1962,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Icebane Breastplate -- 28242
-ADNaxx40, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id1val24id3val1027id6val12id31val42id35
 	recipecount = recipecount + 1
@@ -2256,7 +1970,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28242,6,529,4,16365)
 
 	-- Icebane Gauntlets -- 28243
-ADNaxx40, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val9id1val18id3val642id6val8id31val32id35
 	recipecount = recipecount + 1
@@ -2265,7 +1978,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28243,6,529,3,16365)
 
 	-- Icebane Bracers -- 28244
-ADNaxx40, 
 	-- Item Stats: Tanking, 
 	-- Item Stats: val6id1val13id3val449id6val7id31val24id35
 	recipecount = recipecount + 1
@@ -2274,7 +1986,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28244,6,529,3,16365)
 
 	-- Ironvine Breastplate -- 28461
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val15id3val726id6val10id31val30id34
 	recipecount = recipecount + 1
@@ -2283,7 +1994,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28461,6,609,3,15176)
 
 	-- Ironvine Gloves -- 28462
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val10id3val454id6val15id31val20id34
 	recipecount = recipecount + 1
@@ -2292,7 +2002,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28462,6,609,2,15176)
 
 	-- Ironvine Belt -- 28463
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val408id6val5id31val15id34
 	recipecount = recipecount + 1
@@ -2301,7 +2010,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28463,6,609,1,15176)
 
 	-- Fel Iron Plate Gloves -- 29545
-
 	-- Item Stats: 
 	-- Item Stats: val24id1val21id3val524id6
 	recipecount = recipecount + 1
@@ -2310,7 +2018,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29545,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Plate Belt -- 29547
-
 	-- Item Stats: 
 	-- Item Stats: val21id1val30id3val471id6
 	recipecount = recipecount + 1
@@ -2319,7 +2026,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29547,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Plate Boots -- 29548
-
 	-- Item Stats: 
 	-- Item Stats: val23id1val30id3val612id6
 	recipecount = recipecount + 1
@@ -2328,7 +2034,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29548,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Plate Pants -- 29549
-
 	-- Item Stats: 
 	-- Item Stats: val34id1val33id3val779id6
 	recipecount = recipecount + 1
@@ -2337,7 +2042,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29549,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Breastplate -- 29550
-
 	-- Item Stats: 
 	-- Item Stats: val32id1val46id3val943id6
 	recipecount = recipecount + 1
@@ -2346,7 +2050,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29550,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Chain Coif -- 29551
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val21id4val382id6val42id48
 	recipecount = recipecount + 1
@@ -2355,7 +2058,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29551,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Chain Gloves -- 29552
-
 	-- Item Stats: 
 	-- Item Stats: val24id3val17id4val303id6val34id48
 	recipecount = recipecount + 1
@@ -2364,7 +2066,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29552,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Chain Bracers -- 29553
-
 	-- Item Stats: 
 	-- Item Stats: val19id3val13id4val218id6val26id48
 	recipecount = recipecount + 1
@@ -2373,7 +2074,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29553,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Chain Tunic -- 29556
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val24id4val514id6val48id48
 	recipecount = recipecount + 1
@@ -2382,7 +2082,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29556,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Hatchet -- 29557
-
 	-- Item Stats: 
 	-- Item Stats: val8id1val68-127id7val2id8val15id45
 	recipecount = recipecount + 1
@@ -2391,7 +2090,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29557,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Hammer -- 29558
-
 	-- Item Stats: 
 	-- Item Stats: val12id4val76-143id7val2.2id8val5id24
 	recipecount = recipecount + 1
@@ -2400,7 +2098,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29558,1,16583,1,16823,1,19341)
 
 	-- Fel Iron Greatsword -- 29565
-
 	-- Item Stats: 
 	-- Item Stats: val172-259id7val3.2id8val30id44val62id48
 	recipecount = recipecount + 1
@@ -2409,7 +2106,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29565,1,16583,1,16823,1,19341)
 
 	-- Adamantite Maul -- 29566
-
 	-- Item Stats: 
 	-- Item Stats: val47id1val179-269id7val3.2id8
 	recipecount = recipecount + 1
@@ -2418,7 +2114,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29566,2,16670,2,16713,2,19662)
 
 	-- Adamantite Cleaver -- 29568
-
 	-- Item Stats: 
 	-- Item Stats: val25id2val39id3val203-305id7val3.5id8val52id48
 	recipecount = recipecount + 1
@@ -2427,7 +2122,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29568,2,16670,2,16713,2,19662)
 
 	-- Adamantite Dagger -- 29569
-
 	-- Item Stats: 
 	-- Item Stats: val74-138id7val1.9id8val10id44val15id45
 	recipecount = recipecount + 1
@@ -2436,7 +2130,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29569,2,16670,2,16713,2,19662)
 
 	-- Adamantite Rapier -- 29571
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val15id3val68-128id7val1.7id8val16id26
 	recipecount = recipecount + 1
@@ -2445,7 +2138,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29571,2,16670,2,16713,2,19662)
 
 	-- Adamantite Plate Bracers -- 29603
-
 	-- Item Stats: 
 	-- Item Stats: val22id1val24id3val458id6val4id48
 	recipecount = recipecount + 1
@@ -2454,7 +2146,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29603,2,19342,2,19694)
 
 	-- Adamantite Plate Gloves -- 29605
-
 	-- Item Stats: 
 	-- Item Stats: val24id1val34id3val655id6val6id48
 	recipecount = recipecount + 1
@@ -2463,7 +2154,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29605,2,19342,2,19694)
 
 	-- Adamantite Breastplate -- 29606
-
 	-- Item Stats: 
 	-- Item Stats: val34id1val40id3val1077id6val8id48
 	recipecount = recipecount + 1
@@ -2472,7 +2162,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29606,2,19342,2,19694)
 
 	-- Enchanted Adamantite Belt -- 29608
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val21id3val644id6val3id31val30id32
 	recipecount = recipecount + 1
@@ -2481,7 +2170,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29608,6,934,1,19331)
 
 	-- Enchanted Adamantite Breastplate -- 29610
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val1154id6val40id32
 	recipecount = recipecount + 1
@@ -2490,7 +2178,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29610,6,934,3,19331)
 
 	-- Enchanted Adamantite Boots -- 29611
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val787id6val30id32
 	recipecount = recipecount + 1
@@ -2499,7 +2186,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29611,6,934,2,19331)
 
 	-- Enchanted Adamantite Leggings -- 29613
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val1019id6val4id31val40id32
 	recipecount = recipecount + 1
@@ -2508,7 +2194,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29613,6,934,4,19331)
 
 	-- Flamebane Bracers -- 29614
-
 	-- Item Stats: 
 	-- Item Stats: val15id3val497id6val28id33
 	recipecount = recipecount + 1
@@ -2517,7 +2202,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29614,6,932,1,19321)
 
 	-- Flamebane Helm -- 29615
-
 	-- Item Stats: 
 	-- Item Stats: val19id3val930id6val40id33
 	recipecount = recipecount + 1
@@ -2526,7 +2210,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29615,6,932,4,19321)
 
 	-- Flamebane Gloves -- 29616
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val722id6val30id33
 	recipecount = recipecount + 1
@@ -2535,7 +2218,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29616,6,932,2,19321)
 
 	-- Flamebane Breastplate -- 29617
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val19id3val1164id6val4id31val40id33
 	recipecount = recipecount + 1
@@ -2544,8 +2226,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29617,6,932,3,19321)
 
 	-- Felsteel Gloves -- 29619
-	-- Instance: 3790 - Auchindoun: Auchenai Crypts
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val943id6val25id31
 	recipecount = recipecount + 1
@@ -2554,8 +2234,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29619,3,18497)
 
 	-- Felsteel Leggings -- 29620
-	-- Instance: 3848 - Tempest Keep: The Arcatraz
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val39id3val1257id6val33id31
 	recipecount = recipecount + 1
@@ -2564,8 +2242,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29620,3,20900)
 
 	-- Felsteel Helm -- 29621
-	-- Instance: 3789 - Auchindoun: Shadow Labrynth
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id3val1284id6val33id31
 	recipecount = recipecount + 1
@@ -2574,10 +2250,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29621,3,18830)
 
 	-- Gauntlets of the Iron Tower -- 29622
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val30id3val831id6val26id29val20id31
 	recipecount = recipecount + 1
@@ -2586,7 +2258,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29622,3,16408,3,16529,3,18168)
 
 	-- Khorium Belt -- 29628
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val21id4val649id6val8id24val25id49
 	recipecount = recipecount + 1
@@ -2595,7 +2266,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29628,3,18203)
 
 	-- Khorium Pants -- 29629
-
 	-- Item Stats: 
 	-- Item Stats: val42id3val28id4val1010id6val11id24val33id49
 	recipecount = recipecount + 1
@@ -2604,7 +2274,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29629,3,20878)
 
 	-- Khorium Boots -- 29630
-
 	-- Item Stats: 
 	-- Item Stats: val31id3val21id4val800id6val8id24val26id49
 	recipecount = recipecount + 1
@@ -2613,7 +2282,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29630,3,18873)
 
 	-- Ragesteel Gloves -- 29642
-
 	-- Item Stats: 
 	-- Item Stats: val35id1val728id6val27id44
 	recipecount = recipecount + 1
@@ -2622,7 +2290,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29642,3,17136,3,18062)
 
 	-- Ragesteel Helm -- 29643
-
 	-- Item Stats: 
 	-- Item Stats: val45id1val946id6val37id44
 	recipecount = recipecount + 1
@@ -2631,7 +2298,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29643,3,16952)
 
 	-- Ragesteel Breastplate -- 29645
-
 	-- Item Stats: 
 	-- Item Stats: val50id1val1164id6val29id44
 	recipecount = recipecount + 1
@@ -2640,8 +2306,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29645,3,21454,3,23305)
 
 	-- Swiftsteel Gloves -- 29648
-	-- Instance: 3792 - Auchindoun: Mana-Tombs
-
 	-- Item Stats: 
 	-- Item Stats: val3id2val407id6val10id24val50id48
 	recipecount = recipecount + 1
@@ -2650,8 +2314,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29648,3,18314)
 
 	-- Earthpeace Breastplate -- 29649
-	-- Instance: 3847 - Tempest Keep: The Botanica
-
 	-- Item Stats: 
 	-- Item Stats: val652id6val16id24val49id49
 	recipecount = recipecount + 1
@@ -2660,7 +2322,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29649,3,17975)
 
 	-- Fel Sharpening Stone -- 29654
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29654,290,23528,1,2018)
@@ -2668,7 +2329,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29654,1,16583,1,16823,1,19341)
 
 	-- Adamantite Sharpening Stone -- 29656
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29656,350,23529,1,2018)
@@ -2676,7 +2336,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29656,6,942,2,17904)
 
 	-- Felsteel Shield Spike -- 29657
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29657,360,23530,1,2018)
@@ -2684,8 +2343,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29657,6,946,4,17657)
 
 	-- Felfury Gauntlets -- 29658
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val465id6val27id44val40id48
 	recipecount = recipecount + 1
@@ -2694,9 +2351,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29658,3,21246,3,21911)
 
 	-- Steelgrip Gauntlets -- 29662
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val28id1val36id3val831id6
 	recipecount = recipecount + 1
@@ -2705,11 +2359,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29662,3,16409,3,16504)
 
 	-- Storm Helm -- 29663
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3789 - Auchindoun: Shadow Labrynth
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val28id4val604id6val9id24val22id44val44id48
 	recipecount = recipecount + 1
@@ -2718,12 +2367,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29663,3,15547,3,16409,3,16504,3,18633,3,25060)
 
 	-- Helm of the Stalwart Defender -- 29664
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3714 - Hellfire Citadel: The Shattered Halls
-	-- Instance: 3847 - Tempest Keep: The Botanica
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val47id3val1366id6val23id29val23id31
 	recipecount = recipecount + 1
@@ -2732,9 +2375,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29664,3,16492,3,16504,3,17083,3,19509,3,23597)
 
 	-- Oathkeeper's Helm -- 29668
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3716 - Coilfang Reservoir: The Underbog
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val40id3val22id4val1080id6val9id24val15id31val26id49
 	recipecount = recipecount + 1
@@ -2743,10 +2383,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29668,3,16526,3,17724,3,19802,3,22286)
 
 	-- Black Felsteel Bracers -- 29669
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3845 - Tempest Keep
-
 	-- Item Stats: 
 	-- Item Stats: val26id1val15id3val581id6val22id44
 	recipecount = recipecount + 1
@@ -2755,9 +2391,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29669,3,16409,3,16544,3,20031,3,25073)
 
 	-- Bracers of the Green Fortress -- 29671
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val39id3val581id6val10id26val17id31
 	recipecount = recipecount + 1
@@ -2766,11 +2399,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29671,3,15551,3,16530,3,25073)
 
 	-- Blessed Bracers -- 29672
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val14id4val581id6val18id44val30id49
 	recipecount = recipecount + 1
@@ -2779,9 +2407,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29672,3,16409,3,16526,3,17225,3,17817,3,24684)
 
 	-- Felsteel Longblade -- 29692
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val26id2val15id3val128-239id7val2.2id8
 	recipecount = recipecount + 1
@@ -2790,11 +2415,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29692,3,16492,3,16524,3,25060,3,25073)
 
 	-- Khorium Champion -- 29693
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3845 - Tempest Keep
-	-- Raid: 3959 - Black Temple
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val50id1val286-430id7val3.3id8val37id45
 	recipecount = recipecount + 1
@@ -2803,9 +2423,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29693,3,16409,3,20032,3,22879,3,24179)
 
 	-- Fel Edged Battleaxe -- 29694
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val128-239id7val2.2id8val21id44val14id45
 	recipecount = recipecount + 1
@@ -2814,11 +2431,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29694,3,16409,3,16504)
 
 	-- Felsteel Reaper -- 29695
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-	-- Instance: 3792 - Auchindoun: Mana-Tombs
-
 	-- Item Stats: 
 	-- Item Stats: val295-443id7val3.4id8val30id44val112id48
 	recipecount = recipecount + 1
@@ -2827,9 +2439,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29695,3,16525,3,16544,3,17940,3,18317,3,24698)
 
 	-- Runic Hammer -- 29696
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val140-261id7val2.4id8val50id48
 	recipecount = recipecount + 1
@@ -2838,10 +2447,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29696,3,16539,3,17957,3,25060)
 
 	-- Fel Hardened Maul -- 29697
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val50id1val46id3val286-430id7val3.3id8val21id44
 	recipecount = recipecount + 1
@@ -2850,10 +2455,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29697,3,15548,3,16407,3,23596)
 
 	-- Eternium Runed Blade -- 29698
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3789 - Auchindoun: Shadow Labrynth
-
 	-- Item Stats: 
 	-- Item Stats: val19id4val27.6-113.6id7val1.7id8val21id44val168id49
 	recipecount = recipecount + 1
@@ -2862,8 +2463,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29698,3,16425,3,16504,3,18708)
 
 	-- Dirge -- 29699
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val81-152id7val1.4id8val20id44val40id48
 	recipecount = recipecount + 1
@@ -2872,8 +2471,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29699,3,16544,3,21305)
 
 	-- Hand of Eternity -- 29700
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val20id4val35.38-131.38id7val1.9id8val7id24val168id49
 	recipecount = recipecount + 1
@@ -2882,7 +2479,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29700,3,22323,3,24065,3,24966)
 
 	-- Lesser Ward of Shielding -- 29728
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29728,340,23575,1,2018)
@@ -2890,7 +2486,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29728,2,16583,2,19373)
 
 	-- Greater Ward of Shielding -- 29729
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29729,375,23576,3,2018)
@@ -2898,7 +2493,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,29729,3,18853)
 
 	-- Lesser Rune of Warding -- 32284
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32284,315,23559,1,2018)
@@ -2906,7 +2500,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32284,1,16583,1,16823,1,19341)
 
 	-- Greater Rune of Warding -- 32285
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32285,350,25521,1,2018)
@@ -2914,7 +2507,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32285,6,942,2,17904)
 
 	-- Fel Iron Rod -- 32655
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -2923,7 +2515,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32655,1,16583,1,16823,1,19341)
 
 	-- Adamantite Rod -- 32656
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -2932,7 +2523,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32656,2,19662)
 
 	-- Eternium Rod -- 32657
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -2941,7 +2531,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32657,2,16583,2,19373)
 
 	-- Nether Chain Shirt -- 34529
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val40id3val18id4val757id6val7id24val28id44val40id48
 	recipecount = recipecount + 1
@@ -2949,7 +2538,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34529,1,5164,1,7230,1,11177,1,20125)
 
 	-- Twisting Nether Chain Shirt -- 34530
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val48id3val22id4val893id6val9id24val33id44val68id48
 	recipecount = recipecount + 1
@@ -2957,7 +2545,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34530,1,5164,1,7230,1,11177,1,20125)
 
 	-- Breastplate of Kings -- 34533
-
 	-- Item Stats: 
 	-- Item Stats: val31id1val46id3val1353id6val31id44val20id45
 	recipecount = recipecount + 1
@@ -2965,7 +2552,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125)
 
 	-- Bulwark of Kings -- 34534
-
 	-- Item Stats: 
 	-- Item Stats: val35id1val55id3val1595id6val37id44val23id45
 	recipecount = recipecount + 1
@@ -2973,7 +2559,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34534,1,5164,1,7230,1,11177,1,20125)
 
 	-- Fireguard -- 34535
-
 	-- Item Stats: 
 	-- Item Stats: val16id2val23id3val94-176id7val1.6id8val16id45
 	recipecount = recipecount + 1
@@ -2981,7 +2566,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34535,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Blazeguard -- 34537
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val25id3val102-190id7val1.6id8val17id45
 	recipecount = recipecount + 1
@@ -2989,7 +2573,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34537,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Lionheart Blade -- 34538
-
 	-- Item Stats: 
 	-- Item Stats: val47id1val42id2val315-474id7val3.6id8
 	recipecount = recipecount + 1
@@ -2997,7 +2580,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34538,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Lionheart Champion -- 34540
-
 	-- Item Stats: 
 	-- Item Stats: val49id1val44id2val341-513id7val3.6id8
 	recipecount = recipecount + 1
@@ -3005,7 +2587,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34540,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- The Planar Edge -- 34541
-
 	-- Item Stats: 
 	-- Item Stats: val159-296id7val2.7id8val20id44val42id48
 	recipecount = recipecount + 1
@@ -3013,7 +2594,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34541,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Black Planar Edge -- 34542
-
 	-- Item Stats: 
 	-- Item Stats: val172-320id7val2.7id8val21id44val44id48
 	recipecount = recipecount + 1
@@ -3021,7 +2601,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34542,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Lunar Crescent -- 34543
-
 	-- Item Stats: 
 	-- Item Stats: val324-487id7val3.7id8val47id44val96id48
 	recipecount = recipecount + 1
@@ -3029,7 +2608,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34543,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Mooncleaver -- 34544
-
 	-- Item Stats: 
 	-- Item Stats: val351-527id7val3.7id8val52id44val106id48
 	recipecount = recipecount + 1
@@ -3037,7 +2615,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34544,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Drakefist Hammer -- 34545
-
 	-- Item Stats: 
 	-- Item Stats: val159-296id7val2.7id8
 	recipecount = recipecount + 1
@@ -3045,7 +2622,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34545,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Dragonmaw -- 34546
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val172-320id7val2.7id8
 	recipecount = recipecount + 1
@@ -3053,7 +2629,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34546,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Thunder -- 34547
-
 	-- Item Stats: 
 	-- Item Stats: val37id1val37id2val55id3val333-500id7val3.8id8
 	recipecount = recipecount + 1
@@ -3061,7 +2636,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34547,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Deep Thunder -- 34548
-
 	-- Item Stats: 
 	-- Item Stats: val37id1val37id2val55id3val360-541id7val3.8id8
 	recipecount = recipecount + 1
@@ -3069,7 +2643,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34548,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Fel Weightstone -- 34607
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34607,290,28420,1,2018)
@@ -3077,7 +2650,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34607,1,16583,1,16823,1,19341)
 
 	-- Adamantite Weightstone -- 34608
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34608,350,28421,1,2018)
@@ -3085,7 +2657,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34608,6,942,2,17904)
 
 	-- Thick Bronze Darts -- 34979
-
 	-- Item Stats: 
 	-- Item Stats: val2id1val16-24id14val2.2id15
 	recipecount = recipecount + 1
@@ -3094,7 +2665,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34979,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Whirling Steel Axes -- 34981
-
 	-- Item Stats: 
 	-- Item Stats: val4id1val3id3val30-57id14val2.2id15
 	recipecount = recipecount + 1
@@ -3103,7 +2673,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34981,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Enchanted Thorium Blades -- 34982
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val49-92id14val2.2id15val10id48
 	recipecount = recipecount + 1
@@ -3112,7 +2681,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34982,1,2836,1,16583,1,16823,1,19341)
 
 	-- Felsteel Whisper Knives -- 34983
-
 	-- Item Stats: 
 	-- Item Stats: val134-135id14val2.2id15val10id44val10id45val20id48
 	recipecount = recipecount + 1
@@ -3121,7 +2689,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,34983,1,16583,1,16823,1,19341)
 
 	-- Earthforged Leggings -- 36122
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id1val10id2val24id3val479id6val10id31
 	recipecount = recipecount + 1
@@ -3129,7 +2696,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36122,1,5164,1,7230,1,11177,1,20125)
 
 	-- Windforged Leggings -- 36124
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val10id3val7id4val272id6val5id24val28id48
 	recipecount = recipecount + 1
@@ -3137,7 +2703,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36124,1,5164,1,7230,1,11177,1,20125)
 
 	-- Light Earthforged Blade -- 36125
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val58-108id7val2.4id8
 	recipecount = recipecount + 1
@@ -3145,7 +2710,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36125,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Light Skyforged Axe -- 36126
-
 	-- Item Stats: 
 	-- Item Stats: val60-113id7val2.5id8val13id44
 	recipecount = recipecount + 1
@@ -3153,7 +2717,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36126,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Light Emberforged Hammer -- 36128
-
 	-- Item Stats: 
 	-- Item Stats: val63-117id7val2.6id8val26id48
 	recipecount = recipecount + 1
@@ -3161,7 +2724,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36128,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Heavy Earthforged Breastplate -- 36129
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val30id1val11id2val36id3val1018id6val11id31
 	recipecount = recipecount + 1
@@ -3169,7 +2731,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36129,1,5164,1,7230,1,11177,1,20125)
 
 	-- Stormforged Hauberk -- 36130
-
 	-- Item Stats: 
 	-- Item Stats: val25id2val11id3val11id4val570id6val7id24val50id48
 	recipecount = recipecount + 1
@@ -3177,7 +2738,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36130,1,5164,1,7230,1,11177,1,20125)
 
 	-- Windforged Rapier -- 36131
-
 	-- Item Stats: 
 	-- Item Stats: val72-134id7val1.7id8val24id45
 	recipecount = recipecount + 1
@@ -3185,7 +2745,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36131,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Stoneforged Claymore -- 36133
-
 	-- Item Stats: 
 	-- Item Stats: val40id1val35id2val207-311id7val3.3id8
 	recipecount = recipecount + 1
@@ -3193,7 +2752,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36133,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Stormforged Axe -- 36134
-
 	-- Item Stats: 
 	-- Item Stats: val24id2val110-205id7val2.6id8
 	recipecount = recipecount + 1
@@ -3201,7 +2759,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36134,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Skyforged Great Axe -- 36135
-
 	-- Item Stats: 
 	-- Item Stats: val213-321id7val3.4id8val35id44val80id48
 	recipecount = recipecount + 1
@@ -3209,7 +2766,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36135,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Lavaforged Warhammer -- 36136
-
 	-- Item Stats: 
 	-- Item Stats: val105-197id7val2.5id8val48id48
 	recipecount = recipecount + 1
@@ -3217,7 +2773,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36136,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Great Earthforged Hammer -- 36137
-
 	-- Item Stats: 
 	-- Item Stats: val60id3val220-330id7val3.5id8val70id48
 	recipecount = recipecount + 1
@@ -3225,7 +2780,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36137,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Embrace of the Twisting Nether -- 36256
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val56id3val27id4val1022id6val10id24val35id44val84id48
 	recipecount = recipecount + 1
@@ -3233,7 +2787,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36256,1,5164,1,7230,1,11177,1,20125)
 
 	-- Bulwark of the Ancient Kings -- 36257
-
 	-- Item Stats: 
 	-- Item Stats: val40id1val56id3val1825id6val41id44val25id45
 	recipecount = recipecount + 1
@@ -3241,7 +2794,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36257,1,5164,1,7230,1,11177,1,20125)
 
 	-- Blazefury -- 36258
-
 	-- Item Stats: 
 	-- Item Stats: val19id2val28id3val109-203id7val1.6id8val18id45
 	recipecount = recipecount + 1
@@ -3249,7 +2801,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36258,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Lionheart Executioner -- 36259
-
 	-- Item Stats: 
 	-- Item Stats: val52id1val44id2val365-549id7val3.6id8
 	recipecount = recipecount + 1
@@ -3257,7 +2808,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36259,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Wicked Edge of the Planes -- 36260
-
 	-- Item Stats: 
 	-- Item Stats: val184-343id7val2.7id8val23id44val48id48
 	recipecount = recipecount + 1
@@ -3265,7 +2815,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36260,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Bloodmoon -- 36261
-
 	-- Item Stats: 
 	-- Item Stats: val375-564id7val3.7id8val56id44val112id48
 	recipecount = recipecount + 1
@@ -3273,7 +2822,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36261,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Dragonstrike -- 36262
-
 	-- Item Stats: 
 	-- Item Stats: val19id3val184-343id7val2.7id8
 	recipecount = recipecount + 1
@@ -3281,7 +2829,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36262,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Stormherald -- 36263
-
 	-- Item Stats: 
 	-- Item Stats: val42id1val42id2val61id3val386-579id7val3.8id8
 	recipecount = recipecount + 1
@@ -3289,7 +2836,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36263,1,7231,1,7232,1,11146,1,11178,1,20124)
 
 	-- Belt of the Guardian -- 36389
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val24id1val48id3val904id6val19id31
 	recipecount = recipecount + 1
@@ -3298,7 +2844,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36389,7,4)
 
 	-- Red Belt of Battle -- 36390
-
 	-- Item Stats: 
 	-- Item Stats: val41id1val21id3val904id6val24id44val14id45
 	recipecount = recipecount + 1
@@ -3307,7 +2852,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36390,7,4)
 
 	-- Boots of the Protector -- 36391
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val23id1val48id3val22id4val1105id6val17id28val26id31
 	recipecount = recipecount + 1
@@ -3316,7 +2860,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36391,7,4)
 
 	-- Red Havoc Boots -- 36392
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id3val1105id6val25id28val32id31
 	recipecount = recipecount + 1
@@ -3325,7 +2868,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36392,7,4)
 
 	-- Wildguard Breastplate -- 38473
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val45id3val1450id6val14id31val60id34
 	recipecount = recipecount + 1
@@ -3334,7 +2876,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38473,6,942,4,17904)
 
 	-- Wildguard Leggings -- 38475
-
 	-- Item Stats: 
 	-- Item Stats: val55id3val1269id6val60id34
 	recipecount = recipecount + 1
@@ -3343,7 +2884,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38475,6,942,3,17904)
 
 	-- Wildguard Helm -- 38476
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val58id3val1178id6val28id31val50id34
 	recipecount = recipecount + 1
@@ -3352,8 +2892,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38476,6,942,3,17904)
 
 	-- Iceguard Breastplate -- 38477
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id3val1450id6val10id31val60id35
 	recipecount = recipecount + 1
@@ -3362,8 +2900,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38477,6,967,2,16388)
 
 	-- Iceguard Leggings -- 38478
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val55id3val1110id6val60id35
 	recipecount = recipecount + 1
@@ -3372,8 +2908,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38478,6,967,3,16388)
 
 	-- Iceguard Helm -- 38479
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val64id3val1030id6val20id31val50id35
 	recipecount = recipecount + 1
@@ -3382,8 +2916,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,38479,6,967,2,16388)
 
 	-- Shadesteel Sabots -- 40033
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val1122id6val54id36
 	recipecount = recipecount + 1
@@ -3392,8 +2924,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40033,6,1012,2,23159)
 
 	-- Shadesteel Bracers -- 40034
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val714id6val40id36
 	recipecount = recipecount + 1
@@ -3402,8 +2932,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40034,6,1012,1,23159)
 
 	-- Shadesteel Greaves -- 40035
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val54id3val1428id6val72id36
 	recipecount = recipecount + 1
@@ -3412,8 +2940,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40035,6,1012,2,23159)
 
 	-- Shadesteel Girdle -- 40036
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val918id6val54id36
 	recipecount = recipecount + 1
@@ -3422,16 +2948,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40036,6,1012,1,23159)
 
 	-- Swiftsteel Bracers -- 41132
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val35id1val32id3val772id6val27id46
 	recipecount = recipecount + 1
@@ -3440,7 +2956,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41132,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
 
 	-- Swiftsteel Shoulders -- 41133
-
 	-- Item Stats: 
 	-- Item Stats: val47id1val29id3val1324id6val19id45val35id46
 	recipecount = recipecount + 1
@@ -3449,7 +2964,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41133,7,4)
 
 	-- Dawnsteel Bracers -- 41134
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val23id4val772id6val28id46val34id49
 	recipecount = recipecount + 1
@@ -3458,15 +2972,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41134,7,4)
 
 	-- Dawnsteel Shoulders -- 41135
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val31id3val28id4val1324id6val38id46val43id49
 	recipecount = recipecount + 1
@@ -3475,7 +2980,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41135,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17908,3,17916)
 
 	-- Ragesteel Shoulders -- 42662
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42662,355,33173,3,2018)
@@ -3483,7 +2987,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Adamantite Weapon Chain -- 42688
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42688,335,33185,2,2018)
@@ -3491,7 +2994,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Heavy Copper Longsword -- 43549
-
 	-- Item Stats: 
 	-- Item Stats: val1id2val10-20id7val2.5id8
 	recipecount = recipecount + 1
@@ -3500,7 +3002,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,43549,4,1578)
 
 	-- Hammer of Righteous Might -- 43846
-
 	-- Item Stats: 
 	-- Item Stats: val55id3val37id4val93.8-185.8id7val2.1id8val15id24val168id49
 	recipecount = recipecount + 1
@@ -3509,7 +3010,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,43846,7,4)
 
 	-- Sunblessed Gauntlets -- 46140
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val31id4val1239id6val9id24val36id44val44id49
 	recipecount = recipecount + 1
@@ -3518,7 +3018,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,46140,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25508,3,25591)
 
 	-- Hard Khorium Battlefists -- 46141
-
 	-- Item Stats: 
 	-- Item Stats: val45id1val45id3val1239id6val23id45val36id46
 	recipecount = recipecount + 1
@@ -3527,7 +3026,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,46141,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
 
 	-- Sunblessed Breastplate -- 46142
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val51id4val1983id6val16id24val34id44val61id49
 	recipecount = recipecount + 1
@@ -3536,7 +3034,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,46142,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25509)
 
 	-- Hard Khorium Battleplate -- 46144
-
 	-- Item Stats: 
 	-- Item Stats: val61id1val55id3val1983id6val41id44
 	recipecount = recipecount + 1
@@ -3545,7 +3042,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,46144,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25597)
 
 	-- Cobalt Legplates -- 52567
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val40id1val66id3val1135id6val32id31
 	recipecount = recipecount + 1
@@ -3554,7 +3050,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Belt -- 52568
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val25id1val39id3val730id6val37id31
 	recipecount = recipecount + 1
@@ -3563,7 +3058,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Boots -- 52569
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val29id1val44id3val892id6val30id31
 	recipecount = recipecount + 1
@@ -3572,7 +3066,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Chestpiece -- 52570
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val39id1val60id3val1297id6val39id31
 	recipecount = recipecount + 1
@@ -3581,7 +3074,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Helm -- 52571
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val33id1val51id3val1054id6val50id31
 	recipecount = recipecount + 1
@@ -3590,7 +3082,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Shoulders -- 52572
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val33id1val36id3val973id6val30id31
 	recipecount = recipecount + 1
@@ -3599,7 +3090,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Triangle Shield -- 54550
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val22id1val33id3val4358id6val22id31
 	recipecount = recipecount + 1
@@ -3608,7 +3098,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Belt -- 54551
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val24id1val49id3val1040id6val57id31
 	recipecount = recipecount + 1
@@ -3617,7 +3106,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Boots -- 54552
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val42id1val69id3val1305id6val36id31
 	recipecount = recipecount + 1
@@ -3626,7 +3114,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Breastplate -- 54553
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val49id1val90id3val1898id6val56id31
 	recipecount = recipecount + 1
@@ -3635,7 +3122,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Legplates -- 54554
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val43id1val114id3val1618id6val32id31
 	recipecount = recipecount + 1
@@ -3644,7 +3130,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Helm -- 54555
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val46id1val52id3val1581id6val83id31
 	recipecount = recipecount + 1
@@ -3653,7 +3138,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Shoulders -- 54556
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val41id1val84id3val1460id6val32id31
 	recipecount = recipecount + 1
@@ -3662,7 +3146,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Defender -- 54557
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val17id1val61id3val6052id6val23id31
 	recipecount = recipecount + 1
@@ -3671,7 +3154,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Helm -- 54917
-
 	-- Item Stats: 
 	-- Item Stats: val30id1val1054id6val29id44val29id45
 	recipecount = recipecount + 1
@@ -3680,7 +3162,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Boots -- 54918
-
 	-- Item Stats: 
 	-- Item Stats: val38id1val916id6val29id44val21id46
 	recipecount = recipecount + 1
@@ -3689,7 +3170,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Shoulders -- 54941
-
 	-- Item Stats: 
 	-- Item Stats: val40id1val1026id6val34id44val14id45
 	recipecount = recipecount + 1
@@ -3698,7 +3178,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Chestpiece -- 54944
-
 	-- Item Stats: 
 	-- Item Stats: val54id1val1368id6val29id44val39id46
 	recipecount = recipecount + 1
@@ -3707,7 +3186,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Gauntlets -- 54945
-
 	-- Item Stats: 
 	-- Item Stats: val45id1val877id6val26id44val19id45
 	recipecount = recipecount + 1
@@ -3716,7 +3194,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Belt -- 54946
-
 	-- Item Stats: 
 	-- Item Stats: val34id1val809id6val33id44val33id46
 	recipecount = recipecount + 1
@@ -3725,7 +3202,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Legplates -- 54947
-
 	-- Item Stats: 
 	-- Item Stats: val58id1val1259id6val43id44val32id46
 	recipecount = recipecount + 1
@@ -3734,7 +3210,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Cobalt Bracers -- 54948
-
 	-- Item Stats: 
 	-- Item Stats: val34id1val645id6val26id44val17id46
 	recipecount = recipecount + 1
@@ -3743,7 +3218,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Horned Cobalt Helm -- 54949
-
 	-- Item Stats: 
 	-- Item Stats: val66id1val1197id6val37id44val28id45
 	recipecount = recipecount + 1
@@ -3752,7 +3226,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Reinforced Cobalt Shoulders -- 54978
-
 	-- Item Stats: 
 	-- Item Stats: val28id1val42id3val1052id6val27id29val27id44
 	recipecount = recipecount + 1
@@ -3761,7 +3234,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,54978,3,27333)
 
 	-- Reinforced Cobalt Helm -- 54979
-
 	-- Item Stats: 
 	-- Item Stats: val40id1val60id3val1197id6val40id29val40id44
 	recipecount = recipecount + 1
@@ -3770,7 +3242,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,54979,3,26270)
 
 	-- Reinforced Cobalt Legplates -- 54980
-
 	-- Item Stats: 
 	-- Item Stats: val48id1val63id3val1321id6val41id29val31id44
 	recipecount = recipecount + 1
@@ -3779,7 +3250,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,54980,3,29235)
 
 	-- Reinforced Cobalt Chestpiece -- 54981
-
 	-- Item Stats: 
 	-- Item Stats: val47id1val64id3val1545id6val43id29val38id44
 	recipecount = recipecount + 1
@@ -3788,7 +3258,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,54981,3,28123)
 
 	-- Saronite Protector -- 55013
-
 	-- Item Stats: 
 	-- Item Stats: val17id4val6052id6val23id44val48id49
 	recipecount = recipecount + 1
@@ -3797,7 +3266,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Bulwark -- 55014
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val25id1val66id3val6703id6val31id31
 	recipecount = recipecount + 1
@@ -3806,7 +3274,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Gauntlets -- 55015
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val28id1val55id3val1277id6val66id31
 	recipecount = recipecount + 1
@@ -3815,7 +3282,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Saronite Bracers -- 55017
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val27id1val30id3val873id6val48id31
 	recipecount = recipecount + 1
@@ -3824,7 +3290,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Legplates -- 55055
-
 	-- Item Stats: 
 	-- Item Stats: val1618id6val44id44val12id47val89id49
 	recipecount = recipecount + 1
@@ -3833,7 +3298,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Gauntlets -- 55056
-
 	-- Item Stats: 
 	-- Item Stats: val25id4val1186id6val33id44val70id49
 	recipecount = recipecount + 1
@@ -3842,7 +3306,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Boots -- 55057
-
 	-- Item Stats: 
 	-- Item Stats: val42id3val1338id6val43id44val65id49
 	recipecount = recipecount + 1
@@ -3851,7 +3314,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Breastplate -- 55058
-
 	-- Item Stats: 
 	-- Item Stats: val2043id6val38id44val20id47val103id49
 	recipecount = recipecount + 1
@@ -3860,7 +3322,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Honed Cobalt Cleaver -- 55174
-
 	-- Item Stats: 
 	-- Item Stats: val339-509id7val3.2id8val51id46val154id48
 	recipecount = recipecount + 1
@@ -3869,7 +3330,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Cobalt Slicer -- 55177
-
 	-- Item Stats: 
 	-- Item Stats: val44id2val189-353id7val2.6id8val29id45val60id48
 	recipecount = recipecount + 1
@@ -3878,7 +3338,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Ambusher -- 55179
-
 	-- Item Stats: 
 	-- Item Stats: val145-218id7val1.7id8val62id48
 	recipecount = recipecount + 1
@@ -3887,7 +3346,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Shiv -- 55181
-
 	-- Item Stats: 
 	-- Item Stats: val122-183id7val1.4id8val20id12val55id45val56id48
 	recipecount = recipecount + 1
@@ -3896,7 +3354,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Furious Saronite Beatstick -- 55182
-
 	-- Item Stats: 
 	-- Item Stats: val109-203id7val1.4id8val50id46val64id48
 	recipecount = recipecount + 1
@@ -3905,7 +3362,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Corroded Saronite Edge -- 55183
-
 	-- Item Stats: 
 	-- Item Stats: val50id2val21id3val208-387id7val2.6id8val28id12val14id45val60id48
 	recipecount = recipecount + 1
@@ -3913,7 +3369,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Corroded Saronite Woundbringer -- 55184
-
 	-- Item Stats: 
 	-- Item Stats: val28id2val21id3val144-268id7val1.8id8val14id12val50id45val60id48
 	recipecount = recipecount + 1
@@ -3921,7 +3376,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Mindcrusher -- 55185
-
 	-- Item Stats: 
 	-- Item Stats: val88id1val57id3val428-643id7val3.6id8val38id44val25id45
 	recipecount = recipecount + 1
@@ -3929,7 +3383,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Chestplate of Conquest -- 55186
-
 	-- Item Stats: 
 	-- Item Stats: val88id1val57id3val2043id6val38id44val25id46
 	recipecount = recipecount + 1
@@ -3937,7 +3390,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Legplates of Conquest -- 55187
-
 	-- Item Stats: 
 	-- Item Stats: val54id1val81id3val1788id6val54id44val54id46
 	recipecount = recipecount + 1
@@ -3945,7 +3397,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Sturdy Cobalt Quickblade -- 55200
-
 	-- Item Stats: 
 	-- Item Stats: val104-195id7val1.7id8val33id44val79id48
 	recipecount = recipecount + 1
@@ -3954,7 +3405,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Tenderizer -- 55201
-
 	-- Item Stats: 
 	-- Item Stats: val38id2val160-298id7val2.6id8val25id12
 	recipecount = recipecount + 1
@@ -3963,7 +3413,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Sure-fire Shuriken -- 55202
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val96-179id14val1.7id15val21id45
 	recipecount = recipecount + 1
@@ -3972,7 +3421,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Forged Cobalt Claymore -- 55203
-
 	-- Item Stats: 
 	-- Item Stats: val61id1val327-491id7val3.5id8val40id46
 	recipecount = recipecount + 1
@@ -3981,7 +3429,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Notched Cobalt War Axe -- 55204
-
 	-- Item Stats: 
 	-- Item Stats: val167-310id7val2.6id8val23id44val74id48
 	recipecount = recipecount + 1
@@ -3990,7 +3437,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Deadly Saronite Dirk -- 55206
-
 	-- Item Stats: 
 	-- Item Stats: val27id12val116-217id14val1.7id15val17id45
 	recipecount = recipecount + 1
@@ -3999,7 +3445,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Vengeance Bindings -- 55298
-
 	-- Item Stats: 
 	-- Item Stats: val53id1val916id6val30id44val23id45
 	recipecount = recipecount + 1
@@ -4008,7 +3453,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Righteous Gauntlets -- 55300
-
 	-- Item Stats: 
 	-- Item Stats: val45id3val1308id6val30id44val83id49
 	recipecount = recipecount + 1
@@ -4017,7 +3461,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Daunting Handguards -- 55301
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val30id1val60id3val1308id6val71id31
 	recipecount = recipecount + 1
@@ -4026,7 +3469,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Helm of Command -- 55302
-
 	-- Item Stats: 
 	-- Item Stats: val95id1val1700id6val55id44val41id46
 	recipecount = recipecount + 1
@@ -4035,7 +3477,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Daunting Legplates -- 55303
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val54id1val93id3val1831id6val88id31
 	recipecount = recipecount + 1
@@ -4044,7 +3485,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Righteous Greaves -- 55304
-
 	-- Item Stats: 
 	-- Item Stats: val93id3val1831id6val54id44val103id49
 	recipecount = recipecount + 1
@@ -4053,7 +3493,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Bracers -- 55305
-
 	-- Item Stats: 
 	-- Item Stats: val37id1val48id3val916id6val33id29val24id44
 	recipecount = recipecount + 1
@@ -4062,7 +3501,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Pauldrons -- 55306
-
 	-- Item Stats: 
 	-- Item Stats: val52id1val66id3val1570id6val27id29val43id44
 	recipecount = recipecount + 1
@@ -4071,7 +3509,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Waistguard -- 55307
-
 	-- Item Stats: 
 	-- Item Stats: val44id1val40id3val1177id6val52id29val43id44
 	recipecount = recipecount + 1
@@ -4080,7 +3517,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Walkers -- 55308
-
 	-- Item Stats: 
 	-- Item Stats: val27id1val57id3val1439id6val47id29val52id44
 	recipecount = recipecount + 1
@@ -4089,7 +3525,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Gauntlets -- 55309
-
 	-- Item Stats: 
 	-- Item Stats: val52id1val66id3val1308id6val43id29val27id44
 	recipecount = recipecount + 1
@@ -4098,7 +3533,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Legplates -- 55310
-
 	-- Item Stats: 
 	-- Item Stats: val59id1val99id3val1831id6val58id29val44id44
 	recipecount = recipecount + 1
@@ -4107,7 +3541,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Hauberk -- 55311
-
 	-- Item Stats: 
 	-- Item Stats: val72id1val105id3val2093id6val37id29val37id44
 	recipecount = recipecount + 1
@@ -4116,7 +3549,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Savage Saronite Skullshield -- 55312
-
 	-- Item Stats: 
 	-- Item Stats: val37id1val78id3val1700id6val63id29val70id44
 	recipecount = recipecount + 1
@@ -4125,7 +3557,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titansteel Destroyer -- 55369
-
 	-- Item Stats: 
 	-- Item Stats: val124id1val105id3val507-761id7val3.4id8val54id45
 	recipecount = recipecount + 1
@@ -4134,7 +3565,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titansteel Bonecrusher -- 55370
-
 	-- Item Stats: 
 	-- Item Stats: val59id3val251-467id7val2.5id8val29id12val140id48
 	recipecount = recipecount + 1
@@ -4143,7 +3573,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titansteel Guardian -- 55371
-
 	-- Item Stats: 
 	-- Item Stats: val58id3val99.25-315.25id7val2.5id8val29id44val490id49
 	recipecount = recipecount + 1
@@ -4152,7 +3581,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Titansteel Helm -- 55372
-
 	-- Item Stats: 
 	-- Item Stats: val113id1val60id2val1821id6val60id45
 	recipecount = recipecount + 1
@@ -4161,7 +3589,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Titansteel Helm -- 55373
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val61id1val162id3val1821id6val46id31
 	recipecount = recipecount + 1
@@ -4170,7 +3597,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Titansteel Helm -- 55374
-
 	-- Item Stats: 
 	-- Item Stats: val1821id6val46id44val24id47val108id49
 	recipecount = recipecount + 1
@@ -4179,7 +3605,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Spiked Titansteel Treads -- 55375
-
 	-- Item Stats: 
 	-- Item Stats: val80id1val67id3val1541id6val35id44
 	recipecount = recipecount + 1
@@ -4188,7 +3613,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Tempered Titansteel Treads -- 55376
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val45id1val120id3val1541id6val35id31
 	recipecount = recipecount + 1
@@ -4197,7 +3621,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Titansteel Treads -- 55377
-
 	-- Item Stats: 
 	-- Item Stats: val1541id6val35id44val18id47val93id49
 	recipecount = recipecount + 1
@@ -4206,7 +3629,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Socket Bracer -- 55628
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55628,385,nil, 1, 2018)
@@ -4214,7 +3636,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Socket Gloves -- 55641
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55641,385,nil, 1, 2018)
@@ -4222,7 +3643,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Eternal Belt Buckle -- 55656
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55656,410,41611,3,2018)
@@ -4230,7 +3650,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titanium Rod -- 55732
-
 	-- Item Stats: 
 	-- Item Stats: val2id8val2id15
 	recipecount = recipecount + 1
@@ -4239,7 +3658,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Bracers -- 55834
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val25id1val27id3val567id6val45id31
 	recipecount = recipecount + 1
@@ -4248,7 +3666,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Gauntlets -- 55835
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val37id1val39id3val811id6val25id31
 	recipecount = recipecount + 1
@@ -4257,7 +3674,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titanium Weapon Chain -- 55839
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55839,415,41976,2,2018)
@@ -4265,7 +3681,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titansteel Shanker -- 56234
-
 	-- Item Stats: 
 	-- Item Stats: val45id3val183-276id7val1.6id8val23id44val106id48
 	recipecount = recipecount + 1
@@ -4274,7 +3689,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cudgel of Saronite Justice -- 56280
-
 	-- Item Stats: 
 	-- Item Stats: val42.92-136.92id7val1.4id8val50id46val13id47val281id49
 	recipecount = recipecount + 1
@@ -4283,7 +3697,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titanium Shield Spike -- 56357
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56357,415,42500,1, 2018)
@@ -4291,7 +3704,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titansteel Shield Wall -- 56400
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val36id1val69id3val7530id6val64id31
 	recipecount = recipecount + 1
@@ -4300,7 +3712,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Bracers -- 56549
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val916id6val33id29val10id47val37id49
 	recipecount = recipecount + 1
@@ -4309,7 +3720,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Pauldrons -- 56550
-
 	-- Item Stats: 
 	-- Item Stats: val66id3val1570id6val27id29val43id44val52id49
 	recipecount = recipecount + 1
@@ -4318,7 +3728,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Waistguard -- 56551
-
 	-- Item Stats: 
 	-- Item Stats: val44id1val40id3val43id4val1177id6val52id29
 	recipecount = recipecount + 1
@@ -4327,7 +3736,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Walkers -- 56552
-
 	-- Item Stats: 
 	-- Item Stats: val57id3val1439id6val47id29val52id44val27id49
 	recipecount = recipecount + 1
@@ -4336,7 +3744,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Gauntlets -- 56553
-
 	-- Item Stats: 
 	-- Item Stats: val66id3val1308id6val43id29val11id47val52id49
 	recipecount = recipecount + 1
@@ -4345,7 +3752,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Legplates -- 56554
-
 	-- Item Stats: 
 	-- Item Stats: val98id3val1831id6val58id29val44id44val59id49
 	recipecount = recipecount + 1
@@ -4354,7 +3760,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Hauberk -- 56555
-
 	-- Item Stats: 
 	-- Item Stats: val105id3val2093id6val37id29val15id47val72id49
 	recipecount = recipecount + 1
@@ -4363,7 +3768,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Ornate Saronite Skullshield -- 56556
-
 	-- Item Stats: 
 	-- Item Stats: val87id3val44id4val1700id6val58id29val66id49
 	recipecount = recipecount + 1
@@ -4372,7 +3776,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Cobalt Skeleton Key -- 59405
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59405,350,43854,1, 2018)
@@ -4380,7 +3783,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Titanium Skeleton Key -- 59406
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59406,430,43853,1, 2018)
@@ -4388,7 +3790,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Belt -- 59436
-
 	-- Item Stats: 
 	-- Item Stats: val1095id6val43id44val11id47val65id49
 	recipecount = recipecount + 1
@@ -4397,7 +3798,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Bracers -- 59438
-
 	-- Item Stats: 
 	-- Item Stats: val852id6val35id44val12id47val39id49
 	recipecount = recipecount + 1
@@ -4406,7 +3806,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Pauldrons -- 59440
-
 	-- Item Stats: 
 	-- Item Stats: val65id3val1460id6val11id47val65id49
 	recipecount = recipecount + 1
@@ -4415,7 +3814,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Brilliant Saronite Helm -- 59441
-
 	-- Item Stats: 
 	-- Item Stats: val1660id6val53id44val20id47val93id49
 	recipecount = recipecount + 1
@@ -4424,7 +3822,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Saronite Spellblade -- 59442
-
 	-- Item Stats: 
 	-- Item Stats: val33id4val42.92-136.92id7val1.4id8val50id44val281id49
 	recipecount = recipecount + 1
@@ -4433,7 +3830,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Icebane Chestguard -- 61008
-
 	-- Item Stats: 
 	-- Item Stats: val169id3val2298id6val115id35
 	recipecount = recipecount + 1
@@ -4442,7 +3838,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Icebane Girdle -- 61009
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val1293id6val86id35
 	recipecount = recipecount + 1
@@ -4451,7 +3846,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Icebane Treads -- 61010
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val1580id6val86id35
 	recipecount = recipecount + 1

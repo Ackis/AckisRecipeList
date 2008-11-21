@@ -38,7 +38,6 @@ function addon:InitLeatherworking(RecipeDB)
 	local recipecount = 0
 
 	-- Handstitched Leather Boots -- 2149
-
 	-- Item Stats: 
 	-- Item Stats: val31id6
 	recipecount = recipecount + 1
@@ -47,7 +46,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2149,8,8)
 
 	-- Light Armor Kit -- 2152
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2152,1,2304,1,2108)
@@ -55,7 +53,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2152,8,8)
 
 	-- Handstitched Leather Pants -- 2153
-
 	-- Item Stats: 
 	-- Item Stats: val46id6
 	recipecount = recipecount + 1
@@ -64,7 +61,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2153,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Fine Leather Boots -- 2158
-
 	-- Item Stats: 
 	-- Item Stats: val49id6
 	recipecount = recipecount + 1
@@ -73,7 +69,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2158,7,2)
 
 	-- Fine Leather Cloak -- 2159
-
 	-- Item Stats: 
 	-- Item Stats: val2id3val14id6
 	recipecount = recipecount + 1
@@ -82,7 +77,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2159,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Embossed Leather Vest -- 2160
-
 	-- Item Stats: 
 	-- Item Stats: val2id3val62id6
 	recipecount = recipecount + 1
@@ -91,7 +85,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2160,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Embossed Leather Boots -- 2161
-
 	-- Item Stats: 
 	-- Item Stats: val2id3val2id5val48id6
 	recipecount = recipecount + 1
@@ -100,7 +93,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2161,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Embossed Leather Cloak -- 2162
-
 	-- Item Stats: 
 	-- Item Stats: val12id6
 	recipecount = recipecount + 1
@@ -109,7 +101,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2162,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- White Leather Jerkin -- 2163
-
 	-- Item Stats: 
 	-- Item Stats: val62id6
 	recipecount = recipecount + 1
@@ -118,7 +109,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2163,7,2)
 
 	-- Fine Leather Gloves -- 2164
-
 	-- Item Stats: 
 	-- Item Stats: val2id4val2id5val43id6
 	recipecount = recipecount + 1
@@ -127,7 +117,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2164,7,2)
 
 	-- Medium Armor Kit -- 2165
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2165,100,2313,1,2108)
@@ -135,7 +124,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2165,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Toughened Leather Armor -- 2166
-
 	-- Item Stats: 
 	-- Item Stats: val80id6
 	recipecount = recipecount + 1
@@ -144,7 +132,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2166,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dark Leather Boots -- 2167
-
 	-- Item Stats: 
 	-- Item Stats: val51id6
 	recipecount = recipecount + 1
@@ -153,7 +140,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2167,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dark Leather Cloak -- 2168
-
 	-- Item Stats: 
 	-- Item Stats: val17id6
 	recipecount = recipecount + 1
@@ -162,7 +148,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2168,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dark Leather Tunic -- 2169
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val78id6
 	recipecount = recipecount + 1
@@ -171,7 +156,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,2169,7,2)
 
 	-- Light Leather -- 2881
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2881,1,2318,1,2108)
@@ -179,7 +163,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Handstitched Leather Belt -- 3753
-
 	-- Item Stats: 
 	-- Item Stats: val29id6
 	recipecount = recipecount + 1
@@ -188,7 +171,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3753,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Embossed Leather Gloves -- 3756
-
 	-- Item Stats: 
 	-- Item Stats: val39id6
 	recipecount = recipecount + 1
@@ -197,7 +179,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3756,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Embossed Leather Pants -- 3759
-
 	-- Item Stats: 
 	-- Item Stats: val2id3val3id5val61id6
 	recipecount = recipecount + 1
@@ -206,7 +187,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3759,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Hillman's Cloak -- 3760
-
 	-- Item Stats: 
 	-- Item Stats: val20id6
 	recipecount = recipecount + 1
@@ -215,7 +195,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3760,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Fine Leather Tunic -- 3761
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val3id3val73id6
 	recipecount = recipecount + 1
@@ -224,7 +203,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3761,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Hillman's Leather Vest -- 3762
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val4id5val78id6
 	recipecount = recipecount + 1
@@ -233,7 +211,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3762,7,2)
 
 	-- Fine Leather Belt -- 3763
-
 	-- Item Stats: 
 	-- Item Stats: val38id6
 	recipecount = recipecount + 1
@@ -242,7 +219,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3763,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Hillman's Leather Gloves -- 3764
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val5id5val57id6
 	recipecount = recipecount + 1
@@ -251,7 +227,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3764,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dark Leather Gloves -- 3765
-
 	-- Item Stats: 
 	-- Item Stats: val54id6
 	recipecount = recipecount + 1
@@ -260,7 +235,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3765,7,2)
 
 	-- Dark Leather Belt -- 3766
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val4id3val48id6
 	recipecount = recipecount + 1
@@ -269,7 +243,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3766,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Hillman's Belt -- 3767
-
 	-- Item Stats: 
 	-- Item Stats: val4id3val4id5val48id6
 	recipecount = recipecount + 1
@@ -278,7 +251,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3767,7,2)
 
 	-- Hillman's Shoulders -- 3768
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val4id5val65id6
 	recipecount = recipecount + 1
@@ -287,7 +259,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3768,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dark Leather Shoulders -- 3769
-
 	-- Item Stats: 
 	-- Item Stats: val7id2val68id6
 	recipecount = recipecount + 1
@@ -296,7 +267,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3769,7,2)
 
 	-- Toughened Leather Gloves -- 3770
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val3id3val6id5val61id6
 	recipecount = recipecount + 1
@@ -305,7 +275,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3770,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Barbaric Gloves -- 3771
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val5id3val4id5val58id6
 	recipecount = recipecount + 1
@@ -314,7 +283,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3771,7,2)
 
 	-- Green Leather Armor -- 3772
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val8id5val95id6
 	recipecount = recipecount + 1
@@ -323,7 +291,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3772,2,2679,2,2698)
 
 	-- Guardian Armor -- 3773
-
 	-- Item Stats: 
 	-- Item Stats: val10id4val9id5val102id6
 	recipecount = recipecount + 1
@@ -332,7 +299,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3773,7,2)
 
 	-- Green Leather Belt -- 3774
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val6id5val54id6
 	recipecount = recipecount + 1
@@ -341,10 +307,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3774,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Guardian Belt -- 3775
-	-- Instance: 796 - Scarlet Monastery
-	-- Instance: 796 - Scarlet Monastery
-	-- Instance: 796 - Scarlet Monastery
-
 	-- Item Stats: 
 	-- Item Stats: val7id4val6id5val56id6
 	recipecount = recipecount + 1
@@ -353,7 +315,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3775,3,1085,3,2554,3,4143,3,4147,3,4287,3,4296,3,4540,3,4674,3,7346)
 
 	-- Green Leather Bracers -- 3776
-
 	-- Item Stats: 
 	-- Item Stats: val6id2val5id5val45id6
 	recipecount = recipecount + 1
@@ -362,7 +323,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3776,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Guardian Leather Bracers -- 3777
-
 	-- Item Stats: 
 	-- Item Stats: val6id4val6id5val48id6
 	recipecount = recipecount + 1
@@ -371,7 +331,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3777,7,2)
 
 	-- Gem-studded Leather Belt -- 3778
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val6id5val65id6
 	recipecount = recipecount + 1
@@ -380,8 +339,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Barbaric Belt -- 3779
-	-- Instance: 1176 - Zul'Farrak
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val62id6
 	recipecount = recipecount + 1
@@ -390,7 +347,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3779,3,780,3,5649)
 
 	-- Heavy Armor Kit -- 3780
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3780,150,4265,1,2108)
@@ -398,7 +354,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3780,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Cured Light Hide -- 3816
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3816,35,4231,1,2108)
@@ -406,7 +361,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3816,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Cured Medium Hide -- 3817
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3817,100,4233,1,2108)
@@ -414,7 +368,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3817,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Cured Heavy Hide -- 3818
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3818,150,4236,1,2108)
@@ -422,7 +375,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3818,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Raptor Hide Harness -- 4096
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val98id6
 	recipecount = recipecount + 1
@@ -431,7 +383,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Raptor Hide Belt -- 4097
-
 	-- Item Stats: 
 	-- Item Stats: val6id1val6id3val55id6
 	recipecount = recipecount + 1
@@ -440,15 +391,13 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Kodo Hide Bag -- 5244
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,5244,40,5081,2,2108)
-	self:addTradeFlags(RecipeDB,5244,2,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,5244,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,5244,4,769)
 
 	-- Barbaric Harness -- 6661
-
 	-- Item Stats: 
 	-- Item Stats: val101id6
 	recipecount = recipecount + 1
@@ -457,8 +406,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6661,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Murloc Scale Belt -- 6702
-	-- Instance: 1581 - The Deadmines
-
 	-- Item Stats: 
 	-- Item Stats: val2id1val3id2val42id6
 	recipecount = recipecount + 1
@@ -467,8 +414,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6702,3,1732,3,3256,3,3385,2,843,2,3556,2,4186)
 
 	-- Murloc Scale Breastplate -- 6703
-	-- Instance: 1581 - The Deadmines
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val3id2val76id6
 	recipecount = recipecount + 1
@@ -477,7 +422,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6703,3,657,3,3386,2,843,2,3556,2,4186)
 
 	-- Thick Murloc Armor -- 6704
-
 	-- Item Stats: 
 	-- Item Stats: val9id1val8id3val100id6
 	recipecount = recipecount + 1
@@ -486,7 +430,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2393,2,2846)
 
 	-- Murloc Scale Bracers -- 6705
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val6id3val47id6
 	recipecount = recipecount + 1
@@ -495,7 +438,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6705,3,1561)
 
 	-- Handstitched Leather Vest -- 7126
-
 	-- Item Stats: 
 	-- Item Stats: val45id6
 	recipecount = recipecount + 1
@@ -504,7 +446,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Fine Leather Pants -- 7133
-
 	-- Item Stats: 
 	-- Item Stats: val5id4val4id5val69id6
 	recipecount = recipecount + 1
@@ -513,7 +454,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7133,7,2)
 
 	-- Dark Leather Pants -- 7135
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val72id6
 	recipecount = recipecount + 1
@@ -522,7 +462,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7135,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Guardian Pants -- 7147
-
 	-- Item Stats: 
 	-- Item Stats: val8id4val8id5val85id6
 	recipecount = recipecount + 1
@@ -531,7 +470,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7147,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Barbaric Leggings -- 7149
-
 	-- Item Stats: 
 	-- Item Stats: val7id2val7id3val7id5val87id6
 	recipecount = recipecount + 1
@@ -540,7 +478,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7149,2,2821,2,3958)
 
 	-- Barbaric Shoulders -- 7151
-
 	-- Item Stats: 
 	-- Item Stats: val5id2val6id3val5id5val76id6
 	recipecount = recipecount + 1
@@ -549,7 +486,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7151,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Guardian Cloak -- 7153
-
 	-- Item Stats: 
 	-- Item Stats: val5id4val6id5val24id6
 	recipecount = recipecount + 1
@@ -558,7 +494,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7153,7,2)
 
 	-- Guardian Gloves -- 7156
-
 	-- Item Stats: 
 	-- Item Stats: val63id6
 	recipecount = recipecount + 1
@@ -567,8 +502,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7156,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Deviate Scale Cloak -- 7953
-	-- Instance: 718 - Wailing Caverns
-
 	-- Item Stats: 
 	-- Item Stats: val2id2val2id3val16id6
 	recipecount = recipecount + 1
@@ -577,8 +510,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7953,2,5783)
 
 	-- Deviate Scale Gloves -- 7954
-	-- Instance: 718 - Wailing Caverns
-
 	-- Item Stats: 
 	-- Item Stats: val3id2val3id3val49id6
 	recipecount = recipecount + 1
@@ -587,7 +518,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7954,2,5783)
 
 	-- Deviate Scale Belt -- 7955
-
 	-- Item Stats: 
 	-- Item Stats: val5id2val6id3val3id5val51id6
 	recipecount = recipecount + 1
@@ -596,7 +526,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7955,4,1487)
 
 	-- Moonglow Vest -- 8322
-
 	-- Item Stats: 
 	-- Item Stats: val3id4val4id5val74id6
 	recipecount = recipecount + 1
@@ -605,7 +534,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8322,4,1582)
 
 	-- Handstitched Leather Cloak -- 9058
-
 	-- Item Stats: 
 	-- Item Stats: val8id6
 	recipecount = recipecount + 1
@@ -614,7 +542,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Handstitched Leather Bracers -- 9059
-
 	-- Item Stats: 
 	-- Item Stats: val21id6
 	recipecount = recipecount + 1
@@ -623,7 +550,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Light Leather Quiver -- 9060
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9060,30,7278,1,2108)
@@ -631,7 +557,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9060,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Small Leather Ammo Pouch -- 9062
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9062,30,7279,1,2108)
@@ -639,7 +564,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9062,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Rugged Leather Pants -- 9064
-
 	-- Item Stats: 
 	-- Item Stats: val1id3val51id6
 	recipecount = recipecount + 1
@@ -648,7 +572,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9064,7,2)
 
 	-- Light Leather Bracers -- 9065
-
 	-- Item Stats: 
 	-- Item Stats: val28id6
 	recipecount = recipecount + 1
@@ -657,7 +580,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9065,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087)
 
 	-- Light Leather Pants -- 9068
-
 	-- Item Stats: 
 	-- Item Stats: val5id2val3id5val66id6
 	recipecount = recipecount + 1
@@ -666,7 +588,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9068,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Black Whelp Cloak -- 9070
-
 	-- Item Stats: 
 	-- Item Stats: val3id3val17id6
 	recipecount = recipecount + 1
@@ -675,7 +596,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9070,2,2697)
 
 	-- Red Whelp Gloves -- 9072
-
 	-- Item Stats: 
 	-- Item Stats: val52id6
 	recipecount = recipecount + 1
@@ -684,7 +604,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9072,2,2679)
 
 	-- Nimble Leather Gloves -- 9074
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val4id5val52id6
 	recipecount = recipecount + 1
@@ -693,7 +612,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9074,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Fletcher's Gloves -- 9145
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val53id6val1id27val14id44
 	recipecount = recipecount + 1
@@ -702,7 +620,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9145,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Herbalist's Gloves -- 9146
-
 	-- Item Stats: 
 	-- Item Stats: val55id6
 	recipecount = recipecount + 1
@@ -711,7 +628,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Earthen Leather Shoulders -- 9147
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val67id6
 	recipecount = recipecount + 1
@@ -720,7 +636,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9147,2,3537)
 
 	-- Pilferer's Gloves -- 9148
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val56id6
 	recipecount = recipecount + 1
@@ -729,7 +644,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9148,7,2)
 
 	-- Heavy Earthen Gloves -- 9149
-
 	-- Item Stats: 
 	-- Item Stats: val57id6val16id48
 	recipecount = recipecount + 1
@@ -738,7 +652,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9149,7,2)
 
 	-- Heavy Quiver -- 9193
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9193,150,7371,1,2108)
@@ -746,7 +659,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9193,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Leather Ammo Pouch -- 9194
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9194,150,7372,1,2108)
@@ -754,7 +666,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9194,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dusky Leather Leggings -- 9195
-
 	-- Item Stats: 
 	-- Item Stats: val13id2val86id6
 	recipecount = recipecount + 1
@@ -763,7 +674,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9195,7,2)
 
 	-- Dusky Leather Armor -- 9196
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val102id6
 	recipecount = recipecount + 1
@@ -772,7 +682,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9196,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Green Whelp Armor -- 9197
-
 	-- Item Stats: 
 	-- Item Stats: val11id5val102id6
 	recipecount = recipecount + 1
@@ -781,7 +690,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9197,7,2)
 
 	-- Frost Leather Cloak -- 9198
-
 	-- Item Stats: 
 	-- Item Stats: val24id6val9id49
 	recipecount = recipecount + 1
@@ -790,7 +698,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9198,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dusky Bracers -- 9201
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val46id6
 	recipecount = recipecount + 1
@@ -799,7 +706,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9201,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Green Whelp Bracers -- 9202
-
 	-- Item Stats: 
 	-- Item Stats: val8id5val47id6
 	recipecount = recipecount + 1
@@ -808,7 +714,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9202,2,4589)
 
 	-- Dusky Belt -- 9206
-
 	-- Item Stats: 
 	-- Item Stats: val8id2val8id3val61id6
 	recipecount = recipecount + 1
@@ -817,8 +722,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9206,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Dusky Boots -- 9207
-	-- Instance: 1176 - Zul'Farrak
-
 	-- Item Stats: 
 	-- Item Stats: val11id2val3id3val76id6
 	recipecount = recipecount + 1
@@ -827,7 +730,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9207,3,4676,3,5649,3,24830)
 
 	-- Swift Boots -- 9208
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val76id6
 	recipecount = recipecount + 1
@@ -836,7 +738,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9208,7,2)
 
 	-- Cured Thick Hide -- 10482
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10482,200,8172,1,2108)
@@ -844,7 +745,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10482,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Armor Kit -- 10487
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10487,200,8173,1,2108)
@@ -852,7 +752,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10487,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Comfortable Leather Hat -- 10490
-
 	-- Item Stats: 
 	-- Item Stats: val11id3val10id5val90id6
 	recipecount = recipecount + 1
@@ -861,7 +760,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10490,3,2249,3,4852)
 
 	-- Nightscape Tunic -- 10499
-
 	-- Item Stats: 
 	-- Item Stats: val15id2val6id3val113id6
 	recipecount = recipecount + 1
@@ -870,7 +768,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10499,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Nightscape Headband -- 10507
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val11id3val91id6
 	recipecount = recipecount + 1
@@ -879,7 +776,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10507,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Turtle Scale Gloves -- 10509
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val6id4val6id5val146id6
 	recipecount = recipecount + 1
@@ -888,7 +784,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10509,7,1,2,7854)
 
 	-- Turtle Scale Breastplate -- 10511
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val9id4val9id5val238id6
 	recipecount = recipecount + 1
@@ -897,7 +792,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10511,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Nightscape Shoulders -- 10516
-
 	-- Item Stats: 
 	-- Item Stats: val11id2val5id3val86id6
 	recipecount = recipecount + 1
@@ -906,7 +800,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10516,2,8160)
 
 	-- Turtle Scale Bracers -- 10518
-
 	-- Item Stats: 
 	-- Item Stats: val204id6
 	recipecount = recipecount + 1
@@ -915,7 +808,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10518,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Big Voodoo Robe -- 10520
-
 	-- Item Stats: 
 	-- Item Stats: val14id4val9id5val117id6
 	recipecount = recipecount + 1
@@ -924,7 +816,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10520,7,2)
 
 	-- Tough Scorpid Breastplate -- 10525
-
 	-- Item Stats: 
 	-- Item Stats: val15id2val7id5val245id6
 	recipecount = recipecount + 1
@@ -933,7 +824,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10525,3,5419,3,5422,3,5425,3,5616,3,5618)
 
 	-- Wild Leather Shoulders -- 10529
-
 	-- Item Stats: 
 	-- Item Stats: val90id6
 	recipecount = recipecount + 1
@@ -942,7 +832,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10529,4,2848,4,2855)
 
 	-- Big Voodoo Mask -- 10531
-
 	-- Item Stats: 
 	-- Item Stats: val14id4val9id5val97id6
 	recipecount = recipecount + 1
@@ -951,7 +840,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10531,7,2)
 
 	-- Tough Scorpid Bracers -- 10533
-
 	-- Item Stats: 
 	-- Item Stats: val7id2val6id5val107id6
 	recipecount = recipecount + 1
@@ -960,7 +848,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10533,3,5420,3,5422,3,5423,3,5425,3,5426,3,5615,3,5617)
 
 	-- Tough Scorpid Gloves -- 10542
-
 	-- Item Stats: 
 	-- Item Stats: val10id2val9id5val155id6
 	recipecount = recipecount + 1
@@ -969,7 +856,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10542,3,5419,3,5422,3,5425,3,5616,3,5618)
 
 	-- Wild Leather Vest -- 10544
-
 	-- Item Stats: 
 	-- Item Stats: val121id6
 	recipecount = recipecount + 1
@@ -978,7 +864,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10544,4,2849,4,2856)
 
 	-- Wild Leather Helmet -- 10546
-
 	-- Item Stats: 
 	-- Item Stats: val99id6
 	recipecount = recipecount + 1
@@ -987,7 +872,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10546,4,2850,4,2857)
 
 	-- Nightscape Pants -- 10548
-
 	-- Item Stats: 
 	-- Item Stats: val16id2val7id3val108id6
 	recipecount = recipecount + 1
@@ -996,7 +880,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10548,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Nightscape Cloak -- 10550
-
 	-- Item Stats: 
 	-- Item Stats: val10id2val3id3val30id6
 	--recipecount = recipecount + 1
@@ -1005,7 +888,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Turtle Scale Helm -- 10552
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val10id4val10id5val206id6
 	recipecount = recipecount + 1
@@ -1014,7 +896,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10552,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Tough Scorpid Boots -- 10554
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val7id5val178id6
 	recipecount = recipecount + 1
@@ -1023,7 +904,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10554,3,5422,3,5425,3,5615)
 
 	-- Turtle Scale Leggings -- 10556
-
 	-- Item Stats: 
 	-- Item Stats: val11id3val10id4val11id5val226id6
 	recipecount = recipecount + 1
@@ -1032,7 +912,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10556,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Nightscape Boots -- 10558
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val87id6
 	recipecount = recipecount + 1
@@ -1041,7 +920,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10558,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Big Voodoo Pants -- 10560
-
 	-- Item Stats: 
 	-- Item Stats: val10id4val15id5val110id6
 	recipecount = recipecount + 1
@@ -1050,7 +928,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10560,7,2)
 
 	-- Big Voodoo Cloak -- 10562
-
 	-- Item Stats: 
 	-- Item Stats: val9id4val5id5val31id6
 	recipecount = recipecount + 1
@@ -1059,7 +936,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10562,7,2)
 
 	-- Tough Scorpid Shoulders -- 10564
-
 	-- Item Stats: 
 	-- Item Stats: val10id2val10id5val197id6
 	recipecount = recipecount + 1
@@ -1068,7 +944,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10564,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,3,5617,3,5623,3,7805,3,7883)
 
 	-- Wild Leather Boots -- 10566
-
 	-- Item Stats: 
 	-- Item Stats: val90id6
 	recipecount = recipecount + 1
@@ -1077,7 +952,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10566,4,2851,4,2858)
 
 	-- Tough Scorpid Leggings -- 10568
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val10id5val235id6
 	recipecount = recipecount + 1
@@ -1086,7 +960,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10568,3,5422,3,5423,3,5425,3,5615,3,5623)
 
 	-- Tough Scorpid Helm -- 10570
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val14id5val222id6
 	recipecount = recipecount + 1
@@ -1095,7 +968,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10570,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,3,5615,3,5623,3,7805,3,7883)
 
 	-- Wild Leather Leggings -- 10572
-
 	-- Item Stats: 
 	-- Item Stats: val116id6
 	recipecount = recipecount + 1
@@ -1104,7 +976,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10572,4,2852,4,2859)
 
 	-- Wild Leather Cloak -- 10574
-
 	-- Item Stats: 
 	-- Item Stats: val33id6
 	recipecount = recipecount + 1
@@ -1113,7 +984,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10574,4,2853,4,2860)
 
 	-- Dragonscale Gauntlets -- 10619
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val6id5val171id6val14id44
 	recipecount = recipecount + 1
@@ -1122,7 +992,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10619,1,7866,1,7867)
 
 	-- Wolfshead Helm -- 10621
-
 	-- Item Stats: 
 	-- Item Stats: val10id5val109id6
 	recipecount = recipecount + 1
@@ -1131,7 +1000,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10621,1,7870,1,7871)
 
 	-- Gauntlets of the Sea -- 10630
-
 	-- Item Stats: 
 	-- Item Stats: val7id2val85id6
 	recipecount = recipecount + 1
@@ -1140,7 +1008,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10630,1,7868,1,7869)
 
 	-- Helm of Fire -- 10632
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val10id3val118id6val5id33
 	recipecount = recipecount + 1
@@ -1149,7 +1016,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10632,1,7868,1,7869)
 
 	-- Feathered Breastplate -- 10647
-
 	-- Item Stats: 
 	-- Item Stats: val10id4val24id5val146id6
 	recipecount = recipecount + 1
@@ -1158,7 +1024,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10647,1,7870,1,7871)
 
 	-- Dragonscale Breastplate -- 10650
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val306id6val13id33val13id35val12id36
 	recipecount = recipecount + 1
@@ -1167,7 +1032,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,10650,1,7866,1,7867)
 
 	-- Quickdraw Quiver -- 14930
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,14930,225,8217,1,2108)
@@ -1175,7 +1039,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,14930,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Leather Ammo Pouch -- 14932
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,14932,225,8218,1,2108)
@@ -1183,7 +1046,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,14932,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Cured Rugged Hide -- 19047
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19047,240,15407,1,2108)
@@ -1191,7 +1053,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19047,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Scorpid Bracers -- 19048
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val8id5val122id6
 	recipecount = recipecount + 1
@@ -1200,7 +1061,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Wicked Leather Gauntlets -- 19049
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val11id3val86id6
 	recipecount = recipecount + 1
@@ -1209,7 +1069,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19049,2,12942)
 
 	-- Green Dragonscale Breastplate -- 19050
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val21id5val311id6val11id34
 	recipecount = recipecount + 1
@@ -1218,7 +1077,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19050,2,11874)
 
 	-- Heavy Scorpid Vest -- 19051
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val15id5val288id6
 	recipecount = recipecount + 1
@@ -1227,7 +1085,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19051,3,5990,3,5993,3,6005)
 
 	-- Wicked Leather Bracers -- 19052
-
 	-- Item Stats: 
 	-- Item Stats: val11id2val5id3val61id6
 	recipecount = recipecount + 1
@@ -1236,7 +1093,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19052,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Chimeric Gloves -- 19053
-
 	-- Item Stats: 
 	-- Item Stats: val87id6val11id32val12id34
 	recipecount = recipecount + 1
@@ -1245,8 +1101,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Red Dragonscale Breastplate -- 19054
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val360id6val12id33val35id49
 	recipecount = recipecount + 1
@@ -1255,7 +1109,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19054,3,10363)
 
 	-- Runic Leather Gauntlets -- 19055
-
 	-- Item Stats: 
 	-- Item Stats: val8id4val14id5val88id6
 	recipecount = recipecount + 1
@@ -1264,7 +1117,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19055,3,12397,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Rugged Armor Kit -- 19058
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19058,230,15564,1,2108)
@@ -1272,7 +1124,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19058,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Volcanic Leggings -- 19059
-
 	-- Item Stats: 
 	-- Item Stats: val204id6val20id33
 	recipecount = recipecount + 1
@@ -1281,10 +1132,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19059,3,7035)
 
 	-- Green Dragonscale Leggings -- 19060
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-	-- Instance: 1477 - The Temple of Atal'Hakkar
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val22id5val282id6val11id34
 	recipecount = recipecount + 1
@@ -1293,7 +1140,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19060,3,5225,3,5226,3,5708)
 
 	-- Living Shoulders -- 19061
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val13id5val117id6val3id34val16id49
 	recipecount = recipecount + 1
@@ -1302,7 +1148,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19061,2,7854)
 
 	-- Ironfeather Shoulders -- 19062
-
 	-- Item Stats: 
 	-- Item Stats: val20id4val8id5val117id6
 	recipecount = recipecount + 1
@@ -1311,7 +1156,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19062,2,12958)
 
 	-- Chimeric Boots -- 19063
-
 	-- Item Stats: 
 	-- Item Stats: val99id6val12id32val12id34
 	recipecount = recipecount + 1
@@ -1320,7 +1164,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19063,7,2)
 
 	-- Heavy Scorpid Gauntlets -- 19064
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val12id5val186id6
 	recipecount = recipecount + 1
@@ -1329,7 +1172,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19064,3,7025,3,7055)
 
 	-- Runic Leather Bracers -- 19065
-
 	-- Item Stats: 
 	-- Item Stats: val10id4val10id5val63id6
 	recipecount = recipecount + 1
@@ -1338,7 +1180,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19065,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Frostsaber Boots -- 19066
-
 	-- Item Stats: 
 	-- Item Stats: val99id6val12id35val12id36
 	recipecount = recipecount + 1
@@ -1347,7 +1188,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19066,2,11189)
 
 	-- Stormshroud Pants -- 19067
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val138id6val12id26val28id44
 	recipecount = recipecount + 1
@@ -1356,7 +1196,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19067,2,12942)
 
 	-- Warbear Harness -- 19068
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val27id3val158id6
 	recipecount = recipecount + 1
@@ -1365,7 +1204,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Heavy Scorpid Belt -- 19070
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val12id5val170id6
 	recipecount = recipecount + 1
@@ -1374,7 +1212,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19070,7,2)
 
 	-- Wicked Leather Headband -- 19071
-
 	-- Item Stats: 
 	-- Item Stats: val16id2val16id3val118id6
 	recipecount = recipecount + 1
@@ -1383,7 +1220,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19071,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Runic Leather Belt -- 19072
-
 	-- Item Stats: 
 	-- Item Stats: val14id4val9id5val82id6
 	recipecount = recipecount + 1
@@ -1392,7 +1228,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19072,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Chimeric Leggings -- 19073
-
 	-- Item Stats: 
 	-- Item Stats: val127id6val16id32val16id34
 	recipecount = recipecount + 1
@@ -1401,7 +1236,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19073,7,2)
 
 	-- Frostsaber Leggings -- 19074
-
 	-- Item Stats: 
 	-- Item Stats: val129id6val17id35val16id36
 	recipecount = recipecount + 1
@@ -1410,7 +1244,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19074,3,7440,3,7443,3,7448,3,7458,3,7460)
 
 	-- Heavy Scorpid Leggings -- 19075
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val20id5val269id6
 	recipecount = recipecount + 1
@@ -1419,8 +1252,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19075,3,7027)
 
 	-- Volcanic Breastplate -- 19076
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val268id6val20id33
 	recipecount = recipecount + 1
@@ -1429,7 +1260,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19076,3,9259)
 
 	-- Blue Dragonscale Breastplate -- 19077
-
 	-- Item Stats: 
 	-- Item Stats: val28id4val8id5val338id6val8id32
 	recipecount = recipecount + 1
@@ -1438,7 +1268,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Living Leggings -- 19078
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val25id5val142id6val5id34val14id49
 	recipecount = recipecount + 1
@@ -1447,7 +1276,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19078,3,7158,3,8957,3,8961)
 
 	-- Stormshroud Armor -- 19079
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val163id6val12id26val28id44
 	recipecount = recipecount + 1
@@ -1456,7 +1284,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19079,3,6138)
 
 	-- Warbear Woolies -- 19080
-
 	-- Item Stats: 
 	-- Item Stats: val28id1val12id3val142id6
 	recipecount = recipecount + 1
@@ -1465,7 +1292,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Chimeric Vest -- 19081
-
 	-- Item Stats: 
 	-- Item Stats: val150id6val16id32val17id34
 	recipecount = recipecount + 1
@@ -1474,7 +1300,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19081,7,2)
 
 	-- Runic Leather Headband -- 19082
-
 	-- Item Stats: 
 	-- Item Stats: val20id4val12id5val122id6
 	recipecount = recipecount + 1
@@ -1483,7 +1308,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19082,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wicked Leather Pants -- 19083
-
 	-- Item Stats: 
 	-- Item Stats: val20id2val12id3val131id6
 	recipecount = recipecount + 1
@@ -1492,7 +1316,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19083,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Devilsaur Gauntlets -- 19084
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val103id6val14id44val28id48
 	recipecount = recipecount + 1
@@ -1501,7 +1324,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Black Dragonscale Breastplate -- 19085
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val344id6val12id33val50id48
 	recipecount = recipecount + 1
@@ -1510,7 +1332,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Ironfeather Breastplate -- 19086
-
 	-- Item Stats: 
 	-- Item Stats: val12id4val28id5val165id6
 	recipecount = recipecount + 1
@@ -1519,7 +1340,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19086,3,2644,3,2681,3,2926)
 
 	-- Frostsaber Gloves -- 19087
-
 	-- Item Stats: 
 	-- Item Stats: val95id6val13id35val12id36
 	recipecount = recipecount + 1
@@ -1528,7 +1348,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19087,3,7441)
 
 	-- Heavy Scorpid Helm -- 19088
-
 	-- Item Stats: 
 	-- Item Stats: val20id3val13id5val258id6
 	recipecount = recipecount + 1
@@ -1537,7 +1356,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Blue Dragonscale Shoulders -- 19089
-
 	-- Item Stats: 
 	-- Item Stats: val21id4val6id5val262id6val6id32
 	recipecount = recipecount + 1
@@ -1546,7 +1364,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19089,3,6146)
 
 	-- Stormshroud Shoulders -- 19090
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val12id3val126id6val12id26val14id44
 	recipecount = recipecount + 1
@@ -1555,7 +1372,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19090,3,6144)
 
 	-- Runic Leather Pants -- 19091
-
 	-- Item Stats: 
 	-- Item Stats: val13id4val20id5val135id6
 	recipecount = recipecount + 1
@@ -1564,7 +1380,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19091,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wicked Leather Belt -- 19092
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val13id3val87id6
 	recipecount = recipecount + 1
@@ -1573,7 +1388,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19092,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Onyxia Scale Cloak -- 19093
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val43id6val16id33
 	recipecount = recipecount + 1
@@ -1582,8 +1396,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Black Dragonscale Shoulders -- 19094
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val266id6val6id33val40id48
 	recipecount = recipecount + 1
@@ -1592,7 +1404,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19094,3,8898)
 
 	-- Living Breastplate -- 19095
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val25id5val169id6val5id34val14id49
 	recipecount = recipecount + 1
@@ -1601,7 +1412,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19095,3,1813)
 
 	-- Devilsaur Leggings -- 19097
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val148id6val14id44val46id48
 	recipecount = recipecount + 1
@@ -1610,7 +1420,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19097,3,6556,3,6557,3,6559,3,9162,3,9163,3,9164,3,9166,3,9167,3,9477)
 
 	-- Wicked Leather Armor -- 19098
-
 	-- Item Stats: 
 	-- Item Stats: val25id2val7id3val156id6
 	recipecount = recipecount + 1
@@ -1619,7 +1428,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19098,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Scorpid Shoulders -- 19100
-
 	-- Item Stats: 
 	-- Item Stats: val14id3val13id5val245id6
 	recipecount = recipecount + 1
@@ -1628,8 +1436,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19100,3,7029)
 
 	-- Volcanic Shoulders -- 19101
-	-- Instance: 1583 - Blackrock Spire
-
 	-- Item Stats: 
 	-- Item Stats: val167id6val18id33
 	recipecount = recipecount + 1
@@ -1638,7 +1444,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19101,3,9260)
 
 	-- Runic Leather Armor -- 19102
-
 	-- Item Stats: 
 	-- Item Stats: val21id4val13id5val158id6
 	recipecount = recipecount + 1
@@ -1647,7 +1452,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19102,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Runic Leather Shoulders -- 19103
-
 	-- Item Stats: 
 	-- Item Stats: val15id4val10id5val119id6
 	recipecount = recipecount + 1
@@ -1656,7 +1460,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19103,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Frostsaber Tunic -- 19104
-
 	-- Item Stats: 
 	-- Item Stats: val158id6val18id35val18id36
 	recipecount = recipecount + 1
@@ -1665,7 +1468,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19104,3,7438,3,7458,3,7459,3,7460)
 
 	-- Onyxia Scale Breastplate -- 19106
-
 	-- Item Stats: 
 	-- Item Stats: val15id1val15id2val15id3val14id4val14id5val605id6val9id33val14id44
 	--recipecount = recipecount + 1
@@ -1674,8 +1476,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Black Dragonscale Leggings -- 19107
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val320id6val13id33val54id48
 	recipecount = recipecount + 1
@@ -1684,7 +1484,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19107,3,8903)
 
 	-- Medium Leather -- 20648
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20648,90,2319,1,2108)
@@ -1692,7 +1491,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20648,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Leather -- 20649
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20649,140,4234,1,2108)
@@ -1700,7 +1498,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20649,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Leather -- 20650
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20650,195,4304,1,2108)
@@ -1708,8 +1505,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20650,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Corehound Boots -- 20853
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: 
 	-- Item Stats: val13id2val10id3val144id6val24id33
 	recipecount = recipecount + 1
@@ -1718,8 +1513,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20853,2,12944)
 
 	-- Molten Helm -- 20854
-	-- Instance: 1584 - Blackrock Depths
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val16id3val171id6val12id26val29id33
 	recipecount = recipecount + 1
@@ -1728,7 +1521,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20854,2,12944)
 
 	-- Black Dragonscale Boots -- 20855
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val308id6val24id33val28id48
 	recipecount = recipecount + 1
@@ -1737,7 +1529,6 @@ function addon:InitLeatherworking(RecipeDB)
 	-- No acquire information
 
 	-- Gloves of the Greatfather -- 21943
-Seasonal, 
 	-- Item Stats: 
 	-- Item Stats: val66id6val11id49
 	recipecount = recipecount + 1
@@ -1746,7 +1537,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,21943,5,1)
 
 	-- Rugged Leather -- 22331
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22331,250,8170,1,2108)
@@ -1754,7 +1544,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,22331,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
 	-- Shadowskin Gloves -- 22711
-
 	-- Item Stats: 
 	-- Item Stats: val6id3val76id6val14id44
 	recipecount = recipecount + 1
@@ -1763,14 +1552,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Core Armor Kit -- 22727
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-	-- Raid: 2717 - Molten Core
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22727,300,18251,3,2108)
@@ -1778,7 +1559,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,22727,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
 
 	-- Gordok Ogre Suit -- 22815
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22815,275,18258,2,2108)
@@ -1786,7 +1566,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Girdle of Insight -- 22921
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val23id4val98id6
 	recipecount = recipecount + 1
@@ -1795,7 +1574,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Mongoose Boots -- 22922
-
 	-- Item Stats: 
 	-- Item Stats: val23id2val9id3val120id6
 	recipecount = recipecount + 1
@@ -1804,7 +1582,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Swift Flight Bracers -- 22923
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val160id6val41id48
 	recipecount = recipecount + 1
@@ -1813,7 +1590,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Chromatic Cloak -- 22926
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val55id6val9id33val9id36val14id44
 	recipecount = recipecount + 1
@@ -1822,7 +1598,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Hide of the Wild -- 22927
-
 	-- Item Stats: 
 	-- Item Stats: val8id3val10id4val55id6val22id49
 	recipecount = recipecount + 1
@@ -1831,7 +1606,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Shifting Cloak -- 22928
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val17id2val8id3val55id6val12id26
 	recipecount = recipecount + 1
@@ -1840,7 +1614,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Heavy Leather Ball -- 23190
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23190,150,18662,1,2108)
@@ -1848,7 +1621,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23190,2,3366,2,5128)
 
 	-- Barbaric Bracers -- 23399
-
 	-- Item Stats: 
 	-- Item Stats: val4id2val6id3val4id5val47id6
 	recipecount = recipecount + 1
@@ -1857,7 +1629,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23399,2,4225,2,4589)
 
 	-- Might of the Timbermaw -- 23703
-
 	-- Item Stats: 
 	-- Item Stats: val21id1val9id3val93id6
 	recipecount = recipecount + 1
@@ -1866,7 +1637,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23703,6,576,2,11557)
 
 	-- Timbermaw Brawlers -- 23704
-
 	-- Item Stats: 
 	-- Item Stats: val23id1val10id3val112id6
 	recipecount = recipecount + 1
@@ -1875,7 +1645,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23704,6,576,3,11557)
 
 	-- Dawn Treaders -- 23705
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val18id3val114id6val12id26
 	recipecount = recipecount + 1
@@ -1884,7 +1653,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23705,6,529,2,10856,6,529,2,10857,6,529,2,11536)
 
 	-- Golden Mantle of the Dawn -- 23706
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val22id3val134id6val12id26
 	recipecount = recipecount + 1
@@ -1893,7 +1661,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,23706,6,529,3,10856,6,529,3,10857,6,529,3,11536)
 
 	-- Lava Belt -- 23707
-
 	-- Item Stats: 
 	-- Item Stats: val15id3val238id6val26id33
 	recipecount = recipecount + 1
@@ -1902,7 +1669,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Chromatic Gauntlets -- 23708
-
 	-- Item Stats: 
 	-- Item Stats: val318id6val5id33val5id34val5id35val5id36val21id44val44id48
 	recipecount = recipecount + 1
@@ -1911,7 +1677,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Corehound Belt -- 23709
-
 	-- Item Stats: 
 	-- Item Stats: val16id4val135id6val12id33val33id49
 	recipecount = recipecount + 1
@@ -1920,7 +1685,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Molten Belt -- 23710
-
 	-- Item Stats: 
 	-- Item Stats: val28id2val16id3val135id6val12id33
 	recipecount = recipecount + 1
@@ -1929,7 +1693,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Primal Batskin Jerkin -- 24121
-
 	-- Item Stats: 
 	-- Item Stats: val32id2val6id3val181id6val10id45
 	recipecount = recipecount + 1
@@ -1938,7 +1701,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24121,6,270,3,14921)
 
 	-- Primal Batskin Gloves -- 24122
-
 	-- Item Stats: 
 	-- Item Stats: val10id2val9id3val113id6val20id45
 	recipecount = recipecount + 1
@@ -1947,7 +1709,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24122,6,270,2,14921)
 
 	-- Primal Batskin Bracers -- 24123
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val7id3val79id6val10id45
 	recipecount = recipecount + 1
@@ -1956,7 +1717,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24123,6,270,1,14921)
 
 	-- Blood Tiger Breastplate -- 24124
-
 	-- Item Stats: 
 	-- Item Stats: val17id1val17id3val16id4val13id5val181id6
 	recipecount = recipecount + 1
@@ -1965,7 +1725,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24124,6,270,3,14921)
 
 	-- Blood Tiger Shoulders -- 24125
-
 	-- Item Stats: 
 	-- Item Stats: val13id1val13id3val12id4val10id5val136id6
 	recipecount = recipecount + 1
@@ -1974,7 +1733,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24125,6,270,2,14921)
 
 	-- Blue Dragonscale Leggings -- 24654
-
 	-- Item Stats: 
 	-- Item Stats: val20id4val19id5val310id6val12id32
 	recipecount = recipecount + 1
@@ -1983,7 +1741,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24654,1,7866,1,7867)
 
 	-- Green Dragonscale Gauntlets -- 24655
-
 	-- Item Stats: 
 	-- Item Stats: val5id3val18id5val208id6val9id34
 	recipecount = recipecount + 1
@@ -1992,7 +1749,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24655,1,7866,1,7867)
 
 	-- Dreamscale Breastplate -- 24703
-
 	-- Item Stats: 
 	-- Item Stats: val15id2val15id3val14id4val496id6val4id24val30id34
 	recipecount = recipecount + 1
@@ -2001,7 +1757,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24703,6,609,4,15293)
 
 	-- Spitfire Bracers -- 24846
-
 	-- Item Stats: 
 	-- Item Stats: val9id2val9id4val160id6val4id24val8id49
 	recipecount = recipecount + 1
@@ -2010,7 +1765,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24846,6,609,1,15293)
 
 	-- Spitfire Gauntlets -- 24847
-
 	-- Item Stats: 
 	-- Item Stats: val12id2val12id4val228id6val5id24val11id49
 	recipecount = recipecount + 1
@@ -2019,7 +1773,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24847,6,609,2,15293)
 
 	-- Spitfire Breastplate -- 24848
-
 	-- Item Stats: 
 	-- Item Stats: val16id2val16id4val365id6val6id24val15id49
 	recipecount = recipecount + 1
@@ -2028,7 +1781,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24848,6,609,3,15293)
 
 	-- Sandstalker Bracers -- 24849
-
 	-- Item Stats: 
 	-- Item Stats: val7id3val220id6val15id34
 	recipecount = recipecount + 1
@@ -2037,7 +1789,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24849,6,609,1,15293)
 
 	-- Sandstalker Gauntlets -- 24850
-
 	-- Item Stats: 
 	-- Item Stats: val9id3val308id6val20id34
 	recipecount = recipecount + 1
@@ -2046,7 +1797,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24850,6,609,2,15293)
 
 	-- Sandstalker Breastplate -- 24851
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val485id6val25id34
 	recipecount = recipecount + 1
@@ -2055,7 +1805,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24851,6,609,3,15293)
 
 	-- Black Whelp Tunic -- 24940
-
 	-- Item Stats: 
 	-- Item Stats: val5id1val3id2val78id6
 	recipecount = recipecount + 1
@@ -2064,7 +1813,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,24940,2,777)
 
 	-- Stormshroud Gloves -- 26279
-
 	-- Item Stats: 
 	-- Item Stats: val99id6val19id44val10id45
 	recipecount = recipecount + 1
@@ -2073,7 +1821,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,26279,3,14454,3,14457)
 
 	-- Polar Tunic -- 28219
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val18id2val26id3val267id6val40id35
 	recipecount = recipecount + 1
@@ -2082,7 +1829,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28219,6,529,4,16365)
 
 	-- Polar Gloves -- 28220
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val18id2val18id3val167id6val30id35
 	recipecount = recipecount + 1
@@ -2091,7 +1837,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28220,6,529,3,16365)
 
 	-- Polar Bracers -- 28221
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val12id2val20id3val117id6val20id35
 	recipecount = recipecount + 1
@@ -2100,7 +1845,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28221,6,529,3,16365)
 
 	-- Icy Scale Breastplate -- 28222
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val24id3val578id6val40id35val40id48
 	recipecount = recipecount + 1
@@ -2109,7 +1853,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28222,6,529,4,16365)
 
 	-- Icy Scale Gauntlets -- 28223
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val22id3val361id6val30id35val22id48
 	recipecount = recipecount + 1
@@ -2118,7 +1861,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28223,6,529,3,16365)
 
 	-- Icy Scale Bracers -- 28224
-ADNaxx40, 
 	-- Item Stats: 
 	-- Item Stats: val17id3val253id6val20id35val32id48
 	recipecount = recipecount + 1
@@ -2127,7 +1869,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28224,6,529,3,16365)
 
 	-- Bramblewood Helm -- 28472
-
 	-- Item Stats: 
 	-- Item Stats: val20id3val156id6val30id34
 	recipecount = recipecount + 1
@@ -2136,7 +1877,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28472,6,609,3,15293)
 
 	-- Bramblewood Boots -- 28473
-
 	-- Item Stats: 
 	-- Item Stats: val12id3val132id6val25id34
 	recipecount = recipecount + 1
@@ -2145,7 +1885,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28473,6,609,2,15293)
 
 	-- Bramblewood Belt -- 28474
-
 	-- Item Stats: 
 	-- Item Stats: val14id3val108id6val15id34
 	recipecount = recipecount + 1
@@ -2154,7 +1893,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,28474,6,609,1,15293)
 
 	-- Knothide Leather -- 32454
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32454,290,21887,1,2108)
@@ -2162,7 +1900,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32454,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Knothide Leather -- 32455
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32455,325,23793,1,2108)
@@ -2170,7 +1907,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32455,2,16689,2,16748,2,19196)
 
 	-- Knothide Armor Kit -- 32456
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32456,280,25650,1,2108)
@@ -2178,7 +1914,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32456,1,18754,1,18771,1,19187,1,21087)
 
 	-- Vindicator's Armor Kit -- 32457
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32457,325,25651,1,2108)
@@ -2186,7 +1921,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32457,6,932,3,19321)
 
 	-- Magister's Armor Kit -- 32458
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32458,325,25652,1,2108)
@@ -2194,8 +1928,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32458,6,934,3,19331)
 
 	-- Riding Crop -- 32461
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32461,350,25653,1,2108)
@@ -2203,7 +1935,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32461,2,18672)
 
 	-- Felscale Gloves -- 32462
-
 	-- Item Stats: 
 	-- Item Stats: val19id2val276id6val40id48
 	recipecount = recipecount + 1
@@ -2212,7 +1943,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32462,1,18754,1,18771,1,19187,1,21087)
 
 	-- Felscale Boots -- 32463
-
 	-- Item Stats: 
 	-- Item Stats: val20id2val333id6val44id48
 	recipecount = recipecount + 1
@@ -2221,7 +1951,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32463,1,18754,1,18771,1,19187,1,21087)
 
 	-- Felscale Pants -- 32464
-
 	-- Item Stats: 
 	-- Item Stats: val31id2val449id6val60id48
 	recipecount = recipecount + 1
@@ -2230,7 +1959,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32464,1,18754,1,18771,1,19187,1,21087)
 
 	-- Felscale Breastplate -- 32465
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val558id6val72id48
 	recipecount = recipecount + 1
@@ -2239,7 +1967,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32465,1,18754,1,18771,1,19187,1,21087)
 
 	-- Scaled Draenic Pants -- 32466
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val386id6val8id24val23id49
 	recipecount = recipecount + 1
@@ -2248,7 +1975,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32466,1,18754,1,18771,1,19187,1,21087)
 
 	-- Scaled Draenic Gloves -- 32467
-
 	-- Item Stats: 
 	-- Item Stats: val24id3val303id6val7id24val20id49
 	recipecount = recipecount + 1
@@ -2257,7 +1983,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32467,1,18754,1,18771,1,19187,1,21087)
 
 	-- Scaled Draenic Vest -- 32468
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val528id6val10id24val29id49
 	recipecount = recipecount + 1
@@ -2266,7 +1991,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32468,1,18754,1,18771,1,19187,1,21087)
 
 	-- Scaled Draenic Boots -- 32469
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val384id6val8id24val22id49
 	recipecount = recipecount + 1
@@ -2275,7 +1999,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32469,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Draenic Gloves -- 32470
-
 	-- Item Stats: 
 	-- Item Stats: val15id2val22id3val127id6val30id48
 	recipecount = recipecount + 1
@@ -2284,7 +2007,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32470,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Draenic Pants -- 32471
-
 	-- Item Stats: 
 	-- Item Stats: val23id2val34id3val197id6val46id48
 	recipecount = recipecount + 1
@@ -2293,7 +2015,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32471,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Draenic Boots -- 32472
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val27id3val159id6val36id48
 	recipecount = recipecount + 1
@@ -2302,7 +2023,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32472,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Draenic Vest -- 32473
-
 	-- Item Stats: 
 	-- Item Stats: val25id2val39id3val243id6val52id48
 	recipecount = recipecount + 1
@@ -2311,7 +2031,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32473,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wild Draenish Boots -- 32478
-
 	-- Item Stats: 
 	-- Item Stats: val11id1val11id2val18id3val11id4val140id6val13id49
 	recipecount = recipecount + 1
@@ -2320,7 +2039,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32478,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wild Draenish Gloves -- 32479
-
 	-- Item Stats: 
 	-- Item Stats: val13id1val13id2val18id3val12id4val137id6val14id49
 	recipecount = recipecount + 1
@@ -2329,7 +2047,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32479,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wild Draenish Leggings -- 32480
-
 	-- Item Stats: 
 	-- Item Stats: val18id1val18id2val27id3val17id4val202id6val21id49
 	recipecount = recipecount + 1
@@ -2338,7 +2055,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32480,1,18754,1,18771,1,19187,1,21087)
 
 	-- Wild Draenish Vest -- 32481
-
 	-- Item Stats: 
 	-- Item Stats: val19id1val19id2val28id3val19id4val243id6val22id49
 	recipecount = recipecount + 1
@@ -2347,7 +2063,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32481,1,18754,1,18771,1,19187,1,21087)
 
 	-- Comfortable Insoles -- 32482
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32482,300,25679,1,2108)
@@ -2355,8 +2070,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32482,2,16689,2,16748)
 
 	-- Stylin' Purple Hat -- 32485
-	-- Instance: 3789 - Auchindoun: Shadow Labrynth
-
 	-- Item Stats: 
 	-- Item Stats: val48id2val45id3val232id6
 	recipecount = recipecount + 1
@@ -2365,10 +2078,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32485,3,18667)
 
 	-- Stylin' Adventure Hat -- 32487
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-
 	-- Item Stats: 
 	-- Item Stats: val516id6val16id24val50id49
 	recipecount = recipecount + 1
@@ -2377,9 +2086,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32487,3,17820,3,17840,3,28132)
 
 	-- Stylin' Crimson Hat -- 32488
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-
 	-- Item Stats: 
 	-- Item Stats: val30id4val516id6val96id48
 	recipecount = recipecount + 1
@@ -2388,14 +2094,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32488,3,18322,3,19428)
 
 	-- Stylin' Jungle Hat -- 32489
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-
 	-- Item Stats: 
 	-- Item Stats: val24id1val24id2val24id3val24id4val232id6val10id24val19id49
 	recipecount = recipecount + 1
@@ -2404,7 +2102,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32489,3,17839,3,17879,3,17952,3,18982,3,21104,3,21140,3,21148)
 
 	-- Fel Leather Gloves -- 32490
-
 	-- Item Stats: 
 	-- Item Stats: val169id6val24id44val17id45val42id48
 	recipecount = recipecount + 1
@@ -2413,7 +2110,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32490,6,933,1,20242,6,933,1,23007)
 
 	-- Fel Leather Boots -- 32493
-
 	-- Item Stats: 
 	-- Item Stats: val196id6val17id44val25id45val42id48
 	recipecount = recipecount + 1
@@ -2422,7 +2118,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32493,6,933,2,20242,6,933,2,23007)
 
 	-- Fel Leather Leggings -- 32494
-
 	-- Item Stats: 
 	-- Item Stats: val249id6val25id44val25id45val60id48
 	recipecount = recipecount + 1
@@ -2431,7 +2126,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32494,6,933,3,20242,6,933,3,23007)
 
 	-- Heavy Clefthoof Vest -- 32495
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val45id3val290id6val15id26val24id31
 	recipecount = recipecount + 1
@@ -2440,7 +2134,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32495,6,942,2,17904)
 
 	-- Heavy Clefthoof Leggings -- 32496
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val33id3val251id6val18id26val29id31
 	recipecount = recipecount + 1
@@ -2449,7 +2142,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32496,6,942,2,17904)
 
 	-- Heavy Clefthoof Boots -- 32497
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val30id3val198id6val14id26val21id31
 	recipecount = recipecount + 1
@@ -2458,7 +2150,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32497,6,942,1,17904)
 
 	-- Felstalker Belt -- 32498
-
 	-- Item Stats: 
 	-- Item Stats: val18id2val17id4val357id6val50id48
 	recipecount = recipecount + 1
@@ -2467,7 +2158,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32498,6,947,1,17585)
 
 	-- Felstalker Bracer -- 32499
-
 	-- Item Stats: 
 	-- Item Stats: val18id2val11id4val283id6val38id48
 	recipecount = recipecount + 1
@@ -2476,7 +2166,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32499,6,947,2,17585)
 
 	-- Felstalker Breastplate -- 32500
-
 	-- Item Stats: 
 	-- Item Stats: val26id2val6id3val26id4val646id6val52id48
 	recipecount = recipecount + 1
@@ -2485,7 +2174,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32500,6,947,2,17585)
 
 	-- Netherfury Belt -- 32501
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val339id6val9id24val21id49
 	recipecount = recipecount + 1
@@ -2494,7 +2182,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32501,6,941,1,20241)
 
 	-- Netherfury Leggings -- 32502
-
 	-- Item Stats: 
 	-- Item Stats: val37id3val527id6val10id24val29id49
 	recipecount = recipecount + 1
@@ -2503,7 +2190,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32502,6,941,2,20241)
 
 	-- Netherfury Boots -- 32503
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val392id6val7id24val21id49
 	recipecount = recipecount + 1
@@ -2512,10 +2198,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,32503,6,941,3,20241)
 
 	-- Shadow Armor Kit -- 35520
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35520,340,29483,2,2108)
@@ -2523,8 +2205,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35520,3,18320,3,18325,3,19428)
 
 	-- Flame Armor Kit -- 35521
-	-- Instance: 3848 - Tempest Keep: The Arcatraz
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35521,340,29485,2,2108)
@@ -2532,8 +2212,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35521,3,20898)
 
 	-- Frost Armor Kit -- 35522
-	-- Instance: 3715 - Coilfang Reservoir: The Steamvault
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35522,340,29486,2,2108)
@@ -2541,8 +2219,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35522,3,17797)
 
 	-- Nature Armor Kit -- 35523
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35523,340,29487,2,2108)
@@ -2550,12 +2226,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35523,3,17941)
 
 	-- Arcane Armor Kit -- 35524
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-	-- Instance: 2366 - Caverns of Time: The Black Morass
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35524,340,29488,2,2108)
@@ -2563,7 +2233,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35524,3,17879,3,17952,3,21104,3,21140,3,21148)
 
 	-- Enchanted Felscale Leggings -- 35525
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val556id6val40id32val8id48
 	recipecount = recipecount + 1
@@ -2572,7 +2241,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35525,6,934,4,19331)
 
 	-- Enchanted Felscale Gloves -- 35526
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val397id6val30id32val6id48
 	recipecount = recipecount + 1
@@ -2581,7 +2249,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35526,6,934,2,19331)
 
 	-- Enchanted Felscale Boots -- 35527
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val437id6val30id32val6id48
 	recipecount = recipecount + 1
@@ -2590,7 +2257,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35527,6,934,3,19331)
 
 	-- Flamescale Boots -- 35528
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val437id6val30id33val6id48
 	recipecount = recipecount + 1
@@ -2599,7 +2265,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35528,6,932,3,19321)
 
 	-- Flamescale Leggings -- 35529
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val556id6val40id33val8id48
 	recipecount = recipecount + 1
@@ -2608,7 +2273,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35529,6,932,4,19321)
 
 	-- Reinforced Mining Bag -- 35530
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35530,325,29540,1,2108)
@@ -2616,7 +2280,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35530,6,941,2,20241)
 
 	-- Flamescale Belt -- 35531
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val357id6val30id33val8id48
 	recipecount = recipecount + 1
@@ -2625,7 +2288,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35531,6,932,2,19321)
 
 	-- Enchanted Clefthoof Leggings -- 35532
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val249id6val40id32val8id48
 	recipecount = recipecount + 1
@@ -2634,7 +2296,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35532,6,934,4,19331)
 
 	-- Enchanted Clefthoof Gloves -- 35533
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val178id6val30id32val6id48
 	recipecount = recipecount + 1
@@ -2643,7 +2304,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35533,6,934,3,19331)
 
 	-- Enchanted Clefthoof Boots -- 35534
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val196id6val30id32val6id48
 	recipecount = recipecount + 1
@@ -2652,7 +2312,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35534,6,934,2,19331)
 
 	-- Blastguard Pants -- 35535
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val249id6val40id33val8id48
 	recipecount = recipecount + 1
@@ -2661,7 +2320,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35535,6,932,4,19321)
 
 	-- Blastguard Boots -- 35536
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val196id6val30id33val6id48
 	recipecount = recipecount + 1
@@ -2670,7 +2328,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35536,6,932,3,19321)
 
 	-- Blastguard Belt -- 35537
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val160id6val30id33val8id48
 	recipecount = recipecount + 1
@@ -2679,7 +2336,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35537,6,932,2,19321)
 
 	-- Drums of Panic -- 35538
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35538,370,29532,1,2108)
@@ -2687,7 +2343,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35538,6,989,2,21643)
 
 	-- Drums of Restoration -- 35539
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35539,350,29531,2,2108)
@@ -2695,7 +2350,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Drums of War -- 35540
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35540,325,29528,1,2108)
@@ -2703,10 +2357,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35540,1,18754,1,18771,1,19187,1,21087)
 
 	-- Drums of Battle -- 35543
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35543,365,29529,1,2108)
@@ -2714,8 +2364,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35543,6,935,2,21432)
 
 	-- Drums of Speed -- 35544
-	-- Instance: 2367 - Caverns of Time: Old Hillsbrad Foothills
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35544,345,29530,2,2108)
@@ -2723,7 +2371,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35544,3,22128)
 
 	-- Cobrahide Leg Armor -- 35549
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35549,335,29533,1,2108)
@@ -2731,7 +2378,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35549,6,946,2,17657)
 
 	-- Nethercobra Leg Armor -- 35554
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35554,365,29535,1,2108)
@@ -2739,7 +2385,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35554,6,946,4,17657)
 
 	-- Clefthide Leg Armor -- 35555
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35555,335,29534,1,2108)
@@ -2747,7 +2392,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35555,6,942,2,17904)
 
 	-- Nethercleft Leg Armor -- 35557
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35557,365,29536,1,2108)
@@ -2755,8 +2399,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35557,6,942,4,17904)
 
 	-- Cobrascale Hood -- 35558
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val37id2val42id3val271id6val18id45val74id48
 	recipecount = recipecount + 1
@@ -2765,15 +2407,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35558,3,16409,3,24683)
 
 	-- Cobrascale Gloves -- 35559
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3562 - Hellfire Citadel: Hellfire Ramparts
-	-- Instance: 3791 - Auchindoun: Sethekk Halls
-	-- Instance: 3847 - Tempest Keep: The Botanica
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val208id6val25id44val20id45val50id48
 	recipecount = recipecount + 1
@@ -2782,11 +2415,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35559,3,16409,3,16425,3,16472,3,16539,3,17271,3,18318,3,19511,3,23542)
 
 	-- Windscale Hood -- 35560
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3792 - Auchindoun: Mana-Tombs
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val18id4val271id6val10id24val37id44val44id49
 	recipecount = recipecount + 1
@@ -2795,11 +2423,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35560,3,16504,3,16539,3,18312,3,23580,3,24979)
 
 	-- Hood of Primal Life -- 35561
-	-- Instance: 3713 - Hellfire Citadel: The Blood Furnace
-	-- Raid: 3845 - Tempest Keep
-	-- Raid: 3959 - Black Temple
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val34id3val37id4val31id5val271id6val36id49
 	recipecount = recipecount + 1
@@ -2808,12 +2431,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35561,3,17400,3,20039,3,23330,3,23586,3,24683)
 
 	-- Gloves of the Living Touch -- 35562
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3715 - Coilfang Reservoir: The Steamvault
-	-- Instance: 3792 - Auchindoun: Mana-Tombs
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val18id4val22id5val208id6val41id49
 	recipecount = recipecount + 1
@@ -2822,12 +2439,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35562,3,16409,3,16530,3,17802,3,18309,3,21387,3,24065)
 
 	-- Windslayer Wraps -- 35563
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-	-- Raid: 3845 - Tempest Keep
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val36id1val18id2val25id3val208id6val17id45
 	recipecount = recipecount + 1
@@ -2836,12 +2447,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35563,3,16425,3,16595,3,17940,3,20031,3,23586)
 
 	-- Living Dragonscale Helm -- 35564
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3789 - Auchindoun: Shadow Labrynth
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val19id3val31id4val604id6val14id24val43id49
 	recipecount = recipecount + 1
@@ -2850,13 +2455,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35564,3,16408,3,16409,3,16504,3,18633,3,23582)
 
 	-- Earthen Netherscale Boots -- 35567
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3845 - Tempest Keep
-	-- Raid: 3959 - Black Temple
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val28id1val27id3val18id4val511id6val10id24
 	recipecount = recipecount + 1
@@ -2865,14 +2463,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35567,3,15548,3,16414,3,16492,3,18202,3,20038,3,22875,3,24059)
 
 	-- Windstrike Gloves -- 35568
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3792 - Auchindoun: Mana-Tombs
-	-- Instance: 3790 - Auchindoun: Auchenai Crypts
-	-- Raid: 3805 - Zul'Aman
-
 	-- Item Stats: 
 	-- Item Stats: val36id1val18id2val25id3val465id6val17id45
 	recipecount = recipecount + 1
@@ -2881,14 +2471,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35568,3,15551,3,16409,3,16492,3,16595,3,17132,3,18314,3,18373,3,22072,3,24065)
 
 	-- Netherdrake Helm -- 35572
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3714 - Hellfire Citadel: The Shattered Halls
-	-- Instance: 3717 - Coilfang Reservoir: The Slave Pens
-	-- Raid: 3607 - Coilfang Reservoir: Serpentshrine Cavern
-	-- Raid: 3923 - Gruul's Lair
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val26id4val604id6val12id24val31id44val64id48
 	recipecount = recipecount + 1
@@ -2897,8 +2479,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35572,3,16409,3,16488,3,16544,3,16699,3,17940,3,21218,3,21350,3,22082,3,22310,3,24960)
 
 	-- Netherdrake Gloves -- 35573
-	-- Raid: 3457 - Karazhan
-
 	-- Item Stats: 
 	-- Item Stats: val26id2val24id3val23id4val465id6val50id48
 	recipecount = recipecount + 1
@@ -2907,16 +2487,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35573,3,15551,3,17981,3,21815,3,25369)
 
 	-- Thick Netherscale Breastplate -- 35574
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Raid: 3457 - Karazhan
-	-- Instance: 3715 - Coilfang Reservoir: The Steamvault
-
 	-- Item Stats: 
 	-- Item Stats: val36id2val36id3val25id4val744id6val76id48
 	recipecount = recipecount + 1
@@ -2925,7 +2495,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35574,3,15547,3,16407,3,16409,3,16504,3,16529,3,16530,3,16539,3,16540,3,17801,3,24960)
 
 	-- Ebon Netherscale Breastplate -- 35575
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val23id4val846id6val8id24val31id44val80id48
 	recipecount = recipecount + 1
@@ -2933,7 +2502,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35575,1,7866,1,7867)
 
 	-- Ebon Netherscale Belt -- 35576
-
 	-- Item Stats: 
 	-- Item Stats: val21id3val14id4val457id6val8id24val22id44val48id48
 	recipecount = recipecount + 1
@@ -2941,7 +2509,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35576,1,7866,1,7867)
 
 	-- Ebon Netherscale Bracers -- 35577
-
 	-- Item Stats: 
 	-- Item Stats: val2id2val25id3val8id4val325id6val5id24val17id44val38id48
 	recipecount = recipecount + 1
@@ -2949,7 +2516,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35577,1,7866,1,7867)
 
 	-- Netherstrike Breastplate -- 35580
-
 	-- Item Stats: 
 	-- Item Stats: val34id3val23id4val846id6val8id24val32id44val42id49
 	recipecount = recipecount + 1
@@ -2957,7 +2523,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35580,1,7866,1,7867)
 
 	-- Netherstrike Belt -- 35582
-
 	-- Item Stats: 
 	-- Item Stats: val10id3val17id4val457id6val9id24val16id44val30id49
 	recipecount = recipecount + 1
@@ -2965,7 +2530,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35582,1,7866,1,7867)
 
 	-- Netherstrike Bracers -- 35584
-
 	-- Item Stats: 
 	-- Item Stats: val13id3val13id4val355id6val6id24val17id44val22id49
 	recipecount = recipecount + 1
@@ -2973,7 +2537,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35584,1,7866,1,7867)
 
 	-- Windhawk Hauberk -- 35585
-
 	-- Item Stats: 
 	-- Item Stats: val28id3val29id4val29id5val379id6val19id44val47id49
 	recipecount = recipecount + 1
@@ -2981,7 +2544,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35585,1,7870,1,7871)
 
 	-- Windhawk Belt -- 35587
-
 	-- Item Stats: 
 	-- Item Stats: val17id3val19id4val20id5val205id6val12id44val38id49
 	recipecount = recipecount + 1
@@ -2989,7 +2551,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35587,1,7870,1,7871)
 
 	-- Windhawk Bracers -- 35588
-
 	-- Item Stats: 
 	-- Item Stats: val22id3val17id4val7id5val159id6val16id44val25id49
 	recipecount = recipecount + 1
@@ -2997,7 +2558,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35588,1,7870,1,7871)
 
 	-- Primalstrike Vest -- 35589
-
 	-- Item Stats: 
 	-- Item Stats: val38id2val39id3val379id6val12id45val108id48
 	recipecount = recipecount + 1
@@ -3005,7 +2565,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35589,1,7868,1,7869)
 
 	-- Primalstrike Belt -- 35590
-
 	-- Item Stats: 
 	-- Item Stats: val20id2val32id3val205id6val84id48
 	recipecount = recipecount + 1
@@ -3013,7 +2572,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35590,1,7868,1,7869)
 
 	-- Primalstrike Bracers -- 35591
-
 	-- Item Stats: 
 	-- Item Stats: val15id2val21id3val159id6val64id48
 	recipecount = recipecount + 1
@@ -3021,7 +2579,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,35591,1,7868,1,7869)
 
 	-- Blackstorm Leggings -- 36074
-
 	-- Item Stats: 
 	-- Item Stats: val13id2val20id3val132id6val10id45val32id48
 	recipecount = recipecount + 1
@@ -3029,7 +2586,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36074,1,7868,1,7869)
 
 	-- Wildfeather Leggings -- 36075
-
 	-- Item Stats: 
 	-- Item Stats: val16id3val11id4val12id5val132id6val21id49
 	recipecount = recipecount + 1
@@ -3037,7 +2593,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36075,1,7870,1,7871)
 
 	-- Dragonstrike Leggings -- 36076
-
 	-- Item Stats: 
 	-- Item Stats: val18id3val11id4val272id6val4id24val12id44val24id48
 	recipecount = recipecount + 1
@@ -3045,7 +2600,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36076,1,7866,1,7867)
 
 	-- Primalstorm Breastplate -- 36077
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val27id3val255id6val17id45val60id48
 	recipecount = recipecount + 1
@@ -3053,7 +2607,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36077,1,7868,1,7869)
 
 	-- Living Crystal Breastplate -- 36078
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val23id4val17id5val255id6val44id49
 	recipecount = recipecount + 1
@@ -3061,7 +2614,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36078,1,7870,1,7871)
 
 	-- Golden Dragonstrike Breastplate -- 36079
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val17id4val570id6val9id24val25id44val50id48
 	recipecount = recipecount + 1
@@ -3069,7 +2621,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36079,1,7866,1,7867)
 
 	-- Belt of Natural Power -- 36349
-
 	-- Item Stats: 
 	-- Item Stats: val29id1val27id2val38id3val12id4val227id6
 	recipecount = recipecount + 1
@@ -3078,7 +2629,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36349,7,4)
 
 	-- Belt of Deep Shadow -- 36351
-
 	-- Item Stats: 
 	-- Item Stats: val32id2val14id3val227id6val18id45val66id48
 	recipecount = recipecount + 1
@@ -3087,7 +2637,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36351,7,4)
 
 	-- Belt of the Black Eagle -- 36352
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val20id3val23id4val506id6val17id44val66id48
 	recipecount = recipecount + 1
@@ -3096,7 +2645,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36352,7,4)
 
 	-- Monsoon Belt -- 36353
-
 	-- Item Stats: 
 	-- Item Stats: val23id3val24id4val506id6val21id45val43id49
 	recipecount = recipecount + 1
@@ -3105,7 +2653,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36353,7,4)
 
 	-- Boots of Natural Grace -- 36355
-
 	-- Item Stats: 
 	-- Item Stats: val33id1val32id2val37id3val13id4val278id6val14id45
 	recipecount = recipecount + 1
@@ -3114,7 +2661,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36355,7,4)
 
 	-- Boots of Utter Darkness -- 36357
-
 	-- Item Stats: 
 	-- Item Stats: val34id3val278id6val32id44val23id45val66id48
 	recipecount = recipecount + 1
@@ -3123,7 +2669,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36357,7,4)
 
 	-- Boots of the Crimson Hawk -- 36358
-
 	-- Item Stats: 
 	-- Item Stats: val28id2val28id3val27id4val619id6val19id44val58id48
 	recipecount = recipecount + 1
@@ -3132,7 +2677,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36358,7,4)
 
 	-- Hurricane Boots -- 36359
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val26id4val619id6val6id24val26id44val39id49
 	recipecount = recipecount + 1
@@ -3141,8 +2685,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,36359,7,4)
 
 	-- Boots of Shackled Souls -- 39997
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val628id6val54id36
 	recipecount = recipecount + 1
@@ -3151,8 +2693,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,39997,6,1012,1,23159)
 
 	-- Greaves of Shackled Souls -- 40001
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val54id3val799id6val72id36
 	recipecount = recipecount + 1
@@ -3161,8 +2701,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40001,6,1012,2,23159)
 
 	-- Waistguard of Shackled Souls -- 40002
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val514id6val54id36
 	recipecount = recipecount + 1
@@ -3171,8 +2709,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40002,6,1012,2,23159)
 
 	-- Redeemed Soul Moccasins -- 40003
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val282id6val54id36
 	recipecount = recipecount + 1
@@ -3181,8 +2717,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40003,6,1012,2,23159)
 
 	-- Redeemed Soul Wristguards -- 40004
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val179id6val40id36
 	recipecount = recipecount + 1
@@ -3191,8 +2725,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40004,6,1012,2,23159)
 
 	-- Redeemed Soul Legguards -- 40005
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val54id3val359id6val72id36
 	recipecount = recipecount + 1
@@ -3201,8 +2733,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40005,6,1012,1,23159)
 
 	-- Redeemed Soul Cinch -- 40006
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val231id6val54id36
 	recipecount = recipecount + 1
@@ -3211,7 +2741,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,40006,6,1012,1,23159)
 
 	-- Bracers of Renewed Life -- 41156
-
 	-- Item Stats: 
 	-- Item Stats: val26id3val20id4val194id6val28id46val34id49
 	recipecount = recipecount + 1
@@ -3220,16 +2749,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41156,7,4)
 
 	-- Shoulderpads of Renewed Life -- 41157
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val34id3val29id4val333id6val38id46val43id49
 	recipecount = recipecount + 1
@@ -3238,16 +2757,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41157,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
 
 	-- Swiftstrike Bracers -- 41158
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val20id2val34id3val194id6val27id46val50id48
 	recipecount = recipecount + 1
@@ -3256,7 +2765,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41158,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
 
 	-- Swiftstrike Shoulders -- 41160
-
 	-- Item Stats: 
 	-- Item Stats: val29id2val34id3val333id6val38id46val74id48
 	recipecount = recipecount + 1
@@ -3265,16 +2773,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41160,7,4)
 
 	-- Bindings of Lightning Reflexes -- 41161
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val21id2val15id3val16id4val432id6val27id46val56id48
 	recipecount = recipecount + 1
@@ -3283,7 +2781,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41161,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
 
 	-- Shoulders of Lightning Reflexes -- 41162
-
 	-- Item Stats: 
 	-- Item Stats: val27id2val19id3val21id4val741id6val37id46val74id48
 	recipecount = recipecount + 1
@@ -3292,7 +2789,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41162,7,4)
 
 	-- Living Earth Bindings -- 41163
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val20id4val432id6val28id46val34id49
 	recipecount = recipecount + 1
@@ -3301,16 +2797,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41163,7,4)
 
 	-- Living Earth Shoulders -- 41164
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-	-- Raid: 3606 - Caverns of Time: Hyjal Summit
-
 	-- Item Stats: 
 	-- Item Stats: val32id3val28id4val741id6val37id46val46id49
 	recipecount = recipecount + 1
@@ -3319,7 +2805,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,41164,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
 
 	-- Cloak of Darkness -- 42546
-
 	-- Item Stats: 
 	-- Item Stats: val23id1val25id3val101id6val24id44
 	recipecount = recipecount + 1
@@ -3328,7 +2813,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,42546,6,967,4,18255)
 
 	-- Shadowprowler's Chestguard -- 42731
-
 	-- Item Stats: 
 	-- Item Stats: val32id1val40id2val12id3val333id6val8id45
 	recipecount = recipecount + 1
@@ -3337,7 +2821,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,42731,6,967,3,18255)
 
 	-- Knothide Ammo Pouch -- 44343
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44343,305,34099,2,2108)
@@ -3345,7 +2828,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Knothide Quiver -- 44344
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44344,305,34100,2,2108)
@@ -3353,7 +2835,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Quiver of a Thousand Feathers -- 44359
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44359,350,34105,1,2108)
@@ -3361,7 +2842,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,44359,6,1011,3,21655)
 
 	-- Netherscale Ammo Pouch -- 44768
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44768,350,34106,1,2108)
@@ -3369,7 +2849,6 @@ ADNaxx40,
 	self:addTradeAcquire(RecipeDB,44768,6,947,3,17585)
 
 	-- Glove Reinforcements -- 44770
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44770,345,34207,2,2108)
@@ -3377,7 +2856,6 @@ ADNaxx40,
 	-- No acquire information
 
 	-- Winter Boots -- 44953
-Seasonal, 
 	-- Item Stats: 
 	-- Item Stats: val2id6
 	recipecount = recipecount + 1
@@ -3386,7 +2864,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,44953,5,1)
 
 	-- Heavy Knothide Armor Kit -- 44970
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44970,345,34330,1,2108)
@@ -3394,7 +2871,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Leatherworker's Satchel -- 45100
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45100,290,34482,2,2108)
@@ -3402,7 +2878,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Bag of Many Hides -- 45117
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45117,360,34490,2,2108)
@@ -3410,7 +2885,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,45117,3,22143,3,22144,3,22148,3,23022)
 
 	-- Leather Gauntlets of the Sun -- 46132
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val26id4val30id5val312id6val38id46val44id49
 	recipecount = recipecount + 1
@@ -3419,7 +2893,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46132,3,25363,3,25367,3,25368,3,25369,3,25371,3,25507,3,25597)
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val33id3val25id4val694id6val34id46val82id48
 	recipecount = recipecount + 1
@@ -3428,7 +2901,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46133,3,25363,3,25367,3,25369,3,25370,3,25507)
 
 	-- Gloves of Immortal Dusk -- 46134
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val33id3val312id6val30id44val90id48
 	recipecount = recipecount + 1
@@ -3437,7 +2909,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46134,3,25369,3,25370,3,25371,3,25507)
 
 	-- Sun-Drenched Scale Gloves -- 46135
-
 	-- Item Stats: 
 	-- Item Stats: val45id3val36id4val694id6val1id24val32id46val44id49
 	recipecount = recipecount + 1
@@ -3446,7 +2917,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46135,3,25369,3,25371)
 
 	-- Leather Chestguard of the Sun -- 46136
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val41id4val33id5val499id6val15id24val71id49
 	recipecount = recipecount + 1
@@ -3455,7 +2925,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46136,3,25367,3,25369,3,25370,3,25507,3,25593)
 
 	-- Embrace of the Phoenix -- 46137
-
 	-- Item Stats: 
 	-- Item Stats: val44id2val43id3val30id4val1110id6val44id46val112id48
 	recipecount = recipecount + 1
@@ -3464,7 +2933,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46137,3,25367,3,25369,3,25371,3,25507)
 
 	-- Carapace of Sun and Shadow -- 46138
-
 	-- Item Stats: 
 	-- Item Stats: val42id2val45id3val499id6val30id45val38id46val128id48
 	recipecount = recipecount + 1
@@ -3473,7 +2941,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46138,3,25363,3,25367,3,25368,3,25369,3,25507)
 
 	-- Sun-Drenched Scale Chestguard -- 46139
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val41id4val1110id6val12id24val40id46val71id49
 	recipecount = recipecount + 1
@@ -3482,7 +2949,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,46139,3,25363,3,25367,3,25368,3,25369,3,25371,3,25593)
 
 	-- Heavy Borean Leather -- 50936
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50936,365,38425,1,2108)
@@ -3490,7 +2956,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Chestguard -- 50938
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val317id6val37id44val56id49
 	recipecount = recipecount + 1
@@ -3499,7 +2964,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Leggings -- 50939
-
 	-- Item Stats: 
 	-- Item Stats: val40id3val36id4val270id6val48id49
 	recipecount = recipecount + 1
@@ -3508,7 +2972,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Shoulderpads -- 50940
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val31id4val251id6val41id49
 	recipecount = recipecount + 1
@@ -3517,7 +2980,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Gloves -- 50941
-
 	-- Item Stats: 
 	-- Item Stats: val22id3val23id4val193id6val44id49
 	recipecount = recipecount + 1
@@ -3526,7 +2988,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Boots -- 50942
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val27id4val218id6val42id49
 	recipecount = recipecount + 1
@@ -3535,7 +2996,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Belt -- 50943
-
 	-- Item Stats: 
 	-- Item Stats: val25id3val23id4val183id6val48id49
 	recipecount = recipecount + 1
@@ -3544,7 +3004,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Chestpiece -- 50944
-
 	-- Item Stats: 
 	-- Item Stats: val43id2val42id3val326id6val76id48
 	recipecount = recipecount + 1
@@ -3553,7 +3012,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Leggings -- 50945
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val277id6val46id44val74id48
 	recipecount = recipecount + 1
@@ -3562,7 +3020,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Shoulderpads -- 50946
-
 	-- Item Stats: 
 	-- Item Stats: val36id2val27id3val244id6val60id48
 	recipecount = recipecount + 1
@@ -3571,7 +3028,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Gloves -- 50947
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val25id3val198id6val28id45
 	recipecount = recipecount + 1
@@ -3580,7 +3036,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Boots -- 50948
-
 	-- Item Stats: 
 	-- Item Stats: val20id2val39id3val218id6val72id48
 	recipecount = recipecount + 1
@@ -3589,7 +3044,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Belt -- 50949
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val188id6val31id44val70id48
 	recipecount = recipecount + 1
@@ -3598,7 +3052,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Chestguard -- 50950
-
 	-- Item Stats: 
 	-- Item Stats: val38id2val57id3val706id6val74id48
 	recipecount = recipecount + 1
@@ -3607,7 +3060,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Leggings -- 50951
-
 	-- Item Stats: 
 	-- Item Stats: val44id2val601id6val23id44val72id48
 	recipecount = recipecount + 1
@@ -3616,7 +3068,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Shoulders -- 50952
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val25id3val530id6val28id44
 	recipecount = recipecount + 1
@@ -3625,7 +3076,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Gloves -- 50953
-
 	-- Item Stats: 
 	-- Item Stats: val30id2val28id3val20id4val454id6val58id48
 	recipecount = recipecount + 1
@@ -3634,7 +3084,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Boots -- 50954
-
 	-- Item Stats: 
 	-- Item Stats: val39id2val513id6val26id44val25id45
 	recipecount = recipecount + 1
@@ -3643,7 +3092,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Belt -- 50955
-
 	-- Item Stats: 
 	-- Item Stats: val28id2val24id3val18id4val397id6val56id48
 	recipecount = recipecount + 1
@@ -3652,7 +3100,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Chestguard -- 50956
-
 	-- Item Stats: 
 	-- Item Stats: val32id4val706id6val13id47val56id49
 	recipecount = recipecount + 1
@@ -3661,7 +3108,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Legguards -- 50957
-
 	-- Item Stats: 
 	-- Item Stats: val34id4val618id6val30id44val56id49
 	recipecount = recipecount + 1
@@ -3670,7 +3116,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Shoulders -- 50958
-
 	-- Item Stats: 
 	-- Item Stats: val19id4val559id6val29id44val46id49
 	recipecount = recipecount + 1
@@ -3679,7 +3124,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Gloves -- 50959
-
 	-- Item Stats: 
 	-- Item Stats: val22id4val429id6val23id44val41id49
 	recipecount = recipecount + 1
@@ -3688,7 +3132,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Boots -- 50960
-
 	-- Item Stats: 
 	-- Item Stats: val27id3val499id6val12id47val45id49
 	recipecount = recipecount + 1
@@ -3697,7 +3140,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Belt -- 50961
-
 	-- Item Stats: 
 	-- Item Stats: val35id3val24id4val397id6val42id49
 	recipecount = recipecount + 1
@@ -3706,7 +3148,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Borean Armor Kit -- 50962
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50962,365,38375,1,2108)
@@ -3714,7 +3155,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Heavy Borean Armor Kit -- 50963
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50963,395,38376,2,2108)
@@ -3722,7 +3162,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Jormungar Leg Armor -- 50964
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50964,400,38371,1, 2108)
@@ -3730,7 +3169,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frosthide Leg Armor -- 50965
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50965,425,38373,4,2108)
@@ -3738,7 +3176,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Leg Armor -- 50966
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50966,395,38372,1, 2108)
@@ -3746,7 +3183,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Icescale Leg Armor -- 50967
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50967,425,38374,4,2108)
@@ -3754,7 +3190,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Trapper's Traveling Pack -- 50970
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50970,415,38399,3,2108)
@@ -3762,7 +3197,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,50970,6,1073,3,31916,6,1073,3,32763)
 
 	-- Mammoth Mining Bag -- 50971
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,50971,415,38347,3,2108)
@@ -3770,7 +3204,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,50971,6,1119,2,32540)
 
 	-- Black Chitinguard Boots -- 51568
-
 	-- Item Stats: 
 	-- Item Stats: val39id2val62id3val345id6val33id44val76id48
 	recipecount = recipecount + 1
@@ -3779,7 +3212,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Arctic Leggings -- 51569
-
 	-- Item Stats: 
 	-- Item Stats: val44id2val82id3val428id6val43id44val110id48
 	recipecount = recipecount + 1
@@ -3788,7 +3220,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Arctic Chestpiece -- 51570
-
 	-- Item Stats: 
 	-- Item Stats: val52id2val84id3val502id6val45id44val104id48
 	recipecount = recipecount + 1
@@ -3797,7 +3228,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Wristguards -- 51571
-
 	-- Item Stats: 
 	-- Item Stats: val17id2val33id3val150id6val60id48
 	recipecount = recipecount + 1
@@ -3806,7 +3236,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Arctic Helm -- 51572
-
 	-- Item Stats: 
 	-- Item Stats: val31id2val58id3val279id6val106id48
 	recipecount = recipecount + 1
@@ -3815,8 +3244,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Bracers of Shackled Souls -- 52733
-	-- Raid: 3959 - Black Temple
-
 	-- Item Stats: 
 	-- Item Stats: val30id3val400id6val40id36
 	recipecount = recipecount + 1
@@ -3825,7 +3252,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,52733,6,1012,1,23159)
 
 	-- Cloak of Tormented Skies -- 55199
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val31id1val48id3val337id6val24id31
 	recipecount = recipecount + 1
@@ -3834,7 +3260,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Bracers of Deflection -- 55243
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val239id6val82id27
 	recipecount = recipecount + 1
@@ -3843,7 +3268,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Bracers -- 60599
-
 	-- Item Stats: 
 	-- Item Stats: val23id2val24id3val15id4val335id6val48id48
 	recipecount = recipecount + 1
@@ -3852,7 +3276,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Frostscale Helm -- 60600
-
 	-- Item Stats: 
 	-- Item Stats: val42id2val42id3val28id4val622id6val84id48
 	recipecount = recipecount + 1
@@ -3861,7 +3284,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Frostscale Leggings -- 60601
-
 	-- Item Stats: 
 	-- Item Stats: val39id2val46id3val929id6val39id44val62id48
 	recipecount = recipecount + 1
@@ -3870,7 +3292,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Frostscale Breastplate -- 60604
-
 	-- Item Stats: 
 	-- Item Stats: val55id2val64id3val1089id6val55id44val88id48
 	recipecount = recipecount + 1
@@ -3879,7 +3300,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dragonstompers -- 60605
-
 	-- Item Stats: 
 	-- Item Stats: val33id2val57id3val19id4val768id6val26id45val92id48
 	recipecount = recipecount + 1
@@ -3888,7 +3308,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Wristguards -- 60607
-
 	-- Item Stats: 
 	-- Item Stats: val21id5val150id6val19id44val35id49
 	recipecount = recipecount + 1
@@ -3897,7 +3316,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Iceborne Helm -- 60608
-
 	-- Item Stats: 
 	-- Item Stats: val35id5val279id6val36id44val62id49
 	recipecount = recipecount + 1
@@ -3906,7 +3324,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Iceborne Leggings -- 60611
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val45id4val57id5val418id6val67id49
 	recipecount = recipecount + 1
@@ -3915,7 +3332,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Iceborne Chestguard -- 60613
-
 	-- Item Stats: 
 	-- Item Stats: val43id3val46id4val59id5val490id6val70id49
 	recipecount = recipecount + 1
@@ -3924,7 +3340,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Bugsquashers -- 60620
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val35id4val46id5val345id6val54id49
 	recipecount = recipecount + 1
@@ -3933,7 +3348,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Bracers -- 60622
-
 	-- Item Stats: 
 	-- Item Stats: val21id4val335id6val19id44val35id49
 	recipecount = recipecount + 1
@@ -3942,7 +3356,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nerubian Helm -- 60624
-
 	-- Item Stats: 
 	-- Item Stats: val36id4val622id6val35id44val62id49
 	recipecount = recipecount + 1
@@ -3951,7 +3364,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Nerubian Leggings -- 60627
-
 	-- Item Stats: 
 	-- Item Stats: val61id3val57id4val929id6val32id44val67id49
 	recipecount = recipecount + 1
@@ -3960,7 +3372,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dark Nerubian Chestpiece -- 60629
-
 	-- Item Stats: 
 	-- Item Stats: val64id3val59id4val1089id6val34id44val70id49
 	recipecount = recipecount + 1
@@ -3969,7 +3380,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Scaled Icewalkers -- 60630
-
 	-- Item Stats: 
 	-- Item Stats: val33id3val35id4val768id6val18id47val54id49
 	recipecount = recipecount + 1
@@ -3978,7 +3388,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Cloak of Harsh Winds -- 60631
-
 	-- Item Stats: 
 	-- Item Stats: val14id2val43id3val121id6val30id48
 	recipecount = recipecount + 1
@@ -3987,7 +3396,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Ice Striker's Cloak -- 60637
-
 	-- Item Stats: 
 	-- Item Stats: val24id2val75id3val150id6val38id46val100id48
 	recipecount = recipecount + 1
@@ -3996,7 +3404,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Durable Nerubhide Cape -- 60640
-
 	-- Item Stats: Tanking, 
 	-- Item Stats: val41id1val75id3val150id6val21id12val49id26
 	recipecount = recipecount + 1
@@ -4005,7 +3412,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Pack of Endless Pockets -- 60643
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60643,415,44446,3,2108)
@@ -4013,7 +3419,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Dragonscale Ammo Pouch -- 60645
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60645,415,44447,3,2108)
@@ -4021,7 +3426,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60645,6,1073,2,31916,6,1073,2,32763)
 
 	-- Nerubian Reinforced Quiver -- 60647
-
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60647,415,44448,3,2108)
@@ -4029,7 +3433,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60647,6,1098,2,32538)
 
 	-- Razorstrike Breastplate -- 60649
-
 	-- Item Stats: 
 	-- Item Stats: val63id2val69id3val45id4val1171id6val46id44val102id48
 	recipecount = recipecount + 1
@@ -4038,7 +3441,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Virulent Spaulders -- 60651
-
 	-- Item Stats: 
 	-- Item Stats: val38id2val48id3val33id4val878id6val34id44val94id48
 	recipecount = recipecount + 1
@@ -4047,7 +3449,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Eaglebane Bracers -- 60652
-
 	-- Item Stats: 
 	-- Item Stats: val41id2val39id3val47id4val512id6val34id45val64id48
 	recipecount = recipecount + 1
@@ -4056,7 +3457,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nightshock Hood -- 60655
-
 	-- Item Stats: 
 	-- Item Stats: val66id3val51id4val952id6val67id44val74id49
 	recipecount = recipecount + 1
@@ -4065,7 +3465,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Nightshock Girdle -- 60658
-
 	-- Item Stats: 
 	-- Item Stats: val48id3val37id4val659id6val50id44val54id49
 	recipecount = recipecount + 1
@@ -4074,7 +3473,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Leggings of Visceral Strikes -- 60660
-
 	-- Item Stats: 
 	-- Item Stats: val69id2val60id3val461id6val68id44val100id48
 	recipecount = recipecount + 1
@@ -4083,7 +3481,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Seafoam Gauntlets -- 60665
-
 	-- Item Stats: 
 	-- Item Stats: val47id2val56id3val329id6val92id48
 	recipecount = recipecount + 1
@@ -4092,7 +3489,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Jormscale Footpads -- 60666
-
 	-- Item Stats: 
 	-- Item Stats: val47id2val61id3val362id6val43id44val74id48
 	recipecount = recipecount + 1
@@ -4101,7 +3497,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Wildscale Breastplate -- 60669
-
 	-- Item Stats: 
 	-- Item Stats: val34id4val68id5val527id6val53id44val80id49
 	recipecount = recipecount + 1
@@ -4110,7 +3505,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Purehorn Spaulders -- 60671
-
 	-- Item Stats: 
 	-- Item Stats: val36id3val38id4val395id6val37id46val67id49
 	recipecount = recipecount + 1
@@ -4119,7 +3513,6 @@ Seasonal,
 	-- No acquire information
 
 	-- Eviscerator's Facemask -- 60697
-
 	-- Item Stats: 
 	-- Item Stats: val69id2val69id3val428id6val46id29val46id44val92id48
 	recipecount = recipecount + 1
@@ -4128,7 +3521,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60697,2,32515)
 
 	-- Eviscerator's Shoulderpads -- 60702
-
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val395id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4137,7 +3529,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60702,2,32515)
 
 	-- Eviscerator's Chestguard -- 60703
-
 	-- Item Stats: 
 	-- Item Stats: val69id2val69id3val527id6val46id29val46id44val92id48
 	recipecount = recipecount + 1
@@ -4146,7 +3537,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60703,2,32515)
 
 	-- Eviscerator's Bindings -- 60704
-
 	-- Item Stats: 
 	-- Item Stats: val39id2val38id3val230id6val26id29val26id44val50id48
 	recipecount = recipecount + 1
@@ -4155,7 +3545,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60704,2,32515)
 
 	-- Eviscerator's Gauntlets -- 60705
-
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val329id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4164,7 +3553,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60705,2,32515)
 
 	-- Eviscerator's Waistguard -- 60706
-
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val296id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4173,7 +3561,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60706,2,32515)
 
 	-- Eviscerator's Legguards -- 60711
-
 	-- Item Stats: 
 	-- Item Stats: val69id2val69id3val461id6val46id29val46id44val92id48
 	recipecount = recipecount + 1
@@ -4182,7 +3569,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60711,2,32515)
 
 	-- Eviscerator's Treads -- 60712
-
 	-- Item Stats: 
 	-- Item Stats: val51id2val51id3val362id6val34id29val34id44val58id48
 	recipecount = recipecount + 1
@@ -4191,7 +3577,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60712,2,32515)
 
 	-- Overcast Headguard -- 60715
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val46id5val428id6val46id29val81id49
 	recipecount = recipecount + 1
@@ -4200,7 +3585,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60715,2,32515)
 
 	-- Overcast Spaulders -- 60716
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val395id6val34id29val60id49
 	recipecount = recipecount + 1
@@ -4209,7 +3593,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60716,2,32515)
 
 	-- Overcast Chestguard -- 60718
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val46id5val527id6val46id29val81id49
 	recipecount = recipecount + 1
@@ -4218,7 +3601,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60718,2,32515)
 
 	-- Overcast Bracers -- 60720
-
 	-- Item Stats: 
 	-- Item Stats: val39id3val26id4val25id5val230id6val26id29val44id49
 	recipecount = recipecount + 1
@@ -4227,7 +3609,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60720,2,32515)
 
 	-- Overcast Handwraps -- 60721
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val329id6val34id29val60id49
 	recipecount = recipecount + 1
@@ -4236,7 +3617,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60721,2,32515)
 
 	-- Overcast Belt -- 60723
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val296id6val34id29val60id49
 	recipecount = recipecount + 1
@@ -4245,7 +3625,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60723,2,32515)
 
 	-- Overcast Leggings -- 60725
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val46id5val461id6val46id29val81id49
 	recipecount = recipecount + 1
@@ -4254,7 +3633,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60725,2,32515)
 
 	-- Overcast Boots -- 60727
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val34id5val362id6val34id29val60id49
 	recipecount = recipecount + 1
@@ -4263,7 +3641,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60727,2,32515)
 
 	-- Swiftarrow Helm -- 60728
-
 	-- Item Stats: 
 	-- Item Stats: val46id2val69id3val46id4val952id6val46id29val45id44val92id48
 	recipecount = recipecount + 1
@@ -4272,7 +3649,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60728,2,32515)
 
 	-- Swiftarrow Shoulderguards -- 60729
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val878id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4281,7 +3657,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60729,2,32515)
 
 	-- Swiftarrow Hauberk -- 60730
-
 	-- Item Stats: 
 	-- Item Stats: val46id2val69id3val46id4val1171id6val46id29val45id44val92id48
 	recipecount = recipecount + 1
@@ -4290,7 +3665,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60730,2,32515)
 
 	-- Swiftarrow Bracers -- 60731
-
 	-- Item Stats: 
 	-- Item Stats: val26id2val39id3val25id4val512id6val25id29val26id44val50id48
 	recipecount = recipecount + 1
@@ -4299,7 +3673,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60731,2,32515)
 
 	-- Swiftarrow Gauntlets -- 60732
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val732id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4308,7 +3681,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60732,2,32515)
 
 	-- Swiftarrow Belt -- 60734
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val659id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4317,7 +3689,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60734,2,32515)
 
 	-- Swiftarrow Leggings -- 60735
-
 	-- Item Stats: 
 	-- Item Stats: val46id2val69id3val46id4val1025id6val46id29val45id44val92id48
 	recipecount = recipecount + 1
@@ -4326,7 +3697,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60735,2,32515)
 
 	-- Swiftarrow Boots -- 60737
-
 	-- Item Stats: 
 	-- Item Stats: val34id2val51id3val34id4val805id6val34id29val34id44val68id48
 	recipecount = recipecount + 1
@@ -4335,7 +3705,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60737,2,32515)
 
 	-- Stormhide Crown -- 60743
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val952id6val46id29val18id47val80id49
 	recipecount = recipecount + 1
@@ -4344,7 +3713,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60743,2,32515)
 
 	-- Stormhide Shoulders -- 60746
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val878id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
@@ -4353,7 +3721,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60746,2,32515)
 
 	-- Stormhide Hauberk -- 60747
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val1171id6val46id29val18id47val80id49
 	recipecount = recipecount + 1
@@ -4362,7 +3729,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60747,2,32515)
 
 	-- Stormhide Wristguards -- 60748
-
 	-- Item Stats: 
 	-- Item Stats: val37id3val26id4val512id6val26id29val10id47val46id49
 	recipecount = recipecount + 1
@@ -4371,7 +3737,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60748,2,32515)
 
 	-- Stormhide Grips -- 60749
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val732id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
@@ -4380,7 +3745,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60749,2,32515)
 
 	-- Stormhide Belt -- 60750
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val659id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
@@ -4389,7 +3753,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60750,2,32515)
 
 	-- Stormhide Legguards -- 60751
-
 	-- Item Stats: 
 	-- Item Stats: val69id3val46id4val1025id6val46id29val18id47val80id49
 	recipecount = recipecount + 1
@@ -4398,7 +3761,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60751,2,32515)
 
 	-- Stormhide Stompers -- 60752
-
 	-- Item Stats: 
 	-- Item Stats: val51id3val34id4val805id6val34id29val14id47val60id49
 	recipecount = recipecount + 1
@@ -4407,7 +3769,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60752,2,32515)
 
 	-- Giantmaim Legguards -- 60754
-
 	-- Item Stats: 
 	-- Item Stats: val90id2val63id3val52id4val1097id6val128id48
 	recipecount = recipecount + 1
@@ -4416,7 +3777,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60754,2,32515)
 
 	-- Giantmaim Bracers -- 60755
-
 	-- Item Stats: 
 	-- Item Stats: val50id2val43id3val29id4val549id6val72id48
 	recipecount = recipecount + 1
@@ -4425,7 +3785,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60755,2,32515)
 
 	-- Revenant's Breastplate -- 60756
-
 	-- Item Stats: 
 	-- Item Stats: val68id3val68id4val1254id6val89id46val105id49
 	recipecount = recipecount + 1
@@ -4434,7 +3793,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60756,2,32515)
 
 	-- Revenant's Treads -- 60757
-
 	-- Item Stats: 
 	-- Item Stats: val49id3val51id4val862id6val66id46val77id49
 	recipecount = recipecount + 1
@@ -4443,7 +3801,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60757,2,32515)
 
 	-- Trollwoven Spaulders -- 60758
-
 	-- Item Stats: 
 	-- Item Stats: val72id2val79id3val423id6val28id12val114id48
 	recipecount = recipecount + 1
@@ -4452,7 +3809,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60758,2,32515)
 
 	-- Trollwoven Girdle -- 60759
-
 	-- Item Stats: 
 	-- Item Stats: val66id2val72id3val317id6val38id12val132id48
 	recipecount = recipecount + 1
@@ -4461,7 +3817,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60759,2,32515)
 
 	-- Earthgiving Legguards -- 60760
-
 	-- Item Stats: 
 	-- Item Stats: val78id3val64id4val89id5val494id6val105id49
 	recipecount = recipecount + 1
@@ -4470,7 +3825,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60760,2,32515)
 
 	-- Earthgiving Boots -- 60761
-
 	-- Item Stats: 
 	-- Item Stats: val57id3val48id4val66id5val388id6val77id49
 	recipecount = recipecount + 1
@@ -4479,7 +3833,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60761,2,32515)
 
 	-- Polar Vest -- 60996
-
 	-- Item Stats: 
 	-- Item Stats: val169id3val578id6val115id35
 	recipecount = recipecount + 1
@@ -4488,7 +3841,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60996,2,32515)
 
 	-- Polar Cord -- 60997
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val325id6val86id35
 	recipecount = recipecount + 1
@@ -4497,7 +3849,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60997,2,32515)
 
 	-- Polar Boots -- 60998
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val398id6val86id35
 	recipecount = recipecount + 1
@@ -4506,7 +3857,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60998,2,32515)
 
 	-- Icy Scale Chestguard -- 60999
-
 	-- Item Stats: 
 	-- Item Stats: val169id3val1286id6val115id35
 	recipecount = recipecount + 1
@@ -4515,7 +3865,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,60999,2,32515)
 
 	-- Icy Scale Belt -- 61000
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val723id6val86id35
 	recipecount = recipecount + 1
@@ -4524,7 +3873,6 @@ Seasonal,
 	self:addTradeAcquire(RecipeDB,61000,2,32515)
 
 	-- Icy Scale Boots -- 61002
-
 	-- Item Stats: 
 	-- Item Stats: val129id3val884id6val86id35
 	recipecount = recipecount + 1
