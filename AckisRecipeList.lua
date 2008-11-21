@@ -142,6 +142,8 @@ function addon:OnInitialize()
 			frameopts = {
 				offsetx = 0,
 				offsety = 0,
+				anchorTo = "",
+				anchorFrom = "",
 				uiscale = 1,
 				tooltipscale = .9,
 			},

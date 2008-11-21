@@ -3141,12 +3141,12 @@ end
 
 local function SaveFramePosition()
 
-	local opts = self.db.profile.frameopts
-
-	local _, _, _, offsetx, offsety = addon.Frame:GetPoint()
-
-	opts.offsetx = offsetx
-	opts.offsety = offsety
+	local opts = addon.db.profile.frameopts
+	local from, _, to, x, y = addon.Frame:GetPoint()
+	opts.anchorFrom = from
+	opts.anchorTo = to
+	opts.offsetx = x
+	opts.offsety = y
 
 end
 
@@ -3274,21 +3274,22 @@ function addon:CreateFrame(
 
 		addon.Frame:ClearAllPoints()
 
-		local opts = self.db.profile.frame
+		local opts = self.db.profile.frameopts
 
-		-- Anchor frame to ATSW
-		if (ATSWFrame) then
-
-			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-
-		elseif (Skillet) then
-
-			addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-
+		if ( opts.anchorTo == "" ) then
+			-- no values yet, clamp to whatever frame is appropriate
+			if (ATSWFrame) then
+				-- Anchor frame to ATSW
+				addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+			elseif (Skillet) then
+				-- Anchor frame to Skillet
+				addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+			else
+				-- Anchor to default tradeskill frame
+				addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0 )
+			end
 		else
-
-			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", opts.offsetx, opts.offsety)
-
+			addon.Frame:SetPoint( opts.anchorFrom, UOParent, opts.anchorTo, opts.offsetx, opts.offsety )
 		end
 
 		addon.Frame:Show()
