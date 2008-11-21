@@ -1678,7 +1678,7 @@ $proftable = {"Alchemy" 			=> 2259,
 				}
 
 $bosslist = [
-	"Sjonnir The Ironshaper",
+	"Sjonnir the Ironshaper",
 	"Akil'zon",
 	"Anetheron",
 	"Anub'arak",
@@ -1768,11 +1768,11 @@ $bosszonemap = {
 	"Bloodaxe Raider" => "Blackrock Spire",
 	"Forgotten One" => "Ahn'kahet: The Old Kingdom",
 	"Gorgolon the All-seeing" => "",
-	"Great-father Winter" => "",
+	"Great-father Winter" => "Orgrimmar",
 	"Illidari Defiler" => "Black Temple",
 	"Lightning Construct" => "Halls of Stone",
 	"Ravaged Cadaver" => "Stratholme",
-	"Sjonnir The Ironshaper" => "Sjonnir The Ironshaper",
+	"Sjonnir the Ironshaper" => "Halls of Stone",
 	"Skeletal Fiend (Enraged Form)" => "Duskwood",
 	"Storm Fury" => "Black Temple",
 	"Gorgolon the All-seeing" => "Blade's Edge Mountains",
