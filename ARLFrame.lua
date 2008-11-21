@@ -3141,12 +3141,12 @@ end
 
 local function SaveFramePosition()
 
-	local p = self.db.profile
+	local opts = self.db.profile.frameopts
 
 	local _, _, _, offsetx, offsety = addon.Frame:GetPoint()
 
-	p.offsetx = offsetx
-	p.offsety = offsety
+	opts.offsetx = offsetx
+	opts.offsety = offsety
 
 end
 
@@ -3274,7 +3274,7 @@ function addon:CreateFrame(
 
 		addon.Frame:ClearAllPoints()
 
-		local p = self.db.profile
+		local opts = self.db.profile.frame
 
 		-- Anchor frame to ATSW
 		if (ATSWFrame) then
@@ -3287,7 +3287,7 @@ function addon:CreateFrame(
 
 		else
 
-			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", p.offsetx, p.offsety)
+			addon.Frame:SetPoint("CENTER", UIParent, "CENTER", opts.offsetx, opts.offsety)
 
 		end
 
@@ -4231,9 +4231,9 @@ function addon:CreateFrame(
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize
 
 	-- reset the scale
-	addon.Frame:SetScale(addon.db.profile.uiscale)
-	arlTooltip:SetScale(addon.db.profile.tooltipscale)
-	arlTooltip2:SetScale(addon.db.profile.tooltipscale)
+	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
+	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
+	arlTooltip2:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])

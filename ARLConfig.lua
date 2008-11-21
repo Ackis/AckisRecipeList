@@ -1073,9 +1073,9 @@ local function fullOptions()
 							max		= 1.5,
 							step	= .05,
 							bigStep = .05,
-							get		= function() return addon.db.profile.uiscale end,
+							get		= function() return addon.db.profile.frameopts.uiscale end,
 							set		= function( info, v ) 
-										addon.db.profile.uiscale = v
+										addon.db.profile.frameopts.uiscale = v
 										if ( addon.Frame ) then addon.Frame:SetScale( v ) end
 									  end,
 						},
@@ -1088,9 +1088,9 @@ local function fullOptions()
 							max		= 1.5,
 							step	= .05,
 							bigStep = .05,
-							get		= function() return addon.db.profile.tooltipscale end,
+							get		= function() return addon.db.profile.frameopts.tooltipscale end,
 							set		= function( info, v ) 
-										addon.db.profile.tooltipscale = v
+										addon.db.profile.frameopts.tooltipscale = v
 										if ( arlTooltip ) then arlTooltip:SetScale( v ) end
 										if ( arlTooltip2 ) then arlTooltip:SetScale( v ) end
 									  end,

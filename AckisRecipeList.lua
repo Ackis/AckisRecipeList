@@ -137,9 +137,14 @@ function addon:OnInitialize()
 	self.db:RegisterDefaults(
 	{
 		profile = {
+
 			-- Frame options
-			offsetx = 0,
-			offsety = 0,
+			frameopts = {
+				offsetx = 0,
+				offsety = 0,
+				uiscale = 1,
+				tooltipscale = .9,
+			},
 
 			-- Sorting Options
 			sorting = L["Skill"],
@@ -149,8 +154,6 @@ function addon:OnInitialize()
 			includeexcluded = false,
 			closeguionskillclose = false,
 			ignoreexclusionlist = false,
-			uiscale = 1,
-			tooltipscale = .9,
 
 			-- Recipe Exclusion
 			exclusionlist = {},
