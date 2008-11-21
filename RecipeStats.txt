@@ -2,10 +2,18 @@ Unknown zones:
 	"Azure Captain" => "",
 	"Azure Sorceror" => "",
 	"Azure Stalker" => "",
+	"Dark Rune Warrior" => "",
+	"Drakkari Fire Weaver" => "",
 	"Drakkari God Hunter" => "",
+	"Drakkari Golem" => "",
 	"Drakkari Medicine Man" => "",
+	"Drakkari Rhino" => "",
 	"Drakkari Shaman" => "",
+	"Hardened Steel Berserker" => "",
+	"Hardened Steel Reaver" => "",
+	"Infinite Agent" => "",
 	"Kodo Hide Bag" => "",
+	"Living Mojo" => "",
 	"Living Ruby Serpent" => "",
 	"Novos the Summoner" => "",
 	"Outland Children's Week Dark Portal Trigger" => "",
@@ -14,6 +22,11 @@ Unknown zones:
 	"Portal Guardian" => "",
 	"Risen Drakkari Death Knight" => "",
 	"Savage Worg" => "",
+	"Sjonnir The Ironshaper" => "",
+	"Spitting Cobra" => "",
+	"Stormforged Construct" => "",
+	"Supplying the Front" => "",
+	"Unrelenting Construct" => "",
 
 Unknown faction:
 Skeletal Fiend (Enraged Form) - ,
@@ -23,6 +36,7 @@ Outland Children's Week Dark Portal Trigger - ,
 Outland Children's Week Exodar 01 Trigger - ,
 Outland Children's Week Silvermoon 01 Trigger - ,
 Kodo Hide Bag - ,
+Supplying the Front - ,
 
 Instance mobs:
 	"Abomination",
@@ -105,8 +119,11 @@ Instance mobs:
 	"Doomforge Dragoon",
 	"Dragonmaw Wind Reaver",
 	"Drakkari Earthshaker",
+	"Drakkari Fire Weaver",
 	"Drakkari God Hunter",
+	"Drakkari Golem",
 	"Drakkari Medicine Man",
+	"Drakkari Rhino",
 	"Durnholde Lookout",
 	"Durnholde Rifleman",
 	"Durnholde Tracking Hound",
@@ -156,9 +173,11 @@ Instance mobs:
 	"High Botanist Freywinn",
 	"Homunculus",
 	"Hydromancer Thespia",
+	"Infinite Agent",
 	"Jan'alai",
 	"Kaz'rogal",
 	"Keristrasza",
+	"Living Mojo",
 	"Lord Kri",
 	"Lord Roccor",
 	"Loro",
@@ -243,6 +262,7 @@ Instance mobs:
 	"Spectral Stallion",
 	"Spell Shade",
 	"Spirestone Warlord",
+	"Spitting Cobra",
 	"Sunseeker Astromage",
 	"Sunseeker Botanist",
 	"Sunseeker Harvester",
@@ -809,6 +829,7 @@ No acquire information:
 55390 - Destructive Skyflare Diamond - Jewelcrafting
 53975 - Inscribed Monarch Topaz - Jewelcrafting
 52843 - Moonglow Ink - Inscription
+60767 - Enchant Bracers - Superior Spellpower - Enchanting
 20015 - Enchant Cloak - Superior Defense - Enchanting
 44636 - Enchant Ring - Greater Spellpower - Enchanting
 51570 - Dark Arctic Chestpiece - Leatherworking
@@ -1121,6 +1142,7 @@ No acquire information:
 56988 - Glyph of Remove Curse - Inscription
 54017 - Precise Bloodstone - Jewelcrafting
 57130 - Glyph of Vigor - Inscription
+19067 - Stormshroud Pants - Leatherworking
 53876 - Fierce Huge Citrine - Jewelcrafting
 57272 - Glyph of Shadowburn - Inscription
 60668 - Enchant Gloves - Crusher - Enchanting
@@ -1146,8 +1168,8 @@ No acquire information:
 53880 - Deft Huge Citrine - Jewelcrafting
 57276 - Glyph of Unstable Affliction - Inscription
 56003 - Spellweave - Tailoring
-55013 - Saronite Protector - Blacksmithing
 53881 - Luminous Huge Citrine - Jewelcrafting
+55013 - Saronite Protector - Blacksmithing
 57277 - Glyph of Voidwalker - Inscription
 56994 - Glyph of Aimed Shot - Inscription
 54023 - Resolute Monarch Topaz - Jewelcrafting
@@ -1168,6 +1190,7 @@ No acquire information:
 55017 - Tempered Saronite Bracers - Blacksmithing
 55300 - Righteous Gauntlets - Blacksmithing
 56998 - Glyph of Aspect of the Viper - Inscription
+6624 - Free Action Potion - Alchemy
 56008 - Shining Spellthread - Tailoring
 56574 - Truesight Ice Blinders - Engineering
 57423 - Fish Feast - Cooking
@@ -1269,6 +1292,7 @@ No acquire information:
 16967 - Inlaid Thorium Hammer - Blacksmithing
 58144 - Jade Ring of Slaying - Jewelcrafting
 53899 - Lesser Flask of Toughness - Alchemy
+60691 - Enchant 2H Weapon - Massacre - Enchanting
 57012 - Glyph of Trueshot Aura - Inscription
 59559 - Glyph of Seal of Blood - Inscription
 56022 - Light Blessed Mittens - Tailoring

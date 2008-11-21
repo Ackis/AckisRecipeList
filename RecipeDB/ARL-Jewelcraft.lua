@@ -2947,7 +2947,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: val8id2val8id30
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53982,390,40046,3,25229)
-	self:addTradeFlags(RecipeDB,53982,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53982,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53982,3,27978)
 
 	-- Luminous Monarch Topaz -- 53983
@@ -3039,7 +3039,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53994,390,40058,3,25229)
 	self:addTradeFlags(RecipeDB,53994,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53994,3,28379,3,28851,3,29402)
+	self:addTradeAcquire(RecipeDB,53994,3,28379,3,28851,3,29402,3,30260)
 
 	-- Timeless Forest Emerald -- 53995
 	-- Item Stats: 

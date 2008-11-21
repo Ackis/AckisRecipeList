@@ -2044,9 +2044,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant 2H Weapon - Massacre -- 60691
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60691,430,nil, 3,7411)
-	self:addTradeFlags(RecipeDB,60691,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,60691,2,32514)
+	self:addTradeSkill(RecipeDB,60691,420,nil, 1,7411)
+	self:addTradeFlags(RecipeDB,60691,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Chest - Powerful Stats -- 60692
 	-- Item Stats: 
@@ -2079,9 +2079,9 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracers - Superior Spellpower -- 60767
 	-- Item Stats: 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60767,440,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,60767,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,60767,2,32514)
+	self:addTradeSkill(RecipeDB,60767,430,nil, 1,7411)
+	self:addTradeFlags(RecipeDB,60767,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 
 	return recipecount

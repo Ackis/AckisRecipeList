@@ -1192,8 +1192,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Item Stats: val138id6val12id26val28id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19067,275,15057,1,2108)
-	self:addTradeFlags(RecipeDB,19067,1,4,21,22,23,24,25,26,27,28,29,30,36,40,47,52,57)
-	self:addTradeAcquire(RecipeDB,19067,2,12942)
+	self:addTradeFlags(RecipeDB,19067,3,21,22,23,24,25,26,27,28,29,30,36,41,47,52,57)
+	-- No acquire information
 
 	-- Warbear Harness -- 19068
 	-- Item Stats: 
@@ -1626,7 +1626,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23399,155,18948,1,2108)
 	self:addTradeFlags(RecipeDB,23399,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB,23399,2,4225,2,4589)
+	self:addTradeAcquire(RecipeDB,23399,2,4589)
 
 	-- Might of the Timbermaw -- 23703
 	-- Item Stats: 

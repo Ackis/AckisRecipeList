@@ -394,7 +394,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3492,160,3849,1,2018)
 	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
-	self:addTradeAcquire(RecipeDB,3492,2,2843,2,3356,2,5512)
+	self:addTradeAcquire(RecipeDB,3492,2,3356,2,5512)
 
 	-- Jade Serpentblade -- 3493
 	-- Item Stats: 
@@ -410,7 +410,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
 	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,70)
-	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
+	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179,2,26081)
 
 	-- Golden Iron Destroyer -- 3495
 	-- Item Stats: 
@@ -2998,7 +2998,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val1id2val10-20id7val2.5id8
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43549,35,33791,2,2018)
-	self:addTradeFlags(RecipeDB,43549,1,8,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
+	self:addTradeFlags(RecipeDB,43549,8,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
 	self:addTradeAcquire(RecipeDB,43549,4,1578)
 
 	-- Hammer of Righteous Might -- 43846
