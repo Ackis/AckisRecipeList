@@ -86,22 +86,22 @@ local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB
 
 -- To make tabbing between professions easier 
-	local SortedProfessions = { 
-		{ name = GetSpellInfo(2259),	texture = "alchemy" },	-- 1 
-		{ name = GetSpellInfo(2018),	texture = "blacksmith" }, -- 2 
-		{ name = GetSpellInfo(2550),	texture = "cooking" },	-- 3 
-		{ name = GetSpellInfo(7411),	texture = "enchant" },	-- 4 
-		{ name = GetSpellInfo(4036),	texture = "engineer" },	-- 5 
-		{ name = GetSpellInfo(746),		texture = "firstaid" },	-- 6 
-		{ name = GetSpellInfo(45357),	texture = "inscribe" },	-- 7 
-		{ name = GetSpellInfo(25229),	texture = "jewel" },	-- 8 
-		{ name = GetSpellInfo(2108),	texture = "leather" },	-- 9 
-		{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
-		{ name = GetSpellInfo(2575),	texture = "smelting" },	-- 11 
-		{ name = GetSpellInfo(3908),	texture = "tailor" },	-- 12 
-	} 
+local SortedProfessions = { 
+	{ name = GetSpellInfo(2259),	texture = "alchemy" },	-- 1 
+	{ name = GetSpellInfo(2018),	texture = "blacksmith" }, -- 2 
+	{ name = GetSpellInfo(2550),	texture = "cooking" },	-- 3 
+	{ name = GetSpellInfo(7411),	texture = "enchant" },	-- 4 
+	{ name = GetSpellInfo(4036),	texture = "engineer" },	-- 5 
+	{ name = GetSpellInfo(746),		texture = "firstaid" },	-- 6 
+	{ name = GetSpellInfo(45357),	texture = "inscribe" },	-- 7 
+	{ name = GetSpellInfo(25229),	texture = "jewel" },	-- 8 
+	{ name = GetSpellInfo(2108),	texture = "leather" },	-- 9 
+	{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
+	{ name = GetSpellInfo(2575),	texture = "smelting" },	-- 11 
+	{ name = GetSpellInfo(3908),	texture = "tailor" },	-- 12 
+} 
 
-	local MaxProfessions = 12
+local MaxProfessions = 12
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
@@ -174,78 +174,54 @@ function addon:CloseWindow()
 
 end
 
--- Description: Updates the progress bar based on the number of known / total recipes
--- Expected result: the progression bar shows the correct information based on settings and filters
--- Input: playerdata data structure
--- Output: none
+-- Description: Colours a skill level based on if the player can learn it
+-- Expected result: The recipe string is coloured based on if the player has a high enough skill level or faction to learn it
+-- Input: The skill, player skill level, if they have the faction, and the string
+-- Output: An appropiatly coloured string
 
-local function SetProgressBar(playerData)
+local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 
-	local pbCur, pbMax
+	if ((recipeSkill > playerSkill) or (not hasFaction)) then
 
-	if (addon.db.profile.includefiltered == true) then
+		return addon:Red(recStr)
 
-		pbCur = playerData.recipes_known
-		pbMax = playerData.recipes_total
+	elseif ((playerSkill - recipeSkill) < 20) then
 
-	-- We're removing filtered recipes from the final count
-	else
+		return addon:Orange(recStr)
 
-		pbCur = playerData.recipes_known_filtered
-		pbMax = playerData.recipes_total_filtered
+	elseif ((playerSkill - recipeSkill) < 30) then
 
-	end
+		return addon:Yellow(recStr)
 
-	if (not addon.db.profile.includeexcluded) then
+	elseif ((playerSkill - recipeSkill) < 40) then
 
-		pbCur = pbCur - playerData.excluded_recipes_known
-		pbMax = pbMax - playerData.excluded_recipes_unknown
-
-	end
-
-	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
-	ARL_ProgressBar:SetValue(pbCur)
-	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function SetSortString(recipeSkill, recStr)
-
-	local sorttype = addon.db.profile.sorting
-
-	if (sorttype == L["Skill"]) then
-
-		return "[" .. recipeSkill .. "] - " .. recStr
+		return addon:Green(recStr)
 
 	else
 
-		return recStr .. " - [" .. recipeSkill .. "]"
+		return addon:MidGrey(recStr)
 
 	end
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+-- Description: Function to determine if the player has an appropiate level of faction.
+-- Expected result: A boolean value determing if the player can learn the recipe based on faction
+-- Input: The database, the index of the recipe, the players faction and reputation levels
+-- Output: A boolean indicating if they can learn the recipe or not
 
 local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 
 	local fac = true
+	local acquire = DB[recipeIndex]["Acquire"]
 
 	-- Scan through all acquire types
-	for i in pairs(DB[recipeIndex]["Acquire"]) do
+	for i in pairs(acquire) do
 
 		-- If it's a repuitation type
-		if (DB[recipeIndex]["Acquire"][i]["Type"] == 6) then
+		if (acquire[i]["Type"] == 6) then
 
-			local repid = DB[recipeIndex]["Acquire"][i]["ID"]
+			local repid = acquire[i]["ID"]
 
 			-- If it's Honor Hold/Thrallmar
 			if (repid == 946) or (repid == 947) then
@@ -300,44 +276,31 @@ local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+-- Description: Sets the string to display baseed off of what type of sorting is being done.
+-- Expected result:  Displayed string will have the skill level located in different areas
+-- Input: The skil level of the recipe and the remaining string
+-- Output:  A combined string with the skill level integrated into the skill
 
-local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+local function SetSortString(recipeSkill, recStr)
 
-	if ((recipeSkill > playerSkill) or (not hasFaction)) then
+	local sorttype = addon.db.profile.sorting
 
-		return addon:Red(recStr)
+	if (sorttype == L["Skill"]) then
 
-	elseif ((playerSkill - recipeSkill) < 20) then
-
-		return addon:Orange(recStr)
-
-	elseif ((playerSkill - recipeSkill) < 30) then
-
-		return addon:Yellow(recStr)
-
-	elseif ((playerSkill - recipeSkill) < 40) then
-
-		return addon:Green(recStr)
+		return "[" .. recipeSkill .. "] - " .. recStr
 
 	else
 
-		return addon:MidGrey(recStr)
+		return recStr .. " - [" .. recipeSkill .. "]"
 
 	end
 
 end
 
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- This does the initial fillup of the DisplayStrings structure.
--- This won't run if all we're doing is expanding/contracting a recipe
+-- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
+-- Expected result: Inserts the strings to display for a recipe into the DisplayStrings
+-- Input: None
+-- Output: DisplayStrings is filled up
 
 local function initDisplayStrings()
 
@@ -403,6 +366,105 @@ local function ClearRecipeButtonTooltip(bIndex)
 	pButton:SetScript("OnLeave", function () end)
 	rButton:SetScript("OnEnter", function () end)
 	rButton:SetScript("OnLeave", function () end)
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+-- converting from hex to rgb (Thanks Maldivia)
+
+local function toRGB(hex)
+
+	local r, g, b = hex:match("(..)(..)(..)")
+
+	return (tonumber(r,16) / 256) , (tonumber(g,16) / 256) , (tonumber(b,16) / 256)
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
+-- adding padding to the left hand side, and using better color handling. So... this function
+-- will do that for me.
+
+local function gttAdd(
+	leftPad,		-- number of times to pad two spaces on left side
+	textSize,		-- negative number. subtract from 12 to get fontsize
+	narrow,			-- if 1, use ARIALN instead of FRITZQ
+	wraptext,		-- wraptext for AddLine (0 or 1)
+	str1,			-- left hand string
+	hexcolor1,		-- hex color code for left hand side
+	str2,			-- if present, this is a double line, and this is the right hand string
+	hexcolor2)		-- if present, hex color code for right hand side
+
+	-- convert hex colors to r g b components. tooltips are dumb that way
+
+	local a, b, c = toRGB(hexcolor1)
+	local d, e, f = 0, 0, 0
+
+	if (hexcolor2) then
+
+		d, e, f = toRGB(hexcolor2)
+
+	end
+
+	-- Add in our left hand padding
+	local looppad = leftPad
+	local leftStr = str1
+
+	while (looppad > 0) do
+
+		leftStr = "  " .. leftStr
+		looppad = looppad - 1
+
+	end
+
+	-- Are we adding a single or double line?
+	local double = false
+
+	if (str2) then
+
+		arlTooltip:AddDoubleLine(leftStr, str2, a, b, c, d, e, f)
+		double = true
+
+	else
+
+		arlTooltip:AddLine(leftStr, a, b, c, wraptext)
+
+	end
+
+	-- are we changing fontsize or narrow?
+	if ((narrow == 1) or (textSize ~= 0)) then
+
+		local font = normalFont
+
+		if (narrow == 1) then
+
+			font = narrowFont
+
+		end
+
+		local fontsize = 11
+
+		if (textSize ~= 0) then
+
+			fontsize = fontsize + textSize
+
+		end
+			
+		local numlines = arlTooltip:NumLines()
+		local mytext1 = _G["arlTooltipTextLeft" .. numlines]
+		mytext1:SetFont(font, fontsize)
+		if (double == true) then
+			local mytext2 = _G["arlTooltipTextRight" .. numlines]
+			mytext2:SetFont(font, fontsize)
+		end
+
+	end
 
 end
 
@@ -832,34 +894,6 @@ local function SetRecipeButtonTooltip(bIndex)
 
 end
 
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function CheckDisplayFaction(filterDB, faction)
-
-	if (filterDB.general.faction ~= true) then
-
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
-
-			return true
-
-		else
-
-			return false
-
-		end
-
-	else
-
-		return true
-
-	end
-
-end
-
 -- Description: 
 -- Expected result: 
 -- Input: 
@@ -974,6 +1008,41 @@ local function RecipeList_Update()
 	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
 	ARL_ApplyButton:Disable()
 	
+end
+
+-- Description: Updates the progress bar based on the number of known / total recipes
+-- Expected result: the progression bar shows the correct information based on settings and filters
+-- Input: playerdata data structure
+-- Output: none
+
+local function SetProgressBar(playerData)
+
+	local pbCur, pbMax
+
+	if (addon.db.profile.includefiltered == true) then
+
+		pbCur = playerData.recipes_known
+		pbMax = playerData.recipes_total
+
+	-- We're removing filtered recipes from the final count
+	else
+
+		pbCur = playerData.recipes_known_filtered
+		pbMax = playerData.recipes_total_filtered
+
+	end
+
+	if (not addon.db.profile.includeexcluded) then
+
+		pbCur = pbCur - playerData.excluded_recipes_known
+		pbMax = pbMax - playerData.excluded_recipes_unknown
+
+	end
+
+	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
+	ARL_ProgressBar:SetValue(pbCur)
+	ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+
 end
 
 -- Under various conditions, I'm going to have to redisplay my recipe list
@@ -1840,6 +1909,7 @@ end
 -- Set the texture on the switcher button.
 
 local function SetSwitcherTexture(tex)
+
 -- This is really only called the first time its displayed. It should reflect the first
 -- profession the user has selected, or that shows up in his lists.
 
@@ -1860,105 +1930,6 @@ local function SetSwitcherTexture(tex)
 	ARL_SwitcherButton:SetNormalTexture(ARL_S_NTexture)
 	ARL_SwitcherButton:SetPushedTexture(ARL_S_PTexture)
 	ARL_SwitcherButton:SetDisabledTexture(ARL_S_DTexture)
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- converting from hex to rgb (Thanks Maldivia)
-
-local function toRGB(hex)
-
-	local r, g, b = hex:match("(..)(..)(..)")
-
-	return (tonumber(r,16) / 256) , (tonumber(g,16) / 256) , (tonumber(b,16) / 256)
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
--- adding padding to the left hand side, and using better color handling. So... this function
--- will do that for me.
-
-local function gttAdd(
-	leftPad,		-- number of times to pad two spaces on left side
-	textSize,		-- negative number. subtract from 12 to get fontsize
-	narrow,			-- if 1, use ARIALN instead of FRITZQ
-	wraptext,		-- wraptext for AddLine (0 or 1)
-	str1,			-- left hand string
-	hexcolor1,		-- hex color code for left hand side
-	str2,			-- if present, this is a double line, and this is the right hand string
-	hexcolor2)		-- if present, hex color code for right hand side
-
-	-- convert hex colors to r g b components. tooltips are dumb that way
-
-	local a, b, c = toRGB(hexcolor1)
-	local d, e, f = 0, 0, 0
-
-	if (hexcolor2) then
-
-		d, e, f = toRGB(hexcolor2)
-
-	end
-
-	-- Add in our left hand padding
-	local looppad = leftPad
-	local leftStr = str1
-
-	while (looppad > 0) do
-
-		leftStr = "  " .. leftStr
-		looppad = looppad - 1
-
-	end
-
-	-- Are we adding a single or double line?
-	local double = false
-
-	if (str2) then
-
-		arlTooltip:AddDoubleLine(leftStr, str2, a, b, c, d, e, f)
-		double = true
-
-	else
-
-		arlTooltip:AddLine(leftStr, a, b, c, wraptext)
-
-	end
-
-	-- are we changing fontsize or narrow?
-	if ((narrow == 1) or (textSize ~= 0)) then
-
-		local font = normalFont
-
-		if (narrow == 1) then
-
-			font = narrowFont
-
-		end
-
-		local fontsize = 11
-
-		if (textSize ~= 0) then
-
-			fontsize = fontsize + textSize
-
-		end
-			
-		local numlines = arlTooltip:NumLines()
-		local mytext1 = _G["arlTooltipTextLeft" .. numlines]
-		mytext1:SetFont(font, fontsize)
-		if (double == true) then
-			local mytext2 = _G["arlTooltipTextRight" .. numlines]
-			mytext2:SetFont(font, fontsize)
-		end
-
-	end
 
 end
 
@@ -2010,6 +1981,33 @@ function addon.SwitchProfs()
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 	playerData.playerProfession = SortedProfessions[currentProfIndex].name
 	ReDisplay()
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function CheckDisplayFaction(filterDB, faction)
+
+	if (filterDB.general.faction ~= true) then
+
+		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+
+			return true
+
+		else
+
+			return false
+
+		end
+
+	else
+
+		return true
+
+	end
+
 end
 
 -- Description: 
@@ -3103,6 +3101,18 @@ end
 -- Input: 
 -- Output: 
 
+local function ARL_DD_Sort_OnClick( button, value )
+	CloseDropDownMenus()
+	addon.db.profile.sorting = value
+	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
+	ReDisplay()
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 local function ARL_DD_Sort_Initialize()
 
 	local k
@@ -3133,18 +3143,6 @@ local function ARL_DD_Sort_Initialize()
 		UIDropDownMenu_AddButton( info )
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
 
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function ARL_DD_Sort_OnClick( button, value )
-	CloseDropDownMenus()
-	addon.db.profile.sorting = value
-	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
-	ReDisplay()
 end
 
 -- Description: Saves the frame position into the database 
