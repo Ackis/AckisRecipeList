@@ -209,6 +209,64 @@ local function SetProgressBar(playerData)
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+-- This does the initial fillup of the DisplayStrings structure.
+-- This won't run if all we're doing is expanding/contracting a recipe
+
+local function initDisplayStrings()
+
+	local exclude = addon.db.profile.exclusionlist
+
+	DisplayStrings = nil
+	DisplayStrings = {}
+
+	local insertIndex = 1
+
+	for i = 1, #sortedRecipeIndex do
+
+		local recipeIndex = sortedRecipeIndex[i]
+
+		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+
+			local t = {}
+
+			-- add in recipe difficulty coloring
+			local recStr = ""
+
+			if (exclude[recipeIndex] == true) then
+
+				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
+
+			else
+
+				recStr = recipeDB[recipeIndex]["Name"]
+
+			end
+
+			local recipeSkill = recipeDB[recipeIndex]["Level"]
+			local playerSkill = playerData.playerProfessionLevel
+
+			recStr = SetSortString(recipeSkill, recStr)
+
+			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+
+			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+
+			t.sID = recipeIndex
+			t.IsRecipe = true
+			t.IsExpanded = false
+			tinsert(DisplayStrings, insertIndex, t)
+			insertIndex = insertIndex + 1
+
+		end
+
+	end
+
+end
+
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
@@ -2337,7 +2395,8 @@ function addon.RecipeItem_OnClick(button)
 	local clickedIndex = addon.RecipeListButton[button].sI
 
 	-- Don't do anything if they've clicked on an empty button
-	if ( clickedIndex ~= nil ) then
+	if (clickedIndex ~= nil) then
+
 		local isRecipe = DisplayStrings[clickedIndex].IsRecipe
 		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
 		local dString = DisplayStrings[clickedIndex].String
@@ -2937,64 +2996,6 @@ function addon.DoFlyaway(panel)
 
 		-- We're hiding, don't bother changing anything
 		addon.Flyaway:Hide()
-
-	end
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- This does the initial fillup of the DisplayStrings structure.
--- This won't run if all we're doing is expanding/contracting a recipe
-
-local function initDisplayStrings()
-
-	local exclude = addon.db.profile.exclusionlist
-
-	DisplayStrings = nil
-	DisplayStrings = {}
-
-	local insertIndex = 1
-
-	for i = 1, #sortedRecipeIndex do
-
-		local recipeIndex = sortedRecipeIndex[i]
-
-		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-
-			local t = {}
-
-			-- add in recipe difficulty coloring
-			local recStr = ""
-
-			if (exclude[recipeIndex] == true) then
-
-				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
-
-			else
-
-				recStr = recipeDB[recipeIndex]["Name"]
-
-			end
-
-			local recipeSkill = recipeDB[recipeIndex]["Level"]
-			local playerSkill = playerData.playerProfessionLevel
-
-			recStr = SetSortString(recipeSkill, recStr)
-
-			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
-
-			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
-
-			t.sID = recipeIndex
-			t.IsRecipe = true
-			t.IsExpanded = false
-			tinsert(DisplayStrings, insertIndex, t)
-			insertIndex = insertIndex + 1
-
-		end
 
 	end
 
