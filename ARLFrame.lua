@@ -24,7 +24,6 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local string = string
 local ipairs = ipairs
 local tinsert = tinsert
-local tolower = string.lower
 local sformat = string.format
 
 -- local variables for this file. Must be used by multiple functions to be listed here
@@ -3364,7 +3363,6 @@ function addon:CreateFrame(
 					if (searchtext ~= "") then
 
 						ARL_LastSearchedText = searchtext
-						searchtext = tolower(searchtext)
 
 						addon:SearchRecipeDB(recipeDB, searchtext)
 						initDisplayStrings()

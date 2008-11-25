@@ -2065,6 +2065,8 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 
 	if (searchstring) then
 
+		searchstring = tolower(searchstring)
+
 		-- Go through the entire database
 		for SpellID in pairs(RecipeDB) do
 
