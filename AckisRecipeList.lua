@@ -1945,8 +1945,8 @@ do
 				local reca = RecipeDB[a]["Locations"] or ""
 				local recb = RecipeDB[b]["Locations"] or ""
 
-				reca = string.match(reca,"(%w+),") or ""
-				recb = string.match(recb,"(%w+),") or ""
+				reca = smatch(reca,"(%w+),") or ""
+				recb = smatch(recb,"(%w+),") or ""
 
 				return (reca < recb)
 
