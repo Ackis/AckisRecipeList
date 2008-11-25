@@ -8,8 +8,8 @@ Engineering data for all of AckisRecipeList
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
-286 found from data mining.
-10 ignored.
+292 found from data mining.
+11 ignored.
 
 ************************************************************************
 
@@ -174,7 +174,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3939,120,4372,1,4036)
 	self:addTradeFlags(RecipeDB,3939,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46)
-	self:addTradeAcquire(RecipeDB,3939,2,6730)
+	self:addTradeAcquire(RecipeDB,3939,2,2682,2,6730)
 
 	-- Shadow Goggles -- 3940
 	-- Item Stats: 
@@ -246,8 +246,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
-	self:addTradeFlags(RecipeDB,3952,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,3952,2,3495)
+	self:addTradeFlags(RecipeDB,3952,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB,3952,2,2683,2,3495)
 
 	-- Bronze Framework -- 3953
 	-- Item Stats: 
@@ -283,8 +283,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3957,2,2684)
+	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Iron Strut -- 3958
 	-- Item Stats: 
@@ -454,7 +454,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	-- Item Stats: 
@@ -467,8 +467,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
-	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134)
+	self:addTradeFlags(RecipeDB,9273,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,9273,3,7800)
 
 	-- Gold Power Core -- 12584
 	-- Item Stats: 
@@ -550,7 +550,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12597,210,10546,1,4036)
 	self:addTradeFlags(RecipeDB,12597,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12597,2,8679,2,9544)
+	self:addTradeAcquire(RecipeDB,12597,2,8679)
 
 	-- Mithril Casing -- 12599
 	-- Item Stats: 
@@ -999,22 +999,22 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
-	self:addTradeFlags(RecipeDB,23067,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23067,2,1304)
 
 	-- Green Firework -- 23068
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
 	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,2838)
+	self:addTradeAcquire(RecipeDB,23068,2,2838,2,3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23069,200,18588,1,4036)
-	self:addTradeFlags(RecipeDB,23069,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23069,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23069,2,8131)
 
 	-- Dense Dynamite -- 23070
 	-- Item Stats: 
@@ -1216,8 +1216,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
+	self:addTradeFlags(RecipeDB,26442,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26442,5,2)
 
 	-- Firework Cluster Launcher -- 26443
 	-- Item Stats: 
@@ -1550,9 +1550,9 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Tonk Controller -- 30573
 	-- Item Stats: 
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,30573,315,23832,1,4036)
-	self:addTradeFlags(RecipeDB,30573,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,30573,315,23832,1,4036)
+	--self:addTradeFlags(RecipeDB,30573,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Gnomish Power Goggles -- 30574
@@ -1840,6 +1840,48 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54353,395,39688,3,4036)
 	self:addTradeFlags(RecipeDB,54353,3,21,22,23,24,25,26,27,28,29,30,37,41,46,47,63)
+	-- No acquire information
+
+	-- Personal Electromagnetic Pulse Generator -- 54736
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,54736,385,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,54736,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Belt-Clipped Spynoculars -- 54793
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,54793,375,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,54793,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Hand-Mounted Pyro Rocket -- 54998
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,54998,395,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,54998,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Hyperspeed Accelerators -- 54999
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,54999,395,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,54999,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Flexweave Underlay -- 55002
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,55002,375,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,55002,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
+
+	-- Nitro Boosts -- 55016
+	-- Item Stats: 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,55016,390,nil, 1, 4036)
+	self:addTradeFlags(RecipeDB,55016,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Scrapbot Construction Kit -- 55252

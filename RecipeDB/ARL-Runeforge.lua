@@ -37,7 +37,53 @@ function addon:InitRuneforging(RecipeDB)
 
 	local recipecount = 0
 
+	-- Rune of the Fallen Crusader - 53344
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
 
+	-- Rune of Swordshattering - 53323
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Swordbreaking - 54446
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Spellshattering - 53342
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Spellbreaking - 54447
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Razorice - 53343
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Lichbane - 53331
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+
+	-- Rune of Cinderglacier - 53341
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
 	return recipecount
 
 end

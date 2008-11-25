@@ -1126,7 +1126,7 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58521,350,43488,2,2550)
-	self:addTradeFlags(RecipeDB,58521,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,58521,1,2,10,36,41)
 	self:addTradeAcquire(RecipeDB,58521,7,2)
 
 	-- Bad Clams -- 58523
