@@ -2065,37 +2065,41 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 
 	local lowerstring = tolower(searchstring)
 
-	-- Go through the entire database
-	for SpellID in pairs(RecipeDB) do
+	if (lowerstring) then
 
-		-- Get the Spell object
-		local recipe = RecipeDB[SpellID]
+		-- Go through the entire database
+		for SpellID in pairs(RecipeDB) do
 
-		-- Set the search as false automatically
-		recipe["Search"] = false
+			-- Get the Spell object
+			local recipe = RecipeDB[SpellID]
 
-		-- Allow us to search by spell ID
-		if sfind(tolower(SpellID),lowerstring) or
+			-- Set the search as false automatically
+			recipe["Search"] = false
 
-			-- Allow us to search byitem ID
-			sfind(tolower(recipe["ItemID"]),lowerstring) or
+			-- Allow us to search by spell ID
+			if sfind(tolower(SpellID),lowerstring) or
 
-			-- Allow us to search by name
-			sfind(tolower(recipe["Name"]),lowerstring) or
+				-- Allow us to search byitem ID
+				sfind(tolower(recipe["ItemID"]),lowerstring) or
 
-			-- Allow us to search by locations
-			sfind(recipe["Locations"],lowerstring) or
+				-- Allow us to search by name
+				sfind(tolower(recipe["Name"]),lowerstring) or
 
-			-- Allow us to search by specialty
-			sfind(recipe["Specialty"],lowerstring) or
-			
-			-- Allow us to search by skill level
-			sfind(recipe["Level"],lowerstring) or
+				-- Allow us to search by locations
+				sfind(recipe["Locations"],lowerstring) or
 
-			-- Allow us to search by Rarity
-			sfind(recipe["Rarity"],lowerstring) then
+				-- Allow us to search by specialty
+				sfind(recipe["Specialty"],lowerstring) or
+				
+				-- Allow us to search by skill level
+				sfind(recipe["Level"],lowerstring) or
 
-				recipe["Search"] = true
+				-- Allow us to search by Rarity
+				sfind(recipe["Rarity"],lowerstring) then
+
+					recipe["Search"] = true
+
+			end
 
 		end
 
