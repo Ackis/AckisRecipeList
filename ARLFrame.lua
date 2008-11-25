@@ -2394,6 +2394,9 @@ function addon.RecipeItem_OnClick(button)
 
 	local clickedIndex = addon.RecipeListButton[button].sI
 
+	addon:Print(clickedIndex)
+	addon:Print(button)
+
 	-- Don't do anything if they've clicked on an empty button
 	if (clickedIndex ~= nil) then
 
