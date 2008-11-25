@@ -62,10 +62,7 @@ end
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local DEBUG = false
-
 local MaxFilterIndex = 129
-
 
 -- Global Frame Variables
 addon.optionsFrame = {}
