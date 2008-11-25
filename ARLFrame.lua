@@ -410,6 +410,389 @@ end
 -- Expected result: 
 -- Input: 
 -- Output: 
+
+local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
+
+	local clr1, clr2 = "", ""
+
+	arlTooltip:ClearLines()
+	arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+	gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
+
+	-- check if the recipe is excluded
+	if (exclude[rIndex] == true) then
+
+		clr1 = addon:hexcolor("RED")
+		gttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
+
+	end
+
+	-- Add in skill level requirement, colored correctly
+	clr1 = addon:hexcolor("NORMAL")
+
+	local recipeSkill = recipeDB[rIndex]["Level"]
+	local playerSkill = playerData.playerProfessionLevel
+
+	if (recipeSkill > playerSkill) then
+
+		clr2 = addon:hexcolor("RED")
+
+	elseif ((playerSkill - recipeSkill) < 20) then
+
+		clr2 = addon:hexcolor("ORANGE")
+
+
+	elseif ((playerSkill - recipeSkill) < 30) then
+
+		clr2 = addon:hexcolor("YELLOW")
+
+	elseif ((playerSkill - recipeSkill) < 40) then
+
+		clr2 = addon:hexcolor("GREEN") 
+
+	else
+
+		clr2 = addon:hexcolor("MIDGREY")
+
+	end
+
+	gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+
+	-- spacer
+	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+	-- Binding info
+	clr1 = addon:hexcolor("NORMAL")
+
+	if (recipeDB[rIndex]["Flags"][36]) then
+
+		gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
+
+	end
+
+	if (recipeDB[rIndex]["Flags"][37]) then
+
+		gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
+
+	end
+
+	if (recipeDB[rIndex]["Flags"][38]) then
+
+		gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
+
+	end
+
+	if (recipeDB[rIndex]["Flags"][40]) then
+
+		gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+
+	end
+
+	if (recipeDB[rIndex]["Flags"][41]) then
+
+		gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+
+	end
+
+	if (recipeDB[rIndex]["Flags"][42]) then
+
+		gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+
+	end
+
+	-- spacer
+	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+	-- obtain info
+	gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+
+	-- loop through acquire methods, display each
+	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
+
+		-- Trainer
+		if (v["Type"] == 1) then
+
+			-- Trainer:				TrainerName
+			-- TrainerZone			TrainerCoords
+			local trnr = trainerDB[v["ID"]]
+			local cStr = ""
+			-- Do we want to display this trainer?
+			local displaytt = false
+
+			clr1 = addon:hexcolor("TRAINER")
+
+			if (trnr["Faction"] == BFAC["Horde"]) then
+
+				clr2 = addon:hexcolor("HORDE")
+
+				if (playerFaction == BFAC["Horde"]) then
+
+					displaytt = true
+
+				end
+
+			elseif (trnr["Faction"] == BFAC["Alliance"]) then
+
+				clr2 = addon:hexcolor("ALLIANCE")
+
+				if (playerFaction == BFAC["Alliance"]) then
+
+					displaytt = true
+
+				end
+
+			else
+
+				clr2 = addon:hexcolor("NEUTRAL")
+
+			end
+
+			if (displaytt) then
+
+				-- Add the trainer information to the tooltip
+				gttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
+
+				-- If we have a coordinate, add the coordinates to the tooltop
+				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
+
+					cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
+
+				end
+
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				gttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
+
+			end
+
+		-- Vendor
+		elseif (v["Type"] == 2) then
+
+			-- Vendor:					VendorName
+			-- VendorZone				VendorCoords
+			local vndr = vendorDB[v["ID"]]
+			local cStr = ""
+
+			if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+
+				cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+
+			end
+
+			clr1 = addon:hexcolor("VENDOR")
+
+			if (vndr["Faction"] == BFAC["Horde"]) then
+				clr2 = addon:hexcolor("HORDE")
+			elseif (vndr["Faction"] == BFAC["Alliance"]) then
+				clr2 = addon:hexcolor("ALLIANCE")
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+			end
+
+			gttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+			clr1 = addon:hexcolor("NORMAL")
+			clr2 = addon:hexcolor("HIGH")
+			gttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
+
+		-- Mob Drop
+		elseif (v["Type"] == 3) then
+
+			-- Mob Drop:				Mob Name
+			-- MobZone					MobCoords
+			local mob = mobDB[v["ID"]]
+			local cStr = ""
+
+			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+
+				cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+
+			end
+
+			clr1 = addon:hexcolor("MOBDROP")
+			clr2 = addon:hexcolor("HORDE")
+			gttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
+			clr1 = addon:hexcolor("NORMAL")
+			clr2 = addon:hexcolor("HIGH")
+			gttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
+
+		-- Quest
+		elseif (v["Type"] == 4) then
+
+			-- Quest:					QuestName
+			-- QuestZone				QuestCoords
+			local qst = questDB[v["ID"]]
+
+			if (qst ~= nil) then
+
+				local cStr = ""
+
+				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
+
+					cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
+
+				end
+
+				clr1 = addon:hexcolor("QUEST")
+
+				if (qst["Faction"] == BFAC["Horde"]) then
+					clr2 = addon:hexcolor("HORDE")
+				elseif (qst["Faction"] == BFAC["Alliance"]) then
+					clr2 = addon:hexcolor("ALLIANCE")
+				else
+					clr2 = addon:hexcolor("NEUTRAL")
+				end
+
+				gttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				gttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
+
+			end
+
+		-- Seasonal
+		elseif (v["Type"] == 5) then
+
+			-- Seasonal:				SeasonEventName
+			local ssnname = seasonDB[v["ID"]]["Name"]
+
+			clr1 = addon:hexcolor("SEASON")
+			gttAdd(0, -1, 0, 0, L["Seasonal"], clr1, ssnname, clr1)
+
+		-- Reputation
+		elseif (v["Type"] == 6) then
+
+			-- Reputation:				Faction
+			-- FactionLevel				RepVendor				
+			-- RepVendorZone			RepVendorCoords
+
+			local repfac = repDB[v["ID"]]
+			local repname = repfac["Name"] -- name
+			local rplvl = v["RepLevel"]
+			local repvndr = vendorDB[v["RepVendor"]]
+			local cStr = ""
+
+			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
+
+				cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
+
+			end
+			
+			clr1 = addon:hexcolor("REP")
+			clr2 = addon:hexcolor("NORMAL")
+			gttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
+
+			local rStr = ""
+			if (rplvl == 0) then
+				rStr = BFAC["Neutral"]
+				clr1 = addon:hexcolor("NEUTRAL")
+			elseif (rplvl == 1) then
+				rStr = BFAC["Neutral"]
+				clr1 = addon:hexcolor("FRIENDLY")
+			elseif (rplvl == 2) then
+				rStr = BFAC["Honored"]
+				clr1 = addon:hexcolor("HONORED")
+			elseif (rplvl == 3) then
+				rStr = BFAC["Revered"]
+				clr1 = addon:hexcolor("REVERED")
+			else
+				rStr = BFAC["Exalted"]
+				clr1 = addon:hexcolor("EXALTED")
+			end
+
+			if (repvndr["Faction"] == BFAC["Horde"]) then
+				clr2 = addon:hexcolor("HORDE")
+			elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+				clr2 = addon:hexcolor("ALLIANCE")
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+			end
+
+			gttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
+			clr1 = addon:hexcolor("NORMAL")
+			clr2 = addon:hexcolor("HIGH")
+			gttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
+
+		-- World Drop
+		elseif (v["Type"] == 7) then
+
+			-- World Drop				RarityLevel
+			if (v["ID"] == 1) then
+
+				clr1 = addon:hexcolor("COMMON")
+
+			elseif (v["ID"] == 2) then
+
+				clr1 = addon:hexcolor("UNCOMMON")
+
+			elseif (v["ID"] == 3) then
+
+				clr1 = addon:hexcolor("RARE")
+
+			elseif (v["ID"] == 4) then
+
+				clr1 = addon:hexcolor("EPIC")
+
+			else
+
+				clr1 = addon:hexcolor("NORMAL")
+
+			end
+
+			gttAdd(0, -1, 0, 0, L["World Drop"], clr1)
+
+		-- Custom entry
+		elseif (v["Type"] == 8) then
+
+			-- Seasonal:				SeasonEventName
+			local customname = customDB[v["ID"]]["Name"]
+
+			clr1 = addon:hexcolor("NORMAL")
+			gttAdd(0, -1, 0, 0, customname, clr1)
+
+		-- Unhandled
+		else
+
+			clr1 = addon:hexcolor("NORMAL")
+			gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
+
+		end
+
+	end
+
+	-- Spacer
+	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+
+	clr1 = addon:hexcolor("NORMAL")
+
+	gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
+	gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
+	gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
+
+	local spelllink = recipeDB[rIndex]["RecipeLink"]
+
+	if (spelllink) then
+
+		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
+--		arlTooltip2:ClearAllPoints()
+		--arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
+		arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
+		arlTooltip2:SetHyperlink(spelllink)
+		arlTooltip2:Show()
+
+	else
+
+		arlTooltip2:Hide()
+
+	end
+
+	arlTooltip:Show()
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- This sets the tooltip on the button during a recipelist update
 
 local function SetRecipeButtonTooltip(bIndex)
@@ -1627,389 +2010,6 @@ function addon.SwitchProfs()
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 	playerData.playerProfession = SortedProfessions[currentProfIndex].name
 	ReDisplay()
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
-
-	local clr1, clr2 = "", ""
-
-	arlTooltip:ClearLines()
-	arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
-	gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
-
-	-- check if the recipe is excluded
-	if (exclude[rIndex] == true) then
-
-		clr1 = addon:hexcolor("RED")
-		gttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
-
-	end
-
-	-- Add in skill level requirement, colored correctly
-	clr1 = addon:hexcolor("NORMAL")
-
-	local recipeSkill = recipeDB[rIndex]["Level"]
-	local playerSkill = playerData.playerProfessionLevel
-
-	if (recipeSkill > playerSkill) then
-
-		clr2 = addon:hexcolor("RED")
-
-	elseif ((playerSkill - recipeSkill) < 20) then
-
-		clr2 = addon:hexcolor("ORANGE")
-
-
-	elseif ((playerSkill - recipeSkill) < 30) then
-
-		clr2 = addon:hexcolor("YELLOW")
-
-	elseif ((playerSkill - recipeSkill) < 40) then
-
-		clr2 = addon:hexcolor("GREEN") 
-
-	else
-
-		clr2 = addon:hexcolor("MIDGREY")
-
-	end
-
-	gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
-
-	-- spacer
-	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-	-- Binding info
-	clr1 = addon:hexcolor("NORMAL")
-
-	if (recipeDB[rIndex]["Flags"][36]) then
-
-		gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
-
-	end
-
-	if (recipeDB[rIndex]["Flags"][37]) then
-
-		gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
-
-	end
-
-	if (recipeDB[rIndex]["Flags"][38]) then
-
-		gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
-
-	end
-
-	if (recipeDB[rIndex]["Flags"][40]) then
-
-		gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
-
-	end
-
-	if (recipeDB[rIndex]["Flags"][41]) then
-
-		gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
-
-	end
-
-	if (recipeDB[rIndex]["Flags"][42]) then
-
-		gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
-
-	end
-
-	-- spacer
-	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-	-- obtain info
-	gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
-
-	-- loop through acquire methods, display each
-	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-
-		-- Trainer
-		if (v["Type"] == 1) then
-
-			-- Trainer:				TrainerName
-			-- TrainerZone			TrainerCoords
-			local trnr = trainerDB[v["ID"]]
-			local cStr = ""
-			-- Do we want to display this trainer?
-			local displaytt = false
-
-			clr1 = addon:hexcolor("TRAINER")
-
-			if (trnr["Faction"] == BFAC["Horde"]) then
-
-				clr2 = addon:hexcolor("HORDE")
-
-				if (playerFaction == BFAC["Horde"]) then
-
-					displaytt = true
-
-				end
-
-			elseif (trnr["Faction"] == BFAC["Alliance"]) then
-
-				clr2 = addon:hexcolor("ALLIANCE")
-
-				if (playerFaction == BFAC["Alliance"]) then
-
-					displaytt = true
-
-				end
-
-			else
-
-				clr2 = addon:hexcolor("NEUTRAL")
-
-			end
-
-			if (displaytt) then
-
-				-- Add the trainer information to the tooltip
-				gttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
-
-				-- If we have a coordinate, add the coordinates to the tooltop
-				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-
-					cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
-
-				end
-
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				gttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
-
-			end
-
-		-- Vendor
-		elseif (v["Type"] == 2) then
-
-			-- Vendor:					VendorName
-			-- VendorZone				VendorCoords
-			local vndr = vendorDB[v["ID"]]
-			local cStr = ""
-
-			if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-
-				cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-
-			end
-
-			clr1 = addon:hexcolor("VENDOR")
-
-			if (vndr["Faction"] == BFAC["Horde"]) then
-				clr2 = addon:hexcolor("HORDE")
-			elseif (vndr["Faction"] == BFAC["Alliance"]) then
-				clr2 = addon:hexcolor("ALLIANCE")
-			else
-				clr2 = addon:hexcolor("NEUTRAL")
-			end
-
-			gttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
-			clr1 = addon:hexcolor("NORMAL")
-			clr2 = addon:hexcolor("HIGH")
-			gttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
-
-		-- Mob Drop
-		elseif (v["Type"] == 3) then
-
-			-- Mob Drop:				Mob Name
-			-- MobZone					MobCoords
-			local mob = mobDB[v["ID"]]
-			local cStr = ""
-
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-
-				cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
-
-			end
-
-			clr1 = addon:hexcolor("MOBDROP")
-			clr2 = addon:hexcolor("HORDE")
-			gttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
-			clr1 = addon:hexcolor("NORMAL")
-			clr2 = addon:hexcolor("HIGH")
-			gttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
-
-		-- Quest
-		elseif (v["Type"] == 4) then
-
-			-- Quest:					QuestName
-			-- QuestZone				QuestCoords
-			local qst = questDB[v["ID"]]
-
-			if (qst ~= nil) then
-
-				local cStr = ""
-
-				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-
-					cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
-
-				end
-
-				clr1 = addon:hexcolor("QUEST")
-
-				if (qst["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-				elseif (qst["Faction"] == BFAC["Alliance"]) then
-					clr2 = addon:hexcolor("ALLIANCE")
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-				end
-
-				gttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				gttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
-
-			end
-
-		-- Seasonal
-		elseif (v["Type"] == 5) then
-
-			-- Seasonal:				SeasonEventName
-			local ssnname = seasonDB[v["ID"]]["Name"]
-
-			clr1 = addon:hexcolor("SEASON")
-			gttAdd(0, -1, 0, 0, L["Seasonal"], clr1, ssnname, clr1)
-
-		-- Reputation
-		elseif (v["Type"] == 6) then
-
-			-- Reputation:				Faction
-			-- FactionLevel				RepVendor				
-			-- RepVendorZone			RepVendorCoords
-
-			local repfac = repDB[v["ID"]]
-			local repname = repfac["Name"] -- name
-			local rplvl = v["RepLevel"]
-			local repvndr = vendorDB[v["RepVendor"]]
-			local cStr = ""
-
-			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-
-				cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
-
-			end
-			
-			clr1 = addon:hexcolor("REP")
-			clr2 = addon:hexcolor("NORMAL")
-			gttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
-
-			local rStr = ""
-			if (rplvl == 0) then
-				rStr = BFAC["Neutral"]
-				clr1 = addon:hexcolor("NEUTRAL")
-			elseif (rplvl == 1) then
-				rStr = BFAC["Neutral"]
-				clr1 = addon:hexcolor("FRIENDLY")
-			elseif (rplvl == 2) then
-				rStr = BFAC["Honored"]
-				clr1 = addon:hexcolor("HONORED")
-			elseif (rplvl == 3) then
-				rStr = BFAC["Revered"]
-				clr1 = addon:hexcolor("REVERED")
-			else
-				rStr = BFAC["Exalted"]
-				clr1 = addon:hexcolor("EXALTED")
-			end
-
-			if (repvndr["Faction"] == BFAC["Horde"]) then
-				clr2 = addon:hexcolor("HORDE")
-			elseif (repvndr["Faction"] == BFAC["Alliance"]) then
-				clr2 = addon:hexcolor("ALLIANCE")
-			else
-				clr2 = addon:hexcolor("NEUTRAL")
-			end
-
-			gttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
-			clr1 = addon:hexcolor("NORMAL")
-			clr2 = addon:hexcolor("HIGH")
-			gttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
-
-		-- World Drop
-		elseif (v["Type"] == 7) then
-
-			-- World Drop				RarityLevel
-			if (v["ID"] == 1) then
-
-				clr1 = addon:hexcolor("COMMON")
-
-			elseif (v["ID"] == 2) then
-
-				clr1 = addon:hexcolor("UNCOMMON")
-
-			elseif (v["ID"] == 3) then
-
-				clr1 = addon:hexcolor("RARE")
-
-			elseif (v["ID"] == 4) then
-
-				clr1 = addon:hexcolor("EPIC")
-
-			else
-
-				clr1 = addon:hexcolor("NORMAL")
-
-			end
-
-			gttAdd(0, -1, 0, 0, L["World Drop"], clr1)
-
-		-- Custom entry
-		elseif (v["Type"] == 8) then
-
-			-- Seasonal:				SeasonEventName
-			local customname = customDB[v["ID"]]["Name"]
-
-			clr1 = addon:hexcolor("NORMAL")
-			gttAdd(0, -1, 0, 0, customname, clr1)
-
-		-- Unhandled
-		else
-
-			clr1 = addon:hexcolor("NORMAL")
-			gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
-
-		end
-
-	end
-
-	-- Spacer
-	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-	clr1 = addon:hexcolor("NORMAL")
-
-	gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
-	gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
-	gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
-
-	local spelllink = recipeDB[rIndex]["RecipeLink"]
-
-	if (spelllink) then
-
-		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
---		arlTooltip2:ClearAllPoints()
-		--arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
-		arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
-		arlTooltip2:SetHyperlink(spelllink)
-		arlTooltip2:Show()
-
-	else
-
-		arlTooltip2:Hide()
-
-	end
-
-	arlTooltip:Show()
-
 end
 
 -- Description: 
