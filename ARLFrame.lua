@@ -2400,7 +2400,7 @@ function addon.RecipeItem_OnClick(button)
 	addon:Print(button)
 
 	-- Don't do anything if they've clicked on an empty button
-	if (clickedIndex ~= nil) then
+	if (clickedIndex ~= nil) or (clickedIndex ~= 0) then
 
 		local isRecipe = DisplayStrings[clickedIndex].IsRecipe
 		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
