@@ -2063,9 +2063,7 @@ end
 
 function addon:SearchRecipeDB(RecipeDB, searchstring)
 
-	local lowerstring = tolower(searchstring)
-
-	if (lowerstring) then
+	if (searchstring) then
 
 		-- Go through the entire database
 		for SpellID in pairs(RecipeDB) do
@@ -2077,25 +2075,25 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 			recipe["Search"] = false
 
 			-- Allow us to search by spell ID
-			if sfind(tolower(SpellID),lowerstring) or
+			if sfind(tolower(SpellID),searchstring) or
 
 				-- Allow us to search byitem ID
-				sfind(tolower(recipe["ItemID"]),lowerstring) or
+				sfind(tolower(recipe["ItemID"]),searchstring) or
 
 				-- Allow us to search by name
-				sfind(tolower(recipe["Name"]),lowerstring) or
+				sfind(tolower(recipe["Name"]),searchstring) or
 
 				-- Allow us to search by locations
-				sfind(recipe["Locations"],lowerstring) or
+				sfind(recipe["Locations"],searchstring) or
 
 				-- Allow us to search by specialty
-				sfind(recipe["Specialty"],lowerstring) or
+				(recipe["Specialty"] and sfind(recipe["Specialty"],searchstring)) or
 				
 				-- Allow us to search by skill level
-				sfind(recipe["Level"],lowerstring) or
+				sfind(recipe["Level"],searchstring) or
 
 				-- Allow us to search by Rarity
-				sfind(recipe["Rarity"],lowerstring) then
+				sfind(recipe["Rarity"],searchstring) then
 
 					recipe["Search"] = true
 
