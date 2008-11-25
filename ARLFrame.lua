@@ -394,6 +394,93 @@ end
 -- Expected result: 
 -- Input: 
 -- Output: 
+
+local function ClearRecipeButtonTooltip(bIndex)
+
+	local pButton = addon.PlusListButton[bIndex]
+	local rButton = addon.RecipeListButton[bIndex]
+	pButton:SetScript("OnEnter", function () end)
+	pButton:SetScript("OnLeave", function () end)
+	rButton:SetScript("OnEnter", function () end)
+	rButton:SetScript("OnLeave", function () end)
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+-- This sets the tooltip on the button during a recipelist update
+
+local function SetRecipeButtonTooltip(bIndex)
+
+	local pButton = addon.PlusListButton[bIndex]
+	local rButton = addon.RecipeListButton[bIndex]
+	local dStringIndex = rButton.sI
+	local rIndex = DisplayStrings[dStringIndex].sID
+	local playerFaction = playerData.playerFaction
+	local exclude = addon.db.profile.exclusionlist
+
+	pButton:SetScript("OnEnter",
+			function (pButton)
+				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
+			end
+		)
+
+	pButton:SetScript("OnLeave",
+			function()
+				arlTooltip:Hide()
+				arlTooltip2:Hide()
+			end
+		)
+
+	rButton:SetScript("OnEnter",
+			function (rButton)
+				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
+			end
+		)
+
+	rButton:SetScript("OnLeave",
+			function()
+				arlTooltip:Hide()
+				arlTooltip2:Hide()
+			end
+		)
+
+end
+
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function CheckDisplayFaction(filterDB, faction)
+
+	if (filterDB.general.faction ~= true) then
+
+		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+
+			return true
+
+		else
+
+			return false
+
+		end
+
+	else
+
+		return true
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- Scrollframe update stuff
 
 local function RecipeList_Update()
@@ -1547,22 +1634,6 @@ end
 -- Input: 
 -- Output: 
 
-local function ClearRecipeButtonTooltip(bIndex)
-
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
-	pButton:SetScript("OnEnter", function () end)
-	pButton:SetScript("OnLeave", function () end)
-	rButton:SetScript("OnEnter", function () end)
-	rButton:SetScript("OnLeave", function () end)
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	local clr1, clr2 = "", ""
@@ -1938,77 +2009,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	end
 
 	arlTooltip:Show()
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- This sets the tooltip on the button during a recipelist update
-
-local function SetRecipeButtonTooltip(bIndex)
-
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
-	local dStringIndex = rButton.sI
-	local rIndex = DisplayStrings[dStringIndex].sID
-	local playerFaction = playerData.playerFaction
-	local exclude = addon.db.profile.exclusionlist
-
-	pButton:SetScript("OnEnter",
-			function (pButton)
-				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
-			end
-		)
-
-	pButton:SetScript("OnLeave",
-			function()
-				arlTooltip:Hide()
-				arlTooltip2:Hide()
-			end
-		)
-
-	rButton:SetScript("OnEnter",
-			function (rButton)
-				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
-			end
-		)
-
-	rButton:SetScript("OnLeave",
-			function()
-				arlTooltip:Hide()
-				arlTooltip2:Hide()
-			end
-		)
-
-end
-
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function CheckDisplayFaction(filterDB, faction)
-
-	if (filterDB.general.faction ~= true) then
-
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
-
-			return true
-
-		else
-
-			return false
-
-		end
-
-	else
-
-		return true
-
-	end
 
 end
 
