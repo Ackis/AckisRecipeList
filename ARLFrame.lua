@@ -213,6 +213,27 @@ end
 -- Expected result: 
 -- Input: 
 -- Output: 
+
+local function SetSortString(recipeSkill, recStr)
+
+	local sorttype = addon.db.profile.sorting
+
+	if (sorttype == L["Skill"]) then
+
+		return "[" .. recipeSkill .. "] - " .. recStr
+
+	else
+
+		return recStr .. " - [" .. recipeSkill .. "]"
+
+	end
+
+end
+
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
 -- This does the initial fillup of the DisplayStrings structure.
 -- This won't run if all we're doing is expanding/contracting a recipe
 
@@ -396,27 +417,6 @@ local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 	else
 
 		return addon:MidGrey(recStr)
-
-	end
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function SetSortString(recipeSkill, recStr)
-
-	local sorttype = addon.db.profile.sorting
-
-	if (sorttype == L["Skill"]) then
-
-		return "[" .. recipeSkill .. "] - " .. recStr
-
-	else
-
-		return recStr .. " - [" .. recipeSkill .. "]"
 
 	end
 
