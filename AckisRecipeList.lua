@@ -2078,22 +2078,22 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 			if sfind(tolower(SpellID),searchstring) or
 
 				-- Allow us to search byitem ID
-				sfind(tolower(recipe["ItemID"]),searchstring) or
+				(recipe["ItemID"] and sfind(tolower(recipe["ItemID"]),searchstring)) or
 
 				-- Allow us to search by name
-				sfind(tolower(recipe["Name"]),searchstring) or
+				(recipe["Name"] and sfind(tolower(recipe["Name"]),searchstring)) or
 
 				-- Allow us to search by locations
-				sfind(recipe["Locations"],searchstring) or
+				(recipe["Locations"] and sfind(recipe["Locations"],searchstring)) or
 
 				-- Allow us to search by specialty
 				(recipe["Specialty"] and sfind(recipe["Specialty"],searchstring)) or
 				
 				-- Allow us to search by skill level
-				sfind(recipe["Level"],searchstring) or
+				(recipe["Level"] and sfind(recipe["Level"],searchstring)) or
 
 				-- Allow us to search by Rarity
-				sfind(recipe["Rarity"],searchstring) then
+				(recipe["Rarity"] and sfind(recipe["Rarity"],searchstring)) then
 
 					recipe["Search"] = true
 

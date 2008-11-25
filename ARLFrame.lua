@@ -2396,6 +2396,7 @@ function addon.RecipeItem_OnClick(button)
 
 	local clickedIndex = addon.RecipeListButton[button].sI
 
+	addon:Print("Debug Code (Will be removed when ticket 254 is fixed.)")
 	addon:Print(clickedIndex)
 	addon:Print(button)
 
