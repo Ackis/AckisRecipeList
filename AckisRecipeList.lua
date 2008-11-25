@@ -4,17 +4,17 @@
 
 AckisRecipeList.lua
 
-File date: 2008-11-07T19:36:04Z 
-File revision: 1044 
-Project revision: 1044
-Project version: r1044
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
-Author: Ackis on Illidan US Horde
+Author: Ackis
 GUI done by Zhinjio
 
 ************************************************************************
 
-Please see Wowace.com for more information.
+Please see WoWAce.com for more information.
 
 Documentation:
 	Please see Documentation.txt for comprehensive documentation.
@@ -30,7 +30,7 @@ local MODNAME	= "Ackis Recipe List"
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
--- Lets check to see if we have the needed libraries loaded (these are manditory to run)
+-- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 
 	AckisRecipeList:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
