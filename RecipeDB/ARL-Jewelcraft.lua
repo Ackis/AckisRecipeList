@@ -4,7 +4,7 @@
 
 ARL-Jewelcraft.lua
 
-Jewelcrafting data for all of AckisRecipeList
+Jewelcrafting data for all of Ackis Recipe List
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
@@ -2924,7 +2924,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53979,390,40043,3,25229)
 	self:addTradeFlags(RecipeDB,53979,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53979,3,26206,3,26716,3,26723,3,26792)
+	self:addTradeAcquire(RecipeDB,53979,3,26206,3,26716,3,26723,3,26792,3,26794)
 
 	-- Glinting Monarch Topaz -- 53980
 	-- Item Stats: 

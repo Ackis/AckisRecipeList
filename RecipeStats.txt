@@ -7,6 +7,7 @@ Unknown zones:
 	"Crystalline Protector" => "",
 	"Dusky Crab Cakes" => "",
 	"Living Ruby Serpent" => "",
+	"Ormorok the Tree-Shaper" => "",
 	"Outland Children's Week Dark Portal Trigger" => "",
 	"Outland Children's Week Exodar 01 Trigger" => "",
 	"Outland Children's Week Silvermoon 01 Trigger" => "",
@@ -180,6 +181,7 @@ Instance mobs:
 	"Nexus-Prince Shaffar",
 	"Nightbane",
 	"Onyxia",
+	"Ormorok the Tree-Shaper",
 	"Ouro",
 	"Overmaster Pyron",
 	"Pathaleon the Calculator",
@@ -569,14 +571,12 @@ No acquire information:
 55921 - Duskweave Robe - Tailoring
 53940 - Sparkling Chalcedony - Jewelcrafting
 56487 - Electroflux Sight Enhancers - Engineering
-7953 - Deviate Scale Cloak - Leatherworking
 58327 - Glyph of Safe Fall - Inscription
 60874 - Nesingwary 4000 - Engineering
 57195 - Glyph of Prayer of Healing - Inscription
 55922 - Duskweave Gloves - Tailoring
 56205 - Dark Jade Focusing Lens - Jewelcrafting
 53941 - Lustrous Chalcedony - Jewelcrafting
-7954 - Deviate Scale Gloves - Leatherworking
 58328 - Glyph of Vanish - Inscription
 57196 - Glyph of Psychic Scream - Inscription
 55923 - Duskweave Shoulders - Tailoring
@@ -1139,6 +1139,7 @@ No acquire information:
 56988 - Glyph of Remove Curse - Inscription
 54017 - Precise Bloodstone - Jewelcrafting
 57130 - Glyph of Vigor - Inscription
+19067 - Stormshroud Pants - Leatherworking
 53876 - Fierce Huge Citrine - Jewelcrafting
 57272 - Glyph of Shadowburn - Inscription
 60668 - Enchant Gloves - Crusher - Enchanting

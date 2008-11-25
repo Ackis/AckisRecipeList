@@ -33,7 +33,7 @@ local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:InitCustom(CustomDB)
 
-	self:addLookupList(CustomDB, 1, "Discovered by making elxiris or flasks using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade ingredients.")
 	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade ingredients.")
 	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade ingredients.")
 	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade ingredients.")

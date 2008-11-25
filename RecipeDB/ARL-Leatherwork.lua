@@ -4,7 +4,7 @@
 
 ARL-Leatherwork.lua
 
-Leatherworking data for all of AckisRecipeList
+Leatherworking data for all of Ackis Recipe List
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
@@ -506,16 +506,16 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Item Stats: val2id2val2id3val16id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7953,90,6466,1,2108)
-	self:addTradeFlags(RecipeDB,7953,3,21,22,23,24,25,26,27,28,29,30,36,41,47,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7953,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,60)
+	self:addTradeAcquire(RecipeDB,7953,2,5783)
 
 	-- Deviate Scale Gloves -- 7954
 	-- Item Stats: 
 	-- Item Stats: val3id2val3id3val49id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7954,105,6467,1,2108)
-	self:addTradeFlags(RecipeDB,7954,3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7954,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB,7954,2,5783)
 
 	-- Deviate Scale Belt -- 7955
 	-- Item Stats: 
@@ -711,7 +711,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9202,190,7386,2,2108)
 	self:addTradeFlags(RecipeDB,9202,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB,9202,2,7852,2,7854)
+	self:addTradeAcquire(RecipeDB,9202,2,4589,2,7852,2,7854)
 
 	-- Dusky Belt -- 9206
 	-- Item Stats: 
@@ -1192,8 +1192,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Item Stats: val138id6val12id26val28id44
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19067,275,15057,1,2108)
-	self:addTradeFlags(RecipeDB,19067,1,4,21,22,23,24,25,26,27,28,29,30,36,40,47,52,57)
-	self:addTradeAcquire(RecipeDB,19067,2,12942)
+	self:addTradeFlags(RecipeDB,19067,3,21,22,23,24,25,26,27,28,29,30,36,41,47,52,57)
+	-- No acquire information
 
 	-- Warbear Harness -- 19068
 	-- Item Stats: 

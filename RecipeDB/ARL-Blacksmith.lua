@@ -4,7 +4,7 @@
 
 ARL-Blacksmith.lua
 
-Blacksmithing data for all of AckisRecipeList
+Blacksmithing data for all of Ackis Recipe List
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
@@ -2661,7 +2661,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val2id1val16-24id14val2.2id15
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34979,100,29201,1,2018)
-	self:addTradeFlags(RecipeDB,34979,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46)
+	self:addTradeFlags(RecipeDB,34979,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46,75)
 	self:addTradeAcquire(RecipeDB,34979,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
 
 	-- Whirling Steel Axes -- 34981
@@ -2677,7 +2677,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val6id2val49-92id14val2.2id15val10id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34982,300,29203,1,2018)
-	self:addTradeFlags(RecipeDB,34982,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB,34982,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,75)
 	self:addTradeAcquire(RecipeDB,34982,1,2836,1,16583,1,16823,1,19341)
 
 	-- Felsteel Whisper Knives -- 34983
@@ -2685,7 +2685,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val134-135id14val2.2id15val10id44val10id45val20id48
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34983,340,29204,1,2018)
-	self:addTradeFlags(RecipeDB,34983,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB,34983,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,75)
 	self:addTradeAcquire(RecipeDB,34983,1,16583,1,16823,1,19341)
 
 	-- Earthforged Leggings -- 36122
@@ -3417,7 +3417,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val21id3val96-179id14val1.7id15val21id45
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55202,380,41241,2,2018)
-	self:addTradeFlags(RecipeDB,55202,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB,55202,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,75)
 	-- No acquire information
 
 	-- Forged Cobalt Claymore -- 55203
@@ -3441,7 +3441,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val27id12val116-217id14val1.7id15val17id45
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55206,405,41245,3,2018)
-	self:addTradeFlags(RecipeDB,55206,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63)
+	self:addTradeFlags(RecipeDB,55206,3,21,22,23,24,25,26,27,28,29,30,36,41,46,47,63,75)
 	-- No acquire information
 
 	-- Vengeance Bindings -- 55298

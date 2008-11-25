@@ -4,7 +4,7 @@
 
 ARL-Smelt.lua
 
-Smelting data for all of AckisRecipeList
+Smelting data for all of Ackis Recipe List
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten

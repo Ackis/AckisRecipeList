@@ -4,7 +4,7 @@
 
 ARL-Enchant.lua
 
-Enchanting data for all of AckisRecipeList
+Enchanting data for all of Ackis Recipe List
 
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
