@@ -1,4 +1,6 @@
-Copyright (c) 2008 Ackis
+Copyright (c) 2008 Ackis, Zhinjio
+
+Ackis Recipe List Code:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+Recipe Database:
+
+All rights are reserved on the recipe data base.  If you wish to use it for
+any reason, express permission from the author must be obtained.
+
+Data miner:
+
+All rights are reserved on the data miner.  If you wish to use it for
+any reason, express permission from the author must be obtained.
