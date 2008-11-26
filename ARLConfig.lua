@@ -1211,6 +1211,7 @@ function addon:SetupOptions()
 	-- Fill up our modular options...
 	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
+	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 
 end
 
