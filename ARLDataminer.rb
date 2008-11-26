@@ -382,7 +382,7 @@ EOF
 			# vendors
 			when 'sold-by'
 
-				flags << 4
+				flags << $flags["Vendor"]
 				data = details[:method_vendors]
 			
 				# Reputation vendor
@@ -394,7 +394,11 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => 6, "id" => npc[:id], "faction" => $reps[details[:faction]][:id],"factionlevel" => (factionlevels.has_key?(details[:faction_level]) ? factionlevels[details[:faction_level]] : details[:faction_level])}
+							acquire << {"type" => $acquire["Reputation"],
+										"id" => npc[:id],
+										"faction" => $reps[details[:faction]][:id],
+										"factionlevel" => (factionlevels.has_key?(details[:faction_level]) ? factionlevels[details[:faction_level]] : details[:faction_level])
+									}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
 							unless npc[:react].nil?
@@ -403,35 +407,29 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-									flags << 1
+									flags << $flags["Alliance"]
 								end
 
 								if react_h < 3
-									flags << 2
+									flags << $flags["Horde"]
 								end
 
 								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
-								flags << 1 << 2
+								flags << $flags["Alliance"] << $flags["Horde"]
 
 							end
 
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-										flags << 5
+										flags << $flags["Instance"]
+									elsif $raids[loc]
+										flags << $flags["Raid"]
 									end
-
-									if $raids[loc]
-										flags << 6
-									end
-
 								end
-
 							end
 
 						end
@@ -445,7 +443,7 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => 2, "id" => npc[:id]}
+							acquire << {"type" => $acquire["Vendor"], "id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
 							unless npc[:react].nil?
@@ -454,35 +452,29 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-									flags << 1
+									flags << $flags["Alliance"]
 								end
-
 								if react_h < 3
-									flags << 2
+									flags << $flags["Horde"]
 								end
 
 								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
-								flags << 1 << 2
+								flags << $flags["Alliance"] << $flags["Horde"]
 
 							end
 
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-										flags << 5
+										flags << $flags["Instance"]
 									end
-
 									if $raids[loc]
-										flags << 6
+										flags << $flags["Raid"]
 									end
-
 								end
-
 							end
 
 						end
@@ -496,7 +488,7 @@ EOF
 
 				data = details[:method_drops]
 				# Cheat and say that it's both horde/alliance
-				flags << 1 << 2
+				flags << $flags["Alliance"] << $flags["Horde"]
 
 				# Instance, mob, or raid drop
 				unless data.length > 10
@@ -1676,6 +1668,25 @@ $proftable = {"Alchemy" 			=> 2259,
 				"Inscription"		=> 45357,
 				"Runeforging"		=> 28481
 				}
+
+# List of all flags
+$flags = {
+	"Alliance" => 1,
+	"Horde" => 2,
+	"Trainer" => 3,
+	"Vendor" => 4,
+	"Instance" => 5,
+	"Raid" => 6,
+	"Seasonal" => 7,
+	"Quest" => 8,
+}
+
+$acquire = {
+	"Trainer" => 1,
+	"Vendor" => 2,
+	"Reputation" => 6,
+}
+
 
 $bosslist = [
 	"Sjonnir the Ironshaper",
