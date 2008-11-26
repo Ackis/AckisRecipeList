@@ -1,11 +1,11 @@
-## Title: Ackis Recipe List (3.02 Beta 12)
+﻿## Title: Ackis Recipe List (3.02 Beta 12)
 ## Title-enUS: Ackis Recipe List (3.02 Beta 12)
 ## Title-koKR: Ackis의 제조법 리스트
 ## Title-deDE: Ackis Rezeptliste (3.02 Beta 12)
 
 ## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
 ## Notes-enUS: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
-## Notes-frFR: Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs.
+## Notes-frFR: Scans vos métiers et vous indique les recettes qui vous manque, ainsi que des informations sur la façon de les obtenir.
 ## Notes-deDE: Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen.
 ## Notes-esES: Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador.
 ## Notes-zhCN: 全面详细的商业技能信息插件，包括毒药和宠物技能.
