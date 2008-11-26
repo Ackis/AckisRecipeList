@@ -583,6 +583,7 @@ function addon:addTradeFlags(RecipeDB, SpellID, ...)
 	-- flags are defined in Documentation.lua
 
 	local numvars = select('#',...)
+	local flags = RecipeDB[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
 	for i=1,numvars,1 do
@@ -590,7 +591,7 @@ function addon:addTradeFlags(RecipeDB, SpellID, ...)
 		-- Get the value of the current flag
 		local flag = select(i, ...)
 
-		RecipeDB[SpellID]["Flags"][flag] = true
+		flags[flag] = true
 
 	end
 	
