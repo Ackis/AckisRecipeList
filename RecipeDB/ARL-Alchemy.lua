@@ -189,7 +189,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
 	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3449,2,2481)
+	self:addTradeAcquire(RecipeDB,3449,2,2481,2,4878)
 
 	-- Elixir of Fortitude -- 3450
 	-- Item Stats: 
@@ -223,8 +223,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3454,200,3829,2,2259)
-	self:addTradeFlags(RecipeDB,3454,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3454,2,2480)
+	self:addTradeFlags(RecipeDB,3454,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Discolored Healing Potion -- 4508
 	-- Item Stats: 
@@ -259,7 +259,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
 	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6624,2,3348)
+	self:addTradeAcquire(RecipeDB,6624,2,4226,2,5178)
 
 	-- Elixir of Water Breathing -- 7179
 	-- Item Stats: 
@@ -286,22 +286,22 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7255,100,6051,1,2259)
-	self:addTradeFlags(RecipeDB,7255,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7255,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7255,2,3134,2,3490)
 
 	-- Shadow Protection Potion -- 7256
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7256,135,6048,1,2259)
-	self:addTradeFlags(RecipeDB,7256,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7256,2,3956)
+	self:addTradeFlags(RecipeDB,7256,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7256,2,2393)
 
 	-- Fire Protection Potion -- 7257
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7257,165,6049,1,2259)
-	self:addTradeFlags(RecipeDB,7257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7257,2,2380,2,4083)
+	self:addTradeFlags(RecipeDB,7257,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Frost Protection Potion -- 7258
 	-- Item Stats: 
@@ -315,7 +315,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7259,190,6052,1,2259)
 	self:addTradeFlags(RecipeDB,7259,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7259,2,8157)
+	self:addTradeAcquire(RecipeDB,7259,2,5594,2,8158)
 
 	-- Blackmouth Oil -- 7836
 	-- Item Stats: 
@@ -483,15 +483,15 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11473,245,9210,1,2259)
-	self:addTradeFlags(RecipeDB,11473,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,11473,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11473,2,8157,2,8158)
 
 	-- Elixir of Shadow Power -- 11476
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11476,250,9264,2,2259)
-	self:addTradeFlags(RecipeDB,11476,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11476,1,9264)
+	self:addTradeFlags(RecipeDB,11476,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11476,1,9264,2,4610)
 
 	-- Elixir of Demonslaying -- 11477
 	-- Item Stats: 
@@ -567,8 +567,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17554,265,13445,1,2259)
-	self:addTradeFlags(RecipeDB,17554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17554,1,13445)
+	self:addTradeFlags(RecipeDB,17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,17554,1,13445,2,3348,2,5178)
 
 	-- Elixir of the Sages -- 17555
 	-- Item Stats: 
@@ -602,7 +602,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17560,275,7076,2,2259)
-	self:addTradeFlags(RecipeDB,17560,4,5,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,17560,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,17560,2,9499)
 
 	-- Transmute: Earth to Water -- 17561
@@ -630,8 +630,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17564,275,12808,2,2259)
-	self:addTradeFlags(RecipeDB,17564,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17564,3,6518)
+	self:addTradeFlags(RecipeDB,17564,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,17564,3,6518,3,10184)
 
 	-- Transmute: Life to Earth -- 17565
 	-- Item Stats: 

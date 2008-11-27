@@ -614,16 +614,18 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 	-- Index for which variables we're parsing through
 	local i = 1
 
+	local acquire = RecipeDB[SpellID]["Acquire"]
+
 	while (i < numvars) do
 
 		-- Create the space for the current Acquire method
-		RecipeDB[SpellID]["Acquire"][index] = {}
+		acquire[index] = {}
 
 		-- Get the Type and ID of the values
 		local AcquireType, AcquireID = select(i, ...)
 
-		RecipeDB[SpellID]["Acquire"][index]["Type"] = AcquireType
-		RecipeDB[SpellID]["Acquire"][index]["ID"] = AcquireID
+		acquire[index]["Type"] = AcquireType
+		acquire[index]["ID"] = AcquireID
 
 		i = i + 2
 
@@ -631,8 +633,8 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 			local RepLevel, RepVendor = select(i, ...)
 
-			RecipeDB[SpellID]["Acquire"][index]["RepLevel"] = RepLevel
-			RecipeDB[SpellID]["Acquire"][index]["RepVendor"] = RepVendor
+			acquire[index]["RepLevel"] = RepLevel
+			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
 
 		end
