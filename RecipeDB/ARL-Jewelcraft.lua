@@ -415,8 +415,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Item Stats: val16id49
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26910,285,21778,1,25229)
-	self:addTradeFlags(RecipeDB,26910,3,21,22,23,24,25,26,27,28,29,30,36,41,47,62)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,26910,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,62)
+	self:addTradeAcquire(RecipeDB,26910,2,12941)
 
 	-- Living Emerald Pendant -- 26911
 	-- Item Stats: 

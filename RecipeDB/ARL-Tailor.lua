@@ -2315,7 +2315,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31461,325,24269,1,3908)
-	self:addTradeFlags(RecipeDB,31461,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,31461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,31461,1,24315)
 
 	-- Belt of Blasting -- 36315

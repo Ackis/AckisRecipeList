@@ -1029,7 +1029,7 @@ EOF
 
 	end
 
-	puts "Processing #{profession} data complete..."
+	puts "\nProcessing #{profession} data complete..."
 
 	proflua.puts(manual)
 	proflua.puts "\treturn recipecount\n\nend"
