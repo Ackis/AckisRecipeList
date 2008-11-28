@@ -33,6 +33,7 @@ $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
 $unknownfaction = Array.new
+$singlefaction = Array.new
 $instancemobs = Array.new
 $missingdataacquire = Hash.new
 
@@ -307,12 +308,27 @@ EOF
 	print "\n"
 	STDOUT.flush
 	puts "Processing #{profession} data..."
+	print "\n"
 
 	flags = Array.new
 	acquire = Array.new
 
+	count = 0
+
 	# Parse through all the keys
 	ordered_keys.each do |name|
+
+		if count == 50
+
+			print "\n"
+			count = 0
+
+		end
+
+		print "."
+
+		count = count + 1
+		STDOUT.flush
 
 		details = recipes[name]
 		proflua.print("\t-- #{name} -- #{details[:spellid]}")
@@ -325,13 +341,10 @@ EOF
 			when 'taught-by'
 
 				data = details[:method_trainers]
-
-				flags << 3
+				flags << $flags["Trainer"]
 
 				if details[:learned] == 1
-
-					flags << 1 << 2
-
+					flags << $flags["Alliance"] << $flags["Horde"]
 				else
 
 					# Parse all the NPC's
@@ -339,44 +352,51 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << { "type" => 1, "id" => npc[:id] }
+							acquire << { "type" => $acquire["Trainer"],
+										"id" => npc[:id] }
 							$trainers[npc[:id]] = {:name => npc[:name]}
 
+							# Has reaction information
 							unless npc[:react].nil?
-
-								# NPC React Flags:
-								# 1 = friendly
-								# 2 = neutral
-								# 3 = hostile
-
-								# ARL Flags:
-								# 0 = neutral
-								#  1 = Alliance
-								# 2 = Horde
-
-								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-
-								if react_a < 3
-									flags << 1
+								# Only has information for one faction
+								if not npc[:react][1]
+									$singlefaction << npc[:name]
+									if npc[:locs]
+										if $hordefactionlist.include?(npc[:locs][0])
+											flags << $flags["Horde"]
+											$trainers[npc[:id]][:faction] = 2
+											npc[:react][0] = 3
+											npc[:react][1] = 1
+										elsif $alliancefactionlist.include?(npc[:locs][0])
+											flags << $flags["Alliance"]
+											$trainers[npc[:id]][:faction] = 1
+											npc[:react][0] = 1
+											npc[:react][1] = 3
+										else
+											$unknownfaction << npc[:name]
+											flags << $flags["Alliance"] << $flags["Horde"]
+											$trainers[npc[:id]][:faction] = 0
+										end
+									end
+								# Has both factions identified
+								else
+									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+									if react_a < 3
+										flags << $flags["Alliance"]
+									end
+									if react_h < 3
+										flags << $flags["Horde"]
+									end
+									$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 								end
-
-								if react_h < 3
-									flags << 2
-								end
-
-								$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-
+							# No reaction information
 							else
-
-								flags << 1 << 2
-
+								$unknownfaction << npc[:name]
+								flags << $flags["Alliance"] << $flags["Horde"]
 							end
-
 						end
-
 					end
-
 				end
 
 			# vendors
@@ -401,25 +421,44 @@ EOF
 									}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
+							# Has reaction information
 							unless npc[:react].nil?
-
-								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-
-								if react_a < 3
-									flags << $flags["Alliance"]
+								# Only has information for one faction
+								if not npc[:react][1] then
+									$singlefaction << npc[:name]
+									if npc[:locs]
+										if $hordefactionlist.include?(npc[:locs][0])
+											flags << $flags["Horde"]
+											$vendors[npc[:id]][:faction] = 2
+											npc[:react][0] = 3
+											npc[:react][1] = 1
+										elsif $alliancefactionlist.include?(npc[:locs][0])
+											flags << $flags["Alliance"]
+											$vendors[npc[:id]][:faction] = 1
+											npc[:react][0] = 1
+											npc[:react][1] = 3
+										else
+											$vendors[npc[:id]][:faction] = 0
+											flags << $flags["Alliance"] << $flags["Horde"]
+											$unknownfaction << npc[:name]
+										end
+									end
+								# Has both factions identified
+								else
+									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+									if react_a < 3
+										flags << $flags["Alliance"]
+									end
+									if react_h < 3
+										flags << $flags["Horde"]
+									end
+									$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 								end
-
-								if react_h < 3
-									flags << $flags["Horde"]
-								end
-
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-
+							# No reaction information
 							else
-
 								flags << $flags["Alliance"] << $flags["Horde"]
-
+								$unknownfaction << npc[:name]
 							end
 
 							if npc[:locs]
@@ -443,27 +482,48 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => $acquire["Vendor"], "id" => npc[:id]}
+							acquire << {"type" => $acquire["Vendor"],
+										"id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
+							# Has reaction information
 							unless npc[:react].nil?
-
-								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-
-								if react_a < 3
-									flags << $flags["Alliance"]
+								# Only has information for one faction
+								if not npc[:react][1] then
+									$singlefaction << npc[:name]
+									if npc[:locs]
+										if $hordefactionlist.include?(npc[:locs][0])
+											flags << $flags["Horde"]
+											$vendors[npc[:id]][:faction] = 2
+											npc[:react][0] = 3
+											npc[:react][1] = 1
+										elsif $alliancefactionlist.include?(npc[:locs][0])
+											flags << $flags["Alliance"]
+											$vendors[npc[:id]][:faction] = 1
+											npc[:react][0] = 1
+											npc[:react][1] = 3
+										else
+											$vendors[npc[:id]][:faction] = 0
+											flags << $flags["Alliance"] << $flags["Horde"]
+											$unknownfaction << npc[:name]
+										end
+									end
+								# Has both factions identified
+								else
+									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+									if react_a < 3
+										flags << $flags["Alliance"]
+									end
+									if react_h < 3
+										flags << $flags["Horde"]
+									end
+									$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 								end
-								if react_h < 3
-									flags << $flags["Horde"]
-								end
-
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-
+							# No reaction information
 							else
-
 								flags << $flags["Alliance"] << $flags["Horde"]
-
+								$unknownfaction << npc[:name]
 							end
 
 							if npc[:locs]
@@ -497,20 +557,21 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => 3, "id" => npc[:id]}
+							acquire << {"type" => $acquire["Mob"],
+										"id" => npc[:id]}
 							$monsters[npc[:id]] = {:name => npc[:name]}
 
 							# The NPC has a location mined
 							if npc[:locs]
 								npc[:locs].each do |loc|
 									if $dungeons[loc]
-										flags << 5
+										flags << $flags["Instance"]
 										$instancemobs << npc[:name]
 									elsif $raids[loc]
-										flags << 6
+										flags << $flags["Raid"]
 										$instancemobs << npc[:name]
 									else
-										flags << 11
+										flags << $flags["Mob Drop"]
 									end
 								end
 							# There was no NPC location mined
@@ -521,7 +582,7 @@ EOF
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
 										if dname == $bosszonemap[npc[:name]]
-											flags << 5
+											flags << $flags["Instance"]
 											found = true
 											$instancemobs << npc[:name]
 										end
@@ -530,14 +591,14 @@ EOF
 										# Go through all the raids
 										$raids.each_pair do |id,dname|
 											if dname == $bosszonemap[npc[:name]]
-												flags << 6
+												flags << $flags["Raid"]
 												found = true
 												$instancemobs << npc[:name]
 											end
 										end
 									end
 									if not found
-										flags << 11
+										flags << $flags["Mob Drop"]
 									end
 								end
 							end
@@ -545,12 +606,9 @@ EOF
 					end
 				# World drop
 				else
-
-					# Cheat and say that it's both horde/alliance
-					flags << 1 << 2
-					flags << 10
-					acquire << {"type" => 7, "id" => details[:rarity]}
-
+					flags << $flags["World Drop"]
+					acquire << {"type" => 7,
+								"id" => details[:rarity]}
 				end
 
 			# Quest reward
@@ -561,41 +619,32 @@ EOF
 
 				data.each do |quest|
 
-					acquire << {"type" => 4, "id" => quest[:id]}
+					acquire << {"type" => $acquire["Quest"], 
+								"id" => quest[:id]}
 					$quests[quest[:id]] = {:name => quest[:name]}
 
 					if quest[:side] == 1
-
-						flags << 1 << 2
+						flags << $flags["Alliance"] << $flags["Horde"]
 						$quests[quest[:id]][:faction] = 0
-
 					elsif quest[:side] == 2
-
-						flags << 1
+						flags << $flags["Alliance"]
 						$quests[quest[:id]][:faction] = 1
-
 					elsif quest[:side] == 4
-
-						flags << 2
+						flags << $flags["Horde"]
 						$quests[quest[:id]][:faction] = 2
-
 					end
 
 					quest[:questinfo] = maps.get_quest_map_info(quest[:id])
 
 					if quest[:questinfo]
-
 						quest[:questinfo][:quest_zones].values do |loc|
-
 							if $dungeons[loc]
-								flags << 5
+								flags << $flags["Instance"]
 							end
 							if $raids[loc]
-								flags << 6
+								flags << $flags["Raid"]
 							end
-
 						end
-
 					end
 
 				end
@@ -871,25 +920,17 @@ EOF
 		proflua.puts "\n\t-- Item Stats: #{details[:item_stats]}\n"
 
 		if ignorerecipe.include?(details[:spellid])
-
 			proflua.print("\t--")
-
 		else
-
 			proflua.print("\t")
-
 		end
 
 		proflua.puts "recipecount = recipecount + 1"
 
 		if ignorerecipe.include?(details[:spellid])
-
 			proflua.print("\t--")
-
 		else
-
 			proflua.print("\t")
-
 		end
 
 		proflua.print("self:addTradeSkill(RecipeDB,#{details[:spellid]},")
@@ -960,41 +1001,30 @@ EOF
 
         # acquire info  
 		if acquire.length == 0 
-
 			proflua.puts "\t-- No acquire information"
 			$missingdataacquire[details[:spellid]] = {:sname => name, :data => details, :sprof => profession}
-
 		else
 
 			acquiredordered = acquire.sort_by { |entry| entry["id"] }
-
 			temp = []
-
 			for id in %w(5 7 3 4 1 2 6 8)
-
 				for entry in acquiredordered.select { |entry| entry["type"] == id.to_i }
-
 					temp << [entry["type"],entry["faction"],entry["factionlevel"],entry["id"]].compact
-
 				end
-
 			end 
 
 			temp.flatten!
-
 			if ignorerecipe.include?(details[:spellid])
 				proflua.print("\t--")
 			else
 				proflua.print("\t")
 			end
 
-
 			proflua.puts "self:addTradeAcquire(RecipeDB,#{details[:spellid]},#{temp.join(",")})"
 
 		end
 	 
 		acquire.clear  
-
 		proflua.puts ""
 
 	end
@@ -1014,7 +1044,6 @@ def create_lookup_db(file,type,db,funcstub,list,maps,ignorelist)
 	puts "Generating #{type} file .. #{list.length} entries to process"
 	lookup_lua = File.open(file, "w:utf-8")
 
-# TODO: Different headers depending on type (ie: trainer would not have the line BFAC in it for example)
 	header =<<EOF
 --[[
 
@@ -1071,28 +1100,20 @@ EOF
 		v = list[k]
 
 		if count == 50
-
 			print "\n"
 			count = 0
-
 		end
 
 		if type == "Quest"
-
 			locs = maps.get_npc_locations(maps.get_quest_map_info(k)[:quest_starter])
-
 		else
-
 			locs = maps.get_npc_locations(k)
-
 		end
 
 		first_map = locs.values.first
 
 		if first_map.nil?
-
 			first_map = [[0,0]]
-
 		end
 
 		print "."
@@ -1101,15 +1122,10 @@ EOF
 
 		# Ignore any ID with a value of 0 as it's invalid
 		if k != 0
-
 			if ignorelist.include?(k)
-
 				lookup_lua.print("\t--")
-
 			else
-
 				lookup_lua.print("\t")
-
 			end
 
 			x,y = maps.average_location(first_map)
@@ -1124,112 +1140,65 @@ EOF
 				lookup_lua.print("self:addLookupList(#{db},#{k},")
 
 				if $bosslist.include?(v[:name])
-
 					lookup_lua.print("BBOSS[\"#{v[:name]}\"],")
 					$localstring.delete(v[:name])
-
 				else
 
 					lookup_lua.print("L[\"#{v[:name]}\"],")
 					# Add the name to the list of localization strings
 					$localstring << v[:name]
-
 				end
 
 				if locs.keys[0]
-
 					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
-
 				else
-
 					if $bosszonemap[v[:name]]
-
 						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
-
 					else
-
 						lookup_lua.print("L[\"Unknown Zone\"],")
 						$unknownzone << v[:name]
-
 					end
-
 				end
 
 				if x and y
-
 					lookup_lua.print("#{x},#{y})")
-
 				else
-
 					lookup_lua.print("0,0)")
-
 				end
-
 				lookup_lua.print("\n")
-
 			else
 
 				# Assumption that ID and Name will always be around
 				lookup_lua.print("self:addLookupList(#{db},#{k},L[\"#{v[:name]}\"],")
 
 				if locs.keys[0]
-
 					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
-
 				else
-
 					if $bosszonemap[v[:name]]
-
 						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
 						locs.keys[0] = $bosszonemap[v[:name]]
-
 					else
-
 						lookup_lua.print("L[\"Unknown Zone\"],")
 						locs.keys[0] = "Unknown Zone"
 						$unknownzone << v[:name]
-
 					end
-
 				end
 
 				if x and y
-
 					lookup_lua.print("#{x},#{y},")
-
 				else
-
 					lookup_lua.print("0,0,")
-
 				end
 
-				# If not faction assume it's neutral
 				if v[:faction]
-
 					lookup_lua.print("#{v[:faction]})")
-
 				else
-
-					# hack because not all factions have both info detected
-					if $hordefactionlist.include?(locs.keys[0])
-
-						lookup_lua.print("2)")
-
-					elsif $alliancefactionlist.include?(locs.keys[0])
-
-						lookup_lua.print("1)")
-
-					elsif $factionmap[v[:name]]
-
+					if $factionmap[v[:name]]
 						lookup_lua.print("#{$factionmap[v[:name]]})")
-
 					else
-
 						lookup_lua.print("0)")
 						$unknownfaction << "#{v[:name]} - #{locs.keys[0]}"
-
 					end
-
 				end
 
 				lookup_lua.print("\n")
@@ -1621,6 +1590,16 @@ def create_stats_list()
 
 	stats_lua.puts "\n"
 
+	stats_lua.puts("Single faction:")
+
+	$singlefaction.each do |k|
+
+		stats_lua.puts "#{k},"
+
+	end
+
+	stats_lua.puts "\n"
+
 	stats_lua.puts("Instance mobs:")
 
 	$instancemobs.compact!
@@ -1679,12 +1658,18 @@ $flags = {
 	"Raid" => 6,
 	"Seasonal" => 7,
 	"Quest" => 8,
+	"World Drop" => 10,
+	"Mob Drop" => 11,
 }
 
 $acquire = {
 	"Trainer" => 1,
 	"Vendor" => 2,
+	"Mob" => 3,
+	"Quest" => 4,
+	"Seasonal" => 5,
 	"Reputation" => 6,
+	"World" => 7,
 }
 
 
@@ -2118,13 +2103,52 @@ $factionmap = {
 	"Great-father Winter" => "0",
 }
 
-$hordefactionlist = ["Thunder Bluff","Orgrimmar","Durotar","Undercity","Mulgore"]
+$hordefactionlist = [
+	215, # "Mulgore",
+	1638, # "Thunder Bluff",
+	1637, # "Orgrimmar",
+	14, # "Durotar",
+	1497, # "Undercity",
+	3487, # Silvermoon
+	3430, # "Eversong Woods",
+	3433, # "Ghostlands"
+	]
 
-$alliancefactionlist = ["Stormwind City","Darnassus","Ironforge","Westfall"]
+$alliancefactionlist = [
+	12, # Elwynn Forrest
+	1519, # "Stormwind City",
+	1657, # "Darnassus",
+	1537, # "Ironforge",
+	40, # "Westfall"
+	3557, #The Exodar
+	]
 
 $debug = false
 
 if $debug
+
+	create_custom_db()
+	create_faction_db()
+
+	cooking = recipes.get_cooking_list
+	cookingspeciallist = {
+		2538 => {:id => "Trainer"},
+		2540 => {:id => "Trainer"},
+		8604 => {:id => "Trainer"},
+		21143 => {:id => 7, :type => 1},
+		21144 => {:id => 7, :type => 1},
+		45022 => {:id => 7, :type => 1},
+		43772 => {:id => "Daily", :type => [5]},
+		43765 => {:id => "Daily", :type => [5]},
+		43761 => {:id => "Daily", :type => [6]},
+		43707 => {:id => "Daily", :type => [6]},
+		43758 => {:id => "Daily", :type => [5,6]},
+		43779 => {:id => "Daily", :type => [5,6]},
+		45695 => {:id => "Daily", :type => [7]},
+		}
+	cookmanual=<<EOF
+EOF
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
 
 	#create_stats_list()
 
