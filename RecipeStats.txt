@@ -1,20 +1,4 @@
 Unknown zones:
-	"Anub'ar Guardian" => "",
-	"Anub'ar Prime Guard" => "",
-	"Anub'ar Venomancer" => "",
-	"Azure Magus" => "",
-	"Azure Raider" => "",
-	"Azure Sorceror" => "",
-	"Azure Stalker" => "",
-	"Azure Warder" => "",
-	"Crystalline Protector" => "",
-	"Living Ruby Serpent" => "",
-	"Ormorok the Tree-Shaper" => "",
-	"Outland Children's Week Dark Portal Trigger" => "",
-	"Outland Children's Week Exodar 01 Trigger" => "",
-	"Outland Children's Week Silvermoon 01 Trigger" => "",
-	"Savage Worg" => "",
-	"Sjonnir The Ironshaper" => "",
 
 Unknown faction:
 Skeletal Fiend (Enraged Form),

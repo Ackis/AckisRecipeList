@@ -1580,21 +1580,29 @@ def create_stats_list()
 
 	stats_lua.puts "\n"
 
+	$unknownfaction.compact!
+	$unknownfaction.uniq!
+	$unknownfaction.sort!
+
 	stats_lua.puts("Unknown faction:")
 
 	$unknownfaction.each do |k|
 
-		stats_lua.puts "#{k},"
+		stats_lua.puts "\t\"#{k}\" => \"\","
 
 	end
 
 	stats_lua.puts "\n"
 
+	$singlefaction.compact!
+	$singlefaction.uniq!
+	$singlefaction.sort!
+
 	stats_lua.puts("Single faction:")
 
 	$singlefaction.each do |k|
 
-		stats_lua.puts "#{k},"
+		stats_lua.puts "\t\"#{k}\" => \"\","
 
 	end
 
@@ -1674,7 +1682,8 @@ $acquire = {
 
 
 $bosslist = [
-	"Sjonnir the Ironshaper",
+	"Ormorok the Tree-Shaper",
+	"Sjonnir The Ironshaper",
 	"Akil'zon",
 	"Anetheron",
 	"Anub'arak",
@@ -1758,6 +1767,18 @@ $bosslist = [
 ]
 
 $bosszonemap = {
+	"Anub'ar Guardian" => "Azjol-Nerub",
+	"Anub'ar Prime Guard" => "Azjol-Nerub",
+	"Anub'ar Venomancer" => "Azjol-Nerub",
+	"Azure Magus" => "The Nexus",
+	"Azure Raider" => "The Nexus",
+	"Azure Sorceror" => "The Nexus",
+	"Azure Stalker" => "The Nexus",
+	"Azure Warder" => "The Nexus",
+	"Crystalline Protector" => "The Nexus",
+	"Ormorok the Tree-Shaper" => "The Nexus",
+	"Savage Worg" => "Utgarde Keep",
+	"Sjonnir The Ironshaper" => "Halls of Stone",
 	"40 Tickets - Schematic: Steam Tonk Controller" => "Darkmoon Faire",
 	"Master Craftsman Omarion" => "Naxxramas",
 	"Azure Ley-Whelp" => "The Oculus",
@@ -2101,6 +2122,8 @@ $factionmap = {
 	"Cluster Launcher" => "0",
 	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
 	"Great-father Winter" => "0",
+	"Dalinna" => "2",
+	"Georgio Bolero" => "1",
 }
 
 $hordefactionlist = [
