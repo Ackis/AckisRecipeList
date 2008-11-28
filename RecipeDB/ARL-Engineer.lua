@@ -173,8 +173,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: val16-31id14val1.8id15
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3939,120,4372,1,4036)
-	self:addTradeFlags(RecipeDB,3939,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46)
-	self:addTradeAcquire(RecipeDB,3939,2,2682,2,6730)
+	self:addTradeFlags(RecipeDB,3939,1,4,21,22,23,24,25,26,27,28,29,30,36,40,46)
+	self:addTradeAcquire(RecipeDB,3939,2,2682)
 
 	-- Shadow Goggles -- 3940
 	-- Item Stats: 
@@ -247,7 +247,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
 	self:addTradeFlags(RecipeDB,3952,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,3952,2,2683,2,3495)
+	self:addTradeAcquire(RecipeDB,3952,2,2682,2,2683,2,3495)
 
 	-- Bronze Framework -- 3953
 	-- Item Stats: 
@@ -283,8 +283,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3957,2,2684)
 
 	-- Iron Strut -- 3958
 	-- Item Stats: 
@@ -341,7 +341,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3966,185,4393,3,4036)
 	self:addTradeFlags(RecipeDB,3966,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
-	self:addTradeAcquire(RecipeDB,3966,3,690,3,4861,3,7800)
+	self:addTradeAcquire(RecipeDB,3966,3,690,3,2587,3,4861,3,7800)
 
 	-- Big Iron Bomb -- 3967
 	-- Item Stats: 
@@ -454,7 +454,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	-- Item Stats: 
@@ -550,7 +550,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12597,210,10546,1,4036)
 	self:addTradeFlags(RecipeDB,12597,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12597,2,8679)
+	self:addTradeAcquire(RecipeDB,12597,2,8679,2,9544)
 
 	-- Mithril Casing -- 12599
 	-- Item Stats: 
@@ -859,8 +859,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19793,265,15996,2,4036)
-	self:addTradeFlags(RecipeDB,19793,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19793,3,2644,3,10043)
+	self:addTradeFlags(RecipeDB,19793,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,19793,3,2644,3,10043,3,10184)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	-- Item Stats: 
@@ -992,8 +992,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23066,2,3413)
 
 	-- Blue Firework -- 23067
 	-- Item Stats: 
@@ -1007,7 +1007,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
 	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,2838,2,3495)
+	self:addTradeAcquire(RecipeDB,23068,2,3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	-- Item Stats: 
@@ -1216,8 +1216,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26442,5,2)
+	self:addTradeFlags(RecipeDB,26442,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
 
 	-- Firework Cluster Launcher -- 26443
 	-- Item Stats: 
