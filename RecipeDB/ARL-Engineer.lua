@@ -454,7 +454,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	-- Item Stats: 
@@ -468,7 +468,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537,2,4086)
 
 	-- Gold Power Core -- 12584
 	-- Item Stats: 
@@ -1000,14 +1000,14 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304)
+	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
 
 	-- Green Firework -- 23068
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
 	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,3495)
+	self:addTradeAcquire(RecipeDB,23068,2,2838,2,3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	-- Item Stats: 

@@ -335,8 +335,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Item Stats: val8id3val6id5val65id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3778,185,4262,1,2108)
-	self:addTradeFlags(RecipeDB,3778,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB,3778,2,2699)
+	self:addTradeFlags(RecipeDB,3778,3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
+	-- No acquire information
 
 	-- Barbaric Belt -- 3779
 	-- Item Stats: 
@@ -427,7 +427,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6704,170,5782,2,2108)
 	self:addTradeFlags(RecipeDB,6704,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
-	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2393,2,2846)
+	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2846)
 
 	-- Murloc Scale Bracers -- 6705
 	-- Item Stats: 
@@ -1184,8 +1184,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Item Stats: val99id6val12id35val12id36
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19066,275,15071,1,2108)
-	self:addTradeFlags(RecipeDB,19066,3,21,22,23,24,25,26,27,28,29,30,36,41,47,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,19066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,57)
+	self:addTradeAcquire(RecipeDB,19066,2,11189)
 
 	-- Stormshroud Pants -- 19067
 	-- Item Stats: Tanking, 
