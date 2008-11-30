@@ -247,7 +247,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
 	self:addTradeFlags(RecipeDB,3952,1,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,3952,2,2682,2,2683)
+	self:addTradeAcquire(RecipeDB,3952,2,2683)
 
 	-- Bronze Framework -- 3953
 	-- Item Stats: 
@@ -283,8 +283,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3957,2,2684)
+	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Iron Strut -- 3958
 	-- Item Stats: 
@@ -341,7 +341,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3966,185,4393,3,4036)
 	self:addTradeFlags(RecipeDB,3966,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,47,56)
-	self:addTradeAcquire(RecipeDB,3966,3,690,3,2587,3,4861,3,7800)
+	self:addTradeAcquire(RecipeDB,3966,3,690,3,2587,3,4852,3,4861,3,7800)
 
 	-- Big Iron Bomb -- 3967
 	-- Item Stats: 
@@ -454,7 +454,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	-- Item Stats: 
@@ -468,7 +468,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,4086)
 
 	-- Gold Power Core -- 12584
 	-- Item Stats: 
@@ -1000,7 +1000,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,5175)
 
 	-- Green Firework -- 23068
 	-- Item Stats: 
