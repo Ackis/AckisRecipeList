@@ -246,8 +246,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
-	self:addTradeFlags(RecipeDB,3952,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
-	self:addTradeAcquire(RecipeDB,3952,2,2682,2,2683,2,3495)
+	self:addTradeFlags(RecipeDB,3952,1,4,5,21,22,23,24,25,26,27,28,29,30,36,40,47,63)
+	self:addTradeAcquire(RecipeDB,3952,2,2682,2,2683)
 
 	-- Bronze Framework -- 3953
 	-- Item Stats: 
@@ -992,8 +992,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23066,2,3413)
+	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Blue Firework -- 23067
 	-- Item Stats: 
@@ -1230,8 +1230,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28327,275,22728,1,4036)
-	self:addTradeFlags(RecipeDB,28327,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,28327,4,9249,2,3413,2,5175)
+	self:addTradeFlags(RecipeDB,28327,1,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,28327,4,9249,2,5175)
 
 	-- Elemental Blasting Powder -- 30303
 	-- Item Stats: 

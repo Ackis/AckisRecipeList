@@ -3,6 +3,7 @@ Unknown zones:
 	"Outland Children's Week Dark Portal Trigger" => "",
 	"Outland Children's Week Exodar 01 Trigger" => "",
 	"Outland Children's Week Silvermoon 01 Trigger" => "",
+	"Portal Keeper" => "",
 
 Unknown faction:
 	"Alanna Raveneye" => "",
@@ -49,6 +50,7 @@ Unknown faction:
 	"Haalrun" => "",
 	"Hahrana Ironhide" => "",
 	"Hama" => "",
+	"Harggan" => "",
 	"Hurnak Grimmord" => "",
 	"Jangdor Swiftstrider" => "",
 	"Johan Focht" => "",
@@ -72,7 +74,6 @@ Unknown faction:
 	"Nadyia Maneweaver" => "",
 	"Nula the Butcher" => "",
 	"Nurse Neela" => "",
-	"Nyoma" => "",
 	"Outland Children's Week Dark Portal Trigger" => "",
 	"Outland Children's Week Dark Portal Trigger - " => "",
 	"Outland Children's Week Exodar 01 Trigger" => "",
@@ -80,7 +81,6 @@ Unknown faction:
 	"Outland Children's Week Silvermoon 01 Trigger" => "",
 	"Outland Children's Week Silvermoon 01 Trigger - " => "",
 	"Provisioner Lorkran" => "",
-	"Provisioner Nasela" => "",
 	"Quartermaster Urgronn" => "",
 	"Rartar" => "",
 	"Rogvar" => "",
@@ -99,6 +99,7 @@ Unknown faction:
 	"Truk Wildbeard" => "",
 	"Uthok" => "",
 	"Vance Undergloom" => "",
+	"Vharr" => "",
 	"Victor Ward" => "",
 	"Vix Chromeblaster" => "",
 	"Wulan" => "",
@@ -203,6 +204,7 @@ Single faction:
 	"Hagrus" => "",
 	"Hahrana Ironhide" => "",
 	"Hama" => "",
+	"Harggan" => "",
 	"Hurnak Grimmord" => "",
 	"Innkeeper Grilka" => "",
 	"James Van Brunt" => "",
@@ -214,6 +216,7 @@ Single faction:
 	"Joseph Moore" => "",
 	"Josephine Lister" => "",
 	"K. Lee Smallfry" => "",
+	"Kaita Deepforge" => "",
 	"Kalaen" => "",
 	"Kalinda" => "",
 	"Kamari" => "",
@@ -268,13 +271,11 @@ Single faction:
 	"Nula the Butcher" => "",
 	"Nurse Neela" => "",
 	"Nus" => "",
-	"Nyoma" => "",
 	"Okothos Ironrager" => "",
 	"Outfitter Eric" => "",
 	"Padaar" => "",
 	"Phea" => "",
 	"Provisioner Lorkran" => "",
-	"Provisioner Nasela" => "",
 	"Quartermaster Urgronn" => "",
 	"Randal Worth" => "",
 	"Rartar" => "",
@@ -301,7 +302,6 @@ Single faction:
 	"Simon Tanner" => "",
 	"Snang" => "",
 	"Snarl" => "",
-	"Sovik" => "",
 	"Sprite Jumpsprocket" => "",
 	"Stephen Ryback" => "",
 	"Stone Guard Mukar" => "",
@@ -331,6 +331,7 @@ Single faction:
 	"Vaean" => "",
 	"Vance Undergloom" => "",
 	"Vhan" => "",
+	"Vharr" => "",
 	"Victor Ward" => "",
 	"Vix Chromeblaster" => "",
 	"Wulan" => "",
@@ -612,6 +613,7 @@ No acquire information:
 58299 - Glyph of Revive Pet - Inscription
 56460 - Cobalt Frag Bomb - Engineering
 57026 - Glyph of Flash of Light - Inscription
+23066 - Red Firework - Engineering
 50942 - Iceborne Boots - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 57168 - Glyph of Sweeping Strikes - Inscription
@@ -904,7 +906,6 @@ No acquire information:
 22813 - Gordok Ogre Suit - Tailoring
 53943 - Stormy Chalcedony - Jewelcrafting
 55641 - Socket Gloves - Blacksmithing
-9937 - Mithril Scale Bracers - Blacksmithing
 58330 - Glyph of Renewed Life - Inscription
 16729 - Lionheart Helm - Blacksmithing
 56349 - Handful of Cobalt Bolts - Engineering
@@ -940,6 +941,7 @@ No acquire information:
 60600 - Frostscale Helm - Leatherworking
 58336 - Glyph of Unending Breath - Inscription
 58478 - Scroll of Agility IV - Inscription
+7255 - Holy Protection Potion - Alchemy
 24801 - Smoked Desert Dumplings - Cooking
 60601 - Dark Frostscale Leggings - Leatherworking
 54941 - Spiked Cobalt Shoulders - Blacksmithing
@@ -1040,7 +1042,6 @@ No acquire information:
 59340 - Glyph of Death Strike - Inscription
 58491 - Scroll of Strength VIII - Inscription
 57218 - Glyph of Icebound Fortitude - Inscription
-44483 - Enchant Cloak - Superior Frost Resistance - Enchanting
 9957 - Orcish War Leggings - Blacksmithing
 53964 - Tenuous Twilight Opal - Jewelcrafting
 44625 - Enchant Gloves - Armsman - Enchanting
@@ -1116,14 +1117,12 @@ No acquire information:
 57229 - Glyph of Corpse Explosion - Inscription
 15628 - Pet Bombling - Engineering
 56946 - Glyph of Hurricane - Inscription
-44494 - Enchant Cloak - Superior Nature Resistance - Enchanting
 7421 - Runed Copper Rod - Enchanting
 59493 - Stormbound Tome - Inscription
 55390 - Destructive Skyflare Diamond - Jewelcrafting
 53975 - Inscribed Monarch Topaz - Jewelcrafting
 52843 - Moonglow Ink - Inscription
 60767 - Enchant Bracers - Superior Spellpower - Enchanting
-20015 - Enchant Cloak - Superior Defense - Enchanting
 44636 - Enchant Ring - Greater Spellpower - Enchanting
 51570 - Dark Arctic Chestpiece - Leatherworking
 45061 - Mad Alchemist's Potion - Alchemy
@@ -1195,6 +1194,7 @@ No acquire information:
 2336 - Elixir of Tongues - Alchemy
 56955 - Glyph of Rejuvenation - Inscription
 59502 - Darkmoon Card - Inscription
+47899 - Enchant Cloak - Wisdom - Enchanting
 53842 - Spellpower Elixir - Alchemy
 56531 - Enchanted Tear - Jewelcrafting
 55399 - Powerful Earthsiege Diamond - Jewelcrafting
@@ -1388,12 +1388,10 @@ No acquire information:
 57690 - Fur Lining - Stamina - Leatherworking
 3920 - Crafted Light Shot - Engineering
 57124 - Glyph of Ghostly Strike - Inscription
-27975 - Enchant Weapon - Major Spellpower - Enchanting
 19061 - Living Shoulders - Leatherworking
 56983 - Glyph of Invisibility - Inscription
 55002 - Flexweave Underlay - Engineering
 53870 - Puissant Shadow Crystal - Jewelcrafting
-3496 - Moonsteel Broadsword - Blacksmithing
 57266 - Glyph of Healthstone - Inscription
 52738 - Ivory Ink - Inscription
 57691 - Fur Lining - Spell Power - Leatherworking
@@ -1448,6 +1446,7 @@ No acquire information:
 53878 - Glinting Huge Citrine - Jewelcrafting
 57274 - Glyph of Soulstone - Inscription
 56001 - Moonshroud - Tailoring
+20626 - Undermine Clam Chowder - Cooking
 54020 - Transmute: Eternal Might - Alchemy
 16664 - Runic Plate Shoulders - Blacksmithing
 57133 - Glyph of Sprint - Inscription
@@ -1475,8 +1474,8 @@ No acquire information:
 56996 - Glyph of Aspect of the Beast - Inscription
 57704 - Lion's Ink - Inscription
 57421 - Northern Stew - Cooking
-53884 - Durable Huge Citrine - Jewelcrafting
 55016 - Nitro Boosts - Engineering
+53884 - Durable Huge Citrine - Jewelcrafting
 56997 - Glyph of Aspect of the Monkey - Inscription
 56007 - Frostweave Bag - Tailoring
 44970 - Heavy Knothide Armor Kit - Leatherworking
@@ -1625,12 +1624,10 @@ No acquire information:
 57158 - Glyph of Heroic Strike - Inscription
 55177 - Savage Cobalt Slicer - Blacksmithing
 61120 - Master's Inscription of the Storm - Inscription
-4096 - Raptor Hide Harness - Leatherworking
 53904 - Powerful Rejuvenation Potion - Alchemy
 56027 - Ebonweave Gloves - Tailoring
 57159 - Glyph of Intervene - Inscription
 53905 - Indestructible Potion - Alchemy
-7776 - Enchant Chest - Lesser Mana - Enchanting
 53056 - Kungaloosh - Cooking
 56028 - Spellweave Robe - Tailoring
 57160 - Glyph of Mortal Strike - Inscription

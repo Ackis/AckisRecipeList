@@ -394,7 +394,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3492,160,3849,1,2018)
 	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
-	self:addTradeAcquire(RecipeDB,3492,2,2843,2,3356)
+	self:addTradeAcquire(RecipeDB,3492,2,3356,2,5512)
 
 	-- Jade Serpentblade -- 3493
 	-- Item Stats: 
@@ -410,7 +410,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
 	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,70)
-	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878)
+	self:addTradeAcquire(RecipeDB,3494,2,8878,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
 	-- Item Stats: 
@@ -425,8 +425,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val4id3val12id5val55-83id7val2.8id8
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,46,69)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,69)
+	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
 	-- Item Stats: 
@@ -442,7 +442,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
 	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,46,68)
-	self:addTradeAcquire(RecipeDB,3498,2,2483)
+	self:addTradeAcquire(RecipeDB,3498,2,1146,2,2483)
 
 	-- Shadow Crescent Axe -- 3500
 	-- Item Stats: 
@@ -762,8 +762,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Item Stats: val6id3val7id5val106id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9937,215,7924,1,2018)
-	self:addTradeFlags(RecipeDB,9937,3,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,9937,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,47,58)
+	self:addTradeAcquire(RecipeDB,9937,2,8161)
 
 	-- Mithril Shield Spike -- 9939
 	-- Item Stats: 

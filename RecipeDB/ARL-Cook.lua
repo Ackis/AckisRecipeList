@@ -294,7 +294,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550)
 	self:addTradeFlags(RecipeDB,7751,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,5494,2,5940,2,8508)
+	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4574,2,5494,2,5940,2,8508)
 
 	-- Slitherskin Mackerel -- 7752
 	-- Item Stats: 
@@ -308,7 +308,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7753,50,4592,1,2550)
 	self:addTradeFlags(RecipeDB,7753,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4265,2,4574,2,5162,2,5748,2,5940)
+	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4574,2,5162,2,5748,2,5940)
 
 	-- Loch Frenzy Delight -- 7754
 	-- Item Stats: 
@@ -524,8 +524,8 @@ function addon:InitCooking(RecipeDB)
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20626,225,16766,1,2550)
-	self:addTradeFlags(RecipeDB,20626,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20626,2,8139)
+	self:addTradeFlags(RecipeDB,20626,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Mithril Head Trout -- 20916
 	-- Item Stats: 
@@ -595,14 +595,14 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25704,80,21072,1,2550)
 	self:addTradeFlags(RecipeDB,25704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Sagefish Delight -- 25954
 	-- Item Stats: 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25954,175,21217,1,2550)
 	self:addTradeFlags(RecipeDB,25954,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Crunchy Spider Surprise -- 28267
 	-- Item Stats: 

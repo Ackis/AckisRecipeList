@@ -2764,7 +2764,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53959,390,40015,3,25229)
 	self:addTradeFlags(RecipeDB,53959,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,53959,3,30667,3,30668,3,31134,3,32191)
+	self:addTradeAcquire(RecipeDB,53959,3,30667,3,30668,3,30893,3,31134,3,32191)
 
 	-- Mystic Autumn's Glow -- 53960
 	-- Item Stats: 
