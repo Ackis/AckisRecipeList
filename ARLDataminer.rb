@@ -2395,7 +2395,7 @@ EOF
 		}
 	tailoringmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,8778,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
 
 	runeforging = recipes.get_runeforging_list
 	runeforgingspecaillist = {
