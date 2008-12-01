@@ -225,15 +225,176 @@ EOF
 
 end
 
+def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfactions,factionlevels)
+
+	acquire = Hash.new
+	flags = Array.new
+
+	acquire.clear
+	flags.clear
+
+	if typenpc == "Trainer"
+		listing = $trainers
+	elsif typenpc == "Vendor"
+		listing = $vendors
+	elsif typenpc == "Reputation"
+		listing = $vendors
+	end
+
+	unless npc[:id] == 0
+		if not $globalignore.include?(npc[:name])
+			if typenpc == "Reputation"
+				acquire = {"type" => acquirelisting["Reputation"],
+							"id" => npc[:id],
+							"faction" => $reps[details[:faction]][:id],
+							"factionlevel" => (factionlevels.has_key?(details[:faction_level]) ? factionlevels[details[:faction_level]] : details[:faction_level])
+						}
+			else
+				acquire = {"type" => acquirelisting[typenpc],
+							"id" => npc[:id]}
+			end
+			listing[npc[:id]] = {:name => npc[:name]}
+			# Has reaction information
+			unless npc[:react].nil?
+				# Only has information for one faction
+				if not npc[:react][1]
+					$singlefaction << npc[:name]
+					if npc[:locs]
+						if $hordefactionlist.include?(npc[:locs][0])
+							flags << flaglisting["Horde"]
+							listing[npc[:id]][:faction] = npcfactions["Horde"]
+							npc[:react][0] = npcreact["Hostile"]
+							npc[:react][1] = npcreact["Friendly"]
+						elsif $alliancefactionlist.include?(npc[:locs][0])
+							flags << flaglisting["Alliance"]
+							listing[npc[:id]][:faction] = npcfactions["Alliance"]
+							npc[:react][0] = npcreact["Friendly"]
+							npc[:react][1] = npcreact["Hostile"]
+						else
+							$unknownfaction << npc[:name]
+							flags << flaglisting["Alliance"] << flaglisting["Horde"]
+							listing[npc[:id]][:faction] = npcfactions["Neutral"]
+						end
+					end
+				# Has both factions identified
+				else
+					react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+					react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+					if react_a < 3
+						flags << flaglisting["Alliance"]
+					end
+					if react_h < 3
+						flags << flaglisting["Horde"]
+					end
+					listing[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
+				end
+			# No reaction information
+			else
+				$unknownfaction << npc[:name]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+			end
+		end
+	end
+
+	return flags,acquire
+
+end
+
 # Creates a database file for the specific recipe
 # TODO: Optimize the code for this function
 
 def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,specialcase,manual)
 
-	factionlevels = {"Neutral"	=> 0,"Friendly" => 1,"Honored"	=> 2,"Revered"	=> 3,"Exalted"	=> 4}
-	classes = {"Deathknight" => 21,"Druid" => 22,"Hunter" => 23,"Mage"=> 24,"Paladin"=>25,"Priest"=>26,"Shaman"=>27,"Rogue"=> 28,"Warlock"=>29,"Warrior"=>30}
-	weapons = {"One-Hand" =>66, "Two-Handed" =>67,"Axe" => 68,"Sword" => 69,"Mace"=> 70, "Polearm" => 71, "Dagger"=> 72,"Staff"=> 73,"Wand"=> 74, "Thrown"=>75, "Bow"=> 76,"Crossbow"=>77,"Ammo"=>78,"Fist"=>79}
-	armors = {"Cloth"=>56,"Leather"=>57,"Mail"=> 58,"Plate"=>59,"Cloak"=>60,"Neck"=>61,"Ring"=>62,"Trinket"=>63,"Shield"=> 64}
+	factionlevels = {
+		"Neutral"	=> 0,
+		"Friendly" => 1,
+		"Honored" => 2,
+		"Revered" => 3,
+		"Exalted" => 4
+	}
+	npcfactions = {
+		"Horde" => 2,
+		"Alliance" => 1,
+		"Neutral" => 0,
+	}
+	npcreact = {
+		"Hostile" => 3,
+		"Neutral" => 3,
+		"Friendly" => 3,
+	}
+	# List of all general flags
+	flaglisting = {
+		"Alliance" => 1,
+		"Horde" => 2,
+		"Trainer" => 3,
+		"Vendor" => 4,
+		"Instance" => 5,
+		"Raid" => 6,
+		"Seasonal" => 7,
+		"Quest" => 8,
+		"World Drop" => 10,
+		"Mob Drop" => 11,
+		"Discovery" => 12,
+	}
+	# Class specific flags
+	classes = {
+		"Deathknight" => 21,
+		"Druid" => 22,
+		"Hunter" => 23,
+		"Mage"=> 24,
+		"Paladin" => 25,
+		"Priest" => 26,
+		"Shaman" => 27,
+		"Rogue" => 28,
+		"Warlock" => 29,
+		"Warrior" => 30
+	}
+	# Weapon specific flags
+	weapons = {
+		"One-Hand" => 66,
+		"Two-Handed" => 67,
+		"Axe" => 68,
+		"Sword" => 69,
+		"Mace"=> 70,
+		"Polearm" => 71,
+		"Dagger" => 72,
+		"Staff" => 73,
+		"Wand" => 74,
+		"Thrown" => 75,
+		"Bow" => 76,
+		"Crossbow" => 77,
+		"Ammo" => 78,
+		"Fist" => 79
+	}
+	# Armor specific flags
+	armors = {
+		"Cloth" => 56,
+		"Leather" => 57,
+		"Mail" => 58,
+		"Plate" => 59,
+		"Cloak" => 60,
+		"Neck" => 61,
+		"Ring" => 62,
+		"Trinket" => 63,
+		"Shield" => 64
+	}
+	# Player type flags
+	playertypeflags = {
+		"MeleeDPS" => 51,
+		"Tanking" => 52,
+		"Healing" => 53,
+		"Caster" => 54,
+	}
+	acquirelisting = {
+		"Trainer" => 1,
+		"Vendor" => 2,
+		"Mob" => 3,
+		"Quest" => 4,
+		"Seasonal" => 5,
+		"Reputation" => 6,
+		"World Drop" => 7,
+		"Custom" => 8,
+	}
 
 	puts "Generating #{profession} database -- #{recipes.length} recipes found."
 
@@ -245,10 +406,8 @@ def create_profession_db(file,profession,db,maps,funcstub,recipes,ignorerecipe,s
 	ordered_keys = recipes.keys.sort_by do |name|
 
 		if count == 50
-
 			print "\n"
 			count = 0
-
 		end
 
 		print "."
@@ -319,10 +478,8 @@ EOF
 	ordered_keys.each do |name|
 
 		if count == 50
-
 			print "\n"
 			count = 0
-
 		end
 
 		print "."
@@ -339,239 +496,68 @@ EOF
 
 			# trainers
 			when 'taught-by'
-
 				data = details[:method_trainers]
-				flags << $flags["Trainer"]
-
+				flags << flaglisting["Trainer"]
 				if details[:learned] == 1
-					flags << $flags["Alliance"] << $flags["Horde"]
+					flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				else
-
 					# Parse all the NPC's
 					data.each do |npc|
-
-						unless npc[:id] == 0
-
-							acquire << { "type" => $acquire["Trainer"],
-										"id" => npc[:id] }
-							$trainers[npc[:id]] = {:name => npc[:name]}
-
-							# Has reaction information
-							unless npc[:react].nil?
-								# Only has information for one faction
-								if not npc[:react][1]
-									$singlefaction << npc[:name]
-									if npc[:locs]
-										if $hordefactionlist.include?(npc[:locs][0])
-											flags << $flags["Horde"]
-											$trainers[npc[:id]][:faction] = 2
-											npc[:react][0] = 3
-											npc[:react][1] = 1
-										elsif $alliancefactionlist.include?(npc[:locs][0])
-											flags << $flags["Alliance"]
-											$trainers[npc[:id]][:faction] = 1
-											npc[:react][0] = 1
-											npc[:react][1] = 3
-										else
-											$unknownfaction << npc[:name]
-											flags << $flags["Alliance"] << $flags["Horde"]
-											$trainers[npc[:id]][:faction] = 0
-										end
-									end
-								# Has both factions identified
-								else
-									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-									if react_a < 3
-										flags << $flags["Alliance"]
-									end
-									if react_h < 3
-										flags << $flags["Horde"]
-									end
-									$trainers[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-								end
-							# No reaction information
-							else
-								$unknownfaction << npc[:name]
-								flags << $flags["Alliance"] << $flags["Horde"]
-							end
+						foo,bar = parse_npc_data(npc,details,"Trainer",acquirelisting,flaglisting,npcreact,npcfactions,factionlevels)
+						flags << foo
+						if bar != {} then
+							acquire << bar
 						end
 					end
 				end
-
 			# vendors
 			when 'sold-by'
-
-				flags << $flags["Vendor"]
+				flags << flaglisting["Vendor"]
 				data = details[:method_vendors]
-			
 				# Reputation vendor
 				unless details[:faction].nil?
-
 					flags << $reps[details[:faction]][:flag]
-
 					data.each do |npc|
-
-						unless npc[:id] == 0
-
-							acquire << {"type" => $acquire["Reputation"],
-										"id" => npc[:id],
-										"faction" => $reps[details[:faction]][:id],
-										"factionlevel" => (factionlevels.has_key?(details[:faction_level]) ? factionlevels[details[:faction_level]] : details[:faction_level])
-									}
-							$vendors[npc[:id]] = {:name => npc[:name]}
-
-							# Has reaction information
-							unless npc[:react].nil?
-								# Only has information for one faction
-								if not npc[:react][1] then
-									$singlefaction << npc[:name]
-									if npc[:locs]
-										if $hordefactionlist.include?(npc[:locs][0])
-											flags << $flags["Horde"]
-											$vendors[npc[:id]][:faction] = 2
-											npc[:react][0] = 3
-											npc[:react][1] = 1
-										elsif $alliancefactionlist.include?(npc[:locs][0])
-											flags << $flags["Alliance"]
-											$vendors[npc[:id]][:faction] = 1
-											npc[:react][0] = 1
-											npc[:react][1] = 3
-										else
-											$vendors[npc[:id]][:faction] = 0
-											flags << $flags["Alliance"] << $flags["Horde"]
-											$unknownfaction << npc[:name]
-										end
-									end
-								# Has both factions identified
-								else
-									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-									if react_a < 3
-										flags << $flags["Alliance"]
-									end
-									if react_h < 3
-										flags << $flags["Horde"]
-									end
-									$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-								end
-							# No reaction information
-							else
-								flags << $flags["Alliance"] << $flags["Horde"]
-								$unknownfaction << npc[:name]
-							end
-
-							if npc[:locs]
-								npc[:locs].each do |loc|
-									if $dungeons[loc]
-										flags << $flags["Instance"]
-									elsif $raids[loc]
-										flags << $flags["Raid"]
-									end
-								end
-							end
-
+						foo,bar = parse_npc_data(npc,details,"Reputation",acquirelisting,flaglisting,npcreact,npcfactions,factionlevels)
+						flags << foo
+						if bar != {} then
+							acquire << bar
 						end
-
 					end
-
 				# Normal vendor
 				else
-
 					data.each do |npc|
-
-						unless npc[:id] == 0
-
-							acquire << {"type" => $acquire["Vendor"],
-										"id" => npc[:id]}
-							$vendors[npc[:id]] = {:name => npc[:name]}
-
-							# Has reaction information
-							unless npc[:react].nil?
-								# Only has information for one faction
-								if not npc[:react][1] then
-									$singlefaction << npc[:name]
-									if npc[:locs]
-										if $hordefactionlist.include?(npc[:locs][0])
-											flags << $flags["Horde"]
-											$vendors[npc[:id]][:faction] = 2
-											npc[:react][0] = 3
-											npc[:react][1] = 1
-										elsif $alliancefactionlist.include?(npc[:locs][0])
-											flags << $flags["Alliance"]
-											$vendors[npc[:id]][:faction] = 1
-											npc[:react][0] = 1
-											npc[:react][1] = 3
-										else
-											$vendors[npc[:id]][:faction] = 0
-											flags << $flags["Alliance"] << $flags["Horde"]
-											$unknownfaction << npc[:name]
-										end
-									end
-								# Has both factions identified
-								else
-									react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-									react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-									if react_a < 3
-										flags << $flags["Alliance"]
-									end
-									if react_h < 3
-										flags << $flags["Horde"]
-									end
-									$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
-								end
-							# No reaction information
-							else
-								flags << $flags["Alliance"] << $flags["Horde"]
-								$unknownfaction << npc[:name]
-							end
-
-							if npc[:locs]
-								npc[:locs].each do |loc|
-									if $dungeons[loc]
-										flags << $flags["Instance"]
-									end
-									if $raids[loc]
-										flags << $flags["Raid"]
-									end
-								end
-							end
-
+						foo,bar = parse_npc_data(npc,details,"Vendor",acquirelisting,flaglisting,npcreact,npcfactions,factionlevels)
+						flags << foo
+						if bar != {} then
+							acquire << bar
 						end
-
 					end
 
 				end
-
 			# Mob drops
 			when 'dropped-by'
-
 				data = details[:method_drops]
 				# Cheat and say that it's both horde/alliance
-				flags << $flags["Alliance"] << $flags["Horde"]
-
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				# Instance, mob, or raid drop
 				unless data.length > 10
-
 					data.each do |npc|
-
 						unless npc[:id] == 0
-
-							acquire << {"type" => $acquire["Mob"],
+							acquire << {"type" => acquirelisting["Mob"],
 										"id" => npc[:id]}
 							$monsters[npc[:id]] = {:name => npc[:name]}
-
 							# The NPC has a location mined
 							if npc[:locs]
 								npc[:locs].each do |loc|
 									if $dungeons[loc]
-										flags << $flags["Instance"]
+										flags << flaglisting["Instance"]
 										$instancemobs << npc[:name]
 									elsif $raids[loc]
-										flags << $flags["Raid"]
+										flags << flaglisting["Raid"]
 										$instancemobs << npc[:name]
 									else
-										flags << $flags["Mob Drop"]
+										flags << flaglisting["Mob Drop"]
 									end
 								end
 							# There was no NPC location mined
@@ -582,7 +568,7 @@ EOF
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
 										if dname == $bosszonemap[npc[:name]]
-											flags << $flags["Instance"]
+											flags << flaglisting["Instance"]
 											found = true
 											$instancemobs << npc[:name]
 										end
@@ -591,14 +577,14 @@ EOF
 										# Go through all the raids
 										$raids.each_pair do |id,dname|
 											if dname == $bosszonemap[npc[:name]]
-												flags << $flags["Raid"]
+												flags << flaglisting["Raid"]
 												found = true
 												$instancemobs << npc[:name]
 											end
 										end
 									end
 									if not found
-										flags << $flags["Mob Drop"]
+										flags << flaglisting["Mob Drop"]
 									end
 								end
 							end
@@ -606,71 +592,57 @@ EOF
 					end
 				# World drop
 				else
-					flags << $flags["World Drop"]
-					acquire << {"type" => 7,
+					flags << flaglisting["World Drop"]
+					acquire << {"type" => acquirelisting["World Drop"],
 								"id" => details[:rarity]}
 				end
-
 			# Quest reward
 			when 'rewardfrom'
-
 				data = details[:method_quests]
-				flags << 8
-
+				flags << flaglisting["Quest"]
 				data.each do |quest|
-
-					acquire << {"type" => $acquire["Quest"], 
-								"id" => quest[:id]}
-					$quests[quest[:id]] = {:name => quest[:name]}
-
-					if quest[:side] == 1
-						flags << $flags["Alliance"] << $flags["Horde"]
-						$quests[quest[:id]][:faction] = 0
-					elsif quest[:side] == 2
-						flags << $flags["Alliance"]
-						$quests[quest[:id]][:faction] = 1
-					elsif quest[:side] == 4
-						flags << $flags["Horde"]
-						$quests[quest[:id]][:faction] = 2
-					end
-
-					quest[:questinfo] = maps.get_quest_map_info(quest[:id])
-
-					if quest[:questinfo]
-						quest[:questinfo][:quest_zones].values do |loc|
-							if $dungeons[loc]
-								flags << $flags["Instance"]
-							end
-							if $raids[loc]
-								flags << $flags["Raid"]
+					if not $globalignore.include?(quest[:name])
+						acquire << {"type" => acquirelisting["Quest"], 
+									"id" => quest[:id]}
+						$quests[quest[:id]] = {:name => quest[:name]}
+						if quest[:side] == 1
+							flags << flaglisting["Alliance"] << flaglisting["Horde"]
+							$quests[quest[:id]][:faction] = npcfactions["Horde"]
+						elsif quest[:side] == 2
+							flags << flaglisting["Alliance"]
+							$quests[quest[:id]][:faction] = npcfactions["Alliance"]
+						elsif quest[:side] == 4
+							flags << flaglisting["Horde"]
+							$quests[quest[:id]][:faction] = npcfactions["Neutral"]
+						end
+						quest[:questinfo] = maps.get_quest_map_info(quest[:id])
+						if quest[:questinfo]
+							quest[:questinfo][:quest_zones].values do |loc|
+								if $dungeons[loc]
+									flags << flaglisting["Instance"]
+								end
+								if $raids[loc]
+									flags << flaglisting["Raid"]
+								end
 							end
 						end
 					end
-
 				end
-
 			end
-
 		end
 
 		# Add class flags
-
+		# No class flags, add all the classes to it
 		if details[:classes].nil?
-
-			flags << 21 << 22 << 23 << 24 << 25 << 26 << 27 << 28 << 29 << 30
-
+			flags << classes["Deathknight"] << classes["Druid"] << classes["Hunter"] << classes["Mage"]
+			flags << classes["Paladin"] << classes["Priest"] << classes["Shaman"]
+			flags << classes["Rogue"] << classes["Warlock"] << classes["Warrior"]
 		else
-
 			details[:classes].split(",").each do |ctype|
-
 				if classes.has_key?(ctype)
-
 					flags << classes[ctype]
-
 				end
-
 			end
-
 		end
 
 		# Add item and recipe BoE/BoP/BoA flags
@@ -692,10 +664,8 @@ EOF
 		if details[:recipe_binds] == "BOA"
 			flags << 42
 		end
-
 		# Add weapon flags
 		if details[:is_weapon]
-			flags << 46
 			unless details[:weapon_hands].nil?
 				flags << weapons[details[:weapon_hands]]
 			end
@@ -703,10 +673,8 @@ EOF
 				flags << weapons[details[:weapon_slot]]
 			end
 		end
-
 		# Add armor flags
 		if details[:is_armor]
-			flags << 47
 			unless details[:armor_type].nil?
 				flags << armors[details[:armor_type]]
 			end
@@ -716,215 +684,163 @@ EOF
 		if specialcase[details[:spellid]]
 
 			case specialcase[details[:spellid]][:id]
-
 			when 7
-
-				flags << 7
-				acquire << {"type" => 5, "id" => specialcase[details[:spellid]][:type]}
-
+				flags << flaglisting["Seasonal"]
+				acquire << {"type" => acquirelisting["Seasonal"],
+						"id" => specialcase[details[:spellid]][:type]}
 			when 9
-
-				flags << 9
-
+				flags << flaglisting["PVP"]
 			when 12
-
-				flags << 1 << 2 << 12
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
 				specialcase[details[:spellid]][:type].each do |i|
-					acquire << {"type" => 8, "id" => i}
+					acquire << {"type" => acquirelisting["Custom"],
+								"id" => i}
 				end
-				flags.delete(3)
-				flags.delete(4)
-				flags.delete(5)
-				flags.delete(6)
-
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
 			when "Trainer"
-
-				acquire << {"type" => 8, "id" => 8}
-
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 8}
 			when "meleedps"
-
-				flags << 51
-
+				flags << playertypeflags["MeleeDPS"]
 			when "Alliance"
-
-				flags << 1
-
+				flags << flaglisting["Alliance"]
 			when "Horde"
-
-				flags << 2
-
+				flags << flaglisting["Horde"]
 			when "Daily"
-
-				flags.delete(3)
-				flags.delete(4)
-				flags.delete(5)
-				flags.delete(6)
-				flags.delete(7)
-				flags.delete(8)
-				flags.delete(9)
-				flags.delete(10)
-				flags.delete(11)
-				flags << 1 << 2
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Seasonal"])
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["PVP"])
+				flags.delete(flaglisting["World Drop"])
+				flags.delete(flaglisting["Mob Drop"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				specialcase[details[:spellid]][:type].each do |i|
-					acquire << {"type" => 8, "id" => i}
+					acquire << {"type" => acquirelisting["Custom"],
+							"id" => i}
 				end
-
 			when "class"
-
 				# Remove all the other class flags
-				flags.delete(21)
-				flags.delete(22)
-				flags.delete(23)
-				flags.delete(24)
-				flags.delete(25)
-				flags.delete(26)
-				flags.delete(27)
-				flags.delete(28)
-				flags.delete(29)
-				flags.delete(30)
+				flags.delete(classes["Deathknight"])
+				flags.delete(classes["Druid"])
+				flags.delete(classes["Hunter"])
+				flags.delete(classes["Mage"])
+				flags.delete(classes["Paladin"])
+				flags.delete(classes["Priest"])
+				flags.delete(classes["Shaman"])
+				flags.delete(classes["Rogue"])
+				flags.delete(classes["Warlock"])
+				flags.delete(classes["Warrior"])
 				flags.concat(specialcase[details[:spellid]][:type])
-
 			when "ADNaxx40H"
-
 				# Remove all the acquire flags
-				flags.delete(3)
-				flags.delete(4)
-				flags.delete(5)
-				flags.delete(6)
-				flags.delete(7)
-				flags.delete(8)
-				flags.delete(9)
-				flags.delete(10)
-				flags.delete(11)
-				flags.delete(12)
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Seasonal"])
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["PVP"])
+				flags.delete(flaglisting["World Drop"])
+				flags.delete(flaglisting["Mob Drop"])
+				flags.delete(flaglisting["Discovery"])
 				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
-				flags << 1 << 2 << 4 << 6 << 96
-				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 2}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Vendor"] << flaglisting["Raid"] << flaglisting["Argent Dawn"]
+				acquire << {"type" => acquirelisting["Reputation"],
+							"id" => 16365,
+							"faction" => 529,
+							"factionlevel" => factionlevels["Honored"]}
 				$vendors[16365] = {:name => "Master Craftsman Omarion"}
-				$vendors[16365][:faction] = 0
+				$vendors[16365][:faction] = npcfactions["Neutral"]
 
 			when "ADNaxx40R"
-
 				# Remove all the acquire flags
-				flags.delete(3)
-				flags.delete(4)
-				flags.delete(5)
-				flags.delete(6)
-				flags.delete(7)
-				flags.delete(8)
-				flags.delete(9)
-				flags.delete(10)
-				flags.delete(11)
-				flags.delete(12)
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Seasonal"])
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["PVP"])
+				flags.delete(flaglisting["World Drop"])
+				flags.delete(flaglisting["Mob Drop"])
+				flags.delete(flaglisting["Discovery"])
 				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
-				flags << 1 << 2 << 4 << 6 << 96
-				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 3}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Vendor"] << flaglisting["Raid"] << flaglisting["Argent Dawn"]
+				acquire << {"type" => acquirelisting["Reputation"],
+							"id" => 16365,
+							"faction" => 529,
+							"factionlevel" => factionlevels["Revered"]}
 				$vendors[16365] = {:name => "Master Craftsman Omarion"}
-				$vendors[16365][:faction] = 0
-
+				$vendors[16365][:faction] = npcfactions["Neutral"]
 			when "ADNaxx40E"
-
 				# Remove all the acquire flags
-				flags.delete(3)
-				flags.delete(4)
-				flags.delete(5)
-				flags.delete(6)
-				flags.delete(7)
-				flags.delete(8)
-				flags.delete(9)
-				flags.delete(10)
-				flags.delete(11)
-				flags.delete(12)
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Seasonal"])
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["PVP"])
+				flags.delete(flaglisting["World Drop"])
+				flags.delete(flaglisting["Mob Drop"])
+				flags.delete(flaglisting["Discovery"])
 				# Add Horde, Alliance, Vendor, Reputation, Argent Dawn flags
-				flags << 1 << 2 << 4 << 6 << 96
-				acquire << {"type" => 6, "id" => 16365, "faction" => 529,"factionlevel" => 4}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Vendor"] << flaglisting["Raid"] << flaglisting["Argent Dawn"]
+				acquire << {"type" => acquirelisting["Reputation"],
+							"id" => 16365,
+							"faction" => 529,
+							"factionlevel" => factionlevels["Exalted"]}
 				$vendors[16365] = {:name => "Master Craftsman Omarion"}
-				$vendors[16365][:faction] = 0
-
+				$vendors[16365][:faction] = npcfactions["Neutral"]
 			when "specialty"
-
 				if not details[:specialty]
-
 					details[:specialty] = specialcase[details[:spellid]][:type]
-
 				else
-
 					proflua.print("\n\t-- Warning: Manually overriding specialty for a recipe that already has one.\n\t--")
-
 				end
-
 			end
 
 		end
 
-		# Item Stats:
-		# :item_stats => [{:val=>x, id=> y}]
-
+		# Player type stats
 		unless details[:item_stats] == nil
-
-			proflua.print("\n\t-- Item Stats: ")
-
 			stats = {}
-
 			details[:item_stats].each do |s|
-
 				stats[s[:id]] = s[:val]
-
 			end
-
-			# 51 = Physical DPS (melee/hunters)
-			# 52 = Tanking
-			# 53 = Healing
-			# 54 = Caster DPS
-
 			# We have tanking type stats
 			if stats[26] or stats[27] or stats[28] or stats[31]
-
-				proflua.print("Tanking, ")
-				flags << 52
-
+				flags << playertypeflags["Tanking"]
 			end
-
 			# Spell hit or spell penetration
 			if stats[21] or stats[23]
-
 				proflua.print("Caster DPS, ")
-				flags << 54
-
+				flags << playertypeflags["Caster"]
 			end
-
 			# We have a spell damage and healing stat
 			if stats[19] and stats[20]
-
 				# If healing is higher than spell damage
 				if stats[20] > stats[19]
-
 					if not stats[26] or not stats[27] or not stats[28] or not stats[31]
-
-						proflua.print("Healing, ")
-						flags << 53
-
+						flags << playertypeflags["Healing"]
 					end
-
 				else
-
-					proflua.print("Caster DPS, ")
-					flags << 54
-
+					flags << playertypeflags["Caster"]
 				end
-
 			end
-
 		end
-
-		proflua.puts "\n\t-- Item Stats: #{details[:item_stats]}\n"
 
 		if ignorerecipe.include?(details[:spellid])
-			proflua.print("\t--")
+			proflua.print("\n\t--")
 		else
-			proflua.print("\t")
+			proflua.print("\n\t")
 		end
-
 		proflua.puts "recipecount = recipecount + 1"
 
 		if ignorerecipe.include?(details[:spellid])
@@ -937,48 +853,33 @@ EOF
 
 		# If we have a skill which it's learned at, we'll use it, if not use 1
 		if details[:learned]
-
 			proflua.print("#{details[:learned]},")
-
 		else
-
 			proflua.print("1, ")
-
 		end
 
 		if details[:produces]
-
 			proflua.print("#{details[:produces].first},")
-
 		else
-
 			proflua.print("nil, ")
-
 		end
 
 		if details[:rarity]
-
 			proflua.print("#{details[:rarity]},")
-
 		else
-
 			proflua.print("1, ")
-
 		end
 
 		proflua.print("#{$proftable[profession]}")
 
 		if details[:specialty]
-
 			proflua.print(",#{details[:specialty]})")
-
 		else
-
 			proflua.print(")\n")
-
 		end
 
 		# Compress, remove duplicates and sort the list of flags
+		flags.flatten!
 		flags.compact!
 		flags.uniq!
 		flags.sort!
@@ -986,15 +887,12 @@ EOF
 		if flags.length == 0
 			proflua.puts "\t-- No filter flags"
 		else
-
 			if ignorerecipe.include?(details[:spellid])
 				proflua.print("\t--")
 			else
 				proflua.print("\t")
 			end
-
 			proflua.puts "self:addTradeFlags(RecipeDB,#{details[:spellid]},#{flags.join(",")})"
-
 		end
 
 		flags.clear
@@ -1642,128 +1540,617 @@ maps = WoWDBMaps.new
 $dungeons = maps.get_dungeon_maps
 $raids = maps.get_raid_maps
 
-$proftable = {"Alchemy" 			=> 2259,
-				"Blacksmithing" 	=> 2018,
-				"Cooking"			=> 2550,
-				"Enchanting"		=> 7411,
-				"Engineering"		=> 4036,
-				"First Aid"			=> 746,
-				"Leatherworking"	=> 2108,
-				"Smelting"			=> 2575,
-				"Tailoring"			=> 3908,
-				"Jewelcrafting"		=> 25229,
-				"Inscription"		=> 45357,
-				"Runeforging"		=> 28481
-				}
+$proftable = {
+	"Alchemy" => 2259,
+	"Blacksmithing" => 2018,
+	"Cooking" => 2550,
+	"Enchanting" => 7411,
+	"Engineering" => 4036,
+	"First Aid"	=> 746,
+	"Leatherworking" => 2108,
+	"Smelting" => 2575,
+	"Tailoring" => 3908,
+	"Jewelcrafting"	=> 25229,
+	"Inscription" => 45357,
+	"Runeforging" => 28481
+	}
 
-# List of all flags
-$flags = {
-	"Alliance" => 1,
-	"Horde" => 2,
-	"Trainer" => 3,
-	"Vendor" => 4,
-	"Instance" => 5,
-	"Raid" => 6,
-	"Seasonal" => 7,
-	"Quest" => 8,
-	"World Drop" => 10,
-	"Mob Drop" => 11,
-}
-
-$acquire = {
-	"Trainer" => 1,
-	"Vendor" => 2,
-	"Mob" => 3,
-	"Quest" => 4,
-	"Seasonal" => 5,
-	"Reputation" => 6,
-	"World" => 7,
-}
-
-
+# List imported from babble boss
 $bosslist = [
-	"Ormorok the Tree-Shaper",
-	"Sjonnir The Ironshaper",
-	"Akil'zon",
-	"Anetheron",
-	"Anub'arak",
-	"Archimonde",
-	"Attumen the Huntsman",
-	"Azgalor",
-	"Bannok Grimaxe",
-	"Baron Geddon",
+	"Anubisath Defender",
 	"Battleguard Sartura",
-	"Blackheart the Inciter",
-	"Captain Skarloc",
-	"Chrono Lord Deja",
-	"Commander Sarannis",
-	"Dalliah the Doomsayer",
-	"Darkmaster Gandling",
+	"C'Thun",
 	"Emperor Vek'lor",
 	"Emperor Vek'nilash",
-	"Epoch Hunter",
-	"Exarch Maladaar",
+	"Eye of C'Thun",
 	"Fankriss the Unyielding",
-	"Garr",
-	"Gehennas",
-	"General Drakkisath",
-	"Ghaz'an",
-	"Golem Lord Argelmach",
-	"Golemagg the Incinerator",
-	"Goraluk Anvilcrack",
-	"Grand Warlock Nethekurse",
-	"Grizzle",
-	"Gyth",
-	"Halazzi",
-	"Herald Volazj",
-	"Hex Lord Malacrass",
-	"High Botanist Freywinn",
-	"Hydromancer Thespia",
-	"Jan'alai",
-	"Kaz'rogal",
-	"Keristrasza",
 	"Lord Kri",
-	"Lord Roccor",
-	"Loro",
-	"Lucifron",
-	"Magmadar",
-	"Mechano-Lord Capacitus",
-	"Mekgineer Steamrigger",
-	"Mekgineer Thermaplugg",
-	"Mennu the Betrayer",
-	"Midnight",
-	"Mijan",
-	"Moroes",
-	"Murmur",
-	"Nalorakk",
-	"Nethermancer Sepethrea",
-	"Nexus-Prince Shaffar",
-	"Nightbane",
-	"Onyxia",
 	"Ouro",
-	"Overmaster Pyron",
-	"Pathaleon the Calculator",
-	"Plugger Spazzring",
 	"Princess Huhuran",
 	"Princess Yauj",
-	"Pyromancer Loregrain",
-	"Quartermaster Zigris",
-	"Rage Winterchill",
-	"Ras Frostwhisper",
-	"Ribbly Screwspigot",
-	"Shade of Aran",
-	"Shazzrah",
-	"Solakar Flamewreath",
-	"Terestian Illhoof",
-	"The Crone",
+	"The Bug Family",
 	"The Prophet Skeram",
-	"Thorngrin the Tender",
+	"The Twin Emperors",
 	"Vem",
 	"Viscidus",
+	"Exarch Maladaar",
+	"Shirrak the Dead Watcher",
+	"Nexus-Prince Shaffar",
+	"Pandemonius",
+	"Tavarok",
+	"Ambassador Hellmaw",
+	"Blackheart the Inciter",
+	"Grandmaster Vorpil",
+	"Murmur",
+	"Anzu",
+	"Darkweaver Syth",
+	"Talon King Ikiss",
+	"Aku'mai",
+	"Baron Aquanis",
+	"Gelihast",
+	"Ghamoo-ra",
+	"Lady Sarevess",
+	"Old Serra'kis",
+	"Twilight Lord Kelris",
+	"Ambassador Flamelash",
+	"Anger'rel",
+	"Anub'shiah",
+	"Bael'Gar",
+	"Chest of The Seven",
+	"Doom'rel",
+	"Dope'rel",
+	"Emperor Dagran Thaurissan",
+	"Eviscerator",
+	"Fineous Darkvire",
+	"General Angerforge",
+	"Gloom'rel",
+	"Golem Lord Argelmach",
+	"Gorosh the Dervish",
+	"Grizzle",
+	"Hate'rel",
+	"Hedrum the Creeper",
+	"High Interrogator Gerstahn",
+	"High Priestess of Thaurissan",
+	"Houndmaster Grebmar",
+	"Hurley Blackbreath",
+	"Lord Incendius",
+	"Lord Roccor",
+	"Magmus",
+	"Ok'thor the Breaker",
+	"Overmaster Pyron",
+	"Panzor the Invincible",
+	"Phalanx",
+	"Plugger Spazzring",
+	"Princess Moira Bronzebeard",
+	"Pyromancer Loregrain",
+	"Ribbly Screwspigot",
+	"Seeth'rel",
+	"The Seven Dwarves",
+	"Verek",
+	"Vile'rel",
+	"Warder Stilgiss",
+	"Bannok Grimaxe",
+	"Burning Felguard",
+	"Crystal Fang",
+	"Ghok Bashguud",
+	"Gizrul the Slavener",
+	"Halycon",
+	"Highlord Omokk",
+	"Mor Grayhoof",
+	"Mother Smolderweb",
+	"Overlord Wyrmthalak",
+	"Quartermaster Zigris",
+	"Shadow Hunter Vosh'gajin",
+	"Spirestone Battle Lord",
+	"Spirestone Butcher",
+	"Spirestone Lord Magus",
+	"Urok Doomhowl",
+	"War Master Voone",
+	"General Drakkisath",
+	"Goraluk Anvilcrack",
+	"Gyth",
+	"Jed Runewatcher",
+	"Lord Valthalak",
+	"Pyroguard Emberseer",
+	"Solakar Flamewreath",
+	"The Beast",
+	"Warchief Rend Blackhand",
+	"Broodlord Lashlayer",
+	"Chromaggus",
+	"Ebonroc",
+	"Firemaw",
+	"Flamegor",
+	"Grethok the Controller",
+	"Lord Victor Nefarius",
+	"Nefarian",
+	"Razorgore the Untamed",
+	"Vaelastrasz the Corrupt",
+	"Essence of Anger",
+	"Essence of Desire",
+	"Essence of Suffering",
+	"Gathios the Shatterer",
+	"Gurtogg Bloodboil",
+	"High Nethermancer Zerevor",
+	"High Warlord Naj'entus",
+	"Illidan Stormrage",
+	"Illidari Council",
+	"Lady Malande",
+	"Mother Shahraz",
+	"Reliquary of Souls",
+	"Shade of Akama",
+	"Supremus",
+	"Teron Gorefiend",
+	"The Illidari Council",
+	"Veras Darkshadow",
+	"Malygos",
+	"Anomalus",
+	"Grand Magus Telestra",
+	"Keristrasza",
+	"Ormorok the Tree-Shaper",
+	"Drakos the Interrogator",
+	"Ley-Guardian Eregos",
+	"Mage-Lord Urom",
+	"Varos Cloudstrider",
+	"Captain Skarloc",
+	"Epoch Hunter",
+	"Lieutenant Drake",
+	"Meathook",
+	"Chrono-Lord Epoch",
+	"Mal'Ganis",
+	"Salramm the Fleshcrafter",
+	"Aeonus",
+	"Chrono Lord Deja",
+	"Medivh",
+	"Temporus",
+	"Sartharion",
+	"Shadron",
+	"Tenebron",
+	"Vesperon",
+	"Coilfang Elite",
+	"Coilfang Strider",
+	"Fathom-Lord Karathress",
+	"Hydross the Unstable",
+	"Lady Vashj",
+	"Leotheras the Blind",
+	"Morogrim Tidewalker",
+	"Pure Spawn of Hydross",
+	"Shadow of Leotheras",
+	"Tainted Spawn of Hydross",
+	"The Lurker Below",
+	"Tidewalker Lurker",
+	"Mennu the Betrayer",
+	"Quagmirran",
+	"Rokmar the Crackler",
+	"Ahune",
+	"Hydromancer Thespia",
+	"Mekgineer Steamrigger",
 	"Warlord Kalithresh",
+	"Claw",
+	"Ghaz'an",
+	"Hungarfen",
+	"Overseer Tidewrath",
+	"Swamplord Musel'ek",
+	"The Black Stalker",
+	"Mushgog",
+	"Skarr the Unbreakable",
+	"The Razza",
+	"Alzzin the Wildshaper",
+	"Hydrospawn",
+	"Isalien",
+	"Lethtendris",
+	"Pimgib",
+	"Pusillin",
+	"Zevrim Thornhoof",
+	"Captain Kromcrush",
+	"Cho'Rush the Observer",
+	"Guard Fengus",
+	"Guard Mol'dar",
+	"Guard Slip'kik",
+	"King Gordok",
+	"Knot Thimblejack's Cache",
+	"Stomper Kreeg",
+	"Illyanna Ravenoak",
+	"Immol'thar",
+	"Lord Hel'nurath",
+	"Magister Kalendris",
+	"Prince Tortheldrin",
+	"Tendris Warpwood",
+	"Tsu'zee",
+	"Elder Nadox",
+	"Herald Volazj",
+	"Jedoga Shadowseeker",
+	"Prince Taldaram",
+	"Anub'arak",
+	"Hadronox",
+	"Krik'thir the Gatewatcher",
+	"Crowd Pummeler 9-60",
+	"Dark Iron Ambassador",
+	"Electrocutioner 6000",
+	"Grubbis",
+	"Mekgineer Thermaplugg",
+	"Techbot",
+	"Viscous Fallout",
+	"King Dred",
+	"Novos the Summoner",
+	"The Prophet Tharon'ja",
+	"Trollgore",
+	"Blindeye the Seer",
+	"Gruul the Dragonkiller",
+	"High King Maulgar",
+	"Kiggler the Crazed",
+	"Krosh Firehand",
+	"Olm the Summoner",
+	"Nazan",
+	"Omor the Unscarred",
+	"Vazruden the Herald",
+	"Vazruden",
+	"Watchkeeper Gargolmar",
+	"Hellfire Channeler",
+	"Magtheridon",
+	"Broggok",
+	"Keli'dan the Breaker",
+	"The Maker",
+	"Blood Guard Porung",
+	"Grand Warlock Nethekurse",
+	"Warbringer O'mrogg",
+	"Warchief Kargath Bladefist",
+	"Constructor & Controller",
+	"Dalronn the Controller",
+	"Ingvar the Plunderer",
+	"Prince Keleseth",
+	"Skarvald the Constructor",
+	"Skadi the Ruthless",
+	"King Ymiron",
+	"Svala Sorrowgrave",
+	"Gortok Palehoof",
+	"Anetheron",
+	"Archimonde",
+	"Azgalor",
+	"Kaz'rogal",
+	"Rage Winterchill",
+	"Arcane Watchman",
+	"Attumen the Huntsman",
+	"Chess Event",
+	"Dorothee",
+	"Dust Covered Chest",
+	"Grandmother",
+	"Hyakiss the Lurker",
+	"Julianne",
+	"Kil'rek",
+	"King Llane Piece",
+	"Maiden of Virtue",
+	"Midnight",
+	"Moroes",
+	"Netherspite",
+	"Nightbane",
+	"Prince Malchezaar",
+	"Restless Skeleton",
+	"Roar",
+	"Rokad the Ravager",
+	"Romulo & Julianne",
+	"Romulo",
+	"Shade of Aran",
+	"Shadikith the Glider",
+	"Strawman",
+	"Terestian Illhoof",
+	"The Big Bad Wolf",
+	"The Crone",
+	"The Curator",
+	"Tinhead",
+	"Tito",
+	"Warchief Blackhand Piece",
+	"Priestess Delrissa",
+	"Selin Fireheart",
+	"Vexallus",
+	"Celebras the Cursed",
+	"Gelk",
+	"Kolk",
+	"Landslide",
+	"Lord Vyletongue",
+	"Magra",
+	"Maraudos",
+	"Meshlok the Harvester",
+	"Noxxion",
+	"Princess Theradras",
+	"Razorlash",
+	"Rotgrip",
+	"Tinkerer Gizlock",
+	"Veng",
+	"Baron Geddon",
+	"Cache of the Firelord",
+	"Garr",
+	"Gehennas",
+	"Golemagg the Incinerator",
+	"Lucifron",
+	"Magmadar",
+	"Majordomo Executus",
+	"Ragnaros",
+	"Shazzrah",
+	"Sulfuron Harbinger",
+	"Anub'Rekhan",
+	"Deathknight Understudy",
+	"Feugen",
+	"Four Horsemen Chest",
+	"Gluth",
+	"Gothik the Harvester",
+	"Grand Widow Faerlina",
+	"Grobbulus",
+	"Heigan the Unclean",
+	"Highlord Mograine",
+	"Instructor Razuvious",
+	"Kel'Thuzad",
+	"Lady Blaumeux",
+	"Loatheb",
+	"Maexxna",
+	"Noth the Plaguebringer",
+	"Patchwerk",
+	"Sapphiron",
+	"Sir Zeliek",
+	"Stalagg",
+	"Thaddius",
+	"Thane Korth'azz",
+	"The Four Horsemen",
+	"Onyxia",
+	"Bazzalan",
+	"Jergosh the Invoker",
+	"Maur Grimtotem",
+	"Taragaman the Hungerer",
+	"Amnennar the Coldbringer",
+	"Glutton",
+	"Mordresh Fire Eye",
+	"Plaguemaw the Rotting",
+	"Ragglesnout",
+	"Tuten'kash",
+	"Agathelos the Raging",
+	"Blind Hunter",
+	"Charlga Razorflank",
+	"Death Speaker Jargba",
+	"Earthcaller Halmgar",
+	"Overlord Ramtusk",
+	"Anubisath Guardian",
+	"Ayamiss the Hunter",
+	"Buru the Gorger",
+	"General Rajaxx",
+	"Kurinnaxx",
+	"Lieutenant General Andorov",
+	"Moam",
+	"Ossirian the Unscarred",
+	"Herod",
+	"High Inquisitor Fairbanks",
+	"High Inquisitor Whitemane",
+	"Scarlet Commander Mograine",
+	"Azshir the Sleepless",
+	"Bloodmage Thalnos",
+	"Fallen Champion",
+	"Interrogator Vishas",
+	"Ironspine",
+	"Headless Horseman",
+	"Arcanist Doan",
+	"Houndmaster Loksey",
+	"Blood Steward of Kirtonos",
+	"Darkmaster Gandling",
+	"Death Knight Darkreaver",
+	"Doctor Theolen Krastinov",
+	"Instructor Malicia",
+	"Jandice Barov",
+	"Kirtonos the Herald",
+	"Kormok",
+	"Lady Illucia Barov",
+	"Lord Alexei Barov",
+	"Lorekeeper Polkelt",
+	"Marduk Blackpool",
+	"Ras Frostwhisper",
+	"Rattlegore",
+	"The Ravenian",
+	"Vectus",
+	"Archmage Arugal",
+	"Arugal's Voidwalker",
+	"Baron Silverlaine",
+	"Commander Springvale",
+	"Deathsworn Captain",
+	"Fenrus the Devourer",
+	"Odo the Blindwatcher",
+	"Razorclaw the Butcher",
+	"Wolf Master Nandos",
+	"Archivist Galford",
+	"Balnazzar",
+	"Baron Rivendare",
+	"Baroness Anastari",
+	"Black Guard Swordsmith",
+	"Cannon Master Willey",
+	"Crimson Hammersmith",
+	"Fras Siabi",
+	"Hearthsinger Forresten",
+	"Magistrate Barthilas",
+	"Maleki the Pallid",
+	"Nerub'enkan",
+	"Postmaster Malown",
+	"Ramstein the Gorger",
+	"Skul",
+	"Stonespine",
+	"The Unforgiven",
+	"Timmy the Cruel",
+	"Kalecgos",
+	"Sathrovarr the Corruptor",
+	"Brutallus",
+	"Felmyst",
+	"Kil'jaeden",
+	"M'uru",
+	"Entropius",
+	"The Eredar Twins",
+	"Lady Sacrolash",
+	"Grand Warlock Alythess",
+	"Dalliah the Doomsayer",
+	"Harbinger Skyriss",
+	"Warden Mellichar",
+	"Wrath-Scryer Soccothrates",
+	"Zereketh the Unbound",
+	"Commander Sarannis",
+	"High Botanist Freywinn",
+	"Laj",
+	"Thorngrin the Tender",
 	"Warp Splinter",
-	"Zul'jin",
+	"Al'ar",
+	"Cosmic Infuser",
+	"Devastation",
+	"Grand Astromancer Capernian",
+	"High Astromancer Solarian",
+	"Infinity Blades",
+	"Kael'thas Sunstrider",
+	"Lord Sanguinar",
+	"Master Engineer Telonicus",
+	"Netherstrand Longbow",
+	"Phaseshift Bulwark",
+	"Solarium Agent",
+	"Solarium Priest",
+	"Staff of Disintegration",
+	"Thaladred the Darkener",
+	"Void Reaver",
+	"Warp Slicer",
+	"Gatewatcher Gyro-Kill",
+	"Gatewatcher Iron-Hand",
+	"Mechano-Lord Capacitus",
+	"Nethermancer Sepethrea",
+	"Pathaleon the Calculator",
+	"Brainwashed Noble",
+	"Captain Greenskin",
+	"Cookie",
+	"Edwin VanCleef",
+	"Foreman Thistlenettle",
+	"Gilnid",
+	"Marisa du'Paige",
+	"Miner Johnson",
+	"Mr. Smite",
+	"Rhahk'Zor",
+	"Sneed",
+	"Sneed's Shredder",
+	"Bazil Thredd",
+	"Bruegal Ironknuckle",
+	"Dextren Ward",
+	"Hamhock",
+	"Kam Deepfury",
+	"Targorr the Dread",
+	"Atal'alarion",
+	"Avatar of Hakkar",
+	"Dreamscythe",
+	"Gasher",
+	"Hazzas",
+	"Hukku",
+	"Jade",
+	"Jammal'an the Prophet",
+	"Kazkaz the Unholy",
+	"Loro",
+	"Mijan",
+	"Morphaz",
+	"Ogom the Wretched",
+	"Shade of Eranikus",
+	"Veyzhak the Cannibal",
+	"Weaver",
+	"Zekkis",
+	"Zolo",
+	"Zul'Lor",
+	"Ancient Stone Keeper",
+	"Archaedas",
+	"Baelog",
+	"Digmaster Shovelphlange",
+	"Galgann Firehammer",
+	"Grimlok",
+	"Ironaya",
+	"Obsidian Sentinel",
+	"Revelosh",
+	"General Bjarngrim",
+	"Ionar",
+	"Loken",
+	"Volkhan",
+	"Krystallus",
+	"Maiden of Grief",
+	"Sjonnir The Ironshaper",
+	"The Tribunal of Ages",
+	"Cyanigosa",
+	"Erekem",
+	"Ichoron",
+	"Lavanthor",
+	"Moragg",
+	"Xevozz",
+	"Zuramat the Obliterator",
+	"Boahn",
+	"Deviate Faerie Dragon",
+	"Kresh",
+	"Lady Anacondra",
+	"Lord Cobrahn",
+	"Lord Pythas",
+	"Lord Serpentis",
+	"Mad Magglish",
+	"Mutanus the Devourer",
+	"Skum",
+	"Trigore the Lasher",
+	"Verdan the Everliving",
+	"Avalanchion",
+	"Azuregos",
+	"Baron Charr",
+	"Baron Kazum",
+	"Doom Lord Kazzak",
+	"Doomwalker",
+	"Emeriss",
+	"High Marshal Whirlaxis",
+	"Lethon",
 	"Lord Kazzak",
+	"Lord Skwol",
+	"Prince Skaldrenox",
+	"Princess Tempestria",
+	"Taerar",
+	"The Windreaver",
+	"Ysondre",
+	"Akil'zon",
+	"Halazzi",
+	"Jan'alai",
+	"Malacrass",
+	"Nalorakk",
+	"Zul'jin",
+	"Hex Lord Malacrass",
+	"Antu'sul",
+	"Chief Ukorz Sandscalp",
+	"Dustwraith",
+	"Gahz'rilla",
+	"Hydromancer Velratha",
+	"Murta Grimgut",
+	"Nekrum Gutchewer",
+	"Oro Eyegouge",
+	"Ruuzlu",
+	"Sandarr Dunereaver",
+	"Sandfury Executioner",
+	"Sergeant Bly",
+	"Shadowpriest Sezz'ziz",
+	"Theka the Martyr",
+	"Witch Doctor Zum'rah",
+	"Zerillis",
+	"Zul'Farrak Dead Hero",
+	"Eck the Ferocious",
+	"Drakkari Colossus",
+	"Gal'darah",
+	"Moorabi",
+	"Slad'ran",
+	"Bloodlord Mandokir",
+	"Gahz'ranka",
+	"Gri'lek",
+	"Hakkar",
+	"Hazza'rah",
+	"High Priest Thekal",
+	"High Priest Venoxis",
+	"High Priestess Arlokk",
+	"High Priestess Jeklik",
+	"High Priestess Mar'li",
+	"Jin'do the Hexxer",
+	"Renataki",
+	"Wushoolay",
+	"Brokentoe",
+	"Mogor",
+	"Murkblood Twin",
+	"Murkblood Twins",
+	"Rokdar the Sundered Lord",
+	"Skra'gath",
+	"The Blue Brothers",
+	"Warmaul Champion",
 ]
 
 $bosszonemap = {
@@ -2104,9 +2491,6 @@ $bosszonemap = {
 	"Zulian Tiger" => "Zul'Gurub",
 }
 
-# Neutral = 0
-# Alliance = 1
-# Horde = 2
 $factionmap = {
 	"Wild Hearts" => "2",
 	"Flash Bomb Recipe" => "0",
@@ -2146,6 +2530,15 @@ $alliancefactionlist = [
 	3557, #The Exodar
 	]
 
+$globalignore = [
+
+	"Living Ruby Serpent",
+	"Outland Children's Week Dark Portal Trigger",
+	"Outland Children's Week Exodar 01 Trigger",
+	"Outland Children's Week Silvermoon 01 Trigger",
+
+]
+
 $debug = false
 
 if $debug
@@ -2153,25 +2546,13 @@ if $debug
 	create_custom_db()
 	create_faction_db()
 
-	cooking = recipes.get_cooking_list
-	cookingspeciallist = {
-		2538 => {:id => "Trainer"},
-		2540 => {:id => "Trainer"},
-		8604 => {:id => "Trainer"},
-		21143 => {:id => 7, :type => 1},
-		21144 => {:id => 7, :type => 1},
-		45022 => {:id => 7, :type => 1},
-		43772 => {:id => "Daily", :type => [5]},
-		43765 => {:id => "Daily", :type => [5]},
-		43761 => {:id => "Daily", :type => [6]},
-		43707 => {:id => "Daily", :type => [6]},
-		43758 => {:id => "Daily", :type => [5,6]},
-		43779 => {:id => "Daily", :type => [5,6]},
-		45695 => {:id => "Daily", :type => [7]},
+	firstaid = recipes.get_firstaid_list
+	faspecaillist = {
+		3275 => {:id => "Trainer"},
 		}
-	cookmanual=<<EOF
+	famanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
 
 	#create_stats_list()
 

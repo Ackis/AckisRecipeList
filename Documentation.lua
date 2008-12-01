@@ -235,10 +235,6 @@ Item Flags
 		-- 41 = Recipe BoP
 		-- 42 = Recipe BoA
 
-	-- Item class (46-50 for growth):
-		-- 46 = Weapon
-		-- 47 = Armor
-
 	-- Item Type (51-55 for growth):
 		-- 51 = Physical DPS (melee/hunters)
 		-- 52 = Tanking

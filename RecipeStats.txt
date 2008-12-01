@@ -1,10 +1,7 @@
 Unknown zones:
+	"Deviate Eradication" => "",
 	"Enslaved Proto-Drake" => "",
-	"Living Ruby Serpent" => "",
 	"Nightmare Scalebane" => "",
-	"Outland Children's Week Dark Portal Trigger" => "",
-	"Outland Children's Week Exodar 01 Trigger" => "",
-	"Outland Children's Week Silvermoon 01 Trigger" => "",
 	"Portal Guardian" => "",
 	"Portal Keeper" => "",
 	"Risen Drakkari Death Knight" => "",
@@ -38,7 +35,6 @@ Unknown faction:
 	"Derek Odds" => "",
 	"Doba" => "",
 	"Drakk Stonehand" => "",
-	"Duchess Mynx" => "",
 	"Felannia" => "",
 	"Gambarinka" => "",
 	"Gara Skullcrush" => "",
@@ -53,7 +49,6 @@ Unknown faction:
 	"Haalrun" => "",
 	"Hahrana Ironhide" => "",
 	"Hama" => "",
-	"Harggan" => "",
 	"Hurnak Grimmord" => "",
 	"Jangdor Swiftstrider" => "",
 	"Johan Focht" => "",
@@ -65,8 +60,6 @@ Unknown faction:
 	"Kylanna Windwhisper" => "",
 	"Leeli Longhaggle" => "",
 	"Linna Bruder" => "",
-	"Living Ruby Serpent" => "",
-	"Living Ruby Serpent - " => "",
 	"Logannas" => "",
 	"Logistics Officer Brighton" => "",
 	"Logistics Officer Silverstone" => "",
@@ -78,15 +71,8 @@ Unknown faction:
 	"Nula the Butcher" => "",
 	"Nurse Neela" => "",
 	"Nyoma" => "",
-	"Outland Children's Week Dark Portal Trigger" => "",
-	"Outland Children's Week Dark Portal Trigger - " => "",
-	"Outland Children's Week Exodar 01 Trigger" => "",
-	"Outland Children's Week Exodar 01 Trigger - " => "",
-	"Outland Children's Week Silvermoon 01 Trigger" => "",
-	"Outland Children's Week Silvermoon 01 Trigger - " => "",
 	"Provisioner Lorkran" => "",
 	"Quartermaster Urgronn" => "",
-	"Rartar" => "",
 	"Rogvar" => "",
 	"Rohok" => "",
 	"Rungor" => "",
@@ -169,7 +155,6 @@ Single faction:
 	"Doctor Martin Felben" => "",
 	"Dolothos" => "",
 	"Drakk Stonehand" => "",
-	"Duchess Mynx" => "",
 	"Edrem" => "",
 	"Egomis" => "",
 	"Elynna" => "",
@@ -206,7 +191,6 @@ Single faction:
 	"Hagrus" => "",
 	"Hahrana Ironhide" => "",
 	"Hama" => "",
-	"Harggan" => "",
 	"Hurnak Grimmord" => "",
 	"Innkeeper Grilka" => "",
 	"James Van Brunt" => "",
@@ -281,7 +265,6 @@ Single faction:
 	"Provisioner Lorkran" => "",
 	"Quartermaster Urgronn" => "",
 	"Randal Worth" => "",
-	"Rartar" => "",
 	"Rawrk" => "",
 	"Razia" => "",
 	"Refik" => "",
@@ -305,6 +288,7 @@ Single faction:
 	"Simon Tanner" => "",
 	"Snang" => "",
 	"Snarl" => "",
+	"Sovik" => "",
 	"Sprite Jumpsprocket" => "",
 	"Stephen Ryback" => "",
 	"Stone Guard Mukar" => "",
@@ -617,7 +601,6 @@ No acquire information:
 58299 - Glyph of Revive Pet - Inscription
 56460 - Cobalt Frag Bomb - Engineering
 57026 - Glyph of Flash of Light - Inscription
-23066 - Red Firework - Engineering
 50942 - Iceborne Boots - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 57168 - Glyph of Sweeping Strikes - Inscription
@@ -650,7 +633,6 @@ No acquire information:
 58868 - Endless Mana Potion - Alchemy
 48114 - Scroll of Intellect - Inscription
 58302 - Glyph of Feign Death - Inscription
-9202 - Green Whelp Bracers - Leatherworking
 53916 - Jagged Dark Jade - Jewelcrafting
 57029 - Glyph of Holy Light - Inscription
 56463 - Explosive Decoy - Engineering
@@ -771,6 +753,7 @@ No acquire information:
 55908 - Frostwoven Belt - Tailoring
 53927 - Sundered Dark Jade - Jewelcrafting
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
+11477 - Elixir of Demonslaying - Alchemy
 56474 - Ultrasafe Bullet Machine - Engineering
 49258 - Smelt Saronite - Smelting
 50956 - Nerubian Chestguard - Leatherworking
@@ -913,6 +896,7 @@ No acquire information:
 22813 - Gordok Ogre Suit - Tailoring
 53943 - Stormy Chalcedony - Jewelcrafting
 55641 - Socket Gloves - Blacksmithing
+9937 - Mithril Scale Bracers - Blacksmithing
 58330 - Glyph of Renewed Life - Inscription
 23804 - Enchant Weapon - Mighty Intellect - Enchanting
 56349 - Handful of Cobalt Bolts - Engineering
@@ -1308,6 +1292,7 @@ No acquire information:
 22869 - Mooncloth Gloves - Tailoring
 57112 - Glyph of Adrenaline Rush - Inscription
 50603 - Scroll of Intellect VII - Inscription
+19049 - Wicked Leather Gauntlets - Leatherworking
 56971 - Glyph of Arcane Missiles - Inscription
 60367 - Elixir of Mighty Thoughts - Alchemy
 55839 - Titanium Weapon Chain - Blacksmithing
@@ -1394,6 +1379,7 @@ No acquire information:
 50614 - Scroll of Stamina III - Inscription
 59387 - Certificate of Ownership - Inscription
 57123 - Glyph of Garrote - Inscription
+3778 - Gem-studded Leather Belt - Leatherworking
 56982 - Glyph of Improved Scorch - Inscription
 57265 - Glyph of Health Funnel - Inscription
 57690 - Fur Lining - Stamina - Leatherworking
@@ -1445,6 +1431,7 @@ No acquire information:
 56988 - Glyph of Remove Curse - Inscription
 54017 - Precise Bloodstone - Jewelcrafting
 57130 - Glyph of Vigor - Inscription
+19067 - Stormshroud Pants - Leatherworking
 53876 - Fierce Huge Citrine - Jewelcrafting
 57272 - Glyph of Shadowburn - Inscription
 60668 - Enchant Gloves - Crusher - Enchanting
@@ -1543,7 +1530,6 @@ No acquire information:
 56015 - Cloak of Frozen Spirits - Tailoring
 55732 - Titanium Rod - Blacksmithing
 57713 - Ethereal Ink - Inscription
-19084 - Devilsaur Gauntlets - Leatherworking
 53893 - Resolute Huge Citrine - Jewelcrafting
 55308 - Savage Saronite Walkers - Blacksmithing
 57006 - Glyph of Improved Aspect of the Hawk - Inscription
@@ -1639,6 +1625,7 @@ No acquire information:
 57158 - Glyph of Heroic Strike - Inscription
 55177 - Savage Cobalt Slicer - Blacksmithing
 61120 - Master's Inscription of the Storm - Inscription
+4096 - Raptor Hide Harness - Leatherworking
 53904 - Powerful Rejuvenation Potion - Alchemy
 56027 - Ebonweave Gloves - Tailoring
 57159 - Glyph of Intervene - Inscription
