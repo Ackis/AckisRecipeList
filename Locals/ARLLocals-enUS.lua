@@ -966,7 +966,6 @@ L["Master Craftsman Omarion"] = true
 L["Master of the Wild Leather"] = true
 L["Mathar G'ochar"] = true
 L["Matt Johnson"] = true
-L["Mavralyn"] = true
 L["Mazk Snipeshot"] = true
 L["Me'lynn"] = true
 L["Meilosh"] = true
