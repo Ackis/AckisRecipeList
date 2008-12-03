@@ -1003,11 +1003,6 @@ local function RecipeList_Update()
 		end
 
 	end
-
-	-- Make sure our apply button gets disabled
-	ApplyFilterState = nil
-	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
-	ARL_ApplyButton:Disable()
 	
 end
 
@@ -1076,6 +1071,11 @@ local function ReDisplay()
 
 	-- And update our scrollframe
 	RecipeList_Update()
+	
+	-- Make sure our apply button gets disabled
+	ApplyFilterState = nil
+	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
+	ARL_ApplyButton:Disable()
 
 end
 
@@ -1984,6 +1984,7 @@ function addon.SwitchProfs()
 	currentProfession = playerData.playerProfession
 	ReDisplay()
 	addon.resetTitle()
+
 end
 
 -- Description: 
@@ -4266,6 +4267,11 @@ function addon:CreateFrame(
 	-- And update our scrollframe
 	RecipeList_Update()
 	addon.Frame:Show()
+	
+	-- Make sure our apply button gets disabled
+	ApplyFilterState = nil
+	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
+	ARL_ApplyButton:Disable()
 
 end
 
