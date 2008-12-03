@@ -11,7 +11,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 
 Original translated by: Winkiller
-Currently maintaince by: Dessa
+Currently maintained by: Dessa
 
 Thank you all translators! (From Ackis)
 
@@ -255,8 +255,9 @@ L["ARMOR_ALL_DESC"]			= "Rezepte die irgendein Rüstungsitem herstellen sollen i
 L["ARMOR_NONE_DESC"]		= "Zeige keine Rezepte im Scan an, die Rüstungsitems herstellen können."
 L["WEAPON_ALL_DESC"]		= "Rezepte die irgendein Waffenitem herstellen sollen im Scan angezeigt werden."
 L["WEAPON_NONE_DESC"]		= "Zeige keine Rezepte im Scan an, die Waffenitems herstellen können."
+L["NOT_YET_SCANNED"]		= "noch nicht gescannt!"
 
--- Common Tooltip Strings (where different from above)
+-- Common Tool tip Strings (where different from above)
 L["CTRL_CLICK"]				= "Strg-Klick um einen Rezeptlink im Chat einzufügen"
 L["ALT_CLICK"]				= "Alt-Klick um das Rezept der Ignorierliste hinzuzufügen"
 L["SHIFT_CLICK"]			= "Shift-Klick um das durch das Rezept hergestellte Item im Chat einzufügen"
@@ -288,7 +289,7 @@ L["Lunar Festival"]			= "Mondfest"
 L["Darkmoon Faire"]			= "Dunkelmond-Jahrmarkt"
 L["Seasonal"]				= "Saisonbedingt"
 
--- Monster/Quest/Trainer/Vendor (autogeneratored) strings:
+-- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
 -- Do not translate anything below this line without talking to Ackis first please.
 L["40 Tickets - Schematic: Steam Tonk Controller"] = true

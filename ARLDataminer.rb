@@ -1404,6 +1404,7 @@ L["ARMOR_ALL_DESC"]			= "Recipes that make ANY armor item should be included in 
 L["ARMOR_NONE_DESC"]		= "Do NOT include any recipes that make armor items in the scan."
 L["WEAPON_ALL_DESC"]		= "Recipes that make ANY weapon item should be included in the scan."
 L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in the scan."
+L["NOT_YET_SCANNED"]		= "not yet scanned!"
 
 -- Common Tool tip Strings (where different from above)
 L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat"
