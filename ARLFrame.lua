@@ -1981,7 +1981,9 @@ function addon.SwitchProfs()
 	-- Redisplay the button with the new skill
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 	playerData.playerProfession = SortedProfessions[currentProfIndex].name
+	currentProfession = playerData.playerProfession
 	ReDisplay()
+	addon.resetTitle()
 end
 
 -- Description: 
