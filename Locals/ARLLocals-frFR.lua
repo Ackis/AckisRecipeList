@@ -270,6 +270,7 @@ L["ARMOR_ALL_DESC"]			= "Intègre les recettes permettant de fabriquer N'IMPORTE
 L["ARMOR_NONE_DESC"]		= "Intègre AUCUNE des recettes permettant de fabriquer des pièces d'armure dans l'analyse."
 L["WEAPON_ALL_DESC"]		= "Intègre les recettes permettant de fabriquer N'IMPORTE QUELLE arme dans l'analyse."
 L["WEAPON_NONE_DESC"]		= "Intègre AUCUNE des recettes permettant de fabriquer des armes dans l'analyse."
+L["NOT_YET_SCANNED"]		= "n'est pas encore scanné !"
 
 -- Common Tooltip Strings (where different from above)
 L["CTRL_CLICK"]			= "Ctrl-Clic pour créer un lien vers cette recette."
