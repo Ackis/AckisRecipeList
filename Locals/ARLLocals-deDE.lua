@@ -53,9 +53,9 @@ L["ARL_DOC_DESC"]			= "Dokumentation für Ackis Recipe List"
 
 -- UI Documentation
 L["Using Filters"]			= "Nutzung der Filter"
-L["USING_FILTERS_DESC"]		= "Filter können ein- oder ausgeschaltet werden.  Es gibt Zwei Typen von Filtern: Einer, der dafür sorgt dass das Rezept garnicht erst angezeigt wird und einer der verhindert, dass bestimmte Bezugsinformationen ausgeblendet werden.\nMit dem ersten Filter kannst du Rezepte mit bestimmten Eigenschaften (wie zb. Bindung) ausblenden.  Wenn du ARL so einstellst, dass es keine BoP Rezepte zeigen soll, werden auch keine beim Klick auf Scan angezeigt.  Der Zweite Filtertyp ist für Bezugsinfos gedacht.  Sollte ein Rezept als Mob Drop vorhanden sein, aber auch von einem Händler und du hast aber Eingestellt dass keine Händlerrezepte angezeigt werden sollen, wird das Rezept trozdem angezeigt, allerdings wird die Info, dass es bei einem Händler verfügbar ist versteckt.  Der Grund dafür ist dass es trozdem noch einen anderen Weg gibt an dieses Rezept zu kommen (Mob Drop) deshalb sollte es immernoch im Scan sichtbar sein."
+L["USING_FILTERS_DESC"]		= "Filter können ein- oder ausgeschaltet werden.  Es gibt Zwei Typen von Filtern: Einer, der dafür sorgt dass das Rezept gar nicht erst angezeigt wird und einer der verhindert, dass bestimmte Bezugsinformationen ausgeblendet werden.\nMit dem ersten Filter kannst du Rezepte mit bestimmten Eigenschaften (wie z.B.. Bindung) ausblenden.  Wenn du ARL so einstellst, dass es keine BoP Rezepte zeigen soll, werden auch keine beim Klick auf Scan angezeigt.  Der Zweite Filtertyp ist für Bezugsinfos gedacht.  Sollte ein Rezept als Mob Drop vorhanden sein, aber auch von einem Händler und du hast aber Eingestellt dass keine Händlerrezepte angezeigt werden sollen, wird das Rezept trotzdem angezeigt, allerdings wird die Info, dass es bei einem Händler verfügbar ist versteckt.  Der Grund dafür ist dass es trotzdem noch einen anderen Weg gibt an dieses Rezept zu kommen (Mob Drop) deshalb sollte es immer noch im Scan sichtbar sein."
 L["Reporting Bugs"]			= "Fehler Melden"
-L["REPORTING_BUGS_DESC"]	= "Wenn du einen Fehler meldest, stelle sicher, dass du dies Folgendermaßen tust:\n1) Lade die neuste Version von http://www.wowace.com/projects/arl/files/\n2) Stelle sicher dass noch kein Bugreport für deinen Fehler exsistiert.  Schaue dazu auf http://www.wowace.com/projects/arl/tickets/\n2a) Deaktiviere AddOns wie Skillet oder ATSW.\n3) Sollte dein Problem nicht in der Ticketliste vorkommen und du nutzt die Aktuellste Version stelle sicher, dass die AddOn Einstellungen stimmen.  Schaue nach den Filtern, Profilen usw.\n4) Hast du also einen Fehler gefunden den noch niemand gemeldet hat, dann erstelle ein neues Ticket in Englischer Sprache unter http://www.wowace.com/projects/arl/tickets/ und Stelle dabei sicher, dass der Titel dein Problem gut beschreibt.  Im Ticket selbst sollte die Fehlermeldung stehen die du bekommst (nur die Fehlermeldung, ich brauche keine Liste deiner benutzten Addons), Das Rezept/Die Profession womit der Fehler aufgetreten ist, und jegliche anderen Infos von denen du denkst, dass sie bei der Problemlösung helfen könnten."
+L["REPORTING_BUGS_DESC"]	= "Wenn du einen Fehler meldest, stelle sicher, dass du dies Folgendermaßen tust:\n1) Lade die neuste Version von http://www.wowace.com/projects/arl/files/\n2) Stelle sicher dass noch kein Bugreport für deinen Fehler existiert.  Schaue dazu auf http://www.wowace.com/projects/arl/tickets/\n2a) Deaktiviere AddOns wie Skillet oder ATSW.\n3) Sollte dein Problem nicht in der Ticketliste vorkommen und du nutzt die Aktuellste Version stelle sicher, dass die AddOn Einstellungen stimmen.  Schaue nach den Filtern, Profilen usw.\n4) Hast du also einen Fehler gefunden den noch niemand gemeldet hat, dann erstelle ein neues Ticket in Englischer Sprache unter http://www.wowace.com/projects/arl/tickets/ und Stelle dabei sicher, dass der Titel dein Problem gut beschreibt.  Im Ticket selbst sollte die Fehlermeldung stehen die du bekommst (nur die Fehlermeldung, ich brauche keine Liste deiner benutzten Addons), Das Rezept/Die Profession womit der Fehler aufgetreten ist, und jegliche anderen Infos von denen du denkst, dass sie bei der Problemlösung helfen könnten."
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= "Gefilterte Einschließen"
@@ -68,8 +68,8 @@ L["Display Exclusions"]		= "Zeige Ausgeschlossene"
 L["DISPLAY_EXCLUSION_DESC"]	= "Zeigt Rezepte die in der Ausschlussliste sind."
 L["UI Scale"]				= "UI Skalierung"
 L["UI_SCALE_DESC"]			= "Ändert die Skalierung der UI. Mögliche Werte sind .5 bis 1.5 (1 ist Standard)"
-L["Tooltip Scale"]			= "Tooltip Salierung"
-L["TOOLTIP_SCALE_DESC"]		= "Ändert die Skalierung vom ARL Tooltip. Möglcihe Werte sind .5 bis 1.5 (.9 ist Standard)"
+L["Tooltip Scale"]			= "Tooltip Skalierung"
+L["TOOLTIP_SCALE_DESC"]		= "Ändert die Skalierung vom ARL Tooltip. Mögliche Werte sind .5 bis 1.5 (.9 ist Standard)"
 L["Sorting"]				= "Sortierung"
 L["Sort"]					= "Sortierung"
 L["Display"]				= "Anzeige"
@@ -121,7 +121,7 @@ L["FILTERING_WOTLK_DESC"]		= "Konfiguration der Rufrezepte von Lich King, welche
 
 -- General Filter UI Elements and their associated descriptions
 L["Faction"]				= "Fraktion"
-L["FACTION_DESC"]			= "Schließt sowohl Allianz als auch Horde Rezpte in den Scan ein."
+L["FACTION_DESC"]			= "Schließt sowohl Allianz als auch Horde Rezepte in den Scan ein."
 L["Classes"]				= "Klassen"
 L["CLASS_DESC"]				= "Schließt alle Klassenspezifischen Rezepte in den Scan ein."
 L["Specialties"]			= "Spezialisierungen"
@@ -266,7 +266,7 @@ L["RECIPE_EXCLUDED"]		= "Rezept ist in der Ausschlussliste"
 L["Required Skill"]			= "Benötigte Fertigkeit"
 
 -- Popup Strings
-L["NOTSCANNED"]				= "Du hast diesen Beruf nochnicht gescannt. Bitte Öffne den Beruf und Klicke auf Scan."
+L["NOTSCANNED"]				= "Du hast diesen Beruf noch nicht gescannt. Bitte Öffne den Beruf und Klicke auf Scan."
 L["ALL_FILTERED"]			= "Obwohl du bereits den Beruf gescannt hast, sorgen deine Filter dafür, dass momentan keine Rezepte angezeigt werden. Bitte ändere deine Filtereinstellungen und versuche es erneut."
 L["ARL_ALLKNOWN"]	= "Du kennst alle Rezepte dieses Berufs."
 L["ARL_ALLEXCLUDED"] = "Obwohl du bereits den Beruf gescannt hast, sorgen deine Rezepte in der Ausschlussliste dafür, dass momentan nichts angezeigt wird. Bitte ändere deine Ausschlussliste und versuche es erneut."
