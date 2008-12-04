@@ -148,8 +148,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Lovingly Crafted Boomstick -- 3939
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3939,120,4372,1,4036)
-	self:addTradeFlags(RecipeDB,3939,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3939,2,2682)
+	self:addTradeFlags(RecipeDB,3939,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3939,2,2682,2,6730)
 
 	-- Shadow Goggles -- 3940
 	recipecount = recipecount + 1
@@ -238,8 +238,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Ice Deflector -- 3957
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3957,2,2684)
 
 	-- Iron Strut -- 3958
 	recipecount = recipecount + 1
@@ -382,7 +382,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	recipecount = recipecount + 1
@@ -394,7 +394,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -732,7 +732,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Dark Iron Bomb -- 19799
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19799,285,16005,2,4036)
-	self:addTradeFlags(RecipeDB,19799,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,19799,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,19799,3,8920)
 
 	-- Thorium Shells -- 19800
@@ -816,20 +816,20 @@ function addon:InitEngineering(RecipeDB)
 	-- Red Firework -- 23066
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23066,2,3413)
+	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Blue Firework -- 23067
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,1304)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
-	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,3495)
+	self:addTradeFlags(RecipeDB,23068,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- EZ-Thro Dynamite II -- 23069
 	recipecount = recipecount + 1
@@ -886,12 +886,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Alarm-O-Bot -- 23096
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,23096,265,18645,2,4036,20219)	self:addTradeFlags(RecipeDB,23096,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeSkill(RecipeDB,23096,265,18645,2,4036,20219)	self:addTradeFlags(RecipeDB,23096,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,23096,3,8920)
 
 	-- World Enlarger -- 23129
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,23129,260,18660,2,4036,20219)	self:addTradeFlags(RecipeDB,23129,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeSkill(RecipeDB,23129,260,18660,2,4036,20219)	self:addTradeFlags(RecipeDB,23129,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,23129,3,8920)
 
 	-- Dimensional Ripper - Everlook -- 23486

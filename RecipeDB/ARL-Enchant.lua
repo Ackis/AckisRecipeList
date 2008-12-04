@@ -485,7 +485,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13882,225,nil, 2,7411)
 	self:addTradeFlags(RecipeDB,13882,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,13882,3,2246,3,2407,3,5623,3,7805)
+	self:addTradeAcquire(RecipeDB,13882,3,2246,3,2407,3,5420,3,5623,3,7805)
 
 	-- Enchant Gloves - Strength -- 13887
 	recipecount = recipecount + 1
@@ -575,7 +575,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13947,250,nil, 2,7411)
 	self:addTradeFlags(RecipeDB,13947,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13947,3,7155,3,8889,3,8893,3,10184)
+	self:addTradeAcquire(RecipeDB,13947,3,7155,3,8889,3,8893,3,10184,3,12206)
 
 	-- Enchant Gloves - Minor Haste -- 13948
 	recipecount = recipecount + 1
@@ -670,8 +670,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Superior Defense -- 20015
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20015,285,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20015,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20015,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
+	self:addTradeAcquire(RecipeDB,20015,2,12022)
 
 	-- Enchant Shield - Superior Spirit -- 20016
 	recipecount = recipecount + 1
@@ -712,8 +712,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Major Health -- 20026
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20026,275,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20026,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20026,2,11189)
+	self:addTradeFlags(RecipeDB,20026,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Chest - Major Mana -- 20028
 	recipecount = recipecount + 1
@@ -1199,7 +1199,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32665,350,22462,1,7411)
 	self:addTradeFlags(RecipeDB,32665,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32665,2,18960)
+	self:addTradeAcquire(RecipeDB,32665,2,18960,2,19004)
 
 	-- Runed Eternium Rod -- 32667
 	recipecount = recipecount + 1
