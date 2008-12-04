@@ -5,21 +5,34 @@ ARLLocals-zhTW.lua
 
 zhTW localization strings for Ackis Recipe List
 
-File date: 2008-11-25T15:48:01Z 
-File revision: 1132 
-Project revision: 1148
-Project version: 1.0B11
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 Original translated by: iCat (msn: lucifer_icat@hotmail.com)
 Currently maintaince by: apa1102, zhucc, andy52005
 
-Thank you all translators! (From Ackis)
-
 Please make sure you update the ToC file with any translations.
 
-ToC needs translation update for Notes please. (remove this if it's done)
+The enUS file is auto-generated from the data miner.  If you need to make changes,
+please update the data miner file otherwise they will be overwritten.
 
 ****************************************************************************************
+]]--
+
+--[[
+Locale schema
+	* single and double words are just fine, anything longer should have a tag
+	* tag name rules:
+		* tags should be ALL_CAPITAL_LETTERS with words separated with _'s
+		* descriptions are typically used in tooltips and header in sections
+		* short descriptions will end in _DESC
+		* long descriptions will end in _LONG
+	* don't include the object being described in the name (no _TOGGLE or _TT) since it
+	  can be used several times to describe different objects (in theory)
+	* group related elements together, either by their location in the GUI/config,
+	  or by purpose (Weapon categories, etc)
 ]]--
 
 local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "zhTW", false)
