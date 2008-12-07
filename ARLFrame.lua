@@ -919,6 +919,10 @@ local function RecipeList_Update()
 
 	if (entries > 0) then
 
+		-- enable expand button
+		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+		ARL_ExpandButton:Enable()
+
 		-- now fill in our buttons
 		local listOffset = FauxScrollFrame_GetOffset(ARL_RecipeScrollFrame)
 		local buttonIndex = 1
@@ -975,6 +979,9 @@ local function RecipeList_Update()
 
 	-- Entries are 0 here, so we have 0 to display
 	else
+		-- disable expand button, it's useless here and would spam the same error again
+		ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
+		ARL_ExpandButton:Disable()
 
 		-- If the recipe total is at 0, it means we have not scanned the profession yet
 		if (playerData.recipes_total == 0) then
