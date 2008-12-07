@@ -1031,63 +1031,39 @@ EOF
 			x = x.to_s[0..4]
 			y = y.to_s[0..4]
 
+			# Assumption that ID and Name will always be around
+			lookup_lua.print("self:addLookupList(#{db},#{k},")
+
+			if $bosslist.include?(v[:name])
+				lookup_lua.print("BBOSS[\"#{v[:name]}\"],")
+				$localstring.delete(v[:name])
+			else
+				lookup_lua.print("L[\"#{v[:name]}\"],")
+				# Add the name to the list of localization strings
+				$localstring << v[:name]
+			end
+
+			if locs.keys[0]
+				lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
+			else
+				if $bosszonemap[v[:name]]
+					lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
+				else
+					lookup_lua.print("L[\"Unknown Zone\"],")
+					$unknownzone << v[:name]
+				end
+			end
+
+			if x and y
+				lookup_lua.print("#{x},#{y})")
+			else
+				lookup_lua.print("0,0")
+			end
+
 			# Don't care about faction information for Monsters
 			if type == "Monster"
-
-				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db},#{k},")
-
-				if $bosslist.include?(v[:name])
-					lookup_lua.print("BBOSS[\"#{v[:name]}\"],")
-					$localstring.delete(v[:name])
-				else
-
-					lookup_lua.print("L[\"#{v[:name]}\"],")
-					# Add the name to the list of localization strings
-					$localstring << v[:name]
-				end
-
-				if locs.keys[0]
-					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
-				else
-					if $bosszonemap[v[:name]]
-						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
-					else
-						lookup_lua.print("L[\"Unknown Zone\"],")
-						$unknownzone << v[:name]
-					end
-				end
-
-				if x and y
-					lookup_lua.print("#{x},#{y})")
-				else
-					lookup_lua.print("0,0)")
-				end
-				lookup_lua.print("\n")
+				lookup_lua.print(")")
 			else
-
-				# Assumption that ID and Name will always be around
-				lookup_lua.print("self:addLookupList(#{db},#{k},L[\"#{v[:name]}\"],")
-
-				if locs.keys[0]
-					lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
-				else
-					if $bosszonemap[v[:name]]
-						lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
-						locs.keys[0] = $bosszonemap[v[:name]]
-					else
-						lookup_lua.print("L[\"Unknown Zone\"],")
-						locs.keys[0] = "Unknown Zone"
-						$unknownzone << v[:name]
-					end
-				end
-
-				if x and y
-					lookup_lua.print("#{x},#{y},")
-				else
-					lookup_lua.print("0,0,")
-				end
-
 				if v[:faction]
 					lookup_lua.print("#{v[:faction]})")
 				else
@@ -1098,14 +1074,10 @@ EOF
 						$unknownfaction << "#{v[:name]} - #{locs.keys[0]}"
 					end
 				end
-
-				lookup_lua.print("\n")
-
 				# Add the name to the list of localization strings
 				$localstring << v[:name]
-
 			end
-
+			lookup_lua.print("\n")
 		end
 
 	end
