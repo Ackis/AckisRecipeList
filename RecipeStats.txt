@@ -1,7 +1,12 @@
 Unknown zones:
+	"Amal'thazad" => "",
 	"Crystalline Keeper" => "",
+	"Durnholde Sentry" => "",
+	"Elixir of Pain" => "",
 	"Enslaved Proto-Drake" => "",
 	"Krystallus" => "",
+	"Lady Alistra" => "",
+	"Lord Thorval" => "",
 	"Mage Slayer" => "",
 	"Nightmare Scalebane" => "",
 	"Overlord Wyrmthalak" => "",
@@ -35,7 +40,6 @@ Unknown faction:
 	"Burko" => "",
 	"Byancie" => "",
 	"Captured Gnome" => "",
-	"Carolai Anise" => "",
 	"Celie Steelwing" => "",
 	"Cyndra Kindwhisper" => "",
 	"Daga Ramba" => "",
@@ -44,6 +48,7 @@ Unknown faction:
 	"Derek Odds" => "",
 	"Doba" => "",
 	"Drakk Stonehand" => "",
+	"Elixir of Pain - " => "",
 	"Felannia" => "",
 	"Gambarinka" => "",
 	"Gara Skullcrush" => "",
@@ -59,6 +64,7 @@ Unknown faction:
 	"Hahrana Ironhide" => "",
 	"Hama" => "",
 	"Hurnak Grimmord" => "",
+	"Jangdor Swiftstrider" => "",
 	"Johan Focht" => "",
 	"K. Lee Smallfry" => "",
 	"Kalaen" => "",
@@ -92,14 +98,12 @@ Unknown faction:
 	"Skeletal Fiend (Enraged Form)" => "",
 	"Skeletal Fiend (Enraged Form) - " => "",
 	"Stone Guard Mukar" => "",
-	"Supplying the Front - " => "",
 	"Tatiana" => "",
 	"Thamner Pol" => "",
 	"Tognus Flintfire" => "",
 	"Truk Wildbeard" => "",
 	"Uthok" => "",
 	"Vance Undergloom" => "",
-	"Vharr" => "",
 	"Victor Ward" => "",
 	"Vix Chromeblaster" => "",
 	"Wulan" => "",
@@ -145,7 +149,6 @@ Single faction:
 	"Byancie" => "",
 	"Camberon" => "",
 	"Captured Gnome" => "",
-	"Carolai Anise" => "",
 	"Celie Steelwing" => "",
 	"Cyndra Kindwhisper" => "",
 	"Daga Ramba" => "",
@@ -161,7 +164,6 @@ Single faction:
 	"Doba" => "",
 	"Doctor Herbert Halsey" => "",
 	"Doctor Marsh" => "",
-	"Doctor Martin Felben" => "",
 	"Dolothos" => "",
 	"Drakk Stonehand" => "",
 	"Edrem" => "",
@@ -203,6 +205,7 @@ Single faction:
 	"Hurnak Grimmord" => "",
 	"Innkeeper Grilka" => "",
 	"James Van Brunt" => "",
+	"Jangdor Swiftstrider" => "",
 	"Jessara Cordell" => "",
 	"Jhag" => "",
 	"Johan Focht" => "",
@@ -325,7 +328,6 @@ Single faction:
 	"Vaean" => "",
 	"Vance Undergloom" => "",
 	"Vhan" => "",
-	"Vharr" => "",
 	"Victor Ward" => "",
 	"Vix Chromeblaster" => "",
 	"Wulan" => "",
@@ -420,6 +422,7 @@ Instance mobs:
 	"Deep Stinger",
 	"Defias Looter",
 	"Defias Pirate",
+	"Defias Renegade Mage",
 	"Defias Squallshaper",
 	"Don Carlos",
 	"Doomforge Craftsman",
@@ -427,6 +430,7 @@ Instance mobs:
 	"Dragonmaw Wind Reaver",
 	"Durnholde Lookout",
 	"Durnholde Rifleman",
+	"Durnholde Sentry",
 	"Durnholde Tracking Hound",
 	"Emperor Vek'lor",
 	"Emperor Vek'nilash",
@@ -613,6 +617,7 @@ No acquire information:
 58299 - Glyph of Revive Pet - Inscription
 56460 - Cobalt Frag Bomb - Engineering
 57026 - Glyph of Flash of Light - Inscription
+23066 - Red Firework - Engineering
 50942 - Iceborne Boots - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 57168 - Glyph of Sweeping Strikes - Inscription
@@ -768,6 +773,7 @@ No acquire information:
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
 11477 - Elixir of Demonslaying - Alchemy
 56474 - Ultrasafe Bullet Machine - Engineering
+8789 - Crimson Silk Cloak - Tailoring
 49258 - Smelt Saronite - Smelting
 50956 - Nerubian Chestguard - Leatherworking
 55201 - Cobalt Tenderizer - Blacksmithing
@@ -964,7 +970,6 @@ No acquire information:
 3862 - Icy Cloak - Tailoring
 53953 - Sparkling Sky Sapphire - Jewelcrafting
 58481 - Scroll of Agility VI - Inscription
-7258 - Frost Protection Potion - Alchemy
 60604 - Dark Frostscale Breastplate - Leatherworking
 54944 - Spiked Cobalt Chestpiece - Blacksmithing
 58340 - Glyph of Kilrogg - Inscription
@@ -991,7 +996,6 @@ No acquire information:
 58484 - Scroll of Strength - Inscription
 55371 - Titansteel Guardian - Blacksmithing
 60607 - Iceborne Wristguards - Leatherworking
-10516 - Nightscape Shoulders - Leatherworking
 54947 - Spiked Cobalt Legplates - Blacksmithing
 58343 - Glyph of Bloodrage - Inscription
 57211 - Glyph of Chains of Ice - Inscription
@@ -1021,7 +1025,6 @@ No acquire information:
 55941 - Black Duskweave Robe - Tailoring
 58488 - Scroll of Strength V - Inscription
 55375 - Spiked Titansteel Treads - Blacksmithing
-26085 - Soul Pouch - Tailoring
 60611 - Dark Iceborne Leggings - Leatherworking
 58347 - Glyph of Enduring Victory - Inscription
 57215 - Glyph of Death's Embrace - Inscription
@@ -1052,6 +1055,7 @@ No acquire information:
 58491 - Scroll of Strength VIII - Inscription
 57218 - Glyph of Icebound Fortitude - Inscription
 9957 - Orcish War Leggings - Blacksmithing
+3873 - Black Swashbuckler's Shirt - Tailoring
 53964 - Tenuous Twilight Opal - Jewelcrafting
 44625 - Enchant Gloves - Armsman - Enchanting
 18448 - Mooncloth Shoulders - Tailoring
@@ -1088,7 +1092,6 @@ No acquire information:
 60337 - Scroll of Recall III - Inscription
 39961 - Relentless Earthstorm Diamond - Jewelcrafting
 56234 - Titansteel Shanker - Blacksmithing
-18454 - Gloves of Spell Mastery - Tailoring
 57225 - Glyph of Strangulate - Inscription
 28925 - Glowing Shadow Draenite - Jewelcrafting
 60621 - Enchant Weapon - Greater Potency - Enchanting
@@ -1132,7 +1135,6 @@ No acquire information:
 53975 - Inscribed Monarch Topaz - Jewelcrafting
 52843 - Moonglow Ink - Inscription
 60767 - Enchant Bracers - Superior Spellpower - Enchanting
-20015 - Enchant Cloak - Superior Defense - Enchanting
 44636 - Enchant Ring - Greater Spellpower - Enchanting
 51570 - Dark Arctic Chestpiece - Leatherworking
 45061 - Mad Alchemist's Potion - Alchemy
@@ -1226,7 +1228,6 @@ No acquire information:
 47901 - Enchant Boots - Tuskarr's Vitality - Enchanting
 53844 - Flashing Bloodstone - Jewelcrafting
 54552 - Tempered Saronite Boots - Blacksmithing
-20026 - Enchant Chest - Major Health - Enchanting
 52571 - Cobalt Helm - Blacksmithing
 60637 - Ice Striker's Cloak - Leatherworking
 57241 - Glyph of Frost Shock - Inscription
@@ -1317,7 +1318,6 @@ No acquire information:
 57113 - Glyph of Ambush - Inscription
 50604 - Scroll of Intellect VIII - Inscription
 60651 - Virulent Spaulders - Leatherworking
-19050 - Green Dragonscale Breastplate - Leatherworking
 56972 - Glyph of Arcane Power - Inscription
 53859 - Sovereign Shadow Crystal - Jewelcrafting
 57114 - Glyph of Backstab - Inscription
@@ -1340,6 +1340,7 @@ No acquire information:
 50607 - Scroll of Spirit IV - Inscription
 56550 - Ornate Saronite Pauldrons - Blacksmithing
 57116 - Glyph of Crippling Poison - Inscription
+19053 - Chimeric Gloves - Leatherworking
 56975 - Glyph of Fireball - Inscription
 53862 - Glowing Shadow Crystal - Jewelcrafting
 57258 - Glyph of Conflagrate - Inscription
@@ -1402,10 +1403,12 @@ No acquire information:
 57265 - Glyph of Health Funnel - Inscription
 57690 - Fur Lining - Stamina - Leatherworking
 3920 - Crafted Light Shot - Engineering
+20051 - Runed Arcanite Rod - Enchanting
 57124 - Glyph of Ghostly Strike - Inscription
 56983 - Glyph of Invisibility - Inscription
 55002 - Flexweave Underlay - Engineering
 53870 - Puissant Shadow Crystal - Jewelcrafting
+3496 - Moonsteel Broadsword - Blacksmithing
 57266 - Glyph of Healthstone - Inscription
 52738 - Ivory Ink - Inscription
 57691 - Fur Lining - Spell Power - Leatherworking
@@ -1441,7 +1444,6 @@ No acquire information:
 50620 - Scroll of Stamina VIII - Inscription
 56280 - Cudgel of Saronite Justice - Blacksmithing
 57129 - Glyph of Sap - Inscription
-19066 - Frostsaber Boots - Leatherworking
 53875 - Resplendent Huge Citrine - Jewelcrafting
 57271 - Glyph of Shadow Bolt - Inscription
 56988 - Glyph of Remove Curse - Inscription
@@ -1529,6 +1531,7 @@ No acquire information:
 53890 - Stalwart Huge Citrine - Jewelcrafting
 55305 - Savage Saronite Bracers - Blacksmithing
 57003 - Glyph of Frost Trap - Inscription
+22902 - Mooncloth Robe - Tailoring
 57711 - Shimmering Ink - Inscription
 53891 - Glimmering Huge Citrine - Jewelcrafting
 55306 - Savage Saronite Pauldrons - Blacksmithing

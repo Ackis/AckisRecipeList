@@ -335,7 +335,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6704,170,5782,2,2108)
 	self:addTradeFlags(RecipeDB,6704,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2393,2,2846)
+	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2381,2,2393,2,2846)
 
 	-- Murloc Scale Bracers -- 6705
 	recipecount = recipecount + 1
@@ -371,7 +371,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7149,170,5963,1,2108)
 	self:addTradeFlags(RecipeDB,7149,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,7149,2,2821,2,3958)
+	self:addTradeAcquire(RecipeDB,7149,2,2821,2,3958,2,4877)
 
 	-- Barbaric Shoulders -- 7151
 	recipecount = recipecount + 1
@@ -616,8 +616,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Nightscape Shoulders -- 10516
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10516,210,8192,2,2108)
-	self:addTradeFlags(RecipeDB,10516,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,10516,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,10516,2,7854)
 
 	-- Turtle Scale Bracers -- 10518
 	recipecount = recipecount + 1
@@ -653,7 +653,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10533,220,8205,2,2108)
 	self:addTradeFlags(RecipeDB,10533,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10533,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,3,5615,3,5617)
+	self:addTradeAcquire(RecipeDB,10533,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,3,5615,3,5617,3,8996)
 
 	-- Tough Scorpid Gloves -- 10542
 	recipecount = recipecount + 1
@@ -826,8 +826,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Green Dragonscale Breastplate -- 19050
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19050,260,15045,1,2108)
-	self:addTradeFlags(RecipeDB,19050,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,19050,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,19050,2,11874)
 
 	-- Heavy Scorpid Vest -- 19051
 	recipecount = recipecount + 1
@@ -844,8 +844,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Chimeric Gloves -- 19053
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19053,265,15074,1,2108)
-	self:addTradeFlags(RecipeDB,19053,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19053,2,12957)
+	self:addTradeFlags(RecipeDB,19053,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	-- No acquire information
 
 	-- Red Dragonscale Breastplate -- 19054
 	recipecount = recipecount + 1
@@ -881,7 +881,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19061,270,15061,1,2108)
 	self:addTradeFlags(RecipeDB,19061,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19061,2,7852)
+	self:addTradeAcquire(RecipeDB,19061,2,7852,2,7854)
 
 	-- Ironfeather Shoulders -- 19062
 	recipecount = recipecount + 1
@@ -910,8 +910,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Frostsaber Boots -- 19066
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19066,275,15071,1,2108)
-	self:addTradeFlags(RecipeDB,19066,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,19066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,19066,2,11189)
 
 	-- Stormshroud Pants -- 19067
 	recipecount = recipecount + 1
@@ -1877,7 +1877,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35563,365,29507,4,2108)
 	self:addTradeFlags(RecipeDB,35563,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,35563,3,16425,3,16595,3,17940,3,20031,3,23586)
+	self:addTradeAcquire(RecipeDB,35563,3,16425,3,16595,3,17819,3,17940,3,20031,3,23586)
 
 	-- Living Dragonscale Helm -- 35564
 	recipecount = recipecount + 1

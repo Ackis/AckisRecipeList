@@ -334,8 +334,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Moonsteel Broadsword -- 3496
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
-	self:addTradeAcquire(RecipeDB,3496,2,2482)
+	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	-- No acquire information
 
 	-- Frost Tiger Blade -- 3497
 	recipecount = recipecount + 1
@@ -346,8 +346,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
-	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
-	self:addTradeAcquire(RecipeDB,3498,2,1146,2,2483)
+	self:addTradeFlags(RecipeDB,3498,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
+	self:addTradeAcquire(RecipeDB,3498,2,1146)
 
 	-- Shadow Crescent Axe -- 3500
 	recipecount = recipecount + 1
@@ -988,8 +988,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Radiant Circlet -- 16659
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16659,295,12417,2,2018)
-	self:addTradeFlags(RecipeDB,16659,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,16659,3,6553)
+	self:addTradeFlags(RecipeDB,16659,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,16659,3,6553,3,10184)
 
 	-- Dawnbringer Shoulders -- 16660
 	recipecount = recipecount + 1
@@ -1054,8 +1054,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Helm of the Great Chief -- 16728
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16728,300,12636,3,2018)
-	self:addTradeFlags(RecipeDB,16728,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,16728,3,10488)
+	self:addTradeFlags(RecipeDB,16728,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,16728,3,10184,3,10488)
 
 	-- Lionheart Helm -- 16729
 	recipecount = recipecount + 1
@@ -2277,7 +2277,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Heavy Copper Longsword -- 43549
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43549,35,33791,2,2018)
-	self:addTradeFlags(RecipeDB,43549,8,21,22,23,24,25,26,27,28,29,30,36,40,69)
+	self:addTradeFlags(RecipeDB,43549,1,8,21,22,23,24,25,26,27,28,29,30,36,40,69)
 	self:addTradeAcquire(RecipeDB,43549,4,1578)
 
 	-- Hammer of Righteous Might -- 43846
