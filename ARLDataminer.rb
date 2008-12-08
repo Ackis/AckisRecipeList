@@ -2704,7 +2704,38 @@ EOF
 		30570 => {:id => "specialty", :type => 20219},
 		}
 	engmanual=<<EOF
+	-- Mechanized Snow Goggles (Cloth) -- 56465
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,56465,400,41112,3,4036)
+	self:addTradeFlags(RecipeDB,56465,1,2,3,24,26,29,36,41,56)
+	self:addTradeAcquire(RecipeDB,56465,1,26907,1,26955,1,26991,1,28697)
+
+	-- Mechanized Snow Goggles (Leather) -- 61481
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,61481,400,44742,3,4036)
+	self:addTradeFlags(RecipeDB,61481,1,2,3,22,28,36,41,57)
+	self:addTradeAcquire(RecipeDB,61481,1,26907,1,26955,1,26991,1,28697)
+
+	-- Mechanized Snow Goggles (Mail) -- 61482
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,61482,400,44742,3,4036)
+	self:addTradeFlags(RecipeDB,61482,1,2,3,23,27,36,41,58)
+	self:addTradeAcquire(RecipeDB,61482,1,26907,1,26955,1,26991,1,28697)	
+
+	-- Mechanized Snow Goggles (Plate) -- 61483
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
+	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
+	self:addTradeAcquire(RecipeDB,61483,1,26907,1,26955,1,26991,1,28697)
 EOF
+	$trainers[26907] = {:name => "Tisha Longbridge"}
+	$trainers[26907][:faction] = 1
+	$trainers[26955] = {:name => "Jamesina Watterly"}
+	$trainers[26955][:faction] = 2
+	$trainers[26991] = {:name => "Sock Brightbolt"}
+	$trainers[26991][:faction] = 1
+	$trainers[28697] = {:name => "Justin Oshenko"}
+	$trainers[28697][:faction] = 0
 	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
 
 	firstaid = recipes.get_firstaid_list
