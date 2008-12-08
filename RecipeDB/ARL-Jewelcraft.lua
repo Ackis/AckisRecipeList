@@ -1468,37 +1468,37 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Loop of Forged Power -- 46122
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46122,365,34362,4,25229)
-	self:addTradeFlags(RecipeDB,46122,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,46122,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,62)
 	self:addTradeAcquire(RecipeDB,46122,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
 
 	-- Ring of Flowing Life -- 46123
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46123,365,34363,4,25229)
-	self:addTradeFlags(RecipeDB,46123,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,46123,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,62)
 	self:addTradeAcquire(RecipeDB,46123,3,25363,3,25367,3,25369,3,25370)
 
 	-- Hard Khorium Band -- 46124
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46124,365,34361,4,25229)
-	self:addTradeFlags(RecipeDB,46124,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,46124,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,62)
 	self:addTradeAcquire(RecipeDB,46124,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
 
 	-- Pendant of Sunfire -- 46125
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46125,365,34359,4,25229)
-	self:addTradeFlags(RecipeDB,46125,1,2,11,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,46125,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,46125,3,25369,3,25370,3,25599)
 
 	-- Amulet of Flowing Life -- 46126
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46126,365,34360,4,25229)
-	self:addTradeFlags(RecipeDB,46126,1,2,11,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,46126,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,46126,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
 
 	-- Hard Khorium Choker -- 46127
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46127,365,34358,4,25229)
-	self:addTradeFlags(RecipeDB,46127,1,2,11,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,46127,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,46127,3,25363,3,25367,3,25369,3,25371,3,25507)
 
 	-- Quick Dawnstone -- 46403
@@ -2458,7 +2458,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Fierce Monarch Topaz -- 54019
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54019,390,40041,3,25229)
-	self:addTradeFlags(RecipeDB,54019,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54019,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,54019,3,23954,3,24083,3,29735)
 
 	-- Resolute Monarch Topaz -- 54023

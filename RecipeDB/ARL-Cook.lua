@@ -490,7 +490,7 @@ function addon:InitCooking(RecipeDB)
 	-- Runn Tum Tuber Surprise -- 22761
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22761,275,18254,2,2550)
-	self:addTradeFlags(RecipeDB,22761,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,22761,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,22761,3,14354)
 
 	-- Heavy Crocolisk Stew -- 24418

@@ -113,7 +113,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7776,80,nil, 2,7411)
 	self:addTradeFlags(RecipeDB,7776,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7776,2,3346,2,5757)
+	self:addTradeAcquire(RecipeDB,7776,2,5757)
 
 	-- Enchant Bracer - Minor Agility -- 7779
 	recipecount = recipecount + 1
@@ -143,7 +143,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7793,100,nil, 1,7411)
 	self:addTradeFlags(RecipeDB,7793,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7793,2,3012,2,3346,2,5158,2,5758)
+	self:addTradeAcquire(RecipeDB,7793,2,3012,2,5158,2,5758)
 
 	-- Runed Silver Rod -- 7795
 	recipecount = recipecount + 1
@@ -748,7 +748,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Unholy Weapon -- 20033
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20033,295,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,20033,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,20033,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,20033,3,10398,3,16772,3,16810,3,18477,3,18595)
 
 	-- Enchant Weapon - Crusader -- 20034
@@ -766,7 +766,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant 2H Weapon - Major Intellect -- 20036
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20036,300,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,20036,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,20036,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,20036,3,10422)
 
 	-- Runed Arcanite Rod -- 20051
@@ -1624,7 +1624,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Steelweave -- 47051
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,47051,375,nil, 3,7411)
-	self:addTradeFlags(RecipeDB,47051,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeFlags(RecipeDB,47051,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,47051,3,24560)
 
 	-- Enchant Cloak - Mighty Armor -- 47672

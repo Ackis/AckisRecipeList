@@ -258,18 +258,19 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 			unless npc[:react].nil?
 				# Only has information for one faction
 				if not npc[:react][1]
-					$singlefaction << npc[:name]
 					if npc[:locs]
 						if $hordefactionlist.include?(npc[:locs][0])
 							flags << flaglisting["Horde"]
 							listing[npc[:id]][:faction] = npcfactions["Horde"]
 							npc[:react][0] = npcreact["Hostile"]
 							npc[:react][1] = npcreact["Friendly"]
+							$singlefaction << npc[:name]
 						elsif $alliancefactionlist.include?(npc[:locs][0])
 							flags << flaglisting["Alliance"]
 							listing[npc[:id]][:faction] = npcfactions["Alliance"]
 							npc[:react][0] = npcreact["Friendly"]
 							npc[:react][1] = npcreact["Hostile"]
+							$singlefaction << npc[:name]
 						else
 							$unknownfaction << npc[:name]
 							flags << flaglisting["Alliance"] << flaglisting["Horde"]
@@ -292,6 +293,47 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 			else
 				$unknownfaction << npc[:name]
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+			end
+		end
+	end
+
+	return flags,acquire
+
+end
+
+def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
+
+	acquire = Hash.new
+	flags = Array.new
+
+	acquire.clear
+	flags.clear
+
+	if not $globalignore.include?(quest[:name])
+		acquire = {"type" => acquirelisting["Quest"], 
+					"id" => quest[:id]}
+		$quests[quest[:id]] = {:name => quest[:name]}
+		if quest[:side] == 1
+			flags << flaglisting["Alliance"] << flaglisting["Horde"]
+			$quests[quest[:id]][:faction] = npcfactions["Horde"]
+		elsif quest[:side] == 2
+			flags << flaglisting["Alliance"]
+			$quests[quest[:id]][:faction] = npcfactions["Alliance"]
+		elsif quest[:side] == 4
+			flags << flaglisting["Horde"]
+			$quests[quest[:id]][:faction] = npcfactions["Neutral"]
+		else
+			$unknownfaction << quest[:name]
+		end
+		quest[:questinfo] = maps.get_quest_map_info(quest[:id])
+		if quest[:questinfo]
+			quest[:questinfo][:quest_zones].values do |loc|
+				if $dungeons[loc]
+					flags << flaglisting["Instance"]
+				end
+				if $raids[loc]
+					flags << flaglisting["Raid"]
+				end
 			end
 		end
 	end
@@ -601,31 +643,10 @@ EOF
 				data = details[:method_quests]
 				flags << flaglisting["Quest"]
 				data.each do |quest|
-					if not $globalignore.include?(quest[:name])
-						acquire << {"type" => acquirelisting["Quest"], 
-									"id" => quest[:id]}
-						$quests[quest[:id]] = {:name => quest[:name]}
-						if quest[:side] == 1
-							flags << flaglisting["Alliance"] << flaglisting["Horde"]
-							$quests[quest[:id]][:faction] = npcfactions["Horde"]
-						elsif quest[:side] == 2
-							flags << flaglisting["Alliance"]
-							$quests[quest[:id]][:faction] = npcfactions["Alliance"]
-						elsif quest[:side] == 4
-							flags << flaglisting["Horde"]
-							$quests[quest[:id]][:faction] = npcfactions["Neutral"]
-						end
-						quest[:questinfo] = maps.get_quest_map_info(quest[:id])
-						if quest[:questinfo]
-							quest[:questinfo][:quest_zones].values do |loc|
-								if $dungeons[loc]
-									flags << flaglisting["Instance"]
-								end
-								if $raids[loc]
-									flags << flaglisting["Raid"]
-								end
-							end
-						end
+					foo,bar = parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
+					flags << foo
+					if bar != {} then
+						acquire << bar
 					end
 				end
 			end
@@ -1078,7 +1099,6 @@ EOF
 						lookup_lua.print("#{$factionmap[v[:name]]})")
 					else
 						lookup_lua.print("0)")
-						$unknownfaction << "#{v[:name]} - #{locs.keys[0]}"
 					end
 				end
 				# Add the name to the list of localization strings
@@ -1520,6 +1540,7 @@ maps = WoWDBMaps.new
 $dungeons = maps.get_dungeon_maps
 $raids = maps.get_raid_maps
 
+# List of professions and their ID's
 $proftable = {
 	"Alchemy" => 2259,
 	"Blacksmithing" => 2018,
@@ -1528,7 +1549,7 @@ $proftable = {
 	"Engineering" => 4036,
 	"First Aid"	=> 746,
 	"Leatherworking" => 2108,
-	"Smelting" => 2575,
+	"Smelting" => 2656,
 	"Tailoring" => 3908,
 	"Jewelcrafting"	=> 25229,
 	"Inscription" => 45357,
@@ -2133,6 +2154,7 @@ $bosslist = [
 	"Warmaul Champion",
 ]
 
+# Manual mapping of mobs to their zones
 $bosszonemap = {
 	"Anub'ar Guardian" => "Azjol-Nerub",
 	"Anub'ar Prime Guard" => "Azjol-Nerub",
@@ -2471,6 +2493,7 @@ $bosszonemap = {
 	"Zulian Tiger" => "Zul'Gurub",
 }
 
+# Manual mapping of npc/quests to their factions
 $factionmap = {
 	"Wild Hearts" => "2",
 	"Flash Bomb Recipe" => "0",
@@ -2484,10 +2507,99 @@ $factionmap = {
 	"Firework Launcher" => "0",
 	"Festive Recipes" => "0",
 	"Cluster Launcher" => "0",
-	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
-	"Great-father Winter" => "0",
-	"Dalinna" => "2",
 	"Georgio Bolero" => "1",
+
+	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
+	"Alanna Raveneye" => "1",
+	"Alchemist Gribble" => "1",
+	"Alys Vol'tyr" => "2",
+	"Amy Davenport" => "1",
+	#"Ancient Female Vrykul" => "",
+	"Andrew Hilbert" => "2",
+	"Apothecary Antonivich" => "2",
+	"Artificer Daelo" => "1",
+	"Bale" => "2",
+	"Banalash" => "2",
+	"Barim Spilthoof" => "2",
+	"Baxter" => "2",
+	"Borto" => "1",
+	"Bowen Brisboise" => "2",
+	#"Bradley Towns" => "",
+	#"Bronk Guzzlegear" => "",
+	#"Burko" => "",
+	#"Byancie" => "",
+	#"Captured Gnome" => "",
+	#"Celie Steelwing" => "",
+	#"Cyndra Kindwhisper" => "",
+	#"Daga Ramba" => "",
+	#"Daggle Ironshaper" => "",
+	"Dalinna" => "2",
+	#"Derek Odds" => "",
+	#"Doba" => "",
+	#"Drakk Stonehand" => "",
+	#"Elixir of Pain - " => "",
+	#"Felannia" => "",
+	#"Gambarinka" => "",
+	#"Gara Skullcrush" => "2",
+	#"Gaston" => "",
+	#"Ghak Healtouch" => "",
+	#"Gorgolon the All-seeing" => "",
+	#"Gorgolon the All-seeing - " => "",
+	"Great-father Winter" => "0",
+	#"Gremlock Pilsnor" => "",
+	#"Grutah" => "",
+	#"Guillaume Sorouy" => "",
+	#"Haalrun" => "",
+	#"Hahrana Ironhide" => "",
+	#"Hama" => "",
+	#"Hurnak Grimmord" => "",
+	#"Jangdor Swiftstrider" => "",
+	#"Johan Focht" => "",
+	#"K. Lee Smallfry" => "",
+	#"Kalaen" => "",
+	#"Knight Dameron" => "",
+	#"Krek Cragcrush" => "",
+	#"Krugosh" => "",
+	#"Kylanna Windwhisper" => "",
+	#"Leeli Longhaggle" => "",
+	#"Linna Bruder" => "",
+	#"Logannas" => "",
+	"Logistics Officer Brighton" => "1",
+	"Logistics Officer Silverstone" => "1",
+	#"Loolruna" => "",
+	#"Mari Stonehand" => "",
+	#"Misensi" => "",
+	#"Muheru the Weaver" => "",
+	#"Nadyia Maneweaver" => "",
+	#"Nula the Butcher" => "",
+	#"Nurse Neela" => "",
+	#"Nyoma" => "",
+	#"Pratt McGrubben" => "",
+	#"Provisioner Lorkran" => "",
+	#"Quartermaster Urgronn" => "",
+	#"Rogvar" => "",
+	#"Rohok" => "",
+	#"Rungor" => "",
+	#"Sassa Weldwell" => "",
+	"Sebastian Crane" => "2",
+	#"Seer Janidi" => "",
+	#"Sid Limbardi" => "",
+	#"Skeletal Fiend (Enraged Form)" => "",
+	#"Skeletal Fiend (Enraged Form) - " => "",
+	#"Stone Guard Mukar" => "",
+	#"Tatiana" => "",
+	#"Thamner Pol" => "",
+	#"Tognus Flintfire" => "",
+	#"Truk Wildbeard" => "",
+	#"Uthok" => "",
+	#"Vance Undergloom" => "",
+	#"Victor Ward" => "",
+	#"Vix Chromeblaster" => "",
+	#"Wulan" => "",
+	#"Xylinnia Starshine" => "",
+	#"Yarr Hammerstone" => "",
+	#"Zarrin" => "",
+	#"Zurai" => "",
 }
 
 $hordefactionlist = [
