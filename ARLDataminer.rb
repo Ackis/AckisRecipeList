@@ -2808,50 +2808,65 @@ EOF
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
 	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeAcquire(RecipeDB,53344,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Swordshattering - 53323
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,53323,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53323,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53323,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Swordbreaking - 54446
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,54446,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,54446,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,54446,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Spellshattering - 53342
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,53342,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53342,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53342,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Spellbreaking - 54447
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,54447,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,54447,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,54447,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Razorice - 53343
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,53343,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53343,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53343,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Lichbane - 53331
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,53331,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53331,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53331,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 
 	-- Rune of Cinderglacier - 53341
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
-	self:addTradeFlags(RecipeDB,53344,1,2,3,21)
-	self:addTradeAcquire(RecipeDB,53344,1,28474,1,29194,1,31084,1,28471,1,29195,1,28472,1,29196)
+	self:addTradeSkill(RecipeDB,53341,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,53341,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,53341,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 EOF
+	$trainers[28471] = {:name => "Lady Alistra"}
+	$trainers[28471][:faction] = 1
+	$trainers[28474] = {:name => "Amal'thazad"}
+	$trainers[28474][:faction] = 0
+	$trainers[29194] = {:name => "Amal'thazad"}
+	$trainers[29194][:faction] = 1
+	$trainers[29195] = {:name => "Lady Alistra"}
+	$trainers[29195][:faction] = 1
+	$trainers[31084] = {:name => "Highlord Darion Mograine"}
+	$trainers[31084][:faction] = 1
+	$trainers[28472] = {:name => "Lord Thorval"}
+	$trainers[28472][:faction] = 1
+	$trainers[29196] = {:name => "Lord Thorval"}
+	$trainers[29196][:faction] = 1
+
 	create_profession_db("./RecipeDB/ARL-Runeforge.lua","Runeforging",recipes,maps,"InitRuneforging",runeforging,[],runeforgingspecaillist,runeforgingmanual)
 
 	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
