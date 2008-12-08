@@ -1740,12 +1740,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,61471,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
-	-- Mechanized Snow Goggles -- 61483
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
-	self:addTradeFlags(RecipeDB,61483,3,21,25,30,36,41,59)
-	-- No acquire information
-
 	-- Mechanized Snow Goggles (Cloth) -- 56465
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56465,400,41112,3,4036)
@@ -1769,6 +1763,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,26907,1,26955,1,26991,1,28697)
+
 	return recipecount
 
 end

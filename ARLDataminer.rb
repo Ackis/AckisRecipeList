@@ -567,7 +567,7 @@ EOF
 									found = false
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
-										if dname == $bosszonemap[npc[:name]]
+										if dname[:name] == $bosszonemap[npc[:name]]
 											flags << flaglisting["Instance"]
 											found = true
 											$instancemobs << npc[:name]
@@ -576,7 +576,7 @@ EOF
 									if not found
 										# Go through all the raids
 										$raids.each_pair do |id,dname|
-											if dname == $bosszonemap[npc[:name]]
+											if dname[:name] == $bosszonemap[npc[:name]]
 												flags << flaglisting["Raid"]
 												found = true
 												$instancemobs << npc[:name]
@@ -2727,6 +2727,7 @@ EOF
 	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,26907,1,26955,1,26991,1,28697)
+
 EOF
 	$trainers[26907] = {:name => "Tisha Longbridge"}
 	$trainers[26907][:faction] = 1
@@ -2736,7 +2737,7 @@ EOF
 	$trainers[26991][:faction] = 1
 	$trainers[28697] = {:name => "Justin Oshenko"}
 	$trainers[28697][:faction] = 0
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[61483,30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
