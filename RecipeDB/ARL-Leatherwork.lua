@@ -298,8 +298,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Raptor Hide Harness -- 4096
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
-	self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,4096,2,2819)
+	self:addTradeFlags(RecipeDB,4096,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	-- No acquire information
 
 	-- Raptor Hide Belt -- 4097
 	recipecount = recipecount + 1
@@ -916,8 +916,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Stormshroud Pants -- 19067
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19067,275,15057,1,2108)
-	self:addTradeFlags(RecipeDB,19067,2,4,21,22,23,24,25,26,27,28,29,30,36,40,52,57)
-	self:addTradeAcquire(RecipeDB,19067,2,12943)
+	self:addTradeFlags(RecipeDB,19067,3,21,22,23,24,25,26,27,28,29,30,36,41,52,57)
+	-- No acquire information
 
 	-- Warbear Harness -- 19068
 	recipecount = recipecount + 1

@@ -166,8 +166,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Shadow Oil -- 3449
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
-	self:addTradeFlags(RecipeDB,3449,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3449,2,4878)
+	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3449,2,2481,2,4878)
 
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
@@ -250,8 +250,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Holy Protection Potion -- 7255
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7255,100,6051,1,2259)
-	self:addTradeFlags(RecipeDB,7255,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7255,2,1685,2,3134,2,3490)
+	self:addTradeFlags(RecipeDB,7255,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7255,2,3490)
 
 	-- Shadow Protection Potion -- 7256
 	recipecount = recipecount + 1
@@ -268,8 +268,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Frost Protection Potion -- 7258
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7258,190,6050,1,2259)
-	self:addTradeFlags(RecipeDB,7258,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7258,2,2812)
+	self:addTradeFlags(RecipeDB,7258,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Nature Protection Potion -- 7259
 	recipecount = recipecount + 1
@@ -424,14 +424,14 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Shadow Power -- 11476
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11476,250,9264,2,2259)
-	self:addTradeFlags(RecipeDB,11476,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11476,1,9264,2,1313,2,4610)
+	self:addTradeFlags(RecipeDB,11476,3,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11476,1,9264)
 
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11477,250,9224,1,2259)
-	self:addTradeFlags(RecipeDB,11477,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11477,2,8178)
+	self:addTradeFlags(RecipeDB,11477,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Elixir of Detect Demon -- 11478
 	recipecount = recipecount + 1

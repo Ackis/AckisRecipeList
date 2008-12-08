@@ -1432,8 +1432,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Falling Star -- 42590
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42590,360,33135,1,25229)
-	self:addTradeFlags(RecipeDB,42590,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,42590,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,107)
+	self:addTradeAcquire(RecipeDB,42590,6,1011,3,21655)
 
 	-- Stone of Blades -- 42591
 	recipecount = recipecount + 1
@@ -2099,7 +2099,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53955,390,40011,3,25229)
 	self:addTradeFlags(RecipeDB,53955,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,53955,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,53955,2,30489,2,32294,2,32296)
 
 	-- Brilliant Autumn's Glow -- 53956
 	recipecount = recipecount + 1
@@ -2129,7 +2129,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53960,390,40016,3,25229)
 	self:addTradeFlags(RecipeDB,53960,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53960,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,53960,2,30489,2,32294,2,32296)
 
 	-- Quick Autumn's Glow -- 53961
 	recipecount = recipecount + 1
@@ -2177,7 +2177,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53968,390,40028,3,25229)
 	self:addTradeFlags(RecipeDB,53968,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,53968,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,53968,2,30489,2,32294,2,32296)
 
 	-- Balanced Twilight Opal -- 53969
 	recipecount = recipecount + 1
@@ -2237,7 +2237,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53978,390,40040,3,25229)
 	self:addTradeFlags(RecipeDB,53978,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53978,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,53978,2,30489,2,32294,2,32296)
 
 	-- Deadly Monarch Topaz -- 53979
 	recipecount = recipecount + 1
@@ -2363,7 +2363,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54000,390,40090,3,25229)
 	self:addTradeFlags(RecipeDB,54000,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,54000,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,54000,2,30489,2,32294,2,32296)
 
 	-- Forceful Forest Emerald -- 54001
 	recipecount = recipecount + 1
@@ -2393,7 +2393,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54005,390,40102,3,25229)
 	self:addTradeFlags(RecipeDB,54005,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,54005,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,54005,2,30489,2,32294,2,32296)
 
 	-- Intricate Forest Emerald -- 54006
 	recipecount = recipecount + 1
@@ -2423,7 +2423,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54010,390,40103,3,25229)
 	self:addTradeFlags(RecipeDB,54010,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,54010,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,54010,2,30489,2,32294,2,32296)
 
 	-- Energized Forest Emerald -- 54011
 	recipecount = recipecount + 1
@@ -2441,13 +2441,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54013,390,40101,3,25229)
 	self:addTradeFlags(RecipeDB,54013,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,54013,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,54013,2,30489,2,32294,2,32296)
 
 	-- Shattered Forest Emerald -- 54014Caster DPS, 
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54014,390,40106,3,25229)
 	self:addTradeFlags(RecipeDB,54014,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,54014,2,32294,2,32296)
+	self:addTradeAcquire(RecipeDB,54014,2,30489,2,32294,2,32296)
 
 	-- Precise Bloodstone -- 54017
 	recipecount = recipecount + 1

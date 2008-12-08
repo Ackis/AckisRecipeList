@@ -431,13 +431,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7630,55,6240,1,3908)
 	self:addTradeFlags(RecipeDB,7630,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7630,2,66,2,3364,2,3522,2,4189)
+	self:addTradeAcquire(RecipeDB,7630,2,66,2,3364,2,4189)
 
 	-- Blue Linen Robe -- 7633
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7633,70,6242,1,3908)
 	self:addTradeFlags(RecipeDB,7633,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7633,2,1250,2,3485,2,4168)
+	self:addTradeAcquire(RecipeDB,7633,2,1250,2,3485,2,3499)
 
 	-- Green Woolen Robe -- 7636
 	--recipecount = recipecount + 1
@@ -455,7 +455,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908)
 	self:addTradeFlags(RecipeDB,7643,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,3499)
+	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168,2,4577)
 
 	-- Stylish Blue Shirt -- 7892
 	recipecount = recipecount + 1
@@ -574,8 +574,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Azure Silk Cloak -- 8786
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8786,175,7053,1,3908)
-	self:addTradeFlags(RecipeDB,8786,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
-	self:addTradeAcquire(RecipeDB,8786,2,6574,2,6576)
+	self:addTradeFlags(RecipeDB,8786,1,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeAcquire(RecipeDB,8786,2,6576)
 
 	-- Crimson Silk Cloak -- 8789
 	recipecount = recipecount + 1
@@ -1048,8 +1048,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Cindercloth Pants -- 18434
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18434,280,14045,2,3908)
-	self:addTradeFlags(RecipeDB,18434,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,18434,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,18434,3,7037)
 
 	-- Robe of Winter Night -- 18436
 	recipecount = recipecount + 1

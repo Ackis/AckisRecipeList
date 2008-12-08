@@ -243,7 +243,6 @@ Single faction:
 	"Makaru" => "",
 	"Malcomb Wynn" => "",
 	"Mari Stonehand" => "",
-	"Maria Lumere" => "",
 	"Mary Edras" => "",
 	"Master Chef Mouldier" => "",
 	"Me'lynn" => "",
@@ -767,6 +766,7 @@ No acquire information:
 55908 - Frostwoven Belt - Tailoring
 53927 - Sundered Dark Jade - Jewelcrafting
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
+11477 - Elixir of Demonslaying - Alchemy
 56474 - Ultrasafe Bullet Machine - Engineering
 49258 - Smelt Saronite - Smelting
 50956 - Nerubian Chestguard - Leatherworking
@@ -949,7 +949,6 @@ No acquire information:
 58336 - Glyph of Unending Breath - Inscription
 58478 - Scroll of Agility IV - Inscription
 24801 - Smoked Desert Dumplings - Cooking
-18434 - Cindercloth Pants - Tailoring
 60601 - Dark Frostscale Leggings - Leatherworking
 54941 - Spiked Cobalt Shoulders - Blacksmithing
 58337 - Glyph of Drain Soul - Inscription
@@ -965,6 +964,7 @@ No acquire information:
 3862 - Icy Cloak - Tailoring
 53953 - Sparkling Sky Sapphire - Jewelcrafting
 58481 - Scroll of Agility VI - Inscription
+7258 - Frost Protection Potion - Alchemy
 60604 - Dark Frostscale Breastplate - Leatherworking
 54944 - Spiked Cobalt Chestpiece - Blacksmithing
 58340 - Glyph of Kilrogg - Inscription
@@ -1447,6 +1447,7 @@ No acquire information:
 56988 - Glyph of Remove Curse - Inscription
 54017 - Precise Bloodstone - Jewelcrafting
 57130 - Glyph of Vigor - Inscription
+19067 - Stormshroud Pants - Leatherworking
 53876 - Fierce Huge Citrine - Jewelcrafting
 57272 - Glyph of Shadowburn - Inscription
 60668 - Enchant Gloves - Crusher - Enchanting
@@ -1476,8 +1477,8 @@ No acquire information:
 57277 - Glyph of Voidwalker - Inscription
 56994 - Glyph of Aimed Shot - Inscription
 54023 - Resolute Monarch Topaz - Jewelcrafting
-55014 - Saronite Bulwark - Blacksmithing
 53882 - Potent Huge Citrine - Jewelcrafting
+55014 - Saronite Bulwark - Blacksmithing
 56995 - Glyph of Arcane Shot - Inscription
 57703 - Hunter's Ink - Inscription
 53883 - Veiled Huge Citrine - Jewelcrafting
@@ -1635,6 +1636,7 @@ No acquire information:
 57158 - Glyph of Heroic Strike - Inscription
 55177 - Savage Cobalt Slicer - Blacksmithing
 61120 - Master's Inscription of the Storm - Inscription
+4096 - Raptor Hide Harness - Leatherworking
 53904 - Powerful Rejuvenation Potion - Alchemy
 56027 - Ebonweave Gloves - Tailoring
 57159 - Glyph of Intervene - Inscription
@@ -1676,7 +1678,6 @@ No acquire information:
 55183 - Corroded Saronite Edge - Blacksmithing
 58296 - Glyph of the Wild - Inscription
 57023 - Glyph of Consecration - Inscription
-42590 - Falling Star - Jewelcrafting
 24903 - Runed Stygian Boots - Tailoring
 50939 - Iceborne Leggings - Leatherworking
 22922 - Mongoose Boots - Leatherworking

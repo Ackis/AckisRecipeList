@@ -1031,31 +1031,38 @@ EOF
 			x = x.to_s[0..4]
 			y = y.to_s[0..4]
 
-			# Assumption that ID and Name will always be around
+			# Assumption that ID will always be around
 			lookup_lua.print("self:addLookupList(#{db},#{k},")
 
+			# Add the name, will assume there always will be one
+			# If the name is in babble, remove it from our localizations
 			if $bosslist.include?(v[:name])
 				lookup_lua.print("BBOSS[\"#{v[:name]}\"],")
 				$localstring.delete(v[:name])
+			# If the name isn't in babble, add it to localization strings just to be sure
 			else
 				lookup_lua.print("L[\"#{v[:name]}\"],")
 				# Add the name to the list of localization strings
 				$localstring << v[:name]
 			end
 
+			# See if we have a location
 			if locs.keys[0]
 				lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
+			# No location, see if we manually have it mapped
 			else
 				if $bosszonemap[v[:name]]
 					lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
+				# Identify it as an unknown zone
 				else
 					lookup_lua.print("L[\"Unknown Zone\"],")
 					$unknownzone << v[:name]
 				end
 			end
 
+			# Add coords if applicable
 			if x and y
-				lookup_lua.print("#{x},#{y})")
+				lookup_lua.print("#{x},#{y}")
 			else
 				lookup_lua.print("0,0")
 			end
