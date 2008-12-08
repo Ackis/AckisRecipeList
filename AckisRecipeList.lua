@@ -1317,7 +1317,7 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
 		[GetSpellInfo(2108)] = addon.InitLeatherworking,
-		[GetSpellInfo(2575)] = addon.InitSmelting,
+		[GetSpellInfo(2656)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
 		[GetSpellInfo(45357)] = addon.InitInscription,
@@ -1381,26 +1381,6 @@ end
 
 do
 
-	local RecipeList = nil
-
-	local CustomList = nil
-	local MobList = nil
-	local QuestList = nil
-	local ReputationList = nil
-	local TrainerList = nil
-	local SeasonalList = nil
-	local VendorList = nil
-	local RepFilters = nil
-	local AllSpecialtiesTable = nil
-	local SpecialtyTable = nil
-
-	local playerData = nil
-
-	local tradewindowopened = false
-
-	-- Variables for getting the locations
-	local locationlist = nil
-	local locationchecklist = nil
 
 	-- Description: Determines all the locations a given recipe can be obtained
 	-- Expected result: Listing of all locations for a given recipe are provided.
@@ -1588,7 +1568,7 @@ do
 			[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(2108)] = false, -- Leatherworking
-			[GetSpellInfo(2575)] = false, -- Smelting
+			[GetSpellInfo(2656)] = false, -- Smelting
 			[GetSpellInfo(3908)] = false, -- Tailoring
 			[GetSpellInfo(25229)] = false, -- Jewelcrafting
 			[GetSpellInfo(45357)] = false, -- Inscription
