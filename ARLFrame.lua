@@ -1100,19 +1100,15 @@ function addon:CreateScanButton()
 
 	-- Create the scan button
 	if (not addon.ScanButton) then
-
 		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
-
 	end
 
 	-- Add to Skillet interface
 	if (Skillet and Skillet:IsActive()) then
-
 		addon.ScanButton:SetParent(SkilletFrame)
 		addon.ScanButton:Show()
 		Skillet:AddButtonToTradeskillWindow(addon.ScanButton)
 		addon.ScanButton:SetWidth(80)
-
 	end
 
 	-- Set some of the common button properties
@@ -1910,14 +1906,25 @@ end
 
 function addon:ToggleFrame()
 
+	-- What profession is opened?
+	local cprof = GetTradeSkillLine()
+
 	if (addon.Frame and addon.Frame:IsVisible()) then
-
-		addon.Frame:Hide()
-	
+		-- If we have the same profession open, then we close the scanned window
+		if (addon.ScanButton.currentProfession == cprof) then
+			addon.Frame:Hide()
+		-- If we have a different profession open we do a scan
+		else
+			addon:AckisRecipeList_Command(false)
+		end
 	else
-
-		addon:AckisRecipeList_Command()
-
+		addon.ScanButton.currentProfession = cprof
+		-- If we click the scan button with the shift key down, we do a text dump
+		if (IsShiftKeyDown()) then
+			addon:AckisRecipeList_Command(true)
+		else
+			addon:AckisRecipeList_Command(false)
+		end
 	end
 
 end

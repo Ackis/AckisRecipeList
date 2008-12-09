@@ -358,9 +358,7 @@ function addon:TRADE_SKILL_SHOW()
 	addon:OpenTradeWindow()
 
 	if (addon.ScanButton and not Skillet) then
-
 		self:ShowScanButton()
-
 	end
 
 end
@@ -375,15 +373,11 @@ function addon:TRADE_SKILL_CLOSE()
 	addon:CloseTradeWindow()
 
 	if (addon.db.profile.closeguionskillclose and addon.Frame) then
-
 		self:CloseWindow()
-
 	end
 
 	if (addon.ScanButton and not Skillet) then
-
 		addon.ScanButton:Hide()
-
 	end
 
 end
