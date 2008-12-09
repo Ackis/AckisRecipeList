@@ -3227,7 +3227,7 @@ function addon:CreateFrame(
 	local HonorHold_Thrallmar_FactionText = ""
 	local Kurenai_Maghar_FactionText = ""
 
-	-- Values forthe progressbar (defaults)
+	-- Values for the progressbar (defaults)
 	local pbMin = 0
 	local pbMax = 100
 	local pbCur = 50
@@ -3616,7 +3616,7 @@ function addon:CreateFrame(
 		ARL_ExpRepOptCB = addon:CreateExpCB("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
 		ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
 
-	-- Frame for the flyaway pane
+		-- Frame for the flyaway pane
 		addon.Flyaway = CreateFrame("Frame", "addon.Flyaway", addon.Frame)
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
@@ -4050,7 +4050,7 @@ function addon:CreateFrame(
 				ARL_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
 				ARL_RepVioletEyeCBText:SetFont(narrowFont, 11)
 
--- Everything below here is WotLK stuff. May need to be changed after beta.
+			-- Everything below here is WotLK stuff. May need to be changed after beta.
 			addon.Fly_Rep_LK= CreateFrame("Frame", "addon.Fly_Rep_LK", addon.Fly_Rep)
 			addon.Fly_Rep_LK:SetWidth(150)
 			addon.Fly_Rep_LK:SetHeight(280)
@@ -4298,6 +4298,10 @@ function addon:CreateFrame(
 	ApplyFilterState = nil
 	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
 	ARL_ApplyButton:Disable()
+	
+	-- Make sure to reset search gui elements
+	ARL_LastSearchedText = ""
+	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
 end
 
