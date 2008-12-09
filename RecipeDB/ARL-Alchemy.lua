@@ -40,8 +40,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Lion's Strength -- 2329
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2329,15,2454,1,2259)
-	self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,2329,1,2454,8,8)
+	self:addTradeFlags(RecipeDB,2329,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,2329,8,8)
 
 	-- Minor Healing Potion -- 2330
 	recipecount = recipecount + 1
@@ -167,7 +167,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
 	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3449,2,2481,2,4878)
+	self:addTradeAcquire(RecipeDB,3449,2,2481)
 
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
@@ -196,8 +196,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Frost Oil -- 3454
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3454,200,3829,2,2259)
-	self:addTradeFlags(RecipeDB,3454,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3454,2,2480)
+	self:addTradeFlags(RecipeDB,3454,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Discolored Healing Potion -- 4508
 	recipecount = recipecount + 1
@@ -226,8 +226,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Free Action Potion -- 6624
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
-	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6624,2,3348,2,4226)
+	self:addTradeFlags(RecipeDB,6624,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,6624,2,4226)
 
 	-- Elixir of Water Breathing -- 7179
 	recipecount = recipecount + 1
@@ -250,8 +250,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Holy Protection Potion -- 7255
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7255,100,6051,1,2259)
-	self:addTradeFlags(RecipeDB,7255,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7255,2,3134,2,3490)
+	self:addTradeFlags(RecipeDB,7255,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7255,2,3490)
 
 	-- Shadow Protection Potion -- 7256
 	recipecount = recipecount + 1
@@ -274,8 +274,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Nature Protection Potion -- 7259
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7259,190,6052,1,2259)
-	self:addTradeFlags(RecipeDB,7259,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7259,2,8158)
+	self:addTradeFlags(RecipeDB,7259,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7259,2,2848,2,8158)
 
 	-- Blackmouth Oil -- 7836
 	recipecount = recipecount + 1
@@ -424,14 +424,14 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Shadow Power -- 11476
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11476,250,9264,2,2259)
-	self:addTradeFlags(RecipeDB,11476,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11476,1,9264)
+	self:addTradeFlags(RecipeDB,11476,1,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11476,1,9264,2,1313)
 
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11477,250,9224,1,2259)
-	self:addTradeFlags(RecipeDB,11477,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,11477,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11477,2,8177)
 
 	-- Elixir of Detect Demon -- 11478
 	recipecount = recipecount + 1
@@ -491,7 +491,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17554,265,13445,1,2259)
 	self:addTradeFlags(RecipeDB,17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17554,1,13445,2,3348,2,5178)
+	self:addTradeAcquire(RecipeDB,17554,1,13445,2,5178)
 
 	-- Elixir of the Sages -- 17555
 	recipecount = recipecount + 1

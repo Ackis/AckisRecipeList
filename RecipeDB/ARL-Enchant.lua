@@ -815,19 +815,19 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23802,300,nil, 1,7411)
 	self:addTradeFlags(RecipeDB,23802,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,96)
-	self:addTradeAcquire(RecipeDB,23802,6,529,3,10857,6,529,3,11536)
+	self:addTradeAcquire(RecipeDB,23802,6,529,3,10856,6,529,3,10857,6,529,3,11536)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23803,300,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,23803,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23803,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,23803,2,12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23804,300,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,23804,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23804,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,23804,2,12944)
 
 	-- Enchant Gloves - Threat -- 25072
 	recipecount = recipecount + 1
@@ -1157,13 +1157,13 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28016,310,22521,1,7411)
 	self:addTradeFlags(RecipeDB,28016,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28016,2,16635,2,16722,2,19663)
+	self:addTradeAcquire(RecipeDB,28016,2,16635,2,16722)
 
 	-- Superior Wizard Oil -- 28019
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28019,340,22522,1,7411)
 	self:addTradeFlags(RecipeDB,28019,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28019,2,16635,2,16722,2,19663)
+	self:addTradeAcquire(RecipeDB,28019,2,16635,2,16722)
 
 	-- Arcane Dust -- 28021
 	--recipecount = recipecount + 1
@@ -1175,7 +1175,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28022,335,22449,1,7411)
 	self:addTradeFlags(RecipeDB,28022,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28022,2,16635,2,16722,2,19663)
+	self:addTradeAcquire(RecipeDB,28022,2,16635,2,16722)
 
 	-- Prismatic Sphere -- 28027
 	recipecount = recipecount + 1
@@ -1312,8 +1312,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Major Stamina -- 34009
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34009,325,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,34009,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,34009,2,19663)
+	self:addTradeFlags(RecipeDB,34009,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Enchant Weapon - Major Healing -- 34010
 	recipecount = recipecount + 1

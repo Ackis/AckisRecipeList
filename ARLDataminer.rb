@@ -272,7 +272,9 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 							npc[:react][1] = npcreact["Hostile"]
 							$singlefaction << npc[:name]
 						else
-							$unknownfaction << npc[:name]
+							$unknownfaction << {:name => npc[:name],
+												:react => npc[:react],
+												:loc => npc[:locs][0]}
 							flags << flaglisting["Alliance"] << flaglisting["Horde"]
 							listing[npc[:id]][:faction] = npcfactions["Neutral"]
 						end
@@ -291,7 +293,9 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				end
 			# No reaction information
 			else
-				$unknownfaction << npc[:name]
+				$unknownfaction << {:name => npc[:name],
+									:react => "None",
+									:loc => "Unknown"}
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 			end
 		end
@@ -323,7 +327,8 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 			flags << flaglisting["Horde"]
 			$quests[quest[:id]][:faction] = npcfactions["Neutral"]
 		else
-			$unknownfaction << quest[:name]
+			$unknownfaction << {:name => quest[:name],
+								:react => quest[:side]}
 		end
 		quest[:questinfo] = maps.get_quest_map_info(quest[:id])
 		if quest[:questinfo]
@@ -1484,13 +1489,12 @@ def create_stats_list()
 
 	$unknownfaction.compact!
 	$unknownfaction.uniq!
-	$unknownfaction.sort!
 
 	stats_lua.puts("Unknown faction:")
 
-	$unknownfaction.each do |k|
+	$unknownfaction.sort_by { |unknownfaction| unknownfaction[:name] }.each do |k|
 
-		stats_lua.puts "\t\"#{k}\" => \"\","
+		stats_lua.puts "\t\#\"#{k[:name]}\" => \"\", \# #{k[:loc]} - #{k[:react]}"
 
 	end
 
@@ -2499,20 +2503,10 @@ $bosszonemap = {
 
 # Manual mapping of npc/quests to their factions
 $factionmap = {
-	"Wild Hearts" => "2",
-	"Flash Bomb Recipe" => "0",
-	"Imperial Plate Belt" => "0",
-	"Imperial Plate Boots" => "0",
-	"Imperial Plate Bracer" => "0",
-	"Imperial Plate Chest" => "0",
-	"Imperial Plate Helm" => "0",
-	"Imperial Plate Leggings" => "0",
-	"Imperial Plate Shoulders" => "0",
-	"Firework Launcher" => "0",
-	"Festive Recipes" => "0",
-	"Cluster Launcher" => "0",
 	"Georgio Bolero" => "1",
+	"Wild Hearts" => "2",
 
+	# Unknown faction
 	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
 	"Alanna Raveneye" => "1",
 	"Alchemist Gribble" => "1",
@@ -2528,27 +2522,30 @@ $factionmap = {
 	"Baxter" => "2",
 	"Borto" => "1",
 	"Bowen Brisboise" => "2",
-	#"Bradley Towns" => "",
-	#"Bronk Guzzlegear" => "",
-	#"Burko" => "",
-	#"Byancie" => "",
-	#"Captured Gnome" => "",
-	#"Celie Steelwing" => "",
-	#"Cyndra Kindwhisper" => "",
-	#"Daga Ramba" => "",
-	#"Daggle Ironshaper" => "",
+	"Bradley Towns" => "2",
+	"Bronk Guzzlegear" => "1",
+	"Burko" => "1", # ???
+	"Byancie" => "1",
+	"Captured Gnome" => "2", # ???
+	"Celie Steelwing" => "1",
+	"Cluster Launcher" => "0",
+	"Cyndra Kindwhisper" => "1",
+	"Daga Ramba" => "2",
+	"Daggle Ironshaper" => "1",
 	"Dalinna" => "2",
-	#"Derek Odds" => "",
-	#"Doba" => "",
-	#"Drakk Stonehand" => "",
-	#"Elixir of Pain - " => "",
-	#"Felannia" => "",
-	#"Gambarinka" => "",
-	#"Gara Skullcrush" => "2",
-	#"Gaston" => "",
+	"Derek Odds" => "1",
+	"Doba" => "1", #???
+	"Drakk Stonehand" => "1",
+	"Elixir of Pain" => "2", #???
+	"Felannia" => "2",
+	"Festive Recipes" => "0",
+	"Firework Launcher" => "0",
+	"Flash Bomb Recipe" => "0",
+	"Gambarinka" => "2",
+	"Gara Skullcrush" => "2",
+	"Gaston" => "1", # ???
 	#"Ghak Healtouch" => "",
 	#"Gorgolon the All-seeing" => "",
-	#"Gorgolon the All-seeing - " => "",
 	"Great-father Winter" => "0",
 	#"Gremlock Pilsnor" => "",
 	#"Grutah" => "",
@@ -2557,6 +2554,13 @@ $factionmap = {
 	#"Hahrana Ironhide" => "",
 	#"Hama" => "",
 	#"Hurnak Grimmord" => "",
+	"Imperial Plate Belt" => "0",
+	"Imperial Plate Boots" => "0",
+	"Imperial Plate Bracer" => "0",
+	"Imperial Plate Chest" => "0",
+	"Imperial Plate Helm" => "0",
+	"Imperial Plate Leggings" => "0",
+	"Imperial Plate Shoulders" => "0",
 	#"Jangdor Swiftstrider" => "",
 	#"Johan Focht" => "",
 	#"K. Lee Smallfry" => "",
@@ -2589,8 +2593,8 @@ $factionmap = {
 	#"Seer Janidi" => "",
 	#"Sid Limbardi" => "",
 	#"Skeletal Fiend (Enraged Form)" => "",
-	#"Skeletal Fiend (Enraged Form) - " => "",
 	#"Stone Guard Mukar" => "",
+	#"Supplying the Front" => "",
 	#"Tatiana" => "",
 	#"Thamner Pol" => "",
 	#"Tognus Flintfire" => "",
@@ -2624,15 +2628,14 @@ $alliancefactionlist = [
 	1537, # "Ironforge",
 	40, # "Westfall"
 	3557, #The Exodar
-	]
+]
 
 $globalignore = [
-
 	"Living Ruby Serpent",
 	"Outland Children's Week Dark Portal Trigger",
 	"Outland Children's Week Exodar 01 Trigger",
 	"Outland Children's Week Silvermoon 01 Trigger",
-
+	"Skeletal Fiend (Enraged Form)",
 ]
 
 $debug = false
@@ -2650,7 +2653,7 @@ if $debug
 EOF
 	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
 
-	#create_stats_list()
+	create_stats_list()
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
