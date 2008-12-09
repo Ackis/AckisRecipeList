@@ -1017,7 +1017,7 @@ local function fullOptions()
 							func	= function(info) addon:ViewExclusionList() end,
 						},
 						spacer1 = {
-							order	= 15,
+							order	= 19,
 							type	= "description",
 							name	= "\n",
 						},
@@ -1063,6 +1063,15 @@ local function fullOptions()
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
 							get		= function() return addon.db.profile.ignoreexclusionlist end,
 							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+						},
+						scanbuttonlocation = {
+							order	= 27,
+							type	= "select",
+							name	= L["Scan Button Position"],
+							desc	= L["SCANBUTTONPOSITION_DESC"],
+							get		= function() return addon.db.profile.scanbuttonlocation end,
+							set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
+							values	= function() return {Risght = L["Right"], Left = L["Left"]} end,
 						},
 						uiscale = {
 							order	= 30,

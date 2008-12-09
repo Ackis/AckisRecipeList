@@ -1173,7 +1173,14 @@ function addon:ShowScanButton()
 
 		addon.ScanButton:SetParent(TradeSkillFrame)
 		addon.ScanButton:ClearAllPoints()
-		addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+
+		local loc = addon.db.profile.scanbuttonlocation
+
+		if (loc == L["Right"]) then
+			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+		elseif (loc == L["Left"]) then
+			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",4,0)
+		end
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	end
