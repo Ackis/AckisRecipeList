@@ -1312,7 +1312,7 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
 		[GetSpellInfo(2108)] = addon.InitLeatherworking,
-		[GetSpellInfo(2656)] = addon.InitSmelting,
+		[GetSpellInfo(2575)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
 		[GetSpellInfo(45357)] = addon.InitInscription,
@@ -1563,7 +1563,8 @@ do
 			[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(2108)] = false, -- Leatherworking
-			[GetSpellInfo(2656)] = false, -- Smelting
+			[GetSpellInfo(2575)] = false, -- Smelting
+			--[GetSpellInfo(2656)] = false, -- Smelting
 			[GetSpellInfo(3908)] = false, -- Tailoring
 			[GetSpellInfo(25229)] = false, -- Jewelcrafting
 			[GetSpellInfo(45357)] = false, -- Inscription

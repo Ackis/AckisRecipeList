@@ -99,6 +99,7 @@ local SortedProfessions = {
 	{ name = GetSpellInfo(2108),	texture = "leather" },	-- 9 
 	{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
 	{ name = GetSpellInfo(2575),	texture = "smelting" },	-- 11 
+	--{ name = GetSpellInfo(2656),	texture = "smelting" },	-- 11 
 	{ name = GetSpellInfo(3908),	texture = "tailor" },	-- 12 
 } 
 
