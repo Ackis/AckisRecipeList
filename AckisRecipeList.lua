@@ -123,17 +123,8 @@ end
 
 function addon:OnInitialize()
 
-	self.db = LibStub("AceDB-3.0"):New("ARLDB2")
-
-	self:SetupOptions()
-
-	-- Register slash commands
-	self:RegisterChatCommand("arl", "ChatCommand")
-	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
-
 	-- Set default options, which are to include everything in the scan
-	self.db:RegisterDefaults(
-	{
+	local defaults = {
 		profile = {
 
 			-- Frame options
@@ -161,7 +152,8 @@ function addon:OnInitialize()
 
 			-- Filter Options
 			filters = {
-				general = {			-- General Filters
+				-- General Filters
+				general = {
 				    faction = true,
 					class = false,
 					specialty = false,
@@ -169,7 +161,8 @@ function addon:OnInitialize()
 					known = false,
 					unknown = true,
 				},
-				obtain = {			-- Obtain Options
+				-- Obtain Options
+				obtain = {
 					trainer = true,
 					vendor = true,
 					instance = true,
@@ -181,7 +174,8 @@ function addon:OnInitialize()
 					worlddrop = true,
 					mobdrop = true,
 				},
-				item = {			-- Item Filters (Armor/Weapon)
+				-- Item Filters (Armor/Weapon)
+				item = {
 					armor = {
 						cloth = true,
 						leather = true,
@@ -222,7 +216,8 @@ function addon:OnInitialize()
 					healer = true,
 					caster = true,
 				},
-				rep = {			-- Reputation Options
+				-- Reputation Options
+				rep = {
 					aldor = true,
 					scryer = true,
 					argentdawn = true,
@@ -242,7 +237,7 @@ function addon:OnInitialize()
 					timbermaw = true,
 					violeteye = true,
 					zandalar = true,
--- Below this is WotLK stuff. May need to be changed post beta.
+					-- Below this is WotLK stuff. May need to be changed post beta.
 					argentcrusade = true,
 					frenzyheart = true,
 					ebonblade = true,
@@ -263,7 +258,15 @@ function addon:OnInitialize()
 				}
 			}
 		}
-	})
+	}
+
+	addon.db = LibStub("AceDB-3.0"):New("ARLDB2",defaults)
+
+	self:SetupOptions()
+
+	-- Register slash commands
+	self:RegisterChatCommand("arl", "ChatCommand")
+	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
 
 end
 

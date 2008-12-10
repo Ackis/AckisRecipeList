@@ -1208,13 +1208,9 @@ function addon:SetupOptions()
 
 	-- Add in the about panel to the Bliz options (but not the ace3 config)
 	if LibStub:GetLibrary("LibAboutPanel", true) then
-
 		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
-
 	else
-
-		self:Print("Lib About Panel not loaded.")
-
+		self:Print("Lib AboutPanel not loaded.")
 	end
 
 	-- Fill up our modular options...
