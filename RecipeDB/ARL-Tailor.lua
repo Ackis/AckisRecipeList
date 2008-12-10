@@ -352,8 +352,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Black Swashbuckler's Shirt -- 3873
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3873,200,4336,1,3908)
-	self:addTradeFlags(RecipeDB,3873,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3873,2,2663)
 
 	-- Brown Linen Pants -- 3914
 	recipecount = recipecount + 1
@@ -377,7 +377,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6686,70,5762,1,3908)
 	self:addTradeFlags(RecipeDB,6686,1,2,4,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6686,3,157,3,590,3,3530,3,3531,2,843,2,3005,2,3556,2,4189)
+	self:addTradeAcquire(RecipeDB,6686,3,157,3,590,3,3530,3,3531,2,843,2,3005,2,3556,2,4189,2,16224)
 
 	-- Red Woolen Bag -- 6688
 	recipecount = recipecount + 1
@@ -431,13 +431,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7630,55,6240,1,3908)
 	self:addTradeFlags(RecipeDB,7630,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7630,2,66,2,3364,2,3485,2,3522,2,4189)
+	self:addTradeAcquire(RecipeDB,7630,2,66,2,3364,2,3485,2,3522)
 
 	-- Blue Linen Robe -- 7633
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7633,70,6242,1,3908)
 	self:addTradeFlags(RecipeDB,7633,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7633,2,3485,2,3556)
+	self:addTradeAcquire(RecipeDB,7633,2,1250,2,3499,2,3556)
 
 	-- Green Woolen Robe -- 7636
 	--recipecount = recipecount + 1
@@ -449,13 +449,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908)
 	self:addTradeFlags(RecipeDB,7639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,3364,2,5944)
+	self:addTradeAcquire(RecipeDB,7639,2,843,2,2394,2,5944)
 
 	-- Greater Adept's Robe -- 7643
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908)
 	self:addTradeFlags(RecipeDB,7643,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7643,2,1454,2,2669,2,3499,2,4168)
+	self:addTradeAcquire(RecipeDB,7643,2,1454,2,3499,2,4168,2,4577)
 
 	-- Stylish Blue Shirt -- 7892
 	recipecount = recipecount + 1
@@ -574,14 +574,14 @@ function addon:InitTailoring(RecipeDB)
 	-- Azure Silk Cloak -- 8786
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8786,175,7053,1,3908)
-	self:addTradeFlags(RecipeDB,8786,1,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
-	self:addTradeAcquire(RecipeDB,8786,2,6576)
+	self:addTradeFlags(RecipeDB,8786,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeAcquire(RecipeDB,8786,2,6574,2,6576)
 
 	-- Crimson Silk Cloak -- 8789
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8789,180,7056,1,3908)
-	self:addTradeFlags(RecipeDB,8789,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,8789,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeAcquire(RecipeDB,8789,2,2670)
 
 	-- Crimson Silk Vest -- 8791
 	recipecount = recipecount + 1
@@ -616,8 +616,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Crimson Silk Robe -- 8802
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8802,205,7063,1,3908)
-	self:addTradeFlags(RecipeDB,8802,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,8802,2,6568)
+	self:addTradeFlags(RecipeDB,8802,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	-- No acquire information
 
 	-- Crimson Silk Gloves -- 8804
 	recipecount = recipecount + 1
@@ -820,8 +820,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Pink Mageweave Shirt -- 12080
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12080,235,10055,1,3908)
-	self:addTradeFlags(RecipeDB,12080,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12080,2,3364)
+	self:addTradeFlags(RecipeDB,12080,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,12080,2,3364,2,8681)
 
 	-- Admiral's Hat -- 12081
 	recipecount = recipecount + 1
@@ -850,8 +850,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Tuxedo Shirt -- 12085
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12085,240,10034,1,3908)
-	self:addTradeFlags(RecipeDB,12085,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12085,2,4577)
+	self:addTradeFlags(RecipeDB,12085,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,12085,2,4577,2,8681)
 
 	-- Shadoweave Mask -- 12086
 	recipecount = recipecount + 1
@@ -1120,8 +1120,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Mooncloth Shoulders -- 18448
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18448,300,14139,3,3908)
-	self:addTradeFlags(RecipeDB,18448,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,18448,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,18448,3,10184)
 
 	-- Runecloth Shoulders -- 18449
 	recipecount = recipecount + 1

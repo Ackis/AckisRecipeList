@@ -178,8 +178,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Minor Agility -- 7867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7867,125,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,7867,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7867,2,3012,2,3537)
+	self:addTradeFlags(RecipeDB,7867,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7867,2,3012)
 
 	-- Enchant Shield - Minor Stamina -- 13378
 	recipecount = recipecount + 1
@@ -670,8 +670,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Superior Defense -- 20015
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20015,285,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20015,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,20015,2,12022)
+	self:addTradeFlags(RecipeDB,20015,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	-- No acquire information
 
 	-- Enchant Shield - Superior Spirit -- 20016
 	recipecount = recipecount + 1
@@ -682,8 +682,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Greater Stamina -- 20017
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20017,265,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20017,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,20017,2,4229,2,4561)
+	self:addTradeFlags(RecipeDB,20017,1,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,20017,2,4229)
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	recipecount = recipecount + 1
@@ -772,8 +772,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Runed Arcanite Rod -- 20051
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20051,290,16207,1,7411)
-	self:addTradeFlags(RecipeDB,20051,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20051,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,20051,2,12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
 	recipecount = recipecount + 1
@@ -845,7 +845,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25074,300,nil, 3,7411)
 	self:addTradeFlags(RecipeDB,25074,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25074,3,15263,3,15348,3,15370,3,15509,3,15510,3,15511,3,15516,3,15517,3,15544)
+	self:addTradeAcquire(RecipeDB,25074,3,15263,3,15341,3,15348,3,15370,3,15509,3,15510,3,15511,3,15516,3,15517,3,15544)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipecount = recipecount + 1
@@ -1157,13 +1157,13 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28016,310,22521,1,7411)
 	self:addTradeFlags(RecipeDB,28016,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28016,2,16635,2,16722)
+	self:addTradeAcquire(RecipeDB,28016,2,16635,2,16722,2,19663)
 
 	-- Superior Wizard Oil -- 28019
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28019,340,22522,1,7411)
 	self:addTradeFlags(RecipeDB,28019,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28019,2,16635,2,16722)
+	self:addTradeAcquire(RecipeDB,28019,2,16635,2,16722,2,19663)
 
 	-- Arcane Dust -- 28021
 	--recipecount = recipecount + 1
@@ -1175,7 +1175,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28022,335,22449,1,7411)
 	self:addTradeFlags(RecipeDB,28022,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28022,2,16635,2,16722)
+	self:addTradeAcquire(RecipeDB,28022,2,16635,2,16722,2,19663)
 
 	-- Prismatic Sphere -- 28027
 	recipecount = recipecount + 1
@@ -1312,8 +1312,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Major Stamina -- 34009
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34009,325,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,34009,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,34009,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,34009,2,19663)
 
 	-- Enchant Weapon - Major Healing -- 34010
 	recipecount = recipecount + 1
