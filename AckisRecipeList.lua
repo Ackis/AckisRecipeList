@@ -262,6 +262,11 @@ function addon:OnInitialize()
 
 	addon.db = LibStub("AceDB-3.0"):New("ARLDB2",defaults)
 
+	if (not addon.db) then
+		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (ARLDB2.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
+		return
+	end
+
 	self:SetupOptions()
 
 	-- Register slash commands
