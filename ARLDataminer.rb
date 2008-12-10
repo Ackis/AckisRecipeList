@@ -33,7 +33,6 @@ $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
 $unknownfaction = Array.new
-$singlefaction = Array.new
 $instancemobs = Array.new
 $missingdataacquire = Hash.new
 
@@ -254,30 +253,64 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 							"id" => npc[:id]}
 			end
 			listing[npc[:id]] = {:name => npc[:name]}
+
 			# Has reaction information
-			unless npc[:react].nil?
+			if not npc[:react] == nil
 				# Only has information for one faction
 				if not npc[:react][1]
-					if npc[:locs]
+					if $factionmap[npc[:name]] == 0
+						flags << flaglisting["Alliance"] << flaglisting["Horde"]
+						npc[:react][0] = npcreact["Friendly"]
+						npc[:react][1] = npcreact["Friendly"]
+						$unknownfaction << {:name => npc[:name],
+											:react => "0",
+											:loc => "N/A"}
+					elsif $factionmap[npc[:name]] == 1
+						flags << flaglisting["Alliance"]
+						npc[:react][0] = npcreact["Friendly"]
+						npc[:react][1] = npcreact["Hostile"]
+						$unknownfaction << {:name => npc[:name],
+											:react => "1",
+											:loc => "N/A"}
+					elsif $factionmap[npc[:name]] == 2
+						flags << flaglisting["Horde"]
+						npc[:react][0] = npcreact["Hostile"]
+						npc[:react][1] = npcreact["Friendly"]
+						$unknownfaction << {:name => npc[:name],
+											:react => "2",
+											:loc => "N/A"}
+					# Has location information
+					elsif npc[:locs]
 						if $hordefactionlist.include?(npc[:locs][0])
 							flags << flaglisting["Horde"]
 							listing[npc[:id]][:faction] = npcfactions["Horde"]
 							npc[:react][0] = npcreact["Hostile"]
 							npc[:react][1] = npcreact["Friendly"]
-							$singlefaction << npc[:name]
+							$unknownfaction << {:name => npc[:name],
+												:react => "2",
+												:loc => npc[:locs][0]}
 						elsif $alliancefactionlist.include?(npc[:locs][0])
 							flags << flaglisting["Alliance"]
 							listing[npc[:id]][:faction] = npcfactions["Alliance"]
 							npc[:react][0] = npcreact["Friendly"]
 							npc[:react][1] = npcreact["Hostile"]
-							$singlefaction << npc[:name]
+							$unknownfaction << {:name => npc[:name],
+												:react => "1",
+												:loc => npc[:locs][0]}
 						else
 							$unknownfaction << {:name => npc[:name],
-												:react => npc[:react],
+												:react => "Unknown",
 												:loc => npc[:locs][0]}
 							flags << flaglisting["Alliance"] << flaglisting["Horde"]
 							listing[npc[:id]][:faction] = npcfactions["Neutral"]
 						end
+					# Does not have location information and is not mapped manually
+					else
+						$unknownfaction << {:name => npc[:name],
+											:react => "Unknown",
+											:loc => "Unknown"}
+						flags << flaglisting["Alliance"] << flaglisting["Horde"]
+						listing[npc[:id]][:faction] = npcfactions["Neutral"]					
 					end
 				# Has both factions identified
 				else
@@ -291,12 +324,36 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 					end
 					listing[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 				end
-			# No reaction information
+			# Have we manually mapped this npc?
+			elsif $factionmap[npc[:name]] == 0
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+				npc[:react][0] = npcreact["Friendly"]
+				npc[:react][1] = npcreact["Friendly"]
+				$unknownfaction << {:name => npc[:name],
+									:react => "0",
+									:loc => "N/A"}
+			elsif $factionmap[npc[:name]] == 1
+				flags << flaglisting["Alliance"]
+				npc[:react][0] = npcreact["Friendly"]
+				npc[:react][1] = npcreact["Hostile"]
+				$unknownfaction << {:name => npc[:name],
+									:react => "1",
+									:loc => "N/A"}
+			elsif $factionmap[npc[:name]] == 2
+				flags << flaglisting["Horde"]
+				npc[:react][0] = npcreact["Hostile"]
+				npc[:react][1] = npcreact["Friendly"]
+				$unknownfaction << {:name => npc[:name],
+									:react => "2",
+									:loc => "N/A"}
+			# No reaction information and it's not mapped
 			else
 				$unknownfaction << {:name => npc[:name],
 									:react => "None",
 									:loc => "Unknown"}
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+				npc[:react][0] = npcreact["Friendly"]
+				npc[:react][1] = npcreact["Friendly"]
 			end
 		end
 	end
@@ -319,16 +376,31 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 		$quests[quest[:id]] = {:name => quest[:name]}
 		if quest[:side] == 1
 			flags << flaglisting["Alliance"] << flaglisting["Horde"]
-			$quests[quest[:id]][:faction] = npcfactions["Horde"]
+			$quests[quest[:id]][:faction] = npcfactions["Neutral"]
 		elsif quest[:side] == 2
 			flags << flaglisting["Alliance"]
 			$quests[quest[:id]][:faction] = npcfactions["Alliance"]
 		elsif quest[:side] == 4
 			flags << flaglisting["Horde"]
+			$quests[quest[:id]][:faction] = npcfactions["Horde"]
+		elsif $factionmap[npc[:name]] == 0
+			flags << flaglisting["Alliance"] << flaglisting["Horde"]
 			$quests[quest[:id]][:faction] = npcfactions["Neutral"]
+			$unknownfaction << {:name => quest[:name],
+								:react => "0"}
+		elsif $factionmap[npc[:name]] == 1
+			flags << flaglisting["Alliance"]
+			$quests[quest[:id]][:faction] = npcfactions["Alliance"]
+			$unknownfaction << {:name => quest[:name],
+								:react => "1"}
+		elsif $factionmap[npc[:name]] == 2
+			flags << flaglisting["Horde"]
+			$quests[quest[:id]][:faction] = npcfactions["Horde"]
+			$unknownfaction << {:name => quest[:name],
+								:react => "2"}
 		else
 			$unknownfaction << {:name => quest[:name],
-								:react => quest[:side]}
+								:react => "Unknown"}
 		end
 		quest[:questinfo] = maps.get_quest_map_info(quest[:id])
 		if quest[:questinfo]
@@ -1100,6 +1172,7 @@ EOF
 				if v[:faction]
 					lookup_lua.print("#{v[:faction]})")
 				else
+					p v[:name]
 					if $factionmap[v[:name]]
 						lookup_lua.print("#{$factionmap[v[:name]]})")
 					else
@@ -1494,21 +1567,7 @@ def create_stats_list()
 
 	$unknownfaction.sort_by { |unknownfaction| unknownfaction[:name] }.each do |k|
 
-		stats_lua.puts "\t\#\"#{k[:name]}\" => \"\", \# #{k[:loc]} - #{k[:react]}"
-
-	end
-
-	stats_lua.puts "\n"
-
-	$singlefaction.compact!
-	$singlefaction.uniq!
-	$singlefaction.sort!
-
-	stats_lua.puts("Single faction:")
-
-	$singlefaction.each do |k|
-
-		stats_lua.puts "\t\"#{k}\" => \"\","
+		stats_lua.puts "\t\#\"#{k[:name]}\" => \"#{k[:react]}\", \# #{k[:loc]}"
 
 	end
 
@@ -2503,111 +2562,111 @@ $bosszonemap = {
 
 # Manual mapping of npc/quests to their factions
 $factionmap = {
-	"Georgio Bolero" => "1",
-	"Wild Hearts" => "2",
+	"Georgio Bolero" => 1,
+	"Wild Hearts" => 2,
 
 	# Unknown faction
-	"40 Tickets - Schematic: Steam Tonk Controller" => "0",
-	"Alanna Raveneye" => "1",
-	"Alchemist Gribble" => "1",
-	"Alys Vol'tyr" => "2",
-	"Amy Davenport" => "1",
-	#"Ancient Female Vrykul" => "",
-	"Andrew Hilbert" => "2",
-	"Apothecary Antonivich" => "2",
-	"Artificer Daelo" => "1",
-	"Bale" => "2",
-	"Banalash" => "2",
-	"Barim Spilthoof" => "2",
-	"Baxter" => "2",
-	"Borto" => "1",
-	"Bowen Brisboise" => "2",
-	"Bradley Towns" => "2",
-	"Bronk Guzzlegear" => "1",
-	"Burko" => "1", # ???
-	"Byancie" => "1",
-	"Captured Gnome" => "2", # ???
-	"Celie Steelwing" => "1",
-	"Cluster Launcher" => "0",
-	"Cyndra Kindwhisper" => "1",
-	"Daga Ramba" => "2",
-	"Daggle Ironshaper" => "1",
-	"Dalinna" => "2",
-	"Derek Odds" => "1",
-	"Doba" => "1", #???
-	"Drakk Stonehand" => "1",
-	"Elixir of Pain" => "2", #???
-	"Felannia" => "2",
-	"Festive Recipes" => "0",
-	"Firework Launcher" => "0",
-	"Flash Bomb Recipe" => "0",
-	"Gambarinka" => "2",
-	"Gara Skullcrush" => "2",
-	"Gaston" => "1", # ???
-	#"Ghak Healtouch" => "",
-	#"Gorgolon the All-seeing" => "",
-	"Great-father Winter" => "0",
-	#"Gremlock Pilsnor" => "",
-	#"Grutah" => "",
-	#"Guillaume Sorouy" => "",
-	#"Haalrun" => "",
-	#"Hahrana Ironhide" => "",
-	#"Hama" => "",
-	#"Hurnak Grimmord" => "",
-	"Imperial Plate Belt" => "0",
-	"Imperial Plate Boots" => "0",
-	"Imperial Plate Bracer" => "0",
-	"Imperial Plate Chest" => "0",
-	"Imperial Plate Helm" => "0",
-	"Imperial Plate Leggings" => "0",
-	"Imperial Plate Shoulders" => "0",
-	#"Jangdor Swiftstrider" => "",
-	#"Johan Focht" => "",
-	#"K. Lee Smallfry" => "",
-	#"Kalaen" => "",
-	#"Knight Dameron" => "",
-	#"Krek Cragcrush" => "",
-	#"Krugosh" => "",
-	#"Kylanna Windwhisper" => "",
-	#"Leeli Longhaggle" => "",
-	#"Linna Bruder" => "",
-	#"Logannas" => "",
-	"Logistics Officer Brighton" => "1",
-	"Logistics Officer Silverstone" => "1",
-	#"Loolruna" => "",
-	#"Mari Stonehand" => "",
-	#"Misensi" => "",
-	#"Muheru the Weaver" => "",
-	#"Nadyia Maneweaver" => "",
-	#"Nula the Butcher" => "",
-	#"Nurse Neela" => "",
-	#"Nyoma" => "",
-	#"Pratt McGrubben" => "",
-	#"Provisioner Lorkran" => "",
-	#"Quartermaster Urgronn" => "",
-	#"Rogvar" => "",
-	#"Rohok" => "",
-	#"Rungor" => "",
-	#"Sassa Weldwell" => "",
-	"Sebastian Crane" => "2",
-	#"Seer Janidi" => "",
-	#"Sid Limbardi" => "",
-	#"Skeletal Fiend (Enraged Form)" => "",
-	#"Stone Guard Mukar" => "",
-	#"Supplying the Front" => "",
-	#"Tatiana" => "",
-	#"Thamner Pol" => "",
-	#"Tognus Flintfire" => "",
-	#"Truk Wildbeard" => "",
-	#"Uthok" => "",
-	#"Vance Undergloom" => "",
-	#"Victor Ward" => "",
-	#"Vix Chromeblaster" => "",
-	#"Wulan" => "",
-	#"Xylinnia Starshine" => "",
-	#"Yarr Hammerstone" => "",
-	#"Zarrin" => "",
-	#"Zurai" => "",
+	"40 Tickets - Schematic: Steam Tonk Controller" => 0,
+	"Alanna Raveneye" => 1,
+	"Alchemist Gribble" => 1,
+	"Alys Vol'tyr" => 2,
+	"Amy Davenport" => 1,
+	#"Ancient Female Vrykul" => ,
+	"Andrew Hilbert" => 2,
+	"Apothecary Antonivich" => 2,
+	"Artificer Daelo" => 1,
+	"Bale" => 2,
+	"Banalash" => 2,
+	"Barim Spilthoof" => 2,
+	"Baxter" => 2,
+	"Borto" => 1,
+	"Bowen Brisboise" => 2,
+	"Bradley Towns" => 2,
+	"Bronk Guzzlegear" => 1,
+	"Burko" => 1, # ???
+	"Byancie" => 1,
+	"Captured Gnome" => 2, # ???
+	"Celie Steelwing" => 1,
+	"Cluster Launcher" => 0,
+	"Cyndra Kindwhisper" => 1,
+	"Daga Ramba" => 2,
+	"Daggle Ironshaper" => 1,
+	"Dalinna" => 2,
+	"Derek Odds" => 1,
+	"Doba" => 1, #???
+	"Drakk Stonehand" => 1,
+	"Elixir of Pain" => 2, #???
+	"Felannia" => 2,
+	"Festive Recipes" => 0,
+	"Firework Launcher" => 0,
+	"Flash Bomb Recipe" => 0,
+	"Gambarinka" => 2,
+	"Gara Skullcrush" => 2,
+	"Gaston" => 1, # ???
+	#"Ghak Healtouch" => ,
+	#"Gorgolon the All-seeing" => ,
+	"Great-father Winter" => 0,
+	#"Gremlock Pilsnor" => ,
+	#"Grutah" => ,
+	#"Guillaume Sorouy" => ,
+	#"Haalrun" => ,
+	#"Hahrana Ironhide" => ,
+	#"Hama" => ,
+	#"Hurnak Grimmord" => ,
+	"Imperial Plate Belt" => 0,
+	"Imperial Plate Boots" => 0,
+	"Imperial Plate Bracer" => 0,
+	"Imperial Plate Chest" => 0,
+	"Imperial Plate Helm" => 0,
+	"Imperial Plate Leggings" => 0,
+	"Imperial Plate Shoulders" => 0,
+	#"Jangdor Swiftstrider" => ,
+	#"Johan Focht" => ,
+	#"K. Lee Smallfry" => ,
+	#"Kalaen" => ,
+	#"Knight Dameron" => ,
+	#"Krek Cragcrush" => ,
+	#"Krugosh" => ,
+	#"Kylanna Windwhisper" => ,
+	#"Leeli Longhaggle" => ,
+	#"Linna Bruder" => ,
+	#"Logannas" => ,
+	"Logistics Officer Brighton" => 1,
+	"Logistics Officer Silverstone" => 1,
+	#"Loolruna" => ,
+	#"Mari Stonehand" => ,
+	#"Misensi" => ,
+	#"Muheru the Weaver" => ,
+	#"Nadyia Maneweaver" => ,
+	#"Nula the Butcher" => ,
+	"Nurse Neela" => 2,
+	#"Nyoma" => ,
+	#"Pratt McGrubben" => ,
+	#"Provisioner Lorkran" => ,
+	#"Quartermaster Urgronn" => ,
+	#"Rogvar" => ,
+	#"Rohok" => ,
+	#"Rungor" => ,
+	#"Sassa Weldwell" => ,
+	"Sebastian Crane" => 2,
+	#"Seer Janidi" => ,
+	#"Sid Limbardi" => ,
+	#"Skeletal Fiend (Enraged Form)" => ,
+	#"Stone Guard Mukar" => ,
+	#"Supplying the Front" => ,
+	#"Tatiana" => ,
+	"Thamner Pol" => 1,
+	#"Tognus Flintfire" => ,
+	#"Truk Wildbeard" => ,
+	#"Uthok" => ,
+	#"Vance Undergloom" => ,
+	#"Victor Ward" => ,
+	"Vix Chromeblaster" => 2,
+	#"Wulan" => ,
+	#"Xylinnia Starshine" => ,
+	#"Yarr Hammerstone" => ,
+	#"Zarrin" => ,
+	#"Zurai" => ,
 }
 
 $hordefactionlist = [
