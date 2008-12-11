@@ -33,7 +33,6 @@ $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
 $unknownfaction = Array.new
-$instancemobs = Array.new
 $missingdataacquire = Hash.new
 
 # Creates the faction database
@@ -675,10 +674,8 @@ EOF
 								npc[:locs].each do |loc|
 									if $dungeons[loc]
 										flags << flaglisting["Instance"]
-										$instancemobs << npc[:name]
 									elsif $raids[loc]
 										flags << flaglisting["Raid"]
-										$instancemobs << npc[:name]
 									else
 										flags << flaglisting["Mob Drop"]
 									end
@@ -693,7 +690,6 @@ EOF
 										if dname[:name] == $bosszonemap[npc[:name]]
 											flags << flaglisting["Instance"]
 											found = true
-											$instancemobs << npc[:name]
 										end
 									end
 									if not found
@@ -702,7 +698,6 @@ EOF
 											if dname[:name] == $bosszonemap[npc[:name]]
 												flags << flaglisting["Raid"]
 												found = true
-												$instancemobs << npc[:name]
 											end
 										end
 									end
@@ -1577,20 +1572,6 @@ def create_stats_list()
 
 	stats_lua.puts "\n"
 
-	stats_lua.puts("Instance mobs:")
-
-	$instancemobs.compact!
-	$instancemobs.uniq!
-	$instancemobs.sort!
-
-	$instancemobs.each do |k|
-
-		stats_lua.puts "\t\"#{k}\","
-
-	end
-
-	stats_lua.puts "\n"	
-
 	stats_lua.puts("No acquire information:")
 
 	$missingdataacquire.each_pair do |k,l|
@@ -2227,6 +2208,24 @@ $bosslist = [
 
 # Manual mapping of mobs to their zones
 $bosszonemap = {
+	"Amal'thazad" => "Eastern Plaguelands",
+	"Crystalline Keeper" => "The Nexus",
+	"Durnholde Sentry" => "Old Hillsbrad Foothills",
+	"Enslaved Proto-Drake" => "Utgarde Keep",
+	"Krystallus" => "Halls of Stone",
+	"Lady Alistra" => "The Scarlet Enclave",
+	"Lord Thorval" => "The Scarlet Enclave",
+	"Mage Slayer" => "The Nexus",
+	"Nightmare Scalebane" => "Sunken Temple",
+	"Overlord Wyrmthalak" => "Blackrock Spire",
+	"Portal Guardian" => "The Violet Hold",
+	"Portal Keeper" => "The Violet Hold",
+	"Primordial Behemoth" => "Maraudon",
+	"Risen Drakkari Death Knight" => "Drak'Tharon Keep",
+	"Scarlet Myrmidon" => "Scarlet Monastery",
+	"Shattered Hand Champion" => "The Shattered Halls",
+	"Stormforged Giant" => "Halls of Lightning",
+	"Subterranean Diemetradon" => "Maraudon",
 	"Anub'ar Guardian" => "Azjol-Nerub",
 	"Anub'ar Prime Guard" => "Azjol-Nerub",
 	"Anub'ar Venomancer" => "Azjol-Nerub",
