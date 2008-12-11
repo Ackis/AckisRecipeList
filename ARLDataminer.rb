@@ -159,7 +159,7 @@ EOF
 
 end
 
-# Creates the faction database
+# Creates the custom acquire database
 
 def create_custom_db()
 
@@ -213,6 +213,10 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
 	self:addLookupList(CustomDB, 8, "Learnt by default when learning the profession.")
+	self:addLookupList(CustomDB, 9, "Recipe is created by Engineers.")
+	self:addLookupList(CustomDB, 10, "Quest to obtain the recipe opens up after turning in the Head of Onyxia.")
+	self:addLookupList(CustomDB, 11, "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness.")
+	self:addLookupList(CustomDB, 12, "Discovered by doing transmutes using Wrath of the Lich King ingredients.")
 
 end
 
@@ -257,26 +261,27 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 			if not npc[:react] == nil
 				# Only has information for one faction
 				if not npc[:react][1]
+					# We've manually mapped this
 					if $factionmap[npc[:name]] == 0
 						flags << flaglisting["Alliance"] << flaglisting["Horde"]
 						npc[:react][0] = npcreact["Friendly"]
 						npc[:react][1] = npcreact["Friendly"]
 						$unknownfaction << {:name => npc[:name],
-											:react => "0",
+											:react => 0,
 											:loc => "N/A"}
 					elsif $factionmap[npc[:name]] == 1
 						flags << flaglisting["Alliance"]
 						npc[:react][0] = npcreact["Friendly"]
 						npc[:react][1] = npcreact["Hostile"]
 						$unknownfaction << {:name => npc[:name],
-											:react => "1",
+											:react => 1,
 											:loc => "N/A"}
 					elsif $factionmap[npc[:name]] == 2
 						flags << flaglisting["Horde"]
 						npc[:react][0] = npcreact["Hostile"]
 						npc[:react][1] = npcreact["Friendly"]
 						$unknownfaction << {:name => npc[:name],
-											:react => "2",
+											:react => 2,
 											:loc => "N/A"}
 					# Has location information
 					elsif npc[:locs]
@@ -286,7 +291,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 							npc[:react][0] = npcreact["Hostile"]
 							npc[:react][1] = npcreact["Friendly"]
 							$unknownfaction << {:name => npc[:name],
-												:react => "2",
+												:react => 2,
 												:loc => npc[:locs][0]}
 						elsif $alliancefactionlist.include?(npc[:locs][0])
 							flags << flaglisting["Alliance"]
@@ -294,7 +299,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 							npc[:react][0] = npcreact["Friendly"]
 							npc[:react][1] = npcreact["Hostile"]
 							$unknownfaction << {:name => npc[:name],
-												:react => "1",
+												:react => 1,
 												:loc => npc[:locs][0]}
 						else
 							$unknownfaction << {:name => npc[:name],
@@ -330,7 +335,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Friendly"]
 				$unknownfaction << {:name => npc[:name],
-									:react => "0",
+									:react => 0,
 									:loc => "N/A"}
 			elsif $factionmap[npc[:name]] == 1
 				npc[:react] = []
@@ -338,7 +343,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Hostile"]
 				$unknownfaction << {:name => npc[:name],
-									:react => "1",
+									:react => 1,
 									:loc => "N/A"}
 			elsif $factionmap[npc[:name]] == 2
 				npc[:react] = []
@@ -346,7 +351,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				npc[:react][0] = npcreact["Hostile"]
 				npc[:react][1] = npcreact["Friendly"]
 				$unknownfaction << {:name => npc[:name],
-									:react => "2",
+									:react => 2,
 									:loc => "N/A"}
 			# No reaction information and it's not mapped
 			else
@@ -797,9 +802,116 @@ EOF
 				flags.delete(flaglisting["Vendor"])
 				flags.delete(flaglisting["Instance"])
 				flags.delete(flaglisting["Raid"])
-			when "Trainer"
+				flags.delete(flaglisting["Quest"])
+			when "Quest"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"]
+				specialcase[details[:spellid]][:type].each do |i|
+					acquire << {"type" => acquirelisting["Quest"],
+								"id" => i}
+				end
+			when "HordeQuest"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags << flaglisting["Horde"] << flaglisting["Quest"]
+				specialcase[details[:spellid]][:type].each do |i|
+					acquire << {"type" => acquirelisting["Quest"],
+								"id" => i}
+				end
+			when "AllyQuest"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags << flaglisting["Alliance"] << flaglisting["Quest"]
+				specialcase[details[:spellid]][:type].each do |i|
+					acquire << {"type" => acquirelisting["Quest"],
+								"id" => i}
+				end
+			when "Onyxia"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Quest"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"] << flaglisting["Raid"]
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 7493}
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 7497}
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 10}
+			when "Edge of Madness"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Quest"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Raid"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 11}
+			when "CustomNeutral"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => specialcase[details[:spellid]][:type]}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "StartingSkill"
 				acquire << {"type" => acquirelisting["Custom"],
 							"id" => 8}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "MasterAlchTrainer"
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 18802}
+				$trainers[18802] = {:name => "Alchemist Gribble"}
+				$trainers[18802][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 16588}
+				$trainers[16588] = {:name => "Apothecary Antonivich"}
+				$trainers[16588][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 27023}
+				$trainers[27023] = {:name => "Apothecary Bressa"}
+				$trainers[27023][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 27029}
+				$trainers[27029] = {:name => "Apothecary Wormwick"}
+				$trainers[27029][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 19052}
+				$trainers[19052] = {:name => "Lorokeem"}
+				$trainers[19052][:faction] = npcfactions["Neutral"]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterAlchTrainer"
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26975}
+				$trainers[26975] = {:name => "Arthur Henslowe"}
+				$trainers[26975][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26987}
+				$trainers[26987] = {:name => "Falorn Nightwhisper"}
+				$trainers[26987][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26903}
+				$trainers[26903] = {:name => "Lanolis Dewdrop"}
+				$trainers[26903][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 28703}
+				$trainers[28703] = {:name => "Linzy Blackbolt"}
+				$trainers[28703][:faction] = npcfactions["Neutral"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26951}
+				$trainers[26951] = {:name => "Wilhelmina Renel"}
+				$trainers[26951][:faction] = npcfactions["Horde"]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "meleedps"
 				flags << playertypeflags["MeleeDPS"]
 			when "Alliance"
@@ -854,7 +966,6 @@ EOF
 							"factionlevel" => factionlevels["Honored"]}
 				$vendors[16365] = {:name => "Master Craftsman Omarion"}
 				$vendors[16365][:faction] = npcfactions["Neutral"]
-
 			when "ADNaxx40R"
 				# Remove all the acquire flags
 				flags.delete(flaglisting["Trainer"])
@@ -995,7 +1106,7 @@ EOF
 		flags.clear
 
         # acquire info  
-		if acquire.length == 0 
+		if not ignorerecipe.include?(details[:spellid]) and acquire.length == 0
 			proflua.puts "\t-- No acquire information"
 			$missingdataacquire[details[:spellid]] = {:sname => name, :data => details, :sprof => profession}
 		else
@@ -1566,7 +1677,7 @@ def create_stats_list()
 
 	$unknownfaction.sort_by { |unknownfaction| unknownfaction[:name] }.each do |k|
 
-		stats_lua.puts "\t\#\"#{k[:name]}\" => \"#{k[:react]}\", \# #{k[:loc]}"
+		stats_lua.puts "\t\#\"#{k[:name]}\" => #{k[:react]}, \# #{k[:loc]}"
 
 	end
 
@@ -2569,245 +2680,245 @@ $bosszonemap = {
 
 # Manual mapping of npc/quests to their factions
 $factionmap = {
-	"40 Tickets - Schematic: Steam Tonk Controller" => "0", # 
-	"Ainethil" => "1", # 1657
-	"Alanna Raveneye" => "1", # N/A
-	"Alchemist Gribble" => "1", # N/A
-	"Alegorn" => "1", # 1657
-	"Aleinia" => "2", # 3430
-	"Alexandra Bolero" => "1", # 1519
-	"Alys Vol'tyr" => "2", # N/A
-	"Amin" => "2", # 3487
-	"Amy Davenport" => "1", # N/A
-	#"Ancient Female Vrykul" => "Unknown", # 495
-	"Andrew Hilbert" => "2", # N/A
-	"Apothecary Antonivich" => "2", # N/A
-	"Arnok" => "2", # 1637
-	"Arras" => "1", # 3557
-	"Arred" => "1", # 3557
-	"Artificer Daelo" => "1", # N/A
-	"Bale" => "2", # N/A
-	"Banalash" => "2", # N/A
-	"Barim Spilthoof" => "2", # N/A
-	"Baxter" => "2", # N/A
-	"Belil" => "2", # 3487
-	"Bemarrin" => "2", # 3487
-	"Betty Quin" => "1", # 1519
-	"Borgosh Corebender" => "2", # 1637
-	"Borgus Steelhand" => "1", # 1519
-	"Borto" => "1", # N/A
-	"Borya" => "2", # 1637
-	"Bowen Brisboise" => "2", # N/A
-	"Bradley Towns" => "2", # N/A
-	"Brek Stonehoof" => "2", # 1638
-	"Bronk Guzzlegear" => "1", # N/A
-	"Burbik Gearspanner" => "1", # 1537
-	"Burko" => "1", # N/A
-	"Byancie" => "1", # N/A
-	"Camberon" => "2", # 3487
-	"Captured Gnome" => "2", # N/A
-	"Celie Steelwing" => "1", # N/A
-	"Cluster Launcher" => "0", # 
-	"Cyndra Kindwhisper" => "1", # N/A
-	"Daga Ramba" => "2", # N/A
-	"Daggle Ironshaper" => "1", # N/A
-	"Dalinna" => "2", # N/A
-	"Dane Lindgren" => "1", # 1519
-	"Daniel Bartlett" => "2", # 1497
-	"Dannelor" => "1", # 1657
-	"Danwe" => "2", # 3487
-	"Darianna" => "1", # 1657
-	"Derek Odds" => "1", # N/A
-	"Deynna" => "2", # 3487
-	"Doba" => "1", # N/A
-	"Doctor Herbert Halsey" => "2", # 1497
-	"Doctor Marsh" => "2", # 1497
-	"Dolothos" => "2", # 3487
-	"Drakk Stonehand" => "1", # N/A
-	"Edrem" => "1", # 3557
-	"Egomis" => "1", # 3557
-	"Elynna" => "1", # 1657
-	"Emrul Riknussun" => "1", # 1537
-	"Erika Tate" => "1", # 1519
-	"Faldron" => "1", # 1657
-	"Farii" => "1", # 3557
-	"Feera" => "1", # 3557
-	"Felannia" => "2", # N/A
-	"Felicia Doan" => "2", # 1497
-	"Felika" => "2", # 1637
-	"Feruul" => "1", # 3557
-	"Festive Recipes" => "0", # 
-	"Fimble Finespindle" => "1", # 1537
-	"Firework Launcher" => "0", # 
-	"Flash Bomb Recipe" => "0", # 
-	"Franklin Lloyd" => "2", # 1497
-	"Fyldan" => "1", # 1657
-	"Gambarinka" => "2", # N/A
-	"Gara Skullcrush" => "2", # N/A
-	"Gaston" => "1", # N/A
-	"Gearcutter Cogspinner" => "1", # 1537
-	"Gelanthis" => "2", # 3487
-	"Gelman Stonehand" => "1", # 1519
-	"Georgio Bolero" => "1", # N/A
-	"Ghak Healtouch" => "1", # 38
-	"Ghermas" => "1", # 3557
-	"Gimble Thistlefuzz" => "1", # 1537
-	"Gloresse" => "2", # 3487
-	"Godan" => "2", # 1637
-	#"Gorgolon the All-seeing" => "None", # Unknown
-	"Graham Van Talen" => "2", # 1497
-	"Great-father Winter" => "0", # N/A
-	"Gremlock Pilsnor" => "1", # 1
-	"Grutah" => "2", # 3520
-	"Guillaume Sorouy" => "2", # 130
-	"Haalrun" => "1", # 3521
-	"Haferet" => "1", # 3557
-	"Hagrus" => "2", # 1637
-	"Hahrana Ironhide" => "3", # 357
-	"Hama" => "1", # 3483
-	"Hurnak Grimmord" => "1", # 3483
-	"Imperial Plate Belt" => "0", # 
-	"Imperial Plate Boots" => "0", # 
-	"Imperial Plate Bracer" => "0", # 
-	"Imperial Plate Chest" => "0", # 
-	"Imperial Plate Helm" => "0", # 
-	"Imperial Plate Leggings" => "0", # 
-	"Imperial Plate Shoulders" => "0", # 
-	"Innkeeper Grilka" => "2", # 14
-	"James Van Brunt" => "2", # 1497
-	"Jessara Cordell" => "1", # 1519
-	"Jhag" => "2", # 1637
-	"Johan Focht" => "2", # 130
-	"Josef Gregorian" => "2", # 1497
-	"Josephine Lister" => "2", # 1497
-	"K. Lee Smallfry" => "1", # 3521
-	"Kalaen" => "2", # 85
-	"Kalinda" => "2", # 3487
-	"Kamari" => "2", # 1637
-	"Karolek" => "2", # 1637
-	"Kayaart" => "1", # 3557
-	"Keelen Sheets" => "2", # 3487
-	"Kelgruk Bloodaxe" => "2", # 1637
-	"Kendor Kabonka" => "1", # 1519
-	"Kithas" => "2", # 1637
-	"Knight Dameron" => "1", # 4197
-	"Kor'geld" => "2", # 1637
-	"Krek Cragcrush" => "2", # 3520
-	"Krugosh" => "2", # 3483
-	"Kudrii" => "1", # 3557
-	"Kylanna Windwhisper" => "1", # 357
-	"Landraelanis" => "2", # 3430
-	"Lavinia Crowe" => "2", # 1497
-	"Lawrence Schneider" => "1", # 1519
-	"Leeli Longhaggle" => "1", # 3519
-	"Lilyssia Nightbreeze" => "1", # 1519
-	"Linna Bruder" => "1", # 4395
-	"Logannas" => "1", # 357
-	"Logistics Officer Brighton" => "1", # N/A
-	"Logistics Officer Silverstone" => "1", # N/A
-	"Loolruna" => "1", # 3521
-	"Lucan Cordell" => "1", # 1519
-	"Lyna" => "2", # 3487
-	"Lynalis" => "2", # 3487
-	"Magar" => "2", # 1637
-	"Mahu" => "2", # 1638
-	"Makaru" => "2", # 1637
-	"Malcomb Wynn" => "2", # 1497
-	"Mari Stonehand" => "1", # 3520
-	"Maria Lumere" => "1", # 1519
-	"Mary Edras" => "2", # 1497
-	"Master Chef Mouldier" => "2", # 3433
-	"Me'lynn" => "1", # 1657
-	"Miall" => "1", # 3557
-	"Miao'zan" => "2", # 14
-	"Milla Fairancora" => "1", # 1657
-	"Millie Gregorian" => "2", # 1497
-	"Mirvedon" => "2", # 3487
-	"Misensi" => "2", # 65
-	"Muaat" => "1", # 3557
-	"Muheru the Weaver" => "1", # 3521
-	"Mythrin'dir" => "1", # 1657
-	"Nadyia Maneweaver" => "1", # 141
-	"Nahogg" => "1", # 3557
-	"Neii" => "1", # 3557
-	"Nissa Firestone" => "1", # 1537
-	"Nogg" => "2", # 1637
-	"Nula the Butcher" => "2", # 3518
-	"Nurse Neela" => "2", # N/A
-	"Nus" => "1", # 3557
-	"Nyoma" => "1", # 141
-	"Okothos Ironrager" => "2", # 1637
-	"Outfitter Eric" => "1", # 1537
-	"Padaar" => "1", # 3557
-	"Phea" => "1", # 3557
-	"Provisioner Lorkran" => "2", # 394
-	"Quartermaster Urgronn" => "2", # 3483
-	"Randal Worth" => "1", # 1519
-	"Rartar" => "2", # 8
-	"Rawrk" => "2", # 14
-	"Razia" => "2", # 3487
-	"Refik" => "1", # 3557
-	"Rhiannon Davis" => "2", # 1497
-	"Rogvar" => "2", # 8
-	"Rohok" => "2", # 3483
-	"Ronald Burch" => "2", # 1497
-	"Roxxik" => "2", # 1637
-	"Rungor" => "2", # 3519
-	"Saenorion" => "1", # 1657
-	"Saru Steelfury" => "2", # 1637
-	"Sassa Weldwell" => "1", # 3522
-	"Sebastian Crane" => "2", # N/A
-	"Sedana" => "2", # 3487
-	"Seer Janidi" => "2", # 3521
-	"Sellandus" => "1", # 1519
-	"Sewa Mistrunner" => "2", # 1638
-	"Shankys" => "2", # 1637
-	"Shayis Steelfury" => "2", # 1637
-	"Sid Limbardi" => "1", # 1
-	"Simon Tanner" => "1", # 1519
-	"Snang" => "2", # 1637
-	"Snarl" => "2", # 1637
-	"Sovik" => "2", # 1637
-	"Sprite Jumpsprocket" => "1", # 1519
-	"Stephen Ryback" => "1", # 1519
-	"Stone Guard Mukar" => "2", # 4197
-	"Sylvanna Forestmoon" => "1", # 1657
-	"Taladan" => "1", # 1657
-	"Talmar" => "2", # 3487
-	"Tamar" => "2", # 1637
-	"Tansy Puddlefizz" => "1", # 1537
-	"Tarn" => "2", # 1638
-	"Tatiana" => "1", # 139
-	"Tel'Athir" => "1", # 1519
-	"Telonis" => "1", # 1657
-	"Thaddeus Webb" => "2", # 1497
-	"Thamner Pol" => "1", # N/A
-	"Thonys Pillarstone" => "1", # 1537
-	"Thund" => "2", # 1637
-	"Tilli Thistlefuzz" => "1", # 1537
-	"Tognus Flintfire" => "1", # 1
-	"Trianna" => "1", # 1657
-	"Truk Wildbeard" => "1", # 47
-	"Ug'thok" => "2", # 1637
-	"Ulthir" => "1", # 1657
-	"Una" => "2", # 1638
-	"Uthok" => "2", # 33
-	"Uthrar Threx" => "1", # 1537
-	"Vaean" => "1", # 1657
-	"Vance Undergloom" => "2", # 85
-	"Vhan" => "2", # 1638
-	"Victor Ward" => "2", # 406
-	"Vix Chromeblaster" => "2", # N/A
-	"Wulan" => "2", # 405
-	"Xen'to" => "2", # 1637
-	"Xylinnia Starshine" => "1", # 357
-	"Yarr Hammerstone" => "1", # 1
-	"Yatheon" => "2", # 3487
-	"Yelmak" => "2", # 1637
-	"Zamja" => "2", # 1637
-	"Zaralda" => "2", # 3487
-	"Zarrin" => "1", # 141
-	"Zurai" => "2", # 3521
+	"40 Tickets - Schematic: Steam Tonk Controller" => 0, # 
+	"Ainethil" => 1, # 1657
+	"Alanna Raveneye" => 1, # N/A
+	"Alchemist Gribble" => 1, # N/A
+	"Alegorn" => 1, # 1657
+	"Aleinia" => 2, # 3430
+	"Alexandra Bolero" => 1, # 1519
+	"Alys Vol'tyr" => 2, # N/A
+	"Amin" => 2, # 3487
+	"Amy Davenport" => 1, # N/A
+	#"Ancient Female Vrykul" => Unknown, # 495
+	"Andrew Hilbert" => 2, # N/A
+	"Apothecary Antonivich" => 2, # N/A
+	"Arnok" => 2, # 1637
+	"Arras" => 1, # 3557
+	"Arred" => 1, # 3557
+	"Artificer Daelo" => 1, # N/A
+	"Bale" => 2, # N/A
+	"Banalash" => 2, # N/A
+	"Barim Spilthoof" => 2, # N/A
+	"Baxter" => 2, # N/A
+	"Belil" => 2, # 3487
+	"Bemarrin" => 2, # 3487
+	"Betty Quin" => 1, # 1519
+	"Borgosh Corebender" => 2, # 1637
+	"Borgus Steelhand" => 1, # 1519
+	"Borto" => 1, # N/A
+	"Borya" => 2, # 1637
+	"Bowen Brisboise" => 2, # N/A
+	"Bradley Towns" => 2, # N/A
+	"Brek Stonehoof" => 2, # 1638
+	"Bronk Guzzlegear" => 1, # N/A
+	"Burbik Gearspanner" => 1, # 1537
+	"Burko" => 1, # N/A
+	"Byancie" => 1, # N/A
+	"Camberon" => 2, # 3487
+	"Captured Gnome" => 2, # N/A
+	"Celie Steelwing" => 1, # N/A
+	"Cluster Launcher" => 0, # 
+	"Cyndra Kindwhisper" => 1, # N/A
+	"Daga Ramba" => 2, # N/A
+	"Daggle Ironshaper" => 1, # N/A
+	"Dalinna" => 2, # N/A
+	"Dane Lindgren" => 1, # 1519
+	"Daniel Bartlett" => 2, # 1497
+	"Dannelor" => 1, # 1657
+	"Danwe" => 2, # 3487
+	"Darianna" => 1, # 1657
+	"Derek Odds" => 1, # N/A
+	"Deynna" => 2, # 3487
+	"Doba" => 1, # N/A
+	"Doctor Herbert Halsey" => 2, # 1497
+	"Doctor Marsh" => 2, # 1497
+	"Dolothos" => 2, # 3487
+	"Drakk Stonehand" => 1, # N/A
+	"Edrem" => 1, # 3557
+	"Egomis" => 1, # 3557
+	"Elynna" => 1, # 1657
+	"Emrul Riknussun" => 1, # 1537
+	"Erika Tate" => 1, # 1519
+	"Faldron" => 1, # 1657
+	"Farii" => 1, # 3557
+	"Feera" => 1, # 3557
+	"Felannia" => 2, # N/A
+	"Felicia Doan" => 2, # 1497
+	"Felika" => 2, # 1637
+	"Feruul" => 1, # 3557
+	"Festive Recipes" => 0, # 
+	"Fimble Finespindle" => 1, # 1537
+	"Firework Launcher" => 0, # 
+	"Flash Bomb Recipe" => 0, # 
+	"Franklin Lloyd" => 2, # 1497
+	"Fyldan" => 1, # 1657
+	"Gambarinka" => 2, # N/A
+	"Gara Skullcrush" => 2, # N/A
+	"Gaston" => 1, # N/A
+	"Gearcutter Cogspinner" => 1, # 1537
+	"Gelanthis" => 2, # 3487
+	"Gelman Stonehand" => 1, # 1519
+	"Georgio Bolero" => 1, # N/A
+	"Ghak Healtouch" => 1, # 38
+	"Ghermas" => 1, # 3557
+	"Gimble Thistlefuzz" => 1, # 1537
+	"Gloresse" => 2, # 3487
+	"Godan" => 2, # 1637
+	#"Gorgolon the All-seeing" => None, # Unknown
+	"Graham Van Talen" => 2, # 1497
+	"Great-father Winter" => 0, # N/A
+	"Gremlock Pilsnor" => 1, # 1
+	"Grutah" => 2, # 3520
+	"Guillaume Sorouy" => 2, # 130
+	"Haalrun" => 1, # 3521
+	"Haferet" => 1, # 3557
+	"Hagrus" => 2, # 1637
+	"Hahrana Ironhide" => 3, # 357
+	"Hama" => 1, # 3483
+	"Hurnak Grimmord" => 1, # 3483
+	"Imperial Plate Belt" => 0, # 
+	"Imperial Plate Boots" => 0, # 
+	"Imperial Plate Bracer" => 0, # 
+	"Imperial Plate Chest" => 0, # 
+	"Imperial Plate Helm" => 0, # 
+	"Imperial Plate Leggings" => 0, # 
+	"Imperial Plate Shoulders" => 0, # 
+	"Innkeeper Grilka" => 2, # 14
+	"James Van Brunt" => 2, # 1497
+	"Jessara Cordell" => 1, # 1519
+	"Jhag" => 2, # 1637
+	"Johan Focht" => 2, # 130
+	"Josef Gregorian" => 2, # 1497
+	"Josephine Lister" => 2, # 1497
+	"K. Lee Smallfry" => 1, # 3521
+	"Kalaen" => 2, # 85
+	"Kalinda" => 2, # 3487
+	"Kamari" => 2, # 1637
+	"Karolek" => 2, # 1637
+	"Kayaart" => 1, # 3557
+	"Keelen Sheets" => 2, # 3487
+	"Kelgruk Bloodaxe" => 2, # 1637
+	"Kendor Kabonka" => 1, # 1519
+	"Kithas" => 2, # 1637
+	"Knight Dameron" => 1, # 4197
+	"Kor'geld" => 2, # 1637
+	"Krek Cragcrush" => 2, # 3520
+	"Krugosh" => 2, # 3483
+	"Kudrii" => 1, # 3557
+	"Kylanna Windwhisper" => 1, # 357
+	"Landraelanis" => 2, # 3430
+	"Lavinia Crowe" => 2, # 1497
+	"Lawrence Schneider" => 1, # 1519
+	"Leeli Longhaggle" => 1, # 3519
+	"Lilyssia Nightbreeze" => 1, # 1519
+	"Linna Bruder" => 1, # 4395
+	"Logannas" => 1, # 357
+	"Logistics Officer Brighton" => 1, # N/A
+	"Logistics Officer Silverstone" => 1, # N/A
+	"Loolruna" => 1, # 3521
+	"Lucan Cordell" => 1, # 1519
+	"Lyna" => 2, # 3487
+	"Lynalis" => 2, # 3487
+	"Magar" => 2, # 1637
+	"Mahu" => 2, # 1638
+	"Makaru" => 2, # 1637
+	"Malcomb Wynn" => 2, # 1497
+	"Mari Stonehand" => 1, # 3520
+	"Maria Lumere" => 1, # 1519
+	"Mary Edras" => 2, # 1497
+	"Master Chef Mouldier" => 2, # 3433
+	"Me'lynn" => 1, # 1657
+	"Miall" => 1, # 3557
+	"Miao'zan" => 2, # 14
+	"Milla Fairancora" => 1, # 1657
+	"Millie Gregorian" => 2, # 1497
+	"Mirvedon" => 2, # 3487
+	"Misensi" => 2, # 65
+	"Muaat" => 1, # 3557
+	"Muheru the Weaver" => 1, # 3521
+	"Mythrin'dir" => 1, # 1657
+	"Nadyia Maneweaver" => 1, # 141
+	"Nahogg" => 1, # 3557
+	"Neii" => 1, # 3557
+	"Nissa Firestone" => 1, # 1537
+	"Nogg" => 2, # 1637
+	"Nula the Butcher" => 2, # 3518
+	"Nurse Neela" => 2, # N/A
+	"Nus" => 1, # 3557
+	"Nyoma" => 1, # 141
+	"Okothos Ironrager" => 2, # 1637
+	"Outfitter Eric" => 1, # 1537
+	"Padaar" => 1, # 3557
+	"Phea" => 1, # 3557
+	"Provisioner Lorkran" => 2, # 394
+	"Quartermaster Urgronn" => 2, # 3483
+	"Randal Worth" => 1, # 1519
+	"Rartar" => 2, # 8
+	"Rawrk" => 2, # 14
+	"Razia" => 2, # 3487
+	"Refik" => 1, # 3557
+	"Rhiannon Davis" => 2, # 1497
+	"Rogvar" => 2, # 8
+	"Rohok" => 2, # 3483
+	"Ronald Burch" => 2, # 1497
+	"Roxxik" => 2, # 1637
+	"Rungor" => 2, # 3519
+	"Saenorion" => 1, # 1657
+	"Saru Steelfury" => 2, # 1637
+	"Sassa Weldwell" => 1, # 3522
+	"Sebastian Crane" => 2, # N/A
+	"Sedana" => 2, # 3487
+	"Seer Janidi" => 2, # 3521
+	"Sellandus" => 1, # 1519
+	"Sewa Mistrunner" => 2, # 1638
+	"Shankys" => 2, # 1637
+	"Shayis Steelfury" => 2, # 1637
+	"Sid Limbardi" => 1, # 1
+	"Simon Tanner" => 1, # 1519
+	"Snang" => 2, # 1637
+	"Snarl" => 2, # 1637
+	"Sovik" => 2, # 1637
+	"Sprite Jumpsprocket" => 1, # 1519
+	"Stephen Ryback" => 1, # 1519
+	"Stone Guard Mukar" => 2, # 4197
+	"Sylvanna Forestmoon" => 1, # 1657
+	"Taladan" => 1, # 1657
+	"Talmar" => 2, # 3487
+	"Tamar" => 2, # 1637
+	"Tansy Puddlefizz" => 1, # 1537
+	"Tarn" => 2, # 1638
+	"Tatiana" => 1, # 139
+	"Tel'Athir" => 1, # 1519
+	"Telonis" => 1, # 1657
+	"Thaddeus Webb" => 2, # 1497
+	"Thamner Pol" => 1, # N/A
+	"Thonys Pillarstone" => 1, # 1537
+	"Thund" => 2, # 1637
+	"Tilli Thistlefuzz" => 1, # 1537
+	"Tognus Flintfire" => 1, # 1
+	"Trianna" => 1, # 1657
+	"Truk Wildbeard" => 1, # 47
+	"Ug'thok" => 2, # 1637
+	"Ulthir" => 1, # 1657
+	"Una" => 2, # 1638
+	"Uthok" => 2, # 33
+	"Uthrar Threx" => 1, # 1537
+	"Vaean" => 1, # 1657
+	"Vance Undergloom" => 2, # 85
+	"Vhan" => 2, # 1638
+	"Victor Ward" => 2, # 406
+	"Vix Chromeblaster" => 2, # N/A
+	"Wulan" => 2, # 405
+	"Xen'to" => 2, # 1637
+	"Xylinnia Starshine" => 1, # 357
+	"Yarr Hammerstone" => 1, # 1
+	"Yatheon" => 2, # 3487
+	"Yelmak" => 2, # 1637
+	"Zamja" => 2, # 1637
+	"Zaralda" => 2, # 3487
+	"Zarrin" => 1, # 141
+	"Zurai" => 2, # 3521
 }
 
 $hordefactionlist = [
@@ -2838,20 +2949,99 @@ $globalignore = [
 	"Skeletal Fiend (Enraged Form)",
 ]
 
-$debug = false
+$debug = true
 
 if $debug
 
 	create_custom_db()
 	create_faction_db()
 
-	firstaid = recipes.get_firstaid_list
-	faspecaillist = {
-		3275 => {:id => "Trainer"},
+	alchemy = recipes.get_alchemy_list
+	alchspeciallist = {
+		2329 => {:id => "StartingSkill"},
+		2330 => {:id => "StartingSkill"},
+		2333 => {:id => "StartingSkill"},
+		28580 => {:id => 12, :type => [3]},
+		28581 => {:id => 12, :type => [3]},
+		28582 => {:id => 12, :type => [3]},
+		28583 => {:id => 12, :type => [3]},
+		28584 => {:id => 12, :type => [3]},
+		28585 => {:id => 12, :type => [3]},
+		28586 => {:id => 12, :type => [2]},
+		28587 => {:id => 12, :type => [1]},
+		28588 => {:id => 12, :type => [1]},
+		28589 => {:id => 12, :type => [1]},
+		28590 => {:id => 12, :type => [1]},
+		28591 => {:id => 12, :type => [1]},
+		41458 => {:id => 12, :type => [4]},
+		41500 => {:id => 12, :type => [4]},
+		41501 => {:id => 12, :type => [4]},
+		41502 => {:id => 12, :type => [4]},
+		41503 => {:id => 12, :type => [4]},
+		53771 => {:id => 12, :type => [12]},
+		53773 => {:id => 12, :type => [12]},
+		53774 => {:id => 12, :type => [12]},
+		53775 => {:id => 12, :type => [12]},
+		53776 => {:id => 12, :type => [12]},
+		53777 => {:id => 12, :type => [12]},
+		53779 => {:id => 12, :type => [12]},
+		53780 => {:id => 12, :type => [12]},
+		53781 => {:id => 12, :type => [12]},
+		53782 => {:id => 12, :type => [12]},
+		53783 => {:id => 12, :type => [12]},
+		53784 => {:id => 12, :type => [12]},
+		21923 => {:id => 7, :type => 1},
+		47050 => {:id => "meleedps"},
+		11456 => {:id => "CustomNeutral", :type => 9},
+		24266 => {:id => "Edge of Madness"},
+		45061 => {:id => "MasterAlchTrainer"},
+		53812 => {:id => "GrandMasterAlchTrainer"},
+		53836 => {:id => "GrandMasterAlchTrainer"},
+		53837 => {:id => "GrandMasterAlchTrainer"},
+		53838 => {:id => "GrandMasterAlchTrainer"},
+		53839 => {:id => "GrandMasterAlchTrainer"},
+		53840 => {:id => "GrandMasterAlchTrainer"},
+		53841 => {:id => "GrandMasterAlchTrainer"},
+		53842 => {:id => "GrandMasterAlchTrainer"},
+		53847 => {:id => "GrandMasterAlchTrainer"},
+		53848 => {:id => "GrandMasterAlchTrainer"},
+		53895 => {:id => "GrandMasterAlchTrainer"},
+		53898 => {:id => "GrandMasterAlchTrainer"},
+		53899 => {:id => "GrandMasterAlchTrainer"},
+		53900 => {:id => "GrandMasterAlchTrainer"},
+		53901 => {:id => "GrandMasterAlchTrainer"},
+		53902 => {:id => "GrandMasterAlchTrainer"},
+		53903 => {:id => "GrandMasterAlchTrainer"},
+		53904 => {:id => "GrandMasterAlchTrainer"},
+		53905 => {:id => "GrandMasterAlchTrainer"},
+		54020 => {:id => "GrandMasterAlchTrainer"},
+		54213 => {:id => "GrandMasterAlchTrainer"},
+		54218 => {:id => "GrandMasterAlchTrainer"},
+		54220 => {:id => "GrandMasterAlchTrainer"},
+		54221 => {:id => "GrandMasterAlchTrainer"},
+		54222 => {:id => "GrandMasterAlchTrainer"},
+		56519 => {:id => "GrandMasterAlchTrainer"},
+		57425 => {:id => "GrandMasterAlchTrainer"},
+		57427 => {:id => "GrandMasterAlchTrainer"},
+		58868 => {:id => "GrandMasterAlchTrainer"},
+		58871 => {:id => "GrandMasterAlchTrainer"},
+		60350 => {:id => "GrandMasterAlchTrainer"},
+		60354 => {:id => "GrandMasterAlchTrainer"},
+		60355 => {:id => "GrandMasterAlchTrainer"},
+		60356 => {:id => "GrandMasterAlchTrainer"},
+		60357 => {:id => "GrandMasterAlchTrainer"},
+		60365 => {:id => "GrandMasterAlchTrainer"},
+		60366 => {:id => "GrandMasterAlchTrainer"},
+		60367 => {:id => "GrandMasterAlchTrainer"},
+		60396 => {:id => "GrandMasterAlchTrainer"},
+		60403 => {:id => "GrandMasterAlchTrainer"},
+		60405 => {:id => "GrandMasterAlchTrainer"},
+		60893 => {:id => "GrandMasterAlchTrainer"},
+		11452 => {:id => "Quest", :type => [2203,2501]},
 		}
-	famanual=<<EOF
+	alchmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	create_stats_list()
 
@@ -2870,9 +3060,9 @@ else
 
 	alchemy = recipes.get_alchemy_list
 	alchspeciallist = {
-		2329 => {:id => "Trainer"},
-		2330 => {:id => "Trainer"},
-		2333 => {:id => "Trainer"},
+		2329 => {:id => "StartingSkill"},
+		2330 => {:id => "StartingSkill"},
+		2333 => {:id => "StartingSkill"},
 		28580 => {:id => 12, :type => [3]},
 		28581 => {:id => 12, :type => [3]},
 		28582 => {:id => 12, :type => [3]},
@@ -2890,8 +3080,66 @@ else
 		41501 => {:id => 12, :type => [4]},
 		41502 => {:id => 12, :type => [4]},
 		41503 => {:id => 12, :type => [4]},
+		53771 => {:id => 12, :type => [12]},
+		53773 => {:id => 12, :type => [12]},
+		53774 => {:id => 12, :type => [12]},
+		53775 => {:id => 12, :type => [12]},
+		53776 => {:id => 12, :type => [12]},
+		53777 => {:id => 12, :type => [12]},
+		53779 => {:id => 12, :type => [12]},
+		53780 => {:id => 12, :type => [12]},
+		53781 => {:id => 12, :type => [12]},
+		53782 => {:id => 12, :type => [12]},
+		53783 => {:id => 12, :type => [12]},
+		53784 => {:id => 12, :type => [12]},
 		21923 => {:id => 7, :type => 1},
 		47050 => {:id => "meleedps"},
+		11456 => {:id => "CustomNeutral", :type => 9},
+		24266 => {:id => "Edge of Madness"},
+		45061 => {:id => "MasterAlchTrainer"},
+		53812 => {:id => "GrandMasterAlchTrainer"},
+		53836 => {:id => "GrandMasterAlchTrainer"},
+		53837 => {:id => "GrandMasterAlchTrainer"},
+		53838 => {:id => "GrandMasterAlchTrainer"},
+		53839 => {:id => "GrandMasterAlchTrainer"},
+		53840 => {:id => "GrandMasterAlchTrainer"},
+		53841 => {:id => "GrandMasterAlchTrainer"},
+		53842 => {:id => "GrandMasterAlchTrainer"},
+		53847 => {:id => "GrandMasterAlchTrainer"},
+		53848 => {:id => "GrandMasterAlchTrainer"},
+		53895 => {:id => "GrandMasterAlchTrainer"},
+		53898 => {:id => "GrandMasterAlchTrainer"},
+		53899 => {:id => "GrandMasterAlchTrainer"},
+		53900 => {:id => "GrandMasterAlchTrainer"},
+		53901 => {:id => "GrandMasterAlchTrainer"},
+		53902 => {:id => "GrandMasterAlchTrainer"},
+		53903 => {:id => "GrandMasterAlchTrainer"},
+		53904 => {:id => "GrandMasterAlchTrainer"},
+		53905 => {:id => "GrandMasterAlchTrainer"},
+		54020 => {:id => "GrandMasterAlchTrainer"},
+		54213 => {:id => "GrandMasterAlchTrainer"},
+		54218 => {:id => "GrandMasterAlchTrainer"},
+		54220 => {:id => "GrandMasterAlchTrainer"},
+		54221 => {:id => "GrandMasterAlchTrainer"},
+		54222 => {:id => "GrandMasterAlchTrainer"},
+		56519 => {:id => "GrandMasterAlchTrainer"},
+		57425 => {:id => "GrandMasterAlchTrainer"},
+		57427 => {:id => "GrandMasterAlchTrainer"},
+		58868 => {:id => "GrandMasterAlchTrainer"},
+		58871 => {:id => "GrandMasterAlchTrainer"},
+		60350 => {:id => "GrandMasterAlchTrainer"},
+		60354 => {:id => "GrandMasterAlchTrainer"},
+		60355 => {:id => "GrandMasterAlchTrainer"},
+		60356 => {:id => "GrandMasterAlchTrainer"},
+		60357 => {:id => "GrandMasterAlchTrainer"},
+		60365 => {:id => "GrandMasterAlchTrainer"},
+		60366 => {:id => "GrandMasterAlchTrainer"},
+		60367 => {:id => "GrandMasterAlchTrainer"},
+		60396 => {:id => "GrandMasterAlchTrainer"},
+		60403 => {:id => "GrandMasterAlchTrainer"},
+		60405 => {:id => "GrandMasterAlchTrainer"},
+		60893 => {:id => "GrandMasterAlchTrainer"},
+		11452 => {:id => "Quest", :type => [2203,2501]},
 		}
 	alchmanual=<<EOF
 EOF
@@ -2899,9 +3147,10 @@ EOF
 
 	blacksmithing = recipes.get_blacksmithing_list
 	bsspeciallist = {
-		2660 => {:id => "Trainer"},
-		2663 => {:id => "Trainer"},
-		3115 => {:id => "Trainer"},
+		2660 => {:id => "StartingSkill"},
+		2663 => {:id => "StartingSkill"},
+		2671 => {:id => "StartingSkill"},
+		3115 => {:id => "StartingSkill"},
 		21913 => {:id => 7, :type => 1},
 		28242 => {:id => "ADNaxx40E"},
 		28243 => {:id => "ADNaxx40R"},
@@ -2927,9 +3176,9 @@ EOF
 
 	cooking = recipes.get_cooking_list
 	cookingspeciallist = {
-		2538 => {:id => "Trainer"},
-		2540 => {:id => "Trainer"},
-		8604 => {:id => "Trainer"},
+		2538 => {:id => "StartingSkill"},
+		2540 => {:id => "StartingSkill"},
+		8604 => {:id => "StartingSkill"},
 		21143 => {:id => 7, :type => 1},
 		21144 => {:id => 7, :type => 1},
 		45022 => {:id => 7, :type => 1},
@@ -2956,8 +3205,8 @@ EOF
 
 	eng = recipes.get_engineering_list
 	engspecaillist = {
-		3918 => {:id => "Trainer"},
-		3919 => {:id => "Trainer"},
+		3918 => {:id => "StartingSkill"},
+		3919 => {:id => "StartingSkill"},
 		21940 => {:id => 7, :type => 1},
 		26416 => {:id => 7, :type => 2},
 		26417 => {:id => 7, :type => 2},
@@ -3060,7 +3309,7 @@ EOF
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
-		3275 => {:id => "Trainer"},
+		3275 => {:id => "StartingSkill"},
 		}
 	famanual=<<EOF
 EOF
@@ -3084,8 +3333,9 @@ EOF
 
 	leatherworking = recipes.get_leatherworking_list
 	lwspecaillist = {
-		2149 => {:id => "Trainer"},
-		2152 => {:id => "Trainer"},
+		2149 => {:id => "StartingSkill"},
+		2152 => {:id => "StartingSkill"},
+		2881 => {:id => "StartingSkill"},
 		21943 => {:id => 7, :type => 1},
 		44953 => {:id => 7, :type => 1},
 		28219 => {:id => "ADNaxx40E"},
@@ -3094,6 +3344,7 @@ EOF
 		28222 => {:id => "ADNaxx40E"},
 		28223 => {:id => "ADNaxx40R"},
 		28224 => {:id => "ADNaxx40R"},
+		19093 => {:id => "Onyxia"},
 		}
 	lwmanual=<<EOF
 EOF
@@ -3101,7 +3352,7 @@ EOF
 
 	smelting = recipes.get_mining_list
 	smeltingspecaillist = {
-		2657 => {:id => "Trainer"},
+		2657 => {:id => "StartingSkill"},
 		}
 	smeltmanual=<<EOF
 EOF
@@ -3109,8 +3360,9 @@ EOF
 
 	tailoring = recipes.get_tailoring_list
 	tailoringspecaillist = {
-		2385 => {:id => "Trainer"},
-		2387 => {:id => "Trainer"},
+		2385 => {:id => "StartingSkill"},
+		2387 => {:id => "StartingSkill"},
+		2963 => {:id => "StartingSkill"},
 		28207 => {:id => "ADNaxx40E"},
 		28209 => {:id => "ADNaxx40R"},
 		28205 => {:id => "ADNaxx40R"},

@@ -41,6 +41,10 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
 	self:addLookupList(CustomDB, 8, "Learnt by default when learning the profession.")
+	self:addLookupList(CustomDB, 9, "Recipe is created by Engineers.")
+	self:addLookupList(CustomDB, 10, "Quest to obtain the recipe opens up after turning in the Head of Onyxia.")
+	self:addLookupList(CustomDB, 11, "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness.")
+	self:addLookupList(CustomDB, 12, "Discovered by doing transmutes using Wrath of the Lich King ingredients.")
 
 end
 
