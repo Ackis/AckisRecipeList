@@ -857,7 +857,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25079,300,nil, 3,7411)
 	self:addTradeFlags(RecipeDB,25079,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25079,3,15263,3,15339,3,15509,3,15510,3,15516,3,15517,3,15543)
+	self:addTradeAcquire(RecipeDB,25079,3,15263,3,15339,3,15509,3,15510,3,15516,3,15517,3,15543,3,15544)
 
 	-- Enchant Gloves - Superior Agility -- 25080
 	recipecount = recipecount + 1
