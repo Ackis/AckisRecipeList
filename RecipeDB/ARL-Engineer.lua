@@ -208,8 +208,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Minor Recombobulator -- 3952
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
-	self:addTradeFlags(RecipeDB,3952,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,3952,2,2682,2,3495)
+	self:addTradeFlags(RecipeDB,3952,1,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
+	self:addTradeAcquire(RecipeDB,3952,2,2682)
 
 	-- Bronze Framework -- 3953
 	recipecount = recipecount + 1
@@ -394,7 +394,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537,2,4086)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -823,13 +823,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,5175)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
-	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,3495)
+	self:addTradeFlags(RecipeDB,23068,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- EZ-Thro Dynamite II -- 23069
 	recipecount = recipecount + 1
@@ -1003,13 +1003,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Firework Launcher -- 26442
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26442,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
 
 	-- Firework Cluster Launcher -- 26443
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26443,275,21570,2,4036)
-	self:addTradeFlags(RecipeDB,26443,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26443,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26443,5,2,4,8882)
 
 	-- Steam Tonk Controller -- 28327
@@ -1719,13 +1719,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Mechano-hog -- 60866
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60866,450,41508,4,4036)
-	self:addTradeFlags(RecipeDB,60866,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
+	self:addTradeFlags(RecipeDB,60866,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
 	self:addTradeAcquire(RecipeDB,60866,6,1052,4,32565,6,1052,4,32774)
 
 	-- Mekgineer's Chopper -- 60867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60867,450,44413,4,4036)
-	self:addTradeFlags(RecipeDB,60867,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,131)
+	self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,131)
 	self:addTradeAcquire(RecipeDB,60867,6,1037,4,32564,6,1037,4,32773)
 
 	-- Nesingwary 4000 -- 60874

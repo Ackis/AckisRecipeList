@@ -341,7 +341,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6705,190,5783,2,2108)
 	self:addTradeFlags(RecipeDB,6705,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6705,3,1561,2,4897)
+	self:addTradeAcquire(RecipeDB,6705,3,1561,2,2846,2,4897)
 
 	-- Handstitched Leather Vest -- 7126
 	recipecount = recipecount + 1
@@ -484,8 +484,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Herbalist's Gloves -- 9146
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9146,135,7349,2,2108)
-	self:addTradeFlags(RecipeDB,9146,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,9146,1,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,9146,2,6731)
 
 	-- Earthen Leather Shoulders -- 9147
 	recipecount = recipecount + 1
@@ -1384,7 +1384,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Black Whelp Tunic -- 24940
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,24940,100,20575,1,2108)
-	self:addTradeFlags(RecipeDB,24940,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,24940,1,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
 	self:addTradeAcquire(RecipeDB,24940,2,777)
 
 	-- Stormshroud Gloves -- 26279

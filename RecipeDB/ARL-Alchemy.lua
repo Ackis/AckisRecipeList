@@ -166,8 +166,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Shadow Oil -- 3449
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
-	self:addTradeFlags(RecipeDB,3449,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3449,2,2481)
 
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
@@ -491,7 +491,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17554,265,13445,1,2259)
 	self:addTradeFlags(RecipeDB,17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17554,1,13445,2,5178)
+	self:addTradeAcquire(RecipeDB,17554,1,13445,2,3348,2,5178)
 
 	-- Elixir of the Sages -- 17555
 	recipecount = recipecount + 1
@@ -605,7 +605,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17577,290,13461,2,2259)
 	self:addTradeFlags(RecipeDB,17577,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17577,3,7435,3,7436,3,7437,3,7443,3,10659,3,10660,3,10661,3,10662)
+	self:addTradeAcquire(RecipeDB,17577,3,7435,3,7436,3,7437,3,7443,3,7458,3,10659,3,10660,3,10661,3,10662)
 
 	-- Greater Shadow Protection Potion -- 17578
 	recipecount = recipecount + 1

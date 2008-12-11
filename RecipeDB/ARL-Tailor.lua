@@ -449,7 +449,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908)
 	self:addTradeFlags(RecipeDB,7639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7639,2,843,2,2394,2,5944)
+	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,5944)
 
 	-- Greater Adept's Robe -- 7643
 	recipecount = recipecount + 1
@@ -1354,13 +1354,13 @@ function addon:InitTailoring(RecipeDB)
 	-- Festival Dress -- 26403
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26403,250,21154,2,3908)
-	self:addTradeFlags(RecipeDB,26403,8,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,26403,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,26403,4,8878)
 
 	-- Festive Red Pant Suit -- 26407
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26407,250,21542,2,3908)
-	self:addTradeFlags(RecipeDB,26407,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26407,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26407,4,8878)
 
 	-- Bolt of Netherweave -- 26745

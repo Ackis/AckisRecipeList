@@ -326,6 +326,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				end
 			# Have we manually mapped this npc?
 			elsif $factionmap[npc[:name]] == 0
+				npc[:react] = []
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Friendly"]
@@ -333,6 +334,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 									:react => "0",
 									:loc => "N/A"}
 			elsif $factionmap[npc[:name]] == 1
+				npc[:react] = []
 				flags << flaglisting["Alliance"]
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Hostile"]
@@ -340,6 +342,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 									:react => "1",
 									:loc => "N/A"}
 			elsif $factionmap[npc[:name]] == 2
+				npc[:react] = []
 				flags << flaglisting["Horde"]
 				npc[:react][0] = npcreact["Hostile"]
 				npc[:react][1] = npcreact["Friendly"]
@@ -348,6 +351,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 									:loc => "N/A"}
 			# No reaction information and it's not mapped
 			else
+				npc[:react] = []
 				$unknownfaction << {:name => npc[:name],
 									:react => "None",
 									:loc => "Unknown"}
@@ -383,17 +387,17 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 		elsif quest[:side] == 4
 			flags << flaglisting["Horde"]
 			$quests[quest[:id]][:faction] = npcfactions["Horde"]
-		elsif $factionmap[npc[:name]] == 0
+		elsif $factionmap[quest[:name]] == 0
 			flags << flaglisting["Alliance"] << flaglisting["Horde"]
 			$quests[quest[:id]][:faction] = npcfactions["Neutral"]
 			$unknownfaction << {:name => quest[:name],
 								:react => "0"}
-		elsif $factionmap[npc[:name]] == 1
+		elsif $factionmap[quest[:name]] == 1
 			flags << flaglisting["Alliance"]
 			$quests[quest[:id]][:faction] = npcfactions["Alliance"]
 			$unknownfaction << {:name => quest[:name],
 								:react => "1"}
-		elsif $factionmap[npc[:name]] == 2
+		elsif $factionmap[quest[:name]] == 2
 			flags << flaglisting["Horde"]
 			$quests[quest[:id]][:faction] = npcfactions["Horde"]
 			$unknownfaction << {:name => quest[:name],
