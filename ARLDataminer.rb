@@ -1574,9 +1574,13 @@ def create_stats_list()
 
 	stats_lua.puts("No acquire information:")
 
-	$missingdataacquire.each_pair do |k,l|
+	# Sort the output
+	sorted_keys = $missingdataacquire.keys.sort_by do |k| k end
 
-		stats_lua.puts "#{k} - #{l[:sname]} - #{l[:sprof]}"
+	sorted_keys.each do |k|
+
+		v = $missingdataacquire[k]
+		stats_lua.puts "#{k} - #{v[:sname]} - #{v[:sprof]}"
 
 	end
 
