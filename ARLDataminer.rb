@@ -217,6 +217,9 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 10, "Quest to obtain the recipe opens up after turning in the Head of Onyxia.")
 	self:addLookupList(CustomDB, 11, "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness.")
 	self:addLookupList(CustomDB, 12, "Discovered by doing transmutes using Wrath of the Lich King ingredients.")
+	self:addLookupList(CustomDB, 13, "Goldthorn Tea Henry Stern.")
+	self:addLookupList(CustomDB, 14, "Minor Inscription Research.")
+	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
 
 end
 
@@ -833,6 +836,32 @@ EOF
 					acquire << {"type" => acquirelisting["Quest"],
 								"id" => i}
 				end
+			when "ThistleTea"
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(classes["Deathknight"])
+				flags.delete(classes["Druid"])
+				flags.delete(classes["Hunter"])
+				flags.delete(classes["Mage"])
+				flags.delete(classes["Paladin"])
+				flags.delete(classes["Priest"])
+				flags.delete(classes["Shaman"])
+				flags.delete(classes["Warlock"])
+				flags.delete(classes["Warrior"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"] <<	flaglisting["Vendor"] << classes["Rogue"]
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 2359}
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 2478}
+				acquire << {"type" => acquirelisting["Vendor"],
+							"id" => 6779}
+				$quests[2359] = {:name => "Klaven's Tower"}
+				$quests[2359][:faction] = npcfactions["Alliance"]
+				$quests[2478] = {:name => "Mission: Possible But Not Probable"}
+				$quests[2478][:faction] = npcfactions["Horde"]
+				$vendors[6779] = {:name => "Smudge Thunderwood"}
+				$vendors[6779][:faction] = npcfactions["Neutral"]
 			when "Onyxia"
 				flags.delete(flaglisting["Trainer"])
 				flags.delete(flaglisting["Vendor"])
@@ -855,6 +884,24 @@ EOF
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Raid"]
 				acquire << {"type" => acquirelisting["Custom"],
 							"id" => 11}
+			when "MinorInscriptionResearch"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 13}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "NorthrendInscriptionResearch"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 14}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
 			when "CustomNeutral"
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				acquire << {"type" => acquirelisting["Custom"],
@@ -911,6 +958,32 @@ EOF
 							"id" => 26951}
 				$trainers[26951] = {:name => "Wilhelmina Renel"}
 				$trainers[26951][:faction] = npcfactions["Horde"]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterCookTrainer"
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 29631}
+				$trainers[29631] = {:name => "Awilo Lon'gomba"}
+				$trainers[29631][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26905}
+				$trainers[26905] = {:name => "Brom Brewbaster"}
+				$trainers[26905][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 28705}
+				$trainers[28705] = {:name => "Katherine Lee"}
+				$trainers[28705][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26972}
+				$trainers[26972] = {:name => "Orn Tenderhoof"}
+				$trainers[26972][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26989}
+				$trainers[26989] = {:name => "Rollick MacKreel"}
+				$trainers[26989][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26953}
+				$trainers[26953] = {:name => "Thomas Kolichio"}
+				$trainers[26953][:faction] = npcfactions["Horde"]
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "meleedps"
 				flags << playertypeflags["MeleeDPS"]
@@ -2949,99 +3022,12 @@ $globalignore = [
 	"Skeletal Fiend (Enraged Form)",
 ]
 
-$debug = true
+$debug = false
 
 if $debug
 
 	create_custom_db()
 	create_faction_db()
-
-	alchemy = recipes.get_alchemy_list
-	alchspeciallist = {
-		2329 => {:id => "StartingSkill"},
-		2330 => {:id => "StartingSkill"},
-		2333 => {:id => "StartingSkill"},
-		28580 => {:id => 12, :type => [3]},
-		28581 => {:id => 12, :type => [3]},
-		28582 => {:id => 12, :type => [3]},
-		28583 => {:id => 12, :type => [3]},
-		28584 => {:id => 12, :type => [3]},
-		28585 => {:id => 12, :type => [3]},
-		28586 => {:id => 12, :type => [2]},
-		28587 => {:id => 12, :type => [1]},
-		28588 => {:id => 12, :type => [1]},
-		28589 => {:id => 12, :type => [1]},
-		28590 => {:id => 12, :type => [1]},
-		28591 => {:id => 12, :type => [1]},
-		41458 => {:id => 12, :type => [4]},
-		41500 => {:id => 12, :type => [4]},
-		41501 => {:id => 12, :type => [4]},
-		41502 => {:id => 12, :type => [4]},
-		41503 => {:id => 12, :type => [4]},
-		53771 => {:id => 12, :type => [12]},
-		53773 => {:id => 12, :type => [12]},
-		53774 => {:id => 12, :type => [12]},
-		53775 => {:id => 12, :type => [12]},
-		53776 => {:id => 12, :type => [12]},
-		53777 => {:id => 12, :type => [12]},
-		53779 => {:id => 12, :type => [12]},
-		53780 => {:id => 12, :type => [12]},
-		53781 => {:id => 12, :type => [12]},
-		53782 => {:id => 12, :type => [12]},
-		53783 => {:id => 12, :type => [12]},
-		53784 => {:id => 12, :type => [12]},
-		21923 => {:id => 7, :type => 1},
-		47050 => {:id => "meleedps"},
-		11456 => {:id => "CustomNeutral", :type => 9},
-		24266 => {:id => "Edge of Madness"},
-		45061 => {:id => "MasterAlchTrainer"},
-		53812 => {:id => "GrandMasterAlchTrainer"},
-		53836 => {:id => "GrandMasterAlchTrainer"},
-		53837 => {:id => "GrandMasterAlchTrainer"},
-		53838 => {:id => "GrandMasterAlchTrainer"},
-		53839 => {:id => "GrandMasterAlchTrainer"},
-		53840 => {:id => "GrandMasterAlchTrainer"},
-		53841 => {:id => "GrandMasterAlchTrainer"},
-		53842 => {:id => "GrandMasterAlchTrainer"},
-		53847 => {:id => "GrandMasterAlchTrainer"},
-		53848 => {:id => "GrandMasterAlchTrainer"},
-		53895 => {:id => "GrandMasterAlchTrainer"},
-		53898 => {:id => "GrandMasterAlchTrainer"},
-		53899 => {:id => "GrandMasterAlchTrainer"},
-		53900 => {:id => "GrandMasterAlchTrainer"},
-		53901 => {:id => "GrandMasterAlchTrainer"},
-		53902 => {:id => "GrandMasterAlchTrainer"},
-		53903 => {:id => "GrandMasterAlchTrainer"},
-		53904 => {:id => "GrandMasterAlchTrainer"},
-		53905 => {:id => "GrandMasterAlchTrainer"},
-		54020 => {:id => "GrandMasterAlchTrainer"},
-		54213 => {:id => "GrandMasterAlchTrainer"},
-		54218 => {:id => "GrandMasterAlchTrainer"},
-		54220 => {:id => "GrandMasterAlchTrainer"},
-		54221 => {:id => "GrandMasterAlchTrainer"},
-		54222 => {:id => "GrandMasterAlchTrainer"},
-		56519 => {:id => "GrandMasterAlchTrainer"},
-		57425 => {:id => "GrandMasterAlchTrainer"},
-		57427 => {:id => "GrandMasterAlchTrainer"},
-		58868 => {:id => "GrandMasterAlchTrainer"},
-		58871 => {:id => "GrandMasterAlchTrainer"},
-		60350 => {:id => "GrandMasterAlchTrainer"},
-		60354 => {:id => "GrandMasterAlchTrainer"},
-		60355 => {:id => "GrandMasterAlchTrainer"},
-		60356 => {:id => "GrandMasterAlchTrainer"},
-		60357 => {:id => "GrandMasterAlchTrainer"},
-		60365 => {:id => "GrandMasterAlchTrainer"},
-		60366 => {:id => "GrandMasterAlchTrainer"},
-		60367 => {:id => "GrandMasterAlchTrainer"},
-		60396 => {:id => "GrandMasterAlchTrainer"},
-		60403 => {:id => "GrandMasterAlchTrainer"},
-		60405 => {:id => "GrandMasterAlchTrainer"},
-		60893 => {:id => "GrandMasterAlchTrainer"},
-		11452 => {:id => "Quest", :type => [2203,2501]},
-		}
-	alchmanual=<<EOF
-EOF
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	create_stats_list()
 
@@ -3189,6 +3175,27 @@ EOF
 		43758 => {:id => "Daily", :type => [5,6]},
 		43779 => {:id => "Daily", :type => [5,6]},
 		45695 => {:id => "Daily", :type => [7]},
+		9513 => {:id => "ThistleTea"},
+		13028 => {:id => "CustomNeutral", :type => 13},
+		24801 => {:id => "Quest", :type => [8313]},
+		45549 => {:id => "GrandMasterCookTrainer"},
+		45550 => {:id => "GrandMasterCookTrainer"},
+		45551 => {:id => "GrandMasterCookTrainer"},
+		45552 => {:id => "GrandMasterCookTrainer"},
+		45553 => {:id => "GrandMasterCookTrainer"},
+		45554 => {:id => "GrandMasterCookTrainer"},
+		45560 => {:id => "GrandMasterCookTrainer"},
+		45561 => {:id => "GrandMasterCookTrainer"},
+		45562 => {:id => "GrandMasterCookTrainer"},
+		45563 => {:id => "GrandMasterCookTrainer"},
+		45564 => {:id => "GrandMasterCookTrainer"},
+		45565 => {:id => "GrandMasterCookTrainer"},
+		45566 => {:id => "GrandMasterCookTrainer"},
+		45569 => {:id => "GrandMasterCookTrainer"},
+		53056 => {:id => "GrandMasterCookTrainer"},
+		57421 => {:id => "GrandMasterCookTrainer"},
+		57423 => {:id => "GrandMasterCookTrainer"},
+		58065 => {:id => "GrandMasterCookTrainer"},
 		}
 	cookmanual=<<EOF
 EOF
@@ -3317,6 +3324,12 @@ EOF
 
 	inscription = recipes.get_inscription_list
 	insspecaillist = {
+		52738 => {:id => "StartingSkill"},
+		45382 => {:id => "StartingSkill"},
+		48116 => {:id => "StartingSkill"},
+		48114 => {:id => "StartingSkill"},
+		58328 => {:id => "MinorInscriptionResearch"},
+		56946 => {:id => "NorthrendInscriptionResearch"},
 		}
 	inscriptionmanual=<<EOF
 EOF

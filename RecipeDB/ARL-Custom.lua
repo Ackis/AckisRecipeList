@@ -45,6 +45,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 10, "Quest to obtain the recipe opens up after turning in the Head of Onyxia.")
 	self:addLookupList(CustomDB, 11, "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness.")
 	self:addLookupList(CustomDB, 12, "Discovered by doing transmutes using Wrath of the Lich King ingredients.")
+	self:addLookupList(CustomDB, 13, "Goldthorn Tea Henry Stern.")
 
 end
 
