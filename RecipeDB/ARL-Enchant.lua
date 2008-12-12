@@ -1169,7 +1169,7 @@ function addon:InitEnchanting(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,28021,315,22445,1,7411)
 	--self:addTradeFlags(RecipeDB,28021,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,28021,)
 
 	-- Large Prismatic Shard -- 28022
 	recipecount = recipecount + 1

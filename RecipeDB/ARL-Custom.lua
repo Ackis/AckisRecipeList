@@ -46,6 +46,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 11, "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness.")
 	self:addLookupList(CustomDB, 12, "Discovered by doing transmutes using Wrath of the Lich King ingredients.")
 	self:addLookupList(CustomDB, 13, "Goldthorn Tea Henry Stern.")
+	self:addLookupList(CustomDB, 14, "Minor Inscription Research.")
+	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
 
 end
 

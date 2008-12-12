@@ -40,20 +40,20 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Stamina -- 45382
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45382,25,1180,1,45357)
-	self:addTradeFlags(RecipeDB,45382,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,45382,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,45382,8,8)
 
 	-- Scroll of Intellect -- 48114
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,48114,25,955,1,45357)
-	self:addTradeFlags(RecipeDB,48114,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,48114,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,48114,8,8)
 
 	-- Scroll of Spirit -- 48116
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,48116,25,1181,1,45357)
-	self:addTradeFlags(RecipeDB,48116,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,48116,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,48116,8,8)
 
 	-- Glyph of Entangling Roots -- 48121
 	recipecount = recipecount + 1
@@ -203,7 +203,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,52738,1,37101,1,45357)
 	self:addTradeFlags(RecipeDB,52738,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,52738,8,8)
 
 	-- Armor Vellum -- 52739
 	recipecount = recipecount + 1
@@ -250,8 +250,8 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Hurricane -- 56946
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56946,375,40920,1,45357)
-	self:addTradeFlags(RecipeDB,56946,3,22,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56946,1,2,12,22,36,41)
+	self:addTradeAcquire(RecipeDB,56946,8,14)
 
 	-- Glyph of Innervate -- 56947
 	recipecount = recipecount + 1
@@ -1768,8 +1768,8 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Vanish -- 58328
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58328,120,43380,1,45357)
-	self:addTradeFlags(RecipeDB,58328,3,28,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,58328,1,2,12,28,36,41)
+	self:addTradeAcquire(RecipeDB,58328,8,13)
 
 	-- Glyph of Astral Recall -- 58329
 	recipecount = recipecount + 1

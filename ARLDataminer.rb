@@ -1355,7 +1355,6 @@ EOF
 				if v[:faction]
 					lookup_lua.print("#{v[:faction]})")
 				else
-					p v[:name]
 					if $factionmap[v[:name]]
 						lookup_lua.print("#{$factionmap[v[:name]]})")
 					else

@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-78 found from data mining.  0 ignored.
+80 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -64,13 +64,15 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,1582,L["Moonglow Vest"],BZONE["Darnassus"],64.76,22.391)
 	self:addLookupList(QuestDB,1618,L["Gearing Redridge"],BZONE["Redridge Mountains"],31.37,47.341)
 	self:addLookupList(QuestDB,2178,L["Easy Strider Living"],BZONE["Darkshore"],37.27,41.271)
+	self:addLookupList(QuestDB,2359,L["Klaven's Tower"],BZONE["Stormwind City"],78.82,69.471)
+	self:addLookupList(QuestDB,2478,L["Mission: Possible But Not Probable"],BZONE["Orgrimmar"],43.94,53.492)
 	self:addLookupList(QuestDB,2751,L["Barbaric Battlements"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2752,L["On Iron Pauldrons"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2753,L["Trampled Under Foot"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2754,L["Horns of Frenzy"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2755,L["Joys of Omosh"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2756,L["The Old Ways"],BZONE["Orgrimmar"],80.17,24.552)
-	self:addLookupList(QuestDB,2758,L["The Origins of Smithing"],BZONE["Stormwind City"],63.11,37.131)
+	self:addLookupList(QuestDB,2758,L["The Origins of Smithing"],BZONE["Stormwind City"],63.12,37.131)
 	self:addLookupList(QuestDB,2761,L["Smelt On, Smelt Off"],BZONE["Stranglethorn Vale"],50.80,22.000)
 	self:addLookupList(QuestDB,2762,L["The Great Silver Deceiver"],BZONE["Stranglethorn Vale"],50.80,22.000)
 	self:addLookupList(QuestDB,2763,L["The Art of the Imbue"],BZONE["Stranglethorn Vale"],50.80,22.000)

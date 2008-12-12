@@ -155,7 +155,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,25614,145,20956,2,25229)
 	--self:addTradeFlags(RecipeDB,25614,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,25614,)
 
 	-- Mithril Filigree -- 25615
 	recipecount = recipecount + 1
@@ -365,13 +365,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,26918,305,21793,3,25229)
 	--self:addTradeFlags(RecipeDB,26918,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,26918,)
 
 	-- Blood Crown -- 26920
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,26920,315,21780,3,25229)
 	--self:addTradeFlags(RecipeDB,26920,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,26920,)
 
 	-- Woven Copper Ring -- 26925
 	recipecount = recipecount + 1
@@ -947,7 +947,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,32810,280,25884,1,25229)
 	--self:addTradeFlags(RecipeDB,32810,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,32810,)
 
 	-- Powerful Earthstorm Diamond -- 32866
 	recipecount = recipecount + 1

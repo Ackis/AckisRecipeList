@@ -564,13 +564,13 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12720,215,10580,1,4036)
 	--self:addTradeFlags(RecipeDB,12720,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,12720,)
 
 	-- Goblin Radio -- 12722
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12722,220,10585,1,4036)
 	--self:addTradeFlags(RecipeDB,12722,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,12722,)
 
 	-- The Big One -- 12754
 	recipecount = recipecount + 1
@@ -616,7 +616,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12900,205,10719,1,4036)
 	--self:addTradeFlags(RecipeDB,12900,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,12900,)
 
 	-- Gnomish Net-o-Matic Projector -- 12902
 	recipecount = recipecount + 1
@@ -632,7 +632,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12904,220,10723,1,4036)
 	--self:addTradeFlags(RecipeDB,12904,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,12904,)
 
 	-- Gnomish Rocket Boots -- 12905
 	recipecount = recipecount + 1
@@ -1003,13 +1003,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Firework Launcher -- 26442
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26442,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
 
 	-- Firework Cluster Launcher -- 26443
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26443,275,21570,2,4036)
-	self:addTradeFlags(RecipeDB,26443,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26443,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26443,5,2,4,8882)
 
 	-- Steam Tonk Controller -- 28327
@@ -1154,13 +1154,13 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30342,315,23769,1,4036)
 	--self:addTradeFlags(RecipeDB,30342,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30342,)
 
 	-- Blue Smoke Flare -- 30343
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30343,315,23770,1,4036)
 	--self:addTradeFlags(RecipeDB,30343,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30343,)
 
 	-- Green Smoke Flare -- 30344
 	recipecount = recipecount + 1
@@ -1190,7 +1190,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30349,340,23775,3,4036)
 	--self:addTradeFlags(RecipeDB,30349,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30349,)
 
 	-- Elemental Seaforium Charge -- 30547
 	recipecount = recipecount + 1
@@ -1208,7 +1208,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30549,325,23820,2,4036)
 	--self:addTradeFlags(RecipeDB,30549,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30549,)
 
 	-- Healing Potion Injector -- 30551
 	recipecount = recipecount + 1
@@ -1242,7 +1242,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30561,315,23831,1,4036)
 	--self:addTradeFlags(RecipeDB,30561,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30561,)
 
 	-- Goblin Rocket Launcher -- 30563
 	recipecount = recipecount + 1
@@ -1278,7 +1278,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30573,315,23832,1,4036)
 	--self:addTradeFlags(RecipeDB,30573,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,30573,)
 
 	-- Gnomish Power Goggles -- 30574
 	recipecount = recipecount + 1
@@ -1339,7 +1339,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Justicebringer 2000 Specs -- 41311
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41311,350,32472,1,4036)
-	self:addTradeFlags(RecipeDB,41311,1,2,3,25,37,41,59)
+	self:addTradeFlags(RecipeDB,41311,1,3,25,37,41,59)
 	self:addTradeAcquire(RecipeDB,41311,1,17634,1,18775)
 
 	-- Tankatronic Goggles -- 41312
@@ -1719,13 +1719,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Mechano-hog -- 60866
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60866,450,41508,4,4036)
-	self:addTradeFlags(RecipeDB,60866,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
+	self:addTradeFlags(RecipeDB,60866,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
 	self:addTradeAcquire(RecipeDB,60866,6,1052,4,32565,6,1052,4,32774)
 
 	-- Mekgineer's Chopper -- 60867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60867,450,44413,4,4036)
-	self:addTradeFlags(RecipeDB,60867,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,131)
+	self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,131)
 	self:addTradeAcquire(RecipeDB,60867,6,1037,4,32564,6,1037,4,32773)
 
 	-- Nesingwary 4000 -- 60874
@@ -1744,7 +1744,7 @@ function addon:InitEngineering(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
 	--self:addTradeFlags(RecipeDB,61483,3,21,25,30,36,41,59)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,61483,)
 
 	-- Mechanized Snow Goggles (Cloth) -- 56465
 	recipecount = recipecount + 1

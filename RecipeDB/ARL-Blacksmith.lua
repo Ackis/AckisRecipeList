@@ -100,8 +100,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Rough Bronze Bracers -- 2671
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,2671,115,2867,2,2018)
-	--self:addTradeFlags(RecipeDB,2671,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	--self:addTradeFlags(RecipeDB,2671,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	--self:addTradeAcquire(RecipeDB,2671,8,8)
 
 	-- Patterned Bronze Bracers -- 2672
 	recipecount = recipecount + 1
@@ -346,8 +346,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
-	self:addTradeFlags(RecipeDB,3498,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3498,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
+	self:addTradeAcquire(RecipeDB,3498,2,1146)
 
 	-- Shadow Crescent Axe -- 3500
 	recipecount = recipecount + 1
@@ -479,7 +479,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,8366,70,6730,2,2018)
 	--self:addTradeFlags(RecipeDB,8366,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,8366,)
 
 	-- Ironforge Breastplate -- 8367
 	recipecount = recipecount + 1
@@ -491,7 +491,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,8368,140,6733,2,2018)
 	--self:addTradeFlags(RecipeDB,8368,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,8368,)
 
 	-- Iron Buckle -- 8768
 	recipecount = recipecount + 1
@@ -605,7 +605,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,9942,220,7925,2,2018)
 	--self:addTradeFlags(RecipeDB,9942,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,9942,)
 
 	-- Ornate Mithril Pants -- 9945
 	recipecount = recipecount + 1
@@ -635,7 +635,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,9957,230,7929,2,2018)
 	--self:addTradeFlags(RecipeDB,9957,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,9957,)
 
 	-- Heavy Mithril Breastplate -- 9959
 	recipecount = recipecount + 1
@@ -910,13 +910,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Imperial Plate Shoulders -- 16646
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16646,265,12428,2,2018)
-	self:addTradeFlags(RecipeDB,16646,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16646,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16646,4,7659)
 
 	-- Imperial Plate Belt -- 16647
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16647,265,12424,2,2018)
-	self:addTradeFlags(RecipeDB,16647,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16647,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16647,4,7653)
 
 	-- Radiant Breastplate -- 16648
@@ -928,7 +928,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Imperial Plate Bracers -- 16649
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16649,270,12425,2,2018)
-	self:addTradeFlags(RecipeDB,16649,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16649,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16649,4,7655)
 
 	-- Wildthorn Mail -- 16650
@@ -976,13 +976,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Imperial Plate Boots -- 16657
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16657,295,12426,2,2018)
-	self:addTradeFlags(RecipeDB,16657,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16657,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16657,4,7654)
 
 	-- Imperial Plate Helm -- 16658
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16658,295,12427,2,2018)
-	self:addTradeFlags(RecipeDB,16658,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16658,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16658,4,7657)
 
 	-- Radiant Circlet -- 16659
@@ -1012,7 +1012,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Imperial Plate Chest -- 16663
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16663,300,12422,2,2018)
-	self:addTradeFlags(RecipeDB,16663,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16663,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16663,4,7656)
 
 	-- Runic Plate Shoulders -- 16664
@@ -1066,7 +1066,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Imperial Plate Leggings -- 16730
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16730,300,12429,2,2018)
-	self:addTradeFlags(RecipeDB,16730,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,16730,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,16730,4,7658)
 
 	-- Runic Breastplate -- 16731
@@ -1115,19 +1115,19 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16960,260,12764,2,2018)
 	--self:addTradeFlags(RecipeDB,16960,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16960,)
 
 	-- Bleakwood Hew -- 16965
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16965,270,12769,3,2018)
 	--self:addTradeFlags(RecipeDB,16965,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16965,)
 
 	-- Inlaid Thorium Hammer -- 16967
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16967,270,12772,2,2018)
 	--self:addTradeFlags(RecipeDB,16967,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16967,)
 
 	-- Ornate Thorium Handaxe -- 16969
 	recipecount = recipecount + 1
@@ -1163,7 +1163,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16980,285,12779,2,2018)
 	--self:addTradeFlags(RecipeDB,16980,3,21,22,23,24,25,26,27,28,29,30,37,41,68)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16980,)
 
 	-- Serenity -- 16983
 	recipecount = recipecount + 1
@@ -1187,13 +1187,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16986,300,12795,3,2018)
 	--self:addTradeFlags(RecipeDB,16986,3,21,22,23,24,25,26,27,28,29,30,37,41,79)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16986,)
 
 	-- Darkspear -- 16987
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,16987,300,12802,3,2018)
 	--self:addTradeFlags(RecipeDB,16987,3,21,22,23,24,25,26,27,28,29,30,36,41,71)
-	-- No acquire information
+	--self:addTradeAcquire(RecipeDB,16987,)
 
 	-- Hammer of the Titans -- 16988
 	recipecount = recipecount + 1
