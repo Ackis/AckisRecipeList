@@ -346,8 +346,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
-	self:addTradeFlags(RecipeDB,3498,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
-	self:addTradeAcquire(RecipeDB,3498,2,1146)
+	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
+	self:addTradeAcquire(RecipeDB,3498,2,2483)
 
 	-- Shadow Crescent Axe -- 3500
 	recipecount = recipecount + 1
@@ -1270,14 +1270,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Fiery Chain Girdle -- 20872
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20872,295,16989,3,2018)
-	self:addTradeFlags(RecipeDB,20872,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,20872,2,12944)
+	self:addTradeFlags(RecipeDB,20872,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	-- No acquire information
 
 	-- Fiery Chain Shoulders -- 20873
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20873,300,16988,3,2018)
-	self:addTradeFlags(RecipeDB,20873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,20873,2,12944)
+	self:addTradeFlags(RecipeDB,20873,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	-- No acquire information
 
 	-- Dark Iron Bracers -- 20874
 	recipecount = recipecount + 1
@@ -1288,20 +1288,20 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dark Iron Leggings -- 20876
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20876,300,17013,3,2018)
-	self:addTradeFlags(RecipeDB,20876,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,20876,2,12944)
+	self:addTradeFlags(RecipeDB,20876,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	-- No acquire information
 
 	-- Dark Iron Reaver -- 20890
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20890,300,17015,3,2018)
-	self:addTradeFlags(RecipeDB,20890,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	self:addTradeAcquire(RecipeDB,20890,2,12944)
+	self:addTradeFlags(RecipeDB,20890,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	-- No acquire information
 
 	-- Dark Iron Destroyer -- 20897
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20897,300,17016,3,2018)
-	self:addTradeFlags(RecipeDB,20897,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	self:addTradeAcquire(RecipeDB,20897,2,12944)
+	self:addTradeFlags(RecipeDB,20897,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
+	-- No acquire information
 
 	-- Sulfuron Hammer -- 21161
 	recipecount = recipecount + 1
@@ -1348,44 +1348,44 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dark Iron Helm -- 23636
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23636,300,19148,1,2018)
-	self:addTradeFlags(RecipeDB,23636,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,23636,2,12944)
+	self:addTradeFlags(RecipeDB,23636,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	-- No acquire information
 
 	-- Dark Iron Gauntlets -- 23637
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23637,300,19164,1,2018)
-	self:addTradeFlags(RecipeDB,23637,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,23637,2,12944)
+	self:addTradeFlags(RecipeDB,23637,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	-- No acquire information
 
 	-- Black Amnesty -- 23638
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23638,300,19166,1,2018)
-	self:addTradeFlags(RecipeDB,23638,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,72)
-	self:addTradeAcquire(RecipeDB,23638,2,12944)
+	self:addTradeFlags(RecipeDB,23638,3,21,22,23,24,25,26,27,28,29,30,36,41,72)
+	-- No acquire information
 
 	-- Blackfury -- 23639
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23639,300,19167,1,2018)
-	self:addTradeFlags(RecipeDB,23639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,71)
-	self:addTradeAcquire(RecipeDB,23639,2,12944)
+	self:addTradeFlags(RecipeDB,23639,3,21,22,23,24,25,26,27,28,29,30,36,41,63,71)
+	-- No acquire information
 
 	-- Ebon Hand -- 23650
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23650,300,19170,1,2018)
-	self:addTradeFlags(RecipeDB,23650,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,70)
-	self:addTradeAcquire(RecipeDB,23650,2,12944)
+	self:addTradeFlags(RecipeDB,23650,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	-- No acquire information
 
 	-- Blackguard -- 23652
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23652,300,19168,1,2018)
-	self:addTradeFlags(RecipeDB,23652,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,63,69)
-	self:addTradeAcquire(RecipeDB,23652,2,12944)
+	self:addTradeFlags(RecipeDB,23652,3,21,22,23,24,25,26,27,28,29,30,36,41,52,63,69)
+	-- No acquire information
 
 	-- Nightfall -- 23653
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23653,300,19169,1,2018)
-	self:addTradeFlags(RecipeDB,23653,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	self:addTradeAcquire(RecipeDB,23653,2,12944)
+	self:addTradeFlags(RecipeDB,23653,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
+	-- No acquire information
 
 	-- Bloodsoul Breastplate -- 24136
 	recipecount = recipecount + 1
@@ -1426,8 +1426,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dark Iron Boots -- 24399
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,24399,300,20039,1,2018)
-	self:addTradeFlags(RecipeDB,24399,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,24399,2,12944)
+	self:addTradeFlags(RecipeDB,24399,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	-- No acquire information
 
 	-- Darkrune Gauntlets -- 24912
 	recipecount = recipecount + 1
@@ -1853,7 +1853,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29694,365,23542,4,2018)
 	self:addTradeFlags(RecipeDB,29694,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,68)
-	self:addTradeAcquire(RecipeDB,29694,3,16409,3,16504)
+	self:addTradeAcquire(RecipeDB,29694,3,15687,3,16409,3,16504)
 
 	-- Felsteel Reaper -- 29695
 	recipecount = recipecount + 1

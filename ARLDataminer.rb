@@ -692,6 +692,8 @@ EOF
 							else
 								# The NPC has been manually added to our list
 								if $bosszonemap[npc[:name]]
+									$unknownzone << {:name => npc[:name],
+													:loc => $bosszonemap[npc[:name]]}
 									found = false
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
@@ -712,6 +714,9 @@ EOF
 									if not found
 										flags << flaglisting["Mob Drop"]
 									end
+								else
+									$unknownzone << {:name => npc[:name],
+													:loc => "Unknown Zone"}
 								end
 							end
 						end
@@ -984,6 +989,120 @@ EOF
 							"id" => 26953}
 				$trainers[26953] = {:name => "Thomas Kolichio"}
 				$trainers[26953][:faction] = npcfactions["Horde"]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "InscTrainer"
+				$trainers[26977] = {:name => "Adelene Sunlance"}
+				$trainers[26977][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26977}
+				$trainers[26959] = {:name => "Booker Kells"}
+				$trainers[26959][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26959}
+				$trainers[30713] = {:name => "Catarina Stanford"}
+				$trainers[30713][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30713}
+				$trainers[30717] = {:name => "Elise Brightletter"}
+				$trainers[30717][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30717}
+				$trainers[30715] = {:name => "Feyden Darkin"}
+				$trainers[30715][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30715}
+				$trainers[30706] = {:name => "Jo'mah"}
+				$trainers[30706][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30706}
+				$trainers[30711] = {:name => "Margaux Parchley"}
+				$trainers[30711][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30711}
+				$trainers[30721] = {:name => "Michael Schwan"}
+				$trainers[30721][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30721}
+				$trainers[26916] = {:name => "Mindri Dinkles"}
+				$trainers[26916][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26916}
+				$trainers[30722] = {:name => "Neferatti"}
+				$trainers[30722][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30722}
+				$trainers[30709] = {:name => "Poshken Hardbinder"}
+				$trainers[30709][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30709}
+				$trainers[28702] = {:name => "Professor Pallin"}
+				$trainers[28702][:faction] = npcfactions["Neutral"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 28702}
+				$trainers[30716] = {:name => "Thoth"}
+				$trainers[30716][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30716}
+				$trainers[26995] = {:name => "Tink Brightbolt"}
+				$trainers[26995][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26995}
+				$trainers[30710] = {:name => "Zantasia"}
+				$trainers[30710][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30710}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "MasterInscTrainer"
+				$trainers[26977] = {:name => "Adelene Sunlance"}
+				$trainers[26977][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26977}
+				$trainers[26959] = {:name => "Booker Kells"}
+				$trainers[26959][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26959}
+				$trainers[30721] = {:name => "Michael Schwan"}
+				$trainers[30721][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30721}
+				$trainers[26916] = {:name => "Mindri Dinkles"}
+				$trainers[26916][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26916}
+				$trainers[30722] = {:name => "Neferatti"}
+				$trainers[30722][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 30722}
+				$trainers[28702] = {:name => "Professor Pallin"}
+				$trainers[28702][:faction] = npcfactions["Neutral"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 28702}
+				$trainers[26995] = {:name => "Tink Brightbolt"}
+				$trainers[26995][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26995}
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterInscTrainer"
+				$trainers[26977] = {:name => "Adelene Sunlance"}
+				$trainers[26977][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26977}
+				$trainers[26959] = {:name => "Booker Kells"}
+				$trainers[26959][:faction] = npcfactions["Horde"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26959}
+				$trainers[26916] = {:name => "Mindri Dinkles"}
+				$trainers[26916][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26916}
+				$trainers[28702] = {:name => "Professor Pallin"}
+				$trainers[28702][:faction] = npcfactions["Neutral"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 28702}
+				$trainers[26995] = {:name => "Tink Brightbolt"}
+				$trainers[26995][:faction] = npcfactions["Alliance"]
+				acquire << {"type" => acquirelisting["Trainer"],
+							"id" => 26995}
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "meleedps"
 				flags << playertypeflags["MeleeDPS"]
@@ -1337,7 +1456,7 @@ EOF
 				# Identify it as an unknown zone
 				else
 					lookup_lua.print("L[\"Unknown Zone\"],")
-					$unknownzone << v[:name]
+					$unknownzone << {:name => v[:name], :loc => "Unknown Zone"}
 				end
 			end
 
@@ -1726,45 +1845,34 @@ def create_stats_list()
 
 	puts "\nGenerating stats file..."
 
-	$unknownzone.compact!
-	$unknownzone.uniq!
-	$unknownzone.sort!
-
 	stats_lua = File.open("RecipeStats.txt", "w:utf-8")
+
+	$unknownzone.uniq!
 
 	stats_lua.puts("Unknown zones:")
 
-	$unknownzone.each do |k|
-
-		stats_lua.puts "\t\"#{k}\" => \"\","
-
+	$unknownzone.sort_by { |unknownzone| unknownzone[:name] }.each do |k|
+		stats_lua.puts "\t\#\"#{k[:name]}\" => \"#{k[:loc]}\","
 	end
 
 	stats_lua.puts "\n"
 
-	$unknownfaction.compact!
 	$unknownfaction.uniq!
 
-	stats_lua.puts("Unknown faction:")
+	stats_lua.puts("\nUnknown faction:")
 
 	$unknownfaction.sort_by { |unknownfaction| unknownfaction[:name] }.each do |k|
-
 		stats_lua.puts "\t\#\"#{k[:name]}\" => #{k[:react]}, \# #{k[:loc]}"
-
 	end
 
-	stats_lua.puts "\n"
-
-	stats_lua.puts("No acquire information:")
+	stats_lua.puts("\n\nNo acquire information:")
 
 	# Sort the output
 	sorted_keys = $missingdataacquire.keys.sort_by do |k| k end
 
 	sorted_keys.each do |k|
-
 		v = $missingdataacquire[k]
 		stats_lua.puts "#{k} - #{v[:sname]} - #{v[:sprof]}"
-
 	end
 
 	stats_lua.puts "\n"	
@@ -2400,8 +2508,8 @@ $bosszonemap = {
 	"Durnholde Sentry" => "Old Hillsbrad Foothills",
 	"Enslaved Proto-Drake" => "Utgarde Keep",
 	"Krystallus" => "Halls of Stone",
-	"Lady Alistra" => "The Scarlet Enclave",
-	"Lord Thorval" => "The Scarlet Enclave",
+	"Lady Alistra" => "Eastern Plaguelands",
+	"Lord Thorval" => "Eastern Plaguelands",
 	"Mage Slayer" => "The Nexus",
 	"Nightmare Scalebane" => "Sunken Temple",
 	"Overlord Wyrmthalak" => "Blackrock Spire",
@@ -3028,6 +3136,35 @@ if $debug
 	create_custom_db()
 	create_faction_db()
 
+	blacksmithing = recipes.get_blacksmithing_list
+	bsspeciallist = {
+		2660 => {:id => "StartingSkill"},
+		2663 => {:id => "StartingSkill"},
+		2671 => {:id => "StartingSkill"},
+		3115 => {:id => "StartingSkill"},
+		21913 => {:id => 7, :type => 1},
+		28242 => {:id => "ADNaxx40E"},
+		28243 => {:id => "ADNaxx40R"},
+		28244 => {:id => "ADNaxx40R"},
+		}
+	bsmanual=<<EOF
+	-- Orcish War Leggings -- 9957
+	-- Quest
+	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
+	-- Item Stats: 
+	-- Item Stats: val17id1val208id6
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018)
+	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeAcquire(RecipeDB, 9957,4,2756)
+EOF
+
+	# Add the Orcish War Leggings quest
+	$quests[2756] = {:name => "The Old Ways"}
+	$quests[2756][:faction] = 2
+
+	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
+
 	create_stats_list()
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
@@ -3334,16 +3471,371 @@ EOF
 
 	inscription = recipes.get_inscription_list
 	insspecaillist = {
-		52738 => {:id => "StartingSkill"},
 		45382 => {:id => "StartingSkill"},
-		48116 => {:id => "StartingSkill"},
 		48114 => {:id => "StartingSkill"},
-		58328 => {:id => "MinorInscriptionResearch"},
+		48116 => {:id => "StartingSkill"},
+		52738 => {:id => "StartingSkill"},
+		48121 => {:id => "InscTrainer"},
+		48247 => {:id => "InscTrainer"},
+		48248 => {:id => "InscTrainer"},
+		50598 => {:id => "InscTrainer"},
+		50599 => {:id => "InscTrainer"},
+		50600 => {:id => "InscTrainer"},
+		50601 => {:id => "InscTrainer"},
+		50602 => {:id => "InscTrainer"},
+		50603 => {:id => "GrandMasterInscTrainer"},
+		50604 => {:id => "GrandMasterInscTrainer"},
+		50605 => {:id => "InscTrainer"},
+		50606 => {:id => "InscTrainer"},
+		50607 => {:id => "InscTrainer"},
+		50608 => {:id => "InscTrainer"},
+		50609 => {:id => "InscTrainer"},
+		50610 => {:id => "GrandMasterInscTrainer"},
+		50611 => {:id => "GrandMasterInscTrainer"},
+		50612 => {:id => "InscTrainer"},
+		50614 => {:id => "InscTrainer"},
+		50616 => {:id => "InscTrainer"},
+		50617 => {:id => "InscTrainer"},
+		50618 => {:id => "InscTrainer"},
+		50619 => {:id => "GrandMasterInscTrainer"},
+		50620 => {:id => "GrandMasterInscTrainer"},
+		52739 => {:id => "InscTrainer"},
+		52840 => {:id => "InscTrainer"},
+		52843 => {:id => "InscTrainer"},
+		53462 => {:id => "InscTrainer"},
+		56943 => {:id => "MasterInscTrainer"},
+		56944 => {:id => "NorthrendInscriptionResearch"},
+		56945 => {:id => "InscTrainer"},
 		56946 => {:id => "NorthrendInscriptionResearch"},
+		56947 => {:id => "NorthrendInscriptionResearch"},
+		56948 => {:id => "InscTrainer"},
+		56949 => {:id => "NorthrendInscriptionResearch"},
+		56950 => {:id => "NorthrendInscriptionResearch"},
+		56951 => {:id => "InscTrainer"},
+		56952 => {:id => "MasterInscTrainer"},
+		56953 => {:id => "InscTrainer"},
+		56954 => {:id => "NorthrendInscriptionResearch"},
+		56955 => {:id => "InscTrainer"},
+		56956 => {:id => "InscTrainer"},
+		56957 => {:id => "InscTrainer"},
+		56958 => {:id => "NorthrendInscriptionResearch"},
+		56959 => {:id => "InscTrainer"},
+		56960 => {:id => "NorthrendInscriptionResearch"},
+		56961 => {:id => "InscTrainer"},
+		56963 => {:id => "InscTrainer"},
+		56968 => {:id => "InscTrainer"},
+		56971 => {:id => "InscTrainer"},
+		56972 => {:id => "MasterInscTrainer"},
+		56973 => {:id => "InscTrainer"},
+		56974 => {:id => "InscTrainer"},
+		56975 => {:id => "NorthrendInscriptionResearch"},
+		56976 => {:id => "InscTrainer"},
+		56977 => {:id => "NorthrendInscriptionResearch"},
+		56978 => {:id => "InscTrainer"},
+		56979 => {:id => "MasterInscTrainer"},
+		56980 => {:id => "GrandMasterInscTrainer"},
+		56981 => {:id => "InscTrainer"},
+		56982 => {:id => "InscTrainer"},
+		56983 => {:id => "NorthrendInscriptionResearch"},
+		56984 => {:id => "MasterInscTrainer"},
+		56985 => {:id => "InscTrainer"},
+		56986 => {:id => "NorthrendInscriptionResearch"},
+		56987 => {:id => "GrandMasterInscTrainer"},
+		56988 => {:id => "NorthrendInscriptionResearch"},
+		56989 => {:id => "NorthrendInscriptionResearch"},
+		56994 => {:id => "InscTrainer"},
+		56995 => {:id => "InscTrainer"},
+		56996 => {:id => "NorthrendInscriptionResearch"},
+		56997 => {:id => "InscTrainer"},
+		56998 => {:id => "NorthrendInscriptionResearch"},
+		56999 => {:id => "NorthrendInscriptionResearch"},
+		57000 => {:id => "InscTrainer"},
+		57001 => {:id => "InscTrainer"},
+		57002 => {:id => "InscTrainer"},
+		57003 => {:id => "MasterInscTrainer"},
+		57004 => {:id => "InscTrainer"},
+		57005 => {:id => "InscTrainer"},
+		57006 => {:id => "GrandMasterInscTrainer"},
+		57007 => {:id => "MasterInscTrainer"},
+		57008 => {:id => "MasterInscTrainer"},
+		57009 => {:id => "InscTrainer"},
+		57010 => {:id => "NorthrendInscriptionResearch"},
+		57011 => {:id => "NorthrendInscriptionResearch"},
+		57012 => {:id => "NorthrendInscriptionResearch"},
+		57013 => {:id => "NorthrendInscriptionResearch"},
+		57014 => {:id => "NorthrendInscriptionResearch"},
+		57019 => {:id => "NorthrendInscriptionResearch"},
+		57020 => {:id => "InscTrainer"},
+		57021 => {:id => "NorthrendInscriptionResearch"},
+		57022 => {:id => "InscTrainer"},
+		57023 => {:id => "InscTrainer"},
+		57024 => {:id => "InscTrainer"},
+		57025 => {:id => "InscTrainer"},
+		57026 => {:id => "MasterInscTrainer"},
+		57027 => {:id => "InscTrainer"},
+		57028 => {:id => "NorthrendInscriptionResearch"},
+		57029 => {:id => "InscTrainer"},
+		57030 => {:id => "InscTrainer"},
+		57031 => {:id => "InscTrainer"},
+		57032 => {:id => "InscTrainer"},
+		57033 => {:id => "MasterInscTrainer"},
+		57034 => {:id => "NorthrendInscriptionResearch"},
+		57035 => {:id => "NorthrendInscriptionResearch"},
+		57036 => {:id => "GrandMasterInscTrainer"},
+		57112 => {:id => "NorthrendInscriptionResearch"},
+		57113 => {:id => "MasterInscTrainer"},
+		57114 => {:id => "InscTrainer"},
+		57115 => {:id => "NorthrendInscriptionResearch"},
+		57116 => {:id => "NorthrendInscriptionResearch"},
+		57117 => {:id => "NorthrendInscriptionResearch"},
+		57119 => {:id => "InscTrainer"},
+		57120 => {:id => "InscTrainer"},
+		57121 => {:id => "InscTrainer"},
+		57122 => {:id => "MasterInscTrainer"},
+		57123 => {:id => "InscTrainer"},
+		57124 => {:id => "NorthrendInscriptionResearch"},
+		57125 => {:id => "InscTrainer"},
+		57126 => {:id => "NorthrendInscriptionResearch"},
+		57127 => {:id => "NorthrendInscriptionResearch"},
+		57128 => {:id => "NorthrendInscriptionResearch"},
+		57129 => {:id => "InscTrainer"},
+		57130 => {:id => "NorthrendInscriptionResearch"},
+		57131 => {:id => "InscTrainer"},
+		57132 => {:id => "InscTrainer"},
+		57133 => {:id => "InscTrainer"},
+		57151 => {:id => "InscTrainer"},
+		57152 => {:id => "NorthrendInscriptionResearch"},
+		57153 => {:id => "NorthrendInscriptionResearch"},
+		57154 => {:id => "InscTrainer"},
+		57155 => {:id => "NorthrendInscriptionResearch"},
+		57156 => {:id => "InscTrainer"},
+		57157 => {:id => "InscTrainer"},
+		57158 => {:id => "InscTrainer"},
+		57159 => {:id => "NorthrendInscriptionResearch"},
+		57160 => {:id => "NorthrendInscriptionResearch"},
+		57161 => {:id => "InscTrainer"},
+		57162 => {:id => "InscTrainer"},
+		57163 => {:id => "InscTrainer"},
+		57164 => {:id => "NorthrendInscriptionResearch"},
+		57165 => {:id => "InscTrainer"},
+		57166 => {:id => "NorthrendInscriptionResearch"},
+		57167 => {:id => "InscTrainer"},
+		57168 => {:id => "MasterInscTrainer"},
+		57169 => {:id => "NorthrendInscriptionResearch"},
+		57170 => {:id => "NorthrendInscriptionResearch"},
+		57172 => {:id => "MasterInscTrainer"},
+		57181 => {:id => "NorthrendInscriptionResearch"},
+		57183 => {:id => "InscTrainer"},
+		57184 => {:id => "InscTrainer"},
+		57185 => {:id => "InscTrainer"},
+		57186 => {:id => "InscTrainer"},
+		57187 => {:id => "MasterInscTrainer"},
+		57188 => {:id => "InscTrainer"},
+		57189 => {:id => "NorthrendInscriptionResearch"},
+		57190 => {:id => "NorthrendInscriptionResearch"},
+		57191 => {:id => "NorthrendInscriptionResearch"},
+		57192 => {:id => "MasterInscTrainer"},
+		57194 => {:id => "InscTrainer"},
+		57195 => {:id => "NorthrendInscriptionResearch"},
+		57196 => {:id => "MasterInscTrainer"},
+		57197 => {:id => "InscTrainer"},
+		57198 => {:id => "GrandMasterInscTrainer"},
+		57199 => {:id => "NorthrendInscriptionResearch"},
+		57200 => {:id => "InscTrainer"},
+		57201 => {:id => "InscTrainer"},
+		57202 => {:id => "NorthrendInscriptionResearch"},
+		57207 => {:id => "NorthrendInscriptionResearch"},
+		57208 => {:id => "NorthrendInscriptionResearch"},
+		57209 => {:id => "MinorInscriptionResearch"},
+		57210 => {:id => "InscTrainer"},
+		57211 => {:id => "NorthrendInscriptionResearch"},
+		57212 => {:id => "NorthrendInscriptionResearch"},
+		57213 => {:id => "InscTrainer"},
+		57214 => {:id => "NorthrendInscriptionResearch"},
+		57215 => {:id => "MinorInscriptionResearch"},
+		57216 => {:id => "InscTrainer"},
+		57217 => {:id => "MinorInscriptionResearch"},
+		57218 => {:id => "NorthrendInscriptionResearch"},
+		57219 => {:id => "MasterInscTrainer"},
+		57220 => {:id => "NorthrendInscriptionResearch"},
+		57221 => {:id => "MasterInscTrainer"},
+		57222 => {:id => "MasterInscTrainer"},
+		57223 => {:id => "NorthrendInscriptionResearch"},
+		57224 => {:id => "MasterInscTrainer"},
+		57225 => {:id => "GrandMasterInscTrainer"},
+		57226 => {:id => "MasterInscTrainer"},
+		57227 => {:id => "MasterInscTrainer"},
+		57229 => {:id => "MinorInscriptionResearch"},
+		57230 => {:id => "MinorInscriptionResearch"},
+		57232 => {:id => "NorthrendInscriptionResearch"},
+		57233 => {:id => "NorthrendInscriptionResearch"},
+		57234 => {:id => "NorthrendInscriptionResearch"},
+		57235 => {:id => "NorthrendInscriptionResearch"},
+		57236 => {:id => "MasterInscTrainer"},
+		57237 => {:id => "NorthrendInscriptionResearch"},
+		57238 => {:id => "InscTrainer"},
+		57239 => {:id => "InscTrainer"},
+		57240 => {:id => "InscTrainer"},
+		57241 => {:id => "InscTrainer"},
+		57242 => {:id => "InscTrainer"},
+		57243 => {:id => "NorthrendInscriptionResearch"},
+		57244 => {:id => "InscTrainer"},
+		57245 => {:id => "InscTrainer"},
+		57246 => {:id => "InscTrainer"},
+		57247 => {:id => "NorthrendInscriptionResearch"},
+		57248 => {:id => "GrandMasterInscTrainer"},
+		57249 => {:id => "InscTrainer"},
+		57250 => {:id => "NorthrendInscriptionResearch"},
+		57251 => {:id => "InscTrainer"},
+		57252 => {:id => "MasterInscTrainer"},
+		57257 => {:id => "MasterInscTrainer"},
+		57258 => {:id => "NorthrendInscriptionResearch"},
+		57259 => {:id => "InscTrainer"},
+		57260 => {:id => "NorthrendInscriptionResearch"},
+		57261 => {:id => "NorthrendInscriptionResearch"},
+		57262 => {:id => "InscTrainer"},
+		57263 => {:id => "NorthrendInscriptionResearch"},
+		57264 => {:id => "NorthrendInscriptionResearch"},
+		57265 => {:id => "InscTrainer"},
+		57266 => {:id => "InscTrainer"},
+		57267 => {:id => "NorthrendInscriptionResearch"},
+		57268 => {:id => "NorthrendInscriptionResearch"},
+		57269 => {:id => "MasterInscTrainer"},
+		57270 => {:id => "MasterInscTrainer"},
+		57271 => {:id => "InscTrainer"},
+		57272 => {:id => "InscTrainer"},
+		57273 => {:id => "NorthrendInscriptionResearch"},
+		57274 => {:id => "InscTrainer"},
+		57275 => {:id => "MasterInscTrainer"},
+		57276 => {:id => "NorthrendInscriptionResearch"},
+		57277 => {:id => "InscTrainer"},
+		57703 => {:id => "InscTrainer"},
+		57704 => {:id => "InscTrainer"},
+		57706 => {:id => "InscTrainer"},
+		57707 => {:id => "InscTrainer"},
+		57708 => {:id => "InscTrainer"},
+		57709 => {:id => "MasterInscTrainer"},
+		57710 => {:id => "InscTrainer"},
+		57711 => {:id => "InscTrainer"},
+		57712 => {:id => "InscTrainer"},
+		57713 => {:id => "InscTrainer"},
+		57714 => {:id => "GrandMasterInscTrainer"},
+		57715 => {:id => "GrandMasterInscTrainer"},
+		57716 => {:id => "GrandMasterInscTrainer"},
+		57719 => {:id => "MinorInscriptionResearch"},
+		58286 => {:id => "MinorInscriptionResearch"},
+		58287 => {:id => "MinorInscriptionResearch"},
+		58288 => {:id => "MinorInscriptionResearch"},
+		58289 => {:id => "MinorInscriptionResearch"},
+		58296 => {:id => "MinorInscriptionResearch"},
+		58297 => {:id => "MinorInscriptionResearch"},
+		58298 => {:id => "MinorInscriptionResearch"},
+		58299 => {:id => "MinorInscriptionResearch"},
+		58300 => {:id => "MinorInscriptionResearch"},
+		58301 => {:id => "MinorInscriptionResearch"},
+		58302 => {:id => "MinorInscriptionResearch"},
+		58303 => {:id => "MinorInscriptionResearch"},
+		58305 => {:id => "MinorInscriptionResearch"},
+		58306 => {:id => "MinorInscriptionResearch"},
+		58307 => {:id => "MinorInscriptionResearch"},
+		58308 => {:id => "MinorInscriptionResearch"},
+		58310 => {:id => "MinorInscriptionResearch"},
+		58311 => {:id => "MinorInscriptionResearch"},
+		58312 => {:id => "MinorInscriptionResearch"},
+		58313  => {:id => "InscTrainer"},
+		58314 => {:id => "MinorInscriptionResearch"},
+		58315 => {:id => "MinorInscriptionResearch"},
+		58316 => {:id => "MinorInscriptionResearch"},
+		58317 => {:id => "MinorInscriptionResearch"},
+		58318 => {:id => "MinorInscriptionResearch"},
+		58319 => {:id => "MinorInscriptionResearch"},
+		58320 => {:id => "MinorInscriptionResearch"},
+		58321 => {:id => "MinorInscriptionResearch"},
+		58322 => {:id => "MinorInscriptionResearch"},
+		58323 => {:id => "MinorInscriptionResearch"},
+		58324 => {:id => "MinorInscriptionResearch"},
+		58325 => {:id => "MinorInscriptionResearch"},
+		58326 => {:id => "MinorInscriptionResearch"},
+		58327 => {:id => "MinorInscriptionResearch"},
+		58328 => {:id => "MinorInscriptionResearch"},
+		58329 => {:id => "MinorInscriptionResearch"},
+		58330 => {:id => "MinorInscriptionResearch"},
+		58331 => {:id => "MinorInscriptionResearch"},
+		58332 => {:id => "MinorInscriptionResearch"},
+		58333 => {:id => "MinorInscriptionResearch"},
+		58336 => {:id => "MinorInscriptionResearch"},
+		58337 => {:id => "MinorInscriptionResearch"},
+		58338 => {:id => "MinorInscriptionResearch"},
+		58339 => {:id => "MinorInscriptionResearch"},
+		58340 => {:id => "MinorInscriptionResearch"},
+		58341 => {:id => "MinorInscriptionResearch"},
+		58342 => {:id => "MinorInscriptionResearch"},
+		58343 => {:id => "MinorInscriptionResearch"},
+		58344 => {:id => "MinorInscriptionResearch"},
+		58345 => {:id => "MinorInscriptionResearch"},
+		58346 => {:id => "MinorInscriptionResearch"},
+		58347 => {:id => "MinorInscriptionResearch"},
+		58472 => {:id => "InscTrainer"},
+		58473 => {:id => "InscTrainer"},
+		58476 => {:id => "InscTrainer"},
+		58478 => {:id => "InscTrainer"},
+		58480 => {:id => "InscTrainer"},
+		58481 => {:id => "InscTrainer"},
+		58482 => {:id => "GrandMasterInscTrainer"},
+		58483 => {:id => "GrandMasterInscTrainer"},
+		58484 => {:id => "InscTrainer"},
+		58485 => {:id => "InscTrainer"},
+		58486 => {:id => "InscTrainer"},
+		58487 => {:id => "InscTrainer"},
+		58488 => {:id => "InscTrainer"},
+		58489 => {:id => "InscTrainer"},
+		58490 => {:id => "GrandMasterInscTrainer"},
+		58491 => {:id => "GrandMasterInscTrainer"},
+		58565 => {:id => "InscTrainer"},
+		59315 => {:id => "MinorInscriptionResearch"},
+		59326 => {:id => "MinorInscriptionResearch"},
+		59338 => {:id => "MinorInscriptionResearch"},
+		59339 => {:id => "MinorInscriptionResearch"},
+		59340 => {:id => "MinorInscriptionResearch"},
+		59387 => {:id => "MasterInscTrainer"},
+		59475 => {:id => "InscTrainer"},
+		59478 => {:id => "InscTrainer"},
+		59480 => {:id => "InscTrainer"},
+		59484 => {:id => "InscTrainer"},
+		59486 => {:id => "InscTrainer"},
+		59487 => {:id => "InscTrainer"},
+		59488 => {:id => "InscTrainer"},
+		59489 => {:id => "InscTrainer"},
+		59490 => {:id => "InscTrainer"},
+		59491 => {:id => "InscTrainer"},
+		59493 => {:id => "InscTrainer"},
+		59494 => {:id => "InscTrainer"},
+		59495 => {:id => "MasterInscTrainer"},
+		59496 => {:id => "GrandMasterInscTrainer"},
+		59497 => {:id => "MasterInscTrainer"},
+		59498 => {:id => "GrandMasterInscTrainer"},
+		59499 => {:id => "InscTrainer"},
+		59500 => {:id => "InscTrainer"},
+		59501 => {:id => "GrandMasterInscTrainer"},
+		59502 => {:id => "InscTrainer"},
+		59503 => {:id => "MasterInscTrainer"},
+		59504 => {:id => "GrandMasterInscTrainer"},
+		59559 => {:id => "NorthrendInscriptionResearch"},
+		59560 => {:id => "NorthrendInscriptionResearch"},
+		59561 => {:id => "NorthrendInscriptionResearch"},
+		60336 => {:id => "InscTrainer"},
+		60337 => {:id => "GrandMasterInscTrainer"},
+		61117 => {:id => "GrandMasterInscTrainer"},
+		61118 => {:id => "GrandMasterInscTrainer"},
+		61119 => {:id => "GrandMasterInscTrainer"},
+		61120 => {:id => "GrandMasterInscTrainer"},
+		61177 => {:id => "GrandMasterInscTrainer"},
+		61288 => {:id => "InscTrainer"},
+		61677 => {:id => "NorthrendInscriptionResearch"},
 		}
 	inscriptionmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[],insspecaillist,inscriptionmanual)
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[57193,57228],insspecaillist,inscriptionmanual)
 
 	jewelcrafting = recipes.get_jewelcrafting_list
 	jcspecaillist = {
