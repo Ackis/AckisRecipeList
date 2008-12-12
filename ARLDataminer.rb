@@ -866,11 +866,11 @@ EOF
 							"id" => 2478}
 				acquire << {"type" => acquirelisting["Vendor"],
 							"id" => 6779}
-				$quests[2359] = {:name => "Klaven's Tower"
+				$quests[2359] = {:name => "Klaven's Tower",
 								:faction => npcfactions["Alliance"]}
-				$quests[2478] = {:name => "Mission: Possible But Not Probable"
+				$quests[2478] = {:name => "Mission: Possible But Not Probable",
 								:faction => npcfactions["Horde"]}
-				$vendors[6779] = {:name => "Smudge Thunderwood"
+				$vendors[6779] = {:name => "Smudge Thunderwood",
 								:faction => npcfactions["Neutral"]}
 			when "Onyxia"
 				flags.delete(flaglisting["Trainer"])
@@ -879,9 +879,9 @@ EOF
 				flags.delete(flaglisting["Raid"])
 				flags.delete(flaglisting["Quest"])
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"] << flaglisting["Raid"]
-				$quests[7493] = {:name => "The Journey Has Just Begun"
+				$quests[7493] = {:name => "The Journey Has Just Begun",
 								:faction => npcfactions["Horde"]}
-				$quests[7497] = {:name => "The Journey Has Just Begun"}
+				$quests[7497] = {:name => "The Journey Has Just Begun",
 								:faction => npcfactions["Alliance"]}
 				acquire << {"type" => acquirelisting["Quest"],
 							"id" => 7493}
