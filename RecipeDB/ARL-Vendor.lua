@@ -9,7 +9,7 @@ Vendor data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-315 found from data mining.  0 ignored.
+314 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -207,7 +207,6 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,12246,L["Super-Seller 680"],BZONE["Desolace"],41.24,79.000)
 	self:addLookupList(VendorDB,12941,L["Jase Farlane"],BZONE["Eastern Plaguelands"],74.74,52.200)
 	self:addLookupList(VendorDB,12942,L["Leonard Porter"],BZONE["Western Plaguelands"],43.04,84.741)
-	self:addLookupList(VendorDB,12943,L["Werg Thickblade"],BZONE["Tirisfal Glades"],83.88,69.672)
 	self:addLookupList(VendorDB,12944,L["Lokhtos Darkbargainer"],BZONE["Blackrock Depths"],0,00)
 	self:addLookupList(VendorDB,12958,L["Gigget Zipcoil"],BZONE["The Hinterlands"],34.33,38.970)
 	self:addLookupList(VendorDB,12962,L["Wik'Tar"],BZONE["Ashenvale"],12.31,34.202)

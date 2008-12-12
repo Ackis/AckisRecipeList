@@ -3128,6 +3128,13 @@ else
 		}
 	alchmanual=<<EOF
 EOF
+
+	# Add the Orcish War Leggings quest
+	$quests[2203] = {:name => "Badlands Reagent Run II"}
+	$quests[2203][:faction] = 2
+	$quests[2501] = {:name => "Badlands Reagent Run II"}
+	$quests[2501][:faction] = 1
+
 	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
 
 	blacksmithing = recipes.get_blacksmithing_list
@@ -3198,6 +3205,10 @@ EOF
 		}
 	cookmanual=<<EOF
 EOF
+
+	$quests[8313] = {:name => "Sharing the Knowledge"}
+	$quests[8313][:faction] = 0
+
 	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
 
 	enchanting = recipes.get_enchanting_list

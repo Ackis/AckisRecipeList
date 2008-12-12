@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-80 found from data mining.  0 ignored.
+83 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -64,8 +64,10 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,1582,L["Moonglow Vest"],BZONE["Darnassus"],64.76,22.391)
 	self:addLookupList(QuestDB,1618,L["Gearing Redridge"],BZONE["Redridge Mountains"],31.37,47.341)
 	self:addLookupList(QuestDB,2178,L["Easy Strider Living"],BZONE["Darkshore"],37.27,41.271)
+	self:addLookupList(QuestDB,2203,L["Badlands Reagent Run II"],BZONE["Badlands"],3.345,46.052)
 	self:addLookupList(QuestDB,2359,L["Klaven's Tower"],BZONE["Stormwind City"],78.82,69.471)
 	self:addLookupList(QuestDB,2478,L["Mission: Possible But Not Probable"],BZONE["Orgrimmar"],43.94,53.492)
+	self:addLookupList(QuestDB,2501,L["Badlands Reagent Run II"],BZONE["Loch Modan"],37.17,48.951)
 	self:addLookupList(QuestDB,2751,L["Barbaric Battlements"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2752,L["On Iron Pauldrons"],BZONE["Orgrimmar"],79.38,23.122)
 	self:addLookupList(QuestDB,2753,L["Trampled Under Foot"],BZONE["Orgrimmar"],79.38,23.122)
@@ -107,6 +109,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,7657,L["Imperial Plate Helm"],BZONE["Tanaris"],0,00)
 	self:addLookupList(QuestDB,7658,L["Imperial Plate Leggings"],BZONE["Tanaris"],0,00)
 	self:addLookupList(QuestDB,7659,L["Imperial Plate Shoulders"],BZONE["Tanaris"],0,00)
+	self:addLookupList(QuestDB,8313,L["Sharing the Knowledge"],BZONE["Undercity"],29.59,53.430)
 	self:addLookupList(QuestDB,8586,L["Dirge's Kickin' Chimaerok Chops"],BZONE["Tanaris"],52.50,27.990)
 	self:addLookupList(QuestDB,8877,L["Firework Launcher"],BZONE["Moonglade"],0,00)
 	self:addLookupList(QuestDB,8878,L["Festive Recipes"],BZONE["Moonglade"],0,00)
