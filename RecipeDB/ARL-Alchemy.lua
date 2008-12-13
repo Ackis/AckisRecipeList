@@ -430,8 +430,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11477,250,9224,1,2259)
-	self:addTradeFlags(RecipeDB,11477,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11477,2,8178)
+	self:addTradeFlags(RecipeDB,11477,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Elixir of Detect Demon -- 11478
 	recipecount = recipecount + 1

@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-83 found from data mining.  0 ignored.
+85 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -38,8 +38,8 @@ local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitQuest(QuestDB)
 
-	self:addLookupList(QuestDB,22,L["Goretusk Liver Pie"],BZONE["Westfall"],55.77,30.920)
-	self:addLookupList(QuestDB,38,L["Westfall Stew"],BZONE["Westfall"],55.77,30.920)
+	self:addLookupList(QuestDB,22,L["Goretusk Liver Pie"],BZONE["Westfall"],55.77,30.921)
+	self:addLookupList(QuestDB,38,L["Westfall Stew"],BZONE["Westfall"],55.77,30.921)
 	self:addLookupList(QuestDB,90,L["Seasoned Wolf Kabobs"],BZONE["Duskwood"],73.51,42.551)
 	self:addLookupList(QuestDB,92,L["Redridge Goulash"],BZONE["Redridge Mountains"],23.05,44.361)
 	self:addLookupList(QuestDB,93,L["Dusky Crab Cakes"],BZONE["Duskwood"],73.51,42.551)
@@ -98,6 +98,8 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,5306,L["Snakestone of the Shadow Huntress"],BZONE["Winterspring"],61.41,37.040)
 	self:addLookupList(QuestDB,5307,L["Corruption"],BZONE["Winterspring"],61.32,39.130)
 	self:addLookupList(QuestDB,7321,L["Soothing Turtle Bisque"],BZONE["Hillsbrad Foothills"],62.60,20.302)
+	self:addLookupList(QuestDB,7493,L["The Journey Has Just Begun"],L["Unknown Zone"],0,02)
+	self:addLookupList(QuestDB,7497,L["The Journey Has Just Begun"],L["Unknown Zone"],0,01)
 	self:addLookupList(QuestDB,7604,L["A Binding Contract"],BZONE["Blackrock Depths"],0,00)
 	self:addLookupList(QuestDB,7649,L["Enchanted Thorium Platemail: Volume I"],BZONE["Dire Maul"],0,00)
 	self:addLookupList(QuestDB,7650,L["Enchanted Thorium Platemail: Volume II"],BZONE["Dire Maul"],0,00)

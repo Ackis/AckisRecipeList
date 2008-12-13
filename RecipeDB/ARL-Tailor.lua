@@ -449,13 +449,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908)
 	self:addTradeFlags(RecipeDB,7639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,3364,2,5944)
+	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,3364)
 
 	-- Greater Adept's Robe -- 7643
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908)
 	self:addTradeFlags(RecipeDB,7643,1,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7643,2,1454,2,4168)
+	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168)
 
 	-- Stylish Blue Shirt -- 7892
 	recipecount = recipecount + 1
@@ -580,8 +580,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Crimson Silk Cloak -- 8789
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8789,180,7056,1,3908)
-	self:addTradeFlags(RecipeDB,8789,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,60)
-	self:addTradeAcquire(RecipeDB,8789,2,2670)
+	self:addTradeFlags(RecipeDB,8789,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	-- No acquire information
 
 	-- Crimson Silk Vest -- 8791
 	recipecount = recipecount + 1

@@ -670,8 +670,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Superior Defense -- 20015
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20015,285,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20015,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20015,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
+	self:addTradeAcquire(RecipeDB,20015,2,12022)
 
 	-- Enchant Shield - Superior Spirit -- 20016
 	recipecount = recipecount + 1

@@ -370,8 +370,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Golden Scale Coif -- 3503
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3503,190,3837,1,2018)
-	self:addTradeFlags(RecipeDB,3503,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3503,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,3503,2,5411)
 
 	-- Green Iron Shoulders -- 3504
 	recipecount = recipecount + 1

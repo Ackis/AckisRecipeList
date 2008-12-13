@@ -262,8 +262,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Gem-studded Leather Belt -- 3778
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3778,185,4262,1,2108)
-	self:addTradeFlags(RecipeDB,3778,1,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,3778,2,2699)
+	self:addTradeFlags(RecipeDB,3778,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	-- No acquire information
 
 	-- Barbaric Belt -- 3779
 	recipecount = recipecount + 1
@@ -340,8 +340,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Murloc Scale Bracers -- 6705
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6705,190,5783,2,2108)
-	self:addTradeFlags(RecipeDB,6705,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6705,3,1561,2,2846)
+	self:addTradeFlags(RecipeDB,6705,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,6705,3,1561)
 
 	-- Handstitched Leather Vest -- 7126
 	recipecount = recipecount + 1
@@ -616,8 +616,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Nightscape Shoulders -- 10516
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10516,210,8192,2,2108)
-	self:addTradeFlags(RecipeDB,10516,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,10516,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,10516,2,8160)
 
 	-- Turtle Scale Bracers -- 10518
 	recipecount = recipecount + 1
@@ -1457,7 +1457,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32455,325,23793,1,2108)
 	self:addTradeFlags(RecipeDB,32455,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,32455,2,16748,2,19196)
+	self:addTradeAcquire(RecipeDB,32455,2,16689,2,16748,2,19196)
 
 	-- Knothide Armor Kit -- 32456
 	recipecount = recipecount + 1
@@ -1582,8 +1582,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Comfortable Insoles -- 32482
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32482,300,25679,1,2108)
-	self:addTradeFlags(RecipeDB,32482,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,32482,2,16748)
+	self:addTradeFlags(RecipeDB,32482,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,32482,2,16689,2,16748)
 
 	-- Stylin' Purple Hat -- 32485
 	recipecount = recipecount + 1

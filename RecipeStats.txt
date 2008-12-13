@@ -37,6 +37,7 @@ Unknown zones:
 	#"Sunblade Dusk Priest" => "Sunwell Plateau",
 	#"Sunblade Slayer" => "Sunwell Plateau",
 	#"Sunblade Vindicator" => "Sunwell Plateau",
+	#"The Journey Has Just Begun" => "Unknown Zone",
 	#"Thuzadin Shadowcaster" => "Stratholme",
 
 
@@ -202,6 +203,7 @@ Unknown faction:
 	#"Nadyia Maneweaver" => 1, # N/A
 	#"Nahogg" => 1, # N/A
 	#"Neii" => 1, # N/A
+	#"Nioma" => Unknown, # 47
 	#"Nissa Firestone" => 1, # N/A
 	#"Nogg" => 2, # N/A
 	#"Nula the Butcher" => 2, # N/A
@@ -277,6 +279,7 @@ Unknown faction:
 	#"Yatheon" => 2, # N/A
 	#"Yelmak" => 2, # N/A
 	#"Zamja" => 2, # N/A
+	#"Zaralda" => 2, # N/A
 	#"Zarrin" => 1, # N/A
 	#"Zurai" => 2, # N/A
 
@@ -284,7 +287,7 @@ Unknown faction:
 No acquire information:
 3449 - Shadow Oil - Alchemy
 3496 - Moonsteel Broadsword - Blacksmithing
-3503 - Golden Scale Coif - Blacksmithing
+3778 - Gem-studded Leather Belt - Leatherworking
 3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
@@ -300,15 +303,16 @@ No acquire information:
 7421 - Runed Copper Rod - Enchanting
 7428 - Enchant Bracer - Minor Deflection - Enchanting
 7954 - Deviate Scale Gloves - Leatherworking
+8789 - Crimson Silk Cloak - Tailoring
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
 9202 - Green Whelp Bracers - Leatherworking
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
-10516 - Nightscape Shoulders - Leatherworking
 10841 - Heavy Mageweave Bandage - First Aid
 11473 - Ghost Dye - Alchemy
+11477 - Elixir of Demonslaying - Alchemy
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
 12260 - Rough Copper Vest - Blacksmithing
@@ -334,7 +338,6 @@ No acquire information:
 19080 - Warbear Woolies - Leatherworking
 19085 - Black Dragonscale Breastplate - Leatherworking
 19435 - Mooncloth Boots - Tailoring
-20015 - Enchant Cloak - Superior Defense - Enchanting
 20017 - Enchant Shield - Greater Stamina - Enchanting
 20026 - Enchant Chest - Major Health - Enchanting
 20848 - Flarecore Mantle - Tailoring
