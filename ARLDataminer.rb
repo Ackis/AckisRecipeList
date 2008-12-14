@@ -3344,9 +3344,9 @@ EOF
 		45565 => {:id => "GrandMasterCookTrainer"},
 		45566 => {:id => "GrandMasterCookTrainer"},
 		45569 => {:id => "GrandMasterCookTrainer"},
-		53056 => {:id => "GrandMasterCookTrainer"},
+		#53056 => {:id => "GrandMasterCookTrainer"},
 		57421 => {:id => "GrandMasterCookTrainer"},
-		57423 => {:id => "GrandMasterCookTrainer"},
+		#57423 => {:id => "GrandMasterCookTrainer"},
 		58065 => {:id => "GrandMasterCookTrainer"},
 		}
 	cookmanual=<<EOF
@@ -3355,7 +3355,7 @@ EOF
 	$quests[8313] = {:name => "Sharing the Knowledge"}
 	$quests[8313][:faction] = 0
 
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047],cookingspeciallist,cookmanual)
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047,57423,44438,45547,53056],cookingspeciallist,cookmanual)
 
 	enchanting = recipes.get_enchanting_list
 	enchantingspeciallist = {
@@ -3844,7 +3844,7 @@ EOF
 		}
 	inscriptionmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[57193],insspecaillist,inscriptionmanual)
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[571933],insspecaillist,inscriptionmanual)
 
 	jewelcrafting = recipes.get_jewelcrafting_list
 	jcspecaillist = {
