@@ -323,7 +323,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
 	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,3494,2,1471,2,9179)
+	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
 	recipecount = recipecount + 1
@@ -334,8 +334,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Moonsteel Broadsword -- 3496
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
+	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
 	recipecount = recipecount + 1
@@ -346,8 +346,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
-	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
-	self:addTradeAcquire(RecipeDB,3498,2,2483)
+	self:addTradeFlags(RecipeDB,3498,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
+	-- No acquire information
 
 	-- Shadow Crescent Axe -- 3500
 	recipecount = recipecount + 1
@@ -370,8 +370,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Golden Scale Coif -- 3503
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3503,190,3837,1,2018)
-	self:addTradeFlags(RecipeDB,3503,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,3503,2,5411)
+	self:addTradeFlags(RecipeDB,3503,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	-- No acquire information
 
 	-- Green Iron Shoulders -- 3504
 	recipecount = recipecount + 1
@@ -592,8 +592,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Mithril Scale Bracers -- 9937
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9937,215,7924,1,2018)
-	self:addTradeFlags(RecipeDB,9937,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,9937,2,8176)
+	self:addTradeFlags(RecipeDB,9937,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	-- No acquire information
 
 	-- Mithril Shield Spike -- 9939
 	recipecount = recipecount + 1
@@ -905,7 +905,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16645,260,12416,2,2018)
 	self:addTradeFlags(RecipeDB,16645,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,16645,3,10184)
+	self:addTradeAcquire(RecipeDB,16645,3,6513,3,10184)
 
 	-- Imperial Plate Shoulders -- 16646
 	recipecount = recipecount + 1

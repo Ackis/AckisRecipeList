@@ -178,8 +178,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Minor Agility -- 7867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7867,125,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,7867,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7867,2,3012,2,3537)
+	self:addTradeFlags(RecipeDB,7867,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7867,2,3012)
 
 	-- Enchant Shield - Minor Stamina -- 13378
 	recipecount = recipecount + 1
@@ -197,7 +197,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13419,110,nil, 2,7411)
 	self:addTradeFlags(RecipeDB,13419,1,2,4,10,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,13419,7,2,2,3954)
+	self:addTradeAcquire(RecipeDB,13419,7,2,2,3954,2,12043)
 
 	-- Enchant Cloak - Lesser Protection -- 13421
 	recipecount = recipecount + 1
@@ -244,8 +244,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Lesser Strength -- 13536
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13536,140,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,13536,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13536,2,3954)
+	self:addTradeFlags(RecipeDB,13536,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,13536,2,3954,2,12043)
 
 	-- Enchant Chest - Lesser Absorption -- 13538
 	recipecount = recipecount + 1
@@ -682,8 +682,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Greater Stamina -- 20017
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20017,265,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20017,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20017,1,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,20017,2,4229)
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	recipecount = recipecount + 1
@@ -712,8 +712,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Major Health -- 20026
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20026,275,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20026,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20026,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,20026,2,11189)
 
 	-- Enchant Chest - Major Mana -- 20028
 	recipecount = recipecount + 1
@@ -839,13 +839,13 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25073,300,nil, 3,7411)
 	self:addTradeFlags(RecipeDB,25073,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25073,3,15263,3,15299,3,15348,3,15509,3,15510,3,15516,3,15517,3,15544)
+	self:addTradeAcquire(RecipeDB,25073,3,15263,3,15299,3,15348,3,15370,3,15509,3,15510,3,15516,3,15517,3,15544)
 
 	-- Enchant Gloves - Frost Power -- 25074
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25074,300,nil, 3,7411)
-	self:addTradeFlags(RecipeDB,25074,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25074,3,15263,3,15341,3,15348,3,15370,3,15509,3,15510,3,15511,3,15516,3,15517,3,15544)
+	self:addTradeFlags(RecipeDB,25074,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,25074,7,3)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipecount = recipecount + 1
@@ -1301,7 +1301,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34007,360,nil, 3,7411)
 	self:addTradeFlags(RecipeDB,34007,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,34007,3,16407,3,16409,3,16471,3,16473,3,16504,3,17976)
+	self:addTradeAcquire(RecipeDB,34007,3,16407,3,16409,3,16471,3,16473,3,16504,3,17976,3,23339)
 
 	-- Enchant Boots - Boar's Speed -- 34008
 	recipecount = recipecount + 1
@@ -1360,26 +1360,26 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Expertise -- 44484
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44484,395,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44484,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44484,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44484,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Precision -- 44488
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44488,400,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44488,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44488,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44488,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Shield - Defense -- 44489
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44489,410,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44489,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44489,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44489,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Chest - Mighty Health -- 44492
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44492,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44492,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44492,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44492,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Superior Nature Resistance -- 44494
 	recipecount = recipecount + 1
@@ -1390,38 +1390,38 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Superior Agility -- 44500
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44500,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44500,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44500,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,44500,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Gatherer -- 44506
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44506,350,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44506,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44506,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44506,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Boots - Greater Spirit -- 44508
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44508,400,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44508,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44508,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44508,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Chest - Greater Mana Restoration -- 44509
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44509,410,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44509,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44509,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44509,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Weapon - Exceptional Spirit -- 44510
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44510,400,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44510,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44510,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44510,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Greater Assault -- 44513
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44513,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44513,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44513,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44513,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Weapon - Icebreaker -- 44524
 	recipecount = recipecount + 1
@@ -1432,20 +1432,20 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Greater Fortitude -- 44528
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44528,360,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44528,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44528,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44528,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Major Agility -- 44529
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44529,405,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44529,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44529,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44529,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Bracers - Exceptional Intellect -- 44555
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44555,370,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44555,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44555,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Superior Fire Resistance -- 44556
 	recipecount = recipecount + 1
@@ -1468,14 +1468,14 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Spell Piercing -- 44582
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44582,380,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44582,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44582,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,44582,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Boots - Greater Vitality -- 44584
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44584,395,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44584,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44584,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Chest - Exceptional Resilience -- 44588
 	recipecount = recipecount + 1
@@ -1486,8 +1486,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Superior Agility -- 44589
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44589,405,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44589,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44589,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44589,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Superior Shadow Resistance -- 44590
 	recipecount = recipecount + 1
@@ -1504,14 +1504,14 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Exceptional Spellpower -- 44592
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44592,350,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44592,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44592,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44592,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Bracers - Major Spirit -- 44593
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44593,410,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44593,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44593,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44593,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
 	recipecount = recipecount + 1
@@ -1528,8 +1528,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracers - Expertise -- 44598
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44598,405,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44598,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44598,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44598,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Greater Blasting -- 44612
 	recipecount = recipecount + 1
@@ -1540,8 +1540,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracers - Greater Stats -- 44616
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44616,390,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44616,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44616,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44616,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Weapon - Giant Slayer -- 44621
 	recipecount = recipecount + 1
@@ -1552,8 +1552,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Super Stats -- 44623
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44623,360,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44623,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44623,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44623,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Armsman -- 44625
 	recipecount = recipecount + 1
@@ -1564,14 +1564,14 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Exceptional Spellpower -- 44629
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44629,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44629,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44629,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44629,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44630,380,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44630,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44630,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Shadow Armor -- 44631
 	recipecount = recipecount + 1
@@ -1582,26 +1582,26 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Exceptional Agility -- 44633
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44633,400,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44633,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44633,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44633,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Bracers - Greater Spellpower -- 44635
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44635,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,44635,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44635,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44635,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Ring - Greater Spellpower -- 44636
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44636,385,nil, 1, 7411)
-	self:addTradeFlags(RecipeDB,44636,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44636,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44636,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Ring - Assault -- 44645
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44645,385,nil, 1, 7411)
-	self:addTradeFlags(RecipeDB,44645,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,44645,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44645,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Void Shatter -- 45765
 	recipecount = recipecount + 1
@@ -1636,8 +1636,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Greater Defense -- 47766
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,47766,390,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,47766,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,47766,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,47766,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Greater Speed -- 47898
 	recipecount = recipecount + 1
@@ -1654,8 +1654,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Super Health -- 47900
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,47900,415,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,47900,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,47900,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,47900,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Boots - Tuskarr's Vitality -- 47901
 	recipecount = recipecount + 1
@@ -1684,62 +1684,62 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Ring - Stamina -- 59636
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59636,385,nil, 1, 7411)
-	self:addTradeFlags(RecipeDB,59636,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59636,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,59636,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Boots - Assault -- 60606
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60606,365,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60606,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60606,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60606,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Speed -- 60609
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60609,340,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60609,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60609,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,60609,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Bracers - Striking -- 60616
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60616,350,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60616,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60616,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60616,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Runed Titanium Rod -- 60619
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60619,425,44452,3,7411)
-	self:addTradeFlags(RecipeDB,60619,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60619,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,60619,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Weapon - Greater Potency -- 60621
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60621,370,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60621,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60621,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60621,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Boots - Icewalker -- 60623
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60623,375,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60623,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60623,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60623,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Shield - Greater Intellect -- 60653
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60653,385,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60653,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60653,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60653,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Cloak - Major Agility -- 60663
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60663,410,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60663,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60663,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,60663,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant Gloves - Crusher -- 60668
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60668,415,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60668,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60668,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60668,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 	-- Enchant 2H Weapon - Massacre -- 60691
 	recipecount = recipecount + 1
@@ -1774,8 +1774,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracers - Superior Spellpower -- 60767
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60767,430,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,60767,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60767,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60767,1,26906,1,26954,1,26980,1,26990,1,28693)
 
 
 	return recipecount

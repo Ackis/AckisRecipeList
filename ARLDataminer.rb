@@ -435,6 +435,16 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 
 end
 
+def add_npc_trainer(npcid,npcname,npcfac,npcfactions,acquirelisting)
+
+	$trainers[npcid] = {:name => npcname}
+	$trainers[npcid][:faction] = npcfactions[npcfac]
+	acquire = {"type" => acquirelisting["Trainer"],
+				"id" => npcid}
+	return acquire
+
+end
+
 # Creates a database file for the specific recipe
 # TODO: Optimize the code for this function
 
@@ -973,6 +983,16 @@ EOF
 				$trainers[26951] = {:name => "Wilhelmina Renel"}
 				$trainers[26951][:faction] = npcfactions["Horde"]
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterBSTrainer"
+				acquire << add_npc_trainer(28694, "Alard Schmied", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26988, "Argo Strongstout", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26564, "Borus Ironbender", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(29924, "Brandig", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26981, "Crog Steelspine", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(27034, "Josric Fame", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26952, "Kristen Smythe", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26904, "Rosina Rivet", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterCookTrainer"
 				acquire << {"type" => acquirelisting["Trainer"],
 							"id" => 29631}
@@ -999,119 +1019,73 @@ EOF
 				$trainers[26953] = {:name => "Thomas Kolichio"}
 				$trainers[26953][:faction] = npcfactions["Horde"]
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterEnchTrainer"
+				acquire << add_npc_trainer(26990, "Alexis Marlowe", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26906, "Elizabeth Jackson", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26954, "Emil Autumn", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28693, "Enchanter Nalthanis", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26980, "Eorain Dawnstrike", "Horde", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterEngTrainer"
+				acquire << add_npc_trainer(25277, "Chief Engineer Leveny", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26955, "Jamesina Watterly", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28697, "Juston Oshenko", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26991, "Scoks Brightbolt", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26907, "Tisha Longbridge", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "InscTrainer"
-				$trainers[26977] = {:name => "Adelene Sunlance"}
-				$trainers[26977][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26977}
-				$trainers[26959] = {:name => "Booker Kells"}
-				$trainers[26959][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26959}
-				$trainers[30713] = {:name => "Catarina Stanford"}
-				$trainers[30713][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30713}
-				$trainers[30717] = {:name => "Elise Brightletter"}
-				$trainers[30717][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30717}
-				$trainers[30715] = {:name => "Feyden Darkin"}
-				$trainers[30715][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30715}
-				$trainers[30706] = {:name => "Jo'mah"}
-				$trainers[30706][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30706}
-				$trainers[30711] = {:name => "Margaux Parchley"}
-				$trainers[30711][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30711}
-				$trainers[30721] = {:name => "Michael Schwan"}
-				$trainers[30721][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30721}
-				$trainers[26916] = {:name => "Mindri Dinkles"}
-				$trainers[26916][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26916}
-				$trainers[30722] = {:name => "Neferatti"}
-				$trainers[30722][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30722}
-				$trainers[30709] = {:name => "Poshken Hardbinder"}
-				$trainers[30709][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30709}
-				$trainers[28702] = {:name => "Professor Pallin"}
-				$trainers[28702][:faction] = npcfactions["Neutral"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 28702}
-				$trainers[30716] = {:name => "Thoth"}
-				$trainers[30716][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30716}
-				$trainers[26995] = {:name => "Tink Brightbolt"}
-				$trainers[26995][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26995}
-				$trainers[30710] = {:name => "Zantasia"}
-				$trainers[30710][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30710}
+				acquire << add_npc_trainer(30713, "Catarina Stanford", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30717, "Elise Brightletter", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30715, "Feyden Darkin", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30706, "Jo'mah", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30711, "Margaux Parchley", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30709, "Poshken Hardbinder", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30716, "Thoth", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30710, "Zantasia", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30721, "Michael Schwan", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30722, "Neferatti", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26977, "Adelene Sunlance", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26959, "Booker Kells", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26916, "Mindri Dinkles", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28702, "Professor Pallin", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26995, "Tink Brightbolt", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "MasterInscTrainer"
-				$trainers[26977] = {:name => "Adelene Sunlance"}
-				$trainers[26977][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26977}
-				$trainers[26959] = {:name => "Booker Kells"}
-				$trainers[26959][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26959}
-				$trainers[30721] = {:name => "Michael Schwan"}
-				$trainers[30721][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30721}
-				$trainers[26916] = {:name => "Mindri Dinkles"}
-				$trainers[26916][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26916}
-				$trainers[30722] = {:name => "Neferatti"}
-				$trainers[30722][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 30722}
-				$trainers[28702] = {:name => "Professor Pallin"}
-				$trainers[28702][:faction] = npcfactions["Neutral"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 28702}
-				$trainers[26995] = {:name => "Tink Brightbolt"}
-				$trainers[26995][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26995}
+				acquire << add_npc_trainer(30721, "Michael Schwan", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(30722, "Neferatti", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26977, "Adelene Sunlance", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26959, "Booker Kells", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26916, "Mindri Dinkles", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28702, "Professor Pallin", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26995, "Tink Brightbolt", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterInscTrainer"
-				$trainers[26977] = {:name => "Adelene Sunlance"}
-				$trainers[26977][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26977}
-				$trainers[26959] = {:name => "Booker Kells"}
-				$trainers[26959][:faction] = npcfactions["Horde"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26959}
-				$trainers[26916] = {:name => "Mindri Dinkles"}
-				$trainers[26916][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26916}
-				$trainers[28702] = {:name => "Professor Pallin"}
-				$trainers[28702][:faction] = npcfactions["Neutral"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 28702}
-				$trainers[26995] = {:name => "Tink Brightbolt"}
-				$trainers[26995][:faction] = npcfactions["Alliance"]
-				acquire << {"type" => acquirelisting["Trainer"],
-							"id" => 26995}
+				acquire << add_npc_trainer(26977, "Adelene Sunlance", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26959, "Booker Kells", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26916, "Mindri Dinkles", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28702, "Professor Pallin", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26995, "Tink Brightbolt", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterJCTrainer"
+				acquire << add_npc_trainer(26997, "Alestos", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26960, "Carter Tiffens", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26982, "Geba'li", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26915, "Ounhulo", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28701, "Timothy Jones", "Neutral", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterLWTrainer"
+				acquire << add_npc_trainer(26996, "Awan Iceborn", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26911, "Bernadette Dexter", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28700, "Diane Cannings", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26961, "Gunter Hansen", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26998, "Rosemary Bovard", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterTailorTrainer"
+				acquire << add_npc_trainer(26964, "Alexandra McQueen", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26914, "Benjamin Clegg", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28699, "Charles Worth", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(27001, "Darin Goodstitch", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26969, "Raenah", "Horde", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "meleedps"
 				flags << playertypeflags["MeleeDPS"]
@@ -1871,7 +1845,11 @@ def create_stats_list()
 	stats_lua.puts("\nUnknown faction:")
 
 	$unknownfaction.sort_by { |unknownfaction| unknownfaction[:name] }.each do |k|
-		stats_lua.puts "\t\#\"#{k[:name]}\" => #{k[:react]}, \# #{k[:loc]}"
+		if k[:loc] == "N/A"
+			stats_lua.puts "\t\#\"#{k[:name]}\" => #{k[:react]},"
+		else
+			stats_lua.puts "\t\#\"#{k[:name]}\" => #{k[:react]}, \# #{k[:loc]}"
+		end
 	end
 
 	stats_lua.puts("\n\nNo acquire information:")
@@ -3145,35 +3123,6 @@ if $debug
 	create_custom_db()
 	create_faction_db()
 
-	blacksmithing = recipes.get_blacksmithing_list
-	bsspeciallist = {
-		2660 => {:id => "StartingSkill"},
-		2663 => {:id => "StartingSkill"},
-		2671 => {:id => "StartingSkill"},
-		3115 => {:id => "StartingSkill"},
-		21913 => {:id => 7, :type => 1},
-		28242 => {:id => "ADNaxx40E"},
-		28243 => {:id => "ADNaxx40R"},
-		28244 => {:id => "ADNaxx40R"},
-		}
-	bsmanual=<<EOF
-	-- Orcish War Leggings -- 9957
-	-- Quest
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
-	-- Item Stats: 
-	-- Item Stats: val17id1val208id6
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018)
-	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
-	self:addTradeAcquire(RecipeDB, 9957,4,2756)
-EOF
-
-	# Add the Orcish War Leggings quest
-	$quests[2756] = {:name => "The Old Ways"}
-	$quests[2756][:faction] = 2
-
-	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
-
 	create_stats_list()
 
 	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
@@ -3293,6 +3242,105 @@ EOF
 		28242 => {:id => "ADNaxx40E"},
 		28243 => {:id => "ADNaxx40R"},
 		28244 => {:id => "ADNaxx40R"},
+		52567 => {:id => "GrandMasterBSTrainer"},
+		52568 => {:id => "GrandMasterBSTrainer"},
+		52569 => {:id => "GrandMasterBSTrainer"},
+		52570 => {:id => "GrandMasterBSTrainer"},
+		52571 => {:id => "GrandMasterBSTrainer"},
+		52572 => {:id => "GrandMasterBSTrainer"},
+		54550 => {:id => "GrandMasterBSTrainer"},
+		54551 => {:id => "GrandMasterBSTrainer"},
+		54552 => {:id => "GrandMasterBSTrainer"},
+		54553 => {:id => "GrandMasterBSTrainer"},
+		54554 => {:id => "GrandMasterBSTrainer"},
+		54555 => {:id => "GrandMasterBSTrainer"},
+		54556 => {:id => "GrandMasterBSTrainer"},
+		54557 => {:id => "GrandMasterBSTrainer"},
+		54917 => {:id => "GrandMasterBSTrainer"},
+		54918 => {:id => "GrandMasterBSTrainer"},
+		54941 => {:id => "GrandMasterBSTrainer"},
+		54944 => {:id => "GrandMasterBSTrainer"},
+		54945 => {:id => "GrandMasterBSTrainer"},
+		54946 => {:id => "GrandMasterBSTrainer"},
+		54947 => {:id => "GrandMasterBSTrainer"},
+		54948 => {:id => "GrandMasterBSTrainer"},
+		54949 => {:id => "GrandMasterBSTrainer"},
+		55013 => {:id => "GrandMasterBSTrainer"},
+		55014 => {:id => "GrandMasterBSTrainer"},
+		55015 => {:id => "GrandMasterBSTrainer"},
+		55017 => {:id => "GrandMasterBSTrainer"},
+		55055 => {:id => "GrandMasterBSTrainer"},
+		55056 => {:id => "GrandMasterBSTrainer"},
+		55057 => {:id => "GrandMasterBSTrainer"},
+		55058 => {:id => "GrandMasterBSTrainer"},
+		55174 => {:id => "GrandMasterBSTrainer"},
+		55177 => {:id => "GrandMasterBSTrainer"},
+		55179 => {:id => "GrandMasterBSTrainer"},
+		55181 => {:id => "GrandMasterBSTrainer"},
+		55182 => {:id => "GrandMasterBSTrainer"},
+		55183 => {:id => "GrandMasterBSTrainer"},
+		55184 => {:id => "GrandMasterBSTrainer"},
+		55185 => {:id => "GrandMasterBSTrainer"},
+		55186 => {:id => "GrandMasterBSTrainer"},
+		55187 => {:id => "GrandMasterBSTrainer"},
+		55200 => {:id => "GrandMasterBSTrainer"},
+		55201 => {:id => "GrandMasterBSTrainer"},
+		55202 => {:id => "GrandMasterBSTrainer"},
+		55203 => {:id => "GrandMasterBSTrainer"},
+		55204 => {:id => "GrandMasterBSTrainer"},
+		55206 => {:id => "GrandMasterBSTrainer"},
+		55298 => {:id => "GrandMasterBSTrainer"},
+		55300 => {:id => "GrandMasterBSTrainer"},
+		55301 => {:id => "GrandMasterBSTrainer"},
+		55302 => {:id => "GrandMasterBSTrainer"},
+		55303 => {:id => "GrandMasterBSTrainer"},
+		55304 => {:id => "GrandMasterBSTrainer"},
+		55305 => {:id => "GrandMasterBSTrainer"},
+		55306 => {:id => "GrandMasterBSTrainer"},
+		55307 => {:id => "GrandMasterBSTrainer"},
+		55308 => {:id => "GrandMasterBSTrainer"},
+		55309 => {:id => "GrandMasterBSTrainer"},
+		55310 => {:id => "GrandMasterBSTrainer"},
+		55311 => {:id => "GrandMasterBSTrainer"},
+		55312 => {:id => "GrandMasterBSTrainer"},
+		55369 => {:id => "GrandMasterBSTrainer"},
+		55370 => {:id => "GrandMasterBSTrainer"},
+		55371 => {:id => "GrandMasterBSTrainer"},
+		55372 => {:id => "GrandMasterBSTrainer"},
+		55373 => {:id => "GrandMasterBSTrainer"},
+		55374 => {:id => "GrandMasterBSTrainer"},
+		55375 => {:id => "GrandMasterBSTrainer"},
+		55376 => {:id => "GrandMasterBSTrainer"},
+		55377 => {:id => "GrandMasterBSTrainer"},
+		55628 => {:id => "GrandMasterBSTrainer"},
+		55641 => {:id => "GrandMasterBSTrainer"},
+		55656 => {:id => "GrandMasterBSTrainer"},
+		55732 => {:id => "GrandMasterBSTrainer"},
+		55834 => {:id => "GrandMasterBSTrainer"},
+		55835 => {:id => "GrandMasterBSTrainer"},
+		55839 => {:id => "GrandMasterBSTrainer"},
+		56234 => {:id => "GrandMasterBSTrainer"},
+		56280 => {:id => "GrandMasterBSTrainer"},
+		56357 => {:id => "GrandMasterBSTrainer"},
+		56400 => {:id => "GrandMasterBSTrainer"},
+		56549 => {:id => "GrandMasterBSTrainer"},
+		56550 => {:id => "GrandMasterBSTrainer"},
+		56551 => {:id => "GrandMasterBSTrainer"},
+		56552 => {:id => "GrandMasterBSTrainer"},
+		56553 => {:id => "GrandMasterBSTrainer"},
+		56554 => {:id => "GrandMasterBSTrainer"},
+		56555 => {:id => "GrandMasterBSTrainer"},
+		56556 => {:id => "GrandMasterBSTrainer"},
+		59405 => {:id => "GrandMasterBSTrainer"},
+		59406 => {:id => "GrandMasterBSTrainer"},
+		59436 => {:id => "GrandMasterBSTrainer"},
+		59438 => {:id => "GrandMasterBSTrainer"},
+		59440 => {:id => "GrandMasterBSTrainer"},
+		59441 => {:id => "GrandMasterBSTrainer"},
+		59442 => {:id => "GrandMasterBSTrainer"},
+		61008 => {:id => "GrandMasterBSTrainer"},
+		61009 => {:id => "GrandMasterBSTrainer"},
+		61010 => {:id => "GrandMasterBSTrainer"},
 		}
 	bsmanual=<<EOF
 	-- Orcish War Leggings -- 9957
@@ -3359,8 +3407,51 @@ EOF
 
 	enchanting = recipes.get_enchanting_list
 	enchantingspeciallist = {
+		7418 => {:id => "StartingSkill"},
+		7421 => {:id => "StartingSkill"},
+		7428 => {:id => "StartingSkill"},
 		21931 => {:id => 7, :type => 1},
-		46578 => {:id => 7, :type => 4}
+		46578 => {:id => 7, :type => 4},
+		60619 => {:id => "GrandMasterEnchTrainer"},
+		44630 => {:id => "GrandMasterEnchTrainer"},
+		60606 => {:id => "GrandMasterEnchTrainer"},
+		44528 => {:id => "GrandMasterEnchTrainer"},
+		44508 => {:id => "GrandMasterEnchTrainer"},
+		44584 => {:id => "GrandMasterEnchTrainer"},
+		60623 => {:id => "GrandMasterEnchTrainer"},
+		44589 => {:id => "GrandMasterEnchTrainer"},
+		44555 => {:id => "GrandMasterEnchTrainer"},
+		44598 => {:id => "GrandMasterEnchTrainer"},
+		44635 => {:id => "GrandMasterEnchTrainer"},
+		44616 => {:id => "GrandMasterEnchTrainer"},
+		44593 => {:id => "GrandMasterEnchTrainer"},
+		60616 => {:id => "GrandMasterEnchTrainer"},
+		60767 => {:id => "GrandMasterEnchTrainer"},
+		47766 => {:id => "GrandMasterEnchTrainer"},
+		44509 => {:id => "GrandMasterEnchTrainer"},
+		44492 => {:id => "GrandMasterEnchTrainer"},
+		47900 => {:id => "GrandMasterEnchTrainer"},
+		44623 => {:id => "GrandMasterEnchTrainer"},
+		60663 => {:id => "GrandMasterEnchTrainer"},
+		60609 => {:id => "GrandMasterEnchTrainer"},
+		44582 => {:id => "GrandMasterEnchTrainer"},
+		44500 => {:id => "GrandMasterEnchTrainer"},
+		60668 => {:id => "GrandMasterEnchTrainer"},
+		44592 => {:id => "GrandMasterEnchTrainer"},
+		44484 => {:id => "GrandMasterEnchTrainer"},
+		44506 => {:id => "GrandMasterEnchTrainer"},
+		44513 => {:id => "GrandMasterEnchTrainer"},
+		44529 => {:id => "GrandMasterEnchTrainer"},
+		44488 => {:id => "GrandMasterEnchTrainer"},
+		44645 => {:id => "GrandMasterEnchTrainer"},
+		44636 => {:id => "GrandMasterEnchTrainer"},
+		59636 => {:id => "GrandMasterEnchTrainer"},
+		44489 => {:id => "GrandMasterEnchTrainer"},
+		60653 => {:id => "GrandMasterEnchTrainer"},
+		44633 => {:id => "GrandMasterEnchTrainer"},
+		44629 => {:id => "GrandMasterEnchTrainer"},
+		44510 => {:id => "GrandMasterEnchTrainer"},
+		60621 => {:id => "GrandMasterEnchTrainer"},
 		}
 	enchantmanual=<<EOF
 EOF
