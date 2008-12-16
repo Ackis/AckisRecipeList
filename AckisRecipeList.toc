@@ -8,7 +8,7 @@
 ## Notes-frFR: Scans vos métiers et vous indique les recettes qui vous manque, ainsi que des informations sur la façon de les obtenir.
 ## Notes-deDE: Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen.
 ## Notes-esES: Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador.
-## Notes-zhCN: 全面详细的商业技能信息插件，包括毒药和宠物技能.
+## Notes-zhCN: 扫描并告知如何获取你所缺失的配方的详细商业技能信息插件。
 ## Notes-koKR: 캐릭터가 배우지 못한 제조법을 표시합니다. 또한 제조법의 획득 정보을 알려줍니다.
 
 ## Author: Ackis, Zhinjio
