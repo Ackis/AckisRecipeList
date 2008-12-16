@@ -1,5 +1,5 @@
 Unknown zones:
-	#"Amani'shi Protector" => "Unknown Zone",
+	#"Amani'shi Protector" => "Zul'Aman",
 	#"Apocalypse Guard" => "Sunwell Plateau",
 	#"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj",
 	#"Buru the Gorger" => "Ruins of Ahn'Qiraj",
@@ -10,7 +10,7 @@ Unknown zones:
 	#"Doomfire Destroyer" => "Sunwell Plateau",
 	#"Fel Rager" => "Blade's Edge Mountains",
 	#"General Rajaxx" => "Ruins of Ahn'Qiraj",
-	#"Illidari Heartseeker" => "Unknown Zone",
+	#"Illidari Heartseeker" => "Black Temple",
 	#"Ironbark Protector" => "Dire Maul",
 	#"Kurinnaxx" => "Ruins of Ahn'Qiraj",
 	#"Lord Kazzak" => "Blasted Lands",
@@ -38,7 +38,7 @@ Unknown zones:
 	#"Sunblade Dusk Priest" => "Sunwell Plateau",
 	#"Sunblade Slayer" => "Sunwell Plateau",
 	#"Sunblade Vindicator" => "Sunwell Plateau",
-	#"The Journey Has Just Begun" => "Unknown Zone",
+	#"The Journey Has Just Begun" => "Onyxia's Lair",
 	#"Thuzadin Shadowcaster" => "Stratholme",
 
 
