@@ -40,8 +40,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Health -- 7418
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7418,30,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,7418,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7418,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,7418,8,8)
 
 	-- Enchant Chest - Minor Health -- 7420
 	recipecount = recipecount + 1
@@ -53,7 +53,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7421,1,6218,1,7411)
 	self:addTradeFlags(RecipeDB,7421,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,7421,8,8)
 
 	-- Enchant Chest - Minor Absorption -- 7426
 	recipecount = recipecount + 1
@@ -64,8 +64,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Deflection -- 7428
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7428,40,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,7428,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7428,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,7428,8,8)
 
 	-- Enchant Chest - Minor Mana -- 7443
 	recipecount = recipecount + 1

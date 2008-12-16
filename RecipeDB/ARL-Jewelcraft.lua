@@ -1505,19 +1505,19 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46403,350,35315,3,25229)
 	self:addTradeFlags(RecipeDB,46403,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB,46403,6,1077,4,25950)
+	self:addTradeAcquire(RecipeDB,46403,6,1077,4,25950,6,1077,4,27666)
 
 	-- Reckless Noble Topaz -- 46404
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46404,350,35316,3,25229)
 	self:addTradeFlags(RecipeDB,46404,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB,46404,6,1077,4,25950)
+	self:addTradeAcquire(RecipeDB,46404,6,1077,4,25950,6,1077,4,27666)
 
 	-- Forceful Talasite -- 46405
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46405,350,35318,3,25229)
 	self:addTradeFlags(RecipeDB,46405,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB,46405,6,1077,4,25950)
+	self:addTradeAcquire(RecipeDB,46405,6,1077,4,25950,6,1077,4,27666)
 
 	-- Eternal Earthstorm Diamond -- 46597
 	recipecount = recipecount + 1
@@ -2069,7 +2069,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53950,390,40002,3,25229)
 	self:addTradeFlags(RecipeDB,53950,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	self:addTradeAcquire(RecipeDB,53950,3,29570,3,29875)
+	self:addTradeAcquire(RecipeDB,53950,3,29570,3,29590,3,29875)
 
 	-- Precise Scarlet Ruby -- 53951
 	recipecount = recipecount + 1
@@ -2543,7 +2543,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55398,420,41396,3,25229)
 	self:addTradeFlags(RecipeDB,55398,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,55398,3,28920,3,28923)
+	self:addTradeAcquire(RecipeDB,55398,3,28920,3,28923,3,30396)
 
 	-- Powerful Earthsiege Diamond -- 55399
 	recipecount = recipecount + 1

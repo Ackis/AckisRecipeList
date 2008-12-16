@@ -9,7 +9,7 @@ Inscription data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 363 found from data mining.
-2 ignored.
+1 ignored.
 
 ************************************************************************
 
@@ -1022,10 +1022,10 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57192,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722)
 
 	-- Glyph of Mind Soothe -- 57193
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,57193,375,42407,1,45357)
-	--self:addTradeFlags(RecipeDB,57193,3,26,36,41)
-	--self:addTradeAcquire(RecipeDB,57193,)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,57193,375,42407,1,45357)
+	self:addTradeFlags(RecipeDB,57193,3,26,36,41)
+	-- No acquire information
 
 	-- Glyph of Power Word: Shield -- 57194
 	recipecount = recipecount + 1
@@ -1208,10 +1208,10 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57227,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722)
 
 	-- Glyph of Raise Dead -- 57228
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,57228,295,43673,1,45357)
-	--self:addTradeFlags(RecipeDB,57228,3,36,41)
-	--self:addTradeAcquire(RecipeDB,57228,)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,57228,295,43673,1,45357)
+	self:addTradeFlags(RecipeDB,57228,3,36,41)
+	-- No acquire information
 
 	-- Glyph of Corpse Explosion -- 57229
 	recipecount = recipecount + 1

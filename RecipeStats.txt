@@ -10,6 +10,7 @@ Unknown zones:
 	#"Doomfire Destroyer" => "Sunwell Plateau",
 	#"Fel Rager" => "Blade's Edge Mountains",
 	#"General Rajaxx" => "Ruins of Ahn'Qiraj",
+	#"Illidari Heartseeker" => "Unknown Zone",
 	#"Ironbark Protector" => "Dire Maul",
 	#"Kurinnaxx" => "Ruins of Ahn'Qiraj",
 	#"Lord Kazzak" => "Blasted Lands",
@@ -43,102 +44,104 @@ Unknown zones:
 
 Unknown faction:
 	#"40 Tickets - Schematic: Steam Tonk Controller" => 0, # 
-	#"Ainethil" => 1, # N/A
-	#"Alanna Raveneye" => 1, # N/A
-	#"Alchemist Gribble" => 1, # N/A
-	#"Alegorn" => 1, # N/A
-	#"Aleinia" => 2, # N/A
-	#"Alexandra Bolero" => 1, # N/A
-	#"Alys Vol'tyr" => 2, # N/A
-	#"Amin" => 2, # N/A
-	#"Amy Davenport" => 1, # N/A
+	#"Ainethil" => 1,
+	#"Alanna Raveneye" => 1,
+	#"Alchemist Gribble" => 1,
+	#"Alegorn" => 1,
+	#"Aleinia" => 2,
+	#"Alexandra Bolero" => 1,
+	#"Alys Vol'tyr" => 2,
+	#"Amin" => 2,
+	#"Amy Davenport" => 1,
 	#"Ancient Female Vrykul" => Unknown, # 495
-	#"Andrew Hilbert" => 2, # N/A
-	#"Apothecary Antonivich" => 2, # N/A
-	#"Arnok" => 2, # N/A
-	#"Arras" => 1, # N/A
-	#"Arred" => 1, # N/A
-	#"Artificer Daelo" => 1, # N/A
-	#"Bale" => 2, # N/A
-	#"Banalash" => 2, # N/A
-	#"Barim Spilthoof" => 2, # N/A
-	#"Baxter" => 2, # N/A
-	#"Belil" => 2, # N/A
-	#"Bemarrin" => 2, # N/A
-	#"Betty Quin" => 1, # N/A
-	#"Borgosh Corebender" => 2, # N/A
-	#"Borgus Steelhand" => 1, # N/A
-	#"Borto" => 1, # N/A
-	#"Borya" => 2, # N/A
-	#"Bowen Brisboise" => 2, # N/A
-	#"Bradley Towns" => 2, # N/A
-	#"Brek Stonehoof" => 2, # N/A
-	#"Bronk Guzzlegear" => 1, # N/A
-	#"Burbik Gearspanner" => 1, # N/A
-	#"Burko" => 1, # N/A
-	#"Byancie" => 1, # N/A
-	#"Camberon" => 2, # N/A
-	#"Captured Gnome" => 2, # N/A
-	#"Celie Steelwing" => 1, # N/A
+	#"Andrew Hilbert" => 2,
+	#"Apothecary Antonivich" => 2,
+	#"Arnok" => 2,
+	#"Arras" => 1,
+	#"Arred" => 1,
+	#"Artificer Daelo" => 1,
+	#"Bale" => 2,
+	#"Banalash" => 2,
+	#"Barim Spilthoof" => 2,
+	#"Baxter" => 2,
+	#"Belil" => 2,
+	#"Bemarrin" => 2,
+	#"Betty Quin" => 1,
+	#"Borgosh Corebender" => 2,
+	#"Borgus Steelhand" => 1,
+	#"Borto" => 1,
+	#"Borya" => 2,
+	#"Bowen Brisboise" => 2,
+	#"Bradley Towns" => 2,
+	#"Brek Stonehoof" => 2,
+	#"Bronk Guzzlegear" => 1,
+	#"Burbik Gearspanner" => 1,
+	#"Burko" => 1,
+	#"Byancie" => 1,
+	#"Camberon" => 2,
+	#"Captured Gnome" => 2,
+	#"Celie Steelwing" => 1,
 	#"Cluster Launcher" => 0, # 
-	#"Cyndra Kindwhisper" => 1, # N/A
-	#"Daga Ramba" => 2, # N/A
-	#"Daggle Ironshaper" => 1, # N/A
-	#"Dalinna" => 2, # N/A
-	#"Dane Lindgren" => 1, # N/A
-	#"Daniel Bartlett" => 2, # N/A
-	#"Dannelor" => 1, # N/A
-	#"Danwe" => 2, # N/A
-	#"Darianna" => 1, # N/A
-	#"Derek Odds" => 1, # N/A
-	#"Deynna" => 2, # N/A
-	#"Doba" => 1, # N/A
-	#"Doctor Herbert Halsey" => 2, # N/A
-	#"Doctor Marsh" => 2, # N/A
-	#"Dolothos" => 2, # N/A
-	#"Drakk Stonehand" => 1, # N/A
-	#"Edrem" => 1, # N/A
-	#"Egomis" => 1, # N/A
-	#"Elynna" => 1, # N/A
-	#"Emrul Riknussun" => 1, # N/A
-	#"Erika Tate" => 1, # N/A
-	#"Faldron" => 1, # N/A
-	#"Farii" => 1, # N/A
-	#"Feera" => 1, # N/A
-	#"Felannia" => 2, # N/A
-	#"Felicia Doan" => 2, # N/A
-	#"Felika" => 2, # N/A
-	#"Feruul" => 1, # N/A
+	#"Cyndra Kindwhisper" => 1,
+	#"Daga Ramba" => 2,
+	#"Daggle Ironshaper" => 1,
+	#"Dalinna" => 2,
+	#"Dane Lindgren" => 1,
+	#"Daniel Bartlett" => 2,
+	#"Dannelor" => 1,
+	#"Danwe" => 2,
+	#"Darianna" => 1,
+	#"Derek Odds" => 1,
+	#"Deynna" => 2,
+	#"Doba" => 1,
+	#"Doctor Herbert Halsey" => 2,
+	#"Doctor Marsh" => 2,
+	#"Dolothos" => 2,
+	#"Drakk Stonehand" => 1,
+	#"Edrem" => 1,
+	#"Eebee Jinglepocket" => Unknown, # 3703
+	#"Egomis" => 1,
+	#"Elynna" => 1,
+	#"Emrul Riknussun" => 1,
+	#"Erika Tate" => 1,
+	#"Faldron" => 1,
+	#"Farii" => 1,
+	#"Feera" => 1,
+	#"Felannia" => 2,
+	#"Felicia Doan" => 2,
+	#"Felika" => 2,
+	#"Feruul" => 1,
 	#"Festive Recipes" => 0, # 
-	#"Fimble Finespindle" => 1, # N/A
+	#"Fimble Finespindle" => 1,
 	#"Firework Launcher" => 0, # 
 	#"Flash Bomb Recipe" => 0, # 
-	#"Franklin Lloyd" => 2, # N/A
-	#"Fyldan" => 1, # N/A
-	#"Gambarinka" => 2, # N/A
-	#"Gara Skullcrush" => 2, # N/A
-	#"Gaston" => 1, # N/A
-	#"Gearcutter Cogspinner" => 1, # N/A
-	#"Gelanthis" => 2, # N/A
-	#"Gelman Stonehand" => 1, # N/A
-	#"Georgio Bolero" => 1, # N/A
-	#"Ghak Healtouch" => 1, # N/A
-	#"Ghermas" => 1, # N/A
-	#"Gimble Thistlefuzz" => 1, # N/A
-	#"Gloresse" => 2, # N/A
-	#"Godan" => 2, # N/A
+	#"Franklin Lloyd" => 2,
+	#"Fyldan" => 1,
+	#"Gambarinka" => 2,
+	#"Gara Skullcrush" => 2,
+	#"Gaston" => 1,
+	#"Gearcutter Cogspinner" => 1,
+	#"Gelanthis" => 2,
+	#"Gelman Stonehand" => 1,
+	#"Georgio Bolero" => 1,
+	#"Ghak Healtouch" => 1,
+	#"Ghermas" => 1,
+	#"Ghok'kah" => Unknown, # 15
+	#"Gimble Thistlefuzz" => 1,
+	#"Gloresse" => 2,
+	#"Godan" => 2,
 	#"Gorgolon the All-seeing" => None, # Unknown
-	#"Graham Van Talen" => 2, # N/A
-	#"Great-father Winter" => 0, # N/A
-	#"Gremlock Pilsnor" => 1, # N/A
-	#"Grutah" => 2, # N/A
-	#"Guillaume Sorouy" => 2, # N/A
-	#"Haalrun" => 1, # N/A
-	#"Haferet" => 1, # N/A
-	#"Hagrus" => 2, # N/A
+	#"Graham Van Talen" => 2,
+	#"Great-father Winter" => 0,
+	#"Gremlock Pilsnor" => 1,
+	#"Grutah" => 2,
+	#"Guillaume Sorouy" => 2,
+	#"Haalrun" => 1,
+	#"Haferet" => 1,
+	#"Hagrus" => 2,
 	#"Hahrana Ironhide" => Unknown, # 357
-	#"Hama" => 1, # N/A
-	#"Hurnak Grimmord" => 1, # N/A
+	#"Hama" => 1,
+	#"Hurnak Grimmord" => 1,
 	#"Imperial Plate Belt" => 0, # 
 	#"Imperial Plate Boots" => 0, # 
 	#"Imperial Plate Bracer" => 0, # 
@@ -146,172 +149,172 @@ Unknown faction:
 	#"Imperial Plate Helm" => 0, # 
 	#"Imperial Plate Leggings" => 0, # 
 	#"Imperial Plate Shoulders" => 0, # 
-	#"Innkeeper Grilka" => 2, # N/A
-	#"James Van Brunt" => 2, # N/A
-	#"Jangdor Swiftstrider" => Unknown, # 357
-	#"Jessara Cordell" => 1, # N/A
-	#"Jhag" => 2, # N/A
-	#"Johan Focht" => 2, # N/A
-	#"Josef Gregorian" => 2, # N/A
+	#"Innkeeper Grilka" => 2,
+	#"James Van Brunt" => 2,
+	#"Jessara Cordell" => 1,
+	#"Jhag" => 2,
+	#"Johan Focht" => 2,
+	#"Josef Gregorian" => 2,
 	#"Joseph Moore" => 2, # 1497
-	#"Josephine Lister" => 2, # N/A
-	#"K. Lee Smallfry" => 1, # N/A
-	#"Kalaen" => 2, # N/A
-	#"Kalinda" => 2, # N/A
-	#"Kamari" => 2, # N/A
-	#"Karolek" => 2, # N/A
-	#"Kayaart" => 1, # N/A
-	#"Keelen Sheets" => 2, # N/A
-	#"Kelgruk Bloodaxe" => 2, # N/A
-	#"Kendor Kabonka" => 1, # N/A
-	#"Kithas" => 2, # N/A
-	#"Knight Dameron" => 1, # N/A
-	#"Kor'geld" => 2, # N/A
-	#"Krek Cragcrush" => 2, # N/A
-	#"Krugosh" => 2, # N/A
-	#"Kudrii" => 1, # N/A
-	#"Kylanna Windwhisper" => 1, # N/A
-	#"Landraelanis" => 2, # N/A
-	#"Lavinia Crowe" => 2, # N/A
-	#"Lawrence Schneider" => 1, # N/A
-	#"Leeli Longhaggle" => 1, # N/A
-	#"Lilyssia Nightbreeze" => 1, # N/A
-	#"Linna Bruder" => 1, # N/A
-	#"Logistics Officer Brighton" => 1, # N/A
-	#"Logistics Officer Silverstone" => 1, # N/A
-	#"Loolruna" => 1, # N/A
-	#"Lucan Cordell" => 1, # N/A
-	#"Lyna" => 2, # N/A
-	#"Lynalis" => 2, # N/A
-	#"Magar" => 2, # N/A
-	#"Mahu" => 2, # N/A
-	#"Makaru" => 2, # N/A
-	#"Malcomb Wynn" => 2, # N/A
-	#"Mari Stonehand" => 1, # N/A
-	#"Mary Edras" => 2, # N/A
-	#"Master Chef Mouldier" => 2, # N/A
-	#"Me'lynn" => 1, # N/A
-	#"Miall" => 1, # N/A
-	#"Miao'zan" => 2, # N/A
-	#"Milla Fairancora" => 1, # N/A
-	#"Millie Gregorian" => 2, # N/A
-	#"Mirvedon" => 2, # N/A
-	#"Misensi" => 2, # N/A
-	#"Muaat" => 1, # N/A
-	#"Muheru the Weaver" => 1, # N/A
-	#"Mythrin'dir" => 1, # N/A
-	#"Nadyia Maneweaver" => 1, # N/A
-	#"Nahogg" => 1, # N/A
-	#"Neii" => 1, # N/A
-	#"Nioma" => Unknown, # 47
-	#"Nissa Firestone" => 1, # N/A
-	#"Nogg" => 2, # N/A
-	#"Nula the Butcher" => 2, # N/A
-	#"Nurse Neela" => 2, # N/A
-	#"Nus" => 1, # N/A
-	#"Nyoma" => 1, # N/A
-	#"Okothos Ironrager" => 2, # N/A
-	#"Outfitter Eric" => 1, # N/A
-	#"Padaar" => 1, # N/A
-	#"Phea" => 1, # N/A
+	#"Josephine Lister" => 2,
+	#"K. Lee Smallfry" => 1,
+	#"Kalaen" => 2,
+	#"Kalinda" => 2,
+	#"Kamari" => 2,
+	#"Karolek" => 2,
+	#"Kayaart" => 1,
+	#"Keelen Sheets" => 2,
+	#"Kelgruk Bloodaxe" => 2,
+	#"Kendor Kabonka" => 1,
+	#"Khole Jinglepocket" => 1, # 1519
+	#"Kithas" => 2,
+	#"Knight Dameron" => 1,
+	#"Kor'geld" => 2,
+	#"Krek Cragcrush" => 2,
+	#"Krugosh" => 2,
+	#"Kudrii" => 1,
+	#"Kylanna Windwhisper" => 1,
+	#"Landraelanis" => 2,
+	#"Lavinia Crowe" => 2,
+	#"Lawrence Schneider" => 1,
+	#"Leeli Longhaggle" => 1,
+	#"Lilyssia Nightbreeze" => 1,
+	#"Linna Bruder" => 1,
+	#"Logistics Officer Brighton" => 1,
+	#"Logistics Officer Silverstone" => 1,
+	#"Loolruna" => 1,
+	#"Lucan Cordell" => 1,
+	#"Lyna" => 2,
+	#"Lynalis" => 2,
+	#"Magar" => 2,
+	#"Mahu" => 2,
+	#"Makaru" => 2,
+	#"Malcomb Wynn" => 2,
+	#"Mari Stonehand" => 1,
+	#"Maria Lumere" => 1,
+	#"Mary Edras" => 2,
+	#"Master Chef Mouldier" => 2,
+	#"Me'lynn" => 1,
+	#"Miall" => 1,
+	#"Miao'zan" => 2,
+	#"Milla Fairancora" => 1,
+	#"Millie Gregorian" => 2,
+	#"Mirvedon" => 2,
+	#"Misensi" => 2,
+	#"Muaat" => 1,
+	#"Muheru the Weaver" => 1,
+	#"Mythrin'dir" => 1,
+	#"Nadyia Maneweaver" => 1,
+	#"Nahogg" => 1,
+	#"Nardstrum Copperpinch" => 2, # 1497
+	#"Neii" => 1,
+	#"Nissa Firestone" => 1,
+	#"Nogg" => 2,
+	#"Nula the Butcher" => 2,
+	#"Nurse Neela" => 2,
+	#"Nus" => 1,
+	#"Okothos Ironrager" => 2,
+	#"Outfitter Eric" => 1,
+	#"Padaar" => 1,
+	#"Penney Copperpinch" => 2, # 1637
+	#"Phea" => 1,
 	#"Pratt McGrubben" => Unknown, # 357
-	#"Provisioner Lorkran" => 2, # N/A
-	#"Quartermaster Urgronn" => 2, # N/A
-	#"Randal Worth" => 1, # N/A
-	#"Rawrk" => 2, # N/A
-	#"Razia" => 2, # N/A
-	#"Refik" => 1, # N/A
-	#"Rhiannon Davis" => 2, # N/A
-	#"Rogvar" => 2, # N/A
-	#"Rohok" => 2, # N/A
-	#"Ronald Burch" => 2, # N/A
-	#"Roxxik" => 2, # N/A
-	#"Rungor" => 2, # N/A
-	#"Saenorion" => 1, # N/A
-	#"Saru Steelfury" => 2, # N/A
-	#"Sassa Weldwell" => 1, # N/A
-	#"Sebastian Crane" => 2, # N/A
-	#"Sedana" => 2, # N/A
-	#"Seer Janidi" => 2, # N/A
-	#"Sellandus" => 1, # N/A
-	#"Sewa Mistrunner" => 2, # N/A
-	#"Shankys" => 2, # N/A
-	#"Shayis Steelfury" => 2, # N/A
-	#"Sid Limbardi" => 1, # N/A
-	#"Simon Tanner" => 1, # N/A
-	#"Snang" => 2, # N/A
-	#"Snarl" => 2, # N/A
-	#"Sovik" => 2, # N/A
-	#"Sprite Jumpsprocket" => 1, # N/A
-	#"Stephen Ryback" => 1, # N/A
-	#"Stone Guard Mukar" => 2, # N/A
-	#"Sylvanna Forestmoon" => 1, # N/A
-	#"Taladan" => 1, # N/A
-	#"Talmar" => 2, # N/A
-	#"Tamar" => 2, # N/A
-	#"Tansy Puddlefizz" => 1, # N/A
-	#"Tarn" => 2, # N/A
-	#"Tatiana" => 1, # N/A
-	#"Tel'Athir" => 1, # N/A
-	#"Telonis" => 1, # N/A
-	#"Thaddeus Webb" => 2, # N/A
-	#"Thamner Pol" => 1, # N/A
-	#"Thonys Pillarstone" => 1, # N/A
-	#"Thund" => 2, # N/A
-	#"Tilli Thistlefuzz" => 1, # N/A
-	#"Tognus Flintfire" => 1, # N/A
-	#"Trianna" => 1, # N/A
-	#"Truk Wildbeard" => 1, # N/A
-	#"Ug'thok" => 2, # N/A
-	#"Ulthir" => 1, # N/A
-	#"Una" => 2, # N/A
-	#"Uthok" => 2, # N/A
-	#"Uthrar Threx" => 1, # N/A
-	#"Vaean" => 1, # N/A
-	#"Vance Undergloom" => 2, # N/A
-	#"Vhan" => 2, # N/A
-	#"Victor Ward" => 2, # N/A
-	#"Vix Chromeblaster" => 2, # N/A
-	#"Wulan" => 2, # N/A
-	#"Xen'to" => 2, # N/A
-	#"Xylinnia Starshine" => 1, # N/A
-	#"Yarr Hammerstone" => 1, # N/A
-	#"Yatheon" => 2, # N/A
-	#"Yelmak" => 2, # N/A
-	#"Zamja" => 2, # N/A
-	#"Zaralda" => 2, # N/A
-	#"Zarrin" => 1, # N/A
-	#"Zurai" => 2, # N/A
+	#"Provisioner Lorkran" => 2,
+	#"Quartermaster Urgronn" => 2,
+	#"Randal Worth" => 1,
+	#"Rawrk" => 2,
+	#"Razia" => 2,
+	#"Refik" => 1,
+	#"Rhiannon Davis" => 2,
+	#"Rogvar" => 2,
+	#"Rohok" => 2,
+	#"Ronald Burch" => 2,
+	#"Roxxik" => 2,
+	#"Rungor" => 2,
+	#"Saenorion" => 1,
+	#"Saru Steelfury" => 2,
+	#"Sassa Weldwell" => 1,
+	#"Sebastian Crane" => 2,
+	#"Sedana" => 2,
+	#"Seer Janidi" => 2,
+	#"Seersa Copperpinch" => 2, # 1638
+	#"Sellandus" => 1,
+	#"Sewa Mistrunner" => 2,
+	#"Shankys" => 2,
+	#"Shayis Steelfury" => 2,
+	#"Sid Limbardi" => 1,
+	#"Simon Tanner" => 1,
+	#"Snang" => 2,
+	#"Snarl" => 2,
+	#"Sovik" => 2,
+	#"Sprite Jumpsprocket" => 1,
+	#"Stephen Ryback" => 1,
+	#"Stone Guard Mukar" => 2,
+	#"Sumi" => 2, # 1637
+	#"Sylvanna Forestmoon" => 1,
+	#"Taladan" => 1,
+	#"Talmar" => 2,
+	#"Tamar" => 2,
+	#"Tansy Puddlefizz" => 1,
+	#"Tarn" => 2,
+	#"Tatiana" => 1,
+	#"Tel'Athir" => 1,
+	#"Telonis" => 1,
+	#"Thaddeus Webb" => 2,
+	#"Thamner Pol" => 1,
+	#"Thonys Pillarstone" => 1,
+	#"Thund" => 2,
+	#"Tilli Thistlefuzz" => 1,
+	#"Tognus Flintfire" => 1,
+	#"Trianna" => 1,
+	#"Truk Wildbeard" => 1,
+	#"Ug'thok" => 2,
+	#"Ulthir" => 1,
+	#"Una" => 2,
+	#"Uthok" => 2,
+	#"Uthrar Threx" => 1,
+	#"Vaean" => 1,
+	#"Vance Undergloom" => 2,
+	#"Vhan" => 2,
+	#"Victor Ward" => 2,
+	#"Vix Chromeblaster" => 2,
+	#"Wulan" => 2,
+	#"Wulmort Jinglepocket" => 1, # 1537
+	#"Xen'to" => 2,
+	#"Xylinnia Starshine" => 1,
+	#"Yarr Hammerstone" => 1,
+	#"Yatheon" => 2,
+	#"Yelmak" => 2,
+	#"Zamja" => 2,
+	#"Zaralda" => 2,
+	#"Zarrin" => 1,
+	#"Zurai" => 2,
 
 
 No acquire information:
-3449 - Shadow Oil - Alchemy
-3496 - Moonsteel Broadsword - Blacksmithing
-3778 - Gem-studded Leather Belt - Leatherworking
-3862 - Icy Cloak - Tailoring
+3498 - Massive Iron Axe - Blacksmithing
+3503 - Golden Scale Coif - Blacksmithing
+3857 - Enchanter's Cowl - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
+3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
 3920 - Crafted Light Shot - Engineering
-4096 - Raptor Hide Harness - Leatherworking
 4097 - Raptor Hide Belt - Leatherworking
+6624 - Free Action Potion - Alchemy
 7126 - Handstitched Leather Vest - Leatherworking
+7149 - Barbaric Leggings - Leatherworking
 7255 - Holy Protection Potion - Alchemy
-7257 - Fire Protection Potion - Alchemy
-7258 - Frost Protection Potion - Alchemy
-7418 - Enchant Bracer - Minor Health - Enchanting
-7421 - Runed Copper Rod - Enchanting
-7428 - Enchant Bracer - Minor Deflection - Enchanting
-7954 - Deviate Scale Gloves - Leatherworking
 8789 - Crimson Silk Cloak - Tailoring
+8802 - Crimson Silk Robe - Tailoring
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
-9202 - Green Whelp Bracers - Leatherworking
+9937 - Mithril Scale Bracers - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
+10516 - Nightscape Shoulders - Leatherworking
 10841 - Heavy Mageweave Bandage - First Aid
-11473 - Ghost Dye - Alchemy
 11477 - Elixir of Demonslaying - Alchemy
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
@@ -327,19 +330,19 @@ No acquire information:
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
 17636 - Flask of Distilled Wisdom - Alchemy
-18241 - Filet of Redgill - Cooking
-18242 - Hot Smoked Bass - Cooking
-18405 - Runecloth Bag - Tailoring
+18419 - Felcloth Pants - Tailoring
 18456 - Truefaith Vestments - Tailoring
 18629 - Runecloth Bandage - First Aid
 18630 - Heavy Runecloth Bandage - First Aid
+19050 - Green Dragonscale Breastplate - Leatherworking
 19053 - Chimeric Gloves - Leatherworking
+19061 - Living Shoulders - Leatherworking
+19062 - Ironfeather Shoulders - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
 19080 - Warbear Woolies - Leatherworking
-19085 - Black Dragonscale Breastplate - Leatherworking
+19084 - Devilsaur Gauntlets - Leatherworking
+19088 - Heavy Scorpid Helm - Leatherworking
 19435 - Mooncloth Boots - Tailoring
-20017 - Enchant Shield - Greater Stamina - Enchanting
-20026 - Enchant Chest - Major Health - Enchanting
 20848 - Flarecore Mantle - Tailoring
 20855 - Black Dragonscale Boots - Leatherworking
 20872 - Fiery Chain Girdle - Blacksmithing
@@ -364,8 +367,7 @@ No acquire information:
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
 22967 - Smelt Elementium - Smelting
-23066 - Red Firework - Engineering
-23067 - Blue Firework - Engineering
+23069 - EZ-Thro Dynamite II - Engineering
 23079 - Major Recombobulator - Engineering
 23486 - Dimensional Ripper - Everlook - Engineering
 23489 - Ultrasafe Transporter - Gadgetzan - Engineering
@@ -435,51 +437,20 @@ No acquire information:
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
 44383 - Enchant Shield - Resilience - Enchanting
-44484 - Enchant Gloves - Expertise - Enchanting
-44488 - Enchant Gloves - Precision - Enchanting
-44489 - Enchant Shield - Defense - Enchanting
-44492 - Enchant Chest - Mighty Health - Enchanting
-44500 - Enchant Cloak - Superior Agility - Enchanting
-44506 - Enchant Gloves - Gatherer - Enchanting
-44508 - Enchant Boots - Greater Spirit - Enchanting
-44509 - Enchant Chest - Greater Mana Restoration - Enchanting
-44510 - Enchant Weapon - Exceptional Spirit - Enchanting
-44513 - Enchant Gloves - Greater Assault - Enchanting
-44528 - Enchant Boots - Greater Fortitude - Enchanting
-44529 - Enchant Gloves - Major Agility - Enchanting
-44555 - Enchant Bracers - Exceptional Intellect - Enchanting
 44576 - Enchant Weapon - Lifeward - Enchanting
-44582 - Enchant Cloak - Spell Piercing - Enchanting
-44584 - Enchant Boots - Greater Vitality - Enchanting
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
-44589 - Enchant Boots - Superior Agility - Enchanting
-44592 - Enchant Gloves - Exceptional Spellpower - Enchanting
-44593 - Enchant Bracers - Major Spirit - Enchanting
 44595 - Enchant 2H Weapon - Scourgebane - Enchanting
-44598 - Enchant Bracers - Expertise - Enchanting
 44612 - Enchant Gloves - Greater Blasting - Enchanting
-44616 - Enchant Bracers - Greater Stats - Enchanting
-44623 - Enchant Chest - Super Stats - Enchanting
 44625 - Enchant Gloves - Armsman - Enchanting
-44629 - Enchant Weapon - Exceptional Spellpower - Enchanting
-44630 - Enchant 2H Weapon - Greater Savagery - Enchanting
-44633 - Enchant Weapon - Exceptional Agility - Enchanting
-44635 - Enchant Bracers - Greater Spellpower - Enchanting
-44636 - Enchant Ring - Greater Spellpower - Enchanting
-44645 - Enchant Ring - Assault - Enchanting
 44770 - Glove Reinforcements - Leatherworking
 44794 - Chaotic Skyfire Diamond - Jewelcrafting
-44950 - Green Winter Clothes - Tailoring
-44958 - Red Winter Clothes - Tailoring
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
 45545 - Frostweave Bandage - First Aid
 47280 - Brilliant Glass - Jewelcrafting
 47672 - Enchant Cloak - Mighty Armor - Enchanting
-47766 - Enchant Chest - Greater Defense - Enchanting
 47898 - Enchant Cloak - Greater Speed - Enchanting
 47899 - Enchant Cloak - Wisdom - Enchanting
-47900 - Enchant Chest - Super Health - Enchanting
 47901 - Enchant Boots - Tuskarr's Vitality - Enchanting
 49252 - Smelt Cobalt - Smelting
 49258 - Smelt Saronite - Smelting
@@ -519,12 +490,6 @@ No acquire information:
 51570 - Dark Arctic Chestpiece - Leatherworking
 51571 - Arctic Wristguards - Leatherworking
 51572 - Arctic Helm - Leatherworking
-52567 - Cobalt Legplates - Blacksmithing
-52568 - Cobalt Belt - Blacksmithing
-52569 - Cobalt Boots - Blacksmithing
-52570 - Cobalt Chestpiece - Blacksmithing
-52571 - Cobalt Helm - Blacksmithing
-52572 - Cobalt Shoulders - Blacksmithing
 53281 - Volatile Blasting Trigger - Engineering
 53831 - Bold Bloodstone - Jewelcrafting
 53832 - Delicate Bloodstone - Jewelcrafting
@@ -612,81 +577,17 @@ No acquire information:
 54017 - Precise Bloodstone - Jewelcrafting
 54023 - Resolute Monarch Topaz - Jewelcrafting
 54353 - Mark \"S\" Boomstick - Engineering
-54550 - Cobalt Triangle Shield - Blacksmithing
-54551 - Tempered Saronite Belt - Blacksmithing
-54552 - Tempered Saronite Boots - Blacksmithing
-54553 - Tempered Saronite Breastplate - Blacksmithing
-54554 - Tempered Saronite Legplates - Blacksmithing
-54555 - Tempered Saronite Helm - Blacksmithing
-54556 - Tempered Saronite Shoulders - Blacksmithing
-54557 - Saronite Defender - Blacksmithing
 54736 - Personal Electromagnetic Pulse Generator - Engineering
 54793 - Belt-Clipped Spynoculars - Engineering
-54917 - Spiked Cobalt Helm - Blacksmithing
-54918 - Spiked Cobalt Boots - Blacksmithing
-54941 - Spiked Cobalt Shoulders - Blacksmithing
-54944 - Spiked Cobalt Chestpiece - Blacksmithing
-54945 - Spiked Cobalt Gauntlets - Blacksmithing
-54946 - Spiked Cobalt Belt - Blacksmithing
-54947 - Spiked Cobalt Legplates - Blacksmithing
-54948 - Spiked Cobalt Bracers - Blacksmithing
-54949 - Horned Cobalt Helm - Blacksmithing
 54998 - Hand-Mounted Pyro Rocket - Engineering
 54999 - Hyperspeed Accelerators - Engineering
 55002 - Flexweave Underlay - Engineering
-55013 - Saronite Protector - Blacksmithing
-55014 - Saronite Bulwark - Blacksmithing
-55015 - Tempered Saronite Gauntlets - Blacksmithing
 55016 - Nitro Boosts - Engineering
-55017 - Tempered Saronite Bracers - Blacksmithing
-55055 - Brilliant Saronite Legplates - Blacksmithing
-55056 - Brilliant Saronite Gauntlets - Blacksmithing
-55057 - Brilliant Saronite Boots - Blacksmithing
-55058 - Brilliant Saronite Breastplate - Blacksmithing
-55174 - Honed Cobalt Cleaver - Blacksmithing
-55177 - Savage Cobalt Slicer - Blacksmithing
-55179 - Saronite Ambusher - Blacksmithing
-55181 - Saronite Shiv - Blacksmithing
-55182 - Furious Saronite Beatstick - Blacksmithing
-55183 - Corroded Saronite Edge - Blacksmithing
-55184 - Corroded Saronite Woundbringer - Blacksmithing
-55185 - Saronite Mindcrusher - Blacksmithing
-55186 - Chestplate of Conquest - Blacksmithing
-55187 - Legplates of Conquest - Blacksmithing
 55199 - Cloak of Tormented Skies - Leatherworking
-55200 - Sturdy Cobalt Quickblade - Blacksmithing
-55201 - Cobalt Tenderizer - Blacksmithing
-55202 - Sure-fire Shuriken - Blacksmithing
-55203 - Forged Cobalt Claymore - Blacksmithing
-55204 - Notched Cobalt War Axe - Blacksmithing
-55206 - Deadly Saronite Dirk - Blacksmithing
 55208 - Smelt Titansteel - Smelting
 55211 - Smelt Titanium - Smelting
 55243 - Bracers of Deflection - Leatherworking
 55252 - Scrapbot Construction Kit - Engineering
-55298 - Vengeance Bindings - Blacksmithing
-55300 - Righteous Gauntlets - Blacksmithing
-55301 - Daunting Handguards - Blacksmithing
-55302 - Helm of Command - Blacksmithing
-55303 - Daunting Legplates - Blacksmithing
-55304 - Righteous Greaves - Blacksmithing
-55305 - Savage Saronite Bracers - Blacksmithing
-55306 - Savage Saronite Pauldrons - Blacksmithing
-55307 - Savage Saronite Waistguard - Blacksmithing
-55308 - Savage Saronite Walkers - Blacksmithing
-55309 - Savage Saronite Gauntlets - Blacksmithing
-55310 - Savage Saronite Legplates - Blacksmithing
-55311 - Savage Saronite Hauberk - Blacksmithing
-55312 - Savage Saronite Skullshield - Blacksmithing
-55369 - Titansteel Destroyer - Blacksmithing
-55370 - Titansteel Bonecrusher - Blacksmithing
-55371 - Titansteel Guardian - Blacksmithing
-55372 - Spiked Titansteel Helm - Blacksmithing
-55373 - Tempered Titansteel Helm - Blacksmithing
-55374 - Brilliant Titansteel Helm - Blacksmithing
-55375 - Spiked Titansteel Treads - Blacksmithing
-55376 - Tempered Titansteel Treads - Blacksmithing
-55377 - Brilliant Titansteel Treads - Blacksmithing
 55386 - Tireless Skyflare Diamond - Jewelcrafting
 55390 - Destructive Skyflare Diamond - Jewelcrafting
 55394 - Swift Skyflare Diamond - Jewelcrafting
@@ -695,16 +596,9 @@ No acquire information:
 55399 - Powerful Earthsiege Diamond - Jewelcrafting
 55402 - Persistent Earthsiege Diamond - Jewelcrafting
 55405 - Beaming Earthsiege Diamond - Jewelcrafting
-55628 - Socket Bracer - Blacksmithing
-55641 - Socket Gloves - Blacksmithing
 55642 - Lightweave Embroidery - Tailoring
-55656 - Eternal Belt Buckle - Blacksmithing
-55732 - Titanium Rod - Blacksmithing
 55769 - Darkglow Embroidery - Tailoring
 55777 - Swordguard Embroidery - Tailoring
-55834 - Cobalt Bracers - Blacksmithing
-55835 - Cobalt Gauntlets - Blacksmithing
-55839 - Titanium Weapon Chain - Blacksmithing
 55898 - Frostweave Net - Tailoring
 55899 - Bolt of Frostweave - Tailoring
 55900 - Bolt of Imbued Frostweave - Tailoring
@@ -768,11 +662,7 @@ No acquire information:
 56205 - Dark Jade Focusing Lens - Jewelcrafting
 56206 - Shadow Crystal Focusing Lens - Jewelcrafting
 56208 - Shadow Jade Focusing Lens - Jewelcrafting
-56234 - Titansteel Shanker - Blacksmithing
-56280 - Cudgel of Saronite Justice - Blacksmithing
 56349 - Handful of Cobalt Bolts - Engineering
-56357 - Titanium Shield Spike - Blacksmithing
-56400 - Titansteel Shield Wall - Blacksmithing
 56459 - Hammer Pick - Engineering
 56460 - Cobalt Frag Bomb - Engineering
 56461 - Bladed Pickaxe - Engineering
@@ -802,15 +692,9 @@ No acquire information:
 56514 - Global Thermal Sapper Charge - Engineering
 56530 - Enchanted Pearl - Jewelcrafting
 56531 - Enchanted Tear - Jewelcrafting
-56549 - Ornate Saronite Bracers - Blacksmithing
-56550 - Ornate Saronite Pauldrons - Blacksmithing
-56551 - Ornate Saronite Waistguard - Blacksmithing
-56552 - Ornate Saronite Walkers - Blacksmithing
-56553 - Ornate Saronite Gauntlets - Blacksmithing
-56554 - Ornate Saronite Legplates - Blacksmithing
-56555 - Ornate Saronite Hauberk - Blacksmithing
-56556 - Ornate Saronite Skullshield - Blacksmithing
 56574 - Truesight Ice Blinders - Engineering
+57193 - Glyph of Mind Soothe - Inscription
+57228 - Glyph of Raise Dead - Inscription
 57683 - Fur Lining - Attack Power - Leatherworking
 57690 - Fur Lining - Stamina - Leatherworking
 57691 - Fur Lining - Spell Power - Leatherworking
@@ -820,13 +704,6 @@ No acquire information:
 58144 - Jade Ring of Slaying - Jewelcrafting
 58145 - Stoneguard Band - Jewelcrafting
 58146 - Shadowmight Ring - Jewelcrafting
-59405 - Cobalt Skeleton Key - Blacksmithing
-59406 - Titanium Skeleton Key - Blacksmithing
-59436 - Brilliant Saronite Belt - Blacksmithing
-59438 - Brilliant Saronite Bracers - Blacksmithing
-59440 - Brilliant Saronite Pauldrons - Blacksmithing
-59441 - Brilliant Saronite Helm - Blacksmithing
-59442 - Saronite Spellblade - Blacksmithing
 59582 - Frostsavage Belt - Tailoring
 59583 - Frostsavage Bracers - Tailoring
 59584 - Frostsavage Shoulders - Tailoring
@@ -836,7 +713,6 @@ No acquire information:
 59588 - Frostsavage Leggings - Tailoring
 59589 - Frostsavage Cowl - Tailoring
 59625 - Enchant Weapon - Black Magic - Enchanting
-59636 - Enchant Ring - Stamina - Enchanting
 59759 - Monarch Crab - Jewelcrafting
 60583 - Jormungar Leg Reinforcements - Leatherworking
 60584 - Nerubian Leg Reinforcements - Leatherworking
@@ -845,18 +721,12 @@ No acquire information:
 60601 - Dark Frostscale Leggings - Leatherworking
 60604 - Dark Frostscale Breastplate - Leatherworking
 60605 - Dragonstompers - Leatherworking
-60606 - Enchant Boots - Assault - Enchanting
 60607 - Iceborne Wristguards - Leatherworking
 60608 - Iceborne Helm - Leatherworking
-60609 - Enchant Cloak - Speed - Enchanting
 60611 - Dark Iceborne Leggings - Leatherworking
 60613 - Dark Iceborne Chestguard - Leatherworking
-60616 - Enchant Bracers - Striking - Enchanting
-60619 - Runed Titanium Rod - Enchanting
 60620 - Bugsquashers - Leatherworking
-60621 - Enchant Weapon - Greater Potency - Enchanting
 60622 - Nerubian Bracers - Leatherworking
-60623 - Enchant Boots - Icewalker - Enchanting
 60624 - Nerubian Helm - Leatherworking
 60627 - Dark Nerubian Leggings - Leatherworking
 60629 - Dark Nerubian Chestpiece - Leatherworking
@@ -868,14 +738,11 @@ No acquire information:
 60649 - Razorstrike Breastplate - Leatherworking
 60651 - Virulent Spaulders - Leatherworking
 60652 - Eaglebane Bracers - Leatherworking
-60653 - Enchant Shield - Greater Intellect - Enchanting
 60655 - Nightshock Hood - Leatherworking
 60658 - Nightshock Girdle - Leatherworking
 60660 - Leggings of Visceral Strikes - Leatherworking
-60663 - Enchant Cloak - Major Agility - Enchanting
 60665 - Seafoam Gauntlets - Leatherworking
 60666 - Jormscale Footpads - Leatherworking
-60668 - Enchant Gloves - Crusher - Enchanting
 60669 - Wildscale Breastplate - Leatherworking
 60671 - Purehorn Spaulders - Leatherworking
 60691 - Enchant 2H Weapon - Massacre - Enchanting
@@ -883,15 +750,11 @@ No acquire information:
 60707 - Enchant Weapon - Superior Potency - Enchanting
 60714 - Enchant Weapon - Mighty Spellpower - Enchanting
 60763 - Enchant Boots - Greater Assault - Enchanting
-60767 - Enchant Bracers - Superior Spellpower - Enchanting
 60874 - Nesingwary 4000 - Engineering
 60969 - Flying Carpet - Tailoring
 60971 - Magnificent Flying Carpet - Tailoring
 60990 - Glacial Waistband - Tailoring
 60993 - Glacial Robe - Tailoring
 60994 - Glacial Slippers - Tailoring
-61008 - Icebane Chestguard - Blacksmithing
-61009 - Icebane Girdle - Blacksmithing
-61010 - Icebane Treads - Blacksmithing
 61471 - Diamond-cut Refractor Scope - Engineering
 
