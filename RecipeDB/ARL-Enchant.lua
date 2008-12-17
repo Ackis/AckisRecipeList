@@ -178,8 +178,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Minor Agility -- 7867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7867,125,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,7867,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7867,2,3012)
+	self:addTradeFlags(RecipeDB,7867,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7867,2,3012,2,3537)
 
 	-- Enchant Shield - Minor Stamina -- 13378
 	recipecount = recipecount + 1
@@ -682,8 +682,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Greater Stamina -- 20017
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20017,265,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20017,1,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,20017,2,4229)
+	self:addTradeFlags(RecipeDB,20017,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,20017,2,4229,2,4561)
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	recipecount = recipecount + 1

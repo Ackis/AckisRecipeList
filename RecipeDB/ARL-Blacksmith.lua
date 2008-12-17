@@ -323,7 +323,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
 	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
+	self:addTradeAcquire(RecipeDB,3494,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
 	recipecount = recipecount + 1
@@ -334,8 +334,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Moonsteel Broadsword -- 3496
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
-	self:addTradeAcquire(RecipeDB,3496,2,2482)
+	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	-- No acquire information
 
 	-- Frost Tiger Blade -- 3497
 	recipecount = recipecount + 1
@@ -346,8 +346,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018)
-	self:addTradeFlags(RecipeDB,3498,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,68)
+	self:addTradeAcquire(RecipeDB,3498,2,2483)
 
 	-- Shadow Crescent Axe -- 3500
 	recipecount = recipecount + 1
@@ -659,7 +659,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9966,235,7932,3,2018)
 	self:addTradeFlags(RecipeDB,9966,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,9966,3,5256,3,5267,3,5271,3,5277,3,5649,3,5846,3,10184,3,12397)
+	self:addTradeAcquire(RecipeDB,9966,3,5256,3,5259,3,5267,3,5271,3,5277,3,5649,3,5846,3,10184,3,12397)
 
 	-- Heavy Mithril Boots -- 9968
 	recipecount = recipecount + 1
@@ -941,7 +941,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16651,275,12645,2,2018)
 	self:addTradeFlags(RecipeDB,16651,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,16651,3,10184,3,11361)
+	self:addTradeAcquire(RecipeDB,16651,3,10184,3,11361,3,12129)
 
 	-- Thorium Boots -- 16652
 	recipecount = recipecount + 1
@@ -1312,8 +1312,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Edge of Winter -- 21913
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21913,190,17704,2,2018)
-	self:addTradeFlags(RecipeDB,21913,3,7,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	self:addTradeAcquire(RecipeDB,21913,5,1)
+	self:addTradeFlags(RecipeDB,21913,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40,68)
+	self:addTradeAcquire(RecipeDB,21913,5,1,3,13444)
 
 	-- Elemental Sharpening Stone -- 22757
 	recipecount = recipecount + 1
@@ -2217,8 +2217,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Shadesteel Sabots -- 40033
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,40033,375,32402,1,2018)
-	self:addTradeFlags(RecipeDB,40033,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,102)
-	self:addTradeAcquire(RecipeDB,40033,6,1012,2,23159)
+	self:addTradeFlags(RecipeDB,40033,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	-- No acquire information
 
 	-- Shadesteel Bracers -- 40034
 	recipecount = recipecount + 1

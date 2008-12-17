@@ -64,13 +64,13 @@ function addon:InitCooking(RecipeDB)
 	-- Goretusk Liver Pie -- 2542
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550)
-	self:addTradeFlags(RecipeDB,2542,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2542,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2542,4,22,2,340)
 
 	-- Westfall Stew -- 2543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
-	self:addTradeFlags(RecipeDB,2543,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2543,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544
@@ -160,8 +160,8 @@ function addon:InitCooking(RecipeDB)
 	-- Hot Lion Chops -- 3398
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3398,125,3727,1,2550)
-	self:addTradeFlags(RecipeDB,3398,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3398,4,501,2,3489)
+	self:addTradeFlags(RecipeDB,3398,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3398,4,501,2,3489,2,12245)
 
 	-- Tasty Lion Steak -- 3399
 	recipecount = recipecount + 1
@@ -226,8 +226,8 @@ function addon:InitCooking(RecipeDB)
 	-- Lean Venison -- 6419
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6419,110,5480,1,2550)
-	self:addTradeFlags(RecipeDB,6419,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6419,2,3960)
+	self:addTradeFlags(RecipeDB,6419,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,6419,2,3960,2,12245)
 
 	-- Boiled Clams -- 6499
 	recipecount = recipecount + 1
@@ -257,7 +257,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550)
 	self:addTradeFlags(RecipeDB,7751,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4574,2,5494,2,5940,2,8508)
+	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,5494,2,5940,2,8508)
 
 	-- Slitherskin Mackerel -- 7752
 	recipecount = recipecount + 1
@@ -269,7 +269,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7753,50,4592,1,2550)
 	self:addTradeFlags(RecipeDB,7753,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4574,2,5162,2,5748,2,5940)
+	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4265,2,4574,2,5162,2,5748,2,5940)
 
 	-- Loch Frenzy Delight -- 7754
 	recipecount = recipecount + 1
@@ -335,7 +335,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15855,175,12210,1,2550)
 	self:addTradeFlags(RecipeDB,15855,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15855,2,734,2,1148,2,2810,2,2821,2,4879,2,4897)
+	self:addTradeAcquire(RecipeDB,15855,2,734,2,1148,2,2810,2,2821,2,4879,2,4897,2,12245)
 
 	-- Hot Wolf Ribs -- 15856
 	recipecount = recipecount + 1
@@ -347,13 +347,13 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15861,175,12212,1,2550)
 	self:addTradeFlags(RecipeDB,15861,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15861,2,734,2,1148)
+	self:addTradeAcquire(RecipeDB,15861,2,734,2,1148,2,12245)
 
 	-- Carrion Surprise -- 15863
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15863,175,12213,1,2550)
-	self:addTradeFlags(RecipeDB,15863,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15863,2,989,2,4879,2,9636)
+	self:addTradeFlags(RecipeDB,15863,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,15863,2,989,2,4879,2,9636,2,12245)
 
 	-- Mystery Stew -- 15865
 	recipecount = recipecount + 1
@@ -371,7 +371,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15910,200,12215,1,2550)
 	self:addTradeFlags(RecipeDB,15910,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15910,2,8150,2,9636)
+	self:addTradeAcquire(RecipeDB,15910,2,8150,2,9636,2,12245)
 
 	-- Spiced Chili Crab -- 15915
 	recipecount = recipecount + 1
@@ -467,7 +467,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21143,1,17197,1,2550)
 	self:addTradeFlags(RecipeDB,21143,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21143,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23064)
+	self:addTradeAcquire(RecipeDB,21143,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23010,2,23012,2,23064)
 
 	-- Egg Nog -- 21144
 	recipecount = recipecount + 1
@@ -515,13 +515,13 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25704,80,21072,1,2550)
 	self:addTradeFlags(RecipeDB,25704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Sagefish Delight -- 25954
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25954,175,21217,1,2550)
 	self:addTradeFlags(RecipeDB,25954,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
 
 	-- Crunchy Spider Surprise -- 28267
 	recipecount = recipecount + 1

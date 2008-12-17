@@ -1683,9 +1683,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Mystic Sun Crystal -- 53857
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53857,335,39917,2,25229)
-	self:addTradeFlags(RecipeDB,53857,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53857,350,39917,2,25229)
+	self:addTradeFlags(RecipeDB,53857,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53857,2,32379,2,32382)
 
 	-- Sovereign Shadow Crystal -- 53859
 	recipecount = recipecount + 1
@@ -1725,9 +1725,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Mysterious Shadow Crystal -- 53865Caster DPS, 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53865,335,39945,2,25229)
-	self:addTradeFlags(RecipeDB,53865,3,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53865,350,39945,2,25229)
+	self:addTradeFlags(RecipeDB,53865,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeAcquire(RecipeDB,53865,2,32379,2,32382)
 
 	-- Balanced Shadow Crystal -- 53866
 	recipecount = recipecount + 1
@@ -1785,9 +1785,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Resplendent Huge Citrine -- 53875
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53875,335,39950,2,25229)
-	self:addTradeFlags(RecipeDB,53875,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53875,350,39950,2,25229)
+	self:addTradeFlags(RecipeDB,53875,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53875,2,32379,2,32382)
 
 	-- Fierce Huge Citrine -- 53876
 	recipecount = recipecount + 1
@@ -1809,9 +1809,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Lucent Huge Citrine -- 53879
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53879,335,39954,2,25229)
-	self:addTradeFlags(RecipeDB,53879,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53879,350,39954,2,25229)
+	self:addTradeFlags(RecipeDB,53879,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53879,2,32379,2,32382)
 
 	-- Deft Huge Citrine -- 53880
 	recipecount = recipecount + 1
@@ -1839,9 +1839,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Durable Huge Citrine -- 53884
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53884,335,39958,2,25229)
-	self:addTradeFlags(RecipeDB,53884,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53884,350,39958,2,25229)
+	self:addTradeFlags(RecipeDB,53884,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53884,2,32379,2,32382)
 
 	-- Reckless Huge Citrine -- 53885
 	recipecount = recipecount + 1
@@ -1863,9 +1863,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Empowered Huge Citrine -- 53888
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53888,335,39962,2,25229)
-	self:addTradeFlags(RecipeDB,53888,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53888,350,39962,2,25229)
+	self:addTradeFlags(RecipeDB,53888,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53888,2,32379,2,32382)
 
 	-- Stark Huge Citrine -- 53889
 	recipecount = recipecount + 1
@@ -1923,9 +1923,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Steady Dark Jade -- 53919
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53919,335,39977,2,25229)
-	self:addTradeFlags(RecipeDB,53919,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53919,350,39977,2,25229)
+	self:addTradeFlags(RecipeDB,53919,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53919,2,32379,2,32382)
 
 	-- Forceful Dark Jade -- 53920
 	recipecount = recipecount + 1
@@ -1953,9 +1953,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Turbid Dark Jade -- 53924
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53924,335,39982,2,25229)
-	self:addTradeFlags(RecipeDB,53924,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53924,350,39982,2,25229)
+	self:addTradeFlags(RecipeDB,53924,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53924,2,32379,2,32382)
 
 	-- Intricate Dark Jade -- 53925
 	recipecount = recipecount + 1
@@ -1983,9 +1983,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Opaque Dark Jade -- 53929
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53929,335,39988,2,25229)
-	self:addTradeFlags(RecipeDB,53929,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53929,350,39988,2,25229)
+	self:addTradeFlags(RecipeDB,53929,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53929,2,32379,2,32382)
 
 	-- Energized Dark Jade -- 53930
 	recipecount = recipecount + 1
@@ -2001,15 +2001,15 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Tense Dark Jade -- 53932Caster DPS, 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53932,335,39991,2,25229)
-	self:addTradeFlags(RecipeDB,53932,3,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53932,350,39991,2,25229)
+	self:addTradeFlags(RecipeDB,53932,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeAcquire(RecipeDB,53932,2,32379,2,32382)
 
 	-- Shattered Dark Jade -- 53933Caster DPS, 
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53933,335,39992,2,25229)
-	self:addTradeFlags(RecipeDB,53933,3,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53933,350,39992,2,25229)
+	self:addTradeFlags(RecipeDB,53933,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeAcquire(RecipeDB,53933,2,32379,2,32382)
 
 	-- Solid Chalcedony -- 53934
 	recipecount = recipecount + 1
@@ -2031,9 +2031,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Stormy Chalcedony -- 53943
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53943,335,39927,2,25229)
-	self:addTradeFlags(RecipeDB,53943,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,53943,350,39927,2,25229)
+	self:addTradeFlags(RecipeDB,53943,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53943,2,32379,2,32382)
 
 	-- Delicate Scarlet Ruby -- 53945
 	recipecount = recipecount + 1

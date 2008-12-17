@@ -33,7 +33,7 @@ $vendors = Hash.new
 $localstring = Array.new
 $unknownzone = Array.new
 $unknownfaction = Array.new
-$missingdataacquire = Hash.new
+$missingdataacquire = Array.new
 
 # Creates the faction database
 
@@ -342,6 +342,8 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 0,
 									:loc => "N/A"}
+				$unknownzone << {:name => npc[:name],
+								:loc => "Unknown"}
 			elsif $factionmap[npc[:name]] == 1
 				npc[:react] = []
 				flags << flaglisting["Alliance"]
@@ -350,6 +352,8 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 1,
 									:loc => "N/A"}
+				$unknownzone << {:name => npc[:name],
+								:loc => "Unknown"}
 			elsif $factionmap[npc[:name]] == 2
 				npc[:react] = []
 				flags << flaglisting["Horde"]
@@ -358,6 +362,8 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 2,
 									:loc => "N/A"}
+				$unknownzone << {:name => npc[:name],
+								:loc => "Unknown"}
 			# No reaction information and it's not mapped
 			else
 				npc[:react] = []
@@ -367,6 +373,8 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Friendly"]
+				$unknownzone << {:name => npc[:name],
+								:loc => "Unknown"}
 			end
 		end
 	end
@@ -425,6 +433,9 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 					flags << flaglisting["Raid"]
 				end
 			end
+		elsif $zonemap[quest[:name]]
+			$unknownzone << {:name => quest[:name],
+							:loc => $zonemap[quest[:name]]}
 		else
 			$unknownzone << {:name => quest[:name],
 							:loc => "Unknown"}
@@ -706,13 +717,13 @@ EOF
 							# There was no NPC location mined
 							else
 								# The NPC has been manually added to our list
-								if $bosszonemap[npc[:name]]
+								if $zonemap[npc[:name]]
 									$unknownzone << {:name => npc[:name],
-													:loc => $bosszonemap[npc[:name]]}
+													:loc => $zonemap[npc[:name]]}
 									found = false
 									# Go through all the dungeons
 									$dungeons.each_pair do |id,dname|
-										if dname[:name] == $bosszonemap[npc[:name]]
+										if dname[:name] == $zonemap[npc[:name]]
 											flags << flaglisting["Instance"]
 											found = true
 										end
@@ -720,7 +731,7 @@ EOF
 									if not found
 										# Go through all the raids
 										$raids.each_pair do |id,dname|
-											if dname[:name] == $bosszonemap[npc[:name]]
+											if dname[:name] == $zonemap[npc[:name]]
 												flags << flaglisting["Raid"]
 												found = true
 											end
@@ -1283,7 +1294,7 @@ EOF
         # acquire info  
 		if not ignorerecipe.include?(details[:spellid]) and acquire.length == 0
 			proflua.puts "\t-- No acquire information"
-			$missingdataacquire[details[:spellid]] = {:sname => name, :data => details, :sprof => profession}
+			$missingdataacquire << {:spellid => details[:spellid], :sname => name, :data => details, :sprof => profession}
 		else
 
 			acquiredordered = acquire.sort_by { |entry| entry["id"] }
@@ -1434,8 +1445,8 @@ EOF
 				lookup_lua.print("BZONE[\"#{locs.keys[0]}\"],")
 			# No location, see if we manually have it mapped
 			else
-				if $bosszonemap[v[:name]]
-					lookup_lua.print("BZONE[\"#{$bosszonemap[v[:name]]}\"],")
+				if $zonemap[v[:name]]
+					lookup_lua.print("BZONE[\"#{$zonemap[v[:name]]}\"],")
 				# Identify it as an unknown zone
 				else
 					lookup_lua.print("L[\"Unknown Zone\"],")
@@ -1481,7 +1492,6 @@ EOF
 end
 
 # Creates the enUS localization file.
-
 def create_localization_db()
 
 	puts "\nGenerating Local file .. #{$localstring.length} strings to process"
@@ -1823,7 +1833,6 @@ EOF
 end
 
 # Provides a document containing statistics
-
 def create_stats_list()
 
 	puts "\nGenerating stats file..."
@@ -1855,11 +1864,11 @@ def create_stats_list()
 	stats_lua.puts("\n\nNo acquire information:")
 
 	# Sort the output
-	sorted_keys = $missingdataacquire.sort { |a,b| a[:sprof] <=> b[:sprof] || a[:id] <=> b[:id] }
+	#sorted_keys = $missingdataacquire.sort { |a,b| a[:sprof] <=> b[:sprof] || a[:id] <=> b[:id] }
+	sorted_keys = $missingdataacquire.sort_by { |v| [v[:sprof], v[:spellid]] }
 
 	sorted_keys.each do |k|
-		v = $missingdataacquire[k]
-		stats_lua.puts "#{k} - #{v[:sname]} - #{v[:sprof]}"
+		stats_lua.puts "#{k[:spellid]} - #{k[:sname]} - #{k[:sprof]}"
 	end
 
 	stats_lua.puts "\n"	
@@ -1867,12 +1876,6 @@ def create_stats_list()
 	stats_lua.close
 
 end
-
-recipes = WoWDBRecipes.new
-maps = WoWDBMaps.new
-
-$dungeons = maps.get_dungeon_maps
-$raids = maps.get_raid_maps
 
 # List of professions and their ID's
 $proftable = {
@@ -2489,7 +2492,7 @@ $bosslist = [
 ]
 
 # Manual mapping of mobs to their zones
-$bosszonemap = {
+$zonemap = {
 	"Amani'shi Protector" => "Zul'Aman",
 	"Apocalypse Guard" => "Sunwell Plateau",
 	"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj",
@@ -2804,8 +2807,15 @@ $globalignore = [
 	"Skeletal Fiend (Enraged Form)",
 ]
 
-$debug = false
+recipes = WoWDBRecipes.new
+maps = WoWDBMaps.new
 
+$dungeons = maps.get_dungeon_maps
+$raids = maps.get_raid_maps
+
+def get_alchemy_list(recipes, maps)
+
+	alchemy = recipes.get_alchemy_list
 alchspeciallist = {
 	2329 => {:id => "StartingSkill"},
 	2330 => {:id => "StartingSkill"},
@@ -2890,7 +2900,17 @@ alchspeciallist = {
 	}
 alchmanual=<<EOF
 EOF
+	# Add the restoration potion quests
+	$quests[2203] = {:name => "Badlands Reagent Run II", :faction => 2}
+	$quests[2501] = {:name => "Badlands Reagent Run II", :faction => 1}
 
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
+
+end
+
+def get_bs_list(recipes, maps)
+
+	blacksmithing = recipes.get_blacksmithing_list
 bsspeciallist = {
 	2660 => {:id => "StartingSkill"},
 	2663 => {:id => "StartingSkill"},
@@ -3011,7 +3031,16 @@ bsmanual=<<EOF
 	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
 	self:addTradeAcquire(RecipeDB, 9957,4,2756)
 EOF
+	# Add the Orcish War Leggings quest
+	$quests[2756] = {:name => "The Old Ways", :faction => 2}
 
+	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
+
+end
+
+def get_cooking_list(recipes, maps)
+
+	cooking = recipes.get_cooking_list
 cookingspeciallist = {
 	2538 => {:id => "StartingSkill"},
 	2540 => {:id => "StartingSkill"},
@@ -3050,7 +3079,15 @@ cookingspeciallist = {
 	}
 cookmanual=<<EOF
 EOF
+	$quests[8313] = {:name => "Sharing the Knowledge", :faction => 0}
 
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047,57423,44438,45547,53056],cookingspeciallist,cookmanual)
+
+end
+
+def get_enchanting_list(recipes, maps)
+
+	enchanting = recipes.get_enchanting_list
 enchantingspeciallist = {
 	7418 => {:id => "StartingSkill"},
 	7421 => {:id => "StartingSkill"},
@@ -3100,10 +3137,17 @@ enchantingspeciallist = {
 }
 	enchantmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,enchantmanual)
 
+end
+
+def get_engineering_list(recipes, maps)
+
+	eng = recipes.get_engineering_list
 engspecaillist = {
 	3918 => {:id => "StartingSkill"},
 	3919 => {:id => "StartingSkill"},
+	3920 => {:id => "StartingSkill"},
 	21940 => {:id => 7, :type => 1},
 	26416 => {:id => 7, :type => 2},
 	26417 => {:id => 7, :type => 2},
@@ -3167,6 +3211,46 @@ engspecaillist = {
 	30560 => {:id => "specialty", :type => 20222},
 	30568 => {:id => "specialty", :type => 20219},
 	30570 => {:id => "specialty", :type => 20219},
+	53281 => {:id => "GrandMasterEngTrainer"},
+	54353 => {:id => "GrandMasterEngTrainer"},
+	54736 => {:id => "GrandMasterEngTrainer"},
+	54793 => {:id => "GrandMasterEngTrainer"},
+	54998 => {:id => "GrandMasterEngTrainer"},
+	54999 => {:id => "GrandMasterEngTrainer"},
+	55002 => {:id => "GrandMasterEngTrainer"},
+	55016 => {:id => "GrandMasterEngTrainer"},
+	55252 => {:id => "GrandMasterEngTrainer"},
+	56349 => {:id => "GrandMasterEngTrainer"},
+	56459 => {:id => "GrandMasterEngTrainer"},
+	56460 => {:id => "GrandMasterEngTrainer"},
+	56461 => {:id => "GrandMasterEngTrainer"},
+	56462 => {:id => "GrandMasterEngTrainer"},
+	56463 => {:id => "GrandMasterEngTrainer"},
+	56464 => {:id => "GrandMasterEngTrainer"},
+	56466 => {:id => "GrandMasterEngTrainer"},
+	56467 => {:id => "GrandMasterEngTrainer"},
+	56468 => {:id => "GrandMasterEngTrainer"},
+	56469 => {:id => "GrandMasterEngTrainer"},
+	56470 => {:id => "GrandMasterEngTrainer"},
+	56471 => {:id => "GrandMasterEngTrainer"},
+	56472 => {:id => "GrandMasterEngTrainer"},
+	56473 => {:id => "GrandMasterEngTrainer"},
+	56474 => {:id => "GrandMasterEngTrainer"},
+	56475 => {:id => "GrandMasterEngTrainer"},
+	56476 => {:id => "GrandMasterEngTrainer"},
+	56477 => {:id => "GrandMasterEngTrainer"},
+	56478 => {:id => "GrandMasterEngTrainer"},
+	56479 => {:id => "GrandMasterEngTrainer"},
+	56480 => {:id => "GrandMasterEngTrainer"},
+	56481 => {:id => "GrandMasterEngTrainer"},
+	56483 => {:id => "GrandMasterEngTrainer"},
+	56484 => {:id => "GrandMasterEngTrainer"},
+	56486 => {:id => "GrandMasterEngTrainer"},
+	56487 => {:id => "GrandMasterEngTrainer"},
+	56514 => {:id => "GrandMasterEngTrainer"},
+	56574 => {:id => "GrandMasterEngTrainer"},
+	60874 => {:id => "GrandMasterEngTrainer"},
+	61471 => {:id => "GrandMasterEngTrainer"},
 }
 engmanual=<<EOF
 	-- Mechanized Snow Goggles (Cloth) -- 56465
@@ -3193,13 +3277,25 @@ engmanual=<<EOF
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
 EOF
+	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[61483,30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
 
+end
+
+def get_firstaid_list(recipes, maps)
+
+	firstaid = recipes.get_firstaid_list
 faspecaillist = {
 	3275 => {:id => "StartingSkill"},
 }
 famanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
 
+end
+
+def get_inscription_list(recipes, maps)
+
+	inscription = recipes.get_inscription_list
 insspecaillist = {
 	45382 => {:id => "StartingSkill"},
 	48114 => {:id => "StartingSkill"},
@@ -3565,14 +3661,26 @@ insspecaillist = {
 }
 inscriptionmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[571933],insspecaillist,inscriptionmanual)
 
+end
+
+def get_jc_list(recipes, maps)
+
+	jewelcrafting = recipes.get_jewelcrafting_list
 jcspecaillist = {
 	31101 => {:id => 9},
 	43493 => {:id => 9}
 	}
 jcmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,jcmanual)
 
+end
+
+def get_lw_list(recipes, maps)
+
+	leatherworking = recipes.get_leatherworking_list
 lwspecaillist = {
 	2149 => {:id => "StartingSkill"},
 	2152 => {:id => "StartingSkill"},
@@ -3589,28 +3697,48 @@ lwspecaillist = {
 }
 lwmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Leatherwork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual)
 
+end
+
+def get_smelt_list(recipes, maps)
+
+	smelting = recipes.get_mining_list
 smeltingspecaillist = {
 	2657 => {:id => "StartingSkill"},
 	}
 smeltmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual)
 
-tailoringspecaillist = {
-	2385 => {:id => "StartingSkill"},
-	2387 => {:id => "StartingSkill"},
-	2963 => {:id => "StartingSkill"},
-	28207 => {:id => "ADNaxx40E"},
-	28209 => {:id => "ADNaxx40R"},
-	28205 => {:id => "ADNaxx40R"},
-	28208 => {:id => "ADNaxx40H"},
-}
+end
+
+def get_tailoring_list(recipes, maps)
+
+	tailoring = recipes.get_tailoring_list
+	tailoringspecaillist = {
+		2385 => {:id => "StartingSkill"},
+		2387 => {:id => "StartingSkill"},
+		2963 => {:id => "StartingSkill"},
+		28207 => {:id => "ADNaxx40E"},
+		28209 => {:id => "ADNaxx40R"},
+		28205 => {:id => "ADNaxx40R"},
+		28208 => {:id => "ADNaxx40H"},
+	}
 tailoringmanual=<<EOF
 EOF
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,8778,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
 
-runeforgingspecaillist = {
-}
-	runeforgingmanual=<<EOF
+end
+
+def get_runeforging_list(recipes, maps)
+
+	runeforging = recipes.get_runeforging_list
+
+	runeforgingspecaillist = {
+	}
+
+runeforgingmanual=<<EOF
 	-- Rune of the Fallen Crusader - 53344
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428)
@@ -3660,81 +3788,6 @@ runeforgingspecaillist = {
 	self:addTradeAcquire(RecipeDB,53341,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
 EOF
 
-if $debug
-
-	create_custom_db()
-	create_faction_db()
-
-	create_stats_list()
-
-	#create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
-
-	#create_lookup_db("./RecipeDB/ARL-Vendor.lua","Vendor","VendorDB","InitVendor",$vendors,maps,[])
-
-	#create_lookup_db("./RecipeDB/ARL-Mob.lua","Monster","MobDB","InitMob",$monsters,maps,[])
-
-	#create_lookup_db("./RecipeDB/ARL-Quest.lua","Quest","QuestDB","InitQuest",$quests,maps,[])
-
-else
-
-	create_custom_db()
-	create_faction_db()
-
-	alchemy = recipes.get_alchemy_list
-
-	# Add the restoration potion quests
-	$quests[2203] = {:name => "Badlands Reagent Run II", :faction => 2}
-	$quests[2501] = {:name => "Badlands Reagent Run II", :faction => 1}
-
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
-
-	blacksmithing = recipes.get_blacksmithing_list
-
-	# Add the Orcish War Leggings quest
-	$quests[2756] = {:name => "The Old Ways", :faction => 2}
-
-	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual)
-
-	cooking = recipes.get_cooking_list
-
-	$quests[8313] = {:name => "Sharing the Knowledge", :faction => 0}
-
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047,57423,44438,45547,53056],cookingspeciallist,cookmanual)
-
-	enchanting = recipes.get_enchanting_list
-
-	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,enchantmanual)
-
-	eng = recipes.get_engineering_list
-
-	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[61483,30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecaillist,engmanual)
-
-	firstaid = recipes.get_firstaid_list
-
-	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual)
-
-	inscription = recipes.get_inscription_list
-
-	create_profession_db("./RecipeDB/ARL-Inscription.lua","Inscription",recipes,maps,"InitInscription",inscription,[571933],insspecaillist,inscriptionmanual)
-
-	jewelcrafting = recipes.get_jewelcrafting_list
-
-	create_profession_db("./RecipeDB/ARL-Jewelcraft.lua","Jewelcrafting",recipes,maps,"InitJewelcrafting",jewelcrafting,[25614,26918,26920,32810],jcspecaillist,jcmanual)
-
-	leatherworking = recipes.get_leatherworking_list
-
-	create_profession_db("./RecipeDB/ARL-Leatherwork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual)
-
-	smelting = recipes.get_mining_list
-
-	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual)
-
-	tailoring = recipes.get_tailoring_list
-
-	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,8778,12062,12063,12068,12083,12087,12090],tailoringspecaillist,tailoringmanual)
-
-	runeforging = recipes.get_runeforging_list
-
 	$trainers[28471] = {:name => "Lady Alistra", :faction => 0}
 	$trainers[28474] = {:name => "Amal'thazad", :faction => 0}
 	$trainers[29194] = {:name => "Amal'thazad", :faction => 0}
@@ -3744,6 +3797,10 @@ else
 	$trainers[29196] = {:name => "Lord Thorval", :faction => 0}
 
 	create_profession_db("./RecipeDB/ARL-Runeforge.lua","Runeforging",recipes,maps,"InitRuneforging",runeforging,[],runeforgingspecaillist,runeforgingmanual)
+
+end
+
+def get_other_list(recipes, maps)
 
 	create_lookup_db("./RecipeDB/ARL-Trainer.lua","Trainer","TrainerDB","InitTrainer",$trainers,maps,[])
 
@@ -3755,9 +3812,36 @@ else
 
 	create_localization_db()
 
-	create_stats_list()
+end
+
+$debug = false
+
+create_custom_db()
+create_faction_db()
+
+if $debug
+
+	get_engineering_list(recipes, maps)
+
+else
+
+	get_alchemy_list(recipes, maps)
+	get_bs_list(recipes, maps)
+	get_cooking_list(recipes, maps)
+	get_enchanting_list(recipes, maps)
+	get_engineering_list(recipes, maps)
+	get_firstaid_list(recipes, maps)
+	get_inscription_list(recipes, maps)
+	get_jc_list(recipes, maps)
+	get_lw_list(recipes, maps)
+	get_smelt_list(recipes, maps)
+	get_tailoring_list(recipes, maps)
+	get_runeforging_list(recipes, maps)
+	get_other_list(recipes, maps)
 
 end
+
+create_stats_list()
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"
