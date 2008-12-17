@@ -738,8 +738,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Thorium Shells -- 19800
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19800,285,15997,2,4036)
-	self:addTradeFlags(RecipeDB,19800,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,78)
-	self:addTradeAcquire(RecipeDB,19800,3,13147,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576)
+	self:addTradeFlags(RecipeDB,19800,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,78)
+	self:addTradeAcquire(RecipeDB,19800,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576)
 
 	-- Masterwork Target Dummy -- 19814
 	recipecount = recipecount + 1
@@ -823,7 +823,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1

@@ -310,8 +310,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Hardened Iron Shortsword -- 3492
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3492,160,3849,1,2018)
-	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
-	self:addTradeAcquire(RecipeDB,3492,2,2843,2,3356)
+	self:addTradeFlags(RecipeDB,3492,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
+	self:addTradeAcquire(RecipeDB,3492,2,3356)
 
 	-- Jade Serpentblade -- 3493
 	recipecount = recipecount + 1
@@ -322,8 +322,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Solid Iron Maul -- 3494
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
-	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,3494,2,9179)
+	self:addTradeFlags(RecipeDB,3494,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	-- No acquire information
 
 	-- Golden Iron Destroyer -- 3495
 	recipecount = recipecount + 1

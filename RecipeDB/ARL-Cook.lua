@@ -473,7 +473,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21144,35,17198,1,2550)
 	self:addTradeFlags(RecipeDB,21144,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21144,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23064)
+	self:addTradeAcquire(RecipeDB,21144,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23010,2,23012,2,23064)
 
 	-- Spider Sausage -- 21175
 	recipecount = recipecount + 1

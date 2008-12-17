@@ -982,8 +982,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Brightcloth Robe -- 18414
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18414,270,14100,2,3908)
-	self:addTradeFlags(RecipeDB,18414,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,18414,3,13147,1,2399,1,11052,1,18749,1,18772)
+	self:addTradeFlags(RecipeDB,18414,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,18414,1,2399,1,11052,1,18749,1,18772)
 
 	-- Brightcloth Gloves -- 18415
 	recipecount = recipecount + 1
@@ -1151,7 +1151,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18453,300,14112,2,3908)
 	self:addTradeFlags(RecipeDB,18453,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,18453,3,12397,3,13140,3,13152,3,13153,1,2399,1,11052,1,18749,1,18772)
+	self:addTradeAcquire(RecipeDB,18453,3,12397,3,13152,3,13153,1,2399,1,11052,1,18749,1,18772)
 
 	-- Gloves of Spell Mastery -- 18454
 	recipecount = recipecount + 1

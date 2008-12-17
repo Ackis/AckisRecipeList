@@ -424,8 +424,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Shadow Power -- 11476
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11476,250,9264,2,2259)
-	self:addTradeFlags(RecipeDB,11476,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11476,1,9264)
+	self:addTradeFlags(RecipeDB,11476,1,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11476,1,9264,2,1313)
 
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
