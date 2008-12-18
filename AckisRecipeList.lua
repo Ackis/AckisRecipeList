@@ -309,14 +309,12 @@ function addon:OnEnable()
 	if (Skillet) and (Skillet.GetNumTradeSkills) and
 	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
 	(Skillet.GetTradeSkillRecipeLink) and (Skillet.ExpandTradeSkillSubClass) then
-
 		self:Print("Enabling Skillet advanced features.")
 		GetNumTradeSkills = function(...) return Skillet:GetNumTradeSkills(...) end
 		GetTradeSkillLine = function(...) return Skillet:GetTradeSkillLine(...) end
 		GetTradeSkillInfo = function(...) return Skillet:GetTradeSkillInfo(...) end
 		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
 		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
-
 	end
 
 	-- Populate the repuatation level
@@ -1351,29 +1349,19 @@ function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
 	if (not input) or (input and input:trim() == "") or (input == tolower(L["About"]))then
-
 		if (self.optionsFrame["About"]) then
-
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
-
 		else
-
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-
 		end
-
 	elseif (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
-
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-
 	elseif (input == tolower(L["Profile"])) then
-
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-
 	elseif (input == tolower(L["Filter"])) then
-
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
-
+	elseif (input == tolower("minedata")) then
+		self:MineSkillLevelData()
 	else
 		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
@@ -2136,5 +2124,33 @@ function addon:GetTextDump(RecipeDB)
 	end
 
 	return tconcat(texttable,"\n")
+
+end
+
+-- Description: Parses a trainer and gets the names of all skills with their levels
+-- Expected result: Pop up window with the code needed for skill levels
+-- Input: None
+-- Output: Copy box with code for me
+
+function addon:MineSkillLevelData()
+
+	if (IsTradeskillTrainer()) then
+		SetTrainerServiceTypeFilter("available", 1)
+		SetTrainerServiceTypeFilter("unavailable", 1)
+		SetTrainerServiceTypeFilter("used", 1)
+		local t = {}
+		for i=1,GetNumTrainerServices(),1 do
+			local name = GetTrainerServiceInfo(i)
+			local _,skilllevel = GetTrainerServiceSkillReq(i)
+			if not skilllevel then
+				skilllevel = 1
+			end
+			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel
+			tinsert(foo,skillleveltext)
+		end
+		self:DisplayTextDump(tconcat(foo,"\n"))
+	else
+		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
+	end
 
 end
