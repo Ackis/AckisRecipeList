@@ -220,6 +220,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 13, "Goldthorn Tea Henry Stern.")
 	self:addLookupList(CustomDB, 14, "Minor Inscription Research.")
 	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
+	self:addLookupList(CustomDB, 16, "EngineeringRenewalReward.")
+	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
 
 end
 
@@ -248,6 +250,7 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 
 	unless npc[:id] == 0
 		if not $globalignore.include?(npc[:name])
+
 			if typenpc == "Reputation"
 				acquire = {"type" => acquirelisting["Reputation"],
 							"id" => npc[:id],
@@ -259,6 +262,14 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 							"id" => npc[:id]}
 			end
 			listing[npc[:id]] = {:name => npc[:name]}
+
+			if $zonemap[npc[:name]]
+				$unknownzone << {:name => npc[:name],
+								:loc => $zonemap[npc[:name]]}
+			elsif not npc[:locs]
+				$unknownzone << {:name => npc[:name],
+								:loc => "Unknown Zone (NPC)"}	
+			end
 
 			# Has reaction information
 			if not npc[:react] == nil
@@ -313,8 +324,6 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 						end
 					# Does not have location information and is not mapped manually
 					else
-						$unknownzone << {:name => npc[:name],
-										:loc => "Unknown"}
 						$unknownfaction << {:name => npc[:name],
 											:react => "Unknown",
 											:loc => "Unknown"}
@@ -342,8 +351,6 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 0,
 									:loc => "N/A"}
-				$unknownzone << {:name => npc[:name],
-								:loc => "Unknown"}
 			elsif $factionmap[npc[:name]] == 1
 				npc[:react] = []
 				flags << flaglisting["Alliance"]
@@ -352,8 +359,6 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 1,
 									:loc => "N/A"}
-				$unknownzone << {:name => npc[:name],
-								:loc => "Unknown"}
 			elsif $factionmap[npc[:name]] == 2
 				npc[:react] = []
 				flags << flaglisting["Horde"]
@@ -362,8 +367,6 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				$unknownfaction << {:name => npc[:name],
 									:react => 2,
 									:loc => "N/A"}
-				$unknownzone << {:name => npc[:name],
-								:loc => "Unknown"}
 			# No reaction information and it's not mapped
 			else
 				npc[:react] = []
@@ -373,8 +376,6 @@ def parse_npc_data(npc,details,typenpc,acquirelisting,flaglisting,npcreact,npcfa
 				flags << flaglisting["Alliance"] << flaglisting["Horde"]
 				npc[:react][0] = npcreact["Friendly"]
 				npc[:react][1] = npcreact["Friendly"]
-				$unknownzone << {:name => npc[:name],
-								:loc => "Unknown"}
 			end
 		end
 	end
@@ -438,7 +439,7 @@ def parse_quest_data(quest,acquirelisting,flaglisting,npcfactions,maps)
 							:loc => $zonemap[quest[:name]]}
 		else
 			$unknownzone << {:name => quest[:name],
-							:loc => "Unknown"}
+							:loc => "Unknown Zone (Quest)"}
 		end
 	end
 
@@ -742,7 +743,7 @@ EOF
 									end
 								else
 									$unknownzone << {:name => npc[:name],
-													:loc => "Unknown Zone"}
+													:loc => "Unknown Zone (MOB)"}
 								end
 							end
 						end
@@ -1030,6 +1031,23 @@ EOF
 				$trainers[26953] = {:name => "Thomas Kolichio"}
 				$trainers[26953][:faction] = npcfactions["Horde"]
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "EngineeringRenewalReward"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 16}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "FieldRepairBot"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] <<	flaglisting["Instance"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 17}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Raid"])
 			when "GrandMasterEnchTrainer"
 				acquire << add_npc_trainer(26990, "Alexis Marlowe", "Alliance", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26906, "Elizabeth Jackson", "Alliance", npcfactions, acquirelisting)
@@ -1037,12 +1055,20 @@ EOF
 				acquire << add_npc_trainer(28693, "Enchanter Nalthanis", "Neutral", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26980, "Eorain Dawnstrike", "Horde", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "MasterEngTrainer"
+				#http://www.wowhead.com/?spell=39971
+				#acquire << add_npc_trainer(, "", "", npcfactions, acquirelisting)
+				#flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterEngTrainer"
 				acquire << add_npc_trainer(25277, "Chief Engineer Leveny", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26955, "Jamesina Watterly", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(28697, "Juston Oshenko", "Neutral", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26991, "Scoks Brightbolt", "Alliance", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26907, "Tisha Longbridge", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "EngFlightTrainer"
+				acquire << add_npc_trainer(25099, "Jonathan Garrett", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(24868, "NiobeWhizzlespark", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "InscTrainer"
 				acquire << add_npc_trainer(30713, "Catarina Stanford", "Alliance", npcfactions, acquirelisting)
@@ -1235,6 +1261,7 @@ EOF
 		else
 			proflua.print("\n\t")
 		end
+
 		proflua.puts "recipecount = recipecount + 1"
 
 		if ignorerecipe.include?(details[:spellid])
@@ -1267,7 +1294,7 @@ EOF
 		proflua.print("#{$proftable[profession]}")
 
 		if details[:specialty]
-			proflua.print(",#{details[:specialty]})")
+			proflua.print(",#{details[:specialty]})\n")
 		else
 			proflua.print(")\n")
 		end
@@ -1450,7 +1477,6 @@ EOF
 				# Identify it as an unknown zone
 				else
 					lookup_lua.print("L[\"Unknown Zone\"],")
-					$unknownzone << {:name => v[:name], :loc => "Unknown Zone"}
 				end
 			end
 
@@ -3112,6 +3138,8 @@ $alliancefactionlist = [
 ]
 
 $globalignore = [
+	"Midnight",
+	"Sunblade Protector",
 	"Living Ruby Serpent",
 	"Outland Children's Week Dark Portal Trigger",
 	"Outland Children's Week Exodar 01 Trigger",
@@ -3563,6 +3591,22 @@ engspecaillist = {
 	56574 => {:id => "GrandMasterEngTrainer"},
 	60874 => {:id => "GrandMasterEngTrainer"},
 	61471 => {:id => "GrandMasterEngTrainer"},
+	44155 => {:id => "EngFlightTrainer"},
+	44157 => {:id => "EngFlightTrainer"},
+	41311 => {:id => "GrandMasterEngTrainer"},
+	41312 => {:id => "GrandMasterEngTrainer"},
+	41314 => {:id => "GrandMasterEngTrainer"},
+	41315 => {:id => "GrandMasterEngTrainer"},
+	41316 => {:id => "GrandMasterEngTrainer"},
+	41317 => {:id => "GrandMasterEngTrainer"},
+	41318 => {:id => "GrandMasterEngTrainer"},
+	41319 => {:id => "GrandMasterEngTrainer"},
+	41320 => {:id => "GrandMasterEngTrainer"},
+	41321 => {:id => "GrandMasterEngTrainer"},
+	15628 => {:id => "EngineeringRenewalReward"},
+	15633 => {:id => "EngineeringRenewalReward"},
+	22704 => {:id => "FieldRepairBot"},
+
 }
 engmanual=<<EOF
 	-- Mechanized Snow Goggles (Cloth) -- 56465
@@ -4133,7 +4177,7 @@ create_faction_db()
 
 if $debug
 
-	get_engineering_list(recipes, maps)
+	get_bs_list(recipes, maps)
 
 else
 

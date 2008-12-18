@@ -1,5 +1,6 @@
 Unknown zones:
-	#"Amani'shi Protector" => "Unknown Zone",
+	#"Aged Dalaran Wizard" => "Old Hillsbrad Foothills",
+	#"Annora" => "Uldaman",
 	#"Apocalypse Guard" => "Sunwell Plateau",
 	#"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj",
 	#"Buru the Gorger" => "Ruins of Ahn'Qiraj",
@@ -9,24 +10,29 @@ Unknown zones:
 	#"Crimson Sorcerer" => "Stratholme",
 	#"Doomfire Destroyer" => "Sunwell Plateau",
 	#"Fel Rager" => "Blade's Edge Mountains",
+	#"Firebrand Pyromancer" => "Blackrock Spire",
 	#"General Rajaxx" => "Ruins of Ahn'Qiraj",
-	#"Gorgolon the All-seeing" => "Unknown",
-	#"Illidari Heartseeker" => "Unknown Zone",
+	#"Gorgolon the All-seeing" => "Blade's Edge Mountains",
+	#"Great-father Winter" => "Orgrimmar",
+	#"Illidari Defiler" => "Black Temple",
+	#"Indormi" => "Hyjal Summit",
 	#"Ironbark Protector" => "Dire Maul",
+	#"Koren" => "Karazhan",
 	#"Kurinnaxx" => "Ruins of Ahn'Qiraj",
-	#"Lady Palanseer" => "Unknown",
+	#"Lieutenant General Andorov" => "Ruins of Ahn'Qiraj",
+	#"Lokhtos Darkbargainer" => "Blackrock Depths",
 	#"Lord Kazzak" => "Blasted Lands",
 	#"Magister Kalendris" => "Dire Maul",
 	#"Maleki the Pallid" => "Stratholme",
 	#"Moam" => "Ruins of Ahn'Qiraj",
 	#"Oblivion Mage" => "Sunwell Plateau",
-	#"Onyxian Warder" => "Unknown Zone",
+	#"Okuno" => "Black Temple",
 	#"Ossirian the Unscarred" => "Ruins of Ahn'Qiraj",
 	#"Painbringer" => "Sunwell Plateau",
+	#"Plugger Spazzring" => "Blackrock Depths",
 	#"Priestess Delrissa" => "Magisters' Terrace",
 	#"Priestess of Torment" => "Sunwell Plateau",
 	#"Pusillin" => "Dire Maul",
-	#"Scarlet Tracking Hound" => "Unknown Zone",
 	#"Shadowsword Assassin" => "Sunwell Plateau",
 	#"Shadowsword Guardian" => "Sunwell Plateau",
 	#"Shadowsword Vanquisher" => "Sunwell Plateau",
@@ -35,6 +41,7 @@ Unknown zones:
 	#"Splinterbone Centurion" => "Razorfen Downs",
 	#"Stonevault Oracle" => "Uldaman",
 	#"Stonevault Pillager" => "Uldaman",
+	#"Storm Fury" => "Black Temple",
 	#"Stormforged Giant" => "Halls of Lightning",
 	#"Sunblade Arch Mage" => "Sunwell Plateau",
 	#"Sunblade Cabalist" => "Sunwell Plateau",
@@ -42,8 +49,9 @@ Unknown zones:
 	#"Sunblade Dusk Priest" => "Sunwell Plateau",
 	#"Sunblade Slayer" => "Sunwell Plateau",
 	#"Sunblade Vindicator" => "Sunwell Plateau",
-	#"The Journey Has Just Begun" => "Unknown Zone",
+	#"Thomas Yance" => "Old Hillsbrad Foothills",
 	#"Thuzadin Shadowcaster" => "Stratholme",
+	#"Ythyar" => "Karazhan",
 
 
 Unknown faction:
@@ -130,6 +138,7 @@ Unknown faction:
 	#"Georgio Bolero" => 1,
 	#"Ghak Healtouch" => 1,
 	#"Ghermas" => 1,
+	#"Ghok'kah" => Unknown, # 15
 	#"Gimble Thistlefuzz" => 1,
 	#"Gloresse" => 2,
 	#"Godan" => 2,
@@ -144,6 +153,7 @@ Unknown faction:
 	#"Hagrus" => 2,
 	#"Hahrana Ironhide" => Unknown, # 357
 	#"Hama" => 1,
+	#"Harggan" => Unknown, # 47
 	#"Hotoppik Copperpinch" => 2, # 3487
 	#"Hurnak Grimmord" => 1,
 	#"Imperial Plate Belt" => 0, # 
@@ -162,6 +172,7 @@ Unknown faction:
 	#"Joseph Moore" => 2, # 1497
 	#"Josephine Lister" => 2,
 	#"K. Lee Smallfry" => 1,
+	#"Kaita Deepforge" => 1, # 1519
 	#"Kalaen" => 2,
 	#"Kalinda" => 2,
 	#"Kamari" => 2,
@@ -178,7 +189,7 @@ Unknown faction:
 	#"Krugosh" => 2,
 	#"Kudrii" => 1,
 	#"Kylanna Windwhisper" => 1,
-	#"Lady Palanseer" => None, # Unknown
+	#"Lady Palanseer" => 2, # 1637
 	#"Landraelanis" => 2,
 	#"Lavinia Crowe" => 2,
 	#"Lawrence Schneider" => 1,
@@ -197,7 +208,6 @@ Unknown faction:
 	#"Makaru" => 2,
 	#"Malcomb Wynn" => 2,
 	#"Mari Stonehand" => 1,
-	#"Maria Lumere" => 1,
 	#"Mary Edras" => 2,
 	#"Master Chef Mouldier" => 2,
 	#"Me'lynn" => 1,
@@ -225,6 +235,7 @@ Unknown faction:
 	#"Padaar" => 1,
 	#"Penney Copperpinch" => 2, # 1637
 	#"Phea" => 1,
+	#"Pratt McGrubben" => Unknown, # 357
 	#"Provisioner Lorkran" => 2,
 	#"Quartermaster Urgronn" => 2,
 	#"Randal Worth" => 1,
@@ -260,7 +271,6 @@ Unknown faction:
 	#"Sylvanna Forestmoon" => 1,
 	#"Taladan" => 1,
 	#"Talmar" => 2,
-	#"Tamar" => 2,
 	#"Tansy Puddlefizz" => 1,
 	#"Tarn" => 2,
 	#"Tatiana" => 1,
@@ -299,12 +309,12 @@ Unknown faction:
 
 
 No acquire information:
-7256 - Shadow Protection Potion - Alchemy
+3454 - Frost Oil - Alchemy
+11473 - Ghost Dye - Alchemy
 17636 - Flask of Distilled Wisdom - Alchemy
-3494 - Solid Iron Maul - Blacksmithing
 3496 - Moonsteel Broadsword - Blacksmithing
+3498 - Massive Iron Axe - Blacksmithing
 3503 - Golden Scale Coif - Blacksmithing
-9937 - Mithril Scale Bracers - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -314,15 +324,6 @@ No acquire information:
 16664 - Runic Plate Shoulders - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
-20872 - Fiery Chain Girdle - Blacksmithing
-20873 - Fiery Chain Shoulders - Blacksmithing
-20876 - Dark Iron Leggings - Blacksmithing
-20890 - Dark Iron Reaver - Blacksmithing
-20897 - Dark Iron Destroyer - Blacksmithing
-23636 - Dark Iron Helm - Blacksmithing
-23637 - Dark Iron Gauntlets - Blacksmithing
-23638 - Black Amnesty - Blacksmithing
-23639 - Blackfury - Blacksmithing
 23650 - Ebon Hand - Blacksmithing
 23652 - Blackguard - Blacksmithing
 23653 - Nightfall - Blacksmithing
@@ -330,11 +331,10 @@ No acquire information:
 24912 - Darkrune Gauntlets - Blacksmithing
 24913 - Darkrune Helm - Blacksmithing
 24914 - Darkrune Breastplate - Blacksmithing
-40033 - Shadesteel Sabots - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
 42688 - Adamantite Weapon Chain - Blacksmithing
-23803 - Enchant Weapon - Mighty Spirit - Enchanting
-23804 - Enchant Weapon - Mighty Intellect - Enchanting
+20015 - Enchant Cloak - Superior Defense - Enchanting
+20026 - Enchant Chest - Major Health - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
 44576 - Enchant Weapon - Lifeward - Enchanting
@@ -355,9 +355,6 @@ No acquire information:
 3957 - Ice Deflector - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
-15628 - Pet Bombling - Engineering
-15633 - Lil' Smoky - Engineering
-22704 - Field Repair Bot 74A - Engineering
 23079 - Major Recombobulator - Engineering
 23486 - Dimensional Ripper - Everlook - Engineering
 23489 - Ultrasafe Transporter - Gadgetzan - Engineering
@@ -365,13 +362,6 @@ No acquire information:
 36954 - Dimensional Ripper - Area 52 - Engineering
 36955 - Ultrasafe Transporter - Toshley's Station - Engineering
 39973 - Frost Grenades - Engineering
-41315 - Gadgetstorm Goggles - Engineering
-41316 - Living Replicator Specs - Engineering
-41318 - Wonderheal XT40 Shades - Engineering
-41319 - Magnified Moon Specs - Engineering
-41321 - Powerheal 4000 Lens - Engineering
-44155 - Flying Machine - Engineering
-44157 - Turbo-Charged Flying Machine - Engineering
 10841 - Heavy Mageweave Bandage - First Aid
 18629 - Runecloth Bandage - First Aid
 18630 - Heavy Runecloth Bandage - First Aid
@@ -511,12 +501,9 @@ No acquire information:
 19053 - Chimeric Gloves - Leatherworking
 19061 - Living Shoulders - Leatherworking
 19062 - Ironfeather Shoulders - Leatherworking
-19067 - Stormshroud Pants - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
 19080 - Warbear Woolies - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
-19088 - Heavy Scorpid Helm - Leatherworking
-20855 - Black Dragonscale Boots - Leatherworking
 22711 - Shadowskin Gloves - Leatherworking
 22815 - Gordok Ogre Suit - Leatherworking
 22921 - Girdle of Insight - Leatherworking
@@ -525,10 +512,6 @@ No acquire information:
 22926 - Chromatic Cloak - Leatherworking
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
-23707 - Lava Belt - Leatherworking
-23708 - Chromatic Gauntlets - Leatherworking
-23709 - Corehound Belt - Leatherworking
-23710 - Molten Belt - Leatherworking
 35539 - Drums of Restoration - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
@@ -617,13 +600,14 @@ No acquire information:
 3872 - Rich Purple Silk Shirt - Tailoring
 3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
-8789 - Crimson Silk Cloak - Tailoring
+7643 - Greater Adept's Robe - Tailoring
+8802 - Crimson Silk Robe - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
+18405 - Runecloth Bag - Tailoring
 18419 - Felcloth Pants - Tailoring
 18456 - Truefaith Vestments - Tailoring
 19435 - Mooncloth Boots - Tailoring
-20848 - Flarecore Mantle - Tailoring
 21945 - Green Holiday Shirt - Tailoring
 22813 - Gordok Ogre Suit - Tailoring
 22866 - Belt of the Archmage - Tailoring
@@ -631,8 +615,7 @@ No acquire information:
 22868 - Inferno Gloves - Tailoring
 22869 - Mooncloth Gloves - Tailoring
 22870 - Cloak of Warding - Tailoring
-23666 - Flarecore Robe - Tailoring
-23667 - Flarecore Leggings - Tailoring
+22902 - Mooncloth Robe - Tailoring
 24901 - Runed Stygian Leggings - Tailoring
 24902 - Runed Stygian Belt - Tailoring
 24903 - Runed Stygian Boots - Tailoring

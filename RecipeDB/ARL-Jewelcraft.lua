@@ -820,8 +820,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Mystic Dawnstone -- 31101
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31101,350,24053,3,25229)
-	self:addTradeFlags(RecipeDB,31101,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,31101,2,21474,2,21485)
+	self:addTradeFlags(RecipeDB,31101,1,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,31101,2,21485)
 
 	-- Sovereign Nightseye -- 31102
 	recipecount = recipecount + 1

@@ -48,6 +48,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 13, "Goldthorn Tea Henry Stern.")
 	self:addLookupList(CustomDB, 14, "Minor Inscription Research.")
 	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
+	self:addLookupList(CustomDB, 16, "EngineeringRenewalReward.")
+	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
 
 end
 
