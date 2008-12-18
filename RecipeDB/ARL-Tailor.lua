@@ -437,7 +437,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7633,70,6242,1,3908)
 	self:addTradeFlags(RecipeDB,7633,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7633,2,1250,2,3499,2,3556,2,4168)
+	self:addTradeAcquire(RecipeDB,7633,2,3499,2,3556,2,4168)
 
 	-- Green Woolen Robe -- 7636
 	--recipecount = recipecount + 1
@@ -2014,152 +2014,152 @@ function addon:InitTailoring(RecipeDB)
 	-- Lightweave Embroidery -- 55642
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55642,395,nil, 1, 3908)
-	self:addTradeFlags(RecipeDB,55642,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55642,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55642,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Darkglow Embroidery -- 55769
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55769,395,nil, 1, 3908)
-	self:addTradeFlags(RecipeDB,55769,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55769,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55769,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Swordguard Embroidery -- 55777
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55777,395,nil, 1, 3908)
-	self:addTradeFlags(RecipeDB,55777,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55777,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55777,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostweave Net -- 55898
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55898,350,41509,1,3908)
-	self:addTradeFlags(RecipeDB,55898,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55898,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55898,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Bolt of Frostweave -- 55899
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55899,365,41510,1,3908)
-	self:addTradeFlags(RecipeDB,55899,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55899,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55899,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Bolt of Imbued Frostweave -- 55900
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55900,395,41511,1,3908)
-	self:addTradeFlags(RecipeDB,55900,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55900,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55900,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Leggings -- 55901
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55901,395,41548,2,3908)
-	self:addTradeFlags(RecipeDB,55901,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55901,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55901,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Shoulders -- 55902
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55902,340,41513,2,3908)
-	self:addTradeFlags(RecipeDB,55902,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55902,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55902,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Robe -- 55903
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55903,350,41515,2,3908)
-	self:addTradeFlags(RecipeDB,55903,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55903,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55903,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Gloves -- 55904
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55904,350,44211,1, 3908)
-	self:addTradeFlags(RecipeDB,55904,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55904,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55904,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Boots -- 55906
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55906,365,41520,2,3908)
-	self:addTradeFlags(RecipeDB,55906,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55906,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55906,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Cowl -- 55907
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55907,370,41521,2,3908)
-	self:addTradeFlags(RecipeDB,55907,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55907,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55907,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Belt -- 55908
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55908,360,41522,2,3908)
-	self:addTradeFlags(RecipeDB,55908,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55908,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55908,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Mystic Frostwoven Shoulders -- 55910
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55910,375,41523,3,3908)
-	self:addTradeFlags(RecipeDB,55910,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55910,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55910,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Mystic Frostwoven Robe -- 55911
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55911,380,41525,3,3908)
-	self:addTradeFlags(RecipeDB,55911,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55911,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55911,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Mystic Frostwoven Wristwraps -- 55913
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55913,375,41528,3,3908)
-	self:addTradeFlags(RecipeDB,55913,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55913,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55913,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Belt -- 55914
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55914,390,41543,2,3908)
-	self:addTradeFlags(RecipeDB,55914,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55914,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55914,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Cowl -- 55919
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55919,395,41546,2,3908)
-	self:addTradeFlags(RecipeDB,55919,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55919,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55919,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Wristwraps -- 55920
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55920,400,41551,2,3908)
-	self:addTradeFlags(RecipeDB,55920,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55920,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55920,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Robe -- 55921
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55921,405,41549,2,3908)
-	self:addTradeFlags(RecipeDB,55921,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55921,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55921,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Gloves -- 55922
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55922,405,41545,2,3908)
-	self:addTradeFlags(RecipeDB,55922,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55922,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55922,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Shoulders -- 55923
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55923,410,41550,2,3908)
-	self:addTradeFlags(RecipeDB,55923,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55923,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55923,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Black Duskweave Leggings -- 55925
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55925,415,41553,3,3908)
-	self:addTradeFlags(RecipeDB,55925,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55925,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Black Duskweave Robe -- 55941
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55941,420,41554,3,3908)
-	self:addTradeFlags(RecipeDB,55941,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55941,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Black Duskweave Wristwraps -- 55943
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55943,415,41555,3,3908)
-	self:addTradeFlags(RecipeDB,55943,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55943,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,55943,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Red Lumberjack Shirt -- 55993
 	recipecount = recipecount + 1
@@ -2176,8 +2176,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Yellow Lumberjack Shirt -- 55995
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55995,390,41251,1, 3908)
-	self:addTradeFlags(RecipeDB,55995,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55995,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55995,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Green Lumberjack Shirt -- 55996
 	recipecount = recipecount + 1
@@ -2206,26 +2206,26 @@ function addon:InitTailoring(RecipeDB)
 	-- Green Workman's Shirt -- 56000
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56000,390,41255,1, 3908)
-	self:addTradeFlags(RecipeDB,56000,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56000,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56000,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Moonshroud -- 56001
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56001,415,41594,3,3908)
-	self:addTradeFlags(RecipeDB,56001,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56001,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56001,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Ebonweave -- 56002
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56002,415,41593,3,3908)
-	self:addTradeFlags(RecipeDB,56002,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56002,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56002,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Spellweave -- 56003
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56003,415,41595,3,3908)
-	self:addTradeFlags(RecipeDB,56003,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56003,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56003,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Abyssal Bag -- 56004
 	recipecount = recipecount + 1
@@ -2248,14 +2248,14 @@ function addon:InitTailoring(RecipeDB)
 	-- Frostweave Bag -- 56007
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56007,410,41599,2,3908)
-	self:addTradeFlags(RecipeDB,56007,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56007,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56007,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Shining Spellthread -- 56008
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56008,390,41601,3,3908)
-	self:addTradeFlags(RecipeDB,56008,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56008,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56008,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Brilliant Spellthread -- 56009
 	recipecount = recipecount + 1
@@ -2266,8 +2266,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Azure Spellthread -- 56010
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56010,390,41603,3,3908)
-	self:addTradeFlags(RecipeDB,56010,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56010,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56010,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Sapphire Spellthread -- 56011
 	recipecount = recipecount + 1
@@ -2278,206 +2278,206 @@ function addon:InitTailoring(RecipeDB)
 	-- Cloak of the Moon -- 56014
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56014,385,41607,2,3908)
-	self:addTradeFlags(RecipeDB,56014,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56014,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeAcquire(RecipeDB,56014,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Cloak of Frozen Spirits -- 56015
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56015,390,41608,1, 3908)
-	self:addTradeFlags(RecipeDB,56015,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56015,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeAcquire(RecipeDB,56015,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Wispcloak -- 56016
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56016,415,41609,1, 3908)
-	self:addTradeFlags(RecipeDB,56016,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56016,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeAcquire(RecipeDB,56016,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Deathchill Cloak -- 56017
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56017,415,41610,1, 3908)
-	self:addTradeFlags(RecipeDB,56017,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56017,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeAcquire(RecipeDB,56017,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Hat of Wintry Doom -- 56018
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56018,425,41984,1, 3908)
-	self:addTradeFlags(RecipeDB,56018,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56018,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56018,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Silky Iceshard Boots -- 56019
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56019,410,41985,1, 3908)
-	self:addTradeFlags(RecipeDB,56019,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56019,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56019,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Deep Frozen Cord -- 56020
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56020,410,41986,1, 3908)
-	self:addTradeFlags(RecipeDB,56020,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56020,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56020,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostmoon Pants -- 56021
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56021,425,42093,1, 3908)
-	self:addTradeFlags(RecipeDB,56021,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56021,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56021,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Light Blessed Mittens -- 56022
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56022,410,42095,1, 3908)
-	self:addTradeFlags(RecipeDB,56022,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56022,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56022,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Aurora Slippers -- 56023
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56023,410,42096,1, 3908)
-	self:addTradeFlags(RecipeDB,56023,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56023,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56023,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Moonshroud Robe -- 56024
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56024,440,42100,4,3908)
-	self:addTradeFlags(RecipeDB,56024,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56024,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56024,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Moonshroud Gloves -- 56025
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56025,435,42103,1, 3908)
-	self:addTradeFlags(RecipeDB,56025,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56025,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56025,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Ebonweave Robe -- 56026
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56026,440,42101,1, 3908)
-	self:addTradeFlags(RecipeDB,56026,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56026,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56026,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Ebonweave Gloves -- 56027
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56027,435,42111,1, 3908)
-	self:addTradeFlags(RecipeDB,56027,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56027,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56027,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Spellweave Robe -- 56028
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56028,440,42102,1, 3908)
-	self:addTradeFlags(RecipeDB,56028,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56028,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56028,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Spellweave Gloves -- 56029
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56029,435,42113,1, 3908)
-	self:addTradeFlags(RecipeDB,56029,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56029,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56029,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Leggings -- 56030
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56030,370,41519,2,3908)
-	self:addTradeFlags(RecipeDB,56030,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56030,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56030,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostwoven Wristwraps -- 56031
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56031,340,41512,2,3908)
-	self:addTradeFlags(RecipeDB,56031,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56031,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56031,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Master's Spellthread -- 56034
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56034,400,nil, 1, 3908)
-	self:addTradeFlags(RecipeDB,56034,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56034,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56034,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Sanctified Spellthread -- 56039
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56039,400,nil, 1, 3908)
-	self:addTradeFlags(RecipeDB,56039,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56039,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,56039,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Duskweave Boots -- 56048
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56048,380,41544,1, 3908)
-	self:addTradeFlags(RecipeDB,56048,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,56048,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,56048,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Belt -- 59582
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59582,405,43969,1, 3908)
-	self:addTradeFlags(RecipeDB,59582,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59582,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59582,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Bracers -- 59583
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59583,405,43974,1, 3908)
-	self:addTradeFlags(RecipeDB,59583,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59583,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59583,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Shoulders -- 59584
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59584,410,43973,1, 3908)
-	self:addTradeFlags(RecipeDB,59584,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59584,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Boots -- 59585
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59585,410,43970,1, 3908)
-	self:addTradeFlags(RecipeDB,59585,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59585,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59585,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Gloves -- 59586
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59586,410,41516,2,3908)
-	self:addTradeFlags(RecipeDB,59586,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59586,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59586,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Robe -- 59587
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59587,410,43972,1, 3908)
-	self:addTradeFlags(RecipeDB,59587,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59587,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59587,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Leggings -- 59588
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59588,410,43975,1, 3908)
-	self:addTradeFlags(RecipeDB,59588,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59588,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59588,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Frostsavage Cowl -- 59589
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59589,410,43971,1, 3908)
-	self:addTradeFlags(RecipeDB,59589,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,59589,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,59589,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Flying Carpet -- 60969
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60969,410,44554,3,3908,34090)
-	self:addTradeFlags(RecipeDB,60969,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60969,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,60969,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Magnificent Flying Carpet -- 60971
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60971,425,44558,4,3908,34091)
-	self:addTradeFlags(RecipeDB,60971,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60971,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,60971,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Glacial Waistband -- 60990
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60990,410,43584,1, 3908)
-	self:addTradeFlags(RecipeDB,60990,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60990,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,60990,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Glacial Robe -- 60993
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60993,415,43583,4,3908)
-	self:addTradeFlags(RecipeDB,60993,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60993,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,60993,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 	-- Glacial Slippers -- 60994
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60994,410,43585,1, 3908)
-	self:addTradeFlags(RecipeDB,60994,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,60994,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,60994,1,26914,1,26964,1,26969,1,27001,1,28699)
 
 
 	return recipecount

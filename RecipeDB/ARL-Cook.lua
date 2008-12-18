@@ -64,13 +64,13 @@ function addon:InitCooking(RecipeDB)
 	-- Goretusk Liver Pie -- 2542
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550)
-	self:addTradeFlags(RecipeDB,2542,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2542,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2542,4,22,2,340)
 
 	-- Westfall Stew -- 2543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
-	self:addTradeFlags(RecipeDB,2543,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2543,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544

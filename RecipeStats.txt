@@ -195,7 +195,6 @@ Unknown faction:
 	#"Lawrence Schneider" => 1,
 	#"Leeli Longhaggle" => 1,
 	#"Lilyssia Nightbreeze" => 1,
-	#"Linna Bruder" => 1,
 	#"Logannas" => 1,
 	#"Logistics Officer Brighton" => 1,
 	#"Logistics Officer Silverstone" => 1,
@@ -390,6 +389,7 @@ No acquire information:
 44794 - Chaotic Skyfire Diamond - Jewelcrafting
 47280 - Brilliant Glass - Jewelcrafting
 3778 - Gem-studded Leather Belt - Leatherworking
+4096 - Raptor Hide Harness - Leatherworking
 4097 - Raptor Hide Belt - Leatherworking
 7126 - Handstitched Leather Vest - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
@@ -413,6 +413,7 @@ No acquire information:
 35539 - Drums of Restoration - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
+44768 - Netherscale Ammo Pouch - Leatherworking
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
@@ -454,3 +455,4 @@ No acquire information:
 36669 - Lifeblood Leggings - Tailoring
 36670 - Lifeblood Belt - Tailoring
 36672 - Lifeblood Bracers - Tailoring
+
