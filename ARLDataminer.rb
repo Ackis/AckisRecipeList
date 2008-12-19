@@ -2914,7 +2914,35 @@ $globalignore = [
 ]
 
 $skilllevelmap = {
-
+	"Resurgent Healing Potion" => 350,
+	"Wrath Elixir" => 355,
+	"Icy Mana Potion" => 360,
+	"Spellpower Elixir" => 365,
+	"Guru's Elixir" => 375,
+	"Lesser Flask of Toughness" => 375,
+	"Pygmy Oil" => 375,
+	"Potion of Nightmares" => 380,
+	"Elixir of Mighty Strength" => 385,
+	"Elixir of Spirit" => 385,
+	"Elixir of Mighty Fortitude" => 390,
+	"Elixir of Mighty Agility" => 395,
+	"Elixir of Mighty Thoughts" => 395,
+	"Indestructible Potion" => 395,
+	"Transmute: Titanium" => 395,
+	"Indestructible Alchemist Stone" => 400,
+	"Mercurial Alchemist Stone" => 400,
+	"Mighty Alchemist Stone" => 400,
+	"Northrend Alchemy Research" => 400,
+	"Runic Healing Potion" => 405,
+	"Endless Healing Potion" => 410,
+	"Endless Mana Potion" => 410,
+	"Runic Mana Potion" => 410,
+	"Transmute: Earthsiege Diamond" => 425,
+	"Transmute: Skyflare Diamond" => 430,
+	"Flask of Endless Rage" => 435,
+	"Flask of Pure Mojo" => 435,
+	"Flask of Stoneblood" => 435,
+	"Flask of the Frost Wyrm" => 435,
 }
 
 recipes = WoWDBRecipes.new

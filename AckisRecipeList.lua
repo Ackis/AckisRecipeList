@@ -2144,7 +2144,7 @@ function addon:MineSkillLevelData()
 			if not skilllevel then
 				skilllevel = 1
 			end
-			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel
+			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel .. ","
 			tinsert(t,skillleveltext)
 		end
 		self:DisplayTextDump(tconcat(t,"\n"))
