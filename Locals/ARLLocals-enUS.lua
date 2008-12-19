@@ -54,6 +54,10 @@ L["Sorting Settings"]		= true
 L["Profile Options"]		= true
 L["ARL Documentation"]		= true
 
+-- Command line options
+L["Profile"]				= true
+L["Filter"]					= true
+
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true

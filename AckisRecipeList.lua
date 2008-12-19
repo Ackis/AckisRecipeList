@@ -1365,7 +1365,6 @@ function addon:ChatCommand(input)
 	else
 		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
-
 	end
 
 end
@@ -2146,9 +2145,9 @@ function addon:MineSkillLevelData()
 				skilllevel = 1
 			end
 			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel
-			tinsert(foo,skillleveltext)
+			tinsert(t,skillleveltext)
 		end
-		self:DisplayTextDump(tconcat(foo,"\n"))
+		self:DisplayTextDump(tconcat(t,"\n"))
 	else
 		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
 	end

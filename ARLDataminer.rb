@@ -205,10 +205,10 @@ local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:InitCustom(CustomDB)
 
-	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade or higher ingredients.")
 	self:addLookupList(CustomDB, 5, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate.")
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
@@ -222,6 +222,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
 	self:addLookupList(CustomDB, 16, "EngineeringRenewalReward.")
 	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
+	self:addLookupList(CustomDB, 18, "Northrend Alchemy Research.")
+	self:addLookupList(CustomDB, 19, "Northrend Transmute.")
 
 end
 
@@ -920,6 +922,64 @@ EOF
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Raid"]
 				acquire << {"type" => acquirelisting["Custom"],
 							"id" => 11}
+	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade or higher ingredients.")
+			when "BCAlchemyElixir"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 1}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "BCAlchemyPotion"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 2}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "BCAlchemyTransmute"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 3}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "BCAlchemyCauldron"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 4}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "NorthrendAlchemyResearch"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 18}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+			when "NorthrendAlchemyTransmute"
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 19}
+				flags.delete(flaglisting["Quest"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
 			when "MinorInscriptionResearch"
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
 				acquire << {"type" => acquirelisting["Custom"],
@@ -1273,7 +1333,9 @@ EOF
 		proflua.print("self:addTradeSkill(RecipeDB,#{details[:spellid]},")
 
 		# If we have a skill which it's learned at, we'll use it, if not use 1
-		if details[:learned]
+		if $skilllevelmap[name]
+			proflua.print("#{$skilllevelmap[name]},")
+		elsif details[:learned]
 			proflua.print("#{details[:learned]},")
 		else
 			proflua.print("1, ")
@@ -1575,6 +1637,10 @@ L["Filters"]				= true
 L["All"]					= true
 L["None"]					= true
 L["Ok"]						= true
+
+-- Command line options
+L["Profile"]				= true
+L["Filter"]					= true
 
 -- Config Options
 L["About"]					= true
@@ -2847,6 +2913,10 @@ $globalignore = [
 	"Skeletal Fiend (Enraged Form)",
 ]
 
+$skilllevelmap = {
+
+}
+
 recipes = WoWDBRecipes.new
 maps = WoWDBMaps.new
 
@@ -2860,38 +2930,38 @@ alchspeciallist = {
 	2329 => {:id => "StartingSkill"},
 	2330 => {:id => "StartingSkill"},
 	2333 => {:id => "StartingSkill"},
-	28580 => {:id => 12, :type => [3]},
-	28581 => {:id => 12, :type => [3]},
-	28582 => {:id => 12, :type => [3]},
-	28583 => {:id => 12, :type => [3]},
-	28584 => {:id => 12, :type => [3]},
-	28585 => {:id => 12, :type => [3]},
-	28586 => {:id => 12, :type => [2]},
-	28587 => {:id => 12, :type => [1]},
-	28588 => {:id => 12, :type => [1]},
-	28589 => {:id => 12, :type => [1]},
-	28590 => {:id => 12, :type => [1]},
-	28591 => {:id => 12, :type => [1]},
-	41458 => {:id => 12, :type => [4]},
-	41500 => {:id => 12, :type => [4]},
-	41501 => {:id => 12, :type => [4]},
-	41502 => {:id => 12, :type => [4]},
-	41503 => {:id => 12, :type => [4]},
-	53771 => {:id => 12, :type => [12]},
-	53773 => {:id => 12, :type => [12]},
-	53774 => {:id => 12, :type => [12]},
-	53775 => {:id => 12, :type => [12]},
-	53776 => {:id => 12, :type => [12]},
-	53777 => {:id => 12, :type => [12]},
-	53779 => {:id => 12, :type => [12]},
-	53780 => {:id => 12, :type => [12]},
-	53781 => {:id => 12, :type => [12]},
-	53782 => {:id => 12, :type => [12]},
-	53783 => {:id => 12, :type => [12]},
-	53784 => {:id => 12, :type => [12]},
 	21923 => {:id => 7, :type => 1},
 	47050 => {:id => "meleedps"},
 	11456 => {:id => "CustomNeutral", :type => 9},
+	28580 => {:id => "BCAlchemyTransmute"},
+	28581 => {:id => "BCAlchemyTransmute"},
+	28582 => {:id => "BCAlchemyTransmute"},
+	28583 => {:id => "BCAlchemyTransmute"},
+	28584 => {:id => "BCAlchemyTransmute"},
+	28585 => {:id => "BCAlchemyTransmute"},
+	28586 => {:id => "BCAlchemyPotion"},
+	28587 => {:id => "BCAlchemyElixir"},
+	28588 => {:id => "BCAlchemyElixir"},
+	28589 => {:id => "BCAlchemyElixir"},
+	28590 => {:id => "BCAlchemyElixir"},
+	28591 => {:id => "BCAlchemyElixir"},
+	41458 => {:id => "BCAlchemyCauldron"},
+	41500 => {:id => "BCAlchemyCauldron"},
+	41501 => {:id => "BCAlchemyCauldron"},
+	41502 => {:id => "BCAlchemyCauldron"},
+	41503 => {:id => "BCAlchemyCauldron"},
+	53771 => {:id => "NorthrendAlchemyTransmute"},
+	53773 => {:id => "NorthrendAlchemyTransmute"},
+	53774 => {:id => "NorthrendAlchemyTransmute"},
+	53775 => {:id => "NorthrendAlchemyTransmute"},
+	53776 => {:id => "NorthrendAlchemyTransmute"},
+	53777 => {:id => "NorthrendAlchemyTransmute"},
+	53779 => {:id => "NorthrendAlchemyTransmute"},
+	53780 => {:id => "NorthrendAlchemyTransmute"},
+	53781 => {:id => "NorthrendAlchemyTransmute"},
+	53782 => {:id => "NorthrendAlchemyTransmute"},
+	53783 => {:id => "NorthrendAlchemyTransmute"},
+	53784 => {:id => "NorthrendAlchemyTransmute"},
 	24266 => {:id => "Edge of Madness"},
 	45061 => {:id => "MasterAlchTrainer"},
 	53812 => {:id => "GrandMasterAlchTrainer"},
@@ -2904,33 +2974,33 @@ alchspeciallist = {
 	53842 => {:id => "GrandMasterAlchTrainer"},
 	53847 => {:id => "GrandMasterAlchTrainer"},
 	53848 => {:id => "GrandMasterAlchTrainer"},
-	53895 => {:id => "GrandMasterAlchTrainer"},
+	53895 => {:id => "NorthrendAlchemyResearch"},
 	53898 => {:id => "GrandMasterAlchTrainer"},
 	53899 => {:id => "GrandMasterAlchTrainer"},
 	53900 => {:id => "GrandMasterAlchTrainer"},
 	53901 => {:id => "GrandMasterAlchTrainer"},
 	53902 => {:id => "GrandMasterAlchTrainer"},
 	53903 => {:id => "GrandMasterAlchTrainer"},
-	53904 => {:id => "GrandMasterAlchTrainer"},
+	53904 => {:id => "NorthrendAlchemyResearch"},
 	53905 => {:id => "GrandMasterAlchTrainer"},
 	54020 => {:id => "GrandMasterAlchTrainer"},
 	54213 => {:id => "GrandMasterAlchTrainer"},
 	54218 => {:id => "GrandMasterAlchTrainer"},
-	54220 => {:id => "GrandMasterAlchTrainer"},
-	54221 => {:id => "GrandMasterAlchTrainer"},
-	54222 => {:id => "GrandMasterAlchTrainer"},
-	56519 => {:id => "GrandMasterAlchTrainer"},
+	54220 => {:id => "NorthrendAlchemyResearch"},
+	54221 => {:id => "NorthrendAlchemyResearch"},
+	54222 => {:id => "NorthrendAlchemyResearch"},
+	56519 => {:id => "NorthrendAlchemyResearch"},
 	57425 => {:id => "GrandMasterAlchTrainer"},
 	57427 => {:id => "GrandMasterAlchTrainer"},
 	58868 => {:id => "GrandMasterAlchTrainer"},
 	58871 => {:id => "GrandMasterAlchTrainer"},
 	60350 => {:id => "GrandMasterAlchTrainer"},
-	60354 => {:id => "GrandMasterAlchTrainer"},
-	60355 => {:id => "GrandMasterAlchTrainer"},
-	60356 => {:id => "GrandMasterAlchTrainer"},
-	60357 => {:id => "GrandMasterAlchTrainer"},
-	60365 => {:id => "GrandMasterAlchTrainer"},
-	60366 => {:id => "GrandMasterAlchTrainer"},
+	60354 => {:id => "NorthrendAlchemyResearch"},
+	60355 => {:id => "NorthrendAlchemyResearch"},
+	60356 => {:id => "NorthrendAlchemyResearch"},
+	60357 => {:id => "NorthrendAlchemyResearch"},
+	60365 => {:id => "NorthrendAlchemyResearch"},
+	60366 => {:id => "NorthrendAlchemyResearch"},
 	60367 => {:id => "GrandMasterAlchTrainer"},
 	60396 => {:id => "GrandMasterAlchTrainer"},
 	60403 => {:id => "GrandMasterAlchTrainer"},
@@ -2944,7 +3014,7 @@ EOF
 	$quests[2203] = {:name => "Badlands Reagent Run II", :faction => 2}
 	$quests[2501] = {:name => "Badlands Reagent Run II", :faction => 1}
 
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430],alchspeciallist,alchmanual)
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430,54020],alchspeciallist,alchmanual)
 
 end
 
