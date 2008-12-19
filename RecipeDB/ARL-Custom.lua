@@ -33,10 +33,10 @@ local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:InitCustom(CustomDB)
 
-	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade ingredients.")
-	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade ingredients.")
+	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade or higher ingredients.")
+	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade or higher ingredients.")
 	self:addLookupList(CustomDB, 5, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate.")
 	self:addLookupList(CustomDB, 6, "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel.")
 	self:addLookupList(CustomDB, 7, "Randomly obtained by completing the fishing daily quest in Shattrath.")
@@ -50,6 +50,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 15, "Northrend Inscription Research.")
 	self:addLookupList(CustomDB, 16, "EngineeringRenewalReward.")
 	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
+	self:addLookupList(CustomDB, 18, "Northrend Alchemy Research.")
+	self:addLookupList(CustomDB, 19, "Northrend Transmute.")
 
 end
 

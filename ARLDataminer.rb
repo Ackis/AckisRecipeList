@@ -922,10 +922,6 @@ EOF
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Raid"]
 				acquire << {"type" => acquirelisting["Custom"],
 							"id" => 11}
-	self:addLookupList(CustomDB, 1, "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients.")
-	self:addLookupList(CustomDB, 2, "Discovered by making potions using Burning Crusade or higher ingredients.")
-	self:addLookupList(CustomDB, 3, "Discovered by doing transmutes using Burning Crusade or higher ingredients.")
-	self:addLookupList(CustomDB, 4, "Discovered by Major Protection Potions using Burning Crusade or higher ingredients.")
 			when "BCAlchemyElixir"
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Discovery"]
 				acquire << {"type" => acquirelisting["Custom"],
@@ -3314,7 +3310,7 @@ $skilllevelmap = {
 	"Personal Electromagnetic Pulse Generator" => 390, 
 	"Hand-Mounted Pyro Rocket" => 400, 
 	"Hyperspeed Accelerators" => 400, 
-	"Mark "S" Boomstick" => 400, 
+	"Mark \"S\" Boomstick" => 400, 
 	"Nitro Boosts" => 405, 
 	"Saronite Bomb" => 405, 
 	"Healing Injector Kit" => 410, 
