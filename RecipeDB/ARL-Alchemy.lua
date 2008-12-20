@@ -166,8 +166,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Shadow Oil -- 3449
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
-	self:addTradeFlags(RecipeDB,3449,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3449,2,2481)
 
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
@@ -226,8 +226,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Free Action Potion -- 6624
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
-	self:addTradeFlags(RecipeDB,6624,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,6624,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,6624,2,3348)
 
 	-- Elixir of Water Breathing -- 7179
 	recipecount = recipecount + 1

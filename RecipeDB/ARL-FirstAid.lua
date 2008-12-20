@@ -45,25 +45,25 @@ function addon:InitFirstAid(RecipeDB)
 
 	-- Heavy Linen Bandage -- 3276
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,3276,20,2581,1,746)
+	self:addTradeSkill(RecipeDB,3276,40,2581,1,746)
 	self:addTradeFlags(RecipeDB,3276,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3276,1,2326,1,2327,1,2329,1,2798,1,3181,1,3373,1,4211,1,4591,1,5150,1,5759,1,5939,1,5943,1,6094,1,16272,1,16662,1,16731,1,17214,1,17424,1,19184,1,19478,1,22477)
 
 	-- Wool Bandage -- 3277
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,3277,50,3530,1,746)
+	self:addTradeSkill(RecipeDB,3277,80,3530,1,746)
 	self:addTradeFlags(RecipeDB,3277,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3277,1,2326,1,2327,1,2329,1,2798,1,3181,1,3373,1,4211,1,4591,1,5150,1,5759,1,5939,1,5943,1,6094,1,16272,1,16662,1,16731,1,17214,1,17424,1,19184,1,19478,1,22477)
 
 	-- Heavy Wool Bandage -- 3278
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,3278,75,3531,1,746)
+	self:addTradeSkill(RecipeDB,3278,115,3531,1,746)
 	self:addTradeFlags(RecipeDB,3278,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3278,1,2326,1,2327,1,2329,1,2798,1,3181,1,3373,1,4211,1,4591,1,5150,1,5759,1,5939,1,5943,1,6094,1,16272,1,16662,1,16731,1,17214,1,17424,1,19184,1,19478,1,22477)
 
 	-- Silk Bandage -- 7928
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,7928,100,6450,1,746)
+	self:addTradeSkill(RecipeDB,7928,150,6450,1,746)
 	self:addTradeFlags(RecipeDB,7928,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,7928,1,2326,1,2327,1,2329,1,2798,1,3181,1,3373,1,4211,1,4591,1,5150,1,5759,1,5939,1,5943,1,6094,1,16272,1,16662,1,16731,1,17214,1,17424,1,19184,1,19478,1,22477)
 
@@ -75,7 +75,7 @@ function addon:InitFirstAid(RecipeDB)
 
 	-- Anti-Venom -- 7934
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,7934,10,6452,1,746)
+	self:addTradeSkill(RecipeDB,7934,80,6452,1,746)
 	self:addTradeFlags(RecipeDB,7934,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,7934,1,2326,1,2327,1,2329,1,2798,1,3181,1,3373,1,4211,1,4591,1,5150,1,5759,1,5939,1,5943,1,6094,1,16272,1,16662,1,16731,1,17214,1,17424,1,19184,1,19478,1,22477)
 

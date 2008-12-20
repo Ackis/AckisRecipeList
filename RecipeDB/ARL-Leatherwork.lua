@@ -406,7 +406,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Deviate Scale Belt -- 7955
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7955,115,6468,2,2108)
-	self:addTradeFlags(RecipeDB,7955,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,7955,2,8,21,22,23,24,25,26,27,28,29,30,36,40,57)
 	self:addTradeAcquire(RecipeDB,7955,4,1487)
 
 	-- Moonglow Vest -- 8322
@@ -484,8 +484,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Herbalist's Gloves -- 9146
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9146,135,7349,2,2108)
-	self:addTradeFlags(RecipeDB,9146,1,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,9146,2,6731)
+	self:addTradeFlags(RecipeDB,9146,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	-- No acquire information
 
 	-- Earthen Leather Shoulders -- 9147
 	recipecount = recipecount + 1
@@ -551,7 +551,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9202,190,7386,2,2108)
 	self:addTradeFlags(RecipeDB,9202,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,9202,2,4225,2,7854)
+	self:addTradeAcquire(RecipeDB,9202,2,7854)
 
 	-- Dusky Belt -- 9206
 	recipecount = recipecount + 1

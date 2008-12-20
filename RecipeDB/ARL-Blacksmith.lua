@@ -311,7 +311,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3492,160,3849,1,2018)
 	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
-	self:addTradeAcquire(RecipeDB,3492,2,2843,2,3356)
+	self:addTradeAcquire(RecipeDB,3492,2,2843)
 
 	-- Jade Serpentblade -- 3493
 	recipecount = recipecount + 1

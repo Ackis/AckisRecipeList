@@ -13,6 +13,7 @@ Unknown zones:
 	#"Firebrand Pyromancer" => "Blackrock Spire",
 	#"General Rajaxx" => "Ruins of Ahn'Qiraj",
 	#"Gorgolon the All-seeing" => "Blade's Edge Mountains",
+	#"Grand Crusader Dathrohan" => "Unknown Zone (MOB)",
 	#"Great-father Winter" => "Orgrimmar",
 	#"Illidari Defiler" => "Black Temple",
 	#"Indormi" => "Hyjal Summit",
@@ -36,6 +37,7 @@ Unknown zones:
 	#"Shadowsword Assassin" => "Sunwell Plateau",
 	#"Shadowsword Guardian" => "Sunwell Plateau",
 	#"Shadowsword Vanquisher" => "Sunwell Plateau",
+	#"Shen'dralar Provisioner" => "Unknown Zone (NPC)",
 	#"Shrike Bat" => "Uldaman",
 	#"Sister of Torment" => "Magisters' Terrace",
 	#"Splinterbone Centurion" => "Razorfen Downs",
@@ -138,7 +140,6 @@ Unknown faction:
 	#"Georgio Bolero" => 1,
 	#"Ghak Healtouch" => 1,
 	#"Ghermas" => 1,
-	#"Ghok'kah" => Unknown, # 15
 	#"Gimble Thistlefuzz" => 1,
 	#"Gloresse" => 2,
 	#"Godan" => 2,
@@ -153,7 +154,6 @@ Unknown faction:
 	#"Hagrus" => 2,
 	#"Hahrana Ironhide" => Unknown, # 357
 	#"Hama" => 1,
-	#"Harggan" => Unknown, # 47
 	#"Hotoppik Copperpinch" => 2, # 3487
 	#"Hurnak Grimmord" => 1,
 	#"Imperial Plate Belt" => 0, # 
@@ -165,6 +165,7 @@ Unknown faction:
 	#"Imperial Plate Shoulders" => 0, # 
 	#"Innkeeper Grilka" => 2,
 	#"James Van Brunt" => 2,
+	#"Jangdor Swiftstrider" => Unknown, # 357
 	#"Jessara Cordell" => 1,
 	#"Jhag" => 2,
 	#"Johan Focht" => 2,
@@ -172,7 +173,6 @@ Unknown faction:
 	#"Joseph Moore" => 2, # 1497
 	#"Josephine Lister" => 2,
 	#"K. Lee Smallfry" => 1,
-	#"Kaita Deepforge" => 1, # 1519
 	#"Kalaen" => 2,
 	#"Kalinda" => 2,
 	#"Kamari" => 2,
@@ -238,6 +238,7 @@ Unknown faction:
 	#"Provisioner Lorkran" => 2,
 	#"Quartermaster Urgronn" => 2,
 	#"Randal Worth" => 1,
+	#"Rartar" => 2,
 	#"Rawrk" => 2,
 	#"Razia" => 2,
 	#"Refik" => 1,
@@ -266,10 +267,10 @@ Unknown faction:
 	#"Sprite Jumpsprocket" => 1,
 	#"Stephen Ryback" => 1,
 	#"Stone Guard Mukar" => 2,
-	#"Sumi" => 2, # 1637
 	#"Sylvanna Forestmoon" => 1,
 	#"Taladan" => 1,
 	#"Talmar" => 2,
+	#"Tamar" => 2,
 	#"Tansy Puddlefizz" => 1,
 	#"Tarn" => 2,
 	#"Tatiana" => 1,
@@ -308,12 +309,10 @@ Unknown faction:
 
 
 No acquire information:
-3454 - Frost Oil - Alchemy
+7255 - Holy Protection Potion - Alchemy
+7258 - Frost Protection Potion - Alchemy
 11473 - Ghost Dye - Alchemy
 17636 - Flask of Distilled Wisdom - Alchemy
-3496 - Moonsteel Broadsword - Blacksmithing
-3498 - Massive Iron Axe - Blacksmithing
-3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -323,6 +322,11 @@ No acquire information:
 16664 - Runic Plate Shoulders - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
+20873 - Fiery Chain Shoulders - Blacksmithing
+20876 - Dark Iron Leggings - Blacksmithing
+23637 - Dark Iron Gauntlets - Blacksmithing
+23638 - Black Amnesty - Blacksmithing
+23639 - Blackfury - Blacksmithing
 23650 - Ebon Hand - Blacksmithing
 23652 - Blackguard - Blacksmithing
 23653 - Nightfall - Blacksmithing
@@ -332,8 +336,8 @@ No acquire information:
 24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
 42688 - Adamantite Weapon Chain - Blacksmithing
-20015 - Enchant Cloak - Superior Defense - Enchanting
 20026 - Enchant Chest - Major Health - Enchanting
+23804 - Enchant Weapon - Mighty Intellect - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
 44576 - Enchant Weapon - Lifeward - Enchanting
@@ -351,7 +355,6 @@ No acquire information:
 60707 - Enchant Weapon - Superior Potency - Enchanting
 60714 - Enchant Weapon - Mighty Spellpower - Enchanting
 60763 - Enchant Boots - Greater Assault - Enchanting
-3957 - Ice Deflector - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
 23079 - Major Recombobulator - Engineering
@@ -365,7 +368,6 @@ No acquire information:
 18629 - Runecloth Bandage - First Aid
 18630 - Heavy Runecloth Bandage - First Aid
 45545 - Frostweave Bandage - First Aid
-57193 - Glyph of Mind Soothe - Inscription
 57228 - Glyph of Raise Dead - Inscription
 25255 - Delicate Copper Wire - Jewelcrafting
 25493 - Braided Copper Ring - Jewelcrafting
@@ -394,14 +396,16 @@ No acquire information:
 7126 - Handstitched Leather Vest - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
+9146 - Herbalist's Gloves - Leatherworking
 10516 - Nightscape Shoulders - Leatherworking
+19049 - Wicked Leather Gauntlets - Leatherworking
 19050 - Green Dragonscale Breastplate - Leatherworking
 19053 - Chimeric Gloves - Leatherworking
-19061 - Living Shoulders - Leatherworking
 19062 - Ironfeather Shoulders - Leatherworking
-19077 - Blue Dragonscale Breastplate - Leatherworking
+19067 - Stormshroud Pants - Leatherworking
 19080 - Warbear Woolies - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
+19088 - Heavy Scorpid Helm - Leatherworking
 22711 - Shadowskin Gloves - Leatherworking
 22815 - Gordok Ogre Suit - Leatherworking
 22921 - Girdle of Insight - Leatherworking
@@ -410,10 +414,12 @@ No acquire information:
 22926 - Chromatic Cloak - Leatherworking
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
+23708 - Chromatic Gauntlets - Leatherworking
+23709 - Corehound Belt - Leatherworking
+23710 - Molten Belt - Leatherworking
 35539 - Drums of Restoration - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
-44768 - Netherscale Ammo Pouch - Leatherworking
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
@@ -423,32 +429,28 @@ No acquire information:
 49258 - Smelt Saronite - Smelting
 55208 - Smelt Titansteel - Smelting
 55211 - Smelt Titanium - Smelting
+3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
-3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
-7643 - Greater Adept's Robe - Tailoring
+8789 - Crimson Silk Cloak - Tailoring
 8802 - Crimson Silk Robe - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
 18405 - Runecloth Bag - Tailoring
 18419 - Felcloth Pants - Tailoring
-18456 - Truefaith Vestments - Tailoring
 19435 - Mooncloth Boots - Tailoring
-21945 - Green Holiday Shirt - Tailoring
 22813 - Gordok Ogre Suit - Tailoring
 22866 - Belt of the Archmage - Tailoring
 22867 - Felcloth Gloves - Tailoring
 22868 - Inferno Gloves - Tailoring
 22869 - Mooncloth Gloves - Tailoring
 22870 - Cloak of Warding - Tailoring
-22902 - Mooncloth Robe - Tailoring
+23667 - Flarecore Leggings - Tailoring
 24901 - Runed Stygian Leggings - Tailoring
 24902 - Runed Stygian Belt - Tailoring
 24903 - Runed Stygian Boots - Tailoring
 26086 - Felcloth Bag - Tailoring
-26777 - Imbued Netherweave Robe - Tailoring
-26778 - Imbued Netherweave Tunic - Tailoring
 36665 - Netherflame Robe - Tailoring
 36667 - Netherflame Belt - Tailoring
 36668 - Netherflame Boots - Tailoring

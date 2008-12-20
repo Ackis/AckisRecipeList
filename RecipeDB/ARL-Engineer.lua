@@ -845,7 +845,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1
