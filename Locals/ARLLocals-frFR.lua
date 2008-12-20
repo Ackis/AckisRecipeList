@@ -54,6 +54,10 @@ L["Sorting Settings"]		= "Paramètre de tri"
 L["Profile Options"]		= "Options du profil"
 L["ARL Documentation"]		= "Documentation d'ARL"
 
+-- Command line options
+L["Profile"]				= "Profile"
+L["Filter"]					= "Filtre"
+
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Configuration des options principales"
 L["Scan"]					= "Analyser"
