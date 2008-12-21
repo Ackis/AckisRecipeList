@@ -777,8 +777,8 @@ EOF
 			flags << classes["Rogue"] << classes["Warlock"] << classes["Warrior"]
 		else
 			details[:classes].split(",").each do |ctype|
-				if classes.has_key?(ctype)
-					flags << classes[ctype]
+				if classes.has_key?(ctype.lstrip)
+					flags << classes[ctype.lstrip]
 				end
 			end
 		end
@@ -3692,6 +3692,12 @@ $skilllevelmap = {
 	"Scroll of Intellect VIII" => 410,
 	"Scroll of Strength VIII" => 415,
 	# Jewelcrafting
+	"Sapphire Signet" => 275,
+	"Onslaught Ring" => 280,
+	"Sapphire Pendent of Winter Night" => 280,
+	"Glowing Thorium Band" => 280,
+	"Emerald Lion Ring" => 290,
+	"Living Emerald Pendent" => 290,
 	"Heavy Copper Ring" => 5,
 	"Malachite Pendant" => 20,
 	"Prospecting" => 20,
@@ -4509,6 +4515,7 @@ engspecaillist = {
 	41319 => {:id => "class", :type => [22]},
 	41320 => {:id => "class", :type => [24, 26, 29]},
 	41321 => {:id => "class", :type => [26]},
+	#46111 => {:id => "class", :type => [24, 26, 29]},
 	56465 => {:id => "class", :type => [24, 26, 29]},
 	56480 => {:id => "class", :type => [21, 25, 30]},
 	56481 => {:id => "class", :type => [22]},
