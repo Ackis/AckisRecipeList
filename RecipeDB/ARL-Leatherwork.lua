@@ -335,7 +335,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6704,170,5782,2,2108)
 	self:addTradeFlags(RecipeDB,6704,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2381,2,2393,2,2846)
+	self:addTradeAcquire(RecipeDB,6704,3,938,3,1160,2,2381,2,2846)
 
 	-- Murloc Scale Bracers -- 6705
 	recipecount = recipecount + 1
@@ -1246,8 +1246,8 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Barbaric Bracers -- 23399
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23399,155,18948,1,2108)
-	self:addTradeFlags(RecipeDB,23399,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,23399,2,4225,2,4589)
+	self:addTradeFlags(RecipeDB,23399,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,23399,2,4589)
 
 	-- Might of the Timbermaw -- 23703
 	recipecount = recipecount + 1

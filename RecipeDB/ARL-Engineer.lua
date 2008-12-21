@@ -395,7 +395,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537,2,4086)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -1492,7 +1492,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Annihilator Holo-Gogs -- 46111
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46111,375,34847,4,4036)
-	self:addTradeFlags(RecipeDB,46111,1,2,6,26,37,41,56)
+	self:addTradeFlags(RecipeDB,46111,1,2,6,24,26,29,37,41,56)
 	self:addTradeAcquire(RecipeDB,46111,3,25368,3,25370)
 
 	-- Lightning Etched Specs -- 46112
@@ -1504,25 +1504,25 @@ function addon:InitEngineering(RecipeDB)
 	-- Surestrike Goggles v3.0 -- 46113
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46113,375,34356,4,4036)
-	self:addTradeFlags(RecipeDB,46113,1,2,6,11,23,37,41,58)
+	self:addTradeFlags(RecipeDB,46113,1,2,6,11,23,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,46113,3,25367,3,25369,3,25370,3,25371,3,25507)
 
 	-- Mayhem Projection Goggles -- 46114
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46114,375,34354,4,4036)
-	self:addTradeFlags(RecipeDB,46114,1,2,6,11,30,37,41,59)
+	self:addTradeFlags(RecipeDB,46114,1,2,6,11,25,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,46114,3,25369,3,25507,3,25592)
 
 	-- Hard Khorium Goggles -- 46115
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46115,375,34357,4,4036)
-	self:addTradeFlags(RecipeDB,46115,1,2,6,30,37,41,52,59)
+	self:addTradeFlags(RecipeDB,46115,1,2,6,25,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,46115,3,25363,3,25371)
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46116,375,34353,4,4036)
-	self:addTradeFlags(RecipeDB,46116,1,2,6,28,37,41,57)
+	self:addTradeFlags(RecipeDB,46116,1,2,6,22,28,37,41,57)
 	self:addTradeAcquire(RecipeDB,46116,3,25367,3,25369,3,25599)
 
 	-- Rocket Boots Xtreme Lite -- 46697

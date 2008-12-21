@@ -248,7 +248,6 @@ Unknown faction:
 	#"Ronald Burch" => 2,
 	#"Roxxik" => 2,
 	#"Rungor" => 2,
-	#"Saenorion" => 1,
 	#"Saru Steelfury" => 2,
 	#"Sassa Weldwell" => 1,
 	#"Sebastian Crane" => 2,
@@ -309,7 +308,6 @@ Unknown faction:
 
 
 No acquire information:
-7255 - Holy Protection Potion - Alchemy
 7258 - Frost Protection Potion - Alchemy
 11473 - Ghost Dye - Alchemy
 17636 - Flask of Distilled Wisdom - Alchemy
@@ -429,7 +427,6 @@ No acquire information:
 49258 - Smelt Saronite - Smelting
 55208 - Smelt Titansteel - Smelting
 55211 - Smelt Titanium - Smelting
-3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
