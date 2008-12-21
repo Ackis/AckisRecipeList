@@ -45,6 +45,10 @@ L["All"]					= "Tous"
 L["None"]					= "Aucun"
 L["Ok"]						= "Ok"
 
+-- Command line options
+L["Profile"]				= "Profile"
+L["Filter"]					= "Filtre"
+
 -- Config Options
 L["About"]					= "À propos"
 L["Main Options"]			= "Options principales"
@@ -53,10 +57,6 @@ L["Display Settings"]		= "Paramètres d'affichage"
 L["Sorting Settings"]		= "Paramètre de tri"
 L["Profile Options"]		= "Options du profil"
 L["ARL Documentation"]		= "Documentation d'ARL"
-
--- Command line options
-L["Profile"]				= "Profile"
-L["Filter"]					= "Filtre"
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Configuration des options principales"
