@@ -427,10 +427,6 @@ No acquire information:
 45100 - Leatherworker's Satchel - Leatherworking
 14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
-49252 - Smelt Cobalt - Smelting
-49258 - Smelt Saronite - Smelting
-55208 - Smelt Titansteel - Smelting
-55211 - Smelt Titanium - Smelting
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
 3873 - Black Swashbuckler's Shirt - Tailoring

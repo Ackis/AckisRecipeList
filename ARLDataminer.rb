@@ -1091,6 +1091,13 @@ EOF
 				acquire << add_npc_trainer(25099, "Jonathan Garrett", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(24868, "NiobeWhizzlespark", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterFATrainer"
+				acquire << add_npc_trainer(23734, "Anchorite Yazmina", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26992, "Brynna Wilson", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(29233, "Nurse Applewood", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28706, "Olisarra the Kind", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26956, "Sally Tompkins", "Horde", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "InscTrainer"
 				acquire << add_npc_trainer(30713, "Catarina Stanford", "Alliance", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(30717, "Elise Brightletter", "Alliance", npcfactions, acquirelisting)
@@ -1137,6 +1144,13 @@ EOF
 				acquire << add_npc_trainer(28700, "Diane Cannings", "Neutral", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26961, "Gunter Hansen", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26998, "Rosemary Bovard", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "GrandMasterSmeltTrainer"	
+				acquire << add_npc_trainer(26976, "Brunna Ironaxe", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26999, "Fendrig Redbeard", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26912, "Grumbol Stoutpick", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(28698, "Jedidiah Handers", "Neutral", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26962, "Jonathan Lewis", "Horde", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterTailorTrainer"
 				acquire << add_npc_trainer(26964, "Alexandra McQueen", "Horde", npcfactions, acquirelisting)
@@ -5995,6 +6009,7 @@ def get_firstaid_list(recipes, maps)
 	}
 	faacquire = {
 		3275 => {:id => "StartingSkill"},
+		45545 => {:id => "GrandMasterFATrainer"},
 	}
 famanual=<<EOF
 EOF
@@ -6599,6 +6614,10 @@ def get_smelt_list(recipes, maps)
 		}
 	smeltacquire = {
 		2657 => {:id => "StartingSkill"},
+		49252 => {:id => "GrandMasterSmeltTrainer"},
+		49258 => {:id => "GrandMasterSmeltTrainer"},
+		55208 => {:id => "GrandMasterSmeltTrainer"},
+		55211 => {:id => "GrandMasterSmeltTrainer"},
 	}
 smeltmanual=<<EOF
 EOF
