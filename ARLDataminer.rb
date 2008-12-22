@@ -1094,7 +1094,7 @@ EOF
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "FATrainer"
 				acquire << add_npc_trainer(12920, "Doctor Gregory Victor", "Horde", npcfactions, acquirelisting)
-				acquire << add_npc_trainer(12p39, "Doctor Gustaf VanHowzen", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(12939, "Doctor Gustaf VanHowzen", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterFATrainer"
 				acquire << add_npc_trainer(23734, "Anchorite Yazmina", "Alliance", npcfactions, acquirelisting)

@@ -52,6 +52,9 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
 	self:addLookupList(CustomDB, 18, "Northrend Alchemy Research.")
 	self:addLookupList(CustomDB, 19, "Northrend Transmute.")
+	self:addLookupList(CustomDB, 20, "Goblin transport.")
+	self:addLookupList(CustomDB, 21, "Gnome transport.")
+	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
 
 end
 
