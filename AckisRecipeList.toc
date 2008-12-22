@@ -1,7 +1,7 @@
-﻿## Title: Ackis Recipe List (3.02 Beta 12.1)
-## Title-enUS: Ackis Recipe List (3.02 Beta 12.1)
-## Title-koKR: Ackis의 제조법 리스트
-## Title-deDE: Ackis Rezeptliste (3.02 Beta 12.1)
+﻿## Title: Ackis Recipe List (3.02 Beta 13)
+## Title-enUS: Ackis Recipe List (3.02 Beta 13)
+## Title-koKR: Ackis의 제조법 리스트 (3.02 Beta 13)
+## Title-deDE: Ackis Rezeptliste (3.02 Beta 13)
 
 ## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
 ## Notes-enUS: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
@@ -18,7 +18,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, send me UDE Point codes, or a Murky Code.
 
 ## Interface: 30000
-## Version: Beta 12.1 @project-revision@
+## Version: Beta 13 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
