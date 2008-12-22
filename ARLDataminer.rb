@@ -226,6 +226,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 19, "Northrend Transmute.")
 	self:addLookupList(CustomDB, 20, "Goblin transport.")
 	self:addLookupList(CustomDB, 21, "Gnome transport.")
+	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
 
 end
 
@@ -5515,6 +5516,10 @@ alchacquire = {
 	2330 => {:id => "StartingSkill"},
 	2333 => {:id => "StartingSkill"},
 	11456 => {:id => "CustomNeutral", :type => 9},
+	25079 => {:id => "CustomNeutral", :type => 22},
+	25074 => {:id => "CustomNeutral", :type => 22},
+	25078 => {:id => "CustomNeutral", :type => 22},
+	25073 => {:id => "CustomNeutral", :type => 22},
 	28580 => {:id => "BCAlchemyTransmute"},
 	28581 => {:id => "BCAlchemyTransmute"},
 	28582 => {:id => "BCAlchemyTransmute"},
