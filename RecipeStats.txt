@@ -354,11 +354,7 @@ No acquire information:
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
 23079 - Major Recombobulator - Engineering
-23486 - Dimensional Ripper - Everlook - Engineering
-23489 - Ultrasafe Transporter - Gadgetzan - Engineering
 26011 - Tranquil Mechanical Yeti - Engineering
-36954 - Dimensional Ripper - Area 52 - Engineering
-36955 - Ultrasafe Transporter - Toshley's Station - Engineering
 39973 - Frost Grenades - Engineering
 10841 - Heavy Mageweave Bandage - First Aid
 18629 - Runecloth Bandage - First Aid

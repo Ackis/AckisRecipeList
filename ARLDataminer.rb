@@ -224,6 +224,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 17, "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it.")
 	self:addLookupList(CustomDB, 18, "Northrend Alchemy Research.")
 	self:addLookupList(CustomDB, 19, "Northrend Transmute.")
+	self:addLookupList(CustomDB, 20, "Goblin transport.")
+	self:addLookupList(CustomDB, 21, "Gnome transport.")
 
 end
 
@@ -830,6 +832,24 @@ EOF
 		# Handle special cases (acquire)
 		if specialcaseacquire[details[:spellid]]
 			case specialcaseacquire[details[:spellid]][:id]
+			when "GoblinTransport"
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Quest"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 20}
+				details[:specialty] = 20222
+			when "GnomeTransport"
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Instance"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Quest"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+				acquire << {"type" => acquirelisting["Custom"],
+							"id" => 21}
+				details[:specialty] = 20219
 			when "ThistleTea"
 				flags.delete(flaglisting["Trainer"])
 				flags.delete(flaglisting["Instance"])
@@ -1962,10 +1982,9 @@ def create_stats_list()
 		end
 	end
 
-	stats_lua.puts("\n\nNo acquire information:")
+	stats_lua.puts("\n\nNo acquire information (#{$missingdataacquire.length} Recipes):")
 
 	# Sort the output
-	#sorted_keys = $missingdataacquire.sort { |a,b| a[:sprof] <=> b[:sprof] || a[:id] <=> b[:id] }
 	sorted_keys = $missingdataacquire.sort_by { |v| [v[:sprof], v[:spellid]] }
 
 	sorted_keys.each do |k|
@@ -5573,6 +5592,9 @@ def get_bs_list(recipes, maps)
 		3115 => {:id => "StartingSkill"},
 	}
 	bsacquire = {
+		2660 => {:id => "StartingSkill"},
+		2663 => {:id => "StartingSkill"},
+		3115 => {:id => "StartingSkill"},
 		28242 => {:id => "ADNaxx40E"},
 		28243 => {:id => "ADNaxx40R"},
 		28244 => {:id => "ADNaxx40R"},
@@ -5868,11 +5890,16 @@ engspecailflag = {
 	30560 => {:id => "specialty", :type => 20222},
 	30568 => {:id => "specialty", :type => 20219},
 	30570 => {:id => "specialty", :type => 20219},
+	26011 => {:id => "Quest", :type => [5163]},
 }
 engspecailacquire = {
 	3918 => {:id => "StartingSkill"},
 	3919 => {:id => "StartingSkill"},
 	3920 => {:id => "StartingSkill"},
+	23486 => {:id => "GnomeTransport"},
+	23489 => {:id => "GoblinTransport"},
+	36954 => {:id => "GoblinTransport"},
+	36955 => {:id => "GnomeTransport"},
 	53281 => {:id => "GrandMasterEngTrainer"},
 	54353 => {:id => "GrandMasterEngTrainer"},
 	54736 => {:id => "GrandMasterEngTrainer"},
@@ -5954,6 +5981,9 @@ engmanual=<<EOF
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
 EOF
+
+	$quests[5163] = {:name => "Are We There, Yeti?", :faction => 0}
+
 	create_profession_db("./RecipeDB/ARL-Engineer.lua","Engineering",recipes,maps,"InitEngineering",eng,[61483,30573,30343,30342,30349,30561,30549,12722,12720,12900,12719,12904],engspecailflag,engmanual,engspecailacquire)
 
 end
@@ -6757,7 +6787,7 @@ create_faction_db()
 
 if $debug
 
-	get_cooking_list(recipes, maps)
+	get_firstaid_list(recipes, maps)
 
 else
 
