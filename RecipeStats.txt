@@ -356,11 +356,6 @@ No acquire information:
 23079 - Major Recombobulator - Engineering
 26011 - Tranquil Mechanical Yeti - Engineering
 39973 - Frost Grenades - Engineering
-10841 - Heavy Mageweave Bandage - First Aid
-18629 - Runecloth Bandage - First Aid
-18630 - Heavy Runecloth Bandage - First Aid
-45545 - Frostweave Bandage - First Aid
-57228 - Glyph of Raise Dead - Inscription
 25255 - Delicate Copper Wire - Jewelcrafting
 25493 - Braided Copper Ring - Jewelcrafting
 26925 - Woven Copper Ring - Jewelcrafting
@@ -425,7 +420,6 @@ No acquire information:
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
-14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring

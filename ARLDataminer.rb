@@ -1089,7 +1089,11 @@ EOF
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "EngFlightTrainer"
 				acquire << add_npc_trainer(25099, "Jonathan Garrett", "Horde", npcfactions, acquirelisting)
-				acquire << add_npc_trainer(24868, "NiobeWhizzlespark", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(24868, "Niobe Whizzlespark", "Alliance", npcfactions, acquirelisting)
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
+			when "FATrainer"
+				acquire << add_npc_trainer(12920, "Doctor Gregory Victor", "Horde", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(12p39, "Doctor Gustaf VanHowzen", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "GrandMasterFATrainer"
 				acquire << add_npc_trainer(23734, "Anchorite Yazmina", "Alliance", npcfactions, acquirelisting)
@@ -6006,13 +6010,20 @@ def get_firstaid_list(recipes, maps)
 
 	firstaid = recipes.get_firstaid_list
 	faspecaillist = {
+		10841 => {:id => "Quest", :type => [6622,6624]},
 	}
 	faacquire = {
 		3275 => {:id => "StartingSkill"},
+		18629 => {:id => "FATrainer"},
+		18630 => {:id => "FATrainer"},
 		45545 => {:id => "GrandMasterFATrainer"},
 	}
 famanual=<<EOF
 EOF
+
+	$quests[6622] = {:name => "Triage", :faction => 2}
+	$quests[6624] = {:name => "Triage", :faction => 1}
+
 	create_profession_db("./RecipeDB/ARL-FirstAid.lua","First Aid",recipes,maps,"InitFirstAid",firstaid,[30021],faspecaillist,famanual,faacquire)
 
 end
@@ -6385,6 +6396,7 @@ def get_inscription_list(recipes, maps)
 		61177 => {:id => "GrandMasterInscTrainer"},
 		61288 => {:id => "InscTrainer"},
 		61677 => {:id => "NorthrendInscriptionResearch"},
+		57228 => {:id => "NorthrendInscriptionResearch"},
 	}
 inscriptionmanual=<<EOF
 EOF
@@ -6618,9 +6630,13 @@ def get_smelt_list(recipes, maps)
 		49258 => {:id => "GrandMasterSmeltTrainer"},
 		55208 => {:id => "GrandMasterSmeltTrainer"},
 		55211 => {:id => "GrandMasterSmeltTrainer"},
+		14891 => {:id => "Quest", :type => [4083]},
 	}
 smeltmanual=<<EOF
 EOF
+
+	$quests[4083] = {:name => "The Spectral Chalice", :faction => 0}
+
 	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual,smeltacquire)
 
 end
