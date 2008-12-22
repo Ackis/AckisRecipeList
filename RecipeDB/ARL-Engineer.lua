@@ -208,8 +208,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Minor Recombobulator -- 3952
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
-	self:addTradeFlags(RecipeDB,3952,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3952,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
+	self:addTradeAcquire(RecipeDB,3952,2,3495)
 
 	-- Bronze Framework -- 3953
 	recipecount = recipecount + 1
@@ -375,7 +375,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Goblin Rocket Boots -- 8895
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,8895,225,7189,1,4036,20222)
+	self:addTradeSkill(RecipeDB,8895,130,7189,1,4036,20222)
 	self:addTradeFlags(RecipeDB,8895,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8895,1,8126)
 
@@ -383,7 +383,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9269,125,7506,1,4036)
 	self:addTradeFlags(RecipeDB,9269,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,9269,3,7800,2,5175,2,6730)
+	self:addTradeAcquire(RecipeDB,9269,3,7800,2,6730)
 
 	-- Aquadynamic Fish Attractor -- 9271
 	recipecount = recipecount + 1
@@ -395,7 +395,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -566,12 +566,14 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,12718,1,8126)
 
 	-- Goblin \"Boom\" Box -- 12720
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12720,215,10580,1,4036)
 	--self:addTradeFlags(RecipeDB,12720,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,12720,)
 
 	-- Goblin Radio -- 12722
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12722,220,10585,1,4036)
 	--self:addTradeFlags(RecipeDB,12722,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
@@ -626,6 +628,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,12899,1,7406,1,7944)
 
 	-- Mobile Alarm -- 12900
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12900,205,10719,1,4036)
 	--self:addTradeFlags(RecipeDB,12900,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -644,6 +647,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,12903,1,7406,1,7944)
 
 	-- Gnomish Ham Radio -- 12904
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,12904,220,10723,1,4036)
 	--self:addTradeFlags(RecipeDB,12904,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
@@ -838,20 +842,20 @@ function addon:InitEngineering(RecipeDB)
 	-- Red Firework -- 23066
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23066,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23066,2,3413)
 
 	-- Blue Firework -- 23067
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,1304)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
 	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,2838,2,3495)
+	self:addTradeAcquire(RecipeDB,23068,2,3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	recipecount = recipecount + 1
@@ -951,7 +955,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Tranquil Mechanical Yeti -- 26011
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26011,300,21277,1,4036)
+	self:addTradeSkill(RecipeDB,26011,250,21277,1,4036)
 	self:addTradeFlags(RecipeDB,26011,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -1178,12 +1182,14 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30341,2,16657,2,16782,2,18484,2,19383)
 
 	-- Red Smoke Flare -- 30342
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30342,315,23769,1,4036)
 	--self:addTradeFlags(RecipeDB,30342,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,30342,)
 
 	-- Blue Smoke Flare -- 30343
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30343,315,23770,1,4036)
 	--self:addTradeFlags(RecipeDB,30343,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -1214,6 +1220,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30348,2,16657,2,16782,2,18484)
 
 	-- Khorium Toolbox -- 30349
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30349,340,23775,3,4036)
 	--self:addTradeFlags(RecipeDB,30349,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -1232,6 +1239,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30548,4,9635,4,9636)
 
 	-- Critter Enlarger -- 30549
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30549,325,23820,2,4036)
 	--self:addTradeFlags(RecipeDB,30549,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -1268,6 +1276,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30560,1,8126,1,8738)
 
 	-- Goblin Tonk Controller -- 30561
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30561,315,23831,1,4036)
 	--self:addTradeFlags(RecipeDB,30561,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -1310,6 +1319,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30570,1,7406,1,7944)
 
 	-- Gnomish Tonk Controller -- 30573
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,30573,315,23832,1,4036)
 	--self:addTradeFlags(RecipeDB,30573,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -1773,7 +1783,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Nesingwary 4000 -- 60874
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60874,445,44504,4,4036)
+	self:addTradeSkill(RecipeDB,60874,450,44504,4,4036)
 	self:addTradeFlags(RecipeDB,60874,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,60874,1,25277,1,26907,1,26955,1,26991,1,28697)
 
@@ -1784,6 +1794,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,61471,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Mechanized Snow Goggles -- 61483
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,61483,420,44742,3,4036)
 	--self:addTradeFlags(RecipeDB,61483,3,21,25,30,36,41,59)
@@ -1812,6 +1823,19 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
+	-- Ignored Recipes:
+	-- 61483 - Mechanized Snow Goggles
+	-- 30573 - Gnomish Tonk Controller
+	-- 30343 - Blue Smoke Flare
+	-- 30342 - Red Smoke Flare
+	-- 30349 - Khorium Toolbox
+	-- 30561 - Goblin Tonk Controller
+	-- 30549 - Critter Enlarger
+	-- 12722 - Goblin Radio
+	-- 12720 - Goblin \"Boom\" Box
+	-- 12900 - Mobile Alarm
+	-- 12719
+	-- 12904 - Gnomish Ham Radio
 	return recipecount
 
 end

@@ -152,6 +152,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,25613,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Silver Rose Pendant -- 25614
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,25614,145,20956,2,25229)
 	--self:addTradeFlags(RecipeDB,25614,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -362,12 +363,14 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26916,1,18751,1,18774,1,19063,1,19539)
 
 	-- Arcanite Sword Pendant -- 26918
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,26918,305,21793,3,25229)
 	--self:addTradeFlags(RecipeDB,26918,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,26918,)
 
 	-- Blood Crown -- 26920
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,26920,315,21780,3,25229)
 	--self:addTradeFlags(RecipeDB,26920,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
@@ -915,7 +918,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Rough Stone Statue -- 32259
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,32259,10,25498,1,25229)
+	self:addTradeSkill(RecipeDB,32259,1,25498,1,25229)
 	self:addTradeFlags(RecipeDB,32259,3,21,22,23,24,25,26,27,28,29,30,37,41)
 	-- No acquire information
 
@@ -944,6 +947,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,32809,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
 
 	-- Primal Stone Statue -- 32810
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,32810,280,25884,1,25229)
 	--self:addTradeFlags(RecipeDB,32810,3,21,22,23,24,25,26,27,28,29,30,37,41)
@@ -2217,7 +2221,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Inscribed Monarch Topaz -- 53975
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53975,380,40037,3,25229)
+	self:addTradeSkill(RecipeDB,53975,390,40037,3,25229)
 	self:addTradeFlags(RecipeDB,53975,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53975,1,26915,1,26960,1,26982,1,26997,1,28701)
 
@@ -2319,7 +2323,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Stalwart Monarch Topaz -- 53992
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53992,380,40056,3,25229)
+	self:addTradeSkill(RecipeDB,53992,390,40056,3,25229)
 	self:addTradeFlags(RecipeDB,53992,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52)
 	self:addTradeAcquire(RecipeDB,53992,1,26915,1,26960,1,26982,1,26997,1,28701)
 
@@ -2906,6 +2910,11 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,59759,1,26915,1,26960,1,26982,1,26997,1,28701)
 
 
+	-- Ignored Recipes:
+	-- 25614 - Silver Rose Pendant
+	-- 26918 - Arcanite Sword Pendant
+	-- 26920 - Blood Crown
+	-- 32810 - Primal Stone Statue
 	return recipecount
 
 end

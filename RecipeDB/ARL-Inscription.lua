@@ -2216,6 +2216,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,61677,8,15)
 
 
+	-- Ignored Recipes:
 	return recipecount
 
 end

@@ -93,19 +93,19 @@ function addon:InitFirstAid(RecipeDB)
 
 	-- Heavy Mageweave Bandage -- 10841
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,10841,175,8545,1,746)
+	self:addTradeSkill(RecipeDB,10841,240,8545,1,746)
 	self:addTradeFlags(RecipeDB,10841,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Runecloth Bandage -- 18629
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,18629,200,14529,1,746)
+	self:addTradeSkill(RecipeDB,18629,260,14529,1,746)
 	self:addTradeFlags(RecipeDB,18629,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Heavy Runecloth Bandage -- 18630
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,18630,225,14530,1,746)
+	self:addTradeSkill(RecipeDB,18630,290,14530,1,746)
 	self:addTradeFlags(RecipeDB,18630,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -140,6 +140,8 @@ function addon:InitFirstAid(RecipeDB)
 	self:addTradeAcquire(RecipeDB,45546,7,2)
 
 
+	-- Ignored Recipes:
+	-- 30021
 	return recipecount
 
 end

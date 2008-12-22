@@ -84,6 +84,7 @@ function addon:InitRuneforging(RecipeDB)
 	self:addTradeSkill(RecipeDB,53341,1,nil,1,53428)
 	self:addTradeFlags(RecipeDB,53341,1,2,3,21)
 	self:addTradeAcquire(RecipeDB,53341,1,28471,1,28472,1,28474,1,29194,1,29196,1,29195,1,31084)
+	-- Ignored Recipes:
 	return recipecount
 
 end

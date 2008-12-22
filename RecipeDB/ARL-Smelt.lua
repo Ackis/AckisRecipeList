@@ -93,7 +93,7 @@ function addon:InitSmelting(RecipeDB)
 
 	-- Smelt Dark Iron -- 14891
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,14891,290,11371,1,2575)
+	self:addTradeSkill(RecipeDB,14891,230,11371,1,2575)
 	self:addTradeFlags(RecipeDB,14891,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -105,7 +105,7 @@ function addon:InitSmelting(RecipeDB)
 
 	-- Smelt Elementium -- 22967
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,22967,325,17771,5,2575)
+	self:addTradeSkill(RecipeDB,22967,300,17771,5,2575)
 	self:addTradeFlags(RecipeDB,22967,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
@@ -188,6 +188,7 @@ function addon:InitSmelting(RecipeDB)
 	-- No acquire information
 
 
+	-- Ignored Recipes:
 	return recipecount
 
 end

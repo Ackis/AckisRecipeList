@@ -39,7 +39,7 @@ function addon:InitCooking(RecipeDB)
 
 	-- Charred Wolf Meat -- 2538
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,2538,5,2679,1,2550)
+	self:addTradeSkill(RecipeDB,2538,1,2679,1,2550)
 	self:addTradeFlags(RecipeDB,2538,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,2538,8,8)
 
@@ -51,7 +51,7 @@ function addon:InitCooking(RecipeDB)
 
 	-- Roasted Boar Meat -- 2540
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,2540,5,2681,1,2550)
+	self:addTradeSkill(RecipeDB,2540,1,2681,1,2550)
 	self:addTradeFlags(RecipeDB,2540,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,2540,8,8)
 
@@ -64,13 +64,13 @@ function addon:InitCooking(RecipeDB)
 	-- Goretusk Liver Pie -- 2542
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550)
-	self:addTradeFlags(RecipeDB,2542,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2542,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2542,4,22,2,340)
 
 	-- Westfall Stew -- 2543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
-	self:addTradeFlags(RecipeDB,2543,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2543,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544
@@ -303,7 +303,7 @@ function addon:InitCooking(RecipeDB)
 
 	-- Herb Baked Egg -- 8604
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,8604,5,6888,1,2550)
+	self:addTradeSkill(RecipeDB,8604,1,6888,1,2550)
 	self:addTradeFlags(RecipeDB,8604,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,8604,8,8)
 
@@ -321,7 +321,7 @@ function addon:InitCooking(RecipeDB)
 
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,13028,145,10841,1,2550)
+	self:addTradeSkill(RecipeDB,13028,175,10841,1,2550)
 	self:addTradeFlags(RecipeDB,13028,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,13028,8,13)
 
@@ -657,19 +657,19 @@ function addon:InitCooking(RecipeDB)
 
 	-- Stewed Trout -- 42296
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,42296,315,33048,1,2550)
+	self:addTradeSkill(RecipeDB,42296,320,33048,1,2550)
 	self:addTradeFlags(RecipeDB,42296,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,42296,1,19186)
 
 	-- Fisherman's Feast -- 42302
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,42302,365,33052,1,2550)
+	self:addTradeSkill(RecipeDB,42302,350,33052,1,2550)
 	self:addTradeFlags(RecipeDB,42302,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,42302,1,19186)
 
 	-- Hot Buttered Trout -- 42305
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,42305,365,33053,1,2550)
+	self:addTradeSkill(RecipeDB,42305,350,33053,1,2550)
 	self:addTradeFlags(RecipeDB,42305,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,42305,1,19186)
 
@@ -880,14 +880,14 @@ function addon:InitCooking(RecipeDB)
 
 	-- Northern Stew -- 57421
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,57421,320,34747,1, 2550)
+	self:addTradeSkill(RecipeDB,57421,9999,34747,1, 2550)
 	self:addTradeFlags(RecipeDB,57421,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57421,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
 	-- Fish Feast -- 57423
 	-- Ignored
 	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,57423,360,43015,1, 2550)
+	--self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
 	--self:addTradeFlags(RecipeDB,57423,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
 	--self:addTradeAcquire(RecipeDB,57423,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
@@ -1000,7 +1000,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
 
-	-- Ignore Recipes:
+	-- Ignored Recipes:
 	-- 57423 - Fish Feast
 	-- 44438
 	-- 45547
