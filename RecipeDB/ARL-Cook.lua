@@ -9,7 +9,7 @@ Cooking data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 160 found from data mining.
-5 ignored.
+4 ignored.
 
 ************************************************************************
 
@@ -872,6 +872,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,46688,2,2803,2,2806)
 
 	-- Kungaloosh -- 53056
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
 	--self:addTradeFlags(RecipeDB,53056,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
@@ -884,6 +885,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57421,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
 	-- Fish Feast -- 57423
+	-- Ignored
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,57423,360,43015,1, 2550)
 	--self:addTradeFlags(RecipeDB,57423,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
@@ -997,6 +999,12 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,58528,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
+
+	-- Ignore Recipes:
+	-- 57423 - Fish Feast
+	-- 44438
+	-- 45547
+	-- 53056 - Kungaloosh
 	return recipecount
 
 end

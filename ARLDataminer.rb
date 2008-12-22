@@ -1412,7 +1412,7 @@ EOF
 
 	proflua.puts(manual)
 
-	proflua.puts "\t-- Ignore Recipes:"
+	proflua.puts "\t-- Ignored Recipes:"
 
 	ignorerecipe.each do |k|
 		if ignorelist[k]
@@ -5465,7 +5465,7 @@ create_faction_db()
 
 if $debug
 
-	get_engineering_list(recipes, maps)
+	get_cooking_list(recipes, maps)
 
 else
 
