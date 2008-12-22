@@ -630,6 +630,7 @@ EOF
 
 	flags = Array.new
 	acquire = Array.new
+	ignorelist = Hash.new
 
 	count = 0
 
@@ -648,6 +649,9 @@ EOF
 
 		details = recipes[name]
 		proflua.print("\t-- #{name} -- #{details[:spellid]}")
+		if ignorerecipe.include?(details[:spellid])
+			proflua.print("\n\t-- Ignored")
+		end
 
 		details[:method].split(",").each do |method|
 
@@ -1308,6 +1312,10 @@ EOF
 		end
 
 		if ignorerecipe.include?(details[:spellid])
+			ignorelist[details[:spellid]] = name
+		end
+
+		if ignorerecipe.include?(details[:spellid])
 			proflua.print("\n\t--")
 		else
 			proflua.print("\n\t")
@@ -1376,7 +1384,6 @@ EOF
 			proflua.puts "\t-- No acquire information"
 			$missingdataacquire << {:spellid => details[:spellid], :sname => name, :data => details, :sprof => profession}
 		else
-
 			acquiredordered = acquire.sort_by { |entry| entry["id"] }
 			temp = []
 			for id in %w(5 7 3 4 1 2 6 8)
@@ -1404,6 +1411,17 @@ EOF
 	puts "\nProcessing #{profession} data complete..."
 
 	proflua.puts(manual)
+
+	proflua.puts "\t-- Ignore Recipes:"
+
+	ignorerecipe.each do |k|
+		if ignorelist[k]
+			proflua.puts "\t-- #{k} - #{ignorelist[k]}"
+		else
+			proflua.puts "\t-- #{k}"
+		end
+	end
+
 	proflua.puts "\treturn recipecount\n\nend"
 	proflua.close
 
@@ -4429,7 +4447,7 @@ cookmanual=<<EOF
 EOF
 	$quests[8313] = {:name => "Sharing the Knowledge", :faction => 0}
 
-	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[30047,57423,44438,45547,53056],cookingspeciallist,cookmanual,cookacquire)
+	create_profession_db("./RecipeDB/ARL-Cook.lua","Cooking",recipes,maps,"InitCooking",cooking,[57423,44438,45547,53056],cookingspeciallist,cookmanual,cookacquire)
 
 end
 
@@ -5350,11 +5368,11 @@ def get_tailoring_list(recipes, maps)
 tailoringmanual=<<EOF
 	-- Duskweave Boots -- 55924
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55924,410,41544,1, 3908)
+	self:addTradeSkill(RecipeDB,55924,380,41544,1, 3908)
 	self:addTradeFlags(RecipeDB,55924,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,55924,1,26914,1,26964,1,26969,1,27001,1,28699)
 EOF
-	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,8778,12062,12063,12068,12083,12087,12090,56048],tailoringspecaillist,tailoringmanual,tailoracquire)
+	create_profession_db("./RecipeDB/ARL-Tailor.lua","Tailoring",recipes,maps,"InitTailoring",tailoring,[7636,8778,12062,12063,12068,12083,12087,12090,56048,31461,36665,36667,36668,36669,36670,36672],tailoringspecaillist,tailoringmanual,tailoracquire)
 
 end
 

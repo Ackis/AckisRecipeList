@@ -1802,10 +1802,10 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,31460,1,11557,1,18749,1,18772)
 
 	-- Heavy Netherweave Net -- 31461
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,31461,325,24269,1,3908)
-	self:addTradeFlags(RecipeDB,31461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,31461,1,24315)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,31461,325,24269,1,3908)
+	--self:addTradeFlags(RecipeDB,31461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,31461,1,24315)
 
 	-- Belt of Blasting -- 36315
 	recipecount = recipecount + 1
@@ -1832,39 +1832,39 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,36318,7,4)
 
 	-- Netherflame Robe -- 36665
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36665,355,30459,3,3908)
-	self:addTradeFlags(RecipeDB,36665,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36665,355,30459,3,3908)
+	--self:addTradeFlags(RecipeDB,36665,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Netherflame Belt -- 36667
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36667,355,30460,3,3908)
-	self:addTradeFlags(RecipeDB,36667,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36667,355,30460,3,3908)
+	--self:addTradeFlags(RecipeDB,36667,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Netherflame Boots -- 36668
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36668,355,30461,3,3908)
-	self:addTradeFlags(RecipeDB,36668,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36668,355,30461,3,3908)
+	--self:addTradeFlags(RecipeDB,36668,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Lifeblood Leggings -- 36669
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36669,355,30465,3,3908)
-	self:addTradeFlags(RecipeDB,36669,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36669,355,30465,3,3908)
+	--self:addTradeFlags(RecipeDB,36669,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Lifeblood Belt -- 36670
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36670,355,30463,3,3908)
-	self:addTradeFlags(RecipeDB,36670,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36670,355,30463,3,3908)
+	--self:addTradeFlags(RecipeDB,36670,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Lifeblood Bracers -- 36672
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,36672,355,30464,3,3908)
-	self:addTradeFlags(RecipeDB,36672,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,36672,355,30464,3,3908)
+	--self:addTradeFlags(RecipeDB,36672,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	-- No acquire information
 
 	-- Shadowcloth -- 36686
@@ -2481,7 +2481,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Duskweave Boots -- 55924
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55924,410,41544,1, 3908)
+	self:addTradeSkill(RecipeDB,55924,380,41544,1, 3908)
 	self:addTradeFlags(RecipeDB,55924,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,55924,1,26914,1,26964,1,26969,1,27001,1,28699)
 	return recipecount

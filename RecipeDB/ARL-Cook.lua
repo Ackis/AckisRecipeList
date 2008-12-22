@@ -997,7 +997,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,58528,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
-
 	return recipecount
 
 end
