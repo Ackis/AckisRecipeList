@@ -124,7 +124,7 @@ function addon:InitCooking(RecipeDB)
 	-- Blood Sausage -- 3371
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3371,60,3220,1,2550)
-	self:addTradeFlags(RecipeDB,3371,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,3371,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3371,4,418,2,340)
 
 	-- Murloc Fin Soup -- 3372
@@ -155,7 +155,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3397,110,3726,1,2550)
 	self:addTradeFlags(RecipeDB,3397,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3397,4,498,2,3960,2,12246)
+	self:addTradeAcquire(RecipeDB,3397,4,498,2,3960)
 
 	-- Hot Lion Chops -- 3398
 	recipecount = recipecount + 1
@@ -179,7 +179,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,4094,175,4457,1,2550)
 	self:addTradeFlags(RecipeDB,4094,1,2,3,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,4094,4,703,1,2818,2,2814,2,12246)
+	self:addTradeAcquire(RecipeDB,4094,4,703,1,2818,2,2814)
 
 	-- Kaldorei Spider Kabob -- 6412
 	recipecount = recipecount + 1
@@ -328,8 +328,8 @@ function addon:InitCooking(RecipeDB)
 	-- Lean Wolf Steak -- 15853
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15853,125,12209,1,2550)
-	self:addTradeFlags(RecipeDB,15853,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15853,2,12246)
+	self:addTradeFlags(RecipeDB,15853,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Roast Raptor -- 15855
 	recipecount = recipecount + 1
@@ -341,7 +341,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15856,175,13851,1,2550)
 	self:addTradeFlags(RecipeDB,15856,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15856,2,7947,2,8145,2,12246)
+	self:addTradeAcquire(RecipeDB,15856,2,7947,2,8145)
 
 	-- Jungle Stew -- 15861
 	recipecount = recipecount + 1
@@ -358,14 +358,14 @@ function addon:InitCooking(RecipeDB)
 	-- Mystery Stew -- 15865
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15865,175,12214,1,2550)
-	self:addTradeFlags(RecipeDB,15865,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15865,2,4897,2,8150,2,12246)
+	self:addTradeFlags(RecipeDB,15865,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,15865,2,4897,2,8150)
 
 	-- Dragonbreath Chili -- 15906
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15906,200,12217,1,2550)
 	self:addTradeFlags(RecipeDB,15906,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15906,2,4879,2,4897,2,12246)
+	self:addTradeAcquire(RecipeDB,15906,2,4879,2,4897)
 
 	-- Heavy Kodo Stew -- 15910
 	recipecount = recipecount + 1
@@ -874,8 +874,8 @@ function addon:InitCooking(RecipeDB)
 	-- Kungaloosh -- 53056
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
-	--self:addTradeFlags(RecipeDB,53056,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,53056,)
+	--self:addTradeFlags(RecipeDB,53056,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,53056,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
 	-- Northern Stew -- 57421
 	recipecount = recipecount + 1
@@ -886,8 +886,8 @@ function addon:InitCooking(RecipeDB)
 	-- Fish Feast -- 57423
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,57423,360,43015,1, 2550)
-	--self:addTradeFlags(RecipeDB,57423,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	--self:addTradeAcquire(RecipeDB,57423,)
+	--self:addTradeFlags(RecipeDB,57423,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	--self:addTradeAcquire(RecipeDB,57423,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
 	-- Spicy Fried Herring -- 57433
 	recipecount = recipecount + 1

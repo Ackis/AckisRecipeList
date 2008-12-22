@@ -165,7 +165,6 @@ Unknown faction:
 	#"Imperial Plate Shoulders" => 0, # 
 	#"Innkeeper Grilka" => 2,
 	#"James Van Brunt" => 2,
-	#"Jangdor Swiftstrider" => Unknown, # 357
 	#"Jessara Cordell" => 1,
 	#"Jhag" => 2,
 	#"Johan Focht" => 2,
@@ -173,6 +172,7 @@ Unknown faction:
 	#"Joseph Moore" => 2, # 1497
 	#"Josephine Lister" => 2,
 	#"K. Lee Smallfry" => 1,
+	#"Kaita Deepforge" => 1, # 1519
 	#"Kalaen" => 2,
 	#"Kalinda" => 2,
 	#"Kamari" => 2,
@@ -207,6 +207,7 @@ Unknown faction:
 	#"Makaru" => 2,
 	#"Malcomb Wynn" => 2,
 	#"Mari Stonehand" => 1,
+	#"Maria Lumere" => 1,
 	#"Mary Edras" => 2,
 	#"Master Chef Mouldier" => 2,
 	#"Me'lynn" => 1,
@@ -308,9 +309,14 @@ Unknown faction:
 
 
 No acquire information:
-7258 - Frost Protection Potion - Alchemy
-11473 - Ghost Dye - Alchemy
+7255 - Holy Protection Potion - Alchemy
 17636 - Flask of Distilled Wisdom - Alchemy
+2660 - Rough Sharpening Stone - Blacksmithing
+2663 - Copper Bracers - Blacksmithing
+3115 - Rough Weightstone - Blacksmithing
+3496 - Moonsteel Broadsword - Blacksmithing
+3498 - Massive Iron Axe - Blacksmithing
+3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -320,22 +326,12 @@ No acquire information:
 16664 - Runic Plate Shoulders - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
-20873 - Fiery Chain Shoulders - Blacksmithing
-20876 - Dark Iron Leggings - Blacksmithing
-23637 - Dark Iron Gauntlets - Blacksmithing
-23638 - Black Amnesty - Blacksmithing
-23639 - Blackfury - Blacksmithing
-23650 - Ebon Hand - Blacksmithing
-23652 - Blackguard - Blacksmithing
-23653 - Nightfall - Blacksmithing
-24399 - Dark Iron Boots - Blacksmithing
 24912 - Darkrune Gauntlets - Blacksmithing
 24913 - Darkrune Helm - Blacksmithing
 24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
 42688 - Adamantite Weapon Chain - Blacksmithing
-20026 - Enchant Chest - Major Health - Enchanting
-23804 - Enchant Weapon - Mighty Intellect - Enchanting
+15853 - Lean Wolf Steak - Cooking
 27958 - Enchant Chest - Exceptional Mana - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
 44576 - Enchant Weapon - Lifeward - Enchanting
@@ -353,8 +349,12 @@ No acquire information:
 60707 - Enchant Weapon - Superior Potency - Enchanting
 60714 - Enchant Weapon - Mighty Spellpower - Enchanting
 60763 - Enchant Boots - Greater Assault - Enchanting
+3939 - Lovingly Crafted Boomstick - Engineering
+3952 - Minor Recombobulator - Engineering
+3957 - Ice Deflector - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
+23066 - Red Firework - Engineering
 23079 - Major Recombobulator - Engineering
 23486 - Dimensional Ripper - Everlook - Engineering
 23489 - Ultrasafe Transporter - Gadgetzan - Engineering
@@ -385,8 +385,23 @@ No acquire information:
 32259 - Rough Stone Statue - Jewelcrafting
 34069 - Smooth Golden Draenite - Jewelcrafting
 34590 - Bright Blood Garnet - Jewelcrafting
+39721 - Rigid Lionseye - Jewelcrafting
+39731 - Glowing Shadowsong Amethyst - Jewelcrafting
+39732 - Royal Shadowsong Amethyst - Jewelcrafting
+39734 - Potent Pyrestone - Jewelcrafting
+39735 - Luminous Pyrestone - Jewelcrafting
+39736 - Glinting Pyrestone - Jewelcrafting
+39738 - Wicked Pyrestone - Jewelcrafting
+39739 - Enduring Seaspray Emerald - Jewelcrafting
+39740 - Radiant Seaspray Emerald - Jewelcrafting
+39741 - Dazzling Seaspray Emerald - Jewelcrafting
+39742 - Jagged Seaspray Emerald - Jewelcrafting
 39961 - Relentless Earthstorm Diamond - Jewelcrafting
 44794 - Chaotic Skyfire Diamond - Jewelcrafting
+47053 - Forceful Seaspray Emerald - Jewelcrafting
+47054 - Steady Seaspray Emerald - Jewelcrafting
+47055 - Reckless Pyrestone - Jewelcrafting
+47056 - Quick Lionseye - Jewelcrafting
 47280 - Brilliant Glass - Jewelcrafting
 3778 - Gem-studded Leather Belt - Leatherworking
 4096 - Raptor Hide Harness - Leatherworking
@@ -394,13 +409,13 @@ No acquire information:
 7126 - Handstitched Leather Vest - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
-9146 - Herbalist's Gloves - Leatherworking
 10516 - Nightscape Shoulders - Leatherworking
-19049 - Wicked Leather Gauntlets - Leatherworking
+19048 - Heavy Scorpid Bracers - Leatherworking
 19050 - Green Dragonscale Breastplate - Leatherworking
 19053 - Chimeric Gloves - Leatherworking
 19062 - Ironfeather Shoulders - Leatherworking
-19067 - Stormshroud Pants - Leatherworking
+19066 - Frostsaber Boots - Leatherworking
+19077 - Blue Dragonscale Breastplate - Leatherworking
 19080 - Warbear Woolies - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
 19088 - Heavy Scorpid Helm - Leatherworking
@@ -412,9 +427,6 @@ No acquire information:
 22926 - Chromatic Cloak - Leatherworking
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
-23708 - Chromatic Gauntlets - Leatherworking
-23709 - Corehound Belt - Leatherworking
-23710 - Molten Belt - Leatherworking
 35539 - Drums of Restoration - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
@@ -429,12 +441,11 @@ No acquire information:
 55211 - Smelt Titanium - Smelting
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
+3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
 8789 - Crimson Silk Cloak - Tailoring
-8802 - Crimson Silk Robe - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
-18405 - Runecloth Bag - Tailoring
 18419 - Felcloth Pants - Tailoring
 19435 - Mooncloth Boots - Tailoring
 22813 - Gordok Ogre Suit - Tailoring
@@ -443,7 +454,6 @@ No acquire information:
 22868 - Inferno Gloves - Tailoring
 22869 - Mooncloth Gloves - Tailoring
 22870 - Cloak of Warding - Tailoring
-23667 - Flarecore Leggings - Tailoring
 24901 - Runed Stygian Leggings - Tailoring
 24902 - Runed Stygian Belt - Tailoring
 24903 - Runed Stygian Boots - Tailoring

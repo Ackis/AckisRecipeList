@@ -148,8 +148,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Lovingly Crafted Boomstick -- 3939
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3939,120,4372,1,4036)
-	self:addTradeFlags(RecipeDB,3939,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3939,2,6730)
+	self:addTradeFlags(RecipeDB,3939,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Shadow Goggles -- 3940
 	recipecount = recipecount + 1
@@ -208,8 +208,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Minor Recombobulator -- 3952
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3952,140,4381,1,4036)
-	self:addTradeFlags(RecipeDB,3952,1,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,3952,2,2682)
+	self:addTradeFlags(RecipeDB,3952,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	-- No acquire information
 
 	-- Bronze Framework -- 3953
 	recipecount = recipecount + 1
@@ -238,8 +238,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Ice Deflector -- 3957
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,3957,2,2684)
+	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Iron Strut -- 3958
 	recipecount = recipecount + 1
@@ -395,7 +395,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3134,2,3537)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -687,13 +687,13 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Pet Bombling -- 15628
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,15628,205,11825,2,4036)
+	self:addTradeSkill(RecipeDB,15628,205,11825,2,4036,20222)
 	self:addTradeFlags(RecipeDB,15628,1,2,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,15628,8,16)
 
 	-- Lil' Smoky -- 15633
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,15633,205,11826,2,4036)
+	self:addTradeSkill(RecipeDB,15633,205,11826,2,4036,20219)
 	self:addTradeFlags(RecipeDB,15633,1,2,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,15633,8,16)
 
@@ -838,8 +838,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Red Firework -- 23066
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23066,2,3413)
+	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	-- No acquire information
 
 	-- Blue Firework -- 23067
 	recipecount = recipecount + 1
@@ -1378,61 +1378,61 @@ function addon:InitEngineering(RecipeDB)
 	-- Justicebringer 2000 Specs -- 41311
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41311,350,32472,1,4036)
-	self:addTradeFlags(RecipeDB,41311,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
+	self:addTradeFlags(RecipeDB,41311,1,2,3,25,37,41,59)
 	self:addTradeAcquire(RecipeDB,41311,1,17634,1,18775,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Tankatronic Goggles -- 41312
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41312,350,32473,1,4036)
-	self:addTradeFlags(RecipeDB,41312,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
+	self:addTradeFlags(RecipeDB,41312,1,2,3,25,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,41312,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41314,350,32474,1,4036)
-	self:addTradeFlags(RecipeDB,41314,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,41314,1,2,3,23,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,41314,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Gadgetstorm Goggles -- 41315
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41315,350,32476,4,4036)
-	self:addTradeFlags(RecipeDB,41315,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,41315,1,2,3,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,41315,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Living Replicator Specs -- 41316
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41316,350,32475,4,4036)
-	self:addTradeFlags(RecipeDB,41316,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,41316,1,2,3,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,41316,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Deathblow X11 Goggles -- 41317
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41317,350,32478,1,4036)
-	self:addTradeFlags(RecipeDB,41317,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,41317,1,2,3,22,28,37,41,57)
 	self:addTradeAcquire(RecipeDB,41317,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Wonderheal XT40 Shades -- 41318
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41318,350,32479,4,4036)
-	self:addTradeFlags(RecipeDB,41318,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,41318,1,2,3,22,37,41,57)
 	self:addTradeAcquire(RecipeDB,41318,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Magnified Moon Specs -- 41319
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41319,350,32480,4,4036)
-	self:addTradeFlags(RecipeDB,41319,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,41319,1,2,3,22,37,41,57)
 	self:addTradeAcquire(RecipeDB,41319,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Destruction Holo-gogs -- 41320
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41320,350,32494,1,4036)
-	self:addTradeFlags(RecipeDB,41320,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeFlags(RecipeDB,41320,1,2,3,24,26,29,37,41,56)
 	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Powerheal 4000 Lens -- 41321
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41321,350,32495,4,4036)
-	self:addTradeFlags(RecipeDB,41321,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeFlags(RecipeDB,41321,1,2,3,26,37,41,56)
 	self:addTradeAcquire(RecipeDB,41321,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Adamantite Arrow Maker -- 43676
@@ -1714,37 +1714,37 @@ function addon:InitEngineering(RecipeDB)
 	-- Armored Titanium Goggles -- 56480
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56480,440,42549,3,4036)
-	self:addTradeFlags(RecipeDB,56480,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
+	self:addTradeFlags(RecipeDB,56480,1,2,3,21,25,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Weakness Spectralizers -- 56481
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56481,400,42550,3,4036)
-	self:addTradeFlags(RecipeDB,56481,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,56481,440,42550,3,4036)
+	self:addTradeFlags(RecipeDB,56481,1,2,3,22,37,41,57)
 	self:addTradeAcquire(RecipeDB,56481,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Charged Titanium Specs -- 56483
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56483,440,42552,3,4036)
-	self:addTradeFlags(RecipeDB,56483,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
+	self:addTradeFlags(RecipeDB,56483,1,2,3,21,25,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Visage Liquification Goggles -- 56484
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56484,400,42553,3,4036)
-	self:addTradeFlags(RecipeDB,56484,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeSkill(RecipeDB,56484,440,42553,3,4036)
+	self:addTradeFlags(RecipeDB,56484,1,2,3,24,26,29,37,41,56)
 	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Greensight Gogs -- 56486
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56486,400,42554,3,4036)
-	self:addTradeFlags(RecipeDB,56486,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,56486,440,42554,3,4036)
+	self:addTradeFlags(RecipeDB,56486,1,2,3,22,37,41,57)
 	self:addTradeAcquire(RecipeDB,56486,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Electroflux Sight Enhancers -- 56487
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56487,400,42555,3,4036)
-	self:addTradeFlags(RecipeDB,56487,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeSkill(RecipeDB,56487,440,42555,3,4036)
+	self:addTradeFlags(RecipeDB,56487,1,2,3,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,56487,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Global Thermal Sapper Charge -- 56514
@@ -1755,8 +1755,8 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Truesight Ice Blinders -- 56574
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56574,400,42551,1, 4036)
-	self:addTradeFlags(RecipeDB,56574,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeSkill(RecipeDB,56574,440,42551,1, 4036)
+	self:addTradeFlags(RecipeDB,56574,1,2,3,23,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Mechano-hog -- 60866

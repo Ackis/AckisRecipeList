@@ -532,8 +532,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Frost Resistance -- 13933
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13933,235,nil, 2,7411)
-	self:addTradeFlags(RecipeDB,13933,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13933,3,7855,3,10184,3,12397)
+	self:addTradeFlags(RecipeDB,13933,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,13933,3,5256,3,7855,3,10184,3,12397)
 
 	-- Enchant Boots - Agility -- 13935
 	recipecount = recipecount + 1
@@ -712,8 +712,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Major Health -- 20026
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20026,275,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,20026,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,20026,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,20026,2,11189)
 
 	-- Enchant Chest - Major Mana -- 20028
 	recipecount = recipecount + 1
@@ -826,8 +826,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Mighty Intellect -- 23804
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23804,300,nil, 1,7411)
-	self:addTradeFlags(RecipeDB,23804,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23804,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,23804,2,12944)
 
 	-- Enchant Gloves - Threat -- 25072
 	recipecount = recipecount + 1
@@ -1198,8 +1198,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Runed Adamantite Rod -- 32665
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32665,350,22462,1,7411)
-	self:addTradeFlags(RecipeDB,32665,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32665,2,18960,2,19004)
+	self:addTradeFlags(RecipeDB,32665,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,32665,2,18960)
 
 	-- Runed Eternium Rod -- 32667
 	recipecount = recipecount + 1
