@@ -88,8 +88,8 @@ function addon:InitCooking(RecipeDB)
 	-- Dry Pork Ribs -- 2546
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2546,80,2687,1,2550)
-	self:addTradeFlags(RecipeDB,2546,1,2,3,21,22,23,24,25,26,27,28,29,30,41)
-	self:addTradeAcquire(RecipeDB,2544,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeFlags(RecipeDB,2546,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,2546,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Redridge Goulash -- 2547
 	recipecount = recipecount + 1
@@ -184,7 +184,7 @@ function addon:InitCooking(RecipeDB)
 	-- Kaldorei Spider Kabob -- 6412
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6412,10,5472,1,2550)
-	self:addTradeFlags(RecipeDB,6412,1,8,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB,6412,1,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6412,4,4161)
 
 	-- Scorpid Surprise -- 6413

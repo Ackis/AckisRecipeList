@@ -323,8 +323,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Solid Iron Maul -- 3494
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
-	self:addTradeFlags(RecipeDB,3494,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,3494,2,8878)
+	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
+	self:addTradeAcquire(RecipeDB,3494,2,8878,2,26081)
 
 	-- Golden Iron Destroyer -- 3495
 	recipecount = recipecount + 1
@@ -335,8 +335,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Moonsteel Broadsword -- 3496
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,69)
+	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
 	recipecount = recipecount + 1
@@ -1047,8 +1047,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Radiant Leggings -- 16725
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16725,300,12420,2,2018)
-	self:addTradeFlags(RecipeDB,16725,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,16725,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,16725,7,2)
 
 	-- Runic Plate Helm -- 16726
 	recipecount = recipecount + 1
@@ -1065,8 +1065,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Lionheart Helm -- 16729
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16729,300,12640,4,2018)
-	self:addTradeFlags(RecipeDB,16729,21,22,23,24,25,26,27,28,29,30,36,40,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,16729,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeAcquire(RecipeDB,16729,3,10184)
 
 	-- Imperial Plate Leggings -- 16730
 	recipecount = recipecount + 1

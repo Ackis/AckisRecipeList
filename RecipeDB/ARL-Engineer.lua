@@ -340,8 +340,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Accurate Scope -- 3979
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3979,180,4407,1,4036)
-	self:addTradeFlags(RecipeDB,3979,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3979,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3979,2,2685)
 
 	-- Ornate Spyglass -- 6458
 	recipecount = recipecount + 1
@@ -1496,8 +1496,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Primal-Attuned Goggles -- 46110
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46110,375,35184,4,4036)
-	self:addTradeFlags(RecipeDB,46110,1,2,11,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,46110,3,25507)
+	self:addTradeFlags(RecipeDB,46110,1,2,6,11,27,37,41,58)
+	self:addTradeAcquire(RecipeDB,46110,3,25369,3,25371,3,25507)
 
 	-- Annihilator Holo-Gogs -- 46111
 	recipecount = recipecount + 1

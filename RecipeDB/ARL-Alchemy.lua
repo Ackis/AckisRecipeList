@@ -263,8 +263,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Fire Protection Potion -- 7257
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7257,165,6049,1,2259)
-	self:addTradeFlags(RecipeDB,7257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7257,2,2380,2,4083)
+	self:addTradeFlags(RecipeDB,7257,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7257,2,2380)
 
 	-- Frost Protection Potion -- 7258
 	recipecount = recipecount + 1
