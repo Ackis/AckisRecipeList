@@ -6827,7 +6827,7 @@ create_faction_db()
 
 if $debug
 
-	get_firstaid_list(recipes, maps)
+	get_cooking_list(recipes, maps)
 
 else
 

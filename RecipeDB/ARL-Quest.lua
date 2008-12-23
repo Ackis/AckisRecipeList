@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-89 found from data mining.  0 ignored.
+88 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -47,7 +47,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,296,L["Ormer's Revenge"],BZONE["Wetlands"],38.04,50.72,1)
 	self:addLookupList(QuestDB,384,L["Beer Basted Boar Ribs"],BZONE["Dun Morogh"],47.18,53.32,1)
 	self:addLookupList(QuestDB,385,L["Crocolisk Hunting"],BZONE["Loch Modan"],82.03,64.03,0)
-	self:addLookupList(QuestDB,418,L["Thelsamar Blood Sausages"],BZONE["Loch Modan"],35.07,49.66,1)
+	self:addLookupList(QuestDB,418,L["Thelsamar Blood Sausages"],BZONE["Loch Modan"],35.07,49.66,0)
 	self:addLookupList(QuestDB,429,L["Wild Hearts"],BZONE["Silverpine Forest"],43.56,41.14,2)
 	self:addLookupList(QuestDB,471,L["Apprentice's Duties"],BZONE["Wetlands"],8.928,56.07,1)
 	self:addLookupList(QuestDB,498,L["The Rescue"],BZONE["Hillsbrad Foothills"],62.49,19.95,2)
@@ -58,7 +58,7 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,715,L["Liquid Stone"],BZONE["Badlands"],26.52,45.31,0)
 	self:addLookupList(QuestDB,769,L["Kodo Hide Bag"],BZONE["Thunder Bluff"],43.90,44.68,2)
 	self:addLookupList(QuestDB,862,L["Dig Rat Stew"],BZONE["The Barrens"],55.00,33.00,2)
-	self:addLookupList(QuestDB,1487,L["Deviate Eradication"],BZONE["The Barrens"],46.24,36.63,2)
+	self:addLookupList(QuestDB,1487,L["Deviate Eradication"],BZONE["The Barrens"],46.24,36.64,0)
 	self:addLookupList(QuestDB,1559,L["Flash Bomb Recipe"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,1578,L["Supplying the Front"],BZONE["Loch Modan"],23.49,75.12,1)
 	self:addLookupList(QuestDB,1582,L["Moonglow Vest"],BZONE["Darnassus"],64.76,22.39,1)
@@ -92,7 +92,6 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,2860,L["Master of the Wild Leather"],BZONE["Thunder Bluff"],42.37,43.59,2)
 	self:addLookupList(QuestDB,3402,L["The Undermarket"],BZONE["Tanaris"],51.45,27.09,0)
 	self:addLookupList(QuestDB,4083,L["The Spectral Chalice"],L["Unknown Zone"],0,0,0)
-	self:addLookupList(QuestDB,4161,L["Recipe of the Kaldorei"],BZONE["Teldrassil"],57.74,61.64,1)
 	self:addLookupList(QuestDB,5124,L["Fiery Plate Gauntlets"],BZONE["Winterspring"],60.95,37.99,0)
 	self:addLookupList(QuestDB,5127,L["The Demon Forge"],BZONE["Winterspring"],64.05,73.24,0)
 	self:addLookupList(QuestDB,5163,L["Are We There, Yeti?"],BZONE["Winterspring"],60.78,37.57,0)
@@ -115,17 +114,17 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,7657,L["Imperial Plate Helm"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,7658,L["Imperial Plate Leggings"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,7659,L["Imperial Plate Shoulders"],L["Unknown Zone"],0,0,0)
-	self:addLookupList(QuestDB,8313,L["Sharing the Knowledge"],BZONE["Ironforge"],38.04,68.70,0)
+	self:addLookupList(QuestDB,8313,L["Sharing the Knowledge"],BZONE["Ironforge"],38.84,70.14,0)
 	self:addLookupList(QuestDB,8586,L["Dirge's Kickin' Chimaerok Chops"],BZONE["Tanaris"],52.50,27.99,0)
 	self:addLookupList(QuestDB,8877,L["Firework Launcher"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,8878,L["Festive Recipes"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,8882,L["Cluster Launcher"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,9171,L["Culinary Crunch"],BZONE["Ghostlands"],47.88,31.20,2)
 	self:addLookupList(QuestDB,9249,L["40 Tickets - Schematic: Steam Tonk Controller"],L["Unknown Zone"],0,0,0)
-	self:addLookupList(QuestDB,9356,L["Smooth as Butter"],BZONE["Hellfire Peninsula"],49.05,74.08,0)
+	self:addLookupList(QuestDB,9356,L["Smooth as Butter"],BZONE["Hellfire Peninsula"],49.04,74.06,0)
 	self:addLookupList(QuestDB,9454,L["The Great Moongraze Hunt"],BZONE["Bloodmyst Isle"],53.73,55.95,1)
 	self:addLookupList(QuestDB,9635,L["The Zapthrottle Mote Extractor!"],BZONE["Zangarmarsh"],34.38,51.47,2)
 	self:addLookupList(QuestDB,9636,L["The Zapthrottle Mote Extractor!"],BZONE["Zangarmarsh"],68.29,51.35,1)
-	self:addLookupList(QuestDB,10860,L["Mok'Nathal Treats"],BZONE["Blade's Edge Mountains"],76.35,61.64,2)
+	self:addLookupList(QuestDB,10860,L["Mok'Nathal Treats"],BZONE["Blade's Edge Mountains"],76.33,61.69,2)
 
 end

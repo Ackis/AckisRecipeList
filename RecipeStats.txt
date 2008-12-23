@@ -2,8 +2,6 @@ Unknown zones:
 	"Aged Dalaran Wizard" => "Old Hillsbrad Foothills",
 	"Annora" => "Uldaman",
 	"Apocalypse Guard" => "Sunwell Plateau",
-	"Ayamiss the Hunter" => "Ruins of Ahn'Qiraj",
-	"Buru the Gorger" => "Ruins of Ahn'Qiraj",
 	"Cannon Master Willey" => "Stratholme",
 	"Cataclysm Hound" => "Sunwell Plateau",
 	"Crimson Inquisitor" => "Stratholme",
@@ -11,14 +9,12 @@ Unknown zones:
 	"Doomfire Destroyer" => "Sunwell Plateau",
 	"Fel Rager" => "Blade's Edge Mountains",
 	"Firebrand Pyromancer" => "Blackrock Spire",
-	"General Rajaxx" => "Ruins of Ahn'Qiraj",
 	"Gorgolon the All-seeing" => "Blade's Edge Mountains",
 	"Grand Crusader Dathrohan" => "Stratholme",
 	"Great-father Winter" => "Orgrimmar",
 	"Illidari Defiler" => "Black Temple",
 	"Ironbark Protector" => "Dire Maul",
 	"Koren" => "Karazhan",
-	"Kurinnaxx" => "Ruins of Ahn'Qiraj",
 	"Lieutenant General Andorov" => "Ruins of Ahn'Qiraj",
 	"Lokhtos Darkbargainer" => "Blackrock Depths",
 	"Lord Kazzak" => "Blasted Lands",
@@ -27,7 +23,6 @@ Unknown zones:
 	"Moam" => "Ruins of Ahn'Qiraj",
 	"Oblivion Mage" => "Sunwell Plateau",
 	"Okuno" => "Black Temple",
-	"Ossirian the Unscarred" => "Ruins of Ahn'Qiraj",
 	"Painbringer" => "Sunwell Plateau",
 	"Plugger Spazzring" => "Blackrock Depths",
 	"Priestess Delrissa" => "Magisters' Terrace",
@@ -164,6 +159,7 @@ Unknown faction:
 	"Imperial Plate Shoulders" => 0,
 	"Innkeeper Grilka" => 2,
 	"James Van Brunt" => 2,
+	"Jangdor Swiftstrider" => Unknown,
 	"Jessara Cordell" => 1,
 	"Jhag" => 2,
 	"Johan Focht" => 2,
@@ -223,6 +219,7 @@ Unknown faction:
 	"Nahogg" => 1,
 	"Nardstrum Copperpinch" => 2,
 	"Neii" => 1,
+	"Nioma" => Unknown,
 	"Nissa Firestone" => 1,
 	"Nogg" => 2,
 	"Nula the Butcher" => 2,
@@ -238,7 +235,6 @@ Unknown faction:
 	"Provisioner Lorkran" => 2,
 	"Quartermaster Urgronn" => 2,
 	"Randal Worth" => 1,
-	"Rartar" => 2,
 	"Rawrk" => 2,
 	"Razia" => 2,
 	"Refik" => 1,
@@ -308,10 +304,9 @@ Unknown faction:
 	"Zurai" => 2,
 
 
-No acquire information (95 Recipes):
+No acquire information (112 Recipes):
+7258 - Frost Protection Potion - Alchemy
 3496 - Moonsteel Broadsword - Blacksmithing
-3498 - Massive Iron Axe - Blacksmithing
-3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -319,23 +314,36 @@ No acquire information (95 Recipes):
 15295 - Dark Iron Shoulders - Blacksmithing
 15973 - Searing Golden Blade - Blacksmithing
 16664 - Runic Plate Shoulders - Blacksmithing
+16725 - Radiant Leggings - Blacksmithing
+16729 - Lionheart Helm - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
+20873 - Fiery Chain Shoulders - Blacksmithing
+20876 - Dark Iron Leggings - Blacksmithing
+23637 - Dark Iron Gauntlets - Blacksmithing
+23638 - Black Amnesty - Blacksmithing
+23639 - Blackfury - Blacksmithing
+23650 - Ebon Hand - Blacksmithing
+23652 - Blackguard - Blacksmithing
+23653 - Nightfall - Blacksmithing
+24399 - Dark Iron Boots - Blacksmithing
 24912 - Darkrune Gauntlets - Blacksmithing
 24913 - Darkrune Helm - Blacksmithing
 24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
-15853 - Lean Wolf Steak - Cooking
-17725 - Enchant Weapon - Winter's Might - Enchanting
+2546 - Dry Pork Ribs - Cooking
+6412 - Kaldorei Spider Kabob - Cooking
+20026 - Enchant Chest - Major Health - Enchanting
+23804 - Enchant Weapon - Mighty Intellect - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
-35498 - Enchant Weapon - Deathfrost - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
 44612 - Enchant Gloves - Greater Blasting - Enchanting
-3939 - Lovingly Crafted Boomstick - Engineering
 3957 - Ice Deflector - Engineering
+3979 - Accurate Scope - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
+23066 - Red Firework - Engineering
 23079 - Major Recombobulator - Engineering
 39973 - Frost Grenades - Engineering
 25255 - Delicate Copper Wire - Jewelcrafting
@@ -357,20 +365,20 @@ No acquire information (95 Recipes):
 34069 - Smooth Golden Draenite - Jewelcrafting
 34590 - Bright Blood Garnet - Jewelcrafting
 47280 - Brilliant Glass - Jewelcrafting
+3778 - Gem-studded Leather Belt - Leatherworking
 4096 - Raptor Hide Harness - Leatherworking
 4097 - Raptor Hide Belt - Leatherworking
 7126 - Handstitched Leather Vest - Leatherworking
+7149 - Barbaric Leggings - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
-10516 - Nightscape Shoulders - Leatherworking
-19048 - Heavy Scorpid Bracers - Leatherworking
-19050 - Green Dragonscale Breastplate - Leatherworking
-19053 - Chimeric Gloves - Leatherworking
 19062 - Ironfeather Shoulders - Leatherworking
 19066 - Frostsaber Boots - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
+19085 - Black Dragonscale Breastplate - Leatherworking
 19088 - Heavy Scorpid Helm - Leatherworking
+22711 - Shadowskin Gloves - Leatherworking
 22815 - Gordok Ogre Suit - Leatherworking
 22921 - Girdle of Insight - Leatherworking
 22922 - Mongoose Boots - Leatherworking
@@ -378,6 +386,9 @@ No acquire information (95 Recipes):
 22926 - Chromatic Cloak - Leatherworking
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
+23708 - Chromatic Gauntlets - Leatherworking
+23709 - Corehound Belt - Leatherworking
+23710 - Molten Belt - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
 44770 - Glove Reinforcements - Leatherworking
@@ -385,13 +396,14 @@ No acquire information (95 Recipes):
 45100 - Leatherworker's Satchel - Leatherworking
 14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
+3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
 3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
-8789 - Crimson Silk Cloak - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
+18405 - Runecloth Bag - Tailoring
 18419 - Felcloth Pants - Tailoring
 19435 - Mooncloth Boots - Tailoring
 22813 - Gordok Ogre Suit - Tailoring
@@ -400,6 +412,7 @@ No acquire information (95 Recipes):
 22868 - Inferno Gloves - Tailoring
 22869 - Mooncloth Gloves - Tailoring
 22870 - Cloak of Warding - Tailoring
+23667 - Flarecore Leggings - Tailoring
 24901 - Runed Stygian Leggings - Tailoring
 24902 - Runed Stygian Belt - Tailoring
 24903 - Runed Stygian Boots - Tailoring
