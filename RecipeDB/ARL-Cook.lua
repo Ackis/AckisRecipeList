@@ -64,13 +64,13 @@ function addon:InitCooking(RecipeDB)
 	-- Goretusk Liver Pie -- 2542
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550)
-	self:addTradeFlags(RecipeDB,2542,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2542,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2542,4,22,2,340)
 
 	-- Westfall Stew -- 2543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
-	self:addTradeFlags(RecipeDB,2543,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2543,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544
@@ -124,7 +124,7 @@ function addon:InitCooking(RecipeDB)
 	-- Blood Sausage -- 3371
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3371,60,3220,1,2550)
-	self:addTradeFlags(RecipeDB,3371,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,3371,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3371,4,418,2,340)
 
 	-- Murloc Fin Soup -- 3372
@@ -253,6 +253,12 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,7213,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,7213,2,2664)
 
+	-- Thistle Tea -- 7678
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,7678,60,7676,2,2550)
+	self:addTradeFlags(RecipeDB,7678,1,2,8,28,36,41)
+	self:addTradeAcquire(RecipeDB,7678,4,2359,4,2478)
+
 	-- Brilliant Smallfish -- 7751
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550)
@@ -312,12 +318,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeSkill(RecipeDB,8607,40,6890,1,2550)
 	self:addTradeFlags(RecipeDB,8607,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,8607,2,1465,2,3556)
-
-	-- Thistle Tea -- 9513
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,9513,60,7676,1,2550)
-	self:addTradeFlags(RecipeDB,9513,1,2,4,8,28,36,41)
-	self:addTradeAcquire(RecipeDB,9513,4,2359,4,2478,2,6779)
 
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1

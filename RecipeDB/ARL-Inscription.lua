@@ -1210,8 +1210,8 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Raise Dead -- 57228
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57228,295,43673,1,45357)
-	self:addTradeFlags(RecipeDB,57228,3,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,57228,1,2,12,36,41)
+	self:addTradeAcquire(RecipeDB,57228,8,15)
 
 	-- Glyph of Corpse Explosion -- 57229
 	recipecount = recipecount + 1

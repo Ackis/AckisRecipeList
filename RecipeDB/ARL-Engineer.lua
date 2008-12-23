@@ -925,21 +925,33 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Dimensional Ripper - Everlook -- 23486
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,23486,260,18984,2,4036,20222)
-	self:addTradeFlags(RecipeDB,23486,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,23486,260,18984,2,4036,20219)
+	self:addTradeFlags(RecipeDB,23486,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,23486,8,21)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,23489,260,18986,2,4036,20219)
-	self:addTradeFlags(RecipeDB,23489,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeSkill(RecipeDB,23489,260,18986,2,4036,20222)
+	self:addTradeFlags(RecipeDB,23489,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,23489,8,20)
 
 	-- Snake Burst Firework -- 23507
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23507,250,19026,1,4036)
 	self:addTradeFlags(RecipeDB,23507,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,23507,2,14637)
+
+	-- Healing Potion Injector -- 23883
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,23883,330,33092,3,4036)
+	self:addTradeFlags(RecipeDB,23883,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,23883,3,24664,3,24664)
+
+	-- Mana Potion Injector -- 23884
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,23884,345,33093,3,4036)
+	self:addTradeFlags(RecipeDB,23884,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,23884,3,24664,3,24664)
 
 	-- Bloodvine Goggles -- 24356
 	recipecount = recipecount + 1
@@ -956,8 +968,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Tranquil Mechanical Yeti -- 26011
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26011,250,21277,1,4036)
-	self:addTradeFlags(RecipeDB,26011,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,26011,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26011,4,5163)
 
 	-- Small Blue Rocket -- 26416
 	recipecount = recipecount + 1
@@ -1245,18 +1257,6 @@ function addon:InitEngineering(RecipeDB)
 	--self:addTradeFlags(RecipeDB,30549,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,30549,)
 
-	-- Healing Potion Injector -- 30551
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,30551,330,33092,3,4036)
-	self:addTradeFlags(RecipeDB,30551,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,30551,7,3)
-
-	-- Mana Potion Injector -- 30552
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,30552,345,33093,3,4036)
-	self:addTradeFlags(RecipeDB,30552,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,30552,7,3)
-
 	-- Rocket Boots Xtreme -- 30556
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30556,355,23824,3,4036)
@@ -1346,14 +1346,14 @@ function addon:InitEngineering(RecipeDB)
 	-- Dimensional Ripper - Area 52 -- 36954
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36954,350,30542,2,4036,20222)
-	self:addTradeFlags(RecipeDB,36954,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,36954,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,36954,8,20)
 
 	-- Ultrasafe Transporter - Toshley's Station -- 36955
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36955,350,30544,2,4036,20219)
-	self:addTradeFlags(RecipeDB,36955,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,36955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeAcquire(RecipeDB,36955,8,21)
 
 	-- Fused Wiring -- 39895
 	recipecount = recipecount + 1

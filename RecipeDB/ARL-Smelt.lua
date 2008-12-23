@@ -166,26 +166,26 @@ function addon:InitSmelting(RecipeDB)
 	-- Smelt Cobalt -- 49252
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,49252,350,36916,1,2575)
-	self:addTradeFlags(RecipeDB,49252,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,49252,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,49252,1,26912,1,26962,1,26976,1,26999,1,28698)
 
 	-- Smelt Saronite -- 49258
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,49258,400,36913,1,2575)
-	self:addTradeFlags(RecipeDB,49258,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,49258,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,49258,1,26912,1,26962,1,26976,1,26999,1,28698)
 
 	-- Smelt Titansteel -- 55208
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55208,450,37663,2,2575)
-	self:addTradeFlags(RecipeDB,55208,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55208,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55208,1,26912,1,26962,1,26976,1,26999,1,28698)
 
 	-- Smelt Titanium -- 55211
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55211,450,41163,2,2575)
-	self:addTradeFlags(RecipeDB,55211,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,55211,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55211,1,26912,1,26962,1,26976,1,26999,1,28698)
 
 
 	-- Ignored Recipes:

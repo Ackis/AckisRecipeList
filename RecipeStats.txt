@@ -16,7 +16,6 @@ Unknown zones:
 	"Grand Crusader Dathrohan" => "Stratholme",
 	"Great-father Winter" => "Orgrimmar",
 	"Illidari Defiler" => "Black Temple",
-	"Indormi" => "Hyjal Summit",
 	"Ironbark Protector" => "Dire Maul",
 	"Koren" => "Karazhan",
 	"Kurinnaxx" => "Ruins of Ahn'Qiraj",
@@ -57,7 +56,7 @@ Unknown zones:
 
 
 Unknown faction:
-	"40 Tickets - Schematic: Steam Tonk Controller" => 0, # 
+	"40 Tickets - Schematic: Steam Tonk Controller" => 0,
 	"Ainethil" => 1,
 	"Alanna Raveneye" => 1,
 	"Alchemist Gribble" => 1,
@@ -67,7 +66,7 @@ Unknown faction:
 	"Alys Vol'tyr" => 2,
 	"Amin" => 2,
 	"Amy Davenport" => 1,
-	#"Ancient Female Vrykul" => Unknown, # 495
+	"Ancient Female Vrykul" => Unknown,
 	"Andrew Hilbert" => 2,
 	"Apothecary Antonivich" => 2,
 	"Arnok" => 2,
@@ -93,10 +92,10 @@ Unknown faction:
 	"Burko" => 1,
 	"Byancie" => 1,
 	"Camberon" => 2,
-	"Captain O'Neal" => 1, # 1519
+	"Captain O'Neal" => 1,
 	"Captured Gnome" => 2,
 	"Celie Steelwing" => 1,
-	"Cluster Launcher" => 0, # 
+	"Cluster Launcher" => 0,
 	"Cyndra Kindwhisper" => 1,
 	"Daga Ramba" => 2,
 	"Daggle Ironshaper" => 1,
@@ -125,10 +124,10 @@ Unknown faction:
 	"Felicia Doan" => 2,
 	"Felika" => 2,
 	"Feruul" => 1,
-	"Festive Recipes" => 0, # 
+	"Festive Recipes" => 0,
 	"Fimble Finespindle" => 1,
-	"Firework Launcher" => 0, # 
-	"Flash Bomb Recipe" => 0, # 
+	"Firework Launcher" => 0,
+	"Flash Bomb Recipe" => 0,
 	"Franklin Lloyd" => 2,
 	"Fyldan" => 1,
 	"Gambarinka" => 2,
@@ -143,7 +142,7 @@ Unknown faction:
 	"Gimble Thistlefuzz" => 1,
 	"Gloresse" => 2,
 	"Godan" => 2,
-	"Gorgolon the All-seeing" => None, # Unknown
+	"Gorgolon the All-seeing" => None,
 	"Graham Van Talen" => 2,
 	"Great-father Winter" => 0,
 	"Gremlock Pilsnor" => 1,
@@ -152,27 +151,27 @@ Unknown faction:
 	"Haalrun" => 1,
 	"Haferet" => 1,
 	"Hagrus" => 2,
-	"Hahrana Ironhide" => 2, # 357
+	"Hahrana Ironhide" => 2,
 	"Hama" => 1,
-	"Hotoppik Copperpinch" => 2, # 3487
+	"Hotoppik Copperpinch" => 2,
 	"Hurnak Grimmord" => 1,
-	"Imperial Plate Belt" => 0, # 
-	"Imperial Plate Boots" => 0, # 
-	"Imperial Plate Bracer" => 0, # 
-	"Imperial Plate Chest" => 0, # 
-	"Imperial Plate Helm" => 0, # 
-	"Imperial Plate Leggings" => 0, # 
-	"Imperial Plate Shoulders" => 0, # 
+	"Imperial Plate Belt" => 0,
+	"Imperial Plate Boots" => 0,
+	"Imperial Plate Bracer" => 0,
+	"Imperial Plate Chest" => 0,
+	"Imperial Plate Helm" => 0,
+	"Imperial Plate Leggings" => 0,
+	"Imperial Plate Shoulders" => 0,
 	"Innkeeper Grilka" => 2,
 	"James Van Brunt" => 2,
 	"Jessara Cordell" => 1,
 	"Jhag" => 2,
 	"Johan Focht" => 2,
 	"Josef Gregorian" => 2,
-	"Joseph Moore" => 2, # 1497
+	"Joseph Moore" => 2,
 	"Josephine Lister" => 2,
 	"K. Lee Smallfry" => 1,
-	"Kaita Deepforge" => 1, # 1519
+	"Kaita Deepforge" => 1,
 	"Kalaen" => 2,
 	"Kalinda" => 2,
 	"Kamari" => 2,
@@ -181,7 +180,7 @@ Unknown faction:
 	"Keelen Sheets" => 2,
 	"Kelgruk Bloodaxe" => 2,
 	"Kendor Kabonka" => 1,
-	"Khole Jinglepocket" => 1, # 1519
+	"Khole Jinglepocket" => 1,
 	"Kithas" => 2,
 	"Knight Dameron" => 1,
 	"Kor'geld" => 2,
@@ -189,7 +188,7 @@ Unknown faction:
 	"Krugosh" => 2,
 	"Kudrii" => 1,
 	"Kylanna Windwhisper" => 1,
-	"Lady Palanseer" => 2, # 1637
+	"Lady Palanseer" => 2,
 	"Landraelanis" => 2,
 	"Lavinia Crowe" => 2,
 	"Lawrence Schneider" => 1,
@@ -222,7 +221,7 @@ Unknown faction:
 	"Mythrin'dir" => 1,
 	"Nadyia Maneweaver" => 1,
 	"Nahogg" => 1,
-	"Nardstrum Copperpinch" => 2, # 1497
+	"Nardstrum Copperpinch" => 2,
 	"Neii" => 1,
 	"Nissa Firestone" => 1,
 	"Nogg" => 2,
@@ -233,9 +232,9 @@ Unknown faction:
 	"Okothos Ironrager" => 2,
 	"Outfitter Eric" => 1,
 	"Padaar" => 1,
-	"Penney Copperpinch" => 2, # 1637
+	"Penney Copperpinch" => 2,
 	"Phea" => 1,
-	"Pratt McGrubben" => 1, # 357
+	"Pratt McGrubben" => 1,
 	"Provisioner Lorkran" => 2,
 	"Quartermaster Urgronn" => 2,
 	"Randal Worth" => 1,
@@ -255,7 +254,7 @@ Unknown faction:
 	"Sebastian Crane" => 2,
 	"Sedana" => 2,
 	"Seer Janidi" => 2,
-	"Seersa Copperpinch" => 2, # 1638
+	"Seersa Copperpinch" => 2,
 	"Sellandus" => 1,
 	"Sewa Mistrunner" => 2,
 	"Shankys" => 2,
@@ -295,9 +294,9 @@ Unknown faction:
 	"Vhan" => 2,
 	"Victor Ward" => 2,
 	"Vix Chromeblaster" => 2,
-	"Wolgren Jinglepocket" => 1, # 3557
+	"Wolgren Jinglepocket" => 1,
 	"Wulan" => 2,
-	"Wulmort Jinglepocket" => 0, # 1
+	"Wulmort Jinglepocket" => 0,
 	"Xen'to" => 2,
 	"Xylinnia Starshine" => 1,
 	"Yarr Hammerstone" => 1,
@@ -309,11 +308,7 @@ Unknown faction:
 	"Zurai" => 2,
 
 
-No acquire information:
-17636 - Flask of Distilled Wisdom - Alchemy
-2660 - Rough Sharpening Stone - Blacksmithing
-2663 - Copper Bracers - Blacksmithing
-3115 - Rough Weightstone - Blacksmithing
+No acquire information (95 Recipes):
 3496 - Moonsteel Broadsword - Blacksmithing
 3498 - Massive Iron Axe - Blacksmithing
 3503 - Golden Scale Coif - Blacksmithing
@@ -330,31 +325,18 @@ No acquire information:
 24913 - Darkrune Helm - Blacksmithing
 24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
-42688 - Adamantite Weapon Chain - Blacksmithing
 15853 - Lean Wolf Steak - Cooking
+17725 - Enchant Weapon - Winter's Might - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
+35498 - Enchant Weapon - Deathfrost - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
-44576 - Enchant Weapon - Lifeward - Enchanting
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
-44595 - Enchant 2H Weapon - Scourgebane - Enchanting
 44612 - Enchant Gloves - Greater Blasting - Enchanting
-44625 - Enchant Gloves - Armsman - Enchanting
-47672 - Enchant Cloak - Mighty Armor - Enchanting
-47898 - Enchant Cloak - Greater Speed - Enchanting
-47899 - Enchant Cloak - Wisdom - Enchanting
-47901 - Enchant Boots - Tuskarr's Vitality - Enchanting
-59625 - Enchant Weapon - Black Magic - Enchanting
-60691 - Enchant 2H Weapon - Massacre - Enchanting
-60692 - Enchant Chest - Powerful Stats - Enchanting
-60707 - Enchant Weapon - Superior Potency - Enchanting
-60714 - Enchant Weapon - Mighty Spellpower - Enchanting
-60763 - Enchant Boots - Greater Assault - Enchanting
 3939 - Lovingly Crafted Boomstick - Engineering
 3957 - Ice Deflector - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
 23079 - Major Recombobulator - Engineering
-26011 - Tranquil Mechanical Yeti - Engineering
 39973 - Frost Grenades - Engineering
 25255 - Delicate Copper Wire - Jewelcrafting
 25493 - Braided Copper Ring - Jewelcrafting
@@ -374,23 +356,6 @@ No acquire information:
 32259 - Rough Stone Statue - Jewelcrafting
 34069 - Smooth Golden Draenite - Jewelcrafting
 34590 - Bright Blood Garnet - Jewelcrafting
-39721 - Rigid Lionseye - Jewelcrafting
-39731 - Glowing Shadowsong Amethyst - Jewelcrafting
-39732 - Royal Shadowsong Amethyst - Jewelcrafting
-39734 - Potent Pyrestone - Jewelcrafting
-39735 - Luminous Pyrestone - Jewelcrafting
-39736 - Glinting Pyrestone - Jewelcrafting
-39738 - Wicked Pyrestone - Jewelcrafting
-39739 - Enduring Seaspray Emerald - Jewelcrafting
-39740 - Radiant Seaspray Emerald - Jewelcrafting
-39741 - Dazzling Seaspray Emerald - Jewelcrafting
-39742 - Jagged Seaspray Emerald - Jewelcrafting
-39961 - Relentless Earthstorm Diamond - Jewelcrafting
-44794 - Chaotic Skyfire Diamond - Jewelcrafting
-47053 - Forceful Seaspray Emerald - Jewelcrafting
-47054 - Steady Seaspray Emerald - Jewelcrafting
-47055 - Reckless Pyrestone - Jewelcrafting
-47056 - Quick Lionseye - Jewelcrafting
 47280 - Brilliant Glass - Jewelcrafting
 4096 - Raptor Hide Harness - Leatherworking
 4097 - Raptor Hide Belt - Leatherworking
@@ -404,7 +369,6 @@ No acquire information:
 19062 - Ironfeather Shoulders - Leatherworking
 19066 - Frostsaber Boots - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
-19080 - Warbear Woolies - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
 19088 - Heavy Scorpid Helm - Leatherworking
 22815 - Gordok Ogre Suit - Leatherworking
@@ -414,12 +378,12 @@ No acquire information:
 22926 - Chromatic Cloak - Leatherworking
 22927 - Hide of the Wild - Leatherworking
 22928 - Shifting Cloak - Leatherworking
-35539 - Drums of Restoration - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
+14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring

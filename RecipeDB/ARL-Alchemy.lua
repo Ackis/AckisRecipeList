@@ -458,6 +458,30 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,12609,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,12609,1,1386,1,4160,1,4611,1,7948,1,16588,1,18802,1,19052)
 
+	-- Flask of the Titans -- 13519
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,13519,300,13510,2,2259)
+	self:addTradeFlags(RecipeDB,13519,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,111)
+	self:addTradeAcquire(RecipeDB,13519,3,10363,6,935,4,21432)
+
+	-- Flask of Distilled Wisdom -- 13520
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,13520,300,13511,2,2259)
+	self:addTradeFlags(RecipeDB,13520,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeAcquire(RecipeDB,13520,6,942,4,17904)
+
+	-- Flask of Supreme Power -- 13521
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,13521,300,13512,2,2259)
+	self:addTradeFlags(RecipeDB,13521,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,106)
+	self:addTradeAcquire(RecipeDB,13521,3,10508,6,989,4,21643)
+
+	-- Flask of Chromatic Resistance -- 13522
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,13522,300,13513,2,2259)
+	self:addTradeFlags(RecipeDB,13522,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeAcquire(RecipeDB,13522,3,10339,6,1011,4,21655)
+
 	-- Dreamless Sleep Potion -- 15833
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15833,230,12190,1,2259)
@@ -491,8 +515,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Superior Defense -- 17554
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17554,265,13445,1,2259)
-	self:addTradeFlags(RecipeDB,17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17554,1,13445,2,5178)
+	self:addTradeFlags(RecipeDB,17554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,17554,1,13445)
 
 	-- Elixir of the Sages -- 17555
 	recipecount = recipecount + 1
@@ -639,30 +663,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,17634,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,17634,3,9692,3,10184,3,10381)
 
-	-- Flask of the Titans -- 17635
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,17635,300,13510,2,2259)
-	self:addTradeFlags(RecipeDB,17635,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17635,3,10363)
-
-	-- Flask of Distilled Wisdom -- 17636
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,17636,300,13511,2,2259)
-	self:addTradeFlags(RecipeDB,17636,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
-
-	-- Flask of Supreme Power -- 17637
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,17637,300,13512,2,2259)
-	self:addTradeFlags(RecipeDB,17637,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17637,3,10508)
-
-	-- Flask of Chromatic Resistance -- 17638
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,17638,300,13513,2,2259)
-	self:addTradeFlags(RecipeDB,17638,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17638,3,10339)
-
 	-- Elixir of Frost Power -- 21923
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21923,190,17708,1,2259)
@@ -680,6 +680,30 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,22808,215,18294,1,2259)
 	self:addTradeFlags(RecipeDB,22808,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,22808,1,1386,1,4160,1,4611,1,7948,1,16588,1,18802,1,19052)
+
+	-- Elixir of Major Agility -- 22905
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,22905,330,22831,1,2259)
+	self:addTradeFlags(RecipeDB,22905,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeAcquire(RecipeDB,22905,6,947,2,17585,6,947,2,17585)
+
+	-- Haste Potion -- 22913
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,22913,350,22838,2,2259)
+	self:addTradeFlags(RecipeDB,22913,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,22913,3,24664,3,24664)
+
+	-- Transmute: Primal Fire to Earth -- 22917
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,22917,350,22452,2,2259)
+	self:addTradeFlags(RecipeDB,22917,1,4,21,22,23,24,25,26,27,28,29,30,36,41,108)
+	self:addTradeAcquire(RecipeDB,22917,6,978,3,20240,6,978,3,20240)
+
+	-- Elixir of Empowerment -- 22926
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,22926,365,22848,2,2259)
+	self:addTradeFlags(RecipeDB,22926,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,22926,3,24664,3,24664,1,22848)
 
 	-- Gurubashi Mojo Madness -- 24266
 	recipecount = recipecount + 1
@@ -716,6 +740,12 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,25146,300,7068,1,2259)
 	self:addTradeFlags(RecipeDB,25146,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,98)
 	self:addTradeAcquire(RecipeDB,25146,6,59,1,12944)
+
+	-- Transmute: Skyfire Diamond -- 25870
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,25870,350,25868,1,2259)
+	self:addTradeFlags(RecipeDB,25870,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeAcquire(RecipeDB,25870,6,947,2,17585,6,947,2,17585)
 
 	-- Elixir of Greater Firepower -- 26277
 	recipecount = recipecount + 1
@@ -771,12 +801,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,28552,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,28552,7,2)
 
-	-- Elixir of Major Agility -- 28553
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,28553,330,22831,1,2259)
-	self:addTradeFlags(RecipeDB,28553,1,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
-	self:addTradeAcquire(RecipeDB,28553,6,946,2,17657)
-
 	-- Shrouding Potion -- 28554
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28554,335,22871,2,2259)
@@ -819,12 +843,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,28563,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,28563,7,2)
 
-	-- Haste Potion -- 28564
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,28564,350,22838,2,2259)
-	self:addTradeFlags(RecipeDB,28564,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28564,7,2)
-
 	-- Destruction Potion -- 28565
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28565,350,22839,2,2259)
@@ -842,12 +860,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,28567,350,21885,2,2259)
 	self:addTradeFlags(RecipeDB,28567,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,113)
 	self:addTradeAcquire(RecipeDB,28567,6,970,3,18382)
-
-	-- Transmute: Primal Fire to Earth -- 28568
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,28568,350,22452,2,2259)
-	self:addTradeFlags(RecipeDB,28568,2,4,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB,28568,6,941,3,20241)
 
 	-- Transmute: Primal Water to Air -- 28569
 	recipecount = recipecount + 1
@@ -896,12 +908,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,28577,360,22847,2,2259)
 	self:addTradeFlags(RecipeDB,28577,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,28577,3,19973)
-
-	-- Elixir of Empowerment -- 28578
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,28578,365,22848,2,2259)
-	self:addTradeFlags(RecipeDB,28578,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28578,7,2,1,22848)
 
 	-- Ironshield Potion -- 28579
 	recipecount = recipecount + 1
@@ -992,12 +998,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,32765,350,25867,1,2259)
 	self:addTradeFlags(RecipeDB,32765,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
 	self:addTradeAcquire(RecipeDB,32765,6,942,2,17904)
-
-	-- Transmute: Skyfire Diamond -- 32766
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,32766,350,25868,1,2259)
-	self:addTradeFlags(RecipeDB,32766,1,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
-	self:addTradeAcquire(RecipeDB,32766,6,946,2,17657)
 
 	-- Volatile Healing Potion -- 33732
 	recipecount = recipecount + 1

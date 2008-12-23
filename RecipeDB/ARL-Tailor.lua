@@ -455,8 +455,8 @@ function addon:InitTailoring(RecipeDB)
 	-- Greater Adept's Robe -- 7643
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908)
-	self:addTradeFlags(RecipeDB,7643,1,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168)
+	self:addTradeFlags(RecipeDB,7643,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,2669,2,4168,2,4577)
 
 	-- Stylish Blue Shirt -- 7892
 	recipecount = recipecount + 1
@@ -1176,7 +1176,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Truefaith Vestments -- 18456
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18456,300,14154,4,3908)
-	self:addTradeFlags(RecipeDB,18456,1,2,26,37,41,56)
+	self:addTradeFlags(RecipeDB,18456,1,2,5,26,37,41,56)
 	self:addTradeAcquire(RecipeDB,18456,3,10812)
 
 	-- Robe of the Archmage -- 18457
@@ -1322,6 +1322,18 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeSkill(RecipeDB,24093,300,19684,1,3908)
 	self:addTradeFlags(RecipeDB,24093,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56,100)
 	self:addTradeAcquire(RecipeDB,24093,6,270,1,14921)
+
+	-- Unyielding Bracers -- 24296
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,24296,350,24249,3,3908)
+	self:addTradeFlags(RecipeDB,24296,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,24296,3,24664,3,24664)
+
+	-- Unyielding Girdle -- 24302
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,24302,365,24255,4,3908)
+	self:addTradeFlags(RecipeDB,24302,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,24302,3,24664,3,24664)
 
 	-- Runed Stygian Leggings -- 24901
 	recipecount = recipecount + 1
@@ -1689,12 +1701,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,31433,1,4,21,22,23,24,25,26,27,28,29,30,36,41,101)
 	self:addTradeAcquire(RecipeDB,31433,6,932,4,19321)
 
-	-- Unyielding Bracers -- 31434
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,31434,350,24249,3,3908)
-	self:addTradeFlags(RecipeDB,31434,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,31434,7,3)
-
 	-- Bracers of Havok -- 31435
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31435,350,24250,3,3908)
@@ -1724,12 +1730,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeSkill(RecipeDB,31441,350,24254,3,3908)
 	self:addTradeFlags(RecipeDB,31441,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,60)
 	self:addTradeAcquire(RecipeDB,31441,7,3)
-
-	-- Unyielding Girdle -- 31442
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,31442,365,24255,4,3908)
-	self:addTradeFlags(RecipeDB,31442,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,31442,7,4)
 
 	-- Girdle of Ruination -- 31443
 	recipecount = recipecount + 1
@@ -1815,6 +1815,42 @@ function addon:InitTailoring(RecipeDB)
 	--self:addTradeSkill(RecipeDB,31461,325,24269,1,3908)
 	--self:addTradeFlags(RecipeDB,31461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,31461,1,24315)
+
+	-- Swiftheal Wraps -- 32752
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,32752,375,32584,4,3908)
+	self:addTradeFlags(RecipeDB,32752,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,32752,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
+
+	-- Swiftheal Mantle -- 32753
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,32753,375,32585,4,3908)
+	self:addTradeFlags(RecipeDB,32753,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,32753,7,4)
+
+	-- Bracers of Nimble Thought -- 32754
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,32754,375,32586,4,3908)
+	self:addTradeFlags(RecipeDB,32754,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,32754,7,4)
+
+	-- Mantle of Nimble Thought -- 32755
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,32755,375,32587,4,3908)
+	self:addTradeFlags(RecipeDB,32755,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,32755,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17908,3,17916)
+
+	-- Hands of Eternal Light -- 35205
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,35205,365,34367,4,3908)
+	self:addTradeFlags(RecipeDB,35205,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,35205,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
+
+	-- Robe of Eternal Light -- 35207
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,35207,365,34365,4,3908)
+	self:addTradeFlags(RecipeDB,35207,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,35207,3,25363,3,25367,3,25369,3,25370,3,25371,3,25486,3,25592)
 
 	-- Belt of Blasting -- 36315
 	recipecount = recipecount + 1
@@ -1942,30 +1978,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,40060,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,60,102)
 	self:addTradeAcquire(RecipeDB,40060,6,1012,2,23159)
 
-	-- Bracers of Nimble Thought -- 41205
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,41205,375,32586,4,3908)
-	self:addTradeFlags(RecipeDB,41205,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,41205,7,4)
-
-	-- Mantle of Nimble Thought -- 41206
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,41206,375,32587,4,3908)
-	self:addTradeFlags(RecipeDB,41206,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,41206,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17908,3,17916)
-
-	-- Swiftheal Wraps -- 41207
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,41207,375,32584,4,3908)
-	self:addTradeFlags(RecipeDB,41207,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,41207,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
-
-	-- Swiftheal Mantle -- 41208
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,41208,375,32585,4,3908)
-	self:addTradeFlags(RecipeDB,41208,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,41208,7,4)
-
 	-- Green Winter Clothes -- 44950
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44950,250,34087,2,3908)
@@ -1984,23 +1996,11 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,46128,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,46128,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
 
-	-- Hands of Eternal Light -- 46129
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,46129,365,34367,4,3908)
-	self:addTradeFlags(RecipeDB,46129,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,46129,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
-
 	-- Sunfire Robe -- 46130
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46130,365,34364,4,3908)
 	self:addTradeFlags(RecipeDB,46130,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
 	self:addTradeAcquire(RecipeDB,46130,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
-
-	-- Robe of Eternal Light -- 46131
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,46131,365,34365,4,3908)
-	self:addTradeFlags(RecipeDB,46131,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,46131,3,25363,3,25367,3,25369,3,25370,3,25371,3,25486,3,25592)
 
 	-- Dress Shoes -- 49677
 	recipecount = recipecount + 1

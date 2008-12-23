@@ -94,20 +94,20 @@ function addon:InitFirstAid(RecipeDB)
 	-- Heavy Mageweave Bandage -- 10841
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10841,240,8545,1,746)
-	self:addTradeFlags(RecipeDB,10841,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,10841,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,10841,4,6622,4,6624)
 
 	-- Runecloth Bandage -- 18629
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18629,260,14529,1,746)
-	self:addTradeFlags(RecipeDB,18629,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,18629,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,18629,1,12920,1,12939)
 
 	-- Heavy Runecloth Bandage -- 18630
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18630,290,14530,1,746)
-	self:addTradeFlags(RecipeDB,18630,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,18630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,18630,1,12920,1,12939)
 
 	-- Powerful Anti-Venom -- 23787
 	recipecount = recipecount + 1
@@ -130,8 +130,8 @@ function addon:InitFirstAid(RecipeDB)
 	-- Frostweave Bandage -- 45545
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45545,350,34721,1,746)
-	self:addTradeFlags(RecipeDB,45545,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,45545,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,45545,1,23734,1,26956,1,26992,1,28706,1,29233)
 
 	-- Heavy Frostweave Bandage -- 45546
 	recipecount = recipecount + 1

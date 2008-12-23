@@ -9,7 +9,7 @@ Quest data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 
-85 found from data mining.  0 ignored.
+89 found from data mining.  0 ignored.
 
 ************************************************************************
 
@@ -38,8 +38,8 @@ local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitQuest(QuestDB)
 
-	self:addLookupList(QuestDB,22,L["Goretusk Liver Pie"],BZONE["Westfall"],55.77,30.92,1)
-	self:addLookupList(QuestDB,38,L["Westfall Stew"],BZONE["Westfall"],55.77,30.92,1)
+	self:addLookupList(QuestDB,22,L["Goretusk Liver Pie"],BZONE["Westfall"],55.77,30.92,0)
+	self:addLookupList(QuestDB,38,L["Westfall Stew"],BZONE["Westfall"],55.77,30.92,0)
 	self:addLookupList(QuestDB,90,L["Seasoned Wolf Kabobs"],BZONE["Duskwood"],73.48,42.70,1)
 	self:addLookupList(QuestDB,92,L["Redridge Goulash"],BZONE["Redridge Mountains"],23.05,44.36,1)
 	self:addLookupList(QuestDB,93,L["Dusky Crab Cakes"],BZONE["Duskwood"],73.48,42.70,1)
@@ -47,9 +47,9 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,296,L["Ormer's Revenge"],BZONE["Wetlands"],38.04,50.72,1)
 	self:addLookupList(QuestDB,384,L["Beer Basted Boar Ribs"],BZONE["Dun Morogh"],47.18,53.32,1)
 	self:addLookupList(QuestDB,385,L["Crocolisk Hunting"],BZONE["Loch Modan"],82.03,64.03,0)
-	self:addLookupList(QuestDB,418,L["Thelsamar Blood Sausages"],BZONE["Loch Modan"],35.07,49.66,0)
+	self:addLookupList(QuestDB,418,L["Thelsamar Blood Sausages"],BZONE["Loch Modan"],35.07,49.66,1)
 	self:addLookupList(QuestDB,429,L["Wild Hearts"],BZONE["Silverpine Forest"],43.56,41.14,2)
-	self:addLookupList(QuestDB,471,L["Apprentice's Duties"],BZONE["Wetlands"],8.927,56.07,1)
+	self:addLookupList(QuestDB,471,L["Apprentice's Duties"],BZONE["Wetlands"],8.928,56.07,1)
 	self:addLookupList(QuestDB,498,L["The Rescue"],BZONE["Hillsbrad Foothills"],62.49,19.95,2)
 	self:addLookupList(QuestDB,501,L["Elixir of Pain"],BZONE["Hillsbrad Foothills"],61.59,19.15,2)
 	self:addLookupList(QuestDB,555,L["Soothing Turtle Bisque"],BZONE["Hillsbrad Foothills"],51.99,58.98,1)
@@ -91,12 +91,16 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,2859,L["Wild Leather Leggings"],BZONE["Feralas"],74.83,44.71,2)
 	self:addLookupList(QuestDB,2860,L["Master of the Wild Leather"],BZONE["Thunder Bluff"],42.37,43.59,2)
 	self:addLookupList(QuestDB,3402,L["The Undermarket"],BZONE["Tanaris"],51.45,27.09,0)
+	self:addLookupList(QuestDB,4083,L["The Spectral Chalice"],L["Unknown Zone"],0,0,0)
 	self:addLookupList(QuestDB,4161,L["Recipe of the Kaldorei"],BZONE["Teldrassil"],57.74,61.64,1)
 	self:addLookupList(QuestDB,5124,L["Fiery Plate Gauntlets"],BZONE["Winterspring"],60.95,37.99,0)
 	self:addLookupList(QuestDB,5127,L["The Demon Forge"],BZONE["Winterspring"],64.05,73.24,0)
+	self:addLookupList(QuestDB,5163,L["Are We There, Yeti?"],BZONE["Winterspring"],60.78,37.57,0)
 	self:addLookupList(QuestDB,5305,L["Sweet Serenity"],BZONE["Winterspring"],61.19,35.94,0)
 	self:addLookupList(QuestDB,5306,L["Snakestone of the Shadow Huntress"],BZONE["Winterspring"],61.41,37.04,0)
 	self:addLookupList(QuestDB,5307,L["Corruption"],BZONE["Winterspring"],61.32,39.13,0)
+	self:addLookupList(QuestDB,6622,L["Triage"],BZONE["Arathi Highlands"],72.97,35.39,2)
+	self:addLookupList(QuestDB,6624,L["Triage"],BZONE["Dustwallow Marsh"],68.18,47.94,1)
 	self:addLookupList(QuestDB,7321,L["Soothing Turtle Bisque"],BZONE["Hillsbrad Foothills"],62.60,20.30,2)
 	self:addLookupList(QuestDB,7493,L["The Journey Has Just Begun"],L["Unknown Zone"],0,0,2)
 	self:addLookupList(QuestDB,7497,L["The Journey Has Just Begun"],L["Unknown Zone"],0,0,1)
