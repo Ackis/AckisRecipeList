@@ -1521,7 +1521,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46405,350,35318,3,25229)
 	self:addTradeFlags(RecipeDB,46405,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB,46405,6,1077,4,25950,6,1077,4,27666)
+	self:addTradeAcquire(RecipeDB,46405,6,1077,4,25950)
 
 	-- Eternal Earthstorm Diamond -- 46597
 	recipecount = recipecount + 1

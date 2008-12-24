@@ -164,7 +164,6 @@ Unknown faction:
 	"Jhag" => 2,
 	"Johan Focht" => 2,
 	"Josef Gregorian" => 2,
-	"Joseph Moore" => 2,
 	"Josephine Lister" => 2,
 	"K. Lee Smallfry" => 1,
 	"Kaita Deepforge" => 1,
@@ -304,9 +303,8 @@ Unknown faction:
 	"Zurai" => 2,
 
 
-No acquire information (112 Recipes):
+No acquire information (106 Recipes):
 7258 - Frost Protection Potion - Alchemy
-3496 - Moonsteel Broadsword - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -314,8 +312,6 @@ No acquire information (112 Recipes):
 15295 - Dark Iron Shoulders - Blacksmithing
 15973 - Searing Golden Blade - Blacksmithing
 16664 - Runic Plate Shoulders - Blacksmithing
-16725 - Radiant Leggings - Blacksmithing
-16729 - Lionheart Helm - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
 20873 - Fiery Chain Shoulders - Blacksmithing
@@ -331,8 +327,6 @@ No acquire information (112 Recipes):
 24913 - Darkrune Helm - Blacksmithing
 24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
-2546 - Dry Pork Ribs - Cooking
-6412 - Kaldorei Spider Kabob - Cooking
 20026 - Enchant Chest - Major Health - Enchanting
 23804 - Enchant Weapon - Mighty Intellect - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
@@ -340,7 +334,6 @@ No acquire information (112 Recipes):
 44588 - Enchant Chest - Exceptional Resilience - Enchanting
 44612 - Enchant Gloves - Greater Blasting - Enchanting
 3957 - Ice Deflector - Engineering
-3979 - Accurate Scope - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
 23066 - Red Firework - Engineering
