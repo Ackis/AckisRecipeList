@@ -5842,7 +5842,7 @@ def get_enchanting_list(recipes, maps)
 	}
 enchantmanual=<<EOF
 EOF
-	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021],enchantingspeciallist,enchantmanual,enchantacquire)
+	create_profession_db("./RecipeDB/ARL-Enchant.lua","Enchanting",recipes,maps,"InitEnchanting",enchanting,[22434,28021,44588,44612],enchantingspeciallist,enchantmanual,enchantacquire)
 
 end
 
