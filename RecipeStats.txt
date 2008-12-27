@@ -56,7 +56,6 @@ Unknown faction:
 	"Alanna Raveneye" => 1,
 	"Alchemist Gribble" => 1,
 	"Alegorn" => 1,
-	"Aleinia" => 2,
 	"Alexandra Bolero" => 1,
 	"Alys Vol'tyr" => 2,
 	"Amin" => 2,
@@ -148,6 +147,7 @@ Unknown faction:
 	"Hagrus" => 2,
 	"Hahrana Ironhide" => 2,
 	"Hama" => 1,
+	"Harggan" => Unknown,
 	"Hotoppik Copperpinch" => 2,
 	"Hurnak Grimmord" => 1,
 	"Imperial Plate Belt" => 0,
@@ -164,9 +164,9 @@ Unknown faction:
 	"Jhag" => 2,
 	"Johan Focht" => 2,
 	"Josef Gregorian" => 2,
+	"Joseph Moore" => 2,
 	"Josephine Lister" => 2,
 	"K. Lee Smallfry" => 1,
-	"Kaita Deepforge" => 1,
 	"Kalaen" => 2,
 	"Kalinda" => 2,
 	"Kamari" => 2,
@@ -177,7 +177,6 @@ Unknown faction:
 	"Kendor Kabonka" => 1,
 	"Khole Jinglepocket" => 1,
 	"Kithas" => 2,
-	"Knight Dameron" => 1,
 	"Kor'geld" => 2,
 	"Krek Cragcrush" => 2,
 	"Krugosh" => 2,
@@ -201,7 +200,6 @@ Unknown faction:
 	"Makaru" => 2,
 	"Malcomb Wynn" => 2,
 	"Mari Stonehand" => 1,
-	"Maria Lumere" => 1,
 	"Mary Edras" => 2,
 	"Master Chef Mouldier" => 2,
 	"Me'lynn" => 1,
@@ -218,7 +216,6 @@ Unknown faction:
 	"Nahogg" => 1,
 	"Nardstrum Copperpinch" => 2,
 	"Neii" => 1,
-	"Nioma" => Unknown,
 	"Nissa Firestone" => 1,
 	"Nogg" => 2,
 	"Nula the Butcher" => 2,
@@ -230,10 +227,10 @@ Unknown faction:
 	"Padaar" => 1,
 	"Penney Copperpinch" => 2,
 	"Phea" => 1,
-	"Pratt McGrubben" => 1,
 	"Provisioner Lorkran" => 2,
 	"Quartermaster Urgronn" => 2,
 	"Randal Worth" => 1,
+	"Rartar" => 2,
 	"Rawrk" => 2,
 	"Razia" => 2,
 	"Refik" => 1,
@@ -262,6 +259,7 @@ Unknown faction:
 	"Sprite Jumpsprocket" => 1,
 	"Stephen Ryback" => 1,
 	"Stone Guard Mukar" => 2,
+	"Sumi" => 2,
 	"Sylvanna Forestmoon" => 1,
 	"Taladan" => 1,
 	"Talmar" => 2,
@@ -303,8 +301,12 @@ Unknown faction:
 	"Zurai" => 2,
 
 
-No acquire information (106 Recipes):
-7258 - Frost Protection Potion - Alchemy
+No acquire information (77 Recipes):
+3449 - Shadow Oil - Alchemy
+3454 - Frost Oil - Alchemy
+7256 - Shadow Protection Potion - Alchemy
+7257 - Fire Protection Potion - Alchemy
+3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
 9980 - Ornate Mithril Helm - Blacksmithing
@@ -314,29 +316,18 @@ No acquire information (106 Recipes):
 16664 - Runic Plate Shoulders - Blacksmithing
 16983 - Serenity - Blacksmithing
 16985 - Corruption - Blacksmithing
-20873 - Fiery Chain Shoulders - Blacksmithing
-20876 - Dark Iron Leggings - Blacksmithing
-23637 - Dark Iron Gauntlets - Blacksmithing
-23638 - Black Amnesty - Blacksmithing
-23639 - Blackfury - Blacksmithing
+23629 - Heavy Timbermaw Boots - Blacksmithing
 23650 - Ebon Hand - Blacksmithing
 23652 - Blackguard - Blacksmithing
 23653 - Nightfall - Blacksmithing
 24399 - Dark Iron Boots - Blacksmithing
-24912 - Darkrune Gauntlets - Blacksmithing
-24913 - Darkrune Helm - Blacksmithing
-24914 - Darkrune Breastplate - Blacksmithing
 42662 - Ragesteel Shoulders - Blacksmithing
-20026 - Enchant Chest - Major Health - Enchanting
-23804 - Enchant Weapon - Mighty Intellect - Enchanting
+20015 - Enchant Cloak - Superior Defense - Enchanting
+23800 - Enchant Weapon - Agility - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
-44588 - Enchant Chest - Exceptional Resilience - Enchanting
-44612 - Enchant Gloves - Greater Blasting - Enchanting
-3957 - Ice Deflector - Engineering
 12895 - Inlaid Mithril Cylinder Plans - Engineering
 13240 - The Mortar: Reloaded - Engineering
-23066 - Red Firework - Engineering
 23079 - Major Recombobulator - Engineering
 39973 - Frost Grenades - Engineering
 25255 - Delicate Copper Wire - Jewelcrafting
@@ -358,30 +349,18 @@ No acquire information (106 Recipes):
 34069 - Smooth Golden Draenite - Jewelcrafting
 34590 - Bright Blood Garnet - Jewelcrafting
 47280 - Brilliant Glass - Jewelcrafting
-3778 - Gem-studded Leather Belt - Leatherworking
-4096 - Raptor Hide Harness - Leatherworking
-4097 - Raptor Hide Belt - Leatherworking
 7126 - Handstitched Leather Vest - Leatherworking
-7149 - Barbaric Leggings - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
-19062 - Ironfeather Shoulders - Leatherworking
+10516 - Nightscape Shoulders - Leatherworking
+19048 - Heavy Scorpid Bracers - Leatherworking
 19066 - Frostsaber Boots - Leatherworking
+19067 - Stormshroud Pants - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
 19084 - Devilsaur Gauntlets - Leatherworking
-19085 - Black Dragonscale Breastplate - Leatherworking
 19088 - Heavy Scorpid Helm - Leatherworking
 22711 - Shadowskin Gloves - Leatherworking
-22815 - Gordok Ogre Suit - Leatherworking
-22921 - Girdle of Insight - Leatherworking
-22922 - Mongoose Boots - Leatherworking
-22923 - Swift Flight Bracers - Leatherworking
-22926 - Chromatic Cloak - Leatherworking
-22927 - Hide of the Wild - Leatherworking
-22928 - Shifting Cloak - Leatherworking
-23708 - Chromatic Gauntlets - Leatherworking
-23709 - Corehound Belt - Leatherworking
-23710 - Molten Belt - Leatherworking
+23704 - Timbermaw Brawlers - Leatherworking
 44343 - Knothide Ammo Pouch - Leatherworking
 44344 - Knothide Quiver - Leatherworking
 44770 - Glove Reinforcements - Leatherworking
@@ -389,25 +368,15 @@ No acquire information (106 Recipes):
 45100 - Leatherworker's Satchel - Leatherworking
 14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
-3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
-3873 - Black Swashbuckler's Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
 18405 - Runecloth Bag - Tailoring
 18419 - Felcloth Pants - Tailoring
 19435 - Mooncloth Boots - Tailoring
-22813 - Gordok Ogre Suit - Tailoring
-22866 - Belt of the Archmage - Tailoring
-22867 - Felcloth Gloves - Tailoring
-22868 - Inferno Gloves - Tailoring
-22869 - Mooncloth Gloves - Tailoring
-22870 - Cloak of Warding - Tailoring
-23667 - Flarecore Leggings - Tailoring
-24901 - Runed Stygian Leggings - Tailoring
-24902 - Runed Stygian Belt - Tailoring
-24903 - Runed Stygian Boots - Tailoring
+23662 - Wisdom of the Timbermaw - Tailoring
+23663 - Mantle of the Timbermaw - Tailoring
 26086 - Felcloth Bag - Tailoring
 

@@ -55,6 +55,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 20, "Goblin transport.")
 	self:addLookupList(CustomDB, 21, "Gnome transport.")
 	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
+	self:addLookupList(CustomDB, 23, "DM Cache - Knot Thimblejack")
 
 end
 

@@ -238,8 +238,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Ice Deflector -- 3957
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3957,155,4386,1,4036)
-	self:addTradeFlags(RecipeDB,3957,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3957,2,2684)
 
 	-- Iron Strut -- 3958
 	recipecount = recipecount + 1
@@ -395,7 +395,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537,2,4086)
 
 	-- Gold Power Core -- 12584
 	recipecount = recipecount + 1
@@ -813,7 +813,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21940,190,17716,2,4036)
 	self:addTradeFlags(RecipeDB,21940,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21940,5,1,3,13444)
+	self:addTradeAcquire(RecipeDB,21940,5,1,3,13444,3,13445)
 
 	-- Field Repair Bot 74A -- 22704
 	recipecount = recipecount + 1
@@ -842,20 +842,20 @@ function addon:InitEngineering(RecipeDB)
 	-- Red Firework -- 23066
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23066,150,9318,1,4036)
-	self:addTradeFlags(RecipeDB,23066,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,23066,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23066,2,3413)
 
 	-- Blue Firework -- 23067
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23067,150,9312,1,4036)
 	self:addTradeFlags(RecipeDB,23067,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23067,2,1304,2,5175)
+	self:addTradeAcquire(RecipeDB,23067,2,5175)
 
 	-- Green Firework -- 23068
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23068,150,9313,1,4036)
 	self:addTradeFlags(RecipeDB,23068,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23068,2,3495)
+	self:addTradeAcquire(RecipeDB,23068,2,2838,2,3495)
 
 	-- EZ-Thro Dynamite II -- 23069
 	recipecount = recipecount + 1

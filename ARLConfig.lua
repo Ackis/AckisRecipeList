@@ -1021,7 +1021,6 @@ local function fullOptions()
 							type	= "description",
 							name	= "\n",
 						},
-
 						header2 = {
 							order	= 20,
 							type	= "header",
@@ -1048,6 +1047,19 @@ local function fullOptions()
 							get		= function() return addon.db.profile.includeexcluded end,
 							set		= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
 						},
+						ignoreexclusionlist = {
+							order	= 23,
+							type	= "toggle",
+							name	= L["Display Exclusions"],
+							desc	= L["DISPLAY_EXCLUSION_DESC"],
+							get		= function() return addon.db.profile.ignoreexclusionlist end,
+							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+						},
+						spacer1a = {
+							order	= 24,
+							type	= "description",
+							name	= "\n",
+						},
 						closegui = {
 							order	= 25,
 							type	= "toggle",
@@ -1056,16 +1068,13 @@ local function fullOptions()
 							get		= function() return addon.db.profile.closeguionskillclose end,
 							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 						},
-						ignoreexclusionlist = {
-							order	= 26,
-							type	= "toggle",
-							name	= L["Display Exclusions"],
-							desc	= L["DISPLAY_EXCLUSION_DESC"],
-							get		= function() return addon.db.profile.ignoreexclusionlist end,
-							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+						spacer1b = {
+							order	= 28,
+							type	= "description",
+							name	= "\n",
 						},
 						scanbuttonlocation = {
-							order	= 27,
+							order	= 29,
 							type	= "select",
 							name	= L["Scan Button Position"],
 							desc	= L["SCANBUTTONPOSITION_DESC"],
