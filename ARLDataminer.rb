@@ -6619,8 +6619,16 @@ def get_lw_list(recipes, maps)
 		60671 => {:id => "GrandMasterLWTrainer"},
 	}
 lwmanual=<<EOF
+	-- Raptor Hide Harness -- 4096
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
+	self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeAcquire(RecipeDB,4096,2,2819)
 EOF
-	create_profession_db("./RecipeDB/ARL-Leatherwork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[8195,15141,10550,19106,40000],lwspecaillist,lwmanual,lwacquire)
+
+	$trainers[4096] = {:name => "Tunkk", :faction => 2}
+	
+	create_profession_db("./RecipeDB/ARL-Leatherwork.lua","Leatherworking",recipes,maps,"InitLeatherworking",leatherworking,[4096,8195,15141,10550,19106,40000,55243],lwspecaillist,lwmanual,lwacquire)
 
 end
 

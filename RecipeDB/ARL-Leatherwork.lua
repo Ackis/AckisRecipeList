@@ -296,9 +296,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3818,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Raptor Hide Harness -- 4096
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
-	self:addTradeFlags(RecipeDB,4096,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
+	--self:addTradeFlags(RecipeDB,4096,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	-- No acquire information
 
 	-- Raptor Hide Belt -- 4097
@@ -2518,10 +2518,10 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,55199,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Bracers of Deflection -- 55243
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55243,400,41264,3,2108)
-	self:addTradeFlags(RecipeDB,55243,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,57)
-	self:addTradeAcquire(RecipeDB,55243,1,26911,1,26961,1,26996,1,26998,1,28700)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,55243,400,41264,3,2108)
+	--self:addTradeFlags(RecipeDB,55243,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,57)
+	--self:addTradeAcquire(RecipeDB,55243,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Fur Lining - Attack Power -- 57683
 	recipecount = recipecount + 1
