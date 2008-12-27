@@ -227,6 +227,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 20, "Goblin transport.")
 	self:addLookupList(CustomDB, 21, "Gnome transport.")
 	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
+	self:addLookupList(CustomDB, 23, "DM Cache - Knot Thimblejack")
 
 end
 
@@ -833,6 +834,23 @@ EOF
 		# Handle special cases (acquire)
 		if specialcaseacquire[details[:spellid]]
 			case specialcaseacquire[details[:spellid]][:id]
+			when "TrueBelievers"
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Trainer"])
+				flags.delete(flaglisting["Instance"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"]
+				$quests[8323] = {:name => "True Believers", :faction => 0}
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 8323}
+			when "OgreSuit"
+				flags.delete(flaglisting["Vendor"])
+				flags.delete(flaglisting["Raid"])
+				flags.delete(flaglisting["Trainer"])
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"] << flaglisting["Instance"]
+				$quests[5518] = {:name => "The Gordok Ogre Suit", :faction => 0}
+				acquire << {"type" => acquirelisting["Quest"],
+							"id" => 5518}
 			when "GoblinTransport"
 				flags.delete(flaglisting["Vendor"])
 				flags.delete(flaglisting["Instance"])
@@ -5720,6 +5738,9 @@ def get_bs_list(recipes, maps)
 		61008 => {:id => "GrandMasterBSTrainer"},
 		61009 => {:id => "GrandMasterBSTrainer"},
 		61010 => {:id => "GrandMasterBSTrainer"},
+		24912 => {:id => "TrueBelievers"},
+		24913 => {:id => "TrueBelievers"},
+		24914 => {:id => "TrueBelievers"},
 	}
 bsmanual=<<EOF
 	-- Orcish War Leggings -- 9957
@@ -6617,6 +6638,13 @@ def get_lw_list(recipes, maps)
 		60666 => {:id => "GrandMasterLWTrainer"},
 		60669 => {:id => "GrandMasterLWTrainer"},
 		60671 => {:id => "GrandMasterLWTrainer"},
+		22815 => {:id => "OgreSuit"},
+		22921 => {:id => "CustomNeutral", :type => 23},
+		22922 => {:id => "CustomNeutral", :type => 23},
+		22923 => {:id => "CustomNeutral", :type => 23},
+		22926 => {:id => "CustomNeutral", :type => 23},
+		22927 => {:id => "CustomNeutral", :type => 23},
+		22928 => {:id => "CustomNeutral", :type => 23},
 	}
 lwmanual=<<EOF
 	-- Raptor Hide Harness -- 4096
@@ -6734,6 +6762,15 @@ def get_tailoring_list(recipes, maps)
 		60990 => {:id => "GrandMasterTailorTrainer"},
 		60993 => {:id => "GrandMasterTailorTrainer"},
 		60994 => {:id => "GrandMasterTailorTrainer"},
+		22813 => {:id => "OgreSuit"},
+		22866 => {:id => "CustomNeutral", :type => 23},
+		22867 => {:id => "CustomNeutral", :type => 23},
+		22868 => {:id => "CustomNeutral", :type => 23},
+		22869 => {:id => "CustomNeutral", :type => 23},
+		22870 => {:id => "CustomNeutral", :type => 23},
+		24901 => {:id => "TrueBelievers"},
+		24902 => {:id => "TrueBelievers"},
+		24903 => {:id => "TrueBelievers"},
 	}
 tailoringmanual=<<EOF
 	-- Duskweave Boots -- 55924
