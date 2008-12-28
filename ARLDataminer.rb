@@ -1188,11 +1188,10 @@ EOF
 				flags.delete(flaglisting["Instance"])
 				flags.delete(flaglisting["Raid"])
 				flags.delete(flaglisting["Seasonal"])
-				flags.delete(flaglisting["Quest"])
 				flags.delete(flaglisting["PVP"])
 				flags.delete(flaglisting["World Drop"])
 				flags.delete(flaglisting["Mob Drop"])
-				flags << flaglisting["Alliance"] << flaglisting["Horde"]
+				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Quest"]
 				specialcaseacquire[details[:spellid]][:type].each do |i|
 					acquire << {"type" => acquirelisting["Custom"],
 							"id" => i}

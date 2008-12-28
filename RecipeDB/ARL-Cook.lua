@@ -322,7 +322,7 @@ function addon:InitCooking(RecipeDB)
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13028,175,10841,1,2550)
-	self:addTradeFlags(RecipeDB,13028,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,13028,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,13028,8,13)
 
 	-- Lean Wolf Steak -- 15853
@@ -676,37 +676,37 @@ function addon:InitCooking(RecipeDB)
 	-- Skullfish Soup -- 43707
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43707,325,33825,2,2550)
-	self:addTradeFlags(RecipeDB,43707,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43707,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43707,8,6)
 
 	-- Stormchops -- 43758
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43758,300,33866,3,2550)
-	self:addTradeFlags(RecipeDB,43758,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43758,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43758,8,5,8,6)
 
 	-- Broiled Bloodfin -- 43761
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43761,300,33867,2,2550)
-	self:addTradeFlags(RecipeDB,43761,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43761,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43761,8,6)
 
 	-- Spicy Hot Talbuk -- 43765
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43765,325,33872,2,2550)
-	self:addTradeFlags(RecipeDB,43765,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43765,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43765,8,5)
 
 	-- Kibler's Bits -- 43772
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43772,300,33874,2,2550)
-	self:addTradeFlags(RecipeDB,43772,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43772,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43772,8,5)
 
 	-- Delicious Chocolate Cake -- 43779
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43779,1,33924,3,2550)
-	self:addTradeFlags(RecipeDB,43779,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43779,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43779,8,5,8,6)
 
 	-- Hot Apple Cider -- 45022
@@ -856,7 +856,7 @@ function addon:InitCooking(RecipeDB)
 	-- Captain Rumsey's Lager -- 45695
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45695,100,34832,2,2550)
-	self:addTradeFlags(RecipeDB,45695,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,45695,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,45695,8,7)
 
 	-- Charred Bear Kabobs -- 46684
