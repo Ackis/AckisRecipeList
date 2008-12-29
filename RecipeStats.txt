@@ -301,10 +301,6 @@ Unknown faction:
 
 
 No acquire information (82 Recipes):
-47046 - Guardian's Alchemist Stone - Alchemy
-47048 - Sorcerer's Alchemist Stone - Alchemy
-47049 - Redeemer's Alchemist Stone - Alchemy
-47050 - Assassin's Alchemist Stone - Alchemy
 3496 - Moonsteel Broadsword - Blacksmithing
 3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing

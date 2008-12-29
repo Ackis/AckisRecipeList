@@ -1054,6 +1054,17 @@ local function SetProgressBar(playerData)
 
 end
 
+function addon:ResetGUI()
+
+	addon.db.profile.frameopts.offsetx = 0
+	addon.db.profile.frameopts.offsety = 0
+	addon.db.profile.frameopts.anchorTo = ""
+	addon.db.profile.frameopts.anchorFrom = ""
+	addon.db.profile.frameopts.uiscale = 1
+	addon.db.profile.frameopts.tooltipscale = .9
+
+end
+
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work

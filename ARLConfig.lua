@@ -1016,6 +1016,13 @@ local function fullOptions()
 							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
 							func	= function(info) addon:ViewExclusionList() end,
 						},
+						resetguiwindow = {	
+							order	= 15,
+							type	= "execute",
+							name	= L["Reset Window"],
+							desc	= L["RESET_WINDOW_DESC"],
+							func	= function(info) addon:ResetGUI() end,
+						},
 						spacer1 = {
 							order	= 19,
 							type	= "description",
