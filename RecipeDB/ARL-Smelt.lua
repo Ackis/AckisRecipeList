@@ -160,8 +160,8 @@ function addon:InitSmelting(RecipeDB)
 	-- Smelt Hardened Khorium -- 46353
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
-	self:addTradeFlags(RecipeDB,46353,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,46353,7,3)
+	self:addTradeFlags(RecipeDB,46353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,46353,8,24)
 
 	-- Smelt Cobalt -- 49252
 	recipecount = recipecount + 1

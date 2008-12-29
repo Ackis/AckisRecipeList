@@ -228,6 +228,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 21, "Gnome transport.")
 	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
 	self:addLookupList(CustomDB, 23, "DM Cache - Knot Thimblejack")
+	self:addLookupList(CustomDB, 24, "Sunwell Trash Drop")
 
 end
 
@@ -6713,11 +6714,16 @@ def get_smelt_list(recipes, maps)
 		14891 => {:id => "Quest", :type => [4083]},
 	}
 smeltmanual=<<EOF
+	-- Smelt Hardened Khorium -- 46353
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
+	self:addTradeFlags(RecipeDB,46353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,46353,8,24)
 EOF
 
 	$quests[4083] = {:name => "The Spectral Chalice", :faction => 0}
 
-	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[],smeltingspecaillist,smeltmanual,smeltacquire)
+	create_profession_db("./RecipeDB/ARL-Smelt.lua","Smelting",recipes,maps,"InitSmelting",smelting,[46353],smeltingspecaillist,smeltmanual,smeltacquire)
 
 end
 
