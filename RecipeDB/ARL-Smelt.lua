@@ -9,7 +9,7 @@ Smelting data for all of Ackis Recipe List
 Auto-generated using ARLDataminer.rb
 Entries to this file will be overwritten
 25 found from data mining.
-0 ignored.
+1 ignored.
 
 ************************************************************************
 
@@ -158,10 +158,11 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,35751,1,18747,1,18779)
 
 	-- Smelt Hardened Khorium -- 46353
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
-	self:addTradeFlags(RecipeDB,46353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,46353,8,24)
+	-- Ignored
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
+	--self:addTradeFlags(RecipeDB,46353,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,46353,7,3)
 
 	-- Smelt Cobalt -- 49252
 	recipecount = recipecount + 1
@@ -187,8 +188,13 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeFlags(RecipeDB,55211,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55211,1,26912,1,26962,1,26976,1,26999,1,28698)
 
-
+	-- Smelt Hardened Khorium -- 46353
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
+	self:addTradeFlags(RecipeDB,46353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,46353,8,24)
 	-- Ignored Recipes:
+	-- 46353 - Smelt Hardened Khorium
 	return recipecount
 
 end

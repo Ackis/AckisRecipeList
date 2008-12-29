@@ -70,7 +70,7 @@ function addon:InitCooking(RecipeDB)
 	-- Westfall Stew -- 2543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2543,75,733,1,2550)
-	self:addTradeFlags(RecipeDB,2543,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,2543,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2543,4,38,2,340)
 
 	-- Crab Cake -- 2544
@@ -124,7 +124,7 @@ function addon:InitCooking(RecipeDB)
 	-- Blood Sausage -- 3371
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3371,60,3220,1,2550)
-	self:addTradeFlags(RecipeDB,3371,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,3371,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3371,4,418,2,340)
 
 	-- Murloc Fin Soup -- 3372
@@ -317,7 +317,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9513,60,7676,2,2550)
 	self:addTradeFlags(RecipeDB,9513,1,2,4,8,28,36,41)
-	self:addTradeAcquire(RecipeDB,9513,4,2359,4,2359,4,2478,4,2478,2,6779,2,6779)
+	self:addTradeAcquire(RecipeDB,9513,4,2359,4,2359,4,2478,4,2478,2,6779)
 
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1
