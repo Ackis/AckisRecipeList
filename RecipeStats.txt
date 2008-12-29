@@ -159,7 +159,6 @@ Unknown faction:
 	"Imperial Plate Shoulders" => 0,
 	"Innkeeper Grilka" => 2,
 	"James Van Brunt" => 2,
-	"Jangdor Swiftstrider" => Unknown,
 	"Jessara Cordell" => 1,
 	"Jhag" => 2,
 	"Johan Focht" => 2,
@@ -200,6 +199,7 @@ Unknown faction:
 	"Makaru" => 2,
 	"Malcomb Wynn" => 2,
 	"Mari Stonehand" => 1,
+	"Maria Lumere" => 1,
 	"Mary Edras" => 2,
 	"Master Chef Mouldier" => 2,
 	"Me'lynn" => 1,
@@ -227,10 +227,10 @@ Unknown faction:
 	"Padaar" => 1,
 	"Penney Copperpinch" => 2,
 	"Phea" => 1,
+	"Pratt McGrubben" => 1,
 	"Provisioner Lorkran" => 2,
 	"Quartermaster Urgronn" => 2,
 	"Randal Worth" => 1,
-	"Rartar" => 2,
 	"Rawrk" => 2,
 	"Razia" => 2,
 	"Refik" => 1,
@@ -259,7 +259,6 @@ Unknown faction:
 	"Sprite Jumpsprocket" => 1,
 	"Stephen Ryback" => 1,
 	"Stone Guard Mukar" => 2,
-	"Sumi" => 2,
 	"Sylvanna Forestmoon" => 1,
 	"Taladan" => 1,
 	"Talmar" => 2,
@@ -301,11 +300,14 @@ Unknown faction:
 	"Zurai" => 2,
 
 
-No acquire information (77 Recipes):
+No acquire information (82 Recipes):
 3449 - Shadow Oil - Alchemy
-3454 - Frost Oil - Alchemy
-7256 - Shadow Protection Potion - Alchemy
-7257 - Fire Protection Potion - Alchemy
+6624 - Free Action Potion - Alchemy
+47046 - Guardian's Alchemist Stone - Alchemy
+47048 - Sorcerer's Alchemist Stone - Alchemy
+47049 - Redeemer's Alchemist Stone - Alchemy
+47050 - Assassin's Alchemist Stone - Alchemy
+3496 - Moonsteel Broadsword - Blacksmithing
 3503 - Golden Scale Coif - Blacksmithing
 9972 - Ornate Mithril Breastplate - Blacksmithing
 9979 - Ornate Mithril Boots - Blacksmithing
@@ -352,12 +354,13 @@ No acquire information (77 Recipes):
 7126 - Handstitched Leather Vest - Leatherworking
 9058 - Handstitched Leather Cloak - Leatherworking
 9059 - Handstitched Leather Bracers - Leatherworking
+9146 - Herbalist's Gloves - Leatherworking
 10516 - Nightscape Shoulders - Leatherworking
 19048 - Heavy Scorpid Bracers - Leatherworking
+19050 - Green Dragonscale Breastplate - Leatherworking
+19053 - Chimeric Gloves - Leatherworking
 19066 - Frostsaber Boots - Leatherworking
-19067 - Stormshroud Pants - Leatherworking
 19077 - Blue Dragonscale Breastplate - Leatherworking
-19084 - Devilsaur Gauntlets - Leatherworking
 19088 - Heavy Scorpid Helm - Leatherworking
 22711 - Shadowskin Gloves - Leatherworking
 23704 - Timbermaw Brawlers - Leatherworking
@@ -368,13 +371,14 @@ No acquire information (77 Recipes):
 45100 - Leatherworker's Satchel - Leatherworking
 14891 - Smelt Dark Iron - Smelting
 22967 - Smelt Elementium - Smelting
+3862 - Icy Cloak - Tailoring
 3864 - Star Belt - Tailoring
 3872 - Rich Purple Silk Shirt - Tailoring
 3915 - Brown Linen Shirt - Tailoring
+8789 - Crimson Silk Cloak - Tailoring
 12044 - Simple Linen Pants - Tailoring
 12081 - Admiral's Hat - Tailoring
 18405 - Runecloth Bag - Tailoring
-18419 - Felcloth Pants - Tailoring
 19435 - Mooncloth Boots - Tailoring
 23662 - Wisdom of the Timbermaw - Tailoring
 23663 - Mantle of the Timbermaw - Tailoring

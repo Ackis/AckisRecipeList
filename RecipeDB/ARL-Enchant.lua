@@ -725,7 +725,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20029,285,nil, 1,7411)
 	self:addTradeFlags(RecipeDB,20029,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20029,3,7444,3,7448,3,7457,3,7524)
+	self:addTradeAcquire(RecipeDB,20029,3,7443,3,7444,3,7448,3,7457,3,7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	recipecount = recipecount + 1
@@ -779,7 +779,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21931,190,nil, 1,7411)
 	self:addTradeFlags(RecipeDB,21931,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21931,5,1,3,6929,3,13445)
+	self:addTradeAcquire(RecipeDB,21931,5,1,3,6929,3,13444,3,13445)
 
 	-- Enchant Weapon - Spell Power -- 22749
 	recipecount = recipecount + 1
