@@ -308,7 +308,7 @@ Item Flags
 			-- 128 = The Taunka
 			-- 129 = Warsong Offensive
 			-- 130 = Horde Expedition
-			-- 130 = Alliance Vanguard
+			-- 131 = Alliance Vanguard
 
 ************************************************************************
 --]]

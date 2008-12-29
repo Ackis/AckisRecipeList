@@ -846,6 +846,8 @@ do
 			[127] = repdb.handofvengeance,
 			[128] = repdb.taunka,
 			[129] = repdb.warsongoffensive,
+			[130] = repdb.hordeexpedition,
+			[131] = repdb.alliancevanguard,
 		}
 
 	end
