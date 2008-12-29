@@ -5612,12 +5612,47 @@ alchacquire = {
 	60893 => {:id => "GrandMasterAlchTrainer"},
 }
 alchmanual=<<EOF
+	-- Shadow Oil -- 3449
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
+	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,3449,2,2481,2,4878)
+
+	-- Free Action Potion -- 6624
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
+	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,6624,2,3348,2,5178,2,4226)
+
+	-- Guardian's Alchemist Stone -- 47046
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47046,375,35748,1,2259)
+	self:addTradeFlags(RecipeDB,47046,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
+	self:addTradeAcquire(RecipeDB,47046,6,1077,4,25032)
+
+	-- Sorcerer's Alchemist Stone -- 47048
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47048,375,35749,1,2259)
+	self:addTradeFlags(RecipeDB,47048,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeAcquire(RecipeDB,47048,6,1077,4,25032)
+
+	-- Redeemer's Alchemist Stone -- 47049
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47049,375,35750,1,2259)
+	self:addTradeFlags(RecipeDB,47049,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeAcquire(RecipeDB,47049,6,1077,4,25032)
+
+	-- Assassin's Alchemist Stone -- 47050
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47050,375,35751,1,2259)
+	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
+	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
 EOF
 	# Add the restoration potion quests
 	$quests[2203] = {:name => "Badlands Reagent Run II", :faction => 2}
 	$quests[2501] = {:name => "Badlands Reagent Run II", :faction => 1}
 
-	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,6619,11447,17579,22430,54020],alchspeciallist,alchmanual,alchacquire)
+	create_profession_db("./RecipeDB/ARL-Alchemy.lua","Alchemy",recipes,maps,"InitAlchemy",alchemy,[2336,3449,6619,6624,11447,17579,22430,54020],alchspeciallist,alchmanual,alchacquire)
 
 end
 

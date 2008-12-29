@@ -301,8 +301,6 @@ Unknown faction:
 
 
 No acquire information (82 Recipes):
-3449 - Shadow Oil - Alchemy
-6624 - Free Action Potion - Alchemy
 47046 - Guardian's Alchemist Stone - Alchemy
 47048 - Sorcerer's Alchemist Stone - Alchemy
 47049 - Redeemer's Alchemist Stone - Alchemy

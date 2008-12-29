@@ -164,12 +164,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,3448,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3448,1,1386,1,4160,1,4611,1,7948,1,16588,1,18802,1,19052)
 
-	-- Shadow Oil -- 3449
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
-	self:addTradeFlags(RecipeDB,3449,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
-
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3450,175,3825,1,2259)
@@ -223,12 +217,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,6618,175,5633,1,2259)
 	self:addTradeFlags(RecipeDB,6618,1,2,4,30,36,40)
 	self:addTradeAcquire(RecipeDB,6618,2,3335,2,4226)
-
-	-- Free Action Potion -- 6624
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
-	self:addTradeFlags(RecipeDB,6624,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
 
 	-- Elixir of Water Breathing -- 7179
 	recipecount = recipecount + 1
@@ -1119,30 +1107,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,45061,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,45061,1,16588,1,18802,1,19052,1,27023,1,27029)
 
-	-- Guardian's Alchemist Stone -- 47046
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,47046,375,35748,1,2259)
-	self:addTradeFlags(RecipeDB,47046,3,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
-	-- No acquire information
-
-	-- Sorcerer's Alchemist Stone -- 47048
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,47048,375,35749,1,2259)
-	self:addTradeFlags(RecipeDB,47048,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	-- No acquire information
-
-	-- Redeemer's Alchemist Stone -- 47049
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,47049,375,35750,1,2259)
-	self:addTradeFlags(RecipeDB,47049,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	-- No acquire information
-
-	-- Assassin's Alchemist Stone -- 47050
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,47050,375,35751,1,2259)
-	self:addTradeFlags(RecipeDB,47050,3,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
-	-- No acquire information
-
 	-- Transmute: Eternal Life to Shadow -- 53771
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53771,385,35627,2,2259)
@@ -1498,6 +1462,41 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,60893,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60893,1,26903,1,26951,1,26975,1,26987,1,28703)
 
+	-- Shadow Oil -- 3449
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
+	self:addTradeFlags(RecipeDB,3449,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,3449,2,2481,2,4878)
+
+	-- Free Action Potion -- 6624
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
+	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,6624,2,3348,2,5178,2,4226)
+
+	-- Guardian's Alchemist Stone -- 47046
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47046,375,35748,1,2259)
+	self:addTradeFlags(RecipeDB,47046,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
+	self:addTradeAcquire(RecipeDB,47046,6,1077,4,25032)
+
+	-- Sorcerer's Alchemist Stone -- 47048
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47048,375,35749,1,2259)
+	self:addTradeFlags(RecipeDB,47048,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeAcquire(RecipeDB,47048,6,1077,4,25032)
+
+	-- Redeemer's Alchemist Stone -- 47049
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47049,375,35750,1,2259)
+	self:addTradeFlags(RecipeDB,47049,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeAcquire(RecipeDB,47049,6,1077,4,25032)
+
+	-- Assassin's Alchemist Stone -- 47050
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,47050,375,35751,1,2259)
+	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
+	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
 
 	-- Ignored Recipes:
 	-- 2336 - Elixir of Tongues
@@ -1506,6 +1505,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- 17579 - Greater Holy Protection Potion
 	-- 22430
 	-- 54020 - Transmute: Eternal Might
+
 	return recipecount
 
 end
