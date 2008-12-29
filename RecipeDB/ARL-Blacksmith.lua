@@ -834,23 +834,23 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,15292,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
 	self:addTradeAcquire(RecipeDB,15292,3,8921,3,8926,3,8927,3,8928,3,9028)
 
-	-- Dark Iron Mail -- 15293
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,15293,270,11606,2,2018)
-	self:addTradeFlags(RecipeDB,15293,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,15293,3,8907)
-
 	-- Dark Iron Sunderer -- 15294
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15294,275,11607,3,2018)
 	self:addTradeFlags(RecipeDB,15294,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,68)
 	self:addTradeAcquire(RecipeDB,15294,3,9554,3,10043)
 
+	-- Dark Iron Mail -- 15293
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,15293,270,11606,2,2018)
+	self:addTradeFlags(RecipeDB,15293,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,58)
+	self:addTradeAcquire(RecipeDB,15293,8,25)
+
 	-- Dark Iron Shoulders -- 15295
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15295,280,11605,2,2018)
-	self:addTradeFlags(RecipeDB,15295,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,15295,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,59)
+	self:addTradeAcquire(RecipeDB,15295,8,25)
 
 	-- Dark Iron Plate -- 15296
 	recipecount = recipecount + 1

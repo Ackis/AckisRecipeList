@@ -229,6 +229,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
 	self:addLookupList(CustomDB, 23, "DM Cache - Knot Thimblejack")
 	self:addLookupList(CustomDB, 24, "Sunwell Trash Drop")
+	self:addLookupList(CustomDB, 25, "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all.")
 
 end
 
@@ -5783,19 +5784,29 @@ def get_bs_list(recipes, maps)
 	}
 bsmanual=<<EOF
 	-- Orcish War Leggings -- 9957
-	-- Quest
-	-- Flags: All classes, Item BoE, Recipe BoP, Armor, Mail, 
-	-- Item Stats: 
-	-- Item Stats: val17id1val208id6
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018)
-	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,58)
+	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,51,52,58)
 	self:addTradeAcquire(RecipeDB, 9957,4,2756)
+
+	-- Dark Iron Mail -- 15293
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,15293,270,11606,2,2018)
+	self:addTradeFlags(RecipeDB,15293,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,58)
+	self:addTradeAcquire(RecipeDB,15293,8,25)
+
+	-- Dark Iron Shoulders -- 15295
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,15295,280,11605,2,2018)
+	self:addTradeFlags(RecipeDB,15295,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,59)
+	self:addTradeAcquire(RecipeDB,15295,8,25)
+
+	
 EOF
 	# Add the Orcish War Leggings quest
 	$quests[2756] = {:name => "The Old Ways", :faction => 2}
 
-	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual,bsacquire)
+	create_profession_db("./RecipeDB/ARL-Blacksmith.lua","Blacksmithing",recipes,maps,"InitBlacksmithing",blacksmithing,[2671,8366,8368,9942,9957,15293,15295,16960,16965,16967,16980,16986,16987],bsspeciallist,bsmanual,bsacquire)
 
 end
 

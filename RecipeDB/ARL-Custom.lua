@@ -56,6 +56,8 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 21, "Gnome transport.")
 	self:addLookupList(CustomDB, 22, "Random BoP drop off of bosses in AQ40.")
 	self:addLookupList(CustomDB, 23, "DM Cache - Knot Thimblejack")
+	self:addLookupList(CustomDB, 24, "Sunwell Trash Drop")
+	self:addLookupList(CustomDB, 25, "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all.")
 
 end
 
