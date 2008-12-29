@@ -1262,6 +1262,8 @@ EOF
 		# Handle special cases (flags)
 		if specialcaseflag[details[:spellid]]
 			case specialcaseflag[details[:spellid]][:id]
+			when "Trainer"
+				flags << flaglisting["Trainer"]
 			when "PVP"
 				flags << flaglisting["PVP"]
 			when 7
@@ -5804,6 +5806,7 @@ def get_cooking_list(recipes, maps)
 		21144 => {:id => 7, :type => 1},
 		45022 => {:id => 7, :type => 1},
 		24801 => {:id => "Quest", :type => [8313]},
+		13028 => {:id => "Trainer"},
 	}
 	cookacquire = {
 		2538 => {:id => "StartingSkill"},
