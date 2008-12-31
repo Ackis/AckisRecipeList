@@ -6921,14 +6921,12 @@ def get_other_list(recipes, maps)
 
 end
 
-$debug = false
+$debug = true
 
 create_custom_db()
 create_faction_db()
 
 if $debug
-
-	get_cooking_list(recipes, maps)
 
 else
 
