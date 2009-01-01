@@ -1916,27 +1916,34 @@ end
 -- Input: 
 -- Output: 
 
-function addon:ToggleFrame()
+do
 
-	-- What profession is opened?
-	local cprof = GetTradeSkillLine()
+	local currentProfession = nil
 
-	if (addon.Frame and addon.Frame:IsVisible()) then
-		-- If we have the same profession open, then we close the scanned window
-		if (addon.ScanButton.currentProfession == cprof) then
-			addon.Frame:Hide()
-		-- If we have a different profession open we do a scan
+	function addon:ToggleFrame()
+
+		-- What profession is opened?
+		local cprof = GetTradeSkillLine()
+
+		if (addon.Frame and addon.Frame:IsVisible()) then
+			-- If we have the same profession open, then we close the scanned window
+			if (currentProfession == cprof) then
+				addon.Frame:Hide()
+			-- If we have a different profession open we do a scan
+			else
+				addon:AckisRecipeList_Command(false)
+				currentProfession = cprof
+			end
 		else
-			addon:AckisRecipeList_Command(false)
+			currentProfession = cprof
+			-- If we click the scan button with the shift key down, we do a text dump
+			if (IsShiftKeyDown()) then
+				addon:AckisRecipeList_Command(true)
+			else
+				addon:AckisRecipeList_Command(false)
+			end
 		end
-	else
-		addon.ScanButton.currentProfession = cprof
-		-- If we click the scan button with the shift key down, we do a text dump
-		if (IsShiftKeyDown()) then
-			addon:AckisRecipeList_Command(true)
-		else
-			addon:AckisRecipeList_Command(false)
-		end
+
 	end
 
 end
