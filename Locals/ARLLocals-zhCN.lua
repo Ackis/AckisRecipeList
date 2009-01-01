@@ -43,7 +43,11 @@ if not L then return end
 L["Filters"] 				= "过滤"
 L["All"] 					= "全部"
 L["None"] 					= "无"
-L["Ok"]						= "OK"
+L["Ok"]						= "确定"
+
+-- Command line options
+L["Profile"]				= "配置文件"
+L["Filter"]					= "过滤"
 
 -- Config Options
 L["About"] 					= "关于"
@@ -83,6 +87,8 @@ L["Close GUI"]				= "与商业技能信息界面同时关闭"
 L["CLOSEGUI_DESC"]			= "当商业技能信息窗口被关闭时 ARL 窗口同时关闭。"
 L["Display Exclusions"]		= "显示排除"
 L["DISPLAY_EXCLUSION_DESC"]	= "在列表中显示已被排除的配方。"
+L["Reset Window"]			= "重置窗口"
+L["RESET_WINDOW_DESC"]		= "重置 ARL 图形界面到默认位置。"
 L["UI Scale"]				= "界面缩放"
 L["UI_SCALE_DESC"]			= "更改界面缩放。从.5到1.5（1为默认值）"
 L["Tooltip Scale"]			= "提示缩放"
