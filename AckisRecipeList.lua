@@ -293,7 +293,7 @@ function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_CLOSE")
 
 	-- Addon responds when a players faction level changes
-	self:RegisterEvent("UPDATE_FACTION")
+	--self:RegisterEvent("UPDATE_FACTION")
 
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
@@ -398,10 +398,8 @@ end
 -- Output: None
 
 function addon:UPDATE_FACTION()
-
 	-- Reputation has changed so lets update the table
 	self:SetRepDB()
-
 end
 
 --[[
@@ -1557,9 +1555,7 @@ do
 	function addon:SetRepDB()
 
 		if (playerData and playerData["Reputation"]) then
-
 			self:GetFactionLevels(playerData["Reputation"])
-
 		end
 
 	end

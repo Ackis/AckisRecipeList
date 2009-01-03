@@ -59,6 +59,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 24, "Sunwell Trash Drop")
 	self:addLookupList(CustomDB, 25, "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all.")
 	self:addLookupList(CustomDB, 26, "Molten Core Bosses")
+	self:addLookupList(CustomDB, 27, "MC Duder In BWL")
 
 end
 

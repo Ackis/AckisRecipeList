@@ -94,8 +94,8 @@ function addon:InitSmelting(RecipeDB)
 	-- Smelt Dark Iron -- 14891
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,14891,230,11371,1,2575)
-	self:addTradeFlags(RecipeDB,14891,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,14891,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,14891,4,4083)
 
 	-- Smelt Thorium -- 16153
 	recipecount = recipecount + 1
@@ -106,8 +106,8 @@ function addon:InitSmelting(RecipeDB)
 	-- Smelt Elementium -- 22967
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22967,300,17771,5,2575)
-	self:addTradeFlags(RecipeDB,22967,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,22967,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,22967,8,27)
 
 	-- Smelt Fel Iron -- 29356
 	recipecount = recipecount + 1
@@ -193,8 +193,7 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
 	self:addTradeFlags(RecipeDB,46353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,46353,8,24)
-	-- Ignored Recipes:
-	-- 46353 - Smelt Hardened Khorium
+
 	return recipecount
 
 end
