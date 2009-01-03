@@ -343,11 +343,11 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,3871,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3871,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772)
 
-	-- Rich Purple Silk Shirt -- 3872
+    -- Rich Purple Silk Shirt -- 3872
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3872,185,4335,3,3908)
-	self:addTradeFlags(RecipeDB,3872,21,22,23,24,25,26,27,28,29,30,36,40)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3872,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,3872,7,2) 
 
 	-- Black Swashbuckler's Shirt -- 3873
 	recipecount = recipecount + 1
