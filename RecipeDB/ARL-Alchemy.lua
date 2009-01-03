@@ -6,10 +6,7 @@ ARL-Alchemy.lua
 
 Alchemy data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-243 found from data mining.
-8 ignored.
+Originall generated via datamining.
 
 ************************************************************************
 
@@ -248,7 +245,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7183,1,5997,1,2259)
 	self:addTradeFlags(RecipeDB,7183,1,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,7183,1,5997)
+	self:addTradeAcquire(RecipeDB,7183,8,8)
 
 	-- Holy Protection Potion -- 7255
 	recipecount = recipecount + 1
@@ -259,14 +256,14 @@ function addon:InitAlchemy(RecipeDB)
 	-- Shadow Protection Potion -- 7256
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7256,135,6048,1,2259)
-	self:addTradeFlags(RecipeDB,7256,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7256,2,2393)
+	self:addTradeFlags(RecipeDB,7256,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,7256,2,2393,2,3956)
 
 	-- Fire Protection Potion -- 7257
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7257,165,6049,1,2259)
-	self:addTradeFlags(RecipeDB,7257,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,7257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,7257,2,4083,2,2380)
 
 	-- Frost Protection Potion -- 7258
 	recipecount = recipecount + 1
@@ -398,7 +395,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11466,240,9088,2,2259)
 	self:addTradeFlags(RecipeDB,11466,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11466,3,1783,3,1791,3,1815)
+	self:addTradeAcquire(RecipeDB,11466,3,1783,3,1791)
 
 	-- Elixir of Greater Agility -- 11467
 	recipecount = recipecount + 1
@@ -410,7 +407,8 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11468,240,9197,2,2259)
 	self:addTradeFlags(RecipeDB,11468,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11468,3,1822,3,4467,3,5474,3,5481,3,5714,3,8893,3,10184,3,12397)
+	--self:addTradeAcquire(RecipeDB,11468,3,1822,3,4467,3,5474,3,5481,3,5714,3,8893,3,10184,3,12397)
+	self:addTradeAcquire(RecipeDB,11468,7,2)
 
 	-- Elixir of Giants -- 11472
 	recipecount = recipecount + 1
@@ -669,13 +667,13 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21923,190,17708,1,2259)
 	self:addTradeFlags(RecipeDB,21923,1,2,3,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21923,5,1,3,1365,3,13444,3,13445,3,15746)
+	self:addTradeAcquire(RecipeDB,21923,5,1)
 
 	-- Major Rejuvenation Potion -- 22732
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22732,300,18253,3,2259)
 	self:addTradeFlags(RecipeDB,22732,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,22732,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259)
+	self:addTradeAcquire(RecipeDB,22732,8,26)
 
 	-- Elixir of Greater Water Breathing -- 22808
 	recipecount = recipecount + 1
@@ -1535,15 +1533,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,47050,375,35751,1,2259)
 	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
 	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
-	-- Ignored Recipes:
-	-- 2336 - Elixir of Tongues
-	-- 3449 - Shadow Oil
-	-- 6619
-	-- 6624 - Free Action Potion
-	-- 11447
-	-- 17579 - Greater Holy Protection Potion
-	-- 22430
-	-- 54020 - Transmute: Eternal Might
+
 	return recipecount
 
 end

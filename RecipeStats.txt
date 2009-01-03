@@ -301,7 +301,6 @@ Unknown faction:
 
 
 No acquire information (103 Recipes):
-7257 - Fire Protection Potion - Alchemy
 3494 - Solid Iron Maul - Blacksmithing
 3496 - Moonsteel Broadsword - Blacksmithing
 3503 - Golden Scale Coif - Blacksmithing

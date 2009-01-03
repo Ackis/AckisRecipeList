@@ -1411,15 +1411,19 @@ do
 				elseif (recipeacquire[i]["Type"] == 2) then
 
 					if (VendorList) then
+--@debug@
 
+						if (not VendorList[recipeacquire[i]["ID"]]) then
+							self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
+						end
+
+--@end-debug@
 						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
 
 						if (not locationchecklist[location]) then
-
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
-
 						end
 
 					end

@@ -15,9 +15,6 @@ Currently maintained by: Ackis
 
 Please make sure you update the ToC file with any translations.
 
-The enUS file is auto-generated from the data miner.  If you need to make changes,
-please update the data miner file otherwise they will be overwritten.
-
 ****************************************************************************************
 ]]--
 
@@ -911,6 +908,7 @@ L["Jase Farlane"] = true
 L["Jaxin Chong"] = true
 L["Jazdalaad"] = true
 L["Jedidiah Handers"] = true
+L["Jeeda"] = true
 L["Jemma Quikswitch"] = true
 L["Jenna Lemkenilli"] = true
 L["Jennabink Powerseam"] = true

@@ -6,8 +6,8 @@ ARL-Vendor.lua
 
 Vendor data for all of Ackis Recipe List
 
+Originally auto-generated.
 Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
 
 322 found from data mining.  0 ignored.
 
@@ -59,6 +59,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,1684,L["Khara Deepwater"],BZONE["Loch Modan"],40.50,38.99,1)
 	self:addLookupList(VendorDB,1685,L["Xandar Goodbeard"],BZONE["Loch Modan"],83.03,63.10,1)
 	self:addLookupList(VendorDB,2118,L["Abigail Shiel"],BZONE["Tirisfal Glades"],60.81,53.72,2)
+	self:addLookupList(VendorDB,2380,L["Nandar Branson"],BZONE["Hillsbrad Foothills"],50.90,57.10,1)
 	self:addLookupList(VendorDB,2381,L["Micha Yance"],BZONE["Hillsbrad Foothills"],49.38,55.57,1)
 	self:addLookupList(VendorDB,2383,L["Lindea Rabonne"],BZONE["Hillsbrad Foothills"],50.94,61.15,1)
 	self:addLookupList(VendorDB,2393,L["Christoph Jeffcoat"],BZONE["Hillsbrad Foothills"],62.60,20.30,2)
@@ -119,8 +120,10 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,3683,L["Kiknikle"],BZONE["The Barrens"],42.30,38.62,0)
 	self:addLookupList(VendorDB,3881,L["Grimtak"],BZONE["Durotar"],52.17,42.26,2)
 	self:addLookupList(VendorDB,3954,L["Dalria"],BZONE["Ashenvale"],35.28,52.03,1)
+	self:addLookupList(VendorDB,3956,L["Harklan Moongrove"],BZONE["Ashenvale"],50.80,67.00,1)
 	self:addLookupList(VendorDB,3958,L["Lardan"],BZONE["Ashenvale"],34.84,50.06,1)
 	self:addLookupList(VendorDB,3960,L["Ulthaan"],BZONE["Ashenvale"],50.15,67.74,1)
+	self:addLookupList(VendorDB,4083,L["Jeeda"],BZONE["Stonetalon Mountains"],47.60,61.70,2)
 	self:addLookupList(VendorDB,4086,L["Veenix"],BZONE["Stonetalon Mountains"],58.92,51.99,0)
 	self:addLookupList(VendorDB,4168,L["Elynna"],BZONE["Darnassus"],64.27,22.57,1)
 	self:addLookupList(VendorDB,4186,L["Mavralyn"],BZONE["Darkshore"],37.29,40.85,1)
