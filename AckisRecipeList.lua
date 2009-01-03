@@ -82,6 +82,10 @@ local GetTradeSkillLine = GetTradeSkillLine
 local GetTradeSkillInfo = GetTradeSkillInfo
 local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
 local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
+local GetNumFactions = GetNumFactions
+local GetFactionInfo = GetFactionInfo
+local CollapseFactionHeader = CollapseFactionHeader
+local ExpandFactionHeader = ExpandFactionHeader
 
 local select = select
 local format = format
@@ -415,23 +419,45 @@ function addon:GetFactionLevels(RepTable)
 
 -- Bug here when I reload UI
 	if (not RepTable) then
-
 		return
-
 	end
 
-	for i=1,GetNumFactions(),1 do
+	local t = {}
 
+	-- Number of factions before we expand
+	local numfactions = GetNumFactions()
+
+	-- Lets expand all the headers
+	for i=numfactions,1,-1 do
+		local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
+
+		if (isCollapsed) then
+			ExpandFactionHeader(i)
+			t[name] = true
+		end
+	end
+
+	-- Number of factions with everything expanded
+	numfactions = GetNumFactions()
+
+	-- Get the rep levels
+	for i=1,numfactions,1 do
 		local name,_,replevel = GetFactionInfo(i)
 
 		-- If the rep is greater than neutral
 		if (replevel > 4) then
-		
 			-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
 			RepTable[name] = replevel - 4
-
 		end
+	end
 
+	-- Collapse the headers again
+	for i=numfactions,1,-1 do
+		local name = GetFactionInfo(i)
+
+		if (t[name]) then
+			CollapseFactionHeader(i)
+		end
 	end
 
 end
