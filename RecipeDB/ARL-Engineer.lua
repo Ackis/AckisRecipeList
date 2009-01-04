@@ -813,7 +813,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21940,190,17716,2,4036)
 	self:addTradeFlags(RecipeDB,21940,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21940,5,1,3,13444,3,13445)
+	self:addTradeAcquire(RecipeDB,21940,5,1)
 
 	-- Field Repair Bot 74A -- 22704
 	recipecount = recipecount + 1
