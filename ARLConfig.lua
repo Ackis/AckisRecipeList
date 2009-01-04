@@ -1193,13 +1193,23 @@ local function giveDocs()
 					type	= "description",
 					name	= L["USING_FILTERS_DESC"],
 				},
-				header2 = {
+				header3 = {
 					order	= 5,
+					type	= "header",
+					name	= L["Common Issues"],
+				},
+				desc3 = {
+					order	= 6,
+					type	= "description",
+					name	= L["COMMON_ISSUES_DESC"],
+				},
+				header4 = {
+					order	= 7,
 					type	= "header",
 					name	= L["Reporting Bugs"],
 				},
-				desc2 = {
-					order	= 6,
+				desc4 = {
+					order	= 8,
 					type	= "description",
 					name	= L["REPORTING_BUGS_DESC"],
 				},

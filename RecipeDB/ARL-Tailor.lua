@@ -1946,7 +1946,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41205,375,32586,4,3908)
 	self:addTradeFlags(RecipeDB,41205,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,41205,7,4)
+	self:addTradeAcquire(RecipeDB,41205,8,28)
 
 	-- Mantle of Nimble Thought -- 41206
 	recipecount = recipecount + 1
