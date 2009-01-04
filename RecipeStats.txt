@@ -26,8 +26,6 @@ No acquire information (103 Recipes):
 42662 - Ragesteel Shoulders - Blacksmithing
 20015 - Enchant Cloak - Superior Defense - Enchanting
 20026 - Enchant Chest - Major Health - Enchanting
-23803 - Enchant Weapon - Mighty Spirit - Enchanting
-23804 - Enchant Weapon - Mighty Intellect - Enchanting
 27958 - Enchant Chest - Exceptional Mana - Enchanting
 44383 - Enchant Shield - Resilience - Enchanting
 3939 - Lovingly Crafted Boomstick - Engineering
