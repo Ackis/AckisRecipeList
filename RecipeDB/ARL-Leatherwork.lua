@@ -1178,7 +1178,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21943,190,17721,2,2108)
 	self:addTradeFlags(RecipeDB,21943,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,21943,5,1,3,13433,3,13444,3,13445)
+	self:addTradeAcquire(RecipeDB,21943,5,1)
 
 	-- Rugged Leather -- 22331
 	recipecount = recipecount + 1

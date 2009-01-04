@@ -1326,7 +1326,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21913,190,17704,2,2018)
 	self:addTradeFlags(RecipeDB,21913,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40,68)
-	self:addTradeAcquire(RecipeDB,21913,5,1,3,13444,3,13445)
+	self:addTradeAcquire(RecipeDB,21913,5,1)
 
 	-- Elemental Sharpening Stone -- 22757
 	recipecount = recipecount + 1

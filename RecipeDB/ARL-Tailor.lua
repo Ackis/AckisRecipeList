@@ -1219,7 +1219,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21945,190,17723,1,3908)
 	self:addTradeFlags(RecipeDB,21945,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21945,3,13444,3,13445)
+	self:addTradeAcquire(RecipeDB,21945,5,1)
 
 	-- Flarecore Wraps -- 22759
 	recipecount = recipecount + 1
