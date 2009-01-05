@@ -15,8 +15,8 @@ Currently maintaince by: Pettigrow
 
 Please make sure you update the ToC file with any translations.
 
-The enUS file is auto-generated from the data miner.  If you need to make changes,
-please update the data miner file otherwise they will be overwritten.
+Please update http://www.wowace.com/projects/arl/localization/frFR/ for any translation
+additions or changes.
 
 ****************************************************************************************
 ]]--

@@ -15,6 +15,9 @@ Currently maintained by: Ackis
 
 Please make sure you update the ToC file with any translations.
 
+Please update http://www.wowace.com/projects/arl/localization/enUS/ for any translation
+additions or changes.
+
 ****************************************************************************************
 ]]--
 
