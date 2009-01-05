@@ -911,6 +911,7 @@ L["Jase Farlane"] = true
 L["Jaxin Chong"] = true
 L["Jazdalaad"] = true
 L["Jedidiah Handers"] = true
+L["Jeeda"] = true
 L["Jemma Quikswitch"] = true
 L["Jenna Lemkenilli"] = true
 L["Jennabink Powerseam"] = true
@@ -1582,4 +1583,3 @@ L["Zula Slagfury"] = true
 L["Zulian Tiger"] = true
 L["Zurai"] = true
 L["\"Cookie\" McWeaksauce"] = true
-
