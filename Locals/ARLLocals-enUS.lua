@@ -346,6 +346,7 @@ L["Custom25"] = "There is a chance that you find it in 5 different rooms in blac
 L["Custom26"] = "Molten Core Bosses"
 L["Custom27"] = "MC Duder In BWL"
 L["Custom28"] = "BT trash/bosses"
+L["Custom29"] = "ZA bosses"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
@@ -384,8 +385,6 @@ L["Altaa"] = true
 L["Alurmi"] = true
 L["Alys Vol'tyr"] = true
 L["Amal'thazad"] = true
-L["Amani Dragonhawk"] = true
-L["Amani Elder Lynx"] = true
 L["Amani'shi Beast Tamer"] = true
 L["Amani'shi Flame Caster"] = true
 L["Amani'shi Guardian"] = true

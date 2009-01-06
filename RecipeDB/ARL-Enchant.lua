@@ -1165,13 +1165,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB,28019,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,28019,2,16635,2,16722,2,19663)
 
-	-- Arcane Dust -- 28021
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,28021,315,22445,1,7411)
-	--self:addTradeFlags(RecipeDB,28021,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,28021,)
-
 	-- Large Prismatic Shard -- 28022
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28022,335,22449,1,7411)
@@ -1344,7 +1337,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42974,375,nil,1,7411)
 	self:addTradeFlags(RecipeDB,42974,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,42974,3,23574,3,23576,3,23577,3,23578,3,23834,3,23863,3,24239,3,24530)
+	self:addTradeAcquire(RecipeDB,42974,8,29)
 
 	-- Enchant Shield - Resilience -- 44383
 	recipecount = recipecount + 1
