@@ -1332,7 +1332,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22757,300,18262,3,2018)
 	self:addTradeFlags(RecipeDB,22757,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,22757,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22757,8,26)
 
 	-- Heavy Timbermaw Belt -- 23628
 	recipecount = recipecount + 1

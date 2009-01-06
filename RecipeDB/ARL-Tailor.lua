@@ -1225,7 +1225,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22759,300,18263,3,3908)
 	self:addTradeFlags(RecipeDB,22759,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,22759,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22759,8,26)
 
 	-- Gordok Ogre Suit -- 22813
 	recipecount = recipecount + 1
@@ -1357,7 +1357,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26087,300,21342,3,3908)
 	self:addTradeFlags(RecipeDB,26087,1,2,6,11,29,36,40)
-	self:addTradeAcquire(RecipeDB,26087,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264,3,12397)
+	self:addTradeAcquire(RecipeDB,26087,8,26)
 
 	-- Festival Dress -- 26403
 	recipecount = recipecount + 1

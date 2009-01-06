@@ -825,19 +825,19 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22793,300,18283,3,4036)
 	self:addTradeFlags(RecipeDB,22793,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,22793,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22793,8,26)
 
 	-- Core Marksman Rifle -- 22795
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22795,300,18282,3,4036)
 	self:addTradeFlags(RecipeDB,22795,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	self:addTradeAcquire(RecipeDB,22795,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22795,8,26)
 
 	-- Force Reactive Disk -- 22797
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22797,300,18168,3,4036)
 	self:addTradeFlags(RecipeDB,22797,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,64)
-	self:addTradeAcquire(RecipeDB,22797,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22797,8,26)
 
 	-- Red Firework -- 23066
 	recipecount = recipecount + 1

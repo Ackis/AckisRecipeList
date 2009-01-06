@@ -1196,7 +1196,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22727,300,18251,3,2108)
 	self:addTradeFlags(RecipeDB,22727,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	self:addTradeAcquire(RecipeDB,22727,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22727,8,26)
 
 	-- Gordok Ogre Suit -- 22815
 	recipecount = recipecount + 1

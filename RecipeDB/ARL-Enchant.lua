@@ -785,13 +785,13 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22749,300,nil,1,7411)
 	self:addTradeFlags(RecipeDB,22749,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,22749,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22749,8,26)
 
 	-- Enchant Weapon - Healing Power -- 22750
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22750,300,nil,1,7411)
 	self:addTradeFlags(RecipeDB,22750,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,22750,3,11982,3,11988,3,12056,3,12057,3,12118,3,12259,3,12264)
+	self:addTradeAcquire(RecipeDB,22750,8,26)
 
 	-- Enchant Weapon - Strength -- 23799
 	recipecount = recipecount + 1
