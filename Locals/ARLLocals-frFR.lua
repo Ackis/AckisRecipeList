@@ -314,6 +314,38 @@ L["Lunar Festival"] = "Fête lunaire"
 L["Darkmoon Faire"] = "Foire de Sombrelune"
 L["Seasonal"] = "Saisonnier"
 
+-- Custom database strings:
+
+--L["Custom1"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
+--L["Custom2"] = "Discovered by making potions using Burning Crusade or higher ingredients."
+--L["Custom3"] = "Discovered by doing transmutes using Burning Crusade or higher ingredients."
+--L["Custom4"] = "Discovered by Major Protection Potions using Burning Crusade or higher ingredients."
+--L["Custom5"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate."
+--L["Custom6"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel."
+--L["Custom7"] = "Randomly obtained by completing the fishing daily quest in Shattrath."
+--L["Custom8"] = "Learnt by default when learning the profession."
+L["Custom9"] = "Recette créée par des ingénieurs."
+--L["Custom10"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
+--L["Custom11"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
+--L["Custom12"] = "Discovered by doing transmutes using Wrath of the Lich King ingredients."
+--L["Custom13"] = "Goldthorn Tea Henry Stern."
+L["Custom14"] = "Recherches en calligraphie mineures."
+L["Custom15"] = "Recherches en calligraphie en Norfendre."
+--L["Custom16"] = "EngineeringRenewalReward."
+--L["Custom17"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
+L["Custom18"] = "Recherches en alchimie de Norfendre."
+L["Custom19"] = "Transmutation de Norfendre."
+L["Custom20"] = "Transport Goblin."
+L["Custom21"] = "Transport Gnome."
+--L["Custom22"] = "Random BoP drop off of bosses in AQ40."
+--L["Custom23"] = "DM Cache - Knot Thimblejack"
+L["Custom24"] = "Trash au Plateau du Puits de soleil"
+--L["Custom25"] = "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all."
+L["Custom26"] = "Boss au Cœur du Magma"
+L["Custom27"] = "Contrôle mental sur le Maître élémentaire Krixix le Sculpteur au Repaire de l'Aile noire."
+L["Custom28"] = "Trash/boss au Temple noir."
+L["Custom29"] = "Boss à Zul'Aman"
+
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
 -- Do not translate anything below this line without talking to Ackis first please.
