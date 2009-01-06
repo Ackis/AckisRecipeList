@@ -871,25 +871,29 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,46688,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,46688,2,2803,2,2806)
 
+	local version = GetBuildInfo()
+
+	if (version == "3.0.8") then
+
 	-- Kungaloosh -- 53056
-	-- Ignored
 	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
-	--self:addTradeFlags(RecipeDB,53056,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,53056,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
+		self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
+		self:addTradeFlags(RecipeDB,53056,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,53056,2,31031,2,31032)
+
+	-- Fish Feast -- 57423
+		recipecount = recipecount + 1
+		self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
+		self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+		self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
+
+	end
 
 	-- Northern Stew -- 57421
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57421,9999,34747,1, 2550)
 	self:addTradeFlags(RecipeDB,57421,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57421,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
-
-	-- Fish Feast -- 57423
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
-	--self:addTradeFlags(RecipeDB,57423,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	--self:addTradeAcquire(RecipeDB,57423,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
 
 	-- Spicy Fried Herring -- 57433
 	recipecount = recipecount + 1
