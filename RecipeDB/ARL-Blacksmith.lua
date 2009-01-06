@@ -323,8 +323,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Solid Iron Maul -- 3494
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018)
-	self:addTradeFlags(RecipeDB,3494,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
 	recipecount = recipecount + 1
@@ -335,8 +335,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Moonsteel Broadsword -- 3496
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018)
-	self:addTradeFlags(RecipeDB,3496,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
 	recipecount = recipecount + 1
