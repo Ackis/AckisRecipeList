@@ -40,247 +40,250 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "esES", false)
 if not L then return end
 
 -- General strings
-L["Filters"]				= true
-L["All"]					= true
-L["None"]					= true
-L["Ok"]						= true
+L["Filters"]				= "Filtrar"
+--L["All"]					= true
+--L["None"]					= true
+--L["Ok"]						= true
 
 -- Config Options
-L["About"]					= true
-L["Main Options"]			= true
-L["General Settings"]		= true
-L["Display Settings"]		= true
-L["Sorting Settings"]		= true
-L["Profile Options"]		= true
+--L["About"]					= true
+--L["Main Options"]			= true
+--L["General Settings"]		= true
+L["Display Settings"]		= "Opciones de Visualización"
+--L["Sorting Settings"]		= true
+L["Profile Options"]		= "Opciones de Perfil"
 
 -- Config UI Elements and their associated descriptions
-L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
-L["Scan"]			= true
-L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes."
-L["Text Dump"]				= true
-L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma seperated value format which can be copied and pasted into another client."
-L["DISPLAY_SETTINGS_DESC"]	= "Allows you to customize how the GUI behaves."
-L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
+--L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
+--L["Scan"]					= true
+--L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes."
+--L["Text Dump"]				= true
+--L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma seperated value format which can be copied and pasted into another client."
+L["DISPLAY_SETTINGS_DESC"]	= "Le permite personalizar la forma en que se muestra el GUI."
+--L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
 
 -- Config UI Elements and their associated descriptions
-L["Include Filtered"]		= true
-L["FILTERCOUNT_DESC"]		= "Include filtered recipes in the count of total recipes."
-L["Close GUI"]				= "Close with Tradeskill UI"
-L["CLOSEGUI_DESC"]			= "Close the ARL window when the crafting window is closed."
-L["Display Exclusions"]		= true
-L["DISPLAY_EXCLUSION_DESC"]	= "Display recipes that are in the exclusion list."
-L["UI Scale"]				= true
-L["UI_SCALE_DESC"]			= "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
-L["Tooltip Scale"]			= true
-L["TOOLTIP_SCALE_DESC"]		= "Changes the scale of the ARL Tooltip. Ranges from .5 to 1.5 (.9 is default)"
-L["Sorting"]				= true
-L["Sort"]					= true
-L["Display"]				= true
-L["SORTING_DESC"]			= "Change the way in which displayed recipes are sorted."
+L["Include Filtered"]		= "Incluir filtradas"
+L["FILTERCOUNT_DESC"]		= "Incluye recetas filtradas en el contador total de recetas."
+L["Close GUI"]				= "Cerrar el GUI"
+L["CLOSEGUI_DESC"]			= "Cierra la ventana de ARL cuando la ventana de fabricación es cerrada."
+--L["Display Exclusions"]		= true
+--L["DISPLAY_EXCLUSION_DESC"]	= "Display recipes that are in the exclusion list."
+--L["UI Scale"]				= true
+--L["UI_SCALE_DESC"]			= "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
+--L["Tooltip Scale"]			= true
+--L["TOOLTIP_SCALE_DESC"]		= "Changes the scale of the ARL Tooltip. Ranges from .5 to 1.5 (.9 is default)"
+L["Sorting"]				= "Clasificación"
+L["Sort"]					= "Clasificación"
+L["Display"]				= "Visualización"
+L["SORTING_DESC"]			= "Le permite personalizar la forma en que se ordenan y se muestran la recetas que faltan."
 L["Version"]				= "Version: "
-L["Name"]					= true
-L["Skill"]					= true
-L["Acquisition"]			= true
+L["Name"] 					= "Nombre"
+L["Skill"] 					= "Habilidad"
+L["Acquisition"]			= "Adquisición"
 
 -- Filter Config Options
-L["Filtering Options"]		= true
-L["General"]				= true
-L["Obtain"]					= true
-L["Binding"]				= true
-L["Item"]					= true
-L["Armor"]					= true
-L["Weapon"]				= true
-L["Player Type"]			= true
-L["Reputation"]				= true
-L["Old World"]				= true
-L["Burning Crusade"]		= true
-L["Wrath of the Lich King"]	= true
+L["Filtering Options"]		= "Opciones de Filtrado"
+--L["General"]				= true
+L["Obtain"]					= "Obtener"
+--L["Binding"]				= true
+--L["Item"]					= true
+--L["Armor"]					= true
+--L["Weapon"]					= true
+--L["Player Type"]			= true
+L["Reputation"]				= "Reputación"
+--L["Old World"]				= true
+--L["Burning Crusade"]		= true
+--L["Wrath of the Lich King"]	= true
 
 -- Filter Configuration Descriptions
-L["FILTERING_OPTIONS_DESC"]		= "Allows you to customize which recipes are filtered."
-L["General Filtering Options"]	= true
-L["FILTERING_GENERAL_DESC"]		= "Configuration for several more general filter types."
-L["Obtain Filtering Options"]	= true
-L["FILTERING_OBTAIN_DESC"]		= "Configuration for which methods of obtaining recipes are included in the scan."
-L["Binding Filtering Options"]	= true
-L["FILTERING_BINDING_DESC"]		= "Configuration for which types of binding are included in the scan."
-L["Item Filtering Options"]		= true
-L["FILTERING_ITEM_DESC"]		= "Configuration for which item types are included in the scan."
-L["Armor Filtering Options"]	= true
-L["FILTERING_Armor_DESC"]		= "Configuration for which types of armor are included in the scan."
-L["Weapon Filtering Options"]	= true
-L["FILTERING_WEAPONS_DESC"]		= "Configuration for which types of weapons are included in the scan."
-L["Player Type Filtering Options"]	= true
-L["FILTERING_PLAYERTYPE_DESC"]	= "Configuration for items matching which player types are included in the scan."
-L["Reputation Filtering Options"]	= true
-L["FILTERING_REP_DESC"]			= "Configuration for which reputation reward recipes are included in the scan."
-L["Old World Rep. Filtering Options"]	= true
-L["FILTERING_OLDWORLD_DESC"]	= "Configuration for which Old World Reputation reward recipes are included in the scan."
-L["Burning Crusade Rep. Filtering Options"]	= true
-L["FILTERING_BC_DESC"]			= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
-L["Lich King Rep. Filtering Options"]	= true
-L["FILTERING_WOTLK_DESC"]		= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["FILTERING_OPTIONS_DESC"]		= "Le permite personalizar las recetas que se filtran."
+--L["General Filtering Options"]	= true
+--L["FILTERING_GENERAL_DESC"]		= "Configuration for several more general filter types."
+L["Obtain Filtering Options"]	= "Opciones de Obtener"
+L["FILTERING_OBTAIN_DESC"]		= "Le permite personalizar los métodos de obtención de una receta se incluyen en la exploración."
+--L["Binding Filtering Options"]	= true
+--L["FILTERING_BINDING_DESC"]		= "Configuration for which types of binding are included in the scan."
+--L["Item Filtering Options"]		= true
+--L["FILTERING_ITEM_DESC"]		= "Configuration for which item types are included in the scan."
+--L["Armor Filtering Options"]	= true
+--L["FILTERING_Armor_DESC"]		= "Configuration for which types of armor are included in the scan."
+--L["Weapon Filtering Options"]	= true
+--L["FILTERING_WEAPONS_DESC"]		= "Configuration for which types of weapons are included in the scan."
+--L["Player Type Filtering Options"]	= true
+--L["FILTERING_PLAYERTYPE_DESC"]	= "Configuration for items matching which player types are included in the scan."
+--L["Reputation Filtering Options"]	= true
+--L["FILTERING_REP_DESC"]			= "Configuration for which reputation reward recipes are included in the scan."
+--L["Old World Rep. Filtering Options"]	= true
+--L["FILTERING_OLDWORLD_DESC"]	= "Configuration for which Old World Reputation reward recipes are included in the scan."
+--L["Burning Crusade Rep. Filtering Options"]	= true
+--L["FILTERING_BC_DESC"]			= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
+--L["Lich King Rep. Filtering Options"]	= true
+--L["FILTERING_WOTLK_DESC"]		= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
 
 -- General Filter UI Elements and their associated descriptions
-L["Faction"]				= true
-L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
-L["Classes"]				= true
-L["CLASS_DESC"]				= "Include all class specific recipes in the scan."
-L["Specialties"]			= true
-L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
-L["Skill"]					= true
-L["SKILL_DESC"]				= "Include all recipes in the scan, regardless of your current skill level."
-L["Known"]					= true
-L["KNOWN_DESC"]				= "Include all known recipes in the scan."
-L["Unknown"]				= true
-L["UNKNOWN_DESC"]			= "Include all unknown recipes in the scan."
+L["Faction"]				= "Facción"
+L["FACTION_DESC"]			= "Las Recetas de ambas facciones (horda y alianza) serán incluidas en la exploración."
+L["Classes"]				= "Clases"
+L["CLASS_DESC"]				= "Las Recetas específicas de la clase serán incluidas en la exploración."
+L["Specialties"]			= "Especialidades"
+L["SPECIALTY_DESC"]			= "Todas las especialidades de las Habilidades de Comercio serán incluidas en la exploración."
+L["Skill"]					= "Habilidad"
+L["SKILL_DESC"]				= "Incluye todas las recetas, independientemente de su nivel actual de habilidad."
+L["Known"]					= "Conocido"
+L["KNOWN_DESC"]				= "Marcar para incluir en la lista recetas aprendidas."
+L["Unknown"]				= "Desconocido"
+L["UNKNOWN_DESC"]			= "Marcar para incluir en la lista recetas no aprendidas."
+
+-- GUI Text
+L["Scan"] = "Explorar"
+L["Sort"] = "Ordenar"
 
 -- Obtain Filter UI Elements and their associated descriptions
-L["Instance"]				= true
-L["INSTANCE_DESC"]			= "Recipes obtained from (5 man) instances should be included in the scan."
-L["Raid"]					= true
-L["RAID_DESC"]				= "Recipes obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
-L["Quest"]					= true
-L["QUEST_DESC"]				= "Recipes obtained as quest rewards should be included in the scan."
-L["Seasonal"]				= true
-L["SEASONAL_DESC"]			= "Recipes obtained in seasonal events should be included in the scan."
-L["Trainer"]				= true
-L["TRAINER_DESC"]			= "Recipes learned from trainers should be included in the scan."
-L["Vendor"]					= true
-L["VENDOR_DESC"]			= "Recipes purchased from vendors should be included in the scan."
-L["PVP"]					= true
-L["PVP_DESC"]				= "Recipes obtained through PVP should be included in the scan."
-L["Discovery"]				= true
+L["Instance"]				= "Instancia"
+L["INSTANCE_DESC"]			= "Las recetas que se obtienen de las instancias serán incluidas en la exploración."
+L["Raid"]					= "Jefe"
+L["RAID_DESC"]				= "Recetas Difíciles de obtener de Jefes serán incluidas en la exploración."
+L["Quest"]					= "Misión"
+L["QUEST_DESC"]				= "Las recetas obtenidas como recompesa de misión serán incluidas en la exploración."
+--L["Seasonal"]				= true
+L["SEASONAL_DESC"]			= "Las recetas de Temporada obtenidas serán incluidas en la exploración."
+L["Trainer"]				= "Entrenador"
+L["TRAINER_DESC"]			= "Las recetas que se aprenden en los instructores serán incluidas en la exploración."
+L["Vendor"]					= "Vendedor"
+L["VENDOR_DESC"]			= "Las recetas que se compran en los vendedores serán incluidas en la exploración."
+L["PVP"]					= "JcJ"
+L["PVP_DESC"]				= "Las Recetas obtenidas de JcJ serán incluidas en la exploración."
+L["Discovery"]				= "Descubierto"
 L["DISCOVERY_DESC"]			= "Recipes obtained through Discovery should be included in the scan."
-L["World Drop"]				= true
+L["World Drop"]				= "Soltado en el Mundo"
 L["WORLD_DROP_DESC"]		= "Recipes that are World Drops should be included in the scan."
-L["Mob Drop"]				= true
+L["Mob Drop"]				= "Soltado por Monstruo"
 L["MOB_DROP_DESC"]			= "Recipes that are Mob Drops should be included in the scan."
 
 -- Binding Filter UI Elements and their associated descriptions
-L["BOEFilter"]				= "Item Bind on Equip"
-L["BOE_DESC"]				= "Recipes that make Bind on Equip items should be included in the scan."
-L["BOPFilter"]				= "Item Bind on Pickup"
-L["BOP_DESC"]				= "Recipes that make Bind on Pickup items should be included in the scan."
+L["BOEFilter"]				= "Se Liga al Equiparlo (LaE)"
+L["BOE_DESC"]				= "Las recetas 'LaE' serán incluidas en la exploración."
+L["BOPFilter"]				= "Se Liga al Recogerlo (LaR)"
+L["BOP_DESC"]				= "Las recetas 'LaR' serán incluidas en la exploración."
 L["RecipeBOEFilter"]		= "Recipe Bind on Equip"
 L["RECIPE_BOE_DESC"]		= "Recipes that are Bind on Equip should be included in the scan."
 L["RecipeBOPFilter"]		= "Recipe Bind on Pickup"
 L["RECIPE_BOP_DESC"]		= "Recipes that are Bind on Pickup should be included in the scan."
 
 -- Item - Armor UI Elements and their associated descriptions
-L["Cloth"]					= true
-L["CLOTH_DESC"]				= "Recipes that make cloth items should be included in the scan."
-L["Leather"]				= true
-L["LEATHER_DESC"]			= "Recipes that make leather items should be included in the scan."
-L["Mail"]					= true
-L["MAIL_DESC"]				= "Recipes that make mail items should be included in the scan."
-L["Plate"]					= true
-L["PLATE_DESC"]				= "Recipes that make plate items should be included in the scan."
-L["Cloak"]					= true
-L["CLOAK_DESC"]				= "Recipes that make cloaks should be included in the scan."
-L["Ring"]					= true
-L["RING_DESC"]				= "Recipes that make rings should be included in the scan."
-L["Trinket"]				= true
-L["TRINKET_DESC"]			= "Recipes that make trinkets should be included in the scan."
-L["Necklace"]				= true
-L["NECKLACE_DESC"]			= "Recipes that make necklaces should be included in the scan."
-L["Shield"]					= true
-L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
+L["Cloth"]					= "Tela"
+L["CLOTH_DESC"]				= "Los patrones que hacen elementos de tela serán incluidos en la exploración."
+L["Leather"]				= "Cuero"
+L["LEATHER_DESC"]			= "Los patrones que hacen elementos de cuero serán incluidos en la exploración."
+L["Mail"]					= "Malla"
+L["MAIL_DESC"]				= "Los patrones que hacen elementos de malla serán incluidos en la exploración."
+L["Plate"]					= "Placas"
+L["PLATE_DESC"]				= "Los patrones que hacen elementos de placas serán incluidos en la exploración."
+--L["Cloak"]					= true
+--L["CLOAK_DESC"]				= "Recipes that make cloaks should be included in the scan."
+--L["Ring"]					= true
+--L["RING_DESC"]				= "Recipes that make rings should be included in the scan."
+--L["Trinket"]				= true
+--L["TRINKET_DESC"]			= "Recipes that make trinkets should be included in the scan."
+--L["Necklace"]				= true
+--L["NECKLACE_DESC"]			= "Recipes that make necklaces should be included in the scan."
+--L["Shield"]					= true
+--L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
 
 -- Item - Weapon UI Elements and their associated descriptions
-L["One Hand"]				= true
-L["ONEHAND_DESC"]			= "Recipes that make one handed items should be included in the scan."
-L["Two Hand"]				= true
-L["TWOHAND_DESC"]			= "Recipes that make two handed items should be included in the scan."
-L["Axe"]					= true
-L["AXE_DESC"]				= "Recipes that make axes should be included in the scan."
-L["Sword"]					= true
-L["SWORD_DESC"]				= "Recipes that make swords should be included in the scan."
-L["Mace"]					= true
-L["MACE_DESC"]				= "Recipes that make maces should be included in the scan."
-L["Polearm"]				= true
-L["POLEARM_DESC"]			= "Recipes that make polearms should be included in the scan."
-L["Dagger"]					= true
-L["DAGGER_DESC"]			= "Recipes that make daggers should be included in the scan."
-L["Fist"]					= true
-L["FIST_DESC"]				= "Recipes that make fist weapons should be included in the scan."
-L["Staff"]					= true
-L["STAFF_DESC"]				= "Recipes that make staves should be included in the scan."
-L["Wand"]					= true
-L["WAND_DESC"]				= "Recipes that make wands should be included in the scan."
-L["Thrown"]					= true
-L["THROWN_DESC"]			= "Recipes that make thrown weapons should be included in the scan."
-L["Bow"]					= true
-L["BOW_DESC"]				= "Recipes that make bows should be included in the scan."
-L["Crossbow"]				= true
-L["CROSSBOW_DESC"]			= "Recipes that make crossbows should be included in the scan."
-L["Ammo"]					= true
-L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan."
+--L["One Hand"]				= true
+--L["ONEHAND_DESC"]			= "Recipes that make one handed items should be included in the scan."
+--L["Two Hand"]				= true
+--L["TWOHAND_DESC"]			= "Recipes that make two handed items should be included in the scan."
+--L["Axe"]					= true
+--L["AXE_DESC"]				= "Recipes that make axes should be included in the scan."
+--L["Sword"]					= true
+--L["SWORD_DESC"]				= "Recipes that make swords should be included in the scan."
+--L["Mace"]					= true
+--L["MACE_DESC"]				= "Recipes that make maces should be included in the scan."
+--L["Polearm"]				= true
+--L["POLEARM_DESC"]			= "Recipes that make polearms should be included in the scan."
+--L["Dagger"]					= true
+--L["DAGGER_DESC"]			= "Recipes that make daggers should be included in the scan."
+--L["Fist"]					= true
+--L["FIST_DESC"]				= "Recipes that make fist weapons should be included in the scan."
+--L["Staff"]					= true
+--L["STAFF_DESC"]				= "Recipes that make staves should be included in the scan."
+--L["Wand"]					= true
+--L["WAND_DESC"]				= "Recipes that make wands should be included in the scan."
+--L["Thrown"]					= true
+--L["THROWN_DESC"]			= "Recipes that make thrown weapons should be included in the scan."
+--L["Bow"]					= true
+--L["BOW_DESC"]				= "Recipes that make bows should be included in the scan."
+--L["Crossbow"]				= true
+--L["CROSSBOW_DESC"]			= "Recipes that make crossbows should be included in the scan."
+--L["Ammo"]					= true
+--L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan."
 
 -- Player Type Filtering UI Elements and their associated descriptions
-L["Melee DPS"]				= true
-L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
-L["Tanks"]					= true
-L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
-L["Caster DPS"]				= true
-L["CASTER_DPS_DESC"]		= "Recipes that are used by casting dps players should be included in the scan."
-L["Healers"]				= true
-L["HEALERS_DESC"]			= "Recipes that are used by healer players should be included in the scan."
+L["Melee DPS"]				= "Cuerpo a cuerpo"
+L["MELEE_DPS_DESC"]			= "Los patrones que se utilizan para el cuerpo a cuerpo/DPS físico serán incluidos en la exploración."
+L["Tanks"]					= "Tanquear"
+L["TANKS_DESC"]				= "Los patrones que se utilizan para el tanqueo serán incluidos en la exploración."
+L["Caster DPS"]				= "Conjurador DPS"
+L["CASTER_DPS_DESC"]		= "Los patrones que se utilizan para el Conjurador DPS serán incluidos en la exploración."
+L["Healers"]				= "Curación"
+L["HEALERS_DESC"]			= "Los patrones que se utilizan para la curación serán incluidos en la exploración."
 
 -- Reputation Filtering UI Elements and their associated description
-L["SPECIFIC_REP_DESC"]		= "Include %s faction."
+L["SPECIFIC_REP_DESC"]		= "Incluir facción %s."
 
 -- ZJUI UI Elements (when different from the above ones) and their associated descriptions
-L["FILTER_OPEN"]			= "Filter >>>"
-L["FILTER_OPEN_DESC"]		= "Open filter option panel."
-L["FILTER_CLOSE"]			= "<<< Filter"
-L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
-L["EXPANDALL"]				= "+ All"
-L["EXPANDALL_DESC"]			= "Expand all recipes listed below."
-L["CONTRACTALL"]			= "- All"
-L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
-L["Search"]					= true
-L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
-L["CLEAR_DESC"]				= "Clear the search textbox."
-L["Close"]					= "Exit"
-L["CLOSE_DESC"]				= "Close the Ackis Recipe List Window."
-L["Reset"]					= true
-L["RESET_DESC"]				= "Reset All Filters to default values."
-L["Apply"]					= true
-L["APPLY_DESC"]				= "Apply the above selected filters to the recipe list"
-L["ARMOR_ALL_DESC"]			= "Recipes that make ANY armor item should be included in the scan."
-L["ARMOR_NONE_DESC"]		= "Do NOT include any recipes that make armor items in the scan."
-L["WEAPON_ALL_DESC"]		= "Recipes that make ANY weapon item should be included in the scan."
-L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in the scan."
+L["FILTER_OPEN"]			= "Filtro >>>"
+--L["FILTER_OPEN_DESC"]		= "Open filter option panel."
+L["FILTER_CLOSE"]			= "<<< Filtro"
+--L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
+--L["EXPANDALL"]				= "+ All"
+--L["EXPANDALL_DESC"]			= "Expand all recipes listed below."
+--L["CONTRACTALL"]			= "- All"
+--L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
+--L["Search"]					= true
+--L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
+--L["CLEAR_DESC"]				= "Clear the search textbox."
+L["Close"]					= "Cerrar"
+--L["CLOSE_DESC"]				= "Close the Ackis Recipe List Window."
+L["Reset"]					= "Reiniciar"
+--L["RESET_DESC"]				= "Reset All Filters to default values."
+--L["Apply"]					= true
+--L["APPLY_DESC"]				= "Apply the above selected filters to the recipe list"
+--L["ARMOR_ALL_DESC"]			= "Recipes that make ANY armor item should be included in the scan."
+--L["ARMOR_NONE_DESC"]		= "Do NOT include any recipes that make armor items in the scan."
+--L["WEAPON_ALL_DESC"]		= "Recipes that make ANY weapon item should be included in the scan."
+--L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in the scan."
 
 -- Common Tooltip Strings (where different from above)
-L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat"
-L["ALT_CLICK"]			= "Alt-Click to add this recipe to your ignore list"
-L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat"
-L["Obtained From"]		= true
-L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
-L["Required Skill"]		= true
+--L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat"
+--L["ALT_CLICK"]			= "Alt-Click to add this recipe to your ignore list"
+--L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat"
+--L["Obtained From"]		= true
+--L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
+--L["Required Skill"]		= true
 
 -- Popup Strings
-L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
-L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
+--L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
+--L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 
 -- Error/warning Text
-L["MissingFromDB"] = ": is is missing from the database. \nPlease inform the author of the add-on about this recipe."
-L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
-L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
-L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
+L["MissingFromDB"] = ": no se encuentra en la base de datos.\nPor favor, informe al autor del add-on sobre esta receta."
+L["UnknownTradeSkill"] = "Tiene abierta una ventana de Habilidades de Comercio que no es soportada por este add-on.  La ventana es %s.  Por favor envíe al autor del add-on esta información."
+L["OpenTradeSkillWindow"] = "Por favor abra la ventana de Habilidades de Comercio para explorar."
+--L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
 
 -- Drop Obtain Info
-L["Unknown"] = "Unknown Drop: The drop location of this recipe is unknown.  Please contribute by posting on the Ackis Recipe List thread at www.wowace.com/forums"
 L["Unknown Zone"] = true
 
 -- Special Event information
 L["Midsummer Fire Festival"] = true
-L["Feast of Winters Veil"] = true
-L["Lunar Festival"] = true
-L["Darkmoon Faire"] = true
-L["Seasonal"] = true
+L["Feast of Winters Veil"] = "Fiesta del Velo de los Inviernos"
+L["Lunar Festival"] = "Festival Lunar"
+L["Darkmoon Faire"] = "Feria de la Luna Negra"
+L["Seasonal"] = "Estacional"
 
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
@@ -430,6 +433,7 @@ L["Bleeding Hollow Darkcaster"] = true
 L["Blighted Proto-Drake"] = true
 L["Blisterpaw Hyena"] = true
 L["Blizrik Buckshot"] = true
+L["Bliztik"] = true
 L["Bloodaxe Raider"] = true
 L["Bloodhound"] = true
 L["Bloodmaul Dire Wolf"] = true
@@ -817,6 +821,7 @@ L["Hama"] = true
 L["Hamanar"] = true
 L["Hammered Patron"] = true
 L["Hammon Karwn"] = true
+L["Harklan Moongrove"] = true
 L["Harn Longcast"] = true
 L["Hatefury Shadowstalker"] = true
 L["Haughty Modiste"] = true
@@ -932,6 +937,7 @@ L["Klaven's Tower"] = true
 L["Knaz Blunderflame"] = true
 L["Knight Dameron"] = true
 L["Kodo Hide Bag"] = true
+L["Kor'geld"] = true
 L["Koren"] = true
 L["Kradu Grimblade"] = true
 L["Kray"] = true
@@ -1043,6 +1049,7 @@ L["Mo'arg Incinerator"] = true
 L["Mo'arg Weaponsmith"] = true
 L["Modoru"] = true
 L["Mok'Nathal Treats"] = true
+L["Montarr"] = true
 L["Moonglow Vest"] = true
 L["Moonrage Tailor"] = true
 L["Moordo"] = true
@@ -1067,6 +1074,7 @@ L["Nadyia Maneweaver"] = true
 L["Nahogg"] = true
 L["Naka"] = true
 L["Nakodu"] = true
+L["Nandar Branson"] = true
 L["Nardstrum Copperpinch"] = true
 L["Narj Deepslice"] = true
 L["Narv Hidecrafter"] = true
@@ -1551,181 +1559,3 @@ L["Zula Slagfury"] = true
 L["Zulian Tiger"] = true
 L["Zurai"] = true
 L["\"Cookie\" McWeaksauce"] = true
-
---[[
-
--- Addon Info
-L["Version"] = "Version: "
-
--- Options Categories
-L["Display"] = "Visualización"
-L["DISPLAY_OPTIONS"] = "Opciones de Visualización"
-L["DISPLAY_OPTIONS_LONG"] = "Le permite personalizar la forma en que se muestra el GUI."
-L["Filter"] = "Filtrar"
-L["FILTER_OPTIONS"] = "Opciones de Filtrado"
-L["FILTER_OPTIONS_LONG"] = "Le permite personalizar las recetas que se filtran."
-L["Reputation"] = "Reputación"
-L["REP_OPTIONS"] = "Opciones de Reputación"
-L["REP_OPTIONS_LONG"] = "Le permite personalizar que reputaciones se incluyen en el análisis."
-L["Obtain"] = "Obtener"
-L["OBTAIN_OPTIONS"] = "Opciones de Obtener"
-L["OBTAIN_OPTIONS_LONG"] = "Le permite personalizar los métodos de obtención de una receta se incluyen en la exploración."
-L["Sort"] = "Clasificación"
-L["SORT_OPTIONS"] = "Opciones de Clasificación"
-L["SORT_OPTIONS_LONG"] = "Le permite personalizar la forma en que se ordenan y se muestran la recetas que faltan."
-L["Profile"] = "Perfil"
-
--- Display Options
-L["Use GUI"] = "Utilizar el GUI"
-L["GUI_TOGGLE"] = "Activar o Desactivar el uso del GUI."
-L["Include Filtered"] = "Incluir filtradas"
-L["FILTERCOUNT_TOGGLE"] = "Incluye recetas filtradas en el contador total de recetas."
-L["Close GUI"] = "Cerrar el GUI"
-L["CLOSEGUI_TOGGLE"] = "Cierra la ventana de ARL cuando la ventana de fabricación es cerrada."
-
--- Filtering Options
-L["Faction"] = "Facción"
-L["FACTION_TOGGLE"] = "Las Recetas de ambas facciones (horda y alianza) serán incluidas en la exploración."
-L["Classes"] = "Clases"
-L["CLASS_TOGGLE"] = "Las Recetas específicas de la clase serán incluidas en la exploración."
-L["Specialities"] = "Especialidades"
-L["SPECIALITY_TOGGLE"] = "Todas las especialidades de las Habilidades de Comercio serán incluidas en la exploración."
-L["Skill"] = "Habilidad"
-L["SKILL_TOGGLE"] = "Incluye todas las recetas, independientemente de su nivel actual de habilidad."
-
--- Obtain Filter Options
-L["BOEFilter"] = "Se Liga al Equiparlo (LaE)"
-L["BOE_TOGGLE"] = "Las recetas 'LaE' serán incluidas en la exploración."
-L["BOPFilter"] = "Se Liga al Recogerlo (LaR)"
-L["BOP_TOGGLE"] = "Las recetas 'LaR' serán incluidas en la exploración."
-L["PVP_TOGGLE"] = "Las Recetas obtenidas de JcJ serán incluidas en la exploración."
-L["RAID_TOGGLE"] = "Recetas Difíciles de obtener de Jefes (ej: "..BZ["Molten Core"]..", "..BZ["Serpentshrine Cavern"]..", etc.) serán incluidas en la exploración."
-L["SEASONAL_TOGGLE"] = "Las recetas de Temporada obtenidas serán incluidas en la exploración."
-L["TRAINER_TOGGLE"] = "Las recetas que se aprenden en los instructores serán incluidas en la exploración."
-L["VENDOR_TOGGLE"] = "Las recetas que se compran en los vendedores serán incluidas en la exploración."
-L["INSTANCE_TOGGLE"] = "Las recetas que se obtienen de las instancias serán incluidas en la exploración."
-L["QUEST_TOGGLE"] = "Las recetas obtenidas como recompesa de misión serán incluidas en la exploración."
-L["Cloth"] = "Tela"
-L["CLOTH_TOGGLE"] = "Los patrones que hacen elementos de tela serán incluidos en la exploración."
-L["Leather"] = "Cuero"
-L["LEATHER_TOGGLE"] = "Los patrones que hacen elementos de cuero serán incluidos en la exploración."
-L["Mail"] = "Malla"
-L["MAIL_TOGGLE"] = "Los patrones que hacen elementos de malla serán incluidos en la exploración."
-L["Plate"] = "Placas"
-L["PLATE_TOGGLE"] = "Los patrones que hacen elementos de placas serán incluidos en la exploración."
-L["Melee"] = "Cuerpo a cuerpo"
-L["MELEE_TOGGLE"] = "Los patrones que se utilizan para el cuerpo a cuerpo/DPS físico serán incluidos en la exploración."
-L["Caster DPS"] = "Conjurador DPS"
-L["CASTERDPS_TOGGLE"] = "Los patrones que se utilizan para el Conjurador DPS serán incluidos en la exploración."
-L["Tanking"] = "Tanquear"
-L["TANKING_TOGGLE"] = "Los patrones que se utilizan para el tanqueo serán incluidos en la exploración."
-L["Healing"] = "Curación"
-L["HEALING_TOGGLE"] = "Los patrones que se utilizan para la curación serán incluidos en la exploración."
-
--- Sorting options
-L["Name"] = "Nombre"
-L["Skill"] = "Habilidad"
-L["Acquisition"] = "Adquisición"
-
--- Reputation Toggles
-L["SPECIFIC_REP_TOGGLE"] = "Incluir facción %s."
-
--- Non-gui text
-L["MissingFromDB"] = ": no se encuentra en la base de datos.\nPor favor, informe al autor del add-on sobre esta receta."
-L["MissingRecipePrefix"] = "Receta Inexistente: "
-L["InitiateScan"] = "Explorando %s para recetas inexistentes del nivel %s.\n"
-L["InitiateScanSpecial"] = "Explorando %s - %s para recetas inexistentes para el nivel %s.\n"
-L["RecipeListSummary"] = "\nYa has aprendido %s de las %s recetas totales(%s%%).\nTe faltan %s recetas."
-L["UnknownTradeSkill"] = "Tiene abierta una ventana de Habilidades de Comercio que no es soportada por este add-on.  La ventana es %s.  Por favor envíe al autor del add-on esta información."
-L["OpenTradeSkillWindow"] = "Por favor abra la ventana de Habilidades de Comercio para explorar."
-
--- GUI Text
-L["Close"] = "Cerrar"
-L["ScanButton"] = "Explorar"
-L["Scan"] = "Explorar"
-L["FILTER_OPEN"] = "Filtro >>>"
-L["FILTER_CLOSE"] = "<<< Filtro"
-L["Reset"] = "Reiniciar"
-L["Sort"] = "Ordenar"
-L["World Drop"] = "Soltado en el Mundo"
-L["Mob Drop"] = "Soltado por Monstruo"
-L["Quest"] = "Misión"
-L["Reputation"] = "Reputación"
-L["Instance"] = "Instancia"
-L["BoPMenu"] = "Ligado Al Recogerlo (LaR)"
-L["Horde"] = "Horda"
-L["Alliance"] = "Alianza"
-L["Known"] = "Conocido"
-L["Unknown"] = "Desconocido"
-
--- Tooltip Text
-L["Scan Skills Long"] = "Explorar recetas inexistentes utilizando Ackis Recipe List."
-L["Close Window"] = "Cerrar la Ventana de Ackis Recipe List."
-L["Expand All"] = "Expandir todas las recetas."
-L["Collapse All"] = "Colapsar todas las recetas."
-L["FILTER_OPEN_TT"] = "Abrir el panel de la opción del filtro."
-L["FILTER_CLOSE_TT"] = "Cerrar el panel de la opción del filtro."
-L["RESET_TT"] = "Restablecer la cadena de búsqueda."
-L["SORT_TT"] = "Cambiar el orden de clasificación de la lista."
-L["VENDOR_TT"] = "Marcar para incluir en la lista recetas de Vendedores."
-L["TRAINER_TT"]= "Marcar para incluir en la lista recetas Aprendidas."
-L["WORLD_TT"] = "Marcar para incluir en la lista recetas Soltadas en el Mundo."
-L["MOB_TT"] = "Marcar para incluir en la lista recetas específicas Soltadas por Monstruos en el mundo."
-L["QUEST_TT"] = "Marcar para incluir en la lista recetas de Recompensa de Misión."
-L["SEASON_TT"] = "Marcar para incluir en la lista recetas de Temporada."
-L["REP_TT"] = "Marcar para incluir en la lista recetas de Recompensa de Reputación."
-L["INSTANCE_TT"] = "Marcar para incluir en la lista recetas solamente encontradas en instancias."
-L["BOP_TT"] = "Marcar para ver en la lista solamente recetas que Se Ligan al Recogerlas."
-L["HORDE_TT"] = "Marcar para incluir en la lista solamente recetas de la Horda."
-L["ALLIANCE_TT"] = "Marcar para incluir en la lista solamente recetas de la Alianza."
-L["KNOWN_TT"] = "Marcar para incluir en la lista recetas aprendidas."
-L["UNKNOWN_TT"] = "Marcar para incluir en la lista recetas no aprendidas."
-
--- Recipe Database
-Discovery = "Descubierto"
-Raid = "Jefe"
-L["Trainer"] = "Entrenador"
-L["LimitedSupply"] = "Vendedor de Suministros Limitados"
-L["Vendor"] = "Vendedor"
-L["Discovery"] = Discovery
-L["PVP"] = "JcJ"
-L["Raid"] = Raid
-
---Skillup Levels
-L["Journeyman"] = "Oficial"
-L["Expert"] = "Experto"
-L["Artisan"] = "Artesano"
-L["Master"] = "Maestro"
-
--- Common ways to obtain recipes
-L["UZD"] = "Soltado - Zona - Poco frecuente: "
-L["CWD"] = "Soltado - Mundo - Común"
-L["UWD"] = "Soltado - Mundo - No Común"
-L["RWD"] = "Soltado - Mundo - Raro"
-L["EWD"] = "Soltado - Mundo - Epico"
-L["BoE"] = "Soltado - Se Liga Al Equiparlo: "
-L["BoP"] = "Soltado - Se Liga Al Recogerlo: "
-
-
--- Raid Drop Obtain Info
-RaidBindOnPickupDrop = "Soltado por Jefe (Se Liga al Recogerlo): "
-RaidBindOnEquipDrop = "Soltado por Jefe (Se Liga al Equiparlo): "
-RandomBossesIn = "Jefes Aleatorios en "
-RandomBossesAndMobsIn = "Jefes y monstruos Aleatorios en "
-RandomQuestReward = "Recompensa de Misión Aleatoria: "
-Crafted = "Fabricado: "
-Trainer = "Entrenador: "
-UnknownDrop = "Soltado Desconocido: "
-Mission = "Misión: "
-Seasonal = "Temporada: "
-
-L["Unknown"] = UnknownDrop.."La localización para obtener esta receta es desconocida.  Por favor contribuye comunicándolo en el hilo del foro de Ackis Recipe List en www.wowace.com/forums"
-
--- Faction info
-L["WintersVeil"] = Seasonal.."Fiesta del Velo de los Inviernos"
-L["Lunar Festival"] = Seasonal.."Festival Lunar"
-L["Darkmoon Faire"] = "Feria de la Luna Negra"
-L["Seasonal"] = "Estacional"
-
-
-]]--
