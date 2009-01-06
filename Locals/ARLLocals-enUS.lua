@@ -316,7 +316,38 @@ L["Lunar Festival"] = true
 L["Darkmoon Faire"] = true
 L["Seasonal"] = true
 
--- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
+-- Custom database strings:
+
+L["Custom1"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
+L["Custom2"] = "Discovered by making potions using Burning Crusade or higher ingredients."
+L["Custom3"] = "Discovered by doing transmutes using Burning Crusade or higher ingredients."
+L["Custom4"] = "Discovered by Major Protection Potions using Burning Crusade or higher ingredients."
+L["Custom5"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate."
+L["Custom6"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel."
+L["Custom7"] = "Randomly obtained by completing the fishing daily quest in Shattrath."
+L["Custom8"] = "Learnt by default when learning the profession."
+L["Custom9"] = "Recipe is created by Engineers."
+L["Custom10"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
+L["Custom11"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
+L["Custom12"] = "Discovered by doing transmutes using Wrath of the Lich King ingredients."
+L["Custom13"] = "Goldthorn Tea Henry Stern."
+L["Custom14"] = "Minor Inscription Research."
+L["Custom15"] = "Northrend Inscription Research."
+L["Custom16"] = "EngineeringRenewalReward."
+L["Custom17"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
+L["Custom18"] = "Northrend Alchemy Research."
+L["Custom19"] = "Northrend Transmute."
+L["Custom20"] = "Goblin transport."
+L["Custom21"] = "Gnome transport."
+L["Custom22"] = "Random BoP drop off of bosses in AQ40."
+L["Custom23"] = "DM Cache - Knot Thimblejack"
+L["Custom24"] = "Sunwell Trash Drop"
+L["Custom25"] = "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all."
+L["Custom26"] = "Molten Core Bosses"
+L["Custom27"] = "MC Duder In BWL"
+L["Custom28"] = "BT trash/bosses"
+
+-- Monster/Quest/Trainer/Vendor strings:
 
 -- Do not translate anything below this line without talking to Ackis first please.
 
