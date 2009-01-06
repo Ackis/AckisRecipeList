@@ -347,6 +347,7 @@ L["Custom26"] = "Molten Core Bosses"
 L["Custom27"] = "MC Duder In BWL"
 L["Custom28"] = "BT trash/bosses"
 L["Custom29"] = "ZA bosses"
+L["Custom30"] = "Jandice in Scholo book appears"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
