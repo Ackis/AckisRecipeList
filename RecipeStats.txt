@@ -1,4 +1,4 @@
-No acquire information (56 Recipes):
+No acquire information (39 Recipes):
 25493 - Braided Copper Ring - Jewelcrafting
 26925 - Woven Copper Ring - Jewelcrafting
 28903 - Teardrop Blood Garnet - Jewelcrafting
@@ -38,11 +38,3 @@ No acquire information (56 Recipes):
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
-3864 - Star Belt - Tailoring
-3873 - Black Swashbuckler's Shirt - Tailoring
-3915 - Brown Linen Shirt - Tailoring
-8786 - Azure Silk Cloak - Tailoring
-8789 - Crimson Silk Cloak - Tailoring
-12044 - Simple Linen Pants - Tailoring
-12081 - Admiral's Hat - Tailoring
-19435 - Mooncloth Boots - Tailoring

@@ -1,5 +1,4 @@
 --[[
-****************************************************************************************
 
 ARLLocals-enUS.lua
 
@@ -1642,3 +1641,8 @@ L["Ruppo Zipcoil"] = true
 L["Jinky Twizzlefixxit"] = true
 L["Harggan"] = true
 L["Findle Whistlesteam"] = true
+L["Narkk"] = true
+L["Jun'ha"] = true
+L["Brienna Starglow"] = true
+L["Cowardly Crosby"] = true
+L["Sacred Cloth"] = true
