@@ -1,12 +1,4 @@
 No acquire information (56 Recipes):
-3939 - Lovingly Crafted Boomstick - Engineering
-3957 - Ice Deflector - Engineering
-12624 - Mithril Mechanical Dragonling - Engineering
-12895 - Inlaid Mithril Cylinder Plans - Engineering
-13240 - The Mortar: Reloaded - Engineering
-23068 - Green Firework - Engineering
-23079 - Major Recombobulator - Engineering
-39973 - Frost Grenades - Engineering
 25493 - Braided Copper Ring - Jewelcrafting
 26925 - Woven Copper Ring - Jewelcrafting
 28903 - Teardrop Blood Garnet - Jewelcrafting

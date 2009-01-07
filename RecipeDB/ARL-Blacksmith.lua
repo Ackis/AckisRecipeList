@@ -595,21 +595,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Mithril Scale Bracers -- 9937
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9937,215,7924,1,2018)
-	self:addTradeFlags(RecipeDB,9937,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,9937,2,8176)
+	self:addTradeFlags(RecipeDB,9937,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,9937,2,8161,2,8176)
 
 	-- Mithril Shield Spike -- 9939
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9939,215,7967,3,2018)
 	self:addTradeFlags(RecipeDB,9939,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,9939,7,3)
-
-	-- Mithril Scale Gloves -- 9942
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,9942,220,7925,2,2018)
-	--self:addTradeFlags(RecipeDB,9942,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,9942,)
 
 	-- Ornate Mithril Pants -- 9945
 	recipecount = recipecount + 1

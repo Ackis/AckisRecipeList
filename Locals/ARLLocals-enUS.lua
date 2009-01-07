@@ -349,6 +349,7 @@ L["Custom28"] = "BT trash/bosses"
 L["Custom29"] = "ZA bosses"
 L["Custom30"] = "Jandice in Scholo book appears"
 L["Custom31"] = "Blacksmith plans in Strath"
+L["Custom32"] = "DM Tribute Run - Chest"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
@@ -1635,3 +1636,9 @@ L["Enraged Earth Spirit"] = true
 L["Enraged Water Spirit"] = true
 L["Enraged Air Spirit"] = true
 L["Enraged Fire Spirit"] = true
+L["Namdo Bizzfizzle"] = true
+L["Rizz Loosebolt"] = true
+L["Ruppo Zipcoil"] = true
+L["Jinky Twizzlefixxit"] = true
+L["Harggan"] = true
+L["Findle Whistlesteam"] = true
