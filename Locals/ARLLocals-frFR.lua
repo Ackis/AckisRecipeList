@@ -345,6 +345,7 @@ L["Custom26"] = "Boss au Cœur du Magma"
 L["Custom27"] = "Contrôle mental sur le Maître élémentaire Krixix le Sculpteur au Repaire de l'Aile noire."
 L["Custom28"] = "Trash/boss au Temple noir."
 L["Custom29"] = "Boss à Zul'Aman"
+--L["Custom30"] = "Jandice in Scholo book appears"
 
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
