@@ -371,8 +371,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Golden Scale Coif -- 3503
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3503,190,3837,1,2018)
-	self:addTradeFlags(RecipeDB,3503,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,3503,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeAcquire(RecipeDB,3503,2,5411)
 
 	-- Green Iron Shoulders -- 3504
 	recipecount = recipecount + 1
@@ -681,8 +681,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ornate Mithril Breastplate -- 9972
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9972,240,7935,2,2018)
-	self:addTradeFlags(RecipeDB,9972,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,9972,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
+	self:addTradeAcquire(RecipeDB,9972,4,2773)
 
 	-- Truesilver Breastplate -- 9974
 	recipecount = recipecount + 1
@@ -693,14 +693,14 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ornate Mithril Boots -- 9979
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9979,245,7936,2,2018)
-	self:addTradeFlags(RecipeDB,9979,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,9979,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
+	self:addTradeAcquire(RecipeDB,9979,4,2772)
 
 	-- Ornate Mithril Helm -- 9980
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9980,245,7937,2,2018)
-	self:addTradeFlags(RecipeDB,9980,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,9980,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeAcquire(RecipeDB,9980,4,2771)
 
 	-- Copper Claymore -- 9983
 	recipecount = recipecount + 1
@@ -814,7 +814,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12260,1,10421,1,2018)
 	self:addTradeFlags(RecipeDB,12260,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,12260,8,8)
 
 	-- Golden Rod -- 14379
 	recipecount = recipecount + 1
@@ -834,25 +834,11 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,15292,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
 	self:addTradeAcquire(RecipeDB,15292,3,8921,3,8926,3,8927,3,8928,3,9028)
 
-	-- Dark Iron Mail -- 15293
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,15293,270,11606,2,2018)
-	--self:addTradeFlags(RecipeDB,15293,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,15293,3,8907)
-
 	-- Dark Iron Sunderer -- 15294
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15294,275,11607,3,2018)
 	self:addTradeFlags(RecipeDB,15294,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,68)
 	self:addTradeAcquire(RecipeDB,15294,3,9554,3,10043)
-
-	-- Dark Iron Shoulders -- 15295
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,15295,280,11605,2,2018)
-	--self:addTradeFlags(RecipeDB,15295,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	--self:addTradeAcquire(RecipeDB,15295,)
 
 	-- Dark Iron Plate -- 15296
 	recipecount = recipecount + 1
@@ -870,7 +856,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15973,190,12260,2,2018)
 	self:addTradeFlags(RecipeDB,15973,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,15973,7,2)
 
 	-- Dense Grinding Stone -- 16639
 	recipecount = recipecount + 1
@@ -1025,8 +1011,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Runic Plate Shoulders -- 16664
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16664,300,12610,2,2018)
-	self:addTradeFlags(RecipeDB,16664,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,16664,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeAcquire(RecipeDB,16664,3,4366)
 
 	-- Runic Plate Boots -- 16665
 	recipecount = recipecount + 1
@@ -1169,18 +1155,11 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,16978,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,69)
 	self:addTradeAcquire(RecipeDB,16978,4,5307)
 
-	-- Rune Edge -- 16980
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16980,285,12779,2,2018)
-	--self:addTradeFlags(RecipeDB,16980,3,21,22,23,24,25,26,27,28,29,30,37,41,68)
-	--self:addTradeAcquire(RecipeDB,16980,)
-
 	-- Serenity -- 16983
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16983,285,12781,2,2018)
-	self:addTradeFlags(RecipeDB,16983,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,16983,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,70)
+	self:addTradeAcquire(RecipeDB,16983,8,31)
 
 	-- Volcanic Hammer -- 16984
 	recipecount = recipecount + 1
@@ -1191,22 +1170,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Corruption -- 16985
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16985,290,12782,1,2018)
-	self:addTradeFlags(RecipeDB,16985,21,22,23,24,25,26,27,28,29,30,37,41,69)
-	-- No acquire information
-
-	-- Blood Talon -- 16986
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16986,300,12795,3,2018)
-	--self:addTradeFlags(RecipeDB,16986,3,21,22,23,24,25,26,27,28,29,30,37,41,79)
-	--self:addTradeAcquire(RecipeDB,16986,)
-
-	-- Darkspear -- 16987
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16987,300,12802,3,2018)
-	--self:addTradeFlags(RecipeDB,16987,3,21,22,23,24,25,26,27,28,29,30,36,41,71)
-	--self:addTradeAcquire(RecipeDB,16987,)
+	self:addTradeFlags(RecipeDB,16985,1,2,5,21,22,23,24,25,26,27,28,29,30,37,41,69)
+	self:addTradeAcquire(RecipeDB,16985,8,31)
 
 	-- Hammer of the Titans -- 16988
 	recipecount = recipecount + 1
@@ -2315,8 +2280,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ragesteel Shoulders -- 42662
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42662,365,33173,3,2018)
-	self:addTradeFlags(RecipeDB,42662,3,21,22,23,24,25,26,27,28,29,30,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,42662,1,2,11,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeAcquire(RecipeDB,42662,3,21050,3,21059,3,21060,3,21061)
 
 	-- Adamantite Weapon Chain -- 42688
 	recipecount = recipecount + 1

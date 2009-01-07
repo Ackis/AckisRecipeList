@@ -1065,9 +1065,9 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Chest - Exceptional Mana -- 27958
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,27958,340,nil,1,7411)
+	self:addTradeSkill(RecipeDB,27958,350,nil,1,7411)
 	self:addTradeFlags(RecipeDB,27958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,27958,1,18753,1,18773,1,19252,1,19540)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	recipecount = recipecount + 1

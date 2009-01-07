@@ -41,7 +41,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25255,1,20816,1,25229)
 	self:addTradeFlags(RecipeDB,25255,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,25255,8,8)
 
 	-- Bronze Setting -- 25278
 	recipecount = recipecount + 1

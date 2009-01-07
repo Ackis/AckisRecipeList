@@ -316,7 +316,7 @@ L["Lunar Festival"] = true
 L["Darkmoon Faire"] = true
 L["Seasonal"] = true
 
--- Custom database strings:
+-- Custom database strings (Need way better descriptions, just filler right now):
 
 L["Custom1"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 L["Custom2"] = "Discovered by making potions using Burning Crusade or higher ingredients."
@@ -348,6 +348,7 @@ L["Custom27"] = "MC Duder In BWL"
 L["Custom28"] = "BT trash/bosses"
 L["Custom29"] = "ZA bosses"
 L["Custom30"] = "Jandice in Scholo book appears"
+L["Custom31"] = "Blacksmith plans in Strath"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
@@ -1625,3 +1626,12 @@ L["Zula Slagfury"] = true
 L["Zulian Tiger"] = true
 L["Zurai"] = true
 L["\"Cookie\" McWeaksauce"] = true
+L["Krinkle Goodsteel"] = true
+L["A Good Head On Your Shoulders"] = true
+L["The World At Your Feet"] = true
+L["The Mithril Kid"] = true
+L["Strashaz Serpent Guard"] = true
+L["Enraged Earth Spirit"] = true
+L["Enraged Water Spirit"] = true
+L["Enraged Air Spirit"] = true
+L["Enraged Fire Spirit"] = true

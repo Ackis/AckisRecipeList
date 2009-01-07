@@ -1,15 +1,4 @@
-No acquire information (68 Recipes):
-3503 - Golden Scale Coif - Blacksmithing
-9972 - Ornate Mithril Breastplate - Blacksmithing
-9979 - Ornate Mithril Boots - Blacksmithing
-9980 - Ornate Mithril Helm - Blacksmithing
-12260 - Rough Copper Vest - Blacksmithing
-15973 - Searing Golden Blade - Blacksmithing
-16664 - Runic Plate Shoulders - Blacksmithing
-16983 - Serenity - Blacksmithing
-16985 - Corruption - Blacksmithing
-42662 - Ragesteel Shoulders - Blacksmithing
-27958 - Enchant Chest - Exceptional Mana - Enchanting
+No acquire information (56 Recipes):
 3939 - Lovingly Crafted Boomstick - Engineering
 3957 - Ice Deflector - Engineering
 12624 - Mithril Mechanical Dragonling - Engineering
@@ -18,7 +7,6 @@ No acquire information (68 Recipes):
 23068 - Green Firework - Engineering
 23079 - Major Recombobulator - Engineering
 39973 - Frost Grenades - Engineering
-25255 - Delicate Copper Wire - Jewelcrafting
 25493 - Braided Copper Ring - Jewelcrafting
 26925 - Woven Copper Ring - Jewelcrafting
 28903 - Teardrop Blood Garnet - Jewelcrafting
