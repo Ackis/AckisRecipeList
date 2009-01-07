@@ -2197,13 +2197,13 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Netherscale Ammo Pouch -- 44768
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44768,350,34106,1,2108)
-	self:addTradeFlags(RecipeDB,44768,1,4,21,22,23,24,25,26,27,28,29,30,36,41,63,104)
-	self:addTradeAcquire(RecipeDB,44768,6,946,3,17657,6,946,3,17657)
+	self:addTradeFlags(RecipeDB,44768,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,104)
+	self:addTradeAcquire(RecipeDB,44768,6,947,3,17585,6,946,3,17657)
 
 	-- Glove Reinforcements -- 44770
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44770,345,34207,2,2108)
-	self:addTradeFlags(RecipeDB,44770,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,44770,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	-- No acquire information
 
 	-- Winter Boots -- 44953

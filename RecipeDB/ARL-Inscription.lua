@@ -2215,8 +2215,18 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,61677,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,61677,8,15)
 
+	local version = GetBuildInfo()
 
-	-- Ignored Recipes:
+	if (version == "3.0.8") then
+
+	-- Glyph of Arcane Blast -- 
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,56973,130,42737,1,45357)
+	--self:addTradeFlags(RecipeDB,56973,1,2,3,24,36,41)
+	--self:addTradeAcquire(RecipeDB,61177,1,26916,1,26959,1,26977,1,26995,1,28702)
+
+	end
+
 	return recipecount
 
 end

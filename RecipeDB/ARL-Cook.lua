@@ -876,16 +876,22 @@ function addon:InitCooking(RecipeDB)
 	if (version == "3.0.8") then
 
 	-- Kungaloosh -- 53056
-	--recipecount = recipecount + 1
-		self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
-		self:addTradeFlags(RecipeDB,53056,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,53056,2,31031,2,31032)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
+	self:addTradeFlags(RecipeDB,53056,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53056,2,31031,2,31032)
 
 	-- Fish Feast -- 57423
-		recipecount = recipecount + 1
-		self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
-		self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
+	self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
+
+	-- Worg Tartare -- 
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
+	--self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	--self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
 
 	end
 
@@ -1003,12 +1009,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,58528,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
-
-	-- Ignored Recipes:
-	-- 57423 - Fish Feast
-	-- 44438
-	-- 45547
-	-- 53056 - Kungaloosh
 	return recipecount
 
 end

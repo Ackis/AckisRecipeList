@@ -1793,13 +1793,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,61471,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61471,1,25277,1,26907,1,26955,1,26991,1,28697)
 
-	-- Mechanized Snow Goggles -- 61483
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,61483,420,44742,3,4036)
-	--self:addTradeFlags(RecipeDB,61483,3,21,25,30,36,41,59)
-	--self:addTradeAcquire(RecipeDB,61483,)
-
 	-- Mechanized Snow Goggles (Cloth) -- 56465
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56465,400,41112,3,4036)
@@ -1823,19 +1816,19 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
-	-- Ignored Recipes:
-	-- 61483 - Mechanized Snow Goggles
-	-- 30573 - Gnomish Tonk Controller
-	-- 30343 - Blue Smoke Flare
-	-- 30342 - Red Smoke Flare
-	-- 30349 - Khorium Toolbox
-	-- 30561 - Goblin Tonk Controller
-	-- 30549 - Critter Enlarger
-	-- 12722 - Goblin Radio
-	-- 12720 - Goblin \"Boom\" Box
-	-- 12900 - Mobile Alarm
-	-- 12719
-	-- 12904 - Gnomish Ham Radio
+
+	local version = GetBuildInfo()
+
+	if (version == "3.0.8") then
+
+	-- New spell power epic goggles
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,56483,440,42552,3,4036)
+	--self:addTradeFlags(RecipeDB,56483,1,2,3,25,37,41,53,59)
+	--self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,28697)
+	
+	end
+
 	return recipecount
 
 end

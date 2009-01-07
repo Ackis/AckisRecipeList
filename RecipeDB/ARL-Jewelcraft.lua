@@ -362,20 +362,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,26916,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
 	self:addTradeAcquire(RecipeDB,26916,1,18751,1,18774,1,19063,1,19539)
 
-	-- Arcanite Sword Pendant -- 26918
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,26918,305,21793,3,25229)
-	--self:addTradeFlags(RecipeDB,26918,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,26918,)
-
-	-- Blood Crown -- 26920
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,26920,315,21780,3,25229)
-	--self:addTradeFlags(RecipeDB,26920,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	--self:addTradeAcquire(RecipeDB,26920,)
-
 	-- Woven Copper Ring -- 26925
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26925,1,21931,2,25229)
@@ -2909,12 +2895,18 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,59759,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
 	self:addTradeAcquire(RecipeDB,59759,1,26915,1,26960,1,26982,1,26997,1,28701)
 
+	local version = GetBuildInfo()
 
-	-- Ignored Recipes:
-	-- 25614 - Silver Rose Pendant
-	-- 26918 - Arcanite Sword Pendant
-	-- 26920 - Blood Crown
-	-- 32810 - Primal Stone Statue
+	if (version == "3.0.8") then
+
+	-- Frozen orb thingy
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,59759,400,44063,1, 25229)
+	--self:addTradeFlags(RecipeDB,59759,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	--self:addTradeAcquire(RecipeDB,59759,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	end
+
 	return recipecount
 
 end

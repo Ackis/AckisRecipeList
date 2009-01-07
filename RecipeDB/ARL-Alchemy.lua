@@ -161,13 +161,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,3448,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3448,1,1386,1,4160,1,4611,1,7948,1,16588,1,18802,1,19052)
 
-	-- Shadow Oil -- 3449
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,3449,165,3824,1,2259)
-	--self:addTradeFlags(RecipeDB,3449,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,3449,)
-
 	-- Elixir of Fortitude -- 3450
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3450,175,3825,1,2259)
@@ -195,7 +188,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Frost Oil -- 3454
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3454,200,3829,2,2259)
-	self:addTradeFlags(RecipeDB,3454,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,3454,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3454,2,2480)
 
 	-- Discolored Healing Potion -- 4508
@@ -1533,6 +1526,24 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,47050,375,35751,1,2259)
 	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
 	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
+
+	local version = GetBuildInfo()
+
+	if (version == "3.0.8") then
+
+	-- Elixir of Water Walking -- ???
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,400,8827,1,2259)
+	--self:addTradeFlags(RecipeDB,,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,8,18)
+
+	-- Ethereal Oil -- ???
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,395,44332,1, 2259)
+	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,1,26903,1,26951,1,26975,1,26987,1,28703)
+
+	end
 
 	return recipecount
 

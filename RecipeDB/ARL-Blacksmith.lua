@@ -2996,21 +2996,16 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,15295,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,59)
 	self:addTradeAcquire(RecipeDB,15295,8,25)
 
-	
-	-- Ignored Recipes:
-	-- 2671 - Rough Bronze Bracers
-	-- 8366 - Ironforge Chain
-	-- 8368 - Ironforge Gauntlets
-	-- 9942 - Mithril Scale Gloves
-	-- 9957 - Orcish War Leggings
-	-- 15293 - Dark Iron Mail
-	-- 15295 - Dark Iron Shoulders
-	-- 16960 - Thorium Greatsword
-	-- 16965 - Bleakwood Hew
-	-- 16967 - Inlaid Thorium Hammer
-	-- 16980 - Rune Edge
-	-- 16986 - Blood Talon
-	-- 16987 - Darkspear
+	if (version == "3.0.8") then
+
+	-- Shield Reinforcements -- ???
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,400,8827,1,2259)
+	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,8,18)
+
+	end
+
 	return recipecount
 
 end
