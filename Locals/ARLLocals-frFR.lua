@@ -1,5 +1,4 @@
 ﻿--[[
-****************************************************************************************
 
 ARLLocals-frFR.lua
 
@@ -314,7 +313,7 @@ L["Lunar Festival"] = "Fête lunaire"
 L["Darkmoon Faire"] = "Foire de Sombrelune"
 L["Seasonal"] = "Saisonnier"
 
--- Custom database strings:
+-- Custom database strings (Need way better descriptions, just filler right now):
 
 --L["Custom1"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 --L["Custom2"] = "Discovered by making potions using Burning Crusade or higher ingredients."
@@ -346,6 +345,8 @@ L["Custom27"] = "Contrôle mental sur le Maître élémentaire Krixix le Sculpte
 L["Custom28"] = "Trash/boss au Temple noir."
 L["Custom29"] = "Boss à Zul'Aman"
 --L["Custom30"] = "Jandice in Scholo book appears"
+L["Custom31"] = "Plans de forgeron dans Stratholme"
+--L["Custom32"] = "DM Tribute Run - Chest"
 
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
