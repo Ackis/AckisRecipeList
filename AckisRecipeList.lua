@@ -1419,6 +1419,14 @@ do
 
 					if (TrainerList) then
 
+--@debug@
+
+						if (not TrainerList[recipeacquire[i]["ID"]]) then
+							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
+						end
+
+--@end-debug@
+
 						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
 
 						if (not locationchecklist[location]) then
@@ -1457,6 +1465,14 @@ do
 
 					if (MobList) then
 
+--@debug@
+
+						if (not MobList[recipeacquire[i]["ID"]]) then
+							self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
+						end
+
+--@end-debug@
+
 						local location = MobList[recipeacquire[i]["ID"]]["Location"]
 
 						if (not locationchecklist[location]) then
@@ -1473,6 +1489,14 @@ do
 				elseif (recipeacquire[i]["Type"] == 4) then
 
 					if (QuestList) then
+
+--@debug@
+
+						if (not QuestList[recipeacquire[i]["ID"]]) then
+							self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
+						end
+
+--@end-debug@
 
 						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
 
