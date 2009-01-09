@@ -1,7 +1,7 @@
-﻿## Title: Ackis Recipe List (3.02 Beta 12.3)
-## Title-enUS: Ackis Recipe List (3.02 Beta 12.3)
-## Title-koKR: Ackis의 제조법 리스트 (3.02 Beta 12.3)
-## Title-deDE: Ackis Rezeptliste (3.02 Beta 12.3)
+﻿## Title: Ackis Recipe List (3.02 Beta 13)
+## Title-enUS: Ackis Recipe List (3.02 Beta 13)
+## Title-koKR: Ackis의 제조법 리스트 (3.02 Beta 13)
+## Title-deDE: Ackis Rezeptliste (3.02 Beta 13)
 
 ## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
 ## Notes-enUS: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
@@ -18,7 +18,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, send me UDE Point codes, or a Murky Code.
 
 ## Interface: 30000
-## Version: Beta 12.3 @project-revision@
+## Version: Beta 13 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
@@ -30,7 +30,7 @@
 ## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 
 ## Dependencies:
-## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac
+## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
