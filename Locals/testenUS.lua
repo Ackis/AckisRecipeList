@@ -34,8 +34,14 @@ Locale schema
 	  or by purpose (Weapon categories, etc)
 ]]--
 
+--@debug@
+LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true)
+--@end-debug@
+--[===[@non-debug@
 local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true)
 
 if not L then return end
 
---@localization(locale="enUS", format="lua_additive_table", handle-unlocalized="english", escape-non-ascii="false")@
+@localization(locale="enUS", format="lua_additive_table", handle-unlocalized="english", escape-non-ascii="false")@
+
+--@end-non-debug@]===]
