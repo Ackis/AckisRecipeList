@@ -2233,7 +2233,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53979,390,40043,3,25229)
 	self:addTradeFlags(RecipeDB,53979,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53979,3,26206,3,26716,3,26722,3,26723,3,26730,3,26782,3,26792,3,26794)
+	self:addTradeAcquire(RecipeDB,53979,3,26723)
 
 	-- Glinting Monarch Topaz -- 53980
 	recipecount = recipecount + 1

@@ -1805,8 +1805,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Blessed Bracers -- 29672
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29672,365,23539,4,2018)
-	self:addTradeFlags(RecipeDB,29672,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
-	self:addTradeAcquire(RecipeDB,29672,3,16409,3,16526,3,17225,3,17817,3,24684)
+	self:addTradeFlags(RecipeDB,29672,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeAcquire(RecipeDB,29672,7,4)
 
 	-- Felsteel Longblade -- 29692
 	recipecount = recipecount + 1

@@ -1849,26 +1849,26 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Cobrascale Hood -- 35558
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35558,365,29502,4,2108)
-	self:addTradeFlags(RecipeDB,35558,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,35558,3,16389,3,16409,3,24683)
+	self:addTradeFlags(RecipeDB,35558,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,35558,7,4)
 
 	-- Cobrascale Gloves -- 35559
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35559,365,29503,4,2108)
-	self:addTradeFlags(RecipeDB,35559,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,35559,3,24664,3,24664)
+	self:addTradeFlags(RecipeDB,35559,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeAcquire(RecipeDB,35559,3,24664,7,4)
 
 	-- Windscale Hood -- 35560
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35560,365,29504,4,2108)
-	self:addTradeFlags(RecipeDB,35560,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,35560,3,16504,3,16539,3,18312,3,23580,3,24979)
+	self:addTradeFlags(RecipeDB,35560,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,35560,7,4)
 
 	-- Hood of Primal Life -- 35561
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35561,365,29505,4,2108)
-	self:addTradeFlags(RecipeDB,35561,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,35561,3,17400,3,17671,3,18064,3,20039,3,23330,3,23586,3,24683)
+	self:addTradeFlags(RecipeDB,35561,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,35561,7,4)
 
 	-- Gloves of the Living Touch -- 35562
 	recipecount = recipecount + 1

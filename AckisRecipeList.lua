@@ -1410,115 +1410,73 @@ do
 
 				-- Trainer
 				if (recipeacquire[i]["Type"] == 1) then
-
 					if (TrainerList) then
-
 --@debug@
-
 						if (not TrainerList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
 						end
-
 --@end-debug@
-
 						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
-
 						if (not locationchecklist[location]) then
-
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
-
 						end
-
 					end
-
 				-- Vendor
 				elseif (recipeacquire[i]["Type"] == 2) then
-
 					if (VendorList) then
 --@debug@
-
 						if (not VendorList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
 						end
-
 --@end-debug@
 						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
-
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
 						end
-
 					end
-
 				-- Mob Drop
 				elseif (recipeacquire[i]["Type"] == 3) then
-
 					if (MobList) then
-
 --@debug@
-
 						if (not MobList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
 						end
-
 --@end-debug@
-
 						local location = MobList[recipeacquire[i]["ID"]]["Location"]
-
 						if (not locationchecklist[location]) then
-
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
-
 						end
-
 					end
-
 				-- Quest
 				elseif (recipeacquire[i]["Type"] == 4) then
-
 					if (QuestList) then
-
 --@debug@
-
 						if (not QuestList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
 						end
-
 --@end-debug@
-
 						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
-
 						if (not locationchecklist[location]) then
-
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
-
 						end
-
 					end
-
 				-- World Drop
 				elseif (recipeacquire[i]["Type"] == 7) then
-
 					local location = L["World Drop"]
-
 					if (not locationchecklist[location]) then
-
 						-- Add the location to the list
 						tinsert(locationlist,location)
 						locationchecklist[location] = true
-
 					end
-
 				end
-
 			end
 
 			-- Sort the list by the name
@@ -1526,19 +1484,12 @@ do
 
 			-- Return the list as a string
 			if (#locationlist == 0)then
-
 				return ""
-
 			else
-
 				return tconcat(locationlist,",")
-
 			end
-
 		else
-
 			return ""
-
 		end
 
 	end
@@ -1760,6 +1711,7 @@ do
 	function addon:AckisRecipeList_Command(textdump)
 
 		if (pinfoalpha == "\84\101\97\109 \73\99\101") then
+			--self:Print("\124cff9d9d9d\124Hitem:34337:0:0:0:0:0:0:0\124h[Golden Staff of the Sin'Dorei]\124h\124r")
 			return
 		end
 
