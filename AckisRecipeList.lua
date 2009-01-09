@@ -1386,6 +1386,8 @@ function addon:ChatCommand(input)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
 	elseif (input == tolower(L["Filter"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
+	elseif (input == tolower(L["Scan"])) then
+		self:AckisRecipeList_Command(false)
 	elseif (input == tolower("minedata")) then
 		self:MineSkillLevelData()
 	else
