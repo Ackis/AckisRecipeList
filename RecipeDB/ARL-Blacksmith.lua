@@ -2297,26 +2297,26 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Sunblessed Gauntlets -- 46140
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46140,365,34380,4,2018)
-	self:addTradeFlags(RecipeDB,46140,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,46140,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25508,3,25591)
+	self:addTradeFlags(RecipeDB,46140,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeAcquire(RecipeDB,46140,3,8,24)
 
 	-- Hard Khorium Battlefists -- 46141
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46141,365,34378,4,2018)
-	self:addTradeFlags(RecipeDB,46141,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
-	self:addTradeAcquire(RecipeDB,46141,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46141,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeAcquire(RecipeDB,46141,8,24)
 
 	-- Sunblessed Breastplate -- 46142
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46142,365,34379,4,2018)
-	self:addTradeFlags(RecipeDB,46142,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,46142,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25509)
+	self:addTradeFlags(RecipeDB,46142,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
+	self:addTradeAcquire(RecipeDB,46142,8,24)
 
 	-- Hard Khorium Battleplate -- 46144
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46144,365,34377,4,2018)
-	self:addTradeFlags(RecipeDB,46144,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,46144,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507,3,25597)
+	self:addTradeFlags(RecipeDB,46144,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
+	self:addTradeAcquire(RecipeDB,46144,8,24)
 
 	-- Cobalt Legplates -- 52567
 	recipecount = recipecount + 1

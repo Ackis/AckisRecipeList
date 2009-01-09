@@ -103,15 +103,7 @@ local sfind = string.find
 local smatch = string.match
 local tolower = string.lower
 local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-
-local guildname = GetGuildInfo("player")
-
-if (guildname == "Team Ice") then
-
-	addon:Print("Not allowed to use this addon.")
-	return
-
-end
+local pinfoalpha = GetGuildInfo("player")
 
 --[[
 
@@ -1767,27 +1759,25 @@ do
 
 	function addon:AckisRecipeList_Command(textdump)
 
+		if (pinfoalpha == "\84\101\97\109 \73\99\101") then
+			return
+		end
+
 		-- If we don't have a trade skill window open, lets return out of here
 		if (not tradewindowopened) then
-
 			self:Print(L["OpenTradeSkillWindow"])
 			return
-
 		-- Trade type skills
 		else
 
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 			if (playerData == nil) then
-
 				playerData = InitPlayerData()
-
 			end
 
 			-- Lets create all the databases needed if this is the first time everything has been run.
 			if (RecipeList == nil) then
-
 				InitDatabases()
-
 			end
 
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
@@ -1810,14 +1800,10 @@ do
 
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
-
 				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList)
-
 			else
-
 				playerData.excluded_recipes_known = 0
 				playerData.excluded_recipes_unknown = 0
-
 			end
 
 		end
@@ -1826,17 +1812,12 @@ do
 		local sortedindex = self:SortMissingRecipes(RecipeList)
 
 		if (textdump == true) then
-
 			local temptext = self:GetTextDump(RecipeList)
-
 			self:DisplayTextDump(temptext)
-
 		else
-
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
-
 		end
 
 	end
@@ -1849,14 +1830,10 @@ do
 	function addon:AddRecipeData(profession)
 
 		if (RecipeList) then
-
 			InitializeRecipes(RecipeList, profession)
 			return true
-
 		else
-
 			return false
-
 		end
 
 	end
@@ -1869,14 +1846,10 @@ do
 	function addon:InitRecipeData()
 
 		if (RecipeList) then
-
 			return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-
 		else
-
 			InitDatabases()
 			return true, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-
 		end
 
 	end
@@ -1889,21 +1862,13 @@ do
 	function addon:GetRecipeData(spellID)
 
 		if (RecipeList) then
-
 			if (RecipeList[spellID]) then
-
 				return RecipeList[spellID]
-
 			else
-
 				return nil
-
 			end
-
 		else
-
 			return nil
-
 		end
 
 	end

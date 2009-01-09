@@ -2233,50 +2233,50 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Leather Gauntlets of the Sun -- 46132
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46132,365,34372,4,2108)
-	self:addTradeFlags(RecipeDB,46132,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,46132,3,25363,3,25367,3,25368,3,25369,3,25371,3,25507,3,25597)
+	self:addTradeFlags(RecipeDB,46132,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeAcquire(RecipeDB,46132,8,24)
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46133,365,34374,4,2108)
-	self:addTradeFlags(RecipeDB,46133,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,46133,3,25363,3,25367,3,25369,3,25370,3,25507)
+	self:addTradeFlags(RecipeDB,46133,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeAcquire(RecipeDB,46133,8,24)
 
 	-- Gloves of Immortal Dusk -- 46134
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46134,365,34370,4,2108)
-	self:addTradeFlags(RecipeDB,46134,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,46134,3,25369,3,25370,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46134,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeAcquire(RecipeDB,46134,8,24)
 
 	-- Sun-Drenched Scale Gloves -- 46135
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46135,365,34376,4,2108)
 	self:addTradeFlags(RecipeDB,46135,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,46135,3,25369,3,25371)
+	self:addTradeAcquire(RecipeDB,46135,8,24)
 
 	-- Leather Chestguard of the Sun -- 46136
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46136,365,34371,4,2108)
 	self:addTradeFlags(RecipeDB,46136,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,46136,3,25593)
+	self:addTradeAcquire(RecipeDB,46136,8,24)
 
 	-- Embrace of the Phoenix -- 46137
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46137,365,34373,4,2108)
-	self:addTradeFlags(RecipeDB,46137,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,46137,3,25367,3,25369,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46137,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeAcquire(RecipeDB,46137,8,24)
 
 	-- Carapace of Sun and Shadow -- 46138
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46138,365,34369,4,2108)
-	self:addTradeFlags(RecipeDB,46138,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,46138,3,25363,3,25367,3,25368,3,25369,3,25507)
+	self:addTradeFlags(RecipeDB,46138,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeAcquire(RecipeDB,46138,8,24)
 
 	-- Sun-Drenched Scale Chestguard -- 46139
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46139,365,34375,4,2108)
 	self:addTradeFlags(RecipeDB,46139,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,46139,3,25363,3,25367,3,25368,3,25369,3,25371,3,25593)
+	self:addTradeAcquire(RecipeDB,46139,8,24)
 
 	-- Heavy Borean Leather -- 50936
 	recipecount = recipecount + 1

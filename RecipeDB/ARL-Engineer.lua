@@ -1283,13 +1283,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,30570,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,30570,1,7406,1,7944,1,29514)
 
-	-- Gnomish Tonk Controller -- 30573
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,30573,315,23832,1,4036)
-	--self:addTradeFlags(RecipeDB,30573,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,30573,)
-
 	-- Gnomish Power Goggles -- 30574
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30574,375,23828,1,4036,20219)
@@ -1438,67 +1431,67 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46106,375,35183,4,4036)
 	self:addTradeFlags(RecipeDB,46106,1,2,6,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,46106,3,25368,3,25371)
+	self:addTradeAcquire(RecipeDB,46106,8.33)
 
 	-- Justicebringer 3000 Specs -- 46107
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46107,375,35185,4,4036)
-	self:addTradeFlags(RecipeDB,46107,1,2,6,11,25,37,41,59)
-	self:addTradeAcquire(RecipeDB,46107,3,25370,3,25507)
+	self:addTradeFlags(RecipeDB,46107,1,2,6,25,37,41,59)
+	self:addTradeAcquire(RecipeDB,46107,8,24)
 
 	-- Powerheal 9000 Lens -- 46108
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46108,375,35181,4,4036)
 	self:addTradeFlags(RecipeDB,46108,1,2,6,26,37,41,56)
-	self:addTradeAcquire(RecipeDB,46108,3,25363,3,25368,3,25370)
+	self:addTradeAcquire(RecipeDB,46108,8,24)
 
 	-- Hyper-Magnified Moon Specs -- 46109
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46109,375,35182,4,4036)
-	self:addTradeFlags(RecipeDB,46109,1,2,6,11,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,46109,3,25369,3,25484,3,25507)
+	self:addTradeFlags(RecipeDB,46109,1,2,6,22,37,41,57)
+	self:addTradeAcquire(RecipeDB,46109,8,24)
 
 	-- Primal-Attuned Goggles -- 46110
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46110,375,35184,4,4036)
-	self:addTradeFlags(RecipeDB,46110,1,2,6,11,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,46110,3,25369,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46110,1,2,6,27,37,41,58)
+	self:addTradeAcquire(RecipeDB,46110,8,24)
 
 	-- Annihilator Holo-Gogs -- 46111
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46111,375,34847,4,4036)
 	self:addTradeFlags(RecipeDB,46111,1,2,6,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,46111,3,25368,3,25370)
+	self:addTradeAcquire(RecipeDB,46111,8,24)
 
 	-- Lightning Etched Specs -- 46112
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46112,375,34355,4,4036)
 	self:addTradeFlags(RecipeDB,46112,1,2,6,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,46112,3,25367,3,25368,3,25369,3,25370,3,25371)
+	self:addTradeAcquire(RecipeDB,46112,8,24)
 
 	-- Surestrike Goggles v3.0 -- 46113
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46113,375,34356,4,4036)
-	self:addTradeFlags(RecipeDB,46113,1,2,6,11,23,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,46113,3,25367,3,25369,3,25370,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46113,1,2,6,23,27,37,41,58)
+	self:addTradeAcquire(RecipeDB,46113,8,24)
 
 	-- Mayhem Projection Goggles -- 46114
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46114,375,34354,4,4036)
-	self:addTradeFlags(RecipeDB,46114,1,2,6,11,25,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,46114,3,25369,3,25507,3,25592)
+	self:addTradeFlags(RecipeDB,46114,1,2,6,25,30,37,41,59)
+	self:addTradeAcquire(RecipeDB,46114,8,24)
 
 	-- Hard Khorium Goggles -- 46115
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46115,375,34357,4,4036)
 	self:addTradeFlags(RecipeDB,46115,1,2,6,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,46115,3,25363,3,25371)
+	self:addTradeAcquire(RecipeDB,46115,8,24)
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46116,375,34353,4,4036)
 	self:addTradeFlags(RecipeDB,46116,1,2,6,22,28,37,41,57)
-	self:addTradeAcquire(RecipeDB,46116,3,25367,3,25369,3,25599)
+	self:addTradeAcquire(RecipeDB,46116,8,24)
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	recipecount = recipecount + 1

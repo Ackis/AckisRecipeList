@@ -1975,25 +1975,25 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46128,365,34366,4,3908)
 	self:addTradeFlags(RecipeDB,46128,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,46128,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371)
+	self:addTradeAcquire(RecipeDB,46128,8,24)
 
 	-- Hands of Eternal Light -- 46129
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46129,365,34367,4,3908)
-	self:addTradeFlags(RecipeDB,46129,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,46129,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46129,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeAcquire(RecipeDB,46129,8,24)
 
 	-- Sunfire Robe -- 46130
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46130,365,34364,4,3908)
-	self:addTradeFlags(RecipeDB,46130,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,46130,3,25363,3,25367,3,25368,3,25369,3,25370,3,25371,3,25507)
+	self:addTradeFlags(RecipeDB,46130,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,46130,8,24)
 
 	-- Robe of Eternal Light -- 46131
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46131,365,34365,4,3908)
 	self:addTradeFlags(RecipeDB,46131,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,46131,3,25363,3,25367,3,25369,3,25370,3,25371,3,25486,3,25592)
+	self:addTradeAcquire(RecipeDB,46131,8,24)
 
 	-- Dress Shoes -- 49677
 	recipecount = recipecount + 1
