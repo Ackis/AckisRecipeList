@@ -2547,7 +2547,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57692,400,nil, 3,2108)
 	self:addTradeFlags(RecipeDB,57692,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57692,3,30921,3,31321)
+	self:addTradeAcquire(RecipeDB,57692,3,30921)
 
 	-- Fur Lining - Frost Resist -- 57694
 	recipecount = recipecount + 1

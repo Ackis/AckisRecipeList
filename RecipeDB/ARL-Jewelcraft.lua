@@ -2112,8 +2112,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Thick Autumn's Glow -- 53959
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53959,390,40015,3,25229)
-	self:addTradeFlags(RecipeDB,53959,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,53959,3,30660,3,30667,3,30668,3,30695,3,30892,3,30893,3,31134,3,32191)
+	self:addTradeFlags(RecipeDB,53959,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
+	self:addTradeAcquire(RecipeDB,53959,3,30660,3,31134)
 
 	-- Mystic Autumn's Glow -- 53960
 	recipecount = recipecount + 1

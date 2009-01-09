@@ -1344,7 +1344,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53939,400,40214,2,2259)
 	self:addTradeFlags(RecipeDB,53939,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53939,3,30921,3,31321)
+	self:addTradeAcquire(RecipeDB,53939,3,30921)
 
 	-- Mighty Nature Protection Potion -- 53942
 	recipecount = recipecount + 1

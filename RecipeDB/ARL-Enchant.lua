@@ -1445,7 +1445,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,44556,400,nil,1,7411)
 	self:addTradeFlags(RecipeDB,44556,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,44556,3,30921,3,31321)
+	self:addTradeAcquire(RecipeDB,44556,3,30921)
 
 	-- Enchant Bracers - Greater Assault -- 44575
 	recipecount = recipecount + 1
