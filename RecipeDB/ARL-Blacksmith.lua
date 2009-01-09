@@ -1248,7 +1248,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,20873,300,16988,3,2018)
 	self:addTradeFlags(RecipeDB,20873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,98)
-	self:addTradeAcquire(RecipeDB,23873,6,59,3,12944)
+	self:addTradeAcquire(RecipeDB,20873,6,59,3,12944)
 
 	-- Dark Iron Bracers -- 20874
 	recipecount = recipecount + 1
