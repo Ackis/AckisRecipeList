@@ -347,6 +347,7 @@ L["Custom29"] = "Boss à Zul'Aman"
 --L["Custom30"] = "Jandice in Scholo book appears"
 L["Custom31"] = "Plans de forgeron dans Stratholme"
 --L["Custom32"] = "DM Tribute Run - Chest"
+--L["Custom33"] = ""
 
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
