@@ -38,3 +38,47 @@ No acquire information (39 Recipes):
 44770 - Glove Reinforcements - Leatherworking
 44970 - Heavy Knothide Armor Kit - Leatherworking
 45100 - Leatherworker's Satchel - Leatherworking
+
+Recipes with no acquire:
+	Jewelcrafting
+		Glowing Shadow Draenite
+		Radiant Deep Peridot
+		Brilliant Golden Draenite
+		Inscribed Flame Spessarite
+		Solid Azure Moonstone
+		Bright Blood Garnet
+		Teardrop Blood Garnet
+		Sparkling Azure Moonstone
+		Jagged Deep Peridot
+		Bold Blood Garnet
+		Glinting Flame Spessarite
+		Rigid Golden Draenite
+		Socereign Shadow Draenite
+		Smooth Golden Draenite
+		Brilliant Glass
+		Figurine - Seaspray Albatross
+	Leatherworking
+		Handsticthed Leather Bracers
+		Handstitched Leather Cloak
+		Handstitched Leather Vest
+		Herbalist's Gloves
+		Shadowskin Gloves
+		Nightscape Shoulders
+		Heavy Scorpid Bracers
+		Chimeric Gloves
+		Ironfeather Shoulders
+		Blue Dragonscale Breastplate
+		Leatherworker's Satchel
+		Blue Dragonscale Breastplate
+		Heavy Scorpid Helm
+		Knothide Ammo Pouch
+		Knothide Quiver
+		Nethercleft Leg Armor
+
+Verify - mob drops
+	Enchant Gloves - Herbalism
+	Enchant Gloves - Mining
+	Enchant Gloves - Fishing
+	Enchant Gloves - Advanced Mining
+	Enchant Gloves - Advanced Herbalism
+	Enchant Gloves - Riding Skill

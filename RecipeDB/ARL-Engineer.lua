@@ -287,7 +287,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3966,185,4393,3,4036)
 	self:addTradeFlags(RecipeDB,3966,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,3966,3,690,3,2587,3,4852,3,4861,3,7800)
+	self:addTradeAcquire(RecipeDB,3966,7,3,7800)
 
 	-- Big Iron Bomb -- 3967
 	recipecount = recipecount + 1
@@ -521,7 +521,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12620,240,10548,3,4036)
 	self:addTradeFlags(RecipeDB,12620,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12620,3,1488,3,5267,3,5460,3,5714,3,5717,3,9162,3,10184)
+	self:addTradeAcquire(RecipeDB,12620,7,3,8,33)
 
 	-- Mithril Gyro-Shot -- 12621
 	recipecount = recipecount + 1
@@ -707,7 +707,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19793,265,15996,2,4036)
 	self:addTradeFlags(RecipeDB,19793,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19793,3,2644,3,10043,3,10184)
+	self:addTradeAcquire(RecipeDB,19793,7,2,8,33)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	recipecount = recipecount + 1
@@ -1139,7 +1139,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30334,375,23766,3,4036)
 	self:addTradeFlags(RecipeDB,30334,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,30334,3,16151,3,16152)
+	self:addTradeAcquire(RecipeDB,30334,3,16152)
 
 	-- Crashin' Thrashin' Robot -- 30337
 	recipecount = recipecount + 1
@@ -1221,13 +1221,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30551,330,33092,3,4036)
 	self:addTradeFlags(RecipeDB,30551,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,30551,3,24664,3,24664)
+	self:addTradeAcquire(RecipeDB,30551,3,24664)
 
 	-- Mana Potion Injector -- 30552
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30552,345,33093,3,4036)
 	self:addTradeFlags(RecipeDB,30552,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,30552,3,24664,3,24664)
+	self:addTradeAcquire(RecipeDB,30552,3,24664)
 
 	-- Rocket Boots Xtreme -- 30556
 	recipecount = recipecount + 1

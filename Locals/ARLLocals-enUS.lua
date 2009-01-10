@@ -349,6 +349,9 @@ L["Custom29"] = "ZA bosses"
 L["Custom30"] = "Jandice in Scholo book appears"
 L["Custom31"] = "Blacksmith plans in Strath"
 L["Custom32"] = "DM Tribute Run - Chest"
+L["Custom33"] = "World Dragons"
+L["Custom34"] = "Black Temple / Hyjal Trash Drop"
+L["Custom35"] = "Blade's Edge Mountains Summon Bosses"
 --L["Custom33"] = ""
 
 -- Monster/Quest/Trainer/Vendor strings:

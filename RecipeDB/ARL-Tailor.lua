@@ -269,7 +269,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3858,170,4323,2,3908)
 	self:addTradeFlags(RecipeDB,3858,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,3858,3,1085,3,2248,3,2377,3,4292,3,4295,3,4301,3,4304)
+	self:addTradeAcquire(RecipeDB,3858,7,2)
 
 	-- Azure Silk Vest -- 3859
 	recipecount = recipecount + 1
@@ -353,7 +353,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3873,200,4336,1,3908)
 	self:addTradeFlags(RecipeDB,3873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3873,2,2663)
+	self:addTradeAcquire(RecipeDB,3873,2,2483)
 
 	-- Brown Linen Pants -- 3914
 	recipecount = recipecount + 1
@@ -1686,7 +1686,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31434,350,24249,3,3908)
 	self:addTradeFlags(RecipeDB,31434,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,31434,3,24664,3,24664)
+	self:addTradeAcquire(RecipeDB,31434,3,24664)
 
 	-- Bracers of Havok -- 31435
 	recipecount = recipecount + 1
@@ -1722,7 +1722,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31442,365,24255,4,3908)
 	self:addTradeFlags(RecipeDB,31442,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,31442,3,24664,3,24664)
+	self:addTradeAcquire(RecipeDB,31442,3,24664)
 
 	-- Girdle of Ruination -- 31443
 	recipecount = recipecount + 1
@@ -1734,13 +1734,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31444,365,24257,4,3908)
 	self:addTradeFlags(RecipeDB,31444,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,31444,3,16409,3,16504,3,16525,3,16530,3,17723,3,20052,3,21301,3,21339)
+	self:addTradeAcquire(RecipeDB,31444,7,4)
 
 	-- Resolute Cape -- 31448
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31448,365,24258,4,3908)
 	self:addTradeFlags(RecipeDB,31448,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,60)
-	self:addTradeAcquire(RecipeDB,31448,3,15548,3,16409,3,16526,3,16596,3,17669,3,17800,3,21298,3,22286,3,23597,3,24180)
+	self:addTradeAcquire(RecipeDB,31448,7,4)
 
 	-- Vengeance Wrap -- 31449
 	recipecount = recipecount + 1
@@ -1945,13 +1945,13 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41206,375,32587,4,3908)
 	self:addTradeFlags(RecipeDB,41206,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,41206,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17908,3,17916)
+	self:addTradeAcquire(RecipeDB,41206,8,34)
 
 	-- Swiftheal Wraps -- 41207
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41207,375,32584,4,3908)
 	self:addTradeFlags(RecipeDB,41207,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,41207,3,17895,3,17897,3,17898,3,17899,3,17905,3,17906,3,17907,3,17908,3,17916)
+	self:addTradeAcquire(RecipeDB,41207,8,34)
 
 	-- Swiftheal Mantle -- 41208
 	recipecount = recipecount + 1
