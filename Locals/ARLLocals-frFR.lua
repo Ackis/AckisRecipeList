@@ -345,9 +345,11 @@ L["Custom27"] = "Contrôle mental sur le Maître élémentaire Krixix le Sculpte
 L["Custom28"] = "Trash/boss au Temple noir."
 L["Custom29"] = "Boss à Zul'Aman"
 --L["Custom30"] = "Jandice in Scholo book appears"
-L["Custom31"] = "Plans de forgeron dans Stratholme"
+L["Custom31"] = "Plans de forgeron à Stratholme"
 --L["Custom32"] = "DM Tribute Run - Chest"
---L["Custom33"] = ""
+L["Custom33"] = "Dragons mondial"
+L["Custom34"] = "Trash au Sommet d'Hyjal / Temple noir"
+L["Custom35"] = "Boss invoqué dans Les Tranchantes"
 
 -- Monster/Quest/Trainer/Vendor (auto-generatored) strings:
 
