@@ -390,13 +390,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28903,300,23094,1,25229)
 	self:addTradeFlags(RecipeDB,28903,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28903,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Bold Blood Garnet -- 28905
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28905,305,23095,1,25229)
 	self:addTradeFlags(RecipeDB,28905,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28905,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Runed Blood Garnet -- 28906
 	recipecount = recipecount + 1
@@ -414,7 +414,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28910,300,23098,1,25229)
 	self:addTradeFlags(RecipeDB,28910,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28910,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Luminous Flame Spessarite -- 28912
 	recipecount = recipecount + 1
@@ -426,7 +426,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28914,315,23100,1,25229)
 	self:addTradeFlags(RecipeDB,28914,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28914,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Potent Flame Spessarite -- 28915
 	recipecount = recipecount + 1
@@ -434,17 +434,17 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,28915,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
 	self:addTradeAcquire(RecipeDB,28915,6,1011,1,21655)
 
-	-- Radiant Deep Peridot -- 28916Caster DPS, 
+	-- Radiant Deep Peridot -- 28916
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28916,300,23103,1,25229)
 	self:addTradeFlags(RecipeDB,28916,3,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28916,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Jagged Deep Peridot -- 28917
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28917,305,23104,1,25229)
 	self:addTradeFlags(RecipeDB,28917,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28917,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Enduring Deep Peridot -- 28918
 	recipecount = recipecount + 1
@@ -461,8 +461,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Glowing Shadow Draenite -- 28925
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28925,300,23108,1,25229)
-	self:addTradeFlags(RecipeDB,28925,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,28925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,28925,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Royal Shadow Draenite -- 28927
 	recipecount = recipecount + 1
@@ -480,13 +480,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28936,325,23111,2,25229)
 	self:addTradeFlags(RecipeDB,28936,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28936,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Brilliant Golden Draenite -- 28938
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28938,300,23113,1,25229)
 	self:addTradeFlags(RecipeDB,28938,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28938,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Gleaming Golden Draenite -- 28944
 	recipecount = recipecount + 1
@@ -504,19 +504,19 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28948,325,23116,2,25229)
 	self:addTradeFlags(RecipeDB,28948,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28948,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Solid Azure Moonstone -- 28950
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28950,300,23118,1,25229)
 	self:addTradeFlags(RecipeDB,28950,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28950,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Sparkling Azure Moonstone -- 28953
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28953,305,23119,2,25229)
 	self:addTradeFlags(RecipeDB,28953,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,28953,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Stormy Azure Moonstone -- 28955Caster DPS, 
 	recipecount = recipecount + 1
@@ -997,13 +997,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34069,325,28290,2,25229)
 	self:addTradeFlags(RecipeDB,34069,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,34069,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Bright Blood Garnet -- 34590
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34590,305,28595,1,25229)
 	self:addTradeFlags(RecipeDB,34590,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,34590,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Golden Ring of Power -- 34955
 	recipecount = recipecount + 1
@@ -1086,8 +1086,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- The Natural Ward -- 38504
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38504,375,31399,4,25229)
-	self:addTradeFlags(RecipeDB,38504,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,38504,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,62,103)
+	self:addTradeAcquire(RecipeDB,38504,6,942,2,17904)
 
 	-- Great Golden Draenite -- 39451
 	recipecount = recipecount + 1
@@ -1548,8 +1548,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Figurine - Seaspray Albatross -- 46779
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46779,375,35703,1,25229)
-	self:addTradeFlags(RecipeDB,46779,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	-- No acquire information
+	self:addTradeFlags(RecipeDB,46779,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63,112)
+	self:addTradeAcquire(RecipeDB,46779,6,1077,3,25032)
 
 	-- Regal Nightseye -- 46803
 	recipecount = recipecount + 1
@@ -1585,7 +1585,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,47280,350,35945,3,25229)
 	self:addTradeFlags(RecipeDB,47280,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,47280,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701)
 
 	-- Purified Shadowsong Amethyst -- 48789
 	recipecount = recipecount + 1
