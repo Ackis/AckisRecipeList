@@ -271,7 +271,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeSkill(RecipeDB,13620,145,nil,1,7411)
 	self:addTradeFlags(RecipeDB,13620,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,13620,3,2375,3,2377,3,2376,3,2374,3,14276)
-	--self:addTradeAcquire(RecipeDB,13620,3,2356,3,2374,3,2375,3,2376,3,2377,3,14276)
 
 	-- Enchant Bracer - Lesser Intellect -- 13622
 	recipecount = recipecount + 1
@@ -572,7 +571,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeSkill(RecipeDB,13947,250,nil,1,7411)
 	self:addTradeFlags(RecipeDB,13947,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,13947,7,2)
-	--self:addTradeAcquire(RecipeDB,13947,3,6514,3,7155,3,8889,3,8893,3,10184,3,12206)
 
 	-- Enchant Gloves - Minor Haste -- 13948
 	recipecount = recipecount + 1

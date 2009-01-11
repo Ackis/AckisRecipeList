@@ -384,7 +384,6 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11468,240,9197,2,2259)
 	self:addTradeFlags(RecipeDB,11468,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	--self:addTradeAcquire(RecipeDB,11468,3,1822,3,4467,3,5474,3,5481,3,5714,3,8893,3,10184,3,12397)
 	self:addTradeAcquire(RecipeDB,11468,7,2)
 
 	-- Elixir of Giants -- 11472
