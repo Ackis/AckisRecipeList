@@ -6,11 +6,6 @@ ARL-Blacksmith.lua
 
 Blacksmithing data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-488 found from data mining.
-13 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -96,13 +91,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeSkill(RecipeDB,2670,105,2866,1,2018)
 	self:addTradeFlags(RecipeDB,2670,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,2670,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341)
-
-	-- Rough Bronze Bracers -- 2671
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,2671,115,2867,2,2018)
-	--self:addTradeFlags(RecipeDB,2671,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,2671,)
 
 	-- Patterned Bronze Bracers -- 2672
 	recipecount = recipecount + 1
@@ -476,25 +464,11 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,7818,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,7818,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
 
-	-- Ironforge Chain -- 8366
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,8366,70,6730,2,2018)
-	--self:addTradeFlags(RecipeDB,8366,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,8366,)
-
 	-- Ironforge Breastplate -- 8367
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8367,100,6731,2,2018)
 	self:addTradeFlags(RecipeDB,8367,1,8,21,22,23,24,25,26,27,28,29,30,36,40,58)
 	self:addTradeAcquire(RecipeDB,8367,4,1618)
-
-	-- Ironforge Gauntlets -- 8368
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,8368,140,6733,2,2018)
-	--self:addTradeFlags(RecipeDB,8368,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,8368,)
 
 	-- Iron Buckle -- 8768
 	recipecount = recipecount + 1
@@ -627,13 +601,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeSkill(RecipeDB,9954,225,7938,1,2018)
 	self:addTradeFlags(RecipeDB,9954,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,9954,1,5164,1,7230,1,11177,1,20125)
-
-	-- Orcish War Leggings -- 9957
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,9957,230,7929,2,2018)
-	--self:addTradeFlags(RecipeDB,9957,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,9957,)
 
 	-- Heavy Mithril Breastplate -- 9959
 	recipecount = recipecount + 1
@@ -1096,27 +1063,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeSkill(RecipeDB,16746,300,12641,4,2018)
 	self:addTradeFlags(RecipeDB,16746,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,58)
 	self:addTradeAcquire(RecipeDB,16746,3,10184,3,10899)
-
-	-- Thorium Greatsword -- 16960
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16960,260,12764,2,2018)
-	--self:addTradeFlags(RecipeDB,16960,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	--self:addTradeAcquire(RecipeDB,16960,)
-
-	-- Bleakwood Hew -- 16965
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16965,270,12769,3,2018)
-	--self:addTradeFlags(RecipeDB,16965,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
-	--self:addTradeAcquire(RecipeDB,16965,)
-
-	-- Inlaid Thorium Hammer -- 16967
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,16967,270,12772,2,2018)
-	--self:addTradeFlags(RecipeDB,16967,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
-	--self:addTradeAcquire(RecipeDB,16967,)
 
 	-- Ornate Thorium Handaxe -- 16969
 	recipecount = recipecount + 1

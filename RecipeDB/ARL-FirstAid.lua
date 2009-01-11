@@ -6,11 +6,6 @@ ARL-FirstAid.lua
 
 First Aid data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-17 found from data mining.
-1 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -139,9 +134,6 @@ function addon:InitFirstAid(RecipeDB)
 	self:addTradeFlags(RecipeDB,45546,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,45546,7,2)
 
-
-	-- Ignored Recipes:
-	-- 30021
 	return recipecount
 
 end

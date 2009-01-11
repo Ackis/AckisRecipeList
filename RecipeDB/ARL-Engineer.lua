@@ -6,11 +6,6 @@ ARL-Engineer.lua
 
 Engineering data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-292 found from data mining.
-12 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -1153,20 +1148,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,30341,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,30341,2,16657,2,16782,2,18484,2,19383)
 
-	-- Red Smoke Flare -- 30342
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,30342,315,23769,1,4036)
-	--self:addTradeFlags(RecipeDB,30342,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,30342,)
-
-	-- Blue Smoke Flare -- 30343
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,30343,315,23770,1,4036)
-	--self:addTradeFlags(RecipeDB,30343,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,30343,)
-
 	-- Green Smoke Flare -- 30344
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30344,335,23771,1,4036)
@@ -1191,13 +1172,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,30348,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,30348,2,16657,2,16782,2,18484)
 
-	-- Khorium Toolbox -- 30349
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,30349,340,23775,3,4036)
-	--self:addTradeFlags(RecipeDB,30349,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,30349,)
-
 	-- Elemental Seaforium Charge -- 30547
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30547,350,23819,1,4036)
@@ -1209,13 +1183,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,30548,305,23821,1,4036)
 	self:addTradeFlags(RecipeDB,30548,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,30548,4,9635,4,9636)
-
-	-- Critter Enlarger -- 30549
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,30549,325,23820,2,4036)
-	--self:addTradeFlags(RecipeDB,30549,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,30549,)
 
 	-- Healing Potion Injector -- 30551
 	recipecount = recipecount + 1

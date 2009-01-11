@@ -6,11 +6,6 @@ ARL-Jewelcraft.lua
 
 Jewelcrafting data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-478 found from data mining.
-4 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -150,13 +145,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeSkill(RecipeDB,25613,135,20955,1,25229)
 	self:addTradeFlags(RecipeDB,25613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,62)
 	self:addTradeAcquire(RecipeDB,25613,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
-
-	-- Silver Rose Pendant -- 25614
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,25614,145,20956,2,25229)
-	--self:addTradeFlags(RecipeDB,25614,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,25614,)
 
 	-- Mithril Filigree -- 25615
 	recipecount = recipecount + 1
@@ -931,13 +919,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeSkill(RecipeDB,32809,225,25883,1,25229)
 	self:addTradeFlags(RecipeDB,32809,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,32809,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778)
-
-	-- Primal Stone Statue -- 32810
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,32810,280,25884,1,25229)
-	--self:addTradeFlags(RecipeDB,32810,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	--self:addTradeAcquire(RecipeDB,32810,)
 
 	-- Powerful Earthstorm Diamond -- 32866
 	recipecount = recipecount + 1

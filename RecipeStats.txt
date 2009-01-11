@@ -18,9 +18,4 @@ Recipes with no acquire:
 		Nethercleft Leg Armor
 
 Verify - mob drops
-	Enchant Gloves - Herbalism
-	Enchant Gloves - Mining
-	Enchant Gloves - Fishing
-	Enchant Gloves - Advanced Mining
-	Enchant Gloves - Advanced Herbalism
 	Enchant Gloves - Riding Skill

@@ -6,8 +6,6 @@ ARL-Alchemy.lua
 
 Alchemy data for all of Ackis Recipe List
 
-Originall generated via datamining.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -75,13 +73,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,2335,60,2459,2,2259)
 	self:addTradeFlags(RecipeDB,2335,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,2335,7,2)
-
-	-- Elixir of Tongues -- 2336
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,2336,60,2460,1,2259)
-	--self:addTradeFlags(RecipeDB,2336,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,2336,)
 
 	-- Lesser Healing Potion -- 2337
 	recipecount = recipecount + 1
@@ -214,13 +205,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,6618,175,5633,1,2259)
 	self:addTradeFlags(RecipeDB,6618,1,2,4,30,36,40)
 	self:addTradeAcquire(RecipeDB,6618,2,3335,2,4226)
-
-	-- Free Action Potion -- 6624
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,6624,150,5634,1,2259)
-	--self:addTradeFlags(RecipeDB,6624,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	--self:addTradeAcquire(RecipeDB,6624,2,5178)
 
 	-- Elixir of Water Breathing -- 7179
 	recipecount = recipecount + 1
@@ -606,13 +590,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,17578,290,13459,2,2259)
 	self:addTradeFlags(RecipeDB,17578,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,17578,3,8546,3,8550)
-
-	-- Greater Holy Protection Potion -- 17579
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,17579,265,13460,1,2259)
-	--self:addTradeFlags(RecipeDB,17579,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,17579,)
 
 	-- Major Mana Potion -- 17580
 	recipecount = recipecount + 1
@@ -1351,13 +1328,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,53942,400,40216,2,2259)
 	self:addTradeFlags(RecipeDB,53942,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53942,3,32290)
-
-	-- Transmute: Eternal Might -- 54020
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,54020,430,40248,1, 2259)
-	--self:addTradeFlags(RecipeDB,54020,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,54020,1,26903,1,26951,1,26975,1,26987,1,28703)
 
 	-- Flask of Pure Mojo -- 54213
 	recipecount = recipecount + 1

@@ -6,11 +6,6 @@ ARL-Leatherwork.lua
 
 Leatherworking data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-501 found from data mining.
-7 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -294,13 +289,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,3818,150,4236,1,2108)
 	self:addTradeFlags(RecipeDB,3818,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3818,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
-
-	-- Raptor Hide Harness -- 4096
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
-	--self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	--self:addTradeAcquire(RecipeDB,4096,2,2819)
 
 	-- Raptor Hide Belt -- 4097
 	recipecount = recipecount + 1
@@ -679,13 +667,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,10548,230,8193,1,2108)
 	self:addTradeFlags(RecipeDB,10548,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,10548,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
-
-	-- Nightscape Cloak -- 10550
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,10550,230,8195,2,2108)
-	--self:addTradeFlags(RecipeDB,10550,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	--self:addTradeAcquire(RecipeDB,10550,)
 
 	-- Turtle Scale Helm -- 10552
 	recipecount = recipecount + 1
@@ -1124,13 +1105,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,19104,300,15068,2,2108)
 	self:addTradeFlags(RecipeDB,19104,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
 	self:addTradeAcquire(RecipeDB,19104,3,7438,3,7458,3,7459,3,7460)
-
-	-- Onyxia Scale Breastplate -- 19106
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,19106,300,15141,4,2108)
-	--self:addTradeFlags(RecipeDB,19106,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	--self:addTradeAcquire(RecipeDB,19106,)
 
 	-- Black Dragonscale Leggings -- 19107
 	recipecount = recipecount + 1
@@ -2518,13 +2492,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,55199,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,60)
 	self:addTradeAcquire(RecipeDB,55199,1,26911,1,26961,1,26996,1,26998,1,28700)
 
-	-- Bracers of Deflection -- 55243
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,55243,400,41264,3,2108)
-	--self:addTradeFlags(RecipeDB,55243,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,57)
-	--self:addTradeAcquire(RecipeDB,55243,1,26911,1,26961,1,26996,1,26998,1,28700)
-
 	-- Fur Lining - Attack Power -- 57683
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57683,415,nil, 1, 2108)
@@ -3052,14 +3019,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
 	self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,4096,2,2819)
-	-- Ignored Recipes:
-	-- 4096 - Raptor Hide Harness
-	-- 8195
-	-- 15141
-	-- 10550 - Nightscape Cloak
-	-- 19106 - Onyxia Scale Breastplate
-	-- 40000
-	-- 55243 - Bracers of Deflection
+
 	return recipecount
 
 end

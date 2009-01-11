@@ -6,11 +6,6 @@ ARL-Smelt.lua
 
 Smelting data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-25 found from data mining.
-1 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -156,13 +151,6 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeSkill(RecipeDB,35751,300,22574,1,2575)
 	self:addTradeFlags(RecipeDB,35751,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,35751,1,18747,1,18779)
-
-	-- Smelt Hardened Khorium -- 46353
-	-- Ignored
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,46353,375,35128,3,2575)
-	--self:addTradeFlags(RecipeDB,46353,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,46353,7,3)
 
 	-- Smelt Cobalt -- 49252
 	recipecount = recipecount + 1
