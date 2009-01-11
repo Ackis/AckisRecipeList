@@ -130,5 +130,6 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,9635,L["The Zapthrottle Mote Extractor!"],BZONE["Zangarmarsh"],34.38,51.47,2)
 	self:addLookupList(QuestDB,9636,L["The Zapthrottle Mote Extractor!"],BZONE["Zangarmarsh"],68.54,48.94,1)
 	self:addLookupList(QuestDB,10860,L["Mok'Nathal Treats"],BZONE["Blade's Edge Mountains"],76.33,61.69,2)
+	self:addLookupList(QuestDB,12645,L["Fletcher's Lost and Found"],BZONE["Dalaran"],0,0,0)
 
 end

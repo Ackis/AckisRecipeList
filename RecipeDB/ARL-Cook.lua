@@ -873,20 +873,20 @@ function addon:InitCooking(RecipeDB)
 	-- Kungaloosh -- 53056
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
-	self:addTradeFlags(RecipeDB,53056,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53056,2,31031,2,31032)
+	self:addTradeFlags(RecipeDB,53056,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53056,4,12645,8,36)
 
 	-- Fish Feast -- 57423
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
+	self:addTradeSkill(RecipeDB,57423,450,43015,1,2550)
 	self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
 
 	-- Worg Tartare -- 
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,57423,450,43015,1, 2550)
-	--self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-	--self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
+	self:addTradeSkill(RecipeDB,62350,400,44953,1, 2550)
+	self:addTradeFlags(RecipeDB,62350,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,62350,2,31031,2,31032)
 
 	end
 

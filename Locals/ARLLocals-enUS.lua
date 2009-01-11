@@ -347,12 +347,12 @@ L["Custom27"] = "MC Duder In BWL"
 L["Custom28"] = "BT trash/bosses"
 L["Custom29"] = "ZA bosses"
 L["Custom30"] = "Jandice in Scholo book appears"
-L["Custom31"] = "Blacksmith plans in Strath"
+L["Custom31"] = "Blacksmith plans in Stratholme"
 L["Custom32"] = "DM Tribute Run - Chest"
 L["Custom33"] = "World Dragons"
 L["Custom34"] = "Black Temple / Hyjal Trash Drop"
 L["Custom35"] = "Blade's Edge Mountains Summon Bosses"
---L["Custom33"] = ""
+L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
@@ -1603,3 +1603,4 @@ L["Cowardly Crosby"] = true
 L["Sacred Cloth"] = true
 L["Vengeful Ancient"] = true
 L["Molt Thorn"] = true
+L["Fletcher's Lost and Found"] = true
