@@ -479,6 +479,10 @@ function addon:GetKnownProfessions(ProfTable)
 		end
 
 		if (ProfTable[spellName] == false) then
+		
+            --@debug@
+            AckisRecipeList:Print("Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
+            --@end-debug@
 
 			ProfTable[spellName] = true
 
