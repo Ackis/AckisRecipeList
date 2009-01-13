@@ -1604,3 +1604,5 @@ L["Sacred Cloth"] = true
 L["Vengeful Ancient"] = true
 L["Molt Thorn"] = true
 L["Fletcher's Lost and Found"] = true
+L["Gigget Zipcoil"] = true
+L["Blimo Gadgetspring"] = true

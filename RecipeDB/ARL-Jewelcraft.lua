@@ -2880,9 +2880,9 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Frozen orb thingy
+	-- Icy Prism -- 
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,59759,400,44063,1, 25229)
+	--self:addTradeSkill(RecipeDB,59759,425,44943,1, 25229)
 	--self:addTradeFlags(RecipeDB,59759,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
 	--self:addTradeAcquire(RecipeDB,59759,1,26915,1,26960,1,26982,1,26997,1,28701)
 
