@@ -2710,13 +2710,13 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Socket Bracer -- 55628
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55628,400,nil, 1, 2018)
+	self:addTradeSkill(RecipeDB,55628,400,nil, 1,2018)
 	self:addTradeFlags(RecipeDB,55628,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55628,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Socket Gloves -- 55641
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55641,400,nil, 1, 2018)
+	self:addTradeSkill(RecipeDB,55641,400,nil, 1,2018)
 	self:addTradeFlags(RecipeDB,55641,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55641,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
@@ -2764,7 +2764,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Titanium Shield Spike -- 56357
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56357,420,42500,1, 2018)
+	self:addTradeSkill(RecipeDB,56357,420,42500,1,2018)
 	self:addTradeFlags(RecipeDB,56357,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,56357,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
@@ -2776,19 +2776,19 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Ornate Saronite Bracers -- 56549
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56549,420,42723,1, 2018)
+	self:addTradeSkill(RecipeDB,56549,420,42723,1,2018)
 	self:addTradeFlags(RecipeDB,56549,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56549,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Ornate Saronite Pauldrons -- 56550
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56550,420,42727,1, 2018)
+	self:addTradeSkill(RecipeDB,56550,420,42727,1,2018)
 	self:addTradeFlags(RecipeDB,56550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56550,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Ornate Saronite Waistguard -- 56551
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56551,420,42729,1, 2018)
+	self:addTradeSkill(RecipeDB,56551,420,42729,1,2018)
 	self:addTradeFlags(RecipeDB,56551,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56551,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
@@ -2800,19 +2800,19 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Ornate Saronite Gauntlets -- 56553
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56553,420,42724,1, 2018)
+	self:addTradeSkill(RecipeDB,56553,420,42724,1,2018)
 	self:addTradeFlags(RecipeDB,56553,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56553,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Ornate Saronite Legplates -- 56554
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56554,425,42726,1, 2018)
+	self:addTradeSkill(RecipeDB,56554,425,42726,1,2018)
 	self:addTradeFlags(RecipeDB,56554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56554,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Ornate Saronite Hauberk -- 56555
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56555,425,42725,1, 2018)
+	self:addTradeSkill(RecipeDB,56555,425,42725,1,2018)
 	self:addTradeFlags(RecipeDB,56555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56555,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
@@ -2824,61 +2824,61 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Cobalt Skeleton Key -- 59405
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59405,350,43854,1, 2018)
+	self:addTradeSkill(RecipeDB,59405,350,43854,1,2018)
 	self:addTradeFlags(RecipeDB,59405,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59405,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Titanium Skeleton Key -- 59406
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59406,430,43853,1, 2018)
+	self:addTradeSkill(RecipeDB,59406,430,43853,1,2018)
 	self:addTradeFlags(RecipeDB,59406,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59406,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Brilliant Saronite Belt -- 59436
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59436,395,43860,1, 2018)
+	self:addTradeSkill(RecipeDB,59436,395,43860,1,2018)
 	self:addTradeFlags(RecipeDB,59436,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59436,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Brilliant Saronite Bracers -- 59438
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59438,400,43864,1, 2018)
+	self:addTradeSkill(RecipeDB,59438,400,43864,1,2018)
 	self:addTradeFlags(RecipeDB,59438,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59438,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Brilliant Saronite Pauldrons -- 59440
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59440,405,43865,1, 2018)
+	self:addTradeSkill(RecipeDB,59440,405,43865,1,2018)
 	self:addTradeFlags(RecipeDB,59440,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59440,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Brilliant Saronite Helm -- 59441
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59441,415,43870,1, 2018)
+	self:addTradeSkill(RecipeDB,59441,415,43870,1,2018)
 	self:addTradeFlags(RecipeDB,59441,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59441,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Saronite Spellblade -- 59442
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59442,410,43871,1, 2018)
+	self:addTradeSkill(RecipeDB,59442,410,43871,1,2018)
 	self:addTradeFlags(RecipeDB,59442,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,59442,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Icebane Chestguard -- 61008
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61008,425,43586,1, 2018)
+	self:addTradeSkill(RecipeDB,61008,425,43586,1,2018)
 	self:addTradeFlags(RecipeDB,61008,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61008,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Icebane Girdle -- 61009
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61009,420,43587,1, 2018)
+	self:addTradeSkill(RecipeDB,61009,420,43587,1,2018)
 	self:addTradeFlags(RecipeDB,61009,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61009,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Icebane Treads -- 61010
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61010,420,43588,1, 2018)
+	self:addTradeSkill(RecipeDB,61010,420,43588,1,2018)
 	self:addTradeFlags(RecipeDB,61010,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61010,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
@@ -2902,11 +2902,11 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Shield Reinforcements -- ???
+	-- Titanium Plating -- ???
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,400,8827,1,2259)
-	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,8,18)
+	--self:addTradeSkill(RecipeDB,,450,44936,3,2018)
+	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130,131)
+	--self:addTradeAcquire(RecipeDB,,6,1052,4,32565,6,1052,4,32774,6,1037,4,32564,6,1037,4,32773)
 
 	end
 

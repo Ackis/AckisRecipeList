@@ -1817,7 +1817,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Nethercleft Leg Armor -- 35557
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35557,365,29536,1,2108)
-	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,103)
 	self:addTradeAcquire(RecipeDB,35557,6,942,4,17904)
 
 	-- Cobrascale Hood -- 35558
@@ -3019,6 +3019,24 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,4096,165,4455,2,2108)
 	self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,4096,2,2819)
+
+	local version = GetBuildInfo()
+
+	if (version == "3.0.8") then
+
+	-- Windripper Boots -- ???
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,440,44930,4,2108)
+	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,)
+
+	-- Windripper Leggings -- ???
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,440,44931,4,2108)
+	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,)
+	
+	end
 
 	return recipecount
 

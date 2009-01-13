@@ -1508,7 +1508,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Ethereal Oil -- ???
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,395,44332,1, 2259)
+	--self:addTradeSkill(RecipeDB,,395,,1, 2259)
+	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,,1,26903,1,26951,1,26975,1,26987,1,28703)
+
+	-- Lesser Flask of Resistance -- ??
+	recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,,395,44939,1, 2259)
 	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,,1,26903,1,26951,1,26975,1,26987,1,28703)
 
