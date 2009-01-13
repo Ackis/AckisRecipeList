@@ -336,7 +336,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7126,10,5957,1,2108)
 	self:addTradeFlags(RecipeDB,7126,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,7126,8,8)
 
 	-- Fine Leather Pants -- 7133
 	recipecount = recipecount + 1
@@ -408,13 +408,13 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9058,10,7276,1,2108)
 	self:addTradeFlags(RecipeDB,9058,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,9058,8,8)
 
 	-- Handstitched Leather Bracers -- 9059
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9059,10,7277,1,2108)
 	self:addTradeFlags(RecipeDB,9059,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	-- No acquire information
+	self:addTradeAcquire(RecipeDB,9059,8,8)
 
 	-- Light Leather Quiver -- 9060
 	recipecount = recipecount + 1

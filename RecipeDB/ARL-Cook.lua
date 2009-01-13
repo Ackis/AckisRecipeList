@@ -317,7 +317,7 @@ function addon:InitCooking(RecipeDB)
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,13028,175,10841,1,2550)
-	self:addTradeFlags(RecipeDB,13028,1,2,3,5,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,13028,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,13028,8,13)
 
 	-- Lean Wolf Steak -- 15853

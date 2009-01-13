@@ -1,8 +1,5 @@
 Recipes with no acquire:
 	Leatherworking
-		Handsticthed Leather Bracers
-		Handstitched Leather Cloak
-		Handstitched Leather Vest
 		Herbalist's Gloves
 		Shadowskin Gloves
 		Nightscape Shoulders
@@ -16,6 +13,3 @@ Recipes with no acquire:
 		Knothide Ammo Pouch
 		Knothide Quiver
 		Nethercleft Leg Armor
-
-Verify - mob drops
-	Enchant Gloves - Riding Skill
