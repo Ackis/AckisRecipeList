@@ -2902,11 +2902,11 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Titanium Plating -- ???
+	-- Titanium Plating -- 62202
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,450,44936,3,2018)
-	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130,131)
-	--self:addTradeAcquire(RecipeDB,,6,1052,4,32565,6,1052,4,32774,6,1037,4,32564,6,1037,4,32773)
+	self:addTradeSkill(RecipeDB,62202,450,44936,3,2018)
+	self:addTradeFlags(RecipeDB,62202,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130,131)
+	self:addTradeAcquire(RecipeDB,62202,6,1052,4,32565,6,1052,4,32774,6,1037,4,32564,6,1037,4,32773)
 
 	end
 

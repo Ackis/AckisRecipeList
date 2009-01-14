@@ -1500,23 +1500,23 @@ function addon:InitAlchemy(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Elixir of Water Walking -- ???
+	-- Elixir of Water Walking -- 62410
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,400,8827,1,2259)
-	--self:addTradeFlags(RecipeDB,,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,8,18)
+	self:addTradeSkill(RecipeDB,62410,400,8827,1,2259)
+	self:addTradeFlags(RecipeDB,62410,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62410,8,18)
 
-	-- Ethereal Oil -- ???
+	-- Ethereal Oil -- 62409
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,395,,1, 2259)
-	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,1,26903,1,26951,1,26975,1,26987,1,28703)
+	self:addTradeSkill(RecipeDB,62409,395,nil,1,2259)
+	self:addTradeFlags(RecipeDB,62409,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62409,1,26903,1,26951,1,26975,1,26987,1,28703)
 
-	-- Lesser Flask of Resistance -- ??
+	-- Lesser Flask of Resistance -- 62213
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,395,44939,1, 2259)
-	--self:addTradeFlags(RecipeDB,,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,1,26903,1,26951,1,26975,1,26987,1,28703)
+	self:addTradeSkill(RecipeDB,62213,395,44939,1,2259)
+	self:addTradeFlags(RecipeDB,62213,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62213,1,26903,1,26951,1,26975,1,26987,1,28703)
 
 	end
 

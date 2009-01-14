@@ -1758,17 +1758,17 @@ function addon:InitEnchanting(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Enchant Bracer - Major Stamina -- ???
+	-- Enchant Bracer - Major Stamina -- 62256
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,440,nil,2,7411)
-	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,2,32514)
+	self:addTradeSkill(RecipeDB,62256,440,nil,2,7411)
+	self:addTradeFlags(RecipeDB,62256,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62256,2,32514)
 	
-	-- Enchant Weapon - Titanguard -- ???
+	-- Enchant Weapon - Titanguard -- 62257
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,,440,nil,2,7411)
-	--self:addTradeFlags(RecipeDB,,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,,2,32514)
+	self:addTradeSkill(RecipeDB,62257,440,nil,2,7411)
+	self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62257,2,32514)
 
 	end
 
