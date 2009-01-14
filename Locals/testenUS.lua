@@ -41,7 +41,7 @@ local debug = false
 debug = true
 --@end-debug@
 
-local L = LibStub("AceLocale-3.0"):NewLocale("MyAddon", "enUS", true, debug)
+local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true, debug)
 
 if not L then return end
 
