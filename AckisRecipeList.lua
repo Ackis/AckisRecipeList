@@ -478,7 +478,7 @@ function addon:GetKnownProfessions(ProfTable)
 		--@end-debug@
 		if (ProfTable[spellName] == false) then
             --@debug@
-            self:Print("DEBUG: Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
+            self:Print("DEBUG: Profession matched: " .. spellName .. " (Index: ".. index .. ")")
             --@end-debug@
 			ProfTable[spellName] = true
 		end
@@ -1316,9 +1316,9 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 
 	--@debug@
 	if (playerProfession) then
-		self:Print("DEBUG: Initializing with profession: " .. playerProfession)
+		addon:Print("DEBUG: Initializing with profession: " .. playerProfession)
 	else
-		self:Print("DEBUG: Initializing without a profession.")
+		addon:Print("DEBUG: Initializing without a profession.")
 	end
 	--@end-debug@
 
