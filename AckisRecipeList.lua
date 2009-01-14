@@ -473,14 +473,12 @@ function addon:GetKnownProfessions(ProfTable)
 			-- Nothing found
 			break
 		end
-		--@debug@
-		self:Print("DEBUG: Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
-		--@end-debug@
-		if (ProfTable[spellName] == false) then
-            --@debug@
-            self:Print("DEBUG: Profession matched: " .. spellName .. " (Index: ".. index .. ")")
-            --@end-debug@
-			ProfTable[spellName] = true
+		if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+            if spellName == GetSpellInfo(2656) then
+                ProfTable[GetSpellInfo(2575)] = true
+            else
+                ProfTable[spellName] = true
+            end
 		end
 	end
 
@@ -500,15 +498,9 @@ function addon:GetTradeSpecialty(SpecialtyTable, playerData)
 
 		-- Nothing found, return nothing
 		if (not spellName) or (index == 25) then
-			--@debug@
-			self:Print("DEBUG: No profession speciality found.")
-			--@end-debug@
 			return ""
 		-- We have a match, return that spell name
 		elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-			--@debug@
-			self:Print("DEBUG: Profession speciality found: " .. spellName)
-			--@end-debug@
 			local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
 			return ID
 		end
@@ -1313,14 +1305,6 @@ end
 -- Output: Total number of recipes in the database
 
 local function InitializeRecipes(RecipeDB, playerProfession)
-
-	--@debug@
-	if (playerProfession) then
-		addon:Print("DEBUG: Initializing with profession: " .. playerProfession)
-	else
-		addon:Print("DEBUG: Initializing without a profession.")
-	end
-	--@end-debug@
 
 	-- Table of all possible professions with init functions
 	local professiontable =
