@@ -461,9 +461,7 @@ function addon:GetKnownProfessions(ProfTable)
 
 	-- Reset the table, they may have unlearnt a profession
 	for i in pairs(ProfTable) do
-
 		ProfTable[i] = false
-
 	end
 
 	-- Scan through the spell book getting the spell names
@@ -472,20 +470,17 @@ function addon:GetKnownProfessions(ProfTable)
 		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
 
 		if (not spellName) or (index == 25) then
-
 			-- Nothing found
 			break
-
 		end
-
+		--@debug@
+		self:Print("DEBUG: Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
+		--@end-debug@
 		if (ProfTable[spellName] == false) then
-		
             --@debug@
-            AckisRecipeList:Print("Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
+            self:Print("DEBUG: Matched profession: " .. spellName .. " (Index: ".. index .. ")")
             --@end-debug@
-
 			ProfTable[spellName] = true
-
 		end
 	end
 
@@ -881,29 +876,19 @@ do
 	local function CheckReputationDisplay(Recipe, flags)
 
 		if (not reptable) then
-
 			CreateRepTable()
-
 		end
 
 		local display = true
 
 		for i in pairs(reptable) do
-
 			if (flags[i]) then
-
 				if (reptable[i]) then
-
 					display = true
-
 				else
-
 					display = false
-
 				end
-
 			end
-
 		end
 
 		return display
@@ -1415,11 +1400,11 @@ do
 				-- Trainer
 				if (recipeacquire[i]["Type"] == 1) then
 					if (TrainerList) then
---@debug@
+						--@debug@
 						if (not TrainerList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
 						end
---@end-debug@
+						--@end-debug@
 						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1430,11 +1415,11 @@ do
 				-- Vendor
 				elseif (recipeacquire[i]["Type"] == 2) then
 					if (VendorList) then
---@debug@
+						--@debug@
 						if (not VendorList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
 						end
---@end-debug@
+						--@end-debug@
 						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1445,11 +1430,11 @@ do
 				-- Mob Drop
 				elseif (recipeacquire[i]["Type"] == 3) then
 					if (MobList) then
---@debug@
+						--@debug@
 						if (not MobList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
 						end
---@end-debug@
+						--@end-debug@
 						local location = MobList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1460,11 +1445,11 @@ do
 				-- Quest
 				elseif (recipeacquire[i]["Type"] == 4) then
 					if (QuestList) then
---@debug@
+						--@debug@
 						if (not QuestList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
 						end
---@end-debug@
+						--@end-debug@
 						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1559,7 +1544,7 @@ do
 			[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(2108)] = false, -- Leatherworking
-			[GetSpellInfo(2575)] = false, -- Smelting
+			[GetSpellInfo(2575)] = false, -- Mining
 			--[GetSpellInfo(2656)] = false, -- Smelting
 			[GetSpellInfo(3908)] = false, -- Tailoring
 			[GetSpellInfo(25229)] = false, -- Jewelcrafting
