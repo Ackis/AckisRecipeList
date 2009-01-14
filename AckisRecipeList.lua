@@ -478,7 +478,7 @@ function addon:GetKnownProfessions(ProfTable)
 		--@end-debug@
 		if (ProfTable[spellName] == false) then
             --@debug@
-            self:Print("DEBUG: Matched profession: " .. spellName .. " (Index: ".. index .. ")")
+            self:Print("DEBUG: Player has the following profession: " .. spellName .. " (Index: ".. index .. ")")
             --@end-debug@
 			ProfTable[spellName] = true
 		end
@@ -500,15 +500,17 @@ function addon:GetTradeSpecialty(SpecialtyTable, playerData)
 
 		-- Nothing found, return nothing
 		if (not spellName) or (index == 25) then
-
+			--@debug@
+			self:Print("DEBUG: No profession speciality found.")
+			--@end-debug@
 			return ""
-
 		-- We have a match, return that spell name
 		elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-
+			--@debug@
+			self:Print("DEBUG: Profession speciality found: " .. spellName)
+			--@end-debug@
 			local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
 			return ID
-
 		end
 
 	end
@@ -1312,6 +1314,14 @@ end
 
 local function InitializeRecipes(RecipeDB, playerProfession)
 
+	--@debug@
+	if (playerProfession) then
+		self:Print("DEBUG: Initializing with profession: " .. playerProfession)
+	else
+		self:Print("DEBUG: Initializing without a profession.")
+	end
+	--@end-debug@
+
 	-- Table of all possible professions with init functions
 	local professiontable =
 	{
@@ -1336,13 +1346,9 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 	local a = professiontable[playerProfession]
 
 	if a then
-
 		return a(addon, RecipeDB)
-
 	else
-
 		addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
-
 	end
 
 end
@@ -1489,9 +1495,7 @@ do
 	-- Output: None
 
 	function addon:OpenTradeWindow()
-
 		tradewindowopened = true
-
 	end
 
 	-- Description: Toggles the flag that a trade window is opened
@@ -1500,9 +1504,7 @@ do
 	-- Output: None
 
 	function addon:CloseTradeWindow()
-
 		tradewindowopened = false
-
 	end
 
 	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
@@ -1621,73 +1623,55 @@ do
 
 		-- Initializes the custom list
 		if (CustomList == nil) then
-
 			CustomList = {}
 			addon:InitCustom(CustomList)
-
 		end
 
 		-- Initializes the mob list
 		if (MobList == nil) then
-
 			MobList = {}
 			addon:InitMob(MobList)
-
 		end
 
 		-- Initializes the quest list
 		if (QuestList == nil) then
-
 			QuestList = {}
 			addon:InitQuest(QuestList)
-
 		end
 
 		-- Initializes the reputation list
 		if (ReputationList == nil) then
-
 			ReputationList = {}
 			addon:InitReputation(ReputationList)
-
 		end
 
 		-- Initializes the trainer list
 		if (TrainerList == nil) then
-
 			TrainerList = {}
 			addon:InitTrainer(TrainerList)
-
 		end
 
 		-- Initializes the season list
 		if (SeasonalList == nil) then
-
 			SeasonalList = {}
 			addon:InitSeasons(SeasonalList)
-
 		end
 
 		-- Initializes the vendor list
 		if (VendorList == nil) then
-
 			VendorList = {}
 			addon:InitVendor(VendorList)
-
 		end
 
 		-- Initializes the reputation filters
 		-- Don't assign values no because we do a scan later on
 		if (RepFilters == nil) then
-
 			RepFilters = {}
-
 		end
 
 		-- Initializes the recipe list
 		if (RecipeList == nil) then
-
 			RecipeList = {}
-
 		end
 
 	end
@@ -1700,7 +1684,6 @@ do
 	function addon:AckisRecipeList_Command(textdump)
 
 		if (pinfoalpha == "\84\101\97\109 \73\99\101") then
-			--self:Print("\124cff9d9d9d\124Hitem:34337:0:0:0:0:0:0:0\124h[Golden Staff of the Sin'Dorei]\124h\124r")
 			return
 		end
 
@@ -1723,6 +1706,11 @@ do
 
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
 			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
+            --@debug@
+			if (not playerData.playerProfession) or (not playerData.playerProfessionLevel) then
+				self:Print("DEBUG: Scan of: " .. playerData.playerProfession)
+			end
+            --@end-debug
 
 			-- Get the current profession Specialty
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
