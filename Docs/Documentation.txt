@@ -154,118 +154,109 @@ addon.db.profile---->
 		}
 	}
 
-==Item Flags==
-	A recipe can be flagged with many (or even all) of the below flags. They are defined
-	as follows:
-
-	-- How to obtain (flags 1 - 20 for growth):
-		-- 1 = Alliance faction
-		-- 2 = Horde faction
-		-- 3 = Trainer
-		-- 4 = Vendor
-		-- 5 = Instance
-		-- 6 = Raid
-		-- 7 = Seasonal
-		-- 8 = Quest
-		-- 9 = PVP
-		-- 10 = World Drop
-		-- 11 = Mob drop
-		-- 12 = Discovery
-
-	-- Class (flags 21-35 for growth):
-		-- 21 = Deathknight
-		-- 22 = Druid
-		-- 23 = Hunter
-		-- 24 = Mage
-		-- 25 = Paladin
-		-- 26 = Priest
-		-- 27 = Shaman
-		-- 28 = Rogue
-		-- 29 = Warlock
-		-- 30 = Warrior
-
-	-- Type of crafted item (36-45 for growth):
-		-- 36 = Item BoE
-		-- 37 = Item BoP
-		-- 38 = Item BoA
-		-- 40 = Recipe BoE
-		-- 41 = Recipe BoP
-		-- 42 = Recipe BoA
-
-	-- Item Type (51-55 for growth):
-		-- 51 = Physical DPS (melee/hunters)
-		-- 52 = Tanking
-		-- 53 = Healing
-		-- 54 = Caster DPS
-
-	-- Armor Type (56-65 for growth):
-		-- 56 = Cloth
-		-- 57 = Leather
-		-- 58 = Mail
-		-- 59 = Plate
-		-- 60 = Cloak
-		-- 61 = Trinket
-		-- 62 = Ring
-		-- 63 = Necklace
-		-- 64 = Shield
-
-	-- Weapon Type (66-85 for growth):
-		-- 66 = 1H
-		-- 67 = 2H
-		-- 68 = Axe
-		-- 69 = Sword
-		-- 70 = Mace
-		-- 71 = Polearm
-		-- 72 = Dagger
-		-- 73 = Staff
-		-- 74 = Wand
-		-- 75 = Thrown
-		-- 76 = Bow
-		-- 77 = Crossbow
-		-- 78 = Ammo
-		-- 79 = Fist
-
-	-- Reputation
-		-- Original WoW (96-100):
-			-- 96 = Argent Dawn
-			-- 97 = Cenarion Circle
-			-- 98 = Thorium Brotherhood
-			-- 99 = Timbermaw Hold
-			-- 100 = Zandalar Tribe
-		-- Burning Crusade (101-114):
-			-- 101 = The Aldor
-			-- 102 = Ashtongue Deathsworn
-			-- 103 = Cenarion Expedition
-			-- 104 = Hellfire Factions (Thrallmar/Honor Hold)
-			-- 105 = Consortium
-			-- 106 = Keepers of Time
-			-- 107 = Lower City
-			-- 108 = Nagrand Factions (Maghar/Kureni)
-			-- 109 = Scale of the Sands
-			-- 110 = The Scryer
-			-- 111 = Sha'tar
-			-- 112 = Shattered Sun
-			-- 113 = Sporeggar
-			-- 114 = Violeteye
-		-- Below this is WotLK stuff. May need to be changed post beta
-		-- LK (115-XXX):
-			-- 115 = Argent Crusade
-			-- 116 = Frenzyheart Tribe
-			-- 117 = Knights of the Ebon Blade
-			-- 118 = Kirin Tor
-			-- 119 = The Sons of Hodir
-			-- 120 = The Kalu'ak
-			-- 121 = The Oracles
-			-- 122 = The Wyrmrest Accord
-			-- 123 = The Silver Convenant
-			-- 124 = The Sunreavers
-			-- 125 = Explorer's League
-			-- 126 = Valiance Expedition
-			-- 127 = The Hand of Vengeance
-			-- 128 = The Taunka
-			-- 129 = Warsong Offensive
-			-- 130 = Horde Expedition
-			-- 131 = Alliance Vanguard
+==Filter Flags==
+A recipe can be flagged with many (or even all) of the below flags. They are defined as follows:
+* Obtain:
+**1 = Alliance faction
+**2 = Horde faction
+**3 = Trainer
+**4 = Vendor
+**5 = Instance
+**6 = Raid
+**7 = Seasonal
+**8 = Quest
+**9 = PVP
+**10 = World Drop
+**11 = Mob drop
+**12 = Discovery
+*Class:
+**21 = Deathknight
+**22 = Druid
+**23 = Hunter
+**24 = Mage
+**25 = Paladin
+**26 = Priest
+**27 = Shaman
+**28 = Rogue
+**29 = Warlock
+**30 = Warrior
+*Type of crafted item:
+**36 = Item BoE
+**37 = Item BoP
+**38 = Item BoA
+**40 = Recipe BoE
+**41 = Recipe BoP
+**42 = Recipe BoA
+*Item Type:
+**51 = Physical DPS (melee/hunters)
+**52 = Tanking
+**53 = Healing
+**54 = Caster DPS
+*Armor Type:
+**56 = Cloth
+**57 = Leather
+**58 = Mail
+**59 = Plate
+**60 = Cloak
+**61 = Trinket
+**62 = Ring
+**63 = Necklace
+**64 = Shield
+*Weapon Type:
+**66 = 1H
+**67 = 2H
+**68 = Axe
+**69 = Sword
+**70 = Mace
+**71 = Polearm
+**72 = Dagger
+**73 = Staff
+**74 = Wand
+**75 = Thrown
+**76 = Bow
+**77 = Crossbow
+**78 = Ammo
+**79 = Fist
+*Reputation
+**Original WoW (96-100):
+***96 = Argent Dawn
+***97 = Cenarion Circle
+***98 = Thorium Brotherhood
+***99 = Timbermaw Hold
+***100 = Zandalar Tribe
+**Burning Crusade (101-114):
+***101 = The Aldor
+***102 = Ashtongue Deathsworn
+***103 = Cenarion Expedition
+***104 = Hellfire Factions (Thrallmar/Honor Hold)
+***105 = Consortium
+***106 = Keepers of Time
+***107 = Lower City
+***108 = Nagrand Factions (Maghar/Kureni)
+***109 = Scale of the Sands
+***110 = The Scryer
+***111 = Sha'tar
+***112 = Shattered Sun
+***113 = Sporeggar
+***114 = Violeteye
+**LK (115-131):
+***115 = Argent Crusade
+***116 = Frenzyheart Tribe
+***117 = Knights of the Ebon Blade
+***118 = Kirin Tor
+***119 = The Sons of Hodir
+***120 = The Kalu'ak
+***121 = The Oracles
+***122 = The Wyrmrest Accord
+***123 = The Silver Convenant
+***124 = The Sunreavers
+***125 = Explorer's League
+***126 = Valiance Expedition
+***127 = The Hand of Vengeance
+***128 = The Taunka
+***129 = Warsong Offensive
+***130 = Horde Expedition
+***131 = Alliance Vanguard
 
 
 ==Item Acquire methods (and associated database values)==

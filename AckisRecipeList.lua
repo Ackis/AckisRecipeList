@@ -2061,10 +2061,15 @@ function addon:GetTextDump(RecipeDB)
 
 		local flagtext = tconcat(flaglist,",")
 
+		local acquire = RecipeDB[SpellID]["Acquire"]
+		local acquirelist = {}
+
+		local acquiretext = tconcat(flaglist,",")
+
 		if (RecipeDB[SpellID]["Known"]) then
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],true")
+			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],true")
 		else
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],false")
+			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],false")
 		end
 
 	end
