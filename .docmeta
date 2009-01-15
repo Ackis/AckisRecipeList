@@ -5,3 +5,7 @@ output-page: "Database Documentation"
 type: wiki
 input-file: Docs/Main.txt
 output-page: "Main"
+
+type: luadoc
+input-file: AckisRecipeList.lua
+output-page: "API"

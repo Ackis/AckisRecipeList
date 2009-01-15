@@ -1326,13 +1326,16 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(53428)] = addon.InitRuneforging,
 	}
 
-	-- Thanks to sylvanaar/xinhuan for the code snippet
-	local a = professiontable[playerProfession]
+	-- Check for player profession to fix some bugs with addons that interface with ARL
+	if (playerProfession) then
+		-- Thanks to sylvanaar/xinhuan for the code snippet
+		local a = professiontable[playerProfession]
 
-	if a then
-		return a(addon, RecipeDB)
-	else
-		addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
+		if a then
+			return a(addon, RecipeDB)
+		else
+			addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
+		end
 	end
 
 end
