@@ -2043,16 +2043,15 @@ function addon:GetTextDump(RecipeDB)
 
 	local texttable = {}
 
+	-- Add a header to the text table
+	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, Known")
+
 	for SpellID in pairs(RecipeDB) do
 
 		if (RecipeDB[SpellID]["Known"]) then
-
 			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. "," .. ",true")
-
 		else
-
 			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. "," .. ",false")
-
 		end
 
 	end

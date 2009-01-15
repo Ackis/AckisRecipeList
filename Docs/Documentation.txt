@@ -2,27 +2,17 @@ Documentation.txt
 
 Database and code documentation for Ackis Recipe List.
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
-
 ==Localization==
 All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
 
 ==Graphical Interface==
-	All the graphical interface functions are located in ARLFrame.lua.
-	This file contains all the functions needed for the GUI.  If you
-	have enhancements, know how to fix an issue, etc please feel free to
-	contribute.  Just leave a detailed commit note.  If it's a new
-	feature please run it by me first before adding anything.
+All the graphical interface functions are located in ARLFrame.lua. This file contains all the functions needed for the GUI.  If you have enhancements, know how to fix an issue, etc please feel free to contribute.  Just leave a detailed commit note.  If it's a new feature please run it by me first before adding anything.
 
-In the RecipeDB is a single file for each profession. Each recipe is inserted
-into the database via 3 functions. For example:
+In the RecipeDB is a single file for each profession. Each recipe is inserted into the database via 3 functions. For example:
 
-	self:addTradeSkill(RecipeDB, 25610, 120, 20950, 1)
-	self:addTradeFlags(RecipeDB, 25610, 1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,41,47,56,62)
-	self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
+ self:addTradeSkill(RecipeDB, 25610, 120, 20950, 1)
+ self:addTradeFlags(RecipeDB, 25610, 1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,41,47,56,62)
+ self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
 
 ==addTradeSkill==
 	This function adds the main recipe entry, including the following information:
