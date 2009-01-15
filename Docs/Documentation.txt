@@ -1,42 +1,22 @@
---[[
-****************************************************************************************
+Documentation.txt
 
-Documentation.lua
-
-Documentation to keep the other files nice and tidy
-Is all just text but keeping in .lua form so editors can collapse sections easily.
+Database and code documentation for Ackis Recipe List.
 
 File date: @file-date-iso@ 
 File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
-****************************************************************************************
-]]--
+==Localization==
+All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
 
---[[
-************************************************************************
-Localization:
-	All the localization files are located in the "Locals" sub-
-	directory.  Feel free to edit locals in any language, make the enUS
-	more effecient, correct typos, etc.  All I would ask is if you do
-	edit something, check in-game first to make sure the change works.
-************************************************************************
---]]
-
---[[
-************************************************************************
-Graphical Interface:
+==Graphical Interface==
 	All the graphical interface functions are located in ARLFrame.lua.
 	This file contains all the functions needed for the GUI.  If you
 	have enhancements, know how to fix an issue, etc please feel free to
 	contribute.  Just leave a detailed commit note.  If it's a new
 	feature please run it by me first before adding anything.
-************************************************************************
---]]
 
---[[
-************************************************************************
 In the RecipeDB is a single file for each profession. Each recipe is inserted
 into the database via 3 functions. For example:
 
@@ -44,7 +24,7 @@ into the database via 3 functions. For example:
 	self:addTradeFlags(RecipeDB, 25610, 1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,41,47,56,62)
 	self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
 
-addTradeSkill
+==addTradeSkill==
 	This function adds the main recipe entry, including the following information:
 		-- Spell ID
 		-- Skill Level Learnt
@@ -55,20 +35,20 @@ addTradeSkill
 		-- Name of the recipe
 		-- Link determining the recipe made
 
-addTradeFlags
+==addTradeFlags==
 	This function adds a series of "flags" about the recipe. This include a fairly
 	exhaustive look at the recipe and the item made, where is can be obtained, etc.
 	The individual flags are documented further down
 
-addTradeAcquire
+==addTradeAcquire==
 	This function adds entries into the main database with exact instructions on how the recipe
 	can be obtained. The details of these acquire methods are detailed further down
-************************************************************************
---]]
 
---[[
-************************************************************************
-SavedVariable Structure
+
+
+
+
+==SavedVariable Structure==
 	* default values are indicated where applicable
 	* descriptions of values are at right 
 
@@ -190,14 +170,8 @@ addon.db.profile---->
 			hordeexpedition		= true [ | false ]
 		}
 	}
-************************************************************************
 
---]]
-
--- Filter Flags
---[[
-************************************************************************
-Item Flags
+==Item Flags==
 	A recipe can be flagged with many (or even all) of the below flags. They are defined
 	as follows:
 
@@ -310,13 +284,8 @@ Item Flags
 			-- 130 = Horde Expedition
 			-- 131 = Alliance Vanguard
 
-************************************************************************
---]]
 
--- Acquire Flags
---[[
-************************************************************************
-Item Acquire methods (and associated database values)
+==Item Acquire methods (and associated database values)==
 	Defined below is the specification for the arguments passed back into
 	addTradeAcquire. Each Acquire Type passes in different parameters
 	depending on how the recipe is acquired:
@@ -348,13 +317,13 @@ Item Acquire methods (and associated database values)
 		3 = Revered 
 		4 = Exalted 
 
-************************************************************************
---]]
 
---[[
-************************************************************************
 
-Table Structures:
+
+
+
+
+==Table Structures==
 
 	Recipe Array Structure:
 		SpellID = {
@@ -434,11 +403,11 @@ Table Structures:
 		2 -		Alliance
 		3 -		Neutral
 
-************************************************************************
---]]
 
---[[
-************************************************************************
+
+
+
+
 Tooltip format: (acquire order : 5 7 3 4 1 2 6 8)
 
 Recipe Name
@@ -462,10 +431,10 @@ Alt-Click to add this recipe to your ignore list
 Ctrl-Click to add this recipe's link to your chat
 Shift-Click to add the item crafted by this recipe's link to your chat
 
---]]
 
---[[
-************************************************************************
+
+
+
 ZJ - 10/6/08
 
 I started thinking about the general flow of the CheckDisplayRecipe function. Since
@@ -490,11 +459,11 @@ Stage 2 : Nonexclusive filters (only do this is Stage 1 produced a TRUE value
 
 I believe this will get through the flags in the shortest possible route, short circuiting the
 looping when any condition warrants it
-************************************************************************
---]]
 
---[[
-************************************************************************
+
+
+
+
 List of Exclusive filters:
 	specialty
 	known
@@ -529,5 +498,4 @@ List of Non-exclusive filters:
 
 	-- Note that if NO acquire methods remain unfiltered, the recipe will not be displayed
 
-************************************************************************
---]]
+

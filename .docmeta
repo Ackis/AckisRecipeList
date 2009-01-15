@@ -1,7 +1,7 @@
-type: plain
-input-file: Docs\Documentation.txt
+type: wiki
+input-file: Docs/Documentation.txt
 output-page: "Database Documentation"
 
 type: wiki
-input-file: Docs\Main.txt
+input-file: Docs/Main.txt
 output-page: "Main"
