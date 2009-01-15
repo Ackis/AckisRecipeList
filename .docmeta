@@ -1,3 +1,7 @@
 type: plain
-input-file: Documentation.lua
+input-file: Docs\Documentation.txt
 output-page: "Database Documentation"
+
+type: wiki
+input-file: Docs\Main.txt
+output-page: "Main"

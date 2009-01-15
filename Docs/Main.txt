@@ -1,0 +1,49 @@
+== What it does ==
+
+Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including Runeforging.
+
+== Where to get it ==
+[http://www.wowace.com/projects/arl/files/ WoW Ace] - Often Beta quality
+
+[http://wow.curse.com/downloads/wow-addons/details/arl.aspx Curse] - Most updated stable version
+
+[http://wowui.incgamers.com/?p=mod&m=5061 Wow UI] - Stable version
+
+[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html WoWInterface] - Stable version
+
+== How to get it to work ==
+
+You open up a trade skill window (ie: enchanting) and click on the Scan button which is attached to the trade skill window.  Results will be printed out to the chat frame, or into a separate window depending on preference.
+
+=== Commands ===
+
+Ackis Recipe List has recently changed to use a GUI for change parameters.  Type <code>/arl</code> to open up the GUI.
+
+== Known Issues ==
+
+All known issues will be kept at the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker.
+
+Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to file bug reports.
+
+== Wish List ==
+
+Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to add suggestions and feature requests.
+
+== Integration ==
+
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].
+
+== Bug Reporting ==
+
+Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to file bug reports.
+
+== Acknowledgments ==
+
+* Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).
+* Ace community for listening to my questions on the IRC channel and helping me out, and fellow mod authors for developing such great add-ons.
+* Please see the X-Credits field for more Acknowledgments.  Any code snippets borrowed or inspired from are credited in the code files.  The main display also lists all people who are in X-Credits.
+* Everyone who has helped me with localizations.
+
+== Wiki ==
+
+[http://www.wowwiki.com/AckisRecipeList WoW Wiki]

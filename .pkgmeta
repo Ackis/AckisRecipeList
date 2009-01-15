@@ -9,8 +9,10 @@ optional-dependencies:
 # File list to ignore:
 ignore:
  - .pkgmeta
+ - .docmeta
  - ARLDataminer.rb
- - Documentation.lua
+ - Docs/Documentation.txt
+ - Docs/Main.txt
  - externals.txt
  - DataMiner
  - dlcount
