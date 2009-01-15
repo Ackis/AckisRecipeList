@@ -1743,7 +1743,9 @@ do
 	-- Input: Profession of the database needed
 	-- Output: An indicator if the process was successful
 
-	-- @return Boolean indicating if the operation was successful.
+	--- Return a proxy object that will serialize to null.
+	-- @usage AckisRecipeList:AddRecipeData(profession)
+	-- @return boolean indicating if the operation was successful.
 	function addon:AddRecipeData(profession)
 
 		if (RecipeList) then
