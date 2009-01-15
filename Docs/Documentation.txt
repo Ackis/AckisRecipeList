@@ -3,9 +3,11 @@ Documentation.txt
 Database and code documentation for Ackis Recipe List.
 
 ==Localization==
+
 All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
 
 ==Graphical Interface==
+
 All the graphical interface functions are located in ARLFrame.lua. This file contains all the functions needed for the GUI.  If you have enhancements, know how to fix an issue, etc please feel free to contribute.  Just leave a detailed commit note.  If it's a new feature please run it by me first before adding anything.
 
 In the RecipeDB is a single file for each profession. Each recipe is inserted into the database via 3 functions. For example:
@@ -15,6 +17,7 @@ In the RecipeDB is a single file for each profession. Each recipe is inserted in
  self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
 
 ==addTradeSkill==
+
 This function adds the main recipe entry, including the following information:
 * Spell ID
 * Skill Level Learnt
@@ -26,15 +29,18 @@ From there, internal functions determine the following:
 * Link determining the recipe made
 
 ==addTradeFlags==
+
 This function adds a series of "flags" about the recipe. This include a fairly exhaustive look at the recipe and the item made, where is can be obtained, etc.  The individual flags are documented further down.
 
 ==addTradeAcquire==
+
 This function adds entries into the main database with exact instructions on how the recipe can be obtained. The details of these acquire methods are detailed further down.
 
 ==SavedVariable Structure==
+
 * default values are indicated where applicable
 * descriptions of values are at right 
-
+<pre><nowiki>
 addon.db.profile---->
 		sorting = ""Skill" [ | "Name" | "Acquisition" ]		-- Sorting method
 
@@ -153,9 +159,12 @@ addon.db.profile---->
 			hordeexpedition		= true [ | false ]
 		}
 	}
+</pre></nowiki>
 
 ==Filter Flags==
+
 A recipe can be flagged with many (or even all) of the below flags. They are defined as follows:
+
 ===Obtain===
 *1 = Alliance faction
 *2 = Horde faction
@@ -287,12 +296,19 @@ Defined below is the specification for the arguments passed back into addTradeAc
 	Acquire Type = 8								( Custom )
 		ID				- Custom string
 
-== Reputation Level==
+== Reputation ID==
+
 :0 = Neutral
 :1 = Friendly
 :2 = Honored
 :3 = Revered
 :4 = Exalted
+
+==Faction ID==
+
+:1 - Horde
+:2 - Alliance
+:3 - Neutral
 
 ==Table Structures==
 
@@ -311,106 +327,70 @@ Defined below is the specification for the arguments passed back into addTradeAc
 		}
 
 ===Rarity colours===
-		0 -		poor			#919191
-		1 -		common		#ffffff
-		2 -		uncommon		#00A900
-		3 -		rare			#0062C3
-		4 -		epic			#B343FF
-		5 -		legendary		#FA9900
-		6 -		artifact		#e5cc80
+:0 - poor			#919191
+:1 - common			#ffffff
+:2 - uncommon		#00A900
+:3 - rare			#0062C3
+:4 - epic			#B343FF
+:5 - legendary		#FA9900
+:6 - artifact		#e5cc80
 
 ===Mob DB===
-	self:addLookupList(MobDB, 590, L["Defias Looter"], BZONE["Westfall"], 38.52, 55.94)
-		MobList
-			ID = {
-				Name			- Mob name
-				Location		- Mob location (zone)
-				Coordx			- X coordinate
-				Coordy			- Y coordinate
-			}
+ self:addLookupList(MobDB, 590, L["Defias Looter"], BZONE["Westfall"], 38.52, 55.94)
+MobList
+	ID = {
+		Name			- Mob name
+		Location		- Mob location (zone)
+		Coordx			- X coordinate
+		Coordy			- Y coordinate
+	}
 
 ===Quest DB===
-	self:addLookupList(QuestDB, 2859, L["Wild Leather Leggings"], BZONE["Feralas"], 47.97, 67.15, 2)
-		QuestList
-			ID = {
-				Name			- Quest Name
-				Location		- Zone
-				Coordx			- X Coordinate of quest start
-				Coordy			- Y Coordinate of quest start
-				Faction			- Faction **
-			}
+ self:addLookupList(QuestDB, 2859, L["Wild Leather Leggings"], BZONE["Feralas"], 47.97, 67.15, 2)
+QuestList
+	ID = {
+		Name			- Quest Name
+		Location		- Zone
+		Coordx			- X Coordinate of quest start
+		Coordy			- Y Coordinate of quest start
+		Faction			- Faction **
+	}
 
 ===Reputation DB===
-	self:addLookupList(RepDB, 54, BFAC["Gnomeregan Exiles"]) -- Acquire Flag: 
-		ReputationList
-			ID = {
-				Name			-- translated faction
-			}
+ self:addLookupList(RepDB, 54, BFAC["Gnomeregan Exiles"]) -- Acquire Flag: 
+ReputationList
+	ID = {
+		Name			-- translated faction
+	}
 
 ===Seasonal DB===
-	self:addLookupList(SeasonDB, 3, L["Darkmoon Faire"])
-		SeasonList
-			ID = {
-				Name			-- Translated Seasonal Event name
-			}
+ self:addLookupList(SeasonDB, 3, L["Darkmoon Faire"])
+SeasonList
+	ID = {
+		Name			-- Translated Seasonal Event name
+	}
 
 ===Trainer DB===
-	self:addLookupList(TrainerDB, 16583, L["Rohok"], BZONE["Hellfire Peninsula"], 54.62, 40.62, 2)
-		TrainerList
-			ID = {
-				Name			-- Trainer Name
-				Location		-- Location (zone)
-				Coordx			-- Trainer X coordinate
-				Coordy			-- Trainer Y coordinate
-				Faction			-- Faction ID **
-			}
+ self:addLookupList(TrainerDB, 16583, L["Rohok"], BZONE["Hellfire Peninsula"], 54.62, 40.62, 2)
+TrainerList
+	ID = {
+		Name			-- Trainer Name
+		Location		-- Location (zone)
+		Coordx			-- Trainer X coordinate
+		Coordy			-- Trainer Y coordinate
+		Faction			-- Faction ID **
+	}
 
 ===Vendor DB===
-	self:addLookupList(VendorDB, 13433, L["Wulmort Jinglepocket"], BZONE[""], 0, 0, 0)
-		VendorList
-			ID = {
-				Name			-- Vendor Name
-				Location		-- Location (zone)
-				Coordx			-- Vendor X coordinate
-				Coordy			-- Vendor Y coordinate
-				Faction			-- Vendor Faction ID **
-
-==Faction ID===
-:1 - Horde
-:2 - Alliance
-:3 - Neutral
-
-
-
-
-
-
-Tooltip format: (acquire order : 5 7 3 4 1 2 6 8)
-
-Recipe Name
-
-Obtained from :
-Seasonal:				SeasonEventName
-World Drop				RarityLevel
-Mob Drop:				Mob Name
-MobZone					MobCoords
-Quest:					QuestName
-QuestZone				QuestCoords
-Trainer:				TrainerName
-TrainerZone				TrainerCoords
-Vendor:					VendorName
-VendorZone				VendorCoords
-Reputation:				Faction
-FactionLevel			RepVendor				
-RepVendorZone			RepVendorCoords
-
-Alt-Click to add this recipe to your ignore list
-Ctrl-Click to add this recipe's link to your chat
-Shift-Click to add the item crafted by this recipe's link to your chat
-
-
-
-
+ self:addLookupList(VendorDB, 13433, L["Wulmort Jinglepocket"], BZONE[""], 0, 0, 0)
+VendorList
+	ID = {
+		Name			-- Vendor Name
+		Location		-- Location (zone)
+		Coordx			-- Vendor X coordinate
+		Coordy			-- Vendor Y coordinate
+		Faction			-- Vendor Faction ID **
+	}
 
 ZJ - 10/6/08
 
