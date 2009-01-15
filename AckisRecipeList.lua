@@ -1372,6 +1372,26 @@ end
 
 do
 
+	local RecipeList = nil
+
+	local CustomList = nil
+	local MobList = nil
+	local QuestList = nil
+	local ReputationList = nil
+	local TrainerList = nil
+	local SeasonalList = nil
+	local VendorList = nil
+	local RepFilters = nil
+	local AllSpecialtiesTable = nil
+	local SpecialtyTable = nil
+
+	local playerData = nil
+
+	local tradewindowopened = false
+
+	-- Variables for getting the locations
+	local locationlist = nil
+	local locationchecklist = nil
 
 	-- Description: Determines all the locations a given recipe can be obtained
 	-- Expected result: Listing of all locations for a given recipe are provided.
