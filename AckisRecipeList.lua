@@ -62,7 +62,7 @@ end
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local MaxFilterIndex = 129
+local MaxFilterIndex = 131
 
 -- Global Frame Variables
 addon.optionsFrame = {}
@@ -2044,14 +2044,27 @@ function addon:GetTextDump(RecipeDB)
 	local texttable = {}
 
 	-- Add a header to the text table
-	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, Known")
+	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.")
+	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Known")
 
 	for SpellID in pairs(RecipeDB) do
 
+		local flags = RecipeDB[SpellID]["Flags"]
+		local flaglist = {}
+
+		-- Find out which flags are marked as "true"
+		for i=1,MaxFilterIndex,1 do
+			if (flags[i] == true) then
+				tinsert(texttable,i)
+			end
+		end
+
+		local flagtext = tconcat(flaglist,",")
+
 		if (RecipeDB[SpellID]["Known"]) then
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. "," .. ",true")
+			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],true")
 		else
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. "," .. ",false")
+			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],false")
 		end
 
 	end

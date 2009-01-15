@@ -15,32 +15,25 @@ In the RecipeDB is a single file for each profession. Each recipe is inserted in
  self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
 
 ==addTradeSkill==
-	This function adds the main recipe entry, including the following information:
-		-- Spell ID
-		-- Skill Level Learnt
-		-- Item ID created
-		-- Recipe Rarity
-		-- Recipe Speciality (if applicable)
-	From there, internal functions determine the following:
-		-- Name of the recipe
-		-- Link determining the recipe made
+This function adds the main recipe entry, including the following information:
+* Spell ID
+* Skill Level Learnt
+* Item ID created
+* Recipe Rarity
+* Recipe Speciality (if applicable)
+From there, internal functions determine the following:
+* Name of the recipe
+* Link determining the recipe made
 
 ==addTradeFlags==
-	This function adds a series of "flags" about the recipe. This include a fairly
-	exhaustive look at the recipe and the item made, where is can be obtained, etc.
-	The individual flags are documented further down
+This function adds a series of "flags" about the recipe. This include a fairly exhaustive look at the recipe and the item made, where is can be obtained, etc.  The individual flags are documented further down.
 
 ==addTradeAcquire==
-	This function adds entries into the main database with exact instructions on how the recipe
-	can be obtained. The details of these acquire methods are detailed further down
-
-
-
-
+This function adds entries into the main database with exact instructions on how the recipe can be obtained. The details of these acquire methods are detailed further down.
 
 ==SavedVariable Structure==
-	* default values are indicated where applicable
-	* descriptions of values are at right 
+* default values are indicated where applicable
+* descriptions of values are at right 
 
 addon.db.profile---->
 		sorting = ""Skill" [ | "Name" | "Acquisition" ]		-- Sorting method
