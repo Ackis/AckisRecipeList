@@ -1743,9 +1743,10 @@ do
 	-- Input: Profession of the database needed
 	-- Output: An indicator if the process was successful
 
-	--- Return a proxy object that will serialize to null.
+	--- API for external addons to initialize the recipe database with a specific profession
 	-- @usage AckisRecipeList:AddRecipeData(profession)
-	-- @return boolean indicating if the operation was successful.
+	-- @param profession Name of the profession you wish to load data for
+	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropiate data.
 	function addon:AddRecipeData(profession)
 
 		if (RecipeList) then
