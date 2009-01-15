@@ -86,23 +86,23 @@ I believe this will get through the flags in the shortest possible route, short 
 
 ===List of Non-exclusive filters===
 
-#If false, this will only exclude the display of cross-faction vendors/trainers/etc:
-##faction
+*If false, this will only exclude the display of cross-faction vendors/trainers/etc:
+**faction
 
-#The following filters will simply squelch the display of that particular acquire method
-##rainer
-##vendor
-##instance
-##raid
-##seasonal
-##quest
-##pvp
-##discovery
-##worlddrop
-##mobdrop
-##item	(This includes ALL weapon and armor item types)
-##player types ( melee, tank, caster, healer )
-##reputation (All recputation flags )
+*The following filters will simply squelch the display of that particular acquire method
+**rainer
+**vendor
+**instance
+**raid
+**seasonal
+**quest
+**pvp
+**discovery
+**worlddrop
+**mobdrop
+**item	(This includes ALL weapon and armor item types)
+**player types ( melee, tank, caster, healer )
+**reputation (All recputation flags )
 
 Note that if NO acquire methods remain unfiltered, the recipe will not be displayed
 

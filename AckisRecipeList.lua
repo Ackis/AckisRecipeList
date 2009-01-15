@@ -233,7 +233,6 @@ function addon:OnInitialize()
 					timbermaw = true,
 					violeteye = true,
 					zandalar = true,
-					-- Below this is WotLK stuff. May need to be changed post beta.
 					argentcrusade = true,
 					frenzyheart = true,
 					ebonblade = true,
@@ -1738,11 +1737,13 @@ do
 
 	end
 
+	
 	-- Description: API for external addons to initialize the recipe database with a specific profession
 	-- Expected result: Recipe database is updated with recipe information for the current profession
 	-- Input: Profession of the database needed
 	-- Output: An indicator if the process was successful
 
+	-- @return Boolean indicating if the operation was successful.
 	function addon:AddRecipeData(profession)
 
 		if (RecipeList) then
