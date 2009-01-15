@@ -21,14 +21,14 @@ Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to 
 Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to add suggestions and feature requests.
 
 ==Integration==
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].  There is a limted API documented at [http://www.wowace.com/projects/arl/pages/API/] to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
 
 ==Bug Reporting==
 Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to file bug reports.
 
 ==Detailed Documentation==
 * Detailed documentation - [http://www.wowace.com/projects/arl/pages/database-documentation/]
-* API - http://www.wowace.com/projects/arl/pages/API/
+* API - [http://www.wowace.com/projects/arl/pages/API/]
 
 ==Acknowledgments==
 * Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).

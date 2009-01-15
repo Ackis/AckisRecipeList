@@ -2059,7 +2059,7 @@ function addon:GetTextDump(RecipeDB)
 
 	-- Add a header to the text table
 	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.")
-	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Known")
+	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known")
 
 	for SpellID in pairs(RecipeDB) do
 
@@ -2069,7 +2069,7 @@ function addon:GetTextDump(RecipeDB)
 		-- Find out which flags are marked as "true"
 		for i=1,MaxFilterIndex,1 do
 			if (flags[i] == true) then
-				tinsert(texttable,i)
+				tinsert(flaglist,i)
 			end
 		end
 
@@ -2078,7 +2078,29 @@ function addon:GetTextDump(RecipeDB)
 		local acquire = RecipeDB[SpellID]["Acquire"]
 		local acquirelist = {}
 
-		local acquiretext = tconcat(flaglist,",")
+		for i in pairs(acquire) do
+
+			if (acquire["Type"] == 1) then
+				tinsert(acquirelist,"Trainer")
+			elseif (acquire["Type"] == 2) then
+				tinsert(acquirelist,"Vendor")
+			elseif (acquire["Type"] == 3) then
+				tinsert(acquirelist,"Mob Drop")
+			elseif (acquire["Type"] == 4) then
+				tinsert(acquirelist,"Quest")
+			elseif (acquire["Type"] == 5) then
+				tinsert(acquirelist,"Seasonal")
+			elseif (acquire["Type"] == 6) then
+				tinsert(acquirelist,"Reputation")
+			elseif (acquire["Type"] == 7) then
+				tinsert(acquirelist,"World Drop")
+			elseif (acquire["Type"] == 8) then
+				tinsert(acquirelist,"Custom")
+			end
+
+		end
+
+		local acquiretext = tconcat(acquirelist,",")
 
 		if (RecipeDB[SpellID]["Known"]) then
 			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],true")
