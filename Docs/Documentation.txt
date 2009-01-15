@@ -38,128 +38,73 @@ This function adds entries into the main database with exact instructions on how
 
 ==SavedVariable Structure==
 
-* default values are indicated where applicable
-* descriptions of values are at right 
-<pre><nowiki>
-addon.db.profile---->
-		sorting = ""Skill" [ | "Name" | "Acquisition" ]		-- Sorting method
+This identifies the overall database structure for the saved variables.
 
-	includefiltered			= false [ | true ]			-- include filtered recipes in progress bar
-	closeguionskillclose		= false [ | true ]			-- close ARL GUI when skill window closes
-	ignoreexclusionlist		= false [ | true ]			-- ignore exclusion list (they get displayed)
-	uiscale				= 1 (Ranged from .5 -> 1.5)	-- the UI Scaling
+:addon.db.profile
+::frameopts
+::filters
+:::general
+:::obtain
+:::item
+::::armor
+::::weapon
+:::binding
+:::player
+:::rep
 
-	exclusionlist = {
-		ExcludedSpellID1		= true,				-- list of excluded recipes
-		ExcludedSpellID2	= true,
-		...
-	}
+==Filter Method==
 
-	filters = {
-		general = {									-- General Filters
-			faction		= true [ | false ]				-- Display Cross Faction recipes
-			class			= false [ | true ]				-- Display All Class Specific recipes
-			specialty		= false [ | true ]				-- Display All Specialty recipes
-			skill			= true [ | false ]				-- Display All Skill Level recipes
-			known		= false [ | true ]				-- Display All Known recipes
-			unknown		= true [ | false ]				-- Display All Unknown recipes
-		},
-		obtain = {									-- Obtain Options
-			trainer		= true [ | false ]				-- Display trainer obtained recipes
-			vendor		= true [ | false ]				-- Display vendor obtained recipes
-			instance		= true [ | false ]				-- Display instance obtained recipes
-			raid			= true [ | false ]				-- Display raid obtained recipes
-			seasonal		= true [ | false ]				-- Display seasonal recipes
-			quest			= true [ | false ]				-- Display quest reward recipes
-			pvp			= true [ | false ]				-- Display pvp obtained recipes
-			discovery		= true [ | false ]				-- Display discverved recipes
-			worlddrop		= true [ | false ]				-- Display world drop recipes
-			mobdrop		= true [ | false ]				-- Display mob drop recipes
-		},
-		item = {									-- Item Filters (Armor/Weapon)
-			armor = {
-				cloth		= true [ | false ]				-- Display cloth recipes
-				leather	= true [ | false ]				-- Display leather recipes
-				mail		= true [ | false ]				-- Display mail recipes
-				plate		= true [ | false ]				-- Display plate recipes
-				trinket	= true [ | false ]				-- Display trinket recipes
-				cloak		= true [ | false ]				-- Display cloak recipes
-				ring		= true [ | false ]				-- Display ring recipes
-				necklace	= true [ | false ]				-- Display necklace recipes
-				shield	= true [ | false ]				-- Display shield recipes
-			},
-			weapon = {
-				onehand	= true [ | false ]				-- Display one hand weapon recipes
-				twohand	= true [ | false ]				-- Display two hand weapon recipes
-				axe		= true [ | false ]				-- Display axe weapon recipes
-				sword	= true [ | false ]				-- Display sword weapon recipes
-				mace		= true [ | false ]				-- Display mace weapon recipes
-				polearm	= true [ | false ]				-- Display polearm weapon recipes
-				dagger	= true [ | false ]				-- Display dagegr weapon recipes
-				fist		= true [ | false ]				-- Display fist weapon recipes
-				staff		= true [ | false ]				-- Display staff weapon recipes
-				wand		= true [ | false ]				-- Display wand weapon recipes
-				thrown	= true [ | false ]				-- Display thrown weapon recipes
-				bow		= true [ | false ]				-- Display bow weapon recipes
-				crossbow	= true [ | false ]				-- Display crossbow weapon recipes
-				ammo		= true [ | false ]				-- Display ammo recipes
-			},
-		},
-		binding = {									-- Item/Recipe Binding filters
-			itemboe		= true [ | false ]				-- Crafted Item is BoE
-			itembop		= true [ | false ]				-- Crafted Item is BoP
-			recipebop		= true [ | false ]				-- Recipe is BoE
-			recipeboe		= true [ | false ]				-- Recipe is BoE
-		},
-		player = {									-- Player Type filters
-			melee			= true [ | false ]				-- Melee DPS recipes
-			tank			= true [ | false ]				-- Tank recipes
-			healer		= true [ | false ]				-- Healer recipes
-			caster		= true [ | false ]				-- Caster DPS recipes
-		},
-		rep = {									-- Reputation filters
-												-- Azeroth faction filters
-			aldor				= true [ | false ]
-			scryer			= true [ | false ]
-			argentdawn			= true [ | false ]
-			ashtonguedeathsworn 	= true [ | false ]
-			cenarioncircle		= true [ | false ]
-												-- Outland faction filters
-			cenarionexpedition	= true [ | false ]
-			consortium			= true [ | false ]
-			hellfire			= true [ | false ]
-			keepersoftime		= true [ | false ]
-			nagrand			= true [ | false ]
-			lowercity			= true [ | false ]
-			scaleofthesands		= true [ | false ]
-			shatar			= true [ | false ]
-			shatteredsun		= true [ | false ]
-			sporeggar			= true [ | false ]
-			thoriumbrotherhood	= true [ | false ]
-			timbermaw			= true [ | false ]
-			violeteye			= true [ | false ]
-			zandalar			= true [ | false ]
-												-- WotLK faction filters
-			argentcrusade		= true [ | false ]
-			frenzyheart		= true [ | false ]
-			ebonblade			= true [ | false ]
-			kirintor			= true [ | false ]
-			sonsofhodir			= true [ | false ]
-			kaluak			= true [ | false ]
-			oracles			= true [ | false ]
-			wyrmrest			= true [ | false ]
-			silvercovenant		= true [ | false ]
-			sunreavers			= true [ | false ]
-			explorersleague		= true [ | false ]
-			valiance			= true [ | false ]
-			handofvengeance		= true [ | false ]
-			taunka			= true [ | false ]
-			warsongoffensive		= true [ | false ]
-			alliancevanguard		= true [ | false ]
-			hordeexpedition		= true [ | false ]
-		}
-	}
-</pre></nowiki>
+Filters can be divided into two general categories:
+:Exclusive		: if ANY of these are flagged to "FALSE", the recipe will not display
+:Non-exclusive	: if ANY of these filters are flagged to "TRUE", the recipe will display
+
+Thus, one possible flow for the CheckDisplayRecipe function is as follows:
+
+Stage 1 : Exclusive filters
+#set retval to true
+#loop through ALL Exclusive filters. If any "FALSE" condition exists, flag to false and exit loop
+
+Stage 2 : Nonexclusive filters (only do this is Stage 1 produced a TRUE value
+#set retval to false
+#loop through ALL Nonexclusive filters. If any "TRUE" condition exists, flag to true and exit loop
+
+Finally, return retval
+
+I believe this will get through the flags in the shortest possible route, short circuiting the looping when any condition warrants it
+
+===List of Exclusive filters===
+:specialty
+:known
+:unknown
+:class
+:skill
+:bindings
+::itemboe
+::itembop
+::recipebop
+::recipeboe
+
+===List of Non-exclusive filters===
+
+#If false, this will only exclude the display of cross-faction vendors/trainers/etc:
+##faction
+
+#The following filters will simply squelch the display of that particular acquire method
+##rainer
+##vendor
+##instance
+##raid
+##seasonal
+##quest
+##pvp
+##discovery
+##worlddrop
+##mobdrop
+##item	(This includes ALL weapon and armor item types)
+##player types ( melee, tank, caster, healer )
+##reputation (All recputation flags )
+
+Note that if NO acquire methods remain unfiltered, the recipe will not be displayed
 
 ==Filter Flags==
 
@@ -275,8 +220,10 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 
 
 ==Acquire Flags==
+
 Defined below is the specification for the arguments passed back into addTradeAcquire. Each Acquire Type passes in different parameters depending on how the recipe is acquired:
 
+<pre><nowiki>
 	Acquire Type = 1								( Trainer )
 		ID				- Index into TrainerList
 	Acquire Type = 2								( Vendor )
@@ -295,6 +242,7 @@ Defined below is the specification for the arguments passed back into addTradeAc
 		ID				- Rarity Level
 	Acquire Type = 8								( Custom )
 		ID				- Custom string
+</nowiki></pre>
 
 == Reputation ID==
 
@@ -310,23 +258,7 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :2 - Alliance
 :3 - Neutral
 
-==Table Structures==
-
-===Recipe Array Structure===
-		SpellID = {
-			Level			- Skill level at which you can learn the recipe
-			ItemID			- ID of the item created by the recipe (if it exists)
-			Name			- Name of the recipe
-			Rarity			- Rarity level of recipe **
-			RecipeLink		- String containing the recipe link
-			Display			- Boolean determing if we display the recipe or not (via filters)
-			Known			- Boolean determining if you know the recipe
-			Search			- Boolean determining if it's in the search results (true = yes, false = no)
-			Profession		- Flag for identifying which profession it is.
-			Speciality		- Profession speciality (if it exists)
-		}
-
-===Rarity colours===
+==Rarity colours==
 :0 - poor			#919191
 :1 - common			#ffffff
 :2 - uncommon		#00A900
@@ -335,124 +267,68 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :5 - legendary		#FA9900
 :6 - artifact		#e5cc80
 
+==Table Structures==
+
+===Recipe Array Structure===
+:SpellID =
+::Level			- Skill level at which you can learn the recipe
+::ItemID			- ID of the item created by the recipe (if it exists)
+::Name			- Name of the recipe
+::Rarity			- Rarity level of recipe **
+::RecipeLink		- String containing the recipe link
+::Display			- Boolean determing if we display the recipe or not (via filters)
+::Known			- Boolean determining if you know the recipe
+::Search			- Boolean determining if it's in the search results (true = yes, false = no)
+::Profession		- Flag for identifying which profession it is.
+::Speciality		- Profession speciality (if it exists)
+
 ===Mob DB===
  self:addLookupList(MobDB, 590, L["Defias Looter"], BZONE["Westfall"], 38.52, 55.94)
-MobList
-	ID = {
-		Name			- Mob name
-		Location		- Mob location (zone)
-		Coordx			- X coordinate
-		Coordy			- Y coordinate
-	}
+:MobList
+::ID =
+:::Name			- Mob name
+:::Location		- Mob location (zone)
+:::Coordx			- X coordinate
+:::Coordy			- Y coordinate
 
 ===Quest DB===
  self:addLookupList(QuestDB, 2859, L["Wild Leather Leggings"], BZONE["Feralas"], 47.97, 67.15, 2)
-QuestList
-	ID = {
-		Name			- Quest Name
-		Location		- Zone
-		Coordx			- X Coordinate of quest start
-		Coordy			- Y Coordinate of quest start
-		Faction			- Faction **
-	}
+:QuestList
+::ID =
+:::Name			- Quest Name
+:::Location		- Zone
+:::Coordx			- X Coordinate of quest start
+:::Coordy			- Y Coordinate of quest start
+:::Faction			- Faction **
 
 ===Reputation DB===
  self:addLookupList(RepDB, 54, BFAC["Gnomeregan Exiles"]) -- Acquire Flag: 
-ReputationList
-	ID = {
-		Name			-- translated faction
-	}
+:ReputationList
+::ID =
+:::Name			-- translated faction
 
 ===Seasonal DB===
  self:addLookupList(SeasonDB, 3, L["Darkmoon Faire"])
-SeasonList
-	ID = {
-		Name			-- Translated Seasonal Event name
-	}
+:SeasonList
+::ID =
+:::Name			-- Translated Seasonal Event name
 
 ===Trainer DB===
  self:addLookupList(TrainerDB, 16583, L["Rohok"], BZONE["Hellfire Peninsula"], 54.62, 40.62, 2)
-TrainerList
-	ID = {
-		Name			-- Trainer Name
-		Location		-- Location (zone)
-		Coordx			-- Trainer X coordinate
-		Coordy			-- Trainer Y coordinate
-		Faction			-- Faction ID **
-	}
+:TrainerList
+::ID
+:::Name			-- Trainer Name
+:::Location		-- Location (zone)
+:::Coordx			-- Trainer X coordinate
+:::Coordy			-- Trainer Y coordinate
+:::Faction			-- Faction ID **
 
 ===Vendor DB===
  self:addLookupList(VendorDB, 13433, L["Wulmort Jinglepocket"], BZONE[""], 0, 0, 0)
-VendorList
-	ID = {
-		Name			-- Vendor Name
-		Location		-- Location (zone)
-		Coordx			-- Vendor X coordinate
-		Coordy			-- Vendor Y coordinate
-		Faction			-- Vendor Faction ID **
-	}
-
-ZJ - 10/6/08
-
-I started thinking about the general flow of the CheckDisplayRecipe function. Since
-I was adding a few things in there, I figured I'd put my logic down here. Feel free to
-use it or discard it as you see fit
-
-Filters can be divided into two general categories:
-	Exclusive		: if ANY of these are flagged to "FALSE", the recipe will not display
-	Non-exclusive	: if ANY of these filters are flagged to "TRUE", the recipe will display
-
-Thus, one possible flow for the CheckDisplayRecipe function is as follows:
-
-Stage 1 : Exclusive filters
-	- set retval to true
-	- loop through ALL Exclusive filters. If any "FALSE" condition exists, flag to false and exit loop
-
-Stage 2 : Nonexclusive filters (only do this is Stage 1 produced a TRUE value
-	- set retval to false
-	- loop through ALL Nonexclusive filters. If any "TRUE" condition exists, flag to true and exit loop
-
-	Finally, return retval
-
-I believe this will get through the flags in the shortest possible route, short circuiting the
-looping when any condition warrants it
-
-
-
-
-
-List of Exclusive filters:
-	specialty
-	known
-	unknown
-	class
-	skill
-	bindings (
-		itemboe
-		itembop
-		recipebop
-		recipeboe
-	)
-
-List of Non-exclusive filters:
-	-- If false, this will only exclude the display of cross-faction vendors/trainers/etc
-	faction
-
-	-- The following filters will simply squelch the display of that particular acquire method
-	trainer
-	vendor
-	instance
-	raid
-	seasonal
-	quest
-	pvp
-	discovery
-	worlddrop
-	mobdrop
-	item	(This includes ALL weapon and armor item types)
-	player types ( melee, tank, caster, healer )
-	reputation (All recputation flags )
-
-	-- Note that if NO acquire methods remain unfiltered, the recipe will not be displayed
-
-
+:VendorList
+::ID =
+:::Name			-- Vendor Name
+:::Location		-- Location (zone)
+:::Coordx			-- Vendor X coordinate
+:::Coordy			-- Vendor Y coordinate
+:::Faction			-- Vendor Faction ID **
