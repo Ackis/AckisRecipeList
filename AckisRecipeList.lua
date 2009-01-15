@@ -1744,7 +1744,8 @@ do
 	-- Output: An indicator if the process was successful
 
 	--- API for external addons to initialize the recipe database with a specific profession
-	-- @usage AckisRecipeList:AddRecipeData(profession)
+	-- @name AckisRecipeList:AddRecipeData
+	-- @usage Used for an external program to load up data regarding a specific profession into the ARL database.
 	-- @param profession Name of the profession you wish to load data for
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropiate data.
 	function addon:AddRecipeData(profession)
@@ -1763,6 +1764,11 @@ do
 	-- Input: None
 	-- Output: An indicator if the recipe database was initialized successfully, along with all the reference tables.
 
+	--- API for external addons to initialize the recipe database
+	-- @name AckisRecipeList:InitRecipeData
+	-- @usage Causes ARL to load up all internal databases and provides them to the external application.
+	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropiate data.
+	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
 
 		if (RecipeList) then
@@ -1779,6 +1785,10 @@ do
 	-- Input: The spellID of the recipe.
 	-- Output: A table containing all its information
 
+	--- API for external addons to get recipe information from ARL
+	-- @name AckisRecipeList:GetRecipeData
+	-- @param spellID The spell ID of the recipe you want information about.
+	-- @return Table containing all spell ID information or nil if it's not found.
 	function addon:GetRecipeData(spellID)
 
 		if (RecipeList) then
