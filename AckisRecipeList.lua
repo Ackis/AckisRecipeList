@@ -2090,28 +2090,30 @@ function addon:GetTextDump(RecipeDB)
 		local acquirelist = {}
 
 		for i in pairs(acquire) do
-
-			if (acquire["Type"] == 1) then
-				tinsert(acquirelist,"Trainer")
-			elseif (acquire["Type"] == 2) then
-				tinsert(acquirelist,"Vendor")
-			elseif (acquire["Type"] == 3) then
-				tinsert(acquirelist,"Mob Drop")
-			elseif (acquire["Type"] == 4) then
-				tinsert(acquirelist,"Quest")
-			elseif (acquire["Type"] == 5) then
-				tinsert(acquirelist,"Seasonal")
-			elseif (acquire["Type"] == 6) then
-				tinsert(acquirelist,"Reputation")
-			elseif (acquire["Type"] == 7) then
-				tinsert(acquirelist,"World Drop")
-			elseif (acquire["Type"] == 8) then
-				tinsert(acquirelist,"Custom")
+			if (acquire[i]["Type"] == 1) then
+				acquirelist["Trainer"] = true
+			elseif (acquire[i]["Type"] == 2) then
+				acquirelist["Vendor"] = true
+			elseif (acquire[i]["Type"] == 3) then
+				acquirelist["Mob Drop"] = true
+			elseif (acquire[i]["Type"] == 4) then
+				acquirelist["Quest"] = true
+			elseif (acquire[i]["Type"] == 5) then
+				acquirelist["Seasonal"] = true
+			elseif (acquire[i]["Type"] == 6) then
+				acquirelist["Reputation"] = true
+			elseif (acquire[i]["Type"] == 7) then
+				acquirelist["World Drop"] = true
+			elseif (acquire[i]["Type"] == 8) then
+				acquirelist["Custom"] = true
 			end
-
 		end
 
-		local acquiretext = tconcat(acquirelist,",")
+		local acquiretext = ""
+
+		for i in pairs(acquirelist) do
+			acquiretext = i .. "," .. acquiretext
+		end
 
 		if (RecipeDB[SpellID]["Known"]) then
 			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],true")
