@@ -498,40 +498,25 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local playerSkill = playerData.playerProfessionLevel
 
 	if (recipeSkill > playerSkill) then
-
 		clr2 = addon:hexcolor("RED")
-
 	elseif ((playerSkill - recipeSkill) < 20) then
-
 		clr2 = addon:hexcolor("ORANGE")
-
-
 	elseif ((playerSkill - recipeSkill) < 30) then
-
 		clr2 = addon:hexcolor("YELLOW")
-
 	elseif ((playerSkill - recipeSkill) < 40) then
-
 		clr2 = addon:hexcolor("GREEN") 
-
 	else
-
 		clr2 = addon:hexcolor("MIDGREY")
-
 	end
 
 	gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
-
 	-- spacer
 	gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
 
 	if (recipeDB[rIndex]["Flags"][36]) then
-
 		gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
-
 	end
 
 	if (recipeDB[rIndex]["Flags"][37]) then
@@ -575,58 +560,37 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 		-- Trainer
 		if (v["Type"] == 1) then
-
 			-- Trainer:				TrainerName
 			-- TrainerZone			TrainerCoords
 			local trnr = trainerDB[v["ID"]]
 			local cStr = ""
 			-- Do we want to display this trainer?
 			local displaytt = false
-
 			clr1 = addon:hexcolor("TRAINER")
-
 			if (trnr["Faction"] == BFAC["Horde"]) then
-
 				clr2 = addon:hexcolor("HORDE")
-
 				if (playerFaction == BFAC["Horde"]) then
-
 					displaytt = true
-
 				end
-
 			elseif (trnr["Faction"] == BFAC["Alliance"]) then
-
 				clr2 = addon:hexcolor("ALLIANCE")
-
 				if (playerFaction == BFAC["Alliance"]) then
-
 					displaytt = true
-
 				end
-
 			else
-
 				clr2 = addon:hexcolor("NEUTRAL")
-
 			end
 
 			if (displaytt) then
-
 				-- Add the trainer information to the tooltip
 				gttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
-
 				-- If we have a coordinate, add the coordinates to the tooltop
 				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-
 					cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
-
 				end
-
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
 				gttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
-
 			end
 
 		-- Vendor
@@ -638,13 +602,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local cStr = ""
 
 			if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-
 				cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-
 			end
 
 			clr1 = addon:hexcolor("VENDOR")
-
 			if (vndr["Faction"] == BFAC["Horde"]) then
 				clr2 = addon:hexcolor("HORDE")
 			elseif (vndr["Faction"] == BFAC["Alliance"]) then
@@ -736,9 +697,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local cStr = ""
 
 			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-
 				cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
-
 			end
 			
 			clr1 = addon:hexcolor("REP")
@@ -2100,9 +2059,7 @@ local function expandEntry(dsIndex)
 				local cStr = ""
 
 				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-
 					cSte = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
-
 				end
 
 				t = {}
@@ -2111,17 +2068,11 @@ local function expandEntry(dsIndex)
 				t.IsExpanded = true
 
 				if (trnr["Faction"] == BFAC["Horde"]) then
-
 					nStr = addon:Horde(trnr["Name"])
-
 				elseif (trnr["Faction"] == BFAC["Alliance"]) then
-
 					nStr = addon:Alliance(trnr["Name"])
-
 				else
-
 					nStr = addon:Neutral(trnr["Name"])
-
 				end
 
 				t.String = pad .. tStr .. nStr
@@ -2156,9 +2107,7 @@ local function expandEntry(dsIndex)
 				local cStr = ""
 
 				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-
 					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
-
 				end
 
 				t = {}
@@ -2167,17 +2116,11 @@ local function expandEntry(dsIndex)
 				t.IsExpanded = true
 
 				if (vndr["Faction"] == BFAC["Horde"]) then
-
 					nStr = addon:Horde(vndr["Name"])
-
 				elseif (vndr["Faction"] == BFAC["Alliance"]) then
-
 					nStr = addon:Alliance(vndr["Name"])
-
 				else
-
 					nStr = addon:Neutral(vndr["Name"])
-
 				end
 
 				t.String = pad .. tStr .. nStr
@@ -2197,7 +2140,7 @@ local function expandEntry(dsIndex)
 			end
 
 		-- Mob Drop Obtain
-		elseif ((v["Type"] == 3) and (filterDB.obtain.mobdrop == true)) then
+		elseif ((v["Type"] == 3) and ((filterDB.obtain.mobdrop == true) or (filterDB.obtain.instance == true) or (filterDB.obtain.raid == true))) then
 
 			-- MobDB: ID, Name, Zone, Coordx, Coordy
 			local mob = mobDB[v["ID"]]
@@ -2208,9 +2151,7 @@ local function expandEntry(dsIndex)
 			local cStr = ""
 
 			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-
 				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
-
 			end
 
 			t = {}

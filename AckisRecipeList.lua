@@ -914,28 +914,19 @@ do
 
 		-- Display both horde and alliance factions?
 		if (generaldb.faction == false) then
-
 			-- We want to filter out all the Horde only recipes
 			if (playerFaction == BFAC["Alliance"]) then
-
 				-- Filter out Horde only
 				if (flags[1] == false) and (flags[2] == true) then
-
 					return false
-
 				end
 			-- We want to filter out all the Alliance only recipes
 			else
-
 				-- Filter out Alliance only
 				if (flags[2] == false) and (flags[1] == true) then
-
 					return false
-
 				end
-
 			end
-
 		end
 
 		-- Display all skill levels?

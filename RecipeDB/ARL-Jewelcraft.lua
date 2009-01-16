@@ -2160,7 +2160,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53970,390,40030,3,25229)
 	self:addTradeFlags(RecipeDB,53970,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53970,3,29120,3,29128,3,29216,3,29217)
+	self:addTradeAcquire(RecipeDB,53970,3,29120)
 
 	-- Regal Twilight Opal -- 53971
 	recipecount = recipecount + 1
