@@ -1944,7 +1944,7 @@ end
 -- Output: 
 -- Switch the displayed profession in the main panel
 
-function addon.SwitchProfs()
+function addon.SwitchProfs(button)
 	-- Known professions should be in playerData["Professions"]
 
 	-- This loop is gonna be weird. The reason is because we need to
@@ -1961,27 +1961,55 @@ function addon.SwitchProfs()
 
 	-- ok, so first off, if we've never done this before, there is no "current"
 	-- and a single iteration will do nicely, thank you
-	if (currentProfIndex == 0) then
-		startLoop = 1
-		endLoop = addon.MaxProfessions + 1
-	else
-		startLoop = currentProfIndex + 1
-		endLoop = currentProfIndex
-	end
-	local index = startLoop
-	while (index ~= endLoop) do
-		if (index > MaxProfessions) then
-			index = 1
-		else
-			if (playerData["Professions"][SortedProfessions[index].name] == true) then
-				displayProf = index
-				currentProfIndex = index
-				break
-			else
-				index = index + 1
-			end
-		end
-	end
+    if button == "LeftButton" then
+        -- normal profession switch
+    	if (currentProfIndex == 0) then
+    		startLoop = 1
+    		endLoop = addon.MaxProfessions + 1
+    	else
+    		startLoop = currentProfIndex + 1
+    		endLoop = currentProfIndex
+    	end
+    	local index = startLoop
+    
+    	while (index ~= endLoop) do
+    		if (index > MaxProfessions) then
+    			index = 1
+    		else
+    			if (playerData["Professions"][SortedProfessions[index].name] == true) then
+    				displayProf = index
+    				currentProfIndex = index
+    				break
+    			else
+                    index = index + 1
+    			end
+    		end
+    	end
+    else
+        -- reverse profession switch
+    	if (currentProfIndex == 0) then
+    		startLoop = addon.MaxProfessions + 1
+    		endLoop = 0
+    	else
+    		startLoop = currentProfIndex - 1
+    		endLoop = currentProfIndex
+    	end
+    	local index = startLoop
+    
+    	while (index ~= endLoop) do
+    		if (index < 1) then
+    			index = MaxProfessions
+    		else
+    			if (playerData["Professions"][SortedProfessions[index].name] == true) then
+    				displayProf = index
+    				currentProfIndex = index
+    				break
+    			else
+                    index = index - 1
+    			end
+    		end
+    	end
+    end
 	-- Redisplay the button with the new skill
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 	playerData.playerProfession = SortedProfessions[currentProfIndex].name
@@ -3304,9 +3332,10 @@ function addon:CreateFrame(
 			ARL_SwitcherButton:SetWidth(64)
 			ARL_SwitcherButton:SetHeight(64)
 			ARL_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
+			ARL_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			ARL_SwitcherButton:SetScript("OnClick",
-				function()
-					addon.SwitchProfs(cPlayer)
+				function(self, button)
+					addon.SwitchProfs(button)
 				end
 			)
 
