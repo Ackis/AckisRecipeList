@@ -1009,7 +1009,7 @@ local function fullOptions()
 							desc	= L["TEXT_DUMP_DESC"],
 							func	= function(info) addon:AckisRecipeList_Command(true) end,
 						},
-						textdump = {	
+						exclusionlist = {	
 							order	= 14,
 							type	= "execute",
 							name	= L["View Exclusion List"],
