@@ -1612,3 +1612,4 @@ L["Fletcher's Lost and Found"] = true
 L["Gigget Zipcoil"] = true
 L["Blimo Gadgetspring"] = true
 L["Hula'mahi"] = true
+L["Bombus Finespindle"] = true

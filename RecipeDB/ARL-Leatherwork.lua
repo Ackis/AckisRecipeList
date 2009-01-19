@@ -1181,44 +1181,44 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Girdle of Insight -- 22921
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22921,300,18504,3,2108)
-	self:addTradeFlags(RecipeDB,22921,1,2,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,22921,1,2,21,5,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,22921,8,23)
 
 	-- Mongoose Boots -- 22922
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22922,300,18506,3,2108)
-	self:addTradeFlags(RecipeDB,22922,1,2,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,22922,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,22922,8,23)
 
 	-- Swift Flight Bracers -- 22923
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22923,300,18508,3,2108)
-	self:addTradeFlags(RecipeDB,22923,1,2,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,22923,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,22923,8,23)
 
 	-- Chromatic Cloak -- 22926
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22926,300,18509,4,2108)
-	self:addTradeFlags(RecipeDB,22926,1,2,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeFlags(RecipeDB,22926,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,60)
 	self:addTradeAcquire(RecipeDB,22926,8,23)
 
 	-- Hide of the Wild -- 22927
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22927,300,18510,4,2108)
-	self:addTradeFlags(RecipeDB,22927,1,2,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeFlags(RecipeDB,22927,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,60)
 	self:addTradeAcquire(RecipeDB,22927,8,23)
 
 	-- Shifting Cloak -- 22928
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22928,300,18511,4,2108)
-	self:addTradeFlags(RecipeDB,22928,1,2,21,22,23,24,25,26,27,28,29,30,36,40,52,60)
+	self:addTradeFlags(RecipeDB,22928,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,52,60)
 	self:addTradeAcquire(RecipeDB,22928,8,23)
 
 	-- Heavy Leather Ball -- 23190
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23190,150,18662,1,2108)
-	self:addTradeFlags(RecipeDB,23190,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23190,2,3366)
+	self:addTradeFlags(RecipeDB,23190,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,23190,2,5128,2,3366)
 
 	-- Barbaric Bracers -- 23399
 	recipecount = recipecount + 1

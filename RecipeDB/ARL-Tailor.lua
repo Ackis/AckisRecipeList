@@ -1175,31 +1175,31 @@ function addon:InitTailoring(RecipeDB)
 	-- Belt of the Archmage -- 22866
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22866,300,18405,4,3908)
-	self:addTradeFlags(RecipeDB,22866,1,2,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,22866,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,22866,8,23)
 
 	-- Felcloth Gloves -- 22867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22867,300,18407,3,3908)
-	self:addTradeFlags(RecipeDB,22867,1,2,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,22867,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,22867,8,23)
 
 	-- Inferno Gloves -- 22868
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22868,300,18408,3,3908)
-	self:addTradeFlags(RecipeDB,22868,1,2,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,22868,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,22868,8,23)
 
 	-- Mooncloth Gloves -- 22869
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22869,300,18409,3,3908)
-	self:addTradeFlags(RecipeDB,22869,1,2,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,22869,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,22869,8,23)
 
 	-- Cloak of Warding -- 22870
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22870,300,18413,3,3908)
-	self:addTradeFlags(RecipeDB,22870,1,2,21,22,23,24,25,26,27,28,29,30,36,41,52,60)
+	self:addTradeFlags(RecipeDB,22870,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,52,60)
 	self:addTradeAcquire(RecipeDB,22870,8,23)
 
 	-- Mooncloth Robe -- 22902
@@ -1211,13 +1211,13 @@ function addon:InitTailoring(RecipeDB)
 	-- Wisdom of the Timbermaw -- 23662
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23662,290,19047,1,3908)
-	self:addTradeFlags(RecipeDB,23662,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56,99)
+	self:addTradeFlags(RecipeDB,23662,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56,99)
 	self:addTradeAcquire(RecipeDB,23662,6,576,2,11557)
 
 	-- Mantle of the Timbermaw -- 23663
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23663,300,19050,1,3908)
-	self:addTradeFlags(RecipeDB,23663,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56,99)
+	self:addTradeFlags(RecipeDB,23663,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56,99)
 	self:addTradeAcquire(RecipeDB,23663,6,576,3,11557)
 
 	-- Argent Boots -- 23664
