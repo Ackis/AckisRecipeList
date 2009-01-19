@@ -2003,50 +2003,50 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Belt of Natural Power -- 36349
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36349,375,30042,4,2108)
-	self:addTradeFlags(RecipeDB,36349,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,36349,7,4)
+	self:addTradeFlags(RecipeDB,36349,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeAcquire(RecipeDB,36349,8,37)
 
 	-- Belt of Deep Shadow -- 36351
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36351,375,30040,4,2108)
-	self:addTradeFlags(RecipeDB,36351,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,36351,7,4)
+	self:addTradeFlags(RecipeDB,36351,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeAcquire(RecipeDB,36351,8,37)
 
 	-- Belt of the Black Eagle -- 36352
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36352,375,30046,4,2108)
-	self:addTradeFlags(RecipeDB,36352,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,36352,7,4)
+	self:addTradeFlags(RecipeDB,36352,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeAcquire(RecipeDB,36352,8,37)
 
 	-- Monsoon Belt -- 36353
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36353,375,30044,4,2108)
-	self:addTradeFlags(RecipeDB,36353,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,36353,7,4)
+	self:addTradeFlags(RecipeDB,36353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeAcquire(RecipeDB,36353,8,37)
 
 	-- Boots of Natural Grace -- 36355
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36355,375,30041,4,2108)
-	self:addTradeFlags(RecipeDB,36355,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,36355,7,4)
+	self:addTradeFlags(RecipeDB,36355,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeAcquire(RecipeDB,36355,8,37)
 
 	-- Boots of Utter Darkness -- 36357
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36357,375,30039,4,2108)
-	self:addTradeFlags(RecipeDB,36357,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,36357,7,4)
+	self:addTradeFlags(RecipeDB,36357,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeAcquire(RecipeDB,36357,8,37)
 
 	-- Boots of the Crimson Hawk -- 36358
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36358,375,30045,4,2108)
-	self:addTradeFlags(RecipeDB,36358,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36358,7,4)
+	self:addTradeFlags(RecipeDB,36358,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeAcquire(RecipeDB,36358,8,37)
 
 	-- Hurricane Boots -- 36359
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36359,375,30043,4,2108)
-	self:addTradeFlags(RecipeDB,36359,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36359,7,4)
+	self:addTradeFlags(RecipeDB,36359,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeAcquire(RecipeDB,36359,8,37)
 
 	-- Boots of Shackled Souls -- 39997
 	recipecount = recipecount + 1
@@ -2099,13 +2099,13 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Shoulderpads of Renewed Life -- 41157
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41157,375,32583,4,2108)
-	self:addTradeFlags(RecipeDB,41157,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,41157,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,41157,8,34)
 
 	-- Swiftstrike Bracers -- 41158
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41158,375,32580,4,2108)
-	self:addTradeFlags(RecipeDB,41158,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,41158,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,57)
 	self:addTradeAcquire(RecipeDB,41158,8,34)
 
 	-- Swiftstrike Shoulders -- 41160
@@ -2117,7 +2117,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Bindings of Lightning Reflexes -- 41161
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41161,375,32574,4,2108)
-	self:addTradeFlags(RecipeDB,41161,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,41161,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,58)
 	self:addTradeAcquire(RecipeDB,41161,8,34)
 
 	-- Shoulders of Lightning Reflexes -- 41162
@@ -2135,7 +2135,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Living Earth Shoulders -- 41164
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41164,375,32579,4,2108)
-	self:addTradeFlags(RecipeDB,41164,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,41164,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,41164,8,34)
 
 	-- Cloak of Darkness -- 42546

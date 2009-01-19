@@ -353,6 +353,7 @@ L["Custom33"] = "World Dragons" -- Update
 L["Custom34"] = "Random Black Temple / Hyjal Summit trash drop"
 L["Custom35"] = "Blade's Edge Mountains Summon Bosses" -- Update
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
+L["Custom37"] = "Random SSC / TK trash drop"
 
 -- Monster/Quest/Trainer/Vendor strings:
 

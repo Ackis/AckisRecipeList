@@ -1751,26 +1751,26 @@ function addon:InitTailoring(RecipeDB)
 	-- Belt of Blasting -- 36315
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36315,375,30038,4,3908)
-	self:addTradeFlags(RecipeDB,36315,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,36315,7,4)
+	self:addTradeFlags(RecipeDB,36315,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,36315,8,37)
 
 	-- Belt of the Long Road -- 36316
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36316,375,30036,4,3908)
-	self:addTradeFlags(RecipeDB,36316,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,36316,7,4)
+	self:addTradeFlags(RecipeDB,36316,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeAcquire(RecipeDB,36316,8,37)
 
 	-- Boots of Blasting -- 36317
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36317,375,30037,4,3908)
-	self:addTradeFlags(RecipeDB,36317,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,36317,7,4)
+	self:addTradeFlags(RecipeDB,36317,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,36317,8,37)
 
 	-- Boots of the Long Road -- 36318
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36318,375,30035,4,3908)
-	self:addTradeFlags(RecipeDB,36318,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,56)
-	self:addTradeAcquire(RecipeDB,36318,7,4)
+	self:addTradeFlags(RecipeDB,36318,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeAcquire(RecipeDB,36318,8,37)
 
 	-- Shadowcloth -- 36686
 	recipecount = recipecount + 1
@@ -1841,13 +1841,13 @@ function addon:InitTailoring(RecipeDB)
 	-- Mantle of Nimble Thought -- 41206
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41206,375,32587,4,3908)
-	self:addTradeFlags(RecipeDB,41206,1,2,6,11,21,22,23,24,25,26,27,28,29,30,37,41,56)
+	self:addTradeFlags(RecipeDB,41206,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,56)
 	self:addTradeAcquire(RecipeDB,41206,8,34)
 
 	-- Swiftheal Wraps -- 41207
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41207,375,32584,4,3908)
-	self:addTradeFlags(RecipeDB,41207,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,41207,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,41207,8,34)
 
 	-- Swiftheal Mantle -- 41208
