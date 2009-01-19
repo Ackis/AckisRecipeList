@@ -4312,7 +4312,7 @@ function addon:DisplayTextDump(textdump)
 	}
 
 	local frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
-	tinsert(UISpecialFrames, "ChatterCopyFrame")
+	tinsert(UISpecialFrames, "ARLCopyFrame")
 	frame:SetBackdrop(PaneBackdrop)
 	frame:SetBackdropColor(0,0,0,1)
 	frame:SetWidth(500)
