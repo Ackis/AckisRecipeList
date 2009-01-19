@@ -17,7 +17,7 @@ Project version: @project-version@
 
 Format:
 
-	self:addTradeSkill(RecipeDB, Spell ID, Skill Level, Item ID, Rarity, Specialty)
+	self:addTradeSkill(RecipeDB,Spell ID,Skill Level,Item ID,Rarity,Specialty)
 
 ************************************************************************
 
@@ -58,7 +58,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mysterious Tarot -- 48247
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,48247,85,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,48247,110,nil,1,45357)
 	self:addTradeFlags(RecipeDB,48247,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,48247,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -1966,7 +1966,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mystic Tome -- 58565
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58565,85,43515,3,45357)
+	self:addTradeSkill(RecipeDB,58565,110,43515,3,45357)
 	self:addTradeFlags(RecipeDB,58565,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,58565,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2020,7 +2020,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Strange Tarot -- 59480
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59480,125,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59480,125,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59480,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59480,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2038,7 +2038,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Arcane Tarot -- 59487
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59487,175,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59487,175,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59487,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59487,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2062,7 +2062,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Shadowy Tarot -- 59491
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59491,225,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59491,225,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59491,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59491,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2122,19 +2122,19 @@ function addon:InitInscription(RecipeDB)
 
 	-- Darkmoon Card -- 59502
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59502,275,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59502,275,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59502,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59502,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
 	-- Greater Darkmoon Card -- 59503
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59503,325,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59503,325,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59503,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59503,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722)
 
 	-- Darkmoon Card of the North -- 59504
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,59504,400,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,59504,400,nil,1,45357)
 	self:addTradeFlags(RecipeDB,59504,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59504,1,26916,1,26959,1,26977,1,26995,1,28702)
 
@@ -2170,37 +2170,37 @@ function addon:InitInscription(RecipeDB)
 
 	-- Master's Inscription of the Axe -- 61117
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61117,400,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61117,400,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61117,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61117,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Master's Inscription of the Crag -- 61118
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61118,400,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61118,400,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61118,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61118,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Master's Inscription of the Pinnacle -- 61119
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61119,400,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61119,400,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61119,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61119,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Master's Inscription of the Storm -- 61120
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61120,400,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61120,400,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61120,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61120,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Northrend Inscription Research -- 61177
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61177,385,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61177,385,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61177,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61177,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Minor Inscription Research -- 61288
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61288,75,nil, 1, 45357)
+	self:addTradeSkill(RecipeDB,61288,75,nil,1,45357)
 	self:addTradeFlags(RecipeDB,61288,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,61288,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
