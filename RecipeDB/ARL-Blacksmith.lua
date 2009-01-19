@@ -1703,8 +1703,8 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Felsteel Shield Spike -- 29657
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,29657,360,23530,1,2018)
-	self:addTradeFlags(RecipeDB,29657,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
-	self:addTradeAcquire(RecipeDB,29657,6,947,4,17585,6,947,4,17585)
+	self:addTradeFlags(RecipeDB,29657,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeAcquire(RecipeDB,29657,6,946,4,17657,6,947,4,17585)
 
 	-- Felfury Gauntlets -- 29658
 	recipecount = recipecount + 1

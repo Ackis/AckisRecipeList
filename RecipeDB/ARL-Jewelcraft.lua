@@ -437,8 +437,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Enduring Deep Peridot -- 28918
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28918,315,23105,2,25229)
-	self:addTradeFlags(RecipeDB,28918,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,104)
-	self:addTradeAcquire(RecipeDB,28918,6,947,1,17585,6,947,1,17585)
+	self:addTradeFlags(RecipeDB,28918,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,104)
+	self:addTradeAcquire(RecipeDB,28918,6,946,1,17657,6,947,1,17585)
 
 	-- Dazzling Deep Peridot -- 28924
 	recipecount = recipecount + 1
@@ -683,8 +683,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Figurine - Dawnstone Crab -- 31080
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,31080,370,24125,3,25229)
-	self:addTradeFlags(RecipeDB,31080,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63,104)
-	self:addTradeAcquire(RecipeDB,31080,6,947,3,17585,6,947,3,17585)
+	self:addTradeFlags(RecipeDB,31080,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63,104)
+	self:addTradeAcquire(RecipeDB,31080,6,946,3,17657,6,947,3,17585)
 
 	-- Figurine - Living Ruby Serpent -- 31081
 	recipecount = recipecount + 1

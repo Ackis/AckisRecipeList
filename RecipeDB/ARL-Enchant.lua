@@ -882,7 +882,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25084,300,nil,1,7411)
 	self:addTradeFlags(RecipeDB,25084,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,40,63,104)
-	self:addTradeAcquire(RecipeDB,25084,3,15276,6,947,4,17585,6,947,4,17585)
+	self:addTradeAcquire(RecipeDB,25084,3,15276,6,946,4,17657,6,947,4,17585)
 
 	-- Enchant Cloak - Dodge -- 25086
 	recipecount = recipecount + 1
@@ -960,7 +960,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,27911,325,nil,1,7411)
 	self:addTradeFlags(RecipeDB,27911,2,4,21,22,23,24,25,26,27,28,29,30,36,40,104)
-	self:addTradeAcquire(RecipeDB,27911,6,947,1,17585,6,947,1,17585)
+	self:addTradeAcquire(RecipeDB,27911,6,946,1,17657,6,947,1,17585)
 
 	-- Enchant Bracer - Restore Mana Prime -- 27913
 	recipecount = recipecount + 1
@@ -1067,8 +1067,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Exceptional Stats -- 27960
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,27960,345,nil,1,7411)
-	self:addTradeFlags(RecipeDB,27960,2,4,21,22,23,24,25,26,27,28,29,30,36,40,104)
-	self:addTradeAcquire(RecipeDB,27960,6,947,3,17585,6,947,3,17585)
+	self:addTradeFlags(RecipeDB,27960,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,104)
+	self:addTradeAcquire(RecipeDB,27960,6,946,3,17657,6,947,3,17585)
 
 	-- Enchant Cloak - Major Armor -- 27961
 	recipecount = recipecount + 1

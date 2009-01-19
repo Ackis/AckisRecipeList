@@ -743,8 +743,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Agility -- 28553
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28553,330,22831,1,2259)
-	self:addTradeFlags(RecipeDB,28553,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
-	self:addTradeAcquire(RecipeDB,28553,6,947,2,17585,6,947,2,17585)
+	self:addTradeFlags(RecipeDB,28553,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeAcquire(RecipeDB,28553,6,946,2,17657,6,947,2,17585)
 
 	-- Shrouding Potion -- 28554
 	recipecount = recipecount + 1
@@ -965,8 +965,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Skyfire Diamond -- 32766
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32766,350,25868,1,2259)
-	self:addTradeFlags(RecipeDB,32766,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
-	self:addTradeAcquire(RecipeDB,32766,6,947,2,17585,6,947,2,17585)
+	self:addTradeFlags(RecipeDB,32766,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeAcquire(RecipeDB,32766,6,946,2,17657,6,947,2,17585)
 
 	-- Volatile Healing Potion -- 33732
 	recipecount = recipecount + 1
