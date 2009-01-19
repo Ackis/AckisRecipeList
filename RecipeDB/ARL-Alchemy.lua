@@ -228,7 +228,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7255,100,6051,1,2259)
 	self:addTradeFlags(RecipeDB,7255,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7255,2,1685,2,3134)
+	self:addTradeAcquire(RecipeDB,7255,2,1685,2,3134,2,3490)
 
 	-- Shadow Protection Potion -- 7256
 	recipecount = recipecount + 1
