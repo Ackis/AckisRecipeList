@@ -833,31 +833,31 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Shadow Power -- 25073
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25073,300,nil,1,7411)
-	self:addTradeFlags(RecipeDB,25073,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25073,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,25073,8,22)
 
 	-- Enchant Gloves - Frost Power -- 25074
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25074,300,nil,1,7411)
-	self:addTradeFlags(RecipeDB,25074,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25074,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,25074,8,22)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25078,300,nil,1,7411)
-	self:addTradeFlags(RecipeDB,25078,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25078,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,25078,8,22)
 
 	-- Enchant Gloves - Healing Power -- 25079
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25079,300,nil,1,7411)
-	self:addTradeFlags(RecipeDB,25079,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25079,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,25079,8,22)
 
 	-- Enchant Gloves - Superior Agility -- 25080
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25080,300,nil,1,7411)
-	self:addTradeFlags(RecipeDB,25080,1,2,4,10,21,22,23,24,25,26,27,28,29,30,36,40,106)
+	self:addTradeFlags(RecipeDB,25080,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,40,106)
 	self:addTradeAcquire(RecipeDB,25080,8,22,6,989,4,21643)
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
@@ -1765,10 +1765,10 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,62256,2,32514)
 	
 	-- Enchant Weapon - Titanguard -- 62257
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62257,440,nil,2,7411)
-	self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,62257,2,32514)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,62257,440,nil,2,7411)
+	--self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,62257,2,32514)
 
 	end
 
