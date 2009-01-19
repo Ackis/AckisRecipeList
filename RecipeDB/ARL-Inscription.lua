@@ -1674,7 +1674,8 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58313,70,43367,1,45357)
 	self:addTradeFlags(RecipeDB,58313,1,2,3,25,36,41)
-	self:addTradeAcquire(RecipeDB,58313,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
+	--self:addTradeAcquire(RecipeDB,58313,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
+	self:addTradeAcquire(RecipeDB,58313,8,14)
 
 	-- Glyph of Blessing of Might -- 58314
 	recipecount = recipecount + 1
