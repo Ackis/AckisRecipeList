@@ -997,6 +997,11 @@ local function SetProgressBar(playerData)
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
 function addon:ResetGUI()
 
 	addon.db.profile.frameopts.offsetx = 0
@@ -1942,8 +1947,6 @@ function addon:SwitchProfs(button)
 	local endLoop = 0
 	local displayProf = 0
 
-	local NumSkillLines = GetNumSkillLines()
-
 	-- ok, so first off, if we've never done this before, there is no "current"
 	-- and a single iteration will do nicely, thank you
 	if button == "LeftButton" then
@@ -2004,6 +2007,7 @@ function addon:SwitchProfs(button)
 	-- Lets get the new skill level
 	-- Expand all headers first
 
+	local NumSkillLines = GetNumSkillLines()
 	local expandtable = {}
 
 	for i=NumSkillLines,1,-1 do
@@ -2017,6 +2021,8 @@ function addon:SwitchProfs(button)
 	-- @debug@
 	self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession)
 	--@end-debug@
+
+	NumSkillLines = GetNumSkillLines()
 
 	-- Get the skill level
 	for i=1,NumSkillLines,1 do
@@ -4322,10 +4328,10 @@ function addon:CreateFrame(
 end
 
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+-- Description: Creates a new frame with the contents of a text dump so you can copy and paste
+-- Expected result: New frame with all recipes listed and acquire info
+-- Input: A text string of what to paste
+-- Output: None
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
