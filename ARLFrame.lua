@@ -1922,142 +1922,127 @@ local function SetSwitcherTexture(tex)
 
 end
 
-do
-
-	local NumSkillLines
-
 	-- Description: Switch the displayed profession in the main panel
 	-- Expected result: 
 	-- Input: 
 	-- Output: 
 
-	function addon:SetSkillLines()
+function addon:SwitchProfs(button)
+	-- Known professions should be in playerData["Professions"]
 
-		NumSkillLines = GetNumSkillLines()
+	-- This loop is gonna be weird. The reason is because we need to
+	-- ensure that we cycle through all the known professions, but also
+	-- that we do so in order. That means that if the currently displayed
+	-- profession is the last one in the list, we're actually going to
+	-- iterate completely once to get to the currently displayed profession
+	-- and then iterate again to make sure we display the next one in line.
+	-- Further, there is the nuance that the person may not know any
+	-- professions yet at all. User are so annoying.
+	local startLoop = 0
+	local endLoop = 0
+	local displayProf = 0
 
-	end
+	local NumSkillLines = GetNumSkillLines()
 
-	-- Description: Switch the displayed profession in the main panel
-	-- Expected result: 
-	-- Input: 
-	-- Output: 
-
-	function addon:SwitchProfs(button)
-		-- Known professions should be in playerData["Professions"]
-
-		-- This loop is gonna be weird. The reason is because we need to
-		-- ensure that we cycle through all the known professions, but also
-		-- that we do so in order. That means that if the currently displayed
-		-- profession is the last one in the list, we're actually going to
-		-- iterate completely once to get to the currently displayed profession
-		-- and then iterate again to make sure we display the next one in line.
-		-- Further, there is the nuance that the person may not know any
-		-- professions yet at all. User are so annoying.
-		local startLoop = 0
-		local endLoop = 0
-		local displayProf = 0
-
-		-- ok, so first off, if we've never done this before, there is no "current"
-		-- and a single iteration will do nicely, thank you
-		if button == "LeftButton" then
-			-- normal profession switch
-			if (currentProfIndex == 0) then
-				startLoop = 1
-				endLoop = addon.MaxProfessions + 1
+	-- ok, so first off, if we've never done this before, there is no "current"
+	-- and a single iteration will do nicely, thank you
+	if button == "LeftButton" then
+		-- normal profession switch
+		if (currentProfIndex == 0) then
+			startLoop = 1
+			endLoop = addon.MaxProfessions + 1
+		else
+			startLoop = currentProfIndex + 1
+			endLoop = currentProfIndex
+		end
+		local index = startLoop
+	
+		while (index ~= endLoop) do
+			if (index > MaxProfessions) then
+				index = 1
 			else
-				startLoop = currentProfIndex + 1
-				endLoop = currentProfIndex
-			end
-			local index = startLoop
-		
-			while (index ~= endLoop) do
-				if (index > MaxProfessions) then
-					index = 1
+				if (playerData["Professions"][SortedProfessions[index].name] == true) then
+					displayProf = index
+					currentProfIndex = index
+					break
 				else
-					if (playerData["Professions"][SortedProfessions[index].name] == true) then
-						displayProf = index
-						currentProfIndex = index
-						break
-					else
-						index = index + 1
-					end
-				end
-			end
-		elseif button == "RightButton" then
-			-- reverse profession switch
-			if (currentProfIndex == 0) then
-				startLoop = addon.MaxProfessions + 1
-				endLoop = 0
-			else
-				startLoop = currentProfIndex - 1
-				endLoop = currentProfIndex
-			end
-			local index = startLoop
-		
-			while (index ~= endLoop) do
-				if (index < 1) then
-					index = MaxProfessions
-				else
-					if (playerData["Professions"][SortedProfessions[index].name] == true) then
-						displayProf = index
-						currentProfIndex = index
-						break
-					else
-						index = index - 1
-					end
+					index = index + 1
 				end
 			end
 		end
-
-		-- Redisplay the button with the new skill
-		SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-		playerData.playerProfession = SortedProfessions[currentProfIndex].name
-		currentProfession = playerData.playerProfession
-
-		-- Lets get the new skill level
-		-- Expand all headers first
-
-		local expandtable = {}
-
-		for i=NumSkillLines,1,-1 do
-			local skillName,_,isExpanded = GetSkillLineInfo(i)
-			if (not isExpanded) then
-				expandtable[skillName] = true
-				ExpandSkillHeader(i)
+	elseif button == "RightButton" then
+		-- reverse profession switch
+		if (currentProfIndex == 0) then
+			startLoop = addon.MaxProfessions + 1
+			endLoop = 0
+		else
+			startLoop = currentProfIndex - 1
+			endLoop = currentProfIndex
+		end
+		local index = startLoop
+	
+		while (index ~= endLoop) do
+			if (index < 1) then
+				index = MaxProfessions
+			else
+				if (playerData["Professions"][SortedProfessions[index].name] == true) then
+					displayProf = index
+					currentProfIndex = index
+					break
+				else
+					index = index - 1
+				end
 			end
 		end
-
-		-- @debug@
-		self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession)
-		--@end-debug@
-
-		-- Get the skill level
-		for i=1,NumSkillLines,1 do
-			local skillName,_,_,skillRank = GetSkillLineInfo(i)
-				-- @debug@
-				self:Print("DEBUG: Switching professions, examining: " .. skillName .. " (" .. skillRank .. ")")
-				--@end-debug@
-			if (skillName == currentProfession) then
-				-- @debug@
-				self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
-				--@end-debug@
-				playerData.playerProfessionLevel = 	skillRank
-				break
-			end
-		end
-
-		-- Collapse expanded headers
-		for i=NumSkillLines,1,-1 do
-			local skillName,_,isExpanded = GetSkillLineInfo(i)
-			if (expandtable[skillName] == true) then
-				CollapseSkillHeader(i)
-			end
-		end
-
-		ReDisplay()
-		addon.resetTitle()
-
 	end
+
+	-- Redisplay the button with the new skill
+	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+	playerData.playerProfession = SortedProfessions[currentProfIndex].name
+	currentProfession = playerData.playerProfession
+
+	-- Lets get the new skill level
+	-- Expand all headers first
+
+	local expandtable = {}
+
+	for i=NumSkillLines,1,-1 do
+		local skillName,_,isExpanded = GetSkillLineInfo(i)
+		if (not isExpanded) then
+			expandtable[skillName] = true
+			ExpandSkillHeader(i)
+		end
+	end
+
+	-- @debug@
+	self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession)
+	--@end-debug@
+
+	-- Get the skill level
+	for i=1,NumSkillLines,1 do
+		local skillName,_,_,skillRank = GetSkillLineInfo(i)
+			-- @debug@
+			self:Print("DEBUG: Switching professions, examining: " .. skillName .. " (" .. skillRank .. ")")
+			--@end-debug@
+		if (skillName == currentProfession) then
+			-- @debug@
+			self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
+			--@end-debug@
+			playerData.playerProfessionLevel = 	skillRank
+			break
+		end
+	end
+
+	-- Collapse expanded headers
+	for i=NumSkillLines,1,-1 do
+		local skillName,_,isExpanded = GetSkillLineInfo(i)
+		if (expandtable[skillName] == true) then
+			CollapseSkillHeader(i)
+		end
+	end
+
+	ReDisplay()
+	addon.resetTitle()
 
 end
 

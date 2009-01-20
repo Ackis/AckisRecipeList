@@ -315,9 +315,6 @@ function addon:OnEnable()
 	-- Populate the repuatation level
 	self:GetFactionLevels()
 
-	-- Find out how many skill lines we have
-	self:SetSkillLines()
-
 	--Create the button now for later use
 	self:CreateScanButton()
 
