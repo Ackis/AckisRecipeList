@@ -929,30 +929,24 @@ local function RecipeList_Update()
 
 		-- If the recipe total is at 0, it means we have not scanned the profession yet
 		if (playerData.recipes_total == 0) then
-			--@debug@
-			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
-			--@end-debug@
 			StaticPopup_Show("ARL_NOTSCANNED")
 		-- We know all the recipes
 		elseif (playerData.recipes_known == playerData.recipes_total) then
 			StaticPopup_Show("ARL_ALLKNOWN")
-			--@debug@
-			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
-			--@end-debug@
 		-- Our filters are actually filtering something
 		elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) ~= 0) then
-			--@debug@
-			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
-			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
-			--@end-debug@
 			StaticPopup_Show("ARL_ALLFILTERED")
 		-- Our exclusion list is preventing something from being displayed
 		elseif (playerData.excluded_recipes_unknown ~= 0) then
-			--@debug@
-			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
-			--@end-debug@
 			StaticPopup_Show("ARL_ALLEXCLUDED")
 		else
+			--@debug@
+			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
+			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
+			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
+			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)			
+			--@end-debug@
 			addon:Print(L["NO_DISPLAY"])
 		end
 
