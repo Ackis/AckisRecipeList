@@ -2018,18 +2018,15 @@ function addon:SwitchProfs(button)
 		end
 	end
 
-	-- @debug@
-	self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession)
-	--@end-debug@
-
 	NumSkillLines = GetNumSkillLines()
+
+	-- @debug@
+	self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession .. " (" .. NumSkillLines .. ") skills to examine.")
+	--@end-debug@
 
 	-- Get the skill level
 	for i=1,NumSkillLines,1 do
 		local skillName,_,_,skillRank = GetSkillLineInfo(i)
-			-- @debug@
-			self:Print("DEBUG: Switching professions, examining: " .. skillName .. " (" .. skillRank .. ")")
-			--@end-debug@
 		if (skillName == currentProfession) then
 			-- @debug@
 			self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
@@ -4335,7 +4332,9 @@ end
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
-function addon:DisplayTextDump(textdump)
+function addon:DisplayTextDump(RecipeDB)
+
+	local textdump = self:GetTextDump(RecipeDB)
 
 	local PaneBackdrop  = {
 		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],

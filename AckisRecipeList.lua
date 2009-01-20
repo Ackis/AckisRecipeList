@@ -1742,7 +1742,7 @@ do
 		local sortedindex = self:SortMissingRecipes(RecipeList)
 
 		if (textdump == true) then
-			local temptext = self:GetTextDump(RecipeList)
+			local temptext = self:DisplayTextDump(RecipeList)
 			self:DisplayTextDump(temptext)
 		else
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
