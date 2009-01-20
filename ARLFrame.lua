@@ -1924,14 +1924,25 @@ end
 
 do
 
-	local NumSkillLines = GetNumSkillLines()
+	local NumSkillLines
 
 	-- Description: Switch the displayed profession in the main panel
 	-- Expected result: 
 	-- Input: 
 	-- Output: 
 
-	function addon.SwitchProfs(button)
+	function addon:SetSkillLines()
+
+		NumSkillLines = GetNumSkillLines()
+
+	end
+
+	-- Description: Switch the displayed profession in the main panel
+	-- Expected result: 
+	-- Input: 
+	-- Output: 
+
+	function addon:SwitchProfs(button)
 		-- Known professions should be in playerData["Professions"]
 
 		-- This loop is gonna be weird. The reason is because we need to
@@ -3366,7 +3377,7 @@ function addon:CreateFrame(
 			ARL_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			ARL_SwitcherButton:SetScript("OnClick",
 				function(self, button)
-					addon.SwitchProfs(button)
+					addon:SwitchProfs(button)
 				end
 			)
 
