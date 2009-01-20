@@ -2016,9 +2016,16 @@ do
 			end
 		end
 
+		-- @debug@
+		self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession)
+		--@end-debug@
+
 		-- Get the skill level
 		for i=1,NumSkillLines,1 do
 			local skillName,_,_,skillRank = GetSkillLineInfo(i)
+				-- @debug@
+				self:Print("DEBUG: Switching professions, examining: " .. skillName .. " (" .. skillRank .. ")")
+				--@end-debug@
 			if (skillName == currentProfession) then
 				-- @debug@
 				self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
@@ -4367,7 +4374,7 @@ function addon:DisplayTextDump(textdump)
 		local close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
 		close:SetPoint("TOPRIGHT",frame,"TOPRIGHT")
 		
-		frame:show()
+		frame:Show()
 	else
 
 		local buttsecks = _G["ARLCopyFrame"]
