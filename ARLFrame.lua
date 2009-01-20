@@ -2020,6 +2020,9 @@ do
 		for i=1,NumSkillLines,1 do
 			local skillName,_,_,skillRank = GetSkillLineInfo(i)
 			if (skillName == currentProfession) then
+				-- @debug@
+				self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
+				--@end-debug@
 				playerData.playerProfessionLevel = 	skillRank
 				break
 			end
@@ -4332,36 +4335,46 @@ function addon:DisplayTextDump(textdump)
 		insets = { left = 3, right = 3, top = 5, bottom = 3 }
 	}
 
-	local frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
-	tinsert(UISpecialFrames, "ARLCopyFrame")
-	frame:SetBackdrop(PaneBackdrop)
-	frame:SetBackdropColor(0,0,0,1)
-	frame:SetWidth(500)
-	frame:SetHeight(400)
-	frame:SetPoint("CENTER", UIParent, "CENTER")
-	frame:SetFrameStrata("DIALOG")
-	
-	local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", frame, "UIPanelScrollFrameTemplate")
-	scrollArea:SetPoint("TOPLEFT", frame, "TOPLEFT", 8, -30)
-	scrollArea:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -30, 8)
-	
-	local editBox = CreateFrame("EditBox", nil, frame)
-	editBox:SetMultiLine(true)
-	editBox:SetMaxLetters(99999)
-	editBox:EnableMouse(true)
-	editBox:SetAutoFocus(false)
-	editBox:SetFontObject(ChatFontNormal)
-	editBox:SetWidth(400)
-	editBox:SetHeight(270)
-	editBox:SetScript("OnEscapePressed", function() frame:Hide() end)
-	editBox:SetText(textdump)
-	editBox:HighlightText(0)
-	
-	scrollArea:SetScrollChild(editBox)
-	
-	local close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-	close:SetPoint("TOPRIGHT", frame, "TOPRIGHT")
+	-- If we haven't created these frames, then lets do so now.
+	if (not _G["ARLCopyFrame"]) then
+		local frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
+		tinsert(UISpecialFrames, "ARLCopyFrame")
+		frame:SetBackdrop(PaneBackdrop)
+		frame:SetBackdropColor(0,0,0,1)
+		frame:SetWidth(500)
+		frame:SetHeight(400)
+		frame:SetPoint("CENTER", UIParent, "CENTER")
+		frame:SetFrameStrata("DIALOG")
+		
+		local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", frame, "UIPanelScrollFrameTemplate")
+		scrollArea:SetPoint("TOPLEFT", frame, "TOPLEFT", 8, -30)
+		scrollArea:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -30, 8)
+		
+		local editBox = CreateFrame("EditBox", "ARLCopyEdit", frame)
+		editBox:SetMultiLine(true)
+		editBox:SetMaxLetters(99999)
+		editBox:EnableMouse(true)
+		editBox:SetAutoFocus(false)
+		editBox:SetFontObject(ChatFontNormal)
+		editBox:SetWidth(400)
+		editBox:SetHeight(270)
+		editBox:SetScript("OnEscapePressed", function() frame:Hide() end)
+		editBox:SetText(textdump)
+		editBox:HighlightText(0)
+		
+		scrollArea:SetScrollChild(editBox)
+		
+		local close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
+		close:SetPoint("TOPRIGHT",frame,"TOPRIGHT")
+		
+		frame:show()
+	else
 
-	frame:Show()
+		local buttsecks = _G["ARLCopyFrame"]
+		local mudkipz = _G["ARLCopyEdit"]
+
+		mudkipz:SetText(textdump)
+		buttsecks:Show()
+	end
 
 end
