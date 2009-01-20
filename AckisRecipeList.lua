@@ -1742,8 +1742,7 @@ do
 		local sortedindex = self:SortMissingRecipes(RecipeList)
 
 		if (textdump == true) then
-			local temptext = self:DisplayTextDump(RecipeList)
-			self:DisplayTextDump(temptext)
+			self:DisplayTextDump(RecipeList)
 		else
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
@@ -2152,7 +2151,7 @@ function addon:MineSkillLevelData()
 			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel .. ","
 			tinsert(t,skillleveltext)
 		end
-		self:DisplayTextDump(tconcat(t,"\n"))
+		--self:DisplayTextDump(tconcat(t,"\n"))
 	else
 		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
 	end
