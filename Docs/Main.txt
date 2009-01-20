@@ -29,7 +29,7 @@ Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to 
 ==Detailed Documentation==
 * Detailed documentation - [http://www.wowace.com/projects/arl/pages/database-documentation/]
 * API - [http://www.wowace.com/projects/arl/pages/API/]
-* Localization - [http://www.wowace.com/projects/arl/localization/]
+* Localization - [http://www.wowace.com/projects/arl/pages/Localization/]
 
 ==Acknowledgments==
 * Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).

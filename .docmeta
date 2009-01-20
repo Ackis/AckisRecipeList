@@ -7,6 +7,10 @@
  input-file: Docs/Main.txt
  output-page: "Main"
 -
+ type: wiki
+ input-file: Docs/Localization.txt
+ output-page: "Localization"
+-
  type: luadoc
  input-file: AckisRecipeList.lua
  output-page: "API"
