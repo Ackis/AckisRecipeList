@@ -388,10 +388,14 @@ end
 -- Input: None
 -- Output: None
 
+--[[
+
 function addon:UPDATE_FACTION()
 	-- Reputation has changed so lets update the table
 	self:SetRepDB()
 end
+
+]]--
 
 --[[
 

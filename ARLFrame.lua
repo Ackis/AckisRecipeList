@@ -39,23 +39,25 @@ local ApplyFilterState = nil
 local narrowFont = nil
 local normalFont = nil
 
+local pairs = pairs
+local GetSpellInfo = GetSpellInfo
+local GetSkillLineInfo = GetSkillLineInfo
+local GetNumSkillLines = GetNumSkillLines
+local ExpandSkillHeader = ExpandSkillHeader
+local CollapseSkillHeader = CollapseSkillHeader
+
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 
 	local locale = GetLocale()
 
 	-- Fix for font issues on koKR
-
 	if (locale == "koKR") then
-
 		narrowFont = "Fonts\\2002.TTF"
 		normalFont = "Fonts\\2002.TTF"
-
 	else
-
 		narrowFont = "Fonts\\ARIALN.TTF"
 		normalFont = "Fonts\\FRIZQT__.TTF"
-
 	end
 
 else
@@ -184,25 +186,15 @@ end
 local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
 
 	if ((recipeSkill > playerSkill) or (not hasFaction)) then
-
 		return addon:Red(recStr)
-
 	elseif ((playerSkill - recipeSkill) < 20) then
-
 		return addon:Orange(recStr)
-
 	elseif ((playerSkill - recipeSkill) < 30) then
-
 		return addon:Yellow(recStr)
-
 	elseif ((playerSkill - recipeSkill) < 40) then
-
 		return addon:Green(recStr)
-
 	else
-
 		return addon:MidGrey(recStr)
-
 	end
 
 end
@@ -242,25 +234,17 @@ local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 
 			-- If it's Kureni/Mag'har	
 			elseif (repid == 941) or (repid == 978) then
-
 				-- If the player is Alliance look at Kureni only
 				if (playerFaction == BFAC["Alliance"]) then
-
 					repid = 978
-
 				-- If the player is Horde look at Mag'har only
 				else
-
 					repid = 941
-
 				end
-
 			end
 
 			if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
-
 				fac = false
-
 			else
 
 				-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
@@ -1938,84 +1922,121 @@ local function SetSwitcherTexture(tex)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- Switch the displayed profession in the main panel
+do
 
-function addon.SwitchProfs(button)
-	-- Known professions should be in playerData["Professions"]
+	local NumSkillLines = GetNumSkillLines()
 
-	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known professions, but also
-	-- that we do so in order. That means that if the currently displayed
-	-- profession is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed profession
-	-- and then iterate again to make sure we display the next one in line.
-	-- Further, there is the nuance that the person may not know any
-	-- professions yet at all. User are so annoying.
-	local startLoop = 0
-	local endLoop = 0
-	local displayProf = 0
+	-- Description: Switch the displayed profession in the main panel
+	-- Expected result: 
+	-- Input: 
+	-- Output: 
 
-	-- ok, so first off, if we've never done this before, there is no "current"
-	-- and a single iteration will do nicely, thank you
-    if button == "LeftButton" then
-        -- normal profession switch
-    	if (currentProfIndex == 0) then
-    		startLoop = 1
-    		endLoop = addon.MaxProfessions + 1
-    	else
-    		startLoop = currentProfIndex + 1
-    		endLoop = currentProfIndex
-    	end
-    	local index = startLoop
-    
-    	while (index ~= endLoop) do
-    		if (index > MaxProfessions) then
-    			index = 1
-    		else
-    			if (playerData["Professions"][SortedProfessions[index].name] == true) then
-    				displayProf = index
-    				currentProfIndex = index
-    				break
-    			else
-                    index = index + 1
-    			end
-    		end
-    	end
-    else
-        -- reverse profession switch
-    	if (currentProfIndex == 0) then
-    		startLoop = addon.MaxProfessions + 1
-    		endLoop = 0
-    	else
-    		startLoop = currentProfIndex - 1
-    		endLoop = currentProfIndex
-    	end
-    	local index = startLoop
-    
-    	while (index ~= endLoop) do
-    		if (index < 1) then
-    			index = MaxProfessions
-    		else
-    			if (playerData["Professions"][SortedProfessions[index].name] == true) then
-    				displayProf = index
-    				currentProfIndex = index
-    				break
-    			else
-                    index = index - 1
-    			end
-    		end
-    	end
-    end
-	-- Redisplay the button with the new skill
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-	playerData.playerProfession = SortedProfessions[currentProfIndex].name
-	currentProfession = playerData.playerProfession
-	ReDisplay()
-	addon.resetTitle()
+	function addon.SwitchProfs(button)
+		-- Known professions should be in playerData["Professions"]
+
+		-- This loop is gonna be weird. The reason is because we need to
+		-- ensure that we cycle through all the known professions, but also
+		-- that we do so in order. That means that if the currently displayed
+		-- profession is the last one in the list, we're actually going to
+		-- iterate completely once to get to the currently displayed profession
+		-- and then iterate again to make sure we display the next one in line.
+		-- Further, there is the nuance that the person may not know any
+		-- professions yet at all. User are so annoying.
+		local startLoop = 0
+		local endLoop = 0
+		local displayProf = 0
+
+		-- ok, so first off, if we've never done this before, there is no "current"
+		-- and a single iteration will do nicely, thank you
+		if button == "LeftButton" then
+			-- normal profession switch
+			if (currentProfIndex == 0) then
+				startLoop = 1
+				endLoop = addon.MaxProfessions + 1
+			else
+				startLoop = currentProfIndex + 1
+				endLoop = currentProfIndex
+			end
+			local index = startLoop
+		
+			while (index ~= endLoop) do
+				if (index > MaxProfessions) then
+					index = 1
+				else
+					if (playerData["Professions"][SortedProfessions[index].name] == true) then
+						displayProf = index
+						currentProfIndex = index
+						break
+					else
+						index = index + 1
+					end
+				end
+			end
+		elseif button == "RightButton" then
+			-- reverse profession switch
+			if (currentProfIndex == 0) then
+				startLoop = addon.MaxProfessions + 1
+				endLoop = 0
+			else
+				startLoop = currentProfIndex - 1
+				endLoop = currentProfIndex
+			end
+			local index = startLoop
+		
+			while (index ~= endLoop) do
+				if (index < 1) then
+					index = MaxProfessions
+				else
+					if (playerData["Professions"][SortedProfessions[index].name] == true) then
+						displayProf = index
+						currentProfIndex = index
+						break
+					else
+						index = index - 1
+					end
+				end
+			end
+		end
+
+		-- Redisplay the button with the new skill
+		SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+		playerData.playerProfession = SortedProfessions[currentProfIndex].name
+		currentProfession = playerData.playerProfession
+
+		-- Lets get the new skill level
+		-- Expand all headers first
+
+		local expandtable = {}
+
+		for i=NumSkillLines,1,-1 do
+			local skillName,_,isExpanded = GetSkillLineInfo(i)
+			if (not isExpanded) then
+				expandtable[skillName] = true
+				ExpandSkillHeader(i)
+			end
+		end
+
+		-- Get the skill level
+		for i=1,NumSkillLines,1 do
+			local skillName,_,_,skillRank = GetSkillLineInfo(i)
+			if (skillName == currentProfession) then
+				playerData.playerProfessionLevel = 	skillRank
+				break
+			end
+		end
+
+		-- Collapse expanded headers
+		for i=NumSkillLines,1,-1 do
+			local skillName,_,isExpanded = GetSkillLineInfo(i)
+			if (expandtable[skillName] == true) then
+				CollapseSkillHeader(i)
+			end
+		end
+
+		ReDisplay()
+		addon.resetTitle()
+
+	end
 
 end
 
