@@ -1763,6 +1763,12 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeSkill(RecipeDB,62256,440,nil,2,7411)
 	self:addTradeFlags(RecipeDB,62256,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62256,2,32514)
+
+	-- Enchant Chest - Exceptional Resilience -- 44588
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,44588,440,nil,2,7411)
+	self:addTradeFlags(RecipeDB,44588,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,44588,2,32514)
 	
 	-- Enchant Weapon - Titanguard -- 62257
 	--recipecount = recipecount + 1

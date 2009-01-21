@@ -2215,11 +2215,23 @@ function addon:InitInscription(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Glyph of Arcane Blast -- 
+	-- Glyph of Arcane Blast -- 56991
 	recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,56973,130,42737,1,45357)
-	--self:addTradeFlags(RecipeDB,56973,1,2,3,24,36,41)
-	--self:addTradeAcquire(RecipeDB,61177,1,26916,1,26959,1,26977,1,26995,1,28702)
+	self:addTradeSkill(RecipeDB,56991,310,44955,1,45357)
+	self:addTradeFlags(RecipeDB,56991,1,2,3,24,36,41)
+	self:addTradeAcquire(RecipeDB,56991,26916,1,26959,1,26977,1,26995,1,28702)
+
+	-- Glyph of Typhoon -- 56965
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,56965,310,44955,1,45357)
+	self:addTradeFlags(RecipeDB,56965,1,2,3,22,36,41)
+	self:addTradeAcquire(RecipeDB,56965,26916,1,26959,1,26977,1,26995,1,28702)
+
+	-- Glyph of Focus -- 62162
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62162,380,44928,1,45357)
+	self:addTradeFlags(RecipeDB,62162,1,2,3,22,36,41)
+	self:addTradeAcquire(RecipeDB,62162,26916,1,26959,1,26977,1,26995,1,28702)
 
 	end
 
