@@ -732,10 +732,8 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 	-- Clear the "Have Materials" check box
 	if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-
 		TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
 		TradeSkillOnlyShowMakeable(false)
-
 	end
 
 	-- Clear the sub-classes filters
@@ -748,27 +746,20 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 	-- Expand all headers so we can see all the recipes there are
 	for i = GetNumTradeSkills(), 1, -1 do
-
 		local _, tradeType = GetTradeSkillInfo(i)
-
 		if tradeType == "header" then
-
 			ExpandTradeSkillSubClass(i)
-
 		end
-
 	end
 
-	playerData.foundRecipes = 0
+	local foundRecipes = 0
 
 	-- Scan through all recipes
 	for i = 1, GetNumTradeSkills() do
-
 		local tradeName, tradeType = GetTradeSkillInfo(i)
 
 		-- Ignore all trade skill headers
 		if (tradeType ~= "header") then
-
 			-- Get the trade skill link for the specified recipe
 			local SpellLink = GetTradeSkillRecipeLink(i)
 
@@ -779,20 +770,53 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 			-- Spell ID is in RecipeDB so lets flag it as known
 			if (RecipeDB[SpellID]) then
-
 				-- Update array that recipe was found
 				RecipeDB[SpellID]["Known"] = true
-				playerData.foundRecipes = playerData.foundRecipes + 1
-
+				foundRecipes = foundRecipes + 1
 			-- We didn't find it in our database, lets notify people that we don't have it
 			else
-
 				self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
-
 			end
-
 		end
 
+	end
+
+	playerData.foundRecipes = foundRecipes
+
+	--@debug@
+	self:Print("DEBUG: Checking for First Aid/Cooking skill books.")
+	--@end-debug@
+
+	-- Cooking
+	if (playerData.playerProfession == GetSpellInfo(2550)) then
+		if (playerData.playerProfessionLevel > 300) then
+			--@debug@
+			self:Print("DEBUG: Cooking 300 book known.")
+			--@end-debug@
+			RecipeDB[33359]["Known"] = true
+		end
+		if (playerData.playerProfessionLevel > 225) then
+			--@debug@
+			self:Print("DEBUG: Cooking 225 book known.")
+			--@end-debug@
+			RecipeDB[3413]["Known"] = true
+		end
+	end
+
+	-- First Aid
+	if ((playerData.playerProfession == GetSpellInfo(756)) or (playerData.playerProfession == "Premiers soins")) then
+		if (playerData.playerProfessionLevel > 225) then
+			--@debug@
+			self:Print("DEBUG: First Aid 225 quest known.")
+			--@end-debug@
+			RecipeDB[10846]["Known"] = true
+		end
+		if (playerData.playerProfessionLevel > 150) then
+			--@debug@
+			self:Print("DEBUG: First Aid 150 book known.")
+			--@end-debug@
+			RecipeDB[7924]["Known"] = true
+		end
 	end
 
 end
