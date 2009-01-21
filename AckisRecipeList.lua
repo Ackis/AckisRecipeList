@@ -1742,7 +1742,7 @@ do
 		local sortedindex = self:SortMissingRecipes(RecipeList)
 
 		if (textdump == true) then
-			self:DisplayTextDump(RecipeList)
+			self:DisplayTextDump(RecipeList, playerData.playerProfession)
 		else
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
@@ -2071,7 +2071,14 @@ function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
 
+	local profspellid = GetSpellInfo(profession)
+
+	--@debug@
+	self:Print("DEBUG: Getting text dumb for: " .. profession .. "(" .. profspellid .. ")")
+	--@end-debug@
+
 	-- Add a header to the text table
+	tinsert(texttable,format("Ackis Recipe List Text Dump for %s",profession))
 	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
 	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
@@ -2161,7 +2168,7 @@ function addon:MineSkillLevelData()
 			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel .. ","
 			tinsert(t,skillleveltext)
 		end
-		--self:DisplayTextDump(tconcat(t,"\n"))
+		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 	else
 		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
 	end

@@ -4329,9 +4329,16 @@ end
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
-function addon:DisplayTextDump(RecipeDB)
+function addon:DisplayTextDump(RecipeDB, profession, text)
 
-	local textdump = self:GetTextDump(RecipeDB)
+	local textdump
+
+	-- If we don't send in a RecipeDB and profession, just dump the text
+	if (not RecipeDB and profession) then
+		textdump = text
+	else
+		textdump = self:GetTextDump(RecipeDB)
+	end
 
 	local PaneBackdrop  = {
 		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
