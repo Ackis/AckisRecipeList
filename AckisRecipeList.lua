@@ -1699,12 +1699,10 @@ do
 			if (playerData == nil) then
 				playerData = InitPlayerData()
 			end
-
 			-- Lets create all the databases needed if this is the first time everything has been run.
 			if (RecipeList == nil) then
 				InitDatabases()
 			end
-
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
 			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
             --@debug@
@@ -2084,63 +2082,66 @@ function addon:GetTextDump(RecipeDB, profession)
 
 	for SpellID in pairs(RecipeDB) do
 
-		-- Add Spell ID, Name and Skill Level to the list
-		tinsert(texttable,SpellID)
-		tinsert(texttable,",")
-		tinsert(texttable,RecipeDB[SpellID]["Name"])
-		tinsert(texttable,",")
-		tinsert(texttable,RecipeDB[SpellID]["Level"])
-		tinsert(texttable,",[")
+		if (RecipeDB[SpellID]["Profession"] == profspellid) then
 
-		-- Add in all the filter flags
-		local flags = RecipeDB[SpellID]["Flags"]
+			-- Add Spell ID, Name and Skill Level to the list
+			tinsert(texttable,SpellID)
+			tinsert(texttable,",")
+			tinsert(texttable,RecipeDB[SpellID]["Name"])
+			tinsert(texttable,",")
+			tinsert(texttable,RecipeDB[SpellID]["Level"])
+			tinsert(texttable,",[")
 
-		-- Find out which flags are marked as "true"
-		for i=1,MaxFilterIndex,1 do
-			if (flags[i] == true) then
+			-- Add in all the filter flags
+			local flags = RecipeDB[SpellID]["Flags"]
+
+			-- Find out which flags are marked as "true"
+			for i=1,MaxFilterIndex,1 do
+				if (flags[i] == true) then
+					tinsert(texttable,i)
+					tinsert(texttable,",")
+				end
+			end
+
+			tinsert(texttable,"],[")
+
+			-- Find out which unique acquire methods we have
+			local acquire = RecipeDB[SpellID]["Acquire"]
+			local acquirelist = {}
+
+			for i in pairs(acquire) do
+				if (acquire[i]["Type"] == 1) then
+					acquirelist["Trainer"] = true
+				elseif (acquire[i]["Type"] == 2) then
+					acquirelist["Vendor"] = true
+				elseif (acquire[i]["Type"] == 3) then
+					acquirelist["Mob Drop"] = true
+				elseif (acquire[i]["Type"] == 4) then
+					acquirelist["Quest"] = true
+				elseif (acquire[i]["Type"] == 5) then
+					acquirelist["Seasonal"] = true
+				elseif (acquire[i]["Type"] == 6) then
+					acquirelist["Reputation"] = true
+				elseif (acquire[i]["Type"] == 7) then
+					acquirelist["World Drop"] = true
+				elseif (acquire[i]["Type"] == 8) then
+					acquirelist["Custom"] = true
+				end
+			end
+
+			-- Add all the acquire methods in
+			for i in pairs(acquirelist) do
 				tinsert(texttable,i)
 				tinsert(texttable,",")
 			end
-		end
 
-		tinsert(texttable,"],[")
-
-		-- Find out which unique acquire methods we have
-		local acquire = RecipeDB[SpellID]["Acquire"]
-		local acquirelist = {}
-
-		for i in pairs(acquire) do
-			if (acquire[i]["Type"] == 1) then
-				acquirelist["Trainer"] = true
-			elseif (acquire[i]["Type"] == 2) then
-				acquirelist["Vendor"] = true
-			elseif (acquire[i]["Type"] == 3) then
-				acquirelist["Mob Drop"] = true
-			elseif (acquire[i]["Type"] == 4) then
-				acquirelist["Quest"] = true
-			elseif (acquire[i]["Type"] == 5) then
-				acquirelist["Seasonal"] = true
-			elseif (acquire[i]["Type"] == 6) then
-				acquirelist["Reputation"] = true
-			elseif (acquire[i]["Type"] == 7) then
-				acquirelist["World Drop"] = true
-			elseif (acquire[i]["Type"] == 8) then
-				acquirelist["Custom"] = true
+			if (RecipeDB[SpellID]["Known"]) then
+				tinsert(texttable,"],true\n")
+			else
+				tinsert(texttable,"],false\n")
 			end
-		end
 
-		-- Add all the acquire methods in
-		for i in pairs(acquirelist) do
-			tinsert(texttable,i)
-			tinsert(texttable,",")
 		end
-
-		if (RecipeDB[SpellID]["Known"]) then
-			tinsert(texttable,"],true\n")
-		else
-			tinsert(texttable,"],false\n")
-		end
-
 	end
 
 	return tconcat(texttable,"")
