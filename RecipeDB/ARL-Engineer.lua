@@ -1746,11 +1746,17 @@ function addon:InitEngineering(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- New spell power epic goggles
+	-- Engineering goggles
 	--recipecount = recipecount + 1
 	--self:addTradeSkill(RecipeDB,56483,440,42552,3,4036)
 	--self:addTradeFlags(RecipeDB,56483,1,2,3,25,37,41,53,59)
 	--self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,28697)
+
+	-- Titanium Toolbox -- 30349
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,30349,440,23775,3,4036)
+	self:addTradeFlags(RecipeDB,30349,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,59)
+	self:addTradeAcquire(RecipeDB,30349,1,25277,1,26907,1,26955,1,26991,1,28697)
 	
 	end
 
