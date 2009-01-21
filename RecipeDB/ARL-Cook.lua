@@ -1007,16 +1007,16 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
 	-- Expert Cooking -- 3413 - 225 Cooking
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,3413,125,16072,1,2550)
-	--self:addTradeFlags(RecipeDB,3413,1,2,4,21,22,23,24,25,26,27,28,29,30)
-	--self:addTradeAcquire(RecipeDB,3413,2,3955,2,12033)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,3413,125,16072,1,2550)
+	self:addTradeFlags(RecipeDB,3413,1,2,4,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,3413,2,3955,2,12033)
 
 	-- Master Cooking -- 33359 - 300 cooking
 	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,33359,300,27736,1,2550)
-	--self:addTradeFlags(RecipeDB,33359,1,2,4,21,22,23,24,25,26,27,28,29,30)
-	--self:addTradeAcquire(RecipeDB,33359,2,18988,2,18987,2,18993)
+	self:addTradeSkill(RecipeDB,33359,300,27736,1,2550)
+	self:addTradeFlags(RecipeDB,33359,1,2,4,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,33359,2,18988,2,18987,2,18993)
 
 	return recipecount
 
