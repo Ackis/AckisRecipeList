@@ -2067,28 +2067,38 @@ end
 -- Input: Recipe database
 -- Output: Array is a reference, string of text dump
 
-function addon:GetTextDump(RecipeDB)
+function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
 
 	-- Add a header to the text table
-	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.")
-	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known")
+	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
+	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(RecipeDB) do
 
+		-- Add Spell ID, Name and Skill Level to the list
+		tinsert(texttable,SpellID)
+		tinsert(texttable,",")
+		tinsert(texttable,RecipeDB[SpellID]["Name"])
+		tinsert(texttable,",")
+		tinsert(texttable,RecipeDB[SpellID]["Level"])
+		tinsert(texttable,",[")
+
+		-- Add in all the filter flags
 		local flags = RecipeDB[SpellID]["Flags"]
-		local flaglist = {}
 
 		-- Find out which flags are marked as "true"
 		for i=1,MaxFilterIndex,1 do
 			if (flags[i] == true) then
-				tinsert(flaglist,i)
+				tinsert(texttable,i)
+				tinsert(texttable,",")
 			end
 		end
 
-		local flagtext = tconcat(flaglist,",")
+		tinsert(texttable,"],[")
 
+		-- Find out which unique acquire methods we have
 		local acquire = RecipeDB[SpellID]["Acquire"]
 		local acquirelist = {}
 
@@ -2112,21 +2122,21 @@ function addon:GetTextDump(RecipeDB)
 			end
 		end
 
-		local acquiretext = ""
-
+		-- Add all the acquire methods in
 		for i in pairs(acquirelist) do
-			acquiretext = i .. "," .. acquiretext
+			tinsert(texttable,i)
+			tinsert(texttable,",")
 		end
 
 		if (RecipeDB[SpellID]["Known"]) then
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],true")
+			tinsert(texttable,"],true\n")
 		else
-			tinsert(texttable,SpellID .. "," .. RecipeDB[SpellID]["Name"] .. "," .. RecipeDB[SpellID]["Level"] .. ",[" .. flagtext .. "],[" .. acquiretext .. "],false")
+			tinsert(texttable,"],false\n")
 		end
 
 	end
 
-	return tconcat(texttable,"\n")
+	return tconcat(texttable,"")
 
 end
 
