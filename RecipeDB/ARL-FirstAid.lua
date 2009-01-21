@@ -136,13 +136,13 @@ function addon:InitFirstAid(RecipeDB)
 
 	-- Expert First Aid -- 7924 (150 training)
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,7924,125,16084,1,2550)
+	self:addTradeSkill(RecipeDB,7924,125,16084,1,746)
 	self:addTradeFlags(RecipeDB,7924,1,2,4,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,7924,2,2805,2,13476)
 
 	-- Artisan First Aid -- 10846 (225 training)
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,10846,225,nil,1,2550)
+	self:addTradeSkill(RecipeDB,10846,225,nil,1,746)
 	self:addTradeFlags(RecipeDB,10846,1,2,8,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,10846,4,6622,4,6624)
 
