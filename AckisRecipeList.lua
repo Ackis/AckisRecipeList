@@ -1706,7 +1706,7 @@ do
 			if (not playerData.playerProfession) or (not playerData.playerProfessionLevel) then
 				self:Print("DEBUG: Scan of: " .. playerData.playerProfession)
 			end
-            --@end-debug
+            --@end-debug@
 
 			-- Get the current profession Specialty
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
