@@ -1105,7 +1105,7 @@ EOF
 				acquire << add_npc_trainer(25277, "Chief Engineer Leveny", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26955, "Jamesina Watterly", "Horde", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(28697, "Juston Oshenko", "Neutral", npcfactions, acquirelisting)
-				acquire << add_npc_trainer(26991, "Scoks Brightbolt", "Alliance", npcfactions, acquirelisting)
+				acquire << add_npc_trainer(26991, "Sock Brightbolt", "Alliance", npcfactions, acquirelisting)
 				acquire << add_npc_trainer(26907, "Tisha Longbridge", "Alliance", npcfactions, acquirelisting)
 				flags << flaglisting["Alliance"] << flaglisting["Horde"] << flaglisting["Trainer"]
 			when "EngFlightTrainer"
