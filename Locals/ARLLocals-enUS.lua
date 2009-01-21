@@ -1285,6 +1285,7 @@ L["Shadowmoon Reaver"] = true
 L["Shadowsworn Thug"] = true
 L["Shadowy Necromancer"] = true
 L["Shaina Fuller"] = true
+L["Shandrina"] = true
 L["Shankys"] = true
 L["Shardtooth Bear"] = true
 L["Shardtooth Mauler"] = true
