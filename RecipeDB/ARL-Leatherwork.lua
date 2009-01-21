@@ -3035,6 +3035,12 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,62177,440,44931,4,2108)
 	self:addTradeFlags(RecipeDB,62177,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,62177,)
+
+	-- Earthen Leg Armor -- 62448
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62448,425,44963,4,2108)
+	self:addTradeFlags(RecipeDB,62448,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62448,60669,1,26911,1,26961,1,26996,1,26998,1,28700)
 	
 	end
 
