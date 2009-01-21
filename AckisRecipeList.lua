@@ -68,8 +68,6 @@ local MaxFilterIndex = 131
 addon.optionsFrame = {}
 addon.ScanButton = nil
 addon.Frame = nil
--- tooltip needs to be global so I can access individual lines in it and 
--- modify then
 _G["arlTooltip"] = nil
 _G["arlTooltip2"] = nil
 
@@ -277,19 +275,20 @@ end
 
 function addon:OnEnable()
 
+	self:Print("ARL RC1 - If you notice anything missing in the recipe database (inaccurate info, missing info, wrong info) please report it.")
+
 	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_SHOW")
 
 	-- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_CLOSE")
 
-	-- Addon responds when a players faction level changes
-	--self:RegisterEvent("UPDATE_FACTION")
-
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
 
+		--@debug@
 		self:Print("Enabling Manufac integration.")
+		--@end-debug@
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan"],
@@ -336,9 +335,7 @@ function addon:OnDisable()
 
 	-- Remove the option from Manufac
 	if Manufac then
-
 		Manufac.options.args.ARLScan = nil
-
 	end
 
 end
@@ -2151,7 +2148,7 @@ end
 -- Description: Parses a trainer and gets the names of all skills with their levels
 -- Expected result: Pop up window with the code needed for skill levels
 -- Input: None
--- Output: Copy box with code for me
+-- Output: Copy box with code for me to use
 
 function addon:MineSkillLevelData()
 
