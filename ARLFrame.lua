@@ -4337,7 +4337,7 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 	if (not RecipeDB and profession) then
 		textdump = text
 	else
-		textdump = self:GetTextDump(RecipeDB)
+		textdump = self:GetTextDump(RecipeDB,profession)
 	end
 
 	local PaneBackdrop  = {

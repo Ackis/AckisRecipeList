@@ -2093,8 +2093,8 @@ function addon:GetTextDump(RecipeDB, profession)
 	--local profspellid = GetSpellInfo(profession)
 
 	--@debug@
-	--self:Print("DEBUG: Getting text dumb for: " .. profession .. "(" .. profspellid .. ")")
-	self:Print("DEBUG: Getting text dumb for: " .. profession)
+	--self:Print("DEBUG: Getting text dump for: " .. profession .. "(" .. profspellid .. ")")
+	self:Print("DEBUG: Getting text dump for: " .. profession)
 	--@end-debug@
 
 	-- Add a header to the text table
