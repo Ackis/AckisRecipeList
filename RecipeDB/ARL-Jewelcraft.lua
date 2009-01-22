@@ -2111,8 +2111,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Sovereign Twilight Opal -- 53962
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53962,380,40022,3,25229)
-	self:addTradeFlags(RecipeDB,53962,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53962,1,26915,1,26960,1,26982,1,26997,1,28701)
+	self:addTradeFlags(RecipeDB,53962,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53962,7,3)
 
 	-- Shifting Twilight Opal -- 53963
 	recipecount = recipecount + 1
