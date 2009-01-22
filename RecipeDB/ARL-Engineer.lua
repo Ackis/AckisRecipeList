@@ -1746,11 +1746,11 @@ function addon:InitEngineering(RecipeDB)
 
 	if (version == "3.0.8") then
 
-	-- Engineering goggles
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,56483,440,42552,3,4036)
-	--self:addTradeFlags(RecipeDB,56483,1,2,3,25,37,41,53,59)
-	--self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,28697)
+	-- Unbreakable Healing Amplifiers -- 62271
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62271,440,44949,3,4036)
+	self:addTradeFlags(RecipeDB,62271,1,2,3,25,37,41,53,59)
+	self:addTradeAcquire(RecipeDB,62271,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Titanium Toolbox -- 30349
 	recipecount = recipecount + 1
