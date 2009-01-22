@@ -783,10 +783,6 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 	playerData.foundRecipes = foundRecipes
 
-	--@debug@
-	self:Print("DEBUG: Checking for First Aid/Cooking skill books.")
-	--@end-debug@
-
 	-- Cooking
 	if (playerData.playerProfession == GetSpellInfo(2550)) then
 		if (playerData.playerProfessionLevel > 300) then
@@ -804,7 +800,7 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 	end
 
 	-- First Aid
-	if ((playerData.playerProfession == GetSpellInfo(756)) or (playerData.playerProfession == "Premiers soins")) then
+	if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
 		if (playerData.playerProfessionLevel > 225) then
 			--@debug@
 			self:Print("DEBUG: First Aid 225 quest known.")
@@ -2090,10 +2086,7 @@ function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
 
-	--local profspellid = GetSpellInfo(profession)
-
 	--@debug@
-	--self:Print("DEBUG: Getting text dump for: " .. profession .. "(" .. profspellid .. ")")
 	self:Print("DEBUG: Getting text dump for: " .. profession)
 	--@end-debug@
 
@@ -2104,7 +2097,9 @@ function addon:GetTextDump(RecipeDB, profession)
 
 	for SpellID in pairs(RecipeDB) do
 
-		--if (RecipeDB[SpellID]["Profession"] == profspellid) then
+		local recipeprof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
+
+		if (recipeprof == profession) then
 
 			-- Add Spell ID, Name and Skill Level to the list
 			tinsert(texttable,SpellID)
@@ -2163,7 +2158,7 @@ function addon:GetTextDump(RecipeDB, profession)
 				tinsert(texttable,"],false\n")
 			end
 
-		--end
+		end
 	end
 
 	return tconcat(texttable,"")
