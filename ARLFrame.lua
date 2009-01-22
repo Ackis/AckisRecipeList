@@ -4348,45 +4348,41 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 	}
 
 	-- If we haven't created these frames, then lets do so now.
-	if (not _G["ARLCopyFrame"]) then
-		local frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
+	if (not addon.ARLCopyFrame) then
+		addon.ARLCopyFrame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
 		tinsert(UISpecialFrames, "ARLCopyFrame")
-		frame:SetBackdrop(PaneBackdrop)
-		frame:SetBackdropColor(0,0,0,1)
-		frame:SetWidth(500)
-		frame:SetHeight(400)
-		frame:SetPoint("CENTER", UIParent, "CENTER")
-		frame:SetFrameStrata("DIALOG")
+		addon.ARLCopyFrame:SetBackdrop(PaneBackdrop)
+		addon.ARLCopyFrame:SetBackdropColor(0,0,0,1)
+		addon.ARLCopyFrame:SetWidth(750)
+		addon.ARLCopyFrame:SetHeight(400)
+		addon.ARLCopyFrame:SetPoint("CENTER", UIParent, "CENTER")
+		addon.ARLCopyFrame:SetFrameStrata("DIALOG")
 		
-		local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", frame, "UIPanelScrollFrameTemplate")
-		scrollArea:SetPoint("TOPLEFT", frame, "TOPLEFT", 8, -30)
-		scrollArea:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -30, 8)
+		local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", addon.ARLCopyFrame, "UIPanelScrollFrameTemplate")
+		scrollArea:SetPoint("TOPLEFT", addon.ARLCopyFrame, "TOPLEFT", 8, -30)
+		scrollArea:SetPoint("BOTTOMRIGHT", addon.ARLCopyFrame, "BOTTOMRIGHT", -30, 8)
 		
-		local editBox = CreateFrame("EditBox", "ARLCopyEdit", frame)
-		editBox:SetMultiLine(true)
-		editBox:SetMaxLetters(99999)
-		editBox:EnableMouse(true)
-		editBox:SetAutoFocus(false)
-		editBox:SetFontObject(ChatFontNormal)
-		editBox:SetWidth(400)
-		editBox:SetHeight(270)
-		editBox:SetScript("OnEscapePressed", function() frame:Hide() end)
-		editBox:SetText(textdump)
-		editBox:HighlightText(0)
+		addon.ARLCopyFrame.editBox = CreateFrame("EditBox", "ARLCopyEdit", addon.ARLCopyFrame)
+		addon.ARLCopyFrame.editBox:SetMultiLine(true)
+		addon.ARLCopyFrame.editBox:SetMaxLetters(99999)
+		addon.ARLCopyFrame.editBox:EnableMouse(true)
+		addon.ARLCopyFrame.editBox:SetAutoFocus(false)
+		addon.ARLCopyFrame.editBox:SetFontObject(ChatFontNormal)
+		addon.ARLCopyFrame.editBox:SetWidth(650)
+		addon.ARLCopyFrame.editBox:SetHeight(270)
+		addon.ARLCopyFrame.editBox:SetScript("OnEscapePressed", function() addon.ARLCopyFrame:Hide() end)
+		addon.ARLCopyFrame.editBox:SetText(textdump)
+		addon.ARLCopyFrame.editBox:HighlightText(0)
 		
-		scrollArea:SetScrollChild(editBox)
+		scrollArea:SetScrollChild(addon.ARLCopyFrame.editBox)
 		
-		local close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-		close:SetPoint("TOPRIGHT",frame,"TOPRIGHT")
+		local close = CreateFrame("Button", nil, addon.ARLCopyFrame, "UIPanelCloseButton")
+		close:SetPoint("TOPRIGHT",addon.ARLCopyFrame,"TOPRIGHT")
 		
-		frame:Show()
+		addon.ARLCopyFrame:Show()
 	else
-
-		local buttsecks = _G["ARLCopyFrame"]
-		local mudkipz = _G["ARLCopyEdit"]
-
-		mudkipz:SetText(textdump)
-		buttsecks:Show()
+		addon.ARLCopyFrame.editBox:SetText(textdump)
+		addon.ARLCopyFrame:Show()
 	end
 
 end

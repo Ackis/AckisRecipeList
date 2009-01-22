@@ -68,6 +68,7 @@ local MaxFilterIndex = 131
 addon.optionsFrame = {}
 addon.ScanButton = nil
 addon.Frame = nil
+addon.ARLCopyFrame = nil
 _G["arlTooltip"] = nil
 _G["arlTooltip2"] = nil
 
@@ -1732,17 +1733,44 @@ do
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
 
 			-- Add the recipes to the database
+			--@debug@
+			local _t0=GetTime()
+			--@end-debug@
 			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
+			--@debug@
+			self:Print("DEBUG: Recipe Initialization: " .. GetTime()-_t0)
+			--@end-debug@
 
+			--@debug@
+			local _t1=GetTime()
+			--@end-debug@
 			-- Scan all recipes and mark the ones which ones we know
 			self:ScanForKnownRecipes(RecipeList, playerData)
+			--@debug@
+			self:Print("DEBUG: Scanning for known recipes: " .. GetTime()-_t1)
+			--@end-debug@
 
+			--@debug@
+			local _t2=GetTime()
+			--@end-debug@
 			-- Update the table containing which reps to display
 			self:PopulateRepFilters(RepFilters)
+			--@debug@
+			self:Print("DEBUG: Rep Filtering: " .. GetTime()-_t2)
+			--@end-debug@
 
+			--@debug@
+			local _t3=GetTime()
+			--@end-debug@
 			-- Add filtering flags to the recipes
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
+			--@debug@
+			self:Print("DEBUG: Filtering: " .. GetTime()-_t3)
+			--@end-debug@
 
+			--@debug@
+			local _t4=GetTime()
+			--@end-debug@
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
 				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList)
@@ -1750,20 +1778,27 @@ do
 				playerData.excluded_recipes_known = 0
 				playerData.excluded_recipes_unknown = 0
 			end
+			--@debug@
+			self:Print("DEBUG: Exclusions: " .. GetTime()-_t4)
+			--@end-debug@
 
 		end
 
-		-- Sort the recipe list now
-		local sortedindex = self:SortMissingRecipes(RecipeList)
-
+		--@debug@
+		local _t5=GetTime()
+		--@end-debug@
 		if (textdump == true) then
 			self:DisplayTextDump(RecipeList, playerData.playerProfession)
 		else
+			-- Sort the recipe list now
+			local sortedindex = self:SortMissingRecipes(RecipeList)
 			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
 		end
-
+		--@debug@
+		self:Print("DEBUG: Frame creation/display: " .. GetTime()-_t5)
+		--@end-debug@
 	end
 
 	
