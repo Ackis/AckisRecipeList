@@ -2036,17 +2036,10 @@ function addon:SwitchProfs(button)
 
 	NumSkillLines = GetNumSkillLines()
 
-	-- @debug@
-	self:Print("DEBUG: Switching professions, getting skill level for: " .. currentProfession .. " (" .. NumSkillLines .. ") skills to examine.")
-	--@end-debug@
-
 	-- Get the skill level
 	for i=1,NumSkillLines,1 do
 		local skillName,_,_,skillRank = GetSkillLineInfo(i)
 		if (skillName == currentProfession) then
-			-- @debug@
-			self:Print("DEBUG: Switching professions, found new skill level for: " .. skillName .. " (" .. skillRank .. ")")
-			--@end-debug@
 			playerData.playerProfessionLevel = 	skillRank
 			break
 		end
