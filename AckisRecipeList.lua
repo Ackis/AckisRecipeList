@@ -32,31 +32,23 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
-
-	AckisRecipeList:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
+	addon:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
-
-	AckisRecipeList:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
+	addon:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
-
-	AckisRecipeList:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
+	addon:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-
-	AckisRecipeList:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
+	addon:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
