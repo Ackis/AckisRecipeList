@@ -787,15 +787,9 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 	-- Cooking
 	if (playerData.playerProfession == GetSpellInfo(2550)) then
 		if (playerData.playerProfessionLevel > 300) then
-			--@debug@
-			self:Print("DEBUG: Cooking 300 book known.")
-			--@end-debug@
 			RecipeDB[33359]["Known"] = true
 		end
 		if (playerData.playerProfessionLevel > 225) then
-			--@debug@
-			self:Print("DEBUG: Cooking 225 book known.")
-			--@end-debug@
 			RecipeDB[3413]["Known"] = true
 		end
 	end
@@ -803,15 +797,9 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 	-- First Aid
 	if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
 		if (playerData.playerProfessionLevel > 225) then
-			--@debug@
-			self:Print("DEBUG: First Aid 225 quest known.")
-			--@end-debug@
 			RecipeDB[10846]["Known"] = true
 		end
 		if (playerData.playerProfessionLevel > 150) then
-			--@debug@
-			self:Print("DEBUG: First Aid 150 book known.")
-			--@end-debug@
 			RecipeDB[7924]["Known"] = true
 		end
 	end

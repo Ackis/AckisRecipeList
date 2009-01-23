@@ -964,23 +964,42 @@ local function SetProgressBar(playerData)
 	local pbCur, pbMax
 
 	if (addon.db.profile.includefiltered == true) then
-
 		pbCur = playerData.recipes_known
 		pbMax = playerData.recipes_total
-
 	-- We're removing filtered recipes from the final count
 	else
-
 		pbCur = playerData.recipes_known_filtered
 		pbMax = playerData.recipes_total_filtered
-
 	end
 
 	if (not addon.db.profile.includeexcluded) then
-
 		pbCur = pbCur - playerData.excluded_recipes_known
 		pbMax = pbMax - playerData.excluded_recipes_unknown
+	end
 
+	-- Lets remove cooking/first aid recipes from the totals/current
+	-- Cooking
+	if (playerData.playerProfession == GetSpellInfo(2550)) then
+		if (playerData.playerProfessionLevel > 300) then
+			pbCur = pbCur - 1
+			pbMax = pbMax - 1
+		end
+		if (playerData.playerProfessionLevel > 225) then
+			pbCur = pbCur - 1
+			pbMax = pbMax - 1
+		end
+	end
+
+	-- First Aid
+	if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
+		if (playerData.playerProfessionLevel > 225) then
+			pbCur = pbCur - 1
+			pbMax = pbMax - 1
+		end
+		if (playerData.playerProfessionLevel > 150) then
+			pbCur = pbCur - 1
+			pbMax = pbMax - 1
+		end
 	end
 
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
