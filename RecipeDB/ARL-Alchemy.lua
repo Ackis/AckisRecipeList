@@ -395,8 +395,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Ghost Dye -- 11473
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11473,245,9210,1,2259)
-	self:addTradeFlags(RecipeDB,11473,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11473,2,8157)
+	self:addTradeFlags(RecipeDB,11473,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11473,2,8157,2,8158)
 
 	-- Elixir of Shadow Power -- 11476
 	recipecount = recipecount + 1
@@ -407,8 +407,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11477,250,9224,1,2259)
-	self:addTradeFlags(RecipeDB,11477,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11477,2,8178)
+	self:addTradeFlags(RecipeDB,11477,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11477,2,8177,2,8178)
 
 	-- Elixir of Detect Demon -- 11478
 	recipecount = recipecount + 1
