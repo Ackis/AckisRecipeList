@@ -150,7 +150,7 @@ function addon:OnInitialize()
 				-- General Filters
 				general = {
 				    faction = true,
-					class = false,
+					class = true,
 					specialty = false,
 					skill = true,
 					known = false,
