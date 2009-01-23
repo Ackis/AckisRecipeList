@@ -1,4 +1,6 @@
-==Locale schema==
+All localization entries must be added to the WoW Ace localization application.  When the addon is packaged, the localization strings are taken from the application and added to the code.
+
+==Localization Schema==
 * single and double words are just fine, anything longer should have a tag
 * tag name rules:
 ** tags should be ALL_CAPITAL_LETTERS with words separated with _'s
