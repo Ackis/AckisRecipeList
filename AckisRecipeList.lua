@@ -666,38 +666,24 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 	DB[ID]["Name"] = Name
 
 	if (Loc) then
-
 		DB[ID]["Location"] = Loc
-
 	else
-
 		DB[ID]["Location"] = L["Unknown Zone"]
-
 	end
 
 	if (Coordx) and (Coordy) then
-
 		DB[ID]["Coordx"] = Coordx
 		DB[ID]["Coordy"] = Coordy
-
 	end
 
 	if (Faction) then
-
 		if (Faction == 0) then
-
 			DB[ID]["Faction"] = BFAC["Neutral"]
-
 		elseif (Faction == 1) then
-
 			DB[ID]["Faction"] = BFAC["Alliance"]
-
 		elseif (Faction == 2) then
-
 			DB[ID]["Faction"] = BFAC["Horde"]
-
 		end
-
 	end
 
 end
@@ -801,7 +787,6 @@ end
 do
 
 	local classmap = {
-
 		["DEATHKNIGHT"] = 21,
 		["DRUID"] = 22,
 		["HUNTER"] = 23,
@@ -812,7 +797,6 @@ do
 		["ROGUE"] = 28,
 		["WARLOCK"] = 29,
 		["WARRIOR"] = 30
-
 	}
 
 	local reptable = nil
@@ -868,7 +852,7 @@ do
 
 	end
 
-	local function CheckReputationDisplay(Recipe, flags)
+	local function CheckReputationDisplay(flags)
 
 		if (not reptable) then
 			CreateRepTable()
@@ -1098,7 +1082,7 @@ do
 			return false
 		end
 
-		if (not CheckReputationDisplay(Recipe, flags)) then
+		if (not CheckReputationDisplay(flags)) then
 			return false
 		end
 
