@@ -498,7 +498,7 @@ function addon:InitMob(MobDB)
 	-- Maraudon
 	self:addLookupList(MobDB,13323,L["Subterranean Diemetradon"],BZONE["Maraudon"],0,0)
 	-- Oculus
-	self:addLookupList(MobDB,27656,L["Ley-Guardian Eregos"],BZONE["The Oculus"],0,0)
+	self:addLookupList(MobDB,27656,BBOSS["Ley-Guardian Eregos"],BZONE["The Oculus"],0,0)
 	-- Old Hillsbrad Foothills
 	self:addLookupList(MobDB,17840,L["Durnholde Tracking Hound"],BZONE["Old Hillsbrad Foothills"],0,0)
 	self:addLookupList(MobDB,17820,L["Durnholde Rifleman"],BZONE["Old Hillsbrad Foothills"],0,0)
