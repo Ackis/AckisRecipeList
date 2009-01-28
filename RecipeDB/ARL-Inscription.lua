@@ -2211,10 +2211,6 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,61677,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,61677,8,15)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Glyph of Blast Wave -- 56990
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56990,310,44920,1,45357)
@@ -2237,15 +2233,13 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62162,380,44928,1,45357)
 	self:addTradeFlags(RecipeDB,62162,1,2,3,22,36,41)
-	self:addTradeAcquire(RecipeDB,62162,26916,1,26959,1,26977,1,26995,1,28702)
+	self:addTradeAcquire(RecipeDB,62162,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Glyph of Thunderstorm -- 57253
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57253,355,44923,1,45357)
 	self:addTradeFlags(RecipeDB,57253,1,2,12,27,36,41)
 	self:addTradeAcquire(RecipeDB,57253,8,15)
-
-	end
 
 	return recipecount
 

@@ -2184,13 +2184,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53976,380,40038,3,25229)
 	self:addTradeFlags(RecipeDB,53976,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,53976,7,2)
+	self:addTradeAcquire(RecipeDB,53976,7,3)
 
 	-- Champion's Monarch Topaz -- 53977
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53977,380,40039,3,25229)
 	self:addTradeFlags(RecipeDB,53977,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,52)
-	self:addTradeAcquire(RecipeDB,53977,7,2)
+	self:addTradeAcquire(RecipeDB,53977,7,3)
 
 	-- Resplendent Monarch Topaz -- 53978
 	recipecount = recipecount + 1
@@ -2424,7 +2424,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54023,380,40059,3,25229)
 	self:addTradeFlags(RecipeDB,54023,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,52)
-	self:addTradeAcquire(RecipeDB,54023,7,2)
+	self:addTradeAcquire(RecipeDB,54023,7,3)
 
 	-- Effulgent Skyflare Diamond -- 55384
 	recipecount = recipecount + 1

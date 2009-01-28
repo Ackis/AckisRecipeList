@@ -91,6 +91,7 @@ L["Name"]					= true
 L["Skill"]					= true
 L["Location"]				= true
 L["Acquisition"]			= true
+L["Unhandled Recipe"]		= true
 
 -- Filter Config Options
 L["Filtering Options"]		= true
