@@ -1793,7 +1793,7 @@ do
 	-- @name AckisRecipeList:AddRecipeData
 	-- @usage Used for an external program to load up data regarding a specific profession into the ARL database.
 	-- @param profession Name of the profession you wish to load data for
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropiate data.
+	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
 
 		if (RecipeList) then
@@ -1813,7 +1813,7 @@ do
 	--- API for external addons to initialize the recipe database
 	-- @name AckisRecipeList:InitRecipeData
 	-- @usage Causes ARL to load up all internal databases and provides them to the external application.
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropiate data.
+	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
 
