@@ -1,6 +1,9 @@
 ==What it does==
 Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including Runeforging.
 
+==Comments==
+I have disabled comments on Curse.com for multiple reasons.  The main one being people posting comments such as "this is broken" without providing any other information.  Please see the in-game documentation or the Bug Reports section on how to contact me.
+
 ==Where to get it==
 * [http://www.wowace.com/projects/arl/files/ WoW Ace] - Alpha Quality
 * [http://wow.curse.com/downloads/wow-addons/details/arl.aspx Curse] - Stable release

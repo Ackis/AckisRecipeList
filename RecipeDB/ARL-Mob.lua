@@ -380,9 +380,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,18521,L["Raging Skeleton"],BZONE["Auchenai Crypts"],0,0)
 	-- Azjol-Nerub
 	self:addLookupList(MobDB,29120,BBOSS["Anub'arak"],BZONE["Azjol-Nerub"],0,0)
-	--self:addLookupList(MobDB,29128,L["Anub'ar Prime Guard"],BZONE["Azjol-Nerub"],0,0)
-	--self:addLookupList(MobDB,29216,L["Anub'ar Guardian"],BZONE["Azjol-Nerub"],0,0)
-	--self:addLookupList(MobDB,29217,L["Anub'ar Venomancer"],BZONE["Azjol-Nerub"],0,0)
 	-- Black Temple
 	self:addLookupList(MobDB,22879,L["Shadowmoon Reaver"],BZONE["Black Temple"],0,0)
 	self:addLookupList(MobDB,22875,L["Coilskar Sea-Caller"],BZONE["Black Temple"],0,0)
@@ -500,6 +497,8 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,18344,BBOSS["Nexus-Prince Shaffar"],BZONE["Mana-Tombs"],0,0)
 	-- Maraudon
 	self:addLookupList(MobDB,13323,L["Subterranean Diemetradon"],BZONE["Maraudon"],0,0)
+	-- Oculus
+	self:addLookupList(MobDB,27656,L["Ley-Guardian Eregos"],BZONE["The Oculus"],0,0)
 	-- Old Hillsbrad Foothills
 	self:addLookupList(MobDB,17840,L["Durnholde Tracking Hound"],BZONE["Old Hillsbrad Foothills"],0,0)
 	self:addLookupList(MobDB,17820,L["Durnholde Rifleman"],BZONE["Old Hillsbrad Foothills"],0,0)
