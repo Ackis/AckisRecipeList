@@ -1602,3 +1602,4 @@ L["Blimo Gadgetspring"] = true
 L["Hula'mahi"] = true
 L["Bombus Finespindle"] = true
 L["Rartar"] = true
+L["Bryan Landers"] = true

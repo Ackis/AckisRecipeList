@@ -1742,10 +1742,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Unbreakable Healing Amplifiers -- 62271
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62271,440,44949,3,4036)
@@ -1755,10 +1751,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Titanium Toolbox -- 30349
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30349,440,23775,3,4036)
-	self:addTradeFlags(RecipeDB,30349,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,59)
-	self:addTradeAcquire(RecipeDB,30349,1,25277,1,26907,1,26955,1,26991,1,28697)
-	
-	end
+	self:addTradeFlags(RecipeDB,30349,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,30349,2,28722)
 
 	return recipecount
 
