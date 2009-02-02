@@ -32,7 +32,10 @@
 ## Dependencies:
 ## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac
 ## DefaultState: Enabled
+## LoadOnDemand: 0
+
 ## LoadManagers: AddonLoader
+## X-LoadOn-Slash: /arl, /ackisrecipelist
 ## X-LoadOn-Crafting: true
 
 ## SavedVariables: ARLDB2
