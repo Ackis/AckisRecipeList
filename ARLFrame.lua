@@ -20,6 +20,7 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local Astrolabe = DongleStub("Astrolabe-0.4")
 
 local string = string
 local ipairs = ipairs
@@ -219,17 +220,12 @@ local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 
 			-- If it's Honor Hold/Thrallmar
 			if (repid == 946) or (repid == 947) then
-
 				-- If the player is Alliance look at Honor Hold only
 				if (playerFaction == BFAC["Alliance"]) then
-
 					repid = 946
-
 				-- If the player is Horde look at Thrallmar only
 				else
-
 					repid = 947
-
 				end
 
 			-- If it's Kureni/Mag'har	
@@ -272,13 +268,47 @@ local function SetSortString(recipeSkill, recStr)
 	local sorttype = addon.db.profile.sorting
 
 	if (sorttype == L["Skill"]) then
-
 		return "[" .. recipeSkill .. "] - " .. recStr
-
 	else
-
 		return recStr .. " - [" .. recipeSkill .. "]"
+	end
 
+end
+
+function addon:SetupMap()
+
+	-- Nuke all the icons on the mini-map
+	Astrolabe:RemoveAllMinimapIcons()
+
+	local minimaplist = {}
+
+	-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+	for i = 1, #sortedRecipeIndex do
+		local recipeIndex = sortedRecipeIndex[i]
+
+		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+			-- loop through acquire methods, display each
+			for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
+				-- Vendor
+				if (v["Type"] == 2) then
+					minimaplist[v["ID"]] = true
+				end
+			end
+		end
+	end
+
+	for k, j in pairs(minimaplist) do
+		--@debug@
+			addon:Print("Adding vendor ID: " .. k .. " to the mini-map.")
+		--@end-debug@
+		-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland 
+		-- zone http://www.wowwiki.com/LocalizedMapZones
+		local button = CreateFrame("Button", "TestButtonARL")
+
+		button:SetWidth(10)
+		button:SetHeight(10)
+		button:SetText("F")
+		--Astrolabe:PlaceIconOnMinimap( icon, continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"])
 	end
 
 end
@@ -309,13 +339,9 @@ local function initDisplayStrings()
 			local recStr = ""
 
 			if (exclude[recipeIndex] == true) then
-
 				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
-
 			else
-
 				recStr = recipeDB[recipeIndex]["Name"]
-
 			end
 
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
@@ -403,43 +429,30 @@ local function gttAdd(
 	local leftStr = str1
 
 	while (looppad > 0) do
-
 		leftStr = "  " .. leftStr
 		looppad = looppad - 1
-
 	end
 
 	-- Are we adding a single or double line?
 	local double = false
 
 	if (str2) then
-
 		arlTooltip:AddDoubleLine(leftStr, str2, a, b, c, d, e, f)
 		double = true
-
 	else
-
 		arlTooltip:AddLine(leftStr, a, b, c, wraptext)
-
 	end
 
 	-- are we changing fontsize or narrow?
 	if ((narrow == 1) or (textSize ~= 0)) then
-
 		local font = normalFont
-
 		if (narrow == 1) then
-
 			font = narrowFont
-
 		end
 
 		local fontsize = 11
-
 		if (textSize ~= 0) then
-
 			fontsize = fontsize + textSize
-
 		end
 			
 		local numlines = arlTooltip:NumLines()
@@ -504,33 +517,23 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	end
 
 	if (recipeDB[rIndex]["Flags"][37]) then
-
 		gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
-
 	end
 
 	if (recipeDB[rIndex]["Flags"][38]) then
-
 		gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
-
 	end
 
 	if (recipeDB[rIndex]["Flags"][40]) then
-
 		gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
-
 	end
 
 	if (recipeDB[rIndex]["Flags"][41]) then
-
 		gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
-
 	end
 
 	if (recipeDB[rIndex]["Flags"][42]) then
-
 		gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
-
 	end
 
 	-- spacer
@@ -724,25 +727,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
-
 				clr1 = addon:hexcolor("COMMON")
-
 			elseif (v["ID"] == 2) then
-
 				clr1 = addon:hexcolor("UNCOMMON")
-
 			elseif (v["ID"] == 3) then
-
 				clr1 = addon:hexcolor("RARE")
-
 			elseif (v["ID"] == 4) then
-
 				clr1 = addon:hexcolor("EPIC")
-
 			else
-
 				clr1 = addon:hexcolor("NORMAL")
-
 			end
 
 			gttAdd(0, -1, 0, 0, L["World Drop"], clr1)
@@ -758,10 +751,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 		-- Unhandled
 		else
-
 			clr1 = addon:hexcolor("NORMAL")
 			gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
-
 		end
 
 	end
@@ -780,7 +771,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	if (spelllink) then
 
 		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
---		arlTooltip2:ClearAllPoints()
+		--arlTooltip2:ClearAllPoints()
 		--arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
 		arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
 		arlTooltip2:SetHyperlink(spelllink)
@@ -849,12 +840,10 @@ local function RecipeList_Update()
 
 	-- Clear out the current buttons
 	for i = 1, maxVisibleRecipes do
-
 		addon.RecipeListButton[i]:SetText("")
 		addon.RecipeListButton[i].sI = 0
 		addon.PlusListButton[i]:Hide()
 		ClearRecipeButtonTooltip(i)
-
 	end
 
 	local entries = #DisplayStrings
@@ -883,25 +872,19 @@ local function RecipeList_Update()
 
 				-- Is it expanded or not?
 				if (DisplayStrings[stringsIndex].IsExpanded) then
-
 					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
 					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
 					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
-
 				else
-
 					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
 					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-
 				end
 
 			else
-
 				addon.PlusListButton[buttonIndex]:Hide()
-
 			end
 
 			addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
@@ -914,9 +897,7 @@ local function RecipeList_Update()
 			stringsIndex = stringsIndex + 1
 
 			if ((buttonIndex > maxVisibleRecipes) or (stringsIndex > entries)) then
-
 				stayInLoop = false
-
 			end
 
 		end
@@ -1044,9 +1025,7 @@ local function ReDisplay()
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	if (not addon.db.profile.ignoreexclusionlist) then
-
 		addon:GetExclusions(recipeDB)
-
 	end
 
 	initDisplayStrings()
@@ -3086,13 +3065,9 @@ local function expandallDisplayStrings()
 			local recStr = ""
 
 			if (exclude[recipeIndex] == true) then
-
 				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
-
 			else
-
 				recStr = recipeDB[recipeIndex]["Name"]
-
 			end
 
 			local recipeSkill = recipeDB[recipeIndex]["Level"]
@@ -3108,19 +3083,15 @@ local function expandallDisplayStrings()
 			t.IsRecipe = true
 
 			if (recipeDB[recipeIndex]["Acquire"]) then
-
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
 				tinsert(DisplayStrings, insertIndex, t)
 				insertIndex = expandEntry(insertIndex)
-
 			else
-
 				t.IsExpanded = false
 				tinsert(DisplayStrings, insertIndex, t)
 				insertIndex = insertIndex + 1
-
 			end
 
 		end

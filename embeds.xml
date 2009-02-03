@@ -30,5 +30,6 @@
 <Include file="libs\LibAboutPanel\lib.xml"/>
 <Include file="libs\LibSharedMedia-3.0\lib.xml"/>
 <Include file="libs\LibBetterBlizzOptions\LibBetterBlizzOptions-1.0\lib.xml"/>
+<Include file="libs\Astrolabe\Load.xml"/>
 
 </Ui>

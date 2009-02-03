@@ -54,6 +54,7 @@ end
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+-- Change this if new filters are added ever
 local MaxFilterIndex = 131
 
 -- Global Frame Variables
@@ -1234,30 +1235,20 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 			playerData.recipes_known = playerData.recipes_known + (Recipe["Known"] == true and 1 or 0)
 
 			if (displayflag == true) then
-
 				playerData.recipes_total_filtered = playerData.recipes_total_filtered + 1
 				playerData.recipes_known_filtered = playerData.recipes_known_filtered + (Recipe["Known"] == true and 1 or 0)
 
 				-- Include known
 				if (addon.db.profile.filters.general.known == false) and (Recipe["Known"] == true) then
-
 					displayflag = false
-
 				end
-
 				-- Include unknown
 				if (addon.db.profile.filters.general.unknown == false) and (Recipe["Known"] == false) then
-
 					displayflag = false
-
 				end
-
 			end
-
 		else
-
 				displayflag = false
-
 		end
 
 		-- Set the display flag
