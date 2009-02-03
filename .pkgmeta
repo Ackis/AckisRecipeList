@@ -11,11 +11,9 @@ ignore:
  - .pkgmeta
  - .docmeta
  - ARLDataminer.rb
- - Docs/Documentation.txt
- - Docs/Main.txt
- - externals.txt
  - DataMiner
  - dlcount
+ - Docs
 
 externals:
  libs/LibStub: svn://svn.wowace.com/wow/libstub/mainline/tags/1.0

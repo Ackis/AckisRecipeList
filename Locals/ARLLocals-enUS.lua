@@ -59,11 +59,21 @@ L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
 
 -- UI Documentation
 L["Using Filters"]			= true
-L["USING_FILTERS_DESC"]		= "Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.\nWith the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan."
+L["USING_FILTERS_DESC"]		= [["Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
+With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan."]]
 L["Reporting Bugs"]			= true
-L["REPORTING_BUGS_DESC"]	= "When reporting a bug, please make sure you do the following:\n\n1) Download the latest version, available from http://www.wowace.com/projects/arl/files/\n\n2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/\n\n2a) Disable addons such as Skillet or ATSW.\n\n3) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.\n\n4) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.\n\nWhen posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily."
+L["REPORTING_BUGS_DESC"]	= [["When reporting a bug, please make sure you do the following:
+1) Download the latest version, available from http://www.wowace.com/projects/arl/files/
+2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/
+2a) Disable addons such as Skillet or ATSW.
+3) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
+4) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
+When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily."]]
 L["Common Issues"]			= true
-L["COMMON_ISSUES_DESC"]		= "Please refer to these common issues before submitting a bug report.\n\n1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.\n\n2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.\n\n3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report."
+L["COMMON_ISSUES_DESC"]		= [["Please refer to these common issues before submitting a bug report.
+1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
+2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.
+3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report."]]
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
@@ -286,7 +296,8 @@ L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your 
 L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
-L["MissingFromDB"] = ": is missing from the database. \nPlease inform the author of the add-on about this recipe."
+L["MissingFromDB"] = [[": is missing from the database.
+Please inform the author of the add-on about this recipe."]]
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
