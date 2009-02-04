@@ -315,7 +315,7 @@ function addon:SetupMiniMap()
 		button:SetHeight(10)
 		button:SetText("F")
 
-		if (vendorDB[k]["Location"] == "Dalaran") then
+		if (vendorDB[k]["Location"] == "Dalaran") then 
 			Astrolabe:PlaceIconOnMinimap(button,4,3,vendorDB[k]["Coordx"], vendorDB[k]["Coordy"])
 		end
 	end
