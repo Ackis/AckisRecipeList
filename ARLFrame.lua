@@ -467,6 +467,21 @@ local function gttAdd(
 
 end
 
+local function SetSpellTooltip(owner, loc)
+
+	arlTooltip2:SetOwner(owner)
+	if (loc == L["Top"]) then
+		arlTooltip2:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+	elseif (loc == L["Bottom"]) then
+		arlTooltip2:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+	elseif (loc == L["Left"]) then
+		arlTooltip2:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+	elseif (loc == L["Right"]) then
+		arlTooltip2:SetPoint("TOPLEFT", owner, "TOPRIGHT")
+	end
+
+end
+
 -- Description: 
 -- Expected result: 
 -- Input: 
@@ -477,8 +492,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local clr1, clr2 = "", ""
 
 	arlTooltip:ClearLines()
-	--arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
-	arlTooltip:SetOwner(owner)
 
 	gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
@@ -769,29 +782,23 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spelllink = recipeDB[rIndex]["RecipeLink"]
 	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
 
-	if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
-		--arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
-		arlTooltip2:SetOwner(arlTooltip)
-		if (spelltooltiplocation == L["Top"]) then
-			arlTooltip2:SetPoint("BOTTOMLEFT", arlTooltip, "TOPLEFT")
-		elseif (spelltooltiplocation == L["Bottom"]) then
-			arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "BOTTOMLEFT")
-		elseif (spelltooltiplocation == L["Left"]) then
-			arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
-		elseif (spelltooltiplocation == L["Right"]) then
-			arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
-		end
-		arlTooltip2:SetHyperlink(spelllink)
-		arlTooltip2:Show()
-	else
-		arlTooltip2:Hide()
-	end
-
 	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
 
+	-- Acquire Tooltip is off
 	if (acquiretooltiplocation == L["Off"]) then
 		arlTooltip:Hide()
+		-- If we have the spell link tooltip, link it to the owner instead so it shows
+		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
+			SetSpellTooltip(owner, spelltooltiplocation)
+			arlTooltip2:SetHyperlink(spelllink)
+			arlTooltip2:Show()
+		else
+			arlTooltip2:Hide()
+		end
+	-- Acquire tooltip is on
 	else
+		--arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+		arlTooltip:SetOwner(owner)
 		if (acquiretooltiplocation == L["Right"]) then
 			arlTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 		elseif (acquiretooltiplocation == L["Left"]) then
@@ -800,9 +807,20 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			arlTooltip1:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
 		elseif (acquiretooltiplocation == L["Bottom"]) then
 			arlTooltip1:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-		--elseif (acquiretooltiplocation == L["Mouse"]) then
+		elseif (acquiretooltiplocation == L["Mouse"]) then
+			arlTooltip:SetOwner(owner, "ANCHOR_CURSOR")
 		end
+
 		arlTooltip:Show()
+
+		-- Link the spell link tooltip to the acquire tooltip
+		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
+			SetSpellTooltip(arlTooltip, spelltooltiplocation)
+			arlTooltip2:SetHyperlink(spelllink)
+			arlTooltip2:Show()
+		else
+			arlTooltip2:Hide()
+		end
 	end
 
 end
