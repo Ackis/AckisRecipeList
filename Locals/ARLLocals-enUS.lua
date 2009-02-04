@@ -310,6 +310,7 @@ L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not s
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
+L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 
 -- Drop Obtain Info
 L["Unknown Zone"] = true

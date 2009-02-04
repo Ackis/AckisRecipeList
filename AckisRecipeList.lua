@@ -32,22 +32,32 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
-	addon:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
+	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
+	AckisRecipeList = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
-	addon:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
+	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
+	AckisRecipeList = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
-	addon:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
+	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
+	AckisRecipeList = nil
 	return
 end
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-	addon:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
+	addon:Print(format(L["MISSING_LIBRARY"],"AceLocale-3.0"))
+	AckisRecipeList = nil
+	return
+end
+
+if (not DongleStub) then
+	addon:Print(format(L["MISSING_LIBRARY"],"DongleStub"))
+	AckisRecipeList = nil
 	return
 end
 
