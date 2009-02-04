@@ -30,6 +30,14 @@ local MODNAME	= "Ackis Recipe List"
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
+if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
+	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
+	AckisRecipeList = nil
+	return
+end
+
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+
 -- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
@@ -49,12 +57,6 @@ if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	return
 end
 
-if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"AceLocale-3.0"))
-	AckisRecipeList = nil
-	return
-end
-
 if (not DongleStub) then
 	addon:Print(format(L["MISSING_LIBRARY"],"DongleStub"))
 	AckisRecipeList = nil
@@ -62,7 +64,6 @@ if (not DongleStub) then
 end
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Change this if new filters are added ever
 local MaxFilterIndex = 131
