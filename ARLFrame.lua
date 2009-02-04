@@ -275,7 +275,13 @@ local function SetSortString(recipeSkill, recStr)
 
 end
 
-function addon:SetupMap()
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+--/script AckisRecipeList:SetupMiniMap()
+function addon:SetupMiniMap()
 
 	-- Nuke all the icons on the mini-map
 	Astrolabe:RemoveAllMinimapIcons()
@@ -301,14 +307,17 @@ function addon:SetupMap()
 		--@debug@
 			addon:Print("Adding vendor ID: " .. k .. " to the mini-map.")
 		--@end-debug@
-		-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland 
+		-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland, 4 is northrend
 		-- zone http://www.wowwiki.com/LocalizedMapZones
 		local button = CreateFrame("Button", "TestButtonARL")
 
 		button:SetWidth(10)
 		button:SetHeight(10)
 		button:SetText("F")
-		--Astrolabe:PlaceIconOnMinimap( icon, continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"])
+
+		if (vendorDB[k]["Location"] == "Dalaran") then
+			Astrolabe:PlaceIconOnMinimap(button,4,3,vendorDB[k]["Coordx"], vendorDB[k]["Coordy"])
+		end
 	end
 
 end
