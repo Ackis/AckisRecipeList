@@ -1120,8 +1120,17 @@ local function fullOptions()
 										if ( arlTooltip2 ) then arlTooltip:SetScale( v ) end
 									  end,
 						},
-						spacer2 = {
+						spelltooltiplocation = {
 							order	= 32,
+							type	= "select",
+							name	= L["Tooltip (Recipe) Position"],
+							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
+							get		= function() return addon.db.profile.spelltooltiplocation end,
+							set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
+							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
+						},
+						spacer2 = {
+							order	= 39,
 							type	= "description",
 							name	= "\n",
 						},

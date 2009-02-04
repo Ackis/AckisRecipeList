@@ -134,6 +134,7 @@ function addon:OnInitialize()
 			closeguionskillclose = false,
 			ignoreexclusionlist = false,
 			scanbuttonlocation = L["Right"],
+			spelltooltiplocation = L["Right"],
 
 			-- Recipe Exclusion
 			exclusionlist = {},

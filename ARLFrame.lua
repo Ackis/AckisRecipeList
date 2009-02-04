@@ -767,20 +767,23 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
 
 	local spelllink = recipeDB[rIndex]["RecipeLink"]
+	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
 
-	if (spelllink) then
-
+	if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
 		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
-		--arlTooltip2:ClearAllPoints()
-		--arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
-		arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
+		if (spelltooltiplocation == L["Top"]) then
+			arlTooltip2:SetPoint("BOTTOM", arlTooltip, "TOP")
+		elseif (spelltooltiplocation == L["Bottom"]) then
+			arlTooltip2:SetPoint("TOP", arlTooltip, "BOTTOM")
+		elseif (spelltooltiplocation == L["Left"]) then
+			arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
+		elseif (spelltooltiplocation == L["Right"]) then
+			arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "TOPRIGHT")
+		end
 		arlTooltip2:SetHyperlink(spelllink)
 		arlTooltip2:Show()
-
 	else
-
 		arlTooltip2:Hide()
-
 	end
 
 	arlTooltip:Show()
