@@ -135,6 +135,7 @@ function addon:OnInitialize()
 			ignoreexclusionlist = false,
 			scanbuttonlocation = L["Right"],
 			spelltooltiplocation = L["Right"],
+			acquiretooltiplocation = L["Mouse"],
 
 			-- Recipe Exclusion
 			exclusionlist = {},

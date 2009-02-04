@@ -477,15 +477,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local clr1, clr2 = "", ""
 
 	arlTooltip:ClearLines()
-	arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+	--arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+	arlTooltip:SetOwner(owner)
+
 	gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
 	-- check if the recipe is excluded
 	if (exclude[rIndex] == true) then
-
 		clr1 = addon:hexcolor("RED")
 		gttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
-
 	end
 
 	-- Add in skill level requirement, colored correctly
@@ -770,11 +770,12 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
 
 	if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
-		arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
+		--arlTooltip2:SetOwner(arlTooltip, "ANCHOR_NONE")
+		arlTooltip2:SetOwner(arlTooltip)
 		if (spelltooltiplocation == L["Top"]) then
-			arlTooltip2:SetPoint("BOTTOM", arlTooltip, "TOP")
+			arlTooltip2:SetPoint("BOTTOMLEFT", arlTooltip, "TOPLEFT")
 		elseif (spelltooltiplocation == L["Bottom"]) then
-			arlTooltip2:SetPoint("TOP", arlTooltip, "BOTTOM")
+			arlTooltip2:SetPoint("TOPLEFT", arlTooltip, "BOTTOMLEFT")
 		elseif (spelltooltiplocation == L["Left"]) then
 			arlTooltip2:SetPoint("TOPRIGHT", arlTooltip, "TOPLEFT")
 		elseif (spelltooltiplocation == L["Right"]) then
@@ -786,7 +787,23 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		arlTooltip2:Hide()
 	end
 
-	arlTooltip:Show()
+	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
+
+	if (acquiretooltiplocation == L["Off"]) then
+		arlTooltip:Hide()
+	else
+		if (acquiretooltiplocation == L["Right"]) then
+			arlTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
+		elseif (acquiretooltiplocation == L["Left"]) then
+			arlTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+		elseif (acquiretooltiplocation == L["Top"]) then
+			arlTooltip1:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+		elseif (acquiretooltiplocation == L["Bottom"]) then
+			arlTooltip1:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+		--elseif (acquiretooltiplocation == L["Mouse"]) then
+		end
+		arlTooltip:Show()
+	end
 
 end
 

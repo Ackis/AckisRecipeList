@@ -1120,8 +1120,17 @@ local function fullOptions()
 										if ( arlTooltip2 ) then arlTooltip:SetScale( v ) end
 									  end,
 						},
+						acquiretooltiplocation = {
+							order	= 33,
+							type	= "select",
+							name	= L["Tooltip (Acquire) Position"],
+							desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
+							get		= function() return addon.db.profile.acquiretooltiplocation end,
+							set		= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
+							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
+						},
 						spelltooltiplocation = {
-							order	= 32,
+							order	= 34,
 							type	= "select",
 							name	= L["Tooltip (Recipe) Position"],
 							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
