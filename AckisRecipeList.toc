@@ -4,7 +4,6 @@
 ## Title-deDE: Ackis Rezeptliste (1.0 RC2)
 
 ## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
-## Notes-enUS: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
 ## Notes-frFR: Analyse vos métiers et vous indique les recettes qui vous manque, ainsi que des informations sur la façon de les obtenir.
 ## Notes-deDE: Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen.
 ## Notes-esES: Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador.
@@ -22,21 +21,18 @@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
-## X-credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan
+## X-Credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan
 
 ## X-Category: Tradeskill
 ## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU
 ## X-Website: http://www.wowwiki.com/AckisRecipeList/
 ## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 
-## Dependencies:
 ## OptionalDeps: Ace3, Astrolabe, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac, Cauldron
 ## DefaultState: Enabled
-## LoadOnDemand: 0
+## LoadOnDemand: 1
 
-## LoadManagers: AddonLoader
-## X-LoadOn-Slash: /arl, /ackisrecipelist
-## X-LoadOn-Crafting: true
+## LoadWith: Blizzard_TradeSkillUI
 
 ## SavedVariables: ARLDB2
 
