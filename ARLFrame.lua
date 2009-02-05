@@ -283,6 +283,8 @@ end
 --/script AckisRecipeList:SetupMiniMap()
 function addon:SetupMiniMap()
 
+	addon:Print("Setting up mini-map icons.")
+
 	-- Nuke all the icons on the mini-map
 	Astrolabe:RemoveAllMinimapIcons()
 
