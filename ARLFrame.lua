@@ -1161,28 +1161,28 @@ function addon:ShowScanButton()
 
 	-- Anchor to ATSW
 	if (ATSWFrame) then
-
 		addon.ScanButton:SetParent(ATSWFrame)
 		addon.ScanButton:ClearAllPoints()
 		addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
 		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
 		addon.ScanButton:SetWidth(90)
-
 	-- Anchor to trade window
 	else
-
 		addon.ScanButton:SetParent(TradeSkillFrame)
 		addon.ScanButton:ClearAllPoints()
 
 		local loc = addon.db.profile.scanbuttonlocation
 
-		if (loc == L["Right"]) then
+		if (loc == L["Top Right"]) then
 			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
-		elseif (loc == L["Left"]) then
+		elseif (loc == L["Top Left"]) then
+			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
+		elseif (loc == L["Bottom Right"]) then
+			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+		elseif (loc == L["Bottom Left"]) then
 			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
 		end
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-
 	end
 
 	addon.ScanButton:Show()

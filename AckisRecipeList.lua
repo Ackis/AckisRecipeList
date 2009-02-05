@@ -148,7 +148,7 @@ function addon:OnInitialize()
 			includeexcluded = false,
 			closeguionskillclose = false,
 			ignoreexclusionlist = false,
-			scanbuttonlocation = L["Right"],
+			scanbuttonlocation = L["Top Right"],
 			spelltooltiplocation = L["Right"],
 			acquiretooltiplocation = L["Mouse"],
 

@@ -1079,7 +1079,7 @@ local function fullOptions()
 							desc	= L["SCANBUTTONPOSITION_DESC"],
 							get		= function() return addon.db.profile.scanbuttonlocation end,
 							set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
-							values	= function() return {Right = L["Right"], Left = L["Left"]} end,
+							values	= function() return {Right = L["Top Right"], Left = L["Top Left"], Right = L["Bottom Right"], Left = L["Bottom Left"]} end,
 						},
 						uiscale = {
 							order	= 30,
