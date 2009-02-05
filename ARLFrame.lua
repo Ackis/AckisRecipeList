@@ -1166,6 +1166,13 @@ function addon:ShowScanButton()
 		addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
 		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
 		addon.ScanButton:SetWidth(90)
+	-- Anchor to Cauldron
+	elseif (CauldronFrame) then
+		addon.ScanButton:SetParent(CauldronFrame)
+		addon.ScanButton:ClearAllPoints()
+		addon.ScanButton:SetPoint("TOP", CauldronFrame, "BOTTOM", 0, 0)
+		--addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
+		addon.ScanButton:SetWidth(90)
 	-- Anchor to trade window
 	else
 		addon.ScanButton:SetParent(TradeSkillFrame)
@@ -3359,11 +3366,14 @@ function addon:CreateFrame(
 
 		local opts = self.db.profile.frameopts
 
-		if ( opts.anchorTo == "" ) then
+		if (opts.anchorTo == "") then
 			-- no values yet, clamp to whatever frame is appropriate
 			if (ATSWFrame) then
 				-- Anchor frame to ATSW
 				addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+			elseif (CauldronFrame) then
+				-- Anchor frame to Cauldron
+				addon.Frame:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
 			elseif (Skillet) then
 				-- Anchor frame to Skillet
 				addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)

@@ -30,7 +30,7 @@
 ## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 
 ## Dependencies:
-## OptionalDeps: Ace3, Astrolabe, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac
+## OptionalDeps: Ace3, Astrolabe, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, Skillet, ATSW, Manufac, Cauldron
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
