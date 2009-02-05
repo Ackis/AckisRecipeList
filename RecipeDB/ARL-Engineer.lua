@@ -1703,7 +1703,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Mekgineer's Chopper -- 60867
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,60867,450,44413,4,4036)
-	self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,131)
+	self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
 	self:addTradeAcquire(RecipeDB,60867,6,1037,4,32564,6,1037,4,32773)
 
 	-- Nesingwary 4000 -- 60874

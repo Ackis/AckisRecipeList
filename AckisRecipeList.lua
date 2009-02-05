@@ -70,7 +70,7 @@ end
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Change this if new filters are added ever
-local MaxFilterIndex = 131
+local MaxFilterIndex = 130
 
 -- Global Frame Variables
 addon.optionsFrame = {}
@@ -257,8 +257,7 @@ function addon:OnInitialize()
 					handofvengeance = true,
 					taunka = true,
 					warsongoffensive = true,
-					hordeexpedition = true,
-					alliancevanguard = true,
+					wrathcommon1 = true,
 				}
 			}
 		}
@@ -858,8 +857,7 @@ do
 			[127] = repdb.handofvengeance,
 			[128] = repdb.taunka,
 			[129] = repdb.warsongoffensive,
-			[130] = repdb.hordeexpedition,
-			[131] = repdb.alliancevanguard,
+			[130] = repdb.wrathcommon1,
 		}
 
 	end

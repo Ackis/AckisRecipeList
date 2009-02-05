@@ -2809,7 +2809,7 @@ function addon.setFlyawayState()
 	ARL_RepShatteredSunCB:SetChecked(filterdb.rep.shatteredsun)
 	ARL_RepSporeggarCB:SetChecked(filterdb.rep.sporeggar)
 	ARL_RepVioletEyeCB:SetChecked(filterdb.rep.violeteye)
--- Below this is WotLK stuff. May need to be changed post beta.
+	-- WotLK Rep Options
 	ARL_RepArgentCrusadeCB:SetChecked(filterdb.rep.argentcrusade)
 	ARL_RepFrenzyheartCB:SetChecked(filterdb.rep.frenzyheart)
 	ARL_RepEbonBladeCB:SetChecked(filterdb.rep.ebonblade)
@@ -2825,8 +2825,7 @@ function addon.setFlyawayState()
 	ARL_RepHandOfVengeanceCB:SetChecked(filterdb.rep.handofvengeance)
 	ARL_RepTaunkaCB:SetChecked(filterdb.rep.taunka)
 	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
-	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.alliancevanguard)
-	ARL_RepHordeExpeditionCB:SetChecked(filterdb.rep.hordeexpedition)
+	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.wrathcommon1)
 end
 
 -- Description: 
@@ -3273,6 +3272,7 @@ function addon:CreateFrame(
 
 	local HonorHold_Thrallmar_FactionText = ""
 	local Kurenai_Maghar_FactionText = ""
+	local Vanguard_Expedition_FactionText = ""
 
 	-- Values for the progressbar (defaults)
 	local pbMin = 0
@@ -3310,15 +3310,13 @@ function addon:CreateFrame(
 	-- Adding a check in to see if we're Horde or Alliance, and change the displayed reputation
 	-- strings to be faction correct (eg, Honor Hold / Thrallmar)
 	if (myFaction == "Alliance") then
-
 		HonorHold_Thrallmar_FactionText = BFAC["Honor Hold"]
 		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
-
+		Vanguard_Expedition_FactionText = BFAC["Alliance Vanguard"]
 	else
-
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
-
+		Vanguard_Expedition_FactionText = BFAC["Horde Expidition"]
 	end
 
 	if (not addon.Frame) then
@@ -4098,7 +4096,7 @@ function addon:CreateFrame(
 				ARL_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
 				ARL_RepVioletEyeCBText:SetFont(narrowFont, 11)
 
-			-- Everything below here is WotLK stuff. May need to be changed after beta.
+			-- WotLK
 			addon.Fly_Rep_LK= CreateFrame("Frame", "addon.Fly_Rep_LK", addon.Fly_Rep)
 			addon.Fly_Rep_LK:SetWidth(150)
 			addon.Fly_Rep_LK:SetHeight(280)
@@ -4122,8 +4120,7 @@ function addon:CreateFrame(
 --			() The Hand of Vengeance
 --			() The Taunka
 --			() Warsong Offensive
---			() Alliance Vanguard
---			() Horde Expedition
+--			() Alliance Vanguard / Horde Expidition
 			local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepArgentCrusadeCB, addon.Fly_Rep_LK,
 					sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 1, 1, 0)
@@ -4201,14 +4198,10 @@ function addon:CreateFrame(
 				ARL_RepWarsongOffensiveCBText:SetFont(narrowFont, 11)
 			local ARL_RepAllianceVanguardCB = CreateFrame("CheckButton", "ARL_RepAllianceVanguardCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepAllianceVanguardCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Alliance Vanguard"]), 86, 16, 1, 0)
-				ARL_RepAllianceVanguardCBText:SetText(BFAC["Alliance Vanguard"])
+					sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 16, 1, 0)
+				ARL_RepAllianceVanguardCBText:SetText(Vanguard_Expedition_FactionText)
 				ARL_RepAllianceVanguardCBText:SetFont(narrowFont, 11)
-			local ARL_RepHordeExpeditionCB = CreateFrame("CheckButton", "ARL_RepHordeExpeditionCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepHordeExpeditionCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Horde Expedition"]), 87, 17, 1, 0)
-				ARL_RepHordeExpeditionCBText:SetText(BFAC["Horde Expedition"])
-				ARL_RepHordeExpeditionCBText:SetFont(narrowFont, 11)
+
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
@@ -4308,8 +4301,7 @@ function addon:CreateFrame(
 			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
-			[86] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "alliancevanguard" },
-			[87] = { cb = ARL_RepHordeExpeditionCB,		svroot = filterdb.rep,			svval = "hordeexpedition" },
+			[86] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "wrathcommon1" },
 		}
 
 	end

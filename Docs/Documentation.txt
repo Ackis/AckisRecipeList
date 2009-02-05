@@ -215,9 +215,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *127 = The Hand of Vengeance
 *128 = The Taunka
 *129 = Warsong Offensive
-*130 = Horde Expedition
-*131 = Alliance Vanguard
-
+*130 = Wrath Common Factions (Alliance Vanguard/Horde Expedition)
 
 ==Acquire Flags==
 

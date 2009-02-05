@@ -28,6 +28,7 @@ local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 local modularOptions = {}
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
+local howlingtundra = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 
 -- Description: Function which provides "profiles" options table
@@ -793,7 +794,6 @@ local function giveFilter()
 								},
 							},
 						},
--- Below this is WotLK stuff. May need to be changed post beta
 						WotLK = {
 							order	= 5,
 							type	= "group",
@@ -815,14 +815,6 @@ local function giveFilter()
 									type	= "description",
 									name	= L["FILTERING_WOTLK_DESC"] .. "\n",
 								},
-								AllianceVanguard = {
-									order	= 9,
-									type	= "toggle",
-									name	= BFAC["Alliance Vanguard"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Alliance Vanguard"]),
-									get		= function() return addon.db.profile.filters.rep.alliancevanguard end,
-									set		= function() addon.db.profile.filters.rep.alliancevanguard = not addon.db.profile.filters.rep.alliancevanguard end,
-								},
 								ArgentCrusade = {
 									order	= 10,
 									type	= "toggle",
@@ -839,13 +831,13 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.frenzyheart end,
 									set		= function() addon.db.profile.filters.rep.frenzyheart = not addon.db.profile.filters.rep.frenzyheart end,
 								},
-								HordeExpidition = {
-									order	= 15,
+								WrathCommon1 = {
+									order	= 12,
 									type	= "toggle",
-									name	= BFAC["Horde Expedition"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Horde Expedition"]),
-									get		= function() return addon.db.profile.filters.rep.hordeexpedition end,
-									set		= function() addon.db.profile.filters.rep.hordeexpedition = not addon.db.profile.filters.rep.hordeexpedition end,
+									name	= howlingtundra,
+									desc	= format(L["SPECIFIC_REP_DESC"],howlingtundra),
+									get		= function() return addon.db.profile.filters.rep.wrathcommon1 end,
+									set		= function() addon.db.profile.filters.rep.wrathcommon1 = not addon.db.profile.filters.rep.wrathcommon1 end,
 								},
 								EbonBlade = {
 									order	= 16,
