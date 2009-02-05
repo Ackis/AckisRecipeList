@@ -30,6 +30,10 @@ local MODNAME	= "Ackis Recipe List"
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
+--@debug@
+addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+--@end-debug@
+
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
 	AckisRecipeList = nil
