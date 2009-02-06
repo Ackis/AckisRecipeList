@@ -3323,7 +3323,7 @@ function addon:CreateFrame(
 	else
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
-		Vanguard_Expedition_FactionText = BFAC["Horde Expidition"]
+		Vanguard_Expedition_FactionText = BFAC["Horde Expedition"]
 	end
 
 	if (not addon.Frame) then
