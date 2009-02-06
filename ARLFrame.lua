@@ -481,13 +481,13 @@ end
 local function SetSpellTooltip(owner, loc)
 
 	arlTooltip2:SetOwner(owner)
-	if (loc == L["Top"]) then
+	if (loc == "Top") then
 		arlTooltip2:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-	elseif (loc == L["Bottom"]) then
+	elseif (loc == "Bottom") then
 		arlTooltip2:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-	elseif (loc == L["Left"]) then
+	elseif (loc == "Left") then
 		arlTooltip2:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-	elseif (loc == L["Right"]) then
+	elseif (loc == "Right") then
 		arlTooltip2:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
 
@@ -810,15 +810,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	else
 		--arlTooltip:SetOwner(owner, "ANCHOR_RIGHT")
 		arlTooltip:SetOwner(owner)
-		if (acquiretooltiplocation == L["Right"]) then
+		if (acquiretooltiplocation == "Right") then
 			arlTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
-		elseif (acquiretooltiplocation == L["Left"]) then
+		elseif (acquiretooltiplocation == "Left") then
 			arlTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-		elseif (acquiretooltiplocation == L["Top"]) then
+		elseif (acquiretooltiplocation == "Top") then
 			arlTooltip1:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-		elseif (acquiretooltiplocation == L["Bottom"]) then
+		elseif (acquiretooltiplocation == "Bottom") then
 			arlTooltip1:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-		elseif (acquiretooltiplocation == L["Mouse"]) then
+		elseif (acquiretooltiplocation == "Mouse") then
 			arlTooltip:SetOwner(owner, "ANCHOR_CURSOR")
 		end
 
@@ -1180,13 +1180,13 @@ function addon:ShowScanButton()
 
 		local loc = addon.db.profile.scanbuttonlocation
 
-		if (loc == L["Top Right"]) then
+		if (loc == "TR") then
 			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
-		elseif (loc == L["Top Left"]) then
+		elseif (loc == "TL") then
 			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
-		elseif (loc == L["Bottom Right"]) then
+		elseif (loc == "BR") then
 			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
-		elseif (loc == L["Bottom Left"]) then
+		elseif (loc == "BL") then
 			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
 		end
 		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)

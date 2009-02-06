@@ -1079,7 +1079,7 @@ local function fullOptions()
 							desc	= L["SCANBUTTONPOSITION_DESC"],
 							get		= function() return addon.db.profile.scanbuttonlocation end,
 							set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
-							values	= function() return {TopRight = L["Top Right"], TopLeft = L["Top Left"], BottomRight = L["Bottom Right"], BottomLeft = L["Bottom Left"]} end,
+							values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
 						},
 						uiscale = {
 							order	= 30,
@@ -1091,9 +1091,9 @@ local function fullOptions()
 							step	= .05,
 							bigStep = .05,
 							get		= function() return addon.db.profile.frameopts.uiscale end,
-							set		= function( info, v ) 
+							set		= function(info, v) 
 										addon.db.profile.frameopts.uiscale = v
-										if ( addon.Frame ) then addon.Frame:SetScale( v ) end
+										if (addon.Frame) then addon.Frame:SetScale(v) end
 									  end,
 						},
 						tooltipscale = {
@@ -1106,10 +1106,10 @@ local function fullOptions()
 							step	= .05,
 							bigStep = .05,
 							get		= function() return addon.db.profile.frameopts.tooltipscale end,
-							set		= function( info, v ) 
+							set		= function(info, v) 
 										addon.db.profile.frameopts.tooltipscale = v
-										if ( arlTooltip ) then arlTooltip:SetScale( v ) end
-										if ( arlTooltip2 ) then arlTooltip:SetScale( v ) end
+										if (arlTooltip) then arlTooltip:SetScale(v) end
+										if (arlTooltip2) then arlTooltip:SetScale(v) end
 									  end,
 						},
 						acquiretooltiplocation = {
