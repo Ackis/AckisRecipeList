@@ -1754,13 +1754,9 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB,60767,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60767,2,32514)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Enchant Bracer - Major Stamina -- 62256
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62256,440,nil,2,7411)
+	self:addTradeSkill(RecipeDB,62256,450,nil,2,7411)
 	self:addTradeFlags(RecipeDB,62256,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62256,2,32514)
 
@@ -1775,8 +1771,6 @@ function addon:InitEnchanting(RecipeDB)
 	--self:addTradeSkill(RecipeDB,62257,440,nil,2,7411)
 	--self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,62257,2,32514)
-
-	end
 
 	return recipecount
 
