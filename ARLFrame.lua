@@ -792,8 +792,12 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	local spelllink = recipeDB[rIndex]["RecipeLink"]
 	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
-
 	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
+
+	--@alpha@
+	addon:Print("Setting Spell Tooltip to " .. spelltooltiplocation)
+	addon:Print("Setting Acquire Tooltip to " .. acquiretooltiplocation)
+	--@end-alpha@
 
 	-- Acquire Tooltip is off
 	if (acquiretooltiplocation == L["Off"]) then
