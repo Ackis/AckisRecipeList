@@ -42,6 +42,7 @@ L["Display Settings"]		= true
 L["Sorting Settings"]		= true
 L["Profile Options"]		= true
 L["ARL Documentation"]		= true
+L["Documentation"]			= true
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
