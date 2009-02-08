@@ -1230,7 +1230,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 87
+	local MaxFilters = 86
 
 	local total = 0
 	local active = 0
