@@ -480,7 +480,8 @@ end
 
 local function SetSpellTooltip(owner, loc)
 
-	arlTooltip2:SetOwner(owner)
+	arlTooltip2:SetOwner(owner, "ANCHOR_NONE")
+	arlTooltip2:ClearAllPoints()
 	if (loc == "Top") then
 		arlTooltip2:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
 	elseif (loc == "Bottom") then
@@ -506,34 +507,36 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	local spelllink = recipeDB[rIndex]["RecipeLink"]
 
-	--@alpha@
-	addon:Print("Setting Spell Tooltip to " .. spelltooltiplocation)
-	addon:Print("Setting Acquire Tooltip to " .. acquiretooltiplocation)
-	--@end-alpha@
-
 	if (acquiretooltiplocation == L["Off"]) then
 		arlTooltip:Hide()
 		-- If we have the spell link tooltip, link it to the owner instead so it shows
 		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
-			SetSpellTooltip(owner, spelltooltiplocation)
+			SetSpellTooltip(addon.Frame, spelltooltiplocation)
 			arlTooltip2:SetHyperlink(spelllink)
 			arlTooltip2:Show()
 		else
 			arlTooltip2:Hide()
 		end
 	else
-		arlTooltip:SetOwner(owner)
+		arlTooltip:SetOwner(owner, "ANCHOR_NONE")
+		arlTooltip:ClearAllPoints()
 		if (acquiretooltiplocation == "Right") then
-			arlTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
+			arlTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
 		elseif (acquiretooltiplocation == "Left") then
-			arlTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
+			arlTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
 		elseif (acquiretooltiplocation == "Top") then
-			arlTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+			arlTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
 		elseif (acquiretooltiplocation == "Bottom") then
-			arlTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+			arlTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
 		elseif (acquiretooltiplocation == "Mouse") then
-			arlTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+			arlTooltip:ClearAllPoints()
+			local x,y = GetCursorPosition()
+			local uiscale = UIParent:GetEffectiveScale() 
+			x = x/uiscale
+			y = y/uiscale
+			arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 		end
+
 		arlTooltip:ClearLines()
 
 		gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
