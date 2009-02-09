@@ -1496,10 +1496,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
 	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Elixir of Water Walking -- 62410
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62410,400,8827,1,2259)
@@ -1517,8 +1513,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeSkill(RecipeDB,62213,395,44939,1,2259)
 	self:addTradeFlags(RecipeDB,62213,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62213,1,26903,1,26951,1,26975,1,26987,1,28703)
-
-	end
 
 	return recipecount
 

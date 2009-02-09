@@ -3020,21 +3020,17 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,4096,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,4096,2,2819)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Windripper Boots -- 62176
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62176,440,44930,4,2108)
 	self:addTradeFlags(RecipeDB,62176,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,62176,)
+	self:addTradeAcquire(RecipeDB,62176,4,32515)
 
 	-- Windripper Leggings -- 62177
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62177,440,44931,4,2108)
 	self:addTradeFlags(RecipeDB,62177,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,62177,)
+	self:addTradeAcquire(RecipeDB,62177,4,32515)
 
 	-- Earthen Leg Armor -- 62448
 	recipecount = recipecount + 1
@@ -3042,8 +3038,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,62448,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62448,1,26911,1,26961,1,26996,1,26998,1,28700)
 	
-	end
-
 	return recipecount
 
 end

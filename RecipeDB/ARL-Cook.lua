@@ -868,10 +868,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,46688,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,46688,2,2803,2,2806)
 
-	local version = GetBuildInfo()
-
-	if (version == "3.0.8") then
-
 	-- Kungaloosh -- 53056
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
@@ -884,13 +880,11 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
 
-	-- Worg Tartare -- 
+	-- Worg Tartare -- 62350
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62350,400,44953,1, 2550)
 	self:addTradeFlags(RecipeDB,62350,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,62350,2,31031,2,31032)
-
-	end
 
 	-- Northern Stew -- 57421
 	recipecount = recipecount + 1
