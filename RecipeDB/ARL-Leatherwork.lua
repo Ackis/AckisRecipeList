@@ -3024,13 +3024,13 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62176,440,44930,4,2108)
 	self:addTradeFlags(RecipeDB,62176,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,62176,4,32515)
+	self:addTradeAcquire(RecipeDB,62176,2,32515)
 
 	-- Windripper Leggings -- 62177
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,62177,440,44931,4,2108)
 	self:addTradeFlags(RecipeDB,62177,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,62177,4,32515)
+	self:addTradeAcquire(RecipeDB,62177,2,32515)
 
 	-- Earthen Leg Armor -- 62448
 	recipecount = recipecount + 1
