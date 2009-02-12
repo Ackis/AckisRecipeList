@@ -8,7 +8,7 @@
  output-page: "Main"
 -
  type: wiki
- input-file: Docs/Changes.txt
+ input-file: Docs/CHANGES.txt
  output-page: "ARL Changelog"
 -
  type: wiki
