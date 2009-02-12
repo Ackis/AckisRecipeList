@@ -1,10 +1,15 @@
 package-as: AckisRecipeList
 
+license-output: LICENSE.txt
+
+manual-changelog: Docs/CHANGES.txt
+
 optional-dependencies:
  - advanced-trade-skill-window
  - atsw
  - skillet
  - manufac
+ - cauldron
 
 # File list to ignore:
 ignore:

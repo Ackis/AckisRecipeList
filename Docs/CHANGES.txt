@@ -1,0 +1,13 @@
+==ARL Changes==
+
+===RC2===
+*You can now customize which tooltips are displayed, and where they are anchored.
+*You have most options on where to anchor the scan button
+*Many recipe updates
+
+===Major Changes Since Initial Release to RC1===
+*Entire mod rewritten from scratch, including a new GUI
+*Multiple recipe filters
+*Recipe exclusion list
+*All WotLK recipes added
+*Detailed and customizable recipe tooltips

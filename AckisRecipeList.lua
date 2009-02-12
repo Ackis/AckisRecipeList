@@ -9,15 +9,17 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
-Author: Ackis
-GUI done by Zhinjio
+Author: Ackis, Zhinjio
 
 ************************************************************************
 
-Please see WoWAce.com for more information.
+Please see http://www.wowace.com/projects/arl/for more information.
+
+License:
+	Please see LICENSE.txt
 
 Documentation:
-	Please see Documentation.txt for comprehensive documentation.
+	Please see Docs\Documentation.txt for comprehensive documentation.
 
 ************************************************************************
 
