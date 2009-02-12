@@ -175,6 +175,11 @@ StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 
 function addon:CloseWindow()
 
+	-- Close all possible pop-up windows
+	StaticPopup_Hide("ARL_NOTSCANNED")
+	StaticPopup_Hide("ARL_ALLFILTERED")
+	StaticPopup_Hide("ARL_ALLKNOWN")
+	StaticPopup_Hide("ARL_ALLEXCLUDED")
 	addon.Frame:Hide()
 
 end
@@ -1585,7 +1590,6 @@ function addon.ToggleFilters()
 
 	if (addon.Frame._Expanded == true) then
 		-- Adjust the frame size and texture
---		addon.Frame:Hide()
 		addon.Frame:ClearAllPoints()
 		addon.Frame:SetWidth(293)
 		addon.Frame:SetHeight(447)
@@ -1614,13 +1618,9 @@ function addon.ToggleFilters()
 
 		ARL_ResetButton:Hide()
 		ARL_ApplyButton:Hide()
-
-		-- and finally, show our frame
---		addon.Frame:Show()
 	else
 
 		-- Adjust the frame size and texture
---		addon.Frame:Hide()
 		addon.Frame:ClearAllPoints()
 		addon.Frame:SetWidth(444)
 		addon.Frame:SetHeight(447)
@@ -1646,7 +1646,6 @@ function addon.ToggleFilters()
 		ARL_ApplyButton:Show()
 
 		-- and finally, show our frame
---		addon.Frame:Show()
 	end
 
 	-- Reset our title
@@ -1999,6 +1998,12 @@ function addon:SwitchProfs(button)
 	local startLoop = 0
 	local endLoop = 0
 	local displayProf = 0
+
+	-- Close all possible pop-up windows
+	StaticPopup_Hide("ARL_NOTSCANNED")
+	StaticPopup_Hide("ARL_ALLFILTERED")
+	StaticPopup_Hide("ARL_ALLKNOWN")
+	StaticPopup_Hide("ARL_ALLEXCLUDED")
 
 	-- ok, so first off, if we've never done this before, there is no "current"
 	-- and a single iteration will do nicely, thank you
@@ -3412,6 +3417,11 @@ function addon:CreateFrame(
 		local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", addon.Frame, "UIPanelCloseButton")
 			ARL_CloseXButton:SetScript("OnClick",
 				function(this)
+					-- Close all possible pop-up windows
+					StaticPopup_Hide("ARL_NOTSCANNED")
+					StaticPopup_Hide("ARL_ALLFILTERED")
+					StaticPopup_Hide("ARL_ALLKNOWN")
+					StaticPopup_Hide("ARL_ALLEXCLUDED")
 					this:GetParent():Hide()
 				end
 			)
@@ -3562,6 +3572,11 @@ function addon:CreateFrame(
 			"GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
 			ARL_CloseButton:SetScript("OnClick",
 				function(this)
+					-- Close all possible pop-up windows
+					StaticPopup_Hide("ARL_NOTSCANNED")
+					StaticPopup_Hide("ARL_ALLFILTERED")
+					StaticPopup_Hide("ARL_ALLKNOWN")
+					StaticPopup_Hide("ARL_ALLEXCLUDED")
 					this:GetParent():Hide()
 				end
 			)
