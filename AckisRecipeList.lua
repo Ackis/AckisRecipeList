@@ -32,12 +32,11 @@ local MODNAME	= "Ackis Recipe List"
 
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
---@debug@
-addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
---@end-debug@
-
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
@@ -47,24 +46,36 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 -- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
 
 if (not DongleStub) then
 	addon:Print(format(L["MISSING_LIBRARY"],"DongleStub"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
@@ -290,8 +301,6 @@ end
 
 function addon:OnEnable()
 
-	self:Print("ARL RC1 - If you notice anything missing in the recipe database (inaccurate info, missing info, wrong info) please report it.")
-
 	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_SHOW")
 
@@ -300,7 +309,6 @@ function addon:OnEnable()
 
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
-
 		--@debug@
 		self:Print("Enabling Manufac integration.")
 		--@end-debug@
@@ -311,7 +319,6 @@ function addon:OnEnable()
 			func = function() addon:AckisRecipeList_Command(false) end,
 			order = 550,
 		}
-
 	end
 
 	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
