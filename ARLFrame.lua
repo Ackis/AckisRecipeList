@@ -280,51 +280,85 @@ local function SetSortString(recipeSkill, recStr)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+do
 
---/script AckisRecipeList:SetupMiniMap()
-function addon:SetupMiniMap()
-
-	addon:Print("Setting up mini-map icons.")
-
-	-- Nuke all the icons on the mini-map
-	Astrolabe:RemoveAllMinimapIcons()
-
-	local minimaplist = {}
-
-	-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-	for i = 1, #sortedRecipeIndex do
-		local recipeIndex = sortedRecipeIndex[i]
-
-		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-			-- loop through acquire methods, display each
-			for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-				-- Vendor
-				if (v["Type"] == 2) then
-					minimaplist[v["ID"]] = true
-				end
-			end
+	local function LoadZones(c, ...)
+		for i=1,select('#', ...),1 do
+			c[i] = select(i,...)
 		end
 	end
 
-	for k, j in pairs(minimaplist) do
-		--[===[@debug@
-			addon:Print("Adding vendor ID: " .. k .. " to the mini-map.")
-		--@end-debug@]===]
-		-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland, 4 is northrend
-		-- zone http://www.wowwiki.com/LocalizedMapZones
-		local button = CreateFrame("Button", "TestButtonARL")
+	local C1 = {}
+	local C2 = {}
+	local C3 = {}
+	local C4 = {}
 
-		button:SetWidth(10)
-		button:SetHeight(10)
-		button:SetText("F")
+	LoadZones(C1,GetMapZones(1))
+	LoadZones(C2,GetMapZones(2))
+	LoadZones(C3,GetMapZones(3))
+	LoadZones(C4,GetMapZones(4))
 
-		if (vendorDB[k]["Location"] == "Dalaran") then 
-			Astrolabe:PlaceIconOnMinimap(button,4,3,vendorDB[k]["Coordx"], vendorDB[k]["Coordy"])
+	-- Description: 
+	-- Expected result: 
+	-- Input: 
+	-- Output: 
+
+	--/script AckisRecipeList:SetupMiniMap()
+	function addon:SetupMiniMap()
+
+		addon:Print("Setting up mini-map icons.")
+
+		local minimaplist = {}
+
+		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+		for i = 1, #sortedRecipeIndex do
+			local recipeIndex = sortedRecipeIndex[i]
+
+			if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+				-- loop through acquire methods, display each
+				for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+					-- Vendor
+					if (v["Type"] == 2) then
+						minimaplist[v["ID"]] = true
+					end
+				end
+			end
 		end
+
+		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapButton)
+		ARLWorldMap:ClearAllPoints()
+		ARLWorldMap:SetWidth(8)
+		ARLWorldMap:SetHeight(8)
+		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+		ARLWorldMap.icon:SetTexture("Interface\\AddOns\\AckisRecipeList\\img\\enchant_up")
+		ARLWorldMap.icon:SetAllPoints()
+		ARLWorldMap:Show()
+		ARLWorldMap.icon:Show()
+
+		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
+		ARLMiniMap:ClearAllPoints()
+		ARLMiniMap:SetWidth(8)
+		ARLMiniMap:SetHeight(8)
+		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+		ARLMiniMap.icon:SetTexture("Interface\\AddOns\\AckisRecipeList\\img\\enchant_up")
+		ARLMiniMap.icon:SetAllPoints()
+		ARLMiniMap:Show()
+		ARLMiniMap.icon:Show()
+
+		for k, j in pairs(minimaplist) do
+			--@debug@
+			addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
+			--@end-debug@
+			-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland, 4 is northrend
+			-- zone http://www.wowwiki.com/LocalizedMapZones
+
+			-- Cords are stored from 0 to 100 in database
+			if (vendorDB[k]["Location"] == "Dalaran") then 
+				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,4,3,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,4,3,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
+			end
+		end
+
 	end
 
 end
@@ -978,12 +1012,12 @@ local function RecipeList_Update()
 		elseif (playerData.excluded_recipes_unknown ~= 0) then
 			StaticPopup_Show("ARL_ALLEXCLUDED")
 		else
-			addon:Print(L["NO_DISPLAY"])
 			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
 			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
 			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
 			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
-			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
+			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)			
+			addon:Print(L["NO_DISPLAY"])
 		end
 
 	end

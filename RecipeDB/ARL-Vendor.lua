@@ -13,10 +13,10 @@ Auto-generated using ARLDataminer.rb
 
 ************************************************************************
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2009-02-03T18:21:32Z 
+File revision: 1460 
+Project revision: 1493
+Project version: r1493
 
 ************************************************************************
 
@@ -385,7 +385,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,32296,L["Stone Guard Mukar"],BZONE["Wintergrasp"],51.17,17.75,2)
 	self:addLookupList(VendorDB,32379,L["Captain O'Neal"],BZONE["Stormwind City"],74.99,68.04,1)
 	self:addLookupList(VendorDB,32382,L["Lady Palanseer"],BZONE["Orgrimmar"],37.09,64.81,2)
-	self:addLookupList(VendorDB,32514,L["Vanessa Sellers"],BZONE["Dalaran"],38.69,40.78,0)
+	self:addLookupList(VendorDB,32514,L["Vanessa Sellers"],BZONE["Dalaran"],38.4,41.0,0)
 	self:addLookupList(VendorDB,32515,L["Braeg Stoutbeard"],BZONE["Dalaran"],38.52,29.59,0)
 	self:addLookupList(VendorDB,32533,L["Cielstrasza"],BZONE["Dragonblight"],60.05,54.11,0)
 	self:addLookupList(VendorDB,32538,L["Duchess Mynx"],BZONE["Icecrown"],43.04,20.52,0)
