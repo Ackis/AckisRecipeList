@@ -13,10 +13,10 @@ Auto-generated using ARLDataminer.rb
 
 ************************************************************************
 
-File date: 2009-02-03T18:21:32Z 
-File revision: 1460 
-Project revision: 1493
-Project version: r1493
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ************************************************************************
 
