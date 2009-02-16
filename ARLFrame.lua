@@ -303,9 +303,9 @@ do
 	local c4 = {}
 
 	LoadZones(C1,c1,GetMapZones(1))
-	LoadZones(C2,c1,GetMapZones(2))
-	LoadZones(C3,c1,GetMapZones(3))
-	LoadZones(C4,c1,GetMapZones(4))
+	LoadZones(C2,c2,GetMapZones(2))
+	LoadZones(C3,c3,GetMapZones(3))
+	LoadZones(C4,c4,GetMapZones(4))
 
 	-- Description: 
 	-- Expected result: 
@@ -315,7 +315,9 @@ do
 	--/script AckisRecipeList:SetupMap()
 	function addon:SetupMap()
 
+		--@debug@
 		addon:Print("Setting up mini-map icons.")
+		--@end-debug@
 
 		local maplist = {}
 
@@ -334,7 +336,7 @@ do
 			end
 		end
 
-		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapButton)
+		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMap)
 		ARLWorldMap:ClearAllPoints()
 		ARLWorldMap:SetWidth(8)
 		ARLWorldMap:SetHeight(8)
@@ -356,24 +358,41 @@ do
 
 		for k, j in pairs(maplist) do
 
-			if (addon.db.profile.worldmap == true) then
+			local continent, zone
+			local vendorloc = vendorDB[k]["Location"]
+
+			if (c1[vendorloc]) then
+				continent = 1
+				zone = c1[vendorloc]
+			elseif (c2[vendorloc]) then
+				continent = 2
+				zone = c2[vendorloc]
+			elseif (c3[vendorloc]) then
+				continent = 3
+				zone = c3[vendorloc]
+			elseif (c4[vendorloc]) then
+				continent = 4
+				zone = c4[vendorloc]
+			else
 				--@debug@
-				addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
+				addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
 				--@end-debug@
-				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,4,3,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
 			end
 
-			if (addon.db.profile.minimap == true) then
+			if ((zone) and (continent) and (addon.db.profile.worldmap == true)) then
+				--@debug@
+				addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
+				--@end-debug@
+				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,continent,zone,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
+			end
+
+			if ((zone) and (continent) and (addon.db.profile.minimap == true)) then
 				--@debug@
 				addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
 				--@end-debug@
-				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,4,3,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,continent,zone,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
 			end
 
-			if (vendorDB[k]["Location"] == "Dalaran") then 
-				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,4,3,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
-				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,4,3,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
-			end
 		end
 
 	end

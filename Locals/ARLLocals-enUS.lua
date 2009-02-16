@@ -121,6 +121,10 @@ L["Skill"]					= true
 L["Location"]				= true
 L["Acquisition"]			= true
 L["Unhandled Recipe"]		= true
+L["World Map"]				= true
+L["Mini Map"]				= true
+L["WORLDMAP_DESC"]			= "Do you want missing vendor recipes to appear on the world map."
+L["MINIMAP_DESC"]			= "Do you want missing vendor recipes to appear on the mini map."
 
 -- Filter Config Options
 L["Filtering Options"]		= true
