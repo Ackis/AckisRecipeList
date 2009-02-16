@@ -282,9 +282,14 @@ end
 
 do
 
-	local function LoadZones(c, ...)
+	local function LoadZones(c,y, ...)
+		-- Fill up the list for normal lookup
 		for i=1,select('#', ...),1 do
 			c[i] = select(i,...)
+		end
+		-- Reverse lookup to make work easier later on
+		for i in pairs(c) do
+			y[c[i]] = i
 		end
 	end
 
@@ -292,23 +297,27 @@ do
 	local C2 = {}
 	local C3 = {}
 	local C4 = {}
+	local c1 = {}
+	local c2 = {}
+	local c3 = {}
+	local c4 = {}
 
-	LoadZones(C1,GetMapZones(1))
-	LoadZones(C2,GetMapZones(2))
-	LoadZones(C3,GetMapZones(3))
-	LoadZones(C4,GetMapZones(4))
+	LoadZones(C1,c1,GetMapZones(1))
+	LoadZones(C2,c1,GetMapZones(2))
+	LoadZones(C3,c1,GetMapZones(3))
+	LoadZones(C4,c1,GetMapZones(4))
 
 	-- Description: 
 	-- Expected result: 
 	-- Input: 
 	-- Output: 
 
-	--/script AckisRecipeList:SetupMiniMap()
-	function addon:SetupMiniMap()
+	--/script AckisRecipeList:SetupMap()
+	function addon:SetupMap()
 
 		addon:Print("Setting up mini-map icons.")
 
-		local minimaplist = {}
+		local maplist = {}
 
 		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 		for i = 1, #sortedRecipeIndex do
@@ -319,7 +328,7 @@ do
 				for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 					-- Vendor
 					if (v["Type"] == 2) then
-						minimaplist[v["ID"]] = true
+						maplist[v["ID"]] = true
 					end
 				end
 			end
@@ -345,14 +354,22 @@ do
 		ARLMiniMap:Show()
 		ARLMiniMap.icon:Show()
 
-		for k, j in pairs(minimaplist) do
-			--@debug@
-			addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
-			--@end-debug@
-			-- continent continent 0 is the world of Azeroth, 1 is Kalimdor, 2 is Eastern Continent, 3 is Outland, 4 is northrend
-			-- zone http://www.wowwiki.com/LocalizedMapZones
+		for k, j in pairs(maplist) do
 
-			-- Cords are stored from 0 to 100 in database
+			if (addon.db.profile.worldmap == true) then
+				--@debug@
+				addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
+				--@end-debug@
+				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,4,3,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
+			end
+
+			if (addon.db.profile.minimap == true) then
+				--@debug@
+				addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
+				--@end-debug@
+				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,4,3,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+			end
+
 			if (vendorDB[k]["Location"] == "Dalaran") then 
 				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,4,3,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
 				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,4,3,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)

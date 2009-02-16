@@ -1011,7 +1011,7 @@ local function fullOptions()
 						resetguiwindow = {	
 							order	= 15,
 							type	= "execute",
-							name	= L["Reset Window"],
+							name	= L["Reset Window Position"],
 							desc	= L["RESET_WINDOW_DESC"],
 							func	= function(info) addon:ResetGUI() end,
 						},
@@ -1020,15 +1020,15 @@ local function fullOptions()
 							type	= "description",
 							name	= "\n",
 						},
-						header2 = {
+						header1a = {
 							order	= 20,
 							type	= "header",
-							name	= L["Display Settings"],
+							name	= L["Main Filter Settings"],
 						},
-						display_desc = {
+						mainfilter_desc = {
 							order	= 21,
 							type	= "description",
-							name	= L["DISPLAY_SETTINGS_DESC"] .. "\n",
+							name	= L["MAINFILTER_SETTINGS_DESC"] .. "\n",
 						},
 						includefiltered = {
 							order	= 22,
@@ -1039,7 +1039,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
 						},
 						includeexcluded = {
-							order	= 22,
+							order	= 23,
 							type	= "toggle",
 							name	= L["Include Excluded"],
 							desc	= L["EXCLUDECOUNT_DESC"],
@@ -1047,7 +1047,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
 						},
 						ignoreexclusionlist = {
-							order	= 23,
+							order	= 24,
 							type	= "toggle",
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
@@ -1055,25 +1055,22 @@ local function fullOptions()
 							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
 						},
 						spacer1a = {
-							order	= 24,
+							order	= 30,
 							type	= "description",
 							name	= "\n",
 						},
-						closegui = {
-							order	= 25,
-							type	= "toggle",
-							name	= L["Close GUI"],
-							desc	= L["CLOSEGUI_DESC"],
-							get		= function() return addon.db.profile.closeguionskillclose end,
-							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
+						header2 = {
+							order	= 31,
+							type	= "header",
+							name	= L["Display Settings"],
 						},
-						spacer1b = {
-							order	= 28,
+						display_desc = {
+							order	= 32,
 							type	= "description",
-							name	= "\n",
+							name	= L["DISPLAY_SETTINGS_DESC"] .. "\n",
 						},
 						scanbuttonlocation = {
-							order	= 29,
+							order	= 33,
 							type	= "select",
 							name	= L["Scan Button Position"],
 							desc	= L["SCANBUTTONPOSITION_DESC"],
@@ -1082,7 +1079,7 @@ local function fullOptions()
 							values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
 						},
 						uiscale = {
-							order	= 30,
+							order	= 34,
 							type	= "range",
 							name	= L["UI Scale"],
 							desc	= L["UI_SCALE_DESC"],
@@ -1096,8 +1093,55 @@ local function fullOptions()
 										if (addon.Frame) then addon.Frame:SetScale(v) end
 									  end,
 						},
+						closegui = {
+							order	= 35,
+							type	= "toggle",
+							name	= L["Close GUI"],
+							desc	= L["CLOSEGUI_DESC"],
+							get		= function() return addon.db.profile.closeguionskillclose end,
+							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
+						},
+						spacer2 = {
+							order	= 39,
+							type	= "description",
+							name	= "\n",
+						},
+						header3 = {
+							order	= 40,
+							type	= "header",
+							name	= L["Sorting Settings"],
+						},
+						sort_desc =	{
+							order	= 41,
+							type	= "description",
+							name	= L["SORTING_SETTINGS_DESC"] .. "\n",
+						},
+						sorting = {
+							order	= 45,
+							type	= "select",
+							name	= L["Sorting"],
+							desc	= L["SORTING_DESC"],
+							get		= function() return addon.db.profile.sorting end,
+							set		= function(info,name) addon.db.profile.sorting = name end,
+							values	= function() return {Name = L["Name"], Skill = L["Skill"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
+						},
+						spacer3 = {
+							order	= 50,
+							type	= "description",
+							name	= "\n",
+						},
+						header4 = {
+							order	= 51,
+							type	= "header",
+							name	= L["Tooltip Settings"],
+						},
+						tt_desc =	{
+							order	= 52,
+							type	= "description",
+							name	= L["TOOLTIP_SETTINGS_DESC"] .. "\n",
+						},
 						tooltipscale = {
-							order	= 31,
+							order	= 53,
 							type	= "range",
 							name	= L["Tooltip Scale"],
 							desc	= L["TOOLTIP_SCALE_DESC"],
@@ -1113,7 +1157,7 @@ local function fullOptions()
 									  end,
 						},
 						acquiretooltiplocation = {
-							order	= 33,
+							order	= 54,
 							type	= "select",
 							name	= L["Tooltip (Acquire) Position"],
 							desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
@@ -1122,7 +1166,7 @@ local function fullOptions()
 							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
 						},
 						spelltooltiplocation = {
-							order	= 34,
+							order	= 55,
 							type	= "select",
 							name	= L["Tooltip (Recipe) Position"],
 							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
@@ -1130,29 +1174,36 @@ local function fullOptions()
 							set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
 							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
 						},
-						spacer2 = {
-							order	= 39,
+						spacer4 = {
+							order	= 60,
 							type	= "description",
 							name	= "\n",
 						},
-						header3 = {
-							order	= 40,
+						header5 = {
+							order	= 61,
 							type	= "header",
-							name	= L["Sorting Settings"],
+							name	= L["Map Settings"],
 						},
-						longdesc =	{
-							order	= 41,
+						map_desc =	{
+							order	= 62,
 							type	= "description",
-							name	= L["SORTING_SETTINGS_DESC"] .. "\n",
+							name	= L["MAP_SETTINGS_DESC"] .. "\n",
 						},
-						sorting = {
-							order	= 45,
-							type	= "select",
-							name	= L["Sorting"],
-							desc	= L["SORTING_DESC"],
-							get		= function() return addon.db.profile.sorting end,
-							set		= function(info,name) addon.db.profile.sorting = name end,
-							values	= function() return {Name = L["Name"], Skill = L["Skill"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
+						worldmap = {
+							order	= 63,
+							type	= "toggle",
+							name	= L["World Map"],
+							desc	= L["WORLDMAP_DESC"],
+							get		= function() return addon.db.profile.worldmap end,
+							set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
+						},
+						minimap = {
+							order	= 64,
+							type	= "toggle",
+							name	= L["Mini Map"],
+							desc	= L["MINIMAP_DESC"],
+							get		= function() return addon.db.profile.minimap end,
+							set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 						},
 					},
 				},

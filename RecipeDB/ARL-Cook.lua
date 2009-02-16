@@ -308,13 +308,11 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,8607,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,8607,2,1465,2,3556)
 
-	--[===[@non-debug@
 	-- Thistle Tea -- 9513
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9513,60,7676,2,2550)
 	self:addTradeFlags(RecipeDB,9513,1,2,4,8,28,36,41)
 	self:addTradeAcquire(RecipeDB,9513,4,2359,4,2359,4,2478,4,2478,2,6779)
-	--@end-non-debug@]===]
 
 	-- Goldthorn Tea -- 13028
 	recipecount = recipecount + 1
@@ -1007,7 +1005,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3413,2,3955,2,12033)
 
 	-- Master Cooking -- 33359 - 300 cooking
-	--recipecount = recipecount + 1
+	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,33359,300,27736,1,2550)
 	self:addTradeFlags(RecipeDB,33359,1,2,4,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,33359,2,18988,2,18987,2,18993)
