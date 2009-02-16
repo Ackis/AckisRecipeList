@@ -315,82 +315,91 @@ do
 	--/script AckisRecipeList:SetupMap()
 	function addon:SetupMap()
 
-		--@debug@
-		addon:Print("Setting up mini-map icons.")
-		--@end-debug@
+		if ((addon.db.profile.worldmap == true) and (addon.db.profile.minimap == true)) then
 
-		local maplist = {}
+			--@debug@
+			addon:Print("Setting up mini-map icons.")
+			--@end-debug@
 
-		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-		for i = 1, #sortedRecipeIndex do
-			local recipeIndex = sortedRecipeIndex[i]
+			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
-			if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-				-- loop through acquire methods, display each
-				for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-					-- Vendor
-					if (v["Type"] == 2) then
-						maplist[v["ID"]] = true
+			for i,k in pairs(SortedProfessions) do
+				if (k["name"] == playerData.playerProfession) then
+					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
+					break
+				end
+			end
+
+			local maplist = {}
+
+			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+			for i = 1, #sortedRecipeIndex do
+				local recipeIndex = sortedRecipeIndex[i]
+
+				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+					-- loop through acquire methods, display each
+					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+						-- Vendor
+						if (v["Type"] == 2) then
+							maplist[v["ID"]] = true
+						end
 					end
 				end
 			end
-		end
 
-		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMap)
-		ARLWorldMap:ClearAllPoints()
-		ARLWorldMap:SetWidth(8)
-		ARLWorldMap:SetHeight(8)
-		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
-		ARLWorldMap.icon:SetTexture("Interface\\AddOns\\AckisRecipeList\\img\\enchant_up")
-		ARLWorldMap.icon:SetAllPoints()
-		ARLWorldMap:Show()
-		ARLWorldMap.icon:Show()
+			local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
+			ARLWorldMap:ClearAllPoints()
+			ARLWorldMap:SetWidth(8)
+			ARLWorldMap:SetHeight(8)
+			ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+			ARLWorldMap.icon:SetTexture(icontext)
+			ARLWorldMap.icon:SetAllPoints()
 
-		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-		ARLMiniMap:ClearAllPoints()
-		ARLMiniMap:SetWidth(8)
-		ARLMiniMap:SetHeight(8)
-		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
-		ARLMiniMap.icon:SetTexture("Interface\\AddOns\\AckisRecipeList\\img\\enchant_up")
-		ARLMiniMap.icon:SetAllPoints()
-		ARLMiniMap:Show()
-		ARLMiniMap.icon:Show()
+			local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
+			ARLMiniMap:ClearAllPoints()
+			ARLMiniMap:SetWidth(8)
+			ARLMiniMap:SetHeight(8)
+			ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+			ARLMiniMap.icon:SetTexture(icontext)
+			ARLMiniMap.icon:SetAllPoints()
 
-		for k, j in pairs(maplist) do
+			for k, j in pairs(maplist) do
 
-			local continent, zone
-			local vendorloc = vendorDB[k]["Location"]
+				local continent, zone
+				local vendorloc = vendorDB[k]["Location"]
 
-			if (c1[vendorloc]) then
-				continent = 1
-				zone = c1[vendorloc]
-			elseif (c2[vendorloc]) then
-				continent = 2
-				zone = c2[vendorloc]
-			elseif (c3[vendorloc]) then
-				continent = 3
-				zone = c3[vendorloc]
-			elseif (c4[vendorloc]) then
-				continent = 4
-				zone = c4[vendorloc]
-			else
-				--@debug@
-				addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
-				--@end-debug@
-			end
+				if (c1[vendorloc]) then
+					continent = 1
+					zone = c1[vendorloc]
+				elseif (c2[vendorloc]) then
+					continent = 2
+					zone = c2[vendorloc]
+				elseif (c3[vendorloc]) then
+					continent = 3
+					zone = c3[vendorloc]
+				elseif (c4[vendorloc]) then
+					continent = 4
+					zone = c4[vendorloc]
+				else
+					--@debug@
+					addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
+					--@end-debug@
+				end
 
-			if ((zone) and (continent) and (addon.db.profile.worldmap == true)) then
-				--@debug@
-				addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
-				--@end-debug@
-				Astrolabe:PlaceIconOnWorldMap(WorldMapFrame,ARLWorldMap,continent,zone,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
-			end
+				if ((zone) and (continent) and (addon.db.profile.worldmap == true)) then
+					--@debug@
+					addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
+					--@end-debug@
+					Astrolabe:PlaceIconOnWorldMap(WorldMapDetailFrame,ARLWorldMap,continent,zone,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
+				end
 
-			if ((zone) and (continent) and (addon.db.profile.minimap == true)) then
-				--@debug@
-				addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
-				--@end-debug@
-				Astrolabe:PlaceIconOnMinimap(ARLMiniMap,continent,zone,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+				if ((zone) and (continent) and (addon.db.profile.minimap == true)) then
+					--@debug@
+					addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
+					--@end-debug@
+					Astrolabe:PlaceIconOnMinimap(ARLMiniMap,continent,zone,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+				end
+
 			end
 
 		end
@@ -606,7 +615,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		elseif (acquiretooltiplocation == "Mouse") then
 			arlTooltip:ClearAllPoints()
 			local x,y = GetCursorPosition()
-			local uiscale = UIParent:GetEffectiveScale() 
+			local uiscale = UIParent:GetEffectiveScale()
 			x = x/uiscale
 			y = y/uiscale
 			arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
