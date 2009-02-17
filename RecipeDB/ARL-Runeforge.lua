@@ -80,6 +80,12 @@ function addon:InitRuneforging(RecipeDB)
 	self:addTradeFlags(RecipeDB,53341,1,2,3,21)
 	self:addTradeAcquire(RecipeDB,53341,1,29194,1,29196,1,29195,1,31084)
 
+	-- Rune of the Stoneskin Gargoyle - 62158
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62158,1,nil,1,53428)
+	self:addTradeFlags(RecipeDB,62158,1,2,3,21)
+	self:addTradeAcquire(RecipeDB,62158,1,29194,1,29196,1,29195,1,31084)
+
 	return recipecount
 
 end
