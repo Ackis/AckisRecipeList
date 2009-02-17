@@ -40,8 +40,6 @@
 embeds.xml
 #@end-no-lib-strip@
 
-libs\Astrolabe\Load.xml
-
 # Localization files
 local.xml
 

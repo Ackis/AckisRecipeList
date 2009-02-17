@@ -2,11 +2,14 @@
 
 ===RC2===
 *You can now customize which tooltips are displayed, and where they are anchored.
-*You have most options on where to anchor the scan button
+*You have more options on where to anchor the scan button.
+*Mini-map and world map integration.  ARL will now work with TomTom to add icons to your world map and mini-map when you do a scan.  These icons do not persist through sessions (done on purpose as to not clutter up your map) and will only show up with TomTom enabled.  You can get TomTom [http://www.wowinterface.com/downloads/info7032.html here].
+*The addon is now LoD with the tradeskill UI.  This means that ARL will not be loaded until you open up a trade skill window, this saving you memory.
+*Support for Cauldron (including existing support for ATSW, Skillet and Manufac).
 *Many recipe updates
 
 ===Major Changes Since Initial Release to RC1===
-*Entire mod rewritten from scratch, including a new GUI
+*Entire mod rewritten from scratch, including a new GUI by Zhinjio
 *Multiple recipe filters
 *Recipe exclusion list
 *All WotLK recipes added
