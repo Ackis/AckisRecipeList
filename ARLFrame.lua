@@ -311,7 +311,6 @@ do
 	-- Input: 
 	-- Output: 
 
-	--/script AckisRecipeList:SetupMap()
 	function addon:SetupMap()
 
 		if (not TomTom) then
@@ -2012,16 +2011,19 @@ do
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
 			else
-				addon:AckisRecipeList_Command(false)
+				self:AckisRecipeList_Command(false)
+				self:SetupMap()
 				currentProfession = cprof
 			end
 		else
 			currentProfession = cprof
 			-- If we click the scan button with the shift key down, we do a text dump
 			if (IsShiftKeyDown()) then
-				addon:AckisRecipeList_Command(true)
+				self:AckisRecipeList_Command(true)
+				self:SetupMap()
 			else
-				addon:AckisRecipeList_Command(false)
+				self:AckisRecipeList_Command(false)
+				self:SetupMap()
 			end
 		end
 
