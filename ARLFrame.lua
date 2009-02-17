@@ -400,7 +400,7 @@ do
 					--@debug@
 					addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
 					--@end-debug@
-					TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100, vendorDB[k]["Name"], false, minimap, worldmap)
+					TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
 				end
 
 			end
