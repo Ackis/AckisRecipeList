@@ -20,7 +20,6 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local Astrolabe = DongleStub("Astrolabe-0.4")
 
 local string = string
 local ipairs = ipairs
@@ -315,10 +314,20 @@ do
 	--/script AckisRecipeList:SetupMap()
 	function addon:SetupMap()
 
-		if ((addon.db.profile.worldmap == true) and (addon.db.profile.minimap == true)) then
+		if (not TomTom) then
+			--@debug@
+			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
+			return
+			--@end-debug@
+		end
+
+		local worldmap = addon.db.profile.worldmap
+		local minimap = addon.db.profile.minimap
+
+		if ((worldmap == true) and (minimap == true)) then
 
 			--@debug@
-			addon:Print("Setting up mini-map icons.")
+			addon:Print("Setting up mini-map and world map icons with TomTom.")
 			--@end-debug@
 
 			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
@@ -347,6 +356,7 @@ do
 				end
 			end
 
+			--[[
 			local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
 			ARLWorldMap:ClearAllPoints()
 			ARLWorldMap:SetWidth(8)
@@ -362,6 +372,7 @@ do
 			ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
 			ARLMiniMap.icon:SetTexture(icontext)
 			ARLMiniMap.icon:SetAllPoints()
+			]]--
 
 			for k, j in pairs(maplist) do
 
@@ -385,19 +396,12 @@ do
 					addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
 					--@end-debug@
 				end
-
-				if ((zone) and (continent) and (addon.db.profile.worldmap == true)) then
+		
+				if ((zone) and (continent)) then
 					--@debug@
 					addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
 					--@end-debug@
-					Astrolabe:PlaceIconOnWorldMap(WorldMapDetailFrame,ARLWorldMap,continent,zone,vendorDB[k]["Coordx"]/100,vendorDB[k]["Coordy"]/100)
-				end
-
-				if ((zone) and (continent) and (addon.db.profile.minimap == true)) then
-					--@debug@
-					addon:Print("Adding vendor ID: " .. k .. " to the mini-map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. ".")
-					--@end-debug@
-					Astrolabe:PlaceIconOnMinimap(ARLMiniMap,continent,zone,vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100)
+					TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"]/100, vendorDB[k]["Coordy"]/100, vendorDB[k]["Name"], false, minimap, worldmap)
 				end
 
 			end

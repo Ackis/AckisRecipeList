@@ -965,6 +965,12 @@ local options = nil
 
 local function fullOptions()
 
+	local tomtomsupport = true
+
+	if (TomTom) then
+		tomtomsupport = false
+	end
+
 	if (not options) then
 
 		options = {
@@ -1194,6 +1200,7 @@ local function fullOptions()
 							type	= "toggle",
 							name	= L["World Map"],
 							desc	= L["WORLDMAP_DESC"],
+							disable = tomtomsupport,
 							get		= function() return addon.db.profile.worldmap end,
 							set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
 						},
@@ -1202,6 +1209,7 @@ local function fullOptions()
 							type	= "toggle",
 							name	= L["Mini Map"],
 							desc	= L["MINIMAP_DESC"],
+							disable = tomtomsupport,
 							get		= function() return addon.db.profile.minimap end,
 							set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 						},
@@ -1211,9 +1219,7 @@ local function fullOptions()
 		}
 
 		for k,v in pairs(modularOptions) do
-
 			options.args[k] = (type(v) == "function") and v() or v
-
 		end
 
 	end
