@@ -4,6 +4,10 @@
  output-page: "Database Documentation"
 -
  type: wiki
+ input-file: Docs/Feedback.txt
+ output-page: "Feedback"
+-
+ type: wiki
  input-file: Docs/Main.txt
  output-page: "Main"
 -

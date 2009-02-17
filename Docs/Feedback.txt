@@ -1,0 +1,27 @@
+==How to report a bug==
+
+Please read below very carefully ''before'' attempting to report a bug. Read ''everything'' on this page if you use an alpha or beta version.
+
+# '''DO NOT report bugs in the comments section!'''
+# Please use the ticket system to report bugs
+# ALWAYS '''check [http://www.wowace.com/projects/arl/tickets/?filter_status=+&filter_type=d older tickets]''' first
+# Disable all other addons and retry
+# Remember to confirm your version number
+# Finally, read [http://www.wowace.com/knowledge-base/how-to-file-tickets/ this]
+
+If you've understood all that, then '''[http://www.wowace.com/projects/arl/create-ticket/ proceed here to report a bug]''' and I thank you for your time. Check back later in case I need further feedback or confirmation that a bug has been fixed for you.
+
+You can also use the ticket system to request a new feature or for any other issue (e.g. providing/requesting a translation).
+
+==Addon conflicts==
+
+Please don't report conflicts with other addons to their authors unless you're using a stable release (non-alpha, non-beta) version of Ackis Recipe List. However, do tell me in either case.
+
+Don't include your list of addons when pasting error logs. If there's an addon conflict, there's no practical way I can test each of them, so you must identify the conflict. A good way to do that is with something like [http://wow.curse.com/downloads/wow-addons/details/acp.aspx ACP], which can disable and enable addons in-game.
+
+==If you use a Beta or Alpha release==
+
+* Has the bug already been fixed? '''Read the changelog''' of the latest alpha release [http://www.wowace.com/projects/arl/files/ here]
+* If you choose to use an alpha revision, make sure you're using the latest revision and pay attention to the changelog
+
+Remember that alpha versions are development-only releases, primarily for the author's benefit. Beta versions are specifically put out their for testing purposes for willing users and, as such, are not guaranteed to be stable for normal use.
