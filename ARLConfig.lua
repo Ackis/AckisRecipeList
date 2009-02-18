@@ -1213,6 +1213,13 @@ local function fullOptions()
 							get		= function() return addon.db.profile.minimap end,
 							set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 						},
+						clearmap = {	
+							order	= 65,
+							type	= "execute",
+							name	= L["Clear Waypoints"],
+							desc	= L["CLEAR_WAYPOINTS_DESC"],
+							func	= function(info) addon:ClearMap() end,
+						},
 					},
 				},
 			},

@@ -306,6 +306,23 @@ do
 	LoadZones(C3,c3,GetMapZones(3))
 	LoadZones(C4,c4,GetMapZones(4))
 
+	local iconlist = {}
+
+	-- Description: 
+	-- Expected result: 
+	-- Input: 
+	-- Output: 
+
+	function addon:ClearMap()
+
+		for i in pairs(iconlist) do
+			TomTom:RemoveWaypoint(i)
+		end
+
+		table.wipe(iconlist)
+
+	end
+
 	-- Description: 
 	-- Expected result: 
 	-- Input: 
@@ -400,7 +417,8 @@ do
 					--@debug@
 					addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
 					--@end-debug@
-					TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
+					local iconuid = TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
+					tinsert(iconlist,iconuid)
 				end
 
 			end

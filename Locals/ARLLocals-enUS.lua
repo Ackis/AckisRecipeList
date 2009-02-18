@@ -125,6 +125,8 @@ L["World Map"]				= true
 L["Mini Map"]				= true
 L["WORLDMAP_DESC"]			= "Do you want missing vendor recipes to appear on the world map."
 L["MINIMAP_DESC"]			= "Do you want missing vendor recipes to appear on the mini map."
+L["Clear Waypoints"]		= true
+L["CLEAR_WAYPOINTS_DESC"]	= "Remove all ARL waypoints from TomTom."
 
 -- Filter Config Options
 L["Filtering Options"]		= true
