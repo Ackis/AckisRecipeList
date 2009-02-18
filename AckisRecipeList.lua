@@ -71,15 +71,6 @@ if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	return
 end
 
-if (not DongleStub) then
-	addon:Print(format(L["MISSING_LIBRARY"],"DongleStub"))
-	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	AckisRecipeList = nil
-	return
-end
-
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Change this if new filters are added ever
