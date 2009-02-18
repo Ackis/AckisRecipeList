@@ -333,8 +333,8 @@ do
 		if (not TomTom) then
 			--@debug@
 			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
-			return
 			--@end-debug@
+			return
 		end
 
 		local worldmap = addon.db.profile.worldmap
