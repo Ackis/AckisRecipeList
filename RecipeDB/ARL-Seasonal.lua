@@ -23,9 +23,10 @@ Format:
 
 ]]--
 
-local L			= LibStub("AceLocale-3.0"):GetLocale("Ackis Recipe List")
+local MODNAME			= "Ackis Recipe List"
+local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local addon = AckisRecipeList
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:InitSeasons(SeasonDB)
 
