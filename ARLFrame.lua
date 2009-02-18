@@ -342,10 +342,6 @@ do
 
 		if ((worldmap == true) and (minimap == true)) then
 
-			--@debug@
-			addon:Print("Setting up mini-map and world map icons with TomTom.")
-			--@end-debug@
-
 			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
 			for i,k in pairs(SortedProfessions) do
@@ -415,7 +411,7 @@ do
 		
 				if ((zone) and (continent)) then
 					--@debug@
-					addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
+					--addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
 					--@end-debug@
 					local iconuid = TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
 					tinsert(iconlist,iconuid)
@@ -2638,57 +2634,36 @@ function addon.RecipeItem_OnClick(button)
 			if (isRecipe) then
 
 				if (isExpanded) then
-
 					-- get rid of our expanded lines
 					traverseIndex = clickedIndex + 1
-
 					while (DisplayStrings[traverseIndex].IsRecipe == false) do
-
 						tremove(DisplayStrings, traverseIndex)
-
 						-- if this is the last entry in the whole list, we should break out
 						if not DisplayStrings[traverseIndex] then
-
 							break
-
 						end
-
 					end
-
 					DisplayStrings[clickedIndex].IsExpanded = false
-
 				else
-
 					-- add in our expanded lines
 					expandEntry(clickedIndex)
 					-- set our current recipe to expanded
 					DisplayStrings[clickedIndex].IsExpanded = true
-
 				end
-
 			else
-
 				-- this inherently implies that we're on an expanded recipe
 				-- first, back up in the list of buttons until we find our recipe line
 				traverseIndex = clickedIndex - 1
-
 				while (DisplayStrings[traverseIndex].IsRecipe == false) do
-
 					traverseIndex = traverseIndex - 1
-
 				end
-
 				-- unexpand it
 				DisplayStrings[traverseIndex].IsExpanded = false
 				-- now remove the expanded lines until we get to a recipe again
 				traverseIndex = traverseIndex + 1
-
 				while (DisplayStrings[traverseIndex].IsRecipe == false) do
-
 					tremove(DisplayStrings, traverseIndex)
-
 				end
-
 			end
 
 			-- finally, call our scrollframe updater

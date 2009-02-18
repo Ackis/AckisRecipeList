@@ -942,7 +942,7 @@ function addon:InitAlchemy(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28590,370,22861,1,2259)
 	self:addTradeFlags(RecipeDB,28590,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,28590,1,22861,8,1)
+	self:addTradeAcquire(RecipeDB,28590,8,1)
 
 	-- Flask of Pure Death -- 28591
 	recipecount = recipecount + 1

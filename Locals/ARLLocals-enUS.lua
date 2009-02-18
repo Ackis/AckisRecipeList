@@ -1051,7 +1051,6 @@ L["Lesser Infernal"] = true
 L["Librarian Erickson"] = true
 L["Lieutenant General Andorov"] = true
 L["Lieutenant Mancuso"] = true
-L["Lightsworn Vindicator"] = true
 L["Lillehoff"] = true
 L["Lilliam Sparkspindle"] = true
 L["Lilly"] = true
