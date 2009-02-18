@@ -1,5 +1,11 @@
 ==ARL Changes==
 
+===RC3===
+*Fixed a bug where you did not have a proper default position for the scan button.
+*Fixed the error regarding donglestub.
+*Fixed the loading error with ARL-Seasonal.lua that some people were experiencing.
+*Fixed the TomTom nil error that some people were experiencing.
+
 ===RC2===
 *You can now customize which tooltips are displayed, and where they are anchored.
 *You have more options on where to anchor the scan button.
