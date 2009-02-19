@@ -678,7 +678,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43758,300,33866,3,2550)
 	self:addTradeFlags(RecipeDB,43758,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,43758,8,5,8,6)
+	self:addTradeAcquire(RecipeDB,43758,8,5,8,6,8,38)
 
 	-- Broiled Bloodfin -- 43761
 	recipecount = recipecount + 1
@@ -702,7 +702,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,43779,1,33924,3,2550)
 	self:addTradeFlags(RecipeDB,43779,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,43779,8,5,8,6)
+	self:addTradeAcquire(RecipeDB,43779,8,5,8,6,8,38)
 
 	-- Hot Apple Cider -- 45022
 	recipecount = recipecount + 1
