@@ -252,9 +252,9 @@ Defined below is the specification for the arguments passed back into addTradeAc
 
 ==Faction ID==
 
-:1 - Horde
-:2 - Alliance
-:3 - Neutral
+:0 - Neutral
+:1 - Alliance
+:2 - Horde
 
 ==Rarity colours==
 :0 - poor			#919191
