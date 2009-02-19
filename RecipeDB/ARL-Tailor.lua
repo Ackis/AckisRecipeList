@@ -348,7 +348,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3873,200,4336,1,3908)
 	self:addTradeFlags(RecipeDB,3873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3873,2,2483)
+	self:addTradeAcquire(RecipeDB,3873,2,2663)
 
 	-- Brown Linen Pants -- 3914
 	recipecount = recipecount + 1
