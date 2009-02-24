@@ -1067,13 +1067,13 @@ local function RecipeList_Update()
 
 		local showpopup = false
 
-		if (addon.profile.db.hidepopup ~= true) then
+		if (addon.db.profile.hidepopup ~= true) then
 			showpopup = true
 		end
 
 		-- If we haven't run this before we'll show pop-ups for the first time.
-		if (addon.profile.db.addonversion ~= addonversion) then
-			addon.profile.db.addonversion = addonversion
+		if (addon.db.profile.addonversion ~= addonversion) then
+			addon.db.profile.addonversion = addonversion
 			showpopup = true
 		end
 
