@@ -70,9 +70,10 @@ L["Reporting Bugs"]			= true
 L["REPORTING_BUGS_DESC"]	= [["When reporting a bug, please make sure you do the following:
 1) Download the latest version, available from http://www.wowace.com/projects/arl/files/
 2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/
-2a) Disable addons such as Skillet or ATSW.
-3) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
-4) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
+3) Disable addons such as Skillet or ATSW.
+4) Read the bug reporting documentation at http://www.wowace.com/projects/arl/pages/feedback/
+5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
+6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
 When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily."]]
 L["Common Issues"]			= true
 L["COMMON_ISSUES_DESC"]		= [["Please refer to these common issues before submitting a bug report.

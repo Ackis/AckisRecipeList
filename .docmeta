@@ -4,8 +4,12 @@
  output-page: "Database Documentation"
 -
  type: wiki
+ input-file: Docs/In-game.txt
+ output-page: "In-game Documenation"
+-
+ type: wiki
  input-file: Docs/Feedback.txt
- output-page: "Feedback"
+ output-page: "Feedback and Bug Reporting"
 -
  type: wiki
  input-file: Docs/Main.txt
