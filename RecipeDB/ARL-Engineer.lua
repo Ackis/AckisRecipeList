@@ -1751,7 +1751,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Titanium Toolbox -- 30349
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,30349,440,23775,3,4036)
-	self:addTradeFlags(RecipeDB,30349,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,30349,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,30349,2,28722)
 
 	return recipecount
