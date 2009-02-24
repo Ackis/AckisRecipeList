@@ -1097,10 +1097,15 @@ local function RecipeList_Update()
 			end
 		else
 			addon:Print(L["NO_DISPLAY"])
+			addon:Print("DEBUG: recipes_total check for 0")
 			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+			addon:Print("DEBUG: recipes_total check for equal to recipes_total")
 			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
+			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+			addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
 			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
 			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
+			addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
 			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
 		end
 
