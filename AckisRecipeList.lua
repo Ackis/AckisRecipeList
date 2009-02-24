@@ -155,6 +155,7 @@ function addon:OnInitialize()
 			scanbuttonlocation = "TR",
 			spelltooltiplocation = "Right",
 			acquiretooltiplocation = "Mouse",
+			hidepopup = false,
 			minimap = true,
 			worldmap = true,
 

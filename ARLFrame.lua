@@ -85,6 +85,8 @@ local playerData = {}
 local arlTooltip = _G["arlTooltip"]
 local arlTooltip2 = _G["arlTooltip2"]
 
+local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB
 
@@ -1061,18 +1063,38 @@ local function RecipeList_Update()
 		ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
 		ARL_ExpandButton:Disable()
 
+		local showpopup = false
+
+		if (addon.profile.db.hidepopup ~= true) then
+			showpopup = true
+		end
+
+		-- If we haven't run this before we'll show pop-ups for the first time.
+		if (addon.profile.db.addonversion ~= addonversion) then
+			addon.profile.db.addonversion = addonversion
+			showpopup = true
+		end
+
 		-- If the recipe total is at 0, it means we have not scanned the profession yet
 		if (playerData.recipes_total == 0) then
-			StaticPopup_Show("ARL_NOTSCANNED")
+			if (showpopup == true) then
+				StaticPopup_Show("ARL_NOTSCANNED")
+			end
 		-- We know all the recipes
 		elseif (playerData.recipes_known == playerData.recipes_total) then
-			StaticPopup_Show("ARL_ALLKNOWN")
+			if (showpopup == true) then
+				StaticPopup_Show("ARL_ALLKNOWN")
+			end
 		-- Our filters are actually filtering something
 		elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) == 0) then
-			StaticPopup_Show("ARL_ALLFILTERED")
+			if (showpopup == true) then
+				StaticPopup_Show("ARL_ALLFILTERED")
+			end
 		-- Our exclusion list is preventing something from being displayed
 		elseif (playerData.excluded_recipes_unknown ~= 0) then
-			StaticPopup_Show("ARL_ALLEXCLUDED")
+			if (showpopup == true) then
+				StaticPopup_Show("ARL_ALLEXCLUDED")
+			end
 		else
 			addon:Print(L["NO_DISPLAY"])
 			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
@@ -1358,7 +1380,6 @@ function addon.resetTitle()
 
 	-- reset the frame title line
 	local myTitle = ""
-	local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 
 	if (addon.Frame._Expanded == true) then
 

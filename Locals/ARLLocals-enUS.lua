@@ -127,6 +127,8 @@ L["WORLDMAP_DESC"]			= "Do you want missing vendor recipes to appear on the worl
 L["MINIMAP_DESC"]			= "Do you want missing vendor recipes to appear on the mini map."
 L["Clear Waypoints"]		= true
 L["CLEAR_WAYPOINTS_DESC"]	= "Remove all ARL waypoints from TomTom."
+L["Hide Pop-Up"]			= true
+L["HIDEPOPUP_DESC"]			= "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
 
 -- Filter Config Options
 L["Filtering Options"]		= true

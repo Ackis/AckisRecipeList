@@ -1107,6 +1107,14 @@ local function fullOptions()
 							get		= function() return addon.db.profile.closeguionskillclose end,
 							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 						},
+						hidepopup = {
+							order	= 36,
+							type	= "toggle",
+							name	= L["Hide Pop-Up"],
+							desc	= L["HIDEPOPUP_DESC"],
+							get		= function() return addon.db.profile.hidepopup end,
+							set		= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
+						},
 						spacer2 = {
 							order	= 39,
 							type	= "description",
