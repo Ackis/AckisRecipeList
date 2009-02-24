@@ -346,6 +346,7 @@ do
 
 			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
+			-- Get the proper icon to put on the mini-map
 			for i,k in pairs(SortedProfessions) do
 				if (k["name"] == playerData.playerProfession) then
 					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
@@ -362,9 +363,10 @@ do
 				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 					-- loop through acquire methods, display each
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-						-- Vendor
+						-- If it's a vendor check to see if we're displaying it
 						if (v["Type"] == 2) then
-							maplist[v["ID"]] = true
+							local display = CheckDisplayFaction(addon.db.profile.filters, trainerDB[v["ID"]]["Faction"])
+							maplist[v["ID"]] = display
 						end
 					end
 				end
@@ -2231,21 +2233,13 @@ end
 local function CheckDisplayFaction(filterDB, faction)
 
 	if (filterDB.general.faction ~= true) then
-
 		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
-
 			return true
-
 		else
-
 			return false
-
 		end
-
 	else
-
 		return true
-
 	end
 
 end
