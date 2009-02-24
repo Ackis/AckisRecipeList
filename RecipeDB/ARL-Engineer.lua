@@ -1001,13 +1001,13 @@ function addon:InitEngineering(RecipeDB)
 	-- Firework Launcher -- 26442
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26442,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
 
 	-- Firework Cluster Launcher -- 26443
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26443,275,21570,2,4036)
-	self:addTradeFlags(RecipeDB,26443,1,2,7,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26443,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,26443,5,2,4,8882)
 
 	-- Steam Tonk Controller -- 28327

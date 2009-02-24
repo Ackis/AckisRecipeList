@@ -635,7 +635,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Frost Power -- 21923
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,21923,190,17708,1,2259)
-	self:addTradeFlags(RecipeDB,21923,1,2,3,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,21923,1,2,7,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,21923,5,1)
 
 	-- Major Rejuvenation Potion -- 22732
