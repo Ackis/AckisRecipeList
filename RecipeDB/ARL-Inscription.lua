@@ -1157,7 +1157,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Obliterate -- 57220
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57220,375,43547,1,45357)
-	self:addTradeFlags(RecipeDB,57220,1,2,12,36,41)
+	self:addTradeFlags(RecipeDB,57220,1,2,12,21,36,41)
 	self:addTradeAcquire(RecipeDB,57220,8,15)
 
 	-- Glyph of Plague Strike -- 57221
