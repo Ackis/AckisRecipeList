@@ -383,7 +383,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Dream Vision -- 11468
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11468,240,9197,2,2259)
-	self:addTradeFlags(RecipeDB,11468,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,11468,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,11468,7,2)
 
 	-- Elixir of Giants -- 11472
