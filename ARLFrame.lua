@@ -281,6 +281,25 @@ local function SetSortString(recipeSkill, recStr)
 
 end
 
+-- Description: 
+-- Expected result: 
+-- Input: 
+-- Output: 
+
+local function CheckDisplayFaction(filterDB, faction)
+
+	if (filterDB.general.faction ~= true) then
+		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+			return true
+		else
+			return false
+		end
+	else
+		return true
+	end
+
+end
+
 do
 
 	local function LoadZones(c,y, ...)
@@ -365,7 +384,7 @@ do
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 						-- If it's a vendor check to see if we're displaying it
 						if (v["Type"] == 2) then
-							local display = CheckDisplayFaction(addon.db.profile.filters, trainerDB[v["ID"]]["Faction"])
+							local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
 							maplist[v["ID"]] = display
 						end
 					end
@@ -2222,25 +2241,6 @@ function addon:SwitchProfs(button)
 
 	ReDisplay()
 	addon.resetTitle()
-
-end
-
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
-local function CheckDisplayFaction(filterDB, faction)
-
-	if (filterDB.general.faction ~= true) then
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
-			return true
-		else
-			return false
-		end
-	else
-		return true
-	end
 
 end
 
