@@ -2416,7 +2416,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Jormungar Leg Armor -- 50964
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50964,400,38371,1, 2108)
+	self:addTradeSkill(RecipeDB,50964,405,38371,1, 2108)
 	self:addTradeFlags(RecipeDB,50964,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,50964,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2428,7 +2428,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Leg Armor -- 50966
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50966,395,38372,1, 2108)
+	self:addTradeSkill(RecipeDB,50966,400,38372,1, 2108)
 	self:addTradeFlags(RecipeDB,50966,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,50966,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2452,7 +2452,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Black Chitinguard Boots -- 51568
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,51568,395,38590,1, 2108)
+	self:addTradeSkill(RecipeDB,51568,400,38590,1, 2108)
 	self:addTradeFlags(RecipeDB,51568,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,51568,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2494,19 +2494,19 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Fur Lining - Attack Power -- 57683
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,57683,415,nil, 1, 2108)
+	self:addTradeSkill(RecipeDB,57683,400,nil, 1, 2108)
 	self:addTradeFlags(RecipeDB,57683,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57683,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Fur Lining - Stamina -- 57690
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,57690,415,nil, 1, 2108)
+	self:addTradeSkill(RecipeDB,57690,400,nil, 1, 2108)
 	self:addTradeFlags(RecipeDB,57690,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57690,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Fur Lining - Spell Power -- 57691
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,57691,415,nil, 1, 2108)
+	self:addTradeSkill(RecipeDB,57691,400,nil, 1, 2108)
 	self:addTradeFlags(RecipeDB,57691,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57691,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2542,7 +2542,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Jormungar Leg Reinforcements -- 60583
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60583,390,nil, 1, 2108)
+	self:addTradeSkill(RecipeDB,60583,405,nil, 1, 2108)
 	self:addTradeFlags(RecipeDB,60583,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60583,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2578,7 +2578,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Dragonstompers -- 60605
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60605,395,44438,1, 2108)
+	self:addTradeSkill(RecipeDB,60605,400,44438,1, 2108)
 	self:addTradeFlags(RecipeDB,60605,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60605,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2608,7 +2608,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Bugsquashers -- 60620
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60620,395,44442,1, 2108)
+	self:addTradeSkill(RecipeDB,60620,400,44442,1, 2108)
 	self:addTradeFlags(RecipeDB,60620,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60620,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2638,7 +2638,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Scaled Icewalkers -- 60630
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60630,395,44445,1, 2108)
+	self:addTradeSkill(RecipeDB,60630,405,44445,1, 2108)
 	self:addTradeFlags(RecipeDB,60630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60630,1,26911,1,26961,1,26996,1,26998,1,28700)
 

@@ -165,8 +165,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,18064,L["Warmaul Shaman"],BZONE["Nagrand"],46.18,22.58)
 	self:addLookupList(MobDB,18202,L["Murkblood Putrifier"],BZONE["Nagrand"],32.68,44.54)
 	self:addLookupList(MobDB,18203,L["Murkblood Raider"],BZONE["Nagrand"],32.35,43.26)
-	self:addLookupList(MobDB,22148,L["Gordunni Head-Splitter"],BZONE["Nagrand"],76.73,37.85)
-	self:addLookupList(MobDB,23022,L["Gordunni Soulreaper"],BZONE["Nagrand"],76.20,37.03)
 	-- Netherstorm
 	self:addLookupList(MobDB,18853,L["Sunfury Bloodwarder"],BZONE["Netherstorm"],25.84,67.81)
 	self:addLookupList(MobDB,18866,L["Mageslayer"],BZONE["Netherstorm"],56.34,88.03)
@@ -268,6 +266,10 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,16810,L["Bonechewer Backbreaker"],BZONE["Terokkar Forest"],66.34,53.69)
 	self:addLookupList(MobDB,18595,L["Warped Peon"],BZONE["Terokkar Forest"],66.50,51.50)
 	self:addLookupList(MobDB,21911,L["Skettis Soulcaller"],BZONE["Terokkar Forest"],68.03,79.70)
+	self:addLookupList(MobDB,22148,L["Gordunni Head-Splitter"],BZONE["Terokkar Forest"],76.73,37.85)
+	self:addLookupList(MobDB,23022,L["Gordunni Soulreaper"],BZONE["Terokkar Forest"],76.20,37.03)
+	self:addLookupList(MobDB,22143,L["Gordunni Back-Breaker"],BZONE["Terokkar Forest"],77.74,93.88)
+	self:addLookupList(MobDB,22144,L["Gordunni Elementalist"],BZONE["Terokkar Forest"],73.35,90.95)
 	-- The Barrens
 	self:addLookupList(MobDB,3256,L["Sunscale Scytheclaw"],BZONE["The Barrens"],54.32,38.73)
 	self:addLookupList(MobDB,3385,L["Theramore Marine"],BZONE["The Barrens"],61.89,54.10)
@@ -363,8 +365,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,10807,L["Brumeran"],BZONE["Winterspring"],60.77,56.81)
 	self:addLookupList(MobDB,14457,BBOSS["Princess Tempestria"],BZONE["Winterspring"],53.39,42.63)
 	-- Zangarmarsh
-	self:addLookupList(MobDB,22143,L["Gordunni Back-Breaker"],BZONE["Zangarmarsh"],77.74,93.88)
-	self:addLookupList(MobDB,22144,L["Gordunni Elementalist"],BZONE["Zangarmarsh"],73.35,90.95)
 	-- Zul'drak
 	self:addLookupList(MobDB,29235,L["Gundrak Savage"],BZONE["Zul'Drak"],73.80,30.92)
 -- Instances
