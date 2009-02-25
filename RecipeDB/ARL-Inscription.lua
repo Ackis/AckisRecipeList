@@ -2215,19 +2215,19 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56990,310,44920,1,45357)
 	self:addTradeFlags(RecipeDB,56990,1,2,3,24,36,41)
-	self:addTradeAcquire(RecipeDB,56990,26916,1,26959,1,26977,1,26995,1,28702)
+	self:addTradeAcquire(RecipeDB,56990,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Glyph of Arcane Blast -- 56991
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56991,310,44955,1,45357)
 	self:addTradeFlags(RecipeDB,56991,1,2,3,24,36,41)
-	self:addTradeAcquire(RecipeDB,56991,26916,1,26959,1,26977,1,26995,1,28702)
+	self:addTradeAcquire(RecipeDB,56991,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Glyph of Typhoon -- 56965
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56965,310,44955,1,45357)
 	self:addTradeFlags(RecipeDB,56965,1,2,3,22,36,41)
-	self:addTradeAcquire(RecipeDB,56965,26916,1,26959,1,26977,1,26995,1,28702)
+	self:addTradeAcquire(RecipeDB,56965,1,26916,1,26959,1,26977,1,26995,1,28702)
 
 	-- Glyph of Focus -- 62162
 	recipecount = recipecount + 1

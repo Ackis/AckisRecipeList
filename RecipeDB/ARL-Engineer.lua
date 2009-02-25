@@ -282,7 +282,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3966,185,4393,3,4036)
 	self:addTradeFlags(RecipeDB,3966,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,3966,7,3,7800)
+	self:addTradeAcquire(RecipeDB,3966,7,3)
 
 	-- Big Iron Bomb -- 3967
 	recipecount = recipecount + 1
@@ -1398,7 +1398,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,46106,375,35183,4,4036)
 	self:addTradeFlags(RecipeDB,46106,1,2,6,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,46106,8.33)
+	self:addTradeAcquire(RecipeDB,46106,8,33)
 
 	-- Justicebringer 3000 Specs -- 46107
 	recipecount = recipecount + 1
