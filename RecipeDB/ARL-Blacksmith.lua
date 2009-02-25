@@ -2885,7 +2885,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Orcish War Leggings -- 9957
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018)
-	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,47,51,52,58)
+	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,51,52,58)
 	self:addTradeAcquire(RecipeDB, 9957,4,2756)
 
 	-- Dark Iron Mail -- 15293
