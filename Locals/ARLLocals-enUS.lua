@@ -309,9 +309,10 @@ L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in t
 L["NOT_YET_SCANNED"]		= "not yet scanned!"
 
 -- Common Tool tip Strings (where different from above)
-L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat"
-L["ALT_CLICK"]			= "Alt-Click to add/remove this recipe to your ignore list"
-L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat"
+L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat."
+L["ALT_CLICK"]			= "Alt-Click to add/remove this recipe to your ignore list."
+L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat."
+L["CTRL_SHIFT_CLICK"]	= "Ctrl-Shift-Click to add the item to the map and mini-map."
 L["Obtained From"]		= true
 L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
 L["Required Skill"]		= true

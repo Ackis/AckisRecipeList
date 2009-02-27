@@ -349,7 +349,7 @@ do
 	-- Input: 
 	-- Output: 
 
-	function addon:SetupMap()
+	function addon:SetupMap(singlerecipe)
 
 		if (not TomTom) then
 			--@debug@
@@ -375,17 +375,28 @@ do
 
 			local maplist = {}
 
-			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-			for i = 1, #sortedRecipeIndex do
-				local recipeIndex = sortedRecipeIndex[i]
-
-				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-					-- loop through acquire methods, display each
-					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-						-- If it's a vendor check to see if we're displaying it
-						if (v["Type"] == 2) then
-							local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
-							maplist[v["ID"]] = display
+			-- We're only getting a singl recipe, not a bunch
+			if (singlerecipe) then
+				-- loop through acquire methods, display each
+				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
+					-- If it's a vendor check to see if we're displaying it
+					if (v["Type"] == 2) then
+						local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
+						maplist[v["ID"]] = display
+					end
+				end
+			else
+				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+				for i = 1, #sortedRecipeIndex do
+					local recipeIndex = sortedRecipeIndex[i]
+					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+						-- loop through acquire methods, display each
+						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+							-- If it's a vendor check to see if we're displaying it
+							if (v["Type"] == 2) then
+								local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
+								maplist[v["ID"]] = display
+							end
 						end
 					end
 				end
@@ -433,9 +444,6 @@ do
 				end
 		
 				if ((zone) and (continent)) then
-					--@debug@
-					--addon:Print("Adding vendor ID: " .. k .. " to the world map at coords " .. vendorDB[k]["Coordx"] .. "," .. vendorDB[k]["Coordy"].. " with continent ID: " .. continent .. " and zone ID: " .. zone .. ".")
-					--@end-debug@
 					local iconuid = TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
 					tinsert(iconlist,iconuid)
 				end
@@ -948,6 +956,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
 		gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
 		gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
+		gttAdd(0, -1, 0, 1, L["CTRL_SHIFT_CLICK"], clr1)
 
 		arlTooltip:Show()
 
@@ -2620,39 +2629,35 @@ function addon.RecipeItem_OnClick(button)
 		local traverseIndex = 0
 
 		-- First, check if this is a "modified" click, and react appropriately
-		if (IsShiftKeyDown()) then
-
-			local itemID = recipeDB[clickedSpellIndex]["ItemID"]
-			local _, itemLink = GetItemInfo(itemID)
-
-			if (itemLink) then
-
-				ChatFrameEditBox:Insert(itemLink)
-
-			else
-
-				addon:Print(L["NoItemLink"])
-
+		if (IsModifierKeyDown()) then
+			-- CTRL-SHIFT
+			if (IsControlKeyDown() and IsShiftKeyDown()) then
+				addon:SetupMap(clickedSpellIndex)
+			-- SHIFT
+			elseif (IsShiftKeyDown()) then
+				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
+				local _, itemLink = GetItemInfo(itemID)
+				if (itemLink) then
+					ChatFrameEditBox:Insert(itemLink)
+				else
+					addon:Print(L["NoItemLink"])
+				end
+			-- CTRL
+			elseif (IsControlKeyDown()) then
+				ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
+			-- ALT
+			elseif (IsAltKeyDown()) then
+				-- Code needed here to insert this item into the "Ignore List"
+				addon:ToggleExcludeRecipe(clickedSpellIndex)
+				ReDisplay()
 			end
-
-		elseif (IsControlKeyDown()) then
-
-			ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
-
-		elseif (IsAltKeyDown()) then
-
-			-- Code needed here to insert this item into the "Ignore List"
-			addon:ToggleExcludeRecipe(clickedSpellIndex)
-			ReDisplay()
-
+		-- No modifyer
 		else
-
 			-- three possibilities here
 			-- 1) We clicked on the recipe button on a closed recipe
 			-- 2) We clicked on the recipe button of an open recipe
 			-- 3) we clicked on the expanded text of an open recipe
 			if (isRecipe) then
-
 				if (isExpanded) then
 					-- get rid of our expanded lines
 					traverseIndex = clickedIndex + 1
