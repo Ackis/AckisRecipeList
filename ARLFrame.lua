@@ -351,6 +351,10 @@ do
 		-- If it's a vendor check to see if we're displaying it
 		if (v["Type"] == 2) then
 			display = CheckDisplayFaction(filters, vendorDB[v["ID"]]["Faction"])
+		elseif (v["Type"] == 3) then
+			display = CheckDisplayFaction(filters, mobDB[v["ID"]]["Faction"])
+		elseif (v["Type"] == 4) then
+			display = CheckDisplayFaction(filters, questDB[v["ID"]]["Faction"])
 		end
 
 		return display
