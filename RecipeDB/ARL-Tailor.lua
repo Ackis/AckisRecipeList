@@ -2380,7 +2380,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Duskweave Boots -- 55924
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55924,380,41544,1, 3908)
+	self:addTradeSkill(RecipeDB,55924,410,41544,1, 3908)
 	self:addTradeFlags(RecipeDB,55924,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,55924,1,26914,1,26964,1,26969,1,27001,1,28699)
 
