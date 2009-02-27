@@ -344,6 +344,19 @@ do
 
 	end
 
+	function addon:CheckMapDisplay(v, filters)
+
+		local display = false
+
+		-- If it's a vendor check to see if we're displaying it
+		if (v["Type"] == 2) then
+			display = CheckDisplayFaction(filters, vendorDB[v["ID"]]["Faction"])
+		end
+
+		return display
+
+	end
+
 	-- Description: 
 	-- Expected result: 
 	-- Input: 
@@ -360,6 +373,7 @@ do
 
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
+		local filters = addon.db.profile.filters
 
 		if ((worldmap == true) and (minimap == true)) then
 
@@ -379,11 +393,7 @@ do
 			if (singlerecipe) then
 				-- loop through acquire methods, display each
 				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-					-- If it's a vendor check to see if we're displaying it
-					if (v["Type"] == 2) then
-						local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
-						maplist[v["ID"]] = display
-					end
+					maplist[v["ID"]] = CheckMapDisplay(v,filters)
 				end
 			else
 				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
@@ -392,11 +402,7 @@ do
 					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 						-- loop through acquire methods, display each
 						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-							-- If it's a vendor check to see if we're displaying it
-							if (v["Type"] == 2) then
-								local display = CheckDisplayFaction(addon.db.profile.filters, vendorDB[v["ID"]]["Faction"])
-								maplist[v["ID"]] = display
-							end
+							maplist[v["ID"]] = CheckMapDisplay(v,filters)
 						end
 					end
 				end
