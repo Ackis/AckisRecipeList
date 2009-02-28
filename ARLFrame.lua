@@ -1339,7 +1339,7 @@ function addon:ShowScanButton()
 	elseif (CauldronFrame) then
 		addon.ScanButton:SetParent(CauldronFrame)
 		addon.ScanButton:ClearAllPoints()
-		addon.ScanButton:SetPoint("TOP", CauldronFrame, "BOTTOM", 0, 0)
+		addon.ScanButton:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
 		addon.ScanButton:SetWidth(90)
 	-- Anchor to trade window
 	else
