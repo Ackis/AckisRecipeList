@@ -1894,73 +1894,73 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Ebon Netherscale Breastplate -- 35575
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35575,365,29515,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35575,375,29515,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35575,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35575,1,7866,1,7867)
 
 	-- Ebon Netherscale Belt -- 35576
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35576,365,29516,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35576,375,29516,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35576,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35576,1,7866,1,7867)
 
 	-- Ebon Netherscale Bracers -- 35577
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35577,365,29517,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35577,375,29517,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35577,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35577,1,7866,1,7867)
 
 	-- Netherstrike Breastplate -- 35580
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35580,365,29519,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35580,375,29519,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35580,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35580,1,7866,1,7867)
 
 	-- Netherstrike Belt -- 35582
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35582,365,29520,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35582,375,29520,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35582,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35582,1,7866,1,7867)
 
 	-- Netherstrike Bracers -- 35584
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35584,365,29521,1,2108,10656)
+	self:addTradeSkill(RecipeDB,35584,375,29521,1,2108,10656)
 	self:addTradeFlags(RecipeDB,35584,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35584,1,7866,1,7867)
 
 	-- Windhawk Hauberk -- 35585
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35585,365,29522,1,2108,10660)
+	self:addTradeSkill(RecipeDB,35585,375,29522,1,2108,10660)
 	self:addTradeFlags(RecipeDB,35585,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35585,1,7870,1,7871)
 
 	-- Windhawk Belt -- 35587
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35587,365,29524,1,2108,10660)
+	self:addTradeSkill(RecipeDB,35587,375,29524,1,2108,10660)
 	self:addTradeFlags(RecipeDB,35587,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35587,1,7870,1,7871)
 
 	-- Windhawk Bracers -- 35588
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35588,365,29523,1,2108,10660)
+	self:addTradeSkill(RecipeDB,35588,375,29523,1,2108,10660)
 	self:addTradeFlags(RecipeDB,35588,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35588,1,7870,1,7871)
 
 	-- Primalstrike Vest -- 35589
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35589,365,29525,1,2108,10658)
+	self:addTradeSkill(RecipeDB,35589,375,29525,1,2108,10658)
 	self:addTradeFlags(RecipeDB,35589,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35589,1,7868,1,7869)
 
 	-- Primalstrike Belt -- 35590
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35590,365,29526,1,2108,10658)
+	self:addTradeSkill(RecipeDB,35590,375,29526,1,2108,10658)
 	self:addTradeFlags(RecipeDB,35590,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35590,1,7868,1,7869)
 
 	-- Primalstrike Bracers -- 35591
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,35591,365,29527,1,2108,10658)
+	self:addTradeSkill(RecipeDB,35591,375,29527,1,2108,10658)
 	self:addTradeFlags(RecipeDB,35591,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
 	self:addTradeAcquire(RecipeDB,35591,1,7868,1,7869)
 
@@ -2254,13 +2254,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Heavy Borean Leather -- 50936
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50936,365,38425,1,2108)
+	self:addTradeSkill(RecipeDB,50936,390,38425,1,2108)
 	self:addTradeFlags(RecipeDB,50936,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,50936,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Iceborne Chestguard -- 50938
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50938,370,38408,1, 2108)
+	self:addTradeSkill(RecipeDB,50938,375,38408,1, 2108)
 	self:addTradeFlags(RecipeDB,50938,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50938,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2272,7 +2272,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Iceborne Shoulderpads -- 50940
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50940,375,38411,1, 2108)
+	self:addTradeSkill(RecipeDB,50940,380,38411,1, 2108)
 	self:addTradeFlags(RecipeDB,50940,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50940,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2284,13 +2284,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Iceborne Boots -- 50942
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50942,370,38407,1, 2108)
+	self:addTradeSkill(RecipeDB,50942,375,38407,1, 2108)
 	self:addTradeFlags(RecipeDB,50942,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50942,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Iceborne Belt -- 50943
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50943,360,38406,1, 2108)
+	self:addTradeSkill(RecipeDB,50943,380,38406,1, 2108)
 	self:addTradeFlags(RecipeDB,50943,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50943,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2302,19 +2302,19 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Arctic Leggings -- 50945
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50945,370,38401,2,2108)
+	self:addTradeSkill(RecipeDB,50945,375,38401,2,2108)
 	self:addTradeFlags(RecipeDB,50945,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50945,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Arctic Shoulderpads -- 50946
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50946,375,38402,2,2108)
+	self:addTradeSkill(RecipeDB,50946,380,38402,2,2108)
 	self:addTradeFlags(RecipeDB,50946,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50946,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Arctic Gloves -- 50947
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50947,370,38403,2,2108)
+	self:addTradeSkill(RecipeDB,50947,375,38403,2,2108)
 	self:addTradeFlags(RecipeDB,50947,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50947,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2326,13 +2326,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Arctic Belt -- 50949
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50949,375,38405,2,2108)
+	self:addTradeSkill(RecipeDB,50949,380,38405,2,2108)
 	self:addTradeFlags(RecipeDB,50949,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50949,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Frostscale Chestguard -- 50950
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50950,370,38414,1, 2108)
+	self:addTradeSkill(RecipeDB,50950,375,38414,1, 2108)
 	self:addTradeFlags(RecipeDB,50950,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50950,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2344,19 +2344,19 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Frostscale Shoulders -- 50952
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50952,370,38424,1, 2108)
+	self:addTradeSkill(RecipeDB,50952,375,38424,1, 2108)
 	self:addTradeFlags(RecipeDB,50952,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50952,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Frostscale Gloves -- 50953
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50953,375,38415,1, 2108)
+	self:addTradeSkill(RecipeDB,50953,380,38415,1, 2108)
 	self:addTradeFlags(RecipeDB,50953,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50953,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Frostscale Boots -- 50954
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50954,375,38413,1, 2108)
+	self:addTradeSkill(RecipeDB,50954,380,38413,1, 2108)
 	self:addTradeFlags(RecipeDB,50954,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50954,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2368,7 +2368,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Chestguard -- 50956
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50956,370,38420,1, 2108)
+	self:addTradeSkill(RecipeDB,50956,375,38420,1, 2108)
 	self:addTradeFlags(RecipeDB,50956,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50956,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2380,7 +2380,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Shoulders -- 50958
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50958,375,38417,1, 2108)
+	self:addTradeSkill(RecipeDB,50958,380,38417,1, 2108)
 	self:addTradeFlags(RecipeDB,50958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50958,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2392,13 +2392,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Boots -- 50960
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50960,375,38419,1, 2108)
+	self:addTradeSkill(RecipeDB,50960,380,38419,1, 2108)
 	self:addTradeFlags(RecipeDB,50960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50960,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Nerubian Belt -- 50961
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50961,370,38418,1, 2108)
+	self:addTradeSkill(RecipeDB,50961,375,38418,1, 2108)
 	self:addTradeFlags(RecipeDB,50961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50961,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2458,25 +2458,25 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Dark Arctic Leggings -- 51569
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,51569,390,38591,1, 2108)
+	self:addTradeSkill(RecipeDB,51569,395,38591,1, 2108)
 	self:addTradeFlags(RecipeDB,51569,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,51569,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Arctic Chestpiece -- 51570
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,51570,390,38592,1, 2108)
+	self:addTradeSkill(RecipeDB,51570,395,38592,1, 2108)
 	self:addTradeFlags(RecipeDB,51570,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,51570,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Arctic Wristguards -- 51571
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,51571,380,38433,1, 2108)
+	self:addTradeSkill(RecipeDB,51571,385,38433,1, 2108)
 	self:addTradeFlags(RecipeDB,51571,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,51571,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Arctic Helm -- 51572
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,51572,380,38437,1, 2108)
+	self:addTradeSkill(RecipeDB,51572,385,38437,1, 2108)
 	self:addTradeFlags(RecipeDB,51572,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,51572,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2488,7 +2488,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Cloak of Tormented Skies -- 55199
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,55199,385,41238,1, 2108)
+	self:addTradeSkill(RecipeDB,55199,395,41238,1, 2108)
 	self:addTradeFlags(RecipeDB,55199,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,60)
 	self:addTradeAcquire(RecipeDB,55199,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2548,31 +2548,31 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Leg Reinforcements -- 60584
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60584,385,nil, 1, 2108)
+	self:addTradeSkill(RecipeDB,60584,400,nil, 1, 2108)
 	self:addTradeFlags(RecipeDB,60584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60584,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Frostscale Bracers -- 60599
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60599,380,38436,1, 2108)
+	self:addTradeSkill(RecipeDB,60599,385,38436,1, 2108)
 	self:addTradeFlags(RecipeDB,60599,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60599,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Frostscale Helm -- 60600
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60600,380,38440,1, 2108)
+	self:addTradeSkill(RecipeDB,60600,385,38440,1, 2108)
 	self:addTradeFlags(RecipeDB,60600,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60600,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Frostscale Leggings -- 60601
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60601,390,44436,1, 2108)
+	self:addTradeSkill(RecipeDB,60601,395,44436,1, 2108)
 	self:addTradeFlags(RecipeDB,60601,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60601,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Frostscale Breastplate -- 60604
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60604,390,44437,1, 2108)
+	self:addTradeSkill(RecipeDB,60604,395,44437,1, 2108)
 	self:addTradeFlags(RecipeDB,60604,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60604,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2584,25 +2584,25 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Iceborne Wristguards -- 60607
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60607,380,38434,1, 2108)
+	self:addTradeSkill(RecipeDB,60607,385,38434,1, 2108)
 	self:addTradeFlags(RecipeDB,60607,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60607,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Iceborne Helm -- 60608
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60608,380,38438,1, 2108)
+	self:addTradeSkill(RecipeDB,60608,385,38438,1, 2108)
 	self:addTradeFlags(RecipeDB,60608,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60608,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Iceborne Leggings -- 60611
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60611,390,44440,1, 2108)
+	self:addTradeSkill(RecipeDB,60611,395,44440,1, 2108)
 	self:addTradeFlags(RecipeDB,60611,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60611,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Iceborne Chestguard -- 60613
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60613,390,44441,1, 2108)
+	self:addTradeSkill(RecipeDB,60613,395,44441,1, 2108)
 	self:addTradeFlags(RecipeDB,60613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60613,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2614,37 +2614,37 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Bracers -- 60622
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60622,380,38435,1, 2108)
+	self:addTradeSkill(RecipeDB,60622,385,38435,1, 2108)
 	self:addTradeFlags(RecipeDB,60622,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60622,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Nerubian Helm -- 60624
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60624,380,38439,1, 2108)
+	self:addTradeSkill(RecipeDB,60624,385,38439,1, 2108)
 	self:addTradeFlags(RecipeDB,60624,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60624,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Nerubian Leggings -- 60627
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60627,390,44443,1, 2108)
+	self:addTradeSkill(RecipeDB,60627,395,44443,1, 2108)
 	self:addTradeFlags(RecipeDB,60627,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60627,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Dark Nerubian Chestpiece -- 60629
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60629,390,44444,1, 2108)
+	self:addTradeSkill(RecipeDB,60629,395,44444,1, 2108)
 	self:addTradeFlags(RecipeDB,60629,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60629,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Scaled Icewalkers -- 60630
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60630,405,44445,1, 2108)
+	self:addTradeSkill(RecipeDB,60630,400,44445,1, 2108)
 	self:addTradeFlags(RecipeDB,60630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60630,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Cloak of Harsh Winds -- 60631
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60631,370,38441,1, 2108)
+	self:addTradeSkill(RecipeDB,60631,380,38441,1, 2108)
 	self:addTradeFlags(RecipeDB,60631,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,60631,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2680,61 +2680,61 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Razorstrike Breastplate -- 60649
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60649,420,43129,1, 2108)
+	self:addTradeSkill(RecipeDB,60649,425,43129,1, 2108)
 	self:addTradeFlags(RecipeDB,60649,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60649,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Virulent Spaulders -- 60651
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60651,415,43130,1, 2108)
+	self:addTradeSkill(RecipeDB,60651,420,43130,1, 2108)
 	self:addTradeFlags(RecipeDB,60651,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60651,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Eaglebane Bracers -- 60652
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60652,415,43131,1, 2108)
+	self:addTradeSkill(RecipeDB,60652,420,43131,1, 2108)
 	self:addTradeFlags(RecipeDB,60652,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60652,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Nightshock Hood -- 60655
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60655,420,43132,1, 2108)
+	self:addTradeSkill(RecipeDB,60655,425,43132,1, 2108)
 	self:addTradeFlags(RecipeDB,60655,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60655,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Nightshock Girdle -- 60658
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60658,415,43133,1, 2108)
+	self:addTradeSkill(RecipeDB,60658,420,43133,1, 2108)
 	self:addTradeFlags(RecipeDB,60658,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,60658,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Leggings of Visceral Strikes -- 60660
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60660,420,42731,1, 2108)
+	self:addTradeSkill(RecipeDB,60660,425,42731,1, 2108)
 	self:addTradeFlags(RecipeDB,60660,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60660,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Seafoam Gauntlets -- 60665
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60665,415,43255,1, 2108)
+	self:addTradeSkill(RecipeDB,60665,420,43255,1, 2108)
 	self:addTradeFlags(RecipeDB,60665,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60665,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Jormscale Footpads -- 60666
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60666,415,43256,1, 2108)
+	self:addTradeSkill(RecipeDB,60666,420,43256,1, 2108)
 	self:addTradeFlags(RecipeDB,60666,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60666,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Wildscale Breastplate -- 60669
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60669,420,43257,1, 2108)
+	self:addTradeSkill(RecipeDB,60669,425,43257,1, 2108)
 	self:addTradeFlags(RecipeDB,60669,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60669,1,26911,1,26961,1,26996,1,26998,1,28700)
 
 	-- Purehorn Spaulders -- 60671
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60671,415,43258,1, 2108)
+	self:addTradeSkill(RecipeDB,60671,420,43258,1, 2108)
 	self:addTradeFlags(RecipeDB,60671,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,60671,1,26911,1,26961,1,26996,1,26998,1,28700)
 
