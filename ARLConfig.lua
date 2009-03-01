@@ -1203,7 +1203,7 @@ local function fullOptions()
 							type	= "description",
 							name	= L["MAP_SETTINGS_DESC"] .. "\n",
 						},
-						worldmap = {
+						autoscanmap = {
 							order	= 63,
 							type	= "toggle",
 							name	= L["Auto Scan Map"],
