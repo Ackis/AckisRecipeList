@@ -130,6 +130,8 @@ L["Clear Waypoints"]		= true
 L["CLEAR_WAYPOINTS_DESC"]	= "Remove all ARL waypoints from TomTom."
 L["Hide Pop-Up"]			= true
 L["HIDEPOPUP_DESC"]			= "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
+L["Auto Scan Map"]			= true
+L["AUTOSCANMAP_DESC"]		= "Auto show all waypoints when doing a recipe scan."
 
 -- Filter Config Options
 L["Filtering Options"]		= true
@@ -306,7 +308,7 @@ L["ARMOR_ALL_DESC"]			= "Recipes that make ANY armor item should be included in 
 L["ARMOR_NONE_DESC"]		= "Do NOT include any recipes that make armor items in the scan."
 L["WEAPON_ALL_DESC"]		= "Recipes that make ANY weapon item should be included in the scan."
 L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in the scan."
-L["NOT_YET_SCANNED"]		= "not yet scanned!"
+L["NOT_YET_SCANNED"]		= "Not yet scanned!"
 
 -- Common Tool tip Strings (where different from above)
 L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat."

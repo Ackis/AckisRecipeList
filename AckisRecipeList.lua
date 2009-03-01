@@ -158,6 +158,7 @@ function addon:OnInitialize()
 			hidepopup = false,
 			minimap = true,
 			worldmap = true,
+			autoscanmap = false,
 
 			-- Recipe Exclusion
 			exclusionlist = {},

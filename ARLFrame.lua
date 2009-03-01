@@ -344,7 +344,7 @@ do
 
 	end
 
-	function addon:CheckMapDisplay(v, filters)
+	local function CheckMapDisplay(v, filters)
 
 		local display = false
 
@@ -378,8 +378,9 @@ do
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
 		local filters = addon.db.profile.filters
+		local autoscanmap = addon.db.profile.autoscanmap
 
-		if ((worldmap == true) and (minimap == true)) then
+		if ((worldmap == true) or (minimap == true)) then
 
 			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
@@ -397,16 +398,20 @@ do
 			if (singlerecipe) then
 				-- loop through acquire methods, display each
 				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-					maplist[v["ID"]] = CheckMapDisplay(v,filters)
+					if (CheckMapDisplay(v,filters)) then
+						maplist[v["ID"]] = v["Type"]
+					end
 				end
-			else
+			elseif (autoscanmap == true) then
 				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 				for i = 1, #sortedRecipeIndex do
 					local recipeIndex = sortedRecipeIndex[i]
 					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 						-- loop through acquire methods, display each
 						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-							maplist[v["ID"]] = CheckMapDisplay(v,filters)
+							if (CheckMapDisplay(v,filters)) then
+								maplist[v["ID"]] = v["Type"]
+							end
 						end
 					end
 				end
@@ -433,20 +438,28 @@ do
 			for k, j in pairs(maplist) do
 
 				local continent, zone
-				local vendorloc = vendorDB[k]["Location"]
+				local loc = nil
 
-				if (c1[vendorloc]) then
+				if (maplist[k] == 2) then
+					loc = vendorDB[k]
+				elseif (maplist[k] == 3) then
+					loc = mobDB[k]
+				elseif (maplist[k] == 4) then
+					loc = questDB[k]
+				end
+
+				if (c1[loc["Location"]]) then
 					continent = 1
-					zone = c1[vendorloc]
-				elseif (c2[vendorloc]) then
+					zone = c1[loc["Location"]]
+				elseif (c2[loc["Location"]]) then
 					continent = 2
-					zone = c2[vendorloc]
-				elseif (c3[vendorloc]) then
+					zone = c2[loc["Location"]]
+				elseif (c3[loc["Location"]]) then
 					continent = 3
-					zone = c3[vendorloc]
-				elseif (c4[vendorloc]) then
+					zone = c3[loc["Location"]]
+				elseif (c4[loc["Location"]]) then
 					continent = 4
-					zone = c4[vendorloc]
+					zone = c4[loc["Location"]]
 				else
 					--@debug@
 					addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
@@ -454,7 +467,7 @@ do
 				end
 		
 				if ((zone) and (continent)) then
-					local iconuid = TomTom:AddZWaypoint(continent, zone, vendorDB[k]["Coordx"], vendorDB[k]["Coordy"], vendorDB[k]["Name"], false, minimap, worldmap)
+					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
 					tinsert(iconlist,iconuid)
 				end
 
@@ -1204,7 +1217,7 @@ local function SetProgressBar(playerData)
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
 	
-	if math.floor(pbCur / pbMax * 100) <101 then
+	if math.floor(pbCur / pbMax * 100) < 101 then
 		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
 	else
 		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. L["NOT_YET_SCANNED"])

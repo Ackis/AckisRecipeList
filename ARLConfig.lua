@@ -1206,6 +1206,15 @@ local function fullOptions()
 						worldmap = {
 							order	= 63,
 							type	= "toggle",
+							name	= L["Auto Scan Map"],
+							desc	= L["AUTOSCANMAP_DESC"],
+							disabled = tomtomsupport,
+							get		= function() return addon.db.profile.autoscanmap end,
+							set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
+						},
+						worldmap = {
+							order	= 65,
+							type	= "toggle",
 							name	= L["World Map"],
 							desc	= L["WORLDMAP_DESC"],
 							disabled = tomtomsupport,
@@ -1213,7 +1222,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
 						},
 						minimap = {
-							order	= 64,
+							order	= 66,
 							type	= "toggle",
 							name	= L["Mini Map"],
 							desc	= L["MINIMAP_DESC"],
@@ -1222,7 +1231,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 						},
 						clearmap = {	
-							order	= 65,
+							order	= 67,
 							type	= "execute",
 							name	= L["Clear Waypoints"],
 							disabled = tomtomsupport,
