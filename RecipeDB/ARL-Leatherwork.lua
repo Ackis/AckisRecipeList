@@ -1438,7 +1438,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Knothide Armor Kit -- 32456
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,32456,280,25650,1,2108)
+	self:addTradeSkill(RecipeDB,32456,300,25650,1,2108)
 	self:addTradeFlags(RecipeDB,32456,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,32456,1,18754,1,18771,1,19187,1,21087)
 
