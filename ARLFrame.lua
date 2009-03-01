@@ -1216,10 +1216,12 @@ local function SetProgressBar(playerData)
 
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
-	
-	if math.floor(pbCur / pbMax * 100) < 101 then
+
+	if (math.floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
 		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
 	else
+		pbCur = 0
+		pbMax = 0
 		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. L["NOT_YET_SCANNED"])
 	end
 
