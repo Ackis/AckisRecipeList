@@ -1554,7 +1554,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57719,375,42740,1,45357)
 	self:addTradeFlags(RecipeDB,57719,1,2,12,24,36,41)
-	self:addTradeAcquire(RecipeDB,57719,8,14)
+	self:addTradeAcquire(RecipeDB,57719,8,15)
 
 	-- Glyph of Aquatic Form -- 58286
 	recipecount = recipecount + 1
