@@ -33,6 +33,6 @@ externals:
  libs/LibBabble-Faction-3.0: svn://svn.wowace.com/wow/libbabble-faction-3-0/mainline/trunk
  libs/LibBabble-Boss-3.0: svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk
  libs/LibBabble-Zone-3.0: svn://svn.wowace.com/wow/libbabble-zone-3-0/mainline/trunk
- libs/LibAboutPanel: svn://svn.curseforge.net/wow/libaboutpanel/mainline/trunk
+ libs/LibAboutPanel: git://git.curseforge.net/wow/libaboutpanel/mainline.git
  libs/LibBetterBlizzOptions: svn://svn.wowace.com/wow/libbetterblizzoptions-1-0/mainline/trunk
  libs/LibSharedMedia-3.0: svn://svn.wowace.com/wow/libsharedmedia-3-0/mainline/tags/2
