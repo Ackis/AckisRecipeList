@@ -20,8 +20,12 @@ ignore:
  - Docs
 
 externals:
- libs/LibStub: svn://svn.wowace.com/wow/libstub/mainline/tags/1.0
- libs/CallbackHandler-1.0: svn://svn.wowace.com/wow/callbackhandler/mainline/tags/1.0.3/CallbackHandler-1.0
+ libs/LibStub:
+  url: svn://svn.wowace.com/wow/libstub/mainline/trunk
+  tag: latest
+ libs/CallbackHandler-1.0:
+    url: svn://svn.wowace.com/wow/callbackhandler/mainline/trunk/CallbackHandler-1.0
+    tag: latest
  libs/AceLocale-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceLocale-3.0
  libs/AceConfig-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConfig-3.0
  libs/AceEvent-3.0: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceEvent-3.0
@@ -33,6 +37,8 @@ externals:
  libs/LibBabble-Faction-3.0: svn://svn.wowace.com/wow/libbabble-faction-3-0/mainline/trunk
  libs/LibBabble-Boss-3.0: svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk
  libs/LibBabble-Zone-3.0: svn://svn.wowace.com/wow/libbabble-zone-3-0/mainline/trunk
- libs/LibAboutPanel: git://git.curseforge.net/wow/libaboutpanel/mainline.git
+ libs/LibAboutPanel:
+    url: git://git.curseforge.net/wow/libaboutpanel/mainline.git
+    tag: latest
  libs/LibBetterBlizzOptions: svn://svn.wowace.com/wow/libbetterblizzoptions-1-0/mainline/trunk
  libs/LibSharedMedia-3.0: svn://svn.wowace.com/wow/libsharedmedia-3-0/mainline/tags/2
