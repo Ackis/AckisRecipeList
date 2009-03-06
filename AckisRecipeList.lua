@@ -689,6 +689,9 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 	if (Loc) then
 		DB[ID]["Location"] = Loc
 	else
+		--@debug@
+		self:Print("Spell ID: " .. ID .. " has an unknown location.")
+		--@end-debug@
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
 
