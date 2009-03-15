@@ -815,7 +815,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Searing Golden Blade -- 15973
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15973,190,12260,2,2018)
-	self:addTradeFlags(RecipeDB,15973,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
+	self:addTradeFlags(RecipeDB,15973,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
 	self:addTradeAcquire(RecipeDB,15973,7,2)
 
 	-- Dense Grinding Stone -- 16639
