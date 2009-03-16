@@ -20,7 +20,9 @@ additions or changes.
 ****************************************************************************************
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "enUS", true)
+local MODNAME	= "Ackis Recipe List"
+
+local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
 
 if not L then return end
 

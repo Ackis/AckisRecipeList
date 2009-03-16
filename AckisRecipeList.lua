@@ -25,12 +25,11 @@ Documentation:
 
 --]]
 
-
-AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon("Ackis Recipe List", "AceConsole-3.0", "AceEvent-3.0")
-
 local MODNAME	= "Ackis Recipe List"
 
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
@@ -41,7 +40,7 @@ if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	return
 end
 
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
