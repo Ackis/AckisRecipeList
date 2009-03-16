@@ -653,13 +653,11 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		i = i + 2
 
 		if (AcquireType == 6) then
-
 			local RepLevel, RepVendor = select(i, ...)
 
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
-
 		end
 
 		index = index + 1
@@ -689,7 +687,7 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		DB[ID]["Location"] = Loc
 	else
 		--@debug@
-		self:Print("Spell ID: " .. ID .. " has an unknown location.")
+		self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
 		--@end-debug@
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
