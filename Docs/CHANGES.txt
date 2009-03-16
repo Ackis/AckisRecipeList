@@ -1,5 +1,12 @@
 ==ARL Changes==
 
+===RC4===
+*Updated recipe information (skill levels, flags, locations, etc)
+*Added more fine grained support for Tom Tom integration (Please see the ARL in-game options to see how to configure this.)
+*Many minor bug fixes
+*New API to get the entire recpie database
+*Localization updates
+
 ===RC3===
 *Fixed a bug where you did not have a proper default position for the scan button.
 *Fixed the error regarding donglestub.
