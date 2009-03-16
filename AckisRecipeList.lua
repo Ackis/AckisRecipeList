@@ -1352,6 +1352,8 @@ function addon:ChatCommand(input)
 		self:AckisRecipeList_Command(false)
 	elseif (input == tolower("minedata")) then
 		self:MineSkillLevelData()
+	elseif (input == tolower("scandata")) then
+		self:ScanSkillLevelData()
 	else
 		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
@@ -1797,6 +1799,24 @@ do
 
 	end
 
+	-- Description: API for external addons to get recipe database from ARL
+	-- Expected result: The recipe database is returned if it exists
+	-- Input: None
+	-- Output: A table containing all its information
+
+	--- API for external addons to get recipe database from ARL
+	-- @name AckisRecipeList:GetRecipeTable
+	-- @return Table containing all recipe information or nil if it's not found.
+	function addon:GetRecipeTable()
+
+		if (RecipeList) then
+			return RecipeList
+		else
+			return nil
+		end
+
+	end
+
 end
 
 --[[
@@ -2146,12 +2166,45 @@ function addon:MineSkillLevelData()
 			local name = GetTrainerServiceInfo(i)
 			local _,skilllevel = GetTrainerServiceSkillReq(i)
 			if not skilllevel then
-				skilllevel = 1
+				skilllevel = 0
 			end
 			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel .. ","
 			tinsert(t,skillleveltext)
 		end
 		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+	else
+		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
+	end
+
+end
+
+-- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
+-- Expected result: Trade skills with a skill level different are output.
+-- Input: None
+-- Output: Text in chat window
+
+function addon:ScanSkillLevelData()
+
+	if (IsTradeskillTrainer()) then
+		SetTrainerServiceTypeFilter("available", 1)
+		SetTrainerServiceTypeFilter("unavailable", 1)
+		SetTrainerServiceTypeFilter("used", 1)
+		local t = {}
+		for i=1,GetNumTrainerServices(),1 do
+			local name = GetTrainerServiceInfo(i)
+			local _,skilllevel = GetTrainerServiceSkillReq(i)
+			if not skilllevel then
+				skilllevel = 0
+			end
+			t[name] = skilllevel
+		end
+		local recipelist = addon:GetRecipeTable()
+		for i in pairs(recipelist) do
+			local i_name = recipelist[i]["Name"]
+			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
+				self:Print("DEBUG: Recipe level different! Name: " .. i_name .. " Internal Level: " ..  recipelist[i]["Level"] .. " External Level: " .. t[i_name])
+			end
+		end
 	else
 		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
 	end

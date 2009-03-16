@@ -1546,7 +1546,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,44630,380,nil,1,7411)
+	self:addTradeSkill(RecipeDB,44630,390,nil,1,7411)
 	self:addTradeFlags(RecipeDB,44630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,44630,1,26906,1,26954,1,26980,1,26990,1,28693)
 
