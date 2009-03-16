@@ -2266,7 +2266,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Iceborne Leggings -- 50939
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50939,365,38410,1, 2108)
+	self:addTradeSkill(RecipeDB,50939,370,38410,1, 2108)
 	self:addTradeFlags(RecipeDB,50939,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50939,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2278,7 +2278,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Iceborne Gloves -- 50941
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50941,365,38409,1, 2108)
+	self:addTradeSkill(RecipeDB,50941,370,38409,1, 2108)
 	self:addTradeFlags(RecipeDB,50941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50941,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2296,7 +2296,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Arctic Chestpiece -- 50944
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50944,365,38400,2,2108)
+	self:addTradeSkill(RecipeDB,50944,370,38400,2,2108)
 	self:addTradeFlags(RecipeDB,50944,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50944,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2320,7 +2320,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Arctic Boots -- 50948
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50948,365,38404,2,2108)
+	self:addTradeSkill(RecipeDB,50948,370,38404,2,2108)
 	self:addTradeFlags(RecipeDB,50948,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,50948,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2338,7 +2338,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Frostscale Leggings -- 50951
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50951,365,38416,1, 2108)
+	self:addTradeSkill(RecipeDB,50951,370,38416,1, 2108)
 	self:addTradeFlags(RecipeDB,50951,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50951,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2362,7 +2362,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Frostscale Belt -- 50955
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50955,365,38412,1, 2108)
+	self:addTradeSkill(RecipeDB,50955,370,38412,1, 2108)
 	self:addTradeFlags(RecipeDB,50955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50955,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2374,7 +2374,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Legguards -- 50957
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50957,365,38422,2,2108)
+	self:addTradeSkill(RecipeDB,50957,370,38422,2,2108)
 	self:addTradeFlags(RecipeDB,50957,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50957,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2386,7 +2386,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Gloves -- 50959
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50959,365,38421,1, 2108)
+	self:addTradeSkill(RecipeDB,50959370,38421,1, 2108)
 	self:addTradeFlags(RecipeDB,50959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,50959,1,26911,1,26961,1,26996,1,26998,1,28700)
 
@@ -2404,7 +2404,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Borean Armor Kit -- 50962
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50962,365,38375,1,2108)
+	self:addTradeSkill(RecipeDB,50962,350,38375,1,2108)
 	self:addTradeFlags(RecipeDB,50962,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,50962,1,26911,1,26961,1,26996,1,26998,1,28700)
 

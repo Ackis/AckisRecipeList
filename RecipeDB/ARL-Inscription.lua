@@ -58,7 +58,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mysterious Tarot -- 48247
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,48247,110,nil,1,45357)
+	self:addTradeSkill(RecipeDB,48247,85,nil,1,45357)
 	self:addTradeFlags(RecipeDB,48247,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,48247,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -1913,7 +1913,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Scroll of Agility VIII -- 58483
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58483,415,43464,1,45357)
+	self:addTradeSkill(RecipeDB,58483,420,43464,1,45357)
 	self:addTradeFlags(RecipeDB,58483,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,58483,1,26916,1,26959,1,26977,1,26995,1,28702)
 
@@ -1967,7 +1967,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mystic Tome -- 58565
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58565,110,43515,3,45357)
+	self:addTradeSkill(RecipeDB,58565,85,43515,3,45357)
 	self:addTradeFlags(RecipeDB,58565,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,58565,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2219,7 +2219,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Arcane Blast -- 56991
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56991,310,44955,1,45357)
+	self:addTradeSkill(RecipeDB,56991,315,44955,1,45357)
 	self:addTradeFlags(RecipeDB,56991,1,2,3,24,36,41)
 	self:addTradeAcquire(RecipeDB,56991,1,26916,1,26959,1,26977,1,26995,1,28702)
 
@@ -2231,7 +2231,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Focus -- 62162
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62162,380,44928,1,45357)
+	self:addTradeSkill(RecipeDB,62162,375,44928,1,45357)
 	self:addTradeFlags(RecipeDB,62162,1,2,3,22,36,41)
 	self:addTradeAcquire(RecipeDB,62162,1,26916,1,26959,1,26977,1,26995,1,28702)
 

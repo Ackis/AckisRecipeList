@@ -370,7 +370,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Goblin Rocket Boots -- 8895
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,8895,130,7189,1,4036,20222)
+	self:addTradeSkill(RecipeDB,8895,225,7189,1,4036,20222)
 	self:addTradeFlags(RecipeDB,8895,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8895,1,8126)
 
@@ -1474,7 +1474,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Mark \"S\" Boomstick -- 54353
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,54353,395,39688,3,4036)
+	self:addTradeSkill(RecipeDB,54353,400,39688,3,4036)
 	self:addTradeFlags(RecipeDB,54353,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
 	self:addTradeAcquire(RecipeDB,54353,1,25277,1,26907,1,26955,1,26991,1,28697)
 
@@ -1720,25 +1720,25 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Mechanized Snow Goggles (Cloth) -- 56465
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,56465,400,41112,3,4036)
+	self:addTradeSkill(RecipeDB,56465,420,41112,3,4036)
 	self:addTradeFlags(RecipeDB,56465,1,2,3,24,26,29,36,41,56)
 	self:addTradeAcquire(RecipeDB,56465,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Mechanized Snow Goggles (Leather) -- 61481
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61481,400,44742,3,4036)
+	self:addTradeSkill(RecipeDB,61481,420,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61481,1,2,3,22,28,36,41,57)
 	self:addTradeAcquire(RecipeDB,61481,1,25277,1,26907,1,26955,1,26991,1,28697)
 
 	-- Mechanized Snow Goggles (Mail) -- 61482
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61482,400,44742,3,4036)
+	self:addTradeSkill(RecipeDB,61482,420,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61482,1,2,3,23,27,36,41,58)
 	self:addTradeAcquire(RecipeDB,61482,1,25277,1,26907,1,26955,1,26991,1,28697)	
 
 	-- Mechanized Snow Goggles (Plate) -- 61483
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,61483,400,44742,3,4036)
+	self:addTradeSkill(RecipeDB,61483,420,44742,3,4036)
 	self:addTradeFlags(RecipeDB,61483,1,2,3,21,25,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61483,1,25277,1,26907,1,26955,1,26991,1,28697)
 
