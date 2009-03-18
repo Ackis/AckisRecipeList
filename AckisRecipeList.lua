@@ -1842,9 +1842,15 @@ do
 
 			sortFuncs = {}
 
-			sortFuncs[L['Skill']] = function(a, b) 
+			sortFuncs[L['Skill (Asc)']] = function(a, b) 
 
 				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+
+			end
+
+			sortFuncs[L['Skill (Desc)']] = function(a, b) 
+
+				return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
 
 			end
 

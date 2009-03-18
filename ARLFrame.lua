@@ -273,7 +273,7 @@ local function SetSortString(recipeSkill, recStr)
 
 	local sorttype = addon.db.profile.sorting
 
-	if (sorttype == L["Skill"]) then
+	if (sorttype == L["Skill (Asc)"] or sorttype == L["Skill (Desc)"]) then
 		return "[" .. recipeSkill .. "] - " .. recStr
 	else
 		return recStr .. " - [" .. recipeSkill .. "]"
@@ -3336,7 +3336,13 @@ local function ARL_DD_Sort_Initialize()
 		info.func = ARL_DD_Sort_OnClick
 		info.checked = ( addon.db.profile.sorting == k )
 		UIDropDownMenu_AddButton( info )
-	k = L["Skill"]
+	k = L["Skill (Asc)"]
+		info.text = k
+		info.arg1 = info.text
+		info.func = ARL_DD_Sort_OnClick
+		info.checked = ( addon.db.profile.sorting == k )
+		UIDropDownMenu_AddButton( info )
+	k = L["Skill (Desc)"]
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
@@ -3562,15 +3568,15 @@ function addon:CreateFrame(
 		ARL_DD_Sort:SetPoint( "TOPLEFT", addon.Frame, "TOPLEFT", 55, -39 )
 		ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
 		ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
-		UIDropDownMenu_SetWidth( ARL_DD_Sort, 100 )
+		UIDropDownMenu_SetWidth( ARL_DD_Sort, 105 )
 
 		local ARL_ExpandButton = addon:GenericCreateButton("ARL_ExpandButton", addon.Frame,
-			21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, -1, "GameFontNormalSmall",
+			21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 			ARL_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
 		local ARL_SearchButton = addon:GenericCreateButton("ARL_SearchButton", addon.Frame,
-			25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 12, 1, "GameFontDisableSmall",
+			25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
 			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
 			ARL_SearchButton:Disable()
 			ARL_SearchButton:SetScript("OnClick",
@@ -3596,7 +3602,7 @@ function addon:CreateFrame(
 			)
 
 		local ARL_ClearButton = addon:GenericCreateButton("ARL_ClearButton", addon.Frame,
-			28, 28, "RIGHT", ARL_SearchButton, "LEFT", 3, -1, "GameFontNormalSmall",
+			28, 28, "RIGHT", ARL_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall",
 			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 			ARL_ClearButton:SetScript("OnClick",
 				function()
@@ -3688,9 +3694,9 @@ function addon:CreateFrame(
 			ARL_SearchText:EnableMouse(true)
 			ARL_SearchText:SetAutoFocus(false)
 			ARL_SearchText:SetFontObject(ChatFontNormal)
-			ARL_SearchText:SetWidth(135)
+			ARL_SearchText:SetWidth(130)
 			ARL_SearchText:SetHeight(12)
-			ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 4, -1)
+			ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
 			ARL_SearchText:Show()
 
 		local ARL_CloseButton = addon:GenericCreateButton("ARL_CloseButton", addon.Frame,
@@ -4495,6 +4501,11 @@ function addon:CreateFrame(
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+	
+	-- Check for outdated dropdown text
+	if (ARL_DD_SortText:GetText() == (L["Sort"] .. ": " .. L["Skill"])) then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
+	end
 
 end
 
