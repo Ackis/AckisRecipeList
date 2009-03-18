@@ -30,6 +30,8 @@
 
 ## SavedVariables: ARLDB2
 
+heheh.xml
+
 #@no-lib-strip@
 # Libraries
 embeds.xml
