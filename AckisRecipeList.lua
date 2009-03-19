@@ -1350,8 +1350,6 @@ function addon:ChatCommand(input)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (input == tolower(L["Scan"])) then
 		self:AckisRecipeList_Command(false)
-	elseif (input == tolower("minedata")) then
-		self:MineSkillLevelData()
 	elseif (input == tolower("scandata")) then
 		self:ScanSkillLevelData()
 	else
@@ -2153,34 +2151,6 @@ function addon:GetTextDump(RecipeDB, profession)
 	end
 
 	return tconcat(texttable,"")
-
-end
-
--- Description: Parses a trainer and gets the names of all skills with their levels
--- Expected result: Pop up window with the code needed for skill levels
--- Input: None
--- Output: Copy box with code for me to use
-
-function addon:MineSkillLevelData()
-
-	if (IsTradeskillTrainer()) then
-		SetTrainerServiceTypeFilter("available", 1)
-		SetTrainerServiceTypeFilter("unavailable", 1)
-		SetTrainerServiceTypeFilter("used", 1)
-		local t = {}
-		for i=1,GetNumTrainerServices(),1 do
-			local name = GetTrainerServiceInfo(i)
-			local _,skilllevel = GetTrainerServiceSkillReq(i)
-			if not skilllevel then
-				skilllevel = 0
-			end
-			local skillleveltext = "\"" .. name .. "\" => " .. skilllevel .. ","
-			tinsert(t,skillleveltext)
-		end
-		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
-	else
-		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
-	end
 
 end
 
