@@ -3564,11 +3564,16 @@ function addon:CreateFrame(
 			"GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 			ARL_FilterButton:SetScript("OnClick", addon.ToggleFilters)
 
-		local ARL_DD_Sort = CreateFrame( "Frame", "ARL_DD_Sort", addon.Frame, "UIDropDownMenuTemplate" )
-		ARL_DD_Sort:SetPoint( "TOPLEFT", addon.Frame, "TOPLEFT", 55, -39 )
+		-- Check for old skill sorting
+		if (addon.db.profile.sorting == (L["Skill"])) then
+			addon.db.profile.sorting = L["Skill (Asc)"]
+		end
+
+		local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
+		ARL_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
 		ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
-		ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
-		UIDropDownMenu_SetWidth( ARL_DD_Sort, 105 )
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. addon.db.profile.sorting)
+		UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 
 		local ARL_ExpandButton = addon:GenericCreateButton("ARL_ExpandButton", addon.Frame,
 			21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
@@ -4483,6 +4488,9 @@ function addon:CreateFrame(
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
 
+	-- Sort the list
+	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
+
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
 
@@ -4492,20 +4500,16 @@ function addon:CreateFrame(
 	-- And update our scrollframe
 	RecipeList_Update()
 	addon.Frame:Show()
-	
+
 	-- Make sure our apply button gets disabled
 	ApplyFilterState = nil
 	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
 	ARL_ApplyButton:Disable()
-	
+
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 	
-	-- Check for outdated dropdown text
-	if (ARL_DD_SortText:GetText() == (L["Sort"] .. ": " .. L["Skill"])) then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
-	end
 
 end
 
