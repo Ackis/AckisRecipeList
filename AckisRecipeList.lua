@@ -1334,14 +1334,14 @@ end
 function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
-	if (not input) or (input and input:trim() == "") or (input == tolower(L["About"]))then
+	if (not input) or (input and input:trim() == "") or (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	elseif (input == tolower(L["About"])) then
 		if (self.optionsFrame["About"]) then
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 		else
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		end
-	elseif (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 	elseif (input == tolower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
 	elseif (input == tolower(L["Filter"])) then
