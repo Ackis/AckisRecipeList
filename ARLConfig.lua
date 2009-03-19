@@ -1305,6 +1305,36 @@ local function giveDocs()
 					type	= "description",
 					name	= L["REPORTING_BUGS_DESC"],
 				},
+				header5 = {
+					order	= 9,
+					type	= "header",
+					name	= L["Exclusion Issues"],
+				},
+				desc5 = {
+					order	= 10,
+					type	= "description",
+					name	= L["EXCLUSION_ISSUES_DESC"],
+				},
+				header6 = {
+					order	= 11,
+					type	= "header",
+					name	= L["Map Issues"],
+				},
+				desc6 = {
+					order	= 12,
+					type	= "description",
+					name	= L["MAP_ISSUES_DESC"],
+				},
+				header7 = {
+					order	= 13,
+					type	= "header",
+					name	= L["Game Commands"],
+				},
+				desc7 = {
+					order	= 14,
+					type	= "description",
+					name	= L["GAME_COMMANDS_DESC"],
+				},
 			},
 		}
 
