@@ -144,7 +144,7 @@ function addon:OnInitialize()
 			},
 
 			-- Sorting Options
-			sorting = L["Skill"],
+			sorting = L["Skill (Asc)"],
 
 			-- Display Options
 			includefiltered = false,

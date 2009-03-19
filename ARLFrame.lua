@@ -3314,7 +3314,7 @@ end
 -- Input: 
 -- Output: 
 
-local function ARL_DD_Sort_OnClick( button, value )
+local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
 	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
