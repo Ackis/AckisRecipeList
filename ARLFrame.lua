@@ -46,6 +46,10 @@ local GetNumSkillLines = GetNumSkillLines
 local ExpandSkillHeader = ExpandSkillHeader
 local CollapseSkillHeader = CollapseSkillHeader
 
+local IsShiftKeyDown = IsShiftKeyDown
+local IsAltKeyDown = IsAltKeyDown
+local IsControlKeyDown = IsControlKeyDown
+
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 
@@ -329,18 +333,22 @@ do
 
 	local iconlist = {}
 
-	-- Description: 
-	-- Expected result: 
-	-- Input: 
-	-- Output: 
+	-- Description: Clears all the icons from the map.
+	-- Expected result: All icons are removed from the world map and the mini-map
+	-- Input: None
+	-- Output: All icons are removed.
 
 	function addon:ClearMap()
 
-		for i in pairs(iconlist) do
-			TomTom:RemoveWaypoint(i)
+		-- Make sure we have TomTom installed
+		if (TomTom) then
+			-- Remove all the waypoints from TomTom
+			for i in pairs(iconlist) do
+				TomTom:RemoveWaypoint(i)
+			end
+			-- Nuke our own internal table
+			table.wipe(iconlist)
 		end
-
-		table.wipe(iconlist)
 
 	end
 
@@ -361,10 +369,10 @@ do
 
 	end
 
-	-- Description: 
-	-- Expected result: 
-	-- Input: 
-	-- Output: 
+	-- Description: Adds mini-map and world map icons with tomtom.
+	-- Expected result: Icons are added to the world map and mini-map.
+	-- Input: An optional recipe ID
+	-- Output: Points are added to the maps
 
 	function addon:SetupMap(singlerecipe)
 
@@ -394,7 +402,7 @@ do
 
 			local maplist = {}
 
-			-- We're only getting a singl recipe, not a bunch
+			-- We're only getting a single recipe, not a bunch
 			if (singlerecipe) then
 				-- loop through acquire methods, display each
 				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
@@ -1279,10 +1287,10 @@ local function ReDisplay()
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+-- Description: Creates the scan button for ARL. 
+-- Expected result: Scan button is created with all functions associated with it.
+-- Input: None.
+-- Output: Button is created and hidden.
 
 function addon:CreateScanButton()
 
@@ -2086,20 +2094,21 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
-
 do
 
 	local currentProfession = nil
+
+	-- Description: Provides logic for when you are clicking the scan button.
+	-- Expected result: Does appropiate task depending on what button has been clicked and the current state.
+	-- Input: None.
+	-- Output: Frame is toggled, etc depending on state.
 
 	function addon:ToggleFrame()
 
 		-- What profession is opened?
 		local cprof = GetTradeSkillLine()
 
+		-- The frame is visible
 		if (addon.Frame and addon.Frame:IsVisible()) then
 			-- If we have the same profession open, then we close the scanned window
 			if (currentProfession == cprof) then
@@ -2110,13 +2119,17 @@ do
 				self:SetupMap()
 				currentProfession = cprof
 			end
+		-- Frame is hidden
 		else
 			currentProfession = cprof
-			-- If we click the scan button with the shift key down, we do a text dump
-			if (IsShiftKeyDown()) then
+			-- Shift only (Text dump)
+			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:AckisRecipeList_Command(true)
-				self:SetupMap()
-			else
+			-- Alt only (Wipe icons from map)
+			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
+				self:ClearMap()
+			-- No modification
+			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:AckisRecipeList_Command(false)
 				self:SetupMap()
 			end

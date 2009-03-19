@@ -52,7 +52,9 @@ L["Documentation"]			= true
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true
-L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes.  Press shift to generate a text dump."
+L["SCAN_RECIPES_DESC"]		= [["Scans an open tradeskill for missing recipes.
+Shift-click to generate a text dump.
+Alt-click to remove all waypoints from the mini-map and world map."]]
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
@@ -323,7 +325,7 @@ L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
 L["Required Skill"]		= true
 
 -- Popup Strings
-L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan Skills."
+L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan."
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
