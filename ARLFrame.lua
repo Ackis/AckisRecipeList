@@ -277,7 +277,7 @@ local function SetSortString(recipeSkill, recStr)
 
 	local sorttype = addon.db.profile.sorting
 
-	if (sorttype == L["Skill (Asc)"] or sorttype == L["Skill (Desc)"]) then
+	if (sorttype == "SkillAsc" or sorttype == "SkillDesc") then
 		return "[" .. recipeSkill .. "] - " .. recStr
 	else
 		return recStr .. " - [" .. recipeSkill .. "]"
@@ -3322,6 +3322,24 @@ function addon.ExpandAll_Clicked()
 
 end
 
+local function SetSortName()
+
+	local sorttype = addon.db.profile.sorting
+
+	if (sorttype == "Name") then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Name"])
+	elseif (sorttype == "SkillAsc") then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
+	elseif (sorttype == "SkillDesc") then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
+	elseif (sorttype == "Acquisition") then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
+	elseif (sorttype == "Location") then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
+	end
+
+end
+
 -- Description: 
 -- Expected result: 
 -- Input: 
@@ -3330,7 +3348,7 @@ end
 local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
-	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. value )
+	SetSortName()
 	ReDisplay()
 end
 
@@ -3343,37 +3361,38 @@ local function ARL_DD_Sort_Initialize()
 
 	local k
 
-	k = L["Name"]
+	k = "Name"
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
-		info.checked = ( addon.db.profile.sorting == k )
-		UIDropDownMenu_AddButton( info )
-	k = L["Skill (Asc)"]
+		info.checked = (addon.db.profile.sorting == k)
+		UIDropDownMenu_AddButton(info)
+	k = "SkillAsc"
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
-		info.checked = ( addon.db.profile.sorting == k )
-		UIDropDownMenu_AddButton( info )
-	k = L["Skill (Desc)"]
+		info.checked = (addon.db.profile.sorting == k)
+		UIDropDownMenu_AddButton(info)
+	k = "SkillDesc"
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
-		info.checked = ( addon.db.profile.sorting == k )
-		UIDropDownMenu_AddButton( info )
-	k = L["Acquisition"]
+		info.checked = (addon.db.profile.sorting == k)
+		UIDropDownMenu_AddButton(info)
+	k = "Acquisition"
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
-		info.checked = ( addon.db.profile.sorting == k )
-		UIDropDownMenu_AddButton( info )
-	k = L["Location"]
+		info.checked = (addon.db.profile.sorting == k)
+		UIDropDownMenu_AddButton(info)
+	k = "Location"
 		info.text = k
 		info.arg1 = info.text
 		info.func = ARL_DD_Sort_OnClick
-		info.checked = ( addon.db.profile.sorting == k )
-		UIDropDownMenu_AddButton( info )
-	ARL_DD_SortText:SetText( L["Sort"] .. ": " .. addon.db.profile.sorting )
+		info.checked = (addon.db.profile.sorting == k)
+		UIDropDownMenu_AddButton(info)
+
+	SetSortName()
 
 end
 
@@ -3578,14 +3597,14 @@ function addon:CreateFrame(
 			ARL_FilterButton:SetScript("OnClick", addon.ToggleFilters)
 
 		-- Check for old skill sorting
-		if (addon.db.profile.sorting == (L["Skill"])) then
-			addon.db.profile.sorting = L["Skill (Asc)"]
+		if (addon.db.profile.sorting == "Skill") then
+			addon.db.profile.sorting = "SkillAsc"
 		end
 
 		local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
 		ARL_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
 		ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. addon.db.profile.sorting)
+		SetSortName()
 		UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 
 		local ARL_ExpandButton = addon:GenericCreateButton("ARL_ExpandButton", addon.Frame,

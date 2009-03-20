@@ -144,7 +144,7 @@ function addon:OnInitialize()
 			},
 
 			-- Sorting Options
-			sorting = L["Skill (Asc)"],
+			sorting = "SkillAsc",
 
 			-- Display Options
 			includefiltered = false,
@@ -1840,54 +1840,37 @@ do
 
 			sortFuncs = {}
 
-			sortFuncs[L['Skill (Asc)']] = function(a, b) 
-
+			sortFuncs["SkillAsc)"] = function(a, b) 
 				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
-
 			end
 
-			sortFuncs[L['Skill (Desc)']] = function(a, b) 
-
+			sortFuncs["SkillDesc"] = function(a, b) 
 				return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
-
 			end
 
-			sortFuncs[L['Name']] = function(a, b)
-
+			sortFuncs["Name"] = function(a, b)
 				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-
 			end
 
 			-- Will only sort based off of the first acquire type
-			sortFuncs[L['Acquisition']] = function (a, b)
-
+			sortFuncs["Acquisition"] = function (a, b)
 				local reca = RecipeDB[a]["Acquire"][1]
 				local recb = RecipeDB[b]["Acquire"][1]
-
 				if (reca) and (recb) then
-
 					return reca["Type"] < recb["Type"]
-
 				else
-
 					return not not reca
-
 				end
-
 			end
 
 			-- Will only sort based off of the first acquire type
-			sortFuncs[L["Location"]] = function (a, b)
-
+			sortFuncs["Location"] = function (a, b)
 				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
 				local reca = RecipeDB[a]["Locations"] or ""
 				local recb = RecipeDB[b]["Locations"] or ""
-
 				reca = smatch(reca,"(%w+),") or ""
 				recb = smatch(recb,"(%w+),") or ""
-
 				return (reca < recb)
-
 			end
 
 		end
