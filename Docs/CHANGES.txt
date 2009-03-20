@@ -1,5 +1,9 @@
 ==ARL Changes==
 
+===RC5===
+*All opposite faction acquire methods in the tooltip will now be hidden automatically.  They will still be shown as part of the recipe window depending on your filter settings for faction.
+*You can now sort by skill level ascending and descending.
+
 ===RC4===
 *Updated recipe information (skill levels, flags, locations, etc)
 *Added more fine grained support for Tom Tom integration (Please see the ARL in-game options to see how to configure this.)

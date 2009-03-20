@@ -10,7 +10,6 @@ optional-dependencies:
  - skillet
  - manufac
  - cauldron
-# - tomtom
 
 ignore:
  - .pkgmeta

@@ -593,9 +593,7 @@ local function gttAdd(
 	local d, e, f = 0, 0, 0
 
 	if (hexcolor2) then
-
 		d, e, f = toRGB(hexcolor2)
-
 	end
 
 	-- Add in our left hand padding
@@ -636,7 +634,6 @@ local function gttAdd(
 			local mytext2 = _G["arlTooltipTextRight" .. numlines]
 			mytext2:SetFont(font, fontsize)
 		end
-
 	end
 
 end
@@ -764,6 +761,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		-- obtain info
 		gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
+		local factiondisp = addon.db.profile.filters.general.faction
+
 		-- loop through acquire methods, display each
 		for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
 
@@ -773,9 +772,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				-- TrainerZone			TrainerCoords
 				local trnr = trainerDB[v["ID"]]
 				local cStr = ""
-				-- Do we want to display this trainer?
-				local displaytt = false
+
 				clr1 = addon:hexcolor("TRAINER")
+				-- Don't display trainers if it's opposite faction
+				local displaytt = false
 				if (trnr["Faction"] == BFAC["Horde"]) then
 					clr2 = addon:hexcolor("HORDE")
 					if (playerFaction == BFAC["Horde"]) then
@@ -788,6 +788,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					end
 				else
 					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
 				end
 
 				if (displaytt) then
@@ -810,23 +811,34 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local vndr = vendorDB[v["ID"]]
 				local cStr = ""
 
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-				end
-
 				clr1 = addon:hexcolor("VENDOR")
+				-- Don't display vendors of opposite faction
+				local displaytt = false
 				if (vndr["Faction"] == BFAC["Horde"]) then
 					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == BFAC["Horde"]) then
+						displaytt = true
+					end
 				elseif (vndr["Faction"] == BFAC["Alliance"]) then
 					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == BFAC["Alliance"]) then
+						displaytt = true
+					end
 				else
 					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
 				end
 
-				gttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				gttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
+				if (displaytt) then
+					if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+					end
+
+					gttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+					clr1 = addon:hexcolor("NORMAL")
+					clr2 = addon:hexcolor("HIGH")
+					gttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
+				end
 
 			-- Mob Drop
 			elseif (v["Type"] == 3) then
@@ -837,9 +849,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local cStr = ""
 
 				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-
 					cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
-
 				end
 
 				clr1 = addon:hexcolor("MOBDROP")
@@ -857,30 +867,35 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local qst = questDB[v["ID"]]
 
 				if (qst ~= nil) then
-
-					local cStr = ""
-
-					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-
-						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
-
-					end
-
 					clr1 = addon:hexcolor("QUEST")
-
+					-- Don't display quests of opposite faction
+					local displaytt = false
 					if (qst["Faction"] == BFAC["Horde"]) then
 						clr2 = addon:hexcolor("HORDE")
+						if (playerFaction == BFAC["Horde"]) then
+							displaytt = true
+						end
 					elseif (qst["Faction"] == BFAC["Alliance"]) then
 						clr2 = addon:hexcolor("ALLIANCE")
+						if (playerFaction == BFAC["Alliance"]) then
+							displaytt = true
+						end
 					else
 						clr2 = addon:hexcolor("NEUTRAL")
+						displaytt = true
 					end
 
-					gttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					gttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
+					if (displaytt) then
+						local cStr = ""
+						if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
+							cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
+						end
 
+						gttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
+						clr1 = addon:hexcolor("NORMAL")
+						clr2 = addon:hexcolor("HIGH")
+						gttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
+					end
 				end
 
 			-- Seasonal
@@ -931,18 +946,28 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					clr1 = addon:hexcolor("EXALTED")
 				end
 
+				local displaytt = false
 				if (repvndr["Faction"] == BFAC["Horde"]) then
 					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == BFAC["Horde"]) then
+						displaytt = true
+					end
 				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
 					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == BFAC["Alliance"]) then
+						displaytt = true
+					end
 				else
 					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
 				end
 
-				gttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				gttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
+				if (displaytt) then
+					gttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
+					clr1 = addon:hexcolor("NORMAL")
+					clr2 = addon:hexcolor("HIGH")
+					gttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
+				end
 
 			-- World Drop
 			elseif (v["Type"] == 7) then
@@ -964,7 +989,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			-- Custom entry
 			elseif (v["Type"] == 8) then
-
 				-- Seasonal:				SeasonEventName
 				local customname = customDB[v["ID"]]["Name"]
 

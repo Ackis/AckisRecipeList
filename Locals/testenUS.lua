@@ -69,7 +69,8 @@ L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
 -- UI Documentation
 L["Using Filters"]			= true
 L["USING_FILTERS_DESC"]		= [["Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
-With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan."]]
+With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
+Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large."]]
 L["Reporting Bugs"]			= true
 L["REPORTING_BUGS_DESC"]	= [["When reporting a bug, please make sure you do the following:
 1) Download the latest version, available from http://www.wowace.com/projects/arl/files/

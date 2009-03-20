@@ -1199,7 +1199,6 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw
 	RepTable[BFAC["The Violet Eye"]] = repfilters.violeteye
 	RepTable[BFAC["Zandalar Tribe"]] = repfilters.zandalar
--- Below this is WotLK data. May need to be changed post beta.
 	RepTable[BFAC["Argent Crusade"]] = repfilters.argentcrusade
 	RepTable[BFAC["Frenzyheart Tribe"]] = repfilters.frenzyheart
 	RepTable[BFAC["Knights of the Ebon Blade"]] = repfilters.ebonblade
