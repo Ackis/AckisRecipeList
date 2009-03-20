@@ -12,12 +12,13 @@ optional-dependencies:
  - cauldron
 # - tomtom
 
-# File list to ignore:
 ignore:
  - .pkgmeta
  - .docmeta
  - ARLDataminer.rb
  - Docs
+ - Locals/testenUS.lua
+ - Locals/testesMX.lua
 
 externals:
  libs/LibStub:
