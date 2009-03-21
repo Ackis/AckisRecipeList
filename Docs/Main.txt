@@ -18,6 +18,9 @@ Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Func
 ===Traditional Chinese (zhTW)===
 全面详细的商业技能信息插件，包括毒药和宠物技能.
 
+==Important Notice==
+Please note that [http://www.thedevil.com Blizzard] has implemented a draconian [http://www.worldofwarcraft.com/policy/ui.html policy] regarding UI mods and addons.  Essentially they are forcing all addon authors to have their work submitted free of charge.  This addon will not comply with any policy outlined by them.  I neither have agreed to it, nor been given any stake in developing this policy.  I will not abide by it.  That said, many of the existing points in it are enforced by reputable addon development sites (aka the do no harm types).  However, Blizzard has crossed boundries by forcing addon authors to submit their intellectual property for free without a fair means of compensation.
+
 ==Do this first==
 Read the documentation located at these locations:
 * Bug Reporting and Feature Requestiing - [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/]
