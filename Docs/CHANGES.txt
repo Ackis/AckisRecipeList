@@ -1,8 +1,13 @@
 ==ARL Changes==
 
 ===RC5===
+*Fixed the LW typo. :P
+*Updated some skill levels for patterns.
 *All opposite faction acquire methods in the tooltip will now be hidden automatically.  They will still be shown as part of the recipe window depending on your filter settings for faction.
 *You can now sort by skill level ascending and descending.
+*If you're at a trainer and want to see if the skill levels match those on the trainer, type /arl scandata.  This will do a comparison.  If you use this command wrong, you will get called names, yelled at, no one will like you, and God will kill a kitten.
+*You can now customize the font size for the tooltips.  It defaults at 11, however you can change it to betwwwn 8 and 16 now.
+*Localization updates (thank you so much to everyone who helps localize, there are currently 1625 strings that need localization with ARL and you guys have done most of them!
 
 ===RC4===
 *Updated recipe information (skill levels, flags, locations, etc)
