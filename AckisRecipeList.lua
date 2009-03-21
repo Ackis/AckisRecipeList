@@ -141,6 +141,7 @@ function addon:OnInitialize()
 				anchorFrom = "",
 				uiscale = 1,
 				tooltipscale = .9,
+				fontsize = 11,
 			},
 
 			-- Sorting Options

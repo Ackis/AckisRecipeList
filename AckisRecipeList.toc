@@ -1,6 +1,6 @@
-## Title: Ackis Recipe List (1.0 RC4)
-## Title-koKR: Ackis의 제조법 리스트 (1.0 RC4)
-## Title-deDE: Ackis Rezeptliste (1.0 RC4)
+## Title: Ackis Recipe List (1.0 RC5)
+## Title-koKR: Ackis의 제조법 리스트 (1.0 RC5)
+## Title-deDE: Ackis Rezeptliste (1.0 RC5)
 
 ## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
 ## Notes-frFR: Analyse vos métiers et vous indique les recettes qui vous manque, ainsi que des informations sur la façon de les obtenir.
@@ -14,7 +14,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, send me UDE Point codes, or a Murky Code.
 
 ## Interface: 30000
-## Version: 1.0 RC4 @project-revision@
+## Version: 1.0 RC5 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
