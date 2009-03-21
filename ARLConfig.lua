@@ -1099,8 +1099,20 @@ local function fullOptions()
 										if (addon.Frame) then addon.Frame:SetScale(v) end
 									  end,
 						},
-						closegui = {
+						fontsize = {
 							order	= 35,
+							type	= "range",
+							name	= L["Font Size"],
+							desc	= L["FONT_SIZE_DESC"],
+							min		= 6,
+							max		= 20,
+							step	= 1,
+							bigStep = 5,
+							get		= function() return addon.db.profile.frameopts.fontsize end,
+							set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
+						},
+						closegui = {
+							order	= 37,
 							type	= "toggle",
 							name	= L["Close GUI"],
 							desc	= L["CLOSEGUI_DESC"],
@@ -1108,7 +1120,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 						},
 						hidepopup = {
-							order	= 36,
+							order	= 38,
 							type	= "toggle",
 							name	= L["Hide Pop-Up"],
 							desc	= L["HIDEPOPUP_DESC"],
