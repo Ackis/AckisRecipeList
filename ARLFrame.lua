@@ -54,7 +54,6 @@ local IsControlKeyDown = IsControlKeyDown
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 
 	local locale = GetLocale()
-
 	-- Fix for font issues on koKR
 	if (locale == "koKR") then
 		narrowFont = "Fonts\\2002.TTF"
@@ -63,15 +62,12 @@ if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 		narrowFont = "Fonts\\ARIALN.TTF"
 		normalFont = "Fonts\\FRIZQT__.TTF"
 	end
-
 else
-
 	-- Register LSM 3.0
 	local LSM3 = LibStub("LibSharedMedia-3.0")
 
 	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
 	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
-
 end
 
 -- local versions of the databases storing the recipe information, trainers, vendors, etc
@@ -622,7 +618,8 @@ local function gttAdd(
 			font = narrowFont
 		end
 
-		local fontsize = 11
+		--local fontsize = 11
+		local fontsize = addon.db.profile.frameopts.fontsize
 		if (textSize ~= 0) then
 			fontsize = fontsize + textSize
 		end
