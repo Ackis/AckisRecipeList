@@ -28,9 +28,6 @@ If you don't wish to donate money feel free to consider one of the following met
 ** [http://www.wowarmory.com/character-sheet.xml?r=Azgalor&n=Ackis Ackis]
 ** [http://www.wowarmory.com/character-sheet.xml?r=Hellscream&n=Zhinjio Zhinjio]
 
-==Important Notice==
-Please note that [http://www.thedevil.com Blizzard] has implemented a draconian [http://www.worldofwarcraft.com/policy/ui.html policy] regarding UI mods and addons.  Essentially they are forcing all addon authors to have their work submitted free of charge.  This addon will not comply with any policy outlined by them.  I neither have agreed to it, nor been given any stake in developing this policy.  I will not abide by it.  That said, many of the existing points in it are enforced by reputable addon development sites (aka the do no harm types).  However, Blizzard has crossed boundries by forcing addon authors to submit their intellectual property for free without a fair means of compensation.
-
 ==Do this first==
 Read the documentation located at these locations:
 * Bug Reporting and Feature Requestiing - [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/]

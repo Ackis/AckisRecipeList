@@ -1,6 +1,10 @@
 ==ARL Changes==
 
+===RC6===
+*Started adding 3.1 recipes, if information is inaccurate/missing/etc please feel free to submit corrections via a ticket.
+
 ===RC5===
+*Added donation info, please take a look, it's not just about money. :)
 *Fixed the LW typo. :P
 *Updated some skill levels for patterns.
 *All opposite faction acquire methods in the tooltip will now be hidden automatically.  They will still be shown as part of the recipe window depending on your filter settings for faction.
