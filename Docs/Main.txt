@@ -18,6 +18,16 @@ Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Func
 ===Traditional Chinese (zhTW)===
 全面详细的商业技能信息插件，包括毒药和宠物技能.
 
+==Donations==
+I have setup a donation site via [http://www.pledgie.com/campaigns/3462 Pledgie].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
+
+If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
+* Volunteer time at your local animal shelter such as the [http://www.edmontonhumanesociety.com/ Society for Prevention of Cruelty for Animals (SPCA)] or drop a few bucks off for them.  If you do this, please let [mailto:ackis@shaw.ca pcj me] know.
+* Send 	[mailto:ackis@shaw.ca pcj me] some UDE Points.  These points are obtained from the [http://www.wowtcg.com/ World of Warcraft TCG and Mini] game.
+* Send some gold to me in-game or help out with some rarer achievements. :)
+** [http://www.wowarmory.com/character-sheet.xml?r=Azgalor&n=Ackis Ackis]
+** [http://www.wowarmory.com/character-sheet.xml?r=Hellscream&n=Zhinjio Zhinjio]
+
 ==Important Notice==
 Please note that [http://www.thedevil.com Blizzard] has implemented a draconian [http://www.worldofwarcraft.com/policy/ui.html policy] regarding UI mods and addons.  Essentially they are forcing all addon authors to have their work submitted free of charge.  This addon will not comply with any policy outlined by them.  I neither have agreed to it, nor been given any stake in developing this policy.  I will not abide by it.  That said, many of the existing points in it are enforced by reputable addon development sites (aka the do no harm types).  However, Blizzard has crossed boundries by forcing addon authors to submit their intellectual property for free without a fair means of compensation.
 
@@ -96,12 +106,12 @@ Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to 
 Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
 
 ==Integration==
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].  There is a limited API documented at [http://www.wowace.com/projects/arl/pages/api/] to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].  I make no promises that I will implement the feature at all.  There is a limited API documented at [http://www.wowace.com/projects/arl/pages/api/] to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
 Currently, the mod works with:
-* Advanced Trade Skill Window
-* Skillet
-* Manufac
-* Cauldron
+* [http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx Advanced Trade Skill Window] - [http://www.wowace.com/projects/arl/images/13-arl-w-atsw/ Screenshot 1]
+* [http://wow.curse.com/downloads/wow-addons/details/skillet.aspx Skillet]
+* [http://wow.curse.com/downloads/wow-addons/details/project-3361.aspx Manufac] - No longer maintained.
+* [http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx Cauldron]
 
 ==Detailed Documentation==
 * API - [http://www.wowace.com/projects/arl/pages/api/]

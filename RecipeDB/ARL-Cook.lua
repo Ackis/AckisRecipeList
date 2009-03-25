@@ -206,12 +206,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,6416,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6416,4,2178,2,3482)
 
-	-- Dig Rat Stew -- 6417
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,6417,90,5478,1,2550)
-	self:addTradeFlags(RecipeDB,6417,2,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6417,4,862)
-
 	-- Crispy Lizard Tail -- 6418
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6418,100,5479,1,2550)
@@ -999,6 +993,12 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,58528,2,31031,2,31032)
 
 	if select(4, GetBuildInfo()) < 30100 then
+	-- Dig Rat Stew -- 6417
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,6417,90,5478,1,2550)
+	self:addTradeFlags(RecipeDB,6417,2,8,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,6417,4,862)
+
 	-- Expert Cooking -- 3413 - 225 Cooking
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3413,125,16072,1,2550)
@@ -1010,6 +1010,14 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeSkill(RecipeDB,33359,300,27736,1,2550)
 	self:addTradeFlags(RecipeDB,33359,1,2,4,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,33359,2,18988,2,18987,2,18993)
+	else
+
+	-- Dig Rat Stew -- 6417
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,6417,90,44977,1,2550)
+	self:addTradeFlags(RecipeDB,6417,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,6417,4,862,2,3392)
+
 	end
 
 	return recipecount

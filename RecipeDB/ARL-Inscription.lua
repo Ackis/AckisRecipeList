@@ -2241,6 +2241,52 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,57253,1,2,12,27,36,41)
 	self:addTradeAcquire(RecipeDB,57253,8,15)
 
+	if select(4, GetBuildInfo()) >= 30100 then
+
+	-- Rituals of the New Moon -- 64051
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64051,350,46108,2,45357)
+	self:addTradeFlags(RecipeDB,64051,1,2,10,36,41)
+	self:addTradeAcquire(RecipeDB,64051,7,2)
+
+	-- Glyph of Dancing Rune Weapon
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64297,350,45799,1,45357)
+	self:addTradeFlags(RecipeDB,64297,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+
+	-- Glyph of Dark Death
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64266,280,45804,1,45357)
+	self:addTradeFlags(RecipeDB,64266,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+
+	-- Glyph of Disease
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64267,285,45805,1,45357)
+	self:addTradeFlags(RecipeDB,64267,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+
+	-- Glyph of Howling Blast
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64300,305,45806,1,45357)
+	self:addTradeFlags(RecipeDB,64300,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+
+	-- Glyph of Hungering Cold
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64298,305,45800,1,45357)
+	self:addTradeFlags(RecipeDB,64298,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+	
+	-- Glyph of Unholy Blight
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64299,305,45803,1,45357)
+	self:addTradeFlags(RecipeDB,64299,1,2,21,36,41)
+	--self:addTradeAcquire(RecipeDB,)
+
+	end
+
 	return recipecount
 
 end

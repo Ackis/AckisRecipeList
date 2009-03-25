@@ -602,12 +602,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB,14810,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,74)
 	self:addTradeAcquire(RecipeDB,14810,1,11072,1,11073,1,11074,1,19250,1,19251)
 
-	-- Smoking Heart of the Mountain -- 15596
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,15596,265,11811,2,7411)
-	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
-
 	-- Enchanted Thorium -- 17180
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17180,250,12655,1,7411)
@@ -1771,6 +1765,33 @@ function addon:InitEnchanting(RecipeDB)
 	--self:addTradeSkill(RecipeDB,62257,440,nil,2,7411)
 	--self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,62257,2,32514)
+
+	if select(4, GetBuildInfo()) >= 30100 then
+	-- Smoking Heart of the Mountain -- 15596
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,15596,265,45050,2,7411)
+	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
+	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
+
+	-- Enchant Staff - Greater Spellpower
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62948,450,45059,3,7411)
+	self:addTradeFlags(RecipeDB,62948,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
+	self:addTradeAcquire(RecipeDB,62948,2,32514)
+
+	-- Enchant Weapon - Blade Ward
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64441,450,46027,3,7411)
+	self:addTradeFlags(RecipeDB,64441,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
+	self:addTradeAcquire(RecipeDB,64441,2,32514)
+
+	else
+	-- Smoking Heart of the Mountain -- 15596
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,15596,265,11811,2,7411)
+	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
+	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
+	end
 
 	return recipecount
 
