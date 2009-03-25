@@ -784,23 +784,26 @@ function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 	playerData.foundRecipes = foundRecipes
 
-	-- Cooking
-	if (playerData.playerProfession == GetSpellInfo(2550)) then
-		if (playerData.playerProfessionLevel > 300) then
-			RecipeDB[33359]["Known"] = true
+	-- If we're still in 3.0.x
+	if select(4, GetBuildInfo()) < 30100 then
+		-- Cooking
+		if (playerData.playerProfession == GetSpellInfo(2550)) then
+			if (playerData.playerProfessionLevel > 300) then
+				RecipeDB[33359]["Known"] = true
+			end
+			if (playerData.playerProfessionLevel > 225) then
+				RecipeDB[3413]["Known"] = true
+			end
 		end
-		if (playerData.playerProfessionLevel > 225) then
-			RecipeDB[3413]["Known"] = true
-		end
-	end
 
-	-- First Aid
-	if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
-		if (playerData.playerProfessionLevel > 225) then
-			RecipeDB[10846]["Known"] = true
-		end
-		if (playerData.playerProfessionLevel > 150) then
-			RecipeDB[7924]["Known"] = true
+		-- First Aid
+		if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
+			if (playerData.playerProfessionLevel > 225) then
+				RecipeDB[10846]["Known"] = true
+			end
+			if (playerData.playerProfessionLevel > 150) then
+				RecipeDB[7924]["Known"] = true
+			end
 		end
 	end
 
