@@ -113,7 +113,6 @@ local sfind = string.find
 local smatch = string.match
 local tolower = string.lower
 local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-local pinfoalpha = GetGuildInfo("player")
 
 --[[
 
@@ -1680,10 +1679,6 @@ do
 	-- Output: None
 
 	function addon:AckisRecipeList_Command(textdump)
-
-		if (pinfoalpha == "\84\101\97\109 \73\99\101") then
-			return
-		end
 
 		-- If we don't have a trade skill window open, lets return out of here
 		if (not tradewindowopened) then
