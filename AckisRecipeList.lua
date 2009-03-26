@@ -2185,3 +2185,37 @@ function addon:ScanSkillLevelData()
 	end
 
 end
+
+-- Description: Dumps all the info about a recipe out to chat
+-- Expected Result: Recipe info dumped in chat
+-- Input: Spell ID of the recipe
+-- Output: Text in chat window
+
+function addon:DumpRecipe(SpellID)
+
+	local recipelist = addon:GetRecipeTable()
+
+	if (recipelist[SpellID]) then
+
+		x = recipelist[SpellID]
+		self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
+		self:Print("Rarity: " .. x["Rarity"])
+		if (x["Specialty"]) then
+			self:Print("Profession: " .. x["Profession"] .. "(" .. x["Specialty"] .. ")")
+		else
+			self:Print("Profession: " .. x["Profession"])
+		end
+		if (x["ItemID"]) then
+			self:Print("Creates: " .. x["ItemID"])
+		end
+		if (x["Locations"]) then
+			self:Print("Located: " .. x["Locations"])
+		end
+
+		local flags = x["Flags"]
+
+	else
+		self:Print("DEBUG: Spell ID not in recipe database.")
+	end
+
+end
