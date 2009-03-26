@@ -376,12 +376,13 @@ function addon:TRADE_SKILL_SHOW()
 	local tradelink = GetTradeSkillListLink()
 
 	if (tradelink) then
+		if (not addon.db.profile.tradeskills) then
+			addon.db.profile.tradeskills = {}
+		end
 		if (not addon.db.profile.tradeskills[prealm]) then
 			addon.db.profile.tradeskills[prealm] = {}
-			addon.db.profile.tradeskills[prealm][pname] = tradelink
-		else
-			addon.db.profile.tradeskills[prealm][pname] = tradelink
 		end
+		addon.db.profile.tradeskills[prealm][pname] = tradelink
 	end
 
 	addon:OpenTradeWindow()
