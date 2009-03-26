@@ -96,6 +96,8 @@ local GetNumFactions = GetNumFactions
 local GetFactionInfo = GetFactionInfo
 local CollapseFactionHeader = CollapseFactionHeader
 local ExpandFactionHeader = ExpandFactionHeader
+local GetTradeSkillListLink = GetTradeSkillListLink
+local UnitName = UnitName
 
 local select = select
 local format = format
@@ -131,6 +133,9 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
+
+			-- Saving alts tradeskills
+			tradeskills = {},
 
 			-- Frame options
 			frameopts = {
@@ -365,6 +370,19 @@ end
 ]]--
 
 function addon:TRADE_SKILL_SHOW()
+
+	-- Create an entry in the db to track alt trade skills
+	local pname,prealm = UnitName("player")
+	local tradelink = GetTradeSkillListLink()
+
+	if (tradelink) then
+		if (not addon.db.profile.tradeskills[prealm]) then
+			addon.db.profile.tradeskills[prealm] = {}
+			addon.db.profile.tradeskills[prealm][pname] = tradelink
+		else
+			addon.db.profile.tradeskills[prealm][pname] = tradelink
+		end
+	end
 
 	addon:OpenTradeWindow()
 
