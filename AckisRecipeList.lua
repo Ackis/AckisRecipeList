@@ -1854,7 +1854,7 @@ do
 
 			sortFuncs = {}
 
-			sortFuncs["SkillAsc)"] = function(a, b) 
+			sortFuncs["SkillAsc"] = function(a, b) 
 				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
 			end
 
