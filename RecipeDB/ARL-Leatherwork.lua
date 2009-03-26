@@ -3037,7 +3037,59 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeSkill(RecipeDB,62448,425,44963,4,2108)
 	self:addTradeFlags(RecipeDB,62448,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62448,1,26911,1,26961,1,26996,1,26998,1,28700)
-	
+
+	if select(4, GetBuildInfo()) >= 30100 then
+
+	-- Lightning Grounded Boots -- 63197
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63197,450,45097,4,2108)
+	self:addTradeFlags(RecipeDB,63197,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
+	--self:addTradeAcquire(RecipeDB,63197,
+
+	-- Footpads of Silence -- 63199 
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63199,450,45099,4,2108)
+	self:addTradeFlags(RecipeDB,63199,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
+	--self:addTradeAcquire(RecipeDB,63199
+
+	-- Death-warmed Belt -- 63198
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63198,450,45098,4,2108)
+	self:addTradeFlags(RecipeDB,63198,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
+	--self:addTradeAcquire(RecipeDB,63198,
+
+	-- Boots of Wintry Endurance -- 63201
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63201,450,45101,4,2108)
+	self:addTradeFlags(RecipeDB,63201,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
+	--self:addTradeAcquire(RecipeDB,63201
+
+	-- Boots of Living Scale -- 63195
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63195,450,45095,4,2108)
+	self:addTradeFlags(RecipeDB,63195,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
+	--self:addTradeAcquire(RecipeDB,63195
+
+	-- Blue Belt of Chaos -- 63196
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63196,450,45096,4,2108)
+	self:addTradeFlags(RecipeDB,63196,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
+	--self:addTradeAcquire(RecipeDB,63196
+
+	-- Belt of Dragons -- 63194
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63194,450,45553,4,2108)
+	self:addTradeFlags(RecipeDB,63194,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
+	--self:addTradeAcquire(RecipeDB,63194
+
+	-- Belt of Arctic Life -- 63200
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63200,450,45100,4,2108)
+	self:addTradeFlags(RecipeDB,63200,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
+	--self:addTradeAcquire(RecipeDB,63200
+
+	end
+
 	return recipecount
 
 end
