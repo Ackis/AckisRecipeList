@@ -1068,7 +1068,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38504,375,31399,4,25229)
 	self:addTradeFlags(RecipeDB,38504,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,62,103)
-	self:addTradeAcquire(RecipeDB,38504,6,942,2,17904)
+	self:addTradeAcquire(RecipeDB,38504,6,942,4,17904)
 
 	-- Great Golden Draenite -- 39451
 	recipecount = recipecount + 1
