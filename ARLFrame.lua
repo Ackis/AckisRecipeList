@@ -1269,6 +1269,7 @@ function addon:ResetGUI()
 	addon.db.profile.frameopts.anchorFrom = ""
 	addon.db.profile.frameopts.uiscale = 1
 	addon.db.profile.frameopts.tooltipscale = .9
+	addon.db.profile.frameopts.fontsize = 11
 
 end
 
@@ -3575,10 +3576,10 @@ function addon:CreateFrame(
 				addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
 			else
 				-- Anchor to default tradeskill frame
-				addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0 )
+				addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
 			end
 		else
-			addon.Frame:SetPoint( opts.anchorFrom, UOParent, opts.anchorTo, opts.offsetx, opts.offsety )
+			addon.Frame:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, opts.offsetx, opts.offsety)
 		end
 
 		addon.Frame:Show()
