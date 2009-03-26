@@ -372,7 +372,8 @@ end
 function addon:TRADE_SKILL_SHOW()
 
 	-- Create an entry in the db to track alt trade skills
-	local pname,prealm = UnitName("player")
+	local pname = UnitName("player")
+	local prealm = GetRealmName()
 	local tradelink = GetTradeSkillListLink()
 
 	if (tradelink) then
