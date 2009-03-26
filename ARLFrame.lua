@@ -2695,9 +2695,13 @@ function addon.RecipeItem_OnClick(button)
 			-- SHIFT
 			elseif (IsShiftKeyDown()) then
 				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
-				local _, itemLink = GetItemInfo(itemID)
-				if (itemLink) then
-					ChatFrameEditBox:Insert(itemLink)
+				if (itemID) then
+					local _,itemLink = GetItemInfo(itemID)
+					if (itemLink) then
+						ChatFrameEditBox:Insert(itemLink)
+					else
+						addon:Print(L["NoItemLink"])
+					end
 				else
 					addon:Print(L["NoItemLink"])
 				end
