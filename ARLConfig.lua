@@ -1248,7 +1248,7 @@ local function fullOptions()
 							name	= L["Clear Waypoints"],
 							disabled = tomtomsupport,
 							desc	= L["CLEAR_WAYPOINTS_DESC"],
-							func	= function(info) addon:ClearMap() end,
+							func	= function() addon:ClearMap() end,
 						},
 					},
 				},
