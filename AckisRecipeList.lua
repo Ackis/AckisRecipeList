@@ -95,6 +95,8 @@ local CollapseFactionHeader = CollapseFactionHeader
 local ExpandFactionHeader = ExpandFactionHeader
 local GetTradeSkillListLink = GetTradeSkillListLink
 local UnitName = UnitName
+local GetRealmName = GetRealmName
+local IsTradeSkillLinked = IsTradeSkillLinked
 
 local select = select
 local format = format
@@ -132,7 +134,7 @@ function addon:OnInitialize()
 		profile = {
 
 			-- Saving alts tradeskills
-			tradeskills = {},
+			tradeskill = {},
 
 			-- Frame options
 			frameopts = {
@@ -368,21 +370,29 @@ end
 
 function addon:TRADE_SKILL_SHOW()
 
-	-- Create an entry in the db to track alt trade skills
-	local pname = UnitName("player")
-	local prealm = GetRealmName()
-	local tradelink = GetTradeSkillListLink()
+	local ownskill = IsTradeSkillLinked()
 
-	if (tradelink) then
-		if (not addon.db.profile.tradeskills) then
-			addon.db.profile.tradeskills = {}
+	-- If this is our own skill, save it, if not don't save it
+	if (not ownskill) then
+		-- Create an entry in the db to track alt trade skills
+		local pname = UnitName("player")
+		local prealm = GetRealmName()
+		local tradelink = GetTradeSkillListLink()
+		local tradename = GetTradeSkillLine()
+
+		if (tradelink) then
+			if (not addon.db.profile.tradeskill) then
+				addon.db.profile.tradeskill = {}
+			end
+			if (not addon.db.profile.tradeskill[prealm]) then
+				addon.db.profile.tradeskill[prealm] = {}
+			end
+			if (not addon.db.profile.tradeskill[prealm][pname]) then
+				addon.db.profile.tradeskill[prealm][pname] = {}
+			end
+			addon.db.profile.tradeskill[prealm][pname][tradename] = tradelink
 		end
-		if (not addon.db.profile.tradeskills[prealm]) then
-			addon.db.profile.tradeskills[prealm] = {}
-		end
-		addon.db.profile.tradeskills[prealm][pname] = tradelink
 	end
-
 	addon:OpenTradeWindow()
 
 	if (addon.ScanButton and not Skillet) then
@@ -2192,6 +2202,10 @@ function addon:DumpRecipe(SpellID)
 
 	local recipelist = addon:GetRecipeTable()
 
+	if (not recipelist) then
+		return
+	end
+
 	if (recipelist[SpellID]) then
 
 		x = recipelist[SpellID]
@@ -2203,7 +2217,8 @@ function addon:DumpRecipe(SpellID)
 			self:Print("Profession: " .. x["Profession"])
 		end
 		if (x["ItemID"]) then
-			self:Print("Creates: " .. x["ItemID"])
+			local _,linky = GetItemInfo(x["ItemID"])
+			self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
 		end
 		if (x["Locations"]) then
 			self:Print("Located: " .. x["Locations"])
@@ -2257,67 +2272,73 @@ function addon:DumpRecipe(SpellID)
 		if (flags[15] == true) then
 			flagstr = flagstr .. "15,"
 		end
-		if (flags[17] == true) then
+		if (flags[16] == true) then
 			flagstr = flagstr .. "16,"
 		end
-		if (flags[18] == true) then
+		if (flags[17] == true) then
 			flagstr = flagstr .. "17,"
 		end
-		if (flags[19] == true) then
+		if (flags[18] == true) then
 			flagstr = flagstr .. "18,"
 		end
-		if (flags[20] == true) then
+		if (flags[19] == true) then
 			flagstr = flagstr .. "19,"
 		end
-		if (flags[21] == true) then
+		if (flags[20] == true) then
 			flagstr = flagstr .. "20,"
 		end
-		if (flags[22] == true) then
+		if (flags[21] == true) then
 			flagstr = flagstr .. "DK,"
 		end
-		if (flags[23] == true) then
+		if (flags[22] == true) then
 			flagstr = flagstr .. "Druid,"
 		end
-		if (flags[24] == true) then
+		if (flags[23] == true) then
 			flagstr = flagstr .. "Huntard,"
 		end
-		if (flags[25] == true) then
+		if (flags[24] == true) then
 			flagstr = flagstr .. "Mage,"
 		end
-		if (flags[26] == true) then
+		if (flags[25] == true) then
 			flagstr = flagstr .. "Pally,"
 		end
-		if (flags[27] == true) then
+		if (flags[26] == true) then
 			flagstr = flagstr .. "Priest,"
 		end
-		if (flags[28] == true) then
+		if (flags[27] == true) then
 			flagstr = flagstr .. "Sham,"
 		end
-		if (flags[29] == true) then
+		if (flags[28] == true) then
 			flagstr = flagstr .. "Rogue,"
 		end
-		if (flags[30] == true) then
+		if (flags[29] == true) then
 			flagstr = flagstr .. "Lock,"
 		end
-		if (flags[31] == true) then
+		if (flags[30] == true) then
 			flagstr = flagstr .. "War,"
 		end
-		if (flags[32] == true) then
-			flagstr = flagstr .. "IBoE,"
-		end
-		if (flags[33] == true) then
-			flagstr = flagstr .. "IBoP,"
-		end
-		if (flags[34] == true) then
-			flagstr = flagstr .. "IBoA,"
-		end
-		if (flags[35] == true) then
-			flagstr = flagstr .. "RBoE,"
+		if (flags[31] == true) then
+			flagstr = flagstr .. "31,"
 		end
 		if (flags[36] == true) then
-			flagstr = flagstr .. "RBoP,"
+			flagstr = flagstr .. "IBoE,"
 		end
 		if (flags[37] == true) then
+			flagstr = flagstr .. "IBoP,"
+		end
+		if (flags[38] == true) then
+			flagstr = flagstr .. "IBoA,"
+		end
+		if (flags[39] == true) then
+			flagstr = flagstr .. "39,"
+		end
+		if (flags[40] == true) then
+			flagstr = flagstr .. "RBoE,"
+		end
+		if (flags[41] == true) then
+			flagstr = flagstr .. "RBoP,"
+		end
+		if (flags[42] == true) then
 			flagstr = flagstr .. "RBoA,"
 		end
 		if (flags[51] == true) then
@@ -2402,7 +2423,7 @@ function addon:DumpRecipe(SpellID)
 			flagstr = flagstr .. "Fist,"
 		end
 
-		self:Print("DEBUG: Flags: " .. flagstr)
+		self:Print("Flags: " .. flagstr)
 		flagstr = ""
 
 		if (flags[96] == true) then
@@ -2511,10 +2532,10 @@ function addon:DumpRecipe(SpellID)
 			flagstr = flagstr .. "AV/HE,"
 		end
 
-		self:Print("DEBUG: Reps: " .. flagstr)
+		self:Print("Reps: " .. flagstr)
 
 	else
-		self:Print("DEBUG: Spell ID not in recipe database.")
+		self:Print("Spell ID not in recipe database.")
 	end
 
 end

@@ -35,7 +35,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Lion's Strength -- 2329
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
-	self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,2329,8,8)
 
 	-- Minor Healing Potion -- 2330
