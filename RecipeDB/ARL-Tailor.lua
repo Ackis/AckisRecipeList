@@ -2384,6 +2384,40 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,55924,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,55924,1,26914,1,26964,1,26969,1,27001,1,28699)
 
+	if select(4, GetBuildInfo()) >= 30100 then
+
+	-- Cord of the White Dawn -- 63205
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63205,450,45104,4,3908)
+	self:addTradeFlags(RecipeDB,63205,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
+	self:addTradeAcquire(RecipeDB,63205,8,39)
+
+	-- Sash of Ancient Power -- 63203
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63203,450,45102,4,3908)
+	self:addTradeFlags(RecipeDB,63203,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,54,56)
+	self:addTradeAcquire(RecipeDB,63203,8,39)
+
+	-- Savior's Slippers -- 63206
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63206,450,45567,4,3908)
+	self:addTradeFlags(RecipeDB,63206,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
+	self:addTradeAcquire(RecipeDB,63206,8,39)
+
+	-- Spellslinger's Slippers -- 63204
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63204,450,45566,4,3908)
+	self:addTradeFlags(RecipeDB,63204,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
+	self:addTradeAcquire(RecipeDB,63204,8,39)
+
+	-- Emerald Bag -- 63924
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63924,435,45773,3,3908)
+	self:addTradeFlags(RecipeDB,63924,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,120)
+	self:addTradeAcquire(RecipeDB,63924,6,1073,3,31916,6,1073,3,32763)
+
+	end
+
 	return recipecount
 
 end
