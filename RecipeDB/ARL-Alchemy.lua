@@ -59,8 +59,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Lesser Agility -- 2333
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2333,140,3390,2,2259)
-	self:addTradeFlags(RecipeDB,2333,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,2333,7,2,1,3390,8,8)
+	self:addTradeFlags(RecipeDB,2333,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,52)
+	self:addTradeAcquire(RecipeDB,2333,7,2)
 
 	-- Elixir of Minor Fortitude -- 2334
 	recipecount = recipecount + 1
