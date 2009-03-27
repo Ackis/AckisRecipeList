@@ -2539,3 +2539,11 @@ function addon:DumpRecipe(SpellID)
 	end
 
 end
+
+--Description: Clears all saved tradeskills
+
+function addon:ClearSavedSkills()
+
+	addon.db.profile.tradeskill = {}
+
+end
