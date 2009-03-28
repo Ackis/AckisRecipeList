@@ -1807,7 +1807,7 @@ function addon.ToggleFilters()
 		ARL_FilterButton:SetText(L["FILTER_OPEN"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
 
-		-- Hide my 5 buttons
+		-- Hide my 6 buttons
 		ARL_ExpGeneralOptCB:Hide()
 		ARL_ExpObtainOptCB:Hide()
 		ARL_ExpBindingOptCB:Hide()
@@ -1815,7 +1815,7 @@ function addon.ToggleFilters()
 		ARL_ExpPlayerOptCB:Hide()
 		ARL_ExpRepOptCB:Hide()
 
-		-- Uncheck the five buttons
+		-- Uncheck the six buttons
 		HideARL_ExpOptCB()
 
 		-- Hide the flyaway panel
@@ -1839,7 +1839,7 @@ function addon.ToggleFilters()
 		ARL_FilterButton:SetText(L["FILTER_CLOSE"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
 
-		-- Show my 5 buttons
+		-- Show my 6 buttons
 		ARL_ExpGeneralOptCB:Show()
 		ARL_ExpObtainOptCB:Show()
 		ARL_ExpBindingOptCB:Show()
@@ -3051,7 +3051,7 @@ function addon.resetFilters()
 
 	addon.resetTitle()
 
-	-- Uncheck the five buttons
+	-- Uncheck the six buttons
 	HideARL_ExpOptCB()
 
 	-- Hide the flyaway panel
@@ -3077,6 +3077,8 @@ function addon.DoFlyaway(panel)
 	-- 2	ARL_ExpObtainOptCB			Obtain Filters
 	-- 3	ARL_ExpBindingOptCB			Binding Filters
 	-- 4	ARL_ExpItemOptCB			Item Filters
+	-- 5	ARL_ExpPlayerOptCB			Player Type Filters
+	-- 6	ARL_ExpRepOptCB				Reputation Filters
 
 	local ChangeFilters = false
 
@@ -3908,7 +3910,7 @@ function addon:CreateFrame(
 		-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 
 		addon.Fly_General = CreateFrame("Frame", "addon.Fly_General", addon.Flyaway)
-			addon.Fly_General:SetWidth(210)
+			addon.Fly_General:SetWidth(112)
 			addon.Fly_General:SetHeight(280)
 			addon.Fly_General:EnableMouse(true)
 			addon.Fly_General:EnableKeyboard(true)
@@ -3940,7 +3942,7 @@ function addon:CreateFrame(
 				ARL_UnknownCBText:SetText(L["Unknown"])
 
 		addon.Fly_Obtain = CreateFrame("Frame", "addon.Fly_Obtain", addon.Flyaway)
-			addon.Fly_Obtain:SetWidth(210)
+			addon.Fly_Obtain:SetWidth(112)
 			addon.Fly_Obtain:SetHeight(280)
 			addon.Fly_Obtain:EnableMouse(true)
 			addon.Fly_Obtain:EnableKeyboard(true)
