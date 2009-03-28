@@ -340,10 +340,10 @@ do
 		if (TomTom) then
 			-- Remove all the waypoints from TomTom
 			for i in pairs(iconlist) do
-				TomTom:RemoveWaypoint(i)
+				TomTom:RemoveWaypoint(iconlist[i])
 			end
 			-- Nuke our own internal table
-			table.wipe(iconlist)
+			iconlist = table.wipe(iconlist)
 		end
 
 	end
@@ -466,7 +466,7 @@ do
 					zone = c4[loc["Location"]]
 				else
 					--@debug@
-					addon:Print("DEBUG: No continent/zone map match for vendor " .. k .. ".")
+					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
 					--@end-debug@
 				end
 		
@@ -2132,11 +2132,17 @@ do
 
 		-- The frame is visible
 		if (addon.Frame and addon.Frame:IsVisible()) then
+			-- Shift only (Text dump)
+			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
+				self:AckisRecipeList_Command(true)
+			-- Alt only (Wipe icons from map)
+			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
+				self:ClearMap()
 			-- If we have the same profession open, then we close the scanned window
-			if (currentProfession == cprof) then
+			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (currentProfession == cprof) then
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
-			else
+			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:AckisRecipeList_Command(false)
 				self:SetupMap()
 				currentProfession = cprof
