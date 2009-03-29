@@ -441,6 +441,7 @@ L["Custom35"] = "Blade's Edge Mountains Summon Bosses" -- Update
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
 L["Custom37"] = "Random SSC / TK trash drop"
 L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
+L["Custom39"] = "Random drop off of Ulduar bosses."
 
 -- Monster/Quest/Trainer/Vendor strings:
 
