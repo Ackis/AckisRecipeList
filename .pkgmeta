@@ -19,6 +19,10 @@ ignore:
  - Locals/testenUS.lua
  - Locals/testesMX.lua
 
+tools-used:
+ - data-tools
+ - dlcount
+
 externals:
  libs/LibStub:
   url: svn://svn.wowace.com/wow/libstub/mainline/trunk
