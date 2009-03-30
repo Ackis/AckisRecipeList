@@ -202,6 +202,7 @@ L["Reputation"]				= true
 L["Old World"]				= true
 L["Burning Crusade"]		= true
 L["Wrath of the Lich King"]	= true
+L["Misc"]					= true
 
 -- Filter Configuration Descriptions
 L["FILTERING_OPTIONS_DESC"]					= "Allows you to customize which recipes are filtered."
@@ -227,6 +228,8 @@ L["Burning Crusade Rep. Filtering Options"]	= true
 L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
 L["Lich King Rep. Filtering Options"]		= true
 L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["Miscellaneous"]							= true
+L["FILTERING_MISC_DESC"]					= "Configuration for miscellaneous options which are also present in the display options."
 
 -- General Filter UI Elements and their associated descriptions
 L["Faction"]				= true

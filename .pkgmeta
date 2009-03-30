@@ -17,6 +17,7 @@ ignore:
  - ARLDataminer.rb
  - Docs
  - Locals/testenUS.lua
+ - Locals/testdeDE.lua
  - Locals/testesMX.lua
 
 tools-used:

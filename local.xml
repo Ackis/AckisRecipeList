@@ -9,7 +9,9 @@
 <Include file="Locals\ARLLocals-frFR.lua"/>
 <Include file="Locals\ARLLocals-zhCN.lua"/>
 <Include file="Locals\ARLLocals-zhTW.lua"/>
+<!--@non-debug@
 <Include file="Locals\ARLLocals-deDE.lua"/>
+@end-non-debug@-->
 <Include file="Locals\ARLLocals-esES.lua"/>
 <!--@non-debug@
 <Include file="Locals\ARLLocals-esMX.lua"/>
@@ -18,6 +20,7 @@
 
 <!--@debug@-->
 <Include file="Locals\testenUS.lua"/>
+<Include file="Locals\testdeDE.lua"/>
 <Include file="Locals\testesMX.lua"/>
 <!--@end-debug@-->
 

@@ -88,7 +88,7 @@ local arlTooltip2 = _G["arlTooltip2"]
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 
 local ARL_SearchText,ARL_LastSearchedText
-local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB
+local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
 
 -- To make tabbing between professions easier 
 local SortedProfessions = { 
@@ -116,7 +116,8 @@ local ExpButtonText = {
 	L["Binding"],		-- 3
 	L["Item"],			-- 4
 	L["Player Type"],	-- 5
-	L["Reputation"]		-- 6
+	L["Reputation"],	-- 6
+	L["Misc"]			-- 7
 }
 
 local ExpButtonTT = {
@@ -125,7 +126,8 @@ local ExpButtonTT = {
 	L["FILTERING_BINDING_DESC"],	-- 3
 	L["FILTERING_ITEM_DESC"],		-- 4
 	L["FILTERING_PLAYERTYPE_DESC"],	-- 5
-	L["FILTERING_REP_DESC"]			-- 6
+	L["FILTERING_REP_DESC"],		-- 6
+	L["FILTERING_MISC_DESC"]		-- 7
 }
 
 
@@ -1214,8 +1216,8 @@ local function SetProgressBar(playerData)
 	end
 
 	if (not addon.db.profile.includeexcluded) then
-		pbCur = pbCur - playerData.excluded_recipes_known
-		pbMax = pbMax - playerData.excluded_recipes_unknown
+		pbCur = pbCur - playerData.excluded_recipes_unknown
+		pbMax = pbMax - playerData.excluded_recipes_known
 	end
 
 	-- Lets remove cooking/first aid recipes from the totals/current
@@ -1708,12 +1710,13 @@ end
 
 local function HideARL_ExpOptCB(ignorevalue)
 
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
+			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
+			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
+			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
 			ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
+			ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
 
 	if (ignorevalue ~= "general") then
 
@@ -1781,6 +1784,17 @@ local function HideARL_ExpOptCB(ignorevalue)
 
 	end
 
+	if (ignorevalue ~= "misc") then
+
+		ARL_ExpMiscOptCB:SetChecked(false)
+		ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
+
+	else
+
+		ARL_ExpMiscOptCB.text:SetText(addon:White(ExpButtonText[7]))
+
+	end
+
 end
 
 -- Description: 
@@ -1807,15 +1821,16 @@ function addon.ToggleFilters()
 		ARL_FilterButton:SetText(L["FILTER_OPEN"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
 
-		-- Hide my 6 buttons
+		-- Hide my 7 buttons
 		ARL_ExpGeneralOptCB:Hide()
 		ARL_ExpObtainOptCB:Hide()
 		ARL_ExpBindingOptCB:Hide()
 		ARL_ExpItemOptCB:Hide()
 		ARL_ExpPlayerOptCB:Hide()
 		ARL_ExpRepOptCB:Hide()
+		ARL_ExpMiscOptCB:Hide()
 
-		-- Uncheck the six buttons
+		-- Uncheck the seven buttons
 		HideARL_ExpOptCB()
 
 		-- Hide the flyaway panel
@@ -1839,13 +1854,14 @@ function addon.ToggleFilters()
 		ARL_FilterButton:SetText(L["FILTER_CLOSE"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
 
-		-- Show my 6 buttons
+		-- Show my 7 buttons
 		ARL_ExpGeneralOptCB:Show()
 		ARL_ExpObtainOptCB:Show()
 		ARL_ExpBindingOptCB:Show()
 		ARL_ExpItemOptCB:Show()
 		ARL_ExpPlayerOptCB:Show()
 		ARL_ExpRepOptCB:Show()
+		ARL_ExpMiscOptCB:Show()
 
 		ARL_ResetButton:Show()
 		ARL_ApplyButton:Show()
@@ -1863,7 +1879,7 @@ end
 -- Input: 
 -- Output: 
 
-function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, logo)
+function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 
 	local pushdown = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [25] = 1, [26] = 1, [27] = 1, [28] = 1, [29] = 1,
@@ -1875,16 +1891,13 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 	local yPos = -3 - ((row - 1) * 17)
 	if (pushdown[scriptVal]) then yPos = yPos - 5 end
 	cButton:SetPoint("TOPLEFT", anchorFrame, "TOPLEFT", xPos, yPos)
-
-	-- depending if we're on the rep logo thingers or not, set the height and an OnClick method
-	if (logo == 0) then
-		cButton:SetHeight(24)
-		cButton:SetWidth(24)
+	cButton:SetHeight(24)
+	cButton:SetWidth(24)
+	-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
+	if (misc == 0) then
 		cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
 	else
-		cButton:SetHeight(46)
-		cButton:SetWidth(100)
-		cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
+		cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay() end)
 	end
 
 	addon:TooltipDisplay(cButton, ttText, 1)
@@ -3011,6 +3024,8 @@ function addon.setFlyawayState()
 	ARL_RepTaunkaCB:SetChecked(filterdb.rep.taunka)
 	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
 	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.wrathcommon1)
+	-- Miscellaneous Options
+	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 end
 
 -- Description: 
@@ -3057,7 +3072,7 @@ function addon.resetFilters()
 
 	addon.resetTitle()
 
-	-- Uncheck the six buttons
+	-- Uncheck the seven buttons
 	HideARL_ExpOptCB()
 
 	-- Hide the flyaway panel
@@ -3085,6 +3100,7 @@ function addon.DoFlyaway(panel)
 	-- 4	ARL_ExpItemOptCB			Item Filters
 	-- 5	ARL_ExpPlayerOptCB			Player Type Filters
 	-- 6	ARL_ExpRepOptCB				Reputation Filters
+	-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
 
 	local ChangeFilters = false
 
@@ -3109,6 +3125,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Hide()
 			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3132,6 +3149,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Hide()
 			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3155,6 +3173,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Hide()
 			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3178,6 +3197,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Show()
 			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3201,6 +3221,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Hide()
 			addon.Fly_Player:Show()
 			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3224,6 +3245,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_Item:Hide()
 			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Show()
+			addon.Fly_Misc:Hide()
 
 			ChangeFilters = true
 
@@ -3234,13 +3256,37 @@ function addon.DoFlyaway(panel)
 
 		end
 
+	elseif (panel == 7) then
+
+		if (ARL_ExpMiscOptCB:GetChecked()) then
+
+			HideARL_ExpOptCB("misc")
+
+			-- display the correct subframe with all the buttons and such, hide the others
+			addon.Fly_General:Hide()
+			addon.Fly_Obtain:Hide()
+			addon.Fly_Binding:Hide()
+			addon.Fly_Item:Hide()
+			addon.Fly_Player:Hide()
+			addon.Fly_Rep:Hide()
+			addon.Fly_Misc:Show()
+
+			ChangeFilters = true
+
+		else
+
+			ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
+			ChangeFilters = false
+
+		end
+
 	end
 
 	if (ChangeFilters == true) then
 
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
-		if ((panel == 3) or (panel == 4)) then
+		if ((panel == 3) or (panel == 4) or (panel == 7)) then
 
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
@@ -3872,7 +3918,7 @@ function addon:CreateFrame(
 			ARL_ApplyButton:SetScript("OnClick", ReDisplay)
 			ARL_ApplyButton:Hide()
 
-		-- EXPANDED : 5 buttons for opening/closing the flyaway
+		-- EXPANDED : 7 buttons for opening/closing the flyaway
 
 		ARL_ExpGeneralOptCB = addon:CreateExpCB("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
 		ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", ARL_FilterButton, "BOTTOMLEFT", -1, -50)
@@ -3891,6 +3937,9 @@ function addon:CreateFrame(
 
 		ARL_ExpRepOptCB = addon:CreateExpCB("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
 		ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
+
+		ARL_ExpMiscOptCB = addon:CreateExpCB("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
+		ARL_ExpMiscOptCB:SetPoint("TOPLEFT", ARL_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
 
 		-- Frame for the flyaway pane
 		addon.Flyaway = CreateFrame("Frame", "addon.Flyaway", addon.Frame)
@@ -4432,6 +4481,24 @@ function addon:CreateFrame(
 				ARL_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
 				ARL_RepWyrmrestCBText:SetFont(narrowFont, 11)
 
+		addon.Fly_Misc = CreateFrame("Frame", "addon.Fly_Misc", addon.Flyaway)
+			addon.Fly_Misc:SetWidth(210)
+			addon.Fly_Misc:SetHeight(280)
+			addon.Fly_Misc:EnableMouse(true)
+			addon.Fly_Misc:EnableKeyboard(true)
+			addon.Fly_Misc:SetMovable(false)
+			addon.Fly_Misc:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+			addon.Fly_Misc:Hide()
+			local ARL_MiscText = addon.Fly_Misc:CreateFontString("ARL_MiscText", "OVERLAY", "GameFontHighlight")
+				ARL_MiscText:SetText(L["Miscellaneous"] .. ":")
+				ARL_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
+				ARL_MiscText:SetHeight(14)
+				ARL_MiscText:SetWidth(150)
+				ARL_MiscText:SetJustifyH("LEFT")
+--			() Display Exclusions
+			local ARL_IgnoreCB = CreateFrame("CheckButton", "ARL_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
+				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
