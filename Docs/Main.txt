@@ -15,8 +15,11 @@ Ackis의 제조법 리스트
 ===Spanish (esES)===
 Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador. 
 
-===Traditional Chinese (zhTW)===
+===Simplified Chinese (zhCN)===
 全面详细的商业技能信息插件，包括毒药和宠物技能.
+
+===Traditional Chinese (zhTW)===
+詳細的專業技能配方查詢插件。
 
 ==Donations==
 I have setup a donation site via [http://www.pledgie.com/campaigns/3462 Pledgie].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
