@@ -2249,41 +2249,391 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,64051,1,2,10,36,41)
 	self:addTradeAcquire(RecipeDB,64051,7,2)
 
-	-- Glyph of Dancing Rune Weapon
+	-- Glyph of Dancing Rune Weapon -- 64297
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64297,350,45799,1,45357)
 	self:addTradeFlags(RecipeDB,64297,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
-	-- Glyph of Dark Death
+	-- Glyph of Dark Death -- 64266
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64266,280,45804,1,45357)
 	self:addTradeFlags(RecipeDB,64266,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
-	-- Glyph of Disease
+	-- Glyph of Disease -- 64267
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64267,285,45805,1,45357)
 	self:addTradeFlags(RecipeDB,64267,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
-	-- Glyph of Howling Blast
+	-- Glyph of Howling Blast -- 64300
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64300,305,45806,1,45357)
 	self:addTradeFlags(RecipeDB,64300,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
-	-- Glyph of Hungering Cold
+	-- Glyph of Hungering Cold -- 64298
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64298,305,45800,1,45357)
 	self:addTradeFlags(RecipeDB,64298,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 	
-	-- Glyph of Unholy Blight
+	-- Glyph of Unholy Blight -- 64299
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64299,305,45803,1,45357)
 	self:addTradeFlags(RecipeDB,64299,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
+
+--[[
+	--Glyph of Arcane Barrage
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Barkskin
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Beacon of Light
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Berserk
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Bladestorm
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Chaos Bolt
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Chimera Shot
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Cloak of Shadows
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Deep Freeze
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Demonic Circle
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+	
+	--Glyph of Dispersion
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Divine Plea
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Divine Storm
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Earth Shield
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Enraged Regeneration
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Envenom
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Explosive Shot
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Fan of Knives
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Feral Spirit
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Guardian Spirit
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Hammer of the Righteous
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Haunt
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Hex
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Holy Shock
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Hunger for Blood
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Hymn of Hope
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Ice Barrier
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Kill Shot
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Killing Spree
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Life Tap
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+	
+	--Glyph of Living Bomb
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Metamorphosis
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Mind Sear
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Mirror Image
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Monsoon
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Mutilate
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Nourish
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Pain Suppression
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Penance
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Raptor Strike
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Riptide
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Salvation
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Savage Roar
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Scatter Shot
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Shadow Dance
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Shadowflame
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Shield of Righteousness
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Shield Wall
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Shockwave
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Soul Link
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Spell Reflection
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Stoneclaw Totem
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Survival Instincts
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Thunder
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Totem of Wrath
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Tricks of the Trade
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Vigilance
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+
+	--Glyph of Wild Growth
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	--self:addTradeAcquire(RecipeDB,)
+]]--
 
 	end
 

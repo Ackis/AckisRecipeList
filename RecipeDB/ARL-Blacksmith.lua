@@ -2906,6 +2906,47 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,62202,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130,131)
 	self:addTradeAcquire(RecipeDB,62202,6,1052,4,32565,6,1052,4,32774,6,1037,4,32564,6,1037,4,32773)
 
+	if select(4, GetBuildInfo()) >= 30100 then
+
+--[[
+	-- Battlelord's Plate Boots
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+
+	-- Belt of the Titans
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+
+	-- Indestructible Plate Girdle
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+
+	-- Plate Girdle of the Righteous
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+
+	-- Spiked Deathdealers
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+
+	-- Treads of Destiny
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,)
+	self:addTradeFlags(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,)
+]]--
+	end
+
 	return recipecount
 
 end
