@@ -1215,7 +1215,7 @@ local function SetProgressBar(playerData)
 		pbMax = playerData.recipes_total_filtered
 	end
 
-	if (not addon.db.profile.includeexcluded) then
+	if (not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist) then
 		pbCur = pbCur - playerData.excluded_recipes_unknown
 		pbMax = pbMax - playerData.excluded_recipes_known
 	end
