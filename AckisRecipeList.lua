@@ -1737,10 +1737,9 @@ do
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
 			if (not addon.db.profile.ignoreexclusionlist) then
-				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList)
+				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,1)
 			else
-				playerData.excluded_recipes_known = 0
-				playerData.excluded_recipes_unknown = 0
+				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,0)
 			end
 		end
 
@@ -1928,7 +1927,7 @@ end
 -- Input: Recipe Database
 -- Output: None, Recipe Database is passed as a reference
 
-function addon:GetExclusions(RecipeDB)
+function addon:GetExclusions(RecipeDB, Ignored)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
@@ -1940,7 +1939,11 @@ function addon:GetExclusions(RecipeDB)
 		-- check if the entry exists in RecipeDB first
 		if (RecipeDB[i]) then
 
-			RecipeDB[i]["Display"] = false
+			if (Ignored == 1) then
+
+				RecipeDB[i]["Display"] = false
+
+			end
 
 			if (RecipeDB[i]["Known"] == false) then
 

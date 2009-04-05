@@ -1290,7 +1290,9 @@ local function ReDisplay()
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	if (not addon.db.profile.ignoreexclusionlist) then
-		addon:GetExclusions(recipeDB)
+		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,1)
+	else
+		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,0)
 	end
 
 	initDisplayStrings()
