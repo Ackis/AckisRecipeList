@@ -4,8 +4,8 @@
 
 AckisRecipeList.lua
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -24,6 +24,12 @@ Documentation:
 ************************************************************************
 
 --]]
+
+--- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
+-- There are a set of functions which allow you make use of the ARL database outside of ARL.
+-- @class file
+-- @name AckisRecipeList.lua
+-- @release @file-revision@
 
 local MODNAME	= "Ackis Recipe List"
 
@@ -561,10 +567,10 @@ end
 --- Adds a tradeskill recipe into the specified recipe database.
 -- @name AckisRecipeList:addTradeSkill
 -- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
--- @param textdump RecipeDB The database (array) which you wish to add data too.
--- @param SpellID
--- @param SkillLevel
--- @param ItemID
+-- @param RecipeDB RecipeDB The database (array) which you wish to add data too.
+-- @param SpellID The spell ID of the recipe being added to the database.
+-- @param SkillLevel The skill level at which the recipe may be learned.
+-- @param ItemID The item ID 
 -- @param Rarity
 -- @param Profession
 -- @param Speciality
