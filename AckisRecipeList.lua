@@ -573,8 +573,8 @@ end
 -- @param SkillLevel The skill level at which the recipe may be learned.
 -- @param ItemID The item ID that is created by the recipe, or nil
 -- @param Rarity The rarity of the recipe.
--- @param Profession The profession ID that uses the recipe.  See [[database-documentation/#w_profession-ids]] for a listing.
--- @param Speciality The speciality that uses the recipe (ie: goblin engineering) or nil or blank
+-- @param Profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
+-- @param Specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
 -- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty)
 
@@ -645,6 +645,13 @@ end
 -- Input: Recipe array reference, SpellID of recipe, all flags
 -- Output: None, array is passed as a reference
 
+--- Adds filtering flags to a specific tradeskill.
+-- @name AckisRecipeList:addTradeFlags
+-- @usage AckisRecipeList:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
+-- @param RecipeDB RecipeDB The database (array) which you wish to add flags too.
+-- @param SpellID The spell ID of the recipe which flags are being added to.
+-- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
+-- @return None, array is passed as a reference.
 function addon:addTradeFlags(RecipeDB, SpellID, ...)
 
 	-- flags are defined in Documentation.lua
@@ -670,6 +677,13 @@ end
 -- Input: Recipe array reference, SpellID of recipe, all Acquire info
 -- Output: None, array is passed as a reference
 
+--- Adds acquire methods to a specific tradeskill.
+-- @name AckisRecipeList:addTradeAcquire
+-- @usage AckisRecipeList:addTradeAcquire:(RecipeDB,2329,8,8)
+-- @param RecipeDB RecipeDB The database (array) which you wish to add acquire methods too.
+-- @param SpellID The spell ID of the recipe which acquire methods are being added to.
+-- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
+-- @return None, array is passed as a reference.
 function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 	-- Find out how many flags we're adding
