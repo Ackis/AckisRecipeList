@@ -5,7 +5,7 @@
 -
  type: wiki
  input-file: Docs/In-game.txt
- output-page: "In-game Documenation"
+ output-page: "In-game Documentation"
 -
  type: wiki
  input-file: Docs/Feedback.txt

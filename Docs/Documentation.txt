@@ -162,7 +162,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *64 = Shield
 *65 = Reserved for future use
 ====Weapon Type====
-*66 = 1H
+*66 = 1H/Offhand
 *67 = 2H
 *68 = Axe
 *69 = Sword
@@ -243,7 +243,6 @@ Defined below is the specification for the arguments passed back into addTradeAc
 </nowiki></pre>
 
 == Reputation ID==
-
 :0 = Neutral
 :1 = Friendly
 :2 = Honored
@@ -251,7 +250,6 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :4 = Exalted
 
 ==Faction ID==
-
 :0 - Neutral
 :1 - Alliance
 :2 - Horde
@@ -264,6 +262,20 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :4 - epic			#B343FF
 :5 - legendary		#FA9900
 :6 - artifact		#e5cc80
+
+==Profession IDs==
+:2259 Alchemy
+:2018 Blacksmithing
+:2550 Cooking
+:7411 Enchanting
+:4036 Engineering
+:746 FirstAid
+:2108 Leatherworking
+:2575 Smelting
+:3908 Tailoring
+:25229 Jewelcrafting
+:45357 Inscription
+:53428 Runeforging
 
 ==Table Structures==
 
