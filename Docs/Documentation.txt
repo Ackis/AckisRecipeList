@@ -34,56 +34,244 @@ In the RecipeDB is a single file for each profession. Each recipe is inserted in
 
 The first line is a human readabile comment, which states the recipe name, with the [http://www.wowwiki.com/SpellLink spell ID] of the recipe.
 
-====addTradeSkill====
-This function adds the main recipe entry. it includes the following information:
-* [http://www.wowwiki.com/SpellLink Spell ID]
-* Skill Level Learnt
-* Item ID created
-* Recipe Rarity
-* Recipe Speciality (if applicable)
-From there, internal functions determine the following:
-* Name of the recipe
-* Link determining the recipe made
-
-====addTradeFlags====
-This function adds a series of "flags" about the recipe. This include a fairly exhaustive look at the recipe and the item made, where is can be obtained, etc.  The individual flags are documented further down.
-
-====addTradeAcquire====
-This function adds entries into the main database with exact instructions on how the recipe can be obtained. The details of these acquire methods are detailed further down.
+Please see the [[api]] page for detailed documentation on the database methods.
 
 ==SavedVariable Structure==
+This identifies the overall database structure for the saved variables.  Italics are the default options.
 
-This identifies the overall database structure for the saved variables.
-
-:addon.db.profile
-::frameopts
-::filters
-:::general
-:::obtain
-:::item
-::::armor
-::::weapon
-:::binding
-:::player
-:::rep
+*addon.db.profile
+**tradeskill
+***''{}''
+**frameopts
+***offsetx
+****''0''
+***offsety
+****''0''
+***anchorTo
+****''""''
+***anchorFrom
+****''""''
+***uiscale
+****''1''
+***tooltipscale
+****''.9''
+***fontsize
+****''11''
+**sorting
+***''"SkillAsc"''
+**includefiltered
+***''false''
+**includeexcluded
+***''false''
+**closeguionskillclose
+***''false''
+**ignoreexlcusionlist
+***''false''
+**scanbuttonlocation
+***''"TR"''
+**spelltooltiplocation
+***''"Right"''
+**acquiretooltiplocation
+***''"Mouse"''
+**hidepopup
+***''false''
+**minimap
+***''true''
+**worldmap
+***''true''
+**autoscanmap
+***''false''
+**exclusionlist
+***''{}''
+**filters
+***general
+****faction
+*****''true''
+****class
+*****''true''
+****specialty
+*****''false''
+****skill
+*****''true''
+****known
+*****''false''
+****unknown
+*****''true''
+***obtain
+****trainer
+*****''true''
+****vendor
+*****''true''
+****instance
+*****''true''
+****raid
+*****''true''
+****seasonal
+*****''true''
+****quest
+*****''true''
+****pvp
+*****''true''
+****discovery
+*****''true''
+****worlddrop
+*****''true''
+****mobdrop
+*****''true''
+***item
+****armor
+*****cloth
+*****''true''
+*****leather
+*****''true''
+*****mail
+*****''true''
+*****plate
+*****''true''
+*****trinket
+*****''true''
+*****cloak
+*****''true''
+*****ring
+*****''true''
+*****necklace
+*****''true''
+*****shield
+*****''true''
+****weapon
+*****onehand
+*****''true''
+*****twohand
+*****''true''
+*****axe
+*****''true''
+*****sword
+*****''true''
+*****mace
+*****''true''
+*****polearm
+*****''true''
+*****dagger
+*****''true''
+*****fist
+*****''true''
+*****staff
+*****''true''
+*****wand
+*****''true''
+*****thrown
+*****''true''
+*****bow
+*****''true''
+*****crossbow
+*****''true''
+*****ammo
+*****''true''
+***binding
+****itemboe
+*****''true''
+****itembop
+*****''true''
+****recipebop
+*****''true''
+****recipeboe
+*****''true''
+***player
+****melee
+*****''true''
+****tank
+*****''true''
+****healer
+*****''true''
+****caster
+*****''true''
+***rep
+****scryer
+*****''true''
+*****argentdawn
+*****''true''
+*****ashtonguedeathsworn
+*****''true''
+*****cenarioncircle
+*****''true''
+*****cenarionexpedition
+*****''true''
+*****consortium
+*****''true''
+*****hellfire
+*****''true''
+*****keepersoftime
+*****''true''
+*****nagrand
+*****''true''
+*****lowercity
+*****''true''
+*****scaleofthesands
+*****''true''
+*****shatar
+*****''true''
+*****shatteredsun
+*****''true''
+*****sporeggar
+*****''true''
+*****thoriumbrotherhood
+*****''true''
+*****timbermaw
+*****''true''
+*****violeteye
+*****''true''
+*****zandalar
+*****''true''
+*****argentcrusade
+*****''true''
+*****frenzyheart
+*****''true''
+*****ebonblade
+*****''true''
+*****kirintor
+*****''true''
+*****sonsofhodir
+*****''true''
+*****kaluak
+*****''true''
+*****oracles
+*****''true''
+*****wyrmrest
+*****''true''
+*****silvercovenant
+*****''true''
+*****sunreavers
+*****''true''
+*****explorersleague
+*****''true''
+*****valiance
+*****''true''
+*****handofvengeance
+*****''true''
+*****taunka
+*****''true''
+*****warsongoffensive
+*****''true''
+*****wrathcommon1
+*****''true''
 
 ==Filter Method==
 
 Filters can be divided into two general categories:
-:Exclusive		: if ANY of these are flagged to "FALSE", the recipe will not display
-:Non-exclusive	: if ANY of these filters are flagged to "TRUE", the recipe will display
+:'''Exclusive''': if ''ANY'' of these are flagged to "FALSE", the recipe will not display
+:'''Non-exclusive''': if ''ANY'' of these filters are flagged to "TRUE", the recipe will display
 
 Thus, one possible flow for the CheckDisplayRecipe function is as follows:
 
-Stage 1 : Exclusive filters
+'''Stage 1''': Exclusive filters
 #set retval to true
 #loop through ALL Exclusive filters. If any "FALSE" condition exists, flag to false and exit loop
 
-Stage 2 : Nonexclusive filters (only do this is Stage 1 produced a TRUE value
+'''Stage 2''': Nonexclusive filters (only do this is Stage 1 produced a TRUE value
 #set retval to false
 #loop through ALL Nonexclusive filters. If any "TRUE" condition exists, flag to true and exit loop
 
-Finally, return retval
+Finally, return retval.
 
 I believe this will get through the flags in the shortest possible route, short circuiting the looping when any condition warrants it
 
@@ -105,7 +293,7 @@ I believe this will get through the flags in the shortest possible route, short 
 **faction
 
 *The following filters will simply squelch the display of that particular acquire method
-**rainer
+**trainer
 **vendor
 **instance
 **raid
@@ -116,16 +304,16 @@ I believe this will get through the flags in the shortest possible route, short 
 **worlddrop
 **mobdrop
 **item	(This includes ALL weapon and armor item types)
-**player types ( melee, tank, caster, healer )
-**reputation (All recputation flags )
+**player types (melee, tank, caster, healer)
+**reputation (All recputation flags)
 
-Note that if NO acquire methods remain unfiltered, the recipe will not be displayed
+Note that if NO acquire methods remain unfiltered, the recipe will not be displayed.
 
-==Filter Flags==
+===Filter Flags===
 
 A recipe can be flagged with many (or even all) of the below flags. They are defined as follows:
 
-===Obtain===
+====Obtain====
 *1 = Alliance faction
 *2 = Horde faction
 *3 = Trainer
@@ -139,7 +327,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *11 = Mob drop
 *12 = Discovery
 *13-20 = Reserved for future use
-===Class===
+====Class====
 *21 = Deathknight
 *22 = Druid
 *23 = Hunter
@@ -151,7 +339,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *29 = Warlock
 *30 = Warrior
 *31-35 = Reserved for future use
-===Crafted Properties===
+====Crafted Properties====
 *36 = Item BoE
 *37 = Item BoP
 *38 = Item BoA
@@ -159,13 +347,13 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *41 = Recipe BoP
 *42 = Recipe BoA
 *43-50 = Reserved for future use
-===Item Type===
+====Item Type====
 *51 = Physical DPS (melee/hunters)
 *52 = Tanking
 *53 = Healing
 *54 = Caster DPS
 *55 = Reserved for future use
-====Armor Type====
+=====Armor Type=====
 *56 = Cloth
 *57 = Leather
 *58 = Mail
@@ -176,7 +364,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *63 = Necklace
 *64 = Shield
 *65 = Reserved for future use
-====Weapon Type====
+=====Weapon Type=====
 *66 = 1H/Offhand
 *67 = 2H
 *68 = Axe
@@ -192,14 +380,14 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *78 = Ammo
 *79 = Fist
 *80-95 = Reserved for future use
-===Reputation===
-====Original====
+====Reputation====
+=====Original=====
 *96 = Argent Dawn
 *97 = Cenarion Circle
 *98 = Thorium Brotherhood
 *99 = Timbermaw Hold
 *100 = Zandalar Tribe
-====Burning Crusade====
+=====Burning Crusade=====
 *101 = The Aldor
 *102 = Ashtongue Deathsworn
 *103 = Cenarion Expedition
@@ -214,7 +402,7 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *112 = Shattered Sun
 *113 = Sporeggar
 *114 = Violeteye
-====Wrath of the Lich King====
+=====Wrath of the Lich King=====
 *115 = Argent Crusade
 *116 = Frenzyheart Tribe
 *117 = Knights of the Ebon Blade
