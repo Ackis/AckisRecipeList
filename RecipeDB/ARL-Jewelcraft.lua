@@ -2459,8 +2459,8 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Destructive Skyflare Diamond -- 55390
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55390,420,41307,3,25229)
-	self:addTradeFlags(RecipeDB,55390,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,55390,1,26915,1,26960,1,26982,1,26997,1,28701)
+	self:addTradeFlags(RecipeDB,55390,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55390,7,3)
 
 	-- Ember Skyflare Diamond -- 55392
 	recipecount = recipecount + 1
