@@ -1,25 +1,42 @@
-Documentation.txt
-
-Database and code documentation for Ackis Recipe List.
+'''Database and code documentation for Ackis Recipe List.'''
 
 ==Localization==
 
-All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
+Please see this [http://www.wowace.com/projects/arl/pages/localization/ page] for information on localization within the addon.
 
-==Graphical Interface==
+==File Breakdown==
+:'''AckisRecipeList.lua'''
+::Main code for getting the database, adding entries to it, filtering, etc.
+:'''ARLColour.lua'''
+::Code for making output colourized.
+:'''ARLConfig.lua'''
+::All the configuration options for ARL
+:'''ARLFrame.lua'''
+::All the GUI code
+:''Locals''
+::All the localization files
+:''RecipeDB''
+::All the recipe database files
+:'''ARLDataminer.rb'''
+::Dataminer which was used to initially populate the ARL database.
 
-All the graphical interface functions are located in ARLFrame.lua. This file contains all the functions needed for the GUI.  If you have enhancements, know how to fix an issue, etc please feel free to contribute.  Just leave a detailed commit note.  If it's a new feature please run it by me first before adding anything.
+===Graphical Interface===
+All the graphical interface functions are located in '''ARLFrame.lua'''. This file contains all the functions needed for the GUI.  If you have enhancements, know how to fix an issue, etc please feel free to contribute.  Just leave a detailed commit note.  If it's a new feature please run it by me first before adding anything.
 
+===Database Functions===
 In the RecipeDB is a single file for each profession. Each recipe is inserted into the database via 3 functions. For example:
 
- self:addTradeSkill(RecipeDB, 25610, 120, 20950, 1)
- self:addTradeFlags(RecipeDB, 25610, 1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,41,47,56,62)
- self:addTradeAcquire(RecipeDB, 25610, 2, 4877, 2, 1448)
+ -- Elixir of Lion's Strength -- 2329
+ recipecount = recipecount + 1
+ self:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
+ self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
+ self:addTradeAcquire(RecipeDB,2329,8,8)
 
-==addTradeSkill==
+The first line is a human readabile comment, which states the recipe name, with the [http://www.wowwiki.com/SpellLink spell ID] of the recipe.
 
-This function adds the main recipe entry, including the following information:
-* Spell ID
+====addTradeSkill====
+This function adds the main recipe entry. it includes the following information:
+* [http://www.wowwiki.com/SpellLink Spell ID]
 * Skill Level Learnt
 * Item ID created
 * Recipe Rarity
@@ -28,12 +45,10 @@ From there, internal functions determine the following:
 * Name of the recipe
 * Link determining the recipe made
 
-==addTradeFlags==
-
+====addTradeFlags====
 This function adds a series of "flags" about the recipe. This include a fairly exhaustive look at the recipe and the item made, where is can be obtained, etc.  The individual flags are documented further down.
 
-==addTradeAcquire==
-
+====addTradeAcquire====
 This function adds entries into the main database with exact instructions on how the recipe can be obtained. The details of these acquire methods are detailed further down.
 
 ==SavedVariable Structure==

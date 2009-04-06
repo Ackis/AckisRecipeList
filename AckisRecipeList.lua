@@ -558,6 +558,17 @@ end
 -- Input: Recipe array reference, SpellID of recipe, Skill level of recipe, Item ID of item created, Rarity of recipe, and Specialty of the recipe
 -- Output: None, array is passed as a reference
 
+--- Adds a tradeskill recipe into the specified recipe database.
+-- @name AckisRecipeList:addTradeSkill
+-- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
+-- @param textdump RecipeDB The database (array) which you wish to add data too.
+-- @param SpellID
+-- @param SkillLevel
+-- @param ItemID
+-- @param Rarity
+-- @param Profession
+-- @param Speciality
+-- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty)
 
 	--[[ 
@@ -1704,6 +1715,11 @@ do
 	-- Input: None
 	-- Output: None
 
+	--- Causes a scan of the tradeskill to be conducted.
+	-- @name AckisRecipeList:AckisRecipeList_Command
+	-- @usage AckisRecipeList:AckisRecipeList_Command(true)
+	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
+	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:AckisRecipeList_Command(textdump)
 
 		-- If we don't have a trade skill window open, lets return out of here
@@ -1712,7 +1728,6 @@ do
 			return
 		-- Trade type skills
 		else
-
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 			if (playerData == nil) then
 				playerData = InitPlayerData()
@@ -1760,10 +1775,10 @@ do
 	-- Input: Profession of the database needed
 	-- Output: An indicator if the process was successful
 
-	--- API for external addons to initialize the recipe database with a specific profession
+	--- Initialize the recipe database with a specific profession.
 	-- @name AckisRecipeList:AddRecipeData
-	-- @usage Used for an external program to load up data regarding a specific profession into the ARL database.
-	-- @param profession Name of the profession you wish to load data for
+	-- @usage AckisRecipeList:AddRecipeData(2259)
+	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
 
@@ -1781,9 +1796,9 @@ do
 	-- Input: None
 	-- Output: An indicator if the recipe database was initialized successfully, along with all the reference tables.
 
-	--- API for external addons to initialize the recipe database
+	--- Initialize the recipe database
 	-- @name AckisRecipeList:InitRecipeData
-	-- @usage Causes ARL to load up all internal databases and provides them to the external application.
+	-- @usage AckisRecipeList:InitRecipeData()
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
