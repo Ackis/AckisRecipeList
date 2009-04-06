@@ -26,7 +26,8 @@ Documentation:
 --]]
 
 --- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
--- There are a set of functions which allow you make use of the ARL database outside of ARL.
+-- There are a set of functions which allow you make use of the ARL database outside of ARL.\\
+-- ARL supports all professions currently in World of Warcraft 3.1.
 -- @class file
 -- @name AckisRecipeList.lua
 -- @release @file-revision@
@@ -570,10 +571,10 @@ end
 -- @param RecipeDB RecipeDB The database (array) which you wish to add data too.
 -- @param SpellID The spell ID of the recipe being added to the database.
 -- @param SkillLevel The skill level at which the recipe may be learned.
--- @param ItemID The item ID 
--- @param Rarity
--- @param Profession
--- @param Speciality
+-- @param ItemID The item ID that is created by the recipe, or nil
+-- @param Rarity The rarity of the recipe.
+-- @param Profession The profession ID that uses the recipe.  See [[database-documentation/#w_profession-ids]] for a listing.
+-- @param Speciality The speciality that uses the recipe (ie: goblin engineering) or nil or blank
 -- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty)
 
