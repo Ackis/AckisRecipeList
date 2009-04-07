@@ -2912,37 +2912,37 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63188,450,45089,4,2018)
 	self:addTradeFlags(RecipeDB,63188,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63188,8,39)
 
 	-- Belt of the Titans -- 63187
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63187,450,45088,4,2018)
 	self:addTradeFlags(RecipeDB,63187,1,2,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63187,8,39)
 
 	-- Indestructible Plate Girdle -- 63191
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63191,450,45092,4,2018)
 	self:addTradeFlags(RecipeDB,63191,1,2,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63191,8,39)
 
 	-- Plate Girdle of the Righteous -- 63189
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63189,450,45090,4,2018)
 	self:addTradeFlags(RecipeDB,63189,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63189,8,39)
 
 	-- Spiked Deathdealers -- 63192
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63192,450,45093,4,2018)
 	self:addTradeFlags(RecipeDB,63192,1,2,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63192,8,39)
 
 	-- Treads of Destiny -- 63190
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63190,450,45091,4,2018)
 	self:addTradeFlags(RecipeDB,63190,1,2,21,22,23,24,25,26,27,28,29,30,36,40,53,54,59)
-	--self:addTradeAcquire(RecipeDB,)
+	self:addTradeAcquire(RecipeDB,63190,8,39)
 
 	end
 

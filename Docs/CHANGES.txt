@@ -1,11 +1,12 @@
 ==ARL Changes==
 
 ===RC6===
-*Started adding 3.1 recipes, if information is inaccurate/missing/etc please feel free to submit corrections via a ticket.
+*Started adding 3.1 recipes, if information is inaccurate/missing/etc please feel free to submit corrections via a ticket. (It will work on the PTR right now, feel free to test it out)
 *Database updates for many recipes
 *Fixed minor issues with the progress bar and excluded recipes
 *Added some basic tracking for alt professions, no gui/interface for this, but it's being tracked right now for future upgrades to ARL.
 *Expanded the classes filter to allow you to select classes individually.
+*Localization updates
 
 ===RC5===
 *Added donation info, please take a look, it's not just about money. :)
