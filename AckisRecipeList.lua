@@ -41,7 +41,7 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
 	AckisRecipeList = nil
 	return
@@ -53,7 +53,7 @@ local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
 	AckisRecipeList = nil
 	return
@@ -62,7 +62,7 @@ end
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
 	AckisRecipeList = nil
 	return
@@ -71,7 +71,16 @@ end
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	--@end-debug@
+	AckisRecipeList = nil
+	return
+end
+
+if (not LibStub:GetLibrary("LibBabble-Class-3.0", true)) then
+	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Class-3.0"))
+	--@debug@
+	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
 	AckisRecipeList = nil
 	return
@@ -276,6 +285,19 @@ function addon:OnInitialize()
 					taunka = true,
 					warsongoffensive = true,
 					wrathcommon1 = true,
+				},
+				-- Classes
+				classes = {
+					deathknight = true,
+					druid = true,
+					hunter = true,
+					mage = true,
+					paladin = true,
+					priest = true,
+					rogue = true,
+					shaman = true,
+					warlock = true,
+					warrior = true,
 				}
 			}
 		}
@@ -1002,9 +1024,9 @@ do
 		end
 
 		-- Display all classes?
-		if (generaldb.class == false) and (flags[classmap[playerClass]] == false) then
-			return false
-		end
+		--if (generaldb.class == false) and (flags[classmap[playerClass]] == false) then
+		--	return false
+		--end]]
 
 		-- Display all specialities?
 		if (generaldb.specialty == false) then
@@ -1165,6 +1187,172 @@ do
 
 		if (not CheckReputationDisplay(flags)) then
 			return false
+		end
+
+		if (generaldb.class == false or generaldb.class == true) then
+
+		local classesdb = filterdb.classes
+
+			if (classesdb.deathknight == false) and (flags[21] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.druid == false) and (flags[22] == true) then
+				if (classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.hunter == false) and (flags[23] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.mage == false) and (flags[24] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.paladin == false) and (flags[25] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.priest == false) and (flags[26] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.shaman == false) and (flags[27] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.rogue == false) and (flags[28] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.warlock == false) and (flags[29] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) or
+				(classesdb.warrior == true) and (flags[30] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
+			if (classesdb.warrior == false) and (flags[30] == true) then
+				if (classesdb.druid == true) and (flags[22] == true) or
+				(classesdb.hunter == true) and (flags[23] == true) or
+				(classesdb.mage == true) and (flags[24] == true) or
+				(classesdb.paladin == true) and (flags[25] == true) or
+				(classesdb.priest == true) and (flags[26] == true) or
+				(classesdb.shaman == true) and (flags[27] == true) or
+				(classesdb.rogue == true) and (flags[28] == true) or
+				(classesdb.warlock == true) and (flags[29] == true) or
+				(classesdb.deathknight == true) and (flags[21] == true) then
+					return true
+				else
+					return false
+				end
+			end
+
 		end
 
 		-- Stage 2

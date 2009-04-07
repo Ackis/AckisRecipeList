@@ -53,6 +53,8 @@ externals:
   url: svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk
  libs/LibBabble-Zone-3.0:
   url: svn://svn.wowace.com/wow/libbabble-zone-3-0/mainline/trunk
+ libs/LibBabble-Class-3.0:
+  url: svn://svn.wowace.com/wow/libbabble-class-3-0/mainline/trunk
  libs/LibAboutPanel:
   url: git://git.curseforge.net/wow/libaboutpanel/mainline.git
  libs/LibBetterBlizzOptions:

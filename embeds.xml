@@ -19,6 +19,7 @@
 <Include file="libs\LibBabble-Zone-3.0\lib.xml"/>
 <Include file="libs\LibBabble-Faction-3.0\lib.xml"/>
 <Include file="libs\LibBabble-Boss-3.0\lib.xml"/>
+<Include file="libs\LibBabble-Class-3.0\lib.xml"/>
 <Include file="libs\LibAboutPanel\lib.xml"/>
 <Include file="libs\LibSharedMedia-3.0\lib.xml"/>
 <Include file="libs\LibBetterBlizzOptions\LibBetterBlizzOptions-1.0\lib.xml"/>
