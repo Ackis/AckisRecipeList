@@ -881,8 +881,8 @@ function addon:InitCooking(RecipeDB)
 	-- Northern Stew -- 57421
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57421,350,34747,1, 2550)
-	self:addTradeFlags(RecipeDB,57421,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57421,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
+	self:addTradeFlags(RecipeDB,57421,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54)
+	self:addTradeAcquire(RecipeDB,57421,4,13087,4,13088,4,13089,4,13090)
 
 	-- Spicy Fried Herring -- 57433
 	recipecount = recipecount + 1

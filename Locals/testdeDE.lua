@@ -1597,3 +1597,4 @@ L["Zorbin Fandazzle"] = "Zorbin von Schiller"
 L["Zula Slagfury"] = "Zula Schmelzzorn"
 L["Zulian Tiger"] = "Zulianischer Tiger"
 L["Zurai"] = "Zurai"
+L["Northern Stew"] = true
