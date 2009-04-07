@@ -3886,6 +3886,12 @@ function addon:CreateFrame(
 		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
 		arlTooltip2 = CreateFrame("GameTooltip", "arlTooltip2", addon.Frame, "GameTooltipTemplate")
 
+		-- Add TipTac Support
+		if (TipTac) and (TipTac.AddModifiedTip) then
+			TipTac:AddModifiedTip(arlTooltip)
+			TipTac:AddModifiedTip(arlTooltip2)
+		end
+
 		-- The main recipe list buttons and scrollframe
 		addon.PlusListButton = {}
 		addon.RecipeListButton = {}
