@@ -445,6 +445,7 @@ L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Upd
 L["Custom37"] = "Random SSC / TK trash drop"
 L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
 L["Custom39"] = "Random drop off of Ulduar bosses."
+L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
 
 -- Monster/Quest/Trainer/Vendor strings:
 
