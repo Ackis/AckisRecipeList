@@ -87,6 +87,7 @@ local arlTooltip = _G["arlTooltip"]
 local arlTooltip2 = _G["arlTooltip2"]
 
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
