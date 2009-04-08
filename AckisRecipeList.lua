@@ -186,8 +186,7 @@ function addon:OnInitialize()
 			filters = {
 				-- General Filters
 				general = {
-				    faction = true,
-					class = true,
+					faction = true,
 					specialty = false,
 					skill = true,
 					known = false,
@@ -1023,11 +1022,6 @@ do
 			return false
 		end
 
-		-- Display all classes?
-		--if (generaldb.class == false) and (flags[classmap[playerClass]] == false) then
-		--	return false
-		--end]]
-
 		-- Display all specialities?
 		if (generaldb.specialty == false) then
 			if (Recipe["Specialty"]) and (Recipe["Specialty"] ~= playerSpecialty) then
@@ -1188,8 +1182,6 @@ do
 		if (not CheckReputationDisplay(flags)) then
 			return false
 		end
-
-		if (generaldb.class == false or generaldb.class == true) then
 
 		local classesdb = filterdb.classes
 
@@ -1352,8 +1344,6 @@ do
 					return false
 				end
 			end
-
-		end
 
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true

@@ -1447,7 +1447,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 96
+	local MaxFilters = 95
 
 	local total = 0
 	local active = 0
@@ -2898,12 +2898,22 @@ function addon.setFlyawayState()
 	local armordb = filterdb.item.armor
 	local weapondb = filterdb.item.weapon
 	-- General Options
-	ARL_ClassCB:SetChecked(filterdb.general.class)
 	ARL_SpecialtyCB:SetChecked(filterdb.general.specialty)
 	ARL_LevelCB:SetChecked(filterdb.general.skill)
 	ARL_FactionCB:SetChecked(filterdb.general.faction)
 	ARL_KnownCB:SetChecked(filterdb.general.known)
 	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
+	-- Classes
+	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
+	ARL_DruidCB:SetChecked(filterdb.classes.druid)
+	ARL_HunterCB:SetChecked(filterdb.classes.hunter)
+	ARL_MageCB:SetChecked(filterdb.classes.mage)
+	ARL_PaladinCB:SetChecked(filterdb.classes.paladin)
+	ARL_PriestCB:SetChecked(filterdb.classes.priest)
+	ARL_RogueCB:SetChecked(filterdb.classes.rogue)
+	ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
+	ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
+	ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
 	-- Obtain Options
 	ARL_InstanceCB:SetChecked(filterdb.obtain.instance)
 	ARL_RaidCB:SetChecked(filterdb.obtain.raid)
@@ -3030,17 +3040,6 @@ function addon.setFlyawayState()
 	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.wrathcommon1)
 	-- Miscellaneous Options
 	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-	-- Classes
-	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
-	ARL_DruidCB:SetChecked(filterdb.classes.druid)
-	ARL_HunterCB:SetChecked(filterdb.classes.hunter)
-	ARL_MageCB:SetChecked(filterdb.classes.mage)
-	ARL_PaladinCB:SetChecked(filterdb.classes.paladin)
-	ARL_PriestCB:SetChecked(filterdb.classes.priest)
-	ARL_RogueCB:SetChecked(filterdb.classes.rogue)
-	ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
-	ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
-	ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
 end
 
 -- Description: 
@@ -4009,32 +4008,73 @@ function addon:CreateFrame(
 			addon.Fly_General:SetMovable(false)
 			addon.Fly_General:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_General:Hide()
---			() Class Specific recipes
 --			() Craft Specialty recipes
 --			() All skill levels
 --			() Cross-Faction
---			() Known	  () Unknown		
-			local ARL_ClassCB = CreateFrame("CheckButton", "ARL_ClassCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ClassCB, addon.Fly_General, L["CLASS_DESC"], 1, 1, 1, 0)
-				ARL_ClassCBText:SetText(L["Classes"])
-				-- Disabled for now...
-				ARL_ClassCBText:SetText(addon:Grey(L["Classes"]))
-				ARL_ClassCB:Disable()
+--			() Known
+--			() Unknown
+--			Classes:
+--			() Deathknight
+--			() Druid
+--			() Hunter
+--			() Mage
+--			() Paladin
+--			() Priest
+--			() Rogue
+--			() Shaman
+--			() Warlock
+--			() Warrior
 			local ARL_SpecialtyCB = CreateFrame("CheckButton", "ARL_SpecialtyCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], 2, 2, 1, 0)
+				addon:GenericMakeCB(ARL_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], 2, 1, 1, 0)
 				ARL_SpecialtyCBText:SetText(L["Specialties"])
 			local ARL_LevelCB = CreateFrame("CheckButton", "ARL_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_LevelCB, addon.Fly_General, L["SKILL_DESC"], 3, 3, 1, 0)
+				addon:GenericMakeCB(ARL_LevelCB, addon.Fly_General, L["SKILL_DESC"], 3, 2, 1, 0)
 				ARL_LevelCBText:SetText(L["Skill"])
 			local ARL_FactionCB = CreateFrame("CheckButton", "ARL_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_FactionCB, addon.Fly_General, L["FACTION_DESC"], 4, 4, 1, 0)
+				addon:GenericMakeCB(ARL_FactionCB, addon.Fly_General, L["FACTION_DESC"], 4, 3, 1, 0)
 				ARL_FactionCBText:SetText(L["Faction"])
 			local ARL_KnownCB = CreateFrame("CheckButton", "ARL_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_KnownCB, addon.Fly_General, L["KNOWN_DESC"], 5, 5, 1, 0)
+				addon:GenericMakeCB(ARL_KnownCB, addon.Fly_General, L["KNOWN_DESC"], 5, 4, 1, 0)
 				ARL_KnownCBText:SetText(L["Known"])
 			local ARL_UnknownCB = CreateFrame("CheckButton", "ARL_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 6, 1, 0)
+				addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
 				ARL_UnknownCBText:SetText(L["Unknown"])
+			local ARL_ClassText = addon.Fly_General:CreateFontString("ARL_ClassText", "OVERLAY", "GameFontHighlight")
+				ARL_ClassText:SetText("Classes" .. ":")
+				ARL_ClassText:SetPoint("TOPLEFT", addon.Fly_General, "TOPLEFT", 5, -92)
+				ARL_ClassText:SetHeight(14)
+				ARL_ClassText:SetWidth(150)
+				ARL_ClassText:SetJustifyH("LEFT")
+			local ARL_DeathKnightCB = CreateFrame("CheckButton", "ARL_DeathKnightCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_DeathKnightCB, addon.Fly_General, L["CLASS_DESC"], 87, 7, 1, 0)
+				ARL_DeathKnightCBText:SetText(BC["Deathknight"])
+			local ARL_DruidCB = CreateFrame("CheckButton", "ARL_DruidCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_DruidCB, addon.Fly_General, L["CLASS_DESC"], 88, 8, 1, 0)
+				ARL_DruidCBText:SetText(BC["Druid"])
+			local ARL_HunterCB = CreateFrame("CheckButton", "ARL_HunterCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_HunterCB, addon.Fly_General, L["CLASS_DESC"], 89, 9, 1, 0)
+				ARL_HunterCBText:SetText(BC["Hunter"])
+			local ARL_MageCB = CreateFrame("CheckButton", "ARL_MageCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_MageCB, addon.Fly_General, L["CLASS_DESC"], 90, 10, 1, 0)
+				ARL_MageCBText:SetText(BC["Mage"])
+			local ARL_PaladinCB = CreateFrame("CheckButton", "ARL_PaladinCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_PaladinCB, addon.Fly_General, L["CLASS_DESC"], 91, 11, 1, 0)
+				ARL_PaladinCBText:SetText(BC["Paladin"])
+			local ARL_PriestCB = CreateFrame("CheckButton", "ARL_PriestCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_PriestCB, addon.Fly_General, L["CLASS_DESC"], 92, 12, 1, 0)
+				ARL_PriestCBText:SetText(BC["Priest"])
+			local ARL_RogueCB = CreateFrame("CheckButton", "ARL_RogueCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_RogueCB, addon.Fly_General, L["CLASS_DESC"], 93, 13, 1, 0)
+				ARL_RogueCBText:SetText(BC["Rogue"])
+			local ARL_ShamanCB = CreateFrame("CheckButton", "ARL_ShamanCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_ShamanCB, addon.Fly_General, L["CLASS_DESC"], 94, 14, 1, 0)
+				ARL_ShamanCBText:SetText(BC["Shaman"])
+			local ARL_WarlockCB = CreateFrame("CheckButton", "ARL_WarlockCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WarlockCB, addon.Fly_General, L["CLASS_DESC"], 95, 15, 1, 0)
+				ARL_WarlockCBText:SetText(BC["Warlock"])
+			local ARL_WarriorCB = CreateFrame("CheckButton", "ARL_WarriorCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WarriorCB, addon.Fly_General, L["CLASS_DESC"], 1, 16, 1, 0)
+				ARL_WarriorCBText:SetText(BC["Warrior"])
 
 		addon.Fly_Obtain = CreateFrame("Frame", "addon.Fly_Obtain", addon.Flyaway)
 			addon.Fly_Obtain:SetWidth(112)
@@ -4540,48 +4580,27 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
 				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
 
-			local ARL_DeathKnightCB = CreateFrame("CheckButton", "ARL_DeathKnightCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_DeathKnightCB, addon.Fly_Misc, "NYI", 87, 4, 1, 0)
-				ARL_DeathKnightCBText:SetText(BC["Deathknight"])
-			local ARL_DruidCB = CreateFrame("CheckButton", "ARL_DruidCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_DruidCB, addon.Fly_Misc, "NYI", 88, 5, 1, 0)
-				ARL_DruidCBText:SetText(BC["Druid"])
-			local ARL_HunterCB = CreateFrame("CheckButton", "ARL_HunterCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_HunterCB, addon.Fly_Misc, "NYI", 89, 6, 1, 0)
-				ARL_HunterCBText:SetText(BC["Hunter"])
-			local ARL_MageCB = CreateFrame("CheckButton", "ARL_MageCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_MageCB, addon.Fly_Misc, "NYI", 90, 7, 1, 0)
-				ARL_MageCBText:SetText(BC["Mage"])
-			local ARL_PaladinCB = CreateFrame("CheckButton", "ARL_PaladinCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_PaladinCB, addon.Fly_Misc, "NYI", 91, 8, 1, 0)
-				ARL_PaladinCBText:SetText(BC["Paladin"])
-			local ARL_PriestCB = CreateFrame("CheckButton", "ARL_PriestCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_PriestCB, addon.Fly_Misc, "NYI", 92, 4, 2, 0)
-				ARL_PriestCBText:SetText(BC["Priest"])
-			local ARL_RogueCB = CreateFrame("CheckButton", "ARL_RogueCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RogueCB, addon.Fly_Misc, "NYI", 93, 5, 2, 0)
-				ARL_RogueCBText:SetText(BC["Rogue"])
-			local ARL_ShamanCB = CreateFrame("CheckButton", "ARL_ShamanCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ShamanCB, addon.Fly_Misc, "NYI", 94, 6, 2, 0)
-				ARL_ShamanCBText:SetText(BC["Shaman"])
-			local ARL_WarlockCB = CreateFrame("CheckButton", "ARL_WarlockCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WarlockCB, addon.Fly_Misc, "NYI", 95, 7, 2, 0)
-				ARL_WarlockCBText:SetText(BC["Warlock"])
-			local ARL_WarriorCB = CreateFrame("CheckButton", "ARL_WarriorCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WarriorCB, addon.Fly_Misc, "NYI", 96, 8, 2, 0)
-				ARL_WarriorCBText:SetText(BC["Warrior"])
-
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
 
 		FilterValueMap = {
 		-- General Options
-			[1]  = { cb = ARL_ClassCB,					svroot = filterdb.general,		svval = "class" },
 			[2]  = { cb = ARL_SpecialtyCB,				svroot = filterdb.general,		svval = "specialty" },
 			[3]  = { cb = ARL_LevelCB,					svroot = filterdb.general,		svval = "skill" },
 			[4]  = { cb = ARL_FactionCB,				svroot = filterdb.general,		svval = "faction" },
 			[5]  = { cb = ARL_KnownCB,					svroot = filterdb.general,		svval = "known" },
 			[6]  = { cb = ARL_UnknownCB,				svroot = filterdb.general,		svval = "unknown" },
+		-- Classes
+			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
+			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
+			[89] = { cb = ARL_HunterCB,					svroot = filterdb.classes,		svval = "hunter" },
+			[90] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
+			[91] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
+			[92] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
+			[93] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
+			[94] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
+			[95] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
+			[1]  = { cb = ARL_WarriorCB,					svroot = filterdb.classes,		svval = "warrior" },
 		-- Obtain Options
 			[7]  = { cb = ARL_InstanceCB,				svroot = filterdb.obtain,		svval = "instance" },
 			[8]  = { cb = ARL_RaidCB,					svroot = filterdb.obtain,		svval = "raid" },
@@ -4670,17 +4689,6 @@ function addon:CreateFrame(
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
 			[86] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "wrathcommon1" },
-		-- Classes
-			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
-			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
-			[89] = { cb = ARL_HunterCB,					svroot = filterdb.classes,		svval = "hunter" },
-			[90] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
-			[91] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
-			[92] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
-			[93] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
-			[94] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
-			[95] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
-			[96] = { cb = ARL_WarriorCB,				svroot = filterdb.classes,		svval = "warrior" },
 		}
 
 	end
