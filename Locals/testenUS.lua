@@ -1708,4 +1708,4 @@ L["Bombus Finespindle"] = true
 L["Rartar"] = true
 L["Bryan Landers"] = true
 L["Prospector Khazgorm"] = true
-L["Northern Stew"] = true
+L["Northern Cooking"] = true

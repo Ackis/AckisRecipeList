@@ -131,9 +131,9 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,9636,L["The Zapthrottle Mote Extractor!"],BZONE["Zangarmarsh"],68.54,48.94,1)
 	self:addLookupList(QuestDB,10860,L["Mok'Nathal Treats"],BZONE["Blade's Edge Mountains"],76.33,61.69,2)
 	self:addLookupList(QuestDB,12645,L["Fletcher's Lost and Found"],BZONE["Dalaran"],0,0,0)
-	self:addLookupList(QuestDB,13087,L["Northern Stew"],BZONE["Howling Fjord"],58.2,62.1,1)
-	self:addLookupList(QuestDB,13088,L["Northern Stew"],BZONE["Borean Tundra"],57.9,71.5,1)
-	self:addLookupList(QuestDB,13089,L["Northern Stew"],BZONE["Howling Fjord"],78.7,29.5,2)
-	self:addLookupList(QuestDB,13090,L["Northern Stew"],BZONE["Borean Tundra"],42.0,54.2,2)
+	self:addLookupList(QuestDB,13087,L["Northern Cooking"],BZONE["Howling Fjord"],58.2,62.1,1)
+	self:addLookupList(QuestDB,13088,L["Northern Cooking"],BZONE["Borean Tundra"],57.9,71.5,1)
+	self:addLookupList(QuestDB,13089,L["Northern Cooking"],BZONE["Howling Fjord"],78.7,29.5,2)
+	self:addLookupList(QuestDB,13090,L["Northern Cooking"],BZONE["Borean Tundra"],42.0,54.2,2)
 
 end

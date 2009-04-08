@@ -1578,6 +1578,6 @@ L["Zorbin Fandazzle"] = "Zorbin Ventipnotizador"
 L["Zula Slagfury"] = "Zula Furiascoria"
 L["Zulian Tiger"] = "Tigre Zulian"
 L["Zurai"] = "Zurai"
-L["Northern Stew"] = true
+L["Northern Cooking"] = true
 
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
