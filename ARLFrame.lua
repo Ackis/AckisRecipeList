@@ -4040,7 +4040,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
 				ARL_UnknownCBText:SetText(L["Unknown"])
 			local ARL_ClassText = addon.Fly_General:CreateFontString("ARL_ClassText", "OVERLAY", "GameFontHighlight")
-				ARL_ClassText:SetText("Classes" .. ":")
+				ARL_ClassText:SetText(L["Classes"] .. ":")
 				ARL_ClassText:SetPoint("TOPLEFT", addon.Fly_General, "TOPLEFT", 5, -92)
 				ARL_ClassText:SetHeight(14)
 				ARL_ClassText:SetWidth(150)
