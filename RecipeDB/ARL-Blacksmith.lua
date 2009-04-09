@@ -1241,13 +1241,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Heavy Timbermaw Belt -- 23628
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23628,290,19043,1,2018)
-	self:addTradeFlags(RecipeDB,23628,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
+	self:addTradeFlags(RecipeDB,23628,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
 	self:addTradeAcquire(RecipeDB,23628,6,576,2,11557)
 
 	-- Heavy Timbermaw Boots -- 23629
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23629,300,19048,1,2018)
-	self:addTradeFlags(RecipeDB,23629,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
+	self:addTradeFlags(RecipeDB,23629,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
 	self:addTradeAcquire(RecipeDB,23629,6,576,3,11557)
 
 	-- Girdle of the Dawn -- 23632

@@ -503,7 +503,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Earth to Water -- 17561
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,17561,275,7080,2,2259)
-	self:addTradeFlags(RecipeDB,17561,2,4,21,22,23,24,25,26,27,28,29,30,36,41,99)
+	self:addTradeFlags(RecipeDB,17561,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,99)
 	self:addTradeAcquire(RecipeDB,17561,6,576,1,11557)
 
 	-- Transmute: Water to Air -- 17562

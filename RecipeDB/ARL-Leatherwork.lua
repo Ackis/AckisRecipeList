@@ -1229,13 +1229,13 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Might of the Timbermaw -- 23703
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23703,290,19044,1,2108)
-	self:addTradeFlags(RecipeDB,23703,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
+	self:addTradeFlags(RecipeDB,23703,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
 	self:addTradeAcquire(RecipeDB,23703,6,576,2,11557)
 
 	-- Timbermaw Brawlers -- 23704
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23704,300,19049,1,2108)
-	self:addTradeFlags(RecipeDB,23704,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
+	self:addTradeFlags(RecipeDB,23704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
 	self:addTradeAcquire(RecipeDB,23704,6,576,3,11557)
 
 	-- Dawn Treaders -- 23705

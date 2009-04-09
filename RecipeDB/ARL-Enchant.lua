@@ -929,7 +929,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant 2H Weapon - Agility -- 27837
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,27837,290,nil,1,7411)
-	self:addTradeFlags(RecipeDB,27837,2,4,21,22,23,24,25,26,27,28,29,30,36,40,99)
+	self:addTradeFlags(RecipeDB,27837,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,99)
 	self:addTradeAcquire(RecipeDB,27837,6,576,1,11557)
 
 	-- Enchant Bracer - Brawn -- 27899
