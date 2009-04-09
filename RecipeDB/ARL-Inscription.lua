@@ -2284,353 +2284,358 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,64299,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
-
 	--Glyph of Arcane Barrage -- 64276
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64276,430,45738,1,45357)
-	--self:addTradeFlags(RecipeDB,64276,)
+	self:addTradeFlags(RecipeDB,64276,1,2,24,36,41)
 	--self:addTradeAcquire(RecipeDB,64276,)
 
 	--Glyph of Barkskin  -- 64256
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64256,430,45623,1,45357)
-	--self:addTradeFlags(RecipeDB,64256,)
+	self:addTradeFlags(RecipeDB,64256,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64256,)
 
 	--Glyph of Beacon of Light -- 64277
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64277,430,45741,1,45357)
-	--self:addTradeFlags(RecipeDB,64277,)
+	--self:addTradeFlags(RecipeDB,64277,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64277,)
 
 	--Glyph of Berserk  -- 64268
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64268,430,45601,1,45357)
-	--self:addTradeFlags(RecipeDB,64268,)
+	self:addTradeFlags(RecipeDB,64268,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64268,)
 
 	--Glyph of Bladestorm  -- 64295
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64295,430,45790,1,45357)
-	--self:addTradeFlags(RecipeDB,64295,)
+	self:addTradeFlags(RecipeDB,64295,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64295,)
 
 	--Glyph of Chaos Bolt  -- 64294
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64294,430,45781,1,45357)
-	--self:addTradeFlags(RecipeDB,64294,)
+	self:addTradeFlags(RecipeDB,64294,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64294,)
 
 	--Glyph of Chimera Shot -- 64271
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64271,430,45625,1,45357)
-	--self:addTradeFlags(RecipeDB,64271,)
+	self:addTradeFlags(RecipeDB,64271,1,2,23,36,41)
 	--self:addTradeAcquire(RecipeDB,64271,)
 
 	--Glyph of Cloak of Shadows -- 64303
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64303,430,45769,1,45357)
-	--self:addTradeFlags(RecipeDB,64303,)
+	self:addTradeFlags(RecipeDB,64303,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64303,)
 
 	--Glyph of Deep Freeze  - 64274
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64274,430,45736,1,45357)
-	--self:addTradeFlags(RecipeDB,64274,)
+	self:addTradeFlags(RecipeDB,64274,1,2,24,36,41)
 	--self:addTradeAcquire(RecipeDB,64274,)
 
 	--Glyph of Demonic Circle  -- 64317
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64317,430,45782,1,45357)
-	--self:addTradeFlags(RecipeDB,64317,)
+	self:addTradeFlags(RecipeDB,64317,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64317,)
 	
 	--Glyph of Dispersion  -- 64280
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64280,430,45753,1,45357)
-	--self:addTradeFlags(RecipeDB,64280,)
+	self:addTradeFlags(RecipeDB,64280,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64280,)
 
 	--Glyph of Divine Plea -- 64305
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64305,430,45745,1,45357)
-	--self:addTradeFlags(RecipeDB,64305,)
+	self:addTradeFlags(RecipeDB,64305,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64305,)
 
 	--Glyph of Divine Storm  -- 64279
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64279,430,45743,1,45357)
-	--self:addTradeFlags(RecipeDB,64279,)
+	self:addTradeFlags(RecipeDB,64279,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64279,)
 
 	--Glyph of Earth Shield -- 64261
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64261,255,45775,1,45357)
-	--self:addTradeFlags(RecipeDB,64261,)
+	self:addTradeFlags(RecipeDB,64261,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64261,)
 
 	--Glyph of Enraged Regeneration  -- 64312
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64312,430,45794,1,45357)
-	--self:addTradeFlags(RecipeDB,64312,)
+	self:addTradeFlags(RecipeDB,64312,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64312,)
 
 	--Glyph of Envenom -- 64301
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64301,430,45908,1,45357)
-	--self:addTradeFlags(RecipeDB,64301,)
+	self:addTradeFlags(RecipeDB,64301,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64301,)
 
 	--Glyph of Explosive Shot  -- 64273
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64273,430,45731,1,45357)
-	--self:addTradeFlags(RecipeDB,64273,)
+	self:addTradeFlags(RecipeDB,64273,1,2,23,36,41)
 	--self:addTradeAcquire(RecipeDB,64273,)
+
+	--Glyph of Explosive Trap -- 64253
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64253,430,45733,1,45357)
+	self:addTradeFlags(RecipeDB,64253,1,2,23,36,41)
+	--self:addTradeAcquire(RecipeDB,64253,)
 
 	--Glyph of Fan of Knives -- 64315
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64315,430,45766,1,45357)
-	--self:addTradeFlags(RecipeDB,64315,)
+	self:addTradeFlags(RecipeDB,64315,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64315,)
 
 	--Glyph of Feral Spirit  -- 64288
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64288,430,45771,1,45357)
-	--self:addTradeFlags(RecipeDB,64288,)
+	--self:addTradeFlags(RecipeDB,64288,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64288,)
 
 	--Glyph of Guardian Spirit  -- 64281
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64281,430,45755,1,45357)
-	--self:addTradeFlags(RecipeDB,64281,)
+	self:addTradeFlags(RecipeDB,64281,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64281,)
 
 	--Glyph of Hammer of the Righteous  -- 64278
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64278,430,45742,1,45357)
-	--self:addTradeFlags(RecipeDB,64278,)
+	self:addTradeFlags(RecipeDB,64278,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64278,)
 
 	--Glyph of Haunt  -- 64291
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64291,430,45779,1,45357)
-	--self:addTradeFlags(RecipeDB,64291,)
+	self:addTradeFlags(RecipeDB,64291,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64291,)
 
 	--Glyph of Hex -- 64316
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64316,430,45777,1,45357)
-	--self:addTradeFlags(RecipeDB,64316,)
+	self:addTradeFlags(RecipeDB,64316,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64316,)
 
 	--Glyph of Holy Shock  -- 64254
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64254,430,45746,1,45357)
-	--self:addTradeFlags(RecipeDB,64254,)
+	self:addTradeFlags(RecipeDB,64254,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64254,)
 
 	--Glyph of Hunger for Blood  -- 64284
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64284,430,45761,1,45357)
-	--self:addTradeFlags(RecipeDB,64284,)
+	self:addTradeFlags(RecipeDB,64284,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64284,)
 
 	--Glyph of Hymn of Hope -- 64283
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64283,430,45758,1,45357)
-	--self:addTradeFlags(RecipeDB,64283,)
+	self:addTradeFlags(RecipeDB,64283,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64283,)
 
 	--Glyph of Ice Barrier -- 64257
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64257,430,45740,1,45357)
-	--self:addTradeFlags(RecipeDB,64257,)
+	self:addTradeFlags(RecipeDB,64257,1,2,24,36,41)
 	--self:addTradeAcquire(RecipeDB,64257,)
 
 	--Glyph of Kill Shot -- 64304
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64304,430,45732,1,45357)
-	--self:addTradeFlags(RecipeDB,64304,)
+	self:addTradeFlags(RecipeDB,64304,1,2,23,36,41)
 	--self:addTradeAcquire(RecipeDB,64304,)
 
 	--Glyph of Killing Spree -- 64285
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64285,430,45762,1,45357)
-	--self:addTradeFlags(RecipeDB,64285,)
+	self:addTradeFlags(RecipeDB,64285,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64285,)
 
 	--Glyph of Life Tap -- 64248
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64248,430,45785,1,45357)
-	--self:addTradeFlags(RecipeDB,64248,)
+	self:addTradeFlags(RecipeDB,64248,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64248,)
 	
 	--Glyph of Living Bomb -- 64275
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64275,430,45737,1,45357)
-	--self:addTradeFlags(RecipeDB,64275,)
+	self:addTradeFlags(RecipeDB,64275,1,2,24,36,41)
 	--self:addTradeAcquire(RecipeDB,64275,)
 
 	--Glyph of Metamorphosis  -- 64318
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64318,430,45780,1,45357)
-	--self:addTradeFlags(RecipeDB,64318,)
+	self:addTradeFlags(RecipeDB,64318,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64318,)
 
 	--Glyph of Mind Sear -- 64309
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64309,430,45757,1,45357)
-	--self:addTradeFlags(RecipeDB,64309,)
+	self:addTradeFlags(RecipeDB,64309,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64309,)
 
 	--Glyph of Mirror Image -- 64314
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64314,430,45739,1,45357)
-	--self:addTradeFlags(RecipeDB,64314,)
+	self:addTradeFlags(RecipeDB,64314,1,2,24,36,41)
 	--self:addTradeAcquire(RecipeDB,64314,)
 
 	--Glyph of Monsoon -- 64258
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64258,255,45622,1,45357)
-	--self:addTradeFlags(RecipeDB,64258,)
+	self:addTradeFlags(RecipeDB,64258,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64258,)
 
 	--Glyph of Mutilate -- 64260
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64260,255,45768,1,45357)
-	--self:addTradeFlags(RecipeDB,64260,)
+	self:addTradeFlags(RecipeDB,64260,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64260,)
 
 	--Glyph of Nourish -- 64313
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64313,430,45603,1,45357)
-	--self:addTradeFlags(RecipeDB,64313,)
+	self:addTradeFlags(RecipeDB,64313,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64313,)
 
 	--Glyph of Pain Suppression -- 64259
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64259,255,45760,1,45357)
-	--self:addTradeFlags(RecipeDB,64259,)
+	self:addTradeFlags(RecipeDB,64259,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64259,)
 
 	--Glyph of Penance -- 64282
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64282,430,45756,1,45357)
-	--self:addTradeFlags(RecipeDB,64282,)
+	self:addTradeFlags(RecipeDB,64282,1,2,26,36,41)
 	--self:addTradeAcquire(RecipeDB,64282,)
 
 	--Glyph of Raptor Strike -- 64246
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64246,430,45735,1,45357)
-	--self:addTradeFlags(RecipeDB,64246,)
+	self:addTradeFlags(RecipeDB,64246,1,2,23,36,41)
 	--self:addTradeAcquire(RecipeDB,64246,)
 
 	--Glyph of Riptide -- 64289
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64289,430,45772,1,45357)
-	--self:addTradeFlags(RecipeDB,64289,)
+	self:addTradeFlags(RecipeDB,64289,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64289,)
 
 	--Glyph of Salvation -- 64251
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64251,430,45747,1,45357)
-	--self:addTradeFlags(RecipeDB,64251,)
+	self:addTradeFlags(RecipeDB,64251,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64251,)
 
 	--Glyph of Savage Roar -- 64307
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64307,430,45604,1,45357)
-	--self:addTradeFlags(RecipeDB,64307,)
+	self:addTradeFlags(RecipeDB,64307,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64307,)
 
 	--Glyph of Scatter Shot -- 64249
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64249,430,45734,1,45357)
-	--self:addTradeFlags(RecipeDB,64249,)
+	self:addTradeFlags(RecipeDB,64249,1,2,23,36,41)
 	--self:addTradeAcquire(RecipeDB,64249,)
 
 	--Glyph of Shadow Dance -- 64286
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64286,430,45764,1,45357)
-	--self:addTradeFlags(RecipeDB,64286,)
+	self:addTradeFlags(RecipeDB,64286,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64286,)
 
 	--Glyph of Shadowflame -- 64311
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64311,430,45783,1,45357)
-	--self:addTradeFlags(RecipeDB,64311,)
+	self:addTradeFlags(RecipeDB,64311,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64311,)
 
 	--Glyph of Shield of Righteousness -- 64308
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64308,430,45744,1,45357)
-	--self:addTradeFlags(RecipeDB,64308,)
+	self:addTradeFlags(RecipeDB,64308,1,2,25,36,41)
 	--self:addTradeAcquire(RecipeDB,64308,)
 
 	--Glyph of Shield Wall -- 64252
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64252,430,45797,1,45357)
-	--self:addTradeFlags(RecipeDB,64252,)
+	self:addTradeFlags(RecipeDB,64252,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64252,)
 
 	--Glyph of Shockwave -- 64296
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64296,430,45792,1,45357)
-	--self:addTradeFlags(RecipeDB,64296,)
+	self:addTradeFlags(RecipeDB,64296,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64296,)
 
 	--Glyph of Soul Link -- 64250
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64250,430,45789,1,45357)
-	--self:addTradeFlags(RecipeDB,64250,)
+	self:addTradeFlags(RecipeDB,64250,1,2,29,36,41)
 	--self:addTradeAcquire(RecipeDB,64250,)
 
 	--Glyph of Spell Reflection -- 64302
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64302,430,45795,1,45357)
-	--self:addTradeFlags(RecipeDB,64302,)
+	self:addTradeFlags(RecipeDB,64302,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64302,)
 
 	--Glyph of Stoneclaw Totem -- 64247
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64247,430,45778,1,45357)
-	--self:addTradeFlags(RecipeDB,64247,)
+	self:addTradeFlags(RecipeDB,64247,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64247,)
 
 	--Glyph of Survival Instincts  -- 65245
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,65245,430,46372,1,45357)
-	--self:addTradeFlags(RecipeDB,65245,)
+	self:addTradeFlags(RecipeDB,65245,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,65245,)
 
 	--Glyph of Thunder -- 64287
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64287,430,45770,1,45357)
-	--self:addTradeFlags(RecipeDB,64287,)
+	self:addTradeFlags(RecipeDB,64287,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64287,)
 
 	--Glyph of Totem of Wrath -- 64262
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64262,255,45776,1,45357)
-	--self:addTradeFlags(RecipeDB,64262,)
+	self:addTradeFlags(RecipeDB,64262,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64262,)
 
 	--Glyph of Tricks of the Trade -- 64310
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64310,430,45767,1,45357)
-	--self:addTradeFlags(RecipeDB,64310,)
+	self:addTradeFlags(RecipeDB,64310,1,2,28,36,41)
 	--self:addTradeAcquire(RecipeDB,64310,)
 
 	--Glyph of Vigilance -- 64255
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64255,430,45793,1,45357)
-	--self:addTradeFlags(RecipeDB,64255,)
+	self:addTradeFlags(RecipeDB,64255,1,2,30,36,41)
 	--self:addTradeAcquire(RecipeDB,64255,)
 
 	--Glyph of Wild Growth -- 64270
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64270,430,45602,1,45357)
-	--self:addTradeFlags(RecipeDB,64270,)
+	self:addTradeFlags(RecipeDB,64270,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64270,)
 
 	end
