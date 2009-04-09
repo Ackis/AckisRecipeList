@@ -2077,12 +2077,20 @@ do
 
 			sortFuncs = {}
 
-			sortFuncs["SkillAsc"] = function(a, b) 
-				return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+			sortFuncs["SkillAsc"] = function(a, b)
+				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+				end
 			end
 
 			sortFuncs["SkillDesc"] = function(a, b) 
-				return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
+				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
+				end
 			end
 
 			sortFuncs["Name"] = function(a, b)
@@ -2093,8 +2101,12 @@ do
 			sortFuncs["Acquisition"] = function (a, b)
 				local reca = RecipeDB[a]["Acquire"][1]
 				local recb = RecipeDB[b]["Acquire"][1]
-				if (reca) and (recb) then
-					return reca["Type"] < recb["Type"]
+				if (reca and recb) then
+					if (reca["Type"] == recb["Type"]) then
+						return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+					else
+						return reca["Type"] < recb["Type"]
+					end
 				else
 					return not not reca
 				end
@@ -2107,7 +2119,11 @@ do
 				local recb = RecipeDB[b]["Locations"] or ""
 				reca = smatch(reca,"(%w+),") or ""
 				recb = smatch(recb,"(%w+),") or ""
-				return (reca < recb)
+				if (reca == recb) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return (reca < recb)
+				end
 			end
 
 		end
