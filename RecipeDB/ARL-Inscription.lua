@@ -1576,13 +1576,13 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Thorns -- 58289
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58289,70,43332,1,45357)
+	self:addTradeSkill(RecipeDB,58289,75,43332,1,45357)
 	self:addTradeFlags(RecipeDB,58289,1,2,12,22,36,41)
 	self:addTradeAcquire(RecipeDB,58289,8,14)
 
 	-- Glyph of the Wild -- 58296
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58296,70,43335,1,45357)
+	self:addTradeSkill(RecipeDB,58296,75,43335,1,45357)
 	self:addTradeFlags(RecipeDB,58296,1,2,12,22,36,41)
 	self:addTradeAcquire(RecipeDB,58296,8,14)
 
@@ -1594,25 +1594,25 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Scare Beast -- 58298
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58298,70,43356,1,45357)
+	self:addTradeSkill(RecipeDB,58298,75,43356,1,45357)
 	self:addTradeFlags(RecipeDB,58298,1,2,12,23,36,41)
 	self:addTradeAcquire(RecipeDB,58298,8,14)
 
 	-- Glyph of Revive Pet -- 58299
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58299,70,43338,1,45357)
+	self:addTradeSkill(RecipeDB,58299,75,43338,1,45357)
 	self:addTradeFlags(RecipeDB,58299,1,2,12,23,36,41)
 	self:addTradeAcquire(RecipeDB,58299,8,14)
 
 	-- Glyph of Possessed Strength -- 58300
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58300,70,43354,1,45357)
+	self:addTradeSkill(RecipeDB,58300,75,43354,1,45357)
 	self:addTradeFlags(RecipeDB,58300,1,2,12,23,36,41)
 	self:addTradeAcquire(RecipeDB,58300,8,14)
 
 	-- Glyph of Mend Pet -- 58301
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58301,70,43350,1,45357)
+	self:addTradeSkill(RecipeDB,58301,75,43350,1,45357)
 	self:addTradeFlags(RecipeDB,58301,1,2,12,23,36,41)
 	self:addTradeAcquire(RecipeDB,58301,8,14)
 
@@ -1624,7 +1624,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Arcane Intellect -- 58303
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58303,70,43339,1,45357)
+	self:addTradeSkill(RecipeDB,58303,75,43339,1,45357)
 	self:addTradeFlags(RecipeDB,58303,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,58303,8,14)
 
@@ -1636,7 +1636,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Frost Armor -- 58306
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58306,70,43359,1,45357)
+	self:addTradeSkill(RecipeDB,58306,75,43359,1,45357)
 	self:addTradeFlags(RecipeDB,58306,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,58306,8,14)
 
@@ -1648,13 +1648,13 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Slow Fall -- 58308
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58308,70,43364,1,45357)
+	self:addTradeSkill(RecipeDB,58308,75,43364,1,45357)
 	self:addTradeFlags(RecipeDB,58308,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,58308,8,14)
 
 	-- Glyph of the Penguin -- 58310
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58310,70,43361,1,45357)
+	self:addTradeSkill(RecipeDB,58310,75,43361,1,45357)
 	self:addTradeFlags(RecipeDB,58310,1,2,12,24,36,41)
 	self:addTradeAcquire(RecipeDB,58310,8,14)
 
@@ -1666,20 +1666,19 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Blessing of Wisdom -- 58312
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58312,70,43366,1,45357)
+	self:addTradeSkill(RecipeDB,58312,75,43366,1,45357)
 	self:addTradeFlags(RecipeDB,58312,1,2,12,25,36,41)
 	self:addTradeAcquire(RecipeDB,58312,8,14)
 
 	-- Glyph of Lay on Hands -- 58313
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58313,70,43367,1,45357)
+	self:addTradeSkill(RecipeDB,58313,75,43367,1,45357)
 	self:addTradeFlags(RecipeDB,58313,1,2,3,25,36,41)
-	--self:addTradeAcquire(RecipeDB,58313,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 	self:addTradeAcquire(RecipeDB,58313,8,14)
 
 	-- Glyph of Blessing of Might -- 58314
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58314,70,43340,1,45357)
+	self:addTradeSkill(RecipeDB,58314,75,43340,1,45357)
 	self:addTradeFlags(RecipeDB,58314,1,2,12,25,36,41)
 	self:addTradeAcquire(RecipeDB,58314,8,14)
 
@@ -1697,13 +1696,13 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Fading -- 58317
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58317,70,43342,1,45357)
+	self:addTradeSkill(RecipeDB,58317,75,43342,1,45357)
 	self:addTradeFlags(RecipeDB,58317,1,2,12,26,36,41)
 	self:addTradeAcquire(RecipeDB,58317,8,14)
 
 	-- Glyph of Fortitude -- 58318
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58318,70,43371,1,45357)
+	self:addTradeSkill(RecipeDB,58318,75,43371,1,45357)
 	self:addTradeFlags(RecipeDB,58318,1,2,12,26,36,41)
 	self:addTradeAcquire(RecipeDB,58318,8,14)
 
@@ -1733,7 +1732,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Blurred Speed -- 58323
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58323,70,43379,1,45357)
+	self:addTradeSkill(RecipeDB,58323,75,43379,1,45357)
 	self:addTradeFlags(RecipeDB,58323,1,2,12,28,36,41)
 	self:addTradeAcquire(RecipeDB,58323,8,14)
 
@@ -1751,7 +1750,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Pick Pocket -- 58326
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58326,70,43343,1,45357)
+	self:addTradeSkill(RecipeDB,58326,75,43343,1,45357)
 	self:addTradeFlags(RecipeDB,58326,1,2,12,28,36,41)
 	self:addTradeAcquire(RecipeDB,58326,8,14)
 
@@ -1805,7 +1804,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Drain Soul -- 58337
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58337,70,43390,1,45357)
+	self:addTradeSkill(RecipeDB,58337,75,43390,1,45357)
 	self:addTradeFlags(RecipeDB,58337,1,2,12,29,36,41)
 	self:addTradeAcquire(RecipeDB,58337,8,14)
 
@@ -1835,19 +1834,19 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Battle -- 58342
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58342,70,43395,1,45357)
+	self:addTradeSkill(RecipeDB,58342,75,43395,1,45357)
 	self:addTradeFlags(RecipeDB,58342,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,58342,8,14)
 
 	-- Glyph of Bloodrage -- 58343
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58343,70,43396,1,45357)
+	self:addTradeSkill(RecipeDB,58343,75,43396,1,45357)
 	self:addTradeFlags(RecipeDB,58343,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,58343,8,14)
 
 	-- Glyph of Charge -- 58344
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58344,70,43397,1,45357)
+	self:addTradeSkill(RecipeDB,58344,75,43397,1,45357)
 	self:addTradeFlags(RecipeDB,58344,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,58344,8,14)
 
@@ -1859,7 +1858,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Thunder Clap -- 58346
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58346,70,43399,1,45357)
+	self:addTradeSkill(RecipeDB,58346,75,43399,1,45357)
 	self:addTradeFlags(RecipeDB,58346,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,58346,8,14)
 
