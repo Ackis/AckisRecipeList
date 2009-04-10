@@ -889,19 +889,6 @@ end
 
 do
 
-	local classmap = {
-		["DEATHKNIGHT"] = 21,
-		["DRUID"] = 22,
-		["HUNTER"] = 23,
-		["MAGE"] = 24,
-		["PALADIN"] = 25,
-		["PRIEST"] = 26,
-		["SHAMAN"] = 27,
-		["ROGUE"] = 28,
-		["WARLOCK"] = 29,
-		["WARRIOR"] = 30
-	}
-
 	local reptable = nil
 
 	local function CreateRepTable()
