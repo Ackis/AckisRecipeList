@@ -31,6 +31,7 @@ local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
 local howlingtundra = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 -- Description: Function which provides "profiles" options table
 -- Expected result: modularOptions extended with Ace3 profiles options
