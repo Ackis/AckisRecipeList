@@ -1,11 +1,11 @@
 -
  type: wiki
  input-file: Docs/Documentation.txt
- output-page: "Database Documentation"
+ output-page: "API/Database Documentation"
 -
  type: wiki
  input-file: Docs/Datamine.txt
- output-page: "In-game Datamining"
+ output-page: "API/In-game Datamining Overview"
 -
  type: wiki
  input-file: Docs/In-game.txt
@@ -25,7 +25,7 @@
 -
  type: wiki
  input-file: Docs/Localization.txt
- output-page: "Localization"
+ output-page: "API/Localization"
 -
  type: luadoc
  input-file: AckisRecipeList.lua
@@ -33,4 +33,4 @@
 -
  type: luadoc
  input-file: ARLDatamine.lua
- output-page: "API/Datamine"
+ output-page: "API/In-game Datamining"
