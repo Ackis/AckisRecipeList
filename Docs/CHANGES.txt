@@ -1,5 +1,7 @@
 ==ARL Changes==
 
+===RC7===
+
 ===RC6===
 *Added 3.1 recipes.  These recipes may have inaccurate information.  If so, please submit a ticket and I'll get them updated ASAP.
 *Database updates for many recipes.
