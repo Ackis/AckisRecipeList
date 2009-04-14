@@ -1018,6 +1018,27 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,6417,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,6417,4,862,2,3392)
 
+	-- Black Jelly -- 64358
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64358,400,45932,1,2550)
+	self:addTradeFlags(RecipeDB,64358,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,64358,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
+
+	-- Clamlette Magnifique -- 64054
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64054,225,33004,1,2550)
+	self:addTradeFlags(RecipeDB,64054,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,64054,4,6610)
+
+	-- Cornbread Stuffing -- 62050
+	--44837 (75)
+
+	-- Candied Yam -- 62051
+	--44839 (45)
+
+	-- Cranberry Chutney -- 62049
+	-- 44840 (25)
+
 	end
 
 	return recipecount
