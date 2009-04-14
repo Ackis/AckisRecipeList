@@ -30,3 +30,7 @@
  type: luadoc
  input-file: AckisRecipeList.lua
  output-page: "API"
+-
+ type: luadoc
+ input-file: ARLDatamine.lua
+ output-page: "API/Datamine"
