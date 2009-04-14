@@ -100,36 +100,25 @@ _G["arlTooltip2"] = nil
 -- Make global API calls local to speed things up
 local GetNumTradeSkills = GetNumTradeSkills
 local GetSpellInfo = GetSpellInfo
-local GetSpellName = GetSpellName
 local GetTradeSkillLine = GetTradeSkillLine
-local GetTradeSkillInfo = GetTradeSkillInfo
-local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
-local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
-local GetNumFactions = GetNumFactions
-local GetFactionInfo = GetFactionInfo
-local CollapseFactionHeader = CollapseFactionHeader
-local ExpandFactionHeader = ExpandFactionHeader
-local GetTradeSkillListLink = GetTradeSkillListLink
-local UnitName = UnitName
-local GetRealmName = GetRealmName
-local IsTradeSkillLinked = IsTradeSkillLinked
 
-local select = select
-local format = format
-local string = string
 local tostring = tostring
 local tonumber = tonumber
+
 local pairs = pairs
+local select = select
+
 local table = table
-local next = next
 local tremove = table.remove
 local tconcat = table.concat
 local tsort = table.sort
 local tinsert = table.insert
+
+local string = string
+local format = format
 local sfind = string.find
 local smatch = string.match
 local tolower = string.lower
-local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
 --[[
 
@@ -138,10 +127,6 @@ local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 ]]--
 
 -- Description: Function run when the addon is initialized.  Registers the slash commands, options, and database
--- Expected result: The addon parameters are initialized, slash commands are enabled, database is enabled, and
---	interface options are registered
--- Input: None
--- Output: None
 
 function addon:OnInitialize()
 
@@ -318,9 +303,6 @@ function addon:OnInitialize()
 end
 
 -- Description: Function run when the addon is enabled.  Registers events and pre-loads certain variables.
--- Expected result: Events are registered, scan button and faction levels are identified
--- Input: None
--- Output: None
 
 function addon:OnEnable()
 
@@ -365,9 +347,6 @@ function addon:OnEnable()
 end
 
 -- Description: Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
--- Expected result: Events are unregistered, frame is hidden if it exists and plug-ins into other mods are removed
--- Input: None
--- Output: None
 
 function addon:OnDisable()
 
@@ -386,9 +365,6 @@ function addon:OnDisable()
 end
 
 -- Description: Shows the scan button when the trade skill window is open.
--- Expected result: Scan button is shown.
--- Input: None
--- Output: None
 
 --[[
 
@@ -396,43 +372,49 @@ end
 
 ]]--
 
-function addon:TRADE_SKILL_SHOW()
+do
 
-	local ownskill = IsTradeSkillLinked()
+	local GetTradeSkillListLink = GetTradeSkillListLink
+	local UnitName = UnitName
+	local GetRealmName = GetRealmName
+	local IsTradeSkillLinked = IsTradeSkillLinked
 
-	-- If this is our own skill, save it, if not don't save it
-	if (not ownskill) then
-		-- Create an entry in the db to track alt trade skills
-		local pname = UnitName("player")
-		local prealm = GetRealmName()
-		local tradelink = GetTradeSkillListLink()
-		local tradename = GetTradeSkillLine()
+	function addon:TRADE_SKILL_SHOW()
 
-		if (tradelink) then
-			if (not addon.db.profile.tradeskill) then
-				addon.db.profile.tradeskill = {}
+		local ownskill = IsTradeSkillLinked()
+
+		-- If this is our own skill, save it, if not don't save it
+		if (not ownskill) then
+			-- Create an entry in the db to track alt trade skills
+			local pname = UnitName("player")
+			local prealm = GetRealmName()
+			local tradelink = GetTradeSkillListLink()
+			local tradename = GetTradeSkillLine()
+
+			if (tradelink) then
+				if (not addon.db.profile.tradeskill) then
+					addon.db.profile.tradeskill = {}
+				end
+				if (not addon.db.profile.tradeskill[prealm]) then
+					addon.db.profile.tradeskill[prealm] = {}
+				end
+				if (not addon.db.profile.tradeskill[prealm][pname]) then
+					addon.db.profile.tradeskill[prealm][pname] = {}
+				end
+				addon.db.profile.tradeskill[prealm][pname][tradename] = tradelink
 			end
-			if (not addon.db.profile.tradeskill[prealm]) then
-				addon.db.profile.tradeskill[prealm] = {}
-			end
-			if (not addon.db.profile.tradeskill[prealm][pname]) then
-				addon.db.profile.tradeskill[prealm][pname] = {}
-			end
-			addon.db.profile.tradeskill[prealm][pname][tradename] = tradelink
 		end
-	end
-	addon:OpenTradeWindow()
+		addon:OpenTradeWindow()
 
-	if (addon.ScanButton and not Skillet) then
-		self:ShowScanButton()
+		if (addon.ScanButton and not Skillet) then
+			self:ShowScanButton()
+		end
+
 	end
 
 end
 
 -- Description: Hides the scan button when the trade skill window is closed.
--- Expected result: Scan button is hidden and the GUI is closed if the person has that option selected.
--- Input: None
--- Output: None
 
 function addon:TRADE_SKILL_CLOSE()
 
@@ -449,9 +431,6 @@ function addon:TRADE_SKILL_CLOSE()
 end
 
 -- Description: Will update the internal list of faction tables when a players faction changes
--- Expected result: Faction table is updated with new reputation levels
--- Input: None
--- Output: None
 
 --[[
 
@@ -468,109 +447,117 @@ end
 
 ]]--
 
--- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
--- Expected result: Updates a table with players current faction level
--- Input: Faction table
--- Output: None, array is referenced
+do
 
-function addon:GetFactionLevels(RepTable)
+	local GetNumFactions = GetNumFactions
+	local GetFactionInfo = GetFactionInfo
+	local CollapseFactionHeader = CollapseFactionHeader
+	local ExpandFactionHeader = ExpandFactionHeader
 
--- Bug here when I reload UI
-	if (not RepTable) then
-		return
-	end
 
-	local t = {}
+	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
 
-	-- Number of factions before we expand
-	local numfactions = GetNumFactions()
+	function addon:GetFactionLevels(RepTable)
 
-	-- Lets expand all the headers
-	for i=numfactions,1,-1 do
-		local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
-
-		if (isCollapsed) then
-			ExpandFactionHeader(i)
-			t[name] = true
+	-- Bug here when I reload UI
+		if (not RepTable) then
+			return
 		end
-	end
 
-	-- Number of factions with everything expanded
-	numfactions = GetNumFactions()
+		local t = {}
 
-	-- Get the rep levels
-	for i=1,numfactions,1 do
-		local name,_,replevel = GetFactionInfo(i)
+		-- Number of factions before we expand
+		local numfactions = GetNumFactions()
 
-		-- If the rep is greater than neutral
-		if (replevel > 4) then
-			-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
-			RepTable[name] = replevel - 4
+		-- Lets expand all the headers
+		for i=numfactions,1,-1 do
+			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
+
+			if (isCollapsed) then
+				ExpandFactionHeader(i)
+				t[name] = true
+			end
 		end
-	end
 
-	-- Collapse the headers again
-	for i=numfactions,1,-1 do
-		local name = GetFactionInfo(i)
+		-- Number of factions with everything expanded
+		numfactions = GetNumFactions()
 
-		if (t[name]) then
-			CollapseFactionHeader(i)
+		-- Get the rep levels
+		for i=1,numfactions,1 do
+			local name,_,replevel = GetFactionInfo(i)
+
+			-- If the rep is greater than neutral
+			if (replevel > 4) then
+				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
+				RepTable[name] = replevel - 4
+			end
 		end
+
+		-- Collapse the headers again
+		for i=numfactions,1,-1 do
+			local name = GetFactionInfo(i)
+
+			if (t[name]) then
+				CollapseFactionHeader(i)
+			end
+		end
+
 	end
 
 end
 
--- Description: Scans first 25 spellbook slots to identify all applicable professions
--- Expected result: Updates a table with players current professions
--- Input: Profession table
--- Output: None, array is referenced
+do
 
-function addon:GetKnownProfessions(ProfTable)
+	local GetSpellName = GetSpellName
+	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
-	-- Reset the table, they may have unlearnt a profession
-	for i in pairs(ProfTable) do
-		ProfTable[i] = false
+	-- Description: Scans first 25 spellbook slots to identify all applicable professions
+
+	function addon:GetKnownProfessions(ProfTable)
+
+		-- Reset the table, they may have unlearnt a profession
+		for i in pairs(ProfTable) do
+			ProfTable[i] = false
+		end
+
+		-- Scan through the spell book getting the spell names
+		for index=1,25,1 do
+
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			if (not spellName) or (index == 25) then
+				-- Nothing found
+				break
+			end
+			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+				if spellName == GetSpellInfo(2656) then
+					ProfTable[GetSpellInfo(2575)] = true
+				else
+					ProfTable[spellName] = true
+				end
+			end
+		end
+
 	end
 
-	-- Scan through the spell book getting the spell names
-	for index=1,25,1 do
+	-- Description: Scans first 25 spellbook slots to identify which trade skill Specialty we have
 
-		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+	function addon:GetTradeSpecialty(SpecialtyTable, playerData)
 
-		if (not spellName) or (index == 25) then
-			-- Nothing found
-			break
-		end
-		if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
-            if spellName == GetSpellInfo(2656) then
-                ProfTable[GetSpellInfo(2575)] = true
-            else
-                ProfTable[spellName] = true
-            end
-		end
-	end
+		--Scan the first 25 entries
+		for index=1,25,1 do
 
-end
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
 
--- Description: Scans first 25 spellbook slots to identify which trade skill Specialty we have
--- Expected result: Returns the name of the trade skill Specialty
--- Input: Specialty Table and Current Profession
--- Output: String of current Specialty
+			-- Nothing found, return nothing
+			if (not spellName) or (index == 25) then
+				return ""
+			-- We have a match, return that spell name
+			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
+				local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
+				return ID
+			end
 
-function addon:GetTradeSpecialty(SpecialtyTable, playerData)
-
-	--Scan the first 25 entries
-	for index=1,25,1 do
-
-		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-		-- Nothing found, return nothing
-		if (not spellName) or (index == 25) then
-			return ""
-		-- We have a match, return that spell name
-		elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-			local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
-			return ID
 		end
 
 	end
@@ -582,9 +569,6 @@ end
 --]]
 
 -- Description: Adds a specific recipe, along with it's info to an array
--- Expected result: The RecipeDB will have a recipe entry created for it.
--- Input: Recipe array reference, SpellID of recipe, Skill level of recipe, Item ID of item created, Rarity of recipe, and Specialty of the recipe
--- Output: None, array is passed as a reference
 
 --- Adds a tradeskill recipe into the specified recipe database.
 -- @name AckisRecipeList:addTradeSkill
@@ -662,9 +646,6 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 end
 
 -- Description: Adds all flag related information to the RecipeDB associated with the spell ID
--- Expected result: The RecipeDB will have flag information added for a specific recipe
--- Input: Recipe array reference, SpellID of recipe, all flags
--- Output: None, array is passed as a reference
 
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:addTradeFlags
@@ -694,9 +675,6 @@ function addon:addTradeFlags(RecipeDB, SpellID, ...)
 end
 
 -- Description: Adds all Acquire related information to the RecipeDB associated with the spell ID
--- Expected result: The RecipeDB will have acqusition information added for a specific recipe
--- Input: Recipe array reference, SpellID of recipe, all Acquire info
--- Output: None, array is passed as a reference
 
 --- Adds acquire methods to a specific tradeskill.
 -- @name AckisRecipeList:addTradeAcquire
@@ -749,9 +727,6 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 end
 
 -- Description: Adds a specific entry (ie: vendor, mob, etc) to the lookup list
--- Expected result: Look up list will have an entry added to it
--- Input: List to add to, ID of entry, Name, Faction Location and Coordinates (X and Y)
--- Output: None, array is passed as a reference
 
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
@@ -802,87 +777,92 @@ local function GetIDFromLink(SpellLink)
 
 end
 
--- Description: Scans the recipe listing and marks known recipes as true in the database
--- Expected result: The array of Recipes will have all known recipes toggles to true
--- Input: Recipe Array
--- Output: The total number of recipes known
+do
 
-function addon:ScanForKnownRecipes(RecipeDB, playerData)
+	-- Description: Scans the recipe listing and marks known recipes as true in the database
 
-	-- Clear the "Have Materials" check box
-	if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-		TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
-		TradeSkillOnlyShowMakeable(false)
-	end
+	local GetTradeSkillInfo = GetTradeSkillInfo
+	local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
+	local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
 
-	-- Clear the sub-classes filters
-	SetTradeSkillSubClassFilter(0, 1, 1)
-	UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
+	function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
-	-- Clear the inventory slot filter
-	SetTradeSkillInvSlotFilter(0, 1, 1);
-	UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
-
-	-- Expand all headers so we can see all the recipes there are
-	for i = GetNumTradeSkills(), 1, -1 do
-		local _, tradeType = GetTradeSkillInfo(i)
-		if tradeType == "header" then
-			ExpandTradeSkillSubClass(i)
+		-- Clear the "Have Materials" check box
+		if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
+			TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
+			TradeSkillOnlyShowMakeable(false)
 		end
-	end
 
-	local foundRecipes = 0
+		-- Clear the sub-classes filters
+		SetTradeSkillSubClassFilter(0, 1, 1)
+		UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
 
-	-- Scan through all recipes
-	for i = 1, GetNumTradeSkills() do
-		local tradeName, tradeType = GetTradeSkillInfo(i)
+		-- Clear the inventory slot filter
+		SetTradeSkillInvSlotFilter(0, 1, 1);
+		UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
 
-		-- Ignore all trade skill headers
-		if (tradeType ~= "header") then
-			-- Get the trade skill link for the specified recipe
-			local SpellLink = GetTradeSkillRecipeLink(i)
-
-			local SpellString = GetIDFromLink(SpellLink)
-
-			-- Get the SpellID from the spell link or enchant link (to account for Skillet)
-			local SpellID = tonumber(SpellString)
-
-			-- Spell ID is in RecipeDB so lets flag it as known
-			if (RecipeDB[SpellID]) then
-				-- Update array that recipe was found
-				RecipeDB[SpellID]["Known"] = true
-				foundRecipes = foundRecipes + 1
-			-- We didn't find it in our database, lets notify people that we don't have it
-			else
-				self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
+		-- Expand all headers so we can see all the recipes there are
+		for i = GetNumTradeSkills(), 1, -1 do
+			local _, tradeType = GetTradeSkillInfo(i)
+			if tradeType == "header" then
+				ExpandTradeSkillSubClass(i)
 			end
 		end
 
-	end
+		local foundRecipes = 0
 
-	playerData.foundRecipes = foundRecipes
+		-- Scan through all recipes
+		for i = 1, GetNumTradeSkills() do
+			local tradeName, tradeType = GetTradeSkillInfo(i)
 
-	-- If we're still in 3.0.x
-	if select(4, GetBuildInfo()) < 30100 then
-		-- Cooking
-		if (playerData.playerProfession == GetSpellInfo(2550)) then
-			if (playerData.playerProfessionLevel > 300) then
-				RecipeDB[33359]["Known"] = true
+			-- Ignore all trade skill headers
+			if (tradeType ~= "header") then
+				-- Get the trade skill link for the specified recipe
+				local SpellLink = GetTradeSkillRecipeLink(i)
+
+				local SpellString = GetIDFromLink(SpellLink)
+
+				-- Get the SpellID from the spell link or enchant link (to account for Skillet)
+				local SpellID = tonumber(SpellString)
+
+				-- Spell ID is in RecipeDB so lets flag it as known
+				if (RecipeDB[SpellID]) then
+					-- Update array that recipe was found
+					RecipeDB[SpellID]["Known"] = true
+					foundRecipes = foundRecipes + 1
+				-- We didn't find it in our database, lets notify people that we don't have it
+				else
+					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
+				end
 			end
-			if (playerData.playerProfessionLevel > 225) then
-				RecipeDB[3413]["Known"] = true
+
+		end
+
+		playerData.foundRecipes = foundRecipes
+
+		-- If we're still in 3.0.x
+		if select(4, GetBuildInfo()) < 30100 then
+			-- Cooking
+			if (playerData.playerProfession == GetSpellInfo(2550)) then
+				if (playerData.playerProfessionLevel > 300) then
+					RecipeDB[33359]["Known"] = true
+				end
+				if (playerData.playerProfessionLevel > 225) then
+					RecipeDB[3413]["Known"] = true
+				end
+			end
+
+			-- First Aid
+			if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
+				if (playerData.playerProfessionLevel > 225) then
+					RecipeDB[10846]["Known"] = true
+				end
+				if (playerData.playerProfessionLevel > 150) then
+					RecipeDB[7924]["Known"] = true
+				end
 			end
 		end
 
-		-- First Aid
-		if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
-			if (playerData.playerProfessionLevel > 225) then
-				RecipeDB[10846]["Known"] = true
-			end
-			if (playerData.playerProfessionLevel > 150) then
-				RecipeDB[7924]["Known"] = true
-			end
-		end
 	end
 
 end
@@ -964,9 +944,6 @@ do
 	end
 
 	-- Description: Scans a specific recpie to determine if it is to be displayed or not.
-	-- Expected result: Returns true or false depending on if the recipe should be displayed
-	-- Input: 
-	-- Output: Boolean on whether or not to display the recipe
 
 	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
@@ -1396,9 +1373,6 @@ do
 end
 
 -- Description: Creates an array of which factions we want to include in our display and which ones to ignore
--- Expected result: Array of all factions created with those which we want to display having a true flag
--- Input: Rep Table Array
--- Output: None, array is passed as a reference
 
 function addon:PopulateRepFilters(RepTable)
 
@@ -1444,9 +1418,6 @@ function addon:PopulateRepFilters(RepTable)
 end
 
 -- Description: Scans the recipe listing and updates the filters according to user preferences
--- Expected result: The array of Recipes will have all Display flags toggles according to display preferences and the number of filtered recipes
--- Input: Recipe Array, Skill level for current profession, name of current profession, and current profession Specialty
--- Output: Number of recipes that are filtered
 
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
@@ -1511,9 +1482,6 @@ end
 ]]--
 
 -- Description: Determines which profession we are dealing with and loads up the recipe information for it.
--- Expected result: The RecipeDBis populated with recipe information
--- Input: RecipeDB, Current Profession we're examining
--- Output: Total number of recipes in the database
 
 local function InitializeRecipes(RecipeDB, playerProfession)
 
@@ -1552,9 +1520,6 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 end
 
 -- Description: Determines what to do when the slash command is called.
--- Expected result: The appropiate window is opened based on the slash command.
--- Input: None
--- Output: None
 
 function addon:ChatCommand(input)
 
@@ -1608,9 +1573,6 @@ do
 	local locationchecklist = nil
 
 	-- Description: Determines all the locations a given recipe can be obtained
-	-- Expected result: Listing of all locations for a given recipe are provided.
-	-- Input: Spell ID for the recipe we want to get information for
-	-- Output: Listing of all locations ofr a given recipe
 
 	function addon:GetRecipeLocations(SpellID)
 
@@ -1710,27 +1672,18 @@ do
 	end
 
 	-- Description: Toggles the flag that a trade window is opened
-	-- Expected result: Flag is toggled on
-	-- Input: None
-	-- Output: None
 
 	function addon:OpenTradeWindow()
 		tradewindowopened = true
 	end
 
 	-- Description: Toggles the flag that a trade window is opened
-	-- Expected result: Flag is toggled on
-	-- Input: None
-	-- Output: None
 
 	function addon:CloseTradeWindow()
 		tradewindowopened = false
 	end
 
 	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
-	-- Expected result: Reputation table is updated with appropiate levels
-	-- Input: None
-	-- Output: None
 
 	function addon:SetRepDB()
 
@@ -1741,9 +1694,6 @@ do
 	end
 
 	-- Description: Initializes and adds data relavent to the player character
-	-- Expected result: playerData table created with appropiate data
-	-- Input: playerData table
-	-- Output: None, it's referenced
 
 	local function InitPlayerData()
 
@@ -1835,9 +1785,6 @@ do
 	end
 
 	-- Description: Initalizes all the recipe databases to their initial
-	-- Expected result: All internal databases are initalized to starting values (empty)
-	-- Input: None
-	-- Output: Tables are local in scope, not to the function.
 
 	local function InitDatabases()
 
@@ -1897,9 +1844,6 @@ do
 	end
 
 	-- Description: Function called when the scan button is clicked.   Parses recipes and displays output
-	-- Expected result: A gui window of all recipes accoring to filter is printed out
-	-- Input: None
-	-- Output: None
 
 	--- Causes a scan of the tradeskill to be conducted.
 	-- @name AckisRecipeList:AckisRecipeList_Command
@@ -1957,9 +1901,6 @@ do
 
 	
 	-- Description: API for external addons to initialize the recipe database with a specific profession
-	-- Expected result: Recipe database is updated with recipe information for the current profession
-	-- Input: Profession of the database needed
-	-- Output: An indicator if the process was successful
 
 	--- Initialize the recipe database with a specific profession.
 	-- @name AckisRecipeList:AddRecipeData
@@ -1978,9 +1919,6 @@ do
 	end
 
 	-- Description: API for external addons to initialize the recipe database
-	-- Expected result: Recipe database is returned along with sub-databases
-	-- Input: None
-	-- Output: An indicator if the recipe database was initialized successfully, along with all the reference tables.
 
 	--- Initialize the recipe database
 	-- @name AckisRecipeList:InitRecipeData
@@ -1999,9 +1937,6 @@ do
 	end
 
 	-- Description: API for external addons to get recipe information from ARL
-	-- Expected result: The recipe information is returned if it exists
-	-- Input: The spellID of the recipe.
-	-- Output: A table containing all its information
 
 	--- API for external addons to get recipe information from ARL
 	-- @name AckisRecipeList:GetRecipeData
@@ -2022,9 +1957,6 @@ do
 	end
 
 	-- Description: API for external addons to get recipe database from ARL
-	-- Expected result: The recipe database is returned if it exists
-	-- Input: None
-	-- Output: A table containing all its information
 
 	--- API for external addons to get recipe database from ARL
 	-- @name AckisRecipeList:GetRecipeTable
@@ -2054,9 +1986,6 @@ do
 	local sortFuncs = nil
 
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
-	-- Expected result: A sorted array indexing values in the RecipeDB is returned.
-	-- Input: The Recipe Database
-	-- Output: A pointer to an array containing sorted values
 
 	function addon:SortMissingRecipes(RecipeDB)
 
@@ -2140,9 +2069,6 @@ end
 --]]
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
--- Expected result: Parses the recipe database marking all exlusions to not be displays
--- Input: Recipe Database
--- Output: None, Recipe Database is passed as a reference
 
 function addon:GetExclusions(RecipeDB, Ignored)
 
@@ -2181,9 +2107,6 @@ function addon:GetExclusions(RecipeDB, Ignored)
 end
 
 -- Description: Removes or adds a recipe to the exclusion list.
--- Expected result: The exclusion database is updated.
--- Input: The spell IDsof the recipe
--- Output: Exclusion database is updated
 
 function addon:ToggleExcludeRecipe(SpellID)
 
@@ -2202,15 +2125,15 @@ function addon:ToggleExcludeRecipe(SpellID)
 
 end
 
+-- Description: Prints all the ID's in the exclusion list out into chat.
+
 function addon:ViewExclusionList()
 
 	local exclusionlist = addon.db.profile.exclusionlist
 
 	-- Parse all items in the exclusion list
 	for i in pairs(exclusionlist) do
-
 		self:Print(i .. ": " .. GetSpellInfo(i))
-
 	end
 
 end
@@ -2222,9 +2145,6 @@ end
 ]]--
 
 -- Description: Scans through the recipe database and toggles the flag on if the item is in the search criteria
--- Expected result: The Search flag is toggle off for anything that does not meet search criteria
--- Input: Recipe database
--- Output: None, array is a reference
 
 function addon:SearchRecipeDB(RecipeDB, searchstring)
 
@@ -2273,9 +2193,6 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 end
 
 -- Description: Goes through the recipe database and resets all the search flags
--- Expected result: All search flags are reset to true
--- Input: Recipe database
--- Output: None, array is a reference
 
 function addon:ResetSearch(RecipeDB)
 
@@ -2292,9 +2209,6 @@ end
 ]]--
 
 -- Description: Scans through the recipe database providing a string of comma seperated values for all recipe information
--- Expected result: Single string of all recipes provided.
--- Input: Recipe database
--- Output: Array is a reference, string of text dump
 
 function addon:GetTextDump(RecipeDB, profession)
 
@@ -2380,46 +2294,7 @@ function addon:GetTextDump(RecipeDB, profession)
 
 end
 
--- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
--- Expected result: Trade skills with a skill level different are output.
--- Input: None
--- Output: Text in chat window
-
---- API for external addons to get recipe database from ARL
--- @name AckisRecipeList:ScanSkillLevelData
--- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
-function addon:ScanSkillLevelData()
-
-	if (IsTradeskillTrainer()) then
-		SetTrainerServiceTypeFilter("available", 1)
-		SetTrainerServiceTypeFilter("unavailable", 1)
-		SetTrainerServiceTypeFilter("used", 1)
-		local t = {}
-		for i=1,GetNumTrainerServices(),1 do
-			local name = GetTrainerServiceInfo(i)
-			local _,skilllevel = GetTrainerServiceSkillReq(i)
-			if not skilllevel then
-				skilllevel = 0
-			end
-			t[name] = skilllevel
-		end
-		local recipelist = addon:GetRecipeTable()
-		for i in pairs(recipelist) do
-			local i_name = recipelist[i]["Name"]
-			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
-				self:Print("DEBUG: Recipe level different! Name: " .. i_name .. " Internal Level: " ..  recipelist[i]["Level"] .. " External Level: " .. t[i_name])
-			end
-		end
-	else
-		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
-	end
-
-end
-
 -- Description: Dumps all the info about a recipe out to chat
--- Expected Result: Recipe info dumped in chat
--- Input: Spell ID of the recipe
--- Output: Text in chat window
 
 function addon:DumpRecipe(SpellID)
 

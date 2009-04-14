@@ -42,6 +42,7 @@ AckisRecipeList.lua
 ARLConfig.lua
 ARLFrame.lua
 ARLColour.lua
+ARLDatamine.lua
 
 # Recipe database files
 database.xml
