@@ -36,8 +36,8 @@ If you don't wish to donate money feel free to consider one of the following met
 
 ==Do this first==
 Read the documentation located at these locations:
-* Bug Reporting and Feature Requestiing - [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/]
-* In-game Documentation - [http://www.wowace.com/projects/arl/pages/in-game-documenation/]
+* [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/ Bug Reporting and Feature Requestiing]
+* [http://www.wowace.com/projects/arl/pages/in-game-documentation/ In-game Documentation]
 
 ==Comments==
 I have disabled comments on Curse.com for multiple reasons.  The main one being people posting comments such as "this is broken" without providing any other information.  Please see the in-game documentation or the Bug Reports section on how to contact me.
@@ -117,11 +117,11 @@ Currently, the mod works with:
 * [http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx Cauldron]
 
 ==Detailed Documentation==
-* API - [http://www.wowace.com/projects/arl/pages/api/]
-* Bug Reporting and Feature Requesting - [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/]
-* Database Documentation - [http://www.wowace.com/projects/arl/pages/database-documentation/]
-* In-game Documentation - [http://www.wowace.com/projects/arl/pages/in-game-documenation/]
-* Localization - [http://www.wowace.com/projects/arl/pages/localization/]
+* [http://www.wowace.com/projects/arl/pages/api/ API]
+* [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/ Bug Reporting and Feature Requestiing]
+* [http://www.wowace.com/projects/arl/pages/in-game-documentation/ In-game Documentation]
+* [http://www.wowace.com/projects/arl/pages/api/database-documentation/ Database Documentation]
+* [http://www.wowace.com/projects/arl/pages/api/localization/ Localization]
 
 ==Acknowledgments==
 * Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).
