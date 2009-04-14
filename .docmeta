@@ -4,6 +4,10 @@
  output-page: "Database Documentation"
 -
  type: wiki
+ input-file: Docs/Datamine.txt
+ output-page: "In-game Datamining"
+-
+ type: wiki
  input-file: Docs/In-game.txt
  output-page: "In-game Documentation"
 -

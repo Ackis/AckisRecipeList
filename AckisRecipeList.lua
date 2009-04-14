@@ -2385,6 +2385,9 @@ end
 -- Input: None
 -- Output: Text in chat window
 
+--- API for external addons to get recipe database from ARL
+-- @name AckisRecipeList:ScanSkillLevelData
+-- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData()
 
 	if (IsTradeskillTrainer()) then
