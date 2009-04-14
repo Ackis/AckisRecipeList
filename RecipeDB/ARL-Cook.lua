@@ -1010,6 +1010,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeSkill(RecipeDB,33359,300,27736,1,2550)
 	self:addTradeFlags(RecipeDB,33359,1,2,4,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,33359,2,18988,2,18987,2,18993)
+
 	else
 
 	-- Dig Rat Stew -- 6417
@@ -1030,14 +1031,23 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,64054,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,64054,4,6610)
 
+	-- Cranberry Chutney -- 62049
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62049,25,44840,1,2550)
+	self:addTradeFlags(RecipeDB,62049,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62049,5,5)
+
 	-- Cornbread Stuffing -- 62050
-	--44837 (75)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62050,75,44837,1,2550)
+	self:addTradeFlags(RecipeDB,62050,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62050,5,5)
 
 	-- Candied Yam -- 62051
-	--44839 (45)
-
-	-- Cranberry Chutney -- 62049
-	-- 44840 (25)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62051,45,44839,1,2550)
+	self:addTradeFlags(RecipeDB,62051,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62051,5,5)
 
 	end
 

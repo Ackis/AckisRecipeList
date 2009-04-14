@@ -2873,16 +2873,52 @@ function addon:InitJewelcrafting(RecipeDB)
 	if select(4, GetBuildInfo()) >= 30100 then
 
 	-- Shifting Twilight Opal -- 53963
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53963,380,40023,3,25229)
-	self:addTradeFlags(RecipeDB,53963,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53963,1,26915,1,26960,1,26982,1,26997,1,28701)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,53963,380,40023,3,25229)
+	--self:addTradeFlags(RecipeDB,53963,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	--self:addTradeAcquire(RecipeDB,53963,1,26915,1,26960,1,26982,1,26997,1,28701)
 
 	-- Subtle Scarlet Ruby -- 53948
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,53948,380,40000,3,25229)
+	--self:addTradeFlags(RecipeDB,53948,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52)
+	--self:addTradeAcquire(RecipeDB,53948,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Emerald Choker -- 64725
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,53948,380,40000,3,25229)
-	self:addTradeFlags(RecipeDB,53948,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,53948,1,26915,1,26960,1,26982,1,26997,1,28701)
+	self:addTradeSkill(RecipeDB,64725,440,45812,1,25229)
+	self:addTradeFlags(RecipeDB,64725,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
+	self:addTradeAcquire(RecipeDB,64725,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Runed Mana Band -- 64727
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64727,440,45808,1,25229)
+	self:addTradeFlags(RecipeDB,64727,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
+	self:addTradeAcquire(RecipeDB,64727,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Scarlet Signet -- 64728
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64728,440,45809,1,25229)
+	self:addTradeFlags(RecipeDB,64728,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,62)
+	self:addTradeAcquire(RecipeDB,64728,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Sky Sapphire Amulet -- 64726
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64726,440,45813,1,25229)
+	self:addTradeFlags(RecipeDB,64726,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
+	self:addTradeAcquire(RecipeDB,64726,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Prismatic Black Diamond -- 62941
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62941,310,45054,1,25229)
+	self:addTradeFlags(RecipeDB,62941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,62941,1,26915,1,26960,1,26982,1,26997,1,28701)
+
+	-- Amulet of Truesight -- 63743
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63743,210,45627,1,25229)
+	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
+	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701)
 
 	end
 

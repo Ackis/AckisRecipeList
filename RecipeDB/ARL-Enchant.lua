@@ -1767,30 +1767,51 @@ function addon:InitEnchanting(RecipeDB)
 	--self:addTradeAcquire(RecipeDB,62257,2,32514)
 
 	if select(4, GetBuildInfo()) >= 30100 then
+
+	-- Enchant Boots - Lesser Accuracy -- 63746
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63746,245,nil,2,7411)
+	self:addTradeFlags(RecipeDB,63746,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
+	self:addTradeAcquire(RecipeDB,63746,1,1317,1,3011,1,3345,1,3606,1,4213,1,4616,1,5157,1,5695,1,11065,1,11066,1,11067,1,11068,1,11070,1,11071,1,11072,1,11073,1,11074,1,16160,1,16633,1,16634,1,16725,1,16742,1,19248,1,19249,1,19250,1,19251)
+
 	-- Smoking Heart of the Mountain -- 15596
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15596,265,45050,2,7411)
 	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
 	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
 
+	-- Enchant Staff - Spellpower -- 62959
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,62959,450,nil,1,7411)
+	self:addTradeFlags(RecipeDB,62959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeAcquire(RecipeDB,62959,1,26906,1,26954,1,26980,1,26990,1,28693)
+
 	-- Enchant Staff - Greater Spellpower -- 62948
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62948,450,45059,3,7411)
-	self:addTradeFlags(RecipeDB,62948,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
+	self:addTradeSkill(RecipeDB,62948,450,nil,3,7411)
+	self:addTradeFlags(RecipeDB,62948,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,62948,2,32514)
 
 	-- Enchant Weapon - Blade Ward -- 64441
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64441,450,46027,3,7411)
-	self:addTradeFlags(RecipeDB,64441,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
-	self:addTradeAcquire(RecipeDB,64441,2,32514)
+	self:addTradeSkill(RecipeDB,64441,450,nil,3,7411)
+	self:addTradeFlags(RecipeDB,64441,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
+	self:addTradeAcquire(RecipeDB,64441,8,39)
+
+	-- Enchant Weapon - Blood Draining -- 64579
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64579,450,nil,3,7411)
+	self:addTradeFlags(RecipeDB,64579,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
+	self:addTradeAcquire(RecipeDB,64579,8,39)
 
 	else
+
 	-- Smoking Heart of the Mountain -- 15596
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15596,265,11811,2,7411)
 	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
 	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
+
 	end
 
 	return recipecount

@@ -34,5 +34,6 @@ function addon:InitSeasons(SeasonDB)
 	self:addLookupList(SeasonDB,2,L["Lunar Festival"],"N/A")
 	self:addLookupList(SeasonDB,3,L["Darkmoon Faire"],"N/A")
 	self:addLookupList(SeasonDB,4,L["Midsummer Fire Festival"],"N/A")
+	self:addLookupList(SeasonDB,5,"Thanksgiving Seasonal Placeholder - Speculation","N/A")
 
 end

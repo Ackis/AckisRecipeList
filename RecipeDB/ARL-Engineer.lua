@@ -1754,6 +1754,29 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,30349,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,30349,2,28722)
 
+
+	if select(4, GetBuildInfo()) >= 30100 then
+
+	-- Reticulated Armor Webbing -- 63770
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63770,400,nil,1,4036)
+	self:addTradeFlags(RecipeDB,63770,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52)
+	self:addTradeAcquire(RecipeDB,63770,1,25277,1,26907,1,26955,1,26991,1,28697)
+
+	-- Springy Arachnoweave -- 63765
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63765,400,nil,1,4036)
+	self:addTradeFlags(RecipeDB,63765,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
+	self:addTradeAcquire(RecipeDB,63765,1,25277,1,26907,1,26955,1,26991,1,28697)
+
+	-- High-powered Flashlight -- 63750
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,63750,400,45631,1,4036)
+	self:addTradeFlags(RecipeDB,63750,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,61)
+	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697)
+	
+	end
+
 	return recipecount
 
 end
