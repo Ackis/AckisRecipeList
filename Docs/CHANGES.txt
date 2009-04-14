@@ -1,6 +1,7 @@
 ==ARL Changes==
 
 ===RC7===
+*Added formal in-game datamining functions.  These are to be used when you want to see if ARL has accurate data.
 
 ===RC6===
 *Added 3.1 recipes.  These recipes may have inaccurate information.  If so, please submit a ticket and I'll get them updated ASAP.

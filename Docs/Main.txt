@@ -109,7 +109,7 @@ Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to 
 Please use the [http://www.wowace.com/projects/arl/tickets/ WoW Ace] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
 
 ==Integration==
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].  I make no promises that I will implement the feature at all.  There is a limited API documented at [http://www.wowace.com/projects/arl/pages/api/] to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/arl/tickets/ WoW Ace].  I make no promises that I will implement the feature at all.  There is a limited [http://www.wowace.com/projects/arl/pages/api/ API] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
 Currently, the mod works with:
 * [http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx Advanced Trade Skill Window] - [http://www.wowace.com/projects/arl/images/13-arl-w-atsw/ Screenshot 1]
 * [http://wow.curse.com/downloads/wow-addons/details/skillet.aspx Skillet]
