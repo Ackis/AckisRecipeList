@@ -630,7 +630,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9968,235,7933,1,2018)
 	self:addTradeFlags(RecipeDB,9968,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,9968,1,2836,1,16583,1,16823,1,19341)
+	self:addTradeAcquire(RecipeDB,9968,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341)
 
 	-- Heavy Mithril Helm -- 9970
 	recipecount = recipecount + 1
