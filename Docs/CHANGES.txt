@@ -1,7 +1,11 @@
 ==ARL Changes==
 
 ===RC7===
+*This release is dedicated to the demise of WowMatrix.  May it rot in hell.
 *Added formal in-game datamining functions.  These are to be used when you want to see if ARL has accurate data.
+*Fixed bug where first aid and cooking were showing 2 less recipes.
+*Fixed a nil reference error.
+*Fixed a localization error with svn clients.
 
 ===RC6===
 *Added 3.1 recipes.  These recipes may have inaccurate information.  If so, please submit a ticket and I'll get them updated ASAP.
