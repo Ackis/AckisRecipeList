@@ -6,6 +6,8 @@
 *Fixed bug where first aid and cooking were showing 2 less recipes.
 *Fixed a nil reference error.
 *Fixed a localization error with svn clients.
+*Fixed a few leaking globals.
+*Code optimization.
 
 ===RC6===
 *Added 3.1 recipes.  These recipes may have inaccurate information.  If so, please submit a ticket and I'll get them updated ASAP.
