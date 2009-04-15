@@ -2985,7 +2985,7 @@ function addon.resetFilters()
 	filterdb.classes.warrior = false
 
 	-- Set your own class to true
-	_, currentclass = UnitClass("player")
+	local _, currentclass = UnitClass("player")
 	filterdb.classes[strlower(currentclass)] = true
 
 	addon.resetTitle()
