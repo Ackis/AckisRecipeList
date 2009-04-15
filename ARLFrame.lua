@@ -42,12 +42,15 @@ local normalFont = nil
 
 local pairs = pairs
 local select = select
+local type = type
 
-local table.wipe = table.wipe
+local table = table
+local twipe = table.wipe
 local tremove = table.remove
 local tonumber = tonumber
 
-local math.floor = math.floor
+local math = math
+local floor = math.floor
 
 local strlower = string.lower
 
@@ -357,7 +360,7 @@ do
 				TomTom:RemoveWaypoint(iconlist[i])
 			end
 			-- Nuke our own internal table
-			iconlist = table.wipe(iconlist)
+			iconlist = twipe(iconlist)
 		end
 
 	end
@@ -1217,8 +1220,8 @@ local function SetProgressBar(playerData)
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
 
-	if (math.floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
-		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+	if (floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
+		ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
 	else
 		pbCur = 0
 		pbMax = 0
@@ -3767,7 +3770,7 @@ function addon:CreateFrame(
 			ARL_ProgressBarText:ClearAllPoints()
 			ARL_ProgressBarText:SetPoint("CENTER", ARL_ProgressBar, "CENTER", 0, 0)
 			ARL_ProgressBarText:SetJustifyH("CENTER")
- 			ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. math.floor(pbCur / pbMax * 100) .. "%")
+ 			ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
 
 		-- I'm going to use my own tooltip for recipebuttons
 		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
