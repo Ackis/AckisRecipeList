@@ -1709,3 +1709,4 @@ L["Rartar"] = true
 L["Bryan Landers"] = true
 L["Prospector Khazgorm"] = true
 L["Northern Cooking"] = true
+L["Clamlette Surprise"] = true

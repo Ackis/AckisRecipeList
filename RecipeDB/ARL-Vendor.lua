@@ -6,11 +6,6 @@ ARL-Vendor.lua
 
 Vendor data for all of Ackis Recipe List
 
-Originally auto-generated.
-Auto-generated using ARLDataminer.rb
-
-322 found from data mining.  0 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 

@@ -573,7 +573,7 @@ end
 --- Adds a tradeskill recipe into the specified recipe database.
 -- @name AckisRecipeList:addTradeSkill
 -- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
--- @param RecipeDB RecipeDB The database (array) which you wish to add data too.
+-- @param RecipeDB The database (array) which you wish to add data too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
 -- @param SkillLevel The skill level at which the recipe may be learned.
 -- @param ItemID The [http://www.wowwiki.com/ItemLink Item ID] that is created by the recipe, or nil
@@ -650,7 +650,7 @@ end
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:addTradeFlags
 -- @usage AckisRecipeList:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
--- @param RecipeDB RecipeDB The database (array) which you wish to add flags too.
+-- @param RecipeDB The database (array) which you wish to add flags too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe which flags are being added to.
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
@@ -679,7 +679,7 @@ end
 --- Adds acquire methods to a specific tradeskill.
 -- @name AckisRecipeList:addTradeAcquire
 -- @usage AckisRecipeList:addTradeAcquire:(RecipeDB,2329,8,8)
--- @param RecipeDB RecipeDB The database (array) which you wish to add acquire methods too.
+-- @param RecipeDB The database (array) which you wish to add acquire methods too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe which acquire methods are being added to.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
@@ -726,8 +726,17 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 end
 
--- Description: Adds a specific entry (ie: vendor, mob, etc) to the lookup list
-
+--- Adds an item to a specific database listing (ie: vendor, mob, etc)
+-- @name AckisRecipeList:addLookupList
+-- @usage AckisRecipeList:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+-- @param DB Database which the entry will be stored.
+-- @param ID Unique identified for the entry.
+-- @param Name Name of the entry.
+-- @param Loc Location of the entry in the world.
+-- @param Coordx X coordinate of where the entry is found.
+-- @param Coordy Y coordinate of where the entry is found.
+-- @param Faction Faction identifier for the entry.
+-- @return None, array is passed as a reference.
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 	--[[
@@ -839,29 +848,6 @@ do
 		end
 
 		playerData.foundRecipes = foundRecipes
-
-		-- If we're still in 3.0.x
-		if select(4, GetBuildInfo()) < 30100 then
-			-- Cooking
-			if (playerData.playerProfession == GetSpellInfo(2550)) then
-				if (playerData.playerProfessionLevel > 300) then
-					RecipeDB[33359]["Known"] = true
-				end
-				if (playerData.playerProfessionLevel > 225) then
-					RecipeDB[3413]["Known"] = true
-				end
-			end
-
-			-- First Aid
-			if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
-				if (playerData.playerProfessionLevel > 225) then
-					RecipeDB[10846]["Known"] = true
-				end
-				if (playerData.playerProfessionLevel > 150) then
-					RecipeDB[7924]["Known"] = true
-				end
-			end
-		end
 
 	end
 

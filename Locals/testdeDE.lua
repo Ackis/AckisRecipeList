@@ -1600,3 +1600,4 @@ L["Zurai"] = "Zurai"
 L["Northern Cooking"] = true
 
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
+L["Clamlette Surprise"] = true

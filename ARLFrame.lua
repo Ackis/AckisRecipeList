@@ -174,9 +174,6 @@ StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 }
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:CloseWindow()
 
@@ -286,9 +283,6 @@ local function SetSortString(recipeSkill, recStr)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function CheckDisplayFaction(filterDB, faction)
 
@@ -540,9 +534,6 @@ local function initDisplayStrings()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function ClearRecipeButtonTooltip(bIndex)
 
@@ -556,9 +547,7 @@ local function ClearRecipeButtonTooltip(bIndex)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+
 -- converting from hex to rgb (Thanks Maldivia)
 
 local function toRGB(hex)
@@ -570,9 +559,7 @@ local function toRGB(hex)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
@@ -656,9 +643,6 @@ local function SetSpellTooltip(owner, loc)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
@@ -1028,11 +1012,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- This sets the tooltip on the button during a recipelist update
+-- Description: This sets the tooltip on the button during a recipelist update
 
 local function SetRecipeButtonTooltip(bIndex)
 
@@ -1071,11 +1051,7 @@ local function SetRecipeButtonTooltip(bIndex)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- Scrollframe update stuff
+-- Description: Scrollframe update stuff
 
 local function RecipeList_Update()
 
@@ -1222,31 +1198,6 @@ local function SetProgressBar(playerData)
 		pbMax = pbMax - playerData.excluded_recipes_known
 	end
 
-	-- Lets remove cooking/first aid recipes from the totals/current
-	-- Cooking
-	if (playerData.playerProfession == GetSpellInfo(2550)) then
-		if (playerData.playerProfessionLevel > 300) then
-			pbCur = pbCur - 1
-			pbMax = pbMax - 1
-		end
-		if (playerData.playerProfessionLevel > 225) then
-			pbCur = pbCur - 1
-			pbMax = pbMax - 1
-		end
-	end
-
-	-- First Aid
-	if ((playerData.playerProfession == GetSpellInfo(746)) or (playerData.playerProfession == "Premiers soins")) then
-		if (playerData.playerProfessionLevel > 225) then
-			pbCur = pbCur - 1
-			pbMax = pbMax - 1
-		end
-		if (playerData.playerProfessionLevel > 150) then
-			pbCur = pbCur - 1
-			pbMax = pbMax - 1
-		end
-	end
-
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
 	ARL_ProgressBar:SetValue(pbCur)
 
@@ -1261,9 +1212,6 @@ local function SetProgressBar(playerData)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:ResetGUI()
 
@@ -1282,9 +1230,6 @@ end
 -- a new search occurred. Use this function to do all the dirty work
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function ReDisplay()
 
@@ -1373,9 +1318,6 @@ function addon:CreateScanButton()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:ShowScanButton()
 
@@ -1416,9 +1358,6 @@ function addon:ShowScanButton()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:TooltipDisplay(this, textLabel)
 
@@ -1439,9 +1378,6 @@ function addon:TooltipDisplay(this, textLabel)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.numFilters()
 
@@ -1468,9 +1404,6 @@ function addon.numFilters()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.resetTitle()
 
@@ -1495,9 +1428,6 @@ function addon.resetTitle()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.filterSwitch(val)
 
@@ -1708,9 +1638,6 @@ function addon.filterSwitch(val)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function HideARL_ExpOptCB(ignorevalue)
 
@@ -1802,9 +1729,6 @@ local function HideARL_ExpOptCB(ignorevalue)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.ToggleFilters()
 
@@ -1879,9 +1803,6 @@ function addon.ToggleFilters()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 
@@ -1909,9 +1830,6 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon:GenericCreateButton(
 	bName, parentFrame,	bHeight, bWidth,
@@ -2034,11 +1952,7 @@ function addon:GenericCreateButton(
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- Generic function for creating my expanded panel buttons
+-- Description: Generic function for creating my expanded panel buttons
 
 function addon:CreateExpCB(bName, bTex, panelIndex)
 	local ExpTextureSize = 34
@@ -2184,11 +2098,7 @@ do
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- Set the texture on the switcher button.
+-- Description: Set the texture on the switcher button.
 
 local function SetSwitcherTexture(tex)
 
@@ -2215,10 +2125,7 @@ local function SetSwitcherTexture(tex)
 
 end
 
-	-- Description: Switch the displayed profession in the main panel
-	-- Expected result: 
-	-- Input: 
-	-- Output: 
+-- Description: Switch the displayed profession in the main panel
 
 function addon:SwitchProfs(button)
 	-- Known professions should be in playerData["Professions"]
@@ -2337,9 +2244,6 @@ function addon:SwitchProfs(button)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function expandEntry(dsIndex)
 
@@ -2694,9 +2598,6 @@ local function expandEntry(dsIndex)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.RecipeItem_OnClick(button)
 
@@ -2787,11 +2688,7 @@ function addon.RecipeItem_OnClick(button)
 
 end
 
--- Rep Filtering panel switcher
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
+-- Description: Rep Filtering panel switcher
 
 function addon.RepFilterSwitch(whichrep)
 	-- 1	ARL_RepOldWorldCB		Old World Rep
@@ -2885,9 +2782,6 @@ function addon.RepFilterSwitch(whichrep)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.setFlyawayState()
 
@@ -3043,9 +2937,6 @@ function addon.setFlyawayState()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output:
 
 local function recursiveReset(t)
 
@@ -3068,9 +2959,6 @@ local function recursiveReset(t)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.resetFilters() 
 
@@ -3114,9 +3002,6 @@ function addon.resetFilters()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.DoFlyaway(panel)
 
@@ -3348,11 +3233,7 @@ function addon.DoFlyaway(panel)
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- This does an initial fillup of the DisplayStrings, as above.
+-- Description: This does an initial fillup of the DisplayStrings, as above.
 -- However, in this case, it expands every recipe
 
 local function expandallDisplayStrings()
@@ -3412,9 +3293,6 @@ local function expandallDisplayStrings()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 function addon.ExpandAll_Clicked()
 
@@ -3431,6 +3309,8 @@ function addon.ExpandAll_Clicked()
 	RecipeList_Update()
 
 end
+
+-- Description: 
 
 local function SetSortName()
 
@@ -3451,9 +3331,6 @@ local function SetSortName()
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
@@ -3463,13 +3340,11 @@ local function ARL_DD_Sort_OnClick(button, value)
 end
 
 -- Description: 
--- Expected result: 
--- Input: 
--- Output: 
 
 local function ARL_DD_Sort_Initialize()
 
 	local k
+	local info = UIDropDownMenu_CreateInfo()
 
 	k = "Name"
 		info.text = k
@@ -3522,11 +3397,7 @@ local function SaveFramePosition()
 
 end
 
--- Description: 
--- Expected result: 
--- Input: 
--- Output: 
--- Creates the initial frame to display recipes into
+-- Description: Creates the initial frame to display recipes into
 
 function addon:CreateFrame(
 
