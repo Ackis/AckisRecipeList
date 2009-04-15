@@ -1537,6 +1537,9 @@ end
 
 do
 
+	local UnitClass = UnitClass
+	local UnitFactionGroup = UnitFactionGroup
+
 	local RecipeList = nil
 
 	local CustomList = nil
@@ -2280,346 +2283,352 @@ function addon:GetTextDump(RecipeDB, profession)
 
 end
 
--- Description: Dumps all the info about a recipe out to chat
+do
 
-function addon:DumpRecipe(SpellID)
+	local GetItemInfo = GetItemInfo
 
-	local recipelist = addon:GetRecipeTable()
+	-- Description: Dumps all the info about a recipe out to chat
 
-	if (not recipelist) then
-		return
-	end
+	function addon:DumpRecipe(SpellID)
 
-	if (recipelist[SpellID]) then
+		local recipelist = addon:GetRecipeTable()
 
-		x = recipelist[SpellID]
-		self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
-		self:Print("Rarity: " .. x["Rarity"])
-		if (x["Specialty"]) then
-			self:Print("Profession: " .. x["Profession"] .. "(" .. x["Specialty"] .. ")")
+		if (not recipelist) then
+			return
+		end
+
+		if (recipelist[SpellID]) then
+
+			local x = recipelist[SpellID]
+			self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
+			self:Print("Rarity: " .. x["Rarity"])
+			if (x["Specialty"]) then
+				self:Print("Profession: " .. x["Profession"] .. "(" .. x["Specialty"] .. ")")
+			else
+				self:Print("Profession: " .. x["Profession"])
+			end
+			if (x["ItemID"]) then
+				local _,linky = GetItemInfo(x["ItemID"])
+				self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
+			end
+			if (x["Locations"]) then
+				self:Print("Located: " .. x["Locations"])
+			end
+
+			local flags = x["Flags"]
+			local flagstr = ""
+
+			if (flags[1] == true) then
+				flagstr = flagstr .. "Ally,"
+			end
+			if (flags[2] == true) then
+				flagstr = flagstr .. "Horde,"
+			end
+			if (flags[3] == true) then
+				flagstr = flagstr .. "Trn,"
+			end
+			if (flags[4] == true) then
+				flagstr = flagstr .. "Ven,"
+			end
+			if (flags[5] == true) then
+				flagstr = flagstr .. "Instance,"
+			end
+			if (flags[6] == true) then
+				flagstr = flagstr .. "Raid,"
+			end
+			if (flags[7] == true) then
+				flagstr = flagstr .. "Seasonal,"
+			end
+			if (flags[8] == true) then
+				flagstr = flagstr .. "Quest,"
+			end
+			if (flags[9] == true) then
+				flagstr = flagstr .. "PVP,"
+			end
+			if (flags[10] == true) then
+				flagstr = flagstr .. "World,"
+			end
+			if (flags[11] == true) then
+				flagstr = flagstr .. "Mob,"
+			end
+			if (flags[12] == true) then
+				flagstr = flagstr .. "Disc,"
+			end
+			if (flags[13] == true) then
+				flagstr = flagstr .. "13,"
+			end
+			if (flags[14] == true) then
+				flagstr = flagstr .. "14,"
+			end
+			if (flags[15] == true) then
+				flagstr = flagstr .. "15,"
+			end
+			if (flags[16] == true) then
+				flagstr = flagstr .. "16,"
+			end
+			if (flags[17] == true) then
+				flagstr = flagstr .. "17,"
+			end
+			if (flags[18] == true) then
+				flagstr = flagstr .. "18,"
+			end
+			if (flags[19] == true) then
+				flagstr = flagstr .. "19,"
+			end
+			if (flags[20] == true) then
+				flagstr = flagstr .. "20,"
+			end
+			if (flags[21] == true) then
+				flagstr = flagstr .. "DK,"
+			end
+			if (flags[22] == true) then
+				flagstr = flagstr .. "Druid,"
+			end
+			if (flags[23] == true) then
+				flagstr = flagstr .. "Huntard,"
+			end
+			if (flags[24] == true) then
+				flagstr = flagstr .. "Mage,"
+			end
+			if (flags[25] == true) then
+				flagstr = flagstr .. "Pally,"
+			end
+			if (flags[26] == true) then
+				flagstr = flagstr .. "Priest,"
+			end
+			if (flags[27] == true) then
+				flagstr = flagstr .. "Sham,"
+			end
+			if (flags[28] == true) then
+				flagstr = flagstr .. "Rogue,"
+			end
+			if (flags[29] == true) then
+				flagstr = flagstr .. "Lock,"
+			end
+			if (flags[30] == true) then
+				flagstr = flagstr .. "War,"
+			end
+			if (flags[31] == true) then
+				flagstr = flagstr .. "31,"
+			end
+			if (flags[36] == true) then
+				flagstr = flagstr .. "IBoE,"
+			end
+			if (flags[37] == true) then
+				flagstr = flagstr .. "IBoP,"
+			end
+			if (flags[38] == true) then
+				flagstr = flagstr .. "IBoA,"
+			end
+			if (flags[39] == true) then
+				flagstr = flagstr .. "39,"
+			end
+			if (flags[40] == true) then
+				flagstr = flagstr .. "RBoE,"
+			end
+			if (flags[41] == true) then
+				flagstr = flagstr .. "RBoP,"
+			end
+			if (flags[42] == true) then
+				flagstr = flagstr .. "RBoA,"
+			end
+			if (flags[51] == true) then
+				flagstr = flagstr .. "Melee,"
+			end
+			if (flags[52] == true) then
+				flagstr = flagstr .. "Tank,"
+			end
+			if (flags[53] == true) then
+				flagstr = flagstr .. "Heal,"
+			end
+			if (flags[54] == true) then
+				flagstr = flagstr .. "Caster,"
+			end
+			if (flags[56] == true) then
+				flagstr = flagstr .. "Cloth,"
+			end
+			if (flags[57] == true) then
+				flagstr = flagstr .. "Leather,"
+			end
+			if (flags[58] == true) then
+				flagstr = flagstr .. "Mail,"
+			end
+			if (flags[59] == true) then
+				flagstr = flagstr .. "Plate,"
+			end
+			if (flags[60] == true) then
+				flagstr = flagstr .. "Cloak,"
+			end
+			if (flags[61] == true) then
+				flagstr = flagstr .. "Trinket,"
+			end
+			if (flags[62] == true) then
+				flagstr = flagstr .. "Ring,"
+			end
+			if (flags[63] == true) then
+				flagstr = flagstr .. "Neck,"
+			end
+			if (flags[64] == true) then
+				flagstr = flagstr .. "Shield,"
+			end
+			if (flags[66] == true) then
+				flagstr = flagstr .. "1H,"
+			end
+			if (flags[67] == true) then
+				flagstr = flagstr .. "2H,"
+			end
+			if (flags[68] == true) then
+				flagstr = flagstr .. "Axe,"
+			end
+			if (flags[69] == true) then
+				flagstr = flagstr .. "Sword,"
+			end
+			if (flags[70] == true) then
+				flagstr = flagstr .. "Mace,"
+			end
+			if (flags[71] == true) then
+				flagstr = flagstr .. "Polearm,"
+			end
+			if (flags[72] == true) then
+				flagstr = flagstr .. "Dagger,"
+			end
+			if (flags[73] == true) then
+				flagstr = flagstr .. "Staff,"
+			end
+			if (flags[74] == true) then
+				flagstr = flagstr .. "Wand,"
+			end
+			if (flags[75] == true) then
+				flagstr = flagstr .. "Thrown,"
+			end
+			if (flags[76] == true) then
+				flagstr = flagstr .. "Bow,"
+			end
+			if (flags[77] == true) then
+				flagstr = flagstr .. "xBow,"
+			end
+			if (flags[78] == true) then
+				flagstr = flagstr .. "Ammo,"
+			end
+			if (flags[79] == true) then
+				flagstr = flagstr .. "Fist,"
+			end
+
+			self:Print("Flags: " .. flagstr)
+			flagstr = ""
+
+			if (flags[96] == true) then
+				flagstr = flagstr .. "AD,"
+			end
+			if (flags[97] == true) then
+				flagstr = flagstr .. "CC,"
+			end
+			if (flags[98] == true) then
+				flagstr = flagstr .. "TB,"
+			end
+			if (flags[99] == true) then
+				flagstr = flagstr .. "TH,"
+			end
+			if (flags[100] == true) then
+				flagstr = flagstr .. "ZH,"
+			end
+			if (flags[101] == true) then
+				flagstr = flagstr .. "Aldor,"
+			end
+			if (flags[102] == true) then
+				flagstr = flagstr .. "Ashtongue,"
+			end
+			if (flags[103] == true) then
+				flagstr = flagstr .. "CE,"
+			end
+			if (flags[104] == true) then
+				flagstr = flagstr .. "Thrall/HH,"
+			end
+			if (flags[105] == true) then
+				flagstr = flagstr .. "Consort,"
+			end
+			if (flags[106] == true) then
+				flagstr = flagstr .. "KoT,"
+			end
+			if (flags[107] == true) then
+				flagstr = flagstr .. "LC,"
+			end
+			if (flags[108] == true) then
+				flagstr = flagstr .. "Mag/Kur,"
+			end
+			if (flags[109] == true) then
+				flagstr = flagstr .. "SoS,"
+			end
+			if (flags[110] == true) then
+				flagstr = flagstr .. "Scryer,"
+			end
+			if (flags[111] == true) then
+				flagstr = flagstr .. "Sha'tar,"
+			end
+			if (flags[112] == true) then
+				flagstr = flagstr .. "Shattered Sun,"
+			end
+			if (flags[113] == true) then
+				flagstr = flagstr .. "Spore,"
+			end
+			if (flags[114] == true) then
+				flagstr = flagstr .. "VE,"
+			end
+			if (flags[115] == true) then
+				flagstr = flagstr .. "AC,"
+			end
+			if (flags[116] == true) then
+				flagstr = flagstr .. "Frenzy,"
+			end
+			if (flags[117] == true) then
+				flagstr = flagstr .. "Ebon,"
+			end
+			if (flags[118] == true) then
+				flagstr = flagstr .. "Kirin,"
+			end
+			if (flags[119] == true) then
+				flagstr = flagstr .. "Hodir,"
+			end
+			if (flags[120] == true) then
+				flagstr = flagstr .. "Kalu'ak,"
+			end
+			if (flags[121] == true) then
+				flagstr = flagstr .. "Oracles,"
+			end
+			if (flags[122] == true) then
+				flagstr = flagstr .. "Wyrm,"
+			end
+			if (flags[123] == true) then
+				flagstr = flagstr .. "Silver Conv,"
+			end
+			if (flags[124] == true) then
+				flagstr = flagstr .. "Sunreaver,"
+			end
+			if (flags[125] == true) then
+				flagstr = flagstr .. "Explorer,"
+			end
+			if (flags[126] == true) then
+				flagstr = flagstr .. "Valiance,"
+			end
+			if (flags[127] == true) then
+				flagstr = flagstr .. "Hand of Veng,"
+			end
+			if (flags[128] == true) then
+				flagstr = flagstr .. "Taunka,"
+			end
+			if (flags[129] == true) then
+				flagstr = flagstr .. "WO,"
+			end
+			if (flags[130] == true) then
+				flagstr = flagstr .. "AV/HE,"
+			end
+
+			self:Print("Reps: " .. flagstr)
+
 		else
-			self:Print("Profession: " .. x["Profession"])
-		end
-		if (x["ItemID"]) then
-			local _,linky = GetItemInfo(x["ItemID"])
-			self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
-		end
-		if (x["Locations"]) then
-			self:Print("Located: " .. x["Locations"])
+			self:Print("Spell ID not in recipe database.")
 		end
 
-		local flags = x["Flags"]
-		local flagstr = ""
-
-		if (flags[1] == true) then
-			flagstr = flagstr .. "Ally,"
-		end
-		if (flags[2] == true) then
-			flagstr = flagstr .. "Horde,"
-		end
-		if (flags[3] == true) then
-			flagstr = flagstr .. "Trn,"
-		end
-		if (flags[4] == true) then
-			flagstr = flagstr .. "Ven,"
-		end
-		if (flags[5] == true) then
-			flagstr = flagstr .. "Instance,"
-		end
-		if (flags[6] == true) then
-			flagstr = flagstr .. "Raid,"
-		end
-		if (flags[7] == true) then
-			flagstr = flagstr .. "Seasonal,"
-		end
-		if (flags[8] == true) then
-			flagstr = flagstr .. "Quest,"
-		end
-		if (flags[9] == true) then
-			flagstr = flagstr .. "PVP,"
-		end
-		if (flags[10] == true) then
-			flagstr = flagstr .. "World,"
-		end
-		if (flags[11] == true) then
-			flagstr = flagstr .. "Mob,"
-		end
-		if (flags[12] == true) then
-			flagstr = flagstr .. "Disc,"
-		end
-		if (flags[13] == true) then
-			flagstr = flagstr .. "13,"
-		end
-		if (flags[14] == true) then
-			flagstr = flagstr .. "14,"
-		end
-		if (flags[15] == true) then
-			flagstr = flagstr .. "15,"
-		end
-		if (flags[16] == true) then
-			flagstr = flagstr .. "16,"
-		end
-		if (flags[17] == true) then
-			flagstr = flagstr .. "17,"
-		end
-		if (flags[18] == true) then
-			flagstr = flagstr .. "18,"
-		end
-		if (flags[19] == true) then
-			flagstr = flagstr .. "19,"
-		end
-		if (flags[20] == true) then
-			flagstr = flagstr .. "20,"
-		end
-		if (flags[21] == true) then
-			flagstr = flagstr .. "DK,"
-		end
-		if (flags[22] == true) then
-			flagstr = flagstr .. "Druid,"
-		end
-		if (flags[23] == true) then
-			flagstr = flagstr .. "Huntard,"
-		end
-		if (flags[24] == true) then
-			flagstr = flagstr .. "Mage,"
-		end
-		if (flags[25] == true) then
-			flagstr = flagstr .. "Pally,"
-		end
-		if (flags[26] == true) then
-			flagstr = flagstr .. "Priest,"
-		end
-		if (flags[27] == true) then
-			flagstr = flagstr .. "Sham,"
-		end
-		if (flags[28] == true) then
-			flagstr = flagstr .. "Rogue,"
-		end
-		if (flags[29] == true) then
-			flagstr = flagstr .. "Lock,"
-		end
-		if (flags[30] == true) then
-			flagstr = flagstr .. "War,"
-		end
-		if (flags[31] == true) then
-			flagstr = flagstr .. "31,"
-		end
-		if (flags[36] == true) then
-			flagstr = flagstr .. "IBoE,"
-		end
-		if (flags[37] == true) then
-			flagstr = flagstr .. "IBoP,"
-		end
-		if (flags[38] == true) then
-			flagstr = flagstr .. "IBoA,"
-		end
-		if (flags[39] == true) then
-			flagstr = flagstr .. "39,"
-		end
-		if (flags[40] == true) then
-			flagstr = flagstr .. "RBoE,"
-		end
-		if (flags[41] == true) then
-			flagstr = flagstr .. "RBoP,"
-		end
-		if (flags[42] == true) then
-			flagstr = flagstr .. "RBoA,"
-		end
-		if (flags[51] == true) then
-			flagstr = flagstr .. "Melee,"
-		end
-		if (flags[52] == true) then
-			flagstr = flagstr .. "Tank,"
-		end
-		if (flags[53] == true) then
-			flagstr = flagstr .. "Heal,"
-		end
-		if (flags[54] == true) then
-			flagstr = flagstr .. "Caster,"
-		end
-		if (flags[56] == true) then
-			flagstr = flagstr .. "Cloth,"
-		end
-		if (flags[57] == true) then
-			flagstr = flagstr .. "Leather,"
-		end
-		if (flags[58] == true) then
-			flagstr = flagstr .. "Mail,"
-		end
-		if (flags[59] == true) then
-			flagstr = flagstr .. "Plate,"
-		end
-		if (flags[60] == true) then
-			flagstr = flagstr .. "Cloak,"
-		end
-		if (flags[61] == true) then
-			flagstr = flagstr .. "Trinket,"
-		end
-		if (flags[62] == true) then
-			flagstr = flagstr .. "Ring,"
-		end
-		if (flags[63] == true) then
-			flagstr = flagstr .. "Neck,"
-		end
-		if (flags[64] == true) then
-			flagstr = flagstr .. "Shield,"
-		end
-		if (flags[66] == true) then
-			flagstr = flagstr .. "1H,"
-		end
-		if (flags[67] == true) then
-			flagstr = flagstr .. "2H,"
-		end
-		if (flags[68] == true) then
-			flagstr = flagstr .. "Axe,"
-		end
-		if (flags[69] == true) then
-			flagstr = flagstr .. "Sword,"
-		end
-		if (flags[70] == true) then
-			flagstr = flagstr .. "Mace,"
-		end
-		if (flags[71] == true) then
-			flagstr = flagstr .. "Polearm,"
-		end
-		if (flags[72] == true) then
-			flagstr = flagstr .. "Dagger,"
-		end
-		if (flags[73] == true) then
-			flagstr = flagstr .. "Staff,"
-		end
-		if (flags[74] == true) then
-			flagstr = flagstr .. "Wand,"
-		end
-		if (flags[75] == true) then
-			flagstr = flagstr .. "Thrown,"
-		end
-		if (flags[76] == true) then
-			flagstr = flagstr .. "Bow,"
-		end
-		if (flags[77] == true) then
-			flagstr = flagstr .. "xBow,"
-		end
-		if (flags[78] == true) then
-			flagstr = flagstr .. "Ammo,"
-		end
-		if (flags[79] == true) then
-			flagstr = flagstr .. "Fist,"
-		end
-
-		self:Print("Flags: " .. flagstr)
-		flagstr = ""
-
-		if (flags[96] == true) then
-			flagstr = flagstr .. "AD,"
-		end
-		if (flags[97] == true) then
-			flagstr = flagstr .. "CC,"
-		end
-		if (flags[98] == true) then
-			flagstr = flagstr .. "TB,"
-		end
-		if (flags[99] == true) then
-			flagstr = flagstr .. "TH,"
-		end
-		if (flags[100] == true) then
-			flagstr = flagstr .. "ZH,"
-		end
-		if (flags[101] == true) then
-			flagstr = flagstr .. "Aldor,"
-		end
-		if (flags[102] == true) then
-			flagstr = flagstr .. "Ashtongue,"
-		end
-		if (flags[103] == true) then
-			flagstr = flagstr .. "CE,"
-		end
-		if (flags[104] == true) then
-			flagstr = flagstr .. "Thrall/HH,"
-		end
-		if (flags[105] == true) then
-			flagstr = flagstr .. "Consort,"
-		end
-		if (flags[106] == true) then
-			flagstr = flagstr .. "KoT,"
-		end
-		if (flags[107] == true) then
-			flagstr = flagstr .. "LC,"
-		end
-		if (flags[108] == true) then
-			flagstr = flagstr .. "Mag/Kur,"
-		end
-		if (flags[109] == true) then
-			flagstr = flagstr .. "SoS,"
-		end
-		if (flags[110] == true) then
-			flagstr = flagstr .. "Scryer,"
-		end
-		if (flags[111] == true) then
-			flagstr = flagstr .. "Sha'tar,"
-		end
-		if (flags[112] == true) then
-			flagstr = flagstr .. "Shattered Sun,"
-		end
-		if (flags[113] == true) then
-			flagstr = flagstr .. "Spore,"
-		end
-		if (flags[114] == true) then
-			flagstr = flagstr .. "VE,"
-		end
-		if (flags[115] == true) then
-			flagstr = flagstr .. "AC,"
-		end
-		if (flags[116] == true) then
-			flagstr = flagstr .. "Frenzy,"
-		end
-		if (flags[117] == true) then
-			flagstr = flagstr .. "Ebon,"
-		end
-		if (flags[118] == true) then
-			flagstr = flagstr .. "Kirin,"
-		end
-		if (flags[119] == true) then
-			flagstr = flagstr .. "Hodir,"
-		end
-		if (flags[120] == true) then
-			flagstr = flagstr .. "Kalu'ak,"
-		end
-		if (flags[121] == true) then
-			flagstr = flagstr .. "Oracles,"
-		end
-		if (flags[122] == true) then
-			flagstr = flagstr .. "Wyrm,"
-		end
-		if (flags[123] == true) then
-			flagstr = flagstr .. "Silver Conv,"
-		end
-		if (flags[124] == true) then
-			flagstr = flagstr .. "Sunreaver,"
-		end
-		if (flags[125] == true) then
-			flagstr = flagstr .. "Explorer,"
-		end
-		if (flags[126] == true) then
-			flagstr = flagstr .. "Valiance,"
-		end
-		if (flags[127] == true) then
-			flagstr = flagstr .. "Hand of Veng,"
-		end
-		if (flags[128] == true) then
-			flagstr = flagstr .. "Taunka,"
-		end
-		if (flags[129] == true) then
-			flagstr = flagstr .. "WO,"
-		end
-		if (flags[130] == true) then
-			flagstr = flagstr .. "AV/HE,"
-		end
-
-		self:Print("Reps: " .. flagstr)
-
-	else
-		self:Print("Spell ID not in recipe database.")
 	end
 
 end
