@@ -1,5 +1,8 @@
 ==ARL Changes==
 
+===RC8===
+
+
 ===RC7===
 *This release is dedicated to the demise of WowMatrix.  May it rot in hell.
 *Added formal in-game datamining functions.  These are to be used when you want to see if ARL has accurate data.
