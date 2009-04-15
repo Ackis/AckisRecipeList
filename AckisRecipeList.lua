@@ -118,7 +118,7 @@ local string = string
 local format = format
 local sfind = string.find
 local smatch = string.match
-local tolower = string.lower
+local strlower = string.lower
 
 --[[
 
@@ -1510,23 +1510,23 @@ end
 function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
-	if (not input) or (input and input:trim() == "") or (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
+	if (not input) or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-	elseif (input == tolower(L["About"])) then
+	elseif (input == strlower(L["About"])) then
 		if (self.optionsFrame["About"]) then
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 		else
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		end
-	elseif (input == tolower(L["Profile"])) then
+	elseif (input == strlower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-	elseif (input == tolower(L["Filter"])) then
+	elseif (input == strlower(L["Filter"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
-	elseif (input == tolower(L["Documentation"])) then
+	elseif (input == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
-	elseif (input == tolower(L["Scan"])) then
+	elseif (input == strlower(L["Scan"])) then
 		self:AckisRecipeList_Command(false)
-	elseif (input == tolower("scandata")) then
+	elseif (input == strlower("scandata")) then
 		self:ScanSkillLevelData()
 	else
 		-- What happens when we get here?
@@ -2136,7 +2136,7 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 
 	if (searchstring) then
 
-		searchstring = tolower(searchstring)
+		searchstring = strlower(searchstring)
 
 		-- Go through the entire database
 		for SpellID in pairs(RecipeDB) do
@@ -2148,13 +2148,13 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 			recipe["Search"] = false
 
 			-- Allow us to search by spell ID
-			if sfind(tolower(SpellID),searchstring) or
+			if sfind(strlower(SpellID),searchstring) or
 
 				-- Allow us to search byitem ID
-				(recipe["ItemID"] and sfind(tolower(recipe["ItemID"]),searchstring)) or
+				(recipe["ItemID"] and sfind(strlower(recipe["ItemID"]),searchstring)) or
 
 				-- Allow us to search by name
-				(recipe["Name"] and sfind(tolower(recipe["Name"]),searchstring)) or
+				(recipe["Name"] and sfind(strlower(recipe["Name"]),searchstring)) or
 
 				-- Allow us to search by locations
 				(recipe["Locations"] and sfind(recipe["Locations"],searchstring)) or

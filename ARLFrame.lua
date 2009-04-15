@@ -41,12 +41,28 @@ local narrowFont = nil
 local normalFont = nil
 
 local pairs = pairs
+local select = select
+
+local table.wipe = table.wipe
+local tremove = table.remove
+local tonumber = tonumber
+
+local math.floor = math.floor
+
+local strlower = string.lower
+
 local GetSpellInfo = GetSpellInfo
 local GetSkillLineInfo = GetSkillLineInfo
 local GetNumSkillLines = GetNumSkillLines
 local ExpandSkillHeader = ExpandSkillHeader
 local CollapseSkillHeader = CollapseSkillHeader
+local GetTradeSkillLine = GetTradeSkillLine
+local GetItemInfo = GetItemInfo
+local UnitClass = UnitClass
 
+
+-- Modifier functions which we deal with
+local IsModifierKeyDown = IsModifierKeyDown
 local IsShiftKeyDown = IsShiftKeyDown
 local IsAltKeyDown = IsAltKeyDown
 local IsControlKeyDown = IsControlKeyDown
