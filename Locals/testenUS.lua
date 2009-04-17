@@ -1710,3 +1710,8 @@ L["Bryan Landers"] = true
 L["Prospector Khazgorm"] = true
 L["Northern Cooking"] = true
 L["Clamlette Surprise"] = true
+L["DATAMINER_SKILLELVEL"] = [[DEBUG: Recipe level different!
+    Name: %s
+	ARL Level: %s
+	Trainer Level: %s]]
+L["DATAMINER_SKILLLEVEL_ERROR"] = "This can only be used for a trade skill trainer.  Please open up the trainer and try again."

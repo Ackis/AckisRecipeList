@@ -33,11 +33,13 @@ local pairs = pairs
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData()
 
+	-- Are we at a trade skill trainer?
 	if (IsTradeskillTrainer()) then
 		SetTrainerServiceTypeFilter("available", 1)
 		SetTrainerServiceTypeFilter("unavailable", 1)
 		SetTrainerServiceTypeFilter("used", 1)
 		local t = {}
+		-- Get the skill levels from the trainer
 		for i=1,GetNumTrainerServices(),1 do
 			local name = GetTrainerServiceInfo(i)
 			local _,skilllevel = GetTrainerServiceSkillReq(i)
@@ -46,15 +48,82 @@ function addon:ScanSkillLevelData()
 			end
 			t[name] = skilllevel
 		end
+		-- Get internal database
 		local recipelist = addon:GetRecipeTable()
 		for i in pairs(recipelist) do
 			local i_name = recipelist[i]["Name"]
 			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
-				self:Print("DEBUG: Recipe level different! Name: " .. i_name .. " Internal Level: " ..  recipelist[i]["Level"] .. " External Level: " .. t[i_name])
+				self:Print(L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
 			end
 		end
 	else
-		self:Print("This can only be used for a trade skill trainer.  Dumbass.")
+		self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+	end
+
+end
+
+-- Description: Parses a trainer, comparing all recipes you can learn with where you can learn them in the database
+
+--- API for external addons to get recipe database from ARL
+-- @name AckisRecipeList:ScanTrainerData
+-- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
+function addon:ScanTrainerData()
+
+	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("target"))) then
+		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
+		local targetname = UnitName("target")
+
+		-- Are we at a trade skill trainer?
+		if (IsTradeskillTrainer()) then
+			SetTrainerServiceTypeFilter("available", 1)
+			SetTrainerServiceTypeFilter("unavailable", 1)
+			SetTrainerServiceTypeFilter("used", 1)
+			local t = {}
+			-- Get all the names of recipes from the trainer
+			for i=1,GetNumTrainerServices(),1 do
+				local name = GetTrainerServiceInfo(i)
+				t[name] = true
+			end
+			-- Get internal database
+			local recipelist = addon:GetRecipeTable()
+			for i in pairs(recipelist) do
+				local i_name = recipelist[i]["Name"]
+				local acquire = recipelist[i]["Acquire"]
+				-- If the trainer teaches this recipe
+				if t[i_name] then
+					local found = false
+					-- Parse acquire info
+					for i in pairs(acquire) do
+						if (acquire[i]["Type"] == 1) then
+							if (acquire[i]["ID"] == targetID) then
+								found = true
+							end
+						end
+					end
+					if (not found) then
+						self:Print("Trainer teaches " .. i_name .. " but this is not listed as a trainer for the recipe.")
+					end
+				-- Trainer does not teach this recipe
+				else
+					local found = false
+					-- Parse acquire info
+					for i in pairs(acquire) do
+						if (acquire[i]["Type"] == 1) then
+							if (acquire[i]["ID"] == targetID) then
+								found = true
+							end
+						end
+					end
+					if (found) then
+						self:Print("Trainer does not teach " .. i_name .. " but this is listed as a trainer for the recipe.")
+					end
+				end
+			end
+		else
+			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+		end
+	else
+
 	end
 
 end
