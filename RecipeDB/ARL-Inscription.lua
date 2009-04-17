@@ -94,7 +94,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Scroll of Intellect VI -- 50602
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50602,300,33458,1,45357)
+	self:addTradeSkill(RecipeDB,50602,310,33458,1,45357)
 	self:addTradeFlags(RecipeDB,50602,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,50602,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
@@ -2240,8 +2240,6 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,57253,1,2,12,27,36,41)
 	self:addTradeAcquire(RecipeDB,57253,8,15)
 
-	if select(4, GetBuildInfo()) >= 30100 then
-
 	-- Rituals of the New Moon -- 64051
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64051,350,46108,2,45357)
@@ -2256,13 +2254,13 @@ function addon:InitInscription(RecipeDB)
 
 	-- Glyph of Dark Death -- 64266
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64266,280,45804,1,45357)
+	self:addTradeSkill(RecipeDB,64266,275,45804,1,45357)
 	self:addTradeFlags(RecipeDB,64266,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
 	-- Glyph of Disease -- 64267
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64267,285,45805,1,45357)
+	self:addTradeSkill(RecipeDB,64267,280,45805,1,45357)
 	self:addTradeFlags(RecipeDB,64267,1,2,21,36,41)
 	--self:addTradeAcquire(RecipeDB,)
 
@@ -2364,7 +2362,7 @@ function addon:InitInscription(RecipeDB)
 
 	--Glyph of Earth Shield -- 64261
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64261,255,45775,1,45357)
+	self:addTradeSkill(RecipeDB,64261,250,45775,1,45357)
 	self:addTradeFlags(RecipeDB,64261,1,2,27,36,41)
 	--self:addTradeAcquire(RecipeDB,64261,)
 
@@ -2496,7 +2494,7 @@ function addon:InitInscription(RecipeDB)
 
 	--Glyph of Monsoon -- 64258
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64258,255,45622,1,45357)
+	self:addTradeSkill(RecipeDB,64258,250,45622,1,45357)
 	self:addTradeFlags(RecipeDB,64258,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64258,)
 
@@ -2637,8 +2635,6 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64270,430,45602,1,45357)
 	self:addTradeFlags(RecipeDB,64270,1,2,22,36,41)
 	--self:addTradeAcquire(RecipeDB,64270,)
-
-	end
 
 	return recipecount
 
