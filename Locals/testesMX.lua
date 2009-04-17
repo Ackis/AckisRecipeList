@@ -1582,3 +1582,13 @@ L["Northern Cooking"] = true
 
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
 L["Clamlette Surprise"] = true
+L["DATAMINER_SKILLELVEL"] = [[Recipe level different!
+    Name: %s
+	ARL Level: %s
+	Trainer Level: %s]]
+L["DATAMINER_SKILLLEVEL_ERROR"] = "This can only be used for a trade skill trainer.  Please open up the trainer and try again."
+L["DATAMINER_TRAINER_NOTTARGETTED"] = "You must target the trainer when you run this command."
+L["DATAMINER_TRAINER_INFO"] = [[Trainer Name: %s
+Trainer ID: %s]]
+L["DATAMINER_TRAINER_TEACH"] = "Missing entry for %s"
+L["DATAMINER_TRAINER_NOTTEACH"] = "Extra entry for %s"

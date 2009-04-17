@@ -69,10 +69,13 @@ end
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
 function addon:ScanTrainerData()
 
-	--if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("target"))) then
-	if (UnitExists("target") and (not UnitIsPlayer("target"))) then
-		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
+	-- Make sure the target exists and is a NPC
+	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
+
+		-- Get its name
 		local targetname = UnitName("target")
+		-- Get the NPC ID
+		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
 
 		-- Are we at a trade skill trainer?
 		if (IsTradeskillTrainer()) then
@@ -85,6 +88,8 @@ function addon:ScanTrainerData()
 				local name = GetTrainerServiceInfo(i)
 				t[name] = true
 			end
+			-- Dump out trainer info
+			self:Print(L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 			-- Get internal database
 			local recipelist = addon:GetRecipeTable()
 			for i in pairs(recipelist) do
@@ -102,7 +107,7 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (not found) then
-						self:Print("Trainer teaches " .. i_name .. " but this is not listed as a trainer for the recipe.")
+						self:Print(L["DATAMINER_TRAINER_TEACH"]:format(i_name))
 					end
 				-- Trainer does not teach this recipe
 				else
@@ -116,7 +121,7 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (found) then
-						self:Print("Trainer does not teach " .. i_name .. " but this is listed as a trainer for the recipe.")
+						self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(i_name))
 					end
 				end
 			end
@@ -124,7 +129,7 @@ function addon:ScanTrainerData()
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 		end
 	else
-
+		self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
 	end
 
 end
