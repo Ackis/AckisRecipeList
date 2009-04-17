@@ -1673,7 +1673,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Lay on Hands -- 58313
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,58313,75,43367,1,45357)
-	self:addTradeFlags(RecipeDB,58313,1,2,3,25,36,41)
+	self:addTradeFlags(RecipeDB,58313,1,2,12,25,36,41)
 	self:addTradeAcquire(RecipeDB,58313,8,14)
 
 	-- Glyph of Blessing of Might -- 58314
