@@ -28,7 +28,7 @@ local pairs = pairs
 
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
---- API for external addons to get recipe database from ARL
+--- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 -- @name AckisRecipeList:ScanSkillLevelData
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData()
@@ -64,7 +64,7 @@ end
 
 -- Description: Parses a trainer, comparing all recipes you can learn with where you can learn them in the database
 
---- API for external addons to get recipe database from ARL
+--- Function to compare which recipes are availible from a trainer and compare with the internal ARL database.
 -- @name AckisRecipeList:ScanTrainerData
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
 function addon:ScanTrainerData()
@@ -131,5 +131,46 @@ function addon:ScanTrainerData()
 	else
 		self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
 	end
+
+end
+
+-- Description: Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
+
+--- Generates tradeskill links for all professions so you can scan them for completeness.
+-- @name AckisRecipeList:GenerateLinks
+-- @return Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
+function addon:GenerateLinks()
+
+	local guid = UnitGUID("player")
+	local playerGUID = string.gsub(guid,"0x0+", "")
+
+	local tradelist = {2259, 2018, 7411, 4036, 45357, 25229, 2108, 3908,  2550, 746}
+
+	for i in pairs(tradelist) do
+
+		local tradeName = GetSpellInfo(tradelist[i])
+		--local tradelink = "|cffffd00|Htrade:" .. tradelist[i] .. ":450:450:" .. playerGUID .. ":" .. bitMap .. "|h[" .. tradeName .."]|h|r"
+
+	end
+
+	DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
+
+--[[
+
+tradeID is the spellID of the trade -- any level seems to work
+tradeName is the name of the trade
+
+playerGUID is a valid GUID so i just use the current player's
+
+local guid = UnitGUID("player")
+local playerGUID = string.gsub(guid,"0x0+", "")
+
+that leaves the bitMap.
+
+the bitMap is base-64 encoded string of all the potential recipes a player might know for a particular trade. without worrying at all about which spell is which, you can simply set each bit to 1 -- or each byte to 63. 63 in this case is "/" so a bitmap representing every possible skill of a particular trade would be a string of "//////"... the catch is that the bitmap has to be the exact proper length for that tradeskill.
+
+local bitMap = string.rep("/",bitMapLength)
+
+]]--
 
 end
