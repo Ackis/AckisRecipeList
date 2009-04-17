@@ -9,7 +9,7 @@
 ## Notes-zhCN: 扫描并告知如何获取你所缺失的配方的详细商业技能信息插件。
 ## Notes-koKR: 캐릭터가 배우지 못한 제조법을 표시합니다. 또한 제조법의 획득 정보을 알려줍니다.
 
-## Author: Ackis, Zhinjio
+## Author: Ackis, Zhinjio, Jim-Bim
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/arl/#w_donations
 
@@ -18,7 +18,7 @@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
-## X-Credits: FGWarmonger, Jim-Bim, Kagaro, Speeddymon, Xinhuan and more!
+## X-Credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan and more!
 
 ## X-Category: Tradeskill
 ## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, koKR, esES, esMX, ruRU
