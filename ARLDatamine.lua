@@ -69,7 +69,8 @@ end
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
 function addon:ScanTrainerData()
 
-	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("target"))) then
+	--if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("target"))) then
+	if (UnitExists("target") and (not UnitIsPlayer("target"))) then
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
 		local targetname = UnitName("target")
 
