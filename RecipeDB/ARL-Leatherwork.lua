@@ -3042,7 +3042,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Borean Leather -- 64661
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64661,450,33568,1,2108)
+	self:addTradeSkill(RecipeDB,64661,350,33568,1,2108)
 	self:addTradeFlags(RecipeDB,64661,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,64661,1,26911,1,26961,1,26996,1,26998,1,28700)
 
