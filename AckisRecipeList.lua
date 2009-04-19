@@ -1145,7 +1145,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1161,7 +1161,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1177,7 +1177,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1193,7 +1193,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1209,7 +1209,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1225,7 +1225,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1241,7 +1241,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1257,7 +1257,7 @@ do
 				(classesdb.deathknight == true) and (flags[21] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1273,7 +1273,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.deathknight == true) and (flags[21] == true) or
 				(classesdb.warrior == true) and (flags[30] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
@@ -1289,7 +1289,7 @@ do
 				(classesdb.rogue == true) and (flags[28] == true) or
 				(classesdb.warlock == true) and (flags[29] == true) or
 				(classesdb.deathknight == true) and (flags[21] == true) then
-					return true
+					--do nothing
 				else
 					return false
 				end
