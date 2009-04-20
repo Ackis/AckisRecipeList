@@ -2636,6 +2636,12 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,64270,1,2,12,22,36,41)
 	self:addTradeAcquire(RecipeDB,64270,8,40)
 
+	--Twilight Tome -- 64053
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,64053,350,45849,1,45357)
+	self:addTradeFlags(RecipeDB,64053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66)
+	self:addTradeAcquire(RecipeDB,64053,1,33603)
+
 	return recipecount
 
 end
