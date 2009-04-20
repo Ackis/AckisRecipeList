@@ -1517,7 +1517,7 @@ function addon:InitAlchemy(RecipeDB)
 	if select(4, GetBuildInfo()) >= 30100 then
 	-- Elixir of Minor Accuracy -- 63732
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,63732,160,45621,1,2259)
+	self:addTradeSkill(RecipeDB,63732,135,45621,1,2259)
 	self:addTradeFlags(RecipeDB,63732,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,63732,1,1386,1,2391,1,2837,1,3009,1,3347,1,4160,1,4609,1,4611,1,5177,1,5499,1,7948,1,11042,1,16588,1,16642,1,16723,1,18802,1,19052)
 	end

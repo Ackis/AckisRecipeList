@@ -58,7 +58,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Fine Leather Cloak -- 2159
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,2159,75,2308,1,2108)
+	self:addTradeSkill(RecipeDB,2159,85,2308,1,2108)
 	self:addTradeFlags(RecipeDB,2159,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,2159,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
@@ -790,7 +790,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Cured Rugged Hide -- 19047
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,19047,240,15407,1,2108)
+	self:addTradeSkill(RecipeDB,19047,250,15407,1,2108)
 	self:addTradeFlags(RecipeDB,19047,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,19047,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
@@ -1114,19 +1114,19 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Medium Leather -- 20648
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,20648,90,2319,1,2108)
+	self:addTradeSkill(RecipeDB,20648,100,2319,1,2108)
 	self:addTradeFlags(RecipeDB,20648,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,20648,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Heavy Leather -- 20649
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,20649,140,4234,1,2108)
+	self:addTradeSkill(RecipeDB,20649,150,4234,1,2108)
 	self:addTradeFlags(RecipeDB,20649,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,20649,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
 
 	-- Thick Leather -- 20650
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,20650,195,4304,1,2108)
+	self:addTradeSkill(RecipeDB,20650,200,4304,1,2108)
 	self:addTradeFlags(RecipeDB,20650,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,20650,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
 
