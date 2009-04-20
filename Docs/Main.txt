@@ -39,9 +39,6 @@ Read the documentation located at these locations:
 * [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/ Bug Reporting and Feature Requestiing]
 * [http://www.wowace.com/projects/arl/pages/in-game-documentation/ In-game Documentation]
 
-==Comments==
-I have disabled comments on Curse.com for multiple reasons.  The main one being people posting comments such as "this is broken" without providing any other information.  Please see the in-game documentation or the Bug Reports section on how to contact me.
-
 ==Where to get it==
 * [http://www.wowace.com/projects/arl/files/ WoW Ace] - Alpha Quality
 * [http://wow.curse.com/downloads/wow-addons/details/arl.aspx Curse] - Stable release

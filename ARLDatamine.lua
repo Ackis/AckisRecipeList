@@ -27,6 +27,7 @@ local IsTradeskillTrainer = IsTradeskillTrainer
 local SetTrainerServiceTypeFilter = SetTrainerServiceTypeFilter
 local GetTrainerServiceSkillReq = GetTrainerServiceSkillReq
 local pairs = pairs
+local tconcat = table.concat
 
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
@@ -166,14 +167,17 @@ function addon:GenerateLinks()
 		tradelink[3] = ":450:450:"
 		tradelink[4] = playerGUID
 		tradelink[5] = ":"
-		tradelink[6] = bitmap[tradelist[i]] or "/////"
+		tradelink[6] = bitmap[tradelist[i]]
 		tradelink[7] = "|h["
 		tradelink[8] = tradeName
 		tradelink[9] = "]|h|r"
-		--local tradelink = "|cffffd00|Htrade:" .. tradelist[i] .. ":450:450:" .. playerGUID .. ":" .. bitMap .. "|h[" .. tradeName .."]|h|r"
+
+		if (bitmap[tradelist[i]]) then
+			self:Print(tconcat(tradelink,""))
+		else
+			DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
+		end
 
 	end
 
 end
-
---/script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
