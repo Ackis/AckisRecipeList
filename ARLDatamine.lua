@@ -21,11 +21,19 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+local UnitName = UnitName
+local UnitGUID = UnitGUID
+local UnitExists = UnitExists
+local UnitIsPlayer = UnitIsPlayer
+local UnitIsEnemy = UnitIsEnemy
 local GetNumTrainerServices = GetNumTrainerServices
 local GetTrainerServiceInfo = GetTrainerServiceInfo
 local IsTradeskillTrainer = IsTradeskillTrainer
 local SetTrainerServiceTypeFilter = SetTrainerServiceTypeFilter
 local GetTrainerServiceSkillReq = GetTrainerServiceSkillReq
+local GetMerchantNumItems = GetMerchantNumItems
+local GetMerchantItemLink = GetMerchantItemLink
+local GetMerchantItemInfo = GetMerchantItemInfo
 local pairs = pairs
 local tconcat = table.concat
 
@@ -178,6 +186,44 @@ function addon:GenerateLinks()
 			DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
 		end
 
+	end
+
+end
+
+local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
+
+-- Description: Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
+
+--- Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
+-- @name AckisRecipeList:ScanVendor
+-- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
+
+function addon:ScanVendor()
+
+	-- Make sure the target exists and is a NPC
+	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
+
+		-- Get its name
+		local targetname = UnitName("target")
+		-- Get the NPC ID
+		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
+
+		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+		for i=1,GetMerchantNumItems(),1 do
+			local name, _, _, _, numAvailable = GetMerchantItemInfo(index)
+			local link = GetMerchantItemLink(i)
+			-- Will have to do tooltip scanning here.
+			-- Skill level, profession, limited supply
+			ARLDatamineTT:SetHyperlink(link)
+			for i = 1, ARLDatamineTT:NumLines(),1 do
+				local linetext = _G["GameTooltipTextLeft" .. i]
+				self:Print(linetext)
+			end
+		end
+		ARLDatamineTT:Hide()
+	else
+		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
 
 end
