@@ -143,14 +143,31 @@ end
 -- @return Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
 function addon:GenerateLinks()
 
+	-- This code adopted from Gnomish Yellow Pages with permission
+
 	local guid = UnitGUID("player")
 	local playerGUID = string.gsub(guid,"0x0+", "")
 
-	local tradelist = {2259, 2018, 7411, 4036, 45357, 25229, 2108, 3908,  2550, 746}
+	-- Listing of all tradeskill professions
+	local tradelist = {2259, 2018, 7411, 4036, 45357, 25229, 2108, 3908, 51296, 45542}
+
+	local bitmap = {}
+	bitmap[45542] = "8bffAA" -- First Aid
+	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking
 
 	for i in pairs(tradelist) do
 
 		local tradeName = GetSpellInfo(tradelist[i])
+		local tradelink = {}
+		tradelink[1] = "|cffffd00|Htrade:"
+		tradelink[2] = tradelist[i]
+		tradelink[3] = ":450:450:"
+		tradelink[4] = playerGUID
+		tradelink[5] = ":"
+		tradelink[6] = bitmap[tradelist[i]] or "/////"
+		tradelink[7] = "|h["
+		tradelink[8] = tradeName
+		tradelink[9] = "]|h|r"
 		--local tradelink = "|cffffd00|Htrade:" .. tradelist[i] .. ":450:450:" .. playerGUID .. ":" .. bitMap .. "|h[" .. tradeName .."]|h|r"
 
 	end

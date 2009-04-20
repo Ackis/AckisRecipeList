@@ -1476,11 +1476,13 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 	{
 		[GetSpellInfo(2259)] = addon.InitAlchemy,
 		[GetSpellInfo(2018)] = addon.InitBlacksmithing,
-		[GetSpellInfo(2550)] = addon.InitCooking,
+		[GetSpellInfo(51296)] = addon.InitCooking,
+		--[GetSpellInfo(2550)] = addon.InitCooking,
 		[GetSpellInfo(7411)] = addon.InitEnchanting,
 		[GetSpellInfo(4036)] = addon.InitEngineering,
 		-- Use first aid spell of applying bandages to fix issues with other localizations
-		[GetSpellInfo(746)] = addon.InitFirstAid,
+		[GetSpellInfo(45542)] = addon.InitFirstAid,
+		--[GetSpellInfo(746)] = addon.InitFirstAid,
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
 		[GetSpellInfo(2108)] = addon.InitLeatherworking,
@@ -1699,10 +1701,12 @@ do
 		pData["Professions"] = {
 			[GetSpellInfo(2259)] = false, -- Alchemy
 			[GetSpellInfo(2018)] = false, -- Blacksmithing
-			[GetSpellInfo(2550)] = false, -- Cooking
+			--[GetSpellInfo(2550)] = false, -- Cooking
+			[GetSpellInfo(51296)] = false, -- Cooking
 			[GetSpellInfo(7411)] = false, -- Enchanting
 			[GetSpellInfo(4036)] = false, -- Engineering
-			[GetSpellInfo(746)] = false, -- First Aid
+			[GetSpellInfo(45542)] = false, -- First Aid
+			--[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(2108)] = false, -- Leatherworking
 			[GetSpellInfo(2575)] = false, -- Mining
