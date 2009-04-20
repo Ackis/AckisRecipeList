@@ -1324,6 +1324,36 @@ local function fullOptions()
 							desc	= L["CLEAR_WAYPOINTS_DESC"],
 							func	= function() addon:ClearMap() end,
 						},
+						spacer5 = {
+							order	= 70,
+							type	= "description",
+							name	= "\n",
+						},
+						header6 = {
+							order	= 71,
+							type	= "header",
+							name	= L["Datamine Settings"],
+						},
+						map_desc =	{
+							order	= 72,
+							type	= "description",
+							name	= L["DATAMINE_SETTINGS_DESC"] .. "\n",
+						},
+						scantrainers = {
+							order	= 73,
+							type	= "toggle",
+							name	= L["Auto Scan Trainers"],
+							desc	= L["AUTOSCAN_TRAINERS_DESC"],
+							get		= function() return addon.db.profile.scantrainers end,
+							set		= function()
+											if (addon.db.profile.scantrainers) then
+												self:RegisterEvent("TRAINER_SHOW")
+											else
+												self:UnregisterEvent("TRAINER_SHOW")
+											end
+											addon.db.profile.scantrainers = not addon.db.profile.scantrainers
+										end,
+						},
 					},
 				},
 			},

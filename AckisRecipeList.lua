@@ -163,6 +163,7 @@ function addon:OnInitialize()
 			minimap = true,
 			worldmap = true,
 			autoscanmap = false,
+			scantrainers = false,
 
 			-- Recipe Exclusion
 			exclusionlist = {},
@@ -312,6 +313,10 @@ function addon:OnEnable()
 	-- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_CLOSE")
 
+	if (addon.db.profile.scantrainers) then
+		self:RegisterEvent("TRAINER_SHOW")
+	end
+
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
 		--@debug@
@@ -371,6 +376,13 @@ end
 	Event handling functions
 
 ]]--
+
+function addon:TRADE_SKILL_SHOW()
+
+	self:ScanSkillLevelData()
+	self:ScanTrainerData()
+
+end
 
 do
 

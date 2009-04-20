@@ -1720,3 +1720,7 @@ L["DATAMINER_TRAINER_INFO"] = [[Trainer Name: %s
 Trainer ID: %s]]
 L["DATAMINER_TRAINER_TEACH"] = "Missing entry for %s"
 L["DATAMINER_TRAINER_NOTTEACH"] = "Extra entry for %s"
+
+L["Datamine Settings"] = true
+L["DATAMINE_SETTINGS_DESC"] = "Allows you to customize in-game ARL datamining."
+L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
