@@ -149,11 +149,13 @@ function addon:GenerateLinks()
 	local playerGUID = string.gsub(guid,"0x0+", "")
 
 	-- Listing of all tradeskill professions
-	local tradelist = {2259, 2018, 7411, 4036, 45357, 25229, 2108, 3908, 51296, 45542}
+	local tradelist = {2259, 2018, 7411, 51306, 45357, 25229, 51302, 3908, 51296, 45542}
 
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid
 	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking
+	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering
+	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW
 
 	for i in pairs(tradelist) do
 
@@ -172,24 +174,6 @@ function addon:GenerateLinks()
 
 	end
 
-	DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
-
---[[
-
-tradeID is the spellID of the trade -- any level seems to work
-tradeName is the name of the trade
-
-playerGUID is a valid GUID so i just use the current player's
-
-local guid = UnitGUID("player")
-local playerGUID = string.gsub(guid,"0x0+", "")
-
-that leaves the bitMap.
-
-the bitMap is base-64 encoded string of all the potential recipes a player might know for a particular trade. without worrying at all about which spell is which, you can simply set each bit to 1 -- or each byte to 63. 63 in this case is "/" so a bitmap representing every possible skill of a particular trade would be a string of "//////"... the catch is that the bitmap has to be the exact proper length for that tradeskill.
-
-local bitMap = string.rep("/",bitMapLength)
-
-]]--
-
 end
+
+--/script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))

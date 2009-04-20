@@ -1479,13 +1479,15 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(51296)] = addon.InitCooking,
 		--[GetSpellInfo(2550)] = addon.InitCooking,
 		[GetSpellInfo(7411)] = addon.InitEnchanting,
-		[GetSpellInfo(4036)] = addon.InitEngineering,
+		--[GetSpellInfo(4036)] = addon.InitEngineering,
+		[GetSpellInfo(51306)] = addon.InitEngineering,
 		-- Use first aid spell of applying bandages to fix issues with other localizations
 		[GetSpellInfo(45542)] = addon.InitFirstAid,
 		--[GetSpellInfo(746)] = addon.InitFirstAid,
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
-		[GetSpellInfo(2108)] = addon.InitLeatherworking,
+		--[GetSpellInfo(2108)] = addon.InitLeatherworking,
+		[GetSpellInfo(51302)] = addon.InitLeatherworking,
 		[GetSpellInfo(2575)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
 		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
@@ -1704,11 +1706,13 @@ do
 			--[GetSpellInfo(2550)] = false, -- Cooking
 			[GetSpellInfo(51296)] = false, -- Cooking
 			[GetSpellInfo(7411)] = false, -- Enchanting
-			[GetSpellInfo(4036)] = false, -- Engineering
+			--[GetSpellInfo(4036)] = false, -- Engineering
+			[GetSpellInfo(51306)] = false, -- Engineering
 			[GetSpellInfo(45542)] = false, -- First Aid
 			--[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
-			[GetSpellInfo(2108)] = false, -- Leatherworking
+			--[GetSpellInfo(2108)] = false, -- Leatherworking
+			[GetSpellInfo(51302)] = false, -- Leatherworking
 			[GetSpellInfo(2575)] = false, -- Mining
 			--[GetSpellInfo(2656)] = false, -- Smelting
 			[GetSpellInfo(3908)] = false, -- Tailoring
@@ -1759,8 +1763,10 @@ do
 		SpecialtyTable = {
 			[GetSpellInfo(2259)] = AlchemySpec,
 			[GetSpellInfo(2018)] = BlacksmithSpec,
-			[GetSpellInfo(4036)] = EngineeringSpec,
-			[GetSpellInfo(2108)] = LeatherworkSpec,
+			--[GetSpellInfo(4036)] = EngineeringSpec,
+			[GetSpellInfo(51306)] = EngineeringSpec,
+			--[GetSpellInfo(2108)] = LeatherworkSpec,
+			[GetSpellInfo(51302)] = LeatherworkSpec,
 			[GetSpellInfo(3908)] = TailorSpec,
 		}
 
