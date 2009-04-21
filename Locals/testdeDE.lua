@@ -1632,3 +1632,4 @@ L["Joseph Wilson"] = true
 L["Oluros"] = true
 L["Rekka the Hammer"] = true
 L["Arthur Denny"] = true
+L["ARL_SEARCHFILTERED"] = "Your search has no results."

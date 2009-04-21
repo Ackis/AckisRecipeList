@@ -192,6 +192,15 @@ StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 	hideOnEscape = 1
 }
 
+StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
+	text = L["ARL_SEARCHFILTERED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
 -- Description: 
 
 function addon:CloseWindow()
@@ -1176,6 +1185,9 @@ local function RecipeList_Update()
 			if (showpopup == true) then
 				StaticPopup_Show("ARL_ALLEXCLUDED")
 			end
+		-- We have some search text that is preventing stuff from being displayed
+		elseif (ARL_SearchText:GetText() ~= "") then
+
 		else
 			addon:Print(L["NO_DISPLAY"])
 			addon:Print("DEBUG: recipes_total check for 0")
@@ -3618,12 +3630,10 @@ function addon:CreateFrame(
 			ARL_SearchButton:Disable()
 			ARL_SearchButton:SetScript("OnClick",
 				function(this)
-
 					local searchtext = ARL_SearchText:GetText()
 					searchtext = searchtext:trim()
 
 					if (searchtext ~= "") then
-
 						ARL_LastSearchedText = searchtext
 
 						addon:SearchRecipeDB(recipeDB, searchtext)
@@ -3632,9 +3642,7 @@ function addon:CreateFrame(
 
 						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						ARL_SearchButton:Disable()
-
 					end
-
 				end
 			)
 
@@ -3643,7 +3651,6 @@ function addon:CreateFrame(
 			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 			ARL_ClearButton:SetScript("OnClick",
 				function()
-
 					addon:ResetSearch(recipeDB)
 					ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
@@ -3663,19 +3670,15 @@ function addon:CreateFrame(
 
 					initDisplayStrings()
 					RecipeList_Update()
-
 				end
 			)
 		ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", addon.Frame, "InputBoxTemplate")
 			ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 			ARL_SearchText:SetScript("OnEnterPressed",
 				function(this)
-
 					local searchtext = ARL_SearchText:GetText()
 					searchtext = searchtext:trim()
-					
 					if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
-
 						ARL_LastSearchedText = searchtext
 
 						addon:SearchRecipeDB(recipeDB, searchtext)
@@ -3684,9 +3687,7 @@ function addon:CreateFrame(
 
 						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						ARL_SearchButton:Disable()
-
 					end
-
 				end
 			)
 			ARL_SearchText:SetScript("OnEditFocusGained",

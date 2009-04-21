@@ -383,6 +383,7 @@ L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this p
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
+L["ARL_SEARCHFILTERED"] = "Your search has no results."
 L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
