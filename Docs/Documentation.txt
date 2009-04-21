@@ -432,13 +432,10 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *121 = The Oracles
 *122 = The Wyrmrest Accord
 *123 = Wrath Common Factions (The Silver Convenant/The Sunreavers)
-*124 = 
-*125 = Explorer's League
-*126 = Valiance Expedition
-*127 = The Hand of Vengeance
-*128 = The Taunka
-*129 = Warsong Offensive
-*130 = Wrath Common Factions (Alliance Vanguard/Horde Expedition)
+*124 = Wrath Common Factions (Explorer's League/Hand of Vengance)
+*125 = Wrath Common Factions(Explorer's League/Valiance Expedition)
+*126 = Wrath Common Factions (The Frostborn/The Taunka)
+*127 = Wrath Common Factions (Alliance Vanguard/Horde Expedition)
 
 ==Acquire Flags==
 

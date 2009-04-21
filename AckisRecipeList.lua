@@ -262,13 +262,11 @@ function addon:OnInitialize()
 					kaluak = true,
 					oracles = true,
 					wyrmrest = true,
-					explorersleague = true,
-					valiance = true,
-					handofvengeance = true,
-					taunka = true,
-					warsongoffensive = true,
 					wrathcommon1 = true,
 					wrathcommon2 = true,
+					wrathcommon3 = true,
+					wrathcommon4 = true,
+					wrathcommon5 = true,
 				},
 				-- Classes
 				classes = {
@@ -903,10 +901,10 @@ do
 			[123] = repdb.wrathcommon2,
 
 			[125] = repdb.explorersleague,
-			[126] = repdb.valiance,
+			[126] = repdb.wrathcommon3,
 			[127] = repdb.handofvengeance,
 			[128] = repdb.taunka,
-			[129] = repdb.warsongoffensive,
+
 			[130] = repdb.wrathcommon1,
 		}
 
@@ -1404,15 +1402,16 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
 	RepTable[BFAC["The Oracles"]] = repfilters.oracles
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
-	RepTable[BFAC["Explorers' League"]] = repfilters.explorersleague
-	RepTable[BFAC["Valiance Expedition"]] = repfilters.valiance
-	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.handofvengeance
-	RepTable[BFAC["The Taunka"]] = repfilters.taunka
-	RepTable[BFAC["Warsong Offensive"]] = repfilters.warsongoffensive
 	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
 	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
 	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
 	RepTable[BFAC["The Sunreavers"]] = repfilters.wrathcommon2
+	RepTable[BFAC["Valiance Expedition"]] = repfilters.wrathcommon3
+	RepTable[BFAC["Warsong Offensive"]] = repfilters.wrathcommon3
+	RepTable[BFAC["The Taunka"]] = repfilters.wrathcommon4
+	RepTable[BFAC["The Frostborn"]] = repfilters.wrathcommon4
+	RepTable[BFAC["Explorers' League"]] = repfilters.wrathcommon5
+	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.wrathcommon5
 
 end
 
@@ -2613,19 +2612,13 @@ do
 				flagstr = flagstr .. "Silver Conv/Sunreaver,"
 			end
 			if (flags[125] == true) then
-				flagstr = flagstr .. "Explorer,"
+				flagstr = flagstr .. "Explorer's/Hand of Veng,"
 			end
 			if (flags[126] == true) then
-				flagstr = flagstr .. "Valiance,"
-			end
-			if (flags[127] == true) then
-				flagstr = flagstr .. "Hand of Veng,"
+				flagstr = flagstr .. "Valiance/Warsong Offensive,"
 			end
 			if (flags[128] == true) then
-				flagstr = flagstr .. "Taunka,"
-			end
-			if (flags[129] == true) then
-				flagstr = flagstr .. "WO,"
+				flagstr = flagstr .. "Taunka/Frostborn,"
 			end
 			if (flags[130] == true) then
 				flagstr = flagstr .. "AV/HE,"

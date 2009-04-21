@@ -27,10 +27,16 @@ local AceConfigReg 		= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
 local modularOptions = {}
+
+-- Factions which differ depending on ally/horde
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
 local howlingtundra = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
 local sunreaversilverconv = BFAC["The Silver Covenant"] .. "\\" .. BFAC["The Sunreavers"]
+local valliancewarsong = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Offensive"]
+local frosttaunka =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
+local explorerhand = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
+
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
@@ -970,6 +976,14 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.wrathcommon2 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon2 = not addon.db.profile.filters.rep.wrathcommon2 end,
 								},
+								WrathCommon3 = {
+									order	= 27,
+									type	= "toggle",
+									name	= valliancewarsong,
+									desc	= format(L["SPECIFIC_REP_DESC"],valliancewarsong),
+									get		= function() return addon.db.profile.filters.rep.wrathcommon3 end,
+									set		= function() addon.db.profile.filters.rep.wrathcommon3 = not addon.db.profile.filters.rep.wrathcommon3 end,
+								},
 								ExplorersLeague = {
 									order	= 28,
 									type	= "toggle",
@@ -977,14 +991,6 @@ local function giveFilter()
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Explorers' League"]),
 									get		= function() return addon.db.profile.filters.rep.explorersleague end,
 									set		= function() addon.db.profile.filters.rep.explorersleague = not addon.db.profile.filters.rep.explorersleague end,
-								},
-								ValianceExpedition = {
-									order	= 29,
-									type	= "toggle",
-									name	= BFAC["Valiance Expedition"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Valiance Expedition"]),
-									get		= function() return addon.db.profile.filters.rep.valiance end,
-									set		= function() addon.db.profile.filters.rep.valiance = not addon.db.profile.filters.rep.valiance end,
 								},
 								HandOfVengeance = {
 									order	= 35,
@@ -1001,14 +1007,6 @@ local function giveFilter()
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Taunka"]),
 									get		= function() return addon.db.profile.filters.rep.taunka end,
 									set		= function() addon.db.profile.filters.rep.taunka = not addon.db.profile.filters.rep.taunka end,
-								},
-								WarsongOffensive = {
-									order	= 37,
-									type	= "toggle",
-									name	= BFAC["Warsong Offensive"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Warsong Offensive"]),
-									get		= function() return addon.db.profile.filters.rep.warsongoffensive end,
-									set		= function() addon.db.profile.filters.rep.warsongoffensive = not addon.db.profile.filters.rep.warsongoffensive end,
 								},
 							},
 						},

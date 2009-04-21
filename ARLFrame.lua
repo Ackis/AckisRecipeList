@@ -1414,7 +1414,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 94
+	local MaxFilters = 90
 
 	local total = 0
 	local active = 0
@@ -2923,13 +2923,11 @@ function addon.setFlyawayState()
 	ARL_RepKaluakCB:SetChecked(filterdb.rep.kaluak)
 	ARL_RepOraclesCB:SetChecked(filterdb.rep.oracles)
 	ARL_RepWyrmrestCB:SetChecked(filterdb.rep.wyrmrest)
-	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
-	ARL_RepExplorersLeagueCB:SetChecked(filterdb.rep.explorersleague)
-	ARL_RepValianceCB:SetChecked(filterdb.rep.valiance)
-	ARL_RepHandOfVengeanceCB:SetChecked(filterdb.rep.handofvengeance)
-	ARL_RepTaunkaCB:SetChecked(filterdb.rep.taunka)
-	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
 	ARL_WrathCommon1CB:SetChecked(filterdb.rep.wrathcommon1)
+	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
+	ARL_WrathCommon3CB:SetChecked(filterdb.rep.wrathcommon3)
+	ARL_WrathCommon4CB:SetChecked(filterdb.rep.wrathcommon4)
+	ARL_WrathCommon5CB:SetChecked(filterdb.rep.wrathcommon5)
 	-- Miscellaneous Options
 	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 end
@@ -3431,6 +3429,9 @@ function addon:CreateFrame(
 	local Kurenai_Maghar_FactionText = ""
 	local Vanguard_Expedition_FactionText = ""
 	local SilverConv_Sunreaver_FactionText = ""
+	local Valiance_Warsong_FactionText = ""
+	local Frostborn_Taunka_FactionText = ""
+	local Explorer_Hand_FactionText = ""
 
 	-- Values for the progressbar (defaults)
 	local pbMin = 0
@@ -3472,11 +3473,17 @@ function addon:CreateFrame(
 		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
 		Vanguard_Expedition_FactionText = BFAC["Alliance Vanguard"]
 		SilverConv_Sunreaver_FactionText = BFAC["The Silver Convenant"]
+		Valiance_Warsong_FactionText = BFAC["Valiance Expedition"]
+		Frostborn_Taunka_FactionText = BFAC["The Frostborn"]
+		Explorer_Hand_FactionText = BFAC["Explorer's League"]
 	else
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
 		Vanguard_Expedition_FactionText = BFAC["Horde Expedition"]
 		SilverConv_Sunreaver_FactionText = BFAC["The Sunreavers"]
+		Valiance_Warsong_FactionText = BFAC["Warsong Offensive"]
+		Frostborn_Taunka_FactionText = BFAC["The Taunka"]
+		Explorer_Hand_FactionText = BFAC["Hand of Vengance"]
 	end
 
 	if (not addon.Frame) then
@@ -4154,7 +4161,6 @@ function addon:CreateFrame(
 			local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 14, 1, 0)
 				ARL_WeaponStaffCBText:SetText(L["Staff"])
-				-- Disabled for now...
 				ARL_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
 				ARL_WeaponStaffCB:Disable()
 			local ARL_WeaponWandCB = CreateFrame("CheckButton", "ARL_WeaponWandCB", addon.Fly_Item, "UICheckButtonTemplate")
@@ -4166,13 +4172,11 @@ function addon:CreateFrame(
 			local ARL_WeaponBowCB = CreateFrame("CheckButton", "ARL_WeaponBowCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponBowCB, addon.Fly_Item, L["BOW_DESC"], 36, 15, 2, 0)
 				ARL_WeaponBowCBText:SetText(L["Bow"])
-				-- Disabled for now...
 				ARL_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
 				ARL_WeaponBowCB:Disable()
 			local ARL_WeaponCrossbowCB = CreateFrame("CheckButton", "ARL_WeaponCrossbowCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponCrossbowCB, addon.Fly_Item, L["CROSSBOW_DESC"], 37, 16, 1, 0)
 				ARL_WeaponCrossbowCBText:SetText(L["Crossbow"])
-				-- Disabled for now...
 				ARL_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
 				ARL_WeaponCrossbowCB:Disable()
 			local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", addon.Fly_Item, "UICheckButtonTemplate")
@@ -4187,8 +4191,7 @@ function addon:CreateFrame(
 			addon.Fly_Player:SetMovable(false)
 			addon.Fly_Player:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_Player:Hide()
---			() Tank	  () Melee DPS
---			() Healer	  () Caster DPS
+
 			local ARL_PlayerTankCB = CreateFrame("CheckButton", "ARL_PlayerTankCB", addon.Fly_Player, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_PlayerTankCB, addon.Fly_Player, L["TANKS_DESC"], 41, 1, 1, 0)
 				ARL_PlayerTankCBText:SetText(L["Tanks"])
@@ -4213,22 +4216,17 @@ function addon:CreateFrame(
 
 			ARL_RepOldWorldCB = addon:CreateExpCB("ARL_RepOldWorldCB", "Glues-WoW-Logo", 1)
 			ARL_RepOldWorldCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -10)
-			ARL_RepOldWorldCB:SetScript("OnClick", function()
-				addon.RepFilterSwitch(1)
-			end)
+			ARL_RepOldWorldCB:SetScript("OnClick", function() addon.RepFilterSwitch(1) end)
 
 			ARL_RepBCCB = addon:CreateExpCB("ARL_RepBCCB", "GLUES-WOW-BCLOGO", 1)
 			ARL_RepBCCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -60)
-			ARL_RepBCCB:SetScript("OnClick", function()
-				addon.RepFilterSwitch(2)
-			end)
+			ARL_RepBCCB:SetScript("OnClick", function() addon.RepFilterSwitch(2) end)
 
 			ARL_RepLKCB = addon:CreateExpCB("ARL_RepLKCB", "wotlk_logo", 1)
 			ARL_RepLKCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -110)
-			ARL_RepLKCB:SetScript("OnClick", function()
-				addon.RepFilterSwitch(3)
-			end)
+			ARL_RepLKCB:SetScript("OnClick", function() addon.RepFilterSwitch(3) end)
 
+			-- Original
 			addon.Fly_Rep_OW= CreateFrame("Frame", "addon.Fly_Rep_OW", addon.Fly_Rep)
 			addon.Fly_Rep_OW:SetWidth(150)
 			addon.Fly_Rep_OW:SetHeight(280)
@@ -4237,37 +4235,28 @@ function addon:CreateFrame(
 			addon.Fly_Rep_OW:SetMovable(false)
 			addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 			addon.Fly_Rep_OW:Hide()
---			() Argent Dawn
---			() Cenarion Circle
---			() Thorium Brotherhood
---			() Timbermaw Hold
---			() Zandalar Tribe
 			local ARL_RepArgentDawnCB = CreateFrame("CheckButton", "ARL_RepArgentDawnCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepArgentDawnCB, addon.Fly_Rep_OW,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), 45, 1, 1, 0)
+				addon:GenericMakeCB(ARL_RepArgentDawnCB, addon.Fly_Rep_OW,sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), 45, 1, 1, 0)
 				ARL_RepArgentDawnCBText:SetText(BFAC["Argent Dawn"])
 				ARL_RepArgentDawnCBText:SetFont(narrowFont, 11)
 			local ARL_RepCenarionCircleCB = CreateFrame("CheckButton", "ARL_RepCenarionCircleCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepCenarionCircleCB, addon.Fly_Rep_OW,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), 46, 2, 1, 0)
+				addon:GenericMakeCB(ARL_RepCenarionCircleCB, addon.Fly_Rep_OW,sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), 46, 2, 1, 0)
 				ARL_RepCenarionCircleCBText:SetText(BFAC["Cenarion Circle"])
 				ARL_RepCenarionCircleCBText:SetFont(narrowFont, 11)
 			local ARL_RepThoriumCB = CreateFrame("CheckButton", "ARL_RepThoriumCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepThoriumCB, addon.Fly_Rep_OW,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), 47, 3, 1, 0)
+				addon:GenericMakeCB(ARL_RepThoriumCB, addon.Fly_Rep_OW,sformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), 47, 3, 1, 0)
 				ARL_RepThoriumCBText:SetText(BFAC["Thorium Brotherhood"])
 				ARL_RepThoriumCBText:SetFont(narrowFont, 11)
 			local ARL_RepTimbermawCB = CreateFrame("CheckButton", "ARL_RepTimbermawCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepTimbermawCB, addon.Fly_Rep_OW,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), 48, 4, 1, 0)
+				addon:GenericMakeCB(ARL_RepTimbermawCB, addon.Fly_Rep_OW,sformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), 48, 4, 1, 0)
 				ARL_RepTimbermawCBText:SetText(BFAC["Timbermaw Hold"])
 				ARL_RepTimbermawCBText:SetFont(narrowFont, 11)
 			local ARL_RepZandalarCB = CreateFrame("CheckButton", "ARL_RepZandalarCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepZandalarCB, addon.Fly_Rep_OW,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), 49, 5, 1, 0)
+				addon:GenericMakeCB(ARL_RepZandalarCB, addon.Fly_Rep_OW,sformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), 49, 5, 1, 0)
 				ARL_RepZandalarCBText:SetText(BFAC["Zandalar Tribe"])
 				ARL_RepZandalarCBText:SetFont(narrowFont, 11)
 
+			-- BC
 			addon.Fly_Rep_BC= CreateFrame("Frame", "addon.Fly_Rep_BC", addon.Fly_Rep)
 			addon.Fly_Rep_BC:SetWidth(150)
 			addon.Fly_Rep_BC:SetHeight(280)
@@ -4276,88 +4265,60 @@ function addon:CreateFrame(
 			addon.Fly_Rep_BC:SetMovable(false)
 			addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 			addon.Fly_Rep_BC:Hide()
---			() The Aldor
---			() Ashtongue Deathsworn
---			() Cenarion Expedition
---			() The Consortium
---			() Honor Hold / Thrallmar
---			() Keepers of Time
---			() Kurenai / The Mag'har
---			() Lower City
---			() The Scale of the Sands
---			() The Scryers
---			() The Sha'tar
---			() Shattered Sun Offensive
---			() Sporeggar
---			() The Violet Eye
 			local ARL_RepAldorCB = CreateFrame("CheckButton", "ARL_RepAldorCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepAldorCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), 50, 1, 1, 0)
+				addon:GenericMakeCB(ARL_RepAldorCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), 50, 1, 1, 0)
 				ARL_RepAldorCBText:SetText(BFAC["The Aldor"])
 				ARL_RepAldorCBText:SetFont(narrowFont, 11)
 			local ARL_RepAshtongueCB = CreateFrame("CheckButton", "ARL_RepAshtongueCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepAshtongueCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), 51, 2, 1, 0)
+				addon:GenericMakeCB(ARL_RepAshtongueCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), 51, 2, 1, 0)
 				ARL_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
 				ARL_RepAshtongueCBText:SetFont(narrowFont, 11)
 			local ARL_RepCenarionExpeditionCB = CreateFrame("CheckButton", "ARL_RepCenarionExpeditionCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepCenarionExpeditionCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), 52, 3, 1, 0)
+				addon:GenericMakeCB(ARL_RepCenarionExpeditionCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), 52, 3, 1, 0)
 				ARL_RepCenarionExpeditionCBText:SetText(BFAC["Cenarion Expedition"])
 				ARL_RepCenarionExpeditionCBText:SetFont(narrowFont, 11)
 			local ARL_RepConsortiumCB = CreateFrame("CheckButton", "ARL_RepConsortiumCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepConsortiumCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), 53, 4, 1, 0)
+				addon:GenericMakeCB(ARL_RepConsortiumCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), 53, 4, 1, 0)
 				ARL_RepConsortiumCBText:SetText(BFAC["The Consortium"])
 				ARL_RepConsortiumCBText:SetFont(narrowFont, 11)
 			local ARL_RepHonorHoldCB = CreateFrame("CheckButton", "ARL_RepHonorHoldCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepHonorHoldCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), 54, 5, 1, 0)
+				addon:GenericMakeCB(ARL_RepHonorHoldCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), 54, 5, 1, 0)
 				ARL_RepHonorHoldCBText:SetText(HonorHold_Thrallmar_FactionText)
 				ARL_RepHonorHoldCBText:SetFont(narrowFont, 11)
 			local ARL_RepKeepersOfTimeCB = CreateFrame("CheckButton", "ARL_RepKeepersOfTimeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepKeepersOfTimeCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), 55, 6, 1, 0)
+				addon:GenericMakeCB(ARL_RepKeepersOfTimeCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), 55, 6, 1, 0)
 				ARL_RepKeepersOfTimeCBText:SetText(BFAC["Keepers of Time"])
 				ARL_RepKeepersOfTimeCBText:SetFont(narrowFont, 11)
 			local ARL_RepKurenaiCB = CreateFrame("CheckButton", "ARL_RepKurenaiCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepKurenaiCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), 56, 7, 1, 0)
+				addon:GenericMakeCB(ARL_RepKurenaiCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), 56, 7, 1, 0)
 				ARL_RepKurenaiCBText:SetText(Kurenai_Maghar_FactionText)
 				ARL_RepKurenaiCBText:SetFont(narrowFont, 11)
 			local ARL_RepLowerCityCB = CreateFrame("CheckButton", "ARL_RepLowerCityCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepLowerCityCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), 57, 8, 1, 0)
+				addon:GenericMakeCB(ARL_RepLowerCityCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), 57, 8, 1, 0)
 				ARL_RepLowerCityCBText:SetText(BFAC["Lower City"])
 				ARL_RepLowerCityCBText:SetFont(narrowFont, 11)
 			local ARL_RepScaleSandsCB = CreateFrame("CheckButton", "ARL_RepScaleSandsCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepScaleSandsCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), 58, 9, 1, 0)
+				addon:GenericMakeCB(ARL_RepScaleSandsCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), 58, 9, 1, 0)
 				ARL_RepScaleSandsCBText:SetText(BFAC["The Scale of the Sands"])
 				ARL_RepScaleSandsCBText:SetFont(narrowFont, 11)
 			local ARL_RepScryersCB = CreateFrame("CheckButton", "ARL_RepScryersCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepScryersCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), 59, 10, 1, 0)
+				addon:GenericMakeCB(ARL_RepScryersCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), 59, 10, 1, 0)
 				ARL_RepScryersCBText:SetText(BFAC["The Scryers"])
 				ARL_RepScryersCBText:SetFont(narrowFont, 11)
 			local ARL_RepShatarCB = CreateFrame("CheckButton", "ARL_RepShatarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepShatarCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), 60, 11, 1, 0)
+				addon:GenericMakeCB(ARL_RepShatarCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), 60, 11, 1, 0)
 				ARL_RepShatarCBText:SetText(BFAC["The Sha'tar"])
 				ARL_RepShatarCBText:SetFont(narrowFont, 11)
 			local ARL_RepShatteredSunCB = CreateFrame("CheckButton", "ARL_RepShatteredSunCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepShatteredSunCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), 61, 12, 1, 0)
+				addon:GenericMakeCB(ARL_RepShatteredSunCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), 61, 12, 1, 0)
 				ARL_RepShatteredSunCBText:SetText(BFAC["Shattered Sun Offensive"])
 				ARL_RepShatteredSunCBText:SetFont(narrowFont, 11)
 			local ARL_RepSporeggarCB = CreateFrame("CheckButton", "ARL_RepSporeggarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepSporeggarCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), 62, 13, 1, 0)
+				addon:GenericMakeCB(ARL_RepSporeggarCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), 62, 13, 1, 0)
 				ARL_RepSporeggarCBText:SetText(BFAC["Sporeggar"])
 				ARL_RepSporeggarCBText:SetFont(narrowFont, 11)
 			local ARL_RepVioletEyeCB = CreateFrame("CheckButton", "ARL_RepVioletEyeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepVioletEyeCB, addon.Fly_Rep_BC,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), 63, 14, 1, 0)
+				addon:GenericMakeCB(ARL_RepVioletEyeCB, addon.Fly_Rep_BC,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), 63, 14, 1, 0)
 				ARL_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
 				ARL_RepVioletEyeCBText:SetFont(narrowFont, 11)
 
@@ -4371,78 +4332,55 @@ function addon:CreateFrame(
 			addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 			addon.Fly_Rep_LK:Hide()
 			local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 1, 1, 0)
+				addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 1, 1, 0)
 				ARL_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
 				ARL_WrathCommon1CBText:SetFont(narrowFont, 11)
 			local ARL_WrathCommon2CB = CreateFrame("CheckButton", "ARL_WrathCommon2CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WrathCommon2CB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Silver Covenant"]), 77, 10, 1, 0)
-				ARL_WrathCommon2CBText:SetText(BFAC["The Silver Covenant"])
+				addon:GenericMakeCB(ARL_WrathCommon2CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], SilverConv_Sunreaver_FactionText), 77, 10, 1, 0)
+				ARL_WrathCommon2CBText:SetText(SilverConv_Sunreaver_FactionText)
 				ARL_WrathCommon2CBText:SetFont(narrowFont, 11)
+			local ARL_WrathCommon3CB = CreateFrame("CheckButton", "ARL_WrathCommon3CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCommon3CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), 80, 14, 1, 0)
+				ARL_WrathCommon3CBText:SetText(Valiance_Warsong_FactionText)
+				ARL_WrathCommon3CBText:SetFont(narrowFont, 11)
+			local ARL_WrathCommon4CB = CreateFrame("CheckButton", "ARL_WrathCommon4CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCommon4CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), 82, 13, 1, 0)
+				ARL_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
+				ARL_WrathCommon4CBText:SetFont(narrowFont, 11)
+			local ARL_WrathCommon5CB = CreateFrame("CheckButton", "ARL_WrathCommon5CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCommon5CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), 79, 3, 1, 0)
+				ARL_WrathCommon5CBText:SetText(Explorer_Hand_FactionText)
+				ARL_WrathCommon5CBText:SetFont(narrowFont, 11)
 			local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepArgentCrusadeCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 2, 1, 0)
+				addon:GenericMakeCB(ARL_RepArgentCrusadeCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 2, 1, 0)
 				ARL_RepArgentCrusadeCBText:SetText(BFAC["Argent Crusade"])
 				ARL_RepArgentCrusadeCBText:SetFont(narrowFont, 11)
-			local ARL_RepExplorersLeagueCB = CreateFrame("CheckButton", "ARL_RepExplorersLeagueCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepExplorersLeagueCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Explorers' League"]), 79, 3, 1, 0)
-				ARL_RepExplorersLeagueCBText:SetText(BFAC["Explorers' League"])
-				ARL_RepExplorersLeagueCBText:SetFont(narrowFont, 11)
 			local ARL_RepFrenzyheartCB = CreateFrame("CheckButton", "ARL_RepFrenzyheartCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepFrenzyheartCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), 70, 4, 1, 0)
+				addon:GenericMakeCB(ARL_RepFrenzyheartCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), 70, 4, 1, 0)
 				ARL_RepFrenzyheartCBText:SetText(BFAC["Frenzyheart Tribe"])
 				ARL_RepFrenzyheartCBText:SetFont(narrowFont, 11)
-			local ARL_RepHandOfVengeanceCB = CreateFrame("CheckButton", "ARL_RepHandOfVengeanceCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepHandOfVengeanceCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Hand of Vengeance"]), 81, 5, 1, 0)
-				ARL_RepHandOfVengeanceCBText:SetText(BFAC["The Hand of Vengeance"])
-				ARL_RepHandOfVengeanceCBText:SetFont(narrowFont, 11)
 			local ARL_RepKaluakCB = CreateFrame("CheckButton", "ARL_RepKaluakCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepKaluakCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), 74, 6, 1, 0)
+				addon:GenericMakeCB(ARL_RepKaluakCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), 74, 6, 1, 0)
 				ARL_RepKaluakCBText:SetText(BFAC["The Kalu'ak"])
 				ARL_RepKaluakCBText:SetFont(narrowFont, 11)
 			local ARL_RepKirinTorCB = CreateFrame("CheckButton", "ARL_RepKirinTorCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepKirinTorCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), 72, 7, 1, 0)
+				addon:GenericMakeCB(ARL_RepKirinTorCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), 72, 7, 1, 0)
 				ARL_RepKirinTorCBText:SetText(BFAC["Kirin Tor"])
 				ARL_RepKirinTorCBText:SetFont(narrowFont, 11)
 			local ARL_RepEbonBladeCB = CreateFrame("CheckButton", "ARL_RepEbonBladeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepEbonBladeCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), 71, 8, 1, 0)
+				addon:GenericMakeCB(ARL_RepEbonBladeCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), 71, 8, 1, 0)
 				ARL_RepEbonBladeCBText:SetText(BFAC["Knights of the Ebon Blade"])
 				ARL_RepEbonBladeCBText:SetFont(narrowFont, 11)
 			local ARL_RepOraclesCB = CreateFrame("CheckButton", "ARL_RepOraclesCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepOraclesCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), 75, 9, 1, 0)
+				addon:GenericMakeCB(ARL_RepOraclesCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), 75, 9, 1, 0)
 				ARL_RepOraclesCBText:SetText(BFAC["The Oracles"])
 				ARL_RepOraclesCBText:SetFont(narrowFont, 11)
 			local ARL_RepSonsOfHodirCB = CreateFrame("CheckButton", "ARL_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepSonsOfHodirCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), 73, 11, 1, 0)
+				addon:GenericMakeCB(ARL_RepSonsOfHodirCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), 73, 11, 1, 0)
 				ARL_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
 				ARL_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
-			local ARL_RepTaunkaCB = CreateFrame("CheckButton", "ARL_RepTaunkaCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepTaunkaCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Taunka"]), 82, 13, 1, 0)
-				ARL_RepTaunkaCBText:SetText(BFAC["The Taunka"])
-				ARL_RepTaunkaCBText:SetFont(narrowFont, 11)
-			local ARL_RepValianceCB = CreateFrame("CheckButton", "ARL_RepValianceCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepValianceCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Valiance Expedition"]), 80, 14, 1, 0)
-				ARL_RepValianceCBText:SetText(BFAC["Valiance Expedition"])
-				ARL_RepValianceCBText:SetFont(narrowFont, 11)
-			local ARL_RepWarsongOffensiveCB = CreateFrame("CheckButton", "ARL_RepWarsongOffensiveCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepWarsongOffensiveCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["Warsong Offensive"]), 83, 15, 1, 0)
-				ARL_RepWarsongOffensiveCBText:SetText(BFAC["Warsong Offensive"])
-				ARL_RepWarsongOffensiveCBText:SetFont(narrowFont, 11)
 			local ARL_RepWyrmrestCB = CreateFrame("CheckButton", "ARL_RepWyrmrestCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepWyrmrestCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), 76, 16, 1, 0)
+				addon:GenericMakeCB(ARL_RepWyrmrestCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), 76, 16, 1, 0)
 				ARL_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
 				ARL_RepWyrmrestCBText:SetFont(narrowFont, 11)
 
@@ -4454,13 +4392,13 @@ function addon:CreateFrame(
 			addon.Fly_Misc:SetMovable(false)
 			addon.Fly_Misc:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_Misc:Hide()
+
 			local ARL_MiscText = addon.Fly_Misc:CreateFontString("ARL_MiscText", "OVERLAY", "GameFontHighlight")
 				ARL_MiscText:SetText(L["Miscellaneous"] .. ":")
 				ARL_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
 				ARL_MiscText:SetHeight(14)
 				ARL_MiscText:SetWidth(150)
 				ARL_MiscText:SetJustifyH("LEFT")
---			() Display Exclusions
 			local ARL_IgnoreCB = CreateFrame("CheckButton", "ARL_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
 				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
@@ -4485,7 +4423,7 @@ function addon:CreateFrame(
 			[93] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
 			[94] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
 			[78] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
-			[1]  = { cb = ARL_WarriorCB,					svroot = filterdb.classes,		svval = "warrior" },
+			[1]  = { cb = ARL_WarriorCB,				svroot = filterdb.classes,		svval = "warrior" },
 		-- Obtain Options
 			[7]  = { cb = ARL_InstanceCB,				svroot = filterdb.obtain,		svval = "instance" },
 			[8]  = { cb = ARL_RaidCB,					svroot = filterdb.obtain,		svval = "raid" },
@@ -4566,13 +4504,11 @@ function addon:CreateFrame(
 			[74] = { cb = ARL_RepKaluakCB,				svroot = filterdb.rep,			svval = "kaluak" },
 			[75] = { cb = ARL_RepOraclesCB,				svroot = filterdb.rep,			svval = "oracles" },
 			[76] = { cb = ARL_RepWyrmrestCB,			svroot = filterdb.rep,			svval = "wyrmrest" },
-			[79] = { cb = ARL_RepExplorersLeagueCB,		svroot = filterdb.rep,			svval = "explorersleague" },
-			[80] = { cb = ARL_RepValianceCB,			svroot = filterdb.rep,			svval = "valiance" },
-			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
-			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
-			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
 			[86] = { cb = ARL_WrathCommon1CB,			svroot = filterdb.rep,			svval = "wrathcommon1" },
 			[77] = { cb = ARL_WrathCommon2CB,			svroot = filterdb.rep,			svval = "wrathcommon2" },
+			[80] = { cb = ARL_WrathCommon3CB,			svroot = filterdb.rep,			svval = "wrathcommon3" },
+			[82] = { cb = ARL_WrathCommon4CB,			svroot = filterdb.rep,			svval = "wrathcommon4" },
+			[79] = { cb = ARL_WrathCommon5CB,			svroot = filterdb.rep,			svval = "wrathcommon5" },
 		}
 
 	end
@@ -4616,7 +4552,6 @@ function addon:CreateFrame(
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-	
 
 end
 
