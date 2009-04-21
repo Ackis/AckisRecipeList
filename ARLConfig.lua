@@ -30,6 +30,7 @@ local modularOptions = {}
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
 local howlingtundra = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
+local sunreaversilverconv = BFAC["The Silver Covenant"] .. "\\" .. BFAC["The Sunreavers"]
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
@@ -961,21 +962,13 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.wyrmrest end,
 									set		= function() addon.db.profile.filters.rep.wyrmrest = not addon.db.profile.filters.rep.wyrmrest end,
 								},
-								SilverCovenant = {
+								WrathCommon2 = {
 									order	= 26,
 									type	= "toggle",
-									name	= BFAC["The Silver Covenant"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Silver Covenant"]),
-									get		= function() return addon.db.profile.filters.rep.silvercovenant end,
-									set		= function() addon.db.profile.filters.rep.silvercovenant = not addon.db.profile.filters.rep.silvercovenant end,
-								},
-								Sunreavers = {
-									order	= 27,
-									type	= "toggle",
-									name	= BFAC["The Sunreavers"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Sunreavers"]),
-									get		= function() return addon.db.profile.filters.rep.sunreavers end,
-									set		= function() addon.db.profile.filters.rep.sunreavers = not addon.db.profile.filters.rep.sunreavers end,
+									name	= sunreaversilverconv,
+									desc	= format(L["SPECIFIC_REP_DESC"],sunreaversilverconv),
+									get		= function() return addon.db.profile.filters.rep.wrathcommon2 end,
+									set		= function() addon.db.profile.filters.rep.wrathcommon2 = not addon.db.profile.filters.rep.wrathcommon2 end,
 								},
 								ExplorersLeague = {
 									order	= 28,

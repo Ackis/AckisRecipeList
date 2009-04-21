@@ -1655,15 +1655,11 @@ function addon.filterSwitch(val)
 	ARL_ApplyButton:Disable()
 
 	for i,j in pairs(ApplyFilterState) do
-
 		if (j == true) then
-
 			ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
 			ARL_ApplyButton:Enable()
 			break
-
 		end
-
 	end
 
 end
@@ -1681,80 +1677,52 @@ local function HideARL_ExpOptCB(ignorevalue)
 			ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
 
 	if (ignorevalue ~= "general") then
-
 		ARL_ExpGeneralOptCB:SetChecked(false)
 		ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
-
 	else
-
 		ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1]))
-
 	end
 
 	if (ignorevalue ~= "obtain") then
-
 		ARL_ExpObtainOptCB:SetChecked(false)
 		ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-
 	else
-
 		ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2]))
-
 	end
 
 	if (ignorevalue ~= "binding") then
-
 		ARL_ExpBindingOptCB:SetChecked(false)
 		ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
-
 	else
-
 		ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3]))
-
 	end
 
 	if (ignorevalue ~= "item") then
-
 		ARL_ExpItemOptCB:SetChecked(false)
 		ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
-
 	else
-
 		ARL_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
-
 	end
 
 	if (ignorevalue ~= "player") then
-
 		ARL_ExpPlayerOptCB:SetChecked(false)
 		ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
-
 	else
-
 		ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5]))
-
 	end
 
 	if (ignorevalue ~= "rep") then
-
 		ARL_ExpRepOptCB:SetChecked(false)
 		ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
-
 	else
-
 		ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
-
 	end
 
 	if (ignorevalue ~= "misc") then
-
 		ARL_ExpMiscOptCB:SetChecked(false)
 		ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
-
 	else
-
 		ARL_ExpMiscOptCB.text:SetText(addon:White(ExpButtonText[7]))
-
 	end
 
 end
@@ -2955,14 +2923,13 @@ function addon.setFlyawayState()
 	ARL_RepKaluakCB:SetChecked(filterdb.rep.kaluak)
 	ARL_RepOraclesCB:SetChecked(filterdb.rep.oracles)
 	ARL_RepWyrmrestCB:SetChecked(filterdb.rep.wyrmrest)
-	ARL_RepSilverCovenantCB:SetChecked(filterdb.rep.silvercovenant)
-	ARL_RepSunreaversCB:SetChecked(filterdb.rep.sunreavers)
+	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
 	ARL_RepExplorersLeagueCB:SetChecked(filterdb.rep.explorersleague)
 	ARL_RepValianceCB:SetChecked(filterdb.rep.valiance)
 	ARL_RepHandOfVengeanceCB:SetChecked(filterdb.rep.handofvengeance)
 	ARL_RepTaunkaCB:SetChecked(filterdb.rep.taunka)
 	ARL_RepWarsongOffensiveCB:SetChecked(filterdb.rep.warsongoffensive)
-	ARL_RepAllianceVanguardCB:SetChecked(filterdb.rep.wrathcommon1)
+	ARL_WrathCommon1CB:SetChecked(filterdb.rep.wrathcommon1)
 	-- Miscellaneous Options
 	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 end
@@ -3463,6 +3430,7 @@ function addon:CreateFrame(
 	local HonorHold_Thrallmar_FactionText = ""
 	local Kurenai_Maghar_FactionText = ""
 	local Vanguard_Expedition_FactionText = ""
+	local SilverConv_Sunreaver_FactionText = ""
 
 	-- Values for the progressbar (defaults)
 	local pbMin = 0
@@ -3503,10 +3471,12 @@ function addon:CreateFrame(
 		HonorHold_Thrallmar_FactionText = BFAC["Honor Hold"]
 		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
 		Vanguard_Expedition_FactionText = BFAC["Alliance Vanguard"]
+		SilverConv_Sunreaver_FactionText = BFAC["The Silver Convenant"]
 	else
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
 		Vanguard_Expedition_FactionText = BFAC["Horde Expedition"]
+		SilverConv_Sunreaver_FactionText = BFAC["The Sunreavers"]
 	end
 
 	if (not addon.Frame) then
@@ -4400,27 +4370,16 @@ function addon:CreateFrame(
 			addon.Fly_Rep_LK:SetMovable(false)
 			addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 			addon.Fly_Rep_LK:Hide()
---			() Alliance Vanguard / Horde Expedition
---			() Argent Crusade
---			() Explorers' League
---			() Frenzyheart Tribe
---			() The Hand of Vengeance
---			() The Kalu'ak
---			() Kirin Tor
---			() Knights of the Ebon Blade
---			() The Oracles
---			() The Silver Covenant
---			() The Sons of Hodir
---			() The Sunreavers
---			() The Taunka
---			() Valiance Expedition
---			() Warsong Offensive
---			() The Wyrmrest Accord
-			local ARL_RepAllianceVanguardCB = CreateFrame("CheckButton", "ARL_RepAllianceVanguardCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepAllianceVanguardCB, addon.Fly_Rep_LK,
+			local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,
 					sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 1, 1, 0)
-				ARL_RepAllianceVanguardCBText:SetText(Vanguard_Expedition_FactionText)
-				ARL_RepAllianceVanguardCBText:SetFont(narrowFont, 11)
+				ARL_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
+				ARL_WrathCommon1CBText:SetFont(narrowFont, 11)
+			local ARL_WrathCommon2CB = CreateFrame("CheckButton", "ARL_WrathCommon2CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCommon2CB, addon.Fly_Rep_LK,
+					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Silver Covenant"]), 77, 10, 1, 0)
+				ARL_WrathCommon2CBText:SetText(BFAC["The Silver Covenant"])
+				ARL_WrathCommon2CBText:SetFont(narrowFont, 11)
 			local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepArgentCrusadeCB, addon.Fly_Rep_LK,
 					sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 2, 1, 0)
@@ -4461,21 +4420,11 @@ function addon:CreateFrame(
 					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), 75, 9, 1, 0)
 				ARL_RepOraclesCBText:SetText(BFAC["The Oracles"])
 				ARL_RepOraclesCBText:SetFont(narrowFont, 11)
-			local ARL_RepSilverCovenantCB = CreateFrame("CheckButton", "ARL_RepSilverCovenantCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepSilverCovenantCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Silver Covenant"]), 77, 10, 1, 0)
-				ARL_RepSilverCovenantCBText:SetText(BFAC["The Silver Covenant"])
-				ARL_RepSilverCovenantCBText:SetFont(narrowFont, 11)
 			local ARL_RepSonsOfHodirCB = CreateFrame("CheckButton", "ARL_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepSonsOfHodirCB, addon.Fly_Rep_LK,
 					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), 73, 11, 1, 0)
 				ARL_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
 				ARL_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
-			local ARL_RepSunreaversCB = CreateFrame("CheckButton", "ARL_RepSunreaversCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_RepSunreaversCB, addon.Fly_Rep_LK,
-					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sunreavers"]), 78, 12, 1, 0)
-				ARL_RepSunreaversCBText:SetText(BFAC["The Sunreavers"])
-				ARL_RepSunreaversCBText:SetFont(narrowFont, 11)
 			local ARL_RepTaunkaCB = CreateFrame("CheckButton", "ARL_RepTaunkaCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RepTaunkaCB, addon.Fly_Rep_LK,
 					sformat(L["SPECIFIC_REP_DESC"], BFAC["The Taunka"]), 82, 13, 1, 0)
@@ -4617,14 +4566,13 @@ function addon:CreateFrame(
 			[74] = { cb = ARL_RepKaluakCB,				svroot = filterdb.rep,			svval = "kaluak" },
 			[75] = { cb = ARL_RepOraclesCB,				svroot = filterdb.rep,			svval = "oracles" },
 			[76] = { cb = ARL_RepWyrmrestCB,			svroot = filterdb.rep,			svval = "wyrmrest" },
-			[77] = { cb = ARL_RepSilverCovenantCB,		svroot = filterdb.rep,			svval = "silvercovenant" },
-			[78] = { cb = ARL_RepSunreaversCB,			svroot = filterdb.rep,			svval = "sunreavers" },
 			[79] = { cb = ARL_RepExplorersLeagueCB,		svroot = filterdb.rep,			svval = "explorersleague" },
 			[80] = { cb = ARL_RepValianceCB,			svroot = filterdb.rep,			svval = "valiance" },
 			[81] = { cb = ARL_RepHandOfVengeanceCB,		svroot = filterdb.rep,			svval = "handofvengeance" },
 			[82] = { cb = ARL_RepTaunkaCB,				svroot = filterdb.rep,			svval = "taunka" },
 			[83] = { cb = ARL_RepWarsongOffensiveCB,	svroot = filterdb.rep,			svval = "warsongoffensive" },
-			[86] = { cb = ARL_RepAllianceVanguardCB,	svroot = filterdb.rep,			svval = "wrathcommon1" },
+			[86] = { cb = ARL_WrathCommon1CB,			svroot = filterdb.rep,			svval = "wrathcommon1" },
+			[77] = { cb = ARL_WrathCommon2CB,			svroot = filterdb.rep,			svval = "wrathcommon2" },
 		}
 
 	end

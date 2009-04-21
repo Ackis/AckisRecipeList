@@ -262,14 +262,13 @@ function addon:OnInitialize()
 					kaluak = true,
 					oracles = true,
 					wyrmrest = true,
-					silvercovenant = true,
-					sunreavers = true,
 					explorersleague = true,
 					valiance = true,
 					handofvengeance = true,
 					taunka = true,
 					warsongoffensive = true,
 					wrathcommon1 = true,
+					wrathcommon2 = true,
 				},
 				-- Classes
 				classes = {
@@ -901,8 +900,8 @@ do
 			[120] = repdb.kaluak,
 			[121] = repdb.oracles,
 			[122] = repdb.wyrmrest,
-			[123] = repdb.silvercovenant,
-			[124] = repdb.sunreavers,
+			[123] = repdb.wrathcommon2,
+
 			[125] = repdb.explorersleague,
 			[126] = repdb.valiance,
 			[127] = repdb.handofvengeance,
@@ -1405,13 +1404,15 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
 	RepTable[BFAC["The Oracles"]] = repfilters.oracles
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
-	RepTable[BFAC["The Silver Covenant"]] = repfilters.silvercovenant
-	RepTable[BFAC["The Sunreavers"]] = repfilters.sunreavers
 	RepTable[BFAC["Explorers' League"]] = repfilters.explorersleague
 	RepTable[BFAC["Valiance Expedition"]] = repfilters.valiance
 	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.handofvengeance
 	RepTable[BFAC["The Taunka"]] = repfilters.taunka
 	RepTable[BFAC["Warsong Offensive"]] = repfilters.warsongoffensive
+	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
+	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
+	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
+	RepTable[BFAC["The Sunreavers"]] = repfilters.wrathcommon2
 
 end
 
@@ -2609,10 +2610,7 @@ do
 				flagstr = flagstr .. "Wyrm,"
 			end
 			if (flags[123] == true) then
-				flagstr = flagstr .. "Silver Conv,"
-			end
-			if (flags[124] == true) then
-				flagstr = flagstr .. "Sunreaver,"
+				flagstr = flagstr .. "Silver Conv/Silver Conv,"
 			end
 			if (flags[125] == true) then
 				flagstr = flagstr .. "Explorer,"
