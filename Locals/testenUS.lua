@@ -1719,8 +1719,8 @@ L["DATAMINER_TRAINER_NOTTARGETTED"] = "You must target the trainer when you run 
 L["DATAMINER_VENDOR_NOTTARGETTED"] = "You must target the vendor when you run this command."
 L["DATAMINER_TRAINER_INFO"] = [[Trainer Name: %s
 Trainer ID: %s]]
-L["DATAMINER_TRAINER_TEACH"] = "Missing entry for %s"
-L["DATAMINER_TRAINER_NOTTEACH"] = "Extra entry for %s"
+L["DATAMINER_TRAINER_TEACH"] = "%s (%s) - Missing"
+L["DATAMINER_TRAINER_NOTTEACH"] = "%s (%s) - Extra"
 L["Auto Scan Trainers"] = true
 L["Datamine Settings"] = true
 L["DATAMINE_SETTINGS_DESC"] = "Allows you to customize in-game ARL datamining."

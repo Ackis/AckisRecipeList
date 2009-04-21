@@ -1579,16 +1579,38 @@ L["Zula Slagfury"] = "Zula Furiascoria"
 L["Zulian Tiger"] = "Tigre Zulian"
 L["Zurai"] = "Zurai"
 L["Northern Cooking"] = true
-
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
 L["Clamlette Surprise"] = true
+
 L["DATAMINER_SKILLELVEL"] = [[Recipe level different!
     Name: %s
 	ARL Level: %s
 	Trainer Level: %s]]
 L["DATAMINER_SKILLLEVEL_ERROR"] = "This can only be used for a trade skill trainer.  Please open up the trainer and try again."
 L["DATAMINER_TRAINER_NOTTARGETTED"] = "You must target the trainer when you run this command."
+L["DATAMINER_VENDOR_NOTTARGETTED"] = "You must target the vendor when you run this command."
 L["DATAMINER_TRAINER_INFO"] = [[Trainer Name: %s
 Trainer ID: %s]]
-L["DATAMINER_TRAINER_TEACH"] = "Missing entry for %s"
-L["DATAMINER_TRAINER_NOTTEACH"] = "Extra entry for %s"
+L["DATAMINER_TRAINER_TEACH"] = "%s (%s) - Missing"
+L["DATAMINER_TRAINER_NOTTEACH"] = "%s (%s) - Extra"
+L["Auto Scan Trainers"] = true
+L["Datamine Settings"] = true
+L["DATAMINE_SETTINGS_DESC"] = "Allows you to customize in-game ARL datamining."
+L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
+L["Generate Tradeskill Links"] = true
+L["GENERATE_LINKS_DESC"] = "Generate complete profession links."
+L["Compare Trainer Skills"] = true
+L["COMPARE_TRAINER_SKILL_DESC"] = "Compare skill levels of selected trainer with those in ARL database."
+L["Compare Trainer Acquire"] = true
+L["COMPARE_TRAINER_ACQUIRE_DESC"] = "Compare selected trainer acquire methods with those in the ARL database."
+L["DATAMINER_NODB_ERROR"] = "Recipe database not loaded.  Please scan the tradeskill first then try the datamining."
+L["Dustin Vail"] = true
+L["Kul'de"] = true
+L["Fael Morningsong"] = true
+L["Binkie Brightgear"] = true
+L["Bethany Cromwell"] = true
+L["Crystal Brightspark"] = true
+L["Joseph Wilson"] = true
+L["Oluros"] = true
+L["Rekka the Hammer"] = true
+L["Arthur Denny"] = true

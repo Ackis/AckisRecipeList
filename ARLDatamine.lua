@@ -111,10 +111,13 @@ function addon:ScanTrainerData()
 			-- Get internal database
 			local recipelist = addon:GetRecipeTable()
 			for i in pairs(recipelist) do
+
 				local i_name = recipelist[i]["Name"]
 				local acquire = recipelist[i]["Acquire"]
+				local flags = recipelist[i]["Flags"]
+
 				-- If the trainer teaches this recipe
-				if t[i_name] then
+				if (t[i_name]) then
 					local found = false
 					-- Parse acquire info
 					for i in pairs(acquire) do
@@ -125,7 +128,10 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (not found) then
-						self:Print(L["DATAMINER_TRAINER_TEACH"]:format(i_name))
+						self:Print(L["DATAMINER_TRAINER_TEACH"]:format(i_name,i))
+						if (not flags[3]) then
+							self:Print("Trainer flag needs to be set.")
+						end
 					end
 				-- Trainer does not teach this recipe
 				else
@@ -139,7 +145,7 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (found) then
-						self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(i_name))
+						self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(i_name,i))
 					end
 				end
 			end
