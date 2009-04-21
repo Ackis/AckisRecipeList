@@ -431,8 +431,8 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *120 = The Kalu'ak
 *121 = The Oracles
 *122 = The Wyrmrest Accord
-*123 = The Silver Convenant
-*124 = The Sunreavers
+*123 = Wrath Common Factions (The Silver Convenant/The Sunreavers)
+*124 = 
 *125 = Explorer's League
 *126 = Valiance Expedition
 *127 = The Hand of Vengeance
