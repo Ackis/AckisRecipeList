@@ -236,6 +236,8 @@ L["Faction"]				= true
 L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
 L["Classes"]				= true
 L["CLASS_DESC"]				= "Include this class in the scan."
+L["CLASS_TEXT_DESC"]		= [=[Leftclick here to select all classes
+Rightclick here to select your own class]=]
 L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["Skill"]					= true

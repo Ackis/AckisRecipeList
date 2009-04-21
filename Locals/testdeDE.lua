@@ -1633,3 +1633,5 @@ L["Oluros"] = true
 L["Rekka the Hammer"] = true
 L["Arthur Denny"] = true
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
+L["CLASS_TEXT_DESC"] = [=[Leftclick here to select all classes
+Rightclick here to select your own class]=]

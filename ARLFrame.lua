@@ -3930,12 +3930,57 @@ function addon:CreateFrame(
 			local ARL_UnknownCB = CreateFrame("CheckButton", "ARL_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
 				ARL_UnknownCBText:SetText(L["Unknown"])
-			local ARL_ClassText = addon.Fly_General:CreateFontString("ARL_ClassText", "OVERLAY", "GameFontHighlight")
-				ARL_ClassText:SetText(L["Classes"] .. ":")
-				ARL_ClassText:SetPoint("TOPLEFT", addon.Fly_General, "TOPLEFT", 5, -92)
-				ARL_ClassText:SetHeight(14)
-				ARL_ClassText:SetWidth(150)
-				ARL_ClassText:SetJustifyH("LEFT")
+			local ARL_ClassButton = addon:GenericCreateButton("ARL_ClassButton", addon.Fly_General,
+				20, 70, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
+				"GameFontHighlightSmall", L["Classes"], "LEFT", L["CLASS_TEXT_DESC"], 0)
+				ARL_ClassButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+				ARL_ClassButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+				ARL_ClassButton:SetScript("OnClick",
+					function(self,button)
+						local filterdb = addon.db.profile.filters
+						if button == "LeftButton" then
+							-- Reset all classes to true
+							filterdb.classes.deathknight = true
+							filterdb.classes.druid = true
+							filterdb.classes.hunter = true
+							filterdb.classes.mage = true
+							filterdb.classes.paladin = true
+							filterdb.classes.priest = true
+							filterdb.classes.rogue = true
+							filterdb.classes.shaman = true
+							filterdb.classes.warlock = true
+							filterdb.classes.warrior = true
+						elseif button == "RightButton" then
+							-- Reset all classes to false
+							filterdb.classes.deathknight = false
+							filterdb.classes.druid = false
+							filterdb.classes.hunter = false
+							filterdb.classes.mage = false
+							filterdb.classes.paladin = false
+							filterdb.classes.priest = false
+							filterdb.classes.rogue = false
+							filterdb.classes.shaman = false
+							filterdb.classes.warlock = false
+							filterdb.classes.warrior = false
+							-- Set your own class to true
+							local _, currentclass = UnitClass("player")
+							filterdb.classes[strlower(currentclass)] = true
+						end
+						-- Update the checkboxes with the new value
+						ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
+						ARL_DruidCB:SetChecked(filterdb.classes.druid)
+						ARL_HunterCB:SetChecked(filterdb.classes.hunter)
+						ARL_MageCB:SetChecked(filterdb.classes.mage)
+						ARL_PaladinCB:SetChecked(filterdb.classes.paladin)
+						ARL_PriestCB:SetChecked(filterdb.classes.priest)
+						ARL_RogueCB:SetChecked(filterdb.classes.rogue)
+						ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
+						ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
+						ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
+						-- Make it possible to apply new filters
+						ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
+						ARL_ApplyButton:Enable()
+					end)
 			local ARL_DeathKnightCB = CreateFrame("CheckButton", "ARL_DeathKnightCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_DeathKnightCB, addon.Fly_General, L["CLASS_DESC"], 87, 7, 1, 0)
 				ARL_DeathKnightCBText:SetText(BC["Deathknight"])
