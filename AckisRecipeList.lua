@@ -1486,19 +1486,14 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 	-- Table of all possible professions with init functions
 	local professiontable =
 	{
-		[GetSpellInfo(2259)] = addon.InitAlchemy,
+		[GetSpellInfo(51304)] = addon.InitAlchemy,
 		[GetSpellInfo(2018)] = addon.InitBlacksmithing,
 		[GetSpellInfo(51296)] = addon.InitCooking,
-		--[GetSpellInfo(2550)] = addon.InitCooking,
 		[GetSpellInfo(7411)] = addon.InitEnchanting,
-		--[GetSpellInfo(4036)] = addon.InitEngineering,
 		[GetSpellInfo(51306)] = addon.InitEngineering,
-		-- Use first aid spell of applying bandages to fix issues with other localizations
 		[GetSpellInfo(45542)] = addon.InitFirstAid,
-		--[GetSpellInfo(746)] = addon.InitFirstAid,
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
-		--[GetSpellInfo(2108)] = addon.InitLeatherworking,
 		[GetSpellInfo(51302)] = addon.InitLeatherworking,
 		[GetSpellInfo(2575)] = addon.InitSmelting,
 		[GetSpellInfo(3908)] = addon.InitTailoring,
@@ -1713,20 +1708,15 @@ do
 		addon:GetFactionLevels(pData["Reputation"])
 
 		pData["Professions"] = {
-			[GetSpellInfo(2259)] = false, -- Alchemy
+			[GetSpellInfo(51304)] = false, -- Alchemy
 			[GetSpellInfo(2018)] = false, -- Blacksmithing
-			--[GetSpellInfo(2550)] = false, -- Cooking
 			[GetSpellInfo(51296)] = false, -- Cooking
 			[GetSpellInfo(7411)] = false, -- Enchanting
-			--[GetSpellInfo(4036)] = false, -- Engineering
 			[GetSpellInfo(51306)] = false, -- Engineering
 			[GetSpellInfo(45542)] = false, -- First Aid
-			--[GetSpellInfo(746)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
-			--[GetSpellInfo(2108)] = false, -- Leatherworking
 			[GetSpellInfo(51302)] = false, -- Leatherworking
 			[GetSpellInfo(2575)] = false, -- Mining
-			--[GetSpellInfo(2656)] = false, -- Smelting
 			[GetSpellInfo(3908)] = false, -- Tailoring
 			[GetSpellInfo(25229)] = false, -- Jewelcrafting
 			[GetSpellInfo(45357)] = false, -- Inscription
@@ -1773,11 +1763,9 @@ do
 
 		-- List of classes which have Specialties
 		SpecialtyTable = {
-			[GetSpellInfo(2259)] = AlchemySpec,
+			[GetSpellInfo(51304)] = AlchemySpec,
 			[GetSpellInfo(2018)] = BlacksmithSpec,
-			--[GetSpellInfo(4036)] = EngineeringSpec,
 			[GetSpellInfo(51306)] = EngineeringSpec,
-			--[GetSpellInfo(2108)] = LeatherworkSpec,
 			[GetSpellInfo(51302)] = LeatherworkSpec,
 			[GetSpellInfo(3908)] = TailorSpec,
 		}
@@ -1915,7 +1903,7 @@ do
 
 	--- Initialize the recipe database with a specific profession.
 	-- @name AckisRecipeList:AddRecipeData
-	-- @usage AckisRecipeList:AddRecipeData(2259)
+	-- @usage AckisRecipeList:AddRecipeData(51304)
 	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)

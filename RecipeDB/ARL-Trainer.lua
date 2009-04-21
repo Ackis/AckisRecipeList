@@ -413,6 +413,7 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,30721,L["Michael Schwan"],BZONE["Hellfire Peninsula"],54.00,65.98,1)
 	self:addLookupList(TrainerDB,30722,L["Neferatti"],BZONE["Hellfire Peninsula"],52.56,37.11,2)
 	self:addLookupList(TrainerDB,31084,L["Highlord Darion Mograine"],BZONE["Eastern Plaguelands"],83.17,44.80,0)
+	self:addLookupList(TrainerDB,33587,L["Bethany Cromwell"],BZONE["Icecrown"],72.4,20.8,0)
 	self:addLookupList(TrainerDB,33603,L["Arthur Denny"],BZONE["Icecrown"],71.7,20.9,0)
 
 end

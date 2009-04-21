@@ -798,7 +798,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,45564,350,34763,1, 2550)
 	self:addTradeFlags(RecipeDB,45564,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45564,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631)
+	self:addTradeAcquire(RecipeDB,45564,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
 
 	-- Poached Nettlefish -- 45565
 	recipecount = recipecount + 1

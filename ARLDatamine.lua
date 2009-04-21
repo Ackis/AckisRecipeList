@@ -44,6 +44,14 @@ local tconcat = table.concat
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData()
 
+	-- Get internal database
+	local recipelist = addon:GetRecipeTable()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
 	-- Are we at a trade skill trainer?
 	if (IsTradeskillTrainer()) then
 		SetTrainerServiceTypeFilter("available", 1)
@@ -59,8 +67,7 @@ function addon:ScanSkillLevelData()
 			end
 			t[name] = skilllevel
 		end
-		-- Get internal database
-		local recipelist = addon:GetRecipeTable()
+
 		for i in pairs(recipelist) do
 			local i_name = recipelist[i]["Name"]
 			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
@@ -158,13 +165,15 @@ function addon:GenerateLinks()
 	local playerGUID = string.gsub(guid,"0x0+", "")
 
 	-- Listing of all tradeskill professions
-	local tradelist = {2259, 2018, 7411, 51306, 45357, 25229, 51302, 3908, 51296, 45542}
+	--local tradelist = {51304, 2018, 7411, 51306, 45357, 25229, 51302, 3908, 51296, 45542}
+	local tradelist = {51304, 51306, 51302, 51296, 45542}
 
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid
 	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking
 	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering
 	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW
+	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X"
 
 	for i in pairs(tradelist) do
 
@@ -182,10 +191,8 @@ function addon:GenerateLinks()
 
 		if (bitmap[tradelist[i]]) then
 			self:Print(tconcat(tradelink,""))
-		else
-			DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
 		end
-
+		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
 	end
 
 end

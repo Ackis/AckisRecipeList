@@ -1722,6 +1722,15 @@ Trainer ID: %s]]
 L["DATAMINER_TRAINER_TEACH"] = "Missing entry for %s"
 L["DATAMINER_TRAINER_NOTTEACH"] = "Extra entry for %s"
 L["Arthur Denny"] = true
+L["Auto Scan Trainers"] = true
 L["Datamine Settings"] = true
 L["DATAMINE_SETTINGS_DESC"] = "Allows you to customize in-game ARL datamining."
 L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
+L["Generate Tradeskill Links"] = true
+L["GENERATE_LINKS_DESC"] = "Generate complete profession links."
+L["Compare Trainer Skills"] = true
+L["COMPARE_TRAINER_SKILL_DESC"] = "Compare skill levels of selected trainer with those in ARL database."
+L["Compare Trainer Acquire"] = true
+L["COMPARE_TRAINER_ACQUIRE_DESC"] = "Compare selected trainer acquire methods with those in the ARL database."
+L["DATAMINER_NODB_ERROR"] = "Recipe database not loaded.  Please scan the tradeskill first then try the datamining."
+L["Bethany Cromwell"] = true

@@ -1766,8 +1766,6 @@ function addon:InitEnchanting(RecipeDB)
 	--self:addTradeFlags(RecipeDB,62257,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	--self:addTradeAcquire(RecipeDB,62257,2,32514)
 
-	if select(4, GetBuildInfo()) >= 30100 then
-
 	-- Enchant Boots - Lesser Accuracy -- 63746
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63746,245,nil,2,7411)
@@ -1782,7 +1780,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Staff - Spellpower -- 62959
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62959,450,nil,1,7411)
+	self:addTradeSkill(RecipeDB,62959,385,nil,1,7411)
 	self:addTradeFlags(RecipeDB,62959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,62959,1,26906,1,26954,1,26980,1,26990,1,28693)
 
@@ -1803,16 +1801,6 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeSkill(RecipeDB,64579,450,nil,3,7411)
 	self:addTradeFlags(RecipeDB,64579,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,64579,8,39)
-
-	else
-
-	-- Smoking Heart of the Mountain -- 15596
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,15596,265,11811,2,7411)
-	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
-	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
-
-	end
 
 	return recipecount
 

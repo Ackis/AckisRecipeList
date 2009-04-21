@@ -1339,8 +1339,29 @@ local function fullOptions()
 							type	= "description",
 							name	= L["DATAMINE_SETTINGS_DESC"] .. "\n",
 						},
-						scantrainers = {
+						generatelinks = {	
 							order	= 73,
+							type	= "execute",
+							name	= L["Generate Tradeskill Links"],
+							desc	= L["GENERATE_LINKS_DESC"],
+							func	= function() addon:GenerateLinks() end,
+						},
+						scantrainerskills = {	
+							order	= 75,
+							type	= "execute",
+							name	= L["Compare Trainer Skills"],
+							desc	= L["COMPARE_TRAINER_SKILL_DESC"],
+							func	= function() addon:ScanSkillLevelData() end,
+						},
+						scantraineracquire = {	
+							order	= 76,
+							type	= "execute",
+							name	= L["Compare Trainer Acquire"],
+							desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
+							func	= function() addon:ScanTrainerData() end,
+						},
+						scantrainers = {
+							order	= 80,
 							type	= "toggle",
 							name	= L["Auto Scan Trainers"],
 							desc	= L["AUTOSCAN_TRAINERS_DESC"],
