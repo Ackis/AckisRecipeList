@@ -1414,7 +1414,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 95
+	local MaxFilters = 94
 
 	local total = 0
 	local active = 0
@@ -3976,7 +3976,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_ShamanCB, addon.Fly_General, L["CLASS_DESC"], 94, 14, 1, 0)
 				ARL_ShamanCBText:SetText(BC["Shaman"])
 			local ARL_WarlockCB = CreateFrame("CheckButton", "ARL_WarlockCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WarlockCB, addon.Fly_General, L["CLASS_DESC"], 95, 15, 1, 0)
+				addon:GenericMakeCB(ARL_WarlockCB, addon.Fly_General, L["CLASS_DESC"], 78, 15, 1, 0)
 				ARL_WarlockCBText:SetText(BC["Warlock"])
 			local ARL_WarriorCB = CreateFrame("CheckButton", "ARL_WarriorCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WarriorCB, addon.Fly_General, L["CLASS_DESC"], 1, 16, 1, 0)
@@ -4484,7 +4484,7 @@ function addon:CreateFrame(
 			[92] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
 			[93] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
 			[94] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
-			[95] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
+			[78] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
 			[1]  = { cb = ARL_WarriorCB,					svroot = filterdb.classes,		svval = "warrior" },
 		-- Obtain Options
 			[7]  = { cb = ARL_InstanceCB,				svroot = filterdb.obtain,		svval = "instance" },

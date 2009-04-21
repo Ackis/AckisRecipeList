@@ -2610,7 +2610,7 @@ do
 				flagstr = flagstr .. "Wyrm,"
 			end
 			if (flags[123] == true) then
-				flagstr = flagstr .. "Silver Conv/Silver Conv,"
+				flagstr = flagstr .. "Silver Conv/Sunreaver,"
 			end
 			if (flags[125] == true) then
 				flagstr = flagstr .. "Explorer,"
