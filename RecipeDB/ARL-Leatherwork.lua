@@ -666,13 +666,13 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10548,230,8193,1,2108)
 	self:addTradeFlags(RecipeDB,10548,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,10548,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,10548,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Turtle Scale Helm -- 10552
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10552,230,8191,1,2108)
 	self:addTradeFlags(RecipeDB,10552,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,10552,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,10552,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Tough Scorpid Boots -- 10554
 	recipecount = recipecount + 1
@@ -690,7 +690,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10558,235,8197,1,2108)
 	self:addTradeFlags(RecipeDB,10558,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,10558,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,10558,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Big Voodoo Pants -- 10560
 	recipecount = recipecount + 1
@@ -792,7 +792,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19047,250,15407,1,2108)
 	self:addTradeFlags(RecipeDB,19047,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,19047,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19047,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Heavy Scorpid Bracers -- 19048
 	recipecount = recipecount + 1
@@ -888,7 +888,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19065,275,15092,2,2108)
 	self:addTradeFlags(RecipeDB,19065,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19065,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19065,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Frostsaber Boots -- 19066
 	recipecount = recipecount + 1
@@ -918,13 +918,13 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19071,280,15086,2,2108)
 	self:addTradeFlags(RecipeDB,19071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19071,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19071,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Runic Leather Belt -- 19072
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19072,280,15093,2,2108)
 	self:addTradeFlags(RecipeDB,19072,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19072,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19072,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Chimeric Leggings -- 19073
 	recipecount = recipecount + 1
@@ -990,7 +990,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19083,290,15087,2,2108)
 	self:addTradeFlags(RecipeDB,19083,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19083,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19083,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Devilsaur Gauntlets -- 19084
 	recipecount = recipecount + 1
@@ -1038,7 +1038,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19091,300,15095,2,2108)
 	self:addTradeFlags(RecipeDB,19091,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19091,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19091,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Wicked Leather Belt -- 19092
 	recipecount = recipecount + 1
@@ -1158,7 +1158,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22331,250,8170,1,2108)
 	self:addTradeFlags(RecipeDB,22331,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,22331,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,22331,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Shadowskin Gloves -- 22711
 	recipecount = recipecount + 1
