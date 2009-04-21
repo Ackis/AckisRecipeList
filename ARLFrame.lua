@@ -1414,7 +1414,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 90
+	local MaxFilters = 92
 
 	local total = 0
 	local active = 0
@@ -3472,10 +3472,10 @@ function addon:CreateFrame(
 		HonorHold_Thrallmar_FactionText = BFAC["Honor Hold"]
 		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
 		Vanguard_Expedition_FactionText = BFAC["Alliance Vanguard"]
-		SilverConv_Sunreaver_FactionText = BFAC["The Silver Convenant"]
+		SilverConv_Sunreaver_FactionText = BFAC["The Silver Covenant"]
 		Valiance_Warsong_FactionText = BFAC["Valiance Expedition"]
 		Frostborn_Taunka_FactionText = BFAC["The Frostborn"]
-		Explorer_Hand_FactionText = BFAC["Explorer's League"]
+		Explorer_Hand_FactionText = BFAC["Explorers' League"]
 	else
 		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
 		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
@@ -4420,8 +4420,8 @@ function addon:CreateFrame(
 			[90] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
 			[91] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
 			[92] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
-			[93] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
-			[94] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
+			[81] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
+			[83] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
 			[78] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
 			[1]  = { cb = ARL_WarriorCB,				svroot = filterdb.classes,		svval = "warrior" },
 		-- Obtain Options

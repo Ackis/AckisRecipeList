@@ -641,8 +641,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	RecipeDB[SpellID]["Flags"] = {}
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	-- MaxFilterIndex == 130
-	for i=1,130,1 do
+	for i=1,127,1 do
 		RecipeDB[SpellID]["Flags"][i] = false
 	end
 
@@ -898,14 +897,11 @@ do
 			[120] = repdb.kaluak,
 			[121] = repdb.oracles,
 			[122] = repdb.wyrmrest,
-			[123] = repdb.wrathcommon2,
-
-			[125] = repdb.explorersleague,
-			[126] = repdb.wrathcommon3,
-			[127] = repdb.handofvengeance,
-			[128] = repdb.taunka,
-
-			[130] = repdb.wrathcommon1,
+			[123] = repdb.wrathcommon1,
+			[124] = repdb.wrathcommon2,
+			[125] = repdb.wrathcommon3,
+			[126] = repdb.wrathcommon4,
+			[127] = repdb.wrathcommon5,
 		}
 
 	end
@@ -2240,8 +2236,7 @@ function addon:GetTextDump(RecipeDB, profession)
 			local flags = RecipeDB[SpellID]["Flags"]
 
 			-- Find out which flags are marked as "true"
-			-- MaxFilterIndex == 130
-			for i=1,130,1 do
+			for i=1,127,1 do
 				if (flags[i] == true) then
 					tinsert(texttable,i)
 					tinsert(texttable,",")
@@ -2609,19 +2604,19 @@ do
 				flagstr = flagstr .. "Wyrm,"
 			end
 			if (flags[123] == true) then
-				flagstr = flagstr .. "Silver Conv/Sunreaver,"
+				flagstr = flagstr .. "Wrath Common Factions (The Silver Convenant/The Sunreavers),"
+			end
+			if (flags[124] == true) then
+				flagstr = flagstr .. "Wrath Common Factions (Explorer's League/Hand of Vengance),"
 			end
 			if (flags[125] == true) then
-				flagstr = flagstr .. "Explorer's/Hand of Veng,"
+				flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition),"
 			end
 			if (flags[126] == true) then
-				flagstr = flagstr .. "Valiance/Warsong Offensive,"
+				flagstr = flagstr .. "TWrath Common Factions (The Frostborn/The Taunka),"
 			end
-			if (flags[128] == true) then
-				flagstr = flagstr .. "Taunka/Frostborn,"
-			end
-			if (flags[130] == true) then
-				flagstr = flagstr .. "AV/HE,"
+			if (flags[127] == true) then
+				flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition),"
 			end
 
 			self:Print("Reps: " .. flagstr)
