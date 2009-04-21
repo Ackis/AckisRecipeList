@@ -2,7 +2,11 @@ package-as: AckisRecipeList
 
 license-output: LICENSE.txt
 
-# manual-changelog: Docs/CHANGES.txt
+#manual-changelog:
+#    filename: Docs/CHANGES.txt
+#    markup-type: wiki
+
+enable-nolib-creation: no
 
 optional-dependencies:
  - advanced-trade-skill-window
