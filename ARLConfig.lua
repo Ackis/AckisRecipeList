@@ -1368,9 +1368,9 @@ local function fullOptions()
 							get		= function() return addon.db.profile.scantrainers end,
 							set		= function()
 											if (addon.db.profile.scantrainers) then
-												self:RegisterEvent("TRAINER_SHOW")
+												addon:RegisterEvent("TRAINER_SHOW")
 											else
-												self:UnregisterEvent("TRAINER_SHOW")
+												addon:UnregisterEvent("TRAINER_SHOW")
 											end
 											addon.db.profile.scantrainers = not addon.db.profile.scantrainers
 										end,
