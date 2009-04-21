@@ -2373,10 +2373,10 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,64312,8,40)
 
 	--Glyph of Envenom -- 64301
-	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,64301,430,45908,1,45357)
-	self:addTradeFlags(RecipeDB,64301,1,2,12,28,36,41)
-	self:addTradeAcquire(RecipeDB,64301,8,40)
+	--recipecount = recipecount + 1
+	--self:addTradeSkill(RecipeDB,64301,430,45908,1,45357)
+	--self:addTradeFlags(RecipeDB,64301,1,2,12,28,36,41)
+	--self:addTradeAcquire(RecipeDB,64301,8,40)
 
 	--Glyph of Explosive Shot  -- 64273
 	recipecount = recipecount + 1
