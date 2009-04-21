@@ -226,7 +226,7 @@ function addon:ScanVendor()
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 		for i=1,GetMerchantNumItems(),1 do
-			local name, _, _, _, numAvailable = GetMerchantItemInfo(index)
+			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			local link = GetMerchantItemLink(i)
 			-- Will have to do tooltip scanning here.
 			-- Skill level, profession, limited supply
