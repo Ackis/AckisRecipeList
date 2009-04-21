@@ -1187,7 +1187,7 @@ local function RecipeList_Update()
 			end
 		-- We have some search text that is preventing stuff from being displayed
 		elseif (ARL_SearchText:GetText() ~= "") then
-
+			StaticPopup_Show("ARL_SEARCHFILTERED")
 		else
 			addon:Print(L["NO_DISPLAY"])
 			addon:Print("DEBUG: recipes_total check for 0")

@@ -377,7 +377,7 @@ end
 
 ]]--
 
-function addon:TRADE_SKILL_SHOW()
+function addon:TRAINER_SHOW()
 
 	self:ScanSkillLevelData()
 	self:ScanTrainerData()
