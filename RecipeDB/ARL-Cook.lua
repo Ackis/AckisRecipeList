@@ -492,7 +492,7 @@ function addon:InitCooking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,24801,285,20452,1,2550)
 	self:addTradeFlags(RecipeDB,24801,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,24801,4,8313)
+	self:addTradeAcquire(RecipeDB,24801,4,8307)
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	recipecount = recipecount + 1
