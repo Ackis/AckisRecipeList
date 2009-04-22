@@ -3483,7 +3483,7 @@ function addon:CreateFrame(
 		SilverConv_Sunreaver_FactionText = BFAC["The Sunreavers"]
 		Valiance_Warsong_FactionText = BFAC["Warsong Offensive"]
 		Frostborn_Taunka_FactionText = BFAC["The Taunka"]
-		Explorer_Hand_FactionText = BFAC["Hand of Vengance"]
+		Explorer_Hand_FactionText = BFAC["The Hand of Vengeance"]
 	end
 
 	if (not addon.Frame) then
