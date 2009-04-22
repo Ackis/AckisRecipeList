@@ -6,7 +6,7 @@ license-output: LICENSE.txt
 #    filename: Docs/CHANGES.txt
 #    markup-type: wiki
 
-enable-nolib-creation: no
+enable-nolib-creation: yes
 
 optional-dependencies:
  - advanced-trade-skill-window

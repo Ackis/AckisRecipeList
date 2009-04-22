@@ -236,8 +236,6 @@ L["Faction"]				= true
 L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
 L["Classes"]				= true
 L["CLASS_DESC"]				= "Include this class in the scan."
-L["CLASS_TEXT_DESC"]		= [=[Leftclick here to select all classes
-Rightclick here to select your own class]=]
 L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["Skill"]					= true
@@ -1397,7 +1395,6 @@ L["Shandrina"] = true
 L["Shankys"] = true
 L["Shardtooth Bear"] = true
 L["Shardtooth Mauler"] = true
-L["Sharing the Knowledge"] = true
 L["Shattered Hand Centurion"] = true
 L["Shattered Hand Champion"] = true
 L["Shattertusk Bull"] = true
@@ -1745,3 +1742,6 @@ L["Joseph Wilson"] = true
 L["Oluros"] = true
 L["Rekka the Hammer"] = true
 L["Arthur Denny"] = true
+L["Desert Recipe"] = true
+L["CLASS_TEXT_DESC"] = [[Left-click here to select all classes.
+Right-click here to select your own class.]]
