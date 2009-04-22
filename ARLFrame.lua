@@ -35,7 +35,6 @@ local FilterValueMap = {}
 local sortedRecipeIndex = {}
 local DisplayStrings = {}
 local myFaction = ""
-local ApplyFilterState = nil
 
 local narrowFont = nil
 local normalFont = nil
@@ -1283,11 +1282,6 @@ local function ReDisplay()
 
 	-- And update our scrollframe
 	RecipeList_Update()
-	
-	-- Make sure our apply button gets disabled
-	ApplyFilterState = nil
-	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
-	ARL_ApplyButton:Disable()
 
 end
 
@@ -1633,34 +1627,8 @@ function addon.filterSwitch(val)
 
 	addon.resetTitle()
 
-	if (not ApplyFilterState) then
-
-		ApplyFilterState = {}
-
-	end
-
-	-- We have this toggled one way
-	if (ApplyFilterState[val]) then
-
-		ApplyFilterState[val] = not ApplyFilterState[val]
-
-	-- Hasn't been toggled
-	else
-
-		ApplyFilterState[val] = true
-
-	end
-
-	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
-	ARL_ApplyButton:Disable()
-
-	for i,j in pairs(ApplyFilterState) do
-		if (j == true) then
-			ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
-			ARL_ApplyButton:Enable()
-			break
-		end
-	end
+	-- Use new filters
+	ReDisplay()
 
 end
 
@@ -1744,6 +1712,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame._Expanded = false
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_OPEN"])
 		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
@@ -1764,7 +1733,6 @@ function addon.ToggleFilters()
 		addon.Flyaway:Hide()
 
 		ARL_ResetButton:Hide()
-		ARL_ApplyButton:Hide()
 	else
 
 		-- Adjust the frame size and texture
@@ -1791,7 +1759,6 @@ function addon.ToggleFilters()
 		ARL_ExpMiscOptCB:Show()
 
 		ARL_ResetButton:Show()
-		ARL_ApplyButton:Show()
 
 		-- and finally, show our frame
 	end
@@ -3818,12 +3785,6 @@ function addon:CreateFrame(
 			ARL_ResetButton:SetScript("OnClick", addon.resetFilters)
 			ARL_ResetButton:Hide()
 
-		local ARL_ApplyButton = addon:GenericCreateButton("ARL_ApplyButton", addon.Frame,
-			22, 69, "RIGHT", ARL_CloseButton, "LEFT", -82, 0, "GameFontDisableSmall",
-			"GameFontHighlightSmall", L["Apply"], "CENTER", L["APPLY_DESC"], 1)
-			ARL_ApplyButton:SetScript("OnClick", ReDisplay)
-			ARL_ApplyButton:Hide()
-
 		-- EXPANDED : 7 buttons for opening/closing the flyaway
 
 		ARL_ExpGeneralOptCB = addon:CreateExpCB("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
@@ -3956,9 +3917,8 @@ function addon:CreateFrame(
 						ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
 						ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
 						ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
-						-- Make it possible to apply new filters
-						ARL_ApplyButton:SetNormalFontObject("GameFontNormalSmall")
-						ARL_ApplyButton:Enable()
+						-- Use new filters
+						ReDisplay()
 					end)
 			local ARL_DeathKnightCB = CreateFrame("CheckButton", "ARL_DeathKnightCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_DeathKnightCB, addon.Fly_General, L["CLASS_DESC"], 87, 7, 1, 0)
@@ -4553,11 +4513,6 @@ function addon:CreateFrame(
 	-- And update our scrollframe
 	RecipeList_Update()
 	addon.Frame:Show()
-
-	-- Make sure our apply button gets disabled
-	ApplyFilterState = nil
-	ARL_ApplyButton:SetNormalFontObject("GameFontDisableSmall")
-	ARL_ApplyButton:Disable()
 
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
