@@ -1712,6 +1712,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame._Expanded = false
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+		ARL_ProgressBar:SetWidth(195)
 
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_OPEN"])
@@ -1744,6 +1745,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 		addon.Frame._Expanded = true
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+		ARL_ProgressBar:SetWidth(345)
 
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_CLOSE"])
@@ -3699,7 +3701,7 @@ function addon:CreateFrame(
 
 		-- ProgressBar for our skills
 		local ARL_ProgressBar = CreateFrame("StatusBar", "ARL_ProgressBar", addon.Frame)
-			ARL_ProgressBar:SetWidth(194)
+			ARL_ProgressBar:SetWidth(195)
 			ARL_ProgressBar:SetHeight(14)
 			ARL_ProgressBar:ClearAllPoints()
 			ARL_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
@@ -3711,7 +3713,7 @@ function addon:CreateFrame(
 			ARL_ProgressBar:SetValue(pbCur)
 
 		local ARL_ProgressBarText = ARL_ProgressBar:CreateFontString("ARL_ProgressBarText", "ARTWORK")
-			ARL_ProgressBarText:SetWidth(194)
+			ARL_ProgressBarText:SetWidth(195)
 			ARL_ProgressBarText:SetHeight(14)
 			ARL_ProgressBarText:SetFontObject("GameFontHighlightSmall")
 			ARL_ProgressBarText:ClearAllPoints()
@@ -3873,6 +3875,7 @@ function addon:CreateFrame(
 			local ARL_ClassButton = addon:GenericCreateButton("ARL_ClassButton", addon.Fly_General,
 				20, 70, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
 				"GameFontHighlightSmall", L["Classes"], "LEFT", L["CLASS_TEXT_DESC"], 0)
+				ARL_ClassButton:SetText(L["Classes"] .. ":")
 				ARL_ClassButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 				ARL_ClassButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 				ARL_ClassButton:SetScript("OnClick",
