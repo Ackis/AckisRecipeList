@@ -3920,6 +3920,8 @@ function addon:CreateFrame(
 						ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
 						ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
 						ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
+						-- Reset our title
+						addon.resetTitle()
 						-- Use new filters
 						ReDisplay()
 					end)
