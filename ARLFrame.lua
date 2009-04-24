@@ -1410,14 +1410,13 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 92
+	local MaxFilters = 88
 
 	local total = 0
 	local active = 0
 
 	for i = 1, MaxFilters do
-		if ((FilterValueMap[i].svroot == "disabled") or
-			 (FilterValueMap[i].svroot == "special case")) then
+		if (FilterValueMap[i].svroot == "disabled") then
 			-- ignore these filters in the totals
 		elseif (FilterValueMap[i].svroot[ FilterValueMap[i].svval ] == true) then
 			active = active + 1
@@ -1458,173 +1457,10 @@ end
 
 function addon.filterSwitch(val)
 
-	-- This function is the all-encompassing checkbox handler for the ZJGUI
-	local armordb = addon.db.profile.filters.item.armor
-	local weapondb = addon.db.profile.filters.item.weapon
-
-	-- Special cases first, then general case
-	if (val == 19) then
-		-- Armor "All" checkbox
-		if (ARL_ArmorAllCB:GetChecked()) then
-			armordb.cloth = true
-			armordb.leather = true
-			armordb.mail = true
-			armordb.plate = true
-			armordb.cloak = true
-			armordb.necklace = true
-			armordb.ring = true
-			armordb.trinket = true
-			armordb.shield = true
-			ARL_ArmorClothCB:SetChecked(true)
-			ARL_ArmorLeatherCB:SetChecked(true)
-			ARL_ArmorMailCB:SetChecked(true)
-			ARL_ArmorPlateCB:SetChecked(true)
-			ARL_ArmorCloakCB:SetChecked(true)
-			ARL_ArmorNecklaceCB:SetChecked(true)
-			ARL_ArmorRingCB:SetChecked(true)
-			ARL_ArmorTrinketCB:SetChecked(true)
-			ARL_ArmorShieldCB:SetChecked(true)
-			ARL_ArmorNoneCB:SetChecked(false)
-		end
-	elseif (val == 20) then
-		-- Armor "None" checkbox
-		if (ARL_ArmorNoneCB:GetChecked()) then
-			armordb.cloth = false
-			armordb.leather = false
-			armordb.mail = false
-			armordb.plate = false
-			armordb.cloak = false
-			armordb.necklace = false
-			armordb.ring = false
-			armordb.trinket = false
-			armordb.shield = false
-			ARL_ArmorClothCB:SetChecked(false)
-			ARL_ArmorLeatherCB:SetChecked(false)
-			ARL_ArmorMailCB:SetChecked(false)
-			ARL_ArmorPlateCB:SetChecked(false)
-			ARL_ArmorCloakCB:SetChecked(false)
-			ARL_ArmorNecklaceCB:SetChecked(false)
-			ARL_ArmorRingCB:SetChecked(false)
-			ARL_ArmorTrinketCB:SetChecked(false)
-			ARL_ArmorShieldCB:SetChecked(false)
-			ARL_ArmorAllCB:SetChecked(false)
-		end
-	elseif ((val == 21) or (val == 22) or (val == 23) or (val == 24) or
-			 (val == 64) or (val == 65) or (val == 66) or (val == 67) or (val == 85)) then
-		-- in this case, we need to check if the checkbox we just hit either
-		-- makes everthing checked, or everything empty. If so, we check the All/None
-		-- checkboxes
-		if (FilterValueMap[val].cb:GetChecked()) then
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = true
-			if ((armordb.cloth == true) and (armordb.leather == true) and
-				 (armordb.mail == true) and (armordb.plate == true) and
-				 (armordb.cloak == true) and (armordb.necklace == true) and
-				 (armordb.ring == true) and (armordb.trinket == true) and
-				 (armordb.shield == true)) then
-				ARL_ArmorAllCB:SetChecked(true)
-			end
-			ARL_ArmorNoneCB:SetChecked(false)
-		else
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = false
-			if ((armordb.cloth == false) and (armordb.leather == false) and
-				 (armordb.mail == false) and (armordb.plate == false) and
-				 (armordb.cloak == false) and (armordb.necklace == false) and
-				 (armordb.ring == false) and (armordb.trinket == false) and
-				 (armordb.shield == false)) then
-				ARL_ArmorNoneCB:SetChecked(true)
-			end
-			ARL_ArmorAllCB:SetChecked(false)
-		end
-	elseif (val == 25) then
-		-- Weapon "All" special case
-		if (ARL_WeaponAllCB:GetChecked()) then
-			weapondb.onehand = true
-			weapondb.twohand = true
-			weapondb.dagger = true
-			weapondb.axe = true
-			weapondb.mace = true
-			weapondb.sword = true
-			weapondb.polearm = true
-			weapondb.wand = true
-			weapondb.thrown = true
-			weapondb.ammo = true
-			weapondb.fist = true
-			ARL_Weapon1HCB:SetChecked(true)
-			ARL_Weapon2HCB:SetChecked(true)
-			ARL_WeaponDaggerCB:SetChecked(true)
-			ARL_WeaponAxeCB:SetChecked(true)
-			ARL_WeaponMaceCB:SetChecked(true)
-			ARL_WeaponSwordCB:SetChecked(true)
-			ARL_WeaponPolearmCB:SetChecked(true)
-			ARL_WeaponWandCB:SetChecked(true)
-			ARL_WeaponThrownCB:SetChecked(true)
-			ARL_WeaponAmmoCB:SetChecked(true)
-			ARL_WeaponFistCB:SetChecked(true)
-			ARL_WeaponNoneCB:SetChecked(false)
-		end
-	elseif (val == 26) then
-		-- Weapon "None" special case
-		if (ARL_WeaponNoneCB:GetChecked()) then
-			weapondb.onehand = false
-			weapondb.twohand = false
-			weapondb.dagger = false
-			weapondb.axe = false
-			weapondb.mace = false
-			weapondb.sword = false
-			weapondb.polearm = false
-			weapondb.wand = false
-			weapondb.thrown = false
-			weapondb.ammo = false
-			weapondb.fist = false
-			ARL_Weapon1HCB:SetChecked(false)
-			ARL_Weapon2HCB:SetChecked(false)
-			ARL_WeaponDaggerCB:SetChecked(false)
-			ARL_WeaponAxeCB:SetChecked(false)
-			ARL_WeaponMaceCB:SetChecked(false)
-			ARL_WeaponSwordCB:SetChecked(false)
-			ARL_WeaponPolearmCB:SetChecked(false)
-			ARL_WeaponWandCB:SetChecked(false)
-			ARL_WeaponThrownCB:SetChecked(false)
-			ARL_WeaponAmmoCB:SetChecked(false)
-			ARL_WeaponFistCB:SetChecked(false)
-			ARL_WeaponAllCB:SetChecked(false)
-		end
-	elseif ((val == 34) or (val == 36) or (val == 37)) then
-		-- Weapon disable case ... there's really no way to reach this code
-	elseif ((val == 27) or (val == 28) or (val == 29) or (val == 30) or (val == 31) or
-			 (val == 32) or (val == 33) or (val == 68) or (val == 35) or (val == 38) or (val == 84)) then
-		-- we've clicked on a weapon thinger. If all of them are either checked or unchecked,
-		-- we should automagically check the "All" or "None" checkbox
-		if (FilterValueMap[val].cb:GetChecked()) then
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = true
-			if ((weapondb.onehand == true) and (weapondb.twohand == true) and
-				 (weapondb.dagger == true) and (weapondb.axe == true) and
-				 (weapondb.mace == true) and (weapondb.sword == true) and
-				 (weapondb.polearm == true) and (weapondb.wand == true) and
-				 (weapondb.thrown == true) and (weapondb.ammo == true) and
-				 (weapondb.fist == true)) then
-				ARL_WeaponAllCB:SetChecked(true)
-			end
-			ARL_WeaponNoneCB:SetChecked(false)
-		else
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = false
-			if ((weapondb.onehand == false) and (weapondb.twohand == false) and
-				 (weapondb.dagger == false) and (weapondb.axe == false) and
-				 (weapondb.mace == false) and (weapondb.sword == false) and
-				 (weapondb.polearm == false) and (weapondb.wand == false) and
-				 (weapondb.thrown == false) and (weapondb.ammo == false) and
-				 (weapondb.fist == false)) then
-				ARL_WeaponNoneCB:SetChecked(true)
-			end
-			ARL_WeaponAllCB:SetChecked(false)
-		end
+	if (FilterValueMap[val].cb:GetChecked()) then
+		FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = true
 	else
-		-- General case
-		if (FilterValueMap[val].cb:GetChecked()) then
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = true
-		else
-			FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = false
-		end
+		FilterValueMap[val].svroot[ FilterValueMap[val].svval ] = false
 	end
 
 	addon.resetTitle()
@@ -2795,24 +2631,6 @@ function addon.setFlyawayState()
 	ARL_rBoECB:SetChecked(filterdb.binding.recipeboe)
 	ARL_rBoPCB:SetChecked(filterdb.binding.recipebop)
 	-- Armor Options
-	if ((armordb.cloth == true) and (armordb.leather == true) and
-		 (armordb.mail == true) and (armordb.plate == true) and
-		 (armordb.cloak == true) and (armordb.necklace == true) and
-		 (armordb.ring == true) and (armordb.trinket == true) and
-		 (armordb.shield == true)) then
-		ARL_ArmorAllCB:SetChecked(true)
-	else
-		ARL_ArmorAllCB:SetChecked(false)
-	end
-	if ((armordb.cloth == false) and (armordb.leather == false) and
-		 (armordb.mail == false) and (armordb.plate == false) and
-		 (armordb.cloak == false) and (armordb.necklace == false) and
-		 (armordb.ring == false) and (armordb.trinket == false) and
-		 (armordb.shield == false)) then
-		ARL_ArmorNoneCB:SetChecked(true)
-	else
-		ARL_ArmorNoneCB:SetChecked(false)
-	end
 	ARL_ArmorClothCB:SetChecked(armordb.cloth)
 	ARL_ArmorLeatherCB:SetChecked(armordb.leather)
 	ARL_ArmorMailCB:SetChecked(armordb.mail)
@@ -2823,26 +2641,6 @@ function addon.setFlyawayState()
 	ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
 	ARL_ArmorShieldCB:SetChecked(armordb.shield)
 	-- Weapon Options
-	if ((weapondb.onehand == true) and (weapondb.twohand == true) and
-		 (weapondb.dagger == true) and (weapondb.axe == true) and
-		 (weapondb.mace == true) and (weapondb.sword == true) and
-		 (weapondb.polearm == true) and (weapondb.wand == true) and
-		 (weapondb.thrown == true) and (weapondb.ammo == true) and
-		 (weapondb.fist == true)) then
-		ARL_WeaponAllCB:SetChecked(true)
-	else
-		ARL_WeaponAllCB:SetChecked(false)
-	end
-	if ((weapondb.onehand == false) and (weapondb.twohand == false) and
-		 (weapondb.dagger == false) and (weapondb.axe == false) and
-		 (weapondb.mace == false) and (weapondb.sword == false) and
-		 (weapondb.polearm == false) and (weapondb.wand == false) and
-		 (weapondb.thrown == false) and (weapondb.ammo == false) and
-		 (weapondb.fist == false)) then
-		ARL_WeaponNoneCB:SetChecked(true)
-	else
-		ARL_WeaponNoneCB:SetChecked(false)
-	end
 	ARL_Weapon1HCB:SetChecked(weapondb.onehand)
 	ARL_Weapon2HCB:SetChecked(weapondb.twohand)
 	ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
@@ -3934,16 +3732,16 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_DruidCB, addon.Fly_General, L["CLASS_DESC"], 88, 8, 1, 0)
 				ARL_DruidCBText:SetText(BC["Druid"])
 			local ARL_HunterCB = CreateFrame("CheckButton", "ARL_HunterCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_HunterCB, addon.Fly_General, L["CLASS_DESC"], 89, 9, 1, 0)
+				addon:GenericMakeCB(ARL_HunterCB, addon.Fly_General, L["CLASS_DESC"], 19, 9, 1, 0)
 				ARL_HunterCBText:SetText(BC["Hunter"])
 			local ARL_MageCB = CreateFrame("CheckButton", "ARL_MageCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_MageCB, addon.Fly_General, L["CLASS_DESC"], 90, 10, 1, 0)
+				addon:GenericMakeCB(ARL_MageCB, addon.Fly_General, L["CLASS_DESC"], 20, 10, 1, 0)
 				ARL_MageCBText:SetText(BC["Mage"])
 			local ARL_PaladinCB = CreateFrame("CheckButton", "ARL_PaladinCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_PaladinCB, addon.Fly_General, L["CLASS_DESC"], 91, 11, 1, 0)
+				addon:GenericMakeCB(ARL_PaladinCB, addon.Fly_General, L["CLASS_DESC"], 25, 11, 1, 0)
 				ARL_PaladinCBText:SetText(BC["Paladin"])
 			local ARL_PriestCB = CreateFrame("CheckButton", "ARL_PriestCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_PriestCB, addon.Fly_General, L["CLASS_DESC"], 92, 12, 1, 0)
+				addon:GenericMakeCB(ARL_PriestCB, addon.Fly_General, L["CLASS_DESC"], 26, 12, 1, 0)
 				ARL_PriestCBText:SetText(BC["Priest"])
 			local ARL_RogueCB = CreateFrame("CheckButton", "ARL_RogueCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_RogueCB, addon.Fly_General, L["CLASS_DESC"], 81, 13, 1, 0)
@@ -4089,14 +3887,6 @@ function addon:CreateFrame(
 						-- Use new filters
 						ReDisplay()
 					end)
-			local ARL_ArmorAllCB = CreateFrame("CheckButton", "ARL_ArmorAllCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorAllCB, addon.Fly_Item, L["ARMOR_ALL_DESC"], 19, 2, 1, 0)
-				ARL_ArmorAllCBText:SetText(L["All"])
-				ARL_ArmorAllCB:Hide()
-			local ARL_ArmorNoneCB = CreateFrame("CheckButton", "ARL_ArmorNoneCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorNoneCB, addon.Fly_Item, L["ARMOR_NONE_DESC"], 20, 2, 2, 0)
-				ARL_ArmorNoneCBText:SetText(L["None"])
-				ARL_ArmorNoneCB:Hide()
 			local ARL_ArmorClothCB = CreateFrame("CheckButton", "ARL_ArmorClothCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_ArmorClothCB, addon.Fly_Item, L["CLOTH_DESC"], 21, 2, 1, 0)
 				ARL_ArmorClothCBText:SetText(L["Cloth"])
@@ -4185,14 +3975,6 @@ function addon:CreateFrame(
 						-- Use new filters
 						ReDisplay()
 					end)
-			local ARL_WeaponAllCB = CreateFrame("CheckButton", "ARL_WeaponAllCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponAllCB, addon.Fly_Item, L["WEAPON_ALL_DESC"], 25, 9, 1, 0)
-				ARL_WeaponAllCBText:SetText(L["All"])
-				ARL_WeaponAllCB:Hide()
-			local ARL_WeaponNoneCB = CreateFrame("CheckButton", "ARL_WeaponNoneCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponNoneCB, addon.Fly_Item, L["WEAPON_NONE_DESC"], 26, 9, 2, 0)
-				ARL_WeaponNoneCBText:SetText(L["None"])
-				ARL_WeaponNoneCB:Hide()
 			local ARL_Weapon1HCB = CreateFrame("CheckButton", "ARL_Weapon1HCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_Weapon1HCB, addon.Fly_Item, L["ONEHAND_DESC"], 27, 9, 1, 0)
 				ARL_Weapon1HCBText:SetText(L["One Hand"])
@@ -4483,10 +4265,10 @@ function addon:CreateFrame(
 		-- Classes
 			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
 			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
-			[89] = { cb = ARL_HunterCB,					svroot = filterdb.classes,		svval = "hunter" },
-			[90] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
-			[91] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
-			[92] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
+			[19] = { cb = ARL_HunterCB,					svroot = filterdb.classes,		svval = "hunter" },
+			[20] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
+			[25] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
+			[26] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
 			[81] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
 			[83] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
 			[78] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
@@ -4508,8 +4290,6 @@ function addon:CreateFrame(
 			[17] = { cb = ARL_rBoECB,					svroot = filterdb.binding,		svval = "recipeboe" },
 			[18] = { cb = ARL_rBoPCB,					svroot = filterdb.binding,		svval = "recipebop" },
 		-- Armor Options
-			[19] = { cb = ARL_ArmorAllCB,				svroot = "special case",		svval = "" },
-			[20] = { cb = ARL_ArmorNoneCB,				svroot = "special case",		svval = "" },
 			[21] = { cb = ARL_ArmorClothCB,				svroot = filterdb.item.armor,	svval = "cloth" },
 			[22] = { cb = ARL_ArmorLeatherCB,			svroot = filterdb.item.armor,	svval = "leather" },
 			[23] = { cb = ARL_ArmorMailCB,				svroot = filterdb.item.armor,	svval = "mail" },
@@ -4520,8 +4300,6 @@ function addon:CreateFrame(
 			[67] = { cb = ARL_ArmorTrinketCB,			svroot = filterdb.item.armor,	svval = "trinket" },
 			[85] = { cb = ARL_ArmorShieldCB,			svroot = filterdb.item.armor,	svval = "shield" },
 		-- Weapon Options
-			[25] = { cb = ARL_WeaponAllCB,				svroot = "special case",		svval = "" },
-			[26] = { cb = ARL_WeaponNoneCB,				svroot = "special case",		svval = "" },
 			[27] = { cb = ARL_Weapon1HCB,				svroot = filterdb.item.weapon,	svval = "onehand" },
 			[28] = { cb = ARL_Weapon2HCB,				svroot = filterdb.item.weapon,	svval = "twohand" },
 			[29] = { cb = ARL_WeaponDaggerCB,			svroot = filterdb.item.weapon,	svval = "dagger" },
