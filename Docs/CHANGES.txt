@@ -1,7 +1,14 @@
 ==ARL Changes==
 
 ===RC8===
-
+*Fixed a bug when you did a scan, the drop down menus for the profession would change text to something non-existant.
+*Added all/none functionality for classes, reputations.
+*All/none functionality has changed, now you click on the text to select all or none.  There are no individual buttons.  The tooltip explains this in more detail.
+*Updated many trainers to coincide with the argent tourney.
+*Changed seasonal to be world events as it fits better.  Use the titles from the achievements to track these instead of our own localized string.
+*Updated many recipes which had wrong sill levels.
+*Added some new datamining functionality.  It will scan the trainer and tell you if this trainer is missing recipes that can be trained on it.  Also compares skill levels.
+*Combined wrath reputations which are horde/alliance only. Disabled those reputation which did not have any items (yet).
 
 ===RC7===
 *This release is dedicated to the demise of WowMatrix.  May it rot in hell.
