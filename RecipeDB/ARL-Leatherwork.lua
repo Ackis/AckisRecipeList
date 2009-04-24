@@ -1181,7 +1181,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Girdle of Insight -- 22921
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,22921,300,18504,3,2108)
-	self:addTradeFlags(RecipeDB,22921,1,2,21,5,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,22921,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,22921,8,23)
 
 	-- Mongoose Boots -- 22922
