@@ -684,7 +684,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10556,235,8185,1,2108)
 	self:addTradeFlags(RecipeDB,10556,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,10556,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,10556,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Nightscape Boots -- 10558
 	recipecount = recipecount + 1
@@ -822,7 +822,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19052,265,15084,2,2108)
 	self:addTradeFlags(RecipeDB,19052,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19052,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,19052,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212)
 
 	-- Chimeric Gloves -- 19053
 	recipecount = recipecount + 1
