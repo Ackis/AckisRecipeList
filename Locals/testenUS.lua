@@ -28,8 +28,6 @@ if not L then return end
 
 -- General strings
 L["Filters"]				= true
-L["All"]					= true
-L["None"]					= true
 L["Ok"]						= true
 
 -- Command line options
@@ -236,6 +234,8 @@ L["Faction"]				= true
 L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
 L["Classes"]				= true
 L["CLASS_DESC"]				= "Include this class in the scan."
+L["CLASS_TEXT_DESC"]		= [[Left-click here to select all classes.
+Right-click here to select your own class.]]
 L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["Skill"]					= true
@@ -281,6 +281,8 @@ L["RecipeBOAFilter"]		= "Recipe Bind to Account"
 L["RECIPE_BOA_DESC"]		= "Recipes that are Bind to Account should be included in the scan."
 
 -- Item - Armor UI Elements and their associated descriptions
+L["ARMOR_TEXT_DESC"]		= [[Left-click here to select all armor filters.
+Right-click here to deselect all armor filters.]]
 L["Cloth"]					= true
 L["CLOTH_DESC"]				= "Recipes that make cloth items should be included in the scan."
 L["Leather"]				= true
@@ -301,6 +303,8 @@ L["Shield"]					= true
 L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
 
 -- Item - Weapon UI Elements and their associated descriptions
+L["WEAPON_TEXT_DESC"]		= [[Left-click here to select all weapon filters.
+Right-click here to deselect all weapon filters.]]
 L["One Hand"]				= true
 L["ONEHAND_DESC"]			= "Recipes that make one handed items should be included in the scan."
 L["Two Hand"]				= true
@@ -362,10 +366,6 @@ L["Reset"]					= true
 L["RESET_DESC"]				= "Reset All Filters to default values."
 L["Apply"]					= true
 L["APPLY_DESC"]				= "Apply the above selected filters to the recipe list"
-L["ARMOR_ALL_DESC"]			= "Recipes that make ANY armor item should be included in the scan."
-L["ARMOR_NONE_DESC"]		= "Do NOT include any recipes that make armor items in the scan."
-L["WEAPON_ALL_DESC"]		= "Recipes that make ANY weapon item should be included in the scan."
-L["WEAPON_NONE_DESC"]		= "Do NOT include any recipes that make weapon items in the scan."
 L["NOT_YET_SCANNED"]		= "Not yet scanned!"
 
 -- Common Tool tip Strings (where different from above)
@@ -1734,5 +1734,3 @@ L["Oluros"] = true
 L["Rekka the Hammer"] = true
 L["Arthur Denny"] = true
 L["Desert Recipe"] = true
-L["CLASS_TEXT_DESC"] = [[Left-click here to select all classes.
-Right-click here to select your own class.]]

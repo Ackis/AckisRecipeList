@@ -1613,9 +1613,7 @@ end
 function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 
 	local pushdown = {
-		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [25] = 1, [26] = 1, [27] = 1, [28] = 1, [29] = 1,
-		[30] = 1, [31] = 1, [32] = 1, [33] = 1, [34] = 1, [68] = 1, [35] = 1, [36] = 1, [37] = 1,
-		[38] = 1, [84] = 1, [85] = 1,
+		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [85] = 1,
 	}
 	-- set the position of the new checkbox
 	local xPos = 2 + ((col - 1) * 100)
@@ -3842,7 +3840,7 @@ function addon:CreateFrame(
 --				() Shield
 			local ARL_ArmorButton = addon:GenericCreateButton("ARL_ArmorButton", addon.Fly_Item,
 				20, 60, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight",
-				"GameFontHighlightSmall", L["Armor"], "LEFT", "NYI", 0)
+				"GameFontHighlightSmall", L["Armor"], "LEFT", L["ARMOR_TEXT_DESC"], 0)
 				ARL_ArmorButton:SetText(L["Armor"] .. ":")
 				ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 				ARL_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
@@ -3923,8 +3921,8 @@ function addon:CreateFrame(
 --				() Bow	() Crossbow
 --				() Staff
 			local ARL_WeaponButton = addon:GenericCreateButton("ARL_WeaponButton", addon.Fly_Item,
-				20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -127, "GameFontHighlight",
-				"GameFontHighlightSmall", L["Weapon"], "LEFT", "NYI", 0)
+				20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight",
+				"GameFontHighlightSmall", L["Weapon"], "LEFT", L["WEAPON_TEXT_DESC"], 0)
 				ARL_WeaponButton:SetText(L["Weapon"] .. ":")
 				ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 				ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
@@ -4350,10 +4348,10 @@ function addon:CreateFrame(
 			[75] = { cb = ARL_RepOraclesCB,				svroot = filterdb.rep,			svval = "oracles" },
 			[76] = { cb = ARL_RepWyrmrestCB,			svroot = filterdb.rep,			svval = "wyrmrest" },
 			[86] = { cb = ARL_WrathCommon1CB,			svroot = filterdb.rep,			svval = "wrathcommon1" },
-			[77] = { cb = ARL_WrathCommon2CB,			svroot = filterdb.rep,			svval = "wrathcommon2" },
-			[80] = { cb = ARL_WrathCommon3CB,			svroot = filterdb.rep,			svval = "wrathcommon3" },
-			[82] = { cb = ARL_WrathCommon4CB,			svroot = filterdb.rep,			svval = "wrathcommon4" },
-			[79] = { cb = ARL_WrathCommon5CB,			svroot = filterdb.rep,			svval = "wrathcommon5" },
+			[77] = { cb = ARL_WrathCommon2CB,			svroot = "disabled",			svval = "" },
+			[80] = { cb = ARL_WrathCommon3CB,			svroot = "disabled",			svval = "" },
+			[82] = { cb = ARL_WrathCommon4CB,			svroot = "disabled",			svval = "" },
+			[79] = { cb = ARL_WrathCommon5CB,			svroot = "disabled",			svval = "" },
 		}
 
 	end
