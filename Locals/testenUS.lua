@@ -226,6 +226,8 @@ L["Burning Crusade Rep. Filtering Options"]	= true
 L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
 L["Lich King Rep. Filtering Options"]		= true
 L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["REP_TEXT_DESC"]							= [[Left-click here to select all reputation filters.
+Right-click here to deselect all reputation filters.]]
 L["Miscellaneous"]							= true
 L["FILTERING_MISC_DESC"]					= "Configuration for miscellaneous options which are also present in the display options."
 

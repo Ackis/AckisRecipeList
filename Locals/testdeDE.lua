@@ -110,8 +110,8 @@ L["ARL Documentation"] = "ARL Dokumentation"
 L["ARL_SEARCHFILTERED"] = "Deine Suche hat keine Ergebnisse."
 L["Armor"] = "Rüstung"
 L["Armor Filtering Options"] = "Rüstungs Filteroptionen"
-L["ARMOR_TEXT_DESC"] = [=[Ein Linksklick hier wählt alle Filter an
-Ein Rechtsklick hier wählt alle Filter ab]=]
+L["ARMOR_TEXT_DESC"] = [=[Ein Linksklick hier wählt alle Rüstung-Filter an
+Ein Rechtsklick hier wählt alle Rüstung-Filter ab]=]
 L["Arnok"] = "Arnok"
 L["Arras"] = "Arras"
 L["Arred"] = "Arred"
@@ -1171,6 +1171,8 @@ L["REPORTING_BUGS_DESC"] = [=[Wenn du einen Fehler meldest, stelle sicher, dass 
 4) Lese die Bugreport Dokumentation unter http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/
 5) Sollte dein Problem nicht in der Ticketliste vorkommen und du nutzt die Aktuellste Version stelle sicher, dass die AddOn Einstellungen stimmen.  Schaue nach den Filtern, Profilen usw.
 6) Hast du also einen Fehler gefunden den noch niemand gemeldet hat, dann erstelle ein neues Ticket in Englischer Sprache unter http://www.wowace.com/projects/arl/tickets/ und Stelle dabei sicher, dass der Titel dein Problem gut beschreibt.  Im Ticket selbst sollte die Fehlermeldung stehen die du bekommst (nur die Fehlermeldung, ich brauche keine Liste deiner benutzten Addons), Das Rezept/Die Profession womit der Fehler aufgetreten ist, und jegliche anderen Infos von denen du denkst, dass sie bei der Problemlösung helfen könnten.]=]
+L["REP_TEXT_DESC"] = [=[Ein Linksklick hier wählt alle Fraktionen-Filter an
+Ein Rechtsklick hier wählt alle Fraktionen-Filter ab]=]
 L["Reputation"] = "Ruf"
 L["Reputation Filtering Options"] = "Fraktions Filteroptionen"
 L["Required Skill"] = "Benötigte Fertigkeit"
@@ -1559,8 +1561,8 @@ L["Wastewander Thief"] = "Dieb der Wüstenläufer"
 L["Weapon"] = "Waffe"
 L["Weapon Filtering Options"] = "Waffen Filteroptionen"
 L["Weapon Technician"] = "Waffentechniker"
-L["WEAPON_TEXT_DESC"] = [=[Ein Linksklick hier wählt alle Rüstung-Filter an
-Ein Rechtsklick hier wählt alle Rüstung-Filter ab]=]
+L["WEAPON_TEXT_DESC"] = [=[Ein Linksklick hier wählt alle Waffen-Filter an
+Ein Rechtsklick hier wählt alle Waffen-Filter ab]=]
 L["Wenna Silkbeard"] = "Wenna Seidenbart"
 L["Werg Thickblade"] = "Werg Breitklinge"
 L["Westfall Stew"] = "Westfalleintopf"
