@@ -69,6 +69,8 @@ local IsShiftKeyDown = IsShiftKeyDown
 local IsAltKeyDown = IsAltKeyDown
 local IsControlKeyDown = IsControlKeyDown
 
+local seasonal = GetCategoryInfo(155)
+
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
 
@@ -105,7 +107,7 @@ local arlTooltip = _G["arlTooltip"]
 local arlTooltip2 = _G["arlTooltip2"]
 
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
-addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
+addonversion = string.gsub(addonversion,"@project.revision@","SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
@@ -917,7 +919,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local ssnname = seasonDB[v["ID"]]["Name"]
 
 				clr1 = addon:hexcolor("SEASON")
-				gttAdd(0, -1, 0, 0, L["Seasonal"], clr1, ssnname, clr1)
+				gttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
 
 			-- Reputation
 			elseif (v["Type"] == 6) then
@@ -2430,7 +2432,7 @@ local function expandEntry(dsIndex)
 			t.sID = recipeIndex
 			t.IsExpanded = true
 
-			local tStr = addon:Season(L["Seasonal"] .. " : " .. ssnname)
+			local tStr = addon:Season(seasonal .. " : " .. ssnname)
 
 			t.String = pad .. tStr
 			tinsert(DisplayStrings, dsIndex, t)
@@ -3980,7 +3982,7 @@ function addon:CreateFrame(
 				ARL_QuestCBText:SetText(L["Quest"])
 			local ARL_SeasonalCB = CreateFrame("CheckButton", "ARL_SeasonalCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], 10, 4, 1, 0)
-				ARL_SeasonalCBText:SetText(L["Seasonal"])
+				ARL_SeasonalCBText:SetText(seasonal)
 			local ARL_TrainerCB = CreateFrame("CheckButton", "ARL_TrainerCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_TrainerCB, addon.Fly_Obtain, L["TRAINER_DESC"], 11, 5, 1, 0)
 				ARL_TrainerCBText:SetText(L["Trainer"])

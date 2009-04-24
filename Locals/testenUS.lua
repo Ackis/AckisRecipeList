@@ -252,8 +252,7 @@ L["Raid"]					= true
 L["RAID_DESC"]				= "Recipes obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
 L["Quest"]					= true
 L["QUEST_DESC"]				= "Recipes obtained as quest rewards should be included in the scan."
-L["Seasonal"]				= true
-L["SEASONAL_DESC"]			= "Recipes obtained in seasonal events should be included in the scan."
+L["SEASONAL_DESC"]			= "Recipes obtained in world events should be included in the scan."
 L["Trainer"]				= true
 L["TRAINER_DESC"]			= "Recipes learned from trainers should be included in the scan."
 L["Vendor"]					= true
@@ -398,15 +397,7 @@ L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 -- Drop Obtain Info
 L["Unknown Zone"] = true
 
--- Special Event information
-L["Midsummer Fire Festival"] = true
-L["Feast of Winters Veil"] = true
-L["Lunar Festival"] = true
-L["Darkmoon Faire"] = true
-L["Seasonal"] = true
-
 -- Custom database strings (Need way better descriptions, just filler right now):
-
 L["Custom1"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 L["Custom2"] = "Discovered by making potions using Burning Crusade or higher ingredients."
 L["Custom3"] = "Discovered by doing transmutes using Burning Crusade or higher ingredients."

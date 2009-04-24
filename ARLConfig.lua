@@ -259,7 +259,7 @@ local function giveFilter()
 						seasonal = {
 							order	= 6,
 							type	= "toggle",
-							name	= L["Seasonal"],
+							name	= GetCategoryInfo(155),
 							desc	= L["SEASONAL_DESC"],
 							get		= function() return addon.db.profile.filters.obtain.seasonal end,
 							set		= function() addon.db.profile.filters.obtain.seasonal = not addon.db.profile.filters.obtain.seasonal end,
