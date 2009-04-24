@@ -1096,6 +1096,13 @@ local function RecipeList_Update()
 
 	FauxScrollFrame_Update(ARL_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
 
+	-- close all popups
+	StaticPopup_Hide("ARL_NOTSCANNED")
+	StaticPopup_Hide("ARL_ALLFILTERED")
+	StaticPopup_Hide("ARL_ALLKNOWN")
+	StaticPopup_Hide("ARL_ALLEXCLUDED")
+	StaticPopup_Hide("ARL_SEARCHFILTERED")
+
 	if (entries > 0) then
 
 		-- enable expand button
