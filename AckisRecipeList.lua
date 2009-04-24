@@ -810,13 +810,15 @@ do
 			TradeSkillOnlyShowMakeable(false)
 		end
 
-		-- Clear the sub-classes filters
-		SetTradeSkillSubClassFilter(0, 1, 1)
-		UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
-
 		-- Clear the inventory slot filter
-		SetTradeSkillInvSlotFilter(0, 1, 1);
+		UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
 		UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
+		SetTradeSkillInvSlotFilter(0, 1, 1)
+
+		-- Clear the sub-classes filters
+		UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
+		UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
+		SetTradeSkillSubClassFilter(0, 1, 1)
 
 		-- Expand all headers so we can see all the recipes there are
 		for i = GetNumTradeSkills(), 1, -1 do
