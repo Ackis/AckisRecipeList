@@ -905,7 +905,7 @@ function addon:InitCooking(RecipeDB)
 	-- Hearty Rhino -- 57436
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57436,400,42995,2,2550)
-	self:addTradeFlags(RecipeDB,57436,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeFlags(RecipeDB,57436,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,57436,2,31031,2,31032)
 
 	-- Snapper Extreme -- 57437
