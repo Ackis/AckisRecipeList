@@ -4033,123 +4033,213 @@ function addon:CreateFrame(
 			addon.Fly_Item:EnableMouse(true)
 			addon.Fly_Item:EnableKeyboard(true)
 			addon.Fly_Item:SetMovable(false)
-			addon.Fly_Item:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -10)
+			addon.Fly_Item:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_Item:Hide()
 --			Armor:
---				() All		() None
 --				() Cloth	() Leather
 --				() Mail	() Plate
 --
 --				() Cloak	() Necklace
 --				() Rings	() Trinkets 
 --				() Shield
-			local ARL_ArmorText = addon.Fly_Item:CreateFontString("ARL_ArmorText", "OVERLAY", "GameFontHighlight")
-				ARL_ArmorText:SetText(L["Armor"] .. ":")
-				ARL_ArmorText:SetPoint("TOPLEFT", addon.Fly_Item, "TOPLEFT", 5, -8)
-				ARL_ArmorText:SetHeight(14)
-				ARL_ArmorText:SetWidth(150)
-				ARL_ArmorText:SetJustifyH("LEFT")
+			local ARL_ArmorButton = addon:GenericCreateButton("ARL_ArmorButton", addon.Fly_Item,
+				20, 60, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight",
+				"GameFontHighlightSmall", L["Armor"], "LEFT", "NYI", 0)
+				ARL_ArmorButton:SetText(L["Armor"] .. ":")
+				ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+				ARL_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+				ARL_ArmorButton:SetScript("OnClick",
+					function(self,button)
+						local armordb = addon.db.profile.filters.item.armor
+						if button == "LeftButton" then
+							-- Reset all armor to true
+							armordb.cloth = true
+							armordb.leather = true
+							armordb.mail = true
+							armordb.plate = true
+							armordb.cloak = true
+							armordb.necklace = true
+							armordb.ring = true
+							armordb.trinket = true
+							armordb.shield = true
+						elseif button == "RightButton" then
+							-- Reset all armor to false
+							armordb.cloth = false
+							armordb.leather = false
+							armordb.mail = false
+							armordb.plate = false
+							armordb.cloak = false
+							armordb.necklace = false
+							armordb.ring = false
+							armordb.trinket = false
+							armordb.shield = false
+						end
+						-- Update the checkboxes with the new value
+						ARL_ArmorClothCB:SetChecked(armordb.cloth)
+						ARL_ArmorLeatherCB:SetChecked(armordb.leather)
+						ARL_ArmorMailCB:SetChecked(armordb.mail)
+						ARL_ArmorPlateCB:SetChecked(armordb.plate)
+						ARL_ArmorCloakCB:SetChecked(armordb.cloak)
+						ARL_ArmorNecklaceCB:SetChecked(armordb.necklace)
+						ARL_ArmorRingCB:SetChecked(armordb.ring)
+						ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
+						ARL_ArmorShieldCB:SetChecked(armordb.shield)
+						-- Reset our title
+						addon.resetTitle()
+						-- Use new filters
+						ReDisplay()
+					end)
 			local ARL_ArmorAllCB = CreateFrame("CheckButton", "ARL_ArmorAllCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_ArmorAllCB, addon.Fly_Item, L["ARMOR_ALL_DESC"], 19, 2, 1, 0)
 				ARL_ArmorAllCBText:SetText(L["All"])
+				ARL_ArmorAllCB:Hide()
 			local ARL_ArmorNoneCB = CreateFrame("CheckButton", "ARL_ArmorNoneCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_ArmorNoneCB, addon.Fly_Item, L["ARMOR_NONE_DESC"], 20, 2, 2, 0)
 				ARL_ArmorNoneCBText:SetText(L["None"])
+				ARL_ArmorNoneCB:Hide()
 			local ARL_ArmorClothCB = CreateFrame("CheckButton", "ARL_ArmorClothCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorClothCB, addon.Fly_Item, L["CLOTH_DESC"], 21, 3, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorClothCB, addon.Fly_Item, L["CLOTH_DESC"], 21, 2, 1, 0)
 				ARL_ArmorClothCBText:SetText(L["Cloth"])
 			local ARL_ArmorLeatherCB = CreateFrame("CheckButton", "ARL_ArmorLeatherCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorLeatherCB, addon.Fly_Item, L["LEATHER_DESC"], 22, 3, 2, 0)
+				addon:GenericMakeCB(ARL_ArmorLeatherCB, addon.Fly_Item, L["LEATHER_DESC"], 22, 2, 2, 0)
 				ARL_ArmorLeatherCBText:SetText(L["Leather"])
 			local ARL_ArmorMailCB = CreateFrame("CheckButton", "ARL_ArmorMailCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorMailCB, addon.Fly_Item, L["MAIL_DESC"], 23, 4, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorMailCB, addon.Fly_Item, L["MAIL_DESC"], 23, 3, 1, 0)
 				ARL_ArmorMailCBText:SetText(L["Mail"])
 			local ARL_ArmorPlateCB = CreateFrame("CheckButton", "ARL_ArmorPlateCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorPlateCB, addon.Fly_Item, L["PLATE_DESC"], 24, 4, 2, 0)
+				addon:GenericMakeCB(ARL_ArmorPlateCB, addon.Fly_Item, L["PLATE_DESC"], 24, 3, 2, 0)
 				ARL_ArmorPlateCBText:SetText(L["Plate"])
 
 			local ARL_ArmorCloakCB = CreateFrame("CheckButton", "ARL_ArmorCloakCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorCloakCB, addon.Fly_Item, L["CLOAK_DESC"], 64, 5, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorCloakCB, addon.Fly_Item, L["CLOAK_DESC"], 64, 4, 1, 0)
 				ARL_ArmorCloakCBText:SetText(L["Cloak"])
 			local ARL_ArmorNecklaceCB = CreateFrame("CheckButton", "ARL_ArmorNecklaceCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorNecklaceCB, addon.Fly_Item, L["NECKLACE_DESC"], 65, 5, 2, 0)
+				addon:GenericMakeCB(ARL_ArmorNecklaceCB, addon.Fly_Item, L["NECKLACE_DESC"], 65, 4, 2, 0)
 				ARL_ArmorNecklaceCBText:SetText(L["Necklace"])
 			local ARL_ArmorRingCB = CreateFrame("CheckButton", "ARL_ArmorRingCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorRingCB, addon.Fly_Item, L["RING_DESC"], 66, 6, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorRingCB, addon.Fly_Item, L["RING_DESC"], 66, 5, 1, 0)
 				ARL_ArmorRingCBText:SetText(L["Ring"])
 			local ARL_ArmorTrinketCB = CreateFrame("CheckButton", "ARL_ArmorTrinketCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 6, 2, 0)
+				addon:GenericMakeCB(ARL_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 5, 2, 0)
 				ARL_ArmorTrinketCBText:SetText(L["Trinket"])
 			local ARL_ArmorShieldCB = CreateFrame("CheckButton", "ARL_ArmorShieldCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 85, 7, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 85, 6, 1, 0)
 				ARL_ArmorShieldCBText:SetText(L["Shield"])
 --			Weapon:
---				() All		() None
 --				() 1H		() 2H
 --				() Dagger	() Axe
 --				() Mace	() Sword
 --				() Polearm	() Thrown
 --				() Bow	() Crossbow
 --				() Staff
-			local ARL_WeaponText = addon.Fly_Item:CreateFontString("ARL_WeaponText", "OVERLAY", "GameFontHighlight")
-				ARL_WeaponText:SetText(L["Weapon"] .. ":")
-				ARL_WeaponText:SetPoint("TOPLEFT", addon.Fly_Item, "TOPLEFT", 5, -133)
-				ARL_WeaponText:SetHeight(14)
-				ARL_WeaponText:SetWidth(150)
-				ARL_WeaponText:SetJustifyH("LEFT")
+			local ARL_WeaponButton = addon:GenericCreateButton("ARL_WeaponButton", addon.Fly_Item,
+				20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -127, "GameFontHighlight",
+				"GameFontHighlightSmall", L["Weapon"], "LEFT", "NYI", 0)
+				ARL_WeaponButton:SetText(L["Weapon"] .. ":")
+				ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+				ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+				ARL_WeaponButton:SetScript("OnClick",
+					function(self,button)
+						local weapondb = addon.db.profile.filters.item.weapon
+						if button == "LeftButton" then
+							-- Reset all weapon to true
+							weapondb.onehand = true
+							weapondb.twohand = true
+							weapondb.dagger = true
+							weapondb.axe = true
+							weapondb.mace = true
+							weapondb.sword = true
+							weapondb.polearm = true
+							weapondb.wand = true
+							weapondb.thrown = true
+							weapondb.ammo = true
+							weapondb.fist = true
+						elseif button == "RightButton" then
+							-- Reset all weapon to false
+							weapondb.onehand = false
+							weapondb.twohand = false
+							weapondb.dagger = false
+							weapondb.axe = false
+							weapondb.mace = false
+							weapondb.sword = false
+							weapondb.polearm = false
+							weapondb.wand = false
+							weapondb.thrown = false
+							weapondb.ammo = false
+							weapondb.fist = false
+						end
+						-- Update the checkboxes with the new value
+						ARL_Weapon1HCB:SetChecked(weapondb.onehand)
+						ARL_Weapon2HCB:SetChecked(weapondb.twohand)
+						ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
+						ARL_WeaponAxeCB:SetChecked(weapondb.axe)
+						ARL_WeaponMaceCB:SetChecked(weapondb.mace)
+						ARL_WeaponSwordCB:SetChecked(weapondb.sword)
+						ARL_WeaponPolearmCB:SetChecked(weapondb.polearm)
+						ARL_WeaponWandCB:SetChecked(weapondb.wand)
+						ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
+						ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
+						ARL_WeaponFistCB:SetChecked(weapondb.fist)
+						-- Reset our title
+						addon.resetTitle()
+						-- Use new filters
+						ReDisplay()
+					end)
 			local ARL_WeaponAllCB = CreateFrame("CheckButton", "ARL_WeaponAllCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponAllCB, addon.Fly_Item, L["WEAPON_ALL_DESC"], 25, 9, 1, 0)
 				ARL_WeaponAllCBText:SetText(L["All"])
+				ARL_WeaponAllCB:Hide()
 			local ARL_WeaponNoneCB = CreateFrame("CheckButton", "ARL_WeaponNoneCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponNoneCB, addon.Fly_Item, L["WEAPON_NONE_DESC"], 26, 9, 2, 0)
 				ARL_WeaponNoneCBText:SetText(L["None"])
+				ARL_WeaponNoneCB:Hide()
 			local ARL_Weapon1HCB = CreateFrame("CheckButton", "ARL_Weapon1HCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_Weapon1HCB, addon.Fly_Item, L["ONEHAND_DESC"], 27, 10, 1, 0)
+				addon:GenericMakeCB(ARL_Weapon1HCB, addon.Fly_Item, L["ONEHAND_DESC"], 27, 9, 1, 0)
 				ARL_Weapon1HCBText:SetText(L["One Hand"])
 			local ARL_Weapon2HCB = CreateFrame("CheckButton", "ARL_Weapon2HCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_Weapon2HCB, addon.Fly_Item, L["TWOHAND_DESC"], 28, 10, 2, 0)
+				addon:GenericMakeCB(ARL_Weapon2HCB, addon.Fly_Item, L["TWOHAND_DESC"], 28, 9, 2, 0)
 				ARL_Weapon2HCBText:SetText(L["Two Hand"])
 			local ARL_WeaponDaggerCB = CreateFrame("CheckButton", "ARL_WeaponDaggerCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponDaggerCB, addon.Fly_Item, L["DAGGER_DESC"], 29, 11, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponDaggerCB, addon.Fly_Item, L["DAGGER_DESC"], 29, 10, 1, 0)
 				ARL_WeaponDaggerCBText:SetText(L["Dagger"])
 			local ARL_WeaponAxeCB = CreateFrame("CheckButton", "ARL_WeaponAxeCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponAxeCB, addon.Fly_Item, L["AXE_DESC"], 30, 11, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponAxeCB, addon.Fly_Item, L["AXE_DESC"], 30, 10, 2, 0)
 				ARL_WeaponAxeCBText:SetText(L["Axe"])
 			local ARL_WeaponMaceCB = CreateFrame("CheckButton", "ARL_WeaponMaceCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponMaceCB, addon.Fly_Item, L["MACE_DESC"], 31, 12, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponMaceCB, addon.Fly_Item, L["MACE_DESC"], 31, 11, 1, 0)
 				ARL_WeaponMaceCBText:SetText(L["Mace"])
 			local ARL_WeaponSwordCB = CreateFrame("CheckButton", "ARL_WeaponSwordCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponSwordCB, addon.Fly_Item, L["SWORD_DESC"], 32, 12, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponSwordCB, addon.Fly_Item, L["SWORD_DESC"], 32, 11, 2, 0)
 				ARL_WeaponSwordCBText:SetText(L["Sword"])
 			local ARL_WeaponPolearmCB = CreateFrame("CheckButton", "ARL_WeaponPolearmCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponPolearmCB, addon.Fly_Item, L["POLEARM_DESC"], 33, 13, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponPolearmCB, addon.Fly_Item, L["POLEARM_DESC"], 33, 12, 1, 0)
 				ARL_WeaponPolearmCBText:SetText(L["Polearm"])
 			local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 84, 13, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 84, 12, 2, 0)
 				ARL_WeaponFistCBText:SetText(L["Fist"])
 			local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 14, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 13, 1, 0)
 				ARL_WeaponStaffCBText:SetText(L["Staff"])
 				ARL_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
 				ARL_WeaponStaffCB:Disable()
 			local ARL_WeaponWandCB = CreateFrame("CheckButton", "ARL_WeaponWandCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponWandCB, addon.Fly_Item, L["WAND_DESC"], 68, 14, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponWandCB, addon.Fly_Item, L["WAND_DESC"], 68, 13, 2, 0)
 				ARL_WeaponWandCBText:SetText(L["Wand"])
 			local ARL_WeaponThrownCB = CreateFrame("CheckButton", "ARL_WeaponThrownCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponThrownCB, addon.Fly_Item, L["THROWN_DESC"], 35, 15, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponThrownCB, addon.Fly_Item, L["THROWN_DESC"], 35, 14, 1, 0)
 				ARL_WeaponThrownCBText:SetText(L["Thrown"])
 			local ARL_WeaponBowCB = CreateFrame("CheckButton", "ARL_WeaponBowCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponBowCB, addon.Fly_Item, L["BOW_DESC"], 36, 15, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponBowCB, addon.Fly_Item, L["BOW_DESC"], 36, 14, 2, 0)
 				ARL_WeaponBowCBText:SetText(L["Bow"])
 				ARL_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
 				ARL_WeaponBowCB:Disable()
 			local ARL_WeaponCrossbowCB = CreateFrame("CheckButton", "ARL_WeaponCrossbowCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponCrossbowCB, addon.Fly_Item, L["CROSSBOW_DESC"], 37, 16, 1, 0)
+				addon:GenericMakeCB(ARL_WeaponCrossbowCB, addon.Fly_Item, L["CROSSBOW_DESC"], 37, 15, 1, 0)
 				ARL_WeaponCrossbowCBText:SetText(L["Crossbow"])
 				ARL_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
 				ARL_WeaponCrossbowCB:Disable()
 			local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 16, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 15, 2, 0)
 				ARL_WeaponAmmoCBText:SetText(L["Ammo"])
 
 		addon.Fly_Player= CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
