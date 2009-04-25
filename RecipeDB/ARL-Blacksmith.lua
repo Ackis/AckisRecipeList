@@ -1967,7 +1967,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Whirling Steel Axes -- 34981
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34981,200,29202,1,2018)
-	self:addTradeFlags(RecipeDB,34981,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,68)
+	self:addTradeFlags(RecipeDB,34981,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,75)
 	self:addTradeAcquire(RecipeDB,34981,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341)
 
 	-- Enchanted Thorium Blades -- 34982
@@ -2219,7 +2219,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ragesteel Shoulders -- 42662
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,42662,365,33173,3,2018)
-	self:addTradeFlags(RecipeDB,42662,1,2,11,21,22,23,24,25,26,27,28,29,30,41)
+	self:addTradeFlags(RecipeDB,42662,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,42662,3,21050,3,21059,3,21060,3,21061)
 
 	-- Adamantite Weapon Chain -- 42688
@@ -2303,7 +2303,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Cobalt Triangle Shield -- 54550
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,54550,360,40668,2,2018)
-	self:addTradeFlags(RecipeDB,54550,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,64)
+	self:addTradeFlags(RecipeDB,54550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
 	self:addTradeAcquire(RecipeDB,54550,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
 
 	-- Tempered Saronite Belt -- 54551
