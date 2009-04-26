@@ -1736,3 +1736,6 @@ L["Oluros"] = true
 L["Rekka the Hammer"] = true
 L["Arthur Denny"] = true
 L["Desert Recipe"] = true
+L["Manfred Staller"] = true
+L["Andellion"] = true
+L["Namha Moonwater"] = true
