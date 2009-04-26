@@ -1056,7 +1056,7 @@ function addon:InitEnchanting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,27958,350,nil,1,7411)
 	self:addTradeFlags(RecipeDB,27958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,27958,1,18753,1,18773,1,19252,1,19540)
+	self:addTradeAcquire(RecipeDB,27958,1,18753,1,18773,1,19252,1,19540,1,28693)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	recipecount = recipecount + 1
@@ -1187,8 +1187,8 @@ function addon:InitEnchanting(RecipeDB)
 	-- Runed Eternium Rod -- 32667
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32667,375,22463,1,7411)
-	self:addTradeFlags(RecipeDB,32667,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32667,2,19663)
+	self:addTradeFlags(RecipeDB,32667,1,2,3,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,32667,2,19663,1,28693)
 
 	-- Enchant Chest - Major Spirit -- 33990
 	recipecount = recipecount + 1
