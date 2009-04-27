@@ -87,6 +87,13 @@ end
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
 function addon:ScanTrainerData()
 
+	local recipelist = addon:GetRecipeTable()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
 	-- Make sure the target exists and is a NPC
 	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
 
@@ -109,7 +116,7 @@ function addon:ScanTrainerData()
 			-- Dump out trainer info
 			self:Print(L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 			-- Get internal database
-			local recipelist = addon:GetRecipeTable()
+
 			for i in pairs(recipelist) do
 
 				local i_name = recipelist[i]["Name"]
