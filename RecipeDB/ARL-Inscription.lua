@@ -402,7 +402,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56979,225,42744,1,45357)
 	self:addTradeFlags(RecipeDB,56979,1,2,3,24,36,41)
-	self:addTradeAcquire(RecipeDB,56979,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,56979,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Ice Lance -- 56980
 	recipecount = recipecount + 1
@@ -546,7 +546,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57007,150,42910,1,45357)
 	self:addTradeFlags(RecipeDB,57007,1,2,3,23,36,41)
-	self:addTradeAcquire(RecipeDB,57007,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57007,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Rapid Fire -- 57008
 	recipecount = recipecount + 1
@@ -1038,7 +1038,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57196,95,42410,1,45357)
 	self:addTradeFlags(RecipeDB,57196,1,2,3,26,36,41)
-	self:addTradeAcquire(RecipeDB,57196,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57196,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Renew -- 57197
 	recipecount = recipecount + 1
@@ -1152,7 +1152,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57219,280,43546,1,45357)
 	self:addTradeFlags(RecipeDB,57219,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,57219,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57219,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Obliterate -- 57220
 	recipecount = recipecount + 1
@@ -1422,13 +1422,13 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57269,140,42465,1,45357)
 	self:addTradeFlags(RecipeDB,57269,1,2,3,29,36,41)
-	self:addTradeAcquire(RecipeDB,57269,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57269,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Searing Pain -- 57270
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57270,215,42466,1,45357)
 	self:addTradeFlags(RecipeDB,57270,1,2,3,29,36,41)
-	self:addTradeAcquire(RecipeDB,57270,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57270,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Glyph of Shadow Bolt -- 57271
 	recipecount = recipecount + 1
@@ -1506,7 +1506,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57709,200,43120,1,45357)
 	self:addTradeFlags(RecipeDB,57709,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57709,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,57709,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Fiery Ink -- 57710
 	recipecount = recipecount + 1
@@ -2004,7 +2004,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59387,200,43850,1,45357)
 	self:addTradeFlags(RecipeDB,59387,1,2,3,23,36,41)
-	self:addTradeAcquire(RecipeDB,59387,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,59387,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,1,30706)
 
 	-- Tome of the Dawn -- 59475
 	recipecount = recipecount + 1
@@ -2112,7 +2112,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,59500,350,43145,1,45357)
 	self:addTradeFlags(RecipeDB,59500,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,59500,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,30709)
+	self:addTradeAcquire(RecipeDB,59500,1,26916,1,26959,1,26977,1,26995,1,28702,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722)
 
 	-- Weapon Vellum III -- 59501
 	recipecount = recipecount + 1
@@ -2256,13 +2256,13 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64266,275,45804,1,45357)
 	self:addTradeFlags(RecipeDB,64266,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,64266,1,30709)
+	self:addTradeAcquire(RecipeDB,64266,1,30709,1,30706)
 
 	-- Glyph of Disease -- 64267
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64267,280,45805,1,45357)
 	self:addTradeFlags(RecipeDB,64267,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,64267,1,30709)
+	self:addTradeAcquire(RecipeDB,64267,1,30709,1,30706)
 
 	-- Glyph of Howling Blast -- 64300
 	recipecount = recipecount + 1
@@ -2364,7 +2364,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64261,250,45775,1,45357)
 	self:addTradeFlags(RecipeDB,64261,1,2,3,27,36,41)
-	self:addTradeAcquire(RecipeDB,64261,1,30709)
+	self:addTradeAcquire(RecipeDB,64261,1,30709,1,30706)
 
 	--Glyph of Enraged Regeneration  -- 64312
 	recipecount = recipecount + 1
@@ -2496,13 +2496,13 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64258,250,45622,1,45357)
 	self:addTradeFlags(RecipeDB,64258,1,2,3,22,36,41)
-	self:addTradeAcquire(RecipeDB,64258,1,30709)
+	self:addTradeAcquire(RecipeDB,64258,1,30709,1,30706)
 
 	--Glyph of Mutilate -- 64260
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64260,255,45768,1,45357)
 	self:addTradeFlags(RecipeDB,64260,1,2,3,28,36,41)
-	self:addTradeAcquire(RecipeDB,64260,1,30709)
+	self:addTradeAcquire(RecipeDB,64260,1,30709,1,30706)
 
 	--Glyph of Nourish -- 64313
 	recipecount = recipecount + 1
@@ -2514,7 +2514,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64259,255,45760,1,45357)
 	self:addTradeFlags(RecipeDB,64259,1,2,3,26,36,41)
-	self:addTradeAcquire(RecipeDB,64259,1,30709)
+	self:addTradeAcquire(RecipeDB,64259,1,30709,1,30706)
 
 	--Glyph of Penance -- 64282
 	recipecount = recipecount + 1
@@ -2616,7 +2616,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64262,255,45776,1,45357)
 	self:addTradeFlags(RecipeDB,64262,1,2,3,27,36,41)
-	self:addTradeAcquire(RecipeDB,64262,1,30709)
+	self:addTradeAcquire(RecipeDB,64262,1,30709,1,30706)
 
 	--Glyph of Tricks of the Trade -- 64310
 	recipecount = recipecount + 1

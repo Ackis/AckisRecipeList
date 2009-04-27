@@ -84,7 +84,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,2668,105,2865,1,2018)
 	self:addTradeFlags(RecipeDB,2668,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,2668,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
+	self:addTradeAcquire(RecipeDB,2668,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,28694)
 
 	-- Rough Bronze Cuirass -- 2670
 	recipecount = recipecount + 1
@@ -216,7 +216,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3320,25,3470,1,2018)
 	self:addTradeFlags(RecipeDB,3320,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3320,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245)
+	self:addTradeAcquire(RecipeDB,3320,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,28694)
 
 	-- Copper Chain Vest -- 3321
 	recipecount = recipecount + 1
@@ -246,7 +246,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3326,75,3478,1,2018)
 	self:addTradeFlags(RecipeDB,3326,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3326,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245)
+	self:addTradeAcquire(RecipeDB,3326,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,28694)
 
 	-- Rough Bronze Shoulders -- 3328
 	recipecount = recipecount + 1
@@ -288,7 +288,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3337,125,3486,1,2018)
 	self:addTradeFlags(RecipeDB,3337,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3337,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
+	self:addTradeAcquire(RecipeDB,3337,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,28694)
 
 	-- Big Bronze Knife -- 3491
 	recipecount = recipecount + 1
@@ -348,7 +348,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3501,165,3835,1,2018)
 	self:addTradeFlags(RecipeDB,3501,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,3501,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823)
+	self:addTradeAcquire(RecipeDB,3501,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,28694)
 
 	-- Green Iron Helm -- 3502
 	recipecount = recipecount + 1
@@ -462,7 +462,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7818,100,6338,1,2018)
 	self:addTradeFlags(RecipeDB,7818,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,7818,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823)
+	self:addTradeAcquire(RecipeDB,7818,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,28694)
 
 	-- Ironforge Breastplate -- 8367
 	recipecount = recipecount + 1
@@ -528,7 +528,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9920,200,7966,1,2018)
 	self:addTradeFlags(RecipeDB,9920,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,9920,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823)
+	self:addTradeAcquire(RecipeDB,9920,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,28694)
 
 	-- Solid Weightstone -- 9921
 	recipecount = recipecount + 1
@@ -600,7 +600,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9954,225,7938,1,2018)
 	self:addTradeFlags(RecipeDB,9954,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,9954,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,9954,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Heavy Mithril Breastplate -- 9959
 	recipecount = recipecount + 1
@@ -648,7 +648,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9974,245,7939,1,2018)
 	self:addTradeFlags(RecipeDB,9974,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,9974,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,9974,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Ornate Mithril Boots -- 9979
 	recipecount = recipecount + 1
@@ -738,7 +738,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10011,250,7959,1,2018)
 	self:addTradeFlags(RecipeDB,10011,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,71)
-	self:addTradeAcquire(RecipeDB,10011,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,10011,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Ebon Shiv -- 10013
 	recipecount = recipecount + 1
@@ -750,7 +750,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10015,260,7960,1,2018)
 	self:addTradeFlags(RecipeDB,10015,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	self:addTradeAcquire(RecipeDB,10015,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,10015,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Inlaid Mithril Cylinder -- 11454
 	recipecount = recipecount + 1
@@ -1854,97 +1854,97 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34529,350,23563,1,2018,9788)
 	self:addTradeFlags(RecipeDB,34529,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,34529,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,34529,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Twisting Nether Chain Shirt -- 34530
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34530,375,23564,1,2018,9788)
 	self:addTradeFlags(RecipeDB,34530,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,34530,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,34530,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Breastplate of Kings -- 34533
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34533,350,28483,1,2018,9788)
 	self:addTradeFlags(RecipeDB,34533,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Bulwark of Kings -- 34534
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34534,375,28484,1,2018,9788)
 	self:addTradeFlags(RecipeDB,34534,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,34534,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,34534,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Fireguard -- 34535
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34535,350,28425,1,2018,17039)
 	self:addTradeFlags(RecipeDB,34535,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,34535,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34535,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Blazeguard -- 34537
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34537,375,28426,1,2018,17039)
 	self:addTradeFlags(RecipeDB,34537,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,34537,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34537,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Blade -- 34538
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34538,350,28428,1,2018,17039)
 	self:addTradeFlags(RecipeDB,34538,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,34538,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34538,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Champion -- 34540
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34540,375,28429,1,2018,17039)
 	self:addTradeFlags(RecipeDB,34540,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,34540,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34540,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- The Planar Edge -- 34541
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34541,350,28431,1,2018,17041)
 	self:addTradeFlags(RecipeDB,34541,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,34541,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34541,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Black Planar Edge -- 34542
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34542,375,28432,1,2018,17041)
 	self:addTradeFlags(RecipeDB,34542,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,34542,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34542,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lunar Crescent -- 34543
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34543,350,28434,1,2018,17041)
 	self:addTradeFlags(RecipeDB,34543,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,34543,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34543,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Mooncleaver -- 34544
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34544,375,28435,1,2018,17041)
 	self:addTradeFlags(RecipeDB,34544,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,34544,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34544,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Drakefist Hammer -- 34545
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34545,350,28437,1,2018,17040)
 	self:addTradeFlags(RecipeDB,34545,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,34545,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34545,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dragonmaw -- 34546
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34546,375,28438,1,2018,17040)
 	self:addTradeFlags(RecipeDB,34546,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,34546,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34546,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Thunder -- 34547
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34547,350,28440,1,2018,17040)
 	self:addTradeFlags(RecipeDB,34547,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,34547,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34547,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Deep Thunder -- 34548
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34548,375,28441,1,2018,17040)
 	self:addTradeFlags(RecipeDB,34548,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,34548,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,34548,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Fel Weightstone -- 34607
 	recipecount = recipecount + 1
@@ -1986,127 +1986,127 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36122,260,30069,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36122,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,36122,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36122,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Windforged Leggings -- 36124
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36124,260,30070,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36124,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36124,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36124,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Light Earthforged Blade -- 36125
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36125,260,30071,1,2018,9787)
 	self:addTradeFlags(RecipeDB,36125,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,69)
-	self:addTradeAcquire(RecipeDB,36125,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36125,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Light Skyforged Axe -- 36126
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36126,260,30072,1,2018,9787)
 	self:addTradeFlags(RecipeDB,36126,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,36126,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36126,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Light Emberforged Hammer -- 36128
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36128,260,30073,1,2018,9787)
 	self:addTradeFlags(RecipeDB,36128,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,36128,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36128,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Heavy Earthforged Breastplate -- 36129
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36129,330,30074,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36129,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,36129,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36129,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Stormforged Hauberk -- 36130
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36130,330,30076,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36130,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36130,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36130,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Windforged Rapier -- 36131
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36131,330,30077,1,2018,17039)
 	self:addTradeFlags(RecipeDB,36131,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,36131,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36131,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stoneforged Claymore -- 36133
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36133,330,30086,1,2018,17039)
 	self:addTradeFlags(RecipeDB,36133,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,69)
-	self:addTradeAcquire(RecipeDB,36133,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36133,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormforged Axe -- 36134
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36134,330,30087,1,2018,17041)
 	self:addTradeFlags(RecipeDB,36134,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,68)
-	self:addTradeAcquire(RecipeDB,36134,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36134,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Skyforged Great Axe -- 36135
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36135,330,30088,1,2018,17041)
 	self:addTradeFlags(RecipeDB,36135,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,36135,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36135,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lavaforged Warhammer -- 36136
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36136,330,30089,1,2018,17040)
 	self:addTradeFlags(RecipeDB,36136,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,36136,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36136,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Great Earthforged Hammer -- 36137
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36137,330,30093,1,2018,17040)
 	self:addTradeFlags(RecipeDB,36137,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,36137,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36137,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Embrace of the Twisting Nether -- 36256
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36256,375,23565,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36256,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36256,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36256,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Bulwark of the Ancient Kings -- 36257
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36257,375,28485,1,2018,9788)
 	self:addTradeFlags(RecipeDB,36257,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,36257,1,5164,1,7230,1,11177,1,20125)
+	self:addTradeAcquire(RecipeDB,36257,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Blazefury -- 36258
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36258,375,28427,1,2018,17039)
 	self:addTradeFlags(RecipeDB,36258,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,36258,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36258,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Executioner -- 36259
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36259,375,28430,1,2018,17039)
 	self:addTradeFlags(RecipeDB,36259,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,36259,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36259,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Wicked Edge of the Planes -- 36260
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36260,375,28433,1,2018,17041)
 	self:addTradeFlags(RecipeDB,36260,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,36260,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36260,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Bloodmoon -- 36261
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36261,375,28436,1,2018,17041)
 	self:addTradeFlags(RecipeDB,36261,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
-	self:addTradeAcquire(RecipeDB,36261,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36261,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dragonstrike -- 36262
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36262,375,28439,1,2018,17040)
 	self:addTradeFlags(RecipeDB,36262,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,36262,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36262,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormherald -- 36263
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36263,375,28442,1,2018,17040)
 	self:addTradeFlags(RecipeDB,36263,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
-	self:addTradeAcquire(RecipeDB,36263,1,7231,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,36263,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Belt of the Guardian -- 36389
 	recipecount = recipecount + 1
@@ -2508,31 +2508,31 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924)
+	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924)
 
 	-- Corroded Saronite Woundbringer -- 55184
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55184,415,41187,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55184,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924)
+	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924,1,29506)
 
 	-- Saronite Mindcrusher -- 55185
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924)
+	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924,1,29506)
 
 	-- Chestplate of Conquest -- 55186
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55186,415,41189,3,2018,9788)
 	self:addTradeFlags(RecipeDB,55186,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,55186,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924)
+	self:addTradeAcquire(RecipeDB,55186,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924,1,29506)
 
 	-- Legplates of Conquest -- 55187
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55187,415,41190,3,2018,9788)
 	self:addTradeFlags(RecipeDB,55187,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,55187,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924)
+	self:addTradeAcquire(RecipeDB,55187,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,29924,1,29506)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	recipecount = recipecount + 1
