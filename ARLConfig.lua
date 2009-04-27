@@ -1022,9 +1022,6 @@ local function giveFilter()
 end
 
 -- Description: function to return the top level Ace3 config table
--- Expected result: Will return the top level ace3 config table
--- Input: None
--- Output: Ace3 config table
 
 local options = nil
 
@@ -1315,57 +1312,6 @@ local function fullOptions()
 							desc	= L["CLEAR_WAYPOINTS_DESC"],
 							func	= function() addon:ClearMap() end,
 						},
-						spacer5 = {
-							order	= 70,
-							type	= "description",
-							name	= "\n",
-						},
-						header6 = {
-							order	= 71,
-							type	= "header",
-							name	= L["Datamine Settings"],
-						},
-						map_desc =	{
-							order	= 72,
-							type	= "description",
-							name	= L["DATAMINE_SETTINGS_DESC"] .. "\n",
-						},
-						generatelinks = {	
-							order	= 73,
-							type	= "execute",
-							name	= L["Generate Tradeskill Links"],
-							desc	= L["GENERATE_LINKS_DESC"],
-							func	= function() addon:GenerateLinks() end,
-						},
-						scantrainerskills = {	
-							order	= 75,
-							type	= "execute",
-							name	= L["Compare Trainer Skills"],
-							desc	= L["COMPARE_TRAINER_SKILL_DESC"],
-							func	= function() addon:ScanSkillLevelData() end,
-						},
-						scantraineracquire = {	
-							order	= 76,
-							type	= "execute",
-							name	= L["Compare Trainer Acquire"],
-							desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
-							func	= function() addon:ScanTrainerData() end,
-						},
-						scantrainers = {
-							order	= 80,
-							type	= "toggle",
-							name	= L["Auto Scan Trainers"],
-							desc	= L["AUTOSCAN_TRAINERS_DESC"],
-							get		= function() return addon.db.profile.scantrainers end,
-							set		= function()
-											if (addon.db.profile.scantrainers) then
-												addon:RegisterEvent("TRAINER_SHOW")
-											else
-												addon:UnregisterEvent("TRAINER_SHOW")
-											end
-											addon.db.profile.scantrainers = not addon.db.profile.scantrainers
-										end,
-						},
 					},
 				},
 			},
@@ -1378,6 +1324,76 @@ local function fullOptions()
 	end
 
 	return options
+
+end
+
+local datamine = nil
+
+local function giveDatamine()
+
+	if (not datamine) then
+
+	datamine = {
+			order	= 1,
+			type	= "group",
+			name	= L["Datamine Settings"],
+			desc	= L["DATAMINE_SETTINGS_DESC"],
+			args = {
+				datamine_desc =	{
+					order	= 1,
+					type	= "description",
+					name	= L["DATAMINE_SETTINGS_DESC"] .. "\n",
+				},
+				generatelinks = {	
+					order	= 73,
+					type	= "execute",
+					name	= L["Generate Tradeskill Links"],
+					desc	= L["GENERATE_LINKS_DESC"],
+					func	= function() addon:GenerateLinks() end,
+				},
+				scantrainerskills = {	
+					order	= 75,
+					type	= "execute",
+					name	= L["Compare Trainer Skills"],
+					desc	= L["COMPARE_TRAINER_SKILL_DESC"],
+					func	= function() addon:ScanSkillLevelData() end,
+				},
+				scantraineracquire = {	
+					order	= 76,
+					type	= "execute",
+					name	= L["Compare Trainer Acquire"],
+					desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
+					func	= function() addon:ScanTrainerData() end,
+				},
+				scantrainers = {
+					order	= 80,
+					type	= "toggle",
+					name	= L["Auto Scan Trainers"],
+					desc	= L["AUTOSCAN_TRAINERS_DESC"],
+					get		= function() return addon.db.profile.scantrainers end,
+					set		= function()
+									if (addon.db.profile.scantrainers) then
+										addon:UnregisterEvent("TRAINER_SHOW")
+									else
+										addon:RegisterEvent("TRAINER_SHOW")
+									end
+									addon.db.profile.scantrainers = not addon.db.profile.scantrainers
+								end,
+				},
+				autoloaddb = {
+					order	= 81,
+					type	= "toggle",
+					name	= L["Auto Load Recipe Database"],
+					desc	= L["AUTOLOAD_DB_DESC"],
+					get		= function() return addon.db.profile.autoloaddb end,
+					set		= function() addon.db.profile.autoloaddb = not addon.db.profile.autoloaddb end,
+				},
+			},
+		}
+
+	end
+
+	return datamine
 
 end
 
@@ -1473,9 +1489,6 @@ local function giveDocs()
 end
 
 -- Description: 
--- Expected result: 
--- Input: None
--- Output: None.
 
 function addon:SetupOptions()
 
@@ -1493,6 +1506,7 @@ function addon:SetupOptions()
 	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
+	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Settings"])
 
 end
 

@@ -74,6 +74,7 @@ function addon:ScanSkillLevelData()
 				self:Print(L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
 			end
 		end
+		self:Print("Trainer Skill Level Scan Complete.")
 	else
 		self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 	end
@@ -156,6 +157,7 @@ function addon:ScanTrainerData()
 					end
 				end
 			end
+			self:Print("Trainer Acquire Scan Complete.")
 		else
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 		end
