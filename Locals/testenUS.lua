@@ -1742,3 +1742,7 @@ L["Namha Moonwater"] = true
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 L["AUTOLOAD_DB_DESC"] = "Automatically loads all of the ARL recipe databases when doing a datamining scan."
 L["Auto Load Recipe Database"] = true
+L["Orland Schaeffer"] = true
+L["Imindril Spearsong"] = true
+
+

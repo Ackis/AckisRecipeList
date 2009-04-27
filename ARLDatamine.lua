@@ -89,10 +89,47 @@ end
 function addon:ScanTrainerData()
 
 	local recipelist = addon:GetRecipeTable()
+	local dbloaded
 
 	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
-		return
+		if (addon.db.profile.autoloaddb) then
+			dbloaded, recipelist = self:InitRecipeData()
+			if (not dbloaded) then
+				return
+			else
+				self:AddRecipeData(GetSpellInfo(51304))
+				self:AddRecipeData(GetSpellInfo(2018))
+				self:AddRecipeData(GetSpellInfo(51296))
+				self:AddRecipeData(GetSpellInfo(7411))
+				self:AddRecipeData(GetSpellInfo(51306))
+				self:AddRecipeData(GetSpellInfo(45542))
+				self:AddRecipeData(GetSpellInfo(51302))
+				self:AddRecipeData(GetSpellInfo(2575))
+				self:AddRecipeData(GetSpellInfo(3908))
+				self:AddRecipeData(GetSpellInfo(25229))
+				self:AddRecipeData(GetSpellInfo(45357))
+				self:AddRecipeData(GetSpellInfo(53428))
+			end
+		else
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+	else
+		-- Recipe DB exists, we just need to populate it now
+		if (addon.db.profile.autoloaddb) then
+			self:AddRecipeData(GetSpellInfo(51304))
+			self:AddRecipeData(GetSpellInfo(2018))
+			self:AddRecipeData(GetSpellInfo(51296))
+			self:AddRecipeData(GetSpellInfo(7411))
+			self:AddRecipeData(GetSpellInfo(51306))
+			self:AddRecipeData(GetSpellInfo(45542))
+			self:AddRecipeData(GetSpellInfo(51302))
+			self:AddRecipeData(GetSpellInfo(2575))
+			self:AddRecipeData(GetSpellInfo(3908))
+			self:AddRecipeData(GetSpellInfo(25229))
+			self:AddRecipeData(GetSpellInfo(45357))
+			self:AddRecipeData(GetSpellInfo(53428))
+		end
 	end
 
 	-- Make sure the target exists and is a NPC

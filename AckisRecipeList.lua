@@ -164,6 +164,7 @@ function addon:OnInitialize()
 			worldmap = true,
 			autoscanmap = false,
 			scantrainers = false,
+			autoloaddb = false,
 
 			-- Recipe Exclusion
 			exclusionlist = {},
@@ -1589,6 +1590,7 @@ do
 						--@debug@
 						if (not TrainerList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
+							return
 						end
 						--@end-debug@
 						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
@@ -1901,7 +1903,7 @@ do
 
 	--- Initialize the recipe database with a specific profession.
 	-- @name AckisRecipeList:AddRecipeData
-	-- @usage AckisRecipeList:AddRecipeData(51304)
+	-- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
 	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
