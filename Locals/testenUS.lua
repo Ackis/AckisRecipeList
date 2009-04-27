@@ -37,13 +37,13 @@ L["Filter"]					= true
 -- Config Options
 L["About"]					= true
 L["Main Options"]			= true
-L["General Settings"]		= true
-L["Display Settings"]		= true
-L["Main Filter Settings"]	= true
-L["Sorting Settings"]		= true
+L["General Options"]		= true
+L["Display Options"]		= true
+L["Main Filter Options"]	= true
+L["Sorting Options"]		= true
 L["Profile Options"]		= true
-L["Tooltip Settings"]		= true
-L["Map Settings"]			= true
+L["Tooltip Options"]		= true
+L["Map Options"]			= true
 L["ARL Documentation"]		= true
 L["Documentation"]			= true
 
@@ -59,9 +59,9 @@ L["View Exclusion List"]	= true
 L["Scan Button Position"]	= true
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the tradeskill frame."
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
-L["MAINFILTER_SETTINGS_DESC"] = "Allows you to specify how ARL handles different filters."
-L["DISPLAY_SETTINGS_DESC"]	= "Allows you to customize how the GUI behaves."
-L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
+L["MAINFILTER_OPTIONS_DESC"] = "Allows you to specify how ARL handles different filters."
+L["DISPLAY_OPTIONS_DESC"]	= "Allows you to customize how the GUI behaves."
+L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
 L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
 
 -- UI Documentation
@@ -157,8 +157,8 @@ L["Sorting"]				= true
 L["Sort"]					= true
 L["Display"]				= true
 L["SORTING_DESC"]			= "Change the way in which displayed recipes are sorted."
-L["TOOLTIP_SETTINGS_DESC"]	= "Allows you to specify how the tooltips for ARL behave.  The acquire tooltip lists the different information on how to acquire the recipe, whereas the spell tooltip lists the recipe information itself."
-L["MAP_SETTINGS_DESC"]		= "Allows you to change how ARL integrates into the world map and into the mini-map."
+L["TOOLTIP_OPTIONS_DESC"]	= "Allows you to specify how the tooltips for ARL behave.  The acquire tooltip lists the different information on how to acquire the recipe, whereas the spell tooltip lists the recipe information itself."
+L["MAP_OPTIONS_DESC"]		= "Allows you to change how ARL integrates into the world map and into the mini-map."
 L["Version"]				= "Version: "
 L["Right"]					= true
 L["Left"]					= true
@@ -1715,8 +1715,8 @@ Trainer ID: %s]]
 L["DATAMINER_TRAINER_TEACH"] = "%s (%s) - Missing"
 L["DATAMINER_TRAINER_NOTTEACH"] = "%s (%s) - Extra"
 L["Auto Scan Trainers"] = true
-L["Datamine Settings"] = true
-L["DATAMINE_SETTINGS_DESC"] = "Allows you to customize in-game ARL datamining."
+L["Datamine Options"] = true
+L["DATAMINE_OPTIONS_DESC"] = "Allows you to customize in-game ARL datamining."
 L["AUTOSCAN_TRAINERS_DESC"] = "Turns on scanning at trainers to compare skill levels, and recipe acquire methods."
 L["Generate Tradeskill Links"] = true
 L["GENERATE_LINKS_DESC"] = "Generate complete profession links."

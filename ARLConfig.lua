@@ -40,21 +40,11 @@ local explorerhand = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Veng
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
--- Description: Function which provides "profiles" options table
--- Expected result: modularOptions extended with Ace3 profiles options
--- Input: None
--- Output: Ace3 config table
-
 local function giveProfiles()
 
 	return LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
 
 end
-
--- Description: Function which provides our "filter" options tabkle
--- Expected result: extend modularOptions with our "filter" options
--- Input: None
--- Output: Ace3 config table
 
 local filterOptions = nil
 
@@ -68,11 +58,6 @@ local function giveFilter()
 			name = L["Filtering Options"],
 			desc = L["FILTERING_OPTIONS_DESC"],
 			args = {
-				header1 = {
-					order	= 1,
-					type	= "header",
-					name	= L["Filtering Options"],
-				},
 				desc = {
 					order	= 2,
 					type	= "description",
@@ -1017,8 +1002,6 @@ local function giveFilter()
 
 end
 
--- Description: function to return the top level Ace3 config table
-
 local options = nil
 
 local function fullOptions()
@@ -1038,7 +1021,7 @@ local function fullOptions()
 						header1 = {
 							order	= 10,
 							type	= "header",
-							name	= L["General Settings"],
+							name	= L["General Options"],
 						},
 						version = {
 							order	= 11,
@@ -1081,12 +1064,12 @@ local function fullOptions()
 						header1a = {
 							order	= 20,
 							type	= "header",
-							name	= L["Main Filter Settings"],
+							name	= L["Main Filter Options"],
 						},
 						mainfilter_desc = {
 							order	= 21,
 							type	= "description",
-							name	= L["MAINFILTER_SETTINGS_DESC"] .. "\n",
+							name	= L["MAINFILTER_OPTIONS_DESC"] .. "\n",
 						},
 						includefiltered = {
 							order	= 22,
@@ -1112,73 +1095,6 @@ local function fullOptions()
 							get		= function() return addon.db.profile.ignoreexclusionlist end,
 							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
 						},
-						spacer1a = {
-							order	= 30,
-							type	= "description",
-							name	= "\n",
-						},
-						header2 = {
-							order	= 31,
-							type	= "header",
-							name	= L["Display Settings"],
-						},
-						display_desc = {
-							order	= 32,
-							type	= "description",
-							name	= L["DISPLAY_SETTINGS_DESC"] .. "\n",
-						},
-						scanbuttonlocation = {
-							order	= 33,
-							type	= "select",
-							name	= L["Scan Button Position"],
-							desc	= L["SCANBUTTONPOSITION_DESC"],
-							get		= function() return addon.db.profile.scanbuttonlocation end,
-							set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
-							values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
-						},
-						uiscale = {
-							order	= 34,
-							type	= "range",
-							name	= L["UI Scale"],
-							desc	= L["UI_SCALE_DESC"],
-							min		= .5,
-							max		= 1.5,
-							step	= .05,
-							bigStep = .05,
-							get		= function() return addon.db.profile.frameopts.uiscale end,
-							set		= function(info, v) 
-										addon.db.profile.frameopts.uiscale = v
-										if (addon.Frame) then addon.Frame:SetScale(v) end
-									  end,
-						},
-						fontsize = {
-							order	= 35,
-							type	= "range",
-							name	= L["Font Size"],
-							desc	= L["FONT_SIZE_DESC"],
-							min		= 6,
-							max		= 20,
-							step	= 1,
-							bigStep = 5,
-							get		= function() return addon.db.profile.frameopts.fontsize end,
-							set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
-						},
-						closegui = {
-							order	= 37,
-							type	= "toggle",
-							name	= L["Close GUI"],
-							desc	= L["CLOSEGUI_DESC"],
-							get		= function() return addon.db.profile.closeguionskillclose end,
-							set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
-						},
-						hidepopup = {
-							order	= 38,
-							type	= "toggle",
-							name	= L["Hide Pop-Up"],
-							desc	= L["HIDEPOPUP_DESC"],
-							get		= function() return addon.db.profile.hidepopup end,
-							set		= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
-						},
 						spacer2 = {
 							order	= 39,
 							type	= "description",
@@ -1187,12 +1103,12 @@ local function fullOptions()
 						header3 = {
 							order	= 40,
 							type	= "header",
-							name	= L["Sorting Settings"],
+							name	= L["Sorting Options"],
 						},
 						sort_desc =	{
 							order	= 41,
 							type	= "description",
-							name	= L["SORTING_SETTINGS_DESC"] .. "\n",
+							name	= L["SORTING_OPTIONS_DESC"] .. "\n",
 						},
 						sorting = {
 							order	= 45,
@@ -1202,55 +1118,6 @@ local function fullOptions()
 							get		= function() return addon.db.profile.sorting end,
 							set		= function(info,name) addon.db.profile.sorting = name end,
 							values	= function() return {Name = L["Name"], SkillAsc = L["Skill (Asc)"], SkillDesc = L["Skill (Desc)"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
-						},
-						spacer3 = {
-							order	= 50,
-							type	= "description",
-							name	= "\n",
-						},
-						header4 = {
-							order	= 51,
-							type	= "header",
-							name	= L["Tooltip Settings"],
-						},
-						tt_desc =	{
-							order	= 52,
-							type	= "description",
-							name	= L["TOOLTIP_SETTINGS_DESC"] .. "\n",
-						},
-						tooltipscale = {
-							order	= 53,
-							type	= "range",
-							name	= L["Tooltip Scale"],
-							desc	= L["TOOLTIP_SCALE_DESC"],
-							min		= .5,
-							max		= 1.5,
-							step	= .05,
-							bigStep = .05,
-							get		= function() return addon.db.profile.frameopts.tooltipscale end,
-							set		= function(info, v) 
-										addon.db.profile.frameopts.tooltipscale = v
-										if (arlTooltip) then arlTooltip:SetScale(v) end
-										if (arlTooltip2) then arlTooltip:SetScale(v) end
-									  end,
-						},
-						acquiretooltiplocation = {
-							order	= 54,
-							type	= "select",
-							name	= L["Tooltip (Acquire) Position"],
-							desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
-							get		= function() return addon.db.profile.acquiretooltiplocation end,
-							set		= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
-							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
-						},
-						spelltooltiplocation = {
-							order	= 55,
-							type	= "select",
-							name	= L["Tooltip (Recipe) Position"],
-							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
-							get		= function() return addon.db.profile.spelltooltiplocation end,
-							set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
-							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
 						},
 					},
 				},
@@ -1282,13 +1149,13 @@ local function giveMap()
 	arlmap = {
 			order	= 1,
 			type	= "group",
-			name	= L["Map Settings"],
-			desc	= L["MAP_SETTINGS_DESC"],
+			name	= L["Map Options"],
+			desc	= L["MAP_OPTIONS_DESC"],
 			args	= {
 				map_desc =	{
 					order	= 1,
 					type	= "description",
-					name	= L["MAP_SETTINGS_DESC"] .. "\n",
+					name	= L["MAP_OPTIONS_DESC"] .. "\n",
 				},
 				autoscanmap = {
 					order	= 2,
@@ -1343,13 +1210,13 @@ local function giveDatamine()
 	datamine = {
 			order	= 1,
 			type	= "group",
-			name	= L["Datamine Settings"],
-			desc	= L["DATAMINE_SETTINGS_DESC"],
+			name	= L["Datamine Options"],
+			desc	= L["DATAMINE_OPTIONS_DESC"],
 			args = {
 				datamine_desc =	{
 					order	= 1,
 					type	= "description",
-					name	= L["DATAMINE_SETTINGS_DESC"] .. "\n",
+					name	= L["DATAMINE_OPTIONS_DESC"] .. "\n",
 				},
 				generatelinks = {	
 					order	= 73,
@@ -1495,7 +1362,133 @@ local function giveDocs()
 
 end
 
--- Description: 
+local displayoptions = nil
+
+local function giveDisplay()
+
+	if (not displayoptions) then
+
+	displayoptions = {
+			order = 1,
+			type = "group",
+			name = L["Display Options"],
+			desc = L["DISPLAY_OPTIONS_DESC"],
+			args = {
+				display_desc =	{
+					order	= 1,
+					type	= "description",
+					name	= L["MAP_OPTIONS_DESC"] .. "\n",
+				},
+				scanbuttonlocation = {
+					order	= 2,
+					type	= "select",
+					name	= L["Scan Button Position"],
+					desc	= L["SCANBUTTONPOSITION_DESC"],
+					get		= function() return addon.db.profile.scanbuttonlocation end,
+					set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
+					values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
+				},
+				uiscale = {
+					order	= 3,
+					type	= "range",
+					name	= L["UI Scale"],
+					desc	= L["UI_SCALE_DESC"],
+					min		= .5,
+					max		= 1.5,
+					step	= .05,
+					bigStep = .05,
+					get		= function() return addon.db.profile.frameopts.uiscale end,
+					set		= function(info, v) 
+								addon.db.profile.frameopts.uiscale = v
+								if (addon.Frame) then addon.Frame:SetScale(v) end
+							  end,
+				},
+				fontsize = {
+					order	= 4,
+					type	= "range",
+					name	= L["Font Size"],
+					desc	= L["FONT_SIZE_DESC"],
+					min		= 6,
+					max		= 20,
+					step	= 1,
+					bigStep = 5,
+					get		= function() return addon.db.profile.frameopts.fontsize end,
+					set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
+				},
+				closegui = {
+					order	= 5,
+					type	= "toggle",
+					name	= L["Close GUI"],
+					desc	= L["CLOSEGUI_DESC"],
+					get		= function() return addon.db.profile.closeguionskillclose end,
+					set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
+				},
+				hidepopup = {
+					order	= 6,
+					type	= "toggle",
+					name	= L["Hide Pop-Up"],
+					desc	= L["HIDEPOPUP_DESC"],
+					get		= function() return addon.db.profile.hidepopup end,
+					set		= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
+				},
+				spacer1 = {
+					order	= 10,
+					type	= "description",
+					name	= "\n",
+				},
+				tooltip_header = {
+					order	= 11,
+					type	= "header",
+					name	= L["Tooltip Options"],
+				},
+				tooltip_desc =	{
+					order	= 12,
+					type	= "description",
+					name	= L["TOOLTIP_OPTIONS_DESC"] .. "\n",
+				},
+				tooltipscale = {
+					order	= 20,
+					type	= "range",
+					name	= L["Tooltip Scale"],
+					desc	= L["TOOLTIP_SCALE_DESC"],
+					min		= .5,
+					max		= 1.5,
+					step	= .05,
+					bigStep = .05,
+					get		= function() return addon.db.profile.frameopts.tooltipscale end,
+					set		= function(info, v) 
+								addon.db.profile.frameopts.tooltipscale = v
+								if (arlTooltip) then arlTooltip:SetScale(v) end
+								if (arlTooltip2) then arlTooltip:SetScale(v) end
+							  end,
+				},
+				acquiretooltiplocation = {
+					order	= 21,
+					type	= "select",
+					name	= L["Tooltip (Acquire) Position"],
+					desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
+					get		= function() return addon.db.profile.acquiretooltiplocation end,
+					set		= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
+					values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
+				},
+				spelltooltiplocation = {
+					order	= 22,
+					type	= "select",
+					name	= L["Tooltip (Recipe) Position"],
+					desc	= L["SPELLTOOLTIPPOSITION_DESC"],
+					get		= function() return addon.db.profile.spelltooltiplocation end,
+					set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
+					values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
+				},
+			},
+		}
+
+
+	end
+
+	return displayoptions
+
+end
 
 function addon:SetupOptions()
 
@@ -1510,11 +1503,12 @@ function addon:SetupOptions()
 	end
 
 	-- Fill up our modular options...
-	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
-	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
+	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
+	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
-	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Settings"])
-	self:RegisterModuleOptions("Map", giveMap(), L["Map Settings"])
+	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
+	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
+	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
 end
 
