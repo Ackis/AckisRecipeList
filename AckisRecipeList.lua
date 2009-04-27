@@ -377,8 +377,8 @@ end
 
 function addon:TRAINER_SHOW()
 
-	self:ScanSkillLevelData()
 	self:ScanTrainerData()
+	self:ScanSkillLevelData()
 
 end
 

@@ -37,6 +37,56 @@ local GetMerchantItemInfo = GetMerchantItemInfo
 local pairs = pairs
 local tconcat = table.concat
 
+local function LoadRecipe()
+
+	local recipelist = addon:GetRecipeTable()
+	local dbloaded
+
+	if (not recipelist) then
+		if (addon.db.profile.autoloaddb) then
+			dbloaded, recipelist = addon:InitRecipeData()
+			if (not dbloaded) then
+				return
+			else
+				addon:AddRecipeData(GetSpellInfo(51304))
+				addon:AddRecipeData(GetSpellInfo(2018))
+				addon:AddRecipeData(GetSpellInfo(51296))
+				addon:AddRecipeData(GetSpellInfo(7411))
+				addon:AddRecipeData(GetSpellInfo(51306))
+				addon:AddRecipeData(GetSpellInfo(45542))
+				addon:AddRecipeData(GetSpellInfo(51302))
+				addon:AddRecipeData(GetSpellInfo(2575))
+				addon:AddRecipeData(GetSpellInfo(3908))
+				addon:AddRecipeData(GetSpellInfo(25229))
+				addon:AddRecipeData(GetSpellInfo(45357))
+				addon:AddRecipeData(GetSpellInfo(53428))
+			end
+		else
+			addon:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+	else
+		-- Recipe DB exists, we just need to populate it now
+		if (addon.db.profile.autoloaddb) then
+			addon:AddRecipeData(GetSpellInfo(51304))
+			addon:AddRecipeData(GetSpellInfo(2018))
+			addon:AddRecipeData(GetSpellInfo(51296))
+			addon:AddRecipeData(GetSpellInfo(7411))
+			addon:AddRecipeData(GetSpellInfo(51306))
+			addon:AddRecipeData(GetSpellInfo(45542))
+			addon:AddRecipeData(GetSpellInfo(51302))
+			addon:AddRecipeData(GetSpellInfo(2575))
+			addon:AddRecipeData(GetSpellInfo(3908))
+			addon:AddRecipeData(GetSpellInfo(25229))
+			addon:AddRecipeData(GetSpellInfo(45357))
+			addon:AddRecipeData(GetSpellInfo(53428))
+		end
+	end
+
+	return recipelist
+
+end
+
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
@@ -45,7 +95,7 @@ local tconcat = table.concat
 function addon:ScanSkillLevelData()
 
 	-- Get internal database
-	local recipelist = addon:GetRecipeTable()
+	local recipelist = LoadRecipe()
 
 	if (not recipelist) then
 		self:Print(L["DATAMINER_NODB_ERROR"])
@@ -88,48 +138,12 @@ end
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
 function addon:ScanTrainerData()
 
-	local recipelist = addon:GetRecipeTable()
-	local dbloaded
+	-- Get internal database
+	local recipelist = LoadRecipe()
 
 	if (not recipelist) then
-		if (addon.db.profile.autoloaddb) then
-			dbloaded, recipelist = self:InitRecipeData()
-			if (not dbloaded) then
-				return
-			else
-				self:AddRecipeData(GetSpellInfo(51304))
-				self:AddRecipeData(GetSpellInfo(2018))
-				self:AddRecipeData(GetSpellInfo(51296))
-				self:AddRecipeData(GetSpellInfo(7411))
-				self:AddRecipeData(GetSpellInfo(51306))
-				self:AddRecipeData(GetSpellInfo(45542))
-				self:AddRecipeData(GetSpellInfo(51302))
-				self:AddRecipeData(GetSpellInfo(2575))
-				self:AddRecipeData(GetSpellInfo(3908))
-				self:AddRecipeData(GetSpellInfo(25229))
-				self:AddRecipeData(GetSpellInfo(45357))
-				self:AddRecipeData(GetSpellInfo(53428))
-			end
-		else
-			self:Print(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-	else
-		-- Recipe DB exists, we just need to populate it now
-		if (addon.db.profile.autoloaddb) then
-			self:AddRecipeData(GetSpellInfo(51304))
-			self:AddRecipeData(GetSpellInfo(2018))
-			self:AddRecipeData(GetSpellInfo(51296))
-			self:AddRecipeData(GetSpellInfo(7411))
-			self:AddRecipeData(GetSpellInfo(51306))
-			self:AddRecipeData(GetSpellInfo(45542))
-			self:AddRecipeData(GetSpellInfo(51302))
-			self:AddRecipeData(GetSpellInfo(2575))
-			self:AddRecipeData(GetSpellInfo(3908))
-			self:AddRecipeData(GetSpellInfo(25229))
-			self:AddRecipeData(GetSpellInfo(45357))
-			self:AddRecipeData(GetSpellInfo(53428))
-		end
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
 	end
 
 	-- Make sure the target exists and is a NPC
