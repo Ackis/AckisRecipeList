@@ -267,7 +267,7 @@ function addon:GenerateLinks()
 
 		local tradeName = GetSpellInfo(tradelist[i])
 		local tradelink = {}
-		tradelink[1] = "|cffffd00|Htrade:"
+		tradelink[1] = "|cffffd000|Htrade:"
 		tradelink[2] = tradelist[i]
 		tradelink[3] = ":450:450:"
 		tradelink[4] = playerGUID
