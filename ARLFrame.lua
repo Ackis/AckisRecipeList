@@ -114,19 +114,18 @@ local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptC
 
 -- To make tabbing between professions easier 
 local SortedProfessions = { 
-	{ name = GetSpellInfo(2259),	texture = "alchemy" },	-- 1 
-	{ name = GetSpellInfo(2018),	texture = "blacksmith" }, -- 2 
-	{ name = GetSpellInfo(2550),	texture = "cooking" },	-- 3 
-	{ name = GetSpellInfo(7411),	texture = "enchant" },	-- 4 
-	{ name = GetSpellInfo(4036),	texture = "engineer" },	-- 5 
-	{ name = GetSpellInfo(746),		texture = "firstaid" },	-- 6 
-	{ name = GetSpellInfo(45357),	texture = "inscribe" },	-- 7 
-	{ name = GetSpellInfo(25229),	texture = "jewel" },	-- 8 
-	{ name = GetSpellInfo(2108),	texture = "leather" },	-- 9 
+	{ name = GetSpellInfo(51304),	texture = "alchemy" },	-- 1 
+	{ name = GetSpellInfo(51300),	texture = "blacksmith" }, -- 2 
+	{ name = GetSpellInfo(51296),	texture = "cooking" },	-- 3 
+	{ name = GetSpellInfo(51313),	texture = "enchant" },	-- 4 
+	{ name = GetSpellInfo(51306),	texture = "engineer" },	-- 5 
+	{ name = GetSpellInfo(45542),	texture = "firstaid" },	-- 6 
+	{ name = GetSpellInfo(45363),	texture = "inscribe" },	-- 7 
+	{ name = GetSpellInfo(51311),	texture = "jewel" },	-- 8 
+	{ name = GetSpellInfo(51302),	texture = "leather" },	-- 9 
 	{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
-	{ name = GetSpellInfo(2575),	texture = "smelting" },	-- 11 
-	--{ name = GetSpellInfo(2656),	texture = "smelting" },	-- 11 
-	{ name = GetSpellInfo(3908),	texture = "tailor" },	-- 12 
+	{ name = GetSpellInfo(61422),	texture = "smelting" },	-- 11 
+	{ name = GetSpellInfo(51309),	texture = "tailor" },	-- 12 
 } 
 
 local MaxProfessions = 12

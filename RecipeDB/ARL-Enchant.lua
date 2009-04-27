@@ -232,7 +232,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Lesser Impact -- 13529
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,13529,130,nil,1,7411)
+	self:addTradeSkill(RecipeDB,13529,145,nil,1,7411)
 	self:addTradeFlags(RecipeDB,13529,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,13529,1,1317,1,3011,1,3345,1,4213,1,4616,1,5157,1,7949,1,11072,1,11073,1,11074,1,16633,1,16725,1,19249,1,19250,1,19251)
 
@@ -1768,7 +1768,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Boots - Lesser Accuracy -- 63746
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,63746,245,nil,2,7411)
+	self:addTradeSkill(RecipeDB,63746,225,nil,2,7411)
 	self:addTradeFlags(RecipeDB,63746,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,63746,1,1317,1,3011,1,3345,1,3606,1,4213,1,4616,1,5157,1,5695,1,11065,1,11066,1,11067,1,11068,1,11070,1,11071,1,11072,1,11073,1,11074,1,16160,1,16633,1,16634,1,16725,1,16742,1,19248,1,19249,1,19250,1,19251)
 

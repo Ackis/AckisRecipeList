@@ -541,7 +541,7 @@ do
 			end
 			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
 				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(2575)] = true
+					ProfTable[GetSpellInfo(61422)] = true
 				else
 					ProfTable[spellName] = true
 				end
@@ -1486,18 +1486,18 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 	local professiontable =
 	{
 		[GetSpellInfo(51304)] = addon.InitAlchemy,
-		[GetSpellInfo(2018)] = addon.InitBlacksmithing,
+		[GetSpellInfo(51300)] = addon.InitBlacksmithing,
 		[GetSpellInfo(51296)] = addon.InitCooking,
-		[GetSpellInfo(7411)] = addon.InitEnchanting,
+		[GetSpellInfo(51313)] = addon.InitEnchanting,
 		[GetSpellInfo(51306)] = addon.InitEngineering,
 		[GetSpellInfo(45542)] = addon.InitFirstAid,
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
 		[GetSpellInfo(51302)] = addon.InitLeatherworking,
-		[GetSpellInfo(2575)] = addon.InitSmelting,
-		[GetSpellInfo(3908)] = addon.InitTailoring,
-		[GetSpellInfo(25229)] = addon.InitJewelcrafting,
-		[GetSpellInfo(45357)] = addon.InitInscription,
+		[GetSpellInfo(61422)] = addon.InitSmelting,
+		[GetSpellInfo(51309)] = addon.InitTailoring,
+		[GetSpellInfo(51311)] = addon.InitJewelcrafting,
+		[GetSpellInfo(45363)] = addon.InitInscription,
 		[GetSpellInfo(53428)] = addon.InitRuneforging,
 	}
 
@@ -1709,17 +1709,17 @@ do
 
 		pData["Professions"] = {
 			[GetSpellInfo(51304)] = false, -- Alchemy
-			[GetSpellInfo(2018)] = false, -- Blacksmithing
+			[GetSpellInfo(51300)] = false, -- Blacksmithing
 			[GetSpellInfo(51296)] = false, -- Cooking
-			[GetSpellInfo(7411)] = false, -- Enchanting
+			[GetSpellInfo(51313)] = false, -- Enchanting
 			[GetSpellInfo(51306)] = false, -- Engineering
 			[GetSpellInfo(45542)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(2575)] = false, -- Mining
-			[GetSpellInfo(3908)] = false, -- Tailoring
-			[GetSpellInfo(25229)] = false, -- Jewelcrafting
-			[GetSpellInfo(45357)] = false, -- Inscription
+			[GetSpellInfo(61422)] = false, -- Mining
+			[GetSpellInfo(51309)] = false, -- Tailoring
+			[GetSpellInfo(51311)] = false, -- Jewelcrafting
+			[GetSpellInfo(45363)] = false, -- Inscription
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 
@@ -1764,10 +1764,10 @@ do
 		-- List of classes which have Specialties
 		SpecialtyTable = {
 			[GetSpellInfo(51304)] = AlchemySpec,
-			[GetSpellInfo(2018)] = BlacksmithSpec,
+			[GetSpellInfo(51300)] = BlacksmithSpec,
 			[GetSpellInfo(51306)] = EngineeringSpec,
 			[GetSpellInfo(51302)] = LeatherworkSpec,
-			[GetSpellInfo(3908)] = TailorSpec,
+			[GetSpellInfo(51309)] = TailorSpec,
 		}
 
 		-- List containing all possible Specialties

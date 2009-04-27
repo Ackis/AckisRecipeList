@@ -51,16 +51,16 @@ local function LoadRecipe()
 				return
 			else
 				addon:AddRecipeData(GetSpellInfo(51304))
-				addon:AddRecipeData(GetSpellInfo(2018))
+				addon:AddRecipeData(GetSpellInfo(51300))
 				addon:AddRecipeData(GetSpellInfo(51296))
-				addon:AddRecipeData(GetSpellInfo(7411))
+				addon:AddRecipeData(GetSpellInfo(51313))
 				addon:AddRecipeData(GetSpellInfo(51306))
 				addon:AddRecipeData(GetSpellInfo(45542))
 				addon:AddRecipeData(GetSpellInfo(51302))
-				addon:AddRecipeData(GetSpellInfo(2575))
-				addon:AddRecipeData(GetSpellInfo(3908))
-				addon:AddRecipeData(GetSpellInfo(25229))
-				addon:AddRecipeData(GetSpellInfo(45357))
+				addon:AddRecipeData(GetSpellInfo(61422))
+				addon:AddRecipeData(GetSpellInfo(51309))
+				addon:AddRecipeData(GetSpellInfo(51311))
+				addon:AddRecipeData(GetSpellInfo(45363))
 				addon:AddRecipeData(GetSpellInfo(53428))
 			end
 		else
@@ -71,16 +71,16 @@ local function LoadRecipe()
 		-- Recipe DB exists, we just need to populate it now
 		if (addon.db.profile.autoloaddb) then
 			addon:AddRecipeData(GetSpellInfo(51304))
-			addon:AddRecipeData(GetSpellInfo(2018))
+			addon:AddRecipeData(GetSpellInfo(51300))
 			addon:AddRecipeData(GetSpellInfo(51296))
-			addon:AddRecipeData(GetSpellInfo(7411))
+			addon:AddRecipeData(GetSpellInfo(51313))
 			addon:AddRecipeData(GetSpellInfo(51306))
 			addon:AddRecipeData(GetSpellInfo(45542))
 			addon:AddRecipeData(GetSpellInfo(51302))
-			addon:AddRecipeData(GetSpellInfo(2575))
-			addon:AddRecipeData(GetSpellInfo(3908))
-			addon:AddRecipeData(GetSpellInfo(25229))
-			addon:AddRecipeData(GetSpellInfo(45357))
+			addon:AddRecipeData(GetSpellInfo(61422))
+			addon:AddRecipeData(GetSpellInfo(51309))
+			addon:AddRecipeData(GetSpellInfo(51311))
+			addon:AddRecipeData(GetSpellInfo(45363))
 			addon:AddRecipeData(GetSpellInfo(53428))
 		end
 	end
@@ -253,15 +253,20 @@ function addon:GenerateLinks()
 	local playerGUID = string.gsub(guid,"0x0+", "")
 
 	-- Listing of all tradeskill professions
-	--local tradelist = {51304, 2018, 7411, 51306, 45357, 25229, 51302, 3908, 51296, 45542}
-	local tradelist = {51304, 51306, 51302, 51296, 45542}
+	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
 
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid
 	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking
 	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering
 	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW
-	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X"
+	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy
+	--bitmap[51300] = "" -- Blacksmithing
+	-- Tailoring
+	-- JC
+	-- Inscription
+	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
+	bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting
 
 	for i in pairs(tradelist) do
 
