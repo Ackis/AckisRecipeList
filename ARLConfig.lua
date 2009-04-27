@@ -975,6 +975,7 @@ local function giveFilter()
 									desc	= format(L["SPECIFIC_REP_DESC"],sunreaversilverconv),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon2 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon2 = not addon.db.profile.filters.rep.wrathcommon2 end,
+									disabled = true,
 								},
 								WrathCommon3 = {
 									order	= 27,
@@ -983,30 +984,25 @@ local function giveFilter()
 									desc	= format(L["SPECIFIC_REP_DESC"],valliancewarsong),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon3 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon3 = not addon.db.profile.filters.rep.wrathcommon3 end,
+									disabled = true,
 								},
-								ExplorersLeague = {
+								WrathCommon4 = {
 									order	= 28,
 									type	= "toggle",
-									name	= BFAC["Explorers' League"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Explorers' League"]),
-									get		= function() return addon.db.profile.filters.rep.explorersleague end,
-									set		= function() addon.db.profile.filters.rep.explorersleague = not addon.db.profile.filters.rep.explorersleague end,
+									name	= frosttaunka,
+									desc	= format(L["SPECIFIC_REP_DESC"],frosttaunka),
+									get		= function() return addon.db.profile.filters.rep.wrathcommon4 end,
+									set		= function() addon.db.profile.filters.rep.wrathcommon4 = not addon.db.profile.filters.rep.wrathcommon4 end,
+									disabled = true,
 								},
-								HandOfVengeance = {
-									order	= 35,
+								WrathCommon5 = {
+									order	= 27,
 									type	= "toggle",
-									name	= BFAC["The Hand of Vengeance"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Hand of Vengeance"]),
-									get		= function() return addon.db.profile.filters.rep.handofvengeance end,
-									set		= function() addon.db.profile.filters.rep.valiance = not addon.db.profile.filters.rep.valiance end,
-								},
-								Taunka = {
-									order	= 36,
-									type	= "toggle",
-									name	= BFAC["The Taunka"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Taunka"]),
-									get		= function() return addon.db.profile.filters.rep.taunka end,
-									set		= function() addon.db.profile.filters.rep.taunka = not addon.db.profile.filters.rep.taunka end,
+									name	= explorerhand,
+									desc	= format(L["SPECIFIC_REP_DESC"],explorerhand),
+									get		= function() return addon.db.profile.filters.rep.wrathcommon5 end,
+									set		= function() addon.db.profile.filters.rep.wrathcommon5 = not addon.db.profile.filters.rep.wrathcommon5 end,
+									disabled = true,
 								},
 							},
 						},
@@ -1026,12 +1022,6 @@ end
 local options = nil
 
 local function fullOptions()
-
-	local tomtomsupport = true
-
-	if (TomTom) then
-		tomtomsupport = false
-	end
 
 	if (not options) then
 
@@ -1262,56 +1252,6 @@ local function fullOptions()
 							set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
 							values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
 						},
-						spacer4 = {
-							order	= 60,
-							type	= "description",
-							name	= "\n",
-						},
-						header5 = {
-							order	= 61,
-							type	= "header",
-							name	= L["Map Settings"],
-						},
-						map_desc =	{
-							order	= 62,
-							type	= "description",
-							name	= L["MAP_SETTINGS_DESC"] .. "\n",
-						},
-						autoscanmap = {
-							order	= 63,
-							type	= "toggle",
-							name	= L["Auto Scan Map"],
-							desc	= L["AUTOSCANMAP_DESC"],
-							disabled = tomtomsupport,
-							get		= function() return addon.db.profile.autoscanmap end,
-							set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
-						},
-						worldmap = {
-							order	= 65,
-							type	= "toggle",
-							name	= L["World Map"],
-							desc	= L["WORLDMAP_DESC"],
-							disabled = tomtomsupport,
-							get		= function() return addon.db.profile.worldmap end,
-							set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
-						},
-						minimap = {
-							order	= 66,
-							type	= "toggle",
-							name	= L["Mini Map"],
-							desc	= L["MINIMAP_DESC"],
-							disabled = tomtomsupport,
-							get		= function() return addon.db.profile.minimap end,
-							set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
-						},
-						clearmap = {	
-							order	= 67,
-							type	= "execute",
-							name	= L["Clear Waypoints"],
-							disabled = tomtomsupport,
-							desc	= L["CLEAR_WAYPOINTS_DESC"],
-							func	= function() addon:ClearMap() end,
-						},
 					},
 				},
 			},
@@ -1324,6 +1264,73 @@ local function fullOptions()
 	end
 
 	return options
+
+end
+
+local arlmap = nil
+
+local function giveMap()
+
+	local tomtomsupport = true
+
+	if (TomTom) then
+		tomtomsupport = false
+	end
+
+	if (not arlmap) then
+
+	arlmap = {
+			order	= 1,
+			type	= "group",
+			name	= L["Map Settings"],
+			desc	= L["MAP_SETTINGS_DESC"],
+			args	= {
+				map_desc =	{
+					order	= 1,
+					type	= "description",
+					name	= L["MAP_SETTINGS_DESC"] .. "\n",
+				},
+				autoscanmap = {
+					order	= 2,
+					type	= "toggle",
+					name	= L["Auto Scan Map"],
+					desc	= L["AUTOSCANMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.autoscanmap end,
+					set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
+				},
+				worldmap = {
+					order	= 3,
+					type	= "toggle",
+					name	= L["World Map"],
+					desc	= L["WORLDMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.worldmap end,
+					set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
+				},
+				minimap = {
+					order	= 4,
+					type	= "toggle",
+					name	= L["Mini Map"],
+					desc	= L["MINIMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.minimap end,
+					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
+				},
+				clearmap = {	
+					order	= 5,
+					type	= "execute",
+					name	= L["Clear Waypoints"],
+					disabled = tomtomsupport,
+					desc	= L["CLEAR_WAYPOINTS_DESC"],
+					func	= function() addon:ClearMap() end,
+				},
+			},
+		}
+
+	end
+
+	return arlmap
 
 end
 
@@ -1507,6 +1514,7 @@ function addon:SetupOptions()
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Settings"])
+	self:RegisterModuleOptions("Map", giveMap(), L["Map Settings"])
 
 end
 
