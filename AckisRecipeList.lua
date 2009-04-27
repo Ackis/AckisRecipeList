@@ -2048,9 +2048,7 @@ do
 
 		-- Get all the indexes of the RecipeListing
 		for n, v in pairs(RecipeDB) do
-
 			tinsert(SortedRecipeIndex, n)
-
 		end
 
 		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])

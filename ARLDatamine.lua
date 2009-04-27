@@ -36,6 +36,8 @@ local GetMerchantItemLink = GetMerchantItemLink
 local GetMerchantItemInfo = GetMerchantItemInfo
 local pairs = pairs
 local tconcat = table.concat
+local tsort = table.sort
+local tinsert = table.insert
 
 local function LoadRecipe()
 
@@ -169,6 +171,9 @@ function addon:ScanTrainerData()
 			self:Print(L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 			-- Get internal database
 
+			local teach = {}
+			local noteach = {}
+
 			for i in pairs(recipelist) do
 
 				local i_name = recipelist[i]["Name"]
@@ -187,9 +192,9 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (not found) then
-						self:Print(L["DATAMINER_TRAINER_TEACH"]:format(i_name,i))
+						tinsert(teach,i)
 						if (not flags[3]) then
-							self:Print("Trainer flag needs to be set.")
+							self:Print(i .. ": Trainer flag needs to be set.")
 						end
 					end
 				-- Trainer does not teach this recipe
@@ -204,10 +209,27 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (found) then
-						self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(i_name,i))
+						tinsert(noteach,i)
 					end
 				end
 			end
+
+			self:Print("Missing entries (need to be added):")
+
+			tsort(teach)
+
+			for i in ipairs(teach) do
+				self:Print(L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+			end
+
+			self:Print("Extra entries (need to be removed):")
+
+			tsort(noteach)
+
+			for i in ipairs(noteach) do
+				self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
+			end
+			
 			self:Print("Trainer Acquire Scan Complete.")
 		else
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
