@@ -1739,3 +1739,4 @@ L["Desert Recipe"] = true
 L["Manfred Staller"] = true
 L["Andellion"] = true
 L["Namha Moonwater"] = true
+L["Custom41"] = "Removed from the game when Naxx 40 was taken out."

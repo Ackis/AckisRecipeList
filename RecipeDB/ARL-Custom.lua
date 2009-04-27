@@ -70,6 +70,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB,38,L["Custom38"],"N/A")
 	self:addLookupList(CustomDB,39,L["Custom39"],"N/A")
 	self:addLookupList(CustomDB,40,L["Custom40"],"N/A")
+	self:addLookupList(CustomDB,41,L["Custom40"],"N/A")
 
 end
 

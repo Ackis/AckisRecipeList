@@ -1422,19 +1422,19 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28242,300,22669,4,2018)
 	self:addTradeFlags(RecipeDB,28242,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	self:addTradeAcquire(RecipeDB,28242,6,529,4,16365)
+	self:addTradeAcquire(RecipeDB,28242,6,529,4,16365,8,41)
 
 	-- Icebane Gauntlets -- 28243
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28243,300,22670,4,2018)
 	self:addTradeFlags(RecipeDB,28243,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	self:addTradeAcquire(RecipeDB,28243,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28243,6,529,3,16365,8,41)
 
 	-- Icebane Bracers -- 28244
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28244,300,22671,4,2018)
 	self:addTradeFlags(RecipeDB,28244,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	self:addTradeAcquire(RecipeDB,28244,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28244,6,529,3,16365,8,41)
 
 	-- Ironvine Breastplate -- 28461
 	recipecount = recipecount + 1

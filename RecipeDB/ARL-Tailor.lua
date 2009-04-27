@@ -1554,25 +1554,25 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28205,300,22654,4,3908)
 	self:addTradeFlags(RecipeDB,28205,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,28205,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28205,6,529,3,16365,8,41)
 
 	-- Glacial Vest -- 28207
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28207,300,22652,4,3908)
 	self:addTradeFlags(RecipeDB,28207,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,28207,6,529,4,16365)
+	self:addTradeAcquire(RecipeDB,28207,6,529,4,16365,8,41)
 
 	-- Glacial Cloak -- 28208
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28208,300,22658,4,3908)
 	self:addTradeFlags(RecipeDB,28208,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	self:addTradeAcquire(RecipeDB,28208,6,529,2,16365)
+	self:addTradeAcquire(RecipeDB,28208,6,529,2,16365,8,41)
 
 	-- Glacial Wrists -- 28209
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28209,300,22655,4,3908)
 	self:addTradeFlags(RecipeDB,28209,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,28209,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28209,6,529,3,16365,8,41)
 
 	-- Gaea's Embrace -- 28210
 	recipecount = recipecount + 1

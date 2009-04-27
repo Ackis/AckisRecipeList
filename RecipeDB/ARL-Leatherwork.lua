@@ -1374,37 +1374,37 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28219,300,22661,4,2108)
 	self:addTradeFlags(RecipeDB,28219,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,28219,6,529,4,16365)
+	self:addTradeAcquire(RecipeDB,28219,6,529,4,16365,8,41)
 
 	-- Polar Gloves -- 28220
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28220,300,22662,4,2108)
 	self:addTradeFlags(RecipeDB,28220,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,28220,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28220,6,529,3,16365,8,41)
 
 	-- Polar Bracers -- 28221
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28221,300,22663,4,2108)
 	self:addTradeFlags(RecipeDB,28221,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,28221,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28221,6,529,3,16365,8,41)
 
 	-- Icy Scale Breastplate -- 28222
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28222,300,22664,4,2108)
 	self:addTradeFlags(RecipeDB,28222,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,28222,6,529,4,16365)
+	self:addTradeAcquire(RecipeDB,28222,6,529,4,16365,8,41)
 
 	-- Icy Scale Gauntlets -- 28223
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28223,300,22666,4,2108)
 	self:addTradeFlags(RecipeDB,28223,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,28223,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28223,6,529,3,16365,8,41)
 
 	-- Icy Scale Bracers -- 28224
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28224,300,22665,4,2108)
 	self:addTradeFlags(RecipeDB,28224,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,28224,6,529,3,16365)
+	self:addTradeAcquire(RecipeDB,28224,6,529,3,16365,8,41)
 
 	-- Bramblewood Helm -- 28472
 	recipecount = recipecount + 1
