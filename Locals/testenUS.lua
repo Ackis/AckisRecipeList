@@ -56,9 +56,12 @@ Alt-click to remove all waypoints from the mini-map and world map."]]
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
+L["Clear Exclusion List"]	= true
+L["Reset All Filters"]		= true
 L["Scan Button Position"]	= true
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the tradeskill frame."
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
+L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all recipes from the exclusion list."
 L["MAINFILTER_OPTIONS_DESC"] = "Allows you to specify how ARL handles different filters."
 L["DISPLAY_OPTIONS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."

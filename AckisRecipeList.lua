@@ -109,6 +109,7 @@ local pairs = pairs
 local select = select
 
 local table = table
+local twipe = table.wipe
 local tremove = table.remove
 local tconcat = table.concat
 local tsort = table.sort
@@ -2132,6 +2133,15 @@ function addon:ViewExclusionList()
 	for i in pairs(exclusionlist) do
 		self:Print(i .. ": " .. GetSpellInfo(i))
 	end
+
+end
+
+function addon:ClearExclusionList()
+
+	local exclusionlist = addon.db.profile.exclusionlist
+
+	-- Nuke our exclusion table
+	exclusionlist = twipe(exclusionlist)
 
 end
 

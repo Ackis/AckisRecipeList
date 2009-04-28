@@ -1957,6 +1957,7 @@ function addon:SwitchProfs(button)
 	StaticPopup_Hide("ARL_ALLFILTERED")
 	StaticPopup_Hide("ARL_ALLKNOWN")
 	StaticPopup_Hide("ARL_ALLEXCLUDED")
+	StaticPopup_Hide("ARL_SEARCHFILTERED")
 
 	-- ok, so first off, if we've never done this before, there is no "current"
 	-- and a single iteration will do nicely, thank you
@@ -2759,17 +2760,18 @@ function addon.resetFilters()
 	local _, currentclass = UnitClass("player")
 	filterdb.classes[strlower(currentclass)] = true
 
-	addon.resetTitle()
+	if (addon.Frame and addon.Frame:IsVisible()) then
+		addon.resetTitle()
 
-	-- Uncheck the seven buttons
-	HideARL_ExpOptCB()
+		-- Uncheck the seven buttons
+		HideARL_ExpOptCB()
 
-	-- Hide the flyaway panel
-	addon.Flyaway:Hide()
+		-- Hide the flyaway panel
+		addon.Flyaway:Hide()
 
-	-- Reset the display
-	ReDisplay()
-
+		-- Reset the display
+		ReDisplay()
+	end
 end
 
 -- Description: 
@@ -3350,6 +3352,7 @@ function addon:CreateFrame(
 					StaticPopup_Hide("ARL_ALLFILTERED")
 					StaticPopup_Hide("ARL_ALLKNOWN")
 					StaticPopup_Hide("ARL_ALLEXCLUDED")
+					StaticPopup_Hide("ARL_SEARCHFILTERED")
 					this:GetParent():Hide()
 				end
 			)
@@ -3499,6 +3502,7 @@ function addon:CreateFrame(
 					StaticPopup_Hide("ARL_ALLFILTERED")
 					StaticPopup_Hide("ARL_ALLKNOWN")
 					StaticPopup_Hide("ARL_ALLEXCLUDED")
+					StaticPopup_Hide("ARL_SEARCHFILTERED")
 					this:GetParent():Hide()
 				end
 			)
