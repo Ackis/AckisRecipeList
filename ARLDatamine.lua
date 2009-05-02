@@ -94,22 +94,31 @@ end
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 -- @name AckisRecipeList:ScanSkillLevelData
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
-function addon:ScanSkillLevelData()
-
-	-- Get internal database
-	local recipelist = LoadRecipe()
-
-	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
-		return
-	end
+function addon:ScanSkillLevelData(autoscan)
 
 	-- Are we at a trade skill trainer?
 	if (IsTradeskillTrainer()) then
+
+		-- Get internal database
+		local recipelist = LoadRecipe()
+
+		if (not recipelist) then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+
+		-- Get the initial trainer filters
+		local avail = GetTrainerServiceTypeFilter("available")
+		local unavail = GetTrainerServiceTypeFilter("unavailable")
+		local used = GetTrainerServiceTypeFilter("used")
+
+		-- Clear the trainer filters
 		SetTrainerServiceTypeFilter("available", 1)
 		SetTrainerServiceTypeFilter("unavailable", 1)
 		SetTrainerServiceTypeFilter("used", 1)
+
 		local t = {}
+
 		-- Get the skill levels from the trainer
 		for i=1,GetNumTrainerServices(),1 do
 			local name = GetTrainerServiceInfo(i)
@@ -126,8 +135,14 @@ function addon:ScanSkillLevelData()
 				self:Print(L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
 			end
 		end
+
+		-- Reset the filters to what they were before
+		SetTrainerServiceTypeFilter("available", avail or 0)
+		SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+		SetTrainerServiceTypeFilter("used", used or 0)
+
 		self:Print("Trainer Skill Level Scan Complete.")
-	else
+	elseif (not autoscan) then
 		self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 	end
 
@@ -138,15 +153,7 @@ end
 --- Function to compare which recipes are availible from a trainer and compare with the internal ARL database.
 -- @name AckisRecipeList:ScanTrainerData
 -- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
-function addon:ScanTrainerData()
-
-	-- Get internal database
-	local recipelist = LoadRecipe()
-
-	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
-		return
-	end
+function addon:ScanTrainerData(autoscan)
 
 	-- Make sure the target exists and is a NPC
 	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
@@ -158,9 +165,25 @@ function addon:ScanTrainerData()
 
 		-- Are we at a trade skill trainer?
 		if (IsTradeskillTrainer()) then
+
+			-- Get internal database
+			local recipelist = LoadRecipe()
+
+			if (not recipelist) then
+				self:Print(L["DATAMINER_NODB_ERROR"])
+				return
+			end
+
+			-- Get the initial trainer filters
+			local avail = GetTrainerServiceTypeFilter("available")
+			local unavail = GetTrainerServiceTypeFilter("unavailable")
+			local used = GetTrainerServiceTypeFilter("used")
+
+			-- Clear the trainer filters
 			SetTrainerServiceTypeFilter("available", 1)
 			SetTrainerServiceTypeFilter("unavailable", 1)
 			SetTrainerServiceTypeFilter("used", 1)
+
 			local t = {}
 			-- Get all the names of recipes from the trainer
 			for i=1,GetNumTrainerServices(),1 do
@@ -173,6 +196,8 @@ function addon:ScanTrainerData()
 
 			local teach = {}
 			local noteach = {}
+			local teachflag = false
+			local noteachflag = false
 
 			for i in pairs(recipelist) do
 
@@ -193,6 +218,7 @@ function addon:ScanTrainerData()
 					end
 					if (not found) then
 						tinsert(teach,i)
+						teachflag = true
 						if (not flags[3]) then
 							self:Print(i .. ": Trainer flag needs to be set.")
 						end
@@ -209,33 +235,43 @@ function addon:ScanTrainerData()
 						end
 					end
 					if (found) then
+						noteachflag = true
 						tinsert(noteach,i)
 					end
 				end
 			end
 
-			self:Print("Missing entries (need to be added):")
+			if (teachflag) then
+				self:Print("Missing entries (need to be added):")
+				tsort(teach)
 
-			tsort(teach)
-
-			for i in ipairs(teach) do
-				self:Print(L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+				for i in ipairs(teach) do
+					self:Print(L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+				end
 			end
 
-			self:Print("Extra entries (need to be removed):")
+			if (noteachflag) then
+				self:Print("Extra entries (need to be removed):")
+				tsort(noteach)
 
-			tsort(noteach)
-
-			for i in ipairs(noteach) do
-				self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
+				for i in ipairs(noteach) do
+					self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
+				end
 			end
-			
+
+			-- Reset the filters to what they were before
+			SetTrainerServiceTypeFilter("available", avail or 0)
+			SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+			SetTrainerServiceTypeFilter("used", used or 0)
+
 			self:Print("Trainer Acquire Scan Complete.")
-		else
+		elseif (not autoscan) then
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 		end
 	else
-		self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
+		if (not autoscan) then
+			self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
+		end
 	end
 
 end

@@ -2226,7 +2226,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56965,310,44955,1,45357)
 	self:addTradeFlags(RecipeDB,56965,1,2,12,22,36,41)
-	self:addTradeAcquire(RecipeDB,56965,8,15)
+	self:addTradeAcquire(RecipeDB,56965,8,14)
 
 	-- Glyph of Focus -- 62162
 	recipecount = recipecount + 1
@@ -2238,7 +2238,7 @@ function addon:InitInscription(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,57253,355,44923,1,45357)
 	self:addTradeFlags(RecipeDB,57253,1,2,12,27,36,41)
-	self:addTradeAcquire(RecipeDB,57253,8,15)
+	self:addTradeAcquire(RecipeDB,57253,8,14)
 
 	-- Rituals of the New Moon -- 64051
 	recipecount = recipecount + 1

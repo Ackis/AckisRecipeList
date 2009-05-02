@@ -9,7 +9,7 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
-Author: Ackis, Zhinjio
+Author: Ackis, Zhinjio, Jim-Bim
 
 ************************************************************************
 
@@ -356,9 +356,7 @@ function addon:OnDisable()
 
 	-- If we disable the addon when the GUI is up, hide it.
 	if (addon.Frame) then
-
 		addon.Frame:Hide()
-		
 	end
 
 	-- Remove the option from Manufac
@@ -378,8 +376,8 @@ end
 
 function addon:TRAINER_SHOW()
 
-	self:ScanTrainerData()
-	self:ScanSkillLevelData()
+	self:ScanTrainerData(true)
+	self:ScanSkillLevelData(true)
 
 end
 
