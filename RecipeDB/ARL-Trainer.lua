@@ -428,5 +428,7 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,33590,L["Oluros"],BZONE["Icecrown"],71.5,20.8,0)
 	self:addLookupList(TrainerDB,33591,L["Rekka the Hammer"],BZONE["Icecrown"],71.9,20.9,0)
 	self:addLookupList(TrainerDB,33603,L["Arthur Denny"],BZONE["Icecrown"],71.7,20.9,0)
+	self:addLookupList(TrainerDB,33610,L["Enchanting Trainer"],BZONE["Shattrath City"],43.6,90.4,0)
+	self:addLookupList(TrainerDB,33621,L["First Aid Trainer"],BZONE["Shattrath City"],43.6,90.4,0)
 
 end

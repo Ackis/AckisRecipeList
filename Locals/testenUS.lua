@@ -1747,5 +1747,5 @@ L["AUTOLOAD_DB_DESC"] = "Automatically loads all of the ARL recipe databases whe
 L["Auto Load Recipe Database"] = true
 L["Orland Schaeffer"] = true
 L["Imindril Spearsong"] = true
-
-
+L["First Aid Trainer"] = true
+L["Enchanting Trainer"] = true
