@@ -2062,7 +2062,7 @@ local function expandEntry(dsIndex)
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 
 		local pad = "  "
-		local cSte,t
+		local t
 
 		-- Trainer Type
 		if (v["Type"] == 1) then
@@ -2076,7 +2076,7 @@ local function expandEntry(dsIndex)
 				local cStr = ""
 
 				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-					cSte = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
+					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
 				end
 
 				t = {}
@@ -2201,9 +2201,7 @@ local function expandEntry(dsIndex)
 				local cStr = ""
 
 				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-
 					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
-
 				end
 
 				t = {}
@@ -2212,17 +2210,11 @@ local function expandEntry(dsIndex)
 				t.IsExpanded = true
 
 				if (qst["Faction"] == BFAC["Horde"]) then
-
 					nStr = addon:Horde(qst["Name"])
-
 				elseif (qst["Faction"] == BFAC["Alliance"]) then
-
 					nStr = addon:Alliance(qst["Name"])
-
 				else
-
 					nStr = addon:Neutral(qst["Name"])
-
 				end
 
 				t.String = pad .. tStr .. nStr
