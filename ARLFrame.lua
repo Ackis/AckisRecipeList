@@ -2053,6 +2053,7 @@ local function expandEntry(dsIndex)
 	-- occurs
 
 	local filterDB = addon.db.profile.filters
+	local obtainDB = filterDB.obtain
 	local recipeIndex = DisplayStrings[dsIndex].sID
 
 	dsIndex = dsIndex + 1
@@ -2061,21 +2062,15 @@ local function expandEntry(dsIndex)
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 
 		local pad = "  "
-		local cSte,t,display
+		local cSte,t
 
-		-- set the string based on type of acquire
-		--[[ 1 = Trainer , 2 = Vendor, 3 = Mob, 4 = Quest, 5 = Seasonal, 6 = Reputation --]]
-		-- Trainer
+		-- Trainer Type
 		if (v["Type"] == 1) then
 
-			-- Trainerdb : 	Trainer: ID, Name, Location, Coords, Faction
 			local trnr = trainerDB[v["ID"]]
 
-			display = CheckDisplayFaction(filterDB, trnr["Faction"])
+			if ((CheckDisplayFaction(filterDB, trnr["Faction"]) == true) and (obtainDB.trainer == true)) then
 
-			if (display == true) then
-
-				-- properly colourize
 				local tStr = addon:Trainer(L["Trainer"] .. " : ")
 				local nStr = ""
 				local cStr = ""
@@ -2114,16 +2109,12 @@ local function expandEntry(dsIndex)
 			end
 
 		-- Vendor
-		elseif ((v["Type"] == 2) and (filterDB.obtain.vendor == true)) then
+		elseif (v["Type"] == 2) then
 
-			-- VendorDB : ID, Name, Location, Coords, Faction
 			local vndr = vendorDB[v["ID"]]
 
-			display = CheckDisplayFaction(filterDB, vndr["Faction"])
+			if ((CheckDisplayFaction(filterDB, vndr["Faction"]) == true) and (obtainDB.vendor == true)) then
 
-			if (display == true) then
-
-				-- properly colourize
 				local tStr = addon:Vendor(L["Vendor"] .. " : ")
 				local nStr = ""
 				local cStr = ""
@@ -2162,52 +2153,49 @@ local function expandEntry(dsIndex)
 			end
 
 		-- Mob Drop Obtain
-		elseif ((v["Type"] == 3) and ((filterDB.obtain.mobdrop == true) or (filterDB.obtain.instance == true) or (filterDB.obtain.raid == true))) then
+		elseif (v["Type"] == 3) then
 
-			-- MobDB: ID, Name, Zone, Coordx, Coordy
-			local mob = mobDB[v["ID"]]
+			if ((obtainDB.mobdrop == true) or (obtainDB.instance == true) or (obtainDB.raid == true)) then
 
-			-- properly colourize
-			local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
-			local nStr = ""
-			local cStr = ""
+				local mob = mobDB[v["ID"]]
 
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
+				local nStr = ""
+				local cStr = ""
+
+				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				end
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
+				nStr = addon:Red(mob["Name"])
+				t.String = pad .. tStr .. nStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
+				t.String = pad .. pad .. mob["Location"] .. " " .. cStr
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
 			end
 
-			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			nStr = addon:Red(mob["Name"])
-			t.String = pad .. tStr .. nStr
-
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-
-			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-
 		-- Quest Obtain
-		elseif ((v["Type"] == 4) and (filterDB.obtain.quest)) then
-
-			-- Quest: ID, Name, Location, Coords to start, Faction
+		elseif (v["Type"] == 4) then
 
 			local qst = questDB[v["ID"]]
 
-			display = CheckDisplayFaction(filterDB, qst["Faction"])
+			if ((CheckDisplayFaction(filterDB, qst["Faction"]) == true) and (obtainDB.quest == true))then
 
-			if (display == true) then
-
-				-- properly colourize
 				local tStr = addon:Quest(L["Quest"] .. " : ")
 				local nStr = ""
 				local cStr = ""
@@ -2254,19 +2242,22 @@ local function expandEntry(dsIndex)
 		-- Seasonal
 		elseif (v["Type"] == 5) then
 
-			-- Seasonal: ID, Name
-			local ssnname = seasonDB[v["ID"]]["Name"]
+			if (obtainDB.seasonal == true) then
 
-			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
+				local ssnname = seasonDB[v["ID"]]["Name"]
 
-			local tStr = addon:Season(seasonal .. " : " .. ssnname)
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
 
-			t.String = pad .. tStr
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
+				local tStr = addon:Season(seasonal .. " : " .. ssnname)
+
+				t.String = pad .. tStr
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
+			end
 
 		elseif (v["Type"] == 6) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
@@ -2282,9 +2273,7 @@ local function expandEntry(dsIndex)
 			local rplvl = v["RepLevel"]
 			local repvndr = vendorDB[v["RepVendor"]]
 
-			display = CheckDisplayFaction(filterDB, repvndr["Faction"])
-
-			if (display == true) then
+			if (CheckDisplayFaction(filterDB, repvndr["Faction"]) == true) then
 
 				-- properly colourize
 				local tStr = addon:Rep(L["Reputation"] .. " : ")
@@ -2350,16 +2339,20 @@ local function expandEntry(dsIndex)
 			end
 
 		-- World Drop
-		elseif ((v["Type"] == 7) and (filterDB.obtain.worlddrop == true)) then
+		elseif (v["Type"] == 7) then
 
-			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
+			if (obtainDB.worlddrop == true) then
 
-			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
+				t = {}
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+
+				t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
+			end
 
 		-- Custom
 		elseif (v["Type"] == 8) then
@@ -2378,6 +2371,7 @@ local function expandEntry(dsIndex)
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 
+		-- We have an acquire type we aren't sure how to deal with.
 		else
 
 			t = {}
@@ -2385,7 +2379,7 @@ local function expandEntry(dsIndex)
 			t.sID = recipeIndex
 			t.IsExpanded = true
 
-			t.String = "Unhandled Acquire Case"
+			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 
