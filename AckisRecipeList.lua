@@ -540,7 +540,7 @@ do
 			end
 			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
 				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(61422)] = true
+					ProfTable[GetSpellInfo(32606)] = true
 				else
 					ProfTable[spellName] = true
 				end
@@ -1493,7 +1493,7 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		["Premiers soins"] = addon.InitFirstAid,
 		[GetSpellInfo(51302)] = addon.InitLeatherworking,
-		[GetSpellInfo(61422)] = addon.InitSmelting,
+		[GetSpellInfo(32606)] = addon.InitSmelting,
 		[GetSpellInfo(51309)] = addon.InitTailoring,
 		[GetSpellInfo(51311)] = addon.InitJewelcrafting,
 		[GetSpellInfo(45363)] = addon.InitInscription,
@@ -1715,7 +1715,7 @@ do
 			[GetSpellInfo(45542)] = false, -- First Aid
 			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(61422)] = false, -- Mining
+			[GetSpellInfo(32606)] = false, -- Mining
 			[GetSpellInfo(51309)] = false, -- Tailoring
 			[GetSpellInfo(51311)] = false, -- Jewelcrafting
 			[GetSpellInfo(45363)] = false, -- Inscription
