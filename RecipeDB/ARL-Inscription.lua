@@ -2213,8 +2213,8 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Blast Wave -- 56990
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56990,310,44920,1,45357)
-	self:addTradeFlags(RecipeDB,56990,1,2,3,24,36,41)
-	self:addTradeAcquire(RecipeDB,56990,1,26916,1,26959,1,26977,1,26995)
+	self:addTradeFlags(RecipeDB,56990,1,2,12,24,36,41)
+	self:addTradeAcquire(RecipeDB,56990,8,14)
 
 	-- Glyph of Arcane Blast -- 56991
 	recipecount = recipecount + 1
