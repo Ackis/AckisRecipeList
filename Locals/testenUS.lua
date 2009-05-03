@@ -638,7 +638,6 @@ L["Catarina Stanford"] = true
 L["Catherine Leland"] = true
 L["Cave Yeti"] = true
 L["Celie Steelwing"] = true
-L["Cenarion Dreamwarden"] = true
 L["Centipaar Sandreaver"] = true
 L["Charles Worth"] = true
 L["Charred Ancient"] = true

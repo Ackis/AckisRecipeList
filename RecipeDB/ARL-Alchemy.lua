@@ -401,8 +401,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Shadow Power -- 11476
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11476,250,9264,2,51304)
-	self:addTradeFlags(RecipeDB,11476,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11476,1,9264,2,1313,2,4610)
+	self:addTradeFlags(RecipeDB,11476,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,11476,2,1313,2,4610)
 
 	-- Elixir of Demonslaying -- 11477
 	recipecount = recipecount + 1
@@ -773,8 +773,8 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Shadow Power -- 28558
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,28558,350,22835,2,51304)
-	self:addTradeFlags(RecipeDB,28558,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
-	self:addTradeAcquire(RecipeDB,28558,1,22835,6,1011,3,21655)
+	self:addTradeFlags(RecipeDB,28558,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeAcquire(RecipeDB,28558,6,1011,3,21655)
 
 	-- Major Dreamless Sleep Potion -- 28562
 	recipecount = recipecount + 1

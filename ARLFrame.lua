@@ -510,9 +510,6 @@ do
 end
 
 -- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
--- Expected result: Inserts the strings to display for a recipe into the DisplayStrings
--- Input: None
--- Output: DisplayStrings is filled up
 
 local function initDisplayStrings()
 
@@ -574,9 +571,7 @@ local function ClearRecipeButtonTooltip(bIndex)
 
 end
 
--- Description: 
-
--- converting from hex to rgb (Thanks Maldivia)
+-- Description: Converting from hex to rgb (Thanks Maldivia)
 
 local function toRGB(hex)
 
@@ -1214,9 +1209,6 @@ local function RecipeList_Update()
 end
 
 -- Description: Updates the progress bar based on the number of known / total recipes
--- Expected result: the progression bar shows the correct information based on settings and filters
--- Input: playerdata data structure
--- Output: none
 
 local function SetProgressBar(playerData)
 
@@ -1294,9 +1286,6 @@ local function ReDisplay()
 end
 
 -- Description: Creates the scan button for ARL. 
--- Expected result: Scan button is created with all functions associated with it.
--- Input: None.
--- Output: Button is created and hidden.
 
 function addon:CreateScanButton()
 
