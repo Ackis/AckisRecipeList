@@ -335,7 +335,6 @@ local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTo
 --- Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
-
 function addon:ScanVendor()
 
 	-- Make sure the target exists and is a NPC
@@ -350,13 +349,15 @@ function addon:ScanVendor()
 
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
-			local link = GetMerchantItemLink(i)
+			--local link = GetMerchantItemLink(i)
 			-- Will have to do tooltip scanning here.
 			-- Skill level, profession, limited supply
-			ARLDatamineTT:SetHyperlink(link)
+			--ARLDatamineTT:SetHyperlink(link)
+			ARLDatamineTT:SetMerchantItem(i)
 			for i = 1, ARLDatamineTT:NumLines(),1 do
 				local linetext = _G["GameTooltipTextLeft" .. i]
-				self:Print(linetext)
+				local text = linetext:GetText()
+				self:Print(text)
 			end
 		end
 		ARLDatamineTT:Hide()
