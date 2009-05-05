@@ -210,7 +210,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3770,135,4253,1,2108)
 	self:addTradeFlags(RecipeDB,3770,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,3770,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,3770,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087,1,1632)
 
 	-- Barbaric Gloves -- 3771
 	recipecount = recipecount + 1
@@ -234,7 +234,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3774,160,4257,1,2108)
 	self:addTradeFlags(RecipeDB,3774,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,3774,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,3774,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632)
 
 	-- Guardian Belt -- 3775
 	recipecount = recipecount + 1
@@ -246,7 +246,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3776,180,4259,1,2108)
 	self:addTradeFlags(RecipeDB,3776,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,3776,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,3776,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632)
 
 	-- Guardian Leather Bracers -- 3777
 	recipecount = recipecount + 1
@@ -288,7 +288,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3818,150,4236,1,2108)
 	self:addTradeFlags(RecipeDB,3818,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3818,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087)
+	self:addTradeAcquire(RecipeDB,3818,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087,1,1632)
 
 	-- Raptor Hide Belt -- 4097
 	recipecount = recipecount + 1
