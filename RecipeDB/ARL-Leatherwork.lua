@@ -395,7 +395,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Deviate Scale Belt -- 7955
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,7955,115,6468,2,2108)
-	self:addTradeFlags(RecipeDB,7955,2,8,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,7955,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,57)
 	self:addTradeAcquire(RecipeDB,7955,4,1487)
 
 	-- Moonglow Vest -- 8322
