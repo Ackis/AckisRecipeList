@@ -2870,19 +2870,17 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,62242,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
 	self:addTradeAcquire(RecipeDB,62242,1,26915,1,26960,1,26982,1,26997,1,28701)
 
-	if select(4, GetBuildInfo()) >= 30100 then
-
 	-- Shifting Twilight Opal -- 53963
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,53963,380,40023,3,25229)
-	--self:addTradeFlags(RecipeDB,53963,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	--self:addTradeAcquire(RecipeDB,53963,1,26915,1,26960,1,26982,1,26997,1,28701)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53963,380,40023,3,25229)
+	self:addTradeFlags(RecipeDB,53963,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,53963,2,28721)
 
 	-- Subtle Scarlet Ruby -- 53948
-	--recipecount = recipecount + 1
-	--self:addTradeSkill(RecipeDB,53948,380,40000,3,25229)
-	--self:addTradeFlags(RecipeDB,53948,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	--self:addTradeAcquire(RecipeDB,53948,1,26915,1,26960,1,26982,1,26997,1,28701)
+	recipecount = recipecount + 1
+	self:addTradeSkill(RecipeDB,53948,380,40000,3,25229)
+	self:addTradeFlags(RecipeDB,53948,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52)
+	self:addTradeAcquire(RecipeDB,53948,2,28721)
 
 	-- Emerald Choker -- 64725
 	recipecount = recipecount + 1
@@ -2919,8 +2917,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeSkill(RecipeDB,63743,200,45627,1,25229)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
 	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701)
-
-	end
 
 	return recipecount
 
