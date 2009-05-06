@@ -2508,31 +2508,31 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924)
+	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,11146)
 
 	-- Corroded Saronite Woundbringer -- 55184
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55184,415,41187,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55184,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506)
+	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146)
 
 	-- Saronite Mindcrusher -- 55185
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506)
+	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146)
 
 	-- Chestplate of Conquest -- 55186
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55186,415,41189,3,2018,9788)
 	self:addTradeFlags(RecipeDB,55186,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,55186,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506)
+	self:addTradeAcquire(RecipeDB,55186,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,5164)
 
 	-- Legplates of Conquest -- 55187
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55187,415,41190,3,2018,9788)
 	self:addTradeFlags(RecipeDB,55187,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,55187,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506)
+	self:addTradeAcquire(RecipeDB,55187,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,5164)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	recipecount = recipecount + 1
