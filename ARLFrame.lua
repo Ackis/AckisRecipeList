@@ -21,6 +21,7 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local QTip		= LibStub("LibQTip-1.0")
 
 local string = string
 local ipairs = ipairs
@@ -91,6 +92,10 @@ else
 	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 end
 
+-- Font Objects needed for arlTooltip
+local normalFontObj = CreateFont(MODNAME.."normalFontObj")
+local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
+
 -- local versions of the databases storing the recipe information, trainers, vendors, etc
 local recipeDB = {}
 local trainerDB = {}
@@ -104,7 +109,7 @@ local allSpecTable = {}
 local playerData = {}
 
 local arlTooltip = _G["arlTooltip"]
-local arlTooltip2 = _G["arlTooltip2"]
+local arlSpellTooltip = _G["arlSpellTooltip"]
 
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
 addonversion = string.gsub(addonversion,"@project.revision@","SVN")
@@ -587,7 +592,7 @@ end
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
 
-local function gttAdd(
+local function ttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- negative number. subtract from 12 to get fontsize
 	narrow,			-- if 1, use ARIALN instead of FRITZQ
@@ -597,70 +602,50 @@ local function gttAdd(
 	str2,			-- if present, this is a double line, and this is the right hand string
 	hexcolor2)		-- if present, hex color code for right hand side
 
-	-- convert hex colors to r g b components. tooltips are dumb that way
+	-- are we changing fontsize or narrow?
+	if ((narrow == 1) or (textSize ~= 0)) then
+		local font, fontObj = normalFont, normalFontObj
+		if (narrow == 1) then
+			font = narrowFont
+			fontObj = narrowFontObj
+		end
 
-	local a, b, c = toRGB(hexcolor1)
-	local d, e, f = 0, 0, 0
+		local fontsize = addon.db.profile.frameopts.fontsize + textSize
 
-	if (hexcolor2) then
-		d, e, f = toRGB(hexcolor2)
+		fontObj:SetFont(font, fontsize)
+		arlTooltip:SetFont(fontObj)
 	end
 
 	-- Add in our left hand padding
-	local looppad = leftPad
+	local loopPad = leftPad
 	local leftStr = str1
 
-	while (looppad > 0) do
+	while (loopPad > 0) do
 		leftStr = "  " .. leftStr
-		looppad = looppad - 1
+		loopPad = loopPad - 1
 	end
-
-	-- Are we adding a single or double line?
-	local double = false
 
 	if (str2) then
-		arlTooltip:AddDoubleLine(leftStr, str2, a, b, c, d, e, f)
-		double = true
+		local lineNum = arlTooltip:AddLine(" ")
+		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
+		arlTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r")
 	else
-		arlTooltip:AddLine(leftStr, a, b, c, wraptext)
+		arlTooltip:AddLine("|cff"..hexcolor1..leftStr.."|r")
 	end
-
-	-- are we changing fontsize or narrow?
-	if ((narrow == 1) or (textSize ~= 0)) then
-		local font = normalFont
-		if (narrow == 1) then
-			font = narrowFont
-		end
-
-		--local fontsize = 11
-		local fontsize = addon.db.profile.frameopts.fontsize
-		if (textSize ~= 0) then
-			fontsize = fontsize + textSize
-		end
-			
-		local numlines = arlTooltip:NumLines()
-		local mytext1 = _G["arlTooltipTextLeft" .. numlines]
-		mytext1:SetFont(font, fontsize)
-		if (double == true) then
-			local mytext2 = _G["arlTooltipTextRight" .. numlines]
-			mytext2:SetFont(font, fontsize)
-		end
-	end
-
 end
 
 local function SetSpellTooltip(owner, loc)
 
-	arlTooltip2:SetOwner(owner, "ANCHOR_NONE")
-	arlTooltip2:ClearAllPoints()
+	arlSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
+	arlSpellTooltip:ClearAllPoints()
 	if (loc == "Top") then
-		arlTooltip2:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+		arlSpellTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
 	elseif (loc == "Bottom") then
-		arlTooltip2:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+		arlSpellTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
 	elseif (loc == "Left") then
-		arlTooltip2:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+		arlSpellTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
 	elseif (loc == "Right") then
-		arlTooltip2:SetPoint("TOPLEFT", owner, "TOPRIGHT")
+		arlSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
 
 end
@@ -680,13 +665,12 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		-- If we have the spell link tooltip, link it to the owner instead so it shows
 		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
 			SetSpellTooltip(addon.Frame, spelltooltiplocation)
-			arlTooltip2:SetHyperlink(spelllink)
-			arlTooltip2:Show()
+			arlSpellTooltip:SetHyperlink(spelllink)
+			arlSpellTooltip:Show()
 		else
-			arlTooltip2:Hide()
+			arlSpellTooltip:Hide()
 		end
 	else
-		arlTooltip:SetOwner(owner, "ANCHOR_NONE")
 		arlTooltip:ClearAllPoints()
 		if (acquiretooltiplocation == "Right") then
 			arlTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
@@ -705,14 +689,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 		end
 
-		arlTooltip:ClearLines()
-
-		gttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
+		arlTooltip:Clear()
+		ttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
 		-- check if the recipe is excluded
 		if (exclude[rIndex] == true) then
 			clr1 = addon:hexcolor("RED")
-			gttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
+			ttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
 		end
 
 		-- Add in skill level requirement, colored correctly
@@ -733,41 +716,41 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr2 = addon:hexcolor("MIDGREY")
 		end
 
-		gttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+		ttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
 		-- spacer
-		gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
 		-- Binding info
 		clr1 = addon:hexcolor("NORMAL")
 
 		if (recipeDB[rIndex]["Flags"][36]) then
-			gttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][37]) then
-			gttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][38]) then
-			gttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][40]) then
-			gttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][41]) then
-			gttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][42]) then
-			gttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+			ttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
 		end
 
 		-- spacer
-		gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
 
 		-- obtain info
-		gttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+		ttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
 		local factiondisp = addon.db.profile.filters.general.faction
 
@@ -801,14 +784,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 				if (displaytt) then
 					-- Add the trainer information to the tooltip
-					gttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
+					ttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
 					-- If we have a coordinate, add the coordinates to the tooltop
 					if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 						cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
 					end
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					gttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
+					ttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
 				end
 
 			-- Vendor
@@ -842,10 +825,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 					end
 
-					gttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+					ttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					gttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
+					ttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
 				end
 
 			-- Mob Drop
@@ -862,10 +845,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 				clr1 = addon:hexcolor("MOBDROP")
 				clr2 = addon:hexcolor("HORDE")
-				gttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
+				ttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				gttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
+				ttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
 
 			-- Quest
 			elseif (v["Type"] == 4) then
@@ -899,10 +882,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 							cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 						end
 
-						gttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
+						ttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
 						clr1 = addon:hexcolor("NORMAL")
 						clr2 = addon:hexcolor("HIGH")
-						gttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
+						ttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
 					end
 				end
 
@@ -913,7 +896,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local ssnname = seasonDB[v["ID"]]["Name"]
 
 				clr1 = addon:hexcolor("SEASON")
-				gttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
+				ttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
 
 			-- Reputation
 			elseif (v["Type"] == 6) then
@@ -934,7 +917,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				
 				clr1 = addon:hexcolor("REP")
 				clr2 = addon:hexcolor("NORMAL")
-				gttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
+				ttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
 
 				local rStr = ""
 				if (rplvl == 0) then
@@ -971,10 +954,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				end
 
 				if (displaytt) then
-					gttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
+					ttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					gttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
+					ttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
 				end
 
 			-- World Drop
@@ -993,7 +976,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					clr1 = addon:hexcolor("NORMAL")
 				end
 
-				gttAdd(0, -1, 0, 0, L["World Drop"], clr1)
+				ttAdd(0, -1, 0, 0, L["World Drop"], clr1)
 
 			-- Custom entry
 			elseif (v["Type"] == 8) then
@@ -1001,35 +984,35 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local customname = customDB[v["ID"]]["Name"]
 
 				clr1 = addon:hexcolor("NORMAL")
-				gttAdd(0, -1, 0, 0, customname, clr1)
+				ttAdd(0, -1, 0, 0, customname, clr1)
 
 			-- Unhandled
 			else
 				clr1 = addon:hexcolor("NORMAL")
-				gttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
+				ttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
 			end
 
 		end
 
 		-- Spacer
-		gttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
 
 		clr1 = addon:hexcolor("NORMAL")
 
-		gttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
-		gttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
-		gttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
-		gttAdd(0, -1, 0, 1, L["CTRL_SHIFT_CLICK"], clr1)
+		ttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
+		ttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
+		ttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
+		ttAdd(0, -1, 0, 1, L["CTRL_SHIFT_CLICK"], clr1)
 
 		arlTooltip:Show()
 
 		-- If we have the spell link tooltip, link it to the owner instead so it shows
 		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
 			SetSpellTooltip(arlTooltip, spelltooltiplocation)
-			arlTooltip2:SetHyperlink(spelllink)
-			arlTooltip2:Show()
+			arlSpellTooltip:SetHyperlink(spelllink)
+			arlSpellTooltip:Show()
 		else
-			arlTooltip2:Hide()
+			arlSpellTooltip:Hide()
 		end
 	end
 
@@ -1055,7 +1038,7 @@ local function SetRecipeButtonTooltip(bIndex)
 	pButton:SetScript("OnLeave",
 			function()
 				arlTooltip:Hide()
-				arlTooltip2:Hide()
+				arlSpellTooltip:Hide()
 			end
 		)
 
@@ -1068,7 +1051,7 @@ local function SetRecipeButtonTooltip(bIndex)
 	rButton:SetScript("OnLeave",
 			function()
 				arlTooltip:Hide()
-				arlTooltip2:Hide()
+				arlSpellTooltip:Hide()
 			end
 		)
 
@@ -3505,13 +3488,14 @@ function addon:CreateFrame(
  			ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
 
 		-- I'm going to use my own tooltip for recipebuttons
-		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
-		arlTooltip2 = CreateFrame("GameTooltip", "arlTooltip2", addon.Frame, "GameTooltipTemplate")
+--		arlTooltip = CreateFrame("GameTooltip", "arlTooltip", addon.Frame, "GameTooltipTemplate")
+		arlTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
+		arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", addon.Frame, "GameTooltipTemplate")
 
 		-- Add TipTac Support
 		if (TipTac) and (TipTac.AddModifiedTip) then
 			TipTac:AddModifiedTip(arlTooltip)
-			TipTac:AddModifiedTip(arlTooltip2)
+			TipTac:AddModifiedTip(arlSpellTooltip)
 		end
 
 		-- The main recipe list buttons and scrollframe
@@ -4491,7 +4475,7 @@ function addon:CreateFrame(
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
 	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
-	arlTooltip2:SetScale(addon.db.profile.frameopts.tooltipscale)
+	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])

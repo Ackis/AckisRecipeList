@@ -1473,7 +1473,7 @@ local function giveDisplay()
 					set		= function(info, v) 
 								addon.db.profile.frameopts.tooltipscale = v
 								if (arlTooltip) then arlTooltip:SetScale(v) end
-								if (arlTooltip2) then arlTooltip:SetScale(v) end
+								if (arlSpellTooltip) then arlSpellTooltip:SetScale(v) end
 							  end,
 				},
 				acquiretooltiplocation = {

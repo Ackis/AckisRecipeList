@@ -94,7 +94,7 @@ addon.ScanButton = nil
 addon.Frame = nil
 addon.ARLCopyFrame = nil
 _G["arlTooltip"] = nil
-_G["arlTooltip2"] = nil
+_G["arlSpellTooltip"] = nil
 
 
 -- Make global API calls local to speed things up
