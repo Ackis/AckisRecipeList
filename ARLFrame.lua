@@ -11,7 +11,6 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
-
 ****************************************************************************************
 
 ]]--
@@ -3124,8 +3123,67 @@ local function SaveFramePosition()
 	local from, _, to, x, y = addon.Frame:GetPoint()
 	opts.anchorFrom = from
 	opts.anchorTo = to
-	opts.offsetx = x
+	if (addon.Frame._Expanded == true) then
+		if (opts.anchorFrom == "TOPLEFT") or
+		(opts.anchorFrom == "LEFT") or
+		(opts.anchorFrom == "BOTTOMLEFT") then
+			opts.offsetx = x
+		elseif (opts.anchorFrom == "TOP") or
+		(opts.anchorFrom == "CENTER") or
+		(opts.anchorFrom == "BOTTOM") then
+			opts.offsetx = x - 151/2
+		elseif (opts.anchorFrom == "TOPRIGHT") or
+		(opts.anchorFrom == "RIGHT") or
+		(opts.anchorFrom == "BOTTOMRIGHT") then
+			opts.offsetx = x - 151
+		end
+	else
+		opts.offsetx = x
+	end
 	opts.offsety = y
+
+end
+
+local function SetFramePosition()
+
+	addon.Frame:ClearAllPoints()
+
+	local opts = addon.db.profile.frameopts
+	local FixedOffsetX = opts.offsetx
+	
+	if (opts.anchorTo == "") then
+		-- no values yet, clamp to whatever frame is appropriate
+		if (ATSWFrame) then
+			-- Anchor frame to ATSW
+			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+		elseif (CauldronFrame) then
+			-- Anchor frame to Cauldron
+			addon.Frame:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
+		elseif (Skillet) then
+			-- Anchor frame to Skillet
+			addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		else
+			-- Anchor to default tradeskill frame
+			addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+		end
+	else
+		if (addon.Frame._Expanded == true) then
+			if (opts.anchorFrom == "TOPLEFT") or
+			(opts.anchorFrom == "LEFT") or
+			(opts.anchorFrom == "BOTTOMLEFT") then
+				FixedOffsetX = opts.offsetx
+			elseif (opts.anchorFrom == "TOP") or
+			(opts.anchorFrom == "CENTER") or
+			(opts.anchorFrom == "BOTTOM") then
+				FixedOffsetX = opts.offsetx + 151/2
+			elseif (opts.anchorFrom == "TOPRIGHT") or
+			(opts.anchorFrom == "RIGHT") or
+			(opts.anchorFrom == "BOTTOMRIGHT") then
+				FixedOffsetX = opts.offsetx + 151
+			end
+		end
+		addon.Frame:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+	end
 
 end
 
@@ -3257,29 +3315,6 @@ function addon:CreateFrame(
 					SaveFramePosition()
 				end
 			)
-
-		addon.Frame:ClearAllPoints()
-
-		local opts = self.db.profile.frameopts
-
-		if (opts.anchorTo == "") then
-			-- no values yet, clamp to whatever frame is appropriate
-			if (ATSWFrame) then
-				-- Anchor frame to ATSW
-				addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-			elseif (CauldronFrame) then
-				-- Anchor frame to Cauldron
-				addon.Frame:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-			elseif (Skillet) then
-				-- Anchor frame to Skillet
-				addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-			else
-				-- Anchor to default tradeskill frame
-				addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
-			end
-		else
-			addon.Frame:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, opts.offsetx, opts.offsety)
-		end
 
 		addon.Frame:Show()
 		addon.Frame._Expanded = false
@@ -4468,6 +4503,9 @@ function addon:CreateFrame(
 		}
 
 	end
+
+	-- Set our addon frame position
+	SetFramePosition()
 
 	-- Initialize dropdown
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize
