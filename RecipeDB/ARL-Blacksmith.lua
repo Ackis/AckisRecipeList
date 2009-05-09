@@ -839,19 +839,19 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Thorium Armor -- 16642
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16642,250,12405,2,2018)
-	self:addTradeFlags(RecipeDB,16642,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16642,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16642,7,2,1,4258,1,5511)
 
 	-- Thorium Belt -- 16643
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16643,250,12406,2,2018)
-	self:addTradeFlags(RecipeDB,16643,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16643,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16643,7,2,1,4258,1,5511)
 
 	-- Thorium Bracers -- 16644
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16644,255,12408,2,2018)
-	self:addTradeFlags(RecipeDB,16644,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16644,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16644,7,2,1,4258,1,5511)
 
 	-- Radiant Belt -- 16645
@@ -899,13 +899,13 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Thorium Boots -- 16652
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16652,280,12409,2,2018)
-	self:addTradeFlags(RecipeDB,16652,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16652,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16652,7,2,1,4258,1,5511)
 
 	-- Thorium Helm -- 16653
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16653,280,12410,2,2018)
-	self:addTradeFlags(RecipeDB,16653,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16653,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16653,7,2,1,4258,1,5511)
 
 	-- Radiant Gloves -- 16654
@@ -959,7 +959,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Thorium Leggings -- 16662
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16662,300,12414,2,2018)
-	self:addTradeFlags(RecipeDB,16662,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
+	self:addTradeFlags(RecipeDB,16662,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,16662,7,2,1,4258,1,5511)
 
 	-- Imperial Plate Chest -- 16663
@@ -1067,7 +1067,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ornate Thorium Handaxe -- 16969
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16969,275,12773,2,2018)
-	self:addTradeFlags(RecipeDB,16969,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,68)
+	self:addTradeFlags(RecipeDB,16969,1,2,3,4,21,22,23,24,25,26,27,28,29,30,37,41,68)
 	self:addTradeAcquire(RecipeDB,16969,2,11278,1,4258,1,5511)
 
 	-- Dawn's Edge -- 16970
@@ -1079,7 +1079,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Huge Thorium Battleaxe -- 16971
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16971,280,12775,1,2018)
-	self:addTradeFlags(RecipeDB,16971,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,68)
+	self:addTradeFlags(RecipeDB,16971,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,63,68)
 	self:addTradeAcquire(RecipeDB,16971,2,11278,1,4258,1,5511)
 
 	-- Enchanted Battlehammer -- 16973
