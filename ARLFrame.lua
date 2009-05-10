@@ -3389,6 +3389,9 @@ function addon:CreateFrame(
 						initDisplayStrings()
 						RecipeList_Update()
 
+						ARL_ExpandButton:SetText(L["EXPANDALL"])
+						addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
 						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						ARL_SearchButton:Disable()
 					end
@@ -3433,6 +3436,9 @@ function addon:CreateFrame(
 						addon:SearchRecipeDB(recipeDB, searchtext)
 						initDisplayStrings()
 						RecipeList_Update()
+
+						ARL_ExpandButton:SetText(L["EXPANDALL"])
+						addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 						ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						ARL_SearchButton:Disable()

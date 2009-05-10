@@ -1748,3 +1748,4 @@ L["Orland Schaeffer"] = true
 L["Imindril Spearsong"] = true
 L["First Aid Trainer"] = true
 L["Enchanting Trainer"] = true
+L["Alt-Tradeskills"] = true
