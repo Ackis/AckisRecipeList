@@ -4387,7 +4387,6 @@ function addon:CreateFrame(
 			addon.Fly_Misc:SetMovable(false)
 			addon.Fly_Misc:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_Misc:Hide()
-
 			local ARL_MiscText = addon.Fly_Misc:CreateFontString("ARL_MiscText", "OVERLAY", "GameFontHighlight")
 				ARL_MiscText:SetText(L["Miscellaneous"] .. ":")
 				ARL_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
@@ -4397,6 +4396,27 @@ function addon:CreateFrame(
 			local ARL_IgnoreCB = CreateFrame("CheckButton", "ARL_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
 				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
+			local ARL_MiscAltText = addon.Fly_Misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "GameFontNormal")
+				ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
+				ARL_MiscAltText:SetText(addon:Grey("Alt-Tradeskills" .. ":")) -- disabled for now
+				ARL_MiscAltText:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 4, 0)
+				ARL_MiscAltText:SetHeight(14)
+				ARL_MiscAltText:SetWidth(120)
+				ARL_MiscAltText:SetJustifyH("LEFT")
+			local ARL_MiscAltBtn = CreateFrame("Button", "ARL_IgnoreCB", addon.Fly_Misc)
+				ARL_MiscAltBtn:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 90, 4)
+				ARL_MiscAltBtn:SetHeight(22)
+				ARL_MiscAltBtn:SetWidth(22)
+				ARL_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
+				ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
+				ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
+				ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+				ARL_MiscAltBtn:Disable()  -- disabled for now
+				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
+				ARL_MiscAltBtn:SetScript("OnClick",
+					function(self,button)
+					--open tooltip (qtipclick?) with all alts
+					end)
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
