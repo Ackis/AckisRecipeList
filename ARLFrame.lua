@@ -596,7 +596,7 @@ local function ttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- negative number. subtract from 12 to get fontsize
 	narrow,			-- if 1, use ARIALN instead of FRITZQ
-	wraptext,		-- wraptext for AddLine (0 or 1)
+	use_span,		-- will str1 span both columns?
 	str1,			-- left hand string
 	hexcolor1,		-- hex color code for left hand side
 	str2,			-- if present, this is a double line, and this is the right hand string
@@ -629,6 +629,9 @@ local function ttAdd(
 		local lineNum = arlTooltip:AddLine(" ")
 		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
 		arlTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r")
+	elseif use_span then
+		local lineNum = arlTooltip:AddLine(" ")
+		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", 2)
 	else
 		arlTooltip:AddLine("|cff"..hexcolor1..leftStr.."|r")
 	end
