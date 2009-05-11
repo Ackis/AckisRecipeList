@@ -238,7 +238,7 @@ L["FILTERING_MISC_DESC"]					= "Configuration for miscellaneous options which ar
 L["Faction"]				= true
 L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
 L["Classes"]				= true
-L["CLASS_DESC"]				= "Include this class in the scan."
+L["CLASS_DESC"]				= "Include this class in the scan.  This will filter on two factors: 1) Can the class use the recipe and 2) can the class learn the recipe."
 L["CLASS_TEXT_DESC"]		= [[Left-click here to select all classes.
 Right-click here to select your own class.]]
 L["Specialties"]			= true
