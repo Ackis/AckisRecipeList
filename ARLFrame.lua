@@ -1249,7 +1249,7 @@ local function ReDisplay()
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
-	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown, playerData.excluded_recipes_prof = addon:GetExclusions(recipeDB,playerData.playerProfession)
+	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
 
 	initDisplayStrings()
 

@@ -1873,7 +1873,7 @@ do
 			-- Add filtering flags to the recipes
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
-			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown, playerData.excluded_recipes_prof = self:GetExclusions(RecipeList,playerData.playerProfession)
+			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,playerData.playerProfession)
 		end
 
 		if (textdump == true) then
@@ -2063,7 +2063,7 @@ function addon:GetExclusions(RecipeDB,prof)
 	local countunknown = 0
 	local countprof = 0
 
-	local ignored = addon.db.profile.ignoreexclusionlist
+	local ignored = not addon.db.profile.ignoreexclusionlist
 
 	for i in pairs(exclusionlist) do
 
@@ -2074,20 +2074,18 @@ function addon:GetExclusions(RecipeDB,prof)
 				RecipeDB[i]["Display"] = false
 			end
 
-			if (RecipeDB[i]["Known"] == false) then
+			local tmpprof = GetSpellInfo(RecipeDB[i]["Profession"])
+			if (RecipeDB[i]["Known"] == false and tmpprof == prof) then
 				countknown = countknown + 1
-			else
+			elseif (tmpprof == prof) then
 				countunknown = countunknown + 1
 			end
-			local tmpprof = GetSpellInfo(RecipeDB[i]["Profession"])
-			if (tmpprof == prof) then
-				countprof = countprof + 1
-			end
+
 		end
 
 	end
 
-	return countknown, countunknown, prof
+	return countknown, countunknown
 
 end
 
