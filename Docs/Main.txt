@@ -1,7 +1,9 @@
 ==What it does==
-Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including Runeforging.
+Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
 
-You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here].
+You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here]:
+
+<youtube>jZR5DLkRJBY</youtube>
 
 ===French (frFR)===
 Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs et les capacités des familiers des chasseurs.
@@ -93,7 +95,6 @@ This is the functionality that occurs when you click on a recipe.
 
 ==Known Issues==
 * When gaining a reputation level recipes for that faction will still appear in red when doing a scan.
-* If you have a cooking or first aid book/quest complete, but aren't past the skill level, it'll show the book/quest as unknown (ie: I have read the first aid skill book for skill level 150, however my skill in first aid is only 140, it'll show the book as unknown still).
 * Recipe acquire information is slightly inaccurate.  I'm updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [http://www.wowace.com/projects/arl/create-ticket/ here] and I will get it updated.
 
 ==Feature Requests/Bug Reporting==
