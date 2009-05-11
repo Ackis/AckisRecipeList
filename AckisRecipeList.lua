@@ -2079,7 +2079,8 @@ function addon:GetExclusions(RecipeDB,prof)
 			else
 				countunknown = countunknown + 1
 			end
-			if (RecipeDB[i]["Profession"] == prof) then
+			local tmpprof = GetSpellInfo(RecipeDB[i]["Profession"])
+			if (tmpprof == prof) then
 				countprof = countprof + 1
 			end
 		end
