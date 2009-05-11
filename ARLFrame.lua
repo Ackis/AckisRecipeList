@@ -2408,51 +2408,50 @@ function addon.RecipeItem_OnClick(button)
 				addon:ToggleExcludeRecipe(clickedSpellIndex)
 				ReDisplay()
 			end
-		-- No modifyer
-		else
-			-- three possibilities here
-			-- 1) We clicked on the recipe button on a closed recipe
-			-- 2) We clicked on the recipe button of an open recipe
-			-- 3) we clicked on the expanded text of an open recipe
-			if (isRecipe) then
-				if (isExpanded) then
-					-- get rid of our expanded lines
-					traverseIndex = clickedIndex + 1
-					while (DisplayStrings[traverseIndex].IsRecipe == false) do
-						tremove(DisplayStrings, traverseIndex)
-						-- if this is the last entry in the whole list, we should break out
-						if not DisplayStrings[traverseIndex] then
-							break
-						end
-					end
-					DisplayStrings[clickedIndex].IsExpanded = false
-				else
-					-- add in our expanded lines
-					expandEntry(clickedIndex)
-					-- set our current recipe to expanded
-					DisplayStrings[clickedIndex].IsExpanded = true
-				end
-			else
-				-- this inherently implies that we're on an expanded recipe
-				-- first, back up in the list of buttons until we find our recipe line
-				traverseIndex = clickedIndex - 1
-				while (DisplayStrings[traverseIndex].IsRecipe == false) do
-					traverseIndex = traverseIndex - 1
-				end
-				-- unexpand it
-				DisplayStrings[traverseIndex].IsExpanded = false
-				-- now remove the expanded lines until we get to a recipe again
-				traverseIndex = traverseIndex + 1
+		-- three possibilities here (all with no modifiers)
+		-- 1) We clicked on the recipe button on a closed recipe
+		-- 2) We clicked on the recipe button of an open recipe
+		-- 3) we clicked on the expanded text of an open recipe
+		elseif (isRecipe) then
+			if (isExpanded) then
+				-- get rid of our expanded lines
+				traverseIndex = clickedIndex + 1
 				while (DisplayStrings[traverseIndex].IsRecipe == false) do
 					tremove(DisplayStrings, traverseIndex)
+					-- if this is the last entry in the whole list, we should break out
+					if not DisplayStrings[traverseIndex] then
+						break
+					end
+				end
+				DisplayStrings[clickedIndex].IsExpanded = false
+			else
+				-- add in our expanded lines
+				expandEntry(clickedIndex)
+				-- set our current recipe to expanded
+				DisplayStrings[clickedIndex].IsExpanded = true
+			end
+		else
+			-- this inherently implies that we're on an expanded recipe
+			-- first, back up in the list of buttons until we find our recipe line
+			traverseIndex = clickedIndex - 1
+			while (DisplayStrings[traverseIndex].IsRecipe == false) do
+				traverseIndex = traverseIndex - 1
+			end
+			-- unexpand it
+			DisplayStrings[traverseIndex].IsExpanded = false
+			-- now remove the expanded lines until we get to a recipe again
+			traverseIndex = traverseIndex + 1
+			while (DisplayStrings[traverseIndex].IsRecipe == false) do
+				tremove(DisplayStrings, traverseIndex)
+				-- if this is the last entry in the whole list, we should break out
+				if not DisplayStrings[traverseIndex] then
+					break
 				end
 			end
+		end
 
 			-- finally, call our scrollframe updater
 			RecipeList_Update()
-
-		end
-
 	end
 
 end
