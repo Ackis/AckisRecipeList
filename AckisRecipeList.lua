@@ -282,7 +282,7 @@ function addon:OnInitialize()
 					shaman = true,
 					warlock = true,
 					warrior = true,
-				}
+				},
 			}
 		}
 	}
@@ -609,23 +609,17 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	local spellLink = GetSpellLink(SpellID)
 
 	if (spellLink ~= nil) then
-
 		--RecipeDB[SpellID]["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
 		RecipeDB[SpellID]["RecipeLink"] = spellLink
-
 	else
-
 		RecipeDB[SpellID]["RecipeLink"] = nil
-
 	end
 
 	-- Get the recipe name now
 	RecipeDB[SpellID]["Name"] = GetSpellInfo(SpellID) or nil
 
 	if (RecipeDB[SpellID]["Name"] == nil) then
-
 		self:Print(format(L["SpellIDCache"],SpellID))
-
 	end
 
 	-- All recipes are unknown until scan occurs
@@ -1879,11 +1873,7 @@ do
 			-- Add filtering flags to the recipes
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
-			if (not addon.db.profile.ignoreexclusionlist) then
-				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,1)
-			else
-				playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,0)
-			end
+			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown, playerData.excluded_recipes_prof = self:GetExclusions(RecipeList,playerData.playerProfession)
 		end
 
 		if (textdump == true) then
@@ -2066,39 +2056,37 @@ end
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
 
-function addon:GetExclusions(RecipeDB, Ignored)
+function addon:GetExclusions(RecipeDB,prof)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
 	local countunknown = 0
+	local countprof = 0
+
+	local ignored = addon.db.profile.ignoreexclusionlist
 
 	for i in pairs(exclusionlist) do
 
 		-- We may have a recipe in the exclusion list that has not been scanned yet
 		-- check if the entry exists in RecipeDB first
 		if (RecipeDB[i]) then
-
-			if (Ignored == 1) then
-
+			if (ignored) then
 				RecipeDB[i]["Display"] = false
-
 			end
 
 			if (RecipeDB[i]["Known"] == false) then
-
 				countknown = countknown + 1
-
 			else
-
 				countunknown = countunknown + 1
-
 			end
-
+			if (RecipeDB[i]["Profession"] == prof) then
+				countprof = countprof + 1
+			end
 		end
 
 	end
 
-	return countknown, countunknown
+	return countknown, countunknown, prof
 
 end
 
