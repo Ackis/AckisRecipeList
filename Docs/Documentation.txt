@@ -348,6 +348,9 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *12 = Discovery
 *13-20 = Reserved for future use
 ====Class====
+These flags are defined as:
+# Can this class use this recipe? (ie: Rage potions, glpyhs, etc)
+# Can this class learn this recipe? (ie: Thistle tea)
 *21 = Deathknight
 *22 = Druid
 *23 = Hunter
