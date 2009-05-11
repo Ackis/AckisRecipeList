@@ -2061,7 +2061,6 @@ function addon:GetExclusions(RecipeDB,prof)
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
 	local countunknown = 0
-	local countprof = 0
 
 	local ignored = not addon.db.profile.ignoreexclusionlist
 
