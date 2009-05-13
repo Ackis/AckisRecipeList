@@ -141,7 +141,7 @@ function addon:ScanSkillLevelData(autoscan)
 		end
 
 		if (entryfound) then
-			self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
+			--self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
 		end
 
 		-- Reset the filters to what they were before
@@ -198,7 +198,9 @@ function addon:ScanTrainerData(autoscan)
 				local name = GetTrainerServiceInfo(i)
 				t[name] = true
 			end
+
 			local outputtext = {}
+
 			-- Dump out trainer info
 			tinsert(outputtext, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 
@@ -247,6 +249,7 @@ function addon:ScanTrainerData(autoscan)
 						tinsert(noteach,i)
 					end
 				end
+
 			end
 
 			if (teachflag) then
@@ -265,11 +268,11 @@ function addon:ScanTrainerData(autoscan)
 				end
 			end
 
-			if ((teachflag) or (noteachflag)) then
-				self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
-			end
-
 			tinsert(outputtext, "Trainer Acquire Scan Complete.")
+
+			--if ((teachflag) or (noteachflag)) then
+				self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
+			--end
 
 			-- Reset the filters to what they were before
 			SetTrainerServiceTypeFilter("available", avail or 0)
