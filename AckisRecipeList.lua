@@ -179,6 +179,9 @@ function addon:OnInitialize()
 					skill = true,
 					known = false,
 					unknown = true,
+					originalwow = true,
+					bc = true,
+					wrath = true,
 				},
 				-- Obtain Options
 				obtain = {
@@ -1028,6 +1031,18 @@ do
 			if (Recipe["Specialty"]) and (Recipe["Specialty"] ~= playerSpecialty) then
 				return false
 			end
+		end
+
+		-- Filter out "era" recipes
+
+		if ((generaldb.originalwow == false) and (Recipe["Game"] == 0)) then
+			return false
+		end
+		if ((generaldb.bc == false) and (Recipe["Game"] == 1)) then
+			return false
+		end
+		if ((generaldb.wrath == false) and (Recipe["Game"] == 2)) then
+			return false
 		end
 
 		local bindingdb = filterdb.binding
