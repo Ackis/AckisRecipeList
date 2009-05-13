@@ -129,11 +129,19 @@ function addon:ScanSkillLevelData(autoscan)
 			t[name] = skilllevel
 		end
 
+		local outputtable = {}
+		local entryfound = false
+
 		for i in pairs(recipelist) do
 			local i_name = recipelist[i]["Name"]
 			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
-				self:Print(L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
+				entryfound = true
+				tinsert(outputtable,L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
 			end
+		end
+
+		if (entryfound) then
+			self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
 		end
 
 		-- Reset the filters to what they were before
@@ -190,9 +198,9 @@ function addon:ScanTrainerData(autoscan)
 				local name = GetTrainerServiceInfo(i)
 				t[name] = true
 			end
+			local outputtext = {}
 			-- Dump out trainer info
-			self:Print(L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
-			-- Get internal database
+			tinsert(outputtext, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 
 			local teach = {}
 			local noteach = {}
@@ -220,7 +228,7 @@ function addon:ScanTrainerData(autoscan)
 						tinsert(teach,i)
 						teachflag = true
 						if (not flags[3]) then
-							self:Print(i .. ": Trainer flag needs to be set.")
+							tinsert(outputtext, ": Trainer flag needs to be set.")
 						end
 					end
 				-- Trainer does not teach this recipe
@@ -242,29 +250,32 @@ function addon:ScanTrainerData(autoscan)
 			end
 
 			if (teachflag) then
-				self:Print("Missing entries (need to be added):")
+				tinsert(outputtext, "Missing entries (need to be added):")
 				tsort(teach)
-
 				for i in ipairs(teach) do
-					self:Print(L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+					tinsert(outputtext, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
 				end
 			end
 
 			if (noteachflag) then
-				self:Print("Extra entries (need to be removed):")
+				tinsert(outputtext, "Extra entries (need to be removed):")
 				tsort(noteach)
-
 				for i in ipairs(noteach) do
-					self:Print(L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
+					tinsert(outputtext, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
 				end
 			end
+
+			if ((teachflag) or (noteachflag)) then
+				self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
+			end
+
+			tinsert(outputtext, "Trainer Acquire Scan Complete.")
 
 			-- Reset the filters to what they were before
 			SetTrainerServiceTypeFilter("available", avail or 0)
 			SetTrainerServiceTypeFilter("unavailable", unavail or 0)
 			SetTrainerServiceTypeFilter("used", used or 0)
 
-			self:Print("Trainer Acquire Scan Complete.")
 		elseif (not autoscan) then
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 		end
