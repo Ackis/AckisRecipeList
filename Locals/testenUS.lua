@@ -1749,3 +1749,6 @@ L["Imindril Spearsong"] = true
 L["First Aid Trainer"] = true
 L["Enchanting Trainer"] = true
 L["Alt-Tradeskills"] = true
+L["ORIGINAL_WOW_DESC"] = "Recipes availible with the original game."
+L["BC_WOW_DESC"] = "Recipes availible with the Burning Crusade."
+L["LK_WOW_DESC"] = "Recipes availible with the Wrath of the Lich King."

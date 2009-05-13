@@ -1402,7 +1402,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 88
+	local MaxFilters = 91
 
 	local total = 0
 	local active = 0
@@ -2573,6 +2573,9 @@ function addon.setFlyawayState()
 	ARL_FactionCB:SetChecked(filterdb.general.faction)
 	ARL_KnownCB:SetChecked(filterdb.general.known)
 	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
+	ARL_OriginalWoWCB:SetChecked(filterdb.general.originalwow)
+	ARL_BCCB:SetChecked(filterdb.general.bc)
+	ARL_WrathCB:SetChecked(filterdb.general.wrath)
 	-- Classes
 	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
 	ARL_DruidCB:SetChecked(filterdb.classes.druid)
@@ -3695,6 +3698,15 @@ function addon:CreateFrame(
 			local ARL_UnknownCB = CreateFrame("CheckButton", "ARL_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
 				ARL_UnknownCBText:SetText(L["Unknown"])
+			local ARL_OriginalWoWCB = CreateFrame("CheckButton", "ARL_OriginalWoWCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_OriginalWoWCB, addon.Fly_General, L["ORIGINAL_WOW_DESC"], 89, 1, 2, 0)
+				ARL_OriginalWoWCB:SetText(L["Old World"])
+			local ARL_BCCB = CreateFrame("CheckButton", "ARL_BCCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_BCCB, addon.Fly_General, L["BC_WOW_DESC"], 90, 2, 2, 0)
+				ARL_BCCB:SetText(L["Burning Crusade"])
+			local ARL_WrathCB = CreateFrame("CheckButton", "ARL_WrathCB", addon.Fly_General, "UICheckButtonTemplate")
+				addon:GenericMakeCB(ARL_WrathCB, addon.Fly_General, L["LK_WOW_DESC"], 91, 3, 2, 0)
+				ARL_WrathCB:SetText(L["Wrath of the Lich King"])
 			local ARL_ClassButton = addon:GenericCreateButton("ARL_ClassButton", addon.Fly_General,
 				20, 70, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
 				"GameFontHighlightSmall", L["Classes"], "LEFT", L["CLASS_TEXT_DESC"], 0)
@@ -4449,6 +4461,9 @@ function addon:CreateFrame(
 			[4]  = { cb = ARL_FactionCB,				svroot = filterdb.general,		svval = "faction" },
 			[5]  = { cb = ARL_KnownCB,					svroot = filterdb.general,		svval = "known" },
 			[6]  = { cb = ARL_UnknownCB,				svroot = filterdb.general,		svval = "unknown" },
+			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.general,		svval = "originalwow" },
+			[90]  = { cb = ARL_BCCB,					svroot = filterdb.general,		svval = "bc" },
+			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.general,		svval = "wrath" },
 		-- Classes
 			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
 			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
