@@ -1,7 +1,7 @@
-﻿==What it does==
-Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
+﻿Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
 
 You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here]
+==What it does==
 
 ===French (frFR)===
 Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs et les capacités des familiers des chasseurs.
