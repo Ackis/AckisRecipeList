@@ -140,8 +140,10 @@ function addon:ScanSkillLevelData(autoscan)
 			end
 		end
 
+		tinsert(outputtable,"Trainer Skill Level Scan Complete.")
+
 		if (entryfound) then
-			--self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
+			self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
 		end
 
 		-- Reset the filters to what they were before
@@ -149,7 +151,6 @@ function addon:ScanSkillLevelData(autoscan)
 		SetTrainerServiceTypeFilter("unavailable", unavail or 0)
 		SetTrainerServiceTypeFilter("used", used or 0)
 
-		self:Print("Trainer Skill Level Scan Complete.")
 	elseif (not autoscan) then
 		self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 	end
@@ -270,9 +271,9 @@ function addon:ScanTrainerData(autoscan)
 
 			tinsert(outputtext, "Trainer Acquire Scan Complete.")
 
-			--if ((teachflag) or (noteachflag)) then
+			if ((teachflag) or (noteachflag)) then
 				self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
-			--end
+			end
 
 			-- Reset the filters to what they were before
 			SetTrainerServiceTypeFilter("available", avail or 0)
@@ -312,9 +313,9 @@ function addon:GenerateLinks()
 	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW
 	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy
 	--bitmap[51300] = "" -- Blacksmithing
-	-- Tailoring
-	-- JC
-	-- Inscription
+	--bitmap[51309] = "" -- Tailoring
+	--bitmap[51311] = "" -- JC 489
+	--bitmap[45363] = "" -- Inscription
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
 	bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting
 

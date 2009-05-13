@@ -4610,7 +4610,7 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 	local textdump
 
 	-- If we don't send in a RecipeDB and profession, just dump the text
-	if (not RecipeDB and profession) then
+	if (not RecipeDB and not profession) then
 		textdump = text
 	else
 		textdump = self:GetTextDump(RecipeDB,profession)
