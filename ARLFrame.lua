@@ -391,13 +391,15 @@ do
 
 		local display = false
 
-		-- If it's a vendor check to see if we're displaying it
-		if (v["Type"] == 2) then
-			display = CheckDisplayFaction(filters, vendorDB[v["ID"]]["Faction"])
-		elseif (v["Type"] == 3) then
-			display = CheckDisplayFaction(filters, mobDB[v["ID"]]["Faction"])
+		-- If it's a trainer check to see if we're displaying it on the map.
+		if (v["Type"] == 1) then
+			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+		-- If it's a vendor check to see if we're displaying it on the map
+		elseif (v["Type"] == 2) then
+			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+		-- If it's a quest check to see if we're displaying it on the map
 		elseif (v["Type"] == 4) then
-			display = CheckDisplayFaction(filters, questDB[v["ID"]]["Faction"])
+			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
 		end
 
 		return display
@@ -2291,17 +2293,11 @@ local function expandEntry(dsIndex)
 				else rStr = addon:Exalted(BFAC["Exalted"] .. " : ") end
 
 				if (repvndr["Faction"] == BFAC["Horde"]) then
-
 					nStr = addon:Horde(repvndr["Name"])
-
 				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
-
 					nStr = addon:Alliance(repvndr["Name"])
-
 				else
-
 					nStr = addon:Neutral(repvndr["Name"])
-
 				end
 
 				t = {}
