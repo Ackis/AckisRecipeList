@@ -506,6 +506,11 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :45357 Inscription
 :53428 Runeforging
 
+==Game IDs==
+:0 - Original WoW
+:1 - Burning Crusade
+:2 - Wrath of the Lich King
+
 ==Table Structures==
 
 ===Recipe Array Structure===
