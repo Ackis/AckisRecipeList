@@ -2663,6 +2663,9 @@ function addon.setFlyawayState()
 	ARL_RepOraclesCB:SetChecked(filterdb.rep.oracles)
 	ARL_RepWyrmrestCB:SetChecked(filterdb.rep.wyrmrest)
 	ARL_WrathCommon1CB:SetChecked(filterdb.rep.wrathcommon1)
+	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
+	ARL_WrathCommon3CB:SetChecked(filterdb.rep.wrathcommon3)
+	ARL_WrathCommon4CB:SetChecked(filterdb.rep.wrathcommon4)
 --[[
 	--Disable unused Rep Options
 	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
