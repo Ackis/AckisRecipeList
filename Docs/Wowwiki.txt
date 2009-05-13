@@ -39,6 +39,9 @@ Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Func
 ===Traditional Chinese (zhTW)===
 詳細的專業技能配方查詢插件。
 
+==IRC==
+Feel free to join us on irc at [irc://irc.freenode.net:6667 Freenode] in #arl or by [http://widget.mibbit.com/?settings=5ec9a69db8a1d54761f84aa78810f1a2&server=irc.freenode.net&channel=%23arl&noServerNotices=true&noServerMotd=true&autoConnect=true here].
+
 ==Donations==
 I have setup a donation site via [http://www.pledgie.com/campaigns/3462 Pledgie].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
 

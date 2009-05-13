@@ -39,6 +39,9 @@ Read the documentation located at these locations:
 * [http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/ Bug Reporting and Feature Requestiing]
 * [http://www.wowace.com/projects/arl/pages/in-game-documentation/ In-game Documentation]
 
+==IRC==
+Feel free to join us on irc at [irc://irc.freenode.net:6667 Freenode] in #arl or by [http://widget.mibbit.com/?settings=5ec9a69db8a1d54761f84aa78810f1a2&server=irc.freenode.net&channel=%23arl&noServerNotices=true&noServerMotd=true&autoConnect=true here].
+
 ==Where to get it==
 * [http://www.wowace.com/projects/arl/files/ WoW Ace] - Alpha Quality
 * [http://wow.curse.com/downloads/wow-addons/details/arl.aspx Curse] - Stable release
