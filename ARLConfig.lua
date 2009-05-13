@@ -202,7 +202,7 @@ local function giveFilter()
 						originalwow = {
 							order	= 20,
 							type	= "toggle",
-							name	= L["Old Word"],
+							name	= L["Old World"],
 							desc	= L["ORIGINAL_WOW_DESC"],
 							get		= function() return addon.db.profile.filters.general.originalwow end,
 							set		= function() addon.db.profile.filters.general.originalwow = not addon.db.profile.filters.general.originalwow end,
