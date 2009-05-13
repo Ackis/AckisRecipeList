@@ -219,22 +219,30 @@ function addon:CloseWindow()
 
 end
 
--- Description: Colours a skill level based on if the player can learn it
--- Expected result: The recipe string is coloured based on if the player has a high enough skill level or faction to learn it
--- Input: The skill, player skill level, if they have the faction, and the string
--- Output: An appropiatly coloured string
+-- Description: Colours a skill level based on if the player can learn it.  The recipe string is coloured based on if the player has a high enough skill level or faction to learn it
 
-local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
+	-- Players skill level is not high enough or they do not have hte needed faction.
 	if ((recipeSkill > playerSkill) or (not hasFaction)) then
 		return addon:Red(recStr)
-	elseif ((playerSkill - recipeSkill) < 20) then
-		return addon:Orange(recStr)
-	elseif ((playerSkill - recipeSkill) < 30) then
-		return addon:Yellow(recStr)
-	elseif ((playerSkill - recipeSkill) < 40) then
+	-- Players skill level is above the threshold in which the recipe is grey
+	elseif (playerSkill >= recipeGrey) then
+		return addon:MidGrey(recStr)
+	-- Players skills is at the threshold when the recipe turns green.
+	elseif (playerSkill >= recipeGreen) then
 		return addon:Green(recStr)
+	-- Players skills is at the threshold when the recipe turns yellow.
+	elseif (playerSkill >= recipeYellow) then
+		return addon:Yellow(recStr)
+	-- Players skills is at the threshold when the recipe turns orange.
+	elseif (playerSkill >= recipeOrange) then
+		return addon:Orange(recStr)
+	-- Fallback
 	else
+		--@debug@
+		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recStr)
+		--@end-debug@
 		return addon:MidGrey(recStr)
 	end
 
@@ -528,8 +536,9 @@ local function initDisplayStrings()
 	for i = 1, #sortedRecipeIndex do
 
 		local recipeIndex = sortedRecipeIndex[i]
+		local recipeEntry = recipeDB[recipeIndex]
 
-		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
 
 			local t = {}
 
@@ -537,19 +546,23 @@ local function initDisplayStrings()
 			local recStr = ""
 
 			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
+				recStr = "** " .. recipeEntry["Name"] .. " **"
 			else
-				recStr = recipeDB[recipeIndex]["Name"]
+				recStr = recipeEntry["Name"]
 			end
 
-			local recipeSkill = recipeDB[recipeIndex]["Level"]
+			local recipeSkill = recipeEntry["Level"]
+			local recipeOrange = recipeEntry["Orange"]
+			local recipeYellow = recipeEntry["Yellow"]
+			local recipeGreen = recipeEntry["Green"]
+			local recipeGrey = recipeEntry["Grey"]
 			local playerSkill = playerData.playerProfessionLevel
 
 			recStr = SetSortString(recipeSkill, recStr)
 
 			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
-			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
 			t.sID = recipeIndex
 			t.IsRecipe = true
@@ -2977,8 +2990,9 @@ local function expandallDisplayStrings()
 	for i = 1, #sortedRecipeIndex do
 
 		local recipeIndex = sortedRecipeIndex[i]
+		local recipeEntry = recipeDB[recipeIndex]
 
-		if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
 
 			local t = {}
 
@@ -2986,24 +3000,28 @@ local function expandallDisplayStrings()
 			local recStr = ""
 
 			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeDB[recipeIndex]["Name"] .. " **"
+				recStr = "** " .. recipeEntry["Name"] .. " **"
 			else
-				recStr = recipeDB[recipeIndex]["Name"]
+				recStr = recipeEntry["Name"]
 			end
 
-			local recipeSkill = recipeDB[recipeIndex]["Level"]
+			local recipeSkill = recipeEntry["Level"]
 			local playerSkill = playerData.playerProfessionLevel
+			local recipeOrange = recipeEntry["Orange"]
+			local recipeYellow = recipeEntry["Yellow"]
+			local recipeGreen = recipeEntry["Green"]
+			local recipeGrey = recipeEntry["Grey"]
 
 			recStr = SetSortString(recipeSkill, recStr)
 
 			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
-			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr)
+			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
 			t.sID = sortedRecipeIndex[i]
 			t.IsRecipe = true
 
-			if (recipeDB[recipeIndex]["Acquire"]) then
+			if (recipeEntry["Acquire"]) then
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true

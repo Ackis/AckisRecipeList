@@ -1396,7 +1396,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Accuracy -- 60354
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60354,400,44325,1, 51304)
+	self:addTradeSkill(RecipeDB,60354,400,44325,1, 51304,2,400,415,422,430)
 	self:addTradeFlags(RecipeDB,60354,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60354,8,18)
 

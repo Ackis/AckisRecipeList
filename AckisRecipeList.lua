@@ -581,7 +581,7 @@ end
 
 --- Adds a tradeskill recipe into the specified recipe database.
 -- @name AckisRecipeList:addTradeSkill
--- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259)
+-- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259,0,1,55,75,95)
 -- @param RecipeDB The database (array) which you wish to add data too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
 -- @param SkillLevel The skill level at which the recipe may be learned.
@@ -589,8 +589,13 @@ end
 -- @param Rarity The rarity of the recipe.
 -- @param Profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
 -- @param Specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
+-- @param Game Game version recipe was found in, for example, Original, BC, or Wrath.
+-- @param Orange Level at which recipe is considered orange.
+-- @param Yellow Level at which recipe is considered yellow.
+-- @param Green Level at which recipe is considered green.
+-- @param Grey Level at which recipe is considered greay.
 -- @return None, array is passed as a reference.
-function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty)
+function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
 
 	--[[ 
 		Recipe DB Structures are defined in Documentation.lua
@@ -598,52 +603,100 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	
 	-- Creates a table in the RecipeListing table storing all information about a recipe
 	RecipeDB[SpellID] = {}
+
+	local recipeentry = RecipeDB[SpellID]
+
 	-- Set the information passed
-	RecipeDB[SpellID]["Level"] = SkillLevel
-	RecipeDB[SpellID]["ItemID"] = ItemID or nil
-	RecipeDB[SpellID]["Rarity"] = Rarity
-	RecipeDB[SpellID]["Profession"] = GetSpellInfo(Profession)
-	RecipeDB[SpellID]["Locations"] = nil
+	recipeentry["Level"] = SkillLevel
+	recipeentry["ItemID"] = ItemID or nil
+	recipeentry["Rarity"] = Rarity
+	recipeentry["Profession"] = GetSpellInfo(Profession)
+	recipeentry["Locations"] = nil
 
 	-- Get the recipe link from the spell ID
 	local spellLink = GetSpellLink(SpellID)
 
 	if (spellLink ~= nil) then
-		--RecipeDB[SpellID]["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
-		RecipeDB[SpellID]["RecipeLink"] = spellLink
+		--recipeentry["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
+		recipeentry["RecipeLink"] = spellLink
 	else
-		RecipeDB[SpellID]["RecipeLink"] = nil
+		recipeentry["RecipeLink"] = nil
 	end
 
 	-- Get the recipe name now
-	RecipeDB[SpellID]["Name"] = GetSpellInfo(SpellID) or nil
+	recipeentry["Name"] = GetSpellInfo(SpellID) or nil
 
-	if (RecipeDB[SpellID]["Name"] == nil) then
+	if (recipeentry["Name"] == nil) then
 		self:Print(format(L["SpellIDCache"],SpellID))
 	end
 
 	-- All recipes are unknown until scan occurs
-	RecipeDB[SpellID]["Known"] = false
+	recipeentry["Known"] = false
 
 	-- All recipes are set to be displayed until the filtering occurs
-	RecipeDB[SpellID]["Display"] = true
+	recipeentry["Display"] = true
 
 	-- All recipes are set to be showing in the search results
-	RecipeDB[SpellID]["Search"] = true
+	recipeentry["Search"] = true
 
 	-- Create the flag space in the RecipeDB
-	RecipeDB[SpellID]["Flags"] = {}
+	recipeentry["Flags"] = {}
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
 	for i=1,127,1 do
-		RecipeDB[SpellID]["Flags"][i] = false
+		recipeentry["Flags"][i] = false
 	end
 
 	-- Create the Acquire space in the RecipeDB
-	RecipeDB[SpellID]["Acquire"] = {}
+	recipeentry["Acquire"] = {}
 
 	-- Assumption that there will only be 1 speciality for a trade skill
-	RecipeDB[SpellID]["Specialty"] = Specialty or nil
+	recipeentry["Specialty"] = Specialty or nil
+
+	-- Get the expansion that the recipe was added
+	if (Game) then
+		recipeentry["Game"] = Game
+	-- We don't have a game flag set, so we'll just make an assumption based on skill levels
+	-- Eventually once all these are added we won't need this code
+	elseif (SkillLevel <= 300) then
+		recipeentry["Game"] = 0
+	elseif (SkillLevel <= 375) then
+		recipeentry["Game"] = 1
+	elseif (SkillLevel <= 450) then
+		recipeentry["Game"] = 2
+	end
+
+	-- Assign an orange value for the recipe
+	if (Orange) then
+		recipeentry["Orange"] = Orange
+	-- If we don't have one in the db, just assume it's the skill level
+	else
+		recipeentry["Orange"] = SkillLevel
+	end
+
+	-- Assign a yellow value for the recipe
+	if (Yellow) then
+		recipeentry["Yellow"] = Yellow
+	-- If we don't have one in the db, just assume it's the skill level + 10
+	else
+		recipeentry["Yellow"] = SkillLevel + 10
+	end
+
+	-- Assign a green value for the recipe
+	if (Green) then
+		recipeentry["Green"] = Green
+	-- If we don't have one in the db, just assume it's the skill level + 15
+	else
+		recipeentry["Green"] = SkillLevel + 15
+	end
+
+	-- Assign a grey value for the recipe
+	if (Grey) then
+		recipeentry["Grey"] = Grey
+	-- If we don't have one in the db, just assume it's the skill level + 20
+	else
+		recipeentry["Grey"] = SkillLevel + 20
+	end
 
 end
 
@@ -665,12 +718,9 @@ function addon:addTradeFlags(RecipeDB, SpellID, ...)
 
 	-- Find out how many flags we're adding
 	for i=1,numvars,1 do
-
 		-- Get the value of the current flag
 		local flag = select(i, ...)
-
 		flags[flag] = true
-
 	end
 	
 
