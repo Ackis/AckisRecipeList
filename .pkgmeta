@@ -29,6 +29,7 @@ ignore:
 tools-used:
  - data-tools
  - dlcount
+ - querier
 
 externals:
  libs/LibStub:

@@ -89,6 +89,9 @@ local function LoadRecipe()
 
 end
 
+local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
+ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
@@ -348,9 +351,6 @@ function addon:GenerateLinks()
 
 end
 
-local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
-ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-
 -- Description: Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
 
 --- Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
@@ -361,33 +361,142 @@ function addon:ScanVendor()
 	-- Make sure the target exists and is a NPC
 	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
 
+		-- Get internal database
+		local recipelist = LoadRecipe()
+
+		if (not recipelist) then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+
 		-- Get its name
 		local targetname = UnitName("target")
 		-- Get the NPC ID
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
 
-		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			for i = 1, ARLDatamineTT:NumLines(),1 do
-				local linetext = _G["ARLDatamineTTTextLeft" .. i]
-				local text = linetext:GetText()
-				if (strmatch(text,"Formula:")) then
-					self:Print("Vendor recipe (Enchanting) found: " .. name)
-				elseif (strmatch(text,"Pattern:")) then
-					self:Print("Vendor recipe (Tailoring) found: " .. name)
-				elseif (strmatch(text,"Design:")) then
-					self:Print("Vendor recipe (JC) found: " .. name)
-				elseif (strmatch(text,"Recipe:")) then
-					self:Print("Vendor recipe (Alchemy) found: " .. name)
-				end
-			end
+			self:ScanToolTip(name)
 		end
+
 		ARLDatamineTT:Hide()
+
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
 
+end
+
+-- Description: Parses the mining tooltip for certain keywords, comparing them with the database flags.
+
+--- Parses the mining tooltip for certain keywords, comparing them with the database flags.
+-- @name AckisRecipeList:ScanToolTip
+
+function addon:ScanToolTip(name)
+
+	-- Get internal database
+	local recipelist = LoadRecipe()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
+	do
+
+		local item = false
+		local recipe = false
+		local tank = false
+		local melee = false
+		local caster = false
+		local healer = false
+
+		-- Read the first line in the tool tip (items name)
+		local i = 1
+
+		local linetext = _G["ARLDatamineTTTextLeft" .. i]
+		local text = linetext:GetText()
+self:Print("Line 1 text: " .. text)
+		-- Designs are JC
+		if (strmatch(text,"Design: ")) then
+
+		-- LW or Tailoring
+		elseif (strmatch(text,"Pattern: ")) then
+
+		-- Alchemy or Cooking
+		elseif (strmatch(text,"Recipe: ")) then
+
+		-- BS
+		elseif (strmatch(text,"Plans: ")) then
+
+		-- Enchanting
+		elseif (strmatch(text,"Formula: ")) then
+
+		-- Engineering
+		elseif (strmatch(text,"Schematic: ")) then
+
+		-- First Aid
+		elseif (strmatch(text,"Manual: ")) then
+
+		end
+
+		-- Check to see if it's a BoP recipe (line 2)
+		i = i + 1
+		linetext = _G["ARLDatamineTTTextLeft" .. i]
+		text = linetext:GetText()
+self:Print("Line 2 text: " .. text)
+		if (strmatch(text,"Binds when picked up")) then
+			recipe = true
+			-- Increase line index and get new text since this line was BoP
+			i = 1 + 1
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			text = linetext:GetText()
+		else
+			recipe = false
+		end
+
+		-- Line 2 or 3 will always be "Requires Profession (xxx)" so skip past that
+		i = i + 1
+
+		-- Line 3 or 4 will be the speciality, rep requirement, or the use
+		linetext = _G["ARLDatamineTTTextLeft" .. i]
+		text = linetext:GetText()
+self:Print("Line 3 or 4 text: " .. text)
+	end
+--[[
+	-- Alchemy
+	if (strmatch(text,"Requires Alchemy")) then
+		self:Print("Vendor recipe (Alchemy) found: " .. name)
+	-- BS
+	elseif (strmatch(text,"Requires Blacksmithing")) then
+		self:Print("Vendor recipe (Alchemy) found: " .. name)
+	-- Cooking
+	elseif (strmatch(text,"Requires Cooking")) then
+		self:Print("Vendor recipe (Cooking) found: " .. name)
+	-- Enchanting
+	elseif (strmatch(text,"Requires Enchanting")) then
+		self:Print("Vendor recipe (Enchanting) found: " .. name)
+	-- First Aid
+	elseif (strmatch(text,"Requires First Aid")) then
+		self:Print("Vendor recipe (FA) found: " .. name)
+	-- Inscription
+	elseif (strmatch(text,"Requires Inscription")) then
+		self:Print("Vendor recipe (Inscription) found: " .. name)
+	-- JC
+	elseif (strmatch(text,"Requires Jewelcrafting")) then
+		self:Print("Vendor recipe (JC) found: " .. name)
+	-- LW
+	elseif (strmatch(text,"Requires Leatherworking")) then
+		self:Print("Vendor recipe (LW) found: " .. name)
+	-- Smelting
+	elseif (strmatch(text,"Requires Mining")) then
+		self:Print("Vendor recipe (Smelting) found: " .. name)
+	-- Tailoring
+	elseif (strmatch(text,"Requires Tailoring")) then
+		self:Print("Vendor recipe (Tailoring) found: " .. name)
+	elseif (strmatch(text,"Requires Mooncloth Tailoring")) then
+		self:Print("Vendor recipe (Mooncloth Tailoring) found: " .. name)
+	end
+]]--
 end
