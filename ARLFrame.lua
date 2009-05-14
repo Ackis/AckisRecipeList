@@ -4658,6 +4658,7 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 		addon.ARLCopyFrame:Show()
 	else
 		addon.ARLCopyFrame.editBox:SetText(textdump)
+		addon.ARLCopyFrame.editBox:HighlightText(0)
 		addon.ARLCopyFrame:Show()
 	end
 
