@@ -90,8 +90,6 @@ local function LoadRecipe()
 end
 
 local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
-ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
@@ -374,6 +372,9 @@ function addon:ScanVendor()
 		local targetname = UnitName("target")
 		-- Get the NPC ID
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
+
+		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
