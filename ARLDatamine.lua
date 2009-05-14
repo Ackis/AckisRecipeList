@@ -395,6 +395,7 @@ end
 
 function addon:ScanToolTip(name)
 
+--[[
 	-- Get internal database
 	local recipelist = LoadRecipe()
 
@@ -402,7 +403,7 @@ function addon:ScanToolTip(name)
 		self:Print(L["DATAMINER_NODB_ERROR"])
 		return
 	end
-
+]]--
 	do
 
 		local item = false
@@ -411,6 +412,7 @@ function addon:ScanToolTip(name)
 		local melee = false
 		local caster = false
 		local healer = false
+		local name = false
 
 		-- Read the first line in the tool tip (items name)
 		local i = 1
@@ -419,84 +421,84 @@ function addon:ScanToolTip(name)
 		local text = linetext:GetText()
 self:Print("Line 1 text: " .. text)
 		-- Designs are JC
-		if (strmatch(text,"Design: ")) then
-
+		if (strmatch(text,"Design: ")) or
 		-- LW or Tailoring
-		elseif (strmatch(text,"Pattern: ")) then
-
+		(strmatch(text,"Pattern: ")) or
 		-- Alchemy or Cooking
-		elseif (strmatch(text,"Recipe: ")) then
-
+		(strmatch(text,"Recipe: ")) or
 		-- BS
-		elseif (strmatch(text,"Plans: ")) then
-
+		(strmatch(text,"Plans: ")) or
 		-- Enchanting
-		elseif (strmatch(text,"Formula: ")) then
-
+		(strmatch(text,"Formula: ")) or
 		-- Engineering
-		elseif (strmatch(text,"Schematic: ")) then
-
+		(strmatch(text,"Schematic: ")) or
 		-- First Aid
-		elseif (strmatch(text,"Manual: ")) then
+		(strmatch(text,"Manual: ")) then
 
-		end
-
-		-- Check to see if it's a BoP recipe (line 2)
-		i = i + 1
-		linetext = _G["ARLDatamineTTTextLeft" .. i]
-		text = linetext:GetText()
-self:Print("Line 2 text: " .. text)
-		if (strmatch(text,"Binds when picked up")) then
-			recipe = true
-			-- Increase line index and get new text since this line was BoP
-			i = 1 + 1
+			-- Check to see if it's a BoP recipe (line 2)
+			i = i + 1
 			linetext = _G["ARLDatamineTTTextLeft" .. i]
 			text = linetext:GetText()
-		else
-			recipe = false
-		end
+self:Print("Line 2 text: " .. text)
+			if (strmatch(text,"Binds when picked up")) then
+				recipe = true
+				-- Increase line index and get new text since this line was BoP
+				i = 1 + 1
+			else
+				recipe = false
+			end
 
-		-- Line 2 or 3 will always be "Requires Profession (xxx)" so skip past that
-		i = i + 1
+			-- Line 2 or 3 will always be "Requires Profession (xxx)" so skip past that
+			i = i + 1
 
-		-- Line 3 or 4 will be the speciality, rep requirement, or the use
-		linetext = _G["ARLDatamineTTTextLeft" .. i]
-		text = linetext:GetText()
+			-- Line 3 or 4 will be the speciality, rep requirement, or the use
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			text = linetext:GetText()
 self:Print("Line 3 or 4 text: " .. text)
+			-- Check for specialities
+			local specialityfound = false
+			if (strmatch(text,"Requires Mooncloth Tailoring")) then
+				specialityfound = true
+			elseif (strmatch(text,"Requires Spellfire Tailoring")) then
+				specialityfound = true
+			elseif (strmatch(text,"Requires Shadowcloth Tailoring")) then
+				specialityfound = true
+			end
+
+			-- We found a speciality so lets increase our index
+			if (specialityfound == true) then
+				i = i + 1
+			end
+
+			-- Check for reps
+			local repfound = false
+
+			-- We found a speciality so lets increase our index
+			if (repfound == true) then
+				i = i + 1
+			end
+
+			-- Next line is a blank line so lets skip over it
+			i = i + 1
+
+			-- We're now at the name of the item
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			name = linetext:GetText()
+
+			-- Check to see if it's a BoP item
+			i = i + 1
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			text = linetext:GetText()
+
+			if (strmatch(text,"Binds when picked up")) then
+				item = true
+				-- Increase line index and get new text since this line was BoP
+				i = 1 + 1
+			else
+				item = false
+			end
+
+		end
 	end
---[[
-	-- Alchemy
-	if (strmatch(text,"Requires Alchemy")) then
-		self:Print("Vendor recipe (Alchemy) found: " .. name)
-	-- BS
-	elseif (strmatch(text,"Requires Blacksmithing")) then
-		self:Print("Vendor recipe (Alchemy) found: " .. name)
-	-- Cooking
-	elseif (strmatch(text,"Requires Cooking")) then
-		self:Print("Vendor recipe (Cooking) found: " .. name)
-	-- Enchanting
-	elseif (strmatch(text,"Requires Enchanting")) then
-		self:Print("Vendor recipe (Enchanting) found: " .. name)
-	-- First Aid
-	elseif (strmatch(text,"Requires First Aid")) then
-		self:Print("Vendor recipe (FA) found: " .. name)
-	-- Inscription
-	elseif (strmatch(text,"Requires Inscription")) then
-		self:Print("Vendor recipe (Inscription) found: " .. name)
-	-- JC
-	elseif (strmatch(text,"Requires Jewelcrafting")) then
-		self:Print("Vendor recipe (JC) found: " .. name)
-	-- LW
-	elseif (strmatch(text,"Requires Leatherworking")) then
-		self:Print("Vendor recipe (LW) found: " .. name)
-	-- Smelting
-	elseif (strmatch(text,"Requires Mining")) then
-		self:Print("Vendor recipe (Smelting) found: " .. name)
-	-- Tailoring
-	elseif (strmatch(text,"Requires Tailoring")) then
-		self:Print("Vendor recipe (Tailoring) found: " .. name)
-	elseif (strmatch(text,"Requires Mooncloth Tailoring")) then
-		self:Print("Vendor recipe (Mooncloth Tailoring) found: " .. name)
-	end
-]]--
+
 end
