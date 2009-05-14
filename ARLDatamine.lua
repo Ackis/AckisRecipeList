@@ -194,6 +194,11 @@ function addon:ScanTrainerData(autoscan)
 			SetTrainerServiceTypeFilter("used", 1)
 
 			local t = {}
+
+			if (GetNumTrainerServices() == 0) then
+			 self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
+			end
+
 			-- Get all the names of recipes from the trainer
 			for i=1,GetNumTrainerServices(),1 do
 				local name = GetTrainerServiceInfo(i)
@@ -344,6 +349,7 @@ function addon:GenerateLinks()
 end
 
 local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
+ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 
 -- Description: Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
 
@@ -364,15 +370,19 @@ function addon:ScanVendor()
 
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
-			--local link = GetMerchantItemLink(i)
-			-- Will have to do tooltip scanning here.
-			-- Skill level, profession, limited supply
-			--ARLDatamineTT:SetHyperlink(link)
 			ARLDatamineTT:SetMerchantItem(i)
 			for i = 1, ARLDatamineTT:NumLines(),1 do
-				local linetext = _G["GameTooltipTextLeft" .. i]
+				local linetext = _G["ARLDatamineTTTextLeft" .. i]
 				local text = linetext:GetText()
-				self:Print(text)
+				if (strmatch(text,"Formula:")) then
+					self:Print("Vendor recipe (Enchanting) found: " .. name)
+				elseif (strmatch(text,"Pattern:")) then
+					self:Print("Vendor recipe (Tailoring) found: " .. name)
+				elseif (strmatch(text,"Design:")) then
+					self:Print("Vendor recipe (JC) found: " .. name)
+				elseif (strmatch(text,"Recipe:")) then
+					self:Print("Vendor recipe (Alchemy) found: " .. name)
+				end
 			end
 		end
 		ARLDatamineTT:Hide()
