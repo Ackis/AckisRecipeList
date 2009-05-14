@@ -91,6 +91,7 @@ end
 
 local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
 ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 -- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
 
