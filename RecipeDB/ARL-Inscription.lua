@@ -2243,8 +2243,8 @@ function addon:InitInscription(RecipeDB)
 	-- Rituals of the New Moon -- 64051
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,64051,350,46108,2,45357)
-	self:addTradeFlags(RecipeDB,64051,1,2,10,36,41)
-	self:addTradeAcquire(RecipeDB,64051,7,2)
+	self:addTradeFlags(RecipeDB,64051,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,54,66)
+	self:addTradeAcquire(RecipeDB,64051,2,26679,2,26708,2,27546,2,27676)
 
 	-- Glyph of Dancing Rune Weapon -- 64297
 	recipecount = recipecount + 1

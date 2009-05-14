@@ -127,6 +127,10 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,27333,L["Onslaught Mason"],BZONE["Grizzly Hills"],6.38,20.86)
 	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Grizzly Hills"],11.95,14.3)
 	self:addLookupList(MobDB,28851,L["Enraged Mammoth"],BZONE["Grizzly Hills"],11.82,14.19)
+	self:addLookupList(MobDB,26679,L["Silverbrook Trapper"],BZONE["Grizzly Hills"],27.3,33.9)
+	self:addLookupList(MobDB,26708,L["Silverbrook Villager"],BZONE["Grizzly Hills"],27.3,33.9)
+	self:addLookupList(MobDB,27546,L["Silverbrook Hunter"],BZONE["Grizzly Hills"],37.5,68.0)
+	self:addLookupList(MobDB,27676,L["Silverbrook Defender"],BZONE["Grizzly Hills"],24.6,33.3)
 	-- Hellfire Peninsula
 	self:addLookupList(MobDB,22323,L["Incandescent Fel Spark"],BZONE["Hellfire Peninsula"],61.48,20.11)
 	-- Icecrown
