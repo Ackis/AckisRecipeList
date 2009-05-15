@@ -22,6 +22,7 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
+local QTipClick	= LibStub("LibQTipClick-1.0")
 
 local string = string
 local ipairs = ipairs
@@ -3204,14 +3205,36 @@ end
 
 -- Description: Function called when tool tip is clicked for alt trade skills
 
-function addon:HandleTTClick(cell, event, button)
+local function HandleTTClick(cell, event, button)
+
+end
+
+-- Description: Creates a list of names/alts/etc in a tooltip which you can click on
+
+local function GenerateClickAbleTT()
+
+	--addon.db.profile.tradeskill[prealm][pname][tradename]
+	local tradeskilllist = addon.db.profile.tradeskill
+	local t = {}
+
+	-- Parse the realms
+	for realm in pairs(tradeskilllist) do
+		-- Parse hte names
+		for name in pairs(tradeskilllist[realm]) do
+			-- Parse the professions
+			for prof in pairs(tradeskilllist[realm][name]) do
+				tinsert(t, name .. " - " .. realm .. " : " .. prof)
+			end
+		end
+	end
+
+	return strcat(t,"\n")
 
 end
 
 -- Description: Creates the initial frame to display recipes into
 
 function addon:CreateFrame(
-
 	rDB,		-- RecipeList
 	sortedRI,	-- sortedindex
 	cPlayer,	-- playerdata
@@ -4451,10 +4474,9 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
 					function(this,button)
-					--open tooltip (qtipclick?) with all alts
-					--tooltip:SetCallback("OnMouseDown", addon.HandleTTClick)
+					--tooltip:SetCallback("OnMouseDown", HandleTTClick)
 					--GameTooltip_SetDefaultAnchor(GameTooltip, this)
-					--GameTooltip:SetText()
+					--GameTooltip:SetText(GenerateClickAbleTT())
 					--GameTooltip:Show()
 					end)
 
