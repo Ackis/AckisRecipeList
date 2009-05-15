@@ -395,7 +395,7 @@ end
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
 
-function addon:ScanToolTip(name)
+function addon:ScanToolTip()
 
 --[[
 	-- Get internal database
@@ -416,12 +416,14 @@ function addon:ScanToolTip(name)
 		local healer = false
 		local name = false
 
+		local enchanting = false
+
 		-- Read the first line in the tool tip (items name)
 		local i = 1
 
+		local name = ""
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
-self:Print("Line 1 text: " .. text)
 		-- Designs are JC
 		if (strmatch(text,"Design: ")) or
 		-- LW or Tailoring
@@ -437,28 +439,43 @@ self:Print("Line 1 text: " .. text)
 		-- First Aid
 		(strmatch(text,"Manual: ")) then
 
-			-- Check to see if it's a BoP recipe (line 2)
+			if (strmatch(text,"Formula: ")) then
+				enchanting = true
+				name = text
+			end
+
+			-- Check to see if it's a BoP recipe
 			i = i + 1
 			linetext = _G["ARLDatamineTTTextLeft" .. i]
 			text = linetext:GetText()
-self:Print("Line 2 text: " .. text)
+
 			if (strmatch(text,"Binds when picked up")) then
 				recipe = true
-				-- Increase line index and get new text since this line was BoP
-				i = 1 + 1
+				-- Increase line index since this line was BoP
+				i = i + 1
 			else
 				recipe = false
 			end
 
-			-- Line 2 or 3 will always be "Requires Profession (xxx)" so skip past that
+			-- This line will always be "Requires Profession (xxx)" so skip past that
 			i = i + 1
 
-			-- Line 3 or 4 will be the speciality, rep requirement, or the use
+			-- This line may be already known if we know it alrady.
 			linetext = _G["ARLDatamineTTTextLeft" .. i]
 			text = linetext:GetText()
-self:Print("Line 3 or 4 text: " .. text)
+
+			if (strmatch(text,"Already Known")) then
+				-- Increase line index since we had already known
+				i = 1 + 1
+			end
+
+			-- This will be the speciality, rep requirement, or the use
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			text = linetext:GetText()
+self:Print(text)
 			-- Check for specialities
 			local specialityfound = false
+
 			if (strmatch(text,"Requires Mooncloth Tailoring")) then
 				specialityfound = true
 			elseif (strmatch(text,"Requires Spellfire Tailoring")) then
@@ -475,31 +492,56 @@ self:Print("Line 3 or 4 text: " .. text)
 			-- Check for reps
 			local repfound = false
 
+			linetext = _G["ARLDatamineTTTextLeft" .. i]
+			text = linetext:GetText()
+self:Print(text)
+			if (strmatch(text,"Requires Lower City - Friendly")) then
+				repfound = true
+			elseif (strmatch(text,"Requires Lower City - Honored")) then
+				repfound = true
+			elseif (strmatch(text,"Requires Lower City - Revered")) then
+				repfound = true
+			end
+
 			-- We found a speciality so lets increase our index
 			if (repfound == true) then
+				self:Print("Rep found")
 				i = i + 1
 			end
 
-			-- Next line is a blank line so lets skip over it
-			i = i + 1
+			if (not enchanting) then
+				-- Next line is the use effect so we can skip it and after that line is a blank line
+				i = i + 2
 
-			-- We're now at the name of the item
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			name = linetext:GetText()
+				-- We're now at the name of the item
+				linetext = _G["ARLDatamineTTTextLeft" .. i]
+				name = linetext:GetText()
 
-			-- Check to see if it's a BoP item
-			i = i + 1
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			text = linetext:GetText()
+				-- Check to see if it's a BoP item
+				i = i + 1
+				linetext = _G["ARLDatamineTTTextLeft" .. i]
+				text = linetext:GetText()
 
-			if (strmatch(text,"Binds when picked up")) then
-				item = true
-				-- Increase line index and get new text since this line was BoP
-				i = 1 + 1
+				if (strmatch(text,"Binds when picked up")) then
+					item = true
+					-- Increase line index and get new text since this line was BoP
+					i = 1 + 1
+				else
+					item = false
+				end
 			else
-				item = false
+				
 			end
-
+			self:Print("Recipe: " .. name)
+			if (recipe) then
+				self:Print("Recipe BoP: Yes")
+			end
+			if (item) then
+				self:Print("Item BoP: Yes")
+			end
+			if (repfound) then
+				self:Print("Rep Req:: Yes")
+			end
 		end
 	end
 
