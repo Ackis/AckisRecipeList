@@ -3202,6 +3202,12 @@ local function SetFramePosition()
 
 end
 
+-- Description: Function called when tool tip is clicked for alt trade skills
+
+function addon:HandleTTClick(cell, event, button)
+
+end
+
 -- Description: Creates the initial frame to display recipes into
 
 function addon:CreateFrame(
@@ -4444,8 +4450,12 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:Disable()  -- disabled for now
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
-					function(self,button)
+					function(this,button)
 					--open tooltip (qtipclick?) with all alts
+					--tooltip:SetCallback("OnMouseDown", addon.HandleTTClick)
+					--GameTooltip_SetDefaultAnchor(GameTooltip, this)
+					--GameTooltip:SetText()
+					--GameTooltip:Show()
 					end)
 
 		-- Now that everything exists, populate the global filter table
