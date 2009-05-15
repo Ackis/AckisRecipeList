@@ -2573,9 +2573,6 @@ function addon.setFlyawayState()
 	ARL_FactionCB:SetChecked(filterdb.general.faction)
 	ARL_KnownCB:SetChecked(filterdb.general.known)
 	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
-	ARL_OriginalWoWCB:SetChecked(filterdb.general.originalwow)
-	ARL_BCCB:SetChecked(filterdb.general.bc)
-	ARL_WrathCB:SetChecked(filterdb.general.wrath)
 	-- Classes
 	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
 	ARL_DruidCB:SetChecked(filterdb.classes.druid)
@@ -2598,6 +2595,9 @@ function addon.setFlyawayState()
 	ARL_DiscoveryCB:SetChecked(filterdb.obtain.discovery)
 	ARL_WorldDropCB:SetChecked(filterdb.obtain.worlddrop)
 	ARL_MobDropCB:SetChecked(filterdb.obtain.mobdrop)
+	ARL_OriginalWoWCB:SetChecked(filterdb.obtain.originalwow)
+	ARL_BCCB:SetChecked(filterdb.obtain.bc)
+	ARL_WrathCB:SetChecked(filterdb.obtain.wrath)
 	-- Binding Options
 	ARL_iBoECB:SetChecked(filterdb.binding.itemboe)
 	ARL_iBoPCB:SetChecked(filterdb.binding.itembop)
@@ -4458,9 +4458,6 @@ function addon:CreateFrame(
 			[4]  = { cb = ARL_FactionCB,				svroot = filterdb.general,		svval = "faction" },
 			[5]  = { cb = ARL_KnownCB,					svroot = filterdb.general,		svval = "known" },
 			[6]  = { cb = ARL_UnknownCB,				svroot = filterdb.general,		svval = "unknown" },
-			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.general,		svval = "originalwow" },
-			[90]  = { cb = ARL_BCCB,					svroot = filterdb.general,		svval = "bc" },
-			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.general,		svval = "wrath" },
 		-- Classes
 			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
 			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
@@ -4483,6 +4480,9 @@ function addon:CreateFrame(
 			[14] = { cb = ARL_DiscoveryCB,				svroot = filterdb.obtain,		svval = "discovery" },
 			[39] = { cb = ARL_WorldDropCB,				svroot = filterdb.obtain,		svval = "worlddrop" },
 			[40] = { cb = ARL_MobDropCB,				svroot = filterdb.obtain,		svval = "mobdrop" },
+			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.obtain,		svval = "originalwow" },
+			[90]  = { cb = ARL_BCCB,					svroot = filterdb.obtain,		svval = "bc" },
+			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.obtain,		svval = "wrath" },
 		-- Binding Options
 			[15] = { cb = ARL_iBoECB,					svroot = filterdb.binding,		svval = "itemboe" },
 			[16] = { cb = ARL_iBoPCB,					svroot = filterdb.binding,		svval = "itembop" },

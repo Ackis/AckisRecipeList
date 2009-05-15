@@ -179,9 +179,6 @@ function addon:OnInitialize()
 					skill = true,
 					known = false,
 					unknown = true,
-					originalwow = true,
-					bc = true,
-					wrath = true,
 				},
 				-- Obtain Options
 				obtain = {
@@ -195,6 +192,9 @@ function addon:OnInitialize()
 					discovery = true,
 					worlddrop = true,
 					mobdrop = true,
+					originalwow = true,
+					bc = true,
+					wrath = true,
 				},
 				-- Item Filters (Armor/Weapon)
 				item = {
@@ -998,6 +998,7 @@ do
 		-- So to be more effecient we'll just leave this function if there's a false
 
 		local generaldb = filterdb.general
+		local obtaindb = filterdb.obtain
 
 		-- Is this recipe in my currently selected profession?
 		if (Recipe["Profession"] ~= playerProfession) then
@@ -1035,13 +1036,13 @@ do
 
 		-- Filter out "era" recipes
 
-		if ((generaldb.originalwow == false) and (Recipe["Game"] == 0)) then
+		if ((obtaindb.originalwow == false) and (Recipe["Game"] == 0)) then
 			return false
 		end
-		if ((generaldb.bc == false) and (Recipe["Game"] == 1)) then
+		if ((obtaindb.bc == false) and (Recipe["Game"] == 1)) then
 			return false
 		end
-		if ((generaldb.wrath == false) and (Recipe["Game"] == 2)) then
+		if ((obtaindb.wrath == false) and (Recipe["Game"] == 2)) then
 			return false
 		end
 
@@ -1364,8 +1365,6 @@ do
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
-
-		local obtaindb = filterdb.obtain
 
 		-- Display trainer recipes
 		if (obtaindb.trainer == true) and (flags[3] == true) then
