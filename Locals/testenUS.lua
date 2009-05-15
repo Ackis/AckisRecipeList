@@ -1752,6 +1752,7 @@ L["Alt-Tradeskills"] = true
 L["ORIGINAL_WOW_DESC"] = "Recipes availible with the original game."
 L["BC_WOW_DESC"] = "Recipes availible with the Burning Crusade."
 L["LK_WOW_DESC"] = "Recipes availible with the Wrath of the Lich King."
+L["Lich King"] = true
 L["Silverbrook Trapper"] = true
 L["Silverbrook Villager"] = true
 L["Silverbrook Hunter"] = true

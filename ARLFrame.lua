@@ -3830,7 +3830,7 @@ function addon:CreateFrame(
 				ARL_BCCBText:SetText(L["Burning Crusade"])
 			local ARL_WrathCB = CreateFrame("CheckButton", "ARL_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 91, 14, 1, 0)
-				ARL_WrathCBText:SetText(L["Wrath of the Lich King"])
+				ARL_WrathCBText:SetText(L["Lich King"])
 
 		addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
 			addon.Fly_Binding:SetWidth(210)
