@@ -22,7 +22,7 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick	= LibStub("LibQTipClick-1.0")
+--local QTipClick	= LibStub("LibQTipClick-1.0")
 
 local string = string
 local ipairs = ipairs
