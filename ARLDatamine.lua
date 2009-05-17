@@ -145,7 +145,7 @@ function addon:ScanSkillLevelData(autoscan)
 		tinsert(outputtable,"Trainer Skill Level Scan Complete.")
 
 		if (entryfound) then
-			self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
+			self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
 		end
 
 		-- Reset the filters to what they were before
