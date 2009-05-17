@@ -1,8 +1,11 @@
-﻿Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
+﻿<center>
+[[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334<img src="http://i43.tinypic.com/dw3mag.jpg" />]]
+</center>
+
+Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
 
 You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here]
 
-[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334 Mountain Dew Game Fuel Link]
 ==What it does==
 
 ===French (frFR)===
