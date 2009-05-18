@@ -3204,23 +3204,9 @@ local function SetFramePosition()
 end
 
 -------------------------------------------------------------------------------
--- Alt-Tradeskills tooltip functions
+-- Alt-Tradeskills tooltip
 -------------------------------------------------------------------------------
 local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "LEFT")
-local function CreateSpacer(self, line_num, height, r, g, b, a)
-	local line = self:AcquireLine(line_num)
-	local line_tx = line.texture
-	if not line_tx then
-		line_tx = line:CreateTexture(nil, "ARTWORK")
-		line.texture = line_tx
-	end
-	line_tx:SetHeight(height or 1)
-	line_tx:SetTexture(r or NORMAL_FONT_COLOR.r, g or NORMAL_FONT_COLOR.g, b or NORMAL_FONT_COLOR.b, a or 1)
-	line_tx:SetPoint("LEFT", line)
-	line_tx:SetPoint("RIGHT", line)
-	line_tx:Show()
-end
-clicktip.CreateSpacer = CreateSpacer
 
 -------------------------------------------------------------------------------
 -- Data used in HandleTTClick() and GenerateClickableTT()
@@ -3232,7 +3218,7 @@ local click_info = {
 	prof = nil
 }
 
-local GenerateClickableTT
+local GenerateClickableTT -- Defined below.
 -- Description: Function called when tool tip is clicked for alt trade skills
 local function HandleTTClick(cell, arg, event)
 	if not click_info.realm then
