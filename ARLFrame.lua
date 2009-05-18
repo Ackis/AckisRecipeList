@@ -3206,7 +3206,7 @@ end
 -------------------------------------------------------------------------------
 -- Alt-Tradeskills tooltip functions
 -------------------------------------------------------------------------------
-local clicktip = QTipClick:Acquire("ARL_Clickable", 3, "LEFT", "LEFT", "LEFT")
+local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "LEFT")
 local function CreateSpacer(self, line_num, height, r, g, b, a)
 	local line = self:AcquireLine(line_num)
 	local line_tx = line.texture
@@ -3222,49 +3222,67 @@ local function CreateSpacer(self, line_num, height, r, g, b, a)
 end
 clicktip.CreateSpacer = CreateSpacer
 
+-------------------------------------------------------------------------------
+-- Data used in HandleTTClick() and GenerateClickableTT()
+-------------------------------------------------------------------------------
+local click_info = {
+	anchor = nil,
+	realm = nil,
+	name = nil,
+	prof = nil
+}
+
+local GenerateClickableTT
 -- Description: Function called when tool tip is clicked for alt trade skills
+local function HandleTTClick(cell, arg, event)
+	if not click_info.realm then
+		click_info.realm = arg
+		GenerateClickableTT()
+	elseif not click_info.name then
+		click_info.name = arg
+		GenerateClickableTT()
+	elseif not click_info.prof then
+		click_info.prof = arg
 
-local function HandleTTClick(cell, event, button)
-
+		-- Print link to chat frame, then reset tip data
+		wipe(click_info)
+		clicktip:ClearAllPoints()
+		clicktip:Hide()
+	end
 end
+clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
-local function GenerateClickableTT(anchor)
-	--addon.db.profile.tradeskill[prealm][pname][tradename]
-	local tradeskilllist = addon.db.profile.tradeskill
+function GenerateClickableTT(anchor)
+	--addon.db.global.tradeskill[prealm][pname][tradename]
+	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
 	local y, x
-	tip:SetCallback("OnMouseDown", HandleTTClick)
 	tip:Clear()
 
-	local on_name
-	-- Parse the realms
-	for realm in pairs(tradeskilllist) do
-		y, x = tip:AddNormalLine()
-		tip:CreateSpacer(y)
-		-- Parse the names
-		for name in pairs(tradeskilllist[realm]) do
-			on_name = true
-			y, x = tip:AddNormalLine(name.." -")
-			y, x = tip:SetCell(y, 2, realm..":", QTip.LabelProvider)
-			-- Parse the professions
-			for prof in pairs(tradeskilllist[realm][name]) do
-				if on_name then
-					y, x = tip:SetCell(y, 3, prof)
-					on_name = false
-				else
-					y, x = tip:AddNormalLine(" ")
-					y, x = tip:SetCell(y, 3, prof)
-				end
---				tinsert(t, name .. " - " .. realm .. " : " .. prof)
-			end
-			y, x = tip:AddNormalLine()
-			tip:CreateSpacer(y)
+	if not click_info.realm then
+		for realm in pairs(tskl_list) do
+			y, x = tip:AddLine()
+			tip:SetCell(y, x, realm, realm)
+		end
+	elseif not click_info.name then
+		for name in pairs(tskl_list[click_info.realm]) do
+			y, x = tip:AddLine()
+			tip:SetCell(y, x, name, name)
+		end
+	elseif not click_info.prof then
+		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
+			y, x = tip:AddLine()
+			tip:SetCell(y, x, prof, prof)
 		end
 	end
-	tip:SmartAnchorTo(anchor)
+	if anchor then
+		click_info.anchor = anchor
+		tip:SetPoint("TOP", anchor, "BOTTOM")
+	else
+		tip:SetPoint("TOP", click_info.anchor, "BOTTOM")
+	end
 	tip:Show()
---	return strcat(t,"\n")
 end
 
 -- Description: Creates the initial frame to display recipes into

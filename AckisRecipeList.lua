@@ -136,11 +136,11 @@ function addon:OnInitialize()
 
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
-		profile = {
-
-			-- Saving alts tradeskills
+		global = {
+			-- Saving alts tradeskills -Torhal
 			tradeskill = {},
-
+		},
+		profile = {
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
@@ -395,7 +395,6 @@ do
 	local IsTradeSkillLinked = IsTradeSkillLinked
 
 	function addon:TRADE_SKILL_SHOW()
-
 		local ownskill = IsTradeSkillLinked()
 
 		-- If this is our own skill, save it, if not don't save it
@@ -407,16 +406,17 @@ do
 			local tradename = GetTradeSkillLine()
 
 			if (tradelink) then
-				if (not addon.db.profile.tradeskill) then
-					addon.db.profile.tradeskill = {}
+				-- Actual alt information saved here. -Torhal
+				if (not addon.db.global.tradeskill) then
+					addon.db.global.tradeskill = {}
 				end
-				if (not addon.db.profile.tradeskill[prealm]) then
-					addon.db.profile.tradeskill[prealm] = {}
+				if (not addon.db.global.tradeskill[prealm]) then
+					addon.db.global.tradeskill[prealm] = {}
 				end
-				if (not addon.db.profile.tradeskill[prealm][pname]) then
-					addon.db.profile.tradeskill[prealm][pname] = {}
+				if (not addon.db.global.tradeskill[prealm][pname]) then
+					addon.db.global.tradeskill[prealm][pname] = {}
 				end
-				addon.db.profile.tradeskill[prealm][pname][tradename] = tradelink
+				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
 			end
 		end
 		addon:OpenTradeWindow()
@@ -2693,9 +2693,11 @@ do
 end
 
 --Description: Clears all saved tradeskills
-
 function addon:ClearSavedSkills()
+	wipe(addon.db.global.tradeskill)
 
-	addon.db.profile.tradeskill = {}
+	if addon.db.profile.tradeskill then
+		addon.db.profile.tradeskill = nil
+	end
 
 end
