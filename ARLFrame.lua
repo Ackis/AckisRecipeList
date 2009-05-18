@@ -3291,6 +3291,8 @@ end
 -- Description: Function called when tool tip is clicked for alt trade skills
 
 local function HandleTTClick(cell, arg, event)
+	click_info.modified = true
+
 	if arg == "change realm" then
 		click_info.realm = nil
 		click_info.change_realm = true
@@ -3314,7 +3316,6 @@ local function HandleTTClick(cell, arg, event)
 		-- Print link to chat frame, then reset tip data
 		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
 	end
-	click_info.modified = true
 end
 
 clicktip:SetCallback("OnMouseDown", HandleTTClick)
@@ -4546,10 +4547,10 @@ function addon:CreateFrame(
 				ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
 				ARL_MiscAltText:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 4, 0)
 				ARL_MiscAltText:SetHeight(14)
-				ARL_MiscAltText:SetWidth(120)
+				ARL_MiscAltText:SetWidth(95)
 				ARL_MiscAltText:SetJustifyH("LEFT")
 			local ARL_MiscAltBtn = CreateFrame("Button", "ARL_IgnoreCB", addon.Fly_Misc)
-				ARL_MiscAltBtn:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 90, 4)
+				ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
 				ARL_MiscAltBtn:SetHeight(22)
 				ARL_MiscAltBtn:SetWidth(22)
 				ARL_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
