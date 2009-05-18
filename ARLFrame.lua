@@ -22,7 +22,7 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
---local QTipClick	= LibStub("LibQTipClick-1.0")
+local QTipClick		= LibStub("LibQTipClick-1.0")
 
 local string = string
 local ipairs = ipairs
@@ -3203,6 +3203,25 @@ local function SetFramePosition()
 
 end
 
+-------------------------------------------------------------------------------
+-- Alt-Tradeskills tooltip functions
+-------------------------------------------------------------------------------
+local clicktip = QTipClick:Acquire("ARL_Clickable", 3, "LEFT", "LEFT", "LEFT")
+local function CreateSpacer(self, line_num, height, r, g, b, a)
+	local line = self:AcquireLine(line_num)
+	local line_tx = line.texture
+	if not line_tx then
+		line_tx = line:CreateTexture(nil, "ARTWORK")
+		line.texture = line_tx
+	end
+	line_tx:SetHeight(height or 1)
+	line_tx:SetTexture(r or NORMAL_FONT_COLOR.r, g or NORMAL_FONT_COLOR.g, b or NORMAL_FONT_COLOR.b, a or 1)
+	line_tx:SetPoint("LEFT", line)
+	line_tx:SetPoint("RIGHT", line)
+	line_tx:Show()
+end
+clicktip.CreateSpacer = CreateSpacer
+
 -- Description: Function called when tool tip is clicked for alt trade skills
 
 local function HandleTTClick(cell, event, button)
@@ -3210,26 +3229,42 @@ local function HandleTTClick(cell, event, button)
 end
 
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
-
-local function GenerateClickAbleTT()
-
+local function GenerateClickableTT(anchor)
 	--addon.db.profile.tradeskill[prealm][pname][tradename]
 	local tradeskilllist = addon.db.profile.tradeskill
-	local t = {}
+	local tip = clicktip
+	local y, x
+	tip:SetCallback("OnMouseDown", HandleTTClick)
+	tip:Clear()
 
+	local on_name
 	-- Parse the realms
 	for realm in pairs(tradeskilllist) do
-		-- Parse hte names
+		y, x = tip:AddNormalLine()
+		tip:CreateSpacer(y)
+		-- Parse the names
 		for name in pairs(tradeskilllist[realm]) do
+			on_name = true
+			y, x = tip:AddNormalLine(name.." -")
+			y, x = tip:SetCell(y, 2, realm..":", QTip.LabelProvider)
 			-- Parse the professions
 			for prof in pairs(tradeskilllist[realm][name]) do
-				tinsert(t, name .. " - " .. realm .. " : " .. prof)
+				if on_name then
+					y, x = tip:SetCell(y, 3, prof)
+					on_name = false
+				else
+					y, x = tip:AddNormalLine(" ")
+					y, x = tip:SetCell(y, 3, prof)
+				end
+--				tinsert(t, name .. " - " .. realm .. " : " .. prof)
 			end
+			y, x = tip:AddNormalLine()
+			tip:CreateSpacer(y)
 		end
 	end
-
-	return strcat(t,"\n")
-
+	tip:SmartAnchorTo(anchor)
+	tip:Show()
+--	return strcat(t,"\n")
 end
 
 -- Description: Creates the initial frame to display recipes into
@@ -4470,14 +4505,11 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 				ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 				ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-				ARL_MiscAltBtn:Disable()  -- disabled for now
+--				ARL_MiscAltBtn:Disable()  -- disabled for now
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
-					function(this,button)
-					--tooltip:SetCallback("OnMouseDown", HandleTTClick)
-					--GameTooltip_SetDefaultAnchor(GameTooltip, this)
-					--GameTooltip:SetText(GenerateClickAbleTT())
-					--GameTooltip:Show()
+					function(this, button)
+						if clicktip:IsShown() then clicktip:Hide() else GenerateClickableTT(this) end
 					end)
 
 		-- Now that everything exists, populate the global filter table
