@@ -14,7 +14,7 @@
 *Added support to track the skill ups of the recipe.
 *Fixed a bug when using exclusions, the progress bar numbers would not be accurate.
 *Fixed a bug when you would get an error after clicking on an open space near the end of the recipe.
-*Added UI elements which will allow you to access alt's tradeskills.
+*Added UI elements which will allow you to access alt's tradeskills.  A tooltip is generated which will let you select which alt you print out.
 *Fixed a few issues with the frames being saved.
 
 ===RC7===

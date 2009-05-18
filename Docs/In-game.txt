@@ -1,6 +1,10 @@
 ==ARL In-game Documentation==
 I developed some documentation which is in-game.  I am also providing it here.
 
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/74/626x348/ARL_SS_RC8__11_.jpg.-m0.png" />
+</center>
+
 ===Command Line===
 Ackis Recipe List has recently changed to use a GUI for change parameters.  Type <code>/arl</code> to open up the GUI.  Acceptable commands include:
 * <code>/arl about</code>
@@ -49,6 +53,10 @@ This is the functionality that occurs when you click on a recipe.
 ARL relies on [http://www.wowinterface.com/downloads/info7032-TomTom.html TomTom] to add icons and waypoints to the World Map and the Mini-map.  You can customize these by going to the ARL configuration menu and scrolling to the display options.  If you do not have [http://www.wowinterface.com/downloads/info7032-TomTom.html TomTom] installed, nothing will be added.  Auto-adding icons is disabled by default.
 
 If you wish to add a single recipe's acquire methods to the maps, you can Ctrl-Shift click on the recipe.
+
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/64/626x354/ARL_SS_RC8__1_.jpg.-m0.png" />
+</center>
 
 ===Using Filters===
 Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.

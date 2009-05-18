@@ -7,7 +7,11 @@ There are over 100 different flags on which recipes may be filtered, and there a
 The ARL database has been rewritten approximentally 5 times.  The first four times were pre-WotLK and involved me doing the entire database by hand.  The fifth time I wrote a dataminer script in Ruby, however due to database issues, the data was not 100%.  As a result, I decided the best method of obtaining information is to datamine it from in-game itself.
 
 ===Commands===
-Right now there is no special GUI for datamining.  You must run the command with the <code>/script</code> command.
+You may run the command with the <code>/script</code> command or use the built in interface options.
+
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/72/626x347/ARL_SS_RC8__9_.jpg.-m0.png" />
+</center>
 
 ====Trainer Skill Levels====
 Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.

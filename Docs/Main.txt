@@ -1,5 +1,5 @@
 ﻿<center>
-[[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334<img src="http://i43.tinypic.com/dw3mag.jpg" />]]
+[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334<img src="http://i43.tinypic.com/dw3mag.jpg" />]
 </center>
 
 Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [http://www.wowwiki.com/Runeforge Runeforging].
@@ -7,6 +7,10 @@ Ackis Recipe List is an addon which will scan your trade skill recipes and print
 You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here]
 
 ==What it does==
+
+<center>
+<img src="http://static.wowace.com/uploads/19/15/65/ARL_SS_RC8__2_.jpg" />
+</center>
 
 ===French (frFR)===
 Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs et les capacités des familiers des chasseurs.
@@ -99,6 +103,17 @@ This is the functionality that occurs when you click on a recipe.
 *Ctrl-Shift Click
 **Adds the specific recipe acquire methods to the World Map and Mini-map.
 
+==Filters==
+There are many different ways to filter which recipes you want to display.
+
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/66/626x315/ARL_SS_RC8__3_.jpg.-m0.png" />
+</center>
+
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/67/626x313/ARL_SS_RC8__4_.jpg.-m0.png" />
+</center>
+
 ==Known Issues==
 * When gaining a reputation level recipes for that faction will still appear in red when doing a scan.
 * Recipe acquire information is slightly inaccurate.  I'm updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [http://www.wowace.com/projects/arl/create-ticket/ here] and I will get it updated.
@@ -132,6 +147,10 @@ Currently, the mod works with:
 * Ace community for listening to my questions on the IRC channel and helping me out, and fellow mod authors for developing such great add-ons.
 * Please see the X-Credits field for more Acknowledgments.  Any code snippets borrowed or inspired from are credited in the code files.  The main display also lists all people who are in X-Credits.
 * Everyone who has helped me with localizations.
+
+<center>
+<img src="http://static.curseforge.net/thumbman/19/15/71/626x349/ARL_SS_RC8__8_.jpg.-m0.png" />
+</center>
 
 ==Wiki==
 [http://www.wowwiki.com/AckisRecipeList WoW Wiki]
