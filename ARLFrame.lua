@@ -3215,6 +3215,7 @@ local click_info = {
 	anchor = nil,
 	change_realm = nil,
 	target_realm = nil,
+	modified = nil,
 	name = nil,
 	realm = nil,
 }
@@ -3313,7 +3314,7 @@ local function HandleTTClick(cell, arg, event)
 		-- Print link to chat frame, then reset tip data
 		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
 	end
-
+	click_info.modified = true
 end
 
 clicktip:SetCallback("OnMouseDown", HandleTTClick)
@@ -4561,10 +4562,17 @@ function addon:CreateFrame(
 					function(this, button)
 						clicktip:SetParent(this)
 						if clicktip:IsShown() then
-							clicktip:Hide()
+							if not click_info.modified then
+								clicktip:Hide()
+								wipe(click_info)
+							else
+								wipe(click_info)
+								GenerateClickableTT(this)
+							end
+						else
 							wipe(click_info)
+							GenerateClickableTT(this)
 						end
-						GenerateClickableTT(this)
 					end)
 				ARL_MiscAltBtn:SetScript("OnHide",
 					function(this, button)
