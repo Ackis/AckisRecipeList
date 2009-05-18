@@ -4519,6 +4519,11 @@ function addon:CreateFrame(
 						end
 						GenerateClickableTT(this)
 					end)
+				ARL_MiscAltBtn:SetScript("OnHide",
+					function(this, button)
+						clicktip:Hide()
+						wipe(click_info)
+					end)
 
 		-- Now that everything exists, populate the global filter table
 		local filterdb = addon.db.profile.filters
