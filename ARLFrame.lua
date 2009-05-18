@@ -4509,11 +4509,15 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 				ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 				ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
---				ARL_MiscAltBtn:Disable()  -- disabled for now
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
 					function(this, button)
-						if clicktip:IsShown() then clicktip:Hide() else GenerateClickableTT(this) end
+						clicktip:SetParent(this)
+						if clicktip:IsShown() then
+							clicktip:Hide()
+							wipe(click_info)
+						end
+						GenerateClickableTT(this)
 					end)
 
 		-- Now that everything exists, populate the global filter table
