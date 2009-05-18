@@ -72,19 +72,19 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25305,90,20826,1,25229)
 	self:addTradeFlags(RecipeDB,25305,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,25305,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25305,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Ring of Silver Might -- 25317
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25317,80,20827,1,25229)
 	self:addTradeFlags(RecipeDB,25317,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,25317,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25317,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Ring of Twilight Shadows -- 25318
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25318,100,20828,1,25229)
 	self:addTradeFlags(RecipeDB,25318,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,25318,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25318,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Heavy Golden Necklace of Battle -- 25320
 	recipecount = recipecount + 1
@@ -96,7 +96,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25321,120,20832,1,25229)
 	self:addTradeFlags(RecipeDB,25321,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,25321,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25321,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Wicked Moonstone Ring -- 25323
 	recipecount = recipecount + 1
@@ -126,7 +126,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25498,110,20909,1,25229)
 	self:addTradeFlags(RecipeDB,25498,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25498,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25498,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Pendant of the Agate Shield -- 25610
 	recipecount = recipecount + 1
@@ -144,13 +144,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25613,135,20955,1,25229)
 	self:addTradeFlags(RecipeDB,25613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,62)
-	self:addTradeAcquire(RecipeDB,25613,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25613,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Mithril Filigree -- 25615
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25615,150,20963,1,25229)
 	self:addTradeFlags(RecipeDB,25615,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,25615,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25615,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Blazing Citrine Ring -- 25617
 	recipecount = recipecount + 1
@@ -174,13 +174,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25620,170,20960,1,25229)
 	self:addTradeFlags(RecipeDB,25620,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,25620,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25620,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Citrine Ring of Rapid Healing -- 25621
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,25621,180,20961,1,25229)
 	self:addTradeFlags(RecipeDB,25621,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,25621,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,25621,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Citrine Pendant of Golden Healing -- 25622
 	recipecount = recipecount + 1
@@ -192,7 +192,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26872,200,21748,1,25229)
 	self:addTradeFlags(RecipeDB,26872,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	self:addTradeAcquire(RecipeDB,26872,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26872,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Figurine - Golden Hare -- 26873
 	recipecount = recipecount + 1
@@ -204,7 +204,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26874,210,20964,1,25229)
 	self:addTradeFlags(RecipeDB,26874,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,26874,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26874,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Figurine - Black Pearl Panther -- 26875
 	recipecount = recipecount + 1
@@ -216,7 +216,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26876,220,21755,1,25229)
 	self:addTradeFlags(RecipeDB,26876,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26876,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26876,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Ruby Crown of Restoration -- 26878
 	recipecount = recipecount + 1
@@ -228,7 +228,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26880,225,21752,1,25229)
 	self:addTradeFlags(RecipeDB,26880,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26880,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26880,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Figurine - Truesilver Crab -- 26881
 	recipecount = recipecount + 1
@@ -246,13 +246,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26883,235,21764,1,25229)
 	self:addTradeFlags(RecipeDB,26883,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26883,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26883,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Truesilver Healing Ring -- 26885
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26885,240,21765,1,25229)
 	self:addTradeFlags(RecipeDB,26885,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,26885,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26885,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- The Aquamarine Ward -- 26887
 	recipecount = recipecount + 1
@@ -282,13 +282,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26902,260,21767,1,25229)
 	self:addTradeFlags(RecipeDB,26902,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,26902,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26902,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Sapphire Signet -- 26903
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26903,275,21768,1,25229)
 	self:addTradeFlags(RecipeDB,26903,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,26903,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26903,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Emerald Crown of Destruction -- 26906
 	recipecount = recipecount + 1
@@ -300,13 +300,13 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26907,280,21775,1,25229)
 	self:addTradeFlags(RecipeDB,26907,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,26907,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26907,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Sapphire Pendant of Winter Night -- 26908
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26908,280,21790,1,25229)
 	self:addTradeFlags(RecipeDB,26908,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26908,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26908,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Figurine - Emerald Owl -- 26909
 	recipecount = recipecount + 1
@@ -324,7 +324,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26911,290,21791,1,25229)
 	self:addTradeFlags(RecipeDB,26911,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,26911,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,26911,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Figurine - Black Diamond Crab -- 26912
 	recipecount = recipecount + 1
@@ -906,19 +906,19 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32807,110,25881,1,25229)
 	self:addTradeFlags(RecipeDB,32807,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32807,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,32807,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Solid Stone Statue -- 32808
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32808,175,25882,1,25229)
 	self:addTradeFlags(RecipeDB,32808,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32808,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,32808,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Dense Stone Statue -- 32809
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32809,225,25883,1,25229)
 	self:addTradeFlags(RecipeDB,32809,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32809,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,32809,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Powerful Earthstorm Diamond -- 32866
 	recipecount = recipecount + 1
@@ -990,55 +990,55 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34955,180,29157,1,25229)
 	self:addTradeFlags(RecipeDB,34955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,34955,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,34955,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Truesilver Commander's Ring -- 34959
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34959,200,29158,1,25229)
 	self:addTradeFlags(RecipeDB,34959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,34959,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,34959,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Glowing Thorium Band -- 34960
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34960,280,29159,1,25229)
 	self:addTradeFlags(RecipeDB,34960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,34960,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,34960,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Emerald Lion Ring -- 34961
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,34961,290,29160,1,25229)
 	self:addTradeFlags(RecipeDB,34961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,34961,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,34961,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Brilliant Necklace -- 36523
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36523,75,30419,1,25229)
 	self:addTradeFlags(RecipeDB,36523,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,36523,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,36523,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Heavy Jade Ring -- 36524
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36524,105,30420,1,25229)
 	self:addTradeFlags(RecipeDB,36524,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,36524,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,36524,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Red Ring of Destruction -- 36525
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36525,230,30421,1,25229)
 	self:addTradeFlags(RecipeDB,36525,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,36525,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,36525,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Diamond Focus Ring -- 36526
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,36526,265,30422,1,25229)
 	self:addTradeFlags(RecipeDB,36526,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,36526,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,36526,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Bronze Band of Force -- 37818
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,37818,65,30804,1,25229)
 	self:addTradeFlags(RecipeDB,37818,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
-	self:addTradeAcquire(RecipeDB,37818,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,37818,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- Ring of Arcane Shielding -- 37855
 	recipecount = recipecount + 1
@@ -1056,7 +1056,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,38175,80,31154,1,25229)
 	self:addTradeFlags(RecipeDB,38175,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,38175,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701)
+	self:addTradeAcquire(RecipeDB,38175,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501)
 
 	-- The Frozen Eye -- 38503
 	recipecount = recipecount + 1
@@ -2916,7 +2916,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63743,200,45627,1,25229)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
-	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778)
+	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501)
 
 	return recipecount
 
