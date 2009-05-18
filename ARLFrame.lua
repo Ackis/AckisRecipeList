@@ -3206,7 +3206,7 @@ end
 -------------------------------------------------------------------------------
 -- Alt-Tradeskills tooltip
 -------------------------------------------------------------------------------
-local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "LEFT")
+local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
 
 -------------------------------------------------------------------------------
 -- Data used in HandleTTClick() and GenerateClickableTT()
@@ -3214,11 +3214,8 @@ local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "LEFT")
 local click_info = {
 	anchor = nil,
 	realm = nil,
-	name = nil,
-	prof = nil
+	name = nil
 }
-
-local GenerateClickableTT -- Defined below.
 
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
 
@@ -3229,17 +3226,36 @@ local function GenerateClickableTT(anchor)
 	local y, x
 	tip:Clear()
 
+	-- Count entries in the table. If more than 10, we provide a Realm selection menu. Otherwise, we show "Character - Realm" -Torhal
+	local count = 0
+	for entry in pairs(tskl_list) do
+		count = count + 1
+
+		if count == 10 then break end
+	end
+
 	if not click_info.realm then
 		for realm in pairs(tskl_list) do
 			y, x = tip:AddLine()
-			tip:SetCell(y, x, realm, realm)
+
+			if count <= 10 then
+				click_info.realm = realm
+				for name in pairs(tskl_list[click_info.realm]) do
+					y, x = tip:AddLine()
+					tip:SetCell(y, x, name.." - "..realm, name)
+				end
+			else
+				tip:SetCell(y, x, realm, realm)
+			end
 		end
 	elseif not click_info.name then
 		for name in pairs(tskl_list[click_info.realm]) do
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, name, name)
 		end
-	elseif not click_info.prof then
+	else
+		tip:AddNormalLine(click_info.name.." - "..click_info.realm)
+		tip:AddNormalLine(" ")
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, prof, prof)
@@ -3266,13 +3282,9 @@ local function HandleTTClick(cell, arg, event)
 	elseif not click_info.name then
 		click_info.name = arg
 		GenerateClickableTT()
-	elseif not click_info.prof then
-		click_info.prof = arg
+	else
 		-- Print link to chat frame, then reset tip data
-		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][click_info.prof])
-		wipe(click_info)
-		clicktip:ClearAllPoints()
-		clicktip:Hide()
+		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
 	end
 
 end
