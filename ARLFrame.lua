@@ -3219,7 +3219,9 @@ local click_info = {
 }
 
 local GenerateClickableTT -- Defined below.
+
 -- Description: Function called when tool tip is clicked for alt trade skills
+
 local function HandleTTClick(cell, arg, event)
 	if not click_info.realm then
 		click_info.realm = arg
@@ -3236,9 +3238,11 @@ local function HandleTTClick(cell, arg, event)
 		clicktip:Hide()
 	end
 end
+
 clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
+
 function GenerateClickableTT(anchor)
 	--addon.db.global.tradeskill[prealm][pname][tradename]
 	local tskl_list = addon.db.global.tradeskill
@@ -4496,7 +4500,6 @@ function addon:CreateFrame(
 				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
 			local ARL_MiscAltText = addon.Fly_Misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "GameFontNormal")
 				ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
-				ARL_MiscAltText:SetText(addon:Grey("Alt-Tradeskills" .. ":")) -- disabled for now
 				ARL_MiscAltText:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 4, 0)
 				ARL_MiscAltText:SetHeight(14)
 				ARL_MiscAltText:SetWidth(120)
@@ -4509,6 +4512,7 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 				ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 				ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+				addon:TooltipDisplay(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
 					function(this, button)
