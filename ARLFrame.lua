@@ -3220,30 +3220,9 @@ local click_info = {
 
 local GenerateClickableTT -- Defined below.
 
--- Description: Function called when tool tip is clicked for alt trade skills
-
-local function HandleTTClick(cell, arg, event)
-	if not click_info.realm then
-		click_info.realm = arg
-		GenerateClickableTT()
-	elseif not click_info.name then
-		click_info.name = arg
-		GenerateClickableTT()
-	elseif not click_info.prof then
-		click_info.prof = arg
-
-		-- Print link to chat frame, then reset tip data
-		wipe(click_info)
-		clicktip:ClearAllPoints()
-		clicktip:Hide()
-	end
-end
-
-clicktip:SetCallback("OnMouseDown", HandleTTClick)
-
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
 
-function GenerateClickableTT(anchor)
+local function GenerateClickableTT(anchor)
 	--addon.db.global.tradeskill[prealm][pname][tradename]
 	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
@@ -3274,6 +3253,31 @@ function GenerateClickableTT(anchor)
 	end
 	tip:Show()
 end
+
+-- Description: Function called when tool tip is clicked for alt trade skills
+
+local function HandleTTClick(cell, arg, event)
+
+	local tskl_list = addon.db.global.tradeskill
+
+	if not click_info.realm then
+		click_info.realm = arg
+		GenerateClickableTT()
+	elseif not click_info.name then
+		click_info.name = arg
+		GenerateClickableTT()
+	elseif not click_info.prof then
+		click_info.prof = arg
+		-- Print link to chat frame, then reset tip data
+		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][click_info.prof])
+		wipe(click_info)
+		clicktip:ClearAllPoints()
+		clicktip:Hide()
+	end
+
+end
+
+clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
 -- Description: Creates the initial frame to display recipes into
 
