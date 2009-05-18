@@ -3213,48 +3213,65 @@ local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
 -------------------------------------------------------------------------------
 local click_info = {
 	anchor = nil,
+	change_realm = nil,
+	target_realm = nil,
+	name = nil,
 	realm = nil,
-	name = nil
 }
 
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
 
 local function GenerateClickableTT(anchor)
-	--addon.db.global.tradeskill[prealm][pname][tradename]
 	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
 	local y, x
+	local prealm = GetRealmName()
+	local target_realm
+
+	if click_info.change_realm then
+		target_realm = click_info.target_realm
+		click_info.change_realm = nil
+	else
+		target_realm = prealm
+	end
 	tip:Clear()
 
-	-- Count entries in the table. If more than 10, we provide a Realm selection menu. Otherwise, we show "Character - Realm" -Torhal
-	local count = 0
-	for entry in pairs(tskl_list) do
-		count = count + 1
-
-		if count == 10 then break end
-	end
-
 	if not click_info.realm then
+		local other_realms = nil
 		for realm in pairs(tskl_list) do
-			y, x = tip:AddLine()
+			if target_realm and (realm ~= target_realm) then
+				other_realms = true
+			end
 
-			if count <= 10 then
+			if not target_realm and (realm ~= prealm) then
+				y, x = tip:AddLine()
+				tip:SetCell(y, x, realm, realm)
+			elseif realm == target_realm then
+				y, x = tip:AddLine()
+
 				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
 					y, x = tip:AddLine()
-					tip:SetCell(y, x, name.." - "..realm, name)
+					tip:SetCell(y, x, name, name)
 				end
-			else
-				tip:SetCell(y, x, realm, realm)
 			end
 		end
-	elseif not click_info.name then
-		for name in pairs(tskl_list[click_info.realm]) do
+		if other_realms then
+			tip:AddNormalLine(" ")
 			y, x = tip:AddLine()
-			tip:SetCell(y, x, name, name)
+			tip:SetCell(y, x, "Other Realm", "change realm")
+		end
+	elseif not click_info.name then
+		local realm_list = tskl_list[click_info.realm]
+
+		if realm_list then
+			for name in pairs(realm_list) do
+				y, x = tip:AddLine()
+				tip:SetCell(y, x, name, name)
+			end
 		end
 	else
-		tip:AddNormalLine(click_info.name.." - "..click_info.realm)
+		tip:AddNormalLine(click_info.name)
 		tip:AddNormalLine(" ")
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
@@ -3273,10 +3290,20 @@ end
 -- Description: Function called when tool tip is clicked for alt trade skills
 
 local function HandleTTClick(cell, arg, event)
-
+	if arg == "change realm" then
+		click_info.realm = nil
+		click_info.change_realm = true
+		click_info.target_realm = nil
+		GenerateClickableTT()
+		return
+	end
+		
 	local tskl_list = addon.db.global.tradeskill
 
 	if not click_info.realm then
+		if click_info.change_realm then
+			click_info.target_realm = arg
+		end
 		click_info.realm = arg
 		GenerateClickableTT()
 	elseif not click_info.name then
