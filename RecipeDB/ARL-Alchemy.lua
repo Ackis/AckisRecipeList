@@ -15,12 +15,6 @@ Project version: @project-version@
 
 ************************************************************************
 
-Format:
-
-	self:addTradeSkill(RecipeDB, Spell ID, Skill Level, Item ID, Rarity, Specialty)
-
-************************************************************************
-
 ]]--
 
 local MODNAME			= "Ackis Recipe List"
@@ -1456,7 +1450,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Northrend Alchemy Research -- 60893
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,60893,400,nil, 1, 51304)
+	self:addTradeSkill(RecipeDB,60893,400,nil,1,51304)
 	self:addTradeFlags(RecipeDB,60893,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60893,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
@@ -1504,7 +1498,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Ethereal Oil -- 62409
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,62409,375,nil,1,51304)
+	self:addTradeSkill(RecipeDB,62409,375,44958,1,51304)
 	self:addTradeFlags(RecipeDB,62409,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62409,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
