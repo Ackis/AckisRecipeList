@@ -888,7 +888,7 @@ function addon:InitTailoring(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,18407,260,13857,2,3908)
 	self:addTradeFlags(RecipeDB,18407,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,18407,1,2399,1,11052,1,18749,1,18772,1,28699,1,33583,1,28699,1,1346,1,4159,1,16729)
+	self:addTradeAcquire(RecipeDB,18407,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729)
 
 	-- Cindercloth Vest -- 18408
 	recipecount = recipecount + 1
