@@ -6,8 +6,8 @@ ARLDatamine.lua
 
 In-game datamining functions for ARL
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -95,7 +95,7 @@ local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTo
 
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 -- @name AckisRecipeList:ScanSkillLevelData
--- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the skill levels between the two.
+-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData(autoscan)
 
 	-- Are we at a trade skill trainer?
@@ -161,9 +161,9 @@ end
 
 -- Description: Parses a trainer, comparing all recipes you can learn with where you can learn them in the database
 
---- Function to compare which recipes are availible from a trainer and compare with the internal ARL database.
+--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 -- @name AckisRecipeList:ScanTrainerData
--- @return Does a comparison of the information in your internal ARL database, and those items which are availible on the trainer.  Compares the acquire information of the ARL database with what is availible on the trainer.
+-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the acquire information of the ARL database with what is available on the trainer.
 function addon:ScanTrainerData(autoscan)
 
 	-- Make sure the target exists and is a NPC
@@ -350,9 +350,9 @@ function addon:GenerateLinks()
 
 end
 
--- Description: Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
+-- Description: Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 
---- Scans the items on a vendor, determining which recipes are availible if any and compares it with the database entries.
+--- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
 function addon:ScanVendor()
@@ -530,7 +530,7 @@ self:Print(text)
 					item = false
 				end
 			else
-				
+
 			end
 			self:Print("Recipe: " .. name)
 			if (recipe) then

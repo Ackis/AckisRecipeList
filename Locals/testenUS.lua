@@ -4,8 +4,8 @@ ARLLocals-enUS.lua
 
 enUS localization strings for Ackis Recipe List
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -50,9 +50,9 @@ L["Documentation"]			= true
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true
-L["SCAN_RECIPES_DESC"]		= [["Scans an open tradeskill for missing recipes.
+L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing recipes.
 Shift-click to generate a text dump.
-Alt-click to remove all waypoints from the mini-map and world map."]]
+Alt-click to remove all waypoints from the mini-map and world map.]]
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
@@ -69,29 +69,29 @@ L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
 
 -- UI Documentation
 L["Using Filters"]			= true
-L["USING_FILTERS_DESC"]		= [["Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
+L["USING_FILTERS_DESC"]		= [[Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
 With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
-Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large."]]
+Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large.]]
 L["Reporting Bugs"]			= true
-L["REPORTING_BUGS_DESC"]	= [["When reporting a bug, please make sure you do the following:
+L["REPORTING_BUGS_DESC"]	= [[When reporting a bug, please make sure you do the following:
 1) Download the latest version, available from http://www.wowace.com/projects/arl/files/
 2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/
 3) Disable addons such as Skillet or ATSW.
 4) Read the bug reporting documentation at http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
 6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
-When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily."]]
+When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
 L["Common Issues"]			= true
-L["COMMON_ISSUES_DESC"]		= [["Please refer to these common issues before submitting a bug report.
+L["COMMON_ISSUES_DESC"]		= [[Please refer to these common issues before submitting a bug report.
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
 2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.
-3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report."]]
+3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]]
 L["Exclusion Issues"]		= true
 L["EXCLUSION_ISSUES_DESC"]	= "To add a recipe to the exclusion (ignore) list, just alt-click on it from the recipe window.  To get this recipe back, open up the ARL options and set the toggle of \"Show Excluded Recipes\" to be on.  This will show all the recipes you've excluded in your scan during your next scan.  Once you have done this, Alt Click on the recipe again to remove it from the exclusion list."
 L["Map Issues"]				= true
 L["MAP_ISSUES_DESC"]		= "ARL relies on TomTom to add icons and waypoints to the World Map and the Mini-map.  You can customize these by going to the ARL configuration menu and scrolling to the display options.  If you do not have TomTom installed, nothing will be added.  Auto-adding icons is disabled by default."
 L["Game Commands"]			= true
-L["GAME_COMMANDS_DESC"]		= [["Command Line:
+L["GAME_COMMANDS_DESC"]		= [[Command Line:
 Ackis Recipe List has recently changed to use a GUI for change parameters.  Type /arl to open up the GUI.  Acceptable commands include:
 - /arl about
   Opens up the about panel, listing information about the mod.
@@ -133,7 +133,7 @@ This is the functionality that occurs when you click on a recipe.
 - Alt Click
   Adds or removes a recipe from the exclusion list.
 - Ctrl-Shift Click
-  Adds the specific recipe acquire methods to the World Map and Mini-map."]]
+  Adds the specific recipe acquire methods to the World Map and Mini-map.]]
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
@@ -1749,9 +1749,9 @@ L["Imindril Spearsong"] = true
 L["First Aid Trainer"] = true
 L["Enchanting Trainer"] = true
 L["Alt-Tradeskills"] = true
-L["ORIGINAL_WOW_DESC"] = "Recipes availible with the original game."
-L["BC_WOW_DESC"] = "Recipes availible with the Burning Crusade."
-L["LK_WOW_DESC"] = "Recipes availible with the Wrath of the Lich King."
+L["ORIGINAL_WOW_DESC"] = "Recipes available with the original game."
+L["BC_WOW_DESC"] = "Recipes available with the Burning Crusade."
+L["LK_WOW_DESC"] = "Recipes available with the Wrath of the Lich King."
 L["Lich King"] = true
 L["Silverbrook Trapper"] = true
 L["Silverbrook Villager"] = true

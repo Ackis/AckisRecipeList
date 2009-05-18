@@ -6,8 +6,8 @@ ARLConfig.lua
 
 Ace3 Configuration options for ARL
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
@@ -1059,14 +1059,14 @@ local function fullOptions()
 							desc	= L["SCAN_RECIPES_DESC"],
 							func	= function(info) addon:AckisRecipeList_Command(false) end,
 						},
-						textdump = {	
+						textdump = {
 							order	= 13,
 							type	= "execute",
 							name	= L["Text Dump"],
 							desc	= L["TEXT_DUMP_DESC"],
 							func	= function(info) addon:AckisRecipeList_Command(true) end,
 						},
-						exclusionlist = {	
+						exclusionlist = {
 							order	= 14,
 							type	= "execute",
 							name	= L["View Exclusion List"],
@@ -1080,14 +1080,14 @@ local function fullOptions()
 							desc	= L["CLEAR_EXCLUSION_LIST_DESC"],
 							func	= function(info) addon:ClearExclusionList() end,
 						},
-						resetallfilters = {	
+						resetallfilters = {
 							order	= 16,
 							type	= "execute",
 							name	= L["Reset All Filters"],
 							desc	= L["RESET_DESC"],
 							func	= function(info) addon.resetFilters() end,
 						},
-						resetguiwindow = {	
+						resetguiwindow = {
 							order	= 17,
 							type	= "execute",
 							name	= L["Reset Window Position"],
@@ -1222,7 +1222,7 @@ local function giveMap()
 					get		= function() return addon.db.profile.minimap end,
 					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 				},
-				clearmap = {	
+				clearmap = {
 					order	= 5,
 					type	= "execute",
 					name	= L["Clear Waypoints"],
@@ -1256,21 +1256,21 @@ local function giveDatamine()
 					type	= "description",
 					name	= L["DATAMINE_OPTIONS_DESC"] .. "\n",
 				},
-				generatelinks = {	
+				generatelinks = {
 					order	= 73,
 					type	= "execute",
 					name	= L["Generate Tradeskill Links"],
 					desc	= L["GENERATE_LINKS_DESC"],
 					func	= function() addon:GenerateLinks() end,
 				},
-				scantrainerskills = {	
+				scantrainerskills = {
 					order	= 75,
 					type	= "execute",
 					name	= L["Compare Trainer Skills"],
 					desc	= L["COMPARE_TRAINER_SKILL_DESC"],
 					func	= function() addon:ScanSkillLevelData() end,
 				},
-				scantraineracquire = {	
+				scantraineracquire = {
 					order	= 76,
 					type	= "execute",
 					name	= L["Compare Trainer Acquire"],
@@ -1436,7 +1436,7 @@ local function giveDisplay()
 					step	= .05,
 					bigStep = .05,
 					get		= function() return addon.db.profile.frameopts.uiscale end,
-					set		= function(info, v) 
+					set		= function(info, v)
 								addon.db.profile.frameopts.uiscale = v
 								if (addon.Frame) then addon.Frame:SetScale(v) end
 							  end,
@@ -1449,7 +1449,7 @@ local function giveDisplay()
 					min		= 6,
 					max		= 20,
 					step	= 1,
-					bigStep = 5,
+					bigStep = 1,
 					get		= function() return addon.db.profile.frameopts.fontsize end,
 					set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
@@ -1494,7 +1494,7 @@ local function giveDisplay()
 					step	= .05,
 					bigStep = .05,
 					get		= function() return addon.db.profile.frameopts.tooltipscale end,
-					set		= function(info, v) 
+					set		= function(info, v)
 								addon.db.profile.frameopts.tooltipscale = v
 								if (arlTooltip) then arlTooltip:SetScale(v) end
 								if (arlSpellTooltip) then arlSpellTooltip:SetScale(v) end
