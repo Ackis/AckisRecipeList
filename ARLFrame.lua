@@ -3260,7 +3260,7 @@ local function GenerateClickableTT(anchor)
 		if other_realms then
 			tip:AddNormalLine(" ")
 			y, x = tip:AddLine()
-			tip:SetCell(y, x, L["Other Realm"], "change realm")
+			tip:SetCell(y, x, L["Other Realms"], "change realm")
 		end
 	elseif not click_info.name then
 		local realm_list = tskl_list[click_info.realm]

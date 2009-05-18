@@ -1758,4 +1758,4 @@ L["Silverbrook Villager"] = true
 L["Silverbrook Hunter"] = true
 L["Silverbrook Defender"] = true
 L["ALT_TRADESKILL_DESC"] = "This will display a list of alts which have had trade skills scanned.  Clicking on the alt's name will output the tradeskill to chat."
-L["Other Realm"] = true
+L["Other Realms"] = true
