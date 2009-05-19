@@ -4565,20 +4565,20 @@ function addon:CreateFrame(
 						if clicktip:IsShown() then
 							if not click_info.modified then
 								clicktip:Hide()
-								wipe(click_info)
+								twipe(click_info)
 							else
-								wipe(click_info)
+								twipe(click_info)
 								GenerateClickableTT(this)
 							end
 						else
-							wipe(click_info)
+							twipe(click_info)
 							GenerateClickableTT(this)
 						end
 					end)
 				ARL_MiscAltBtn:SetScript("OnHide",
 					function(this, button)
 						clicktip:Hide()
-						wipe(click_info)
+						twipe(click_info)
 					end)
 
 		-- Now that everything exists, populate the global filter table
