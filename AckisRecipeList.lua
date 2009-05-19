@@ -96,10 +96,6 @@ addon.ARLCopyFrame = nil
 _G["arlTooltip"] = nil
 _G["arlSpellTooltip"] = nil
 
-if (GetRealmName() == "Thunderlord") and not ((GetUnitName("player") == "Ackis") or (GetUnitName("player") == "Shaelynn")) then
-	self:Print("Addon disabled because Alliance Player Nax is a douche. Camping people doing the fishing daily and coding == retarded moron.")
-end
-
 -- Make global API calls local to speed things up
 local GetNumTradeSkills = GetNumTradeSkills
 local GetSpellInfo = GetSpellInfo
