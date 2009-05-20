@@ -22,7 +22,7 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick		= LibStub("LibQTipClick-1.0")
+local QTipClick		= LibStub("LibQTipClick-1.1")
 
 local string = string
 local ipairs = ipairs
@@ -3290,7 +3290,7 @@ end
 
 -- Description: Function called when tool tip is clicked for alt trade skills
 
-local function HandleTTClick(cell, arg, event)
+local function HandleTTClick(event, cell, arg, button)
 	click_info.modified = true
 
 	if arg == "change realm" then
@@ -3318,7 +3318,7 @@ local function HandleTTClick(cell, arg, event)
 	end
 end
 
-clicktip:SetCallback("OnMouseDown", HandleTTClick)
+QTipClick.SetCallback(clicktip, "OnMouseDown", HandleTTClick)
 
 -- Description: Creates the initial frame to display recipes into
 

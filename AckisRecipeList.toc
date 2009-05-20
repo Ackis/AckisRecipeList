@@ -25,7 +25,7 @@
 ## X-Website: http://www.wowwiki.com/AckisRecipeList/
 ## X-Feedback: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
 
-## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibQTipClick-1.0,Skillet, ATSW, Manufac, Cauldron, TomTom, TipTac
+## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibQTipClick-1.1, Skillet, ATSW, Manufac, Cauldron, TomTom, TipTac
 ## DefaultState: Enabled
 
 ## SavedVariables: ARLDB2
