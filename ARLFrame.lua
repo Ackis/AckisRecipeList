@@ -3318,7 +3318,7 @@ local function HandleTTClick(event, cell, arg, button)
 	end
 end
 
-QTipClick.SetCallback(clicktip, "OnMouseDown", HandleTTClick)
+clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
 -- Description: Creates the initial frame to display recipes into
 
