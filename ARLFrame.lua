@@ -3248,7 +3248,8 @@ local function GenerateClickableTT(anchor)
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, realm, realm)
 			elseif realm == target_realm then
-				y, x = tip:AddLine()
+				y, x = tip:AddNormalLine(realm)
+				y, x = tip:AddNormalLine(" ")
 
 				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
@@ -3300,7 +3301,6 @@ local function HandleTTClick(event, cell, arg, button)
 		GenerateClickableTT()
 		return
 	end
-		
 	local tskl_list = addon.db.global.tradeskill
 
 	if not click_info.realm then
@@ -3311,6 +3311,16 @@ local function HandleTTClick(event, cell, arg, button)
 		GenerateClickableTT()
 	elseif not click_info.name then
 		click_info.name = arg
+
+		-- Wipe tradeskill information for the selected toon. -Torhal
+		if IsAltKeyDown() and button == "LeftButton" then
+			tskl_list[click_info.realm][click_info.name] = nil
+			local anchor = click_info.anchor
+			twipe(click_info)
+			click_info.anchor = anchor
+			GenerateClickableTT()
+			return
+		end
 		GenerateClickableTT()
 	else
 		-- Print link to chat frame, then reset tip data

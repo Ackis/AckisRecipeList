@@ -2690,7 +2690,7 @@ end
 
 --Description: Clears all saved tradeskills
 function addon:ClearSavedSkills()
-	wipe(addon.db.global.tradeskill)
+	twipe(addon.db.global.tradeskill)
 
 	if addon.db.profile.tradeskill then
 		addon.db.profile.tradeskill = nil
