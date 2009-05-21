@@ -924,7 +924,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19072,280,15093,2,2108)
 	self:addTradeFlags(RecipeDB,19072,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19072,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212,1,1632,1,5784,1,16728)
+	self:addTradeAcquire(RecipeDB,19072,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,4212,1,1632,1,5784,1,16728,1,3007)
 
 	-- Chimeric Leggings -- 19073
 	recipecount = recipecount + 1

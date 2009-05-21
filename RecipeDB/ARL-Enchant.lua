@@ -1087,7 +1087,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Nexus Transformation -- 42613
 	self:addTradeSkill(RecipeDB,42613,300,22448,1,7411,nil)
 	self:addTradeFlags(RecipeDB,42613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,42613,1,18753,1,18773,1,19252,1,33610,1,16633)
+	self:addTradeAcquire(RecipeDB,42613,1,18753,1,18773,1,19252,1,33610)
 
 	-- Small Prismatic Shard -- 42615
 	self:addTradeSkill(RecipeDB,42615,335,22448,1,7411,nil)
