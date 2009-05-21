@@ -1256,6 +1256,11 @@ local function giveDatamine()
 					type	= "description",
 					name	= L["DATAMINE_OPTIONS_DESC"] .. "\n",
 				},
+				datamine_warn =	{
+					order	= 2,
+					type	= "description",
+					name	= L["DATAMINE_WARNING_DESC"] .. "\n",
+				},
 				generatelinks = {
 					order	= 73,
 					type	= "execute",
