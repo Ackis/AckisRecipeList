@@ -7,7 +7,7 @@
  input-file: Docs/Datamine.txt
  output-page: "API/In-game Datamining Overview"
 -
- type: wiki
+ type: creole
  input-file: Docs/In-game.txt
  output-page: "In-game Documentation"
 -
@@ -15,7 +15,7 @@
  input-file: Docs/Feedback.txt
  output-page: "Feedback and Bug Reporting"
 -
- type: wiki
+ type: creole
  input-file: Docs/Main.txt
  output-page: "Main"
 -
