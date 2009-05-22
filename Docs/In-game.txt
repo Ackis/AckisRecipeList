@@ -2,7 +2,7 @@
 I developed some documentation which is in-game.  I am also providing it here.
 
 
-{{http://static.curseforge.net/thumbman/19/15/74/626x348/ARL_SS_RC8__11_.jpg.-m0.png}}
+{{arl:25}}
 
 
 ===Command Line

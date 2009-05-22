@@ -1,4 +1,4 @@
-﻿[[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334|{{http://i43.tinypic.com/dw3mag.jpg}}]]
+﻿[[http://www.mountaindewgamefuel.com/wow/incoming_earn.php?e=51&r=912885836334|{{arl:14}}]]
 
 Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
 
@@ -8,8 +8,7 @@ YouTube video of ARL in action:
 
 ==What it does
 
-
-{{arl:2}}
+{{arl:16}}
 {{http://static.wowace.com/uploads/19/15/65/ARL_SS_RC8__2_.jpg}}
 
 
@@ -106,11 +105,11 @@ This is the functionality that occurs when you click on a recipe.
 ==Filters==
 There are many different ways to filter which recipes you want to display.
 
-
+{{arl:17}}
 {{http://static.curseforge.net/thumbman/19/15/66/626x315/ARL_SS_RC8__3_.jpg.-m0.png}}
 
 
-
+{{arl:18}}
 {{http://static.curseforge.net/thumbman/19/15/67/626x313/ARL_SS_RC8__4_.jpg.-m0.png}}
 
 
@@ -148,7 +147,7 @@ Currently, the mod works with:
 * Please see the X-Credits field for more Acknowledgments.  Any code snippets borrowed or inspired from are credited in the code files.  The main display also lists all people who are in X-Credits.
 * Everyone who has helped me with localizations.
 
-
+{{arl:25}}
 {{http://static.curseforge.net/thumbman/19/15/71/626x349/ARL_SS_RC8__8_.jpg.-m0.png}}
 
 
