@@ -9,6 +9,7 @@ YouTube video of ARL in action:
 ==What it does
 
 
+{{arl:2}}
 {{http://static.wowace.com/uploads/19/15/65/ARL_SS_RC8__2_.jpg}}
 
 
