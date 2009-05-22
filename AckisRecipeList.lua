@@ -32,6 +32,8 @@ Documentation:
 -- @name AckisRecipeList.lua
 -- @release @file-revision@
 
+local LibStub = LibStub
+
 local MODNAME	= "Ackis Recipe List"
 
 AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
