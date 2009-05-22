@@ -494,6 +494,13 @@ do
 					loc = questDB[k]
 				end
 
+				if not loc then		-- Uh-oh. -Torhal
+					--@debug@
+					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
+					--@end-debug@
+					return
+				end
+
 				if (c1[loc["Location"]]) then
 					continent = 1
 					zone = c1[loc["Location"]]
@@ -510,6 +517,7 @@ do
 					--@debug@
 					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
 					--@end-debug@
+					return
 				end
 		
 				if ((zone) and (continent)) then
