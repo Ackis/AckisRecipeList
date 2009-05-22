@@ -3239,17 +3239,23 @@ local function GenerateClickableTT(anchor)
 
 	if not click_info.realm then
 		local other_realms = nil
+		local header = nil
 		for realm in pairs(tskl_list) do
 			if target_realm and (realm ~= target_realm) then
 				other_realms = true
 			end
 
 			if not target_realm and (realm ~= prealm) then
+				if not header then
+					y, x = tip:AddNormalLine(L["Other Realms"])
+					y, x = tip:AddSeparator()
+					header = true
+				end
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, realm, realm)
 			elseif realm == target_realm then
 				y, x = tip:AddNormalLine(realm)
-				y, x = tip:AddNormalLine(" ")
+				y, x = tip:AddSeparator()
 
 				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
@@ -3267,6 +3273,8 @@ local function GenerateClickableTT(anchor)
 		local realm_list = tskl_list[click_info.realm]
 
 		if realm_list then
+			y, x = tip:AddNormalLine(click_info.realm)
+			y, x = tip:AddSeparator()
 			for name in pairs(realm_list) do
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, name, name)
@@ -3274,7 +3282,7 @@ local function GenerateClickableTT(anchor)
 		end
 	else
 		tip:AddNormalLine(click_info.name)
-		tip:AddNormalLine(" ")
+		tip:AddSeparator()
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, prof, prof)
@@ -3315,6 +3323,15 @@ local function HandleTTClick(event, cell, arg, button)
 		-- Wipe tradeskill information for the selected toon. -Torhal
 		if IsAltKeyDown() and button == "LeftButton" then
 			tskl_list[click_info.realm][click_info.name] = nil
+
+			-- See if there are any toons left on the realm. If not, nuke it as well.
+			local found = false
+			for name in pairs(tskl_list[click_info.realm]) do
+				found = true
+			end
+			if not found then 
+				tskl_list[click_info.realm] = nil
+			end
 			local anchor = click_info.anchor
 			twipe(click_info)
 			click_info.anchor = anchor
