@@ -108,7 +108,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3932,85,4366,1,4036)
 	self:addTradeFlags(RecipeDB,3932,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3932,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3932,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Small Seaforium Charge -- 3933
 	recipecount = recipecount + 1
@@ -120,25 +120,25 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3934,100,4368,1,4036)
 	self:addTradeFlags(RecipeDB,3934,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,3934,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3934,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Deadly Blunderbuss -- 3936
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3936,105,4369,1,4036)
 	self:addTradeFlags(RecipeDB,3936,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3936,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3936,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Large Copper Bomb -- 3937
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3937,105,4370,1,4036)
 	self:addTradeFlags(RecipeDB,3937,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3937,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3937,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Bronze Tube -- 3938
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3938,105,4371,1,4036)
 	self:addTradeFlags(RecipeDB,3938,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3938,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3938,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Lovingly Crafted Boomstick -- 3939
 	recipecount = recipecount + 1
@@ -156,13 +156,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3941,120,4374,1,4036)
 	self:addTradeFlags(RecipeDB,3941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3941,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3941,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Whirring Bronze Gizmo -- 3942
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3942,125,4375,1,4036)
 	self:addTradeFlags(RecipeDB,3942,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3942,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3942,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Flame Deflector -- 3944
 	recipecount = recipecount + 1
@@ -174,31 +174,31 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3945,125,4377,1,4036)
 	self:addTradeFlags(RecipeDB,3945,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3945,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3945,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Heavy Dynamite -- 3946
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3946,125,4378,1,4036)
 	self:addTradeFlags(RecipeDB,3946,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3946,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3946,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Crafted Solid Shot -- 3947
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3947,125,8069,1,4036)
 	self:addTradeFlags(RecipeDB,3947,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,78)
-	self:addTradeAcquire(RecipeDB,3947,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3947,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Silver-plated Shotgun -- 3949
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3949,130,4379,1,4036)
 	self:addTradeFlags(RecipeDB,3949,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3949,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3949,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Big Bronze Bomb -- 3950
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3950,140,4380,1,4036)
 	self:addTradeFlags(RecipeDB,3950,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3950,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3950,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Minor Recombobulator -- 3952
 	recipecount = recipecount + 1
@@ -210,7 +210,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3953,145,4382,1,4036)
 	self:addTradeFlags(RecipeDB,3953,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3953,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3953,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Moonsight Rifle -- 3954
 	recipecount = recipecount + 1
@@ -222,13 +222,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3955,150,4384,1,4036)
 	self:addTradeFlags(RecipeDB,3955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3955,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3955,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Green Tinted Goggles -- 3956
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3956,150,4385,1,4036)
 	self:addTradeFlags(RecipeDB,3956,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,3956,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3956,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Ice Deflector -- 3957
 	recipecount = recipecount + 1
@@ -240,7 +240,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3958,160,4387,1,4036)
 	self:addTradeFlags(RecipeDB,3958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3958,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3958,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Discombobulator Ray -- 3959
 	recipecount = recipecount + 1
@@ -258,25 +258,25 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3961,170,4389,1,4036)
 	self:addTradeFlags(RecipeDB,3961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3961,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3961,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Iron Grenade -- 3962
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3962,175,4390,1,4036)
 	self:addTradeFlags(RecipeDB,3962,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3962,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3962,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Compact Harvest Reaper Kit -- 3963
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3963,175,4391,1,4036)
 	self:addTradeFlags(RecipeDB,3963,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3963,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3963,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Advanced Target Dummy -- 3965
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3965,185,4392,1,4036)
 	self:addTradeFlags(RecipeDB,3965,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3965,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3965,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Craftsman's Monocle -- 3966
 	recipecount = recipecount + 1
@@ -288,7 +288,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3967,190,4394,1,4036)
 	self:addTradeFlags(RecipeDB,3967,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3967,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,3967,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Goblin Land Mine -- 3968
 	recipecount = recipecount + 1
@@ -318,7 +318,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3973,90,4404,1,4036)
 	self:addTradeFlags(RecipeDB,3973,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3973,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3973,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Crude Scope -- 3977
 	recipecount = recipecount + 1
@@ -330,7 +330,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3978,110,4406,1,4036)
 	self:addTradeFlags(RecipeDB,3978,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,3978,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,3978,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Accurate Scope -- 3979
 	recipecount = recipecount + 1
@@ -342,7 +342,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,6458,135,5507,1,4036)
 	self:addTradeFlags(RecipeDB,6458,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,6458,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,6458,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Arclight Spanner -- 7430
 	recipecount = recipecount + 1
@@ -360,7 +360,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,8334,100,6712,1,4036)
 	self:addTradeFlags(RecipeDB,8334,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,8334,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,8334,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- EZ-Thro Dynamite -- 8339
 	recipecount = recipecount + 1
@@ -384,7 +384,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,9271,150,6533,1,4036)
 	self:addTradeFlags(RecipeDB,9271,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,9271,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,9271,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Goblin Jumper Cables -- 9273
 	recipecount = recipecount + 1
@@ -396,19 +396,19 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12584,150,10558,1,4036)
 	self:addTradeFlags(RecipeDB,12584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12584,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586)
+	self:addTradeAcquire(RecipeDB,12584,1,1676,1,3412,1,5174,1,5518,1,8736,1,11017,1,11029,1,11031,1,16667,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,33586,1,3494)
 
 	-- Solid Blasting Powder -- 12585
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12585,175,10505,1,4036)
 	self:addTradeFlags(RecipeDB,12585,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12585,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12585,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Solid Dynamite -- 12586
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12586,175,10507,1,4036)
 	self:addTradeFlags(RecipeDB,12586,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12586,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12586,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Bright-Eye Goggles -- 12587
 	recipecount = recipecount + 1
@@ -420,37 +420,37 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12589,195,10559,1,4036)
 	self:addTradeFlags(RecipeDB,12589,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12589,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12589,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Gyromatic Micro-Adjustor -- 12590
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12590,175,10498,1,4036)
 	self:addTradeFlags(RecipeDB,12590,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12590,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12590,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Unstable Trigger -- 12591
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12591,200,10560,1,4036)
 	self:addTradeFlags(RecipeDB,12591,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12591,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12591,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Fire Goggles -- 12594
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12594,205,10500,1,4036)
 	self:addTradeFlags(RecipeDB,12594,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,12594,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12594,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Mithril Blunderbuss -- 12595
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12595,205,10508,1,4036)
 	self:addTradeFlags(RecipeDB,12595,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12595,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12595,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Hi-Impact Mithril Slugs -- 12596
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12596,210,10512,1,4036)
 	self:addTradeFlags(RecipeDB,12596,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,78)
-	self:addTradeAcquire(RecipeDB,12596,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12596,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Deadly Scope -- 12597
 	recipecount = recipecount + 1
@@ -462,13 +462,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12599,215,10561,1,4036)
 	self:addTradeFlags(RecipeDB,12599,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12599,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12599,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Mithril Frag Bomb -- 12603
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12603,215,10514,1,4036)
 	self:addTradeFlags(RecipeDB,12603,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12603,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,12603,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Catseye Ultra Goggles -- 12607
 	recipecount = recipecount + 1
@@ -486,7 +486,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12615,225,10502,3,4036)
 	self:addTradeFlags(RecipeDB,12615,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,12615,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,12615,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Parachute Cloak -- 12616
 	recipecount = recipecount + 1
@@ -504,13 +504,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12618,230,10503,1,4036)
 	self:addTradeFlags(RecipeDB,12618,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,12618,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,12618,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Hi-Explosive Bomb -- 12619
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12619,235,10562,1,4036)
 	self:addTradeFlags(RecipeDB,12619,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12619,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,12619,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Sniper Scope -- 12620
 	recipecount = recipecount + 1
@@ -522,13 +522,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12621,245,10513,1,4036)
 	self:addTradeFlags(RecipeDB,12621,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,78)
-	self:addTradeAcquire(RecipeDB,12621,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,12621,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Green Lens -- 12622
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,12622,245,10504,1,4036)
 	self:addTradeFlags(RecipeDB,12622,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
-	self:addTradeAcquire(RecipeDB,12622,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,12622,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Mithril Mechanical Dragonling -- 12624
 	recipecount = recipecount + 1
@@ -654,7 +654,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,15255,200,11590,1,4036)
 	self:addTradeFlags(RecipeDB,15255,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,15255,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586)
+	self:addTradeAcquire(RecipeDB,15255,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494)
 
 	-- Pet Bombling -- 15628
 	recipecount = recipecount + 1
@@ -672,31 +672,31 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19567,250,15846,1,4036)
 	self:addTradeFlags(RecipeDB,19567,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,19567,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19567,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Dense Blasting Powder -- 19788
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19788,250,15992,1,4036)
 	self:addTradeFlags(RecipeDB,19788,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,19788,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19788,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Thorium Grenade -- 19790
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19790,260,15993,1,4036)
 	self:addTradeFlags(RecipeDB,19790,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19790,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19790,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Thorium Widget -- 19791
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19791,260,15994,1,4036)
 	self:addTradeFlags(RecipeDB,19791,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19791,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19791,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Thorium Rifle -- 19792
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19792,260,15995,2,4036)
 	self:addTradeFlags(RecipeDB,19792,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,19792,3,12397,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19792,3,12397,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Lifelike Mechanical Toad -- 19793
 	recipecount = recipecount + 1
@@ -708,13 +708,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19794,270,15999,2,4036)
 	self:addTradeFlags(RecipeDB,19794,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,19794,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19794,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Thorium Tube -- 19795
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19795,275,16000,1,4036)
 	self:addTradeFlags(RecipeDB,19795,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19795,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19795,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Dark Iron Rifle -- 19796
 	recipecount = recipecount + 1
@@ -732,7 +732,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19800,285,15997,2,4036)
 	self:addTradeFlags(RecipeDB,19800,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,78)
-	self:addTradeAcquire(RecipeDB,19800,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19800,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Masterwork Target Dummy -- 19814
 	recipecount = recipecount + 1
@@ -756,7 +756,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19825,290,16008,2,4036)
 	self:addTradeFlags(RecipeDB,19825,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
-	self:addTradeAcquire(RecipeDB,19825,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,19825,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Arcanite Dragonling -- 19830
 	recipecount = recipecount + 1
@@ -834,13 +834,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23070,250,18641,1,4036)
 	self:addTradeFlags(RecipeDB,23070,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,23070,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,23070,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Truesilver Transformer -- 23071
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,23071,260,18631,1,4036)
 	self:addTradeFlags(RecipeDB,23071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,23071,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,23071,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 
 	-- Gyrofreeze Ice Reflector -- 23077
 	recipecount = recipecount + 1
@@ -1302,7 +1302,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,40274,350,32461,1,4036)
 	self:addTradeFlags(RecipeDB,40274,1,2,3,25,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,40274,1,17634,1,17637,1,18752,1,18775,1,19576,1,33586)
+	self:addTradeAcquire(RecipeDB,40274,1,17634,1,17637,1,18752,1,18775,1,19576,1,33586,1,28697)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
 	recipecount = recipecount + 1
@@ -1320,7 +1320,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41312,350,32473,1,4036)
 	self:addTradeFlags(RecipeDB,41312,1,2,3,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,41312,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586)
+	self:addTradeAcquire(RecipeDB,41312,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	recipecount = recipecount + 1
@@ -1362,13 +1362,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41320,350,32494,1,4036)
 	self:addTradeFlags(RecipeDB,41320,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,28697)
+	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991)
 
 	-- Powerheal 4000 Lens -- 41321
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,41321,350,32495,4,4036)
 	self:addTradeFlags(RecipeDB,41321,1,2,3,26,37,41,56)
-	self:addTradeAcquire(RecipeDB,41321,1,25277,1,26907,1,26955,1,26991,1,28697)
+	self:addTradeAcquire(RecipeDB,41321,1,25277,1,26907,1,26955,1,26991)
 
 	-- Adamantite Arrow Maker -- 43676
 	recipecount = recipecount + 1
@@ -1650,7 +1650,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56480,440,42549,3,4036)
 	self:addTradeFlags(RecipeDB,56480,1,2,3,21,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,33586)
+	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Weakness Spectralizers -- 56481
 	recipecount = recipecount + 1
@@ -1662,13 +1662,13 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56483,440,42552,3,4036)
 	self:addTradeFlags(RecipeDB,56483,1,2,3,21,25,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,33586)
+	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Visage Liquification Goggles -- 56484
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,56484,440,42553,3,4036)
 	self:addTradeFlags(RecipeDB,56484,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991,1,28697)
+	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991)
 
 	-- Greensight Gogs -- 56486
 	recipecount = recipecount + 1
@@ -1770,7 +1770,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,63750,250,45631,1,4036)
 	self:addTradeFlags(RecipeDB,63750,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,61)
-	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697,1,16667,1,1702,1,16726,1,11017,1,33586)
+	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697,1,16667,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174)
 	
 	return recipecount
 
