@@ -43,7 +43,7 @@ This is the functionality that occurs when you click on a recipe.
 *Shift Click
 **Generates an item link of the item that the recipe will make into your default chat box.
 *Ctrl Click
-**Genereates a spell link for the recipe you clicked.
+**Generates a spell link for the recipe you clicked.
 *Alt Click
 **Adds or removes a recipe from the exclusion list.
 *Ctrl-Shift Click
@@ -79,5 +79,5 @@ When posting a bug report, do NOT include all of the addons from swatter.  This 
 ===Common Issues
 Please refer to these common issues before submitting a bug report.
 # Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
-# Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.
+# Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
 # I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.
