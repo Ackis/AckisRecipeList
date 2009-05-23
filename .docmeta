@@ -11,7 +11,7 @@
  input-file: Docs/In-game.txt
  output-page: "In-game Documentation"
 -
- type: wiki
+ type: creole
  input-file: Docs/Feedback.txt
  output-page: "Feedback and Bug Reporting"
 -
