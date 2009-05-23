@@ -23,7 +23,7 @@
  input-file: Docs/CHANGES.txt
  output-page: "ARL Changelog"
 -
- type: wiki
+ type: creole
  input-file: Docs/Localization.txt
  output-page: "API/Localization"
 -
