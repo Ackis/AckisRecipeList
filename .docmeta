@@ -19,7 +19,7 @@
  input-file: Docs/Main.txt
  output-page: "Main"
 -
- type: wiki
+ type: creole
  input-file: Docs/CHANGES.txt
  output-page: "ARL Changelog"
 -
