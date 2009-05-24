@@ -688,7 +688,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spelllink = recipeDB[rIndex]["RecipeLink"]
 
 	if (acquiretooltiplocation == L["Off"]) then
-		arlTooltip:Hide()
+		QTip:Release(arlTooltip)
 		-- If we have the spell link tooltip, link it to the owner instead so it shows
 		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
 			SetSpellTooltip(addon.Frame, spelltooltiplocation)
@@ -698,7 +698,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			arlSpellTooltip:Hide()
 		end
 	else
+		arlTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
+		arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 		arlTooltip:ClearAllPoints()
+
 		if (acquiretooltiplocation == "Right") then
 			arlTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
 		elseif (acquiretooltiplocation == "Left") then
@@ -1064,7 +1067,7 @@ local function SetRecipeButtonTooltip(bIndex)
 
 	pButton:SetScript("OnLeave",
 			function()
-				arlTooltip:Hide()
+				QTip:Release(arlTooltip)
 				arlSpellTooltip:Hide()
 			end
 		)
@@ -1077,7 +1080,7 @@ local function SetRecipeButtonTooltip(bIndex)
 
 	rButton:SetScript("OnLeave",
 			function()
-				arlTooltip:Hide()
+				QTip:Release(arlTooltip)
 				arlSpellTooltip:Hide()
 			end
 		)
@@ -3697,12 +3700,11 @@ function addon:CreateFrame(
  			ARL_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
 
 		-- I'm going to use my own tooltip for recipebuttons
-		arlTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
 		arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", addon.Frame, "GameTooltipTemplate")
 
 		-- Add TipTac Support
 		if (TipTac) and (TipTac.AddModifiedTip) then
-			TipTac:AddModifiedTip(arlTooltip)
+-- FIXME			TipTac:AddModifiedTip(arlTooltip)
 			TipTac:AddModifiedTip(arlSpellTooltip)
 		end
 
@@ -4597,6 +4599,7 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:SetScript("OnClick",
 					function(this, button)
 						clicktip:SetParent(this)
+
 						if clicktip:IsShown() then
 							if not click_info.modified then
 								clicktip:Hide()
@@ -4733,7 +4736,6 @@ function addon:CreateFrame(
 
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
-	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
