@@ -756,7 +756,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,11454,200,9060,1,2018)
 	self:addTradeFlags(RecipeDB,11454,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,11454,1,7406,1,7944)
+	self:addTradeAcquire(RecipeDB,11454,8,9)
 
 	-- Golden Scale Gauntlets -- 11643
 	recipecount = recipecount + 1
