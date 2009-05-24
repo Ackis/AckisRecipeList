@@ -3217,7 +3217,7 @@ end
 -------------------------------------------------------------------------------
 -- Alt-Tradeskills tooltip
 -------------------------------------------------------------------------------
-local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
+local clicktip
 
 -------------------------------------------------------------------------------
 -- Data used in HandleTTClick() and GenerateClickableTT()
@@ -3355,8 +3355,6 @@ local function HandleTTClick(event, cell, arg, button)
 		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
 	end
 end
-
-clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
 -- Description: Creates the initial frame to display recipes into
 
@@ -4598,24 +4596,24 @@ function addon:CreateFrame(
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
 					function(this, button)
-						clicktip:SetParent(this)
-
-						if clicktip:IsShown() then
+						if clicktip then
 							if not click_info.modified then
-								clicktip:Hide()
+								clicktip = QTipClick:Release(clicktip)
 								twipe(click_info)
 							else
 								twipe(click_info)
 								GenerateClickableTT(this)
 							end
 						else
+							clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
+							clicktip:SetCallback("OnMouseDown", HandleTTClick)
 							twipe(click_info)
 							GenerateClickableTT(this)
 						end
 					end)
 				ARL_MiscAltBtn:SetScript("OnHide",
 					function(this, button)
-						clicktip:Hide()
+						clicktip = QTipClick:Release(clicktip)
 						twipe(click_info)
 					end)
 
