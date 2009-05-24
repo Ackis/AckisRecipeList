@@ -82,7 +82,7 @@ function addon:InitSmelting(RecipeDB)
 	-- Smelt Elementium -- 22967
 	self:addTradeSkill(RecipeDB,22967,300,17771,5,32606,nil,0,300,350,362,375)
 	self:addTradeFlags(RecipeDB,22967,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,22967,8,27)
+	self:addTradeAcquire(RecipeDB,22967,3,14401)
 
 	-- Smelt Fel Iron -- 29356
 	self:addTradeSkill(RecipeDB,29356,300,23445,1,32606,nil,1,0,300,307,315)
