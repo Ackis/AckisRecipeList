@@ -426,7 +426,7 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,10363,BBOSS["General Drakkisath"],BZONE["Blackrock Spire"],0,0)
 	self:addLookupList(MobDB,10899,BBOSS["Goraluk Anvilcrack"],BZONE["Blackrock Spire"],0,0)
 	--Blackwing Lair
-	self:addLookupList(MobDB,10899,L["Master Elemental Shaper Krixix"],BZONE["Blackwing Lair"],0,0)
+	self:addLookupList(MobDB,14401,L["Master Elemental Shaper Krixix"],BZONE["Blackwing Lair"],0,0)
 	-- Dire Maul
 	self:addLookupList(MobDB,11459,L["Ironbark Protector"],BZONE["Dire Maul"],0,0)
 	self:addLookupList(MobDB,11487,BBOSS["Magister Kalendris"],BZONE["Dire Maul"],0,0)
