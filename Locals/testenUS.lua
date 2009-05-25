@@ -841,6 +841,7 @@ L["Ethereum Smuggler"] = true
 L["Eunice Burch"] = true
 L["Faldron"] = true
 L["Falorn Nightwhisper"] = true
+L["Fariel Starsong"] = true
 L["Farii"] = true
 L["Fazu"] = true
 L["Fedryen Swiftspear"] = true
