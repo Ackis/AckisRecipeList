@@ -3258,15 +3258,15 @@ local function GenerateClickableTT(anchor)
 
 			if not target_realm and (realm ~= prealm) then
 				if not header then
-					y, x = tip:AddNormalLine(L["Other Realms"])
-					y, x = tip:AddSeparator()
+					tip:AddNormalHeader(L["Other Realms"])
+					tip:AddSeparator()
 					header = true
 				end
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, realm, realm)
 			elseif realm == target_realm then
-				y, x = tip:AddNormalLine(realm)
-				y, x = tip:AddSeparator()
+				tip:AddNormalHeader(realm)
+				tip:AddSeparator()
 
 				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
@@ -3277,27 +3277,31 @@ local function GenerateClickableTT(anchor)
 		end
 		if other_realms then
 			tip:AddNormalLine(" ")
+			tip:AddSeparator()
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, L["Other Realms"], "change realm")
 		end
+		tip:AddSeparator()
 	elseif not click_info.name then
 		local realm_list = tskl_list[click_info.realm]
 
 		if realm_list then
-			y, x = tip:AddNormalLine(click_info.realm)
-			y, x = tip:AddSeparator()
+			tip:AddNormalLine(click_info.realm)
+			tip:AddSeparator()
 			for name in pairs(realm_list) do
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, name, name)
 			end
+			tip:AddSeparator()
 		end
 	else
-		tip:AddNormalLine(click_info.name)
+		tip:AddNormalHeader(click_info.name)
 		tip:AddSeparator()
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, prof, prof)
 		end
+		tip:AddSeparator()
 	end
 	if anchor then
 		click_info.anchor = anchor
