@@ -376,6 +376,7 @@ function addon:ScanVendor()
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
+		-- Parse all the items on the merchant
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
@@ -394,7 +395,6 @@ end
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
-
 function addon:ScanToolTip()
 
 --[[
@@ -406,24 +406,24 @@ function addon:ScanToolTip()
 		return
 	end
 ]]--
-	do
 
-		local item = false
-		local recipe = false
-		local tank = false
-		local melee = false
-		local caster = false
-		local healer = false
-		local name = false
+	-- Parse all the lines of the tooltip
+	for i=1,ARLDatamineTT:NumLines(),1 do
 
-		local enchanting = false
-
-		-- Read the first line in the tool tip (items name)
-		local i = 1
-
-		local name = ""
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
+
+		local enchanting = false
+		local name = ""
+		local boprecipe = false
+		local bopitem = false
+		local healer = false
+		local tank = false
+		local dps = false
+		local caster = false
+
+		local specialty = false
+
 		-- Designs are JC
 		if (strmatch(text,"Design: ")) or
 		-- LW or Tailoring
@@ -439,109 +439,35 @@ function addon:ScanToolTip()
 		-- First Aid
 		(strmatch(text,"Manual: ")) then
 
+			-- Enchanting has a weird tooltip compared to other recipes
 			if (strmatch(text,"Formula: ")) then
 				enchanting = true
-				name = text
 			end
 
-			-- Check to see if it's a BoP recipe
-			i = i + 1
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			text = linetext:GetText()
-
-			if (strmatch(text,"Binds when picked up")) then
-				recipe = true
-				-- Increase line index since this line was BoP
-				i = i + 1
+			name = text
+		-- Check for recipe/item binding
+		elseif (strmatch(text,"Binds when picked up")) then
+			-- The recipe binding is within the first few lines of the tooltip always
+			if (i < 3) then
+				boprecipe = true
+			-- Item binding comes later on in the tooltip
 			else
-				recipe = false
+				bopitem = true
 			end
+		-- Recipe Specialities
+		elseif (strmatch(text,"Requires Mooncloth Tailoring")) then
+			specialty = text
+		-- Recipe Reputatons
+		elseif (strmatch(text,"Requires Lower City - Friendly")) then
 
-			-- This line will always be "Requires Profession (xxx)" so skip past that
-			i = i + 1
-
-			-- This line may be already known if we know it alrady.
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			text = linetext:GetText()
-
-			if (strmatch(text,"Already Known")) then
-				-- Increase line index since we had already known
-				i = 1 + 1
-			end
-
-			-- This will be the speciality, rep requirement, or the use
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			text = linetext:GetText()
-self:Print(text)
-			-- Check for specialities
-			local specialityfound = false
-
-			if (strmatch(text,"Requires Mooncloth Tailoring")) then
-				specialityfound = true
-			elseif (strmatch(text,"Requires Spellfire Tailoring")) then
-				specialityfound = true
-			elseif (strmatch(text,"Requires Shadowcloth Tailoring")) then
-				specialityfound = true
-			end
-
-			-- We found a speciality so lets increase our index
-			if (specialityfound == true) then
-				i = i + 1
-			end
-
-			-- Check for reps
-			local repfound = false
-
-			linetext = _G["ARLDatamineTTTextLeft" .. i]
-			text = linetext:GetText()
-self:Print(text)
-			if (strmatch(text,"Requires Lower City - Friendly")) then
-				repfound = true
-			elseif (strmatch(text,"Requires Lower City - Honored")) then
-				repfound = true
-			elseif (strmatch(text,"Requires Lower City - Revered")) then
-				repfound = true
-			end
-
-			-- We found a speciality so lets increase our index
-			if (repfound == true) then
-				self:Print("Rep found")
-				i = i + 1
-			end
-
-			if (not enchanting) then
-				-- Next line is the use effect so we can skip it and after that line is a blank line
-				i = i + 2
-
-				-- We're now at the name of the item
-				linetext = _G["ARLDatamineTTTextLeft" .. i]
-				name = linetext:GetText()
-
-				-- Check to see if it's a BoP item
-				i = i + 1
-				linetext = _G["ARLDatamineTTTextLeft" .. i]
-				text = linetext:GetText()
-
-				if (strmatch(text,"Binds when picked up")) then
-					item = true
-					-- Increase line index and get new text since this line was BoP
-					i = 1 + 1
-				else
-					item = false
-				end
-			else
-
-			end
-			self:Print("Recipe: " .. name)
-			if (recipe) then
-				self:Print("Recipe BoP: Yes")
-			end
-			if (item) then
-				self:Print("Item BoP: Yes")
-			end
-			if (repfound) then
-				self:Print("Rep Req:: Yes")
-			end
+		-- Item Stats
+		elseif (strmatch(text,"Spell Power")) then
+			healer = true
+			caster = true
+		elseif (strmatch(text,"Defense")) then
+			tank = true
+		elseif (strmatch(text,"Block")) then
+			tank = true
 		end
 	end
 
