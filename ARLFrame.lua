@@ -719,6 +719,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 		end
 
+		if TipTac and TipTac.AddModifiedTip then
+			TipTac:AddModifiedTip(arlTooltip)
+			TipTac:ApplySettings()
+		end
 		arlTooltip:Clear()
 		ttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
@@ -3706,7 +3710,6 @@ function addon:CreateFrame(
 
 		-- Add TipTac Support
 		if (TipTac) and (TipTac.AddModifiedTip) then
--- FIXME			TipTac:AddModifiedTip(arlTooltip)
 			TipTac:AddModifiedTip(arlSpellTooltip)
 		end
 
