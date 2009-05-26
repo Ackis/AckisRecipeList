@@ -1146,7 +1146,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,39710,375,32195,1,25229)
 	self:addTradeFlags(RecipeDB,39710,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
-	self:addTradeAcquire(RecipeDB,39710,6,1077,1,25950,6,1077,6,1077,1,27666)
+	self:addTradeAcquire(RecipeDB,39710,6,1077,1,25950,6,1077,1,27666)
 
 	-- Runed Crimson Spinel -- 39711
 	recipecount = recipecount + 1
