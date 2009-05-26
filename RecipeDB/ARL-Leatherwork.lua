@@ -990,7 +990,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,19083,290,15087,2,2108)
 	self:addTradeFlags(RecipeDB,19083,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19083,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087,1,4212,1,1632,1,5784,1,3549)
+	self:addTradeAcquire(RecipeDB,19083,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087,1,1632,1,5784,1,3549)
 
 	-- Devilsaur Gauntlets -- 19084
 	recipecount = recipecount + 1
@@ -1626,37 +1626,37 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32498,350,25695,3,2108)
 	self:addTradeFlags(RecipeDB,32498,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,104)
-	self:addTradeAcquire(RecipeDB,32498,6,946,1,17657,6,946,1,17657)
+	self:addTradeAcquire(RecipeDB,32498,6,946,1,17657)
 
 	-- Felstalker Bracer -- 32499
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32499,360,25697,3,2108)
 	self:addTradeFlags(RecipeDB,32499,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,104)
-	self:addTradeAcquire(RecipeDB,32499,6,946,2,17657,6,946,2,17657)
+	self:addTradeAcquire(RecipeDB,32499,6,946,2,17657)
 
 	-- Felstalker Breastplate -- 32500
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32500,360,25696,3,2108)
 	self:addTradeFlags(RecipeDB,32500,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,104)
-	self:addTradeAcquire(RecipeDB,32500,6,946,2,17657,6,946,2,17657)
+	self:addTradeAcquire(RecipeDB,32500,6,946,2,17657)
 
 	-- Netherfury Belt -- 32501
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32501,340,25694,3,2108)
 	self:addTradeFlags(RecipeDB,32501,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,108)
-	self:addTradeAcquire(RecipeDB,32501,6,978,1,20240,6,978,1,20240)
+	self:addTradeAcquire(RecipeDB,32501,6,978,1,20240)
 
 	-- Netherfury Leggings -- 32502
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32502,340,25692,3,2108)
 	self:addTradeFlags(RecipeDB,32502,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,108)
-	self:addTradeAcquire(RecipeDB,32502,6,978,2,20240,6,978,2,20240)
+	self:addTradeAcquire(RecipeDB,32502,6,978,2,20240)
 
 	-- Netherfury Boots -- 32503
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,32503,350,25693,3,2108)
 	self:addTradeFlags(RecipeDB,32503,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,108)
-	self:addTradeAcquire(RecipeDB,32503,6,978,3,20240,6,978,3,20240)
+	self:addTradeAcquire(RecipeDB,32503,6,978,3,20240)
 
 	-- Shadow Armor Kit -- 35520
 	recipecount = recipecount + 1
@@ -1722,7 +1722,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35530,325,29540,1,2108)
 	self:addTradeFlags(RecipeDB,35530,1,4,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB,35530,6,978,2,20240,6,978,2,20240)
+	self:addTradeAcquire(RecipeDB,35530,6,978,2,20240)
 
 	-- Flamescale Belt -- 35531
 	recipecount = recipecount + 1
@@ -1776,7 +1776,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35539,350,29531,1,2108)
 	self:addTradeFlags(RecipeDB,35539,1,4,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB,35539,6,978,2,20240,6,978,2,20240)
+	self:addTradeAcquire(RecipeDB,35539,6,978,2,20240)
 
 	-- Drums of War -- 35540
 	recipecount = recipecount + 1
@@ -1794,7 +1794,7 @@ function addon:InitLeatherworking(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,35544,345,29530,1,2108)
 	self:addTradeFlags(RecipeDB,35544,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB,35544,3,22128,6,978,2,20240,6,978,2,20240)
+	self:addTradeAcquire(RecipeDB,35544,3,22128,6,978,2,20240)
 
 	-- Cobrahide Leg Armor -- 35549
 	recipecount = recipecount + 1
