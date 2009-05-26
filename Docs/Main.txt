@@ -10,7 +10,6 @@ YouTube video of ARL in action:
 
 {{arl:16}}
 
-
 =====French (frFR)
 Affiche une liste des recettes manquantes de vos métiers. Fonctionne avec tous les métiers, y compris les poisons des voleurs et les capacités des familiers des chasseurs.
 
@@ -40,18 +39,15 @@ If you don't wish to donate money feel free to consider one of the following met
 ** [[http://eu.wowarmory.com/character-sheet.xml?r=Aegwynn&n=Ascalia|Ascalia (EU)]]
 ** [[http://www.wowarmory.com/character-sheet.xml?r=Hellscream&n=Zhinjio|Zhinjio (US)]]
 
-==Do this first==
-Read the documentation located at these locations:
-* [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
-* [[http://www.wowace.com/projects/arl/pages/in-game-documentation/|In-game Documentation]]
-
-==IRC==
-Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in #arl or by [[http://widget.mibbit.com/?settings=5ec9a69db8a1d54761f84aa78810f1a2&server=irc.freenode.net&channel=%23arl&noServerNotices=true&noServerMotd=true&autoConnect=true|here]].
-
 ==Where to get it==
 * [[http://www.wowace.com/projects/arl/files/|WoW Ace]] - Alpha Quality
 * [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse]] - Stable release
 * [[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html|WoWInterface]] - Stable release
+
+==Do this first==
+Read the documentation located at these locations:
+* [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
+* [[http://www.wowace.com/projects/arl/pages/in-game-documentation/|In-game Documentation]]
 
 ==How to get it to work==
 You open up a trade skill window (ie: enchanting) and click on the Scan button which is attached to the trade skill window.  Results will be printed out to the chat frame, or into a separate window depending on preference.
@@ -72,7 +68,6 @@ Ackis Recipe List has recently changed to use a GUI for change parameters.  Type
  <<code>>/arl filter<</code>>
 ** Performs a scan for missing recipes.  This is in place for those times when you cannot access the scan button:
  <<code>>/arl scan<</code>>
-
 
 ===Clicking===
 Ackis Recipe List will behave differently depending on which modifying keys you use to click.
@@ -109,6 +104,12 @@ There are many different ways to filter which recipes you want to display.
 
 {{arl:18}}
 
+==Contacting the Author==
+
+Please use the bug reporting feature to submit bug reports.  Do not contact me via Curse PM.  Do not submit bug reports in comments.
+
+===IRC===
+Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in #arl or by clicking [[http://widget.mibbit.com/?settings=5ec9a69db8a1d54761f84aa78810f1a2&server=irc.freenode.net&channel=%23arl&noServerNotices=true&noServerMotd=true&autoConnect=true|here]] (opens up a web-based IRC client).
 
 ==Known Issues==
 * When gaining a reputation level recipes for that faction will still appear in red when doing a scan.
@@ -145,7 +146,6 @@ Currently, the mod works with:
 * Everyone who has helped me with localizations.
 
 {{arl:22}}
-
 
 ==Wiki==
 [[http://www.wowwiki.com/AckisRecipeList|WoW Wiki]]
