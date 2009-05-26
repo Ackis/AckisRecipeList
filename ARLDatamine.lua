@@ -375,7 +375,7 @@ function addon:ScanVendor()
 
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
+self:Print("Scanning " .. GetMerchantNumItems() .. " items on vendor.")
 		-- Parse all the items on the merchant
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
@@ -395,7 +395,7 @@ end
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
-function addon:ScanToolTip()
+function addon:ScanToolTip(name)
 
 --[[
 	-- Get internal database
@@ -407,14 +407,14 @@ function addon:ScanToolTip()
 	end
 ]]--
 
+self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 	-- Parse all the lines of the tooltip
 	for i=1,ARLDatamineTT:NumLines(),1 do
 
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
-
+self:Print("DEBUG: Tooltip text: " .. text)
 		local enchanting = false
-		local name = ""
 		local boprecipe = false
 		local bopitem = false
 		local healer = false
@@ -444,7 +444,6 @@ function addon:ScanToolTip()
 				enchanting = true
 			end
 
-			name = text
 		-- Check for recipe/item binding
 		elseif (strmatch(text,"Binds when picked up")) then
 			-- The recipe binding is within the first few lines of the tooltip always
