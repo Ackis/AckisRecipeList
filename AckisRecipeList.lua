@@ -754,7 +754,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 	--@debug@
 	-- Internal DB to check to see if we're adding duplicate ID's as an acquire method
-	local IDs = {}
+	local AcquireIDList = {}
 	--@end-debug@
 
 	while (i < numvars) do
@@ -769,9 +769,11 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		acquire[index]["ID"] = AcquireID
 
 		--@debug@
+		self:Print(AcquireID)
 		-- We haven't seen this Acquire ID before (trainer ID, etc)
-		if (not IDs[AcquireID]) then
-			IDs[AcquireID] = true
+		if (not AcquireIDList[AcquireID]) then
+			AcquireIDList[AcquireID] = true
+			self:Print("Adding")
 		else
 			self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireID)
 		end
