@@ -1762,3 +1762,4 @@ L["Silverbrook Defender"] = true
 L["ALT_TRADESKILL_DESC"] = "This will display a list of alts which have had trade skills scanned.  Clicking on the alt's name will output the tradeskill to chat."
 L["Other Realms"] = true
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
+L["Anuur"] = true

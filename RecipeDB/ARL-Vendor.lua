@@ -392,5 +392,6 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,32763,L["Sairuk"],BZONE["Dragonblight"],48.95,76.27,0)
 	self:addLookupList(VendorDB,32773,L["Logistics Officer Brighton"],BZONE["Howling Fjord"],60.28,63.99,1)
 	self:addLookupList(VendorDB,32774,L["Sebastian Crane"],BZONE["Howling Fjord"],79.54,32.82,2)
+	self:addLookupList(VendorDB,33602,L["Anuur"],BZONE["Icecrown"],71.4,20.8,0)
 
 end
