@@ -714,7 +714,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10003,235,7954,1,2018)
 	self:addTradeFlags(RecipeDB,10003,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
-	self:addTradeAcquire(RecipeDB,10003,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,10003,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dazzling Mithril Rapier -- 10005
 	recipecount = recipecount + 1
@@ -726,7 +726,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,10007,245,7961,1,2018)
 	self:addTradeFlags(RecipeDB,10007,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
-	self:addTradeAcquire(RecipeDB,10007,1,7232,1,11146,1,11178,1,20124)
+	self:addTradeAcquire(RecipeDB,10007,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Runed Mithril Hammer -- 10009
 	recipecount = recipecount + 1
@@ -2508,19 +2508,19 @@ function addon:InitBlacksmithing(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,11146)
+	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,11146,1,29505)
 
 	-- Corroded Saronite Woundbringer -- 55184
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55184,415,41187,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55184,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
-	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146)
+	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146,1,29505)
 
 	-- Saronite Mindcrusher -- 55185
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787)
 	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
-	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146)
+	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,26988,1,29924,1,29506,1,11146,1,29505)
 
 	-- Chestplate of Conquest -- 55186
 	recipecount = recipecount + 1
