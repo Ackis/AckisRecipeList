@@ -241,9 +241,9 @@ local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, re
 		return addon:Orange(recStr)
 	-- Fallback
 	else
-		--@debug@
+		--@alpha@
 		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recStr)
-		--@end-debug@
+		--@end-alpha@
 		return addon:MidGrey(recStr)
 	end
 
@@ -495,9 +495,9 @@ do
 				end
 
 				if not loc then		-- Uh-oh. -Torhal
-					--@debug@
+					--@alpha@
 					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
-					--@end-debug@
+					--@end-alpha@
 					return
 				end
 
@@ -514,9 +514,9 @@ do
 					continent = 4
 					zone = c4[loc["Location"]]
 				else
-					--@debug@
+					--@alpha@
 					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
-					--@end-debug@
+					--@end-alpha@
 					return
 				end
 		

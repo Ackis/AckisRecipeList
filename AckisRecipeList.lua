@@ -322,9 +322,6 @@ function addon:OnEnable()
 
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
-		--@debug@
-		self:Print("Enabling Manufac integration.")
-		--@end-debug@
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan"],
@@ -752,7 +749,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 	local acquire = RecipeDB[SpellID]["Acquire"]
 
-	--@debug@
+	--@alpha@
 	-- Internal DB to check to see if we're adding duplicate ID's as an acquire method
 	local AcquireIDList = {}
 	--@end-debug@
@@ -768,9 +765,9 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		acquire[index]["Type"] = AcquireType
 		acquire[index]["ID"] = AcquireID
 
-		--@debug@
+		--@alpha@
 		local AcquireIDNumber = AcquireID
-		--@end-debug@
+		--@end-alpha@
 
 		i = i + 2
 
@@ -781,22 +778,22 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
 
-			--@debug@
+			--@alpha@
 			AcquireIDNumber = RepVendor
-			--@end-debug@
+			--@end-alpha@
 
 		end
 
 		index = index + 1
 
-		--@debug@
+		--@alpha@
 		-- We haven't seen this Acquire ID before (trainer ID, etc)
 		if (not AcquireIDList[AcquireIDNumber]) then
 			AcquireIDList[AcquireIDNumber] = true
 		else
 			self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireIDNumber)
 		end
-		--@end-debug@
+		--@end-alpha@
 
 	end
 
@@ -828,9 +825,9 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 	if (Loc) then
 		DB[ID]["Location"] = Loc
 	else
-		--@debug@
+		--@alpha@
 		self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
-		--@end-debug@
+		--@end-alpha@
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
 
@@ -1668,12 +1665,12 @@ do
 				-- Trainer
 				if (recipeacquire[i]["Type"] == 1) then
 					if (TrainerList) then
-						--@debug@
+						--@alpha@
 						if (not TrainerList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
 							return
 						end
-						--@end-debug@
+						--@end-alpha@
 						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1684,11 +1681,11 @@ do
 				-- Vendor
 				elseif (recipeacquire[i]["Type"] == 2) then
 					if (VendorList) then
-						--@debug@
+						--@alpha@
 						if (not VendorList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
 						end
-						--@end-debug@
+						--@end-alpha@
 						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1699,11 +1696,11 @@ do
 				-- Mob Drop
 				elseif (recipeacquire[i]["Type"] == 3) then
 					if (MobList) then
-						--@debug@
+						--@alpha@
 						if (not MobList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
 						end
-						--@end-debug@
+						--@end-alpha@
 						local location = MobList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -1714,11 +1711,11 @@ do
 				-- Quest
 				elseif (recipeacquire[i]["Type"] == 4) then
 					if (QuestList) then
-						--@debug@
+						--@alpha@
 						if (not QuestList[recipeacquire[i]["ID"]]) then
 							self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
 						end
-						--@end-debug@
+						--@end-alpha@
 						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
@@ -2292,10 +2289,6 @@ end
 function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
-
-	--@debug@
-	self:Print("DEBUG: Getting text dump for: " .. profession)
-	--@end-debug@
 
 	-- Add a header to the text table
 	tinsert(texttable,format("Ackis Recipe List Text Dump for %s",profession))
