@@ -769,14 +769,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		acquire[index]["ID"] = AcquireID
 
 		--@debug@
-		self:Print(AcquireID)
-		-- We haven't seen this Acquire ID before (trainer ID, etc)
-		if (not AcquireIDList[AcquireID]) then
-			AcquireIDList[AcquireID] = true
-			self:Print("Adding")
-		else
-			self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireID)
-		end
+		local AcquireIDNumber = AcquireID
 		--@end-debug@
 
 		i = i + 2
@@ -787,9 +780,25 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
+
+			--@debug@
+			AcquireIDNumber = RepVendor
+			--@end-debug@
+
 		end
 
 		index = index + 1
+
+		--@debug@
+		self:Print(AcquireIDNumber)
+		-- We haven't seen this Acquire ID before (trainer ID, etc)
+		if (not AcquireIDList[AcquireIDNumber]) then
+			AcquireIDList[AcquireIDNumber] = true
+			self:Print("Adding")
+		else
+			self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireIDNumber)
+		end
+		--@end-debug@
 
 	end
 
