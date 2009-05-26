@@ -648,16 +648,19 @@ local function ttAdd(
 		leftStr = "  " .. leftStr
 		loopPad = loopPad - 1
 	end
+	local lineNum
 
 	if (str2) then
-		local lineNum = arlTooltip:AddLine(" ")
+		lineNum = arlTooltip:AddLine()
 		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
-		arlTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r")
+		arlTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
 	elseif use_span then
-		local lineNum = arlTooltip:AddLine(" ")
+		lineNum = arlTooltip:AddLine()
 		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", 2)
 	else
-		arlTooltip:AddLine("|cff"..hexcolor1..leftStr.."|r")
+		-- Single column - set maximum width to 385 pixels to maintain uniform tooltip size. -Torhal
+		lineNum = arlTooltip:AddLine()
+		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 1, nil, 0, 0, 385)
 	end
 end
 
@@ -721,15 +724,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 		if TipTac and TipTac.AddModifiedTip then
 			TipTac:AddModifiedTip(arlTooltip)
-			TipTac:ApplySettings()
 		end
 		arlTooltip:Clear()
-		ttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
+		ttAdd(0, 1, 0, false, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
 		-- check if the recipe is excluded
 		if (exclude[rIndex] == true) then
 			clr1 = addon:hexcolor("RED")
-			ttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
+			ttAdd(0, -1, 1, false, L["RECIPE_EXCLUDED"], clr1)
 		end
 
 		-- Add in skill level requirement, colored correctly
@@ -750,50 +752,48 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr2 = addon:hexcolor("MIDGREY")
 		end
 
-		ttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+		ttAdd(0, -1, 0, false, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
 		-- spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		arlTooltip:AddSeparator()
 		-- Binding info
 		clr1 = addon:hexcolor("NORMAL")
 
 		if (recipeDB[rIndex]["Flags"][36]) then
-			ttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["BOEFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][37]) then
-			ttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["BOPFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][38]) then
-			ttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["BOAFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][40]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["RecipeBOEFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][41]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["RecipeBOPFilter"], clr1)
 		end
 
 		if (recipeDB[rIndex]["Flags"][42]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+			ttAdd(0, -1, 1, false, L["RecipeBOAFilter"], clr1)
 		end
-
 		-- spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		arlTooltip:AddSeparator()
 
 		-- obtain info
-		ttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+		ttAdd(0, -1, 0, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
 		local factiondisp = addon.db.profile.filters.general.faction
 
 		-- loop through acquire methods, display each
 		for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-
 			-- Trainer
 			if (v["Type"] == 1) then
-				-- Trainer:				TrainerName
+				-- Trainer:			TrainerName
 				-- TrainerZone			TrainerCoords
 				local trnr = trainerDB[v["ID"]]
 				local cStr = ""
@@ -818,14 +818,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 				if (displaytt) then
 					-- Add the trainer information to the tooltip
-					ttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
+					ttAdd(0, -2, 0, false, L["Trainer"], clr1, trnr["Name"], clr2)
 					-- If we have a coordinate, add the coordinates to the tooltop
 					if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 						cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
 					end
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
+					ttAdd(1, -2, 1, false, trnr["Location"], clr1, cStr, clr2)
 				end
 
 			-- Vendor
@@ -859,17 +859,17 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 					end
 
-					ttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+					ttAdd(0, -1, 0, false, L["Vendor"], clr1, vndr["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
+					ttAdd(1, -2, 1, false, vndr["Location"], clr1, cStr, clr2)
 				end
 
 			-- Mob Drop
 			elseif (v["Type"] == 3) then
 
 				-- Mob Drop:				Mob Name
-				-- MobZone					MobCoords
+				-- MobZone				MobCoords
 				local mob = mobDB[v["ID"]]
 				local cStr = ""
 
@@ -879,15 +879,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 				clr1 = addon:hexcolor("MOBDROP")
 				clr2 = addon:hexcolor("HORDE")
-				ttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
+				ttAdd(0, -1, 0, false, L["Mob Drop"], clr1, mob["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
+				ttAdd(1, -2, 1, false, mob["Location"], clr1, cStr, clr2)
 
 			-- Quest
 			elseif (v["Type"] == 4) then
 
-				-- Quest:					QuestName
+				-- Quest:				QuestName
 				-- QuestZone				QuestCoords
 				local qst = questDB[v["ID"]]
 
@@ -916,10 +916,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 							cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 						end
 
-						ttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
+						ttAdd(0, -1, 0, false, L["Quest"], clr1, qst["Name"], clr2)
 						clr1 = addon:hexcolor("NORMAL")
 						clr2 = addon:hexcolor("HIGH")
-						ttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
+						ttAdd(1, -2, 1, false, qst["Location"], clr1, cStr, clr2)
 					end
 				end
 
@@ -930,7 +930,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local ssnname = seasonDB[v["ID"]]["Name"]
 
 				clr1 = addon:hexcolor("SEASON")
-				ttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
+				ttAdd(0, -1, 0, false, seasonal, clr1, ssnname, clr1)
 
 			-- Reputation
 			elseif (v["Type"] == 6) then
@@ -951,7 +951,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				
 				clr1 = addon:hexcolor("REP")
 				clr2 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
+				ttAdd(0, -1, 0, false, L["Reputation"], clr1, repname, clr2)
 
 				local rStr = ""
 				if (rplvl == 0) then
@@ -988,10 +988,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				end
 
 				if (displaytt) then
-					ttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
+					ttAdd(1, -2, 0, false, rStr, clr1, repvndr["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					ttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
+					ttAdd(2, -2, 1, false, repvndr["Location"], clr1, cStr, clr2)
 				end
 
 			-- World Drop
@@ -1010,7 +1010,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					clr1 = addon:hexcolor("NORMAL")
 				end
 
-				ttAdd(0, -1, 0, 0, L["World Drop"], clr1)
+				ttAdd(0, -1, 0, false, L["World Drop"], clr1)
 
 			-- Custom entry
 			elseif (v["Type"] == 8) then
@@ -1018,25 +1018,26 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local customname = customDB[v["ID"]]["Name"]
 
 				clr1 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, customname, clr1)
+				ttAdd(0, -1, 0, false, customname, clr1)
 
 			-- Unhandled
 			else
 				clr1 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
+				ttAdd(0, -1, 0, false, L["Unhandled Recipe"], clr1)
 			end
 
 		end
 
 		-- Spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
+		arlTooltip:AddSeparator()
+		arlTooltip:AddSeparator()
 
 		clr1 = addon:hexcolor("NORMAL")
 
-		ttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["CTRL_SHIFT_CLICK"], clr1)
+		ttAdd(0, -1, 0, true, L["ALT_CLICK"], clr1)
+		ttAdd(0, -1, 0, true, L["CTRL_CLICK"], clr1)
+		ttAdd(0, -1, 0, true, L["SHIFT_CLICK"], clr1)
+		ttAdd(0, -1, 0, true, L["CTRL_SHIFT_CLICK"], clr1)
 
 		arlTooltip:Show()
 
@@ -4615,6 +4616,9 @@ function addon:CreateFrame(
 							clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
 							clicktip:SetCallback("OnMouseDown", HandleTTClick)
 							twipe(click_info)
+							if TipTac and TipTac.AddModifiedTip then
+								TipTac:AddModifiedTip(clicktip)
+							end
 							GenerateClickableTT(this)
 						end
 					end)
