@@ -790,11 +790,9 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 		index = index + 1
 
 		--@debug@
-		self:Print(AcquireIDNumber)
 		-- We haven't seen this Acquire ID before (trainer ID, etc)
 		if (not AcquireIDList[AcquireIDNumber]) then
 			AcquireIDList[AcquireIDNumber] = true
-			self:Print("Adding")
 		else
 			self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireIDNumber)
 		end
