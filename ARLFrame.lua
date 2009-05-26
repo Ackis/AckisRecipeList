@@ -718,9 +718,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 	end
 
---	if TipTac and TipTac.AddModifiedTip then
---		TipTac:AddModifiedTip(arlTooltip)
---	end
+	if TipTac and TipTac.AddModifiedTip then
+		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
+		TipTac:AddModifiedTip(arlTooltip, true)
+	end
 	arlTooltip:Clear()
 	ttAdd(0, 1, 0, false, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
@@ -3264,7 +3265,6 @@ local function GenerateClickableTT(anchor)
 			end
 		end
 		if other_realms then
-			tip:AddNormalLine(" ")
 			tip:AddSeparator()
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, L["Other Realms"], "change realm")
