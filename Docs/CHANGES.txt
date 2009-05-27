@@ -1,5 +1,8 @@
 ==ARL Changes
 
+===RC9
+*Optimized the database by removing many duplicate trainer/vendor entries
+
 ===RC8
 *Fixed a bug when you did a scan, the drop down menus for the profession would change text to something non-existant.
 *Added all/none functionality for classes, reputations.
