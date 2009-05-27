@@ -249,6 +249,13 @@ local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, re
 
 end
 
+------------------------------------------------------------------------------
+-- Locale-specific strings. Save some CPU by looking these up exactly once.
+------------------------------------------------------------------------------
+local factionHorde	= BFAC["Horde"]
+local factionAlliance	= BFAC["Alliance"]
+local factionNeutral	= BFAC["Neutral"]
+
 -- Description: Function to determine if the player has an appropiate level of faction.
 -- Expected result: A boolean value determing if the player can learn the recipe based on faction
 -- Input: The database, the index of the recipe, the players faction and reputation levels
@@ -270,7 +277,7 @@ local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 			-- If it's Honor Hold/Thrallmar
 			if (repid == 946) or (repid == 947) then
 				-- If the player is Alliance look at Honor Hold only
-				if (playerFaction == BFAC["Alliance"]) then
+				if (playerFaction == factionAlliance) then
 					repid = 946
 				-- If the player is Horde look at Thrallmar only
 				else
@@ -280,7 +287,7 @@ local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
 			-- If it's Kureni/Mag'har	
 			elseif (repid == 941) or (repid == 978) then
 				-- If the player is Alliance look at Kureni only
-				if (playerFaction == BFAC["Alliance"]) then
+				if (playerFaction == factionAlliance) then
 					repid = 978
 				-- If the player is Horde look at Mag'har only
 				else
@@ -329,7 +336,7 @@ end
 local function CheckDisplayFaction(filterDB, faction)
 
 	if (filterDB.general.faction ~= true) then
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+		if ((faction == BFAC[myFaction]) or (faction == factionNeutral) or (faction == nil)) then
 			return true
 		else
 			return false
@@ -394,13 +401,13 @@ do
 
 		-- If it's a trainer check to see if we're displaying it on the map.
 		if (v["Type"] == 1) then
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
 		-- If it's a vendor check to see if we're displaying it on the map
 		elseif (v["Type"] == 2) then
-			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
 		-- If it's a quest check to see if we're displaying it on the map
 		elseif (v["Type"] == 4) then
-			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
 		end
 
 		return display
@@ -795,14 +802,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr1 = addon:hexcolor("TRAINER")
 			-- Don't display trainers if it's opposite faction
 			local displaytt = false
-			if (trnr["Faction"] == BFAC["Horde"]) then
+			if (trnr["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == BFAC["Horde"]) then
+				if (playerFaction == factionHorde) then
 					displaytt = true
 				end
-			elseif (trnr["Faction"] == BFAC["Alliance"]) then
+			elseif (trnr["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == BFAC["Alliance"]) then
+				if (playerFaction == factionAlliance) then
 					displaytt = true
 				end
 			else
@@ -832,14 +839,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr1 = addon:hexcolor("VENDOR")
 			-- Don't display vendors of opposite faction
 			local displaytt = false
-			if (vndr["Faction"] == BFAC["Horde"]) then
+			if (vndr["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == BFAC["Horde"]) then
+				if (playerFaction == factionHorde) then
 					displaytt = true
 				end
-			elseif (vndr["Faction"] == BFAC["Alliance"]) then
+			elseif (vndr["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == BFAC["Alliance"]) then
+				if (playerFaction == factionAlliance) then
 					displaytt = true
 				end
 			else
@@ -886,15 +893,21 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("QUEST")
 				-- Don't display quests of opposite faction
 				local displaytt = false
-				if (qst["Faction"] == BFAC["Horde"]) then
+				local faction
+
+				if (qst["Faction"] == factionHorde) then
 					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
+					if (playerFaction == factionHorde) then
 						displaytt = true
+					else
+						faction = factionHorde
 					end
-				elseif (qst["Faction"] == BFAC["Alliance"]) then
+				elseif (qst["Faction"] == factionAlliance) then
 					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
+					if (playerFaction == factionAlliance) then
 						displaytt = true
+					else
+						faction = factionAlliance
 					end
 				else
 					clr2 = addon:hexcolor("NEUTRAL")
@@ -911,6 +924,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
 					ttAdd(1, -2, 1, qst["Location"], clr1, cStr, clr2)
+				elseif faction then
+					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
 			-- Seasonal
@@ -942,10 +957,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			local rStr = ""
 			if (rplvl == 0) then
-				rStr = BFAC["Neutral"]
+				rStr = Neutral
 				clr1 = addon:hexcolor("NEUTRAL")
 			elseif (rplvl == 1) then
-				rStr = BFAC["Neutral"]
+				rStr = factionNeutral
 				clr1 = addon:hexcolor("FRIENDLY")
 			elseif (rplvl == 2) then
 				rStr = BFAC["Honored"]
@@ -959,14 +974,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			end
 
 			local displaytt = false
-			if (repvndr["Faction"] == BFAC["Horde"]) then
+			if (repvndr["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == BFAC["Horde"]) then
+				if (playerFaction == factionHorde) then
 					displaytt = true
 				end
-			elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+			elseif (repvndr["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == BFAC["Alliance"]) then
+				if (playerFaction == factionAlliance) then
 					displaytt = true
 				end
 			else
@@ -2071,9 +2086,9 @@ local function expandEntry(dsIndex)
 				t.sID = recipeIndex
 				t.IsExpanded = true
 
-				if (trnr["Faction"] == BFAC["Horde"]) then
+				if (trnr["Faction"] == factionHorde) then
 					nStr = addon:Horde(trnr["Name"])
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
+				elseif (trnr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(trnr["Name"])
 				else
 					nStr = addon:Neutral(trnr["Name"])
@@ -2115,9 +2130,9 @@ local function expandEntry(dsIndex)
 				t.sID = recipeIndex
 				t.IsExpanded = true
 
-				if (vndr["Faction"] == BFAC["Horde"]) then
+				if (vndr["Faction"] == factionHorde) then
 					nStr = addon:Horde(vndr["Name"])
-				elseif (vndr["Faction"] == BFAC["Alliance"]) then
+				elseif (vndr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(vndr["Name"])
 				else
 					nStr = addon:Neutral(vndr["Name"])
@@ -2196,9 +2211,9 @@ local function expandEntry(dsIndex)
 				t.sID = recipeIndex
 				t.IsExpanded = true
 
-				if (qst["Faction"] == BFAC["Horde"]) then
+				if (qst["Faction"] == factionHorde) then
 					nStr = addon:Horde(qst["Name"])
-				elseif (qst["Faction"] == BFAC["Alliance"]) then
+				elseif (qst["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(qst["Name"])
 				else
 					nStr = addon:Neutral(qst["Name"])
@@ -2276,15 +2291,15 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				if (rplvl == 0) then rStr = addon:Neutral(BFAC["Neutral"] .. " : ")
-				elseif (rplvl == 1) then rStr = addon:Friendly(BFAC["Neutral"] .. " : ")
+				if (rplvl == 0) then rStr = addon:Neutral(factionNeutral .. " : ")
+				elseif (rplvl == 1) then rStr = addon:Friendly(factionNeutral .. " : ")
 				elseif (rplvl == 2) then rStr = addon:Honored(BFAC["Honored"] .. " : ")
 				elseif (rplvl == 3) then rStr = addon:Revered(BFAC["Revered"] .. " : ")
 				else rStr = addon:Exalted(BFAC["Exalted"] .. " : ") end
 
-				if (repvndr["Faction"] == BFAC["Horde"]) then
+				if (repvndr["Faction"] == factionHorde) then
 					nStr = addon:Horde(repvndr["Name"])
-				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+				elseif (repvndr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(repvndr["Name"])
 				else
 					nStr = addon:Neutral(repvndr["Name"])
