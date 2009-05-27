@@ -1966,7 +1966,7 @@ do
 		else
 			-- Sort the recipe list now
 			local sortedindex = self:SortMissingRecipes(RecipeList)
-			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
+			self:DisplayFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
 		end
