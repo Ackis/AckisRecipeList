@@ -24,12 +24,48 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
 local QTipClick		= LibStub("LibQTipClick-1.1")
 
+-------------------------------------------------------------------------------
+-- Upvalued Lua globals
+-------------------------------------------------------------------------------
 local string = string
-local ipairs = ipairs
-local tinsert = tinsert
 local sformat = string.format
+local strlower = string.lower
 
--- local variables for this file. Must be used by multiple functions to be listed here
+local select = select
+local type = type
+
+local table = table
+local twipe = table.wipe
+local tremove = table.remove
+local ipairs = ipairs
+local pairs = pairs
+local tinsert = tinsert
+
+local tonumber = tonumber
+local math = math
+local floor = math.floor
+
+-------------------------------------------------------------------------------
+-- Upvalued Blizzard globals
+-------------------------------------------------------------------------------
+local GetSpellInfo = GetSpellInfo
+local GetSkillLineInfo = GetSkillLineInfo
+local GetNumSkillLines = GetNumSkillLines
+local ExpandSkillHeader = ExpandSkillHeader
+local CollapseSkillHeader = CollapseSkillHeader
+local GetTradeSkillLine = GetTradeSkillLine
+local GetItemInfo = GetItemInfo
+local UnitClass = UnitClass
+
+-- Modifier functions which we deal with
+local IsModifierKeyDown = IsModifierKeyDown
+local IsShiftKeyDown = IsShiftKeyDown
+local IsAltKeyDown = IsAltKeyDown
+local IsControlKeyDown = IsControlKeyDown
+
+-------------------------------------------------------------------------------
+-- Local variables. Must be used by multiple functions to be listed here.
+-------------------------------------------------------------------------------
 local currentProfIndex = 0
 local currentProfession = ""
 local maxVisibleRecipes = 24
@@ -40,36 +76,6 @@ local myFaction = ""
 
 local narrowFont = nil
 local normalFont = nil
-
-local pairs = pairs
-local select = select
-local type = type
-
-local table = table
-local twipe = table.wipe
-local tremove = table.remove
-local tonumber = tonumber
-
-local math = math
-local floor = math.floor
-
-local strlower = string.lower
-
-local GetSpellInfo = GetSpellInfo
-local GetSkillLineInfo = GetSkillLineInfo
-local GetNumSkillLines = GetNumSkillLines
-local ExpandSkillHeader = ExpandSkillHeader
-local CollapseSkillHeader = CollapseSkillHeader
-local GetTradeSkillLine = GetTradeSkillLine
-local GetItemInfo = GetItemInfo
-local UnitClass = UnitClass
-
-
--- Modifier functions which we deal with
-local IsModifierKeyDown = IsModifierKeyDown
-local IsShiftKeyDown = IsShiftKeyDown
-local IsAltKeyDown = IsAltKeyDown
-local IsControlKeyDown = IsControlKeyDown
 
 local seasonal = GetCategoryInfo(155)
 
@@ -207,17 +213,24 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 	hideOnEscape = 1
 }
 
--- Description: 
 
-function addon:CloseWindow()
-
-	-- Close all possible pop-up windows
+-------------------------------------------------------------------------------
+-- Close all possible pop-up windows
+-------------------------------------------------------------------------------
+function addon:ClosePopups()
 	StaticPopup_Hide("ARL_NOTSCANNED")
 	StaticPopup_Hide("ARL_ALLFILTERED")
 	StaticPopup_Hide("ARL_ALLKNOWN")
 	StaticPopup_Hide("ARL_ALLEXCLUDED")
-	addon.Frame:Hide()
+	StaticPopup_Hide("ARL_SEARCHFILTERED")
+end
 
+-------------------------------------------------------------------------------
+-- Hide the main recipe frame, and close all popups.
+-------------------------------------------------------------------------------
+function addon:CloseWindow()
+	self:ClosePopups()
+	self.Frame:Hide()
 end
 
 -- Description: Colours a skill level based on if the player can learn it.  The recipe string is coloured based on if the player has a high enough skill level or faction to learn it
@@ -1083,7 +1096,6 @@ end
 -- Description: Scrollframe update stuff
 
 local function RecipeList_Update()
-
 	-- Clear out the current buttons
 	for i = 1, maxVisibleRecipes do
 		addon.RecipeListButton[i]:SetText("")
@@ -1097,11 +1109,7 @@ local function RecipeList_Update()
 	FauxScrollFrame_Update(ARL_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
 
 	-- close all popups
-	StaticPopup_Hide("ARL_NOTSCANNED")
-	StaticPopup_Hide("ARL_ALLFILTERED")
-	StaticPopup_Hide("ARL_ALLKNOWN")
-	StaticPopup_Hide("ARL_ALLEXCLUDED")
-	StaticPopup_Hide("ARL_SEARCHFILTERED")
+	addon:ClosePopups()
 
 	if (entries > 0) then
 
@@ -1943,12 +1951,7 @@ function addon:SwitchProfs(button)
 	local endLoop = 0
 	local displayProf = 0
 
-	-- Close all possible pop-up windows
-	StaticPopup_Hide("ARL_NOTSCANNED")
-	StaticPopup_Hide("ARL_ALLFILTERED")
-	StaticPopup_Hide("ARL_ALLKNOWN")
-	StaticPopup_Hide("ARL_ALLEXCLUDED")
-	StaticPopup_Hide("ARL_SEARCHFILTERED")
+	self:ClosePopups()
 
 	-- ok, so first off, if we've never done this before, there is no "current"
 	-- and a single iteration will do nicely, thank you
@@ -3429,16 +3432,8 @@ function InitializeFrame()
 	-- Stuff in the non-expanded frame (or both)
 	-------------------------------------------------------------------------------
 	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", addon.Frame, "UIPanelCloseButton")
-	ARL_CloseXButton:SetScript("OnClick",
-				   function(self)
-					   -- Close all possible pop-up windows
-					   StaticPopup_Hide("ARL_NOTSCANNED")
-					   StaticPopup_Hide("ARL_ALLFILTERED")
-					   StaticPopup_Hide("ARL_ALLKNOWN")
-					   StaticPopup_Hide("ARL_ALLEXCLUDED")
-					   StaticPopup_Hide("ARL_SEARCHFILTERED")
-					   self:GetParent():Hide()
-				   end)
+	-- Close all possible pop-up windows
+	ARL_CloseXButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
 	ARL_CloseXButton:SetPoint("TOPRIGHT", addon.Frame, "TOPRIGHT", 5, -6)
 
 	-------------------------------------------------------------------------------
@@ -3569,16 +3564,8 @@ function InitializeFrame()
 	local ARL_CloseButton = addon:GenericCreateButton("ARL_CloseButton", addon.Frame,
 							  22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
 							  "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
-	ARL_CloseButton:SetScript("OnClick",
-				  function(this)
-					  -- Close all possible pop-up windows
-					  StaticPopup_Hide("ARL_NOTSCANNED")
-					  StaticPopup_Hide("ARL_ALLFILTERED")
-					  StaticPopup_Hide("ARL_ALLKNOWN")
-					  StaticPopup_Hide("ARL_ALLEXCLUDED")
-					  StaticPopup_Hide("ARL_SEARCHFILTERED")
-					  this:GetParent():Hide()
-				  end)
+	-- Close all possible pop-up windows
+	ARL_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
 
 	-------------------------------------------------------------------------------
 	-- ProgressBar for our skills
@@ -4837,7 +4824,6 @@ function addon:DisplayFrame(
 	if (not addon.Frame) then
 		InitializeFrame()
 	end
-
 	-- Set our addon frame position
 	SetFramePosition()
 
