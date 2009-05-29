@@ -536,6 +536,7 @@ do
 				local continent, zone
 				local loc = nil
 
+				-- Get the entries location
 				if (maplist[k] == 2) then
 					loc = vendorDB[k]
 				elseif (maplist[k] == 3) then
@@ -544,7 +545,8 @@ do
 					loc = questDB[k]
 				end
 
-				if not loc then		-- Uh-oh. -Torhal
+				-- We don't have a loc in our database for these entries
+				if (not loc) then
 					--@alpha@
 					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
 					--@end-alpha@
