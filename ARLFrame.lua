@@ -443,8 +443,7 @@ do
 
 		-- If it's a trainer, we don't display them on the mini-map
 		if (v["Type"] == 1) then
-			--display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
-			return false
+			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
 		-- If it's a vendor check to see if we're displaying it on the map
 		elseif (v["Type"] == 2) then
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
@@ -537,7 +536,9 @@ do
 				local loc = nil
 
 				-- Get the entries location
-				if (maplist[k] == 2) then
+				if (maplist[k] == 1) then
+					loc = trainerDB[k]
+				elseif (maplist[k] == 2) then
 					loc = vendorDB[k]
 				elseif (maplist[k] == 3) then
 					loc = mobDB[k]
