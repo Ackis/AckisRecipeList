@@ -415,16 +415,13 @@ local specialtytext = {
 	["Dragonscale Leatherworking"] = 10657,
 	["Elemental Leatherworking"] = 10659,
 	["Tribal Leatherworking"] = 10661,
---[[
-			[GetSpellInfo(9788)] = true, -- Armorsmith
-			[GetSpellInfo(17041)] = true, -- Master Axesmith
-			[GetSpellInfo(17040)] = true, -- Master Hammersmith
-			[GetSpellInfo(17039)] = true, -- Master Swordsmith
-			[GetSpellInfo(9787)] = true, -- Weaponsmith
-			[GetSpellInfo(20219)] = true, -- Gnomish
-			[GetSpellInfo(20222)] = true, -- Goblin
-]]--
-
+	["Gnomish Engineering"] = 20219,
+	["Goblin Engineering"] = 20222,
+	["Armorsmith"] = 9788,
+	["Master Axesmith"] = 17041,
+	["Master Hammersmith"] = 17040,
+	["Master Swordsmith"] = 17039,
+	["Weaponsmith"] = 9787,
 }
 
 local factiontext = {
