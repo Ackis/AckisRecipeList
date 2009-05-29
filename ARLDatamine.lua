@@ -445,10 +445,10 @@ self:Print("DEBUG: Tooltip text: " .. text)
 			local matchtext = string.match(text, "%a+: ")
 
 			-- If the header is not a recipe
-			if (not recipenames[text]) then
+			if (not recipenames[matchtext]) then
 				break
 			-- If we're dealing with an enchanting recipe, flag it
-			elseif (text == "Formula: ") then
+			elseif (matchtext == "Formula: ") then
 				enchanting = true
 			end
 		-- We're on the second line in the tooltip now
