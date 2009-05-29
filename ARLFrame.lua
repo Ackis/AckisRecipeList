@@ -69,27 +69,19 @@ local IsControlKeyDown = IsControlKeyDown
 local currentProfIndex = 0
 local currentProfession = ""
 local maxVisibleRecipes = 24
-local FilterValueMap = {}		-- Assigned in InitializeFrame()
+local FilterValueMap		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
 
 -------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
 -------------------------------------------------------------------------------
--- local versions of the databases storing the recipe information, trainers, vendors, etc
-local recipeDB = {}
-local trainerDB = {}
-local vendorDB = {}
-local questDB = {}
-local repDB = {}
-local seasonDB = {}
-local customDB = {}
-local mobDB = {}
-local allSpecTable = {}
-local playerData = {}
+local recipeDB, trainerDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
 
-local sortedRecipeIndex = {}
+local allSpecTable
+local playerData
 
+local sortedRecipeIndex
 
 local seasonal = GetCategoryInfo(155)
 
@@ -463,6 +455,7 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
+	local maplist = {}
 	function addon:SetupMap(singlerecipe)
 		if (not TomTom) then
 			--@debug@
@@ -473,117 +466,111 @@ do
 
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
+
+		if not (worldmap or minimap) then return end
+
+		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
+
+		-- Get the proper icon to put on the mini-map
+		for i,k in pairs(SortedProfessions) do
+			if (k["name"] == playerData.playerProfession) then
+				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
+				break
+			end
+		end
 		local filters = addon.db.profile.filters
 		local autoscanmap = addon.db.profile.autoscanmap
 
-		if ((worldmap == true) or (minimap == true)) then
+		twipe(maplist)
 
-			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-			-- Get the proper icon to put on the mini-map
-			for i,k in pairs(SortedProfessions) do
-				if (k["name"] == playerData.playerProfession) then
-					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-					break
+		-- We're only getting a single recipe, not a bunch
+		if (singlerecipe) then
+			-- loop through acquire methods, display each
+			for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
+				if (CheckMapDisplay(v,filters)) then
+					maplist[v["ID"]] = v["Type"]
 				end
 			end
-			local maplist = {}
-
-			-- We're only getting a single recipe, not a bunch
-			if (singlerecipe) then
-				-- loop through acquire methods, display each
-				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-					if (CheckMapDisplay(v,filters)) then
-						maplist[v["ID"]] = v["Type"]
-					end
-				end
-			elseif (autoscanmap == true) then
-				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-				for i = 1, #sortedRecipeIndex do
-					local recipeIndex = sortedRecipeIndex[i]
-					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-						-- loop through acquire methods, display each
-						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-							if (CheckMapDisplay(v,filters)) then
-								maplist[v["ID"]] = v["Type"]
-							end
+		elseif (autoscanmap == true) then
+			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+			for i = 1, #sortedRecipeIndex do
+				local recipeIndex = sortedRecipeIndex[i]
+				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+					-- loop through acquire methods, display each
+					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+						if (CheckMapDisplay(v,filters)) then
+							maplist[v["ID"]] = v["Type"]
 						end
 					end
 				end
 			end
-
-			--[[
-			local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
-			ARLWorldMap:ClearAllPoints()
-			ARLWorldMap:SetWidth(8)
-			ARLWorldMap:SetHeight(8)
-			ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
-			ARLWorldMap.icon:SetTexture(icontext)
-			ARLWorldMap.icon:SetAllPoints()
-
-			local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-			ARLMiniMap:ClearAllPoints()
-			ARLMiniMap:SetWidth(8)
-			ARLMiniMap:SetHeight(8)
-			ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
-			ARLMiniMap.icon:SetTexture(icontext)
-			ARLMiniMap.icon:SetAllPoints()
-			]]--
-
-			for k, j in pairs(maplist) do
-
-				local continent, zone
-				local loc = nil
-
-				-- Get the entries location
-				if (maplist[k] == 1) then
-					loc = trainerDB[k]
-				elseif (maplist[k] == 2) then
-					loc = vendorDB[k]
-				elseif (maplist[k] == 3) then
-					loc = mobDB[k]
-				elseif (maplist[k] == 4) then
-					loc = questDB[k]
-				end
-
-				-- We don't have a loc in our database for these entries
-				if (not loc) then
-					--@alpha@
-					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
-					--@end-alpha@
-					return
-				end
-
-				if (c1[loc["Location"]]) then
-					continent = 1
-					zone = c1[loc["Location"]]
-				elseif (c2[loc["Location"]]) then
-					continent = 2
-					zone = c2[loc["Location"]]
-				elseif (c3[loc["Location"]]) then
-					continent = 3
-					zone = c3[loc["Location"]]
-				elseif (c4[loc["Location"]]) then
-					continent = 4
-					zone = c4[loc["Location"]]
-				else
-					--@alpha@
-					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
-					--@end-alpha@
-					return
-				end
-		
-				if ((zone) and (continent)) then
-					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
-					tinsert(iconlist,iconuid)
-				end
-
-			end
-
 		end
 
-	end
+--		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
+--		ARLWorldMap:ClearAllPoints()
+--		ARLWorldMap:SetWidth(8)
+--		ARLWorldMap:SetHeight(8)
+--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+--		ARLWorldMap.icon:SetTexture(icontext)
+--		ARLWorldMap.icon:SetAllPoints()
 
+--		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
+--		ARLMiniMap:ClearAllPoints()
+--		ARLMiniMap:SetWidth(8)
+--		ARLMiniMap:SetHeight(8)
+--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+--		ARLMiniMap.icon:SetTexture(icontext)
+--		ARLMiniMap.icon:SetAllPoints()
+
+		for k, j in pairs(maplist) do
+
+			local continent, zone
+			local loc = nil
+
+			-- Get the entries location
+			if (maplist[k] == 1) then
+				loc = trainerDB[k]
+			elseif (maplist[k] == 2) then
+				loc = vendorDB[k]
+			elseif (maplist[k] == 3) then
+				loc = mobDB[k]
+			elseif (maplist[k] == 4) then
+				loc = questDB[k]
+			end
+
+			-- We don't have a loc in our database for these entries
+			if (not loc) then
+				--@alpha@
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
+				--@end-alpha@
+				return
+			end
+
+			if (c1[loc["Location"]]) then
+				continent = 1
+				zone = c1[loc["Location"]]
+			elseif (c2[loc["Location"]]) then
+				continent = 2
+				zone = c2[loc["Location"]]
+			elseif (c3[loc["Location"]]) then
+				continent = 3
+				zone = c3[loc["Location"]]
+			elseif (c4[loc["Location"]]) then
+				continent = 4
+				zone = c4[loc["Location"]]
+			else
+				--@alpha@
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
+				--@end-alpha@
+				return
+			end
+		
+			if ((zone) and (continent)) then
+				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
+				tinsert(iconlist,iconuid)
+			end
+		end
+	end	-- addon:SetupMap()
 end -- do block
 
 -- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
@@ -1078,7 +1065,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	ttAdd(0, -1, 0, L["ALT_CLICK"], clr1)
 	ttAdd(0, -1, 0, L["CTRL_CLICK"], clr1)
 	ttAdd(0, -1, 0, L["SHIFT_CLICK"], clr1)
-	ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], clr1)
+
+	if addon.db.profile.worldmap or addon.db.profile.minimap then
+		ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], clr1)
+	end
 
 	arlTooltip:Show()
 
@@ -4873,9 +4863,6 @@ function addon:DisplayFrame(
 
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-
-       -- Sort the list
-	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
