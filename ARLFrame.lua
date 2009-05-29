@@ -69,7 +69,7 @@ local IsControlKeyDown = IsControlKeyDown
 local currentProfIndex = 0
 local currentProfession = ""
 local maxVisibleRecipes = 24
-local FilterValueMap		-- Assigned in InitializeFrame()
+local FilterValueMap = {}		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
 
@@ -77,12 +77,18 @@ local myFaction = ""
 -- Tables assigned in addon:DisplayFrame()
 -------------------------------------------------------------------------------
 -- local versions of the databases storing the recipe information, trainers, vendors, etc
-local recipeDB, trainerDB, vendorDB
-local questDB, repDB, seasonDB
-local customDB, mobDB, allSpecTable
-local playerData
+local recipeDB = {}
+local trainerDB = {}
+local vendorDB = {}
+local questDB = {}
+local repDB = {}
+local seasonDB = {}
+local customDB = {}
+local mobDB = {}
+local allSpecTable = {}
+local playerData = {}
 
-local sortedRecipeIndex
+local sortedRecipeIndex = {}
 
 
 local seasonal = GetCategoryInfo(155)
@@ -426,7 +432,7 @@ do
 				TomTom:RemoveWaypoint(iconlist[i])
 			end
 			-- Nuke our own internal table
-			twipe(iconlist)
+			iconlist = twipe(iconlist)
 		end
 
 	end
@@ -454,8 +460,6 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
-	local maplist = {}
-
 	function addon:SetupMap(singlerecipe)
 		if (not TomTom) then
 			--@debug@
@@ -480,7 +484,7 @@ do
 					break
 				end
 			end
-			twipe(maplist)
+			local maplist = {}
 
 			-- We're only getting a single recipe, not a bunch
 			if (singlerecipe) then
@@ -4862,6 +4866,9 @@ function addon:DisplayFrame(
 
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+
+       -- Sort the list
+	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()

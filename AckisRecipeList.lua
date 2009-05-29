@@ -464,9 +464,6 @@ do
 	local CollapseFactionHeader = CollapseFactionHeader
 	local ExpandFactionHeader = ExpandFactionHeader
 
-	local t = {}
-
-
 	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
 
 	function addon:GetFactionLevels(RepTable)
@@ -475,6 +472,7 @@ do
 		if (not RepTable) then
 			return
 		end
+		local t = {}
 
 		-- Number of factions before we expand
 		local numfactions = GetNumFactions()
@@ -603,7 +601,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	--]]
 	
 	-- Creates a table in the RecipeListing table storing all information about a recipe
-	RecipeDB[SpellID] = RecipeDB[SpellID] or {}
+	RecipeDB[SpellID] = {}
 
 	local recipeentry = RecipeDB[SpellID]
 
@@ -819,7 +817,7 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		For individual database structures, see Documentation.lua
 	]]--
 
-	DB[ID] = DB[ID] or {}
+	DB[ID] = {}
 	DB[ID]["Name"] = Name
 
 	if (Loc) then
@@ -933,7 +931,7 @@ end
 
 do
 
-	local reptable
+	local reptable = nil
 
 	local function CreateRepTable()
 
@@ -1646,8 +1644,8 @@ do
 	local tradewindowopened = false
 
 	-- Variables for getting the locations
-	local locationlist = {}
-	local locationchecklist = {}
+	local locationlist = nil
+	local locationchecklist = nil
 
 	-- Description: Determines all the locations a given recipe can be obtained
 
@@ -1655,8 +1653,8 @@ do
 
 		if (RecipeList) and (RecipeList[SpellID]) then
 
-			twipe(locationlist)
-			twipe(locationchecklist)
+			locationlist = {}
+			locationchecklist = {}
 
 			local recipeacquire = RecipeList[SpellID]["Acquire"]
 
@@ -2053,8 +2051,8 @@ end
 ]]--
 
 do
-	local sortFuncs			-- Sorting functions
-	local SortedRecipeIndex = {}	-- Array for the sorted index
+	-- Sorting functions
+	local sortFuncs = nil
 
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
 	function addon:SortMissingRecipes(RecipeDB)
@@ -2094,8 +2092,23 @@ do
 					return not not reca
 				end
 			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Location"] = function (a, b)
+				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+				local reca = RecipeDB[a]["Locations"] or ""
+				local recb = RecipeDB[b]["Locations"] or ""
+				reca = smatch(reca,"(%w+),") or ""
+				recb = smatch(recb,"(%w+),") or ""
+				if (reca == recb) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return (reca < recb)
+				end
+			end
 		end
-		twipe(SortedRecipeIndex)
+		-- Create a new array for the sorted index
+		local SortedRecipeIndex = {}
 
 		-- Get all the indexes of the RecipeListing
 		for n, v in pairs(RecipeDB) do
