@@ -391,7 +391,22 @@ self:Print("Scanning " .. GetMerchantNumItems() .. " items on vendor.")
 
 end
 
--- Description: Parses the mining tooltip for certain keywords, comparing them with the database flags.
+local recipenames = {
+	-- JC
+	["Design: "] = true,
+	-- LW or Tailoring
+	["Pattern: "] = true,
+	-- Alchemy or Cooking
+	["Recipe: "] = true,
+	-- BS
+	["Plans: "] = true,
+	-- Enchanting
+	["Formula: "] = true,
+	-- Engineering
+	["Schematic: "] = true,
+	-- First Aid
+	["Manual: "] = true,
+}
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
@@ -424,26 +439,19 @@ self:Print("DEBUG: Tooltip text: " .. text)
 
 		local specialty = false
 
-		-- Designs are JC
-		if (strmatch(text,"Design: ")) or
-		-- LW or Tailoring
-		(strmatch(text,"Pattern: ")) or
-		-- Alchemy or Cooking
-		(strmatch(text,"Recipe: ")) or
-		-- BS
-		(strmatch(text,"Plans: ")) or
-		-- Enchanting
-		(strmatch(text,"Formula: ")) or
-		-- Engineering
-		(strmatch(text,"Schematic: ")) or
-		-- First Aid
-		(strmatch(text,"Manual: ")) then
+		-- Check to see if it's a recipe otherwise break out of the for loop
+		if (i == 1) then
+			-- Get the header of the tooltip aka Pattern:
+			local matchtext = string.match(text, "%a+: ")
 
-			-- Enchanting has a weird tooltip compared to other recipes
-			if (strmatch(text,"Formula: ")) then
+			-- If the header is not a recipe
+			if (not recipenames[text]) then
+				break
+			-- If we're dealing with an enchanting recipe, flag it
+			elseif (text == "Formula: ") then
 				enchanting = true
 			end
-
+		-- We're on the second line in the tooltip now
 		-- Check for recipe/item binding
 		elseif (strmatch(text,"Binds when picked up")) then
 			-- The recipe binding is within the first few lines of the tooltip always
