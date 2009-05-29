@@ -69,15 +69,34 @@ local IsControlKeyDown = IsControlKeyDown
 local currentProfIndex = 0
 local currentProfession = ""
 local maxVisibleRecipes = 24
-local FilterValueMap = {}
-local sortedRecipeIndex = {}
+local FilterValueMap		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
 
-local narrowFont = nil
-local normalFont = nil
+-------------------------------------------------------------------------------
+-- Tables assigned in addon:DisplayFrame()
+-------------------------------------------------------------------------------
+-- local versions of the databases storing the recipe information, trainers, vendors, etc
+local recipeDB, trainerDB, vendorDB
+local questDB, repDB, seasonDB
+local customDB, mobDB, allSpecTable
+local playerData
+
+local sortedRecipeIndex
+
 
 local seasonal = GetCategoryInfo(155)
+
+
+-------------------------------------------------------------------------------
+-- Fonts
+-------------------------------------------------------------------------------
+local narrowFont
+local normalFont
+
+-- Font Objects needed for arlTooltip
+local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
+local normalFontObj = CreateFont(MODNAME.."normalFontObj")
 
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
@@ -98,22 +117,6 @@ else
 	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
 	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 end
-
--- Font Objects needed for arlTooltip
-local normalFontObj = CreateFont(MODNAME.."normalFontObj")
-local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
-
--- local versions of the databases storing the recipe information, trainers, vendors, etc
-local recipeDB = {}
-local trainerDB = {}
-local vendorDB = {}
-local questDB = {}
-local repDB = {}
-local seasonDB = {}
-local customDB = {}
-local mobDB = {}
-local allSpecTable = {}
-local playerData = {}
 
 local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
@@ -4809,6 +4812,7 @@ function addon:DisplayFrame(
 	myFaction = cPlayer.playerFaction
 
 	sortedRecipeIndex = sortedRI
+
 	recipeDB = rDB
 	allSpecTable = asTable
 	playerData = cPlayer
@@ -4858,9 +4862,6 @@ function addon:DisplayFrame(
 
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-
-	-- Sort the list
-	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
