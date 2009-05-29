@@ -375,7 +375,7 @@ function addon:ScanVendor()
 
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-self:Print("Scanning " .. GetMerchantNumItems() .. " items on vendor.")
+
 		-- Parse all the items on the merchant
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
@@ -408,6 +408,12 @@ local recipenames = {
 	["Manual: "] = true,
 }
 
+local specialtytext = {
+	["Requires Spellfire Tailoring"] = 26797,
+	["Requires Mooncloth Tailoring"] = 26798,
+	["Requires Shadowweave Tailoring"] = 26801,
+}
+
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
 function addon:ScanToolTip(name)
@@ -428,7 +434,7 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
-self:Print("DEBUG: Tooltip text: " .. text)
+--self:Print("DEBUG: Tooltip text: " .. text)
 		local enchanting = false
 		local boprecipe = false
 		local bopitem = false
@@ -451,7 +457,7 @@ self:Print("DEBUG: Tooltip text: " .. text)
 			elseif (matchtext == "Formula: ") then
 				enchanting = true
 			end
-		-- We're on the second line in the tooltip now
+		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
 		elseif (strmatch(text,"Binds when picked up")) then
 			-- The recipe binding is within the first few lines of the tooltip always
@@ -462,8 +468,8 @@ self:Print("DEBUG: Tooltip text: " .. text)
 				bopitem = true
 			end
 		-- Recipe Specialities
-		elseif (strmatch(text,"Requires Mooncloth Tailoring")) then
-			specialty = text
+		elseif (specialtytext[text]) then
+			specialty = specialtytext[text]
 		-- Recipe Reputatons
 		elseif (strmatch(text,"Requires Lower City - Friendly")) then
 
@@ -476,6 +482,31 @@ self:Print("DEBUG: Tooltip text: " .. text)
 		elseif (strmatch(text,"Block")) then
 			tank = true
 		end
+
+		-- Nuke this shit once this is done
+		self:Print(name)
+		if boprecipe then
+			self:Print("BoP Recipe")
+		end
+		if specialty then
+			self:Print(GetSpellInfo(specialty))
+		end
+		if healer then
+			self:Print("Healer item")
+		end
+		if caster then
+			self:Print("Caster item")
+		end
+		if tank then
+			self:Print("Tank item")
+		end
+		if dps then
+			self:Print("DPS item")
+		end
+		if bopitem then
+			self:Print("BoP Item")
+		end
+
 	end
 
 end
