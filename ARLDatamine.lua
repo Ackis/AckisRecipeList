@@ -412,6 +412,31 @@ local specialtytext = {
 	["Requires Spellfire Tailoring"] = 26797,
 	["Requires Mooncloth Tailoring"] = 26798,
 	["Requires Shadowweave Tailoring"] = 26801,
+	["Dragonscale Leatherworking"] = 10657,
+	["Elemental Leatherworking"] = 10659,
+	["Tribal Leatherworking"] = 10661,
+--[[
+			[GetSpellInfo(9788)] = true, -- Armorsmith
+			[GetSpellInfo(17041)] = true, -- Master Axesmith
+			[GetSpellInfo(17040)] = true, -- Master Hammersmith
+			[GetSpellInfo(17039)] = true, -- Master Swordsmith
+			[GetSpellInfo(9787)] = true, -- Weaponsmith
+			[GetSpellInfo(20219)] = true, -- Gnomish
+			[GetSpellInfo(20222)] = true, -- Goblin
+]]--
+
+}
+
+local factiontext = {
+	["Lower City"] = 107,
+}
+
+local factionlevels = {
+	["Neutral"] = 0,
+	["Friendly"] = 1,
+	["Honored"] = 2,
+	["Revered"] = 3,
+	["Exalted"] = 4,
 }
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
@@ -444,6 +469,8 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 		local caster = false
 
 		local specialty = false
+		local repid = false
+		local repidlevel = false
 
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
@@ -471,10 +498,14 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 		elseif (specialtytext[text]) then
 			specialty = specialtytext[text]
 		-- Recipe Reputatons
-		elseif (strmatch(text,"Requires Lower City - Friendly")) then
-
+		elseif (strmatch(text, "Requires (.+) - (.+)")) then
+			local rep,replevel = string.match(strmatch(text, "Requires (.+) - (.+)"))
+			if (factiontext[rep]) then
+				repid = factiontext[rep]
+				repidlevel = factionlevels[replevel]
+			end
 		-- Item Stats
-		elseif (strmatch(text,"Spell Power")) then
+		elseif (strmatch(text,"Increases spell power by ")) then
 			healer = true
 			caster = true
 		elseif (strmatch(text,"Defense")) then
@@ -490,6 +521,10 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 		end
 		if specialty then
 			self:Print(GetSpellInfo(specialty))
+		end
+		if repid then
+			self:Print("Rep Flag: " .. repid)
+			self:Print("Rep Level: " .. repidlevel)
 		end
 		if healer then
 			self:Print("Healer item")
