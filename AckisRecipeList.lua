@@ -1962,11 +1962,9 @@ do
 		if (textdump == true) then
 			self:DisplayTextDump(RecipeList, playerData.playerProfession)
 		else
-			-- Sort the recipe list now
-			local sortedindex = self:SortMissingRecipes(RecipeList)
-			self:DisplayFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
-								TrainerList, VendorList, QuestList, ReputationList,
-								SeasonalList, MobList, CustomList)
+			self:DisplayFrame(playerData, AllSpecialtiesTable,
+					  TrainerList, VendorList, QuestList, ReputationList,
+					  SeasonalList, MobList, CustomList)
 		end
 	end
 
@@ -2054,6 +2052,9 @@ do
 	-- Sorting functions
 	local sortFuncs = nil
 
+	-- Create a new array for the sorted index
+	local SortedRecipeIndex = {}
+
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
 	function addon:SortMissingRecipes(RecipeDB)
 		if (not sortFuncs) then
@@ -2107,8 +2108,7 @@ do
 				end
 			end
 		end
-		-- Create a new array for the sorted index
-		local SortedRecipeIndex = {}
+		twipe(SortedRecipeIndex)
 
 		-- Get all the indexes of the RecipeListing
 		for n, v in pairs(RecipeDB) do

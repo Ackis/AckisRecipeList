@@ -4786,8 +4786,6 @@ end
 -- and initialize it, then show it.
 -------------------------------------------------------------------------------
 function addon:DisplayFrame(
-	rDB,		-- RecipeList
-	sortedRI,	-- sortedindex
 	cPlayer,	-- playerdata
 	asTable,	-- AllSpecialtiesTable
 	trList,		-- TrainerList
@@ -4812,9 +4810,6 @@ function addon:DisplayFrame(
 	-------------------------------------------------------------------------------
 	myFaction = cPlayer.playerFaction
 
-	sortedRecipeIndex = sortedRI
-
-	recipeDB = rDB
 	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
@@ -4831,17 +4826,13 @@ function addon:DisplayFrame(
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
-
 		if (v.name == currentProfession) then
-
 			currentProfIndex = k
 			break
-
 		end
-
 	end
 
-	if (not addon.Frame) then
+	if (not self.Frame) then
 		InitializeFrame()
 	end
 	-- Set our addon frame position
@@ -4851,18 +4842,22 @@ function addon:DisplayFrame(
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize
 
 	-- reset the scale
-	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
+	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
 	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+	self:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	-- Reset our addon title text
-	addon.resetTitle()
+	self.resetTitle()
 
 	-- Set the texture on our switcher button correctly
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+
+	-- Acquire the list, then sort it
+	recipeDB = self:GetRecipeTable()
+	sortedRecipeIndex = self:SortMissingRecipes(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
@@ -4872,7 +4867,7 @@ function addon:DisplayFrame(
 
 	-- And update our scrollframe
 	RecipeList_Update()
-	addon.Frame:Show()
+	self.Frame:Show()
 
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
