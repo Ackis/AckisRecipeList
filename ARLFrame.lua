@@ -215,6 +215,26 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 
 
 -------------------------------------------------------------------------------
+-- Table cache mechanism
+-------------------------------------------------------------------------------
+local AcquireTable, ReleaseTable
+do
+	local table_cache = {}
+
+	-- Returns a table
+	function AcquireTable()
+		local tbl = tremove(table_cache) or {}
+		return tbl
+	end
+
+	-- Cleans the table and stores it in the cache
+	function ReleaseTable(table)
+		wipe(table)
+		tinsert(table_cache, table)
+	end
+end	-- do block
+
+-------------------------------------------------------------------------------
 -- Close all possible pop-up windows
 -------------------------------------------------------------------------------
 function addon:ClosePopups()
@@ -403,7 +423,7 @@ do
 				TomTom:RemoveWaypoint(iconlist[i])
 			end
 			-- Nuke our own internal table
-			iconlist = twipe(iconlist)
+			twipe(iconlist)
 		end
 
 	end
@@ -431,9 +451,9 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
+	local maplist = {}
 
 	function addon:SetupMap(singlerecipe)
-
 		if (not TomTom) then
 			--@debug@
 			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
@@ -457,8 +477,7 @@ do
 					break
 				end
 			end
-
-			local maplist = {}
+			twipe(maplist)
 
 			-- We're only getting a single recipe, not a bunch
 			if (singlerecipe) then
@@ -551,16 +570,21 @@ do
 
 	end
 
-end
+end -- do block
 
 -- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
 
-local function initDisplayStrings()
+local function WipeDisplayStrings()
+	for i = 1, #DisplayStrings do
+		ReleaseTable(DisplayStrings[i])
+	end
+	twipe(DisplayStrings)
+end
 
+local function initDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 
-	DisplayStrings = nil
-	DisplayStrings = {}
+	WipeDisplayStrings()
 
 	local insertIndex = 1
 
@@ -570,9 +594,6 @@ local function initDisplayStrings()
 		local recipeEntry = recipeDB[recipeIndex]
 
 		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
-
-			local t = {}
-
 			-- add in recipe difficulty coloring
 			local recStr = ""
 
@@ -593,6 +614,7 @@ local function initDisplayStrings()
 
 			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
+			local t = AcquireTable()
 			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
 			t.sID = recipeIndex
@@ -2014,7 +2036,7 @@ function addon:SwitchProfs(button)
 	-- Expand all headers first
 
 	local NumSkillLines = GetNumSkillLines()
-	local expandtable = {}
+	local expandtable = AcquireTable()
 
 	for i=NumSkillLines,1,-1 do
 		local skillName,_,isExpanded = GetSkillLineInfo(i)
@@ -2042,7 +2064,7 @@ function addon:SwitchProfs(button)
 			CollapseSkillHeader(i)
 		end
 	end
-
+	ReleaseTable(expandtable)
 	ReDisplay()
 	addon.resetTitle()
 
@@ -2084,7 +2106,7 @@ local function expandEntry(dsIndex)
 					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2102,7 +2124,7 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2128,7 +2150,7 @@ local function expandEntry(dsIndex)
 					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2146,7 +2168,7 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2172,7 +2194,7 @@ local function expandEntry(dsIndex)
 					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2183,7 +2205,7 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2209,7 +2231,7 @@ local function expandEntry(dsIndex)
 					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2226,7 +2248,7 @@ local function expandEntry(dsIndex)
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2243,7 +2265,7 @@ local function expandEntry(dsIndex)
 
 				local ssnname = seasonDB[v["ID"]]["Name"]
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2284,7 +2306,7 @@ local function expandEntry(dsIndex)
 
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2308,7 +2330,7 @@ local function expandEntry(dsIndex)
 					nStr = addon:Neutral(repvndr["Name"])
 				end
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2318,7 +2340,7 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2334,7 +2356,7 @@ local function expandEntry(dsIndex)
 
 			if (obtainDB.worlddrop == true) then
 
-				t = {}
+				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
@@ -2351,7 +2373,7 @@ local function expandEntry(dsIndex)
 			-- Custom: ID, Name
 			local customname = customDB[v["ID"]]["Name"]
 
-			t = {}
+			t = AcquireTable()
 			t.IsRecipe = false
 			t.sID = recipeIndex
 			t.IsExpanded = true
@@ -2364,8 +2386,7 @@ local function expandEntry(dsIndex)
 
 		-- We have an acquire type we aren't sure how to deal with.
 		else
-
-			t = {}
+			t = AcquireTable()
 			t.IsRecipe = false
 			t.sID = recipeIndex
 			t.IsExpanded = true
@@ -2373,7 +2394,6 @@ local function expandEntry(dsIndex)
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-
 		end
 
 	end
@@ -2433,7 +2453,7 @@ function addon.RecipeItem_OnClick(button)
 				-- get rid of our expanded lines
 				traverseIndex = clickedIndex + 1
 				while (DisplayStrings[traverseIndex].IsRecipe == false) do
-					tremove(DisplayStrings, traverseIndex)
+					ReleaseTable(tremove(DisplayStrings, traverseIndex))
 					-- if this is the last entry in the whole list, we should break out
 					if not DisplayStrings[traverseIndex] then
 						break
@@ -2458,7 +2478,7 @@ function addon.RecipeItem_OnClick(button)
 			-- now remove the expanded lines until we get to a recipe again
 			traverseIndex = traverseIndex + 1
 			while (DisplayStrings[traverseIndex].IsRecipe == false) do
-				tremove(DisplayStrings, traverseIndex)
+				ReleaseTable(tremove(DisplayStrings, traverseIndex))
 				-- if this is the last entry in the whole list, we should break out
 				if not DisplayStrings[traverseIndex] then
 					break
@@ -2989,8 +3009,7 @@ local function expandallDisplayStrings()
 
 	local exclude = addon.db.profile.exclusionlist
 
-	DisplayStrings = nil
-	DisplayStrings = {}
+	WipeDisplayStrings()
 
 	local insertIndex = 1
 
@@ -3000,9 +3019,6 @@ local function expandallDisplayStrings()
 		local recipeEntry = recipeDB[recipeIndex]
 
 		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
-
-			local t = {}
-
 			-- add in recipe difficulty coloring
 			local recStr = ""
 
@@ -3023,6 +3039,7 @@ local function expandallDisplayStrings()
 
 			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
+			local t = AcquireTable()
 			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
 			t.sID = sortedRecipeIndex[i]
@@ -4776,21 +4793,19 @@ function addon:DisplayFrame(
 	sList,		-- SeasonalList
 	mList,		-- MobList
 	cList)		-- Customlist
-
---[[
-	cPlayer is a table containing:
-		.playerProfession == player profession which has been opened
-		.playerProfessionLevel == skill level of profession
-		.playerSpecialty == Specialty if any or ""
-		.totalRecipes == Total recipes added to the database
-		.foundRecipes == Total recipes found that the player knows
-		.otherRecipes == Total non-profession recipes in the database
-		.filteredRecipes == Total recipes filtered
-		.playerFaction == Faction of the player
-		["Professions"] == list of all professions with the ones the player knows set as true
-		["Reputation"] == Reputation levels, what I had in current ARLform was if you didn't have the rep level, it would display it in red
---]]
-
+	-------------------------------------------------------------------------------
+	-- cPlayer is a table containing:
+	--	.playerProfession == player profession which has been opened
+	--	.playerProfessionLevel == skill level of profession
+	--	.playerSpecialty == Specialty if any or ""
+	--	.totalRecipes == Total recipes added to the database
+	--	.foundRecipes == Total recipes found that the player knows
+	--	.otherRecipes == Total non-profession recipes in the database
+	--	.filteredRecipes == Total recipes filtered
+	--	.playerFaction == Faction of the player
+	--	["Professions"] == list of all professions with the ones the player knows set as true
+	--	["Reputation"] == Reputation levels, what I had in current ARLform was if you didn't have the rep level, it would display it in red
+	-------------------------------------------------------------------------------
 	myFaction = cPlayer.playerFaction
 
 	sortedRecipeIndex = sortedRI
@@ -4807,7 +4822,7 @@ function addon:DisplayFrame(
 	customDB = cList
 
 	-- reset current display items
-	DisplayStrings = {}
+	WipeDisplayStrings()
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
