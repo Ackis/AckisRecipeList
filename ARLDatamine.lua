@@ -505,13 +505,33 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 				repidlevel = factionlevels[replevel]
 			end
 		-- Item Stats
+		-- Caster stats
 		elseif (strmatch(text,"Increases spell power by ")) then
-			healer = true
+
+		-- DPS Caster Stats
+		elseif (strmatch(text,"spell hit")) then
 			caster = true
+			tank = false
+			dps = false
+			healer = false
+		elseif (strmatch(text,"spell penetration")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = false
+		-- Healer Stats
+		-- Melee DPS Stats
+		-- Tanking Stats
 		elseif (strmatch(text,"Defense")) then
 			tank = true
+			dps = false
+			caster = false
+			healer = false
 		elseif (strmatch(text,"Block")) then
 			tank = true
+			dps = false
+			caster = false
+			healer = false
 		end
 
 		-- Nuke this shit once this is done
