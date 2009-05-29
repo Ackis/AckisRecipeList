@@ -441,12 +441,16 @@ do
 
 		local display = false
 
-		-- If it's a trainer check to see if we're displaying it on the map.
+		-- If it's a trainer, we don't display them on the mini-map
 		if (v["Type"] == 1) then
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
+			--display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
+			return false
 		-- If it's a vendor check to see if we're displaying it on the map
 		elseif (v["Type"] == 2) then
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
+		-- If it's a mob, always return true
+		elseif (v["Type"] == 3) then
+			return true
 		-- If it's a quest check to see if we're displaying it on the map
 		elseif (v["Type"] == 4) then
 			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
