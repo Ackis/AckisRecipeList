@@ -2,6 +2,8 @@
 
 ===RC9
 *Optimized the database by removing many duplicate trainer/vendor entries
+*Updated code to detect duplicate trainer entries during a scan (only alpha/svn versions)
+*Fixed a bug with mini-maps and not displaying mob drops correctly along with an issue with trainers.
 *Fixed some accidental globals.
 *Now using LibQTipClick-1.1.
 *All LibQTip/Click tooltips are now acquired when needed and released when not.
