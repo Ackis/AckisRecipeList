@@ -15,7 +15,6 @@ Project version: @project-version@
 
 ]]--
 
-
 local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
@@ -38,6 +37,8 @@ local pairs = pairs
 local tconcat = table.concat
 local tsort = table.sort
 local tinsert = table.insert
+local smatch = string.match
+local gsub = string.gsub
 
 local function LoadRecipe()
 
@@ -86,6 +87,27 @@ local function LoadRecipe()
 	end
 
 	return recipelist
+
+end
+
+local function CreateReverseLookup()
+
+	-- Get internal database
+	local recipelist = LoadRecipe()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
+	local t = {}
+
+	for i in pairs(recipelist) do
+		if t[recipelist[i]["Name"]] then addon:Print("Dupe: " .. i) end
+		t[recipelist[i]["Name"]] = i
+	end
+
+	return t
 
 end
 
@@ -368,6 +390,8 @@ function addon:ScanVendor()
 			return
 		end
 
+		local reverselookup = CreateReverseLookup()
+
 		-- Get its name
 		local targetname = UnitName("target")
 		-- Get the NPC ID
@@ -380,7 +404,7 @@ function addon:ScanVendor()
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name)
+			self:ScanToolTip(name,recipelist,reverselookup)
 		end
 
 		ARLDatamineTT:Hide()
@@ -426,6 +450,7 @@ local specialtytext = {
 
 local factiontext = {
 	["Lower City"] = 107,
+	["Kirin Tor"] = 118,
 }
 
 local factionlevels = {
@@ -438,48 +463,37 @@ local factionlevels = {
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
-function addon:ScanToolTip(name)
+function addon:ScanToolTip(name,recipelist,reverselookup)
 
---[[
-	-- Get internal database
-	local recipelist = LoadRecipe()
+	local recipefound = false
+	local boprecipe = false
+	local bopitem = false
+	local healer = false
+	local tank = false
+	local dps = false
+	local caster = false
 
-	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
-		return
-	end
-]]--
+	local specialty = false
+	local repid = false
+	local repidlevel = false
+	local matchtext
 
-self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 	-- Parse all the lines of the tooltip
 	for i=1,ARLDatamineTT:NumLines(),1 do
 
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
---self:Print("DEBUG: Tooltip text: " .. text)
-		local enchanting = false
-		local boprecipe = false
-		local bopitem = false
-		local healer = false
-		local tank = false
-		local dps = false
-		local caster = false
-
-		local specialty = false
-		local repid = false
-		local repidlevel = false
 
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
 			-- Get the header of the tooltip aka Pattern:
-			local matchtext = string.match(text, "%a+: ")
+			matchtext = smatch(text, "%a+: ")
 
 			-- If the header is not a recipe
 			if (not recipenames[matchtext]) then
 				break
-			-- If we're dealing with an enchanting recipe, flag it
-			elseif (matchtext == "Formula: ") then
-				enchanting = true
+			else
+				recipefound = true
 			end
 		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
@@ -495,23 +509,26 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 		elseif (specialtytext[text]) then
 			specialty = specialtytext[text]
 		-- Recipe Reputatons
-		elseif (strmatch(text, "Requires (.+) - (.+)")) then
-			local rep,replevel = string.match(strmatch(text, "Requires (.+) - (.+)"))
+		elseif (strmatch(text, "Requires (.+) %- (.+)")) then
+			local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
 			if (factiontext[rep]) then
 				repid = factiontext[rep]
 				repidlevel = factionlevels[replevel]
 			end
 		-- Item Stats
 		-- Caster stats
-		elseif (strmatch(text,"Increases spell power by ")) then
-
+		elseif (strmatch(strlower(text),"spell power")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = true
 		-- DPS Caster Stats
-		elseif (strmatch(text,"spell hit")) then
+		elseif (strmatch(strlower(text),"spell hit")) then
 			caster = true
 			tank = false
 			dps = false
 			healer = false
-		elseif (strmatch(text,"spell penetration")) then
+		elseif (strmatch(strlower(text),"spell penetration")) then
 			caster = true
 			tank = false
 			dps = false
@@ -519,46 +536,61 @@ self:Print("DEBUG: Number of tooltip lines: " .. ARLDatamineTT:NumLines())
 		-- Healer Stats
 		-- Melee DPS Stats
 		-- Tanking Stats
-		elseif (strmatch(text,"Defense")) then
+		elseif (strmatch(strlower(text),"defense")) then
 			tank = true
 			dps = false
 			caster = false
 			healer = false
-		elseif (strmatch(text,"Block")) then
+		elseif (strmatch(strlower(text),"block")) then
 			tank = true
 			dps = false
 			caster = false
 			healer = false
 		end
+	end
 
-		-- Nuke this shit once this is done
-		self:Print(name)
-		if boprecipe then
-			self:Print("BoP Recipe")
-		end
+	if (recipefound) then
+
+		-- Parse the recipe database until we get a match on the name
+		local spellid
+		local recipename = gsub(name,"%a+%: ","")
+
+		spellid = reverselookup[recipename]
+
+		local flags = recipelist[spellid]["Flags"]
+		local missingflags = {}
+
+		--tinsert(missingflags,recipename .. " " .. spellid)
+		self:Print(recipename .. " " .. spellid)
+
 		if specialty then
 			self:Print(GetSpellInfo(specialty))
 		end
-		if repid then
-			self:Print("Rep Flag: " .. repid)
-			self:Print("Rep Level: " .. repidlevel)
+		if (not flags[4]) then
+			tinsert(missingflags,"4")
 		end
-		if healer then
-			self:Print("Healer item")
+		if (bopitem) and (not flags[37]) then
+			tinsert(missingflags,"37")
 		end
-		if caster then
-			self:Print("Caster item")
+		if (boprecipe) and (not flags[41]) then
+			tinsert(missingflags,"41")
 		end
-		if tank then
-			self:Print("Tank item")
+		if (dps) and (not flags[51]) then
+			tinsert(missingflags,"51")
 		end
-		if dps then
-			self:Print("DPS item")
+		if (tank) and (not flags[52]) then
+			tinsert(missingflags,"52")
 		end
-		if bopitem then
-			self:Print("BoP Item")
+		if (healer) and (not flags[53]) then
+			tinsert(missingflags,"53")
+		end
+		if (caster) and (not flags[54]) then
+			tinsert(missingflags,"54")
+		end
+		if (repid) and (not flags[repid]) then
+			tinsert(missingflags,repid)
 		end
 
+		self:Print(tconcat(missingflags,","))
 	end
-
 end
