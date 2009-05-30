@@ -15,6 +15,7 @@ Project version: @project-version@
 
 ]]--
 
+
 local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
@@ -497,14 +498,11 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 			end
 		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
-		elseif (strmatch(text,"Binds when picked up")) then
-			-- The recipe binding is within the first few lines of the tooltip always
-			if (i < 3) then
-				boprecipe = true
-			-- Item binding comes later on in the tooltip
-			else
-				bopitem = true
-			end
+		-- The recipe binding is within the first few lines of the tooltip always
+		elseif ((strmatch(strlower(text),"binds when picked up")) and (i < 4)) then
+			boprecipe = true
+		elseif ((strmatch(strlower(text),"binds when picked up")) and (i > 3)) then
+			bopitem = true
 		-- Recipe Specialities
 		elseif (specialtytext[text]) then
 			specialty = specialtytext[text]
@@ -528,24 +526,40 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 			tank = false
 			dps = false
 			healer = false
+			break
 		elseif (strmatch(strlower(text),"spell penetration")) then
 			caster = true
 			tank = false
 			dps = false
 			healer = false
+			break
 		-- Healer Stats
+		elseif (strmatch(strlower(text),"mana every 5 seconds")) then
+			caster = false
+			tank = false
+			dps = false
+			healer = true
+			break
 		-- Melee DPS Stats
+		elseif (strmatch(strlower(text),"attack power")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			break
 		-- Tanking Stats
 		elseif (strmatch(strlower(text),"defense")) then
 			tank = true
 			dps = false
 			caster = false
 			healer = false
+			break
 		elseif (strmatch(strlower(text),"block")) then
 			tank = true
 			dps = false
 			caster = false
 			healer = false
+			break
 		end
 	end
 
@@ -559,38 +573,100 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 
 		local flags = recipelist[spellid]["Flags"]
 		local missingflags = {}
-
-		--tinsert(missingflags,recipename .. " " .. spellid)
-		self:Print(recipename .. " " .. spellid)
+		local extraflags = {}
 
 		if specialty then
 			self:Print(GetSpellInfo(specialty))
 		end
+		-- Vendor Flag
 		if (not flags[4]) then
 			tinsert(missingflags,"4")
 		end
+		-- PVP Flag
+		if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
+			tinsert(missingflags,"9")
+		elseif (flags[9]) then
+			tinsert(extraflags,"9")
+		end
+		-- 36 = Item BoE
+		-- 37 = Item BoP
+		-- 38 = Item BoA 
+		-- BoP Item
 		if (bopitem) and (not flags[37]) then
 			tinsert(missingflags,"37")
+			-- If it's a BoP item and flags BoE is set, mark it as extra
+			if (flags[36]) then
+				tinsert(extraflags,"36")
+			end
+			-- If it's a BoP item and flags BoA is set, mark it as extra
+			if (flags[38]) then
+				tinsert(extraflags,"38")
+			end
+		-- BoE Item, assuming it's not BoA
+		elseif (not flags[36]) and (not bopitem) then
+			tinsert(missingflags,"36")
+			-- If it's a BoE item and flags BoP is set, mark it as extra
+			if (flags[37]) then
+				tinsert(extraflags,"37")
+			end
+			-- If it's a BoE item and flags BoA is set, mark it as extra
+			if (flags[38]) then
+				tinsert(extraflags,"38")
+			end
 		end
+		-- 40 = Recipe BoE
+		-- 41 = Recipe BoP
+		-- 42 = Recipe BoA 
+		-- BoP Recipe
 		if (boprecipe) and (not flags[41]) then
 			tinsert(missingflags,"41")
+			-- If it's a BoP recipe and flags BoE is set, mark it as extra
+			if (flags[40]) then
+				tinsert(extraflags,"40")
+			end
+			-- If it's a BoP recipe and flags BoA is set, mark it as extra
+			if (flags[42]) then
+				tinsert(extraflags,"42")
+			end
+		-- Not BoP recipe, assuming it's not BoA
+		elseif (not flags[40]) and (not boprecipe) then
+			tinsert(missingflags,"40")
+			-- If it's a BoE recipe and flags BoP is set, mark it as extra
+			if (flags[41]) then
+				tinsert(extraflags,"41")
+			end
+			-- If it's a BoE recipe and flags BoA is set, mark it as extra
+			if (flags[42]) then
+				tinsert(extraflags,"42")
+			end
 		end
 		if (dps) and (not flags[51]) then
 			tinsert(missingflags,"51")
+		elseif (flags[51]) and (not dps) then
+			tinsert(extraflags,"51")
 		end
 		if (tank) and (not flags[52]) then
 			tinsert(missingflags,"52")
+		elseif (flags[52]) and (not tank) then
+			tinsert(extraflags,"52")
 		end
 		if (healer) and (not flags[53]) then
 			tinsert(missingflags,"53")
+		elseif (flags[53]) and (not healer) then
+			tinsert(extraflags,"53")
 		end
 		if (caster) and (not flags[54]) then
 			tinsert(missingflags,"54")
+		elseif (flags[54]) and (not caster) then
+			tinsert(extraflags,"54")
 		end
 		if (repid) and (not flags[repid]) then
 			tinsert(missingflags,repid)
 		end
 
-		self:Print(tconcat(missingflags,","))
+		self:Print(recipename .. " " .. spellid)
+		self:Print("Missing flags: " .. tconcat(missingflags,","))
+		self:Print("Extra flags: " .. tconcat(extraflags,","))
+
 	end
 end
