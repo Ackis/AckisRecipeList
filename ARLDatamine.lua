@@ -336,18 +336,25 @@ function addon:GenerateLinks()
 	-- Listing of all tradeskill professions
 	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
 
+--[[
+	local encodingLength = floor((#recipeList+5) / 6)
+
+	local encodedString = string.rep("/",encodingLength)
+]]--
 	local bitmap = {}
-	bitmap[45542] = "8bffAA" -- First Aid
-	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking
-	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering
-	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW
-	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy
-	--bitmap[51300] = "" -- Blacksmithing
-	--bitmap[51309] = "" -- Tailoring
-	--bitmap[51311] = "" -- JC 489
-	--bitmap[45363] = "" -- Inscription
+	bitmap[45542] = "8bffAA" -- First Aid (6)
+	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking (30)
+	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
+	--bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW (87)
+	bitmap[51302] = string.rep("/",87)
+	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
+	bitmap[51300] = string.rep("/",85) -- Blacksmithing (85)
+	bitmap[51309] = string.rep("/",71) -- Tailoring (71)
+	bitmap[51311] = string.rep("/",83) -- JC 83
+	bitmap[45363] = string.rep("/",74) -- Inscription (74)
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
-	bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting
+	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
+	bitmap[51313] = string.rep("/",51) -- Enchanting (51)
 
 	for i in pairs(tradelist) do
 
