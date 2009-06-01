@@ -750,7 +750,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 	--@alpha@
 	-- Internal DB to check to see if we're adding duplicate ID's as an acquire method
 	local AcquireIDList = {}
-	--@end-debug@
+	--@end-alpha@
 
 	while (i < numvars) do
 
