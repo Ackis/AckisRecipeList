@@ -114,8 +114,6 @@ end
 
 local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
 
--- Description: Parses a trainer, comparing skill levels internal to those on the trainer.
-
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 -- @name AckisRecipeList:ScanSkillLevelData
 -- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
@@ -181,8 +179,6 @@ function addon:ScanSkillLevelData(autoscan)
 	end
 
 end
-
--- Description: Parses a trainer, comparing all recipes you can learn with where you can learn them in the database
 
 --- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 -- @name AckisRecipeList:ScanTrainerData
@@ -321,8 +317,6 @@ function addon:ScanTrainerData(autoscan)
 
 end
 
--- Description: Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
-
 --- Generates tradeskill links for all professions so you can scan them for completeness.
 -- @name AckisRecipeList:GenerateLinks
 -- @return Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
@@ -380,8 +374,6 @@ function addon:GenerateLinks()
 
 end
 
--- Description: Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
-
 --- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
@@ -420,6 +412,36 @@ function addon:ScanVendor()
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
+
+end
+
+--- Parses all the recipes in the database, and scanning their tooltips.
+function addon:TooltipScanDatabase()
+
+	-- Get internal database
+	local recipelist = LoadRecipe()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
+	local reverselookup = CreateReverseLookup()
+
+	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+	-- Parse the entire recipe database
+	for i in pairs(recipelist) do
+
+		local name = recipelist[i]["Name"]
+		local link = recipelist[i]["RecipeLink"]
+		ARLDatamineTT:SetHyperlink(link)
+		self:ScanToolTip(name,recipelist,reverselookup)
+
+	end
+
+	ARLDatamineTT:Hide()
 
 end
 
