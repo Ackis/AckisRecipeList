@@ -331,6 +331,7 @@ function addon:OnEnable()
 		}
 	end
 
+--[[
 	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
 	if (Skillet) and (Skillet.GetNumTradeSkills) and
 	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
@@ -342,7 +343,7 @@ function addon:OnEnable()
 		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
 		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
 	end
-
+]]--
 	-- Populate the repuatation level
 	self:GetFactionLevels()
 
