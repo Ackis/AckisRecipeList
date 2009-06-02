@@ -58,7 +58,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mysterious Tarot -- 48247
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,48247,85,37168,1,45357)
+	self:addTradeSkill(RecipeDB,48247,110,37168,1,45357)
 	self:addTradeFlags(RecipeDB,48247,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,48247,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603)
 
@@ -94,7 +94,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Scroll of Intellect VI -- 50602
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,50602,300,33458,1,45357)
+	self:addTradeSkill(RecipeDB,50602,310,33458,1,45357)
 	self:addTradeFlags(RecipeDB,50602,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,50602,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603)
 
@@ -1966,7 +1966,7 @@ function addon:InitInscription(RecipeDB)
 
 	-- Mystic Tome -- 58565
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,58565,85,43515,3,45357)
+	self:addTradeSkill(RecipeDB,58565,110,43515,3,45357)
 	self:addTradeFlags(RecipeDB,58565,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66)
 	self:addTradeAcquire(RecipeDB,58565,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603)
 
