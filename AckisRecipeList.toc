@@ -28,6 +28,8 @@
 ## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibQTipClick-1.1, Skillet, ATSW, Manufac, Cauldron, TomTom, TipTac
 ## DefaultState: Enabled
 
+## X-WoWI-ID: 5061
+
 ## SavedVariables: ARLDB2
 
 #@no-lib-strip@
