@@ -928,87 +928,87 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Small Blue Rocket -- 26416
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26416,125,21558,2,4036)
-	self:addTradeFlags(RecipeDB,26416,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26416,5,2)
+	self:addTradeSkill(RecipeDB,26416,125,21558,2,4036,0,125,125,137,150)
+	self:addTradeFlags(RecipeDB,26416,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26416,5,2,2,15909)
 
 	-- Small Green Rocket -- 26417
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26417,125,21559,2,4036)
-	self:addTradeFlags(RecipeDB,26417,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26417,5,2)
+	self:addTradeSkill(RecipeDB,26417,125,21559,2,4036,0,125,125,137,150)
+	self:addTradeFlags(RecipeDB,26417,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26417,5,2,2,15909)
 
 	-- Small Red Rocket -- 26418
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26418,125,21557,2,4036)
-	self:addTradeFlags(RecipeDB,26418,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26418,5,2)
+	self:addTradeSkill(RecipeDB,26418,125,21557,2,4036,0,125,125,137,150)
+	self:addTradeFlags(RecipeDB,26418,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26418,5,2,2,15909)
 
 	-- Large Blue Rocket -- 26420
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26420,175,21589,2,4036)
-	self:addTradeFlags(RecipeDB,26420,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26420,5,2)
+	self:addTradeSkill(RecipeDB,26420,175,21589,2,4036,0,175,175,187,200)
+	self:addTradeFlags(RecipeDB,26420,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26420,5,2,2,15909)
 
 	-- Large Green Rocket -- 26421
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26421,175,21590,2,4036)
-	self:addTradeFlags(RecipeDB,26421,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26421,5,2)
+	self:addTradeSkill(RecipeDB,26421,175,21590,2,4036,0,175,175,187,200)
+	self:addTradeFlags(RecipeDB,26421,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26421,5,2,2,15909)
 
 	-- Large Red Rocket -- 26422
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26422,175,21592,2,4036)
-	self:addTradeFlags(RecipeDB,26422,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26422,5,2)
+	self:addTradeSkill(RecipeDB,26422,175,21592,2,4036,0,175,175,187,200)
+	self:addTradeFlags(RecipeDB,26422,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26422,5,2,2,15909)
 
 	-- Blue Rocket Cluster -- 26423
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26423,225,21571,2,4036)
-	self:addTradeFlags(RecipeDB,26423,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26423,5,2)
+	self:addTradeSkill(RecipeDB,26423,225,21571,2,4036,0,225,225,237,250)
+	self:addTradeFlags(RecipeDB,26423,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26423,5,2,2,15909)
 
 	-- Green Rocket Cluster -- 26424
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26424,225,21574,2,4036)
-	self:addTradeFlags(RecipeDB,26424,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26424,5,2)
+	self:addTradeSkill(RecipeDB,26424,225,21574,2,4036,0,225,225,237,250)
+	self:addTradeFlags(RecipeDB,26424,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26424,5,2,2,15909)
 
 	-- Red Rocket Cluster -- 26425
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26425,225,21576,2,4036)
-	self:addTradeFlags(RecipeDB,26425,3,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26425,5,2)
+	self:addTradeSkill(RecipeDB,26425,225,21576,2,4036,0,225,225,237,250)
+	self:addTradeFlags(RecipeDB,26425,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26425,5,2,2,15909)
 
 	-- Large Blue Rocket Cluster -- 26426
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26426,275,21714,2,4036)
-	self:addTradeFlags(RecipeDB,26426,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26426,5,2)
+	self:addTradeSkill(RecipeDB,26426,275,21714,2,4036,0,275,275,280,285)
+	self:addTradeFlags(RecipeDB,26426,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26426,5,2,2,15909)
 
 	-- Large Green Rocket Cluster -- 26427
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26427,275,21716,2,4036)
-	self:addTradeFlags(RecipeDB,26427,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26427,5,2)
+	self:addTradeSkill(RecipeDB,26427,275,21716,2,4036,0,275,275,280,285)
+	self:addTradeFlags(RecipeDB,26427,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26427,5,2,2,15909)
 
 	-- Large Red Rocket Cluster -- 26428
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26428,275,21718,2,4036)
-	self:addTradeFlags(RecipeDB,26428,7,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26428,5,2)
+	self:addTradeSkill(RecipeDB,26428,275,21718,2,4036,0,275,275,280,285)
+	self:addTradeFlags(RecipeDB,26428,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26428,5,2,2,15909)
 
 	-- Firework Launcher -- 26442
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036)
-	self:addTradeFlags(RecipeDB,26442,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,26442,5,2,4,8877)
+	self:addTradeSkill(RecipeDB,26442,225,21569,2,4036,0,225,245,255,265)
+	self:addTradeFlags(RecipeDB,26442,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26442,5,2,2,15909)
 
 	-- Firework Cluster Launcher -- 26443
 	recipecount = recipecount + 1
-	self:addTradeSkill(RecipeDB,26443,275,21570,2,4036)
-	self:addTradeFlags(RecipeDB,26443,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,26443,5,2,4,8882)
+	self:addTradeSkill(RecipeDB,26443,275,21570,2,4036,0,275,295,305,315)
+	self:addTradeFlags(RecipeDB,26443,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,26443,5,2,2,15909)
 
 	-- Steam Tonk Controller -- 28327
 	recipecount = recipecount + 1
