@@ -514,6 +514,30 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	local Warlock = false
 	local Warrior = false
 
+	local Cloth = false
+	local Leather = false
+	local Mail = false
+	local Plate = false
+	local Cloak = false
+	local Trinket = false
+	local Ring = false
+	local Necklace = false
+	local Shield  = false
+	local 1H = false
+	local 2H = false
+	local Axe = false
+	local Sword = false
+	local Mace = false
+	local Polearm = false
+	local Dagger = false
+	local Staff = false
+	local Wand = false
+	local Thrown = false
+	local Bow = false
+	local Crossbow = false
+	local Ammo = false
+	local Fist = false
+
 	local specialty = false
 	local repid = false
 	local repidlevel = false
@@ -694,6 +718,50 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 			Warlock = true
 		elseif (strmatch(strlower(text),"warrior")) then
 			Warrior = true
+		elseif (strmatch(strlower(text),"cloth")) then
+			Cloth = true
+		elseif (strmatch(strlower(text),"leather")) then
+			Leather = true
+		elseif (strmatch(strlower(text),"mail")) then
+			Mail = true
+		elseif (strmatch(strlower(text),"plate")) then
+			Plate = true
+		elseif (strmatch(strlower(text),"cloak")) then
+			Cloak = true
+		elseif (strmatch(strlower(text),"ring")) then
+			Ring = true
+		elseif (strmatch(strlower(text),"necklace")) then
+			Necklace = true
+		elseif (strmatch(strlower(text),"shield")) then
+			Shield = true
+		elseif (strmatch(strlower(text),"1 hand")) or (strmatch(strlower(text),"off hand")) then
+			1H = true
+		elseif (strmatch(strlower(text),"2 hand")) then
+			2H = true
+		elseif (strmatch(strlower(text),"axe")) then
+			Axe = true
+		elseif (strmatch(strlower(text),"sword")) then
+			Sword = true
+		elseif (strmatch(strlower(text),"mace")) then
+			Mace = true
+		elseif (strmatch(strlower(text),"polearm")) then
+			Polearm = true
+		elseif (strmatch(strlower(text),"dagger")) then
+			Dagger = true
+		elseif (strmatch(strlower(text),"staff")) then
+			Staff = true
+		elseif (strmatch(strlower(text),"wand")) then
+			Wand = true
+		elseif (strmatch(strlower(text),"thrown")) then
+			Thrown = true
+		elseif (strmatch(strlower(text),"bow")) then
+			Bow = true
+		elseif (strmatch(strlower(text),"crossbow")) then
+			Crossbow = true
+		elseif (strmatch(strlower(text),"ammo")) then
+			Ammo = true
+		elseif (strmatch(strlower(text),"fist")) then
+			Fist = true
 		end
 	end
 
@@ -843,6 +911,30 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		elseif (flags[54]) and (not caster) then
 			tinsert(extraflags,"54")
 		end
+
+		-- Item Type
+		if (Cloth) and (not flags[56]) then
+			tinsert(missingflags,"56")
+		elseif (not Cloth) and (flags[56]) then
+			tinsert(extraflags,"56")
+		end
+		if (Leather) and (not flags[57]) then
+			tinsert(missingflags,"57")
+		elseif (not Leather) and (flags[57]) then
+			tinsert(extraflags,"57")
+		end
+		if (Mail) and (not flags[58]) then
+			tinsert(missingflags,"58")
+		elseif (not Mail) and (flags[58]) then
+			tinsert(extraflags,"58")
+		end
+		if (Plate) and (not flags[59]) then
+			tinsert(missingflags,"59")
+		elseif (not Plate) and (flags[59]) then
+			tinsert(extraflags,"59")
+		end
+
+		-- Reputations
 		if (repid) and (not flags[repid]) then
 			tinsert(missingflags,repid)
 		end
