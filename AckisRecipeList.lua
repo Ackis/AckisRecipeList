@@ -39,6 +39,7 @@ local MODNAME	= "Ackis Recipe List"
 AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
 
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
@@ -48,16 +49,15 @@ local MissingLibraries
 do
 	local REQUIRED_LIBS = {
 		"AceLocale-3.0",
+		"LibBabble-Boss-3.0",
+		"LibBabble-Class-3.0",
 		"LibBabble-Faction-3.0",
 		"LibBabble-Zone-3.0",
-		"LibBabble-Boss-3.0",
-		"LibBabble-Class-3.0"
 	}
-
 	function MissingLibraries()
 		local missing = false
 
-		for k, lib in pairs(REQUIRED_LIBS) do
+		for idx, lib in ipairs(REQUIRED_LIBS) do
 			if not LibStub:GetLibrary(lib, true) then
 				missing = true
 				addon:Print(format(L["MISSING_LIBRARY"], lib))
@@ -75,7 +75,6 @@ if MissingLibraries() then
 	return
 end
 
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
@@ -594,23 +593,23 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	-- about a recipe
 	-------------------------------------------------------------------------------
 	RecipeDB[SpellID] = {
-		["Level"] = SkillLevel
-		["ItemID"] = ItemID
-		["Rarity"] = Rarity
-		["Profession"] = GetSpellInfo(Profession)
-		["Locations"] = nil
-		["RecipeLink"] = spellLink
-		["Name"] = GetSpellInfo(SpellID)
-		["Known"] = false				-- Unknown until scan occurs
-		["Display"] = true				-- Set to be displayed until the filtering occurs
-		["Search"] = true				-- Set to be showing in the search results
-		["Flags"] = {}					-- Create the flag space in the RecipeDB
-		["Acquire"] = {}				-- Create the Acquire space in the RecipeDB
-		["Specialty"] = Specialty			-- Assumption: there will only be 1 speciality for a trade skill
-		["Orange"] = Orange or SkillLevel		-- If we don't have an orange value in the db, just assume the skill level
-		["Yellow"] = Yellow or SkillLevel + 10		-- If we don't have a yellow value in the db, just assume the skill level
-		["Green"] = Green or SkillLevel + 15		-- If we don't have a green value in the db, just assume the skill level
-		["Grey"] = Grey or SkillLevel + 20		-- If we don't have a grey value in the db, just assume the skill level
+		["Level"] = SkillLevel,
+		["ItemID"] = ItemID,
+		["Rarity"] = Rarity,
+		["Profession"] = GetSpellInfo(Profession),
+		["Locations"] = nil,
+		["RecipeLink"] = spellLink,
+		["Name"] = GetSpellInfo(SpellID),
+		["Known"] = false,				-- Unknown until scan occurs
+		["Display"] = true,				-- Set to be displayed until the filtering occurs
+		["Search"] = true,				-- Set to be showing in the search results
+		["Flags"] = {},					-- Create the flag space in the RecipeDB
+		["Acquire"] = {},				-- Create the Acquire space in the RecipeDB
+		["Specialty"] = Specialty,			-- Assumption: there will only be 1 speciality for a trade skill
+		["Orange"] = Orange or SkillLevel,		-- If we don't have an orange value in the db, just assume the skill level
+		["Yellow"] = Yellow or SkillLevel + 10,		-- If we don't have a yellow value in the db, just assume the skill level
+		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
+		["Grey"] = Grey or SkillLevel + 20,		-- If we don't have a grey value in the db, just assume the skill level
 	}
 	local recipeentry = RecipeDB[SpellID]
 
