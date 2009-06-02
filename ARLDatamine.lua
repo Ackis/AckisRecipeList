@@ -436,8 +436,13 @@ function addon:TooltipScanDatabase()
 
 		local name = recipelist[i]["Name"]
 		local link = recipelist[i]["RecipeLink"]
-		ARLDatamineTT:SetHyperlink(link)
-		self:ScanToolTip(name,recipelist,reverselookup)
+
+		if link then
+			ARLDatamineTT:SetHyperlink(link)
+			self:ScanToolTip(name,recipelist,reverselookup)
+		else
+			addon:Print("Missing RecipeLink for ID "..i.." - "..name)
+		end
 
 	end
 
@@ -523,8 +528,8 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	local Ring = false
 	local Necklace = false
 	local Shield  = false
-	local 1H = false
-	local 2H = false
+	local OneHanded = false
+	local TwoHanded = false
 	local Axe = false
 	local Sword = false
 	local Mace = false
@@ -735,9 +740,9 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		elseif (strmatch(strlower(text),"shield")) then
 			Shield = true
 		elseif (strmatch(strlower(text),"1 hand")) or (strmatch(strlower(text),"off hand")) then
-			1H = true
+			OneHanded = true
 		elseif (strmatch(strlower(text),"2 hand")) then
-			2H = true
+			TwoHanded = true
 		elseif (strmatch(strlower(text),"axe")) then
 			Axe = true
 		elseif (strmatch(strlower(text),"sword")) then
