@@ -484,6 +484,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	local specialty = false
 	local repid = false
 	local repidlevel = false
+	local confirmedtype = false
 	local matchtext
 
 	-- Parse all the lines of the tooltip
@@ -520,53 +521,126 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 				repid = factiontext[rep]
 				repidlevel = factionlevels[replevel]
 			end
-		-- Item Stats
-		-- Caster stats
-		elseif (strmatch(strlower(text),"spell power")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = true
-		-- DPS Caster Stats
-		elseif (strmatch(strlower(text),"spell hit")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = false
-			break
-		elseif (strmatch(strlower(text),"spell penetration")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = false
-			break
-		-- Healer Stats
-		elseif (strmatch(strlower(text),"mana every 5 seconds")) then
-			caster = false
-			tank = false
-			dps = false
-			healer = true
-			break
-		-- Melee DPS Stats
-		elseif (strmatch(strlower(text),"attack power")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
-			break
-		-- Tanking Stats
-		elseif (strmatch(strlower(text),"defense")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
-			break
-		elseif (strmatch(strlower(text),"block")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
-			break
+		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
+		-- confirmedtype will be toggled to true when we get to a stat that is specific to that class
+		elseif (not confirmedtype) then
+			-- Caster stats
+			if (strmatch(strlower(text),"spell power")) then
+				caster = true
+				tank = false
+				dps = false
+				healer = true
+			elseif (strmatch(strlower(text),"spell crit")) then
+				caster = true
+				tank = false
+				dps = false
+				healer = true
+			-- DPS Caster Stats
+			elseif (strmatch(strlower(text),"spell hit")) then
+				caster = true
+				tank = false
+				dps = false
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"spell penetration")) then
+				caster = true
+				tank = false
+				dps = false
+				healer = false
+				confirmedtype = true
+			-- Healer Stats
+			elseif (strmatch(strlower(text),"mana every 5 seconds")) then
+				caster = false
+				tank = false
+				dps = false
+				healer = true
+				confirmedtype = true
+			-- Melee DPS Stats
+			elseif (strmatch(strlower(text),"attack power")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"expertise")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"melee crit")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"ranged crit")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"melee haste")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"ranged haste")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"melee hit")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"ranged hit")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"armor pen")) then
+				caster = false
+				tank = false
+				dps = true
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"feral attack")) then
+				caster = false
+				tank = true
+				dps = true
+				healer = false
+			-- Tanking Stats
+			elseif (strmatch(strlower(text),"defense")) then
+				tank = true
+				dps = false
+				caster = false
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"block")) then
+				tank = true
+				dps = false
+				caster = false
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"parry")) then
+				tank = true
+				dps = false
+				caster = false
+				healer = false
+				confirmedtype = true
+			elseif (strmatch(strlower(text),"dodge")) then
+				tank = true
+				dps = false
+				caster = false
+				healer = false
+				confirmedtype = true
+			end
 		end
 	end
 
@@ -674,6 +748,9 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		self:Print(recipename .. " " .. spellid)
 		self:Print("Missing flags: " .. tconcat(missingflags,","))
 		self:Print("Extra flags: " .. tconcat(extraflags,","))
+		if (not tank) and (not healer) and (not caster) and (not dps) then
+			self:Print("No player type flag.")
+		end
 
 	end
 end
