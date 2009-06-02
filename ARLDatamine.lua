@@ -481,6 +481,17 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	local dps = false
 	local caster = false
 
+	local Deathknight = false
+	local Druid = false
+	local Hunter = false
+	local Mage = false
+	local Paladin = false
+	local Priest = false
+	local Shaman = false
+	local Rogue = false
+	local Warlock = false
+	local Warrior = false
+
 	local specialty = false
 	local repid = false
 	local repidlevel = false
@@ -641,6 +652,26 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 				healer = false
 				confirmedtype = true
 			end
+		elseif (strmatch(strlower(text),"deathknight")) then
+			Deathknight = true
+		elseif (strmatch(strlower(text),"druid")) then
+			Druid = true
+		elseif (strmatch(strlower(text),"hunter")) then
+			Hunter = true
+		elseif (strmatch(strlower(text),"mage")) then
+			Mage = true
+		elseif (strmatch(strlower(text),"paladin")) then
+			Paladin = true
+		elseif (strmatch(strlower(text),"priest")) then
+			Priest = true
+		elseif (strmatch(strlower(text),"rogue")) then
+			Rogue = true
+		elseif (strmatch(strlower(text),"shaman")) then
+			Shaman = true
+		elseif (strmatch(strlower(text),"warlock")) then
+			Warlock = true
+		elseif (strmatch(strlower(text),"warrior")) then
+			Warrior = true
 		end
 	end
 
@@ -669,9 +700,58 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		elseif (flags[9]) then
 			tinsert(extraflags,"9")
 		end
-		-- 36 = Item BoE
-		-- 37 = Item BoP
-		-- 38 = Item BoA 
+
+		-- Classes
+		if (Deathknight) and (not flags[21]) then
+			tinsert(missingflags,"21")
+		elseif (not Deathknight) and (flags[21]) then
+			tinsert(extraflags,"21")
+		end
+		if (Druid) and (not flags[22]) then
+			tinsert(missingflags,"22")
+		elseif (not Druid) and (flags[22]) then
+			tinsert(extraflags,"22")
+		end
+		if (Hunter) and (not flags[23]) then
+			tinsert(missingflags,"23")
+		elseif (not Hunter) and (flags[23]) then
+			tinsert(extraflags,"23")
+		end
+		if (Mage) and (not flags[24]) then
+			tinsert(missingflags,"24")
+		elseif (not Mage) and (flags[24]) then
+			tinsert(extraflags,"24")
+		end
+		if (Paladin) and (not flags[25]) then
+			tinsert(missingflags,"25")
+		elseif (not Paladin) and (flags[25]) then
+			tinsert(extraflags,"25")
+		end
+		if (Priest) and (not flags[26]) then
+			tinsert(missingflags,"26")
+		elseif (not Deathknight) and (flags[26]) then
+			tinsert(extraflags,"27")
+		end
+		if (Shaman) and (not flags[27]) then
+			tinsert(missingflags,"28")
+		elseif (not Deathknight) and (flags[27]) then
+			tinsert(extraflags,"27")
+		end
+		if (Rogue) and (not flags[28]) then
+			tinsert(missingflags,"28")
+		elseif (not Deathknight) and (flags[28]) then
+			tinsert(extraflags,"28")
+		end
+		if (Warlock) and (not flags[29]) then
+			tinsert(missingflags,"29")
+		elseif (not Deathknight) and (flags[29]) then
+			tinsert(extraflags,"29")
+		end
+		if (Warrior) and (not flags[30]) then
+			tinsert(missingflags,"30")
+		elseif (not Deathknight) and (flags[30]) then
+			tinsert(extraflags,"30")
+		end
 		-- BoP Item
 		if (bopitem) and (not flags[37]) then
 			tinsert(missingflags,"37")
@@ -695,9 +775,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 				tinsert(extraflags,"38")
 			end
 		end
-		-- 40 = Recipe BoE
-		-- 41 = Recipe BoP
-		-- 42 = Recipe BoA 
+
 		-- BoP Recipe
 		if (boprecipe) and (not flags[41]) then
 			tinsert(missingflags,"41")
@@ -721,6 +799,8 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 				tinsert(extraflags,"42")
 			end
 		end
+
+		-- Player type
 		if (dps) and (not flags[51]) then
 			tinsert(missingflags,"51")
 		elseif (flags[51]) and (not dps) then
