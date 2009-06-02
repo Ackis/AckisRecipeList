@@ -40,55 +40,43 @@ AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "A
 
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
+-------------------------------------------------------------------------------
+-- Check to see if we have mandatory libraries loaded. If not, notify the user
+-- which are missing and return.
+-------------------------------------------------------------------------------
+local MissingLibraries
+do
+	local REQUIRED_LIBS = {
+		"AceLocale-3.0",
+		"LibBabble-Faction-3.0",
+		"LibBabble-Zone-3.0",
+		"LibBabble-Boss-3.0",
+		"LibBabble-Class-3.0"
+	}
+
+	function MissingLibraries()
+		local missing = false
+
+		for k, lib in pairs(REQUIRED_LIBS) do
+			if not LibStub:GetLibrary(lib, true) then
+				missing = true
+				addon:Print(format(L["MISSING_LIBRARY"], lib))
+			end
+		end
+		return missing
+	end
+end -- do
+
+if MissingLibraries() then
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using an SVN version of ARL.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
 	AckisRecipeList = nil
 	return
 end
 
 local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
--- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
-if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	AckisRecipeList = nil
-	return
-end
-
-if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	AckisRecipeList = nil
-	return
-end
-
-if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	AckisRecipeList = nil
-	return
-end
-
-if (not LibStub:GetLibrary("LibBabble-Class-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Class-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	AckisRecipeList = nil
-	return
-end
-
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
 addon.optionsFrame = {}
