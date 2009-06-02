@@ -90,3 +90,11 @@ Currently, the mod works with:
 * Ace community for listening to my questions on the IRC channel and helping me out, and fellow mod authors for developing such great add-ons.
 * Please see the X-Credits field for more Acknowledgments.  Any code snippets borrowed or inspired from are credited in the code files.  The main display also lists all people who are in X-Credits.
 * Everyone who has helped me with localizations.
+
+==External Reviews==
+* [http://www.wow.com/2009/05/31/addon-spotlight-ackis-recipe-list/ WoW.com]
+* [http://www.wowfix.com/article-36634 WoWFix.com]
+* [http://www.wowdaily.info/a.asp?a=2015098 WoWDaily.info]
+* [http://www.maniasarcania.com/2008/01/22/ackis-recipe-list-not-just-for-recipes/ Mania's Arania]
+* [http://wow.buffed.de/features/3863/ackis-recipe-list Buffed.de]
+* [https://www.ohloh.net/p/ackisrecipelist Ohloh.net - Code Statistics]
