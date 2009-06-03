@@ -445,7 +445,7 @@ function addon:TooltipScanDatabase()
 			ARLDatamineTT:SetHyperlink(link)
 			self:ScanToolTip(name,recipelist,reverselookup)
 		else
-			addon:Print("Missing RecipeLink for ID "..i.." - "..name)
+			addon:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
 
 	end
