@@ -18,8 +18,7 @@ Please see http://www.wowace.com/projects/arl/for more information.
 License:
 	Please see LICENSE.txt
 
-Documentation:
-	Please see Docs\Documentation.txt for comprehensive documentation.
+This source code is released under All Rights Reserved.
 
 ************************************************************************
 
@@ -795,6 +794,8 @@ end
 
 ]]--
 
+-- This source code is release under Public Domain
+
 local function GetIDFromLink(SpellLink)
 
 	--return smatch(SpellLink, "|H%w+:(%d+)")
@@ -1502,8 +1503,9 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 	}
 
 	-- Check for player profession to fix some bugs with addons that interface with ARL
+	-- This source code is release under Public Domain
+	-- Thanks to sylvanaar/xinhuan for the code snippet
 	if (playerProfession) then
-		-- Thanks to sylvanaar/xinhuan for the code snippet
 		local a = professiontable[playerProfession]
 
 		if a then

@@ -1,23 +1,28 @@
 --[[
 
-ARLLocals-enUS.lua
+************************************************************************
 
-enUS localization strings for Ackis Recipe List
+These are localization strings used for the testing of ARL.
+Manually add entries here and then procede to update the localization
+application located here:
+	http://www.wowace.com/projects/arl/localization/
 
-File date: @file-date-iso@
-File revision: @file-revision@
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
 
-Original translated by: Ackis
-Currently maintained by: Ackis
+************************************************************************
 
-Please make sure you update the ToC file with any translations.
+Please see http://www.wowace.com/projects/arl/for more information.
 
-Please update http://www.wowace.com/projects/arl/localization/enUS/ for any translation
-additions or changes.
+License:
+	Please see LICENSE.txt
 
-****************************************************************************************
+These translations are released under the Public Domain.
+
+************************************************************************
+
 ]]--
 
 local MODNAME	= "Ackis Recipe List"

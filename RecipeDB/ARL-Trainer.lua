@@ -6,11 +6,6 @@ ARL-Trainer.lua
 
 Trainer data for all of Ackis Recipe List
 
-Auto-generated using ARLDataminer.rb
-Entries to this file will be overwritten
-
-378 found from data mining.  0 ignored.
-
 ************************************************************************
 
 File date: @file-date-iso@ 
@@ -23,6 +18,15 @@ Project version: @project-version@
 Format:
 
 	self:addLookupList(TrainerDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+
+************************************************************************
+
+Please see http://www.wowace.com/projects/arl/for more information.
+
+License:
+	Please see LICENSE.txt
+
+This source code is released under All Rights Reserved.
 
 ************************************************************************
 

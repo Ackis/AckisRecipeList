@@ -21,6 +21,15 @@ Format:
 
 ************************************************************************
 
+Please see http://www.wowace.com/projects/arl/for more information.
+
+License:
+	Please see LICENSE.txt
+
+This source code is released under All Rights Reserved.
+
+************************************************************************
+
 ]]--
 
 local MODNAME			= "Ackis Recipe List"
