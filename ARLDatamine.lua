@@ -30,6 +30,24 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+
+-------------------------------------------------------------------------------
+-- Upvalues globals
+-------------------------------------------------------------------------------
+local table, string = table, string
+
+local ipairs, pairs = ipairs, pairs
+local tconcat = table.concat
+local tsort = table.sort
+local tinsert = table.insert
+local strmatch = string.match
+local strlower = string.lower
+local gsub = string.gsub
+local tonumber = tonumber
+
+-------------------------------------------------------------------------------
+-- Upvalued Blizzard API
+-------------------------------------------------------------------------------
 local UnitName = UnitName
 local UnitGUID = UnitGUID
 local UnitExists = UnitExists
@@ -39,16 +57,12 @@ local GetNumTrainerServices = GetNumTrainerServices
 local GetTrainerServiceInfo = GetTrainerServiceInfo
 local IsTradeskillTrainer = IsTradeskillTrainer
 local SetTrainerServiceTypeFilter = SetTrainerServiceTypeFilter
+local GetTrainerServiceTypeFilter = GetTrainerServiceTypeFilter
 local GetTrainerServiceSkillReq = GetTrainerServiceSkillReq
 local GetMerchantNumItems = GetMerchantNumItems
 local GetMerchantItemLink = GetMerchantItemLink
 local GetMerchantItemInfo = GetMerchantItemInfo
-local pairs = pairs
-local tconcat = table.concat
-local tsort = table.sort
-local tinsert = table.insert
-local smatch = string.match
-local gsub = string.gsub
+local GetSpellInfo = GetSpellInfo
 
 local function LoadRecipe()
 
@@ -106,7 +120,7 @@ local function CreateReverseLookup()
 	local recipelist = LoadRecipe()
 
 	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
+		addon:Print(L["DATAMINER_NODB_ERROR"])
 		return
 	end
 
@@ -452,7 +466,7 @@ function addon:TooltipScanDatabase()
 
 		if link then
 			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(itemName,recipelist,reverselookup)
+			self:ScanToolTip(name,recipelist,reverselookup)
 		else
 			addon:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
@@ -585,7 +599,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
 			-- Get the header of the tooltip aka Pattern:
-			matchtext = smatch(text, "%a+: ")
+			matchtext = strmatch(text, "%a+: ")
 
 			-- If the header is not a recipe
 			if (not recipenames[matchtext]) then
@@ -800,7 +814,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	end
 
 	if (recipefound) then
-
+--		print("Recipe found: "..matchtext)
 		-- Parse the recipe database until we get a match on the name
 		local spellid
 		local recipename = gsub(name,"%a+%: ","")
