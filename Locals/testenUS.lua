@@ -338,6 +338,8 @@ L["Crossbow"]				= true
 L["CROSSBOW_DESC"]			= "Recipes that make crossbows should be included in the scan."
 L["Ammo"]					= true
 L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan."
+L["Gun"]					= true
+L["GUN_DESC"]				= "Recipes that make guns should be included in the scan."
 
 -- Player Type Filtering UI Elements and their associated descriptions
 L["Melee DPS"]				= true

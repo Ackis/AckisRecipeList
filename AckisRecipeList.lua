@@ -212,6 +212,7 @@ function addon:OnInitialize()
 						bow = true,
 						crossbow = true,
 						ammo = true,
+						gun = true,
 					},
 				},
 				binding = {
@@ -1066,93 +1067,74 @@ do
 		if (armordb.cloth == false) and (flags[56] == true) then
 			return false
 		end
-
 		if (armordb.leather == false) and (flags[57] == true) then
 			return false
 		end
-
 		if (armordb.mail == false) and (flags[58] == true) then
 			return false
 		end
-
 		if (armordb.plate == false) and (flags[59] == true) then
 			return false
 		end
-
 		if (armordb.trinket == false) and (flags[61] == true) then
 			return false
 		end
-
 		if (armordb.cloak == false) and (flags[60] == true) then
 			return false
 		end
-
 		if (armordb.ring == false) and (flags[62] == true) then
 			return false
 		end
-
 		if (armordb.necklace == false) and (flags[63] == true) then
 			return false
 		end
-
 		if (armordb.shield == false) and (flags[64] == true) then
 			return false
 		end
 
 		local weapondb = filterdb.item.weapon
-
 		if (weapondb.onehand == false) and (flags[66] == true) then
 			return false
 		end
-
 		if (weapondb.twohand == false) and (flags[67] == true) then
 			return false
 		end
-
 		if (weapondb.axe == false) and (flags[68] == true) then
 			return false
 		end
-
 		if (weapondb.sword == false) and (flags[69] == true) then
 			return false
 		end
-
 		if (weapondb.mace == false) and (flags[70] == true) then
 			return false
 		end
-
 		if (weapondb.polearm == false) and (flags[71] == true) then
 			return false
 		end
-
 		if (weapondb.dagger == false) and (flags[72] == true) then
 			return false
 		end
-
 		if (weapondb.fist == false) and (flags[79] == true) then
 			return false
 		end
-
+		if (weapondb.gun == false) and (flags[80] == true) then
+			return false
+		end
 		if (weapondb.staff == false) and (flags[73] == true) then
 			return false
 		end
-
 		if (weapondb.wand == false) and (flags[74] == true) then
 			return false
 		end
-
 		if (weapondb.thrown == false) and (flags[75] == true) then
 			return false
 		end
-
 		if (weapondb.bow == false) and (flags[76] == true) then
 			return false
 		end
-
 		if (weapondb.crossbow == false) and (flags[77] == true) then
 			return false
 		end
-
 		if (weapondb.ammo == false) and (flags[78] == true) then
 			return false
 		end

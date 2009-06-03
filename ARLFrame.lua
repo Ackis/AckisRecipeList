@@ -2657,11 +2657,13 @@ function addon.setFlyawayState()
 	ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
 	ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
 	ARL_WeaponFistCB:SetChecked(weapondb.fist)
+	ARL_WeaponGunCB:SetChecked(weapondb.gun)
 --[[
 	--Disable weapon options. Probably don't need to touch these...
 	ARL_WeaponStaffCB
 	ARL_WeaponBowCB
-	ARL_WeaponCrossbowCB ]]--
+	ARL_WeaponCrossbowCB
+]]--
 	-- Player Type Options
 	ARL_PlayerTankCB:SetChecked(filterdb.player.tank)
 	ARL_PlayerMeleeCB:SetChecked(filterdb.player.melee)
@@ -2703,7 +2705,8 @@ function addon.setFlyawayState()
 	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
 	ARL_WrathCommon3CB:SetChecked(filterdb.rep.wrathcommon3)
 	ARL_WrathCommon4CB:SetChecked(filterdb.rep.wrathcommon4)
-	ARL_WrathCommon5CB:SetChecked(filterdb.rep.wrathcommon5) ]]--
+	ARL_WrathCommon5CB:SetChecked(filterdb.rep.wrathcommon5)
+]]--
 	-- Miscellaneous Options
 	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 end
@@ -4070,7 +4073,7 @@ function InitializeFrame()
 	--				() Mace		() Sword
 	--				() Polearm	() Thrown
 	--				() Bow		() Crossbow
-	--				() Staff
+	--				() Staff    () Fist
 	-------------------------------------------------------------------------------
 	local ARL_WeaponButton = addon:GenericCreateButton("ARL_WeaponButton", addon.Fly_Item,
 							   20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight",
@@ -4094,6 +4097,7 @@ function InitializeFrame()
 						   weapondb.thrown = true
 						   weapondb.ammo = true
 						   weapondb.fist = true
+						   weapondb.gun = true
 					   elseif button == "RightButton" then
 						   -- Reset all weapon to false
 						   weapondb.onehand = false
@@ -4107,6 +4111,7 @@ function InitializeFrame()
 						   weapondb.thrown = false
 						   weapondb.ammo = false
 						   weapondb.fist = false
+						   weapondb.gun = false
 					   end
 					   -- Update the checkboxes with the new value
 					   ARL_Weapon1HCB:SetChecked(weapondb.onehand)
@@ -4120,6 +4125,7 @@ function InitializeFrame()
 					   ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
 					   ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
 					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
+					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
 					   -- Reset our title
 					   addon.resetTitle()
 					   -- Use new filters
@@ -4187,6 +4193,10 @@ function InitializeFrame()
 	local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", addon.Fly_Item, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 15, 2, 0)
 	ARL_WeaponAmmoCBText:SetText(L["Ammo"])
+
+	local ARL_WeaponGunCB = CreateFrame("CheckButton", "ARL_WeaponGunCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(ARL_WeaponGunCB, addon.Fly_Item, L["GUN_DESC"], 92, 16, 1, 0)
+	ARL_WeaponPolearmCBText:SetText(L["Gun"])
 
 	addon.Fly_Player = CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
 	addon.Fly_Player:SetWidth(112)
@@ -4724,12 +4734,13 @@ function InitializeFrame()
 		[32] = { cb = ARL_WeaponSwordCB,			svroot = filterdb.item.weapon,		svval = "sword" },
 		[33] = { cb = ARL_WeaponPolearmCB,			svroot = filterdb.item.weapon,		svval = "polearm" },
 		[84] = { cb = ARL_WeaponFistCB,				svroot = filterdb.item.weapon,		svval = "fist" },
-		[34] = { cb = ARL_WeaponStaffCB,			svroot = "disabled",			svval = "" },
+		[34] = { cb = ARL_WeaponStaffCB,			svroot = "disabled",				svval = "" },
 		[68] = { cb = ARL_WeaponWandCB,				svroot = filterdb.item.weapon,		svval = "wand" },
 		[35] = { cb = ARL_WeaponThrownCB,			svroot = filterdb.item.weapon,		svval = "thrown" },
-		[36] = { cb = ARL_WeaponBowCB,				svroot = "disabled",			svval = "" },
-		[37] = { cb = ARL_WeaponCrossbowCB,			svroot = "disabled",			svval = "" },
+		[36] = { cb = ARL_WeaponBowCB,				svroot = "disabled",				svval = "" },
+		[37] = { cb = ARL_WeaponCrossbowCB,			svroot = "disabled",				svval = "" },
 		[38] = { cb = ARL_WeaponAmmoCB,				svroot = filterdb.item.weapon,		svval = "ammo" },
+		[92] = { cb = ARL_WeaponGunCB,				svroot = filterdb.item.weapon,		svval = "gun" },
 		------------------------------------------------------------------------------------------------------------------------------
 		-- Player Type Options
 		------------------------------------------------------------------------------------------------------------------------------

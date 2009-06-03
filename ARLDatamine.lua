@@ -547,6 +547,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	local Crossbow = false
 	local Ammo = false
 	local Fist = false
+	local Gun = false
 
 	local specialty = false
 	local repid = false
@@ -768,6 +769,8 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 			Bow = true
 		elseif (strmatch(strlower(text),"crossbow")) then
 			Crossbow = true
+		elseif (strmatch(strlower(text),"gun")) then
+			Gun = true
 		elseif (strmatch(strlower(text),"ammo")) then
 			Ammo = true
 		elseif (strmatch(strlower(text),"fist")) then

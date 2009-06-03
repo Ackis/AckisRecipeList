@@ -408,7 +408,8 @@ These flags are defined as:
 *77 = Crossbow
 *78 = Ammo
 *79 = Fist
-*80-95 = Reserved for future use
+*80 = Gun
+*81-95 = Reserved for future use
 ====Reputation====
 =====Original=====
 *96 = Argent Dawn
