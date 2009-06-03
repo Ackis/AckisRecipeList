@@ -452,7 +452,7 @@ function addon:TooltipScanDatabase()
 
 		if link then
 			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name,recipelist,reverselookup)
+			self:ScanToolTip(itemName,recipelist,reverselookup)
 		else
 			addon:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
@@ -478,7 +478,19 @@ local recipenames = {
 	["Schematic: "] = true,
 	-- First Aid
 	["Manual: "] = true,
+
+	["Alchemy: "] = true,
+	["Blacksmithing: "] = true,
+	["Cooking: "] = true,
+	["Enchanting: "] = true,
+	["Engineering: "] = true,
+	["First Aid: "] = true,
+	["Inscription: "] = true,
+	["Jewelcrafting: "] = true,
+	["Leatherworking: "] = true,
+	["Tailoring: "] = true,
 }
+
 
 local specialtytext = {
 	["Requires Spellfire Tailoring"] = 26797,
