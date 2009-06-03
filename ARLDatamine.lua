@@ -814,12 +814,15 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 	end
 
 	if (recipefound) then
---		print("Recipe found: "..matchtext)
 		-- Parse the recipe database until we get a match on the name
 		local spellid
-		local recipename = gsub(name,"%a+%: ","")
+		local recipename = gsub(name, "%a+%?: ", "")
 
 		spellid = reverselookup[recipename]
+
+		if not spellid then
+			print("Recipe "..recipename.." has no reverse lookup")
+		end
 
 		local flags = recipelist[spellid]["Flags"]
 		local missingflags = {}
