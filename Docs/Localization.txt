@@ -9,3 +9,6 @@ All localization entries must be added to the WoWAce localization application.  
 ** long descriptions will end in _LONG
 * don't include the object being described in the name (no _TOGGLE or _TT) since it can be used several times to describe different objects (in theory)
 * group related elements together, either by their location in the GUI/config, or by purpose (Weapon categories, etc)
+
+==Localization Contributions
+Please visit [http://www.wowace.com/projects/arl/localization/translators/ this] page to see all the different localization contributions.
