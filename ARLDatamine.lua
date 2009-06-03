@@ -116,6 +116,7 @@ local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTo
 
 --- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 -- @name AckisRecipeList:ScanSkillLevelData
+-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 -- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 function addon:ScanSkillLevelData(autoscan)
 
@@ -182,6 +183,7 @@ end
 
 --- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 -- @name AckisRecipeList:ScanTrainerData
+-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 -- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the acquire information of the ARL database with what is available on the trainer.
 function addon:ScanTrainerData(autoscan)
 
@@ -416,6 +418,8 @@ function addon:ScanVendor()
 end
 
 --- Parses all the recipes in the database, and scanning their tooltips.
+-- @name AckisRecipeList:TooltipScanDatabase
+-- @return Entire recipe database has its tooltips scanned.
 function addon:TooltipScanDatabase()
 
 	-- Get internal database
@@ -498,6 +502,7 @@ local factionlevels = {
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
+-- @return Scans a tooltip, and outputs the missing or extra filter flags.
 function addon:ScanToolTip(name,recipelist,reverselookup)
 
 	local recipefound = false
