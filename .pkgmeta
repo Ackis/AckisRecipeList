@@ -20,7 +20,6 @@ optional-dependencies:
 ignore:
  - .pkgmeta
  - .docmeta
- - ARLDataminer.rb
  - Docs
  - Locals/testenUS.lua
  - Locals/testdeDE.lua
