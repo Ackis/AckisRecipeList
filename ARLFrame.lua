@@ -4149,7 +4149,7 @@ function InitializeFrame()
 
 	local ARL_WeaponGunCB = CreateFrame("CheckButton", "ARL_WeaponGunCB", addon.Fly_Item, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_WeaponGunCB, addon.Fly_Item, L["GUN_DESC"], 92, 16, 1, 0)
-	ARL_WeaponPolearmCBText:SetText(L["Gun"])
+	ARL_WeaponGunCBText:SetText(L["Gun"])
 
 	addon.Fly_Player = CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
 	addon.Fly_Player:SetWidth(112)
