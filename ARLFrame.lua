@@ -229,9 +229,10 @@ do
 	end
 
 	-- Cleans the table and stores it in the cache
-	function ReleaseTable(table)
-		wipe(table)
-		tinsert(table_cache, table)
+	function ReleaseTable(tbl)
+		if not tbl then return end
+		wipe(tbl)
+		tinsert(table_cache, tbl)
 	end
 end	-- do block
 
@@ -254,8 +255,10 @@ function addon:CloseWindow()
 	self.Frame:Hide()
 end
 
--- Description: Colours a skill level based on if the player can learn it.  The recipe string is coloured based on if the player has a high enough skill level or faction to learn it
-
+-------------------------------------------------------------------------------
+-- Colours a skill level based on whether or not the player has a high enough
+-- skill level or faction to learn it.
+-------------------------------------------------------------------------------
 local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
 
 	-- Players skill level is not high enough or they do not have hte needed faction.
@@ -280,7 +283,6 @@ local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, re
 		--@end-alpha@
 		return addon:MidGrey(recStr)
 	end
-
 end
 
 ------------------------------------------------------------------------------
@@ -290,63 +292,71 @@ local factionHorde	= BFAC["Horde"]
 local factionAlliance	= BFAC["Alliance"]
 local factionNeutral	= BFAC["Neutral"]
 
+-------------------------------------------------------------------------------
+-- Constants for acquire types.
+-------------------------------------------------------------------------------
+local ACQUIRE_TRAINER		= 1
+local ACQUIRE_VENDOR		= 2
+local ACQUIRE_MOB		= 3
+local ACQUIRE_QUEST		= 4
+local ACQUIRE_SEASONAL		= 5
+local ACQUIRE_REPUTATION	= 6
+local ACQUIRE_WORLD_DROP	= 7
+local ACQUIRE_CUSTOM		= 8
+
+------------------------------------------------------------------------------
 -- Description: Function to determine if the player has an appropiate level of faction.
 -- Expected result: A boolean value determing if the player can learn the recipe based on faction
 -- Input: The database, the index of the recipe, the players faction and reputation levels
 -- Output: A boolean indicating if they can learn the recipe or not
+------------------------------------------------------------------------------
+local checkFactions
+do
+	------------------------------------------------------------------------------
+	-- Reputation constants
+	------------------------------------------------------------------------------
+	local REP_MAGHAR	= 941
+	local REP_HONOR_HOLD	= 946
+	local REP_THRALLMAR	= 947
+	local REP_KURENI	= 978
 
-local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+	function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+		local fac = true
+		local acquire = DB[recipeIndex]["Acquire"]
 
-	local fac = true
-	local acquire = DB[recipeIndex]["Acquire"]
+		-- Scan through all acquire types
+		for i in pairs(acquire) do
+			-- If it's a reputation type
+			if (acquire[i]["Type"] == ACQUIRE_REPUTATION) then
+				local repid = acquire[i]["ID"]
 
-	-- Scan through all acquire types
-	for i in pairs(acquire) do
-
-		-- If it's a repuitation type
-		if (acquire[i]["Type"] == 6) then
-
-			local repid = acquire[i]["ID"]
-
-			-- If it's Honor Hold/Thrallmar
-			if (repid == 946) or (repid == 947) then
-				-- If the player is Alliance look at Honor Hold only
-				if (playerFaction == factionAlliance) then
-					repid = 946
-				-- If the player is Horde look at Thrallmar only
-				else
-					repid = 947
+				if (repid == REP_HONOR_HOLD) or (repid == REP_THRALLMAR) then
+					if (playerFaction == factionAlliance) then
+						repid = REP_HONOR_HOLD
+					else
+						repid = REP_THRALLMAR
+					end
+				elseif (repid == REP_MAGHAR) or (repid == REP_KURENI) then
+					if (playerFaction == factionAlliance) then
+						repid = REP_KURENI
+					else
+						repid = REP_MAGHAR
+					end
 				end
 
-			-- If it's Kureni/Mag'har	
-			elseif (repid == 941) or (repid == 978) then
-				-- If the player is Alliance look at Kureni only
-				if (playerFaction == factionAlliance) then
-					repid = 978
-				-- If the player is Horde look at Mag'har only
+				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+					fac = false
 				else
-					repid = 941
+					-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
+					-- This should allow recipes which have multiple reputations to work correctly
+					fac = true
+					break
 				end
 			end
-
-			if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
-				fac = false
-			else
-
-				-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
-				-- This should allow recipes which have multiple reputations to work correctly
-				fac = true
-				break
-
-			end
-
 		end
-
+		return fac
 	end
-
-	return fac
-
-end
+end	--do
 
 -- Description: Sets the string to display baseed off of what type of sorting is being done.
 -- Expected result:  Displayed string will have the skill level located in different areas
@@ -430,25 +440,18 @@ do
 	end
 
 	local function CheckMapDisplay(v, filters)
-
 		local display = false
 
-		-- If it's a trainer, we don't display them on the mini-map
-		if (v["Type"] == 1) then
+		if (v["Type"] == ACQUIRE_TRAINER) then		-- If it's a trainer, we don't display them on the mini-map
 			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
-		-- If it's a vendor check to see if we're displaying it on the map
-		elseif (v["Type"] == 2) then
+		elseif (v["Type"] == ACQUIRE_VENDOR) then	-- If it's a vendor check to see if we're displaying it on the map
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
-		-- If it's a mob, always return true
-		elseif (v["Type"] == 3) then
+		elseif (v["Type"] == ACQUIRE_MOB) then		-- If it's a mob, always return true
 			return true
-		-- If it's a quest check to see if we're displaying it on the map
-		elseif (v["Type"] == 4) then
+		elseif (v["Type"] == ACQUIRE_QUEST) then	-- If it's a quest check to see if we're displaying it on the map
 			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
 		end
-
 		return display
-
 	end
 
 	-- Description: Adds mini-map and world map icons with tomtom.
@@ -663,10 +666,10 @@ local function ttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
 	narrow,			-- if 1, use ARIALN instead of FRITZQ
-	str1,			-- left hand string
-	hexcolor1,		-- hex color code for left hand side
-	str2,			-- if present, this is a double line, and this is the right hand string
-	hexcolor2)		-- if present, hex color code for right hand side
+	str1,			-- left-hand string
+	hexcolor1,		-- hex color code for left-hand side
+	str2,			-- if present, this is the right-hand string
+	hexcolor2)		-- if present, hex color code for right-hand side
 
 	-- are we changing fontsize or narrow?
 	local fontSize
@@ -828,8 +831,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	-- loop through acquire methods, display each
 	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-		-- Trainer
-		if (v["Type"] == 1) then
+		if (v["Type"] == ACQUIRE_TRAINER) then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
 			local trnr = trainerDB[v["ID"]]
@@ -864,9 +866,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, trnr["Location"], clr1, cStr, clr2)
 			end
-
-			-- Vendor
-		elseif (v["Type"] == 2) then
+		elseif (v["Type"] == ACQUIRE_VENDOR) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -900,9 +900,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
 			end
-
-			-- Mob Drop
-		elseif (v["Type"] == 3) then
+		elseif (v["Type"] == ACQUIRE_MOB) then
 			-- Mob Drop:				Mob Name
 			-- MobZone				MobCoords
 			local mob = mobDB[v["ID"]]
@@ -918,9 +916,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr1 = addon:hexcolor("NORMAL")
 			clr2 = addon:hexcolor("HIGH")
 			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
-
-			-- Quest
-		elseif (v["Type"] == 4) then
+		elseif (v["Type"] == ACQUIRE_QUEST) then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
 			local qst = questDB[v["ID"]]
@@ -964,16 +960,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-			-- Seasonal
-		elseif (v["Type"] == 5) then
+		elseif (v["Type"] == ACQUIRE_SEASONAL) then
 			-- Seasonal:				SeasonEventName
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
-
-			-- Reputation
-		elseif (v["Type"] == 6) then
+		elseif (v["Type"] == ACQUIRE_REPUTATION) then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
@@ -1031,9 +1024,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
 			end
-
-			-- World Drop
-		elseif (v["Type"] == 7) then
+		elseif (v["Type"] == ACQUIRE_WORLD_DROP) then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -1047,8 +1038,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (v["Type"] == 8) then	-- Custom entry
-			-- Seasonal:				SeasonEventName
+		elseif (v["Type"] == ACQUIRE_CUSTOM) then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
@@ -1937,18 +1927,20 @@ end
 
 local function SetSwitcherTexture(tex)
 
--- This is really only called the first time its displayed. It should reflect the first
--- profession the user has selected, or that shows up in his lists.
+	-- This is really only called the first time its displayed. It should reflect the first
+	-- profession the user has selected, or that shows up in his lists.
 
--- For now, just display the first texture
+	-- For now, just display the first texture
 	local ARL_S_NTexture = ARL_SwitcherButton:CreateTexture("ARL_S_NTexture", "BACKGROUND")
 	ARL_S_NTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
 	ARL_S_NTexture:SetTexCoord(0, 1, 0, 1)
 	ARL_S_NTexture:SetAllPoints(ARL_SwitcherButton)
+
 	local ARL_S_PTexture = ARL_SwitcherButton:CreateTexture("ARL_S_PTexture", "BACKGROUND")
 	ARL_S_PTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_down]])
 	ARL_S_PTexture:SetTexCoord(0, 1, 0, 1)
 	ARL_S_PTexture:SetAllPoints(ARL_SwitcherButton)
+
 	local ARL_S_DTexture = ARL_SwitcherButton:CreateTexture("ARL_S_DTexture", "BACKGROUND")
 	ARL_S_DTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
 	ARL_S_DTexture:SetTexCoord(0, 1, 0, 1)
@@ -1961,7 +1953,6 @@ local function SetSwitcherTexture(tex)
 end
 
 -- Description: Switch the displayed profession in the main panel
-
 function addon:SwitchProfs(button)
 	-- Known professions should be in playerData["Professions"]
 
@@ -2075,9 +2066,7 @@ function addon:SwitchProfs(button)
 end
 
 -- Description: 
-
 local function expandEntry(dsIndex)
-
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
@@ -2091,17 +2080,13 @@ local function expandEntry(dsIndex)
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-
 		local pad = "  "
 		local t
 
-		-- Trainer Type
-		if (v["Type"] == 1) then
-
+		if (v["Type"] == ACQUIRE_TRAINER) then
 			local trnr = trainerDB[v["ID"]]
 
 			if ((CheckDisplayFaction(filterDB, trnr["Faction"]) == true) and (obtainDB.trainer == true)) then
-
 				local tStr = addon:Trainer(L["Trainer"] .. " : ")
 				local nStr = ""
 				local cStr = ""
@@ -2109,7 +2094,6 @@ local function expandEntry(dsIndex)
 				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
 					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
 				end
-
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
@@ -2122,7 +2106,6 @@ local function expandEntry(dsIndex)
 				else
 					nStr = addon:Neutral(trnr["Name"])
 				end
-
 				t.String = pad .. tStr .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
@@ -2136,16 +2119,11 @@ local function expandEntry(dsIndex)
 				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-
 			end
-
-		-- Vendor
-		elseif (v["Type"] == 2) then
-
+		elseif (v["Type"] == ACQUIRE_VENDOR) then
 			local vndr = vendorDB[v["ID"]]
 
 			if ((CheckDisplayFaction(filterDB, vndr["Faction"]) == true) and (obtainDB.vendor == true)) then
-
 				local tStr = addon:Vendor(L["Vendor"] .. " : ")
 				local nStr = ""
 				local cStr = ""
@@ -2153,7 +2131,6 @@ local function expandEntry(dsIndex)
 				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
 				end
-
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
@@ -2166,7 +2143,6 @@ local function expandEntry(dsIndex)
 				else
 					nStr = addon:Neutral(vndr["Name"])
 				end
-
 				t.String = pad .. tStr .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
@@ -2182,12 +2158,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 			end
-
-		-- Mob Drop Obtain
-		elseif (v["Type"] == 3) then
-
+		elseif (v["Type"] == ACQUIRE_MOB) then
 			if ((obtainDB.mobdrop == true) or (obtainDB.instance == true) or (obtainDB.raid == true)) then
-
 				local mob = mobDB[v["ID"]]
 
 				local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
@@ -2219,9 +2191,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 			end
-
-		-- Quest Obtain
-		elseif (v["Type"] == 4) then
+		elseif (v["Type"] == ACQUIRE_QUEST) then
 
 			local qst = questDB[v["ID"]]
 
@@ -2261,9 +2231,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 			end
-
-		-- Seasonal
-		elseif (v["Type"] == 5) then
+		elseif (v["Type"] == ACQUIRE_SEASONAL) then
 
 			if (obtainDB.seasonal == true) then
 
@@ -2281,8 +2249,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 			end
-
-		elseif (v["Type"] == 6) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2354,12 +2321,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 			end
-
-		-- World Drop
-		elseif (v["Type"] == 7) then
-
+		elseif (v["Type"] == ACQUIRE_WORLD_DROP) then
 			if (obtainDB.worlddrop == true) then
-
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
@@ -2368,13 +2331,8 @@ local function expandEntry(dsIndex)
 				t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-
 			end
-
-		-- Custom
-		elseif (v["Type"] == 8) then
-
-			-- Custom: ID, Name
+		elseif (v["Type"] == ACQUIRE_CUSTOM) then
 			local customname = customDB[v["ID"]]["Name"]
 
 			t = AcquireTable()
@@ -2387,9 +2345,7 @@ local function expandEntry(dsIndex)
 			t.String = pad .. tStr
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-
-		-- We have an acquire type we aren't sure how to deal with.
-		else
+		else	-- We have an acquire type we aren't sure how to deal with.
 			t = AcquireTable()
 			t.IsRecipe = false
 			t.sID = recipeIndex
@@ -2399,11 +2355,8 @@ local function expandEntry(dsIndex)
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		end
-
 	end
-	
 	return dsIndex
-
 end
 
 -- Description: 
