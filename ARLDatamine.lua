@@ -813,8 +813,10 @@ self:Print(text)
 		elseif (strmatch(text,"cloth")) then
 			Cloth = true
 		elseif (strmatch(text,"leather")) then
+			self:Print("Leather found")
 			Leather = true
 		elseif (strmatch(text,"mail")) then
+			self:Print("Mail found")
 			Mail = true
 		elseif (strmatch(text,"plate")) then
 			Plate = true
