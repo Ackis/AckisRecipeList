@@ -429,7 +429,7 @@ function addon:ScanVendor()
 		for i=1,GetMerchantNumItems(),1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name,recipelist,reverselookup)
+			self:ScanToolTip(name,recipelist,reverselookup,true)
 		end
 
 		ARLDatamineTT:Hide()
@@ -466,7 +466,7 @@ function addon:TooltipScanDatabase()
 
 		if link then
 			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name,recipelist,reverselookup)
+			self:ScanToolTip(name,recipelist,reverselookup,false)
 		else
 			addon:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
@@ -538,7 +538,7 @@ local factionlevels = {
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
 -- @return Scans a tooltip, and outputs the missing or extra filter flags.
-function addon:ScanToolTip(name,recipelist,reverselookup)
+function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 
 	local recipefound = false
 	local boprecipe = false
@@ -832,7 +832,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 			self:Print(GetSpellInfo(specialty))
 		end
 		-- Vendor Flag
-		if (not flags[4]) then
+		if (not flags[4]) and (isvendor) then
 			tinsert(missingflags,"4")
 		end
 		-- PVP Flag
