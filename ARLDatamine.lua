@@ -673,8 +673,23 @@ self:Print(text)
 		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
 		-- confirmedtype will be toggled to true when we get to a stat that is specific to that class
 		elseif (not confirmedtype) then
+			if (strmatch(text,"strength")) then
+				tank = true
+				dps = true
+				caster = false
+				healer = false
+			elseif (strmatch(text,"agility")) then
+				tank = true
+				dps = true
+				caster = false
+				healer = fals
+			elseif (strmatch(text,"spirit")) then
+				tank = false
+				dps = false
+				caster = true
+				healer = true
 			-- Caster stats
-			if (strmatch(text,"spell power")) then
+			elseif (strmatch(text,"spell power")) then
 				caster = true
 				tank = false
 				dps = false
