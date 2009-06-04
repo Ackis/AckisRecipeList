@@ -805,6 +805,7 @@ self:Print(text)
 				healer = false
 				confirmedtype = true
 			end
+		-- Classes
 		elseif (strmatch(text,"deathknight")) then
 			Deathknight = true
 		elseif (strmatch(text,"druid")) then
@@ -825,6 +826,7 @@ self:Print(text)
 			Warlock = true
 		elseif (strmatch(text,"warrior")) then
 			Warrior = true
+		-- Armor types
 		elseif (strmatch(text,"cloth")) then
 			Cloth = true
 		elseif (strmatch(text,"leather")) then
@@ -843,6 +845,7 @@ self:Print(text)
 			Necklace = true
 		elseif (strmatch(text,"shield")) then
 			Shield = true
+		-- Weapon types
 		elseif (strmatch(text,"1 hand")) or (strmatch(text,"off hand")) then
 			OneHanded = true
 		elseif (strmatch(text,"2 hand")) then
