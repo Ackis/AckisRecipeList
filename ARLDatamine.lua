@@ -635,7 +635,12 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 		local textl = linetextl:GetText()
 		local linetextr = _G["ARLDatamineTTTextRight" .. i]
 		local textr = linetextr:GetText()
-		local text = textl .. " " .. textr
+		local text
+		if (textr) then
+			text = textl .. " " .. textr
+		else
+			text = textl
+		end
 self:Print(text)
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
