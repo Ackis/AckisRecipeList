@@ -1020,6 +1020,83 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			tinsert(extraflags,"59")
 		end
 
+		-- Weapon type
+		if (OneHanded) and (not flags[66]) then
+			tinsert(missingflags,"66")
+		elseif (not OneHanded) and (flags[66]) then
+			tinsert(extraflags,"66")
+		end
+		if (TwoHanded) and (not flags[67]) then
+			tinsert(missingflags,"67")
+		elseif (not TwoHanded) and (flags[67]) then
+			tinsert(extraflags,"67")
+		end
+		if (Axe) and (not flags[68]) then
+			tinsert(missingflags,"68")
+		elseif (not Axe) and (flags[68]) then
+			tinsert(extraflags,"68")
+		end
+		if (Sword) and (not flags[69]) then
+			tinsert(missingflags,"69")
+		elseif (not Sword) and (flags[69]) then
+			tinsert(extraflags,"69")
+		end
+		if (Mace) and (not flags[70]) then
+			tinsert(missingflags,"70")
+		elseif (not Mace) and (flags[70]) then
+			tinsert(extraflags,"70")
+		end
+		if (Polearm) and (not flags[71]) then
+			tinsert(missingflags,"71")
+		elseif (not Polearm) and (flags[71]) then
+			tinsert(extraflags,"71")
+		end
+		if (Dagger) and (not flags[72]) then
+			tinsert(missingflags,"72")
+		elseif (not Dagger) and (flags[72]) then
+			tinsert(extraflags,"72")
+		end
+		if (Staff) and (not flags[73]) then
+			tinsert(missingflags,"73")
+		elseif (not Staff) and (flags[73]) then
+			tinsert(extraflags,"73")
+		end
+		if (Wand) and (not flags[74]) then
+			tinsert(missingflags,"74")
+		elseif (not Wand) and (flags[74]) then
+			tinsert(extraflags,"74")
+		end
+		if (Thrown) and (not flags[75]) then
+			tinsert(missingflags,"75")
+		elseif (not Thrown) and (flags[75]) then
+			tinsert(extraflags,"75")
+		end
+		if (Bow) and (not flags[76]) then
+			tinsert(missingflags,"76")
+		elseif (not Bow) and (flags[76]) then
+			tinsert(extraflags,"76")
+		end
+		if (Crossbow) and (not flags[77]) then
+			tinsert(missingflags,"77")
+		elseif (not Crossbow) and (flags[77]) then
+			tinsert(extraflags,"77")
+		end
+		if (Ammo) and (not flags[78]) then
+			tinsert(missingflags,"78")
+		elseif (not Ammo) and (flags[78]) then
+			tinsert(extraflags,"78")
+		end
+		if (Fist) and (not flags[79]) then
+			tinsert(missingflags,"79")
+		elseif (not Fist) and (flags[79]) then
+			tinsert(extraflags,"79")
+		end
+		if (Gun) and (not flags[80]) then
+			tinsert(missingflags,"80")
+		elseif (not Gun) and (flags[80]) then
+			tinsert(extraflags,"80")
+		end
+
 		-- Reputations
 		if (repid) and (not flags[repid]) then
 			tinsert(missingflags,repid)
