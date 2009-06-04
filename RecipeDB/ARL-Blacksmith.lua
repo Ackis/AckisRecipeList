@@ -417,7 +417,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Golden Scale Boots -- 3515
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,3515,200,3847,3,2018)
-	self:addTradeFlags(RecipeDB,3515,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,3515,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,3515,3,4301)
 
 	-- Pearl-handled Dagger -- 6517

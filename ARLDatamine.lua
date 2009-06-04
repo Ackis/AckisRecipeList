@@ -924,7 +924,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			if (not flags[29]) then
 				tinsert(missingflags,"29")
 			end
-			if (not flags[20]) then
+			if (not flags[30]) then
 				tinsert(missingflags,"30")
 			end
 		end
