@@ -129,7 +129,7 @@ local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
 
 local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
-addonversion = string.gsub(addonversion,"@project.revision@","SVN")
+addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
@@ -240,7 +240,7 @@ do
 	-- Cleans the table and stores it in the cache
 	function ReleaseTable(tbl)
 		if not tbl then return end
-		wipe(tbl)
+		twipe(tbl)
 		tinsert(table_cache, tbl)
 	end
 end	-- do block
@@ -402,9 +402,9 @@ end
 
 do
 
-	local function LoadZones(c,y, ...)
+	local function LoadZones(c, y, ...)
 		-- Fill up the list for normal lookup
-		for i=1,select('#', ...),1 do
+		for i = 1, select('#', ...),1 do
 			c[i] = select(i,...)
 		end
 		-- Reverse lookup to make work easier later on
@@ -422,10 +422,10 @@ do
 	local c3 = {}
 	local c4 = {}
 
-	LoadZones(C1,c1,GetMapZones(1))
-	LoadZones(C2,c2,GetMapZones(2))
-	LoadZones(C3,c3,GetMapZones(3))
-	LoadZones(C4,c4,GetMapZones(4))
+	LoadZones(C1, c1, GetMapZones(1))
+	LoadZones(C2, c2, GetMapZones(2))
+	LoadZones(C3, c3, GetMapZones(3))
+	LoadZones(C4, c4, GetMapZones(4))
 
 	local iconlist = {}
 
@@ -484,7 +484,7 @@ do
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
 		-- Get the proper icon to put on the mini-map
-		for i,k in pairs(SortedProfessions) do
+		for i, k in pairs(SortedProfessions) do
 			if (k["name"] == playerData.playerProfession) then
 				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
 				break
@@ -499,7 +499,7 @@ do
 		if (singlerecipe) then
 			-- loop through acquire methods, display each
 			for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-				if (CheckMapDisplay(v,filters)) then
+				if (CheckMapDisplay(v, filters)) then
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
@@ -510,7 +510,7 @@ do
 				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 					-- loop through acquire methods, display each
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-						if (CheckMapDisplay(v,filters)) then
+						if (CheckMapDisplay(v, filters)) then
 							maplist[v["ID"]] = v["Type"]
 						end
 					end
@@ -579,7 +579,7 @@ do
 		
 			if ((zone) and (continent)) then
 				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
-				tinsert(iconlist,iconuid)
+				tinsert(iconlist, iconuid)
 			end
 		end
 	end	-- addon:SetupMap()
@@ -661,7 +661,7 @@ local function toRGB(hex)
 
 	local r, g, b = hex:match("(..)(..)(..)")
 
-	return (tonumber(r,16) / 256) , (tonumber(g,16) / 256) , (tonumber(b,16) / 256)
+	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
 
 end
 
@@ -2042,8 +2042,8 @@ function addon:SwitchProfs(button)
 	local NumSkillLines = GetNumSkillLines()
 	local expandtable = AcquireTable()
 
-	for i=NumSkillLines,1,-1 do
-		local skillName,_,isExpanded = GetSkillLineInfo(i)
+	for i = NumSkillLines, 1, -1 do
+		local skillName, _, isExpanded = GetSkillLineInfo(i)
 		if (not isExpanded) then
 			expandtable[skillName] = true
 			ExpandSkillHeader(i)
@@ -2053,17 +2053,17 @@ function addon:SwitchProfs(button)
 	NumSkillLines = GetNumSkillLines()
 
 	-- Get the skill level
-	for i=1,NumSkillLines,1 do
-		local skillName,_,_,skillRank = GetSkillLineInfo(i)
+	for i = 1, NumSkillLines, 1 do
+		local skillName, _, _, skillRank = GetSkillLineInfo(i)
 		if (skillName == currentProfession) then
-			playerData.playerProfessionLevel = 	skillRank
+			playerData.playerProfessionLevel = skillRank
 			break
 		end
 	end
 
 	-- Collapse expanded headers
-	for i=NumSkillLines,1,-1 do
-		local skillName,_,isExpanded = GetSkillLineInfo(i)
+	for i = NumSkillLines, 1, -1 do
+		local skillName, _, isExpanded = GetSkillLineInfo(i)
 		if (expandtable[skillName] == true) then
 			CollapseSkillHeader(i)
 		end
@@ -2392,7 +2392,7 @@ function addon.RecipeItem_OnClick(button)
 			elseif (IsShiftKeyDown()) then
 				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
 				if (itemID) then
-					local _,itemLink = GetItemInfo(itemID)
+					local _, itemLink = GetItemInfo(itemID)
 					if (itemLink) then
 						ChatFrameEditBox:Insert(itemLink)
 					else
@@ -4696,11 +4696,11 @@ function InitializeFrame()
 		[32] = { cb = ARL_WeaponSwordCB,			svroot = filterdb.item.weapon,		svval = "sword" },
 		[33] = { cb = ARL_WeaponPolearmCB,			svroot = filterdb.item.weapon,		svval = "polearm" },
 		[84] = { cb = ARL_WeaponFistCB,				svroot = filterdb.item.weapon,		svval = "fist" },
-		[34] = { cb = ARL_WeaponStaffCB,			svroot = "disabled",				svval = "" },
+		[34] = { cb = ARL_WeaponStaffCB,			svroot = "disabled",			svval = "" },
 		[68] = { cb = ARL_WeaponWandCB,				svroot = filterdb.item.weapon,		svval = "wand" },
 		[35] = { cb = ARL_WeaponThrownCB,			svroot = filterdb.item.weapon,		svval = "thrown" },
-		[36] = { cb = ARL_WeaponBowCB,				svroot = "disabled",				svval = "" },
-		[37] = { cb = ARL_WeaponCrossbowCB,			svroot = "disabled",				svval = "" },
+		[36] = { cb = ARL_WeaponBowCB,				svroot = "disabled",			svval = "" },
+		[37] = { cb = ARL_WeaponCrossbowCB,			svroot = "disabled",			svval = "" },
 		[38] = { cb = ARL_WeaponAmmoCB,				svroot = filterdb.item.weapon,		svval = "ammo" },
 		[92] = { cb = ARL_WeaponGunCB,				svroot = filterdb.item.weapon,		svval = "gun" },
 		------------------------------------------------------------------------------------------------------------------------------
@@ -4904,7 +4904,7 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 		scrollArea:SetScrollChild(addon.ARLCopyFrame.editBox)
 		
 		local close = CreateFrame("Button", nil, addon.ARLCopyFrame, "UIPanelCloseButton")
-		close:SetPoint("TOPRIGHT",addon.ARLCopyFrame,"TOPRIGHT")
+		close:SetPoint("TOPRIGHT", addon.ARLCopyFrame, "TOPRIGHT")
 		
 		addon.ARLCopyFrame:Show()
 	else
