@@ -921,7 +921,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Radiant Gloves -- 16654
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,16654,285,12418,2,2018)
-	self:addTradeFlags(RecipeDB,16654,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,16654,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,16654,7,2)
 
 	-- Fiery Plate Gauntlets -- 16655
