@@ -127,7 +127,7 @@ local function CreateReverseLookup()
 	local t = {}
 
 	for i in pairs(recipelist) do
-		if t[recipelist[i]["Name"]] then addon:Print("Dupe: " .. i) end
+		--if t[recipelist[i]["Name"]] then addon:Print("Dupe: " .. i) end
 		t[recipelist[i]["Name"]] = i
 	end
 
@@ -633,7 +633,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 
 		local linetext = _G["ARLDatamineTTTextLeft" .. i]
 		local text = linetext:GetText()
-
+self:Print(text)
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
 			-- Get the header of the tooltip aka Pattern:
