@@ -847,7 +847,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			healer = false
 			confirmed_role = true
 		-- Classes
-		elseif (strmatch(text, "deathknight")) then
+		elseif (strmatch(text, "death knight")) then
 			Deathknight = true
 		elseif (strmatch(text, "druid")) then
 			Druid = true
