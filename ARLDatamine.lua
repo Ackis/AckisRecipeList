@@ -670,11 +670,13 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 		local linetextr = _G["ARLDatamineTTTextRight" .. i]
 		local textr = linetextr:GetText()
 		local text
+ 
 		if (textr) then
 			text = textl .. " " .. textr
 		else
 			text = textl
 		end
+
 		local text = strlower(text)
 
 		-- Check to see if it's a recipe otherwise break out of the for loop
@@ -923,7 +925,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 
 		spellid = reverselookup[recipename]
 
-		if not spellid then
+		if (not spellid) then
 			self:Print("Recipe "..recipename.." has no reverse lookup")
 		end
 
@@ -946,6 +948,10 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			elseif (flags[9]) then
 				tinsert(extraflags, "9")
 			end
+		end
+
+		if (flags[3]) then
+			boprecipe = true
 		end
 
 		-- Classes
