@@ -624,11 +624,12 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 	local specialty = false
 	local repid = false
 	local repidlevel = false
-	local confirmedtype = false
+	local confirmed_role = false
+
 	local matchtext
 
 	-- Parse all the lines of the tooltip
-	for i=1,ARLDatamineTT:NumLines(),1 do
+	for i =1 , ARLDatamineTT:NumLines(), 1 do
 
 		local linetextl = _G["ARLDatamineTTTextLeft" .. i]
 		local textl = linetextl:GetText()
@@ -641,7 +642,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			text = textl
 		end
 		local text = strlower(text)
-self:Print(text)
+
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
 			-- Get the header of the tooltip aka Pattern:
@@ -656,9 +657,9 @@ self:Print(text)
 		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
 		-- The recipe binding is within the first few lines of the tooltip always
-		elseif ((strmatch(text,"binds when picked up")) and (i < 4)) then
+		elseif ((strmatch(text, "binds when picked up")) and (i < 4)) then
 			boprecipe = true
-		elseif ((strmatch(text,"binds when picked up")) and (i > 3)) then
+		elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
 			bopitem = true
 		-- Recipe Specialities
 		elseif (specialtytext[text]) then
@@ -671,210 +672,214 @@ self:Print(text)
 				repidlevel = factionlevels[replevel]
 			end
 		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-		-- confirmedtype will be toggled to true when we get to a stat that is specific to that class
-		elseif (not confirmedtype) then
-			if (strmatch(text,"strength")) then
-				tank = true
-				dps = true
-				caster = false
-				healer = false
-			elseif (strmatch(text,"agility")) then
-				tank = true
-				dps = true
-				caster = false
-				healer = fals
-			elseif (strmatch(text,"spirit")) then
-				tank = false
-				dps = false
-				caster = true
-				healer = true
+		-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
+		elseif (strmatch(text, "strength")) then
+			tank = true
+			dps = true
+			caster = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "agility")) then
+			tank = true
+			dps = true
+			caster = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "spirit")) then
+			tank = false
+			dps = false
+			caster = true
+			healer = true
+			confirmed_role = true
 			-- Caster stats
-			elseif (strmatch(text,"spell power")) then
-				caster = true
-				tank = false
-				dps = false
-				healer = true
-			elseif (strmatch(text,"spell crit")) then
-				caster = true
-				tank = false
-				dps = false
-				healer = true
+		elseif (strmatch(text, "spell power")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = true
+			confirmed_role = true
+		elseif (strmatch(text, "spell crit")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = true
+			confirmed_role = true
 			-- DPS Caster Stats
-			elseif (strmatch(text,"spell hit")) then
-				caster = true
-				tank = false
-				dps = false
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"spell penetration")) then
-				caster = true
-				tank = false
-				dps = false
-				healer = false
-				confirmedtype = true
+		elseif (strmatch(text, "spell hit")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "spell penetration")) then
+			caster = true
+			tank = false
+			dps = false
+			healer = false
+			confirmed_role = true
 			-- Healer Stats
-			elseif (strmatch(text,"mana every 5 seconds")) then
-				caster = false
-				tank = false
-				dps = false
-				healer = true
-				confirmedtype = true
+		elseif (strmatch(text, "mana every 5 seconds")) then
+			caster = false
+			tank = false
+			dps = false
+			healer = true
+			confirmed_role = true
 			-- Melee DPS Stats
-			elseif (strmatch(text,"attack power")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"expertise")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"melee crit")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"ranged crit")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"melee haste")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"ranged haste")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"melee hit")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"ranged hit")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"armor pen")) then
-				caster = false
-				tank = false
-				dps = true
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"feral attack")) then
-				caster = false
-				tank = true
-				dps = true
-				healer = false
+		elseif (strmatch(text, "attack power")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "expertise")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "melee crit")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "ranged crit")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "melee haste")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "ranged haste")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "melee hit")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "ranged hit")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "armor pen")) then
+			caster = false
+			tank = false
+			dps = true
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "feral attack")) then
+			caster = false
+			tank = true
+			dps = true
+			healer = false
+			confirmed_role = true
 			-- Tanking Stats
-			elseif (strmatch(text,"defense")) then
-				tank = true
-				dps = false
-				caster = false
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"block")) then
-				tank = true
-				dps = false
-				caster = false
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"parry")) then
-				tank = true
-				dps = false
-				caster = false
-				healer = false
-				confirmedtype = true
-			elseif (strmatch(text,"dodge")) then
-				tank = true
-				dps = false
-				caster = false
-				healer = false
-				confirmedtype = true
-			end
+		elseif (strmatch(text, "defense")) then
+			tank = true
+			dps = false
+			caster = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "block")) then
+			tank = true
+			dps = false
+			caster = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "parry")) then
+			tank = true
+			dps = false
+			caster = false
+			healer = false
+			confirmed_role = true
+		elseif (strmatch(text, "dodge")) then
+			tank = true
+			dps = false
+			caster = false
+			healer = false
+			confirmed_role = true
 		-- Classes
-		elseif (strmatch(text,"deathknight")) then
+		elseif (strmatch(text, "deathknight")) then
 			Deathknight = true
-		elseif (strmatch(text,"druid")) then
+		elseif (strmatch(text, "druid")) then
 			Druid = true
-		elseif (strmatch(text,"hunter")) then
+		elseif (strmatch(text, "hunter")) then
 			Hunter = true
-		elseif (strmatch(text,"mage")) then
+		elseif (strmatch(text, "mage")) then
 			Mage = true
-		elseif (strmatch(text,"paladin")) then
+		elseif (strmatch(text, "paladin")) then
 			Paladin = true
-		elseif (strmatch(text,"priest")) then
+		elseif (strmatch(text, "priest")) then
 			Priest = true
-		elseif (strmatch(text,"rogue")) then
+		elseif (strmatch(text, "rogue")) then
 			Rogue = true
-		elseif (strmatch(text,"shaman")) then
+		elseif (strmatch(text, "shaman")) then
 			Shaman = true
-		elseif (strmatch(text,"warlock")) then
+		elseif (strmatch(text, "warlock")) then
 			Warlock = true
-		elseif (strmatch(text,"warrior")) then
+		elseif (strmatch(text, "warrior")) then
 			Warrior = true
 		-- Armor types
-		elseif (strmatch(text,"cloth")) then
+		elseif (strmatch(text, "cloth")) then
 			Cloth = true
-		elseif (strmatch(text,"leather")) then
+		elseif (strmatch(text, "leather")) then
 			self:Print("Leather found")
 			Leather = true
-		elseif (strmatch(text,"mail")) then
+		elseif (strmatch(text, "mail")) then
 			self:Print("Mail found")
 			Mail = true
-		elseif (strmatch(text,"plate")) then
+		elseif (strmatch(text, "plate")) then
 			Plate = true
-		elseif (strmatch(text,"cloak")) then
+		elseif (strmatch(text, "cloak")) then
 			Cloak = true
-		elseif (strmatch(text,"ring")) then
+		elseif (strmatch(text, "ring")) then
 			Ring = true
-		elseif (strmatch(text,"necklace")) then
+		elseif (strmatch(text, "necklace")) then
 			Necklace = true
-		elseif (strmatch(text,"shield")) then
+		elseif (strmatch(text, "shield")) then
 			Shield = true
 		-- Weapon types
-		elseif (strmatch(text,"1 hand")) or (strmatch(text,"off hand")) then
+		elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
 			OneHanded = true
-		elseif (strmatch(text,"2 hand")) then
+		elseif (strmatch(text, "2 hand")) then
 			TwoHanded = true
-		elseif (strmatch(text,"axe")) then
+		elseif (strmatch(text, "axe")) then
 			Axe = true
-		elseif (strmatch(text,"sword")) then
+		elseif (strmatch(text, "sword")) then
 			Sword = true
-		elseif (strmatch(text,"mace")) then
+		elseif (strmatch(text, "mace")) then
 			Mace = true
-		elseif (strmatch(text,"polearm")) then
+		elseif (strmatch(text, "polearm")) then
 			Polearm = true
-		elseif (strmatch(text,"dagger")) then
+		elseif (strmatch(text, "dagger")) then
 			Dagger = true
-		elseif (strmatch(text,"staff")) then
+		elseif (strmatch(text, "staff")) then
 			Staff = true
-		elseif (strmatch(text,"wand")) then
+		elseif (strmatch(text, "wand")) then
 			Wand = true
-		elseif (strmatch(text,"thrown")) then
+		elseif (strmatch(text, "thrown")) then
 			Thrown = true
-		elseif (strmatch(text,"bow")) then
+		elseif (strmatch(text, "bow")) then
 			Bow = true
-		elseif (strmatch(text,"crossbow")) then
+		elseif (strmatch(text, "crossbow")) then
 			Crossbow = true
-		elseif (strmatch(text,"gun")) then
+		elseif (strmatch(text, "gun")) then
 			Gun = true
-		elseif (strmatch(text,"ammo")) then
+		elseif (strmatch(text, "ammo")) then
 			Ammo = true
-		elseif (strmatch(text,"fist")) then
+		elseif (strmatch(text, "fist")) then
 			Fist = true
 		end
 	end
@@ -887,7 +892,7 @@ self:Print(text)
 		spellid = reverselookup[recipename]
 
 		if not spellid then
-			print("Recipe "..recipename.." has no reverse lookup")
+			self:Print("Recipe "..recipename.." has no reverse lookup")
 		end
 
 		local flags = recipelist[spellid]["Flags"]
@@ -903,264 +908,264 @@ self:Print(text)
 		end
 		-- PVP Flag
 		if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
-			tinsert(missingflags,"9")
+			tinsert(missingflags, "9")
 		elseif (flags[9]) then
-			tinsert(extraflags,"9")
+			tinsert(extraflags, "9")
 		end
 
 		-- Classes
 		-- If we've picked up at least one class flag
 		if (Deathknight) or (Druid) or (Hunter) or (Mage) or (Paladin) or (Priest) or (Shaman) or (Warlock) or (Warrior) then
 			if (Deathknight) and (not flags[21]) then
-				tinsert(missingflags,"21")
+				tinsert(missingflags, "21")
 			elseif (not Deathknight) and (flags[21]) then
-				tinsert(extraflags,"21")
+				tinsert(extraflags, "21")
 			end
 			if (Druid) and (not flags[22]) then
-				tinsert(missingflags,"22")
+				tinsert(missingflags, "22")
 			elseif (not Druid) and (flags[22]) then
-				tinsert(extraflags,"22")
+				tinsert(extraflags, "22")
 			end
 			if (Hunter) and (not flags[23]) then
-				tinsert(missingflags,"23")
+				tinsert(missingflags, "23")
 			elseif (not Hunter) and (flags[23]) then
-				tinsert(extraflags,"23")
+				tinsert(extraflags, "23")
 			end
 			if (Mage) and (not flags[24]) then
-				tinsert(missingflags,"24")
+				tinsert(missingflags, "24")
 			elseif (not Mage) and (flags[24]) then
-				tinsert(extraflags,"24")
+				tinsert(extraflags, "24")
 			end
 			if (Paladin) and (not flags[25]) then
-				tinsert(missingflags,"25")
+				tinsert(missingflags, "25")
 			elseif (not Paladin) and (flags[25]) then
-				tinsert(extraflags,"25")
+				tinsert(extraflags, "25")
 			end
 			if (Priest) and (not flags[26]) then
-				tinsert(missingflags,"26")
+				tinsert(missingflags, "26")
 			elseif (not Priest) and (flags[26]) then
-				tinsert(extraflags,"26")
+				tinsert(extraflags, "26")
 			end
 			if (Shaman) and (not flags[27]) then
-				tinsert(missingflags,"27")
+				tinsert(missingflags, "27")
 			elseif (not Shaman) and (flags[27]) then
-				tinsert(extraflags,"27")
+				tinsert(extraflags, "27")
 			end
 			if (Rogue) and (not flags[28]) then
-				tinsert(missingflags,"28")
+				tinsert(missingflags, "28")
 			elseif (not Rogue) and (flags[28]) then
-				tinsert(extraflags,"28")
+				tinsert(extraflags, "28")
 			end
 			if (Warlock) and (not flags[29]) then
-				tinsert(missingflags,"29")
+				tinsert(missingflags, "29")
 			elseif (not Warlock) and (flags[29]) then
-				tinsert(extraflags,"29")
+				tinsert(extraflags, "29")
 			end
 			if (Warrior) and (not flags[30]) then
-				tinsert(missingflags,"30")
+				tinsert(missingflags, "30")
 			elseif (not Warrior) and (flags[30]) then
-				tinsert(extraflags,"30")
+				tinsert(extraflags, "30")
 			end
 		-- Recipe is not class specific
 		else
 			if (not flags[21]) then
-				tinsert(missingflags,"21")
+				tinsert(missingflags, "21")
 			end
 			if (not flags[22]) then
-				tinsert(missingflags,"22")
+				tinsert(missingflags, "22")
 			end
 			if (not flags[23]) then
-				tinsert(missingflags,"23")
+				tinsert(missingflags, "23")
 			end
 			if (not flags[24]) then
-				tinsert(missingflags,"24")
+				tinsert(missingflags, "24")
 			end
 			if (not flags[25]) then
-				tinsert(missingflags,"25")
+				tinsert(missingflags, "25")
 			end
 			if (not flags[26]) then
-				tinsert(missingflags,"26")
+				tinsert(missingflags, "26")
 			end
 			if (not flags[27]) then
-				tinsert(missingflags,"27")
+				tinsert(missingflags, "27")
 			end
 			if (not flags[28]) then
-				tinsert(missingflags,"28")
+				tinsert(missingflags, "28")
 			end
 			if (not flags[29]) then
-				tinsert(missingflags,"29")
+				tinsert(missingflags, "29")
 			end
 			if (not flags[30]) then
-				tinsert(missingflags,"30")
+				tinsert(missingflags, "30")
 			end
 		end
 		-- BoP Item
 		if (bopitem) and (not flags[37]) then
-			tinsert(missingflags,"37")
+			tinsert(missingflags, "37")
 			-- If it's a BoP item and flags BoE is set, mark it as extra
 			if (flags[36]) then
-				tinsert(extraflags,"36")
+				tinsert(extraflags, "36")
 			end
 			-- If it's a BoP item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extraflags,"38")
+				tinsert(extraflags, "38")
 			end
 		-- BoE Item, assuming it's not BoA
 		elseif (not flags[36]) and (not bopitem) then
-			tinsert(missingflags,"36")
+			tinsert(missingflags, "36")
 			-- If it's a BoE item and flags BoP is set, mark it as extra
 			if (flags[37]) then
-				tinsert(extraflags,"37")
+				tinsert(extraflags, "37")
 			end
 			-- If it's a BoE item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extraflags,"38")
+				tinsert(extraflags, "38")
 			end
 		end
 
 		-- BoP Recipe
 		if (boprecipe) and (not flags[41]) then
-			tinsert(missingflags,"41")
+			tinsert(missingflags, "41")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
-				tinsert(extraflags,"40")
+				tinsert(extraflags, "40")
 			end
 			-- If it's a BoP recipe and flags BoA is set, mark it as extra
 			if (flags[42]) then
-				tinsert(extraflags,"42")
+				tinsert(extraflags, "42")
 			end
 		-- Not BoP recipe, assuming it's not BoA
 		elseif (not flags[40]) and (not boprecipe) then
-			tinsert(missingflags,"40")
+			tinsert(missingflags, "40")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
-				tinsert(extraflags,"41")
+				tinsert(extraflags, "41")
 			end
 			-- If it's a BoE recipe and flags BoA is set, mark it as extra
 			if (flags[42]) then
-				tinsert(extraflags,"42")
+				tinsert(extraflags, "42")
 			end
 		end
 
 		-- Player type
 		if (dps) and (not flags[51]) then
-			tinsert(missingflags,"51")
+			tinsert(missingflags, "51")
 		elseif (flags[51]) and (not dps) then
-			tinsert(extraflags,"51")
+			tinsert(extraflags, "51")
 		end
 		if (tank) and (not flags[52]) then
-			tinsert(missingflags,"52")
+			tinsert(missingflags, "52")
 		elseif (flags[52]) and (not tank) then
-			tinsert(extraflags,"52")
+			tinsert(extraflags, "52")
 		end
 		if (healer) and (not flags[53]) then
-			tinsert(missingflags,"53")
+			tinsert(missingflags, "53")
 		elseif (flags[53]) and (not healer) then
-			tinsert(extraflags,"53")
+			tinsert(extraflags, "53")
 		end
 		if (caster) and (not flags[54]) then
-			tinsert(missingflags,"54")
+			tinsert(missingflags, "54")
 		elseif (flags[54]) and (not caster) then
-			tinsert(extraflags,"54")
+			tinsert(extraflags, "54")
 		end
 
 		-- Item Type
 		if (Cloth) and (not flags[56]) then
-			tinsert(missingflags,"56")
+			tinsert(missingflags, "56")
 		elseif (not Cloth) and (flags[56]) then
-			tinsert(extraflags,"56")
+			tinsert(extraflags, "56")
 		end
 		if (Leather) and (not flags[57]) then
-			tinsert(missingflags,"57")
+			tinsert(missingflags, "57")
 		elseif (not Leather) and (flags[57]) then
-			tinsert(extraflags,"57")
+			tinsert(extraflags, "57")
 		end
 		if (Mail) and (not flags[58]) then
-			tinsert(missingflags,"58")
+			tinsert(missingflags, "58")
 		elseif (not Mail) and (flags[58]) then
-			tinsert(extraflags,"58")
+			tinsert(extraflags, "58")
 		end
 		if (Plate) and (not flags[59]) then
-			tinsert(missingflags,"59")
+			tinsert(missingflags, "59")
 		elseif (not Plate) and (flags[59]) then
-			tinsert(extraflags,"59")
+			tinsert(extraflags, "59")
 		end
 
 		-- Weapon type
 		if (OneHanded) and (not flags[66]) then
-			tinsert(missingflags,"66")
+			tinsert(missingflags, "66")
 		elseif (not OneHanded) and (flags[66]) then
-			tinsert(extraflags,"66")
+			tinsert(extraflags, "66")
 		end
 		if (TwoHanded) and (not flags[67]) then
-			tinsert(missingflags,"67")
+			tinsert(missingflags, "67")
 		elseif (not TwoHanded) and (flags[67]) then
-			tinsert(extraflags,"67")
+			tinsert(extraflags, "67")
 		end
 		if (Axe) and (not flags[68]) then
-			tinsert(missingflags,"68")
+			tinsert(missingflags, "68")
 		elseif (not Axe) and (flags[68]) then
-			tinsert(extraflags,"68")
+			tinsert(extraflags, "68")
 		end
 		if (Sword) and (not flags[69]) then
-			tinsert(missingflags,"69")
+			tinsert(missingflags, "69")
 		elseif (not Sword) and (flags[69]) then
-			tinsert(extraflags,"69")
+			tinsert(extraflags, "69")
 		end
 		if (Mace) and (not flags[70]) then
-			tinsert(missingflags,"70")
+			tinsert(missingflags, "70")
 		elseif (not Mace) and (flags[70]) then
-			tinsert(extraflags,"70")
+			tinsert(extraflags, "70")
 		end
 		if (Polearm) and (not flags[71]) then
-			tinsert(missingflags,"71")
+			tinsert(missingflags, "71")
 		elseif (not Polearm) and (flags[71]) then
-			tinsert(extraflags,"71")
+			tinsert(extraflags, "71")
 		end
 		if (Dagger) and (not flags[72]) then
-			tinsert(missingflags,"72")
+			tinsert(missingflags, "72")
 		elseif (not Dagger) and (flags[72]) then
-			tinsert(extraflags,"72")
+			tinsert(extraflags, "72")
 		end
 		if (Staff) and (not flags[73]) then
-			tinsert(missingflags,"73")
+			tinsert(missingflags, "73")
 		elseif (not Staff) and (flags[73]) then
-			tinsert(extraflags,"73")
+			tinsert(extraflags, "73")
 		end
 		if (Wand) and (not flags[74]) then
-			tinsert(missingflags,"74")
+			tinsert(missingflags, "74")
 		elseif (not Wand) and (flags[74]) then
-			tinsert(extraflags,"74")
+			tinsert(extraflags, "74")
 		end
 		if (Thrown) and (not flags[75]) then
-			tinsert(missingflags,"75")
+			tinsert(missingflags, "75")
 		elseif (not Thrown) and (flags[75]) then
-			tinsert(extraflags,"75")
+			tinsert(extraflags, "75")
 		end
 		if (Bow) and (not flags[76]) then
-			tinsert(missingflags,"76")
+			tinsert(missingflags, "76")
 		elseif (not Bow) and (flags[76]) then
-			tinsert(extraflags,"76")
+			tinsert(extraflags, "76")
 		end
 		if (Crossbow) and (not flags[77]) then
-			tinsert(missingflags,"77")
+			tinsert(missingflags, "77")
 		elseif (not Crossbow) and (flags[77]) then
-			tinsert(extraflags,"77")
+			tinsert(extraflags, "77")
 		end
 		if (Ammo) and (not flags[78]) then
-			tinsert(missingflags,"78")
+			tinsert(missingflags, "78")
 		elseif (not Ammo) and (flags[78]) then
-			tinsert(extraflags,"78")
+			tinsert(extraflags, "78")
 		end
 		if (Fist) and (not flags[79]) then
-			tinsert(missingflags,"79")
+			tinsert(missingflags, "79")
 		elseif (not Fist) and (flags[79]) then
-			tinsert(extraflags,"79")
+			tinsert(extraflags, "79")
 		end
 		if (Gun) and (not flags[80]) then
-			tinsert(missingflags,"80")
+			tinsert(missingflags, "80")
 		elseif (not Gun) and (flags[80]) then
-			tinsert(extraflags,"80")
+			tinsert(extraflags, "80")
 		end
 
 		-- Reputations
@@ -1169,8 +1174,8 @@ self:Print(text)
 		end
 
 		self:Print(recipename .. " " .. spellid)
-		self:Print("Missing flags: " .. tconcat(missingflags,","))
-		self:Print("Extra flags: " .. tconcat(extraflags,","))
+		self:Print("Missing flags: " .. tconcat(missingflags, ", "))
+		self:Print("Extra flags: " .. tconcat(extraflags, ", "))
 		if (not tank) and (not healer) and (not caster) and (not dps) then
 			self:Print("No player type flag.")
 		end
