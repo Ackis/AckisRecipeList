@@ -1243,7 +1243,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 				(not Ammo) or
 				(not Fist) or
 				(not Gun) then
-					self:Print("Item type flag")
+					self:Print("Missing: item type flag")
 			end
 		end
 
