@@ -843,55 +843,90 @@ function addon:ScanToolTip(name,recipelist,reverselookup)
 		end
 
 		-- Classes
-		if (Deathknight) and (not flags[21]) then
-			tinsert(missingflags,"21")
-		elseif (not Deathknight) and (flags[21]) then
-			tinsert(extraflags,"21")
-		end
-		if (Druid) and (not flags[22]) then
-			tinsert(missingflags,"22")
-		elseif (not Druid) and (flags[22]) then
-			tinsert(extraflags,"22")
-		end
-		if (Hunter) and (not flags[23]) then
-			tinsert(missingflags,"23")
-		elseif (not Hunter) and (flags[23]) then
-			tinsert(extraflags,"23")
-		end
-		if (Mage) and (not flags[24]) then
-			tinsert(missingflags,"24")
-		elseif (not Mage) and (flags[24]) then
-			tinsert(extraflags,"24")
-		end
-		if (Paladin) and (not flags[25]) then
-			tinsert(missingflags,"25")
-		elseif (not Paladin) and (flags[25]) then
-			tinsert(extraflags,"25")
-		end
-		if (Priest) and (not flags[26]) then
-			tinsert(missingflags,"26")
-		elseif (not Deathknight) and (flags[26]) then
-			tinsert(extraflags,"27")
-		end
-		if (Shaman) and (not flags[27]) then
-			tinsert(missingflags,"28")
-		elseif (not Deathknight) and (flags[27]) then
-			tinsert(extraflags,"27")
-		end
-		if (Rogue) and (not flags[28]) then
-			tinsert(missingflags,"28")
-		elseif (not Deathknight) and (flags[28]) then
-			tinsert(extraflags,"28")
-		end
-		if (Warlock) and (not flags[29]) then
-			tinsert(missingflags,"29")
-		elseif (not Deathknight) and (flags[29]) then
-			tinsert(extraflags,"29")
-		end
-		if (Warrior) and (not flags[30]) then
-			tinsert(missingflags,"30")
-		elseif (not Deathknight) and (flags[30]) then
-			tinsert(extraflags,"30")
+		-- If we've picked up at least one class flag
+		if (Deathknight) or (Druid) or (Hunter) or (Mage) or (Paladin) or (Priest) or (Shaman) or (Warlock) or (Warrior) then
+			if (Deathknight) and (not flags[21]) then
+				tinsert(missingflags,"21")
+			elseif (not Deathknight) and (flags[21]) then
+				tinsert(extraflags,"21")
+			end
+			if (Druid) and (not flags[22]) then
+				tinsert(missingflags,"22")
+			elseif (not Druid) and (flags[22]) then
+				tinsert(extraflags,"22")
+			end
+			if (Hunter) and (not flags[23]) then
+				tinsert(missingflags,"23")
+			elseif (not Hunter) and (flags[23]) then
+				tinsert(extraflags,"23")
+			end
+			if (Mage) and (not flags[24]) then
+				tinsert(missingflags,"24")
+			elseif (not Mage) and (flags[24]) then
+				tinsert(extraflags,"24")
+			end
+			if (Paladin) and (not flags[25]) then
+				tinsert(missingflags,"25")
+			elseif (not Paladin) and (flags[25]) then
+				tinsert(extraflags,"25")
+			end
+			if (Priest) and (not flags[26]) then
+				tinsert(missingflags,"26")
+			elseif (not Priest) and (flags[26]) then
+				tinsert(extraflags,"26")
+			end
+			if (Shaman) and (not flags[27]) then
+				tinsert(missingflags,"27")
+			elseif (not Shaman) and (flags[27]) then
+				tinsert(extraflags,"27")
+			end
+			if (Rogue) and (not flags[28]) then
+				tinsert(missingflags,"28")
+			elseif (not Rogue) and (flags[28]) then
+				tinsert(extraflags,"28")
+			end
+			if (Warlock) and (not flags[29]) then
+				tinsert(missingflags,"29")
+			elseif (not Warlock) and (flags[29]) then
+				tinsert(extraflags,"29")
+			end
+			if (Warrior) and (not flags[30]) then
+				tinsert(missingflags,"30")
+			elseif (not Warrior) and (flags[30]) then
+				tinsert(extraflags,"30")
+			end
+		-- Recipe is not class specific
+		else
+			if (not flags[21]) then
+				tinsert(missingflags,"21")
+			end
+			if (not flags[22]) then
+				tinsert(missingflags,"22")
+			end
+			if (not flags[23]) then
+				tinsert(missingflags,"23")
+			end
+			if (not flags[24]) then
+				tinsert(missingflags,"24")
+			end
+			if (not flags[25]) then
+				tinsert(missingflags,"25")
+			end
+			if (not flags[26]) then
+				tinsert(missingflags,"26")
+			end
+			if (not flags[27]) then
+				tinsert(missingflags,"27")
+			end
+			if (not flags[28]) then
+				tinsert(missingflags,"28")
+			end
+			if (not flags[29]) then
+				tinsert(missingflags,"29")
+			end
+			if (not flags[20]) then
+				tinsert(missingflags,"30")
+			end
 		end
 		-- BoP Item
 		if (bopitem) and (not flags[37]) then
