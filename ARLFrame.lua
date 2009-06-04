@@ -995,10 +995,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			local rStr = ""
 			if (rplvl == 0) then
-				rStr = Neutral
+				rStr = factionNeutral
 				clr1 = addon:hexcolor("NEUTRAL")
 			elseif (rplvl == 1) then
-				rStr = factionNeutral
+				rStr = BFAC["Friendly"]
 				clr1 = addon:hexcolor("FRIENDLY")
 			elseif (rplvl == 2) then
 				rStr = BFAC["Honored"]
@@ -2297,7 +2297,7 @@ local function expandEntry(dsIndex)
 
 				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 				if (rplvl == 0) then rStr = addon:Neutral(factionNeutral .. " : ")
-				elseif (rplvl == 1) then rStr = addon:Friendly(factionNeutral .. " : ")
+				elseif (rplvl == 1) then rStr = addon:Friendly(BFAC["Friendly"] .. " : ")
 				elseif (rplvl == 2) then rStr = addon:Honored(BFAC["Honored"] .. " : ")
 				elseif (rplvl == 3) then rStr = addon:Revered(BFAC["Revered"] .. " : ")
 				else rStr = addon:Exalted(BFAC["Exalted"] .. " : ") end
