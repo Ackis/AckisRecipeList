@@ -517,60 +517,59 @@ end
 
 local recipenames = {
 	-- JC
-	["Design: "] = true,
+	["design: "] = true,
 	-- LW or Tailoring
-	["Pattern: "] = true,
+	["pattern: "] = true,
 	-- Alchemy or Cooking
-	["Recipe: "] = true,
+	["recipe: "] = true,
 	-- BS
-	["Plans: "] = true,
+	["plans: "] = true,
 	-- Enchanting
-	["Formula: "] = true,
+	["formula: "] = true,
 	-- Engineering
-	["Schematic: "] = true,
+	["schematic: "] = true,
 	-- First Aid
-	["Manual: "] = true,
+	["manual: "] = true,
 
-	["Alchemy: "] = true,
-	["Blacksmithing: "] = true,
-	["Cooking: "] = true,
-	["Enchanting: "] = true,
-	["Engineering: "] = true,
-	["First Aid: "] = true,
-	["Inscription: "] = true,
-	["Jewelcrafting: "] = true,
-	["Leatherworking: "] = true,
-	["Tailoring: "] = true,
+	["alchemy: "] = true,
+	["blacksmithing: "] = true,
+	["cooking: "] = true,
+	["enchanting: "] = true,
+	["engineering: "] = true,
+	["first aid: "] = true,
+	["inscription: "] = true,
+	["jewelcrafting: "] = true,
+	["leatherworking: "] = true,
+	["tailoring: "] = true,
 }
 
-
 local specialtytext = {
-	["Requires Spellfire Tailoring"] = 26797,
-	["Requires Mooncloth Tailoring"] = 26798,
-	["Requires Shadowweave Tailoring"] = 26801,
-	["Dragonscale Leatherworking"] = 10657,
-	["Elemental Leatherworking"] = 10659,
-	["Tribal Leatherworking"] = 10661,
-	["Gnomish Engineering"] = 20219,
-	["Goblin Engineering"] = 20222,
-	["Armorsmith"] = 9788,
-	["Master Axesmith"] = 17041,
-	["Master Hammersmith"] = 17040,
-	["Master Swordsmith"] = 17039,
-	["Weaponsmith"] = 9787,
+	["requires spellfire tailoring"] = 26797,
+	["requires mooncloth tailoring"] = 26798,
+	["requires shadowweave tailoring"] = 26801,
+	["dragonscale leatherworking"] = 10657,
+	["elemental leatherworking"] = 10659,
+	["tribal leatherworking"] = 10661,
+	["gnomish engineering"] = 20219,
+	["goblin engineering"] = 20222,
+	["armorsmith"] = 9788,
+	["master axesmith"] = 17041,
+	["master hammersmith"] = 17040,
+	["master swordsmith"] = 17039,
+	["weaponsmith"] = 9787,
 }
 
 local factiontext = {
-	["Lower City"] = 107,
-	["Kirin Tor"] = 118,
+	["lower city"] = 107,
+	["kirin tor"] = 118,
 }
 
 local factionlevels = {
-	["Neutral"] = 0,
-	["Friendly"] = 1,
-	["Honored"] = 2,
-	["Revered"] = 3,
-	["Exalted"] = 4,
+	["neutral"] = 0,
+	["friendly"] = 1,
+	["honored"] = 2,
+	["revered"] = 3,
+	["exalted"] = 4,
 }
 
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
@@ -641,6 +640,7 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 		else
 			text = textl
 		end
+		local text = strlower(text)
 self:Print(text)
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
@@ -656,9 +656,9 @@ self:Print(text)
 		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
 		-- The recipe binding is within the first few lines of the tooltip always
-		elseif ((strmatch(strlower(text),"binds when picked up")) and (i < 4)) then
+		elseif ((strmatch(text,"binds when picked up")) and (i < 4)) then
 			boprecipe = true
-		elseif ((strmatch(strlower(text),"binds when picked up")) and (i > 3)) then
+		elseif ((strmatch(text,"binds when picked up")) and (i > 3)) then
 			bopitem = true
 		-- Recipe Specialities
 		elseif (specialtytext[text]) then
@@ -674,187 +674,187 @@ self:Print(text)
 		-- confirmedtype will be toggled to true when we get to a stat that is specific to that class
 		elseif (not confirmedtype) then
 			-- Caster stats
-			if (strmatch(strlower(text),"spell power")) then
+			if (strmatch(text,"spell power")) then
 				caster = true
 				tank = false
 				dps = false
 				healer = true
-			elseif (strmatch(strlower(text),"spell crit")) then
+			elseif (strmatch(text,"spell crit")) then
 				caster = true
 				tank = false
 				dps = false
 				healer = true
 			-- DPS Caster Stats
-			elseif (strmatch(strlower(text),"spell hit")) then
+			elseif (strmatch(text,"spell hit")) then
 				caster = true
 				tank = false
 				dps = false
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"spell penetration")) then
+			elseif (strmatch(text,"spell penetration")) then
 				caster = true
 				tank = false
 				dps = false
 				healer = false
 				confirmedtype = true
 			-- Healer Stats
-			elseif (strmatch(strlower(text),"mana every 5 seconds")) then
+			elseif (strmatch(text,"mana every 5 seconds")) then
 				caster = false
 				tank = false
 				dps = false
 				healer = true
 				confirmedtype = true
 			-- Melee DPS Stats
-			elseif (strmatch(strlower(text),"attack power")) then
+			elseif (strmatch(text,"attack power")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"expertise")) then
+			elseif (strmatch(text,"expertise")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"melee crit")) then
+			elseif (strmatch(text,"melee crit")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"ranged crit")) then
+			elseif (strmatch(text,"ranged crit")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"melee haste")) then
+			elseif (strmatch(text,"melee haste")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"ranged haste")) then
+			elseif (strmatch(text,"ranged haste")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"melee hit")) then
+			elseif (strmatch(text,"melee hit")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"ranged hit")) then
+			elseif (strmatch(text,"ranged hit")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"armor pen")) then
+			elseif (strmatch(text,"armor pen")) then
 				caster = false
 				tank = false
 				dps = true
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"feral attack")) then
+			elseif (strmatch(text,"feral attack")) then
 				caster = false
 				tank = true
 				dps = true
 				healer = false
 			-- Tanking Stats
-			elseif (strmatch(strlower(text),"defense")) then
+			elseif (strmatch(text,"defense")) then
 				tank = true
 				dps = false
 				caster = false
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"block")) then
+			elseif (strmatch(text,"block")) then
 				tank = true
 				dps = false
 				caster = false
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"parry")) then
+			elseif (strmatch(text,"parry")) then
 				tank = true
 				dps = false
 				caster = false
 				healer = false
 				confirmedtype = true
-			elseif (strmatch(strlower(text),"dodge")) then
+			elseif (strmatch(text,"dodge")) then
 				tank = true
 				dps = false
 				caster = false
 				healer = false
 				confirmedtype = true
 			end
-		elseif (strmatch(strlower(text),"deathknight")) then
+		elseif (strmatch(text,"deathknight")) then
 			Deathknight = true
-		elseif (strmatch(strlower(text),"druid")) then
+		elseif (strmatch(text,"druid")) then
 			Druid = true
-		elseif (strmatch(strlower(text),"hunter")) then
+		elseif (strmatch(text,"hunter")) then
 			Hunter = true
-		elseif (strmatch(strlower(text),"mage")) then
+		elseif (strmatch(text,"mage")) then
 			Mage = true
-		elseif (strmatch(strlower(text),"paladin")) then
+		elseif (strmatch(text,"paladin")) then
 			Paladin = true
-		elseif (strmatch(strlower(text),"priest")) then
+		elseif (strmatch(text,"priest")) then
 			Priest = true
-		elseif (strmatch(strlower(text),"rogue")) then
+		elseif (strmatch(text,"rogue")) then
 			Rogue = true
-		elseif (strmatch(strlower(text),"shaman")) then
+		elseif (strmatch(text,"shaman")) then
 			Shaman = true
-		elseif (strmatch(strlower(text),"warlock")) then
+		elseif (strmatch(text,"warlock")) then
 			Warlock = true
-		elseif (strmatch(strlower(text),"warrior")) then
+		elseif (strmatch(text,"warrior")) then
 			Warrior = true
-		elseif (strmatch(strlower(text),"cloth")) then
+		elseif (strmatch(text,"cloth")) then
 			Cloth = true
-		elseif (strmatch(strlower(text),"leather")) then
+		elseif (strmatch(text,"leather")) then
 			Leather = true
-		elseif (strmatch(strlower(text),"mail")) then
+		elseif (strmatch(text,"mail")) then
 			Mail = true
-		elseif (strmatch(strlower(text),"plate")) then
+		elseif (strmatch(text,"plate")) then
 			Plate = true
-		elseif (strmatch(strlower(text),"cloak")) then
+		elseif (strmatch(text,"cloak")) then
 			Cloak = true
-		elseif (strmatch(strlower(text),"ring")) then
+		elseif (strmatch(text,"ring")) then
 			Ring = true
-		elseif (strmatch(strlower(text),"necklace")) then
+		elseif (strmatch(text,"necklace")) then
 			Necklace = true
-		elseif (strmatch(strlower(text),"shield")) then
+		elseif (strmatch(text,"shield")) then
 			Shield = true
-		elseif (strmatch(strlower(text),"1 hand")) or (strmatch(strlower(text),"off hand")) then
+		elseif (strmatch(text,"1 hand")) or (strmatch(text,"off hand")) then
 			OneHanded = true
-		elseif (strmatch(strlower(text),"2 hand")) then
+		elseif (strmatch(text,"2 hand")) then
 			TwoHanded = true
-		elseif (strmatch(strlower(text),"axe")) then
+		elseif (strmatch(text,"axe")) then
 			Axe = true
-		elseif (strmatch(strlower(text),"sword")) then
+		elseif (strmatch(text,"sword")) then
 			Sword = true
-		elseif (strmatch(strlower(text),"mace")) then
+		elseif (strmatch(text,"mace")) then
 			Mace = true
-		elseif (strmatch(strlower(text),"polearm")) then
+		elseif (strmatch(text,"polearm")) then
 			Polearm = true
-		elseif (strmatch(strlower(text),"dagger")) then
+		elseif (strmatch(text,"dagger")) then
 			Dagger = true
-		elseif (strmatch(strlower(text),"staff")) then
+		elseif (strmatch(text,"staff")) then
 			Staff = true
-		elseif (strmatch(strlower(text),"wand")) then
+		elseif (strmatch(text,"wand")) then
 			Wand = true
-		elseif (strmatch(strlower(text),"thrown")) then
+		elseif (strmatch(text,"thrown")) then
 			Thrown = true
-		elseif (strmatch(strlower(text),"bow")) then
+		elseif (strmatch(text,"bow")) then
 			Bow = true
-		elseif (strmatch(strlower(text),"crossbow")) then
+		elseif (strmatch(text,"crossbow")) then
 			Crossbow = true
-		elseif (strmatch(strlower(text),"gun")) then
+		elseif (strmatch(text,"gun")) then
 			Gun = true
-		elseif (strmatch(strlower(text),"ammo")) then
+		elseif (strmatch(text,"ammo")) then
 			Ammo = true
-		elseif (strmatch(strlower(text),"fist")) then
+		elseif (strmatch(text,"fist")) then
 			Fist = true
 		end
 	end
