@@ -25,28 +25,28 @@ This source code is released under All Rights Reserved.
 ]]--
 
 
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
 local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon			= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L				= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 
 -------------------------------------------------------------------------------
--- Upvalues globals
+-- Upvalues globals.
 -------------------------------------------------------------------------------
 local table, string = table, string
 
-local ipairs, pairs = ipairs, pairs
-local tconcat = table.concat
-local tsort = table.sort
-local tinsert = table.insert
-local strmatch = string.match
-local strlower = string.lower
+local tconcat, tinsert, tsort = table.concat, table.insert, table.sort
+local strlower, strmatch = string.lower, string.match
 local gsub = string.gsub
 local tonumber = tonumber
+local ipairs, pairs = ipairs, pairs
 
 -------------------------------------------------------------------------------
--- Upvalued Blizzard API
+-- Upvalued Blizzard API.
 -------------------------------------------------------------------------------
 local UnitName = UnitName
 local UnitGUID = UnitGUID
@@ -65,29 +65,27 @@ local GetMerchantItemInfo = GetMerchantItemInfo
 local GetSpellInfo = GetSpellInfo
 
 local function LoadRecipe()
-
 	local recipelist = addon:GetRecipeTable()
-	local dbloaded
 
 	if (not recipelist) then
 		if (addon.db.profile.autoloaddb) then
+			local dbloaded
 			dbloaded, recipelist = addon:InitRecipeData()
-			if (not dbloaded) then
-				return
-			else
-				addon:AddRecipeData(GetSpellInfo(51304))
-				addon:AddRecipeData(GetSpellInfo(51300))
-				addon:AddRecipeData(GetSpellInfo(51296))
-				addon:AddRecipeData(GetSpellInfo(51313))
-				addon:AddRecipeData(GetSpellInfo(51306))
-				addon:AddRecipeData(GetSpellInfo(45542))
-				addon:AddRecipeData(GetSpellInfo(51302))
-				addon:AddRecipeData(GetSpellInfo(32606))
-				addon:AddRecipeData(GetSpellInfo(51309))
-				addon:AddRecipeData(GetSpellInfo(51311))
-				addon:AddRecipeData(GetSpellInfo(45363))
-				addon:AddRecipeData(GetSpellInfo(53428))
-			end
+
+			if (not dbloaded) then return end
+
+			addon:AddRecipeData(GetSpellInfo(51304))
+			addon:AddRecipeData(GetSpellInfo(51300))
+			addon:AddRecipeData(GetSpellInfo(51296))
+			addon:AddRecipeData(GetSpellInfo(51313))
+			addon:AddRecipeData(GetSpellInfo(51306))
+			addon:AddRecipeData(GetSpellInfo(45542))
+			addon:AddRecipeData(GetSpellInfo(51302))
+			addon:AddRecipeData(GetSpellInfo(32606))
+			addon:AddRecipeData(GetSpellInfo(51309))
+			addon:AddRecipeData(GetSpellInfo(51311))
+			addon:AddRecipeData(GetSpellInfo(45363))
+			addon:AddRecipeData(GetSpellInfo(53428))
 		else
 			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
@@ -109,9 +107,7 @@ local function LoadRecipe()
 			addon:AddRecipeData(GetSpellInfo(53428))
 		end
 	end
-
 	return recipelist
-
 end
 
 local function CreateReverseLookup()
@@ -135,100 +131,25 @@ local function CreateReverseLookup()
 
 end
 
-local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
+local ARLDatamineTT = CreateFrame("GameTooltip", "ARLDatamineTT", UIParent, "GameTooltipTemplate")
 
---- Function to compare the skill levels of a trainers recipes with those in the ARL database.
--- @name AckisRecipeList:ScanSkillLevelData
--- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
--- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
-function addon:ScanSkillLevelData(autoscan)
+do
+	-- Tables used in all the Scan functions within this do block. -Torhal
+	local info, output = {}, {}
 
-	-- Are we at a trade skill trainer?
-	if (IsTradeskillTrainer()) then
+	--- Function to compare the skill levels of a trainers recipes with those in the ARL database.
+	-- @name AckisRecipeList:ScanSkillLevelData
+	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
+	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 
-		-- Get internal database
-		local recipelist = LoadRecipe()
-
-		if (not recipelist) then
-			self:Print(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-
-		-- Get the initial trainer filters
-		local avail = GetTrainerServiceTypeFilter("available")
-		local unavail = GetTrainerServiceTypeFilter("unavailable")
-		local used = GetTrainerServiceTypeFilter("used")
-
-		-- Clear the trainer filters
-		SetTrainerServiceTypeFilter("available", 1)
-		SetTrainerServiceTypeFilter("unavailable", 1)
-		SetTrainerServiceTypeFilter("used", 1)
-
-		local t = {}
-
-		-- Get the skill levels from the trainer
-		for i=1,GetNumTrainerServices(),1 do
-			local name = GetTrainerServiceInfo(i)
-			local _,skilllevel = GetTrainerServiceSkillReq(i)
-			if not skilllevel then
-				skilllevel = 0
-			end
-			t[name] = skilllevel
-		end
-
-		local outputtable = {}
-		local entryfound = false
-
-		for i in pairs(recipelist) do
-			local i_name = recipelist[i]["Name"]
-			if (t[i_name]) and (t[i_name] ~= recipelist[i]["Level"]) then
-				entryfound = true
-				tinsert(outputtable,L["DATAMINER_SKILLELVEL"]:format(i_name,recipelist[i]["Level"],t[i_name]))
-			end
-		end
-
-		tinsert(outputtable,"Trainer Skill Level Scan Complete.")
-
-		if (entryfound) then
-			self:DisplayTextDump(nil, nil, tconcat(outputtable,"\n"))
-		end
-
-		-- Reset the filters to what they were before
-		SetTrainerServiceTypeFilter("available", avail or 0)
-		SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-		SetTrainerServiceTypeFilter("used", used or 0)
-
-	elseif (not autoscan) then
-		self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
-	end
-
-end
-
---- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
--- @name AckisRecipeList:ScanTrainerData
--- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
--- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the acquire information of the ARL database with what is available on the trainer.
-function addon:ScanTrainerData(autoscan)
-
-	-- Make sure the target exists and is a NPC
-	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
-
-		-- Get its name
-		local targetname = UnitName("target")
-		-- Get the NPC ID
-		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
-
-		-- Are we at a trade skill trainer?
-		if (IsTradeskillTrainer()) then
-
-			-- Get internal database
-			local recipelist = LoadRecipe()
+	function addon:ScanSkillLevelData(autoscan)
+		if (IsTradeskillTrainer()) then	-- Are we at a trade skill trainer?
+			local recipelist = LoadRecipe()	-- Get internal database
 
 			if (not recipelist) then
 				self:Print(L["DATAMINER_NODB_ERROR"])
 				return
 			end
-
 			-- Get the initial trainer filters
 			local avail = GetTrainerServiceTypeFilter("available")
 			local unavail = GetTrainerServiceTypeFilter("unavailable")
@@ -239,93 +160,32 @@ function addon:ScanTrainerData(autoscan)
 			SetTrainerServiceTypeFilter("unavailable", 1)
 			SetTrainerServiceTypeFilter("used", 1)
 
-			local t = {}
+			twipe(info)
 
-			if (GetNumTrainerServices() == 0) then
-			 self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
-			end
-
-			-- Get all the names of recipes from the trainer
-			for i=1,GetNumTrainerServices(),1 do
+			-- Get the skill levels from the trainer
+			for i = 1, GetNumTrainerServices(), 1 do
 				local name = GetTrainerServiceInfo(i)
-				t[name] = true
+				local _, skilllevel = GetTrainerServiceSkillReq(i)
+				if not skilllevel then
+					skilllevel = 0
+				end
+				info[name] = skilllevel
 			end
-
-			local outputtext = {}
-
-			-- Dump out trainer info
-			tinsert(outputtext, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
-
-			local teach = {}
-			local noteach = {}
-			local teachflag = false
-			local noteachflag = false
+			local entryfound = false
+			twipe(output)
 
 			for i in pairs(recipelist) do
-
 				local i_name = recipelist[i]["Name"]
-				local acquire = recipelist[i]["Acquire"]
-				local flags = recipelist[i]["Flags"]
-
-				-- If the trainer teaches this recipe
-				if (t[i_name]) then
-					local found = false
-					-- Parse acquire info
-					for i in pairs(acquire) do
-						if (acquire[i]["Type"] == 1) then
-							if (acquire[i]["ID"] == targetID) then
-								found = true
-							end
-						end
-					end
-					if (not found) then
-						tinsert(teach,i)
-						teachflag = true
-						if (not flags[3]) then
-							tinsert(outputtext, ": Trainer flag needs to be set.")
-						end
-					end
-				-- Trainer does not teach this recipe
-				else
-					local found = false
-					-- Parse acquire info
-					for i in pairs(acquire) do
-						if (acquire[i]["Type"] == 1) then
-							if (acquire[i]["ID"] == targetID) then
-								found = true
-							end
-						end
-					end
-					if (found) then
-						noteachflag = true
-						tinsert(noteach,i)
-					end
-				end
-
-			end
-
-			if (teachflag) then
-				tinsert(outputtext, "Missing entries (need to be added):")
-				tsort(teach)
-				for i in ipairs(teach) do
-					tinsert(outputtext, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+				if (info[i_name]) and (info[i_name] ~= recipelist[i]["Level"]) then
+					entryfound = true
+					tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipelist[i]["Level"], info[i_name]))
 				end
 			end
+			tinsert(output, "Trainer Skill Level Scan Complete.")
 
-			if (noteachflag) then
-				tinsert(outputtext, "Extra entries (need to be removed):")
-				tsort(noteach)
-				for i in ipairs(noteach) do
-					tinsert(outputtext, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
-				end
+			if (entryfound) then
+				self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
 			end
-
-			tinsert(outputtext, "Trainer Acquire Scan Complete.")
-
-			if ((teachflag) or (noteachflag)) then
-				self:DisplayTextDump(nil, nil, tconcat(outputtext,"\n"))
-			end
-
 			-- Reset the filters to what they were before
 			SetTrainerServiceTypeFilter("available", avail or 0)
 			SetTrainerServiceTypeFilter("unavailable", unavail or 0)
@@ -334,19 +194,142 @@ function addon:ScanTrainerData(autoscan)
 		elseif (not autoscan) then
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 		end
-	else
-		if (not autoscan) then
-			self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
-		end
 	end
 
-end
+	-------------------------------------------------------------------------------
+	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
+	-- @name AckisRecipeList:ScanTrainerData
+	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
+	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
+	--         Compares the acquire information of the ARL database with what is available on the trainer.
+	-------------------------------------------------------------------------------
+	function addon:ScanTrainerData(autoscan)
+		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+			local targetname = UnitName("target")	-- Get its name
+			local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)	-- Get the NPC ID
+
+			if (IsTradeskillTrainer()) then		-- Are we at a trade skill trainer?
+				local recipelist = LoadRecipe()	-- Get internal database
+
+				if (not recipelist) then
+					self:Print(L["DATAMINER_NODB_ERROR"])
+					return
+				end
+
+				-- Get the initial trainer filters
+				local avail = GetTrainerServiceTypeFilter("available")
+				local unavail = GetTrainerServiceTypeFilter("unavailable")
+				local used = GetTrainerServiceTypeFilter("used")
+
+				-- Clear the trainer filters
+				SetTrainerServiceTypeFilter("available", 1)
+				SetTrainerServiceTypeFilter("unavailable", 1)
+				SetTrainerServiceTypeFilter("used", 1)
+
+				if (GetNumTrainerServices() == 0) then
+					self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
+				end
+				twipe(info)
+
+				-- Get all the names of recipes from the trainer
+				for i = 1, GetNumTrainerServices(), 1 do
+					local name = GetTrainerServiceInfo(i)
+					info[name] = true
+				end
+				twipe(output)
+
+				-- Dump out trainer info
+				tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
+
+				local teach = {}
+				local noteach = {}
+				local teachflag = false
+				local noteachflag = false
+
+				for i in pairs(recipelist) do
+					local i_name = recipelist[i]["Name"]
+					local acquire = recipelist[i]["Acquire"]
+					local flags = recipelist[i]["Flags"]
+
+					-- If the trainer teaches this recipe
+					if (info[i_name]) then
+						local found = false
+						-- Parse acquire info
+						for j in pairs(acquire) do
+							if (acquire[j]["Type"] == 1) then
+								if (acquire[j]["ID"] == targetID) then
+									found = true
+								end
+							end
+						end
+
+						if (not found) then
+							tinsert(teach, i)
+							teachflag = true
+
+							if (not flags[3]) then
+								tinsert(output, ": Trainer flag needs to be set.")
+							end
+						end
+						-- Trainer does not teach this recipe
+					else
+						local found = false
+						-- Parse acquire info
+						for j in pairs(acquire) do
+							if (acquire[j]["Type"] == 1) then
+								if (acquire[j]["ID"] == targetID) then
+									found = true
+								end
+							end
+						end
+						if (found) then
+							noteachflag = true
+							tinsert(noteach, i)
+						end
+					end
+				end
+
+				if (teachflag) then
+					tinsert(output, "Missing entries (need to be added):")
+					tsort(teach)
+					for i in ipairs(teach) do
+						tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipelist[teach[i]]["Name"]))
+					end
+				end
+
+				if (noteachflag) then
+					tinsert(output, "Extra entries (need to be removed):")
+					tsort(noteach)
+					for i in ipairs(noteach) do
+						tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipelist[noteach[i]]["Name"]))
+					end
+				end
+				tinsert(output, "Trainer Acquire Scan Complete.")
+
+				if ((teachflag) or (noteachflag)) then
+					self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+				end
+
+				-- Reset the filters to what they were before
+				SetTrainerServiceTypeFilter("available", avail or 0)
+				SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+				SetTrainerServiceTypeFilter("used", used or 0)
+
+			elseif (not autoscan) then
+				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+			end
+		else
+			if (not autoscan) then
+				self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
+			end
+		end
+	end
+end	--do
 
 --- Generates tradeskill links for all professions so you can scan them for completeness.
 -- @name AckisRecipeList:GenerateLinks
 -- @return Generates tradeskill links with all recipes.  Used for testing to see if a recipe is missing from the database or not.
 function addon:GenerateLinks()
-
 	-- This code adopted from Gnomish Yellow Pages with permission
 
 	local guid = UnitGUID("player")
@@ -403,37 +386,28 @@ end
 -- @name AckisRecipeList:ScanVendor
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
 function addon:ScanVendor()
-
-	-- Make sure the target exists and is a NPC
-	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then
-
-		-- Get internal database
-		local recipelist = LoadRecipe()
+	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+		local recipelist = LoadRecipe()		-- Get internal database
 
 		if (not recipelist) then
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-
 		local reverselookup = CreateReverseLookup()
 
-		-- Get its name
-		local targetname = UnitName("target")
-		-- Get the NPC ID
-		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)
+		local targetname = UnitName("target")		-- Get its name
+		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
 
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 		-- Parse all the items on the merchant
-		for i=1,GetMerchantNumItems(),1 do
+		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name,recipelist,reverselookup,true)
+			self:ScanToolTip(name, recipelist, reverselookup, true)
 		end
-
 		ARLDatamineTT:Hide()
-
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
@@ -609,7 +583,7 @@ local factionlevels = {
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
 -- @return Scans a tooltip, and outputs the missing or extra filter flags.
-function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
+function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 
 	local recipefound = false
 	local boprecipe = false

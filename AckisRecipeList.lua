@@ -103,19 +103,16 @@ local tsort = table.sort
 local tinsert = table.insert
 
 local string = string
-local format = format
+local format = string.format
 local sfind = string.find
 local smatch = string.match
 local strlower = string.lower
 
---[[
-
-	Initialization functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Initialization functions
+-------------------------------------------------------------------------------
 
 -- Description: Function run when the addon is initialized.  Registers the slash commands, options, and database
-
 function addon:OnInitialize()
 
 	-- Set default options, which are to include everything in the scan
@@ -1480,12 +1477,9 @@ end
 ]]--
 
 -- Description: Determines which profession we are dealing with and loads up the recipe information for it.
-
 local function InitializeRecipes(RecipeDB, playerProfession)
-
 	-- Table of all possible professions with init functions
-	local professiontable =
-	{
+	local professiontable = {
 		[GetSpellInfo(51304)] = addon.InitAlchemy,
 		[GetSpellInfo(51300)] = addon.InitBlacksmithing,
 		[GetSpellInfo(51296)] = addon.InitCooking,
@@ -1501,7 +1495,6 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 		[GetSpellInfo(45363)] = addon.InitInscription,
 		[GetSpellInfo(53428)] = addon.InitRuneforging,
 	}
-
 	-- Check for player profession to fix some bugs with addons that interface with ARL
 	-- This source code is release under Public Domain
 	-- Thanks to sylvanaar/xinhuan for the code snippet
@@ -1514,7 +1507,6 @@ local function InitializeRecipes(RecipeDB, playerProfession)
 			addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
 		end
 	end
-
 end
 
 -- Description: Determines what to do when the slash command is called.
@@ -1877,7 +1869,7 @@ do
 			-- Add filtering flags to the recipes
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
-			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,playerData.playerProfession)
+			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
 		end
 
 		if (textdump == true) then
