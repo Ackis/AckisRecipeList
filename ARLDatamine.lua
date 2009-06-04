@@ -900,15 +900,18 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 		if specialty then
 			self:Print(GetSpellInfo(specialty))
 		end
-		-- Vendor Flag
-		if (not flags[4]) and (isvendor) then
-			tinsert(missingflags,"4")
-		end
-		-- PVP Flag
-		if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
-			tinsert(missingflags, "9")
-		elseif (flags[9]) then
-			tinsert(extraflags, "9")
+
+		if (isvendor) then
+			-- Vendor Flag
+			if (not flags[4]) then
+				tinsert(missingflags,"4")
+			end
+			-- PVP Flag
+			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
+				tinsert(missingflags, "9")
+			elseif (flags[9]) then
+				tinsert(extraflags, "9")
+			end
 		end
 
 		-- Classes
@@ -1181,6 +1184,32 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			end
 			if (not tank) and (not healer) and (not caster) and (not dps) then
 				self:Print("No player type flag.")
+			end
+			if (not Cloth) or
+				(not Leather) or
+				(not Mail) or
+				(not Plate) or
+				(not Cloak) or
+				(not Trinket) or
+				(not Ring) or
+				(not Necklace) or
+				(not Shield ) or
+				(not OneHanded) or
+				(not TwoHanded) or
+				(not Axe) or
+				(not Sword) or
+				(not Mace) or
+				(not Polearm) or
+				(not Dagger) or
+				(not Staff) or
+				(not Wand) or
+				(not Thrown) or
+				(not Bow) or
+				(not Crossbow) or
+				(not Ammo) or
+				(not Fist) or
+				(not Gun) then
+					self:Print("Item type flag")
 			end
 		end
 
