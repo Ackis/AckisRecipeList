@@ -36,7 +36,6 @@ local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
@@ -284,7 +283,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,16748,L["Haferet"],BZONE["The Exodar"],66.62,75.23,1)
 	self:addLookupList(VendorDB,16767,L["Neii"],BZONE["The Exodar"],64.16,68.33,1)
 	self:addLookupList(VendorDB,16782,L["Yatheon"],BZONE["Silvermoon City"],76.09,39.64,2)
-	self:addLookupList(VendorDB,16826,L["Sid Limbardi"],BZONE["Ironforge"],58.56,55.92,1)
+	self:addLookupList(VendorDB,16826,L["Sid Limbardi"],BZONE["Hellfire Peninsula"],54.3,63.6,1)
 	self:addLookupList(VendorDB,17246,L["\"Cookie\" McWeaksauce"],BZONE["Bloodmyst Isle"],54.12,55.28,1)
 	self:addLookupList(VendorDB,17512,L["Arred"],BZONE["The Exodar"],44.92,25.53,1)
 	self:addLookupList(VendorDB,17518,L["Ythyar"],BZONE["Karazhan"],0,0,0)
