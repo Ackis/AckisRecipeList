@@ -631,8 +631,11 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 	-- Parse all the lines of the tooltip
 	for i=1,ARLDatamineTT:NumLines(),1 do
 
-		local linetext = _G["ARLDatamineTTTextLeft" .. i]
-		local text = linetext:GetText()
+		local linetextl = _G["ARLDatamineTTTextLeft" .. i]
+		local textl = linetextl:GetText()
+		local linetextr = _G["ARLDatamineTTTextRight" .. i]
+		local textr = linetextl:GetText()
+		local text = textl .. " " .. textr
 self:Print(text)
 		-- Check to see if it's a recipe otherwise break out of the for loop
 		if (i == 1) then
