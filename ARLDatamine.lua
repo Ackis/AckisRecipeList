@@ -468,9 +468,47 @@ function addon:TooltipScanDatabase()
 			ARLDatamineTT:SetHyperlink(link)
 			self:ScanToolTip(name,recipelist,reverselookup,false)
 		else
-			addon:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
+			self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
 
+	end
+
+	ARLDatamineTT:Hide()
+
+end
+
+--- Parses a specific recipe in the database, and scanning its tooltips.
+-- @name AckisRecipeList:TooltipScanDatabase
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
+-- @return Recipe has its tooltips scanned.
+function addon:TooltipScanRecipe(spellid)
+
+	-- Get internal database
+	local recipelist = LoadRecipe()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
+	local reverselookup = CreateReverseLookup()
+
+	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+	if (recipelist[spellid]) then
+
+	local name = recipelist[spellid]["Name"]
+	local link = recipelist[spellid]["RecipeLink"]
+
+		if link then
+			ARLDatamineTT:SetHyperlink(link)
+			self:ScanToolTip(name,recipelist,reverselookup,false)
+		else
+			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
+		end
+	else
+		self:Print("Spell ID does not exist in the database.")
 	end
 
 	ARLDatamineTT:Hide()
