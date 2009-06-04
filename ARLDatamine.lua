@@ -835,10 +835,8 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 		elseif (strmatch(text, "cloth")) then
 			Cloth = true
 		elseif (strmatch(text, "leather")) then
-			self:Print("Leather found")
 			Leather = true
 		elseif (strmatch(text, "mail")) then
-			self:Print("Mail found")
 			Mail = true
 		elseif (strmatch(text, "plate")) then
 			Plate = true
@@ -1173,11 +1171,17 @@ function addon:ScanToolTip(name,recipelist,reverselookup,isvendor)
 			tinsert(missingflags,repid)
 		end
 
-		self:Print(recipename .. " " .. spellid)
-		self:Print("Missing flags: " .. tconcat(missingflags, ", "))
-		self:Print("Extra flags: " .. tconcat(extraflags, ", "))
-		if (not tank) and (not healer) and (not caster) and (not dps) then
-			self:Print("No player type flag.")
+		if (#missingflags > 0) or (#extraflags > 0) then
+			self:Print(recipename .. " " .. spellid)
+			if (#missingflags > 0) then
+				self:Print("Missing flags: " .. tconcat(missingflags, ", "))
+			end
+			if (#extraflags > 0) then
+				self:Print("Extra flags: " .. tconcat(extraflags, ", "))
+			end
+			if (not tank) and (not healer) and (not caster) and (not dps) then
+				self:Print("No player type flag.")
+			end
 		end
 
 	end
