@@ -382,7 +382,6 @@ local spellitem = {
 		[15295] = 11615,
 		[15296] = 11612,
 		[15596] = 11813,
-		[15596] = 11813,
 		[15628] = 11828,
 		[15633] = 11827,
 		[15853] = 12227,
@@ -1969,6 +1968,7 @@ function addon:TooltipScanRecipe(spellid)
 
 		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 		if (spellitem[spellid]) then
+			self:Print(spellitem[spellid])
 			ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
 			self:ScanToolTip(name,recipelist,reverselookup,false)		
 		end
