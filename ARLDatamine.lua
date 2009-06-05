@@ -1966,6 +1966,13 @@ function addon:TooltipScanRecipe(spellid)
 		elseif (recipelist[spellid]["Profession"] ~= GetSpellInfo(53428)) then
 			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
+
+		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
+		if (spellitem[spellid]) then
+			ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
+			self:ScanToolTip(name,recipelist,reverselookup,false)		
+		end
+
 	else
 		self:Print("Spell ID does not exist in the database.")
 	end
