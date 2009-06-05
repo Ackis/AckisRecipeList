@@ -382,6 +382,7 @@ end
 --- Scans the items in the specified profession
 -------------------------------------------------------------------------------
 do
+
 	local ORDERED_PROFESSIONS = { 
 		strlower(GetSpellInfo(51304)),	-- 1 Alchemy
 		strlower(GetSpellInfo(51300)),	-- 2 Blacksmithing
@@ -398,6 +399,10 @@ do
 	}
 	local recipe_list = {}
 
+	--- Parses all recipes for a specified profession, scanning their tool tips.
+	-- @name AckisRecipeList:ScanProfession
+	-- @param prof_name The profession name which you wish to scan.
+	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
 		local found = false
 		prof_name = strlower(prof_name)
@@ -447,7 +452,8 @@ do
 		end
 		ARLDatamineTT:Hide()
 	end
-end	--do
+
+end
 
 --- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
