@@ -39,7 +39,7 @@ local L				= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 -------------------------------------------------------------------------------
 local table, string = table, string
 
-local tconcat, tinsert, tsort = table.concat, table.insert, table.sort
+local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
 local strlower, strmatch = string.lower, string.match
 local gsub = string.gsub
 local tonumber = tonumber
@@ -110,11 +110,7 @@ local function LoadRecipe()
 	return recipelist
 end
 
-local function CreateReverseLookup()
-
-	-- Get internal database
-	local recipelist = LoadRecipe()
-
+local function CreateReverseLookup(recipelist)
 	if (not recipelist) then
 		addon:Print(L["DATAMINER_NODB_ERROR"])
 		return
@@ -382,6 +378,77 @@ function addon:GenerateLinks()
 
 end
 
+-------------------------------------------------------------------------------
+--- Scans the items in the specified profession
+-------------------------------------------------------------------------------
+do
+	local ORDERED_PROFESSIONS = { 
+		strlower(GetSpellInfo(51304)),	-- 1 Alchemy
+		strlower(GetSpellInfo(51300)),	-- 2 Blacksmithing
+		strlower(GetSpellInfo(51296)),	-- 3 Cooking
+		strlower(GetSpellInfo(51313)),	-- 4 Enchanting
+		strlower(GetSpellInfo(51306)),	-- 5 Engineering
+		strlower(GetSpellInfo(45542)),	-- 6 First Aid
+		strlower(GetSpellInfo(45363)),	-- 7 Inscription
+		strlower(GetSpellInfo(51311)),	-- 8 Jewelcrafting
+		strlower(GetSpellInfo(51302)),	-- 9 Leatherworking
+		strlower(GetSpellInfo(53428)),	-- 10 Runeforging
+		strlower(GetSpellInfo(32606)),	-- 11 Smelting
+		strlower(GetSpellInfo(51309)),	-- 12 Tailoring
+	}
+	local recipe_list = {}
+
+	function addon:ScanProfession(prof_name)
+		local found = false
+		prof_name = strlower(prof_name)
+
+		for idx, name in ipairs(ORDERED_PROFESSIONS) do
+			if prof_name == name then
+				found = true
+				break
+			end
+		end
+
+		if not found then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+		local master_list = LoadRecipe()
+		
+		if not master_list then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+		twipe(recipe_list)
+
+		for i in pairs(master_list) do
+			local prof = strlower(master_list[i]["Profession"])
+
+			if prof and prof == prof_name then
+				recipe_list[i] = master_list[i]
+			end
+		end
+		local reverselookup = CreateReverseLookup(recipe_list)
+
+		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+		-- Parse the entire recipe database
+		for i in pairs(recipe_list) do
+			local name = recipe_list[i]["Name"]
+			local link = recipe_list[i]["RecipeLink"]
+
+			if link then
+				ARLDatamineTT:SetHyperlink(link)
+				self:ScanToolTip(name, recipe_list, reverselookup, false)
+			else
+				self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
+			end
+		end
+		ARLDatamineTT:Hide()
+	end
+end	--do
+
 --- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
@@ -393,7 +460,7 @@ function addon:ScanVendor()
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local reverselookup = CreateReverseLookup()
+		local reverselookup = CreateReverseLookup(recipelist)
 
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
@@ -418,7 +485,6 @@ end
 -- @name AckisRecipeList:TooltipScanDatabase
 -- @return Entire recipe database has its tooltips scanned.
 function addon:TooltipScanDatabase()
-
 	-- Get internal database
 	local recipelist = LoadRecipe()
 
@@ -426,8 +492,7 @@ function addon:TooltipScanDatabase()
 		self:Print(L["DATAMINER_NODB_ERROR"])
 		return
 	end
-
-	local reverselookup = CreateReverseLookup()
+	local reverselookup = CreateReverseLookup(recipelist)
 
 	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
@@ -444,11 +509,8 @@ function addon:TooltipScanDatabase()
 		else
 			self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
-
 	end
-
 	ARLDatamineTT:Hide()
-
 end
 
 --- Parses a specific recipe in the database, and scanning its tooltips.
@@ -465,7 +527,7 @@ function addon:TooltipScanRecipe(spellid)
 		return
 	end
 
-	local reverselookup = CreateReverseLookup()
+	local reverselookup = CreateReverseLookup(recipelist)
 
 	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
