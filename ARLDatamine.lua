@@ -1933,54 +1933,6 @@ function addon:TooltipScanDatabase()
 	ARLDatamineTT:Hide()
 end
 
---- Parses a specific recipe in the database, and scanning its tooltips.
--- @name AckisRecipeList:TooltipScanDatabase
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
--- @return Recipe has its tooltips scanned.
-function addon:TooltipScanRecipe(spellid)
-
-	-- Get internal database
-	local recipelist = LoadRecipe()
-
-	if (not recipelist) then
-		self:Print(L["DATAMINER_NODB_ERROR"])
-		return
-	end
-
-	local reverselookup = CreateReverseLookup(recipelist)
-
-	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
-	if (recipelist[spellid]) then
-
-	local name = recipelist[spellid]["Name"]
-	local link = recipelist[spellid]["RecipeLink"]
-
-		-- If a link exists, we'll scan it.
-		if (link) then
-			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name,recipelist,reverselookup,false)
-		-- Lets hide this output for runeforging.
-		elseif (recipelist[spellid]["Profession"] ~= GetSpellInfo(53428)) then
-			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
-		end
-
-		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
-		if (spellitem[spellid]) then
-			self:Print(spellitem[spellid])
-			ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
-			self:ScanToolTip(name,recipelist,reverselookup,false)		
-		end
-
-	else
-		self:Print("Spell ID does not exist in the database.")
-	end
-
-	ARLDatamineTT:Hide()
-
-end
-
 local recipenames = {
 	-- JC
 	["design: "] = true,
@@ -2009,6 +1961,67 @@ local recipenames = {
 	["tailoring: "] = true,
 }
 
+--- Parses a specific recipe in the database, and scanning its tooltips.
+-- @name AckisRecipeList:TooltipScanDatabase
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
+-- @return Recipe has its tooltips scanned.
+function addon:TooltipScanRecipe(spellid)
+
+	-- Get internal database
+	local recipelist = LoadRecipe()
+
+	if (not recipelist) then
+		self:Print(L["DATAMINER_NODB_ERROR"])
+		return
+	end
+
+	local reverselookup = CreateReverseLookup(recipelist)
+
+	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+	if (recipelist[spellid]) then
+
+	local name = recipelist[spellid]["Name"]
+	local link = recipelist[spellid]["RecipeLink"]
+
+		-- If a link exists, we'll scan it.
+		if (link) then
+			-- Load the tooltip
+			ARLDatamineTT:SetHyperlink(link)
+
+			-- Lets check to see if it's a recipe tooltip
+			local linetext = _G["ARLDatamineTTTextLeft1"]
+			local text = linetext:GetText()
+			local matchtext = strmatch(text, "%a+: ")
+
+			-- Check to see if we're dealing with a recipe
+			if (recipenames[matchtext]) then
+				-- Scan the recipe
+				self:ScanToolTip(name,recipelist,reverselookup,false)
+
+				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
+				if (spellitem[spellid]) then
+					self:Print(spellitem[spellid])
+					ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
+					self:ScanToolTip(name,recipelist,reverselookup,false)		
+				end
+
+			end
+
+		-- Lets hide this output for runeforging.
+		elseif (recipelist[spellid]["Profession"] ~= GetSpellInfo(53428)) then
+			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
+		end
+
+	else
+		self:Print("Spell ID does not exist in the database.")
+	end
+
+	ARLDatamineTT:Hide()
+
+end
+
 local specialtytext = {
 	["requires spellfire tailoring"] = 26797,
 	["requires mooncloth tailoring"] = 26798,
@@ -2019,9 +2032,9 @@ local specialtytext = {
 	["gnomish engineering"] = 20219,
 	["goblin engineering"] = 20222,
 	["armorsmith"] = 9788,
-	["master axesmith"] = 17041,
+	["master tooltipflags[Axe]smith"] = 17041,
 	["master hammersmith"] = 17040,
-	["master swordsmith"] = 17039,
+	["master tooltipflags[Sword]smith"] = 17039,
 	["weaponsmith"] = 9787,
 }
 
@@ -2072,58 +2085,112 @@ local factionlevels = {
 	["exalted"] = 4,
 }
 
+local tooltipflags = {
+	boprecipe = false,
+	bopitem = false,
+	healer = false,
+	tank = false,
+	dps = false,
+	caster = false,
+	Deathknight = false,
+	Druid = false,
+	Hunter = false,
+	Mage = false,
+	Paladin = false,
+	Priest = false,
+	Shaman = false,
+	Rogue = false,
+	Warlock = false,
+	Warrior = false,
+
+	Cloth = false,
+	Leather = false,
+	Mail = false,
+	Plate = false,
+	Cloak = false,
+	Trinket = false,
+	Ring = false,
+	Necklace = false,
+	Shield]  = false,
+	OneHanded = false,
+	TwoHanded = false,
+	Axe = false,
+	Sword = false,
+	Mace = false,
+	Polearm = false,
+	Dagger = false,
+	Staff = false,
+	Wand = false,
+	Thrown = false,
+	Bow = false,
+	Crosstooltipflags[Bow = false,
+	Ammo = false,
+	Fist = false,
+	Gun = false,
+
+	specialty = false,
+	repid = false,
+	repidlevel = false,
+}
+
+local function resettooltipscanflags()
+
+	tooltipflags = {
+		boprecipe = false,
+		bopitem = false,
+		healer = false,
+		tank = false,
+		dps = false,
+		caster = false,
+		Deathknight = false,
+		Druid = false,
+		Hunter = false,
+		Mage = false,
+		Paladin = false,
+		Priest = false,
+		Shaman = false,
+		Rogue = false,
+		Warlock = false,
+		Warrior = false,
+
+		Cloth = false,
+		Leather = false,
+		Mail = false,
+		Plate = false,
+		Cloak = false,
+		Trinket = false,
+		Ring = false,
+		Necklace = false,
+		Shield]  = false,
+		OneHanded = false,
+		TwoHanded = false,
+		Axe = false,
+		Sword = false,
+		Mace = false,
+		Polearm = false,
+		Dagger = false,
+		Staff = false,
+		Wand = false,
+		Thrown = false,
+		Bow = false,
+		CrossBow = false,
+		Ammo = false,
+		Fist = false,
+		Gun = false,
+
+		specialty = false,
+		repid = false,
+		repidlevel = false,
+	}
+
+end
+
 --- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 -- @name AckisRecipeList:ScanToolTip
 -- @return Scans a tooltip, and outputs the missing or extra filter flags.
-function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
+function addon:ScanToolTip(name, recipelist, isvendor)
 
 	local recipefound = false
-	local boprecipe = false
-	local bopitem = false
-	local healer = false
-	local tank = false
-	local dps = false
-	local caster = false
-
-	local Deathknight = false
-	local Druid = false
-	local Hunter = false
-	local Mage = false
-	local Paladin = false
-	local Priest = false
-	local Shaman = false
-	local Rogue = false
-	local Warlock = false
-	local Warrior = false
-
-	local Cloth = false
-	local Leather = false
-	local Mail = false
-	local Plate = false
-	local Cloak = false
-	local Trinket = false
-	local Ring = false
-	local Necklace = false
-	local Shield  = false
-	local OneHanded = false
-	local TwoHanded = false
-	local Axe = false
-	local Sword = false
-	local Mace = false
-	local Polearm = false
-	local Dagger = false
-	local Staff = false
-	local Wand = false
-	local Thrown = false
-	local Bow = false
-	local Crossbow = false
-	local Ammo = false
-	local Fist = false
-	local Gun = false
-
-	local specialty = false
-	local repid = false
-	local repidlevel = false
 	local confirmed_role = false
 
 	local matchtext
@@ -2145,242 +2212,238 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 
 		local text = strlower(text)
 
-		-- Check to see if it's a recipe otherwise break out of the for loop
-		if (i == 1) then
-			-- Get the header of the tooltip aka Pattern:
-			matchtext = strmatch(text, "%a+: ")
-
-			-- If the header is not a recipe
-			if (not recipenames[matchtext]) then
-				break
-			else
-				recipefound = true
-			end
-		-- We're on the second line or beyond in the tooltip now
 		-- Check for recipe/item binding
 		-- The recipe binding is within the first few lines of the tooltip always
-		elseif ((strmatch(text, "binds when picked up")) and (i < 4)) then
-			boprecipe = true
+		if ((strmatch(text, "binds when picked up")) and (i < 4)) then
+			tooltipflags[boprecipe] = true
 		elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
-			bopitem = true
+			tooltipflags[bopitem] = true
+		end
+
 		-- Recipe Specialities
-		elseif (specialtytext[text]) then
-			specialty = specialtytext[text]
+		if (specialtytext[text]) then
+			tooltipflags[specialty] = specialtytext[text]
+		end
+
 		-- Recipe Reputatons
-		elseif (strmatch(text, "Requires (.+) %- (.+)")) then
+		if (strmatch(text, "Requires (.+) %- (.+)")) then
 			local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
 			if (factiontext[rep]) then
-				repid = factiontext[rep]
-				repidlevel = factionlevels[replevel]
+				tooltipflags[repid] = factiontext[rep]
+				tooltipflags[repidlevel} = factionlevels[replevel]
 			end
+		end
+
 		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
 		-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
-		elseif (strmatch(text, "strength")) then
-			tank = true
-			dps = true
-			caster = false
-			healer = false
+		if (strmatch(text, "strength")) then
+			tooltipflags[tank] = true
+			tooltipflags[dps] = true
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "agility")) then
-			tank = true
-			dps = true
-			caster = false
-			healer = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = true
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "spirit")) then
-			tank = false
-			dps = false
-			caster = true
-			healer = true
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[caster] = true
+			tooltipflags[healer] = true
 			confirmed_role = true
-			-- Caster stats
+			-- tooltipflags[caster] stats
 		elseif (strmatch(text, "spell power")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = true
+			tooltipflags[caster] = true
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[healer] = true
 			confirmed_role = true
 		elseif (strmatch(text, "spell crit")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = true
+			tooltipflags[caster] = true
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[healer] = true
 			confirmed_role = true
-			-- DPS Caster Stats
+			-- tooltipflags[dps] tooltipflags[caster] Stats
 		elseif (strmatch(text, "spell hit")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = false
+			tooltipflags[caster] = true
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "spell penetration")) then
-			caster = true
-			tank = false
-			dps = false
-			healer = false
+			tooltipflags[caster] = true
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
-			-- Healer Stats
+			-- tooltipflags[healer] Stats
 		elseif (strmatch(text, "mana every 5 seconds")) then
-			caster = false
-			tank = false
-			dps = false
-			healer = true
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = false
+			tooltipflags[healer] = true
 			confirmed_role = true
-			-- Melee DPS Stats
+			-- Melee tooltipflags[dps] Stats
 		elseif (strmatch(text, "attack power")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "expertise")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee crit")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged crit")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee haste")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged haste")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee hit")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged hit")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "armor pen")) then
-			caster = false
-			tank = false
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = false
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "feral attack")) then
-			caster = false
-			tank = true
-			dps = true
-			healer = false
+			tooltipflags[caster] = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = true
+			tooltipflags[healer] = false
 			confirmed_role = true
-			-- Tanking Stats
+			-- tooltipflags[tank]ing Stats
 		elseif (strmatch(text, "defense")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = false
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "block")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = false
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "parry")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = false
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
 		elseif (strmatch(text, "dodge")) then
-			tank = true
-			dps = false
-			caster = false
-			healer = false
+			tooltipflags[tank] = true
+			tooltipflags[dps] = false
+			tooltipflags[caster] = false
+			tooltipflags[healer] = false
 			confirmed_role = true
+		end
+
 		-- Classes
-		elseif (strmatch(text, "death knight")) then
-			Deathknight = true
+		if (strmatch(text, "death knight")) then
+			tooltipflags[Deathknight] = true
 		elseif (strmatch(text, "druid")) then
-			Druid = true
+			tooltipflags[Druid] = true
 		elseif (strmatch(text, "hunter")) then
-			Hunter = true
+			tooltipflags[Hunter] = true
 		elseif (strmatch(text, "mage")) then
-			Mage = true
+			tooltipflags[Mage] = true
 		elseif (strmatch(text, "paladin")) then
-			Paladin = true
+			tooltipflags[Paladin] = true
 		elseif (strmatch(text, "priest")) then
-			Priest = true
+			tooltipflags[Priest] = true
 		elseif (strmatch(text, "rogue")) then
-			Rogue = true
+			tooltipflags[Rogue] = true
 		elseif (strmatch(text, "shaman")) then
-			Shaman = true
+			tooltipflags[Shaman] = true
 		elseif (strmatch(text, "warlock")) then
-			Warlock = true
+			tooltipflags[Warlock] = true
 		elseif (strmatch(text, "warrior")) then
-			Warrior = true
+			tooltipflags[Warrior] = true
 		-- Armor types
 		elseif (strmatch(text, "cloth")) then
-			Cloth = true
+			tooltipflags[Cloth] = true
 		elseif (strmatch(text, "leather")) then
-			Leather = true
+			tooltipflags[Leather] = true
 		elseif (strmatch(text, "mail")) then
-			Mail = true
+			tooltipflags[Mail] = true
 		elseif (strmatch(text, "plate")) then
-			Plate = true
+			tooltipflags[Plate] = true
 		elseif (strmatch(text, "cloak")) then
-			Cloak = true
+			tooltipflags[Cloak] = true
 		elseif (strmatch(text, "ring")) then
-			Ring = true
+			tooltipflags[Ring] = true
 		elseif (strmatch(text, "necklace")) then
-			Necklace = true
+			tooltipflags[Necklace] = true
 		elseif (strmatch(text, "shield")) then
-			Shield = true
+			tooltipflags[Shield] = true
 		-- Weapon types
 		elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
-			OneHanded = true
+			tooltipflags[OneHanded] = true
 		elseif (strmatch(text, "2 hand")) then
-			TwoHanded = true
+			tooltipflags[TwoHanded] = true
 		elseif (strmatch(text, "axe")) then
-			Axe = true
+			tooltipflags[Axe] = true
 		elseif (strmatch(text, "sword")) then
-			Sword = true
+			tooltipflags[Sword] = true
 		elseif (strmatch(text, "mace")) then
-			Mace = true
+			tooltipflags[Mace] = true
 		elseif (strmatch(text, "polearm")) then
-			Polearm = true
+			tooltipflags[Polearm] = true
 		elseif (strmatch(text, "dagger")) then
-			Dagger = true
+			tooltipflags[Dagger] = true
 		elseif (strmatch(text, "staff")) then
-			Staff = true
+			tooltipflags[Staff] = true
 		elseif (strmatch(text, "wand")) then
-			Wand = true
+			tooltipflags[Wand] = true
 		elseif (strmatch(text, "thrown")) then
-			Thrown = true
+			tooltipflags[Thrown] = true
 		elseif (strmatch(text, "bow")) then
-			Bow = true
+			tooltipflags[Bow] = true
 		elseif (strmatch(text, "crossbow")) then
-			Crossbow = true
+			Crosstooltipflags[Bow] = true
 		elseif (strmatch(text, "gun")) then
-			Gun = true
+			tooltipflags[Gun] = true
 		elseif (strmatch(text, "ammo")) then
-			Ammo = true
+			tooltipflags[Ammo] = true
 		elseif (strmatch(text, "fist")) then
-			Fist = true
+			tooltipflags[Fist] = true
 		end
 	end
 
@@ -2422,55 +2485,55 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 
 		-- Classes
 		-- If we've picked up at least one class flag
-		if (Deathknight) or (Druid) or (Hunter) or (Mage) or (Paladin) or (Priest) or (Shaman) or (Warlock) or (Warrior) then
-			if (Deathknight) and (not flags[21]) then
+		if (tooltipflags[Deathknight]) or (tooltipflags[Druid]) or (tooltipflags[Hunter]) or (tooltipflags[Mage]) or (tooltipflags[Paladin]) or (tooltipflags[Priest]) or (tooltipflags[Shaman]) or (tooltipflags[Warlock]) or (tooltipflags[Warrior]) then
+			if (tooltipflags[Deathknight]) and (not flags[21]) then
 				tinsert(missingflags, "21")
-			elseif (not Deathknight) and (flags[21]) then
+			elseif (not tooltipflags[Deathknight]) and (flags[21]) then
 				tinsert(extraflags, "21")
 			end
-			if (Druid) and (not flags[22]) then
+			if (tooltipflags[Druid]) and (not flags[22]) then
 				tinsert(missingflags, "22")
-			elseif (not Druid) and (flags[22]) then
+			elseif (not tooltipflags[Druid]) and (flags[22]) then
 				tinsert(extraflags, "22")
 			end
-			if (Hunter) and (not flags[23]) then
+			if (tooltipflags[Hunter]) and (not flags[23]) then
 				tinsert(missingflags, "23")
-			elseif (not Hunter) and (flags[23]) then
+			elseif (not tooltipflags[Hunter]) and (flags[23]) then
 				tinsert(extraflags, "23")
 			end
-			if (Mage) and (not flags[24]) then
+			if (tooltipflags[Mage]) and (not flags[24]) then
 				tinsert(missingflags, "24")
-			elseif (not Mage) and (flags[24]) then
+			elseif (not tooltipflags[Mage]) and (flags[24]) then
 				tinsert(extraflags, "24")
 			end
-			if (Paladin) and (not flags[25]) then
+			if (tooltipflags[Paladin]) and (not flags[25]) then
 				tinsert(missingflags, "25")
-			elseif (not Paladin) and (flags[25]) then
+			elseif (not tooltipflags[Paladin]) and (flags[25]) then
 				tinsert(extraflags, "25")
 			end
-			if (Priest) and (not flags[26]) then
+			if (tooltipflags[Priest]) and (not flags[26]) then
 				tinsert(missingflags, "26")
-			elseif (not Priest) and (flags[26]) then
+			elseif (not tooltipflags[Priest]) and (flags[26]) then
 				tinsert(extraflags, "26")
 			end
-			if (Shaman) and (not flags[27]) then
+			if (tooltipflags[Shaman]) and (not flags[27]) then
 				tinsert(missingflags, "27")
-			elseif (not Shaman) and (flags[27]) then
+			elseif (not tooltipflags[Shaman]) and (flags[27]) then
 				tinsert(extraflags, "27")
 			end
-			if (Rogue) and (not flags[28]) then
+			if (tooltipflags[Rogue]) and (not flags[28]) then
 				tinsert(missingflags, "28")
-			elseif (not Rogue) and (flags[28]) then
+			elseif (not tooltipflags[Rogue]) and (flags[28]) then
 				tinsert(extraflags, "28")
 			end
-			if (Warlock) and (not flags[29]) then
+			if (tooltipflags[Warlock]) and (not flags[29]) then
 				tinsert(missingflags, "29")
-			elseif (not Warlock) and (flags[29]) then
+			elseif (not tooltipflags[Warlock]) and (flags[29]) then
 				tinsert(extraflags, "29")
 			end
-			if (Warrior) and (not flags[30]) then
+			if (tooltipflags[Warrior]) and (not flags[30]) then
 				tinsert(missingflags, "30")
-			elseif (not Warrior) and (flags[30]) then
+			elseif (not tooltipflags[Warrior]) and (flags[30]) then
 				tinsert(extraflags, "30")
 			end
 		-- Recipe is not class specific
@@ -2508,7 +2571,7 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 		end
 
 		-- BoP Item
-		if (bopitem) and (not flags[37]) then
+		if (tooltipflags[bopitem]) and (not flags[37]) then
 			tinsert(missingflags, "37")
 			-- If it's a BoP item and flags BoE is set, mark it as extra
 			if (flags[36]) then
@@ -2519,7 +2582,7 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 				tinsert(extraflags, "38")
 			end
 		-- BoE Item, assuming it's not BoA
-		elseif (not flags[36]) and (not bopitem) then
+		elseif (not flags[36]) and (not tooltipflags[bopitem]) then
 			tinsert(missingflags, "36")
 			-- If it's a BoE item and flags BoP is set, mark it as extra
 			if (flags[37]) then
@@ -2532,7 +2595,7 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 		end
 
 		-- BoP Recipe
-		if (boprecipe) and (not flags[41]) then
+		if (tooltipflags[boprecipe]) and (not flags[41]) then
 			tinsert(missingflags, "41")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
@@ -2543,7 +2606,7 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 				tinsert(extraflags, "42")
 			end
 		-- Not BoP recipe, assuming it's not BoA
-		elseif (not flags[40]) and (not boprecipe) then
+		elseif (not flags[40]) and (not tooltipflags[boprecipe]) then
 			tinsert(missingflags, "40")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
@@ -2556,123 +2619,123 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 		end
 
 		-- Player type
-		if (dps) and (not flags[51]) then
+		if (tooltipflags[dps]) and (not flags[51]) then
 			tinsert(missingflags, "51")
-		elseif (flags[51]) and (not dps) then
+		elseif (flags[51]) and (not tooltipflags[dps]) then
 			tinsert(extraflags, "51")
 		end
-		if (tank) and (not flags[52]) then
+		if (tooltipflags[tank]) and (not flags[52]) then
 			tinsert(missingflags, "52")
-		elseif (flags[52]) and (not tank) then
+		elseif (flags[52]) and (not tooltipflags[tank]) then
 			tinsert(extraflags, "52")
 		end
-		if (healer) and (not flags[53]) then
+		if (tooltipflags[healer]) and (not flags[53]) then
 			tinsert(missingflags, "53")
-		elseif (flags[53]) and (not healer) then
+		elseif (flags[53]) and (not tooltipflags[healer]) then
 			tinsert(extraflags, "53")
 		end
-		if (caster) and (not flags[54]) then
+		if (tooltipflags[caster]) and (not flags[54]) then
 			tinsert(missingflags, "54")
-		elseif (flags[54]) and (not caster) then
+		elseif (flags[54]) and (not tooltipflags[caster]) then
 			tinsert(extraflags, "54")
 		end
 
 		-- Item Type
-		if (Cloth) and (not flags[56]) then
+		if (tooltipflags[Cloth]) and (not flags[56]) then
 			tinsert(missingflags, "56")
-		elseif (not Cloth) and (flags[56]) then
+		elseif (not tooltipflags[Cloth]) and (flags[56]) then
 			tinsert(extraflags, "56")
 		end
-		if (Leather) and (not flags[57]) then
+		if (tooltipflags[Leather]) and (not flags[57]) then
 			tinsert(missingflags, "57")
-		elseif (not Leather) and (flags[57]) then
+		elseif (not tooltipflags[Leather]) and (flags[57]) then
 			tinsert(extraflags, "57")
 		end
-		if (Mail) and (not flags[58]) then
+		if (tooltipflags[Mail]) and (not flags[58]) then
 			tinsert(missingflags, "58")
-		elseif (not Mail) and (flags[58]) then
+		elseif (not tooltipflags[Mail]) and (flags[58]) then
 			tinsert(extraflags, "58")
 		end
-		if (Plate) and (not flags[59]) then
+		if (tooltipflags[Plate]) and (not flags[59]) then
 			tinsert(missingflags, "59")
-		elseif (not Plate) and (flags[59]) then
+		elseif (not tooltipflags[Plate]) and (flags[59]) then
 			tinsert(extraflags, "59")
 		end
 
 		-- Weapon type
-		if (OneHanded) and (not flags[66]) then
+		if (tooltipflags[OneHanded]) and (not flags[66]) then
 			tinsert(missingflags, "66")
-		elseif (not OneHanded) and (flags[66]) then
+		elseif (not tooltipflags[OneHanded]) and (flags[66]) then
 			tinsert(extraflags, "66")
 		end
-		if (TwoHanded) and (not flags[67]) then
+		if (tooltipflags[TwoHanded]) and (not flags[67]) then
 			tinsert(missingflags, "67")
-		elseif (not TwoHanded) and (flags[67]) then
+		elseif (not tooltipflags[TwoHanded]) and (flags[67]) then
 			tinsert(extraflags, "67")
 		end
-		if (Axe) and (not flags[68]) then
+		if (tooltipflags[Axe]) and (not flags[68]) then
 			tinsert(missingflags, "68")
-		elseif (not Axe) and (flags[68]) then
+		elseif (not tooltipflags[Axe]) and (flags[68]) then
 			tinsert(extraflags, "68")
 		end
-		if (Sword) and (not flags[69]) then
+		if (tooltipflags[Sword]) and (not flags[69]) then
 			tinsert(missingflags, "69")
-		elseif (not Sword) and (flags[69]) then
+		elseif (not tooltipflags[Sword]) and (flags[69]) then
 			tinsert(extraflags, "69")
 		end
-		if (Mace) and (not flags[70]) then
+		if (tooltipflags[Mace]) and (not flags[70]) then
 			tinsert(missingflags, "70")
-		elseif (not Mace) and (flags[70]) then
+		elseif (not tooltipflags[Mace]) and (flags[70]) then
 			tinsert(extraflags, "70")
 		end
-		if (Polearm) and (not flags[71]) then
+		if (tooltipflags[Polearm]) and (not flags[71]) then
 			tinsert(missingflags, "71")
-		elseif (not Polearm) and (flags[71]) then
+		elseif (not tooltipflags[Polearm]) and (flags[71]) then
 			tinsert(extraflags, "71")
 		end
-		if (Dagger) and (not flags[72]) then
+		if (tooltipflags[Dagger]) and (not flags[72]) then
 			tinsert(missingflags, "72")
-		elseif (not Dagger) and (flags[72]) then
+		elseif (not tooltipflags[Dagger]) and (flags[72]) then
 			tinsert(extraflags, "72")
 		end
-		if (Staff) and (not flags[73]) then
+		if (tooltipflags[Staff]) and (not flags[73]) then
 			tinsert(missingflags, "73")
-		elseif (not Staff) and (flags[73]) then
+		elseif (not tooltipflags[Staff]) and (flags[73]) then
 			tinsert(extraflags, "73")
 		end
-		if (Wand) and (not flags[74]) then
+		if (tooltipflags[Wand]) and (not flags[74]) then
 			tinsert(missingflags, "74")
-		elseif (not Wand) and (flags[74]) then
+		elseif (not tooltipflags[Wand]) and (flags[74]) then
 			tinsert(extraflags, "74")
 		end
-		if (Thrown) and (not flags[75]) then
+		if (tooltipflags[Thrown]) and (not flags[75]) then
 			tinsert(missingflags, "75")
-		elseif (not Thrown) and (flags[75]) then
+		elseif (not tooltipflags[Thrown]) and (flags[75]) then
 			tinsert(extraflags, "75")
 		end
-		if (Bow) and (not flags[76]) then
+		if (tooltipflags[Bow]) and (not flags[76]) then
 			tinsert(missingflags, "76")
-		elseif (not Bow) and (flags[76]) then
+		elseif (not tooltipflags[Bow]) and (flags[76]) then
 			tinsert(extraflags, "76")
 		end
-		if (Crossbow) and (not flags[77]) then
+		if (Crosstooltipflags[Bow]) and (not flags[77]) then
 			tinsert(missingflags, "77")
-		elseif (not Crossbow) and (flags[77]) then
+		elseif (not Crosstooltipflags[Bow]) and (flags[77]) then
 			tinsert(extraflags, "77")
 		end
-		if (Ammo) and (not flags[78]) then
+		if (tooltipflags[Ammo]) and (not flags[78]) then
 			tinsert(missingflags, "78")
-		elseif (not Ammo) and (flags[78]) then
+		elseif (not tooltipflags[Ammo]) and (flags[78]) then
 			tinsert(extraflags, "78")
 		end
-		if (Fist) and (not flags[79]) then
+		if (tooltipflags[Fist]) and (not flags[79]) then
 			tinsert(missingflags, "79")
-		elseif (not Fist) and (flags[79]) then
+		elseif (not tooltipflags[Fist]) and (flags[79]) then
 			tinsert(extraflags, "79")
 		end
-		if (Gun) and (not flags[80]) then
+		if (tooltipflags[tooltipflags[Gun]]) and (not flags[80]) then
 			tinsert(missingflags, "80")
-		elseif (not Gun) and (flags[80]) then
+		elseif (not tooltipflags[tooltipflags[Gun]]) and (flags[80]) then
 			tinsert(extraflags, "80")
 		end
 
@@ -2689,33 +2752,33 @@ function addon:ScanToolTip(name, recipelist, reverselookup, isvendor)
 			if (#extraflags > 0) then
 				self:Print("Extra flags: " .. tconcat(extraflags, ", "))
 			end
-			if (not tank) and (not healer) and (not caster) and (not dps) then
+			if (not tooltipflags[tank]) and (not tooltipflags[healer]) and (not tooltipflags[caster]) and (not tooltipflags[dps]) then
 				self:Print("No player type flag.")
 			end
-			if (not Cloth) or
-				(not Leather) or
-				(not Mail) or
-				(not Plate) or
-				(not Cloak) or
-				(not Trinket) or
-				(not Ring) or
-				(not Necklace) or
-				(not Shield ) or
-				(not OneHanded) or
-				(not TwoHanded) or
-				(not Axe) or
-				(not Sword) or
-				(not Mace) or
-				(not Polearm) or
-				(not Dagger) or
-				(not Staff) or
-				(not Wand) or
-				(not Thrown) or
-				(not Bow) or
-				(not Crossbow) or
-				(not Ammo) or
-				(not Fist) or
-				(not Gun) then
+			if (not tooltipflags[Cloth]) or
+				(not tooltipflags[Leather]) or
+				(not tooltipflags[Mail]) or
+				(not tooltipflags[Plate]) or
+				(not tooltipflags[Cloak]) or
+				(not tooltipflags[Trinket]) or
+				(not tooltipflags[Ring]) or
+				(not tooltipflags[Necklace]) or
+				(not tooltipflags[Shield] ) or
+				(not tooltipflags[OneHanded]) or
+				(not tooltipflags[TwoHanded]) or
+				(not tooltipflags[Axe]) or
+				(not tooltipflags[Sword]) or
+				(not tooltipflags[Mace]) or
+				(not tooltipflags[Polearm]) or
+				(not tooltipflags[Dagger]) or
+				(not tooltipflags[Staff]) or
+				(not tooltipflags[Wand]) or
+				(not tooltipflags[Thrown]) or
+				(not tooltipflags[Bow]) or
+				(not Crosstooltipflags[Bow]) or
+				(not tooltipflags[Ammo]) or
+				(not tooltipflags[Fist]) or
+				(not tooltipflags[tooltipflags[Gun]]) then
 					self:Print("Missing: item type flag")
 			end
 		end
