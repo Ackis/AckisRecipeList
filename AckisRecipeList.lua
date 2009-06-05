@@ -597,16 +597,16 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 		["Locations"] = nil,
 		["RecipeLink"] = spellLink,
 		["Name"] = GetSpellInfo(SpellID),
-		["Known"] = false,				-- Unknown until scan occurs
-		["Display"] = true,				-- Set to be displayed until the filtering occurs
-		["Search"] = true,				-- Set to be showing in the search results
-		["Flags"] = {},					-- Create the flag space in the RecipeDB
-		["Acquire"] = {},				-- Create the Acquire space in the RecipeDB
-		["Specialty"] = Specialty,			-- Assumption: there will only be 1 speciality for a trade skill
-		["Orange"] = Orange or SkillLevel,		-- If we don't have an orange value in the db, just assume the skill level
+		["Known"] = false,							-- Unknown until scan occurs
+		["Display"] = true,							-- Set to be displayed until the filtering occurs
+		["Search"] = true,							-- Set to be showing in the search results
+		["Flags"] = {},								-- Create the flag space in the RecipeDB
+		["Acquire"] = {},							-- Create the Acquire space in the RecipeDB
+		["Specialty"] = Specialty,					-- Assumption: there will only be 1 speciality for a trade skill
+		["Orange"] = Orange or SkillLevel,			-- If we don't have an orange value in the db, just assume the skill level
 		["Yellow"] = Yellow or SkillLevel + 10,		-- If we don't have a yellow value in the db, just assume the skill level
 		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
-		["Grey"] = Grey or SkillLevel + 20,		-- If we don't have a grey value in the db, just assume the skill level
+		["Grey"] = Grey or SkillLevel + 20,			-- If we don't have a grey value in the db, just assume the skill level
 	}
 	local recipeentry = RecipeDB[SpellID]
 

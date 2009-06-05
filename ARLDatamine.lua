@@ -1958,10 +1958,12 @@ function addon:TooltipScanRecipe(spellid)
 	local name = recipelist[spellid]["Name"]
 	local link = recipelist[spellid]["RecipeLink"]
 
-		if link then
+		-- If a link exists, we'll scan it.
+		if (link) then
 			ARLDatamineTT:SetHyperlink(link)
 			self:ScanToolTip(name,recipelist,reverselookup,false)
-		else
+		-- Lets hide this output for runeforging.
+		elseif (recipelist[spellid]["Profession"] ~= GetSpellInfo(53428)) then
 			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
 	else
