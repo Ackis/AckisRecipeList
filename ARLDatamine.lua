@@ -2111,7 +2111,7 @@ local tooltipflags = {
 	Trinket = false,
 	Ring = false,
 	Necklace = false,
-	Shield]  = false,
+	Shield  = false,
 	OneHanded = false,
 	TwoHanded = false,
 	Axe = false,
@@ -2123,7 +2123,7 @@ local tooltipflags = {
 	Wand = false,
 	Thrown = false,
 	Bow = false,
-	Crosstooltipflags[Bow = false,
+	CrossBow = false,
 	Ammo = false,
 	Fist = false,
 	Gun = false,
@@ -2161,7 +2161,7 @@ local function resettooltipscanflags()
 		Trinket = false,
 		Ring = false,
 		Necklace = false,
-		Shield]  = false,
+		Shield  = false,
 		OneHanded = false,
 		TwoHanded = false,
 		Axe = false,
@@ -2230,7 +2230,7 @@ function addon:ScanToolTip(name, recipelist, isvendor)
 			local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
 			if (factiontext[rep]) then
 				tooltipflags[repid] = factiontext[rep]
-				tooltipflags[repidlevel} = factionlevels[replevel]
+				tooltipflags[repidlevel] = factionlevels[replevel]
 			end
 		end
 
@@ -2446,6 +2446,10 @@ function addon:ScanToolTip(name, recipelist, isvendor)
 			tooltipflags[Fist] = true
 		end
 	end
+
+end
+
+function addon:PrintScanResults()
 
 	if (recipefound) then
 		-- Parse the recipe database until we get a match on the name
