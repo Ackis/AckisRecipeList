@@ -2032,9 +2032,9 @@ local specialtytext = {
 	["gnomish engineering"] = 20219,
 	["goblin engineering"] = 20222,
 	["armorsmith"] = 9788,
-	["master tooltipflags[Axe]smith"] = 17041,
+	["master axesmith"] = 17041,
 	["master hammersmith"] = 17040,
-	["master tooltipflags[Sword]smith"] = 17039,
+	["master swordsmith"] = 17039,
 	["weaponsmith"] = 9787,
 }
 
@@ -2215,235 +2215,235 @@ function addon:ScanToolTip(name, recipelist, isvendor)
 		-- Check for recipe/item binding
 		-- The recipe binding is within the first few lines of the tooltip always
 		if ((strmatch(text, "binds when picked up")) and (i < 4)) then
-			tooltipflags[boprecipe] = true
+			tooltipflags.boprecipe = true
 		elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
-			tooltipflags[bopitem] = true
+			tooltipflags.bopitem = true
 		end
 
 		-- Recipe Specialities
 		if (specialtytext[text]) then
-			tooltipflags[specialty] = specialtytext[text]
+			tooltipflags.specialty = specialtytext[text]
 		end
 
 		-- Recipe Reputatons
 		if (strmatch(text, "Requires (.+) %- (.+)")) then
 			local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
 			if (factiontext[rep]) then
-				tooltipflags[repid] = factiontext[rep]
-				tooltipflags[repidlevel] = factionlevels[replevel]
+				tooltipflags.repid = factiontext[rep]
+				tooltipflags.repidlevel = factionlevels[replevel]
 			end
 		end
 
 		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
 		-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
 		if (strmatch(text, "strength")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = true
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = true
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "agility")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = true
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = true
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "spirit")) then
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[caster] = true
-			tooltipflags[healer] = true
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.caster = true
+			tooltipflags.healer = true
 			confirmed_role = true
-			-- tooltipflags[caster] stats
+			-- tooltipflags.caster stats
 		elseif (strmatch(text, "spell power")) then
-			tooltipflags[caster] = true
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[healer] = true
+			tooltipflags.caster = true
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.healer = true
 			confirmed_role = true
 		elseif (strmatch(text, "spell crit")) then
-			tooltipflags[caster] = true
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[healer] = true
+			tooltipflags.caster = true
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.healer = true
 			confirmed_role = true
-			-- tooltipflags[dps] tooltipflags[caster] Stats
+			-- tooltipflags.dps tooltipflags.caster Stats
 		elseif (strmatch(text, "spell hit")) then
-			tooltipflags[caster] = true
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[healer] = false
+			tooltipflags.caster = true
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "spell penetration")) then
-			tooltipflags[caster] = true
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[healer] = false
+			tooltipflags.caster = true
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.healer = false
 			confirmed_role = true
-			-- tooltipflags[healer] Stats
+			-- tooltipflags.healer Stats
 		elseif (strmatch(text, "mana every 5 seconds")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = false
-			tooltipflags[healer] = true
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = false
+			tooltipflags.healer = true
 			confirmed_role = true
-			-- Melee tooltipflags[dps] Stats
+			-- Melee tooltipflags.dps Stats
 		elseif (strmatch(text, "attack power")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "expertise")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee crit")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged crit")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee haste")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged haste")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "melee hit")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "ranged hit")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "armor pen")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = false
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = false
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "feral attack")) then
-			tooltipflags[caster] = false
-			tooltipflags[tank] = true
-			tooltipflags[dps] = true
-			tooltipflags[healer] = false
+			tooltipflags.caster = false
+			tooltipflags.tank = true
+			tooltipflags.dps = true
+			tooltipflags.healer = false
 			confirmed_role = true
-			-- tooltipflags[tank]ing Stats
+			-- tooltipflags.tanking Stats
 		elseif (strmatch(text, "defense")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = false
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = false
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "block")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = false
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = false
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "parry")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = false
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = false
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		elseif (strmatch(text, "dodge")) then
-			tooltipflags[tank] = true
-			tooltipflags[dps] = false
-			tooltipflags[caster] = false
-			tooltipflags[healer] = false
+			tooltipflags.tank = true
+			tooltipflags.dps = false
+			tooltipflags.caster = false
+			tooltipflags.healer = false
 			confirmed_role = true
 		end
 
 		-- Classes
 		if (strmatch(text, "death knight")) then
-			tooltipflags[Deathknight] = true
+			tooltipflags.Deathknight = true
 		elseif (strmatch(text, "druid")) then
-			tooltipflags[Druid] = true
+			tooltipflags.Druid = true
 		elseif (strmatch(text, "hunter")) then
-			tooltipflags[Hunter] = true
+			tooltipflags.Hunter = true
 		elseif (strmatch(text, "mage")) then
-			tooltipflags[Mage] = true
+			tooltipflags.Mage = true
 		elseif (strmatch(text, "paladin")) then
-			tooltipflags[Paladin] = true
+			tooltipflags.Paladin] = true
 		elseif (strmatch(text, "priest")) then
-			tooltipflags[Priest] = true
+			tooltipflags.Priest = true
 		elseif (strmatch(text, "rogue")) then
-			tooltipflags[Rogue] = true
+			tooltipflags.Rogue = true
 		elseif (strmatch(text, "shaman")) then
-			tooltipflags[Shaman] = true
+			tooltipflags.Shaman = true
 		elseif (strmatch(text, "warlock")) then
-			tooltipflags[Warlock] = true
+			tooltipflags.Warlock = true
 		elseif (strmatch(text, "warrior")) then
-			tooltipflags[Warrior] = true
+			tooltipflags.Warrior = true
 		-- Armor types
 		elseif (strmatch(text, "cloth")) then
-			tooltipflags[Cloth] = true
+			tooltipflags.Cloth = true
 		elseif (strmatch(text, "leather")) then
-			tooltipflags[Leather] = true
+			tooltipflags.Leather] = true
 		elseif (strmatch(text, "mail")) then
-			tooltipflags[Mail] = true
+			tooltipflags.Mail] = true
 		elseif (strmatch(text, "plate")) then
-			tooltipflags[Plate] = true
+			tooltipflags.Plate] = true
 		elseif (strmatch(text, "cloak")) then
-			tooltipflags[Cloak] = true
+			tooltipflags.Cloak] = true
 		elseif (strmatch(text, "ring")) then
-			tooltipflags[Ring] = true
+			tooltipflags.Ring] = true
 		elseif (strmatch(text, "necklace")) then
-			tooltipflags[Necklace] = true
+			tooltipflags.Necklace] = true
 		elseif (strmatch(text, "shield")) then
-			tooltipflags[Shield] = true
+			tooltipflags.Shield] = true
 		-- Weapon types
 		elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
-			tooltipflags[OneHanded] = true
+			tooltipflags.OneHanded] = true
 		elseif (strmatch(text, "2 hand")) then
-			tooltipflags[TwoHanded] = true
+			tooltipflags.TwoHanded] = true
 		elseif (strmatch(text, "axe")) then
-			tooltipflags[Axe] = true
+			tooltipflags.Axe] = true
 		elseif (strmatch(text, "sword")) then
-			tooltipflags[Sword] = true
+			tooltipflags.Sword] = true
 		elseif (strmatch(text, "mace")) then
-			tooltipflags[Mace] = true
+			tooltipflags.Mace] = true
 		elseif (strmatch(text, "polearm")) then
-			tooltipflags[Polearm] = true
+			tooltipflags.Polearm] = true
 		elseif (strmatch(text, "dagger")) then
-			tooltipflags[Dagger] = true
+			tooltipflags.Dagger] = true
 		elseif (strmatch(text, "staff")) then
-			tooltipflags[Staff] = true
+			tooltipflags.Staff] = true
 		elseif (strmatch(text, "wand")) then
-			tooltipflags[Wand] = true
+			tooltipflags.Wand] = true
 		elseif (strmatch(text, "thrown")) then
-			tooltipflags[Thrown] = true
+			tooltipflags.Thrown] = true
 		elseif (strmatch(text, "bow")) then
-			tooltipflags[Bow] = true
+			tooltipflags.Bow] = true
 		elseif (strmatch(text, "crossbow")) then
-			Crosstooltipflags[Bow] = true
+			Crosstooltipflags.Bow] = true
 		elseif (strmatch(text, "gun")) then
-			tooltipflags[Gun] = true
+			tooltipflags.Gun] = true
 		elseif (strmatch(text, "ammo")) then
-			tooltipflags[Ammo] = true
+			tooltipflags.Ammo] = true
 		elseif (strmatch(text, "fist")) then
-			tooltipflags[Fist] = true
+			tooltipflags.Fist] = true
 		end
 	end
 
@@ -2489,55 +2489,56 @@ function addon:PrintScanResults()
 
 		-- Classes
 		-- If we've picked up at least one class flag
-		if (tooltipflags[Deathknight]) or (tooltipflags[Druid]) or (tooltipflags[Hunter]) or (tooltipflags[Mage]) or (tooltipflags[Paladin]) or (tooltipflags[Priest]) or (tooltipflags[Shaman]) or (tooltipflags[Warlock]) or (tooltipflags[Warrior]) then
-			if (tooltipflags[Deathknight]) and (not flags[21]) then
+		if ((tooltipflags.Deathknight) or (tooltipflags.Druid) or (tooltipflags.Hunter) or (tooltipflags.Mage) or (tooltipflags.Paladin) or (tooltipflags.Priest) or (tooltipflags.Shaman)
+		    or (tooltipflags.Warlock) or (tooltipflags.Warrior)) then
+			if (tooltipflags.Deathknight) and (not flags[21]) then
 				tinsert(missingflags, "21")
-			elseif (not tooltipflags[Deathknight]) and (flags[21]) then
+			elseif (not tooltipflags.Deathknight) and (flags[21]) then
 				tinsert(extraflags, "21")
 			end
-			if (tooltipflags[Druid]) and (not flags[22]) then
+			if (tooltipflags.Druid) and (not flags[22]) then
 				tinsert(missingflags, "22")
-			elseif (not tooltipflags[Druid]) and (flags[22]) then
+			elseif (not tooltipflags.Druid) and (flags[22]) then
 				tinsert(extraflags, "22")
 			end
-			if (tooltipflags[Hunter]) and (not flags[23]) then
+			if (tooltipflags.Hunter) and (not flags[23]) then
 				tinsert(missingflags, "23")
-			elseif (not tooltipflags[Hunter]) and (flags[23]) then
+			elseif (not tooltipflags.Hunter) and (flags[23]) then
 				tinsert(extraflags, "23")
 			end
-			if (tooltipflags[Mage]) and (not flags[24]) then
+			if (tooltipflags.Mage) and (not flags[24]) then
 				tinsert(missingflags, "24")
-			elseif (not tooltipflags[Mage]) and (flags[24]) then
+			elseif (not tooltipflags.Mage) and (flags[24]) then
 				tinsert(extraflags, "24")
 			end
-			if (tooltipflags[Paladin]) and (not flags[25]) then
+			if (tooltipflags.Paladin]) and (not flags[25]) then
 				tinsert(missingflags, "25")
-			elseif (not tooltipflags[Paladin]) and (flags[25]) then
+			elseif (not tooltipflags.Paladin]) and (flags[25]) then
 				tinsert(extraflags, "25")
 			end
-			if (tooltipflags[Priest]) and (not flags[26]) then
+			if (tooltipflags.Priest) and (not flags[26]) then
 				tinsert(missingflags, "26")
-			elseif (not tooltipflags[Priest]) and (flags[26]) then
+			elseif (not tooltipflags.Priest) and (flags[26]) then
 				tinsert(extraflags, "26")
 			end
-			if (tooltipflags[Shaman]) and (not flags[27]) then
+			if (tooltipflags.Shaman) and (not flags[27]) then
 				tinsert(missingflags, "27")
-			elseif (not tooltipflags[Shaman]) and (flags[27]) then
+			elseif (not tooltipflags.Shaman) and (flags[27]) then
 				tinsert(extraflags, "27")
 			end
-			if (tooltipflags[Rogue]) and (not flags[28]) then
+			if (tooltipflags.Rogue) and (not flags[28]) then
 				tinsert(missingflags, "28")
-			elseif (not tooltipflags[Rogue]) and (flags[28]) then
+			elseif (not tooltipflags.Rogue) and (flags[28]) then
 				tinsert(extraflags, "28")
 			end
-			if (tooltipflags[Warlock]) and (not flags[29]) then
+			if (tooltipflags.Warlock) and (not flags[29]) then
 				tinsert(missingflags, "29")
-			elseif (not tooltipflags[Warlock]) and (flags[29]) then
+			elseif (not tooltipflags.Warlock) and (flags[29]) then
 				tinsert(extraflags, "29")
 			end
-			if (tooltipflags[Warrior]) and (not flags[30]) then
+			if (tooltipflags.Warrior) and (not flags[30]) then
 				tinsert(missingflags, "30")
-			elseif (not tooltipflags[Warrior]) and (flags[30]) then
+			elseif (not tooltipflags.Warrior) and (flags[30]) then
 				tinsert(extraflags, "30")
 			end
 		-- Recipe is not class specific
@@ -2575,7 +2576,7 @@ function addon:PrintScanResults()
 		end
 
 		-- BoP Item
-		if (tooltipflags[bopitem]) and (not flags[37]) then
+		if (tooltipflags.bopitem) and (not flags[37]) then
 			tinsert(missingflags, "37")
 			-- If it's a BoP item and flags BoE is set, mark it as extra
 			if (flags[36]) then
@@ -2586,7 +2587,7 @@ function addon:PrintScanResults()
 				tinsert(extraflags, "38")
 			end
 		-- BoE Item, assuming it's not BoA
-		elseif (not flags[36]) and (not tooltipflags[bopitem]) then
+		elseif (not flags[36]) and (not tooltipflags.bopitem) then
 			tinsert(missingflags, "36")
 			-- If it's a BoE item and flags BoP is set, mark it as extra
 			if (flags[37]) then
@@ -2599,7 +2600,7 @@ function addon:PrintScanResults()
 		end
 
 		-- BoP Recipe
-		if (tooltipflags[boprecipe]) and (not flags[41]) then
+		if (tooltipflags.boprecipe) and (not flags[41]) then
 			tinsert(missingflags, "41")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
@@ -2610,7 +2611,7 @@ function addon:PrintScanResults()
 				tinsert(extraflags, "42")
 			end
 		-- Not BoP recipe, assuming it's not BoA
-		elseif (not flags[40]) and (not tooltipflags[boprecipe]) then
+		elseif (not flags[40]) and (not tooltipflags.boprecipe) then
 			tinsert(missingflags, "40")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
@@ -2623,123 +2624,123 @@ function addon:PrintScanResults()
 		end
 
 		-- Player type
-		if (tooltipflags[dps]) and (not flags[51]) then
+		if (tooltipflags.dps) and (not flags[51]) then
 			tinsert(missingflags, "51")
-		elseif (flags[51]) and (not tooltipflags[dps]) then
+		elseif (flags[51]) and (not tooltipflags.dps) then
 			tinsert(extraflags, "51")
 		end
-		if (tooltipflags[tank]) and (not flags[52]) then
+		if (tooltipflags.tank) and (not flags[52]) then
 			tinsert(missingflags, "52")
-		elseif (flags[52]) and (not tooltipflags[tank]) then
+		elseif (flags[52]) and (not tooltipflags.tank) then
 			tinsert(extraflags, "52")
 		end
-		if (tooltipflags[healer]) and (not flags[53]) then
+		if (tooltipflags.healer) and (not flags[53]) then
 			tinsert(missingflags, "53")
-		elseif (flags[53]) and (not tooltipflags[healer]) then
+		elseif (flags[53]) and (not tooltipflags.healer) then
 			tinsert(extraflags, "53")
 		end
-		if (tooltipflags[caster]) and (not flags[54]) then
+		if (tooltipflags.caster) and (not flags[54]) then
 			tinsert(missingflags, "54")
-		elseif (flags[54]) and (not tooltipflags[caster]) then
+		elseif (flags[54]) and (not tooltipflags.caster) then
 			tinsert(extraflags, "54")
 		end
 
 		-- Item Type
-		if (tooltipflags[Cloth]) and (not flags[56]) then
+		if (tooltipflags.Cloth) and (not flags[56]) then
 			tinsert(missingflags, "56")
-		elseif (not tooltipflags[Cloth]) and (flags[56]) then
+		elseif (not tooltipflags.Cloth) and (flags[56]) then
 			tinsert(extraflags, "56")
 		end
-		if (tooltipflags[Leather]) and (not flags[57]) then
+		if (tooltipflags.Leather]) and (not flags[57]) then
 			tinsert(missingflags, "57")
-		elseif (not tooltipflags[Leather]) and (flags[57]) then
+		elseif (not tooltipflags.Leather]) and (flags[57]) then
 			tinsert(extraflags, "57")
 		end
-		if (tooltipflags[Mail]) and (not flags[58]) then
+		if (tooltipflags.Mail]) and (not flags[58]) then
 			tinsert(missingflags, "58")
-		elseif (not tooltipflags[Mail]) and (flags[58]) then
+		elseif (not tooltipflags.Mail]) and (flags[58]) then
 			tinsert(extraflags, "58")
 		end
-		if (tooltipflags[Plate]) and (not flags[59]) then
+		if (tooltipflags.Plate]) and (not flags[59]) then
 			tinsert(missingflags, "59")
-		elseif (not tooltipflags[Plate]) and (flags[59]) then
+		elseif (not tooltipflags.Plate]) and (flags[59]) then
 			tinsert(extraflags, "59")
 		end
 
 		-- Weapon type
-		if (tooltipflags[OneHanded]) and (not flags[66]) then
+		if (tooltipflags.OneHanded]) and (not flags[66]) then
 			tinsert(missingflags, "66")
-		elseif (not tooltipflags[OneHanded]) and (flags[66]) then
+		elseif (not tooltipflags.OneHanded]) and (flags[66]) then
 			tinsert(extraflags, "66")
 		end
-		if (tooltipflags[TwoHanded]) and (not flags[67]) then
+		if (tooltipflags.TwoHanded]) and (not flags[67]) then
 			tinsert(missingflags, "67")
-		elseif (not tooltipflags[TwoHanded]) and (flags[67]) then
+		elseif (not tooltipflags.TwoHanded]) and (flags[67]) then
 			tinsert(extraflags, "67")
 		end
-		if (tooltipflags[Axe]) and (not flags[68]) then
+		if (tooltipflags.Axe]) and (not flags[68]) then
 			tinsert(missingflags, "68")
-		elseif (not tooltipflags[Axe]) and (flags[68]) then
+		elseif (not tooltipflags.Axe]) and (flags[68]) then
 			tinsert(extraflags, "68")
 		end
-		if (tooltipflags[Sword]) and (not flags[69]) then
+		if (tooltipflags.Sword]) and (not flags[69]) then
 			tinsert(missingflags, "69")
-		elseif (not tooltipflags[Sword]) and (flags[69]) then
+		elseif (not tooltipflags.Sword]) and (flags[69]) then
 			tinsert(extraflags, "69")
 		end
-		if (tooltipflags[Mace]) and (not flags[70]) then
+		if (tooltipflags.Mace]) and (not flags[70]) then
 			tinsert(missingflags, "70")
-		elseif (not tooltipflags[Mace]) and (flags[70]) then
+		elseif (not tooltipflags.Mace]) and (flags[70]) then
 			tinsert(extraflags, "70")
 		end
-		if (tooltipflags[Polearm]) and (not flags[71]) then
+		if (tooltipflags.Polearm]) and (not flags[71]) then
 			tinsert(missingflags, "71")
-		elseif (not tooltipflags[Polearm]) and (flags[71]) then
+		elseif (not tooltipflags.Polearm]) and (flags[71]) then
 			tinsert(extraflags, "71")
 		end
-		if (tooltipflags[Dagger]) and (not flags[72]) then
+		if (tooltipflags.Dagger]) and (not flags[72]) then
 			tinsert(missingflags, "72")
-		elseif (not tooltipflags[Dagger]) and (flags[72]) then
+		elseif (not tooltipflags.Dagger]) and (flags[72]) then
 			tinsert(extraflags, "72")
 		end
-		if (tooltipflags[Staff]) and (not flags[73]) then
+		if (tooltipflags.Staff]) and (not flags[73]) then
 			tinsert(missingflags, "73")
-		elseif (not tooltipflags[Staff]) and (flags[73]) then
+		elseif (not tooltipflags.Staff]) and (flags[73]) then
 			tinsert(extraflags, "73")
 		end
-		if (tooltipflags[Wand]) and (not flags[74]) then
+		if (tooltipflags.Wand]) and (not flags[74]) then
 			tinsert(missingflags, "74")
-		elseif (not tooltipflags[Wand]) and (flags[74]) then
+		elseif (not tooltipflags.Wand]) and (flags[74]) then
 			tinsert(extraflags, "74")
 		end
-		if (tooltipflags[Thrown]) and (not flags[75]) then
+		if (tooltipflags.Thrown]) and (not flags[75]) then
 			tinsert(missingflags, "75")
-		elseif (not tooltipflags[Thrown]) and (flags[75]) then
+		elseif (not tooltipflags.Thrown]) and (flags[75]) then
 			tinsert(extraflags, "75")
 		end
-		if (tooltipflags[Bow]) and (not flags[76]) then
+		if (tooltipflags.Bow]) and (not flags[76]) then
 			tinsert(missingflags, "76")
-		elseif (not tooltipflags[Bow]) and (flags[76]) then
+		elseif (not tooltipflags.Bow]) and (flags[76]) then
 			tinsert(extraflags, "76")
 		end
-		if (Crosstooltipflags[Bow]) and (not flags[77]) then
+		if (Crosstooltipflags.Bow]) and (not flags[77]) then
 			tinsert(missingflags, "77")
-		elseif (not Crosstooltipflags[Bow]) and (flags[77]) then
+		elseif (not Crosstooltipflags.Bow]) and (flags[77]) then
 			tinsert(extraflags, "77")
 		end
-		if (tooltipflags[Ammo]) and (not flags[78]) then
+		if (tooltipflags.Ammo]) and (not flags[78]) then
 			tinsert(missingflags, "78")
-		elseif (not tooltipflags[Ammo]) and (flags[78]) then
+		elseif (not tooltipflags.Ammo]) and (flags[78]) then
 			tinsert(extraflags, "78")
 		end
-		if (tooltipflags[Fist]) and (not flags[79]) then
+		if (tooltipflags.Fist]) and (not flags[79]) then
 			tinsert(missingflags, "79")
-		elseif (not tooltipflags[Fist]) and (flags[79]) then
+		elseif (not tooltipflags.Fist]) and (flags[79]) then
 			tinsert(extraflags, "79")
 		end
-		if (tooltipflags[tooltipflags[Gun]]) and (not flags[80]) then
+		if (tooltipflags.tooltipflags.Gun) and (not flags[80]) then
 			tinsert(missingflags, "80")
-		elseif (not tooltipflags[tooltipflags[Gun]]) and (flags[80]) then
+		elseif (not tooltipflags.tooltipflags.Gun) and (flags[80]) then
 			tinsert(extraflags, "80")
 		end
 
@@ -2756,33 +2757,33 @@ function addon:PrintScanResults()
 			if (#extraflags > 0) then
 				self:Print("Extra flags: " .. tconcat(extraflags, ", "))
 			end
-			if (not tooltipflags[tank]) and (not tooltipflags[healer]) and (not tooltipflags[caster]) and (not tooltipflags[dps]) then
+			if (not tooltipflags.tank) and (not tooltipflags.healer) and (not tooltipflags.caster) and (not tooltipflags.dps) then
 				self:Print("No player type flag.")
 			end
-			if (not tooltipflags[Cloth]) or
-				(not tooltipflags[Leather]) or
-				(not tooltipflags[Mail]) or
-				(not tooltipflags[Plate]) or
-				(not tooltipflags[Cloak]) or
-				(not tooltipflags[Trinket]) or
-				(not tooltipflags[Ring]) or
-				(not tooltipflags[Necklace]) or
-				(not tooltipflags[Shield] ) or
-				(not tooltipflags[OneHanded]) or
-				(not tooltipflags[TwoHanded]) or
-				(not tooltipflags[Axe]) or
-				(not tooltipflags[Sword]) or
-				(not tooltipflags[Mace]) or
-				(not tooltipflags[Polearm]) or
-				(not tooltipflags[Dagger]) or
-				(not tooltipflags[Staff]) or
-				(not tooltipflags[Wand]) or
-				(not tooltipflags[Thrown]) or
-				(not tooltipflags[Bow]) or
-				(not Crosstooltipflags[Bow]) or
-				(not tooltipflags[Ammo]) or
-				(not tooltipflags[Fist]) or
-				(not tooltipflags[tooltipflags[Gun]]) then
+			if (not tooltipflags.Cloth) or
+				(not tooltipflags.Leather) or
+				(not tooltipflags.Mail) or
+				(not tooltipflags.Plate) or
+				(not tooltipflags.Cloak) or
+				(not tooltipflags.Trinket) or
+				(not tooltipflags.Ring) or
+				(not tooltipflags.Necklace) or
+				(not tooltipflags.Shield) or
+				(not tooltipflags.OneHanded) or
+				(not tooltipflags.TwoHanded) or
+				(not tooltipflags.Axe) or
+				(not tooltipflags.Sword) or
+				(not tooltipflags.Mace) or
+				(not tooltipflags.Polearm) or
+				(not tooltipflags.Dagger) or
+				(not tooltipflags.Staff) or
+				(not tooltipflags.Wand) or
+				(not tooltipflags.Thrown) or
+				(not tooltipflags.Bow) or
+				(not Crosstooltipflags.Bow) or
+				(not tooltipflags.Ammo) or
+				(not tooltipflags.Fist) or
+				(not tooltipflags.tooltipflags.Gun) then
 					self:Print("Missing: item type flag")
 			end
 		end
