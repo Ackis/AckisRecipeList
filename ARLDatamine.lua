@@ -2385,7 +2385,7 @@ function addon:ScanToolTip(name, recipelist, isvendor)
 		elseif (strmatch(text, "mage")) then
 			tooltipflags.Mage = true
 		elseif (strmatch(text, "paladin")) then
-			tooltipflags.Paladin] = true
+			tooltipflags.Paladin = true
 		elseif (strmatch(text, "priest")) then
 			tooltipflags.Priest = true
 		elseif (strmatch(text, "rogue")) then
@@ -2400,50 +2400,50 @@ function addon:ScanToolTip(name, recipelist, isvendor)
 		elseif (strmatch(text, "cloth")) then
 			tooltipflags.Cloth = true
 		elseif (strmatch(text, "leather")) then
-			tooltipflags.Leather] = true
+			tooltipflags.Leather = true
 		elseif (strmatch(text, "mail")) then
-			tooltipflags.Mail] = true
+			tooltipflags.Mail = true
 		elseif (strmatch(text, "plate")) then
-			tooltipflags.Plate] = true
+			tooltipflags.Plate = true
 		elseif (strmatch(text, "cloak")) then
-			tooltipflags.Cloak] = true
+			tooltipflags.Cloak = true
 		elseif (strmatch(text, "ring")) then
-			tooltipflags.Ring] = true
+			tooltipflags.Ring = true
 		elseif (strmatch(text, "necklace")) then
-			tooltipflags.Necklace] = true
+			tooltipflags.Necklace = true
 		elseif (strmatch(text, "shield")) then
-			tooltipflags.Shield] = true
+			tooltipflags.Shield = true
 		-- Weapon types
 		elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
-			tooltipflags.OneHanded] = true
+			tooltipflags.OneHanded = true
 		elseif (strmatch(text, "2 hand")) then
-			tooltipflags.TwoHanded] = true
+			tooltipflags.TwoHanded = true
 		elseif (strmatch(text, "axe")) then
-			tooltipflags.Axe] = true
+			tooltipflags.Axe = true
 		elseif (strmatch(text, "sword")) then
-			tooltipflags.Sword] = true
+			tooltipflags.Sword = true
 		elseif (strmatch(text, "mace")) then
-			tooltipflags.Mace] = true
+			tooltipflags.Mace = true
 		elseif (strmatch(text, "polearm")) then
-			tooltipflags.Polearm] = true
+			tooltipflags.Polearm = true
 		elseif (strmatch(text, "dagger")) then
-			tooltipflags.Dagger] = true
+			tooltipflags.Dagger = true
 		elseif (strmatch(text, "staff")) then
-			tooltipflags.Staff] = true
+			tooltipflags.Staff = true
 		elseif (strmatch(text, "wand")) then
-			tooltipflags.Wand] = true
+			tooltipflags.Wand = true
 		elseif (strmatch(text, "thrown")) then
-			tooltipflags.Thrown] = true
+			tooltipflags.Thrown = true
 		elseif (strmatch(text, "bow")) then
-			tooltipflags.Bow] = true
+			tooltipflags.Bow = true
 		elseif (strmatch(text, "crossbow")) then
-			Crosstooltipflags.Bow] = true
+			tooltipflags.CrossBow = true
 		elseif (strmatch(text, "gun")) then
-			tooltipflags.Gun] = true
+			tooltipflags.Gun = true
 		elseif (strmatch(text, "ammo")) then
-			tooltipflags.Ammo] = true
+			tooltipflags.Ammo = true
 		elseif (strmatch(text, "fist")) then
-			tooltipflags.Fist] = true
+			tooltipflags.Fist = true
 		end
 	end
 
@@ -2490,7 +2490,7 @@ function addon:PrintScanResults()
 		-- Classes
 		-- If we've picked up at least one class flag
 		if ((tooltipflags.Deathknight) or (tooltipflags.Druid) or (tooltipflags.Hunter) or (tooltipflags.Mage) or (tooltipflags.Paladin) or (tooltipflags.Priest) or (tooltipflags.Shaman)
-		    or (tooltipflags.Warlock) or (tooltipflags.Warrior)) then
+			or (tooltipflags.Warlock) or (tooltipflags.Warrior)) then
 			if (tooltipflags.Deathknight) and (not flags[21]) then
 				tinsert(missingflags, "21")
 			elseif (not tooltipflags.Deathknight) and (flags[21]) then
@@ -2511,9 +2511,9 @@ function addon:PrintScanResults()
 			elseif (not tooltipflags.Mage) and (flags[24]) then
 				tinsert(extraflags, "24")
 			end
-			if (tooltipflags.Paladin]) and (not flags[25]) then
+			if (tooltipflags.Paladin) and (not flags[25]) then
 				tinsert(missingflags, "25")
-			elseif (not tooltipflags.Paladin]) and (flags[25]) then
+			elseif (not tooltipflags.Paladin) and (flags[25]) then
 				tinsert(extraflags, "25")
 			end
 			if (tooltipflags.Priest) and (not flags[26]) then
@@ -2651,96 +2651,96 @@ function addon:PrintScanResults()
 		elseif (not tooltipflags.Cloth) and (flags[56]) then
 			tinsert(extraflags, "56")
 		end
-		if (tooltipflags.Leather]) and (not flags[57]) then
+		if (tooltipflags.Leather) and (not flags[57]) then
 			tinsert(missingflags, "57")
-		elseif (not tooltipflags.Leather]) and (flags[57]) then
+		elseif (not tooltipflags.Leather) and (flags[57]) then
 			tinsert(extraflags, "57")
 		end
-		if (tooltipflags.Mail]) and (not flags[58]) then
+		if (tooltipflags.Mail) and (not flags[58]) then
 			tinsert(missingflags, "58")
-		elseif (not tooltipflags.Mail]) and (flags[58]) then
+		elseif (not tooltipflags.Mail) and (flags[58]) then
 			tinsert(extraflags, "58")
 		end
-		if (tooltipflags.Plate]) and (not flags[59]) then
+		if (tooltipflags.Plate) and (not flags[59]) then
 			tinsert(missingflags, "59")
-		elseif (not tooltipflags.Plate]) and (flags[59]) then
+		elseif (not tooltipflags.Plate) and (flags[59]) then
 			tinsert(extraflags, "59")
 		end
 
 		-- Weapon type
-		if (tooltipflags.OneHanded]) and (not flags[66]) then
+		if (tooltipflags.OneHanded) and (not flags[66]) then
 			tinsert(missingflags, "66")
-		elseif (not tooltipflags.OneHanded]) and (flags[66]) then
+		elseif (not tooltipflags.OneHanded) and (flags[66]) then
 			tinsert(extraflags, "66")
 		end
-		if (tooltipflags.TwoHanded]) and (not flags[67]) then
+		if (tooltipflags.TwoHanded) and (not flags[67]) then
 			tinsert(missingflags, "67")
-		elseif (not tooltipflags.TwoHanded]) and (flags[67]) then
+		elseif (not tooltipflags.TwoHanded) and (flags[67]) then
 			tinsert(extraflags, "67")
 		end
-		if (tooltipflags.Axe]) and (not flags[68]) then
+		if (tooltipflags.Axe) and (not flags[68]) then
 			tinsert(missingflags, "68")
-		elseif (not tooltipflags.Axe]) and (flags[68]) then
+		elseif (not tooltipflags.Axe) and (flags[68]) then
 			tinsert(extraflags, "68")
 		end
-		if (tooltipflags.Sword]) and (not flags[69]) then
+		if (tooltipflags.Sword) and (not flags[69]) then
 			tinsert(missingflags, "69")
-		elseif (not tooltipflags.Sword]) and (flags[69]) then
+		elseif (not tooltipflags.Sword) and (flags[69]) then
 			tinsert(extraflags, "69")
 		end
-		if (tooltipflags.Mace]) and (not flags[70]) then
+		if (tooltipflags.Mace) and (not flags[70]) then
 			tinsert(missingflags, "70")
-		elseif (not tooltipflags.Mace]) and (flags[70]) then
+		elseif (not tooltipflags.Mace) and (flags[70]) then
 			tinsert(extraflags, "70")
 		end
-		if (tooltipflags.Polearm]) and (not flags[71]) then
+		if (tooltipflags.Polearm) and (not flags[71]) then
 			tinsert(missingflags, "71")
-		elseif (not tooltipflags.Polearm]) and (flags[71]) then
+		elseif (not tooltipflags.Polearm) and (flags[71]) then
 			tinsert(extraflags, "71")
 		end
-		if (tooltipflags.Dagger]) and (not flags[72]) then
+		if (tooltipflags.Dagger) and (not flags[72]) then
 			tinsert(missingflags, "72")
-		elseif (not tooltipflags.Dagger]) and (flags[72]) then
+		elseif (not tooltipflags.Dagger) and (flags[72]) then
 			tinsert(extraflags, "72")
 		end
-		if (tooltipflags.Staff]) and (not flags[73]) then
+		if (tooltipflags.Staff) and (not flags[73]) then
 			tinsert(missingflags, "73")
-		elseif (not tooltipflags.Staff]) and (flags[73]) then
+		elseif (not tooltipflags.Staff) and (flags[73]) then
 			tinsert(extraflags, "73")
 		end
-		if (tooltipflags.Wand]) and (not flags[74]) then
+		if (tooltipflags.Wand) and (not flags[74]) then
 			tinsert(missingflags, "74")
-		elseif (not tooltipflags.Wand]) and (flags[74]) then
+		elseif (not tooltipflags.Wand) and (flags[74]) then
 			tinsert(extraflags, "74")
 		end
-		if (tooltipflags.Thrown]) and (not flags[75]) then
+		if (tooltipflags.Thrown) and (not flags[75]) then
 			tinsert(missingflags, "75")
-		elseif (not tooltipflags.Thrown]) and (flags[75]) then
+		elseif (not tooltipflags.Thrown) and (flags[75]) then
 			tinsert(extraflags, "75")
 		end
-		if (tooltipflags.Bow]) and (not flags[76]) then
+		if (tooltipflags.Bow) and (not flags[76]) then
 			tinsert(missingflags, "76")
-		elseif (not tooltipflags.Bow]) and (flags[76]) then
+		elseif (not tooltipflags.Bow) and (flags[76]) then
 			tinsert(extraflags, "76")
 		end
-		if (Crosstooltipflags.Bow]) and (not flags[77]) then
+		if (tooltipflags.CrossBow) and (not flags[77]) then
 			tinsert(missingflags, "77")
-		elseif (not Crosstooltipflags.Bow]) and (flags[77]) then
+		elseif (not tooltipflags.CrossBow) and (flags[77]) then
 			tinsert(extraflags, "77")
 		end
-		if (tooltipflags.Ammo]) and (not flags[78]) then
+		if (tooltipflags.Ammo) and (not flags[78]) then
 			tinsert(missingflags, "78")
-		elseif (not tooltipflags.Ammo]) and (flags[78]) then
+		elseif (not tooltipflags.Ammo) and (flags[78]) then
 			tinsert(extraflags, "78")
 		end
-		if (tooltipflags.Fist]) and (not flags[79]) then
+		if (tooltipflags.Fist) and (not flags[79]) then
 			tinsert(missingflags, "79")
-		elseif (not tooltipflags.Fist]) and (flags[79]) then
+		elseif (not tooltipflags.Fist) and (flags[79]) then
 			tinsert(extraflags, "79")
 		end
-		if (tooltipflags.tooltipflags.Gun) and (not flags[80]) then
+		if (tooltipflags.Gun) and (not flags[80]) then
 			tinsert(missingflags, "80")
-		elseif (not tooltipflags.tooltipflags.Gun) and (flags[80]) then
+		elseif (not tooltipflags.Gun) and (flags[80]) then
 			tinsert(extraflags, "80")
 		end
 
@@ -2780,10 +2780,10 @@ function addon:PrintScanResults()
 				(not tooltipflags.Wand) or
 				(not tooltipflags.Thrown) or
 				(not tooltipflags.Bow) or
-				(not Crosstooltipflags.Bow) or
+				(not tooltipflags.CrossBow) or
 				(not tooltipflags.Ammo) or
 				(not tooltipflags.Fist) or
-				(not tooltipflags.tooltipflags.Gun) then
+				(not tooltipflags.Gun) then
 					self:Print("Missing: item type flag")
 			end
 		end
