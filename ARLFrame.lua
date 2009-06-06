@@ -884,15 +884,21 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr1 = addon:hexcolor("VENDOR")
 			-- Don't display vendors of opposite faction
 			local displaytt = false
+			local faction
+
 			if (vndr["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
 				if (playerFaction == factionHorde) then
 					displaytt = true
+				else
+					faction = factionHorde
 				end
 			elseif (vndr["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
 				if (playerFaction == factionAlliance) then
 					displaytt = true
+				else
+					faction = factionAlliance
 				end
 			else
 				clr2 = addon:hexcolor("NEUTRAL")
@@ -908,6 +914,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+			elseif faction then
+				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
 		elseif (v["Type"] == ACQUIRE_MOB) then
 			-- Mob Drop:				Mob Name
