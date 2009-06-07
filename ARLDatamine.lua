@@ -1818,6 +1818,11 @@ do
 	-- @param prof_name The profession name which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
+
+		if (type(prof_name) == "number") then
+			prof_name = GetSpellInfo(prof_name)
+		end
+		
 		local found = false
 		prof_name = strlower(prof_name)
 
