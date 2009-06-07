@@ -1847,7 +1847,7 @@ do
 				recipe_list[i] = master_list[i]
 			end
 		end
-		local reverselookup = CreateReverseLookup(recipe_list)
+		local reverse_lookup = CreateReverseLookup(recipe_list)
 
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
@@ -1859,7 +1859,8 @@ do
 
 			if link then
 				ARLDatamineTT:SetHyperlink(link)
-				self:ScanToolTip(name, recipe_list, reverselookup, false)
+				self:ScanToolTip(name, recipe_list, reverse_lookup, false)
+				self:PrintScanResults()
 			else
 				self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 			end
@@ -1880,7 +1881,7 @@ function addon:ScanVendor()
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local reverselookup = CreateReverseLookup(recipelist)
+		local reverse_lookup = CreateReverseLookup(recipelist)
 
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
@@ -1892,7 +1893,8 @@ function addon:ScanVendor()
 		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name, recipelist, reverselookup, true)
+			self:ScanToolTip(name, recipelist, reverse_lookup, true)
+			self:PrintScanResults()
 		end
 		ARLDatamineTT:Hide()
 	else
@@ -1912,7 +1914,7 @@ function addon:TooltipScanDatabase()
 		self:Print(L["DATAMINER_NODB_ERROR"])
 		return
 	end
-	local reverselookup = CreateReverseLookup(recipelist)
+	local reverse_lookup = CreateReverseLookup(recipelist)
 
 	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
@@ -1925,7 +1927,8 @@ function addon:TooltipScanDatabase()
 
 		if link then
 			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name,recipelist,reverselookup,false)
+			self:ScanToolTip(name, recipelist, reverse_lookup,false)
+			self:PrintScanResults()
 		else
 			self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
 		end
@@ -1975,15 +1978,15 @@ function addon:TooltipScanRecipe(spellid)
 		return
 	end
 
-	local reverselookup = CreateReverseLookup(recipelist)
+	local reverse_lookup = CreateReverseLookup(recipelist)
 
 	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 	if (recipelist[spellid]) then
 
-	local name = recipelist[spellid]["Name"]
-	local link = recipelist[spellid]["RecipeLink"]
+		local name = recipelist[spellid]["Name"]
+		local link = recipelist[spellid]["RecipeLink"]
 
 		-- If a link exists, we'll scan it.
 		if (link) then
@@ -1998,13 +2001,15 @@ function addon:TooltipScanRecipe(spellid)
 			-- Check to see if we're dealing with a recipe
 			if (recipenames[matchtext]) then
 				-- Scan the recipe
-				self:ScanToolTip(name,recipelist,reverselookup,false)
+				self:ScanToolTip(name, recipelist, reverse_lookup, false)
+				self:PrintScanResults()
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				if (spellitem[spellid]) then
 					self:Print(spellitem[spellid])
 					ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
-					self:ScanToolTip(name,recipelist,reverselookup,false)		
+					self:ScanToolTip(name,recipelist,reverse_lookup,false)		
+					self:PrintScanResults()
 				end
 
 			end
@@ -2022,771 +2027,469 @@ function addon:TooltipScanRecipe(spellid)
 
 end
 
-local specialtytext = {
-	["requires spellfire tailoring"] = 26797,
-	["requires mooncloth tailoring"] = 26798,
-	["requires shadowweave tailoring"] = 26801,
-	["dragonscale leatherworking"] = 10657,
-	["elemental leatherworking"] = 10659,
-	["tribal leatherworking"] = 10661,
-	["gnomish engineering"] = 20219,
-	["goblin engineering"] = 20222,
-	["armorsmith"] = 9788,
-	["master axesmith"] = 17041,
-	["master hammersmith"] = 17040,
-	["master swordsmith"] = 17039,
-	["weaponsmith"] = 9787,
-}
-
-local factiontext = {
-	["thorium brotherhood"] = 98,
-	["zandalar tribe"] = 100,
-	["argent dawn"] = 96,
-	["timbermaw hold"] = 99,
-	["cenarion circle"] = 97,
-	["the aldor"] = 101,
-	["the consortium"] = 105,
-	["the scryers"] = 110,
-	["the sha'tar"] = 111,
-	["the mag'har"] = 108,
-	["cenarion expedition"] = 103,
-	["honor hold"] = 104,
-	["thrallmar"] = 104,
-	["the violet eye"] = 114,
-	["sporeggar"] = 113,
-	["kurenai"] = 108,
-	["keepers of time"] = 106,
-	["the scale of the sands"] = 109,
-	["lower city"] = 107,
-	["ashtongue deathsworn"] = 102,
-	["alliance vanguard"] = 131,
-	["valiance expedition"] = 126,
-	["horde expedition"] = 130,
-	["the taunka"] = 128,
-	["the hand of vengeance"] = 127,
-	["explorers' league"] = 125,
-	["the kalu'ak"] = 120,
-	["shattered sun offensive"] = 112,
-	["warsong offensive"] = 129,
-	["kirin tor"] = 118,
-	["the wyrmrest accord"] = 122,
-	["knights of the ebon blade"] = 117,
-	["frenzyheart tribe"] = 116,
-	["the oracles"] = 121,
-	["argent crusade"] = 115,
-	["the sons of hodir"] = 119,
-}
-
-local factionlevels = {
-	["neutral"] = 0,
-	["friendly"] = 1,
-	["honored"] = 2,
-	["revered"] = 3,
-	["exalted"] = 4,
-}
-
-local tooltipflags = {
-	boprecipe = false,
-	bopitem = false,
-	healer = false,
-	tank = false,
-	dps = false,
-	caster = false,
-	Deathknight = false,
-	Druid = false,
-	Hunter = false,
-	Mage = false,
-	Paladin = false,
-	Priest = false,
-	Shaman = false,
-	Rogue = false,
-	Warlock = false,
-	Warrior = false,
-
-	Cloth = false,
-	Leather = false,
-	Mail = false,
-	Plate = false,
-	Cloak = false,
-	Trinket = false,
-	Ring = false,
-	Necklace = false,
-	Shield  = false,
-	OneHanded = false,
-	TwoHanded = false,
-	Axe = false,
-	Sword = false,
-	Mace = false,
-	Polearm = false,
-	Dagger = false,
-	Staff = false,
-	Wand = false,
-	Thrown = false,
-	Bow = false,
-	CrossBow = false,
-	Ammo = false,
-	Fist = false,
-	Gun = false,
-
-	specialty = false,
-	repid = false,
-	repidlevel = false,
-}
-
-local function resettooltipscanflags()
-
-	tooltipflags = {
-		boprecipe = false,
-		bopitem = false,
-		healer = false,
-		tank = false,
-		dps = false,
-		caster = false,
-		Deathknight = false,
-		Druid = false,
-		Hunter = false,
-		Mage = false,
-		Paladin = false,
-		Priest = false,
-		Shaman = false,
-		Rogue = false,
-		Warlock = false,
-		Warrior = false,
-
-		Cloth = false,
-		Leather = false,
-		Mail = false,
-		Plate = false,
-		Cloak = false,
-		Trinket = false,
-		Ring = false,
-		Necklace = false,
-		Shield  = false,
-		OneHanded = false,
-		TwoHanded = false,
-		Axe = false,
-		Sword = false,
-		Mace = false,
-		Polearm = false,
-		Dagger = false,
-		Staff = false,
-		Wand = false,
-		Thrown = false,
-		Bow = false,
-		CrossBow = false,
-		Ammo = false,
-		Fist = false,
-		Gun = false,
-
-		specialty = false,
-		repid = false,
-		repidlevel = false,
+-------------------------------------------------------------------------------
+-- Tooltip-scanning code
+-------------------------------------------------------------------------------
+do
+	local SPECIALTY_TEXT = {
+		["requires spellfire tailoring"] = 26797,
+		["requires mooncloth tailoring"] = 26798,
+		["requires shadowweave tailoring"] = 26801,
+		["dragonscale leatherworking"] = 10657,
+		["elemental leatherworking"] = 10659,
+		["tribal leatherworking"] = 10661,
+		["gnomish engineering"] = 20219,
+		["goblin engineering"] = 20222,
+		["armorsmith"] = 9788,
+		["master axesmith"] = 17041,
+		["master hammersmith"] = 17040,
+		["master swordsmith"] = 17039,
+		["weaponsmith"] = 9787,
 	}
 
-end
+	local FACTION_TEXT = {
+		["thorium brotherhood"] = 98,
+		["zandalar tribe"] = 100,
+		["argent dawn"] = 96,
+		["timbermaw hold"] = 99,
+		["cenarion circle"] = 97,
+		["the aldor"] = 101,
+		["the consortium"] = 105,
+		["the scryers"] = 110,
+		["the sha'tar"] = 111,
+		["the mag'har"] = 108,
+		["cenarion expedition"] = 103,
+		["honor hold"] = 104,
+		["thrallmar"] = 104,
+		["the violet eye"] = 114,
+		["sporeggar"] = 113,
+		["kurenai"] = 108,
+		["keepers of time"] = 106,
+		["the scale of the sands"] = 109,
+		["lower city"] = 107,
+		["ashtongue deathsworn"] = 102,
+		["alliance vanguard"] = 131,
+		["valiance expedition"] = 126,
+		["horde expedition"] = 130,
+		["the taunka"] = 128,
+		["the hand of vengeance"] = 127,
+		["explorers' league"] = 125,
+		["the kalu'ak"] = 120,
+		["shattered sun offensive"] = 112,
+		["warsong offensive"] = 129,
+		["kirin tor"] = 118,
+		["the wyrmrest accord"] = 122,
+		["knights of the ebon blade"] = 117,
+		["frenzyheart tribe"] = 116,
+		["the oracles"] = 121,
+		["argent crusade"] = 115,
+		["the sons of hodir"] = 119,
+	}
 
---- Parses the mining tooltip for certain keywords, comparing them with the database flags.
--- @name AckisRecipeList:ScanToolTip
--- @return Scans a tooltip, and outputs the missing or extra filter flags.
-function addon:ScanToolTip(name, recipelist, isvendor)
+	local FACTION_LEVELS = {
+		["neutral"] = 0,
+		["friendly"] = 1,
+		["honored"] = 2,
+		["revered"] = 3,
+		["exalted"] = 4,
+	}
 
-	local recipefound = false
-	local confirmed_role = false
+	local CLASS_TYPES = {
+		-- Class types
+		["Deathknight"]	= 21,	["Druid"]	= 22,	["Hunter"]	= 23,
+		["Mage"]	= 24,	["Paladin"]	= 25,	["Priest"]	= 26,
+		["Shaman"]	= 27,	["Rogue"]	= 28,	["Warlock"]	= 29,
+		["Warrior"]	= 30,
+	}
 
-	local matchtext
+	local ROLE_TYPES = {
+		-- Player role
+		["dps"]		= 51,	["tank"]	= 52,	["healer"]	= 53,
+		["caster"]	= 54,	["RESERVED1"]	= 55,
+	}
 
-	-- Parse all the lines of the tooltip
-	for i =1 , ARLDatamineTT:NumLines(), 1 do
-
-		local linetextl = _G["ARLDatamineTTTextLeft" .. i]
-		local textl = linetextl:GetText()
-		local linetextr = _G["ARLDatamineTTTextRight" .. i]
-		local textr = linetextr:GetText()
-		local text
- 
-		if (textr) then
-			text = textl .. " " .. textr
-		else
-			text = textl
-		end
-
-		local text = strlower(text)
-
-		-- Check for recipe/item binding
-		-- The recipe binding is within the first few lines of the tooltip always
-		if ((strmatch(text, "binds when picked up")) and (i < 4)) then
-			tooltipflags.boprecipe = true
-		elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
-			tooltipflags.bopitem = true
-		end
-
-		-- Recipe Specialities
-		if (specialtytext[text]) then
-			tooltipflags.specialty = specialtytext[text]
-		end
-
-		-- Recipe Reputatons
-		if (strmatch(text, "Requires (.+) %- (.+)")) then
-			local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
-			if (factiontext[rep]) then
-				tooltipflags.repid = factiontext[rep]
-				tooltipflags.repidlevel = factionlevels[replevel]
-			end
-		end
-
-		-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-		-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
-		if (strmatch(text, "strength")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = true
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "agility")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = true
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "spirit")) then
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.caster = true
-			tooltipflags.healer = true
-			confirmed_role = true
-			-- tooltipflags.caster stats
-		elseif (strmatch(text, "spell power")) then
-			tooltipflags.caster = true
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.healer = true
-			confirmed_role = true
-		elseif (strmatch(text, "spell crit")) then
-			tooltipflags.caster = true
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.healer = true
-			confirmed_role = true
-			-- tooltipflags.dps tooltipflags.caster Stats
-		elseif (strmatch(text, "spell hit")) then
-			tooltipflags.caster = true
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "spell penetration")) then
-			tooltipflags.caster = true
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.healer = false
-			confirmed_role = true
-			-- tooltipflags.healer Stats
-		elseif (strmatch(text, "mana every 5 seconds")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = false
-			tooltipflags.healer = true
-			confirmed_role = true
-			-- Melee tooltipflags.dps Stats
-		elseif (strmatch(text, "attack power")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "expertise")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "melee crit")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "ranged crit")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "melee haste")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "ranged haste")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "melee hit")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "ranged hit")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "armor pen")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = false
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "feral attack")) then
-			tooltipflags.caster = false
-			tooltipflags.tank = true
-			tooltipflags.dps = true
-			tooltipflags.healer = false
-			confirmed_role = true
-			-- tooltipflags.tanking Stats
-		elseif (strmatch(text, "defense")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = false
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "block")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = false
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "parry")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = false
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		elseif (strmatch(text, "dodge")) then
-			tooltipflags.tank = true
-			tooltipflags.dps = false
-			tooltipflags.caster = false
-			tooltipflags.healer = false
-			confirmed_role = true
-		end
-
-		-- Classes
-		if (strmatch(text, "death knight")) then
-			tooltipflags.Deathknight = true
-		elseif (strmatch(text, "druid")) then
-			tooltipflags.Druid = true
-		elseif (strmatch(text, "hunter")) then
-			tooltipflags.Hunter = true
-		elseif (strmatch(text, "mage")) then
-			tooltipflags.Mage = true
-		elseif (strmatch(text, "paladin")) then
-			tooltipflags.Paladin = true
-		elseif (strmatch(text, "priest")) then
-			tooltipflags.Priest = true
-		elseif (strmatch(text, "rogue")) then
-			tooltipflags.Rogue = true
-		elseif (strmatch(text, "shaman")) then
-			tooltipflags.Shaman = true
-		elseif (strmatch(text, "warlock")) then
-			tooltipflags.Warlock = true
-		elseif (strmatch(text, "warrior")) then
-			tooltipflags.Warrior = true
+	local ITEM_TYPES = {
 		-- Armor types
-		elseif (strmatch(text, "cloth")) then
-			tooltipflags.Cloth = true
-		elseif (strmatch(text, "leather")) then
-			tooltipflags.Leather = true
-		elseif (strmatch(text, "mail")) then
-			tooltipflags.Mail = true
-		elseif (strmatch(text, "plate")) then
-			tooltipflags.Plate = true
-		elseif (strmatch(text, "cloak")) then
-			tooltipflags.Cloak = true
-		elseif (strmatch(text, "ring")) then
-			tooltipflags.Ring = true
-		elseif (strmatch(text, "necklace")) then
-			tooltipflags.Necklace = true
-		elseif (strmatch(text, "shield")) then
-			tooltipflags.Shield = true
+		["Cloth"]	= 56,	["Leather"]	= 57,	["Mail"]	= 58,
+		["Plate"]	= 59,	["Cloak"]	= 60,	["Trinket"]	= 61,
+		["Ring"]	= 62,	["Necklace"]	= 63,	["Shield"]	= 64,
+		["RESERVED2"]	= 65,
+
 		-- Weapon types
-		elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
-			tooltipflags.OneHanded = true
-		elseif (strmatch(text, "2 hand")) then
-			tooltipflags.TwoHanded = true
-		elseif (strmatch(text, "axe")) then
-			tooltipflags.Axe = true
-		elseif (strmatch(text, "sword")) then
-			tooltipflags.Sword = true
-		elseif (strmatch(text, "mace")) then
-			tooltipflags.Mace = true
-		elseif (strmatch(text, "polearm")) then
-			tooltipflags.Polearm = true
-		elseif (strmatch(text, "dagger")) then
-			tooltipflags.Dagger = true
-		elseif (strmatch(text, "staff")) then
-			tooltipflags.Staff = true
-		elseif (strmatch(text, "wand")) then
-			tooltipflags.Wand = true
-		elseif (strmatch(text, "thrown")) then
-			tooltipflags.Thrown = true
-		elseif (strmatch(text, "bow")) then
-			tooltipflags.Bow = true
-		elseif (strmatch(text, "crossbow")) then
-			tooltipflags.CrossBow = true
-		elseif (strmatch(text, "gun")) then
-			tooltipflags.Gun = true
-		elseif (strmatch(text, "ammo")) then
-			tooltipflags.Ammo = true
-		elseif (strmatch(text, "fist")) then
-			tooltipflags.Fist = true
-		end
+		["OneHanded"]	= 66,	["TwoHanded"]	= 67,	["Axe"]		= 68,
+		["Sword"]	= 69,	["Mace"]	= 70,	["Polearm"]	= 71,
+		["Dagger"]	= 72,	["Staff"]	= 73,	["Wand"]	= 74,
+		["Thrown"]	= 75,	["Bow"]		= 76,	["CrossBow"]	= 77,
+		["Ammo"]	= 78,	["Fist"]	= 79,	["Gun"]		= 80,
+	}
+
+	-- Table to store scanned information. Wiped and re-used every scan.
+	local scan_data = {}
+
+	--- Parses the mining tooltip for certain keywords, comparing them with the database flags.
+	-- @name AckisRecipeList:ScanToolTip
+	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
+	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
+		local confirmed_role = false
+		local matchtext
+
+		twipe(scan_data)
+		scan_data.match_name = name
+		scan_data.recipe_list = recipe_list
+		scan_data.reverse_lookup = reverse_lookup
+		scan_data.recipe_found = false
+
+		local num_lines = ARLDatamineTT:NumLines()
+
+		-- Parse all the lines of the tooltip
+		for i = 1, ARLDatamineTT:NumLines(), 1 do
+			local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
+			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
+			local text
+ 
+			if text_r then
+				text = text_l .. " " .. text_r
+			else
+				text = text_l
+			end
+
+			local text = strlower(text)
+
+			-- Check for recipe/item binding
+			-- The recipe binding is within the first few lines of the tooltip always
+			if ((strmatch(text, "binds when picked up")) and (i < 4)) then
+				scan_data.boprecipe = true
+			elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
+				scan_data.bopitem = true
+			end
+
+			-- Recipe Specialities
+			if SPECIALTY_TEXT[text] then
+				scan_data.specialty = SPECIALTY_TEXT[text]
+			end
+
+			-- Recipe Reputatons
+			if (strmatch(text, "Requires (.+) %- (.+)")) then
+				local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
+				if (FACTION_TEXT[rep]) then
+					scan_data.repid = FACTION_TEXT[rep]
+					scan_data.repidlevel = FACTION_LEVELS[replevel]
+				end
+			end
+
+			-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
+			-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
+			if (strmatch(text, "strength")) then
+				scan_data.tank = true
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "agility")) then
+				scan_data.tank = true
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "spirit")) then
+				scan_data.caster = true
+				scan_data.healer = true
+				confirmed_role = true
+			elseif (strmatch(text, "spell power")) then
+				scan_data.caster = true
+				scan_data.healer = true
+				confirmed_role = true
+			elseif (strmatch(text, "spell crit")) then
+				scan_data.caster = true
+				scan_data.healer = true
+				confirmed_role = true
+				-- scan_data.dps scan_data.caster Stats
+			elseif (strmatch(text, "spell hit")) then
+				scan_data.caster = true
+				confirmed_role = true
+			elseif (strmatch(text, "spell penetration")) then
+				scan_data.caster = true
+				confirmed_role = true
+				-- scan_data.healer Stats
+			elseif (strmatch(text, "mana every 5 seconds")) then
+				scan_data.healer = true
+				confirmed_role = true
+				-- Melee scan_data.dps Stats
+			elseif (strmatch(text, "attack power")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "expertise")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "melee crit")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "ranged crit")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "melee haste")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "ranged haste")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "melee hit")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "ranged hit")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "armor pen")) then
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "feral attack")) then
+				scan_data.tank = true
+				scan_data.dps = true
+				confirmed_role = true
+			elseif (strmatch(text, "defense")) then
+				scan_data.tank = true
+				confirmed_role = true
+			elseif (strmatch(text, "block")) then
+				scan_data.tank = true
+				confirmed_role = true
+			elseif (strmatch(text, "parry")) then
+				scan_data.tank = true
+				confirmed_role = true
+			elseif (strmatch(text, "dodge")) then
+				scan_data.tank = true
+				confirmed_role = true
+			end
+
+			-- Classes
+			if (strmatch(text, "death knight")) then
+				scan_data.Deathknight = true
+			elseif (strmatch(text, "druid")) then
+				scan_data.Druid = true
+			elseif (strmatch(text, "hunter")) then
+				scan_data.Hunter = true
+			elseif (strmatch(text, "mage")) then
+				scan_data.Mage = true
+			elseif (strmatch(text, "paladin")) then
+				scan_data.Paladin = true
+			elseif (strmatch(text, "priest")) then
+				scan_data.Priest = true
+			elseif (strmatch(text, "rogue")) then
+				scan_data.Rogue = true
+			elseif (strmatch(text, "shaman")) then
+				scan_data.Shaman = true
+			elseif (strmatch(text, "warlock")) then
+				scan_data.Warlock = true
+			elseif (strmatch(text, "warrior")) then
+				scan_data.Warrior = true
+				-- Armor types
+			elseif (strmatch(text, "cloth")) then
+				scan_data.Cloth = true
+			elseif (strmatch(text, "leather")) then
+				scan_data.Leather = true
+			elseif (strmatch(text, "mail")) then
+				scan_data.Mail = true
+			elseif (strmatch(text, "plate")) then
+				scan_data.Plate = true
+			elseif (strmatch(text, "cloak")) then
+				scan_data.Cloak = true
+			elseif (strmatch(text, "ring")) then
+				scan_data.Ring = true
+			elseif (strmatch(text, "necklace")) then
+				scan_data.Necklace = true
+			elseif (strmatch(text, "shield")) then
+				scan_data.Shield = true
+				-- Weapon types
+			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
+				scan_data.OneHanded = true
+			elseif (strmatch(text, "2 hand")) then
+				scan_data.TwoHanded = true
+			elseif (strmatch(text, "axe")) then
+				scan_data.Axe = true
+			elseif (strmatch(text, "sword")) then
+				scan_data.Sword = true
+			elseif (strmatch(text, "mace")) then
+				scan_data.Mace = true
+			elseif (strmatch(text, "polearm")) then
+				scan_data.Polearm = true
+			elseif (strmatch(text, "dagger")) then
+				scan_data.Dagger = true
+			elseif (strmatch(text, "staff")) then
+				scan_data.Staff = true
+			elseif (strmatch(text, "wand")) then
+				scan_data.Wand = true
+			elseif (strmatch(text, "thrown")) then
+				scan_data.Thrown = true
+			elseif (strmatch(text, "bow")) then
+				scan_data.Bow = true
+			elseif (strmatch(text, "crossbow")) then
+				scan_data.CrossBow = true
+			elseif (strmatch(text, "gun")) then
+				scan_data.Gun = true
+			elseif (strmatch(text, "ammo")) then
+				scan_data.Ammo = true
+			elseif (strmatch(text, "fist")) then
+				scan_data.Fist = true
+			end
+		end	-- for
+		
 	end
 
-end
+	-- Flag data for printing. Wiped and re-used.
+	local missing_flags = {}
+	local extra_flags = {}
 
-function addon:PrintScanResults()
-
-	if (recipefound) then
+	function addon:PrintScanResults()
 		-- Parse the recipe database until we get a match on the name
-		local spellid
-		local recipename = gsub(name, "%a+%?: ", "")
+		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
+		local spellid = scan_data.reverse_lookup[recipe_name]
 
-		spellid = reverselookup[recipename]
-
-		if (not spellid) then
-			self:Print("Recipe "..recipename.." has no reverse lookup")
+		if not spellid then
+			self:Print("Recipe "..recipe_name.." has no reverse lookup")
 		end
 
-		local flags = recipelist[spellid]["Flags"]
-		local missingflags = {}
-		local extraflags = {}
+		local flags = scan_data.recipe_list[spellid]["Flags"]
+		twipe(missing_flags)
+		twipe(extra_flags)
 
-		if specialty then
-			self:Print(GetSpellInfo(specialty))
+		if scan_data.specialty then
+			self:Print(GetSpellInfo(scan_data.specialty))
 		end
 
-		if (isvendor) then
+		if scan_data.is_vendor then
 			-- Vendor Flag
 			if (not flags[4]) then
-				tinsert(missingflags,"4")
+				tinsert(missing_flags,"4")
 			end
 			-- PVP Flag
 			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
-				tinsert(missingflags, "9")
+				tinsert(missing_flags, "9")
 			elseif (flags[9]) then
-				tinsert(extraflags, "9")
+				tinsert(extra_flags, "9")
 			end
 		end
 
 		if (flags[3]) then
-			boprecipe = true
+			scan_data.boprecipe = true
 		end
 
 		-- Classes
 		-- If we've picked up at least one class flag
-		if ((tooltipflags.Deathknight) or (tooltipflags.Druid) or (tooltipflags.Hunter) or (tooltipflags.Mage) or (tooltipflags.Paladin) or (tooltipflags.Priest) or (tooltipflags.Shaman)
-			or (tooltipflags.Warlock) or (tooltipflags.Warrior)) then
-			if (tooltipflags.Deathknight) and (not flags[21]) then
-				tinsert(missingflags, "21")
-			elseif (not tooltipflags.Deathknight) and (flags[21]) then
-				tinsert(extraflags, "21")
+		if ((scan_data.Deathknight) or (scan_data.Druid) or (scan_data.Hunter) or (scan_data.Mage) or (scan_data.Paladin) or (scan_data.Priest) or (scan_data.Shaman)
+		    or (scan_data.Warlock) or (scan_data.Warrior)) then
+			for k, v in pairs(CLASS_TYPES) do
+				if scan_data[k] and not flags[v] then
+					tinsert(missing_flags, tostring(v).." ("..k..")")
+				elseif not scan_data[k] and flags[v] then
+					tinsert(extra_flags, tostring(v).." ("..k..")")
+				end
 			end
-			if (tooltipflags.Druid) and (not flags[22]) then
-				tinsert(missingflags, "22")
-			elseif (not tooltipflags.Druid) and (flags[22]) then
-				tinsert(extraflags, "22")
-			end
-			if (tooltipflags.Hunter) and (not flags[23]) then
-				tinsert(missingflags, "23")
-			elseif (not tooltipflags.Hunter) and (flags[23]) then
-				tinsert(extraflags, "23")
-			end
-			if (tooltipflags.Mage) and (not flags[24]) then
-				tinsert(missingflags, "24")
-			elseif (not tooltipflags.Mage) and (flags[24]) then
-				tinsert(extraflags, "24")
-			end
-			if (tooltipflags.Paladin) and (not flags[25]) then
-				tinsert(missingflags, "25")
-			elseif (not tooltipflags.Paladin) and (flags[25]) then
-				tinsert(extraflags, "25")
-			end
-			if (tooltipflags.Priest) and (not flags[26]) then
-				tinsert(missingflags, "26")
-			elseif (not tooltipflags.Priest) and (flags[26]) then
-				tinsert(extraflags, "26")
-			end
-			if (tooltipflags.Shaman) and (not flags[27]) then
-				tinsert(missingflags, "27")
-			elseif (not tooltipflags.Shaman) and (flags[27]) then
-				tinsert(extraflags, "27")
-			end
-			if (tooltipflags.Rogue) and (not flags[28]) then
-				tinsert(missingflags, "28")
-			elseif (not tooltipflags.Rogue) and (flags[28]) then
-				tinsert(extraflags, "28")
-			end
-			if (tooltipflags.Warlock) and (not flags[29]) then
-				tinsert(missingflags, "29")
-			elseif (not tooltipflags.Warlock) and (flags[29]) then
-				tinsert(extraflags, "29")
-			end
-			if (tooltipflags.Warrior) and (not flags[30]) then
-				tinsert(missingflags, "30")
-			elseif (not tooltipflags.Warrior) and (flags[30]) then
-				tinsert(extraflags, "30")
-			end
-		-- Recipe is not class specific
-		else
-			if (not flags[21]) then
-				tinsert(missingflags, "21")
-			end
-			if (not flags[22]) then
-				tinsert(missingflags, "22")
-			end
-			if (not flags[23]) then
-				tinsert(missingflags, "23")
-			end
-			if (not flags[24]) then
-				tinsert(missingflags, "24")
-			end
-			if (not flags[25]) then
-				tinsert(missingflags, "25")
-			end
-			if (not flags[26]) then
-				tinsert(missingflags, "26")
-			end
-			if (not flags[27]) then
-				tinsert(missingflags, "27")
-			end
-			if (not flags[28]) then
-				tinsert(missingflags, "28")
-			end
-			if (not flags[29]) then
-				tinsert(missingflags, "29")
-			end
-			if (not flags[30]) then
-				tinsert(missingflags, "30")
+		else	-- Recipe is not class specific
+			for i = 21, 30 do
+				if not flags[i] then
+					tinsert(missing_flags, tostring(i).." (Class)")
+				end
 			end
 		end
 
 		-- BoP Item
-		if (tooltipflags.bopitem) and (not flags[37]) then
-			tinsert(missingflags, "37")
+		if (scan_data.bopitem) and (not flags[37]) then
+			tinsert(missing_flags, "37")
 			-- If it's a BoP item and flags BoE is set, mark it as extra
 			if (flags[36]) then
-				tinsert(extraflags, "36")
+				tinsert(extra_flags, "36")
 			end
+
 			-- If it's a BoP item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extraflags, "38")
+				tinsert(extra_flags, "38")
 			end
-		-- BoE Item, assuming it's not BoA
-		elseif (not flags[36]) and (not tooltipflags.bopitem) then
-			tinsert(missingflags, "36")
+			-- BoE Item, assuming it's not BoA
+		elseif (not flags[36]) and (not scan_data.bopitem) then
+			tinsert(missing_flags, "36")
 			-- If it's a BoE item and flags BoP is set, mark it as extra
 			if (flags[37]) then
-				tinsert(extraflags, "37")
+				tinsert(extra_flags, "37")
 			end
+
 			-- If it's a BoE item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extraflags, "38")
+				tinsert(extra_flags, "38")
 			end
 		end
 
 		-- BoP Recipe
-		if (tooltipflags.boprecipe) and (not flags[41]) then
-			tinsert(missingflags, "41")
+		if (scan_data.boprecipe) and (not flags[41]) then
+			tinsert(missing_flags, "41")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
-				tinsert(extraflags, "40")
+				tinsert(extra_flags, "40")
 			end
 			-- If it's a BoP recipe and flags BoA is set, mark it as extra
+
 			if (flags[42]) then
-				tinsert(extraflags, "42")
+				tinsert(extra_flags, "42")
 			end
-		-- Not BoP recipe, assuming it's not BoA
-		elseif (not flags[40]) and (not tooltipflags.boprecipe) then
-			tinsert(missingflags, "40")
+			-- Not BoP recipe, assuming it's not BoA
+		elseif (not flags[40]) and (not scan_data.boprecipe) then
+			tinsert(missing_flags, "40")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
-				tinsert(extraflags, "41")
+				tinsert(extra_flags, "41")
 			end
+
 			-- If it's a BoE recipe and flags BoA is set, mark it as extra
 			if (flags[42]) then
-				tinsert(extraflags, "42")
+				tinsert(extra_flags, "42")
 			end
 		end
 
-		-- Player type
-		if (tooltipflags.dps) and (not flags[51]) then
-			tinsert(missingflags, "51")
-		elseif (flags[51]) and (not tooltipflags.dps) then
-			tinsert(extraflags, "51")
-		end
-		if (tooltipflags.tank) and (not flags[52]) then
-			tinsert(missingflags, "52")
-		elseif (flags[52]) and (not tooltipflags.tank) then
-			tinsert(extraflags, "52")
-		end
-		if (tooltipflags.healer) and (not flags[53]) then
-			tinsert(missingflags, "53")
-		elseif (flags[53]) and (not tooltipflags.healer) then
-			tinsert(extraflags, "53")
-		end
-		if (tooltipflags.caster) and (not flags[54]) then
-			tinsert(missingflags, "54")
-		elseif (flags[54]) and (not tooltipflags.caster) then
-			tinsert(extraflags, "54")
+		for k, v in pairs(ROLE_TYPES) do
+			if scan_data[k] and not flags[v] then
+				tinsert(missing_flags, tostring(v).." ("..k..")")
+			elseif not scan_data[k] and flags[v] then
+				tinsert(extra_flags, tostring(v).." ("..k..")")
+			end
 		end
 
-		-- Item Type
-		if (tooltipflags.Cloth) and (not flags[56]) then
-			tinsert(missingflags, "56")
-		elseif (not tooltipflags.Cloth) and (flags[56]) then
-			tinsert(extraflags, "56")
-		end
-		if (tooltipflags.Leather) and (not flags[57]) then
-			tinsert(missingflags, "57")
-		elseif (not tooltipflags.Leather) and (flags[57]) then
-			tinsert(extraflags, "57")
-		end
-		if (tooltipflags.Mail) and (not flags[58]) then
-			tinsert(missingflags, "58")
-		elseif (not tooltipflags.Mail) and (flags[58]) then
-			tinsert(extraflags, "58")
-		end
-		if (tooltipflags.Plate) and (not flags[59]) then
-			tinsert(missingflags, "59")
-		elseif (not tooltipflags.Plate) and (flags[59]) then
-			tinsert(extraflags, "59")
-		end
-
-		-- Weapon type
-		if (tooltipflags.OneHanded) and (not flags[66]) then
-			tinsert(missingflags, "66")
-		elseif (not tooltipflags.OneHanded) and (flags[66]) then
-			tinsert(extraflags, "66")
-		end
-		if (tooltipflags.TwoHanded) and (not flags[67]) then
-			tinsert(missingflags, "67")
-		elseif (not tooltipflags.TwoHanded) and (flags[67]) then
-			tinsert(extraflags, "67")
-		end
-		if (tooltipflags.Axe) and (not flags[68]) then
-			tinsert(missingflags, "68")
-		elseif (not tooltipflags.Axe) and (flags[68]) then
-			tinsert(extraflags, "68")
-		end
-		if (tooltipflags.Sword) and (not flags[69]) then
-			tinsert(missingflags, "69")
-		elseif (not tooltipflags.Sword) and (flags[69]) then
-			tinsert(extraflags, "69")
-		end
-		if (tooltipflags.Mace) and (not flags[70]) then
-			tinsert(missingflags, "70")
-		elseif (not tooltipflags.Mace) and (flags[70]) then
-			tinsert(extraflags, "70")
-		end
-		if (tooltipflags.Polearm) and (not flags[71]) then
-			tinsert(missingflags, "71")
-		elseif (not tooltipflags.Polearm) and (flags[71]) then
-			tinsert(extraflags, "71")
-		end
-		if (tooltipflags.Dagger) and (not flags[72]) then
-			tinsert(missingflags, "72")
-		elseif (not tooltipflags.Dagger) and (flags[72]) then
-			tinsert(extraflags, "72")
-		end
-		if (tooltipflags.Staff) and (not flags[73]) then
-			tinsert(missingflags, "73")
-		elseif (not tooltipflags.Staff) and (flags[73]) then
-			tinsert(extraflags, "73")
-		end
-		if (tooltipflags.Wand) and (not flags[74]) then
-			tinsert(missingflags, "74")
-		elseif (not tooltipflags.Wand) and (flags[74]) then
-			tinsert(extraflags, "74")
-		end
-		if (tooltipflags.Thrown) and (not flags[75]) then
-			tinsert(missingflags, "75")
-		elseif (not tooltipflags.Thrown) and (flags[75]) then
-			tinsert(extraflags, "75")
-		end
-		if (tooltipflags.Bow) and (not flags[76]) then
-			tinsert(missingflags, "76")
-		elseif (not tooltipflags.Bow) and (flags[76]) then
-			tinsert(extraflags, "76")
-		end
-		if (tooltipflags.CrossBow) and (not flags[77]) then
-			tinsert(missingflags, "77")
-		elseif (not tooltipflags.CrossBow) and (flags[77]) then
-			tinsert(extraflags, "77")
-		end
-		if (tooltipflags.Ammo) and (not flags[78]) then
-			tinsert(missingflags, "78")
-		elseif (not tooltipflags.Ammo) and (flags[78]) then
-			tinsert(extraflags, "78")
-		end
-		if (tooltipflags.Fist) and (not flags[79]) then
-			tinsert(missingflags, "79")
-		elseif (not tooltipflags.Fist) and (flags[79]) then
-			tinsert(extraflags, "79")
-		end
-		if (tooltipflags.Gun) and (not flags[80]) then
-			tinsert(missingflags, "80")
-		elseif (not tooltipflags.Gun) and (flags[80]) then
-			tinsert(extraflags, "80")
+		for k, v in pairs(ITEM_TYPES) do
+			if scan_data[k] and not flags[v] then
+				tinsert(missing_flags, tostring(v).." ("..k..")")
+			elseif not scan_data[k] and flags[v] then
+				tinsert(extra_flags, tostring(v).." ("..k..")")
+			end
 		end
 
 		-- Reputations
-		if (repid) and (not flags[repid]) then
-			tinsert(missingflags,repid)
+		local repid = scan_data.repid
+
+		if repid and not flags[repid] then
+			tinsert(missing_flags, repid)
 		end
 
-		if (#missingflags > 0) or (#extraflags > 0) then
-			self:Print(recipename .. " " .. spellid)
-			if (#missingflags > 0) then
-				self:Print("Missing flags: " .. tconcat(missingflags, ", "))
+		if (#missing_flags > 0) or (#extra_flags > 0) then
+			self:Print(recipe_name .. " " .. spellid)
+
+			if (#missing_flags > 0) then
+				self:Print("Missing flags: " .. tconcat(missing_flags, ", "))
 			end
-			if (#extraflags > 0) then
-				self:Print("Extra flags: " .. tconcat(extraflags, ", "))
+
+			if (#extra_flags > 0) then
+				self:Print("Extra flags: " .. tconcat(extra_flags, ", "))
 			end
-			if (not tooltipflags.tank) and (not tooltipflags.healer) and (not tooltipflags.caster) and (not tooltipflags.dps) then
+
+			if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
 				self:Print("No player type flag.")
 			end
-			if (not tooltipflags.Cloth) or
-				(not tooltipflags.Leather) or
-				(not tooltipflags.Mail) or
-				(not tooltipflags.Plate) or
-				(not tooltipflags.Cloak) or
-				(not tooltipflags.Trinket) or
-				(not tooltipflags.Ring) or
-				(not tooltipflags.Necklace) or
-				(not tooltipflags.Shield) or
-				(not tooltipflags.OneHanded) or
-				(not tooltipflags.TwoHanded) or
-				(not tooltipflags.Axe) or
-				(not tooltipflags.Sword) or
-				(not tooltipflags.Mace) or
-				(not tooltipflags.Polearm) or
-				(not tooltipflags.Dagger) or
-				(not tooltipflags.Staff) or
-				(not tooltipflags.Wand) or
-				(not tooltipflags.Thrown) or
-				(not tooltipflags.Bow) or
-				(not tooltipflags.CrossBow) or
-				(not tooltipflags.Ammo) or
-				(not tooltipflags.Fist) or
-				(not tooltipflags.Gun) then
-					self:Print("Missing: item type flag")
+
+			local count = 0
+
+			for k, v in pairs(ITEM_TYPES) do
+				if scan_data[k] then
+					count = count + 1
+				end
+			end
+
+			if count == 0 then
+				self:Print("Missing: item type flag")
+			elseif count > 1 then
+				self:Print("Extra: item type flag")
 			end
 		end
-
 	end
-end
+end	-- do
