@@ -943,7 +943,7 @@ function addon:InitEngineering(RecipeDB)
 	recipecount = recipecount + 1
 	self:addTradeSkill(RecipeDB,26011,250,21277,1,4036)
 	self:addTradeFlags(RecipeDB,26011,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,26011,4,5163)
+	self:addTradeAcquire(RecipeDB,26011,4,8798)
 
 	-- Small Blue Rocket -- 26416
 	recipecount = recipecount + 1
