@@ -2095,17 +2095,27 @@ do
 	}
 
 	local CLASS_TYPES = {
-		-- Class types
 		["Deathknight"]	= 21,	["Druid"]	= 22,	["Hunter"]	= 23,
 		["Mage"]	= 24,	["Paladin"]	= 25,	["Priest"]	= 26,
 		["Shaman"]	= 27,	["Rogue"]	= 28,	["Warlock"]	= 29,
 		["Warrior"]	= 30,
 	}
 
+	local ORDERED_CLASS_TYPES = {
+		[1]	= "Deathknight",	[2]	= "Druid",	[3]	= "Hunter",
+		[4]	= "Mage",		[5]	= "Paladin",	[6]	= "Priest",
+		[7]	= "Shaman",		[8]	= "Rogue",	[9]	= "Warlock",
+		[10]	= "Warrior",
+	}
+
 	local ROLE_TYPES = {
-		-- Player role
 		["dps"]		= 51,	["tank"]	= 52,	["healer"]	= 53,
 		["caster"]	= 54,	["RESERVED1"]	= 55,
+	}
+
+	local ORDERED_ROLE_TYPES = {
+		[1]	= "dps",	[2]	= "tank",	[3]	= "healer",
+		[4]	= "caster",	[5]	= "RESERVED1",
 	}
 
 	local ITEM_TYPES = {
@@ -2123,6 +2133,21 @@ do
 		["Ammo"]	= 78,	["Fist"]	= 79,	["Gun"]		= 80,
 	}
 
+	local ORDERED_ITEM_TYPES = {
+		-- Armor types
+		[1]	= "Cloth",	[2]	= "Leather",	[3]	= "Mail",
+		[4]	= "Plate",	[5]	= "Cloak",	[6]	= "Trinket",
+		[7]	= "Ring",	[8]	= "Necklace",	[9]	= "Shield",
+		[10]	= "RESERVED2",
+
+		-- Weapon types
+		[11]	= "OneHanded",	[12]	= "TwoHanded",	[13]	= "Axe",
+		[14]	= "Sword",	[15]	= "Mace",	[16]	= "Polearm",
+		[17]	= "Dagger",	[18]	= "Staff",	[19]	= "Wand",
+		[20]	= "Thrown",	[21]	= "Bow",	[22]	= "CrossBow",
+		[23]	= "Ammo",	[24]	= "Fist",	[25]	= "Gun",
+	}
+
 	-- Table to store scanned information. Wiped and re-used every scan.
 	local scan_data = {}
 
@@ -2137,7 +2162,6 @@ do
 		scan_data.match_name = name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
-		scan_data.recipe_found = false
 
 		local num_lines = ARLDatamineTT:NumLines()
 
@@ -2372,11 +2396,11 @@ do
 		-- If we've picked up at least one class flag
 		if ((scan_data.Deathknight) or (scan_data.Druid) or (scan_data.Hunter) or (scan_data.Mage) or (scan_data.Paladin) or (scan_data.Priest) or (scan_data.Shaman)
 		    or (scan_data.Warlock) or (scan_data.Warrior)) then
-			for k, v in pairs(CLASS_TYPES) do
-				if scan_data[k] and not flags[v] then
-					tinsert(missing_flags, tostring(v).." ("..k..")")
-				elseif not scan_data[k] and flags[v] then
-					tinsert(extra_flags, tostring(v).." ("..k..")")
+			for k, v in ipairs(ORDERED_CLASS_TYPES) do
+				if scan_data[v] and not flags[CLASS_TYPES[v]] then
+					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+				elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
+					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
 				end
 			end
 		else	-- Recipe is not class specific
@@ -2415,43 +2439,43 @@ do
 
 		-- BoP Recipe
 		if (scan_data.boprecipe) and (not flags[41]) then
-			tinsert(missing_flags, "41")
+			tinsert(missing_flags, "41 (BoP Recipe)")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
-				tinsert(extra_flags, "40")
+				tinsert(extra_flags, "40 (BoE Recipe)")
 			end
 			-- If it's a BoP recipe and flags BoA is set, mark it as extra
 
 			if (flags[42]) then
-				tinsert(extra_flags, "42")
+				tinsert(extra_flags, "42 (BoA Recipe)")
 			end
 			-- Not BoP recipe, assuming it's not BoA
 		elseif (not flags[40]) and (not scan_data.boprecipe) then
-			tinsert(missing_flags, "40")
+			tinsert(missing_flags, "40 (BoE Recipe)")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
-				tinsert(extra_flags, "41")
+				tinsert(extra_flags, "41 (BoP Recipe)")
 			end
 
 			-- If it's a BoE recipe and flags BoA is set, mark it as extra
 			if (flags[42]) then
-				tinsert(extra_flags, "42")
+				tinsert(extra_flags, "42 (BoA Recipe)")
 			end
 		end
 
-		for k, v in pairs(ROLE_TYPES) do
-			if scan_data[k] and not flags[v] then
-				tinsert(missing_flags, tostring(v).." ("..k..")")
-			elseif not scan_data[k] and flags[v] then
-				tinsert(extra_flags, tostring(v).." ("..k..")")
+		for k, v in ipairs(ORDERED_ROLE_TYPES) do
+			if scan_data[v] and not flags[ROLE_TYPES[v]] then
+				tinsert(missing_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
+			elseif not scan_data[v] and flags[ROLE_TYPES[v]] then
+				tinsert(extra_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
 			end
 		end
 
-		for k, v in pairs(ITEM_TYPES) do
-			if scan_data[k] and not flags[v] then
-				tinsert(missing_flags, tostring(v).." ("..k..")")
-			elseif not scan_data[k] and flags[v] then
-				tinsert(extra_flags, tostring(v).." ("..k..")")
+		for k, v in ipairs(ORDERED_ITEM_TYPES) do
+			if scan_data[v] and not flags[ITEM_TYPES[v]] then
+				tinsert(missing_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
+			elseif not scan_data[v] and flags[ITEM_TYPES[v]] then
+				tinsert(extra_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
 			end
 		end
 
@@ -2474,13 +2498,13 @@ do
 			end
 
 			if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
-				self:Print("No player type flag.")
+				self:Print("No player role flag.")
 			end
 
 			local count = 0
 
-			for k, v in pairs(ITEM_TYPES) do
-				if scan_data[k] then
+			for k, v in ipairs(ORDERED_ITEM_TYPES) do
+				if scan_data[v] then
 					count = count + 1
 				end
 			end
