@@ -1561,7 +1561,6 @@ do
 	-- @name AckisRecipeList:ScanSkillLevelData
 	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
-
 	function addon:ScanSkillLevelData(autoscan)
 		if (IsTradeskillTrainer()) then	-- Are we at a trade skill trainer?
 			local recipelist = LoadRecipe()	-- Get internal database
@@ -1616,15 +1615,14 @@ do
 		end
 	end
 
-	-------------------------------------------------------------------------------
+
+	local teach, noteach = {}, {}
+
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
 	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
-	--         Compares the acquire information of the ARL database with what is available on the trainer.
-	-------------------------------------------------------------------------------
-	local teach, noteach = {}, {}
-
+	-- Compares the acquire information of the ARL database with what is available on the trainer.
 	function addon:ScanTrainerData(autoscan)
 		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
 			local targetname = UnitName("target")	-- Get its name
@@ -1746,7 +1744,7 @@ do
 			end
 		end
 	end
-end	--do
+end
 
 --- Generates tradeskill links for all professions so you can scan them for completeness.
 -- @name AckisRecipeList:GenerateLinks
@@ -1827,7 +1825,7 @@ do
 
 	--- Parses all recipes for a specified profession, scanning their tool tips.
 	-- @name AckisRecipeList:ScanProfession
-	-- @param prof_name The profession name which you wish to scan.
+	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
 
