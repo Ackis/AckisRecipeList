@@ -99,7 +99,6 @@ local table = table
 local twipe = table.wipe
 local tremove = table.remove
 local tconcat = table.concat
-local tsort = table.sort
 local tinsert = table.insert
 
 local string = string
@@ -294,11 +293,8 @@ end
 
 function addon:OnEnable()
 
-	-- Make addon respond to the tradeskill windows being shown
-	self:RegisterEvent("TRADE_SKILL_SHOW")
-
-	-- Addon responds to tradeskill windows being closed.
-	self:RegisterEvent("TRADE_SKILL_CLOSE")
+	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
+	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 
 	if (addon.db.profile.scantrainers) then
 		self:RegisterEvent("TRAINER_SHOW")
@@ -448,27 +444,27 @@ do
 	local GetFactionInfo = GetFactionInfo
 	local CollapseFactionHeader = CollapseFactionHeader
 	local ExpandFactionHeader = ExpandFactionHeader
+	local rep_list = {}
 
 	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
-
 	function addon:GetFactionLevels(RepTable)
 
 		-- Bug here when I reload UI
 		if (not RepTable) then
 			return
 		end
-		local t = {}
+		twipe(rep_list)
 
 		-- Number of factions before we expand
 		local numfactions = GetNumFactions()
 
 		-- Lets expand all the headers
-		for i=numfactions,1,-1 do
+		for i = numfactions, 1, -1 do
 			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
 
 			if (isCollapsed) then
 				ExpandFactionHeader(i)
-				t[name] = true
+				rep_list[name] = true
 			end
 		end
 
@@ -476,8 +472,8 @@ do
 		numfactions = GetNumFactions()
 
 		-- Get the rep levels
-		for i=1,numfactions,1 do
-			local name,_,replevel = GetFactionInfo(i)
+		for i = 1, numfactions, 1 do
+			local name, _, replevel = GetFactionInfo(i)
 
 			-- If the rep is greater than neutral
 			if (replevel > 4) then
@@ -487,70 +483,12 @@ do
 		end
 
 		-- Collapse the headers again
-		for i=numfactions,1,-1 do
+		for i = numfactions, 1, -1 do
 			local name = GetFactionInfo(i)
 
-			if (t[name]) then
+			if (rep_list[name]) then
 				CollapseFactionHeader(i)
 			end
-		end
-
-	end
-
-end	-- do block
-
-do
-
-	local GetSpellName = GetSpellName
-	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-
-	-- Description: Scans first 25 spellbook slots to identify all applicable professions
-
-	function addon:GetKnownProfessions(ProfTable)
-
-		-- Reset the table, they may have unlearnt a profession
-		for i in pairs(ProfTable) do
-			ProfTable[i] = false
-		end
-
-		-- Scan through the spell book getting the spell names
-		for index=1,25,1 do
-
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			if (not spellName) or (index == 25) then
-				-- Nothing found
-				break
-			end
-			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
-				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(32606)] = true
-				else
-					ProfTable[spellName] = true
-				end
-			end
-		end
-
-	end
-
-	-- Description: Scans first 25 spellbook slots to identify which trade skill Specialty we have
-
-	function addon:GetTradeSpecialty(SpecialtyTable, playerData)
-
-		--Scan the first 25 entries
-		for index=1,25,1 do
-
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			-- Nothing found, return nothing
-			if (not spellName) or (index == 25) then
-				return ""
-			-- We have a match, return that spell name
-			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-				local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
-				return ID
-			end
-
 		end
 
 	end
@@ -1365,8 +1303,7 @@ do
 end
 
 -- Description: Creates an array of which factions we want to include in our display and which ones to ignore
-
-function addon:PopulateRepFilters(RepTable)
+local function PopulateRepFilters(RepTable)
 
 	local repfilters = addon.db.profile.filters.rep
 
@@ -1476,38 +1413,40 @@ end
 
 ]]--
 
--- Description: Determines which profession we are dealing with and loads up the recipe information for it.
-local function InitializeRecipes(RecipeDB, playerProfession)
-	-- Table of all possible professions with init functions
-	local professiontable = {
-		[GetSpellInfo(51304)] = addon.InitAlchemy,
-		[GetSpellInfo(51300)] = addon.InitBlacksmithing,
-		[GetSpellInfo(51296)] = addon.InitCooking,
-		[GetSpellInfo(51313)] = addon.InitEnchanting,
-		[GetSpellInfo(51306)] = addon.InitEngineering,
-		[GetSpellInfo(45542)] = addon.InitFirstAid,
-		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
-		["Premiers soins"] = addon.InitFirstAid,
-		[GetSpellInfo(51302)] = addon.InitLeatherworking,
-		[GetSpellInfo(32606)] = addon.InitSmelting,
-		[GetSpellInfo(51309)] = addon.InitTailoring,
-		[GetSpellInfo(51311)] = addon.InitJewelcrafting,
-		[GetSpellInfo(45363)] = addon.InitInscription,
-		[GetSpellInfo(53428)] = addon.InitRuneforging,
-	}
-	-- Check for player profession to fix some bugs with addons that interface with ARL
-	-- This source code is release under Public Domain
-	-- Thanks to sylvanaar/xinhuan for the code snippet
-	if (playerProfession) then
-		local a = professiontable[playerProfession]
+local InitializeRecipes
+do
+	local profession_table = {}	-- Table of all possible professions with init functions
 
-		if a then
-			return a(addon, RecipeDB)
-		else
-			addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
+	-- Description: Determines which profession we are dealing with and loads up the recipe information for it.
+	function InitializeRecipes(RecipeDB, playerProfession)
+		profession_table[GetSpellInfo(51304)] = addon.InitAlchemy
+		profession_table[GetSpellInfo(51300)] = addon.InitBlacksmithing
+		profession_table[GetSpellInfo(51296)] = addon.InitCooking
+		profession_table[GetSpellInfo(51313)] = addon.InitEnchanting
+		profession_table[GetSpellInfo(51306)] = addon.InitEngineering
+		profession_table[GetSpellInfo(45542)] = addon.InitFirstAid
+		profession_table["Premiers soins"] = addon.InitFirstAid			-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
+		profession_table[GetSpellInfo(51302)] = addon.InitLeatherworking
+		profession_table[GetSpellInfo(32606)] = addon.InitSmelting
+		profession_table[GetSpellInfo(51309)] = addon.InitTailoring
+		profession_table[GetSpellInfo(51311)] = addon.InitJewelcrafting
+		profession_table[GetSpellInfo(45363)] = addon.InitInscription
+		profession_table[GetSpellInfo(53428)] = addon.InitRuneforging
+
+		-- Check for player profession to fix some bugs with addons that interface with ARL
+		-- This source code is release under Public Domain
+		-- Thanks to sylvanaar/xinhuan for the code snippet
+		if (playerProfession) then
+			local a = profession_table[playerProfession]
+
+			if a then
+				return a(addon, RecipeDB)
+			else
+				addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
+			end
 		end
 	end
-end
+end	-- do
 
 -- Description: Determines what to do when the slash command is called.
 
@@ -1543,6 +1482,7 @@ do
 
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
+	local tsort = table.sort
 
 	local RecipeList = nil
 
@@ -1557,13 +1497,10 @@ do
 	local AllSpecialtiesTable = nil
 	local SpecialtyTable = nil
 
-	local playerData = nil
 
-	local tradewindowopened = false
-
-	-- Variables for getting the locations
-	local locationlist = {}
-	local locationchecklist = {}
+	-- Tables for getting the locations
+	local location_list = {}
+	local location_checklist = {}
 
 	-- Description: Determines all the locations a given recipe can be obtained
 
@@ -1571,132 +1508,178 @@ do
 		if not RecipeList or not RecipeList[SpellID] then
 			return ""
 		end
-		wipe(locationlist)
-		wipe(locationchecklist)
+		wipe(location_list)
+		wipe(location_checklist)
 
-		local recipeacquire = RecipeList[SpellID]["Acquire"]
+		local recipe_acquire = RecipeList[SpellID]["Acquire"]
 
-		for i in pairs(recipeacquire) do
+		for i in pairs(recipe_acquire) do
 
 			-- Trainer
-			if (recipeacquire[i]["Type"] == 1) then
+			if (recipe_acquire[i]["Type"] == 1) then
 				if (TrainerList) then
 					--@alpha@
-					if (not TrainerList[recipeacquire[i]["ID"]]) then
-						self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
+					if (not TrainerList[recipe_acquire[i]["ID"]]) then
+						self:Print("Missing trainer in database: " .. recipe_acquire[i]["ID"])
 						return
 					end
 					--@end-alpha@
-					local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
+					local location = TrainerList[recipe_acquire[i]["ID"]]["Location"]
+					if (not location_checklist[location]) then
 						-- Add the location to the list
-						tinsert(locationlist,location)
-						locationchecklist[location] = true
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
 				end
 				-- Vendor
-			elseif (recipeacquire[i]["Type"] == 2) then
+			elseif (recipe_acquire[i]["Type"] == 2) then
 				if (VendorList) then
 					--@alpha@
-					if (not VendorList[recipeacquire[i]["ID"]]) then
-						self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
+					if (not VendorList[recipe_acquire[i]["ID"]]) then
+						self:Print("Missing vendor in database: " .. recipe_acquire[i]["ID"])
 					end
 					--@end-alpha@
-					local location = VendorList[recipeacquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
+					local location = VendorList[recipe_acquire[i]["ID"]]["Location"]
+					if (not location_checklist[location]) then
 						-- Add the location to the list
-						tinsert(locationlist,location)
-						locationchecklist[location] = true
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
 				end
 				-- Mob Drop
-			elseif (recipeacquire[i]["Type"] == 3) then
+			elseif (recipe_acquire[i]["Type"] == 3) then
 				if (MobList) then
 					--@alpha@
-					if (not MobList[recipeacquire[i]["ID"]]) then
-						self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
+					if (not MobList[recipe_acquire[i]["ID"]]) then
+						self:Print("Missing mob in database: " .. recipe_acquire[i]["ID"])
 					end
 					--@end-alpha@
-					local location = MobList[recipeacquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
+					local location = MobList[recipe_acquire[i]["ID"]]["Location"]
+					if (not location_checklist[location]) then
 						-- Add the location to the list
-						tinsert(locationlist,location)
-						locationchecklist[location] = true
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
 				end
 				-- Quest
-			elseif (recipeacquire[i]["Type"] == 4) then
+			elseif (recipe_acquire[i]["Type"] == 4) then
 				if (QuestList) then
 					--@alpha@
-					if (not QuestList[recipeacquire[i]["ID"]]) then
-						self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
+					if (not QuestList[recipe_acquire[i]["ID"]]) then
+						self:Print("Missing quest in database: " .. recipe_acquire[i]["ID"])
 					end
 					--@end-alpha@
-					local location = QuestList[recipeacquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
+					local location = QuestList[recipe_acquire[i]["ID"]]["Location"]
+					if (not location_checklist[location]) then
 						-- Add the location to the list
-						tinsert(locationlist,location)
-						locationchecklist[location] = true
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
 				end
 				-- World Drop
-			elseif (recipeacquire[i]["Type"] == 7) then
+			elseif (recipe_acquire[i]["Type"] == 7) then
 				local location = L["World Drop"]
-				if (not locationchecklist[location]) then
+				if (not location_checklist[location]) then
 					-- Add the location to the list
-					tinsert(locationlist,location)
-					locationchecklist[location] = true
+					tinsert(location_list, location)
+					location_checklist[location] = true
 				end
 			end
 		end
 
 		-- Sort the list by the name
-		tsort(locationlist, function(a, b) return a < b end)
+		tsort(location_list, function(a, b) return a < b end)
 
 		-- Return the list as a string
-		if (#locationlist == 0)then
+		if (#location_list == 0)then
 			return ""
 		else
-			return tconcat(locationlist,",")
+			return tconcat(location_list, ",")
 		end
 	end
 
 	-- Description: Toggles the flag that a trade window is opened
+	local TRADE_WINDOW_OPENED = false
+
 	function addon:OpenTradeWindow()
-		tradewindowopened = true
+		TRADE_WINDOW_OPENED = true
 	end
 
 	-- Description: Toggles the flag that a trade window is opened
 
 	function addon:CloseTradeWindow()
-		tradewindowopened = false
+		TRADE_WINDOW_OPENED = false
 	end
 
-	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
+	-------------------------------------------------------------------------------
+	-- Upvalued globals
+	-------------------------------------------------------------------------------
+	local GetSpellName = GetSpellName
+	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
-	function addon:SetRepDB()
+	-------------------------------------------------------------------------------
+	-- Description: Scans first 25 spellbook slots to identify all applicable professions
+	-------------------------------------------------------------------------------
+	local function GetKnownProfessions(ProfTable)
+		-- Reset the table, they may have unlearnt a profession
+		for i in pairs(ProfTable) do
+			ProfTable[i] = false
+		end
 
-		if (playerData and playerData["Reputation"]) then
-			self:GetFactionLevels(playerData["Reputation"])
+		-- Scan through the spell book getting the spell names
+		for index=1,25,1 do
+
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			if (not spellName) or (index == 25) then
+				-- Nothing found
+				break
+			end
+			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+				if spellName == GetSpellInfo(2656) then
+					ProfTable[GetSpellInfo(32606)] = true
+				else
+					ProfTable[spellName] = true
+				end
+			end
 		end
 
 	end
 
-	-- Description: Initializes and adds data relavent to the player character
+	-------------------------------------------------------------------------------
+	-- Scans first 25 spellbook slots to identify which trade skill Specialty we have
+	-------------------------------------------------------------------------------
+	local function GetTradeSpecialty(SpecialtyTable, playerData)
+		--Scan the first 25 entries
+		for index = 1, 25, 1 do
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			-- Nothing found, return nothing
+			if (not spellName) or (index == 25) then
+				return ""
+			-- We have a match, return that spell name
+			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
+				local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
+				return ID
+			end
+		end
+	end
+
+	-------------------------------------------------------------------------------
+	-- Initializes and adds data relavent to the player character
+	-------------------------------------------------------------------------------
+	local playerData = {}
 
 	local function InitPlayerData()
+		local _, cls = UnitClass("player")
 
-		local pData = {}
+		playerData.playerFaction = UnitFactionGroup("player")
+		playerData.playerClass = cls
+		playerData["Reputation"] = {}
 
-		pData.playerFaction = UnitFactionGroup("player")
-		local _
-		_, pData.playerClass = UnitClass("player")
+		addon:GetFactionLevels(playerData["Reputation"])
 
-		pData["Reputation"] = {}
-
-		addon:GetFactionLevels(pData["Reputation"])
-
-		pData["Professions"] = {
+		playerData["Professions"] = {
 			[GetSpellInfo(51304)] = false, -- Alchemy
 			[GetSpellInfo(51300)] = false, -- Blacksmithing
 			[GetSpellInfo(51296)] = false, -- Cooking
@@ -1711,8 +1694,7 @@ do
 			[GetSpellInfo(45363)] = false, -- Inscription
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
-
-		addon:GetKnownProfessions(pData["Professions"])
+		GetKnownProfessions(playerData["Professions"])
 
 		-- All Alchemy Specialties
 		local AlchemySpec = {
@@ -1767,13 +1749,18 @@ do
 		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+	end
 
-		return pData
+	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
+	function addon:SetRepDB()
+
+		if (playerData and playerData["Reputation"]) then
+			self:GetFactionLevels(playerData["Reputation"])
+		end
 
 	end
 
 	-- Description: Initalizes all the recipe databases to their initial
-
 	local function InitDatabases()
 
 		-- Initializes the custom list
@@ -1841,14 +1828,14 @@ do
 	function addon:AckisRecipeList_Command(textdump)
 
 		-- If we don't have a trade skill window open, lets return out of here
-		if (not tradewindowopened) then
+		if (not TRADE_WINDOW_OPENED) then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		-- Trade type skills
 		else
 			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
-			if (playerData == nil) then
-				playerData = InitPlayerData()
+			if not playerData.playerClass then
+				InitPlayerData()
 			end
 			-- Lets create all the databases needed if this is the first time everything has been run.
 			if (RecipeList == nil) then
@@ -1858,14 +1845,14 @@ do
 			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
 
 			-- Get the current profession Specialty
-			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
+			playerData.playerSpecialty = GetTradeSpecialty(SpecialtyTable, playerData)
 
 			-- Add the recipes to the database
 			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
 			-- Scan all recipes and mark the ones which ones we know
 			self:ScanForKnownRecipes(RecipeList, playerData)
 			-- Update the table containing which reps to display
-			self:PopulateRepFilters(RepFilters)
+			PopulateRepFilters(RepFilters)
 			-- Add filtering flags to the recipes
 			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
@@ -1957,94 +1944,13 @@ end
 
 --[[
 
-	Sorting Functions
-
-]]--
-
-do
-	-- Sorting functions
-	local sortFuncs = nil
-
-	-- Create a new array for the sorted index
-	local SortedRecipeIndex = {}
-
-	-- Description: Sorts the recipe Database depending on the settings defined in the database.
-	function addon:SortMissingRecipes(RecipeDB)
-		if (not sortFuncs) then
-			sortFuncs = {}
-			sortFuncs["SkillAsc"] = function(a, b)
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
-				end
-			end
-
-			sortFuncs["SkillDesc"] = function(a, b)
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
-				end
-			end
-
-			sortFuncs["Name"] = function(a, b)
-				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-			end
-
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Acquisition"] = function (a, b)
-				local reca = RecipeDB[a]["Acquire"][1]
-				local recb = RecipeDB[b]["Acquire"][1]
-				if (reca and recb) then
-					if (reca["Type"] == recb["Type"]) then
-						return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-					else
-						return reca["Type"] < recb["Type"]
-					end
-				else
-					return not not reca
-				end
-			end
-
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Location"] = function (a, b)
-				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = RecipeDB[a]["Locations"] or ""
-				local recb = RecipeDB[b]["Locations"] or ""
-				reca = smatch(reca,"(%w+),") or ""
-				recb = smatch(recb,"(%w+),") or ""
-				if (reca == recb) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return (reca < recb)
-				end
-			end
-		end
-		twipe(SortedRecipeIndex)
-
-		-- Get all the indexes of the RecipeListing
-		for n, v in pairs(RecipeDB) do
-			tinsert(SortedRecipeIndex, n)
-		end
-
-		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
-
-		return SortedRecipeIndex
-
-	end
-
-end
-
---[[
-
 	Recipe Exclusion Functions
 
 --]]
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
 
-function addon:GetExclusions(RecipeDB,prof)
+function addon:GetExclusions(RecipeDB, prof)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
@@ -2071,9 +1977,7 @@ function addon:GetExclusions(RecipeDB,prof)
 		end
 
 	end
-
 	return countknown, countunknown
-
 end
 
 -- Description: Removes or adds a recipe to the exclusion list.
