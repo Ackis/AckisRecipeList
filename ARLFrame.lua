@@ -1302,6 +1302,82 @@ function addon:ResetGUI()
 
 end
 
+
+
+-------------------------------------------------------------------------------
+-- Sorts the recipe Database depending on the settings defined in the database.
+-------------------------------------------------------------------------------
+local SortMissingRecipes
+do
+	local tsort = table.sort
+
+	local sortFuncs = nil		-- Sorting functions
+	local SortedRecipeIndex = {}	-- Create a new array for the sorted index
+
+	function SortMissingRecipes(RecipeDB)
+		if (not sortFuncs) then
+			sortFuncs = {}
+			sortFuncs["SkillAsc"] = function(a, b)
+				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+				end
+			end
+
+			sortFuncs["SkillDesc"] = function(a, b)
+				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
+				end
+			end
+
+			sortFuncs["Name"] = function(a, b)
+				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Acquisition"] = function (a, b)
+				local reca = RecipeDB[a]["Acquire"][1]
+				local recb = RecipeDB[b]["Acquire"][1]
+				if (reca and recb) then
+					if (reca["Type"] == recb["Type"]) then
+						return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+					else
+						return reca["Type"] < recb["Type"]
+					end
+				else
+					return not not reca
+				end
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Location"] = function (a, b)
+				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+				local reca = RecipeDB[a]["Locations"] or ""
+				local recb = RecipeDB[b]["Locations"] or ""
+				reca = smatch(reca,"(%w+),") or ""
+				recb = smatch(recb,"(%w+),") or ""
+				if (reca == recb) then
+					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				else
+					return (reca < recb)
+				end
+			end
+		end
+		twipe(SortedRecipeIndex)
+
+		-- Get all the indexes of the RecipeListing
+		for n, v in pairs(RecipeDB) do
+			tinsert(SortedRecipeIndex, n)
+		end
+		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
+
+		return SortedRecipeIndex
+	end
+end
+
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
@@ -1309,9 +1385,8 @@ end
 -- Description: 
 
 local function ReDisplay()
-
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
-	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
+	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
 
@@ -4838,7 +4913,7 @@ function addon:DisplayFrame(
 
 	-- Acquire the list, then sort it
 	recipeDB = self:GetRecipeTable()
-	sortedRecipeIndex = self:SortMissingRecipes(recipeDB)
+	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
@@ -4855,7 +4930,6 @@ function addon:DisplayFrame(
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
 end
-
 
 -- Description: Creates a new frame with the contents of a text dump so you can copy and paste
 -- Expected result: New frame with all recipes listed and acquire info
