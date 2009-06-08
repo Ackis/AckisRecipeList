@@ -42,7 +42,7 @@ local table, string = table, string
 local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
 local strlower, strmatch = string.lower, string.match
 local gsub = string.gsub
-local tonumber = tonumber
+local tonumber, tostring = tonumber, tostring
 local ipairs, pairs = ipairs, pairs
 
 -------------------------------------------------------------------------------
@@ -2176,6 +2176,7 @@ do
 		scan_data.match_name = name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
+		scan_data.is_vendor = is_vendor
 
 		-- Parse all the lines of the tooltip
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -2374,7 +2375,7 @@ do
 			self:Print(GetSpellInfo(scan_data.specialty))
 		end
 
-		if is_vendor then
+		if scan_data.is_vendor then
 			if (not flags[4]) then
 				tinsert(missing_flags, "4 (Vendor)")
 			end
