@@ -1566,6 +1566,7 @@ do
 	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 	function addon:ScanSkillLevelData(autoscan)
+
 		if (IsTradeskillTrainer()) then	-- Are we at a trade skill trainer?
 			local recipelist = LoadRecipe()	-- Get internal database
 
@@ -2009,6 +2010,7 @@ function addon:TooltipScanRecipe(spellid)
 
 		-- If a link exists, we'll scan it.
 		if (link) then
+
 			-- Load the tooltip
 			ARLDatamineTT:SetHyperlink(link)
 

@@ -363,8 +363,8 @@ end
 
 function addon:TRAINER_SHOW()
 
-	self:ScanTrainerData(true)
 	self:ScanSkillLevelData(true)
+	self:ScanTrainerData(true)
 
 end
 
