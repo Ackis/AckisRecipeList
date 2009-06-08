@@ -1877,7 +1877,7 @@ do
 
 			if link then
 				ARLDatamineTT:SetHyperlink(link)
-				self:ScanToolTip(name, recipe_list, reverse_lookup, false)
+				self:ScanToolTip(name, recipe_list, reverse_lookup, false, false)
 				self:PrintScanResults()
 			else
 				self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
@@ -1911,7 +1911,7 @@ function addon:ScanVendor()
 		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name, recipelist, reverse_lookup, true)
+			self:ScanToolTip(name, recipelist, reverse_lookup, true, false)
 			self:PrintScanResults()
 		end
 		ARLDatamineTT:Hide()
@@ -1945,7 +1945,7 @@ function addon:TooltipScanDatabase()
 
 		if link then
 			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name, recipelist, reverse_lookup,false)
+			self:ScanToolTip(name, recipelist, reverse_lookup, false, false)
 			self:PrintScanResults()
 		else
 			self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
@@ -1982,9 +1982,9 @@ local recipenames = {
 	["tailoring: "] = true,
 }
 
---- Parses a specific recipe in the database, and scanning its tooltips.
--- @name AckisRecipeList:TooltipScanDatabase
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
+--- Parses a specific recipe in the database, and scanning its tooltip.
+-- @name AckisRecipeList:TooltipScanRecipe
+-- @param spellid The [[http://www.wowwiki.com/SpellLink Spell ID]] of the recipe being added to the database.
 -- @return Recipe has its tooltips scanned.
 function addon:TooltipScanRecipe(spellid)
 
@@ -2019,16 +2019,16 @@ function addon:TooltipScanRecipe(spellid)
 			-- Check to see if we're dealing with a recipe
 			if (recipenames[matchtext]) then
 				-- Scan the recipe
-				self:ScanToolTip(name, recipelist, reverse_lookup, false)
-				self:PrintScanResults()
+				self:ScanToolTip(name, recipelist, reverse_lookup, false, false)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				if (spellitem[spellid]) then
 					self:Print(spellitem[spellid])
 					ARLDatamineTT:SetHyperlink("item:" .. spellitem[spellid] .. ":0:0:0:0:0:0:0")
-					self:ScanToolTip(name,recipelist,reverse_lookup,false)		
-					self:PrintScanResults()
+					self:ScanToolTip(name, recipelist, reverse_lookup, false, true)
 				end
+
+				self:PrintScanResults()
 
 			end
 
@@ -2176,12 +2176,17 @@ do
 	-- @param recipe_list Recipe database
 	-- @param reverse_lookup Reverse lookup database
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor.
+	-- @param is_item Boolean to indicate if we're scanning an item tooltip.
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
-	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
+	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
 
 		local matchtext
 
-		twipe(scan_data)
+		-- We only want to wipe the table if we're scanning a net new entry (not an item associated with a spell ID)
+		if (not is_item) then
+			twipe(scan_data)
+		end
+
 		scan_data.match_name = name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
