@@ -1479,6 +1479,7 @@ local spellitem = {
 	}
 	
 local function LoadRecipe()
+
 	local recipelist = addon:GetRecipeTable()
 
 	if (not recipelist) then
@@ -1522,6 +1523,7 @@ local function LoadRecipe()
 		end
 	end
 	return recipelist
+
 end
 
 -------------------------------------------------------------------------------
@@ -1546,7 +1548,8 @@ do
 
 		return reverse_lookup
 	end
-end	-- do
+
+end
 
 -------------------------------------------------------------------------------
 -- Tooltip for data-mining.
@@ -2046,6 +2049,7 @@ end
 -- Tooltip-scanning code
 -------------------------------------------------------------------------------
 do
+
 	local SPECIALTY_TEXT = {
 		["requires spellfire tailoring"] = 26797,
 		["requires mooncloth tailoring"] = 26798,
@@ -2168,8 +2172,13 @@ do
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags.
 	-- @name AckisRecipeList:ScanToolTip
+	-- @param name The name of the recipe
+	-- @param recipe_list Recipe database
+	-- @param reverse_lookup Reverse lookup database
+	-- @param is_vendor Boolean to indicate if we're scanning a vendor.
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
 	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
+
 		local matchtext
 
 		twipe(scan_data)
@@ -2359,12 +2368,15 @@ do
 	local missing_flags = {}
 	local extra_flags = {}
 
+	--- Prints out the results of the tooltip scan.
+	-- @name AckisRecipeList:PrintScanResults
 	function addon:PrintScanResults()
+
 		-- Parse the recipe database until we get a match on the name
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
 		local spellid = scan_data.reverse_lookup[recipe_name]
 
-		if not spellid then
+		if (not spellid) then
 			self:Print("Recipe "..recipe_name.." has no reverse lookup")
 		end
 
@@ -2514,5 +2526,7 @@ do
 				self:Print("Extra: item type flag")
 			end
 		end
+
 	end
-end	-- do
+
+end
