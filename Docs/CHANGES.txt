@@ -1,5 +1,7 @@
 ==ARL Changes
 
+===RC10
+
 ===RC9
 *Optimized the database by removing many duplicate trainer/vendor entries
 *Updated code to detect duplicate trainer entries during a scan (only alpha/svn versions)
@@ -15,6 +17,7 @@
 *Recipes which are only obtainable from a quest available only to the opposing faction will now display this fact. 
 *Code optimization.
 *Lunar Festival Recipes updated
+*Added in tooltip scanning for the dataminer.
 
 ===RC8
 *Fixed a bug when you did a scan, the drop down menus for the profession would change text to something non-existant.
