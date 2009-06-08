@@ -732,7 +732,7 @@ function addon:InitCooking(RecipeDB)
 	-- Kungaloosh -- 53056
 	self:addTradeSkill(RecipeDB,53056,375,39520,1,2550)
 	self:addTradeFlags(RecipeDB,53056,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53056,4,12645,8,36)
+	self:addTradeAcquire(RecipeDB,53056,4,13571,8,36)
 
 	-- Fish Feast -- 57423
 	self:addTradeSkill(RecipeDB,57423,450,43015,1,2550)
