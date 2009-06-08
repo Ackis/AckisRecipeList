@@ -2182,19 +2182,13 @@ do
 	-- @param is_item Boolean to indicate if we're scanning an item tooltip.
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
 	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
-
-		local matchtext
-
-		-- We only want to wipe the table if we're scanning a net new entry (not an item associated with a spell ID)
+		-- We only want to wipe the table if we're scanning a new entry (not an item associated with a spell ID)
 		if (not is_item) then
 			twipe(scan_data)
 		end
-
 		scan_data.match_name = name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
-
-		local num_lines = ARLDatamineTT:NumLines()
 
 		-- Parse all the lines of the tooltip
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -2225,7 +2219,7 @@ do
 
 			-- Recipe Reputatons
 			if (strmatch(text, "Requires (.+) %- (.+)")) then
-				local rep,replevel = strmatch(text, "Requires (.+) %- (.+)")
+				local rep, replevel = strmatch(text, "Requires (.+) %- (.+)")
 				if (FACTION_TEXT[rep]) then
 					scan_data.repid = FACTION_TEXT[rep]
 					scan_data.repidlevel = FACTION_LEVELS[replevel]
@@ -2248,15 +2242,12 @@ do
 			elseif (strmatch(text, "spell crit")) then
 				scan_data.caster = true
 				scan_data.healer = true
-				-- scan_data.dps scan_data.caster Stats
 			elseif (strmatch(text, "spell hit")) then
 				scan_data.caster = true
 			elseif (strmatch(text, "spell penetration")) then
 				scan_data.caster = true
-				-- scan_data.healer Stats
 			elseif (strmatch(text, "mana every 5 seconds")) then
 				scan_data.healer = true
-				-- Melee scan_data.dps Stats
 			elseif (strmatch(text, "attack power")) then
 				scan_data.dps = true
 			elseif (strmatch(text, "expertise")) then
@@ -2396,12 +2387,11 @@ do
 			self:Print(GetSpellInfo(scan_data.specialty))
 		end
 
-		if scan_data.is_vendor then
-			-- Vendor Flag
+		if is_vendor then
 			if (not flags[4]) then
 				tinsert(missing_flags, "4 (Vendor)")
 			end
-			-- PVP Flag
+
 			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
 				tinsert(missing_flags, "9 (PvP)")
 			elseif (flags[9]) then
@@ -2432,27 +2422,27 @@ do
 
 		-- BoP Item
 		if (scan_data.bopitem) and (not flags[37]) then
-			tinsert(missing_flags, "37")
+			tinsert(missing_flags, "37 (BoP Item)")
 			-- If it's a BoP item and flags BoE is set, mark it as extra
 			if (flags[36]) then
-				tinsert(extra_flags, "36")
+				tinsert(extra_flags, "36 (BoE Item)")
 			end
 
 			-- If it's a BoP item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extra_flags, "38")
+				tinsert(extra_flags, "38 (BoA Item)")
 			end
 			-- BoE Item, assuming it's not BoA
 		elseif (not flags[36]) and (not scan_data.bopitem) then
-			tinsert(missing_flags, "36")
+			tinsert(missing_flags, "36 (BoE Item)")
 			-- If it's a BoE item and flags BoP is set, mark it as extra
 			if (flags[37]) then
-				tinsert(extra_flags, "37")
+				tinsert(extra_flags, "37 (BoP Item)")
 			end
 
 			-- If it's a BoE item and flags BoA is set, mark it as extra
 			if (flags[38]) then
-				tinsert(extra_flags, "38")
+				tinsert(extra_flags, "38 (BoA Item)")
 			end
 		end
 
