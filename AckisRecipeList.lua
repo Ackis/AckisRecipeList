@@ -148,6 +148,7 @@ function addon:OnInitialize()
 			worldmap = true,
 			autoscanmap = false,
 			scantrainers = false,
+			scanvendors = false,
 			autoloaddb = false,
 
 			-- Recipe Exclusion
@@ -300,6 +301,10 @@ function addon:OnEnable()
 		self:RegisterEvent("TRAINER_SHOW")
 	end
 
+	if (addon.db.profile.scanvendors) then
+		self:RegisterEvent("MERCHANT_SHOW")
+	end
+
 	-- Add an option so that ARL will work with Manufac
 	if (Manufac) then
 		Manufac.options.args.ARLScan = {
@@ -360,6 +365,12 @@ function addon:TRAINER_SHOW()
 
 	self:ScanTrainerData(true)
 	self:ScanSkillLevelData(true)
+
+end
+
+function addon:MERCHANT_SHOW()
+
+	addon:ScanVendor()
 
 end
 

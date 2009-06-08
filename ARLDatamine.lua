@@ -1530,6 +1530,7 @@ end
 -- Creates a reverse lookup for a recipe list
 -------------------------------------------------------------------------------
 local CreateReverseLookup
+
 do
 	local reverse_lookup = {}
 

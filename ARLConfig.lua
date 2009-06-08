@@ -1299,8 +1299,38 @@ local function giveDatamine()
 					desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
 					func	= function() addon:ScanTrainerData() end,
 				},
+				scanentiredatabase = {
+					order	= 77,
+					type	= "execute",
+					name	= L["Scan Entire Database"],
+					desc	= L["SCAN_ENTIRE_DB_DESC"],
+					func	= function() addon:TooltipScanDatabase() end,
+				},
+				scanvendor = {
+					order	= 78,
+					type	= "execute",
+					name	= L["Scan Vendor"],
+					desc	= L["SCAN_VENDOR_DESC"],
+					func	= function() addon:ScanVendor() end,
+				},
+				scanprofessiontooltip = {
+					type = "input",
+					name = L["Scan Professions"],
+					desc = L["SCAN_PROF_DB_DESC"],
+					get = false,
+					set = function(info, v) addon:ScanProfession(v) end,
+					order = 79,
+				},
+				scanspellid = {
+					type = "input",
+					name = L["Scan Spell ID"],
+					desc = L["SCAN_SPELL_ID_DESC"],
+					get = false,
+					set = function(info, v) addon:TooltipScanRecipe(v) end,
+					order = 80,
+				},
 				scantrainers = {
-					order	= 80,
+					order	= 90,
 					type	= "toggle",
 					name	= L["Auto Scan Trainers"],
 					desc	= L["AUTOSCAN_TRAINERS_DESC"],
@@ -1314,8 +1344,23 @@ local function giveDatamine()
 									addon.db.profile.scantrainers = not addon.db.profile.scantrainers
 								end,
 				},
+				scanvendors = {
+					order	= 91,
+					type	= "toggle",
+					name	= L["Auto Scan Vendors"],
+					desc	= L["AUTOSCAN_VENDORS_DESC"],
+					get		= function() return addon.db.profile.scanvendors end,
+					set		= function()
+									if (addon.db.profile.scanvendors) then
+										addon:UnregisterEvent("MERCHANT_SHOW")
+									else
+										addon:RegisterEvent("MERCHANT_SHOW")
+									end
+									addon.db.profile.scanvendors = not addon.db.profile.scanvendors
+								end,
+				},
 				autoloaddb = {
-					order	= 81,
+					order	= 100,
 					type	= "toggle",
 					name	= L["Auto Load Recipe Database"],
 					desc	= L["AUTOLOAD_DB_DESC"],
