@@ -1524,23 +1524,33 @@ local function LoadRecipe()
 	return recipelist
 end
 
-local function CreateReverseLookup(recipelist)
-	if (not recipelist) then
-		addon:Print(L["DATAMINER_NODB_ERROR"])
-		return
+-------------------------------------------------------------------------------
+-- Creates a reverse lookup for a recipe list
+-------------------------------------------------------------------------------
+local CreateReverseLookup
+do
+	local reverse_lookup = {}
+
+	function CreateReverseLookup(recipe_list)
+		if (not recipe_list) then
+			addon:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+
+		twipe(reverse_lookup)
+
+		for i in pairs(recipe_list) do
+			--if t[recipe_list[i]["Name"]] then addon:Print("Dupe: " .. i) end
+			reverse_lookup[recipe_list[i]["Name"]] = i
+		end
+
+		return reverse_lookup
 	end
+end	-- do
 
-	local t = {}
-
-	for i in pairs(recipelist) do
-		--if t[recipelist[i]["Name"]] then addon:Print("Dupe: " .. i) end
-		t[recipelist[i]["Name"]] = i
-	end
-
-	return t
-
-end
-
+-------------------------------------------------------------------------------
+-- Tooltip for data-mining.
+-------------------------------------------------------------------------------
 local ARLDatamineTT = CreateFrame("GameTooltip", "ARLDatamineTT", UIParent, "GameTooltipTemplate")
 
 do
@@ -1613,6 +1623,8 @@ do
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
 	--         Compares the acquire information of the ARL database with what is available on the trainer.
 	-------------------------------------------------------------------------------
+	local teach, noteach = {}, {}
+
 	function addon:ScanTrainerData(autoscan)
 		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
 			local targetname = UnitName("target")	-- Get its name
@@ -1646,13 +1658,13 @@ do
 					local name = GetTrainerServiceInfo(i)
 					info[name] = true
 				end
+				twipe(teach)
+				twipe(noteach)
 				twipe(output)
 
 				-- Dump out trainer info
 				tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 
-				local teach = {}
-				local noteach = {}
 				local teachflag = false
 				local noteachflag = false
 
@@ -1873,7 +1885,7 @@ do
 		ARLDatamineTT:Hide()
 	end
 
-end
+end	-- do
 
 --- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
@@ -2160,7 +2172,6 @@ do
 	-- @name AckisRecipeList:ScanToolTip
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
 	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
-		local confirmed_role = false
 		local matchtext
 
 		twipe(scan_data)
@@ -2207,105 +2218,92 @@ do
 			end
 
 			-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-			-- confirmed_role will be toggled to true when we get to a stat that is specific to that class
 			if (strmatch(text, "strength")) then
 				scan_data.tank = true
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "agility")) then
 				scan_data.tank = true
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "spirit")) then
 				scan_data.caster = true
 				scan_data.healer = true
-				confirmed_role = true
 			elseif (strmatch(text, "spell power")) then
 				scan_data.caster = true
 				scan_data.healer = true
-				confirmed_role = true
 			elseif (strmatch(text, "spell crit")) then
 				scan_data.caster = true
 				scan_data.healer = true
-				confirmed_role = true
 				-- scan_data.dps scan_data.caster Stats
 			elseif (strmatch(text, "spell hit")) then
 				scan_data.caster = true
-				confirmed_role = true
 			elseif (strmatch(text, "spell penetration")) then
 				scan_data.caster = true
-				confirmed_role = true
 				-- scan_data.healer Stats
 			elseif (strmatch(text, "mana every 5 seconds")) then
 				scan_data.healer = true
-				confirmed_role = true
 				-- Melee scan_data.dps Stats
 			elseif (strmatch(text, "attack power")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "expertise")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "melee crit")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "ranged crit")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "melee haste")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "ranged haste")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "melee hit")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "ranged hit")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "armor pen")) then
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "feral attack")) then
 				scan_data.tank = true
 				scan_data.dps = true
-				confirmed_role = true
 			elseif (strmatch(text, "defense")) then
 				scan_data.tank = true
-				confirmed_role = true
 			elseif (strmatch(text, "block")) then
 				scan_data.tank = true
-				confirmed_role = true
 			elseif (strmatch(text, "parry")) then
 				scan_data.tank = true
-				confirmed_role = true
 			elseif (strmatch(text, "dodge")) then
 				scan_data.tank = true
-				confirmed_role = true
 			end
 
 			-- Classes
 			if (strmatch(text, "death knight")) then
 				scan_data.Deathknight = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "druid")) then
 				scan_data.Druid = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "hunter")) then
 				scan_data.Hunter = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "mage")) then
 				scan_data.Mage = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "paladin")) then
 				scan_data.Paladin = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "priest")) then
 				scan_data.Priest = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "rogue")) then
 				scan_data.Rogue = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "shaman")) then
 				scan_data.Shaman = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "warlock")) then
 				scan_data.Warlock = true
+				scan_data.found_class = true
 			elseif (strmatch(text, "warrior")) then
 				scan_data.Warrior = true
+				scan_data.found_class = true
 				-- Armor types
 			elseif (strmatch(text, "cloth")) then
 				scan_data.Cloth = true
@@ -2383,13 +2381,13 @@ do
 		if scan_data.is_vendor then
 			-- Vendor Flag
 			if (not flags[4]) then
-				tinsert(missing_flags,"4")
+				tinsert(missing_flags, "4 (Vendor)")
 			end
 			-- PVP Flag
 			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
-				tinsert(missing_flags, "9")
+				tinsert(missing_flags, "9 (PvP)")
 			elseif (flags[9]) then
-				tinsert(extra_flags, "9")
+				tinsert(extra_flags, "9 (PvP)")
 			end
 		end
 
@@ -2397,10 +2395,8 @@ do
 			scan_data.boprecipe = true
 		end
 
-		-- Classes
 		-- If we've picked up at least one class flag
-		if ((scan_data.Deathknight) or (scan_data.Druid) or (scan_data.Hunter) or (scan_data.Mage) or (scan_data.Paladin) or (scan_data.Priest) or (scan_data.Shaman)
-		    or (scan_data.Warlock) or (scan_data.Warrior)) then
+		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not flags[CLASS_TYPES[v]] then
 					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
@@ -2409,9 +2405,9 @@ do
 				end
 			end
 		else	-- Recipe is not class specific
-			for i = 21, 30 do
-				if not flags[i] then
-					tinsert(missing_flags, tostring(i).." (Class)")
+			for k, v in ipairs(ORDERED_CLASS_TYPES) do
+				if flags[CLASS_TYPES[v]] then
+					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
 				end
 			end
 		end
