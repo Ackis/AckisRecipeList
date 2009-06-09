@@ -1811,12 +1811,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Knothide Quiver -- 44344
 	self:addTradeSkill(RecipeDB,44344,315,34100,2,2108)
-	self:addTradeFlags(RecipeDB,44344,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
+	self:addTradeFlags(RecipeDB,44344,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,44344,3,22143,3,22144,3,22148,3,23022)
 
 	-- Quiver of a Thousand Feathers -- 44359
 	self:addTradeSkill(RecipeDB,44359,350,34105,1,2108)
-	self:addTradeFlags(RecipeDB,44359,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,107)
+	self:addTradeFlags(RecipeDB,44359,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,107)
 	self:addTradeAcquire(RecipeDB,44359,6,1011,3,21655)
 
 	-- Netherscale Ammo Pouch -- 44768

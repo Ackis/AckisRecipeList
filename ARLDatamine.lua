@@ -2299,9 +2299,10 @@ do
 				scan_data.Warrior = true
 				scan_data.found_class = true
 				-- Armor types
-			elseif (strmatch(text, "cloth")) then
+			-- Check the end of the item for cloth and leather because we can craft something with those items in it
+			elseif (strmatch(text, "cloth$")) then
 				scan_data.Cloth = true
-			elseif (strmatch(text, "leather")) then
+			elseif (strmatch(text, "leather$")) then
 				scan_data.Leather = true
 			elseif (strmatch(text, "mail")) then
 				scan_data.Mail = true
