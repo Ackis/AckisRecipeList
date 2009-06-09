@@ -536,10 +536,13 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	local profession_id = GetSpellInfo(Profession)
 	local recipe_name = GetSpellInfo(SpellID)
 
+	--@alpha@
 	if RecipeDB[SpellID] then
 		self:Print("Duplicate recipe: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
 		return
 	end
+	--@end-alpha@
+
 	-------------------------------------------------------------------------------
 	-- Create a table inside the RecipeListing table which stores all information
 	-- about a recipe
@@ -1534,12 +1537,12 @@ do
 			-- Trainer
 			if (recipe_acquire[i]["Type"] == 1) then
 				if (TrainerList) then
-					--@alpha@
 					if (not TrainerList[recipe_acquire[i]["ID"]]) then
+						--@alpha@
 						self:Print("Missing trainer in database: " .. recipe_acquire[i]["ID"])
+						--@end-alpha@
 						return
 					end
-					--@end-alpha@
 					local location = TrainerList[recipe_acquire[i]["ID"]]["Location"]
 					if (not location_checklist[location]) then
 						-- Add the location to the list
@@ -1550,11 +1553,13 @@ do
 				-- Vendor
 			elseif (recipe_acquire[i]["Type"] == 2) then
 				if (VendorList) then
-					--@alpha@
 					if (not VendorList[recipe_acquire[i]["ID"]]) then
+						--@alpha@
 						self:Print("Missing vendor in database: " .. recipe_acquire[i]["ID"])
+						--@end-alpha@
+						return
 					end
-					--@end-alpha@
+
 					local location = VendorList[recipe_acquire[i]["ID"]]["Location"]
 					if (not location_checklist[location]) then
 						-- Add the location to the list
@@ -1565,11 +1570,12 @@ do
 				-- Mob Drop
 			elseif (recipe_acquire[i]["Type"] == 3) then
 				if (MobList) then
-					--@alpha@
 					if (not MobList[recipe_acquire[i]["ID"]]) then
+						--@alpha@
 						self:Print("Missing mob in database: " .. recipe_acquire[i]["ID"])
+						--@end-alpha@
+						return
 					end
-					--@end-alpha@
 					local location = MobList[recipe_acquire[i]["ID"]]["Location"]
 					if (not location_checklist[location]) then
 						-- Add the location to the list
@@ -1580,11 +1586,12 @@ do
 				-- Quest
 			elseif (recipe_acquire[i]["Type"] == 4) then
 				if (QuestList) then
-					--@alpha@
 					if (not QuestList[recipe_acquire[i]["ID"]]) then
+						--@alpha@
 						self:Print("Missing quest in database: " .. recipe_acquire[i]["ID"])
+						--@end-alpha@
+						return
 					end
-					--@end-alpha@
 					local location = QuestList[recipe_acquire[i]["ID"]]["Location"]
 					if (not location_checklist[location]) then
 						-- Add the location to the list
