@@ -101,17 +101,17 @@ function addon:InitFirstAid(RecipeDB)
 	-- Netherweave Bandage -- 27032
 	self:addTradeSkill(RecipeDB,27032,300,21990,1,45542,nil,1,0,330,347,365)
 	self:addTradeFlags(RecipeDB,27032,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,27032,1,33589,1,28706,1,33621,1,18991)
+	self:addTradeAcquire(RecipeDB,27032,1,33589,1,28706,1,18991)
 
 	-- Heavy Netherweave Bandage -- 27033
 	self:addTradeSkill(RecipeDB,27033,330,21991,1,45542,nil,1,0,360,367,375)
 	self:addTradeFlags(RecipeDB,27033,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,27033,1,33589,1,28706,1,33621,1,18991)
+	self:addTradeAcquire(RecipeDB,27033,1,33589,1,28706,1,18991)
 
 	-- Frostweave Bandage -- 45545
 	self:addTradeSkill(RecipeDB,45545,350,34721,1,45542,nil,2,350,375,392,410)
 	self:addTradeFlags(RecipeDB,45545,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45545,1,23734,1,26956,1,26992,1,28706,1,29233,1,33589,1,33621)
+	self:addTradeAcquire(RecipeDB,45545,1,23734,1,26956,1,26992,1,28706,1,29233,1,33589)
 
 	-- Heavy Frostweave Bandage -- 45546
 	self:addTradeSkill(RecipeDB,45546,400,34722,2,45542,nil,2,0,400,430,470)
