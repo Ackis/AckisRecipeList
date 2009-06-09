@@ -2177,6 +2177,7 @@ do
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
 		scan_data.is_vendor = is_vendor
+		scan_data.is_item = is_item
 
 		-- Parse all the lines of the tooltip
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -2194,14 +2195,15 @@ do
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
-			if ((strmatch(text, "binds when picked up")) and (i < 4)) then
-				self:Print("Tooltip line: " .. i)
-				if (is_item) then
-					self:Print("Item bop")
-					scan_data.bopitem = true
+			if strmatch(text, "binds when picked up") then
+				if (i < 4) then
+					if (is_item) then
+						scan_data.bopitem = true
+					else
+						scan_data.boprecipe = true
+					end
 				else
-					self:Print("Recipe bop")
-					scan_data.boprecipe = true
+					scan_data.bopitem = true
 				end
 			end
 
@@ -2445,10 +2447,6 @@ do
 			end
 		end
 
-		if (flags[3]) then
-			scan_data.boprecipe = true
-		end
-
 		-- If we've picked up at least one class flag
 		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
@@ -2493,7 +2491,7 @@ do
 		end
 
 		-- BoP Recipe
-		if (scan_data.boprecipe) and (not flags[41]) then
+		if not scan_data.is_item and (scan_data.boprecipe) and (not flags[41]) then
 			tinsert(missing_flags, "41 (BoP Recipe)")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
@@ -2505,7 +2503,7 @@ do
 				tinsert(extra_flags, "42 (BoA Recipe)")
 			end
 			-- Not BoP recipe, assuming it's not BoA
-		elseif (not flags[40]) and (not scan_data.boprecipe) then
+		elseif not scan_data.is_item and (not flags[40]) and (not scan_data.boprecipe) then
 			tinsert(missing_flags, "40 (BoE Recipe)")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
