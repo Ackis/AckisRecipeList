@@ -1780,3 +1780,4 @@ L["SCAN_SPELL_ID_DESC"] = "Scans a specified spell ID, scanning its tooltip and 
 L["Auto Scan Vendors"] = true
 L["AUTOSCAN_VENDORS_DESC"] = "Turns on scanning at vendors to compare skill levels, and recipe acquire methods."
 L["A Yeti of Your Own"] = true
+L["Mining"] = true
