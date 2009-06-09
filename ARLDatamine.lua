@@ -2402,8 +2402,10 @@ do
 			end
 		else	-- Recipe is not class specific
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if flags[CLASS_TYPES[v]] then
-					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+--				if flags[CLASS_TYPES[v]] then
+--					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+				if scan_data[v] and not flags[CLASS_TYPES[v]] then
+					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
 				end
 			end
 		end
