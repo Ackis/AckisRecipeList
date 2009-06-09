@@ -533,29 +533,36 @@ end	-- do block
 -------------------------------------------------------------------------------
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
 	local spellLink = GetSpellLink(SpellID)	-- Get the recipe link from the spell ID
+	local profession_id = GetSpellInfo(Profession)
+	local recipe_name = GetSpellInfo(SpellID)
 
+	if RecipeDB[SpellID] then
+		self:Print("Duplicate recipe: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+		return
+	end
 	-------------------------------------------------------------------------------
 	-- Create a table inside the RecipeListing table which stores all information
 	-- about a recipe
 	-------------------------------------------------------------------------------
+
 	RecipeDB[SpellID] = {
 		["Level"] = SkillLevel,
 		["ItemID"] = ItemID,
 		["Rarity"] = Rarity,
-		["Profession"] = GetSpellInfo(Profession),
+		["Profession"] = profession_id,
 		["Locations"] = nil,
 		["RecipeLink"] = spellLink,
-		["Name"] = GetSpellInfo(SpellID),
-		["Known"] = false,							-- Unknown until scan occurs
-		["Display"] = true,							-- Set to be displayed until the filtering occurs
-		["Search"] = true,							-- Set to be showing in the search results
-		["Flags"] = {},								-- Create the flag space in the RecipeDB
-		["Acquire"] = {},							-- Create the Acquire space in the RecipeDB
-		["Specialty"] = Specialty,					-- Assumption: there will only be 1 speciality for a trade skill
-		["Orange"] = Orange or SkillLevel,			-- If we don't have an orange value in the db, just assume the skill level
+		["Name"] = recipe_name,
+		["Known"] = false,				-- Unknown until scan occurs
+		["Display"] = true,				-- Set to be displayed until the filtering occurs
+		["Search"] = true,				-- Set to be showing in the search results
+		["Flags"] = {},					-- Create the flag space in the RecipeDB
+		["Acquire"] = {},				-- Create the Acquire space in the RecipeDB
+		["Specialty"] = Specialty,			-- Assumption: there will only be 1 speciality for a trade skill
+		["Orange"] = Orange or SkillLevel,		-- If we don't have an orange value in the db, just assume the skill level
 		["Yellow"] = Yellow or SkillLevel + 10,		-- If we don't have a yellow value in the db, just assume the skill level
 		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
-		["Grey"] = Grey or SkillLevel + 20,			-- If we don't have a grey value in the db, just assume the skill level
+		["Grey"] = Grey or SkillLevel + 20,		-- If we don't have a grey value in the db, just assume the skill level
 	}
 	local recipeentry = RecipeDB[SpellID]
 
@@ -625,15 +632,9 @@ do
 
 	function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
-		-- Find out how many flags we're adding
-		local numvars = select('#',...)
-
-		-- Index for the number of Acquire entries we have
-		local index = 1
-
-		-- Index for which variables we're parsing through
-		local i = 1
-
+		local numvars = select('#', ...)	-- Find out how many flags we're adding
+		local index = 1				-- Index for the number of Acquire entries we have
+		local i = 1				-- Index for which variables we're parsing through
 		local acquire = RecipeDB[SpellID]["Acquire"]
 
 		--@alpha@
@@ -643,7 +644,9 @@ do
 		while (i < numvars) do
 
 			-- Create the space for the current Acquire method
-			acquire[index] = {}
+			if not acquire[index] then
+				acquire[index] = {}
+			end
 
 			-- Get the Type and ID of the values
 			local AcquireType, AcquireID = select(i, ...)
@@ -1430,6 +1433,8 @@ do
 
 	-- Description: Determines which profession we are dealing with and loads up the recipe information for it.
 	function InitializeRecipes(RecipeDB, playerProfession)
+		twipe(profession_table)
+
 		profession_table[GetSpellInfo(51304)] = addon.InitAlchemy
 		profession_table[GetSpellInfo(51300)] = addon.InitBlacksmithing
 		profession_table[GetSpellInfo(51296)] = addon.InitCooking
@@ -1681,6 +1686,42 @@ do
 	-------------------------------------------------------------------------------
 	local playerData = {}
 
+	-- All Alchemy Specialties
+	local AlchemySpec = {
+		[GetSpellInfo(28674)] = true,
+		[GetSpellInfo(28678)] = true,
+		[GetSpellInfo(28676)] = true,
+	}
+
+	-- All Blacksmithing Specialties
+	local BlacksmithSpec = {
+		[GetSpellInfo(9788)] = true, -- Armorsmith
+		[GetSpellInfo(17041)] = true, -- Master Axesmith
+		[GetSpellInfo(17040)] = true, -- Master Hammersmith
+		[GetSpellInfo(17039)] = true, -- Master Swordsmith
+		[GetSpellInfo(9787)] = true, -- Weaponsmith
+	}
+
+	-- All Engineering Specialties
+	local EngineeringSpec = {
+		[GetSpellInfo(20219)] = true, -- Gnomish
+		[GetSpellInfo(20222)] = true, -- Goblin
+	}
+
+	-- All Leatherworking Specialties
+	local LeatherworkSpec = {
+		[GetSpellInfo(10657)] = true, -- Dragonscale
+		[GetSpellInfo(10659)] = true, -- Elemental
+		[GetSpellInfo(10661)] = true, -- Tribal
+	}
+
+	-- All Tailoring Specialties
+	local TailorSpec = {
+		[GetSpellInfo(26797)] = true, -- Spellfire
+		[GetSpellInfo(26801)] = true, -- Shadoweave
+		[GetSpellInfo(26798)] = true, -- Primal Mooncloth
+	}
+
 	local function InitPlayerData()
 		local _, cls = UnitClass("player")
 
@@ -1706,42 +1747,6 @@ do
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 		GetKnownProfessions(playerData["Professions"])
-
-		-- All Alchemy Specialties
-		local AlchemySpec = {
-			[GetSpellInfo(28674)] = true,
-			[GetSpellInfo(28678)] = true,
-			[GetSpellInfo(28676)] = true,
-		}
-
-		-- All Blacksmithing Specialties
-		local BlacksmithSpec = {
-			[GetSpellInfo(9788)] = true, -- Armorsmith
-			[GetSpellInfo(17041)] = true, -- Master Axesmith
-			[GetSpellInfo(17040)] = true, -- Master Hammersmith
-			[GetSpellInfo(17039)] = true, -- Master Swordsmith
-			[GetSpellInfo(9787)] = true, -- Weaponsmith
-		}
-
-		-- All Engineering Specialties
-		local EngineeringSpec = {
-			[GetSpellInfo(20219)] = true, -- Gnomish
-			[GetSpellInfo(20222)] = true, -- Goblin
-		}
-
-		-- All Leatherworking Specialties
-		local LeatherworkSpec = {
-			[GetSpellInfo(10657)] = true, -- Dragonscale
-			[GetSpellInfo(10659)] = true, -- Elemental
-			[GetSpellInfo(10661)] = true, -- Tribal
-		}
-
-		-- All Tailoring Specialties
-		local TailorSpec = {
-			[GetSpellInfo(26797)] = true, -- Spellfire
-			[GetSpellInfo(26801)] = true, -- Shadoweave
-			[GetSpellInfo(26798)] = true, -- Primal Mooncloth
-		}
 
 		-- List of classes which have Specialties
 		SpecialtyTable = {
