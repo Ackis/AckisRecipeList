@@ -2,6 +2,10 @@
 
 ===RC10
 *Significantly reduced memory usage over time.
+*Database updates (Flags, acquire, etc)
+*More datamining/debugging functions
+*Datamine tooltip scan tweaks
+*Added a reference to AckisRecipeList in alphas as ARL to save on typing.
 
 ===RC9
 *Optimized the database by removing many duplicate trainer/vendor entries
