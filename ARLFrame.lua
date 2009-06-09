@@ -39,16 +39,15 @@ local QTipClick		= LibStub("LibQTipClick-1.1")
 local string = string
 local sformat = string.format
 local strlower = string.lower
+local smatch = string.match
 
 local select = select
 local type = type
 
 local table = table
 local twipe = table.wipe
-local tremove = table.remove
-local ipairs = ipairs
-local pairs = pairs
-local tinsert = tinsert
+local tnisert, tremove = table.insert, table.remove
+local ipairs, pairs = ipairs, pairs
 
 local tonumber = tonumber
 local math = math
