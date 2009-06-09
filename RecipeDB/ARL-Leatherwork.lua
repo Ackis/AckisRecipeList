@@ -56,7 +56,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Fine Leather Boots -- 2158
 	self:addTradeSkill(RecipeDB,2158,90,2307,2,2108)
-	self:addTradeFlags(RecipeDB,2158,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,2158,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 	self:addTradeAcquire(RecipeDB,2158,7,2)
 
 	-- Fine Leather Cloak -- 2159
