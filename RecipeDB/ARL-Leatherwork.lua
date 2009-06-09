@@ -1306,7 +1306,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Wild Draenish Vest -- 32481
 	self:addTradeSkill(RecipeDB,32481,330,25676,1,2108)
-	self:addTradeFlags(RecipeDB,32481,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,32481,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,54,57)
 	self:addTradeAcquire(RecipeDB,32481,1,18754,1,18771,1,19187,1,21087)
 
 	-- Comfortable Insoles -- 32482

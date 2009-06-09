@@ -2195,9 +2195,11 @@ do
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if ((strmatch(text, "binds when picked up")) and (i < 4)) then
-				scan_data.boprecipe = true
-			elseif ((strmatch(text, "binds when picked up")) and (i > 3)) then
-				scan_data.bopitem = true
+				if (is_item) then
+					scan_data.bopitem = true
+				else
+					scan_data.boprecipe = true
+				end
 			end
 
 			-- Recipe Specialities
