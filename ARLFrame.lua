@@ -46,7 +46,7 @@ local type = type
 
 local table = table
 local twipe = table.wipe
-local tnisert, tremove = table.insert, table.remove
+local tinsert, tremove = table.insert, table.remove
 local ipairs, pairs = ipairs, pairs
 
 local tonumber = tonumber
@@ -1722,28 +1722,30 @@ end
 
 -- Description: 
 
-function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
-
-	local pushdown = {
+do
+	local PUSHDOWN = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [85] = 1,
 	}
-	-- set the position of the new checkbox
-	local xPos = 2 + ((col - 1) * 100)
-	local yPos = -3 - ((row - 1) * 17)
-	if (pushdown[scriptVal]) then yPos = yPos - 5 end
-	cButton:SetPoint("TOPLEFT", anchorFrame, "TOPLEFT", xPos, yPos)
-	cButton:SetHeight(24)
-	cButton:SetWidth(24)
-	-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
-	if (misc == 0) then
-		cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
-	else
-		cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay() end)
+
+	function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
+
+		-- set the position of the new checkbox
+		local xPos = 2 + ((col - 1) * 100)
+		local yPos = -3 - ((row - 1) * 17)
+		if (PUSHDOWN[scriptVal]) then yPos = yPos - 5 end
+		cButton:SetPoint("TOPLEFT", anchorFrame, "TOPLEFT", xPos, yPos)
+		cButton:SetHeight(24)
+		cButton:SetWidth(24)
+		-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
+		if (misc == 0) then
+			cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
+		else
+			cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay() end)
+		end
+
+		addon:TooltipDisplay(cButton, ttText, 1)
 	end
-
-	addon:TooltipDisplay(cButton, ttText, 1)
-
-end
+end	-- do
 
 -- Description: 
 
@@ -4659,7 +4661,7 @@ function InitializeFrame()
 	ARL_MiscText:SetJustifyH("LEFT")
 
 	local ARL_IgnoreCB = CreateFrame("CheckButton", "ARL_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
-	addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
+	addon:GenericMakeCB(ARL_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], 0, 2, 1, 1)
 	ARL_IgnoreCBText:SetText(L["Display Exclusions"])
 
 	local ARL_MiscAltText = addon.Fly_Misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "GameFontNormal")
@@ -4937,6 +4939,13 @@ end
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
+local PaneBackdrop  = {
+	bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+	edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+	tile = true, tileSize = 16, edgeSize = 16,
+	insets = { left = 3, right = 3, top = 5, bottom = 3 }
+}
+
 function addon:DisplayTextDump(RecipeDB, profession, text)
 
 	local textdump
@@ -4947,13 +4956,6 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 	else
 		textdump = self:GetTextDump(RecipeDB,profession)
 	end
-
-	local PaneBackdrop  = {
-		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-		tile = true, tileSize = 16, edgeSize = 16,
-		insets = { left = 3, right = 3, top = 5, bottom = 3 }
-	}
 
 	-- If we haven't created these frames, then lets do so now.
 	if (not addon.ARLCopyFrame) then
