@@ -1408,7 +1408,7 @@ function addon:CreateScanButton()
 
 	-- Create the scan button
 	if (not addon.ScanButton) then
-		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
+		addon.ScanButton = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
 	end
 
 	-- Add to Skillet interface
@@ -3480,7 +3480,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create and position the header.
 	-------------------------------------------------------------------------------
-	addon.Frame.HeadingText = addon.Frame:CreateFontString("addon.Frame.HeadingText", "ARTWORK")
+	addon.Frame.HeadingText = addon.Frame:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
 	addon.Frame.HeadingText:SetFontObject("GameFontHighlightSmall")
 	addon.Frame.HeadingText:ClearAllPoints()
 	addon.Frame.HeadingText:SetPoint("TOP", addon.Frame, "TOP", 20, -16)
@@ -3746,7 +3746,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Frame for the flyaway pane
 	-------------------------------------------------------------------------------
-	addon.Flyaway = CreateFrame("Frame", "addon.Flyaway", addon.Frame)
+	addon.Flyaway = CreateFrame("Frame", "ARL_Flyaway", addon.Frame)
 	addon.Flyaway:SetWidth(234)
 	addon.Flyaway:SetHeight(312)
 
@@ -3769,7 +3769,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 	-------------------------------------------------------------------------------
-	addon.Fly_General = CreateFrame("Frame", "addon.Fly_General", addon.Flyaway)
+	addon.Fly_General = CreateFrame("Frame", "ARL_Fly_General", addon.Flyaway)
 	addon.Fly_General:SetWidth(112)
 	addon.Fly_General:SetHeight(280)
 	addon.Fly_General:EnableMouse(true)
@@ -3910,7 +3910,7 @@ function InitializeFrame()
 	addon:GenericMakeCB(ARL_WarriorCB, addon.Fly_General, L["CLASS_DESC"], 1, 16, 1, 0)
 	ARL_WarriorCBText:SetText(BC["Warrior"])
 
-	addon.Fly_Obtain = CreateFrame("Frame", "addon.Fly_Obtain", addon.Flyaway)
+	addon.Fly_Obtain = CreateFrame("Frame", "ARL_Fly_Obtain", addon.Flyaway)
 	addon.Fly_Obtain:SetWidth(112)
 	addon.Fly_Obtain:SetHeight(280)
 	addon.Fly_Obtain:EnableMouse(true)
@@ -3978,7 +3978,7 @@ function InitializeFrame()
 	addon:GenericMakeCB(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 91, 14, 1, 0)
 	ARL_WrathCBText:SetText(L["Lich King"])
 
-	addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
+	addon.Fly_Binding = CreateFrame("Frame", "ARL_Fly_Binding", addon.Flyaway)
 	addon.Fly_Binding:SetWidth(210)
 	addon.Fly_Binding:SetHeight(280)
 	addon.Fly_Binding:EnableMouse(true)
@@ -4009,7 +4009,7 @@ function InitializeFrame()
 	addon:GenericMakeCB(ARL_rBoPCB, addon.Fly_Binding, L["RECIPE_BOP_DESC"], 18, 4, 1, 0)
 	ARL_rBoPCBText:SetText(L["RecipeBOPFilter"])
 
-	addon.Fly_Item = CreateFrame("Frame", "addon.Fly_Item", addon.Flyaway)
+	addon.Fly_Item = CreateFrame("Frame", "ARL_Fly_Item", addon.Flyaway)
 	addon.Fly_Item:SetWidth(210)
 	addon.Fly_Item:SetHeight(280)
 	addon.Fly_Item:EnableMouse(true)
@@ -4242,7 +4242,7 @@ function InitializeFrame()
 	addon:GenericMakeCB(ARL_WeaponGunCB, addon.Fly_Item, L["GUN_DESC"], 92, 16, 1, 0)
 	ARL_WeaponGunCBText:SetText(L["Gun"])
 
-	addon.Fly_Player = CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
+	addon.Fly_Player = CreateFrame("Frame", "ARL_Fly_Player", addon.Flyaway)
 	addon.Fly_Player:SetWidth(112)
 	addon.Fly_Player:SetHeight(280)
 	addon.Fly_Player:EnableMouse(true)
@@ -4267,7 +4267,7 @@ function InitializeFrame()
 	addon:GenericMakeCB(ARL_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], 44, 4, 1, 0)
 	ARL_PlayerCasterCBText:SetText(L["Caster DPS"])
 
-	addon.Fly_Rep = CreateFrame("Frame", "addon.Fly_Rep", addon.Flyaway)
+	addon.Fly_Rep = CreateFrame("Frame", "ARL_Fly_Rep", addon.Flyaway)
 	addon.Fly_Rep:SetWidth(112)
 	addon.Fly_Rep:SetHeight(280)
 	addon.Fly_Rep:EnableMouse(true)
@@ -4291,7 +4291,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Original Reputations
 	-------------------------------------------------------------------------------
-	addon.Fly_Rep_OW = CreateFrame("Frame", "addon.Fly_Rep_OW", addon.Fly_Rep)
+	addon.Fly_Rep_OW = CreateFrame("Frame", "ARL_Fly_Rep_OW", addon.Fly_Rep)
 	addon.Fly_Rep_OW:SetWidth(150)
 	addon.Fly_Rep_OW:SetHeight(280)
 	addon.Fly_Rep_OW:EnableMouse(true)
@@ -4364,7 +4364,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- The Burning Crusade Reputations
 	-------------------------------------------------------------------------------
-	addon.Fly_Rep_BC = CreateFrame("Frame", "addon.Fly_Rep_BC", addon.Fly_Rep)
+	addon.Fly_Rep_BC = CreateFrame("Frame", "ARL_Fly_Rep_BC", addon.Fly_Rep)
 	addon.Fly_Rep_BC:SetWidth(150)
 	addon.Fly_Rep_BC:SetHeight(280)
 	addon.Fly_Rep_BC:EnableMouse(true)
@@ -4509,7 +4509,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Wrath of the Lich King Reputations
 	-------------------------------------------------------------------------------
-	addon.Fly_Rep_LK= CreateFrame("Frame", "addon.Fly_Rep_LK", addon.Fly_Rep)
+	addon.Fly_Rep_LK= CreateFrame("Frame", "ARL_Fly_Rep_LK", addon.Fly_Rep)
 	addon.Fly_Rep_LK:SetWidth(150)
 	addon.Fly_Rep_LK:SetHeight(280)
 	addon.Fly_Rep_LK:EnableMouse(true)
@@ -4642,7 +4642,7 @@ function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Flyaway Frame
 	-------------------------------------------------------------------------------
-	addon.Fly_Misc = CreateFrame("Frame", "addon.Fly_Misc", addon.Flyaway)
+	addon.Fly_Misc = CreateFrame("Frame", "ARL_Fly_Misc", addon.Flyaway)
 	addon.Fly_Misc:SetWidth(210)
 	addon.Fly_Misc:SetHeight(280)
 	addon.Fly_Misc:EnableMouse(true)
