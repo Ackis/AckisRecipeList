@@ -2195,9 +2195,12 @@ do
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if ((strmatch(text, "binds when picked up")) and (i < 4)) then
+				self:Print("Tooltip line: " .. i)
 				if (is_item) then
+					self:Print("Item bop")
 					scan_data.bopitem = true
 				else
+					self:Print("Recipe bop")
 					scan_data.boprecipe = true
 				end
 			end
