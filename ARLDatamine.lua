@@ -2484,7 +2484,7 @@ do
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
-			self:Print(recipe_name .. " " .. spellid)
+			self:Print(recipe_name .. " - " .. spellid)
 
 			if (#missing_flags > 0) then
 				self:Print("Missing flags: " .. tconcat(missing_flags, ", "))
@@ -2492,10 +2492,6 @@ do
 
 			if (#extra_flags > 0) then
 				self:Print("Extra flags: " .. tconcat(extra_flags, ", "))
-			end
-
-			if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
-				self:Print("No player role flag.")
 			end
 
 			local count = 0
@@ -2511,6 +2507,14 @@ do
 			elseif count > 1 then
 				self:Print("Extra: item type flag")
 			end
+		end
+
+		if (not flags[1]) and (not flags[2]) then
+			self:Print("Horde or alliance not selected - " .. spellid)
+		end
+
+		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
+			self:Print("No player role flag - " .. spellid)
 		end
 
 	end
