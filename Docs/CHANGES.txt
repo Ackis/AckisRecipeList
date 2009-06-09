@@ -1,6 +1,7 @@
 ==ARL Changes
 
 ===RC10
+*Significantly reduced memory usage over time.
 
 ===RC9
 *Optimized the database by removing many duplicate trainer/vendor entries
