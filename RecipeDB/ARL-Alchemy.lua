@@ -1249,26 +1249,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,6624,2,3348,2,5178,2,4226)
 
-	-- Guardian's Alchemist Stone -- 47046
-	self:addTradeSkill(RecipeDB,47046,375,35748,1,51304)
-	self:addTradeFlags(RecipeDB,47046,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
-	self:addTradeAcquire(RecipeDB,47046,6,1077,4,25032)
-
-	-- Sorcerer's Alchemist Stone -- 47048
-	self:addTradeSkill(RecipeDB,47048,375,35749,1,51304)
-	self:addTradeFlags(RecipeDB,47048,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	self:addTradeAcquire(RecipeDB,47048,6,1077,4,25032)
-
-	-- Redeemer's Alchemist Stone -- 47049
-	self:addTradeSkill(RecipeDB,47049,375,35750,1,51304)
-	self:addTradeFlags(RecipeDB,47049,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
-	self:addTradeAcquire(RecipeDB,47049,6,1077,4,25032)
-
-	-- Assassin's Alchemist Stone -- 47050
-	self:addTradeSkill(RecipeDB,47050,375,35751,1,51304)
-	self:addTradeFlags(RecipeDB,47050,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,63)
-	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
-
 	-- Elixir of Water Walking -- 62410
 	self:addTradeSkill(RecipeDB,62410,400,8827,1,51304)
 	self:addTradeFlags(RecipeDB,62410,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
