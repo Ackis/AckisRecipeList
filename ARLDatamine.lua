@@ -2196,10 +2196,13 @@ self:Print(i)
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if strmatch(text, "binds when picked up") then
+self:Print("Binding found.")
 				if (i < 3) then
 					scan_data.boprecipe = true
+self:Print("recipe.")
 				else
 					scan_data.bopitem = true
+self:Print("item.")
 				end
 			end
 
