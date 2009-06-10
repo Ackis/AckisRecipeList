@@ -1831,10 +1831,10 @@ do
 
 	--- Parses all recipes for a specified profession, scanning their tool tips.
 	-- @name AckisRecipeList:ScanProfession
+	-- @usage AckisRecipeList:ScanProfession("first aid")
 	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
-
 		if (type(prof_name) == "number") then
 			prof_name = GetSpellInfo(prof_name)
 		end
@@ -1868,31 +1868,18 @@ do
 				recipe_list[i] = master_list[i]
 			end
 		end
-		local reverse_lookup = CreateReverseLookup(recipe_list)
-
-		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-			local name = recipe_list[i]["Name"]
-			local link = recipe_list[i]["RecipeLink"]
-
-			if link then
-				ARLDatamineTT:SetHyperlink(link)
-				self:ScanToolTip(name, recipe_list, reverse_lookup, false, false)
-				self:PrintScanResults()
-			else
-				self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
-			end
+			self:TooltipScanRecipe(i)
 		end
-		ARLDatamineTT:Hide()
 	end
 
 end	-- do
 
 --- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
+-- @usage AckisRecipeList:ScanVendor()
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
 function addon:ScanVendor()
 	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
@@ -1921,11 +1908,11 @@ function addon:ScanVendor()
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
-
 end
 
 --- Parses all the recipes in the database, and scanning their tooltips.
 -- @name AckisRecipeList:TooltipScanDatabase
+-- @usage AckisRecipeList:TooltipScanDatabase()
 -- @return Entire recipe database has its tooltips scanned.
 function addon:TooltipScanDatabase()
 	-- Get internal database
@@ -1935,7 +1922,6 @@ function addon:TooltipScanDatabase()
 		self:Print(L["DATAMINER_NODB_ERROR"])
 		return
 	end
-	local reverse_lookup = CreateReverseLookup(recipe_list)
 
 	-- Parse the entire recipe database
 	for i in pairs(recipe_list) do
