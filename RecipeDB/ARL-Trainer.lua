@@ -32,15 +32,19 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+local initialized	= false
 
 function addon:InitTrainer(TrainerDB)
+	if initialized then return end
+
+	initialized = true
 
 	self:addLookupList(TrainerDB,223,L["Dan Golthas"],BZONE["Undercity"],71.24,60.40,2)
 	self:addLookupList(TrainerDB,514,L["Smith Argus"],BZONE["Elwynn Forest"],41.94,65.83,1)

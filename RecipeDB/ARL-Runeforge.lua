@@ -26,12 +26,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitRuneforging(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Rune of the Fallen Crusader - 53344
 	self:addTradeSkill(RecipeDB,53344,1,nil,1,53428,2,1,1,1,2)

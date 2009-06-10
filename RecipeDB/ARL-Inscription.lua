@@ -32,12 +32,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitInscription(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Scroll of Stamina -- 45382
 	self:addTradeSkill(RecipeDB,45382,25,1180,1,45357)

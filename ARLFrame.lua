@@ -4878,8 +4878,7 @@ function addon:DisplayFrame(
 	mobDB = mList
 	customDB = cList
 
-	-- reset current display items
-	WipeDisplayStrings()
+	WipeDisplayStrings()	-- reset current display items
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
@@ -4892,11 +4891,8 @@ function addon:DisplayFrame(
 	if (not self.Frame) then
 		InitializeFrame()
 	end
-	-- Set our addon frame position
-	SetFramePosition()
-
-	-- Initialize dropdown
-	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize
+	SetFramePosition()							-- Set our addon frame position
+	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	-- reset the scale
 	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
@@ -4906,21 +4902,14 @@ function addon:DisplayFrame(
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
 	self:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
-	-- Reset our addon title text
-	self.resetTitle()
-
-	-- Set the texture on our switcher button correctly
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+	self.resetTitle()							-- Reset our addon title text
+	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)		-- Set the texture on our switcher button correctly
 
 	-- Acquire the list, then sort it
 	recipeDB = self:GetRecipeTable()
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
-
-	-- Take our sorted list, and fill up DisplayStrings
-	initDisplayStrings()
-
-	-- Update our progressbar
-	SetProgressBar(cPlayer)
+	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
+	SetProgressBar(cPlayer)							-- Update our progressbar
 
 	-- And update our scrollframe
 	RecipeList_Update()

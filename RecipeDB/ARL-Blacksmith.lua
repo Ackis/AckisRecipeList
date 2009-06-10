@@ -32,12 +32,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitBlacksmithing(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Rough Sharpening Stone -- 2660
 	self:addTradeSkill(RecipeDB,2660,1,2862,1,2018)

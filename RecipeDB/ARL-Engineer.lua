@@ -32,12 +32,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitEngineering(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Rough Blasting Powder -- 3918
 	self:addTradeSkill(RecipeDB,3918,1,4357,1,4036)

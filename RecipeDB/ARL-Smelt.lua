@@ -26,12 +26,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitSmelting(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Smelt Copper -- 2657
 	self:addTradeSkill(RecipeDB,2657,1,2840,1,32606,nil,0,1,25,47,70)

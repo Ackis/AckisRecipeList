@@ -32,15 +32,20 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+local initialized	= false
 
 function addon:InitMob(MobDB)
+	if initialized then return end
+
+	initialized = true
+
 -- Cities
 	-- Orgrimmar
 	self:addLookupList(MobDB,3320,L["Soran"],BZONE["Orgrimmar"],49.32,70.13)
@@ -165,7 +170,7 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,2376,L["Torn Fin Oracle"],BZONE["Hillsbrad Foothills"],43.83,67.11)
 	self:addLookupList(MobDB,2377,L["Torn Fin Tidehunter"],BZONE["Hillsbrad Foothills"],44.22,66.96)
 	self:addLookupList(MobDB,2407,L["Hulking Mountain Lion"],BZONE["Hillsbrad Foothills"],39.61,23.08)
-    self:addLookupList(MobDB,14276,L["Scargil"],BZONE["Hillsbrad Foothills"],26.79,70.01)
+	self:addLookupList(MobDB,14276,L["Scargil"],BZONE["Hillsbrad Foothills"],26.79,70.01)
 	-- Nagrand
 	self:addLookupList(MobDB,17136,L["Boulderfist Warrior"],BZONE["Nagrand"],44.60,42.20)
 	self:addLookupList(MobDB,17150,L["Vir'aani Arcanist"],BZONE["Nagrand"],36.63,67.87)

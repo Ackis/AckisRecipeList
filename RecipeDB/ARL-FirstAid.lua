@@ -26,12 +26,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitFirstAid(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Linen Bandage -- 3275
 	self:addTradeSkill(RecipeDB,3275,1,1251,1,45542,nil,0,1,30,45,60)

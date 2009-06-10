@@ -32,12 +32,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitLeatherworking(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Handstitched Leather Boots -- 2149
 	self:addTradeSkill(RecipeDB,2149,10,2302,1,2108)

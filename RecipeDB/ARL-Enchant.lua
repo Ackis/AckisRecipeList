@@ -26,12 +26,16 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local initialized	= false
 
 function addon:InitEnchanting(RecipeDB)
+	if initialized then return end
+
+	initialized = true
 
 	-- Enchant Bracer - Minor Health -- 7418
 	self:addTradeSkill(RecipeDB,7418,1,nil,1,7411,nil)
