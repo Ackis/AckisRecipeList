@@ -569,8 +569,8 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Greater Stamina -- 20017
 	self:addTradeSkill(RecipeDB,20017,265,nil,1,7411,nil)
-	self:addTradeFlags(RecipeDB,20017,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20017,2,4561)
+	self:addTradeFlags(RecipeDB,20017,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,20017,2,4229,2,4561)
 
 	-- Enchant Boots - Greater Stamina -- 20020
 	self:addTradeSkill(RecipeDB,20020,260,nil,1,7411,nil)

@@ -2018,7 +2018,6 @@ function addon:TooltipScanRecipe(spellid)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				if (SPELL_ITEM[spellid]) then
-					self:Print(SPELL_ITEM[spellid])
 					ARLDatamineTT:SetHyperlink("item:" .. SPELL_ITEM[spellid] .. ":0:0:0:0:0:0:0")
 					self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, true)
 				end
