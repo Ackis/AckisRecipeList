@@ -715,9 +715,16 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		For individual database structures, see Documentation.lua
 	]]--
 
-	DB[ID] = {}
-	DB[ID]["Name"] = Name
+	--@alpha@
+	if DB[ID] then
+		self:Print("Duplicate lookup: "..tostring(ID).." "..Name)
+		return
+	end
+	--@end-alpha@
 
+	DB[ID] = {
+		["Name"] = Name
+	}
 	if (Loc) then
 		DB[ID]["Location"] = Loc
 	else
