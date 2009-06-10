@@ -2191,18 +2191,14 @@ do
 			end
 
 			local text = strlower(text)
-self:Print(text)
-self:Print(i)
+
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if strmatch(text, "binds when picked up") then
-self:Print("Binding found.")
 				if (i < 3) then
 					scan_data.boprecipe = true
-self:Print("recipe.")
 				else
 					scan_data.bopitem = true
-self:Print("item.")
 				end
 			end
 
@@ -2470,7 +2466,6 @@ self:Print("item.")
 			if (flags[36]) then
 				tinsert(extra_flags, "36 (BoE Item)")
 			end
-
 			-- If it's a BoP item and flags BoA is set, mark it as extra
 			if (flags[38]) then
 				tinsert(extra_flags, "38 (BoA Item)")
@@ -2482,7 +2477,6 @@ self:Print("item.")
 			if (flags[37]) then
 				tinsert(extra_flags, "37 (BoP Item)")
 			end
-
 			-- If it's a BoE item and flags BoA is set, mark it as extra
 			if (flags[38]) then
 				tinsert(extra_flags, "38 (BoA Item)")
@@ -2490,25 +2484,23 @@ self:Print("item.")
 		end
 
 		-- BoP Recipe
-		if not scan_data.is_item and (scan_data.boprecipe) and (not flags[41]) then
+		if (scan_data.boprecipe) and (not flags[41]) then
 			tinsert(missing_flags, "41 (BoP Recipe)")
 			-- If it's a BoP recipe and flags BoE is set, mark it as extra
 			if (flags[40]) then
 				tinsert(extra_flags, "40 (BoE Recipe)")
 			end
 			-- If it's a BoP recipe and flags BoA is set, mark it as extra
-
 			if (flags[42]) then
 				tinsert(extra_flags, "42 (BoA Recipe)")
 			end
 			-- Not BoP recipe, assuming it's not BoA
-		elseif not scan_data.is_item and (not flags[40]) and (not scan_data.boprecipe) then
+		elseif (not flags[40]) and (not scan_data.boprecipe) then
 			tinsert(missing_flags, "40 (BoE Recipe)")
 			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if (flags[41]) then
 				tinsert(extra_flags, "41 (BoP Recipe)")
 			end
-
 			-- If it's a BoE recipe and flags BoA is set, mark it as extra
 			if (flags[42]) then
 				tinsert(extra_flags, "42 (BoA Recipe)")
