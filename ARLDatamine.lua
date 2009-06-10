@@ -2191,7 +2191,8 @@ do
 			end
 
 			local text = strlower(text)
-
+self:Print(text)
+self:Print(i)
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if strmatch(text, "binds when picked up") then
