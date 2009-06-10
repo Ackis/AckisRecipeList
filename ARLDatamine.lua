@@ -1937,23 +1937,10 @@ function addon:TooltipScanDatabase()
 	end
 	local reverse_lookup = CreateReverseLookup(recipe_list)
 
-	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
 	-- Parse the entire recipe database
 	for i in pairs(recipe_list) do
-		local name = recipe_list[i]["Name"]
-		local link = recipe_list[i]["RecipeLink"]
-
-		if link then
-			ARLDatamineTT:SetHyperlink(link)
-			self:ScanToolTip(name, recipe_list, reverse_lookup, false, false)
-			self:PrintScanResults()
-		else
-			self:Print("Missing RecipeLink for ID " .. i .. " - " .. name .. " (If these are DK abilities, don't worry, that's normal.")
-		end
+		self:TooltipScanRecipe(i)
 	end
-	ARLDatamineTT:Hide()
 end
 
 local RECIPE_NAMES = {
