@@ -1982,8 +1982,8 @@ function addon:TooltipScanRecipe(spellid)
 			ARLDatamineTT:SetHyperlink(recipe_link)	-- Load the tooltip
 
 			-- Lets check to see if it's a recipe tooltip
-			local text = _G["ARLDatamineTTTextLeft1"]:GetText()
-			local matchtext = strlower(strmatch(text, "%a+: "))
+			local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
+			local matchtext = strmatch(text, "%a+: ")
 
 			-- Check to see if we're dealing with a recipe
 			if (RECIPE_NAMES[matchtext]) then
