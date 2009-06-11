@@ -1990,9 +1990,15 @@ function addon:TooltipScanRecipe(spellid)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, false)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
-				if (SPELL_ITEM[spellid]) then
-					ARLDatamineTT:SetHyperlink("item:" .. SPELL_ITEM[spellid] .. ":0:0:0:0:0:0:0")
-					self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, true)
+				local itemid = SPELL_ITEM[spellid]
+				if () then
+					local incache = GetItemInfo(itemid)
+					if (incache) then
+						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
+						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, true)
+					else
+						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
+					end
 				end
 				self:PrintScanResults()
 			end
