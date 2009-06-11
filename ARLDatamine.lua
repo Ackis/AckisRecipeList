@@ -1991,7 +1991,7 @@ function addon:TooltipScanRecipe(spellid)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				local itemid = SPELL_ITEM[spellid]
-				if () then
+				if (itemid) then
 					local incache = GetItemInfo(itemid)
 					if (incache) then
 						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
