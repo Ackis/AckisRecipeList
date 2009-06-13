@@ -1900,6 +1900,7 @@ function addon:ScanVendor()
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
+
 			ARLDatamineTT:SetMerchantItem(i)
 			self:ScanToolTip(name, recipe_list, reverse_lookup, true, false)
 			self:PrintScanResults()
@@ -2399,6 +2400,7 @@ do
 
 		if (not spellid) then
 			self:Print("Recipe "..recipe_name.." has no reverse lookup")
+			return
 		end
 
 		local flags = scan_data.recipe_list[spellid]["Flags"]
