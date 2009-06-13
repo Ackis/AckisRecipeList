@@ -120,7 +120,7 @@ function addon:InitFirstAid(RecipeDB)
 	-- Heavy Frostweave Bandage -- 45546
 	self:addTradeSkill(RecipeDB,45546,400,34722,2,45542,nil,2,0,400,430,470)
 	self:addTradeFlags(RecipeDB,45546,1,2,10,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45546,8,41,7,2)
+	self:addTradeAcquire(RecipeDB,45546,7,2)
 
 	return 17
 
