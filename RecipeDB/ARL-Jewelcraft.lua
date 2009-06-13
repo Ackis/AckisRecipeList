@@ -2446,7 +2446,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Amulet of Truesight -- 63743
 	self:addTradeSkill(RecipeDB,63743,200,45627,1,25229)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
-	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590)
+	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590,1,19775)
 
 	return 481
 
