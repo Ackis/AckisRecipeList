@@ -1901,9 +1901,11 @@ function addon:ScanVendor()
 		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 
-			ARLDatamineTT:SetMerchantItem(i)
-			self:ScanToolTip(name, recipe_list, reverse_lookup, true, false)
-			self:PrintScanResults()
+			if name then
+				ARLDatamineTT:SetMerchantItem(i)
+				self:ScanToolTip(name, recipe_list, reverse_lookup, true, false)
+				self:PrintScanResults()
+			end
 		end
 		ARLDatamineTT:Hide()
 	else
