@@ -321,7 +321,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Barbaric Shoulders -- 7151
 	self:addTradeSkill(RecipeDB,7151,175,5964,1,2108)
 	self:addTradeFlags(RecipeDB,7151,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,7151,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632,1,5784,1,16728,1,1385,1,3549,1,3365,1,3967)
+	self:addTradeAcquire(RecipeDB,7151,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632,1,5784,1,16728,1,1385,1,3549,1,3365,1,3967,1,3703)
 
 	-- Guardian Cloak -- 7153
 	self:addTradeSkill(RecipeDB,7153,185,5965,2,2108)
@@ -331,7 +331,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Guardian Gloves -- 7156
 	self:addTradeSkill(RecipeDB,7156,190,5966,1,2108)
 	self:addTradeFlags(RecipeDB,7156,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,7156,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632,1,5784,1,16728,1,1385,1,3549,1,3365,1,3967)
+	self:addTradeAcquire(RecipeDB,7156,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,1632,1,5784,1,16728,1,1385,1,3549,1,3365,1,3967,1,3703)
 
 	-- Deviate Scale Cloak -- 7953
 	self:addTradeSkill(RecipeDB,7953,90,6466,1,2108)
