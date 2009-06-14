@@ -450,7 +450,8 @@ L["Custom37"] = "Random SSC / TK trash drop"
 L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
 L["Custom39"] = "Random drop off of Ulduar bosses."
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
-L["Custom41"] = "Random drop in instances, raids, and from mobs in Northrend zones"
+L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
+L["Custom42"] = "Random drop in instances, raids, and from mobs in Northrend zones"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
@@ -1749,7 +1750,6 @@ L["Desert Recipe"] = true
 L["Manfred Staller"] = true
 L["Andellion"] = true
 L["Namha Moonwater"] = true
-L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 L["AUTOLOAD_DB_DESC"] = "Automatically loads all of the ARL recipe databases when doing a datamining scan."
 L["Auto Load Recipe Database"] = true
 L["Orland Schaeffer"] = true
