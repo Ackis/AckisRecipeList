@@ -6,6 +6,8 @@
 *More datamining/debugging functions
 *Datamine tooltip scan tweaks
 *Added a reference to AckisRecipeList in alphas as ARL to save on typing.
+*Tweaked automatic vendor scanning
+*Updated trainers
 
 ===RC9
 *Optimized the database by removing many duplicate trainer/vendor entries
