@@ -1906,6 +1906,20 @@ function addon:ScanVendor()
 			-- Do the scan if we have the spell ID
 			if (spellid) then
 				self:TooltipScanRecipe(spellid,true)
+				-- Ok now we know it's a vendor, lets check the database to see if the vendor is listed as an acquire method.
+				local acquire = recipe_list[spellid]["Acquire"]
+				local found = false
+				for i in pairs(acquire) do
+					-- If the acquire type is a vendor
+					if (acquire[i]["Type"] == 2) then
+						if (acquire[j]["ID"] == targetID) then
+							found = true
+						end
+					end
+				end
+				if (not found) then
+					self:Print("Vendor ID missing from " .. spellid)
+				end
 			else
 				self:Print("Spell ID not found for: " .. name)
 			end
