@@ -1894,20 +1894,22 @@ function addon:ScanVendor()
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
 
-		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
+		
+			-- Get the name
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
-
-			if name then
-				ARLDatamineTT:SetMerchantItem(i)
-				self:ScanToolTip(name, recipe_list, reverse_lookup, true, false)
-				self:PrintScanResults()
+			-- Get rid of the first part of the item
+			local recipename = gsub(name,"%a+\: ","")
+			-- Find out what spell ID we're using
+			local spellid = reverse_lookup[recipename]
+			-- Do the scan if we have the spell ID
+			if (spellid) then
+				self:TooltipScanRecipe(spellid)
+			else
+				self:Print("Spell ID not found for: " .. name)
 			end
 		end
-		ARLDatamineTT:Hide()
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
