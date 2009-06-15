@@ -1905,7 +1905,7 @@ function addon:ScanVendor()
 			local spellid = reverse_lookup[recipename]
 			-- Do the scan if we have the spell ID
 			if (spellid) then
-				self:TooltipScanRecipe(spellid)
+				self:TooltipScanRecipe(spellid,true)
 			else
 				self:Print("Spell ID not found for: " .. name)
 			end
@@ -1966,7 +1966,7 @@ local RECIPE_NAMES = {
 -- @name AckisRecipeList:TooltipScanRecipe
 -- @param spellid The [[http://www.wowwiki.com/SpellLink Spell ID]] of the recipe being added to the database.
 -- @return Recipe has its tooltips scanned.
-function addon:TooltipScanRecipe(spellid)
+function addon:TooltipScanRecipe(spellid, is_vendor)
 	local recipe_list = LoadRecipe()	-- Get internal database
 
 	if (not recipe_list) then
@@ -1992,7 +1992,7 @@ function addon:TooltipScanRecipe(spellid)
 
 			-- Check to see if we're dealing with a recipe
 			if (RECIPE_NAMES[matchtext]) then
-				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, false)
+				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				local itemid = SPELL_ITEM[spellid]
@@ -2000,7 +2000,7 @@ function addon:TooltipScanRecipe(spellid)
 					local incache = GetItemInfo(itemid)
 					if (incache) then
 						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
-						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, false, true)
+						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
 					else
 						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
 					end
