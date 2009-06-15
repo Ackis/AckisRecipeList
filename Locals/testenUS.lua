@@ -451,7 +451,6 @@ L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dala
 L["Custom39"] = "Random drop off of Ulduar bosses."
 L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
-L["Custom42"] = "Random drop in instances, raids, and from mobs in Northrend zones"
 
 -- Monster/Quest/Trainer/Vendor strings:
 
