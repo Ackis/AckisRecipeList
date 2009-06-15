@@ -435,8 +435,16 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,33590,L["Oluros"],BZONE["Icecrown"],71.5,20.8,0)
 	self:addLookupList(TrainerDB,33591,L["Rekka the Hammer"],BZONE["Icecrown"],71.9,20.9,0)
 	self:addLookupList(TrainerDB,33603,L["Arthur Denny"],BZONE["Icecrown"],71.7,20.9,0)
-	self:addLookupList(TrainerDB,33610,L["Enchanting Trainer"],BZONE["Shattrath City"],43.6,90.4,0)
-	self:addLookupList(TrainerDB,33617,L["Mining"],BZONE["Shattrath City"],43.6,90.9,0)
-	self:addLookupList(TrainerDB,33621,L["First Aid Trainer"],BZONE["Shattrath City"],43.6,90.4,0)
+	self:addLookupList(TrainerDB,33608,GetSpellInfo(51304),BZONE["Shattrath City"],44.3,90.4,0) -- Alchemy
+	self:addLookupList(TrainerDB,33609,GetSpellInfo(51300),BZONE["Shattrath City"],43.9,90.5,0) -- BS
+	self:addLookupList(TrainerDB,33610,GetSpellInfo(51313),BZONE["Shattrath City"],43.6,90.4,0) -- Enchanting
+	self:addLookupList(TrainerDB,33611,GetSpellInfo(51306),BZONE["Shattrath City"],43.7,90.1,0) -- Engineering
+	self:addLookupList(TrainerDB,33612,GetSpellInfo(51302),BZONE["Shattrath City"],43.8,90.9,0) -- LW
+	self:addLookupList(TrainerDB,33613,GetSpellInfo(51309),BZONE["Shattrath City"],44.0,91.1,0) -- Tailor
+	self:addLookupList(TrainerDB,33614,GetSpellInfo(51311),BZONE["Shattrath City"],43.6,90.8,0) -- JC
+	self:addLookupList(TrainerDB,33615,GetSpellInfo(45363),BZONE["Shattrath City"],43.5,90.7,0) -- Insc
+	self:addLookupList(TrainerDB,33617,GetSpellInfo(32606),BZONE["Shattrath City"],43.6,90.9,0) -- Mine
+	self:addLookupList(TrainerDB,33619,GetSpellInfo(51296),BZONE["Shattrath City"],43.6,91.1,0) -- Cooking
+	self:addLookupList(TrainerDB,33621,GetSpellInfo(45542),BZONE["Shattrath City"],43.6,90.4,0) -- First Aid
 
 end
