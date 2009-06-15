@@ -1829,34 +1829,11 @@ do
 	}
 	local recipe_list = {}
 
-	--- Parses all recipes for a specified profession, scanning their tool tips.
-	-- @name AckisRecipeList:ScanProfession
-	-- @usage AckisRecipeList:ScanProfession("first aid")
-	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
-	-- @return Recipes in the given profession have their tooltips scanned.
-	function addon:ScanProfession(prof_name)
-		if (type(prof_name) == "number") then
-			prof_name = GetSpellInfo(prof_name)
-		end
-		
-		local found = false
-		prof_name = strlower(prof_name)
-
-		for idx, name in ipairs(ORDERED_PROFESSIONS) do
-			if prof_name == name then
-				found = true
-				break
-			end
-		end
-
-		if not found then
-			self:Print(L["DATAMINER_NODB_ERROR"])
-			return
-		end
+	local function ProfessionScan(prof_name)
 		local master_list = LoadRecipe()
 		
 		if not master_list then
-			self:Print(L["DATAMINER_NODB_ERROR"])
+			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		twipe(recipe_list)
@@ -1871,7 +1848,43 @@ do
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-			self:TooltipScanRecipe(i)
+			addon:TooltipScanRecipe(i)
+		end
+	end
+
+	--- Parses all recipes for a specified profession, scanning their tool tips.
+	-- @name AckisRecipeList:ScanProfession
+	-- @usage AckisRecipeList:ScanProfession("first aid")
+	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
+	-- @return Recipes in the given profession have their tooltips scanned.
+	function addon:ScanProfession(prof_name)
+		if (type(prof_name) == "number") then
+			prof_name = GetSpellInfo(prof_name)
+		end
+		
+		local found = false
+		prof_name = strlower(prof_name)
+
+		local scan_all = prof_name == "all"
+
+		if not scan_all then
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				if prof_name == name then
+					found = true
+					break
+				end
+			end
+
+			if not found then
+				self:Print(L["DATAMINER_NODB_ERROR"])
+				return
+			end
+
+			ProfessionScan(prof_name)
+		else
+			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+				ProfessionScan(name)
+			end
 		end
 	end
 
@@ -2362,7 +2375,7 @@ do
 				scan_data.Plate = true
 			elseif (strmatch(text, "cloak")) then
 				scan_data.Cloak = true
-			elseif (strmatch(text, "ring")) then
+			elseif (strmatch(text, "ring")) and strmatch(text, "ring:") == nil and strmatch(text, "requires") == nil then
 				scan_data.Ring = true
 			elseif (strmatch(text, "necklace")) then
 				scan_data.Necklace = true
