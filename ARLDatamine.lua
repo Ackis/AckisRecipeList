@@ -2360,7 +2360,7 @@ local RECIPE_NAMES = {
 
 --- Parses a specific recipe in the database, and scanning its tooltip.
 -- @name AckisRecipeList:TooltipScanRecipe
--- @param spellid The [[http://www.wowwiki.com/SpellLink Spell ID]] of the recipe being added to the database.
+-- @param spellid The [[[http://www.wowwiki.com/SpellLink | Spell ID]]] of the recipe being added to the database.
 -- @return Recipe has its tooltips scanned.
 function addon:TooltipScanRecipe(spellid, is_vendor)
 	local recipe_list = LoadRecipe()	-- Get internal database
@@ -2373,6 +2373,8 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 
 	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+
+	local t = {}
 
 	if (recipe_list[spellid]) then
 		local recipe_name = recipe_list[spellid]["Name"]
