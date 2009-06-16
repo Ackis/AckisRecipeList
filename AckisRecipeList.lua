@@ -115,7 +115,7 @@ local strlower = string.lower
 -- Initialization functions
 -------------------------------------------------------------------------------
 
--- Description: Function run when the addon is initialized.  Registers the slash commands, options, and database
+---Function run when the addon is initialized.  Registers the slash commands, options, and database
 function addon:OnInitialize()
 
 	-- Set default options, which are to include everything in the scan
@@ -294,8 +294,7 @@ function addon:OnInitialize()
 
 end
 
--- Description: Function run when the addon is enabled.  Registers events and pre-loads certain variables.
-
+---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
 
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
@@ -341,8 +340,7 @@ function addon:OnEnable()
 
 end
 
--- Description: Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
-
+---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
 
 	-- If we disable the addon when the GUI is up, hide it.
@@ -357,13 +355,9 @@ function addon:OnDisable()
 
 end
 
--- Description: Shows the scan button when the trade skill window is open.
-
---[[
-
-	Event handling functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Event handling functions
+-------------------------------------------------------------------------------
 
 function addon:TRAINER_SHOW()
 
@@ -420,8 +414,6 @@ do
 
 end
 
--- Description: Hides the scan button when the trade skill window is closed.
-
 function addon:TRADE_SKILL_CLOSE()
 
 	addon:CloseTradeWindow()
@@ -436,22 +428,9 @@ function addon:TRADE_SKILL_CLOSE()
 
 end
 
--- Description: Will update the internal list of faction tables when a players faction changes
-
---[[
-
-function addon:UPDATE_FACTION()
-	-- Reputation has changed so lets update the table
-	self:SetRepDB()
-end
-
-]]--
-
---[[
-
-	Player Data Acquisition Functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Player Data Acquisition Functions
+-------------------------------------------------------------------------------
 
 do
 
@@ -461,7 +440,7 @@ do
 	local ExpandFactionHeader = ExpandFactionHeader
 	local rep_list = {}
 
-	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
+	---Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
 	function addon:GetFactionLevels(RepTable)
 
 		-- Bug here when I reload UI
@@ -510,9 +489,9 @@ do
 
 end	-- do block
 
---[[
-	Tradeskill functions
---]]
+-------------------------------------------------------------------------------
+-- Tradeskill functions
+-------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
 -- Recipe DB Structures are defined in Documentation.lua
@@ -764,12 +743,11 @@ end
 
 do
 
-	-- Description: Scans the recipe listing and marks known recipes as true in the database
-
 	local GetTradeSkillInfo = GetTradeSkillInfo
 	local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
 	local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
 
+	---Scans the recipe listing and marks known recipes as true in the database
 	function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 		-- Clear the "Have Materials" check box
@@ -904,8 +882,7 @@ do
 
 	end
 
-	-- Description: Scans a specific recpie to determine if it is to be displayed or not.
-
+	---Scans a specific recpie to determine if it is to be displayed or not.
 	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
 		-- For flag info see comments at start of file in comments
@@ -1325,7 +1302,7 @@ do
 
 end
 
--- Description: Creates an array of which factions we want to include in our display and which ones to ignore
+---Creates an array of which factions we want to include in our display and which ones to ignore
 local function PopulateRepFilters(RepTable)
 
 	local repfilters = addon.db.profile.filters.rep
@@ -1372,8 +1349,7 @@ local function PopulateRepFilters(RepTable)
 
 end
 
--- Description: Scans the recipe listing and updates the filters according to user preferences
-
+---Scans the recipe listing and updates the filters according to user preferences
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 	local playerProfessionLevel = playerData.playerProfessionLevel
@@ -1440,7 +1416,7 @@ local InitializeRecipes
 do
 	local profession_table = {}	-- Table of all possible professions with init functions
 
-	-- Description: Determines which profession we are dealing with and loads up the recipe information for it.
+	---Determines which profession we are dealing with and loads up the recipe information for it.
 	function InitializeRecipes(RecipeDB, playerProfession)
 		twipe(profession_table)
 
@@ -1473,8 +1449,7 @@ do
 	end
 end	-- do
 
--- Description: Determines what to do when the slash command is called.
-
+---Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
@@ -1529,8 +1504,7 @@ do
 	local location_list = {}
 	local location_checklist = {}
 
-	-- Description: Determines all the locations a given recipe can be obtained
-
+	---Determines all the locations a given recipe can be obtained
 	function addon:GetRecipeLocations(SpellID)
 		if not RecipeList or not RecipeList[SpellID] then
 			return ""
@@ -1629,15 +1603,14 @@ do
 		end
 	end
 
-	-- Description: Toggles the flag that a trade window is opened
+	---Toggles the flag that a trade window is opened
 	local TRADE_WINDOW_OPENED = false
 
 	function addon:OpenTradeWindow()
 		TRADE_WINDOW_OPENED = true
 	end
 
-	-- Description: Toggles the flag that a trade window is opened
-
+	---Toggles the flag that a trade window is opened
 	function addon:CloseTradeWindow()
 		TRADE_WINDOW_OPENED = false
 	end
@@ -1648,9 +1621,7 @@ do
 	local GetSpellName = GetSpellName
 	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
 
-	-------------------------------------------------------------------------------
-	-- Description: Scans first 25 spellbook slots to identify all applicable professions
-	-------------------------------------------------------------------------------
+	---Scans first 25 spellbook slots to identify all applicable professions
 	local function GetKnownProfessions(ProfTable)
 		-- Reset the table, they may have unlearnt a profession
 		for i in pairs(ProfTable) do
@@ -1677,9 +1648,7 @@ do
 
 	end
 
-	-------------------------------------------------------------------------------
 	-- Scans first 25 spellbook slots to identify which trade skill Specialty we have
-	-------------------------------------------------------------------------------
 	local function GetTradeSpecialty(SpecialtyTable, playerData)
 		--Scan the first 25 entries
 		for index = 1, 25, 1 do
@@ -1799,7 +1768,7 @@ do
 		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
 	end
 
-	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
+	---Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
 	function addon:SetRepDB()
 
 		if (playerData and playerData["Reputation"]) then
@@ -1808,7 +1777,7 @@ do
 
 	end
 
-	-- Description: Initalizes all the recipe databases to their initial
+	---Initalizes all the recipe databases to their initial
 	local function InitDatabases()
 
 		-- Initializes the custom list
@@ -1866,9 +1835,7 @@ do
 
 	end
 
-	-- Description: Function called when the scan button is clicked.   Parses recipes and displays output
-
-	--- Causes a scan of the tradeskill to be conducted.
+	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:AckisRecipeList_Command
 	-- @usage AckisRecipeList:AckisRecipeList_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
@@ -1916,10 +1883,7 @@ do
 		end
 	end
 
-	
-	-- Description: API for external addons to initialize the recipe database with a specific profession
-
-	--- Initialize the recipe database with a specific profession.
+	--- API for external addons to initialize the recipe database with a specific profession
 	-- @name AckisRecipeList:AddRecipeData
 	-- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
 	-- @param profession Spell ID of the profession which you want to populate the database with.
@@ -1935,9 +1899,7 @@ do
 
 	end
 
-	-- Description: API for external addons to initialize the recipe database
-
-	--- Initialize the recipe database
+	--- API for external addons to initialize the recipe database
 	-- @name AckisRecipeList:InitRecipeData
 	-- @usage AckisRecipeList:InitRecipeData()
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
@@ -1952,8 +1914,6 @@ do
 		end
 
 	end
-
-	-- Description: API for external addons to get recipe information from ARL
 
 	--- API for external addons to get recipe information from ARL
 	-- @name AckisRecipeList:GetRecipeData
@@ -1972,8 +1932,6 @@ do
 		end
 
 	end
-
-	-- Description: API for external addons to get recipe database from ARL
 
 	--- API for external addons to get recipe database from ARL
 	-- @name AckisRecipeList:GetRecipeTable
@@ -1996,8 +1954,7 @@ end
 
 --]]
 
--- Description: Marks all exclusions in the recipe database to not be displayed
-
+---Marks all exclusions in the recipe database to not be displayed
 function addon:GetExclusions(RecipeDB, prof)
 
 	local exclusionlist = addon.db.profile.exclusionlist
@@ -2028,8 +1985,7 @@ function addon:GetExclusions(RecipeDB, prof)
 	return countknown, countunknown
 end
 
--- Description: Removes or adds a recipe to the exclusion list.
-
+---Removes or adds a recipe to the exclusion list.
 function addon:ToggleExcludeRecipe(SpellID)
 
 	local exclusionlist = addon.db.profile.exclusionlist
@@ -2047,8 +2003,7 @@ function addon:ToggleExcludeRecipe(SpellID)
 
 end
 
--- Description: Prints all the ID's in the exclusion list out into chat.
-
+---Prints all the ID's in the exclusion list out into chat.
 function addon:ViewExclusionList()
 
 	local exclusionlist = addon.db.profile.exclusionlist
@@ -2075,8 +2030,7 @@ end
 
 ]]--
 
--- Description: Scans through the recipe database and toggles the flag on if the item is in the search criteria
-
+---Scans through the recipe database and toggles the flag on if the item is in the search criteria
 function addon:SearchRecipeDB(RecipeDB, searchstring)
 
 	if not searchstring then return end
@@ -2118,8 +2072,7 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 	end
 end
 
--- Description: Goes through the recipe database and resets all the search flags
-
+---Goes through the recipe database and resets all the search flags
 function addon:ResetSearch(RecipeDB)
 
 	for SpellID in pairs(RecipeDB) do
@@ -2134,8 +2087,7 @@ end
 
 ]]--
 
--- Description: Scans through the recipe database providing a string of comma seperated values for all recipe information
-
+---Scans through the recipe database providing a string of comma seperated values for all recipe information
 function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
@@ -2219,8 +2171,7 @@ do
 
 	local GetItemInfo = GetItemInfo
 
-	-- Description: Dumps all the info about a recipe out to chat
-
+	---Dumps all the info about a recipe out to chat
 	function addon:DumpRecipe(SpellID)
 
 		local recipelist = addon:GetRecipeTable()
@@ -2552,7 +2503,7 @@ do
 
 end
 
---Description: Clears all saved tradeskills
+---Clears all saved tradeskills
 function addon:ClearSavedSkills()
 	twipe(addon.db.global.tradeskill)
 
