@@ -2589,7 +2589,7 @@ do
 				scan_data.specialty = SPECIALTY_TEXT[text]
 			end
 
-			-- Recipe Reputatons
+			-- Recipe Reputations
 			if (strmatch(text, "Requires (.+) %- (.+)")) then
 				local rep, replevel = strmatch(text, "Requires (.+) %- (.+)")
 				if (FACTION_TEXT[rep]) then

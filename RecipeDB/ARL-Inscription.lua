@@ -1671,17 +1671,17 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Rune Tap -- 59338
 	self:addTradeSkill(RecipeDB,59338,310,43825,1,45357)
 	self:addTradeFlags(RecipeDB,59338,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59338,1,28702,1,33603)
+	self:addTradeAcquire(RecipeDB,59338,1,28702,1,33603,1,26977)
 
 	-- Glyph of Blood Strike -- 59339
 	self:addTradeSkill(RecipeDB,59339,320,43826,1,45357)
 	self:addTradeFlags(RecipeDB,59339,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59339,1,28702,1,33603)
+	self:addTradeAcquire(RecipeDB,59339,1,28702,1,33603,1,26977)
 
 	-- Glyph of Death Strike -- 59340
 	self:addTradeSkill(RecipeDB,59340,340,43827,1,45357)
 	self:addTradeFlags(RecipeDB,59340,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59340,1,28702,1,33603)
+	self:addTradeAcquire(RecipeDB,59340,1,28702,1,33603,1,26977)
 
 	-- Certificate of Ownership -- 59387
 	self:addTradeSkill(RecipeDB,59387,200,43850,1,45357)
@@ -1896,12 +1896,12 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Dark Death -- 64266
 	self:addTradeSkill(RecipeDB,64266,275,45804,1,45357)
 	self:addTradeFlags(RecipeDB,64266,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,64266,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64266,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	-- Glyph of Disease -- 64267
 	self:addTradeSkill(RecipeDB,64267,280,45805,1,45357)
 	self:addTradeFlags(RecipeDB,64267,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,64267,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64267,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	-- Glyph of Howling Blast -- 64300
 	self:addTradeSkill(RecipeDB,64300,425,45806,1,45357)
@@ -1986,7 +1986,7 @@ function addon:InitInscription(RecipeDB)
 	--Glyph of Earth Shield -- 64261
 	self:addTradeSkill(RecipeDB,64261,250,45775,1,45357)
 	self:addTradeFlags(RecipeDB,64261,1,2,3,27,36,41)
-	self:addTradeAcquire(RecipeDB,64261,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64261,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	--Glyph of Enraged Regeneration  -- 64312
 	self:addTradeSkill(RecipeDB,64312,425,45794,1,45357)
@@ -2097,12 +2097,12 @@ function addon:InitInscription(RecipeDB)
 	--Glyph of Monsoon -- 64258
 	self:addTradeSkill(RecipeDB,64258,250,45622,1,45357)
 	self:addTradeFlags(RecipeDB,64258,1,2,3,22,36,41)
-	self:addTradeAcquire(RecipeDB,64258,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64258,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	--Glyph of Mutilate -- 64260
 	self:addTradeSkill(RecipeDB,64260,255,45768,1,45357)
 	self:addTradeFlags(RecipeDB,64260,1,2,3,28,36,41)
-	self:addTradeAcquire(RecipeDB,64260,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64260,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	--Glyph of Nourish -- 64313
 	self:addTradeSkill(RecipeDB,64313,425,45603,1,45357)
@@ -2112,7 +2112,7 @@ function addon:InitInscription(RecipeDB)
 	--Glyph of Pain Suppression -- 64259
 	self:addTradeSkill(RecipeDB,64259,255,45760,1,45357)
 	self:addTradeFlags(RecipeDB,64259,1,2,3,26,36,41)
-	self:addTradeAcquire(RecipeDB,64259,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64259,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	--Glyph of Penance -- 64282
 	self:addTradeSkill(RecipeDB,64282,425,45756,1,45357)
@@ -2197,7 +2197,7 @@ function addon:InitInscription(RecipeDB)
 	--Glyph of Totem of Wrath -- 64262
 	self:addTradeSkill(RecipeDB,64262,255,45776,1,45357)
 	self:addTradeFlags(RecipeDB,64262,1,2,3,27,36,41)
-	self:addTradeAcquire(RecipeDB,64262,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603)
+	self:addTradeAcquire(RecipeDB,64262,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,1,33603,1,26977)
 
 	--Glyph of Tricks of the Trade -- 64310
 	self:addTradeSkill(RecipeDB,64310,425,45767,1,45357)
