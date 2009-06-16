@@ -29,7 +29,7 @@ This source code is released under All Rights Reserved.
 -- ARL supports all professions currently in World of Warcraft 3.1.
 -- @class file
 -- @name AckisRecipeList.lua
--- @release @file-revision@
+-- @release 1.0 RC9
 
 local LibStub = LibStub
 
@@ -1699,6 +1699,23 @@ do
 	-------------------------------------------------------------------------------
 	-- Initializes and adds data relavent to the player character
 	-------------------------------------------------------------------------------
+
+	--- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
+	-- @class table
+	-- @name playerData
+	-- @field totalknownpets Total number of known mini-pets.
+	-- @field totalknownmounts Total number of known mounts.
+	-- @field totalpets Total number of mini-pets.
+	-- @field totalmounts Total number of mounts.
+	-- @field total Total number of items in the scan.
+	-- @field known Total number of items known in the scan.
+	-- @field total_filtered Total number of items filtered during the scan.
+	-- @field known_filtered Total number of items known filtered during the scan.
+	-- @field playerFaction Players faction
+	-- @field playerClass Players class
+	-- @field ["Reputation"] Listing of players reputation levels
+	-- @field excluded_unknown Number of unknown items excluded.
+	-- @field excluded_known Number of known items excluded.
 	local playerData = {}
 
 	-- All Alchemy Specialties
