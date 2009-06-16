@@ -2947,7 +2947,7 @@ do
 			tinsert(t,"No player role flag - " .. spellid)
 		end
 
-		return tcontact(t,"\n")
+		return tconcat(t,"\n")
 
 	end
 
