@@ -2401,7 +2401,7 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
 					end
 				end
-				self:PrintScanResults()
+				self:Print(self:PrintScanResults())
 			end
 
 		-- Lets hide this output for runeforging.
@@ -2797,9 +2797,11 @@ do
 		-- Parse the recipe database until we get a match on the name
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
 		local spellid = scan_data.reverse_lookup[recipe_name]
+		-- Output table
+		local t = {}
 
 		if (not spellid) then
-			self:Print("Recipe "..recipe_name.." has no reverse lookup")
+			self:Print("Recipe " .. recipe_name .. " has no reverse lookup")
 			return
 		end
 
@@ -2807,8 +2809,8 @@ do
 		twipe(missing_flags)
 		twipe(extra_flags)
 
-		if scan_data.specialty then
-			self:Print(GetSpellInfo(scan_data.specialty))
+		if (scan_data.specialty) then
+			tinsert(t,"Recipe " ..  recipe_name .. " Specialty: " .. scan_data.specialty)
 		end
 
 		if scan_data.is_vendor then
@@ -2912,14 +2914,14 @@ do
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
-			self:Print(recipe_name .. " - " .. spellid)
+			tinsert(t,recipe_name .. " - " .. spellid)
 
 			if (#missing_flags > 0) then
-				self:Print("Missing flags: " .. tconcat(missing_flags, ", "))
+				tinsert(t,"Missing flags: " .. tconcat(missing_flags, ", "))
 			end
 
 			if (#extra_flags > 0) then
-				self:Print("Extra flags: " .. tconcat(extra_flags, ", "))
+				tinsert(t,"Extra flags: " .. tconcat(extra_flags, ", "))
 			end
 
 			local count = 0
@@ -2931,19 +2933,21 @@ do
 			end
 
 			if count == 0 then
-				self:Print("Missing: item type flag")
+				tinsert(t,"Missing: item type flag")
 			elseif count > 1 then
-				self:Print("Extra: item type flag")
+				tinsert(t,"Extra: item type flag")
 			end
 		end
 
 		if (not flags[1]) and (not flags[2]) then
-			self:Print("Horde or alliance not selected - " .. spellid)
+			tinsert(t,"Horde or alliance not selected - " .. spellid)
 		end
 
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
-			self:Print("No player role flag - " .. spellid)
+			tinsert(t,"No player role flag - " .. spellid)
 		end
+
+		return tcontact(t,"\n")
 
 	end
 
