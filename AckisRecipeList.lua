@@ -359,6 +359,7 @@ end
 -- Event handling functions
 -------------------------------------------------------------------------------
 
+---Event used for datamining when a trainer is shown.
 function addon:TRAINER_SHOW()
 
 	self:ScanSkillLevelData(true)
@@ -725,14 +726,12 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 end
 
---[[
+-------------------------------------------------------------------------------
+-- Recipe Scanning Functions
+-------------------------------------------------------------------------------
 
-	Recipe Scanning Functions
-
-]]--
-
+---Obtains a spell ID from a spell link.
 -- This source code is release under Public Domain
-
 local function GetIDFromLink(SpellLink)
 
 	--return smatch(SpellLink, "|H%w+:(%d+)")
@@ -1406,11 +1405,9 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 
 end
 
---[[
-
-	ARL Logic Functions
-
-]]--
+-------------------------------------------------------------------------------
+-- ARL Logic Functions
+-------------------------------------------------------------------------------
 
 local InitializeRecipes
 do
@@ -1665,10 +1662,6 @@ do
 		end
 	end
 
-	-------------------------------------------------------------------------------
-	-- Initializes and adds data relavent to the player character
-	-------------------------------------------------------------------------------
-
 	--- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 	-- @class table
 	-- @name playerData
@@ -1723,6 +1716,7 @@ do
 		[GetSpellInfo(26798)] = true, -- Primal Mooncloth
 	}
 
+	---Initializes and adds data relavent to the player character
 	local function InitPlayerData()
 		local _, cls = UnitClass("player")
 
@@ -1948,11 +1942,9 @@ do
 
 end
 
---[[
-
-	Recipe Exclusion Functions
-
---]]
+-------------------------------------------------------------------------------
+-- Recipe Exclusion Functions
+-------------------------------------------------------------------------------
 
 ---Marks all exclusions in the recipe database to not be displayed
 function addon:GetExclusions(RecipeDB, prof)
@@ -2024,11 +2016,9 @@ function addon:ClearExclusionList()
 
 end
 
---[[
-
-	Searching Functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Searching Functions
+-------------------------------------------------------------------------------
 
 ---Scans through the recipe database and toggles the flag on if the item is in the search criteria
 function addon:SearchRecipeDB(RecipeDB, searchstring)
@@ -2081,11 +2071,9 @@ function addon:ResetSearch(RecipeDB)
 
 end
 
---[[
-
-	Text dumping functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Text dumping functions
+-------------------------------------------------------------------------------
 
 ---Scans through the recipe database providing a string of comma seperated values for all recipe information
 function addon:GetTextDump(RecipeDB, profession)
