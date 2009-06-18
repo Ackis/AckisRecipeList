@@ -400,7 +400,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Shifting Shadow Draenite -- 28933
 	self:addTradeSkill(RecipeDB,28933,315,23110,2,25229)
-	self:addTradeFlags(RecipeDB,28933,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,,51,105)
+	self:addTradeFlags(RecipeDB,28933,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,105)
 	self:addTradeAcquire(RecipeDB,28933,6,933,1,20242,6,933,1,23007)
 
 	-- Sovereign Shadow Draenite -- 28936
