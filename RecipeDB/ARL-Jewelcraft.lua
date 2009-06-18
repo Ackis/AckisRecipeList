@@ -240,7 +240,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Opal Necklace of Impact -- 26897
 	self:addTradeSkill(RecipeDB,26897,250,21766,1,25229)
-	self:addTradeFlags(RecipeDB,26897,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,26897,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
 	self:addTradeAcquire(RecipeDB,26897,2,5163,2,8363,2,16624,2,17512)
 
 	-- Figurine - Ruby Serpent -- 26900
@@ -390,7 +390,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Glowing Shadow Draenite -- 28925
 	self:addTradeSkill(RecipeDB,28925,300,23108,1,25229)
-	self:addTradeFlags(RecipeDB,28925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,28925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,56)
 	self:addTradeAcquire(RecipeDB,28925,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590)
 
 	-- Royal Shadow Draenite -- 28927
@@ -400,7 +400,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Shifting Shadow Draenite -- 28933
 	self:addTradeSkill(RecipeDB,28933,315,23110,2,25229)
-	self:addTradeFlags(RecipeDB,28933,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,28933,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,,51,105)
 	self:addTradeAcquire(RecipeDB,28933,6,933,1,20242,6,933,1,23007)
 
 	-- Sovereign Shadow Draenite -- 28936
