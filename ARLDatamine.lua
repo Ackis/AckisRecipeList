@@ -37,13 +37,13 @@ local L				= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 -------------------------------------------------------------------------------
 -- Upvalues globals.
 -------------------------------------------------------------------------------
-local table, string = table, string
+local table,string = table,string
 
-local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
-local strlower, strmatch = string.lower, string.match
+local tconcat,tinsert,tsort,twipe = table.concat,table.insert,table.sort,table.wipe
+local strlower,strmatch = string.lower,string.match
 local gsub = string.gsub
-local tonumber, tostring = tonumber, tostring
-local ipairs, pairs = ipairs, pairs
+local tonumber,tostring = tonumber,tostring
+local ipairs,pairs = ipairs,pairs
 
 -------------------------------------------------------------------------------
 -- Upvalued Blizzard API.
@@ -232,71 +232,52 @@ local SPELL_ITEM = {
 	-------------------------------------------------------------------------------
 	-- Enchanting
 	-------------------------------------------------------------------------------
-	[7443] = 6342,		[7766] = 6344,		[7776] = 6346,		[7782] = 6347,
-	[7786] = 38779,		[7788] = 6348,		[7793] = 6349,		[7859] = 6375,
-	[7867] = 6377,		[13380] = 11038,
-	-- Review past here
-	[13419] = 38789,	[13421] = 38790,	[13464] = 38791,	[13485] = 38792,
-	[13501] = 38793,	[13503] = 38794,	[13522] = 38795,	[13529] = 38796,
-	[13536] = 38797,	[13538] = 38798,	[13607] = 38799,	[13612] = 38800,
-	[13617] = 38801,	[13620] = 38802,	[13622] = 38803,	[13626] = 38804,
-	[13631] = 38805,	[13635] = 38806,	[13637] = 38807,	[13640] = 38808,
-	[13642] = 38809,	[13644] = 38810,	[13646] = 38811,	[13648] = 38812,
-	[13653] = 38813,	[13655] = 38814,	[13657] = 38815,	[13659] = 38816,
-	[13661] = 38817,	[13663] = 38818,	[13687] = 38819,	[13689] = 38820,
-	[13693] = 38821,	[13695] = 38822,	[13698] = 38823,	[13700] = 38824,
-	[13746] = 38825,	[13794] = 38826,	[13815] = 38827,	[13817] = 38828,
-	[13822] = 38829,	[13836] = 38830,	[13841] = 38831,	[13846] = 38832,
-	[13858] = 38833,	[13868] = 38834,	[13882] = 38835,	[13887] = 38836,
-	[13890] = 38837,	[13898] = 38838,	[13905] = 38839,	[13915] = 38840,
-	[13917] = 38841,	[13931] = 38842,	[13933] = 38843,	[13935] = 38844,
-	[13937] = 38845,	[13939] = 38846,	[13941] = 38847,	[13943] = 38848,
-	[13945] = 38849,	[13947] = 38850,	[13948] = 38851,	[15596] = 45050,
-	[20008] = 38852,	[20009] = 38853,	[20010] = 38854,	[20011] = 38855,
-	[20012] = 38856,	[20013] = 38857,	[20014] = 38858,	[20015] = 38859,
-	[20016] = 38860,	[20017] = 38861,	[20020] = 38862,	[20023] = 38863,
-	[20024] = 38864,	[20025] = 38865,	[20026] = 38866,	[20028] = 38867,
-	[20029] = 38868,	[20030] = 38869,	[20031] = 38870,	[20032] = 38871,
-	[20033] = 38872,	[20034] = 38873,	[20035] = 38874,	[20036] = 38875,
-	[20051] = 16243,	[21931] = 38876,	[22749] = 38877,	[22750] = 38878,
-	[23799] = 38879,	[23800] = 38880,	[23801] = 38881,	[23802] = 38882,
-	[23803] = 38883,	[23804] = 38884,	[25072] = 38885,	[25073] = 38886,
-	[25074] = 38887,	[25078] = 38888,	[25079] = 38889,	[25080] = 38890,
-	[25081] = 38891,	[25082] = 38892,	[25083] = 38893,	[25084] = 38894,
-	[25086] = 38895,	[25124] = 20758,	[25125] = 20752,	[25126] = 20753,
-	[25127] = 20754,	[25128] = 20755,	[25129] = 20756,	[25130] = 20757,
-	[27837] = 38896,	[27899] = 38897,	[27905] = 38898,	[27906] = 38899,
-	[27911] = 38900,	[27913] = 38901,	[27914] = 38902,	[27917] = 38903,
+    [7443] = 6342,		[7766] = 6344,		[7776] = 6346,		[7782] = 6347,
+	[7786] = 6348,		[7793] = 6349,		[7859] = 6375,		[7867] = 6377,
+	[13380] = 11038,	[13419] = 11039,	[13464] = 11081,	[13522] = 11098,
+	[13536] = 11101,	[13612] = 11150,	[13617] = 11151,	[13620] = 11152,
+	[13646] = 11163,	[13653] = 11164,	[13655] = 11165,	[13687] = 11167,
+	[13689] = 11168,	[13698] = 11166,	[13817] = 11202,	[13841] = 11203,
+	[13846] = 11204,	[13868] = 11205,	[13882] = 11206,	[13898] = 11207,
+	[13915] = 11208,	[13931] = 11223,	[13933] = 11224,	[13945] = 11225,
+	[13947] = 11226,	[15596] = 11813,	[15596] = 45050,	[20008] = 16214,
+	[20009] = 16218,	[20010] = 16246,	[20011] = 16251,	[20012] = 16219,
+	[20013] = 16244,	[20014] = 16216,	[20015] = 16224,	[20016] = 16222,
+	[20017] = 16217,	[20020] = 16215,	[20023] = 16245,	[20024] = 16220,
+	[20025] = 16253,	[20026] = 16221,	[20028] = 16242,	[20029] = 16223,
+	[20030] = 16247,	[20031] = 16250,	[20032] = 16254,	[20033] = 16248,
+	[20034] = 16252,	[20035] = 16255,	[20036] = 16249,	[20051] = 16243,
+	[21931] = 17725,	[22749] = 18259,	[22750] = 18260,	[23799] = 19444,
+	[23800] = 19445,	[23801] = 19446,	[23802] = 19447,	[23803] = 19448,
+	[23804] = 19449,	[25072] = 33153,	[25072] = 20726,	[25073] = 20727,
+	[25074] = 20728,	[25078] = 20729,	[25079] = 20730,	[25080] = 33152,
+	[25080] = 20731,	[25081] = 20732,	[25082] = 20733,	[25083] = 33149,
+	[25083] = 20734,	[25084] = 20735,	[25084] = 33150,	[25084] = 33151,
+	[25086] = 20736,	[25086] = 33148,	[25124] = 20758,	[25125] = 20752,
+	[25126] = 20753,	[25127] = 20754,	[25128] = 20755,	[25129] = 20756,
+	[25130] = 20757,	[27837] = 22392,	[27906] = 22530,	[27911] = 22531,
+	[27911] = 24000,	[27913] = 22532,	[27914] = 22533,	[27917] = 22534,
 	[27920] = 22535,	[27924] = 22536,	[27926] = 22537,	[27927] = 22538,
-	[27944] = 38904,	[27945] = 38905,	[27946] = 38906,	[27947] = 38907,
-	[27948] = 38908,	[27950] = 38909,	[27951] = 37603,	[27954] = 22545,
-	[27957] = 38911,	[27958] = 38912,	[27960] = 38913,	[27961] = 38914,
-	[27962] = 38915,	[27967] = 38917,	[27968] = 38918,	[27971] = 38919,
-	[27972] = 38920,	[27975] = 38921,	[27977] = 38922,	[27981] = 38923,
-	[27982] = 38924,	[27984] = 38925,	[28003] = 38926,	[28004] = 38927,
-	[28016] = 22562,	[28019] = 22563,	[28022] = 22565,	[32665] = 25848,
-	[32667] = 25849,	[33990] = 38928,	[33991] = 38929,	[33992] = 38930,
-	[33993] = 38931,	[33994] = 38932,	[33995] = 38933,	[33996] = 38934,
-	[33997] = 38935,	[33999] = 38936,	[34001] = 38937,	[34002] = 38938,
-	[34003] = 38939,	[34004] = 38940,	[34005] = 38941,	[34006] = 38942,
-	[34007] = 38943,	[34008] = 38944,	[34009] = 38945,	[34010] = 38946,
-	[42620] = 38947,	[42974] = 38948,	[44383] = 38949,	[44483] = 38950,
-	[44484] = 38951,	[44488] = 38953,	[44489] = 38954,	[44492] = 38955,
-	[44494] = 38956,	[44500] = 38959,	[44506] = 38960,	[44508] = 38961,
-	[44509] = 38962,	[44510] = 38963,	[44513] = 38964,	[44524] = 38965,
-	[44528] = 38966,	[44529] = 38967,	[44555] = 38968,	[44556] = 38969,
-	[44575] = 44815,	[44576] = 44494,	[44584] = 38974,
-	[44588] = 38975,	[44589] = 38976,	[44590] = 38977,	[44591] = 38978,
-	[44592] = 38979,	[44593] = 38980,	[44595] = 44473,	[44596] = 38982,
-	[44598] = 38984,	[44612] = 38985,	[44616] = 38987,	[44621] = 38988,
-	[44623] = 38989,	[44625] = 44485,	[44629] = 38991,
-	[44631] = 38993,	[44633] = 38995,	[45765] = 34872,
-	-- Review above here
-	[46578] = 35498,	[46594] = 35500,	[47051] = 35756,	[47672] = 44471,
-	[47898] = 44472,	[47899] = 44488,
-	[47901] = 44491,	[59619] = 44496,	[59621] = 44492,	[59625] = 44495,
-	[60691] = 44483,	[60692] = 44489,	[60707] = 44486,	[60714] = 44487,
-	[60763] = 44490,	[60767] = 44498,	[62256] = 44944,	[62257] = 44945,	[62948] = 45059,
+	[27945] = 22539,	[27946] = 22540,	[27947] = 22541,	[27948] = 35298,
+	[27948] = 22542,	[27950] = 22543,	[27951] = 22544,	[27954] = 22545,
+	[27960] = 24003,	[27960] = 22547,	[27962] = 22548,	[27967] = 22552,
+	[27968] = 22551,	[27971] = 22554,	[27972] = 22553,	[27975] = 22555,
+	[27977] = 22556,	[27981] = 22560,	[27982] = 22561,	[27984] = 22559,
+	[28003] = 22558,	[28004] = 22557,	[28016] = 22562,	[28019] = 22563,
+	[28022] = 22565,	[32665] = 25848,	[32667] = 25849,	[33992] = 28270,
+	[33994] = 28271,	[33997] = 28272,	[33999] = 28273,	[34003] = 28274,
+	[34005] = 28276,	[34006] = 28277,	[34007] = 35299,	[34007] = 28279,
+	[34008] = 35297,	[34008] = 28280,	[34009] = 28282,	[34010] = 28281,
+	[42620] = 33165,	[42974] = 33307,	[44483] = 37332,	[44494] = 37333,
+	[44524] = 37344,	[44556] = 37331,	[44575] = 44484,	[44576] = 44494,
+	[44588] = 37340,	[44590] = 37334,	[44591] = 37347,	[44595] = 44473,
+	[44596] = 37330,	[44621] = 37339,	[44625] = 44485,	[44631] = 37349,
+	[45765] = 34872,	[46578] = 35498,	[46594] = 35500,	[47051] = 35756,
+	[47672] = 44471,	[47898] = 44472,	[47899] = 44488,	[47901] = 44491,
+	[59619] = 44496,	[59621] = 44492,	[59625] = 44495,	[60691] = 44483,
+	[60692] = 44489,	[60707] = 44486,	[60714] = 44487,	[60763] = 44490,
+	[60767] = 44498,	[62256] = 44944,	[62257] = 44945,	[62948] = 45059,
+	[64441] = 46027,	[64579] = 46348,
 
 	-------------------------------------------------------------------------------
 	--Engineering
@@ -581,11 +562,11 @@ local function LoadRecipe()
 	if (not recipe_list) then
 		if (addon.db.profile.autoloaddb) then
 			local dbloaded
-			dbloaded, recipe_list = addon:InitRecipeData()
+			dbloaded,recipe_list = addon:InitRecipeData()
 
 			if (not dbloaded) then return end
 
-			for idx, prof in pairs(PROFESSIONS) do
+			for idx,prof in pairs(PROFESSIONS) do
 				addon:AddRecipeData(prof)
 			end
 		else
@@ -593,9 +574,9 @@ local function LoadRecipe()
 			return
 		end
 	else
-		-- Recipe DB exists, we just need to populate it now
+		-- Recipe DB exists,we just need to populate it now
 		if (addon.db.profile.autoloaddb) then
-			for idx, prof in pairs(PROFESSIONS) do
+			for idx,prof in pairs(PROFESSIONS) do
 				addon:AddRecipeData(prof)
 			end
 		end
@@ -633,16 +614,16 @@ end
 -------------------------------------------------------------------------------
 -- Tooltip for data-mining.
 -------------------------------------------------------------------------------
-local ARLDatamineTT = CreateFrame("GameTooltip", "ARLDatamineTT", UIParent, "GameTooltipTemplate")
+local ARLDatamineTT = CreateFrame("GameTooltip","ARLDatamineTT",UIParent,"GameTooltipTemplate")
 
 do
 	-- Tables used in all the Scan functions within this do block. -Torhal
-	local info, output = {}, {}
+	local info,output = {},{}
 
 	--- Function to compare the skill levels of a trainers recipes with those in the ARL database.
 	-- @name AckisRecipeList:ScanSkillLevelData
-	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
-	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
+	-- @param autoscan True when autoscan is enabled in preferences,it will surpress output letting you know when a scan has occured.
+	-- @return Does a comparison of the information in your internal ARL database,and those items which are available on the trainer.  Compares the skill levels between the two.
 	function addon:ScanSkillLevelData(autoscan)
 
 		if (IsTradeskillTrainer()) then	-- Are we at a trade skill trainer?
@@ -658,16 +639,16 @@ do
 			local used = GetTrainerServiceTypeFilter("used")
 
 			-- Clear the trainer filters
-			SetTrainerServiceTypeFilter("available", 1)
-			SetTrainerServiceTypeFilter("unavailable", 1)
-			SetTrainerServiceTypeFilter("used", 1)
+			SetTrainerServiceTypeFilter("available",1)
+			SetTrainerServiceTypeFilter("unavailable",1)
+			SetTrainerServiceTypeFilter("used",1)
 
 			twipe(info)
 
 			-- Get the skill levels from the trainer
-			for i = 1, GetNumTrainerServices(), 1 do
+			for i = 1,GetNumTrainerServices(),1 do
 				local name = GetTrainerServiceInfo(i)
-				local _, skilllevel = GetTrainerServiceSkillReq(i)
+				local _,skilllevel = GetTrainerServiceSkillReq(i)
 				if not skilllevel then
 					skilllevel = 0
 				end
@@ -680,18 +661,18 @@ do
 				local i_name = recipe_list[i]["Name"]
 				if (info[i_name]) and (info[i_name] ~= recipe_list[i]["Level"]) then
 					entryfound = true
-					tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i]["Level"], info[i_name]))
+					tinsert(output,L["DATAMINER_SKILLELVEL"]:format(i_name,recipe_list[i]["Level"],info[i_name]))
 				end
 			end
-			tinsert(output, "Trainer Skill Level Scan Complete.")
+			tinsert(output,"Trainer Skill Level Scan Complete.")
 
 			if (entryfound) then
-				self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+				self:DisplayTextDump(nil,nil,tconcat(output,"\n"))
 			end
 			-- Reset the filters to what they were before
-			SetTrainerServiceTypeFilter("available", avail or 0)
-			SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-			SetTrainerServiceTypeFilter("used", used or 0)
+			SetTrainerServiceTypeFilter("available",avail or 0)
+			SetTrainerServiceTypeFilter("unavailable",unavail or 0)
+			SetTrainerServiceTypeFilter("used",used or 0)
 
 		elseif (not autoscan) then
 			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
@@ -699,15 +680,15 @@ do
 	end
 
 
-	local teach, noteach = {}, {}
+	local teach,noteach = {},{}
 
 	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
 	-- @name AckisRecipeList:ScanTrainerData
-	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
-	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
+	-- @param autoscan True when autoscan is enabled in preferences,it will surpress output letting you know when a scan has occured.
+	-- @return Does a comparison of the information in your internal ARL database,and those items which are available on the trainer.
 	-- Compares the acquire information of the ARL database with what is available on the trainer.
 	function addon:ScanTrainerData(autoscan)
-		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player","target"))) then	-- Make sure the target exists and is a NPC
 			local targetname = UnitName("target")	-- Get its name
 			local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)	-- Get the NPC ID
 
@@ -725,17 +706,17 @@ do
 				local used = GetTrainerServiceTypeFilter("used")
 
 				-- Clear the trainer filters
-				SetTrainerServiceTypeFilter("available", 1)
-				SetTrainerServiceTypeFilter("unavailable", 1)
-				SetTrainerServiceTypeFilter("used", 1)
+				SetTrainerServiceTypeFilter("available",1)
+				SetTrainerServiceTypeFilter("unavailable",1)
+				SetTrainerServiceTypeFilter("used",1)
 
 				if (GetNumTrainerServices() == 0) then
-					self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
+					self:Print("Warning: Trainer is bugged,reporting 0 trainer items.")
 				end
 				twipe(info)
 
 				-- Get all the names of recipes from the trainer
-				for i = 1, GetNumTrainerServices(), 1 do
+				for i = 1,GetNumTrainerServices(),1 do
 					local name = GetTrainerServiceInfo(i)
 					info[name] = true
 				end
@@ -744,7 +725,7 @@ do
 				twipe(output)
 
 				-- Dump out trainer info
-				tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
+				tinsert(output,L["DATAMINER_TRAINER_INFO"]:format(targetname,targetID))
 
 				local teachflag = false
 				local noteachflag = false
@@ -767,11 +748,11 @@ do
 						end
 
 						if (not found) then
-							tinsert(teach, i)
+							tinsert(teach,i)
 							teachflag = true
 
 							if (not flags[3]) then
-								tinsert(output, ": Trainer flag needs to be set.")
+								tinsert(output,": Trainer flag needs to be set.")
 							end
 						end
 						-- Trainer does not teach this recipe
@@ -787,36 +768,36 @@ do
 						end
 						if (found) then
 							noteachflag = true
-							tinsert(noteach, i)
+							tinsert(noteach,i)
 						end
 					end
 				end
 
 				if (teachflag) then
-					tinsert(output, "Missing entries (need to be added):")
+					tinsert(output,"Missing entries (need to be added):")
 					tsort(teach)
 					for i in ipairs(teach) do
-						tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]]["Name"]))
+						tinsert(output,L["DATAMINER_TRAINER_TEACH"]:format(teach[i],recipe_list[teach[i]]["Name"]))
 					end
 				end
 
 				if (noteachflag) then
-					tinsert(output, "Extra entries (need to be removed):")
+					tinsert(output,"Extra entries (need to be removed):")
 					tsort(noteach)
 					for i in ipairs(noteach) do
-						tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]]["Name"]))
+						tinsert(output,L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i],recipe_list[noteach[i]]["Name"]))
 					end
 				end
-				tinsert(output, "Trainer Acquire Scan Complete.")
+				tinsert(output,"Trainer Acquire Scan Complete.")
 
 				if ((teachflag) or (noteachflag)) then
-					self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+					self:DisplayTextDump(nil,nil,tconcat(output,"\n"))
 				end
 
 				-- Reset the filters to what they were before
-				SetTrainerServiceTypeFilter("available", avail or 0)
-				SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-				SetTrainerServiceTypeFilter("used", used or 0)
+				SetTrainerServiceTypeFilter("available",avail or 0)
+				SetTrainerServiceTypeFilter("unavailable",unavail or 0)
+				SetTrainerServiceTypeFilter("used",used or 0)
 
 			elseif (not autoscan) then
 				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
@@ -836,10 +817,10 @@ function addon:GenerateLinks()
 	-- This code adopted from Gnomish Yellow Pages with permission
 
 	local guid = UnitGUID("player")
-	local playerGUID = string.gsub(guid,"0x0+", "")
+	local playerGUID = string.gsub(guid,"0x0+","")
 
 	-- Listing of all tradeskill professions
-	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
+	local tradelist = {51304,51300,51313,51306,45363,51311,51302,51309,51296,45542}
 
 --[[
 	local encodingLength = floor((#recipeList+5) / 6)
@@ -880,7 +861,7 @@ function addon:GenerateLinks()
 		else
 			self:Print("I don't have the bitmap for " .. tradeName .. " yet.")
 		end
-		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
+		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(),"\124","\124\124"))
 	end
 
 end
@@ -929,10 +910,10 @@ do
 		end
 	end
 
-	--- Parses all recipes for a specified profession, scanning their tool tips.
+	--- Parses all recipes for a specified profession,scanning their tool tips.
 	-- @name AckisRecipeList:ScanProfession
 	-- @usage AckisRecipeList:ScanProfession("first aid")
-	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
+	-- @param prof_name The profession name or the spell ID of it,which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
 		if (type(prof_name) == "number") then
@@ -945,7 +926,7 @@ do
 		local scan_all = prof_name == "all"
 
 		if not scan_all then
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+			for idx,name in ipairs(ORDERED_PROFESSIONS) do
 				if prof_name == name then
 					found = true
 					break
@@ -959,7 +940,7 @@ do
 
 			ProfessionScan(prof_name)
 		else
-			for idx, name in ipairs(ORDERED_PROFESSIONS) do
+			for idx,name in ipairs(ORDERED_PROFESSIONS) do
 				ProfessionScan(name)
 			end
 		end
@@ -967,12 +948,12 @@ do
 
 end	-- do
 
---- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
+--- Scans the items on a vendor,determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @usage AckisRecipeList:ScanVendor()
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
 function addon:ScanVendor()
-	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+	if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player","target"))) then	-- Make sure the target exists and is a NPC
 		local recipe_list = LoadRecipe()		-- Get internal database
 
 		if (not recipe_list) then
@@ -985,10 +966,10 @@ function addon:ScanVendor()
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
 
 		-- Parse all the items on the merchant
-		for i = 1, GetMerchantNumItems(), 1 do
+		for i = 1,GetMerchantNumItems(),1 do
 		
 			-- Get the name
-			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
+			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
 			-- Get rid of the first part of the item
 			local recipename = gsub(name,"%a+\: ","")
 			-- Find out what spell ID we're using
@@ -996,7 +977,7 @@ function addon:ScanVendor()
 			-- Do the scan if we have the spell ID
 			if (spellid) then
 				self:TooltipScanRecipe(spellid,true)
-				-- Ok now we know it's a vendor, lets check the database to see if the vendor is listed as an acquire method.
+				-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
 				local acquire = recipe_list[spellid]["Acquire"]
 				local found = false
 				for i in pairs(acquire) do
@@ -1019,7 +1000,7 @@ function addon:ScanVendor()
 	end
 end
 
---- Parses all the recipes in the database, and scanning their tooltips.
+--- Parses all the recipes in the database,and scanning their tooltips.
 -- @name AckisRecipeList:TooltipScanDatabase
 -- @usage AckisRecipeList:TooltipScanDatabase()
 -- @return Entire recipe database has its tooltips scanned.
@@ -1066,11 +1047,11 @@ local RECIPE_NAMES = {
 	["tailoring: "] = true,
 }
 
---- Parses a specific recipe in the database, and scanning its tooltip.
+--- Parses a specific recipe in the database,and scanning its tooltip.
 -- @name AckisRecipeList:TooltipScanRecipe
 -- @param spellid The [[[http://www.wowwiki.com/SpellLink | Spell ID]]] of the recipe being added to the database.
 -- @return Recipe has its tooltips scanned.
-function addon:TooltipScanRecipe(spellid, is_vendor)
+function addon:TooltipScanRecipe(spellid,is_vendor)
 	local recipe_list = LoadRecipe()	-- Get internal database
 
 	if (not recipe_list) then
@@ -1079,8 +1060,8 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 	end
 	local reverse_lookup = CreateReverseLookup(recipe_list)
 
-	ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-	GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+	ARLDatamineTT:SetOwner(WorldFrame,"ANCHOR_NONE")
+	GameTooltip_SetDefaultAnchor(ARLDatamineTT,UIParent)
 
 	local t = {}
 
@@ -1088,17 +1069,17 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 		local recipe_name = recipe_list[spellid]["Name"]
 		local recipe_link = recipe_list[spellid]["RecipeLink"]
 
-		-- If a link exists, we'll scan it.
+		-- If a link exists,we'll scan it.
 		if (recipe_link) then
 			ARLDatamineTT:SetHyperlink(recipe_link)	-- Load the tooltip
 
 			-- Lets check to see if it's a recipe tooltip
 			local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
-			local matchtext = strmatch(text, "%a+: ")
+			local matchtext = strmatch(text,"%a+: ")
 
 			-- Check to see if we're dealing with a recipe
 			if (RECIPE_NAMES[matchtext]) then
-				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
+				self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,false)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				local itemid = SPELL_ITEM[spellid]
@@ -1106,7 +1087,7 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 					local incache = GetItemInfo(itemid)
 					if (incache) then
 						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
-						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
+						self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,true)
 					else
 						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
 					end
@@ -1116,7 +1097,7 @@ function addon:TooltipScanRecipe(spellid, is_vendor)
 
 		-- Lets hide this output for runeforging.
 		elseif (recipe_list[spellid]["Profession"] ~= GetSpellInfo(53428)) then
-			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. recipe_name .. " (If these are DK abilities, don't worry, that's normal.")
+			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. recipe_name .. " (If these are DK abilities,don't worry,that's normal.")
 		end
 	else
 		self:Print("Spell ID does not exist in the database.")
@@ -1249,15 +1230,15 @@ do
 	-- Table to store scanned information. Wiped and re-used every scan.
 	local scan_data = {}
 
-	--- Parses the mining tooltip for certain keywords, comparing them with the database flags.
+	--- Parses the mining tooltip for certain keywords,comparing them with the database flags.
 	-- @name AckisRecipeList:ScanToolTip
 	-- @param name The name of the recipe
 	-- @param recipe_list Recipe database
 	-- @param reverse_lookup Reverse lookup database
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor.
 	-- @param is_item Boolean to indicate if we're scanning an item tooltip.
-	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
-	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
+	-- @return Scans a tooltip,and outputs the missing or extra filter flags.
+	function addon:ScanToolTip(name,recipe_list,reverse_lookup,is_vendor,is_item)
 		-- We only want to wipe the table if we're scanning a new entry (not an item associated with a spell ID)
 		if (not is_item) then
 			twipe(scan_data)
@@ -1269,7 +1250,7 @@ do
 		scan_data.is_item = is_item
 
 		-- Parse all the lines of the tooltip
-		for i = 1, ARLDatamineTT:NumLines(), 1 do
+		for i = 1,ARLDatamineTT:NumLines(),1 do
 			local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
 			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
 			local text
@@ -1284,7 +1265,7 @@ do
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
-			if strmatch(text, "binds when picked up") then
+			if strmatch(text,"binds when picked up") then
 				if (i < 3) then
 					scan_data.boprecipe = true
 				else
@@ -1298,8 +1279,8 @@ do
 			end
 
 			-- Recipe Reputations
-			if (strmatch(text, "Requires (.+) %- (.+)")) then
-				local rep, replevel = strmatch(text, "Requires (.+) %- (.+)")
+			if (strmatch(text,"Requires (.+) %- (.+)")) then
+				local rep,replevel = strmatch(text,"Requires (.+) %- (.+)")
 				if (FACTION_TEXT[rep]) then
 					scan_data.repid = FACTION_TEXT[rep]
 					scan_data.repidlevel = FACTION_LEVELS[replevel]
@@ -1307,104 +1288,104 @@ do
 			end
 
 			-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-			if (strmatch(text, "strength")) then
+			if (strmatch(text,"strength")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "agility")) then
+			elseif (strmatch(text,"agility")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "spirit")) then
+			elseif (strmatch(text,"spirit")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = true
-			elseif (strmatch(text, "spell power")) then
+			elseif (strmatch(text,"spell power")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = true
-			elseif (strmatch(text, "spell crit")) then
+			elseif (strmatch(text,"spell crit")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = true
-			elseif (strmatch(text, "spell hit")) then
+			elseif (strmatch(text,"spell hit")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = false
-			elseif (strmatch(text, "spell penetration")) then
+			elseif (strmatch(text,"spell penetration")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = false
-			elseif (strmatch(text, "mana every 5 seconds")) then
+			elseif (strmatch(text,"mana every 5 seconds")) then
 				scan_data.dps = false
 				scan_data.tank = false
 				scan_data.caster = true
 				scan_data.healer = true
-			elseif (strmatch(text, "attack power")) then
+			elseif (strmatch(text,"attack power")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "expertise")) then
+			elseif (strmatch(text,"expertise")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "melee crit")) then
+			elseif (strmatch(text,"melee crit")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "ranged crit")) then
-				scan_data.dps = true
-				scan_data.tank = false
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text, "melee haste")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text, "ranged haste")) then
+			elseif (strmatch(text,"ranged crit")) then
 				scan_data.dps = true
 				scan_data.tank = false
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "melee hit")) then
+			elseif (strmatch(text,"melee haste")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "ranged hit")) then
+			elseif (strmatch(text,"ranged haste")) then
 				scan_data.dps = true
 				scan_data.tank = false
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "armor pen")) then
+			elseif (strmatch(text,"melee hit")) then
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "feral attack")) then
+			elseif (strmatch(text,"ranged hit")) then
+				scan_data.dps = true
+				scan_data.tank = false
+				scan_data.caster = false
+				scan_data.healer = false
+			elseif (strmatch(text,"armor pen")) then
+				scan_data.dps = true
+				scan_data.caster = false
+				scan_data.healer = false
+			elseif (strmatch(text,"feral attack")) then
 				scan_data.tank = true
 				scan_data.dps = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "defense")) then
+			elseif (strmatch(text,"defense")) then
 				scan_data.dps = false
 				scan_data.tank = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "block")) then
+			elseif (strmatch(text,"block")) then
 				scan_data.dps = false
 				scan_data.tank = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "parry")) then
+			elseif (strmatch(text,"parry")) then
 				scan_data.dps = false
 				scan_data.tank = true
 				scan_data.caster = false
 				scan_data.healer = false
-			elseif (strmatch(text, "dodge")) then
+			elseif (strmatch(text,"dodge")) then
 				scan_data.dps = false
 				scan_data.tank = true
 				scan_data.caster = false
@@ -1412,84 +1393,84 @@ do
 			end
 
 			-- Classes
-			if (strmatch(text, "death knight")) then
+			if (strmatch(text,"death knight")) then
 				scan_data.Deathknight = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "druid")) then
+			elseif (strmatch(text,"druid")) then
 				scan_data.Druid = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "hunter")) then
+			elseif (strmatch(text,"hunter")) then
 				scan_data.Hunter = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "mage")) then
+			elseif (strmatch(text,"mage")) then
 				scan_data.Mage = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "paladin")) then
+			elseif (strmatch(text,"paladin")) then
 				scan_data.Paladin = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "priest")) then
+			elseif (strmatch(text,"priest")) then
 				scan_data.Priest = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "rogue")) then
+			elseif (strmatch(text,"rogue")) then
 				scan_data.Rogue = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "shaman")) then
+			elseif (strmatch(text,"shaman")) then
 				scan_data.Shaman = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "warlock")) then
+			elseif (strmatch(text,"warlock")) then
 				scan_data.Warlock = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "warrior")) then
+			elseif (strmatch(text,"warrior")) then
 				scan_data.Warrior = true
 				scan_data.found_class = true
 				-- Armor types
 			-- Check the end of the item for cloth and leather because we can craft something with those items in it
-			elseif (strmatch(text, "cloth$")) then
+			elseif (strmatch(text,"cloth$")) then
 				scan_data.Cloth = true
-			elseif (strmatch(text, "leather$")) then
+			elseif (strmatch(text,"leather$")) then
 				scan_data.Leather = true
-			elseif (strmatch(text, "mail")) then
+			elseif (strmatch(text,"mail")) then
 				scan_data.Mail = true
-			elseif (strmatch(text, "plate")) then
+			elseif (strmatch(text,"plate")) then
 				scan_data.Plate = true
-			elseif (strmatch(text, "cloak")) then
+			elseif (strmatch(text,"cloak")) then
 				scan_data.Cloak = true
-			elseif (strmatch(text, "ring")) and strmatch(text, "ring:") == nil and strmatch(text, "requires") == nil then
+			elseif (strmatch(text,"ring")) and strmatch(text,"ring:") == nil and strmatch(text,"requires") == nil then
 				scan_data.Ring = true
-			elseif (strmatch(text, "necklace")) then
+			elseif (strmatch(text,"necklace")) then
 				scan_data.Necklace = true
-			elseif (strmatch(text, "shield")) then
+			elseif (strmatch(text,"shield")) then
 				scan_data.Shield = true
 				-- Weapon types
-			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
+			elseif (strmatch(text,"1 hand")) or (strmatch(text,"off hand")) then
 				scan_data.OneHanded = true
-			elseif (strmatch(text, "2 hand")) then
+			elseif (strmatch(text,"2 hand")) then
 				scan_data.TwoHanded = true
-			elseif (strmatch(text, "axe")) then
+			elseif (strmatch(text,"axe")) then
 				scan_data.Axe = true
-			elseif (strmatch(text, "sword")) then
+			elseif (strmatch(text,"sword")) then
 				scan_data.Sword = true
-			elseif (strmatch(text, "mace")) then
+			elseif (strmatch(text,"mace")) then
 				scan_data.Mace = true
-			elseif (strmatch(text, "polearm")) then
+			elseif (strmatch(text,"polearm")) then
 				scan_data.Polearm = true
-			elseif (strmatch(text, "dagger")) then
+			elseif (strmatch(text,"dagger")) then
 				scan_data.Dagger = true
-			elseif (strmatch(text, "staff")) then
+			elseif (strmatch(text,"staff")) then
 				scan_data.Staff = true
-			elseif (strmatch(text, "wand")) then
+			elseif (strmatch(text,"wand")) then
 				scan_data.Wand = true
-			elseif (strmatch(text, "thrown")) then
+			elseif (strmatch(text,"thrown")) then
 				scan_data.Thrown = true
-			elseif (strmatch(text, "bow")) then
+			elseif (strmatch(text,"bow")) then
 				scan_data.Bow = true
-			elseif (strmatch(text, "crossbow")) then
+			elseif (strmatch(text,"crossbow")) then
 				scan_data.CrossBow = true
-			elseif (strmatch(text, "gun")) then
+			elseif (strmatch(text,"gun")) then
 				scan_data.Gun = true
-			elseif (strmatch(text, "ammo")) then
+			elseif (strmatch(text,"ammo")) then
 				scan_data.Ammo = true
-			elseif (strmatch(text, "fist")) then
+			elseif (strmatch(text,"fist")) then
 				scan_data.Fist = true
 			end
 		end	-- for
@@ -1505,7 +1486,7 @@ do
 	function addon:PrintScanResults()
 
 		-- Parse the recipe database until we get a match on the name
-		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
+		local recipe_name = gsub(scan_data.match_name,"%a+%?: ","")
 		local spellid = scan_data.reverse_lookup[recipe_name]
 		-- Output table
 		local t = {}
@@ -1525,94 +1506,94 @@ do
 
 		if scan_data.is_vendor then
 			if (not flags[4]) then
-				tinsert(missing_flags, "4 (Vendor)")
+				tinsert(missing_flags,"4 (Vendor)")
 			end
 
 			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
-				tinsert(missing_flags, "9 (PvP)")
+				tinsert(missing_flags,"9 (PvP)")
 			elseif (flags[9]) then
-				tinsert(extra_flags, "9 (PvP)")
+				tinsert(extra_flags,"9 (PvP)")
 			end
 		end
 
 		-- If we've picked up at least one class flag
 		if scan_data.found_class then
-			for k, v in ipairs(ORDERED_CLASS_TYPES) do
+			for k,v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not flags[CLASS_TYPES[v]] then
-					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+					tinsert(missing_flags,tostring(CLASS_TYPES[v]).." ("..v..")")
 				elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
-					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+					tinsert(extra_flags,tostring(CLASS_TYPES[v]).." ("..v..")")
 				end
 			end
 		else	-- Recipe is not class specific - every flag should be set.
-			for k, v in ipairs(ORDERED_CLASS_TYPES) do
+			for k,v in ipairs(ORDERED_CLASS_TYPES) do
 				if not flags[CLASS_TYPES[v]] then
-					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+					tinsert(missing_flags,tostring(CLASS_TYPES[v]).." ("..v..")")
 				end
 			end
 		end
 
 		-- BoP Item
 		if (scan_data.bopitem) and (not flags[37]) then
-			tinsert(missing_flags, "37 (BoP Item)")
-			-- If it's a BoP item and flags BoE is set, mark it as extra
+			tinsert(missing_flags,"37 (BoP Item)")
+			-- If it's a BoP item and flags BoE is set,mark it as extra
 			if (flags[36]) then
-				tinsert(extra_flags, "36 (BoE Item)")
+				tinsert(extra_flags,"36 (BoE Item)")
 			end
-			-- If it's a BoP item and flags BoA is set, mark it as extra
+			-- If it's a BoP item and flags BoA is set,mark it as extra
 			if (flags[38]) then
-				tinsert(extra_flags, "38 (BoA Item)")
+				tinsert(extra_flags,"38 (BoA Item)")
 			end
-			-- BoE Item, assuming it's not BoA
+			-- BoE Item,assuming it's not BoA
 		elseif (not flags[36]) and (not scan_data.bopitem) then
-			tinsert(missing_flags, "36 (BoE Item)")
-			-- If it's a BoE item and flags BoP is set, mark it as extra
+			tinsert(missing_flags,"36 (BoE Item)")
+			-- If it's a BoE item and flags BoP is set,mark it as extra
 			if (flags[37]) then
-				tinsert(extra_flags, "37 (BoP Item)")
+				tinsert(extra_flags,"37 (BoP Item)")
 			end
-			-- If it's a BoE item and flags BoA is set, mark it as extra
+			-- If it's a BoE item and flags BoA is set,mark it as extra
 			if (flags[38]) then
-				tinsert(extra_flags, "38 (BoA Item)")
+				tinsert(extra_flags,"38 (BoA Item)")
 			end
 		end
 
 		-- BoP Recipe
 		if (scan_data.boprecipe) and (not flags[41]) then
-			tinsert(missing_flags, "41 (BoP Recipe)")
-			-- If it's a BoP recipe and flags BoE is set, mark it as extra
+			tinsert(missing_flags,"41 (BoP Recipe)")
+			-- If it's a BoP recipe and flags BoE is set,mark it as extra
 			if (flags[40]) then
-				tinsert(extra_flags, "40 (BoE Recipe)")
+				tinsert(extra_flags,"40 (BoE Recipe)")
 			end
-			-- If it's a BoP recipe and flags BoA is set, mark it as extra
+			-- If it's a BoP recipe and flags BoA is set,mark it as extra
 			if (flags[42]) then
-				tinsert(extra_flags, "42 (BoA Recipe)")
+				tinsert(extra_flags,"42 (BoA Recipe)")
 			end
-			-- Not BoP recipe, assuming it's not BoA
+			-- Not BoP recipe,assuming it's not BoA
 		elseif (not flags[40]) and (not scan_data.boprecipe) then
-			tinsert(missing_flags, "40 (BoE Recipe)")
-			-- If it's a BoE recipe and flags BoP is set, mark it as extra
+			tinsert(missing_flags,"40 (BoE Recipe)")
+			-- If it's a BoE recipe and flags BoP is set,mark it as extra
 			if (flags[41]) then
-				tinsert(extra_flags, "41 (BoP Recipe)")
+				tinsert(extra_flags,"41 (BoP Recipe)")
 			end
-			-- If it's a BoE recipe and flags BoA is set, mark it as extra
+			-- If it's a BoE recipe and flags BoA is set,mark it as extra
 			if (flags[42]) then
-				tinsert(extra_flags, "42 (BoA Recipe)")
+				tinsert(extra_flags,"42 (BoA Recipe)")
 			end
 		end
 
-		for k, v in ipairs(ORDERED_ROLE_TYPES) do
+		for k,v in ipairs(ORDERED_ROLE_TYPES) do
 			if scan_data[v] and not flags[ROLE_TYPES[v]] then
-				tinsert(missing_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
+				tinsert(missing_flags,tostring(ROLE_TYPES[v]).." ("..v..")")
 			elseif not scan_data[v] and flags[ROLE_TYPES[v]] then
-				tinsert(extra_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
+				tinsert(extra_flags,tostring(ROLE_TYPES[v]).." ("..v..")")
 			end
 		end
 
-		for k, v in ipairs(ORDERED_ITEM_TYPES) do
+		for k,v in ipairs(ORDERED_ITEM_TYPES) do
 			if scan_data[v] and not flags[ITEM_TYPES[v]] then
-				tinsert(missing_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
+				tinsert(missing_flags,tostring(ITEM_TYPES[v]).." ("..v..")")
 			elseif not scan_data[v] and flags[ITEM_TYPES[v]] then
-				tinsert(extra_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
+				tinsert(extra_flags,tostring(ITEM_TYPES[v]).." ("..v..")")
 			end
 		end
 
@@ -1620,23 +1601,23 @@ do
 		local repid = scan_data.repid
 
 		if repid and not flags[repid] then
-			tinsert(missing_flags, repid)
+			tinsert(missing_flags,repid)
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
 			tinsert(t,recipe_name .. " - " .. spellid)
 
 			if (#missing_flags > 0) then
-				tinsert(t,"Missing flags: " .. tconcat(missing_flags, ", "))
+				tinsert(t,"Missing flags: " .. tconcat(missing_flags,","))
 			end
 
 			if (#extra_flags > 0) then
-				tinsert(t,"Extra flags: " .. tconcat(extra_flags, ", "))
+				tinsert(t,"Extra flags: " .. tconcat(extra_flags,","))
 			end
 
 			local count = 0
 
-			for k, v in ipairs(ORDERED_ITEM_TYPES) do
+			for k,v in ipairs(ORDERED_ITEM_TYPES) do
 				if scan_data[v] then
 					count = count + 1
 				end
