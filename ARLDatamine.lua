@@ -232,7 +232,7 @@ local SPELL_ITEM = {
 	-------------------------------------------------------------------------------
 	-- Enchanting
 	-------------------------------------------------------------------------------
-    [7443] = 6342,		[7766] = 6344,		[7776] = 6346,		[7782] = 6347,
+	[7443] = 6342,		[7766] = 6344,		[7776] = 6346,		[7782] = 6347,
 	[7786] = 6348,		[7793] = 6349,		[7859] = 6375,		[7867] = 6377,
 	[13380] = 11038,	[13419] = 11039,	[13464] = 11081,	[13522] = 11098,
 	[13536] = 11101,	[13612] = 11150,	[13617] = 11151,	[13620] = 11152,
@@ -1532,50 +1532,53 @@ do
 		end
 
 		-- BoP Item
-		if (scan_data.bopitem) and (not flags[37]) then
-			tinsert(missing_flags,"37 (BoP Item)")
-			-- If it's a BoP item and flags BoE is set,mark it as extra
-			if (flags[36]) then
-				tinsert(extra_flags,"36 (BoE Item)")
+		if scan_data.is_item then
+			if (scan_data.bopitem) and (not flags[37]) then
+				tinsert(missing_flags,"37 (BoP Item)")
+				-- If it's a BoP item and flags BoE is set,mark it as extra
+				if (flags[36]) then
+					tinsert(extra_flags,"36 (BoE Item)")
+				end
+				-- If it's a BoP item and flags BoA is set,mark it as extra
+				if (flags[38]) then
+					tinsert(extra_flags,"38 (BoA Item)")
+				end
+				-- BoE Item,assuming it's not BoA
+			elseif (not flags[36]) and (not scan_data.bopitem) then
+				tinsert(missing_flags,"36 (BoE Item)")
+				-- If it's a BoE item and flags BoP is set,mark it as extra
+				if (flags[37]) then
+					tinsert(extra_flags,"37 (BoP Item)")
+				end
+				-- If it's a BoE item and flags BoA is set,mark it as extra
+				if (flags[38]) then
+					tinsert(extra_flags,"38 (BoA Item)")
+				end
 			end
-			-- If it's a BoP item and flags BoA is set,mark it as extra
-			if (flags[38]) then
-				tinsert(extra_flags,"38 (BoA Item)")
-			end
-			-- BoE Item,assuming it's not BoA
-		elseif (not flags[36]) and (not scan_data.bopitem) then
-			tinsert(missing_flags,"36 (BoE Item)")
-			-- If it's a BoE item and flags BoP is set,mark it as extra
-			if (flags[37]) then
-				tinsert(extra_flags,"37 (BoP Item)")
-			end
-			-- If it's a BoE item and flags BoA is set,mark it as extra
-			if (flags[38]) then
-				tinsert(extra_flags,"38 (BoA Item)")
-			end
-		end
+		else
 
-		-- BoP Recipe
-		if (scan_data.boprecipe) and (not flags[41]) then
-			tinsert(missing_flags,"41 (BoP Recipe)")
-			-- If it's a BoP recipe and flags BoE is set,mark it as extra
-			if (flags[40]) then
-				tinsert(extra_flags,"40 (BoE Recipe)")
-			end
-			-- If it's a BoP recipe and flags BoA is set,mark it as extra
-			if (flags[42]) then
-				tinsert(extra_flags,"42 (BoA Recipe)")
-			end
-			-- Not BoP recipe,assuming it's not BoA
-		elseif (not flags[40]) and (not scan_data.boprecipe) then
-			tinsert(missing_flags,"40 (BoE Recipe)")
-			-- If it's a BoE recipe and flags BoP is set,mark it as extra
-			if (flags[41]) then
-				tinsert(extra_flags,"41 (BoP Recipe)")
-			end
-			-- If it's a BoE recipe and flags BoA is set,mark it as extra
-			if (flags[42]) then
-				tinsert(extra_flags,"42 (BoA Recipe)")
+			-- BoP Recipe
+			if (scan_data.boprecipe) and (not flags[41]) then
+				tinsert(missing_flags,"41 (BoP Recipe)")
+				-- If it's a BoP recipe and flags BoE is set,mark it as extra
+				if (flags[40]) then
+					tinsert(extra_flags,"40 (BoE Recipe)")
+				end
+				-- If it's a BoP recipe and flags BoA is set,mark it as extra
+				if (flags[42]) then
+					tinsert(extra_flags,"42 (BoA Recipe)")
+				end
+				-- Not BoP recipe,assuming it's not BoA
+			elseif (not flags[40]) and (not scan_data.boprecipe) then
+				tinsert(missing_flags,"40 (BoE Recipe)")
+				-- If it's a BoE recipe and flags BoP is set,mark it as extra
+				if (flags[41]) then
+					tinsert(extra_flags,"41 (BoP Recipe)")
+				end
+				-- If it's a BoE recipe and flags BoA is set,mark it as extra
+				if (flags[42]) then
+					tinsert(extra_flags,"42 (BoA Recipe)")
+				end
 			end
 		end
 
