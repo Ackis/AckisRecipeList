@@ -1423,7 +1423,6 @@ do
 		profession_table[GetSpellInfo(51313)] = addon.InitEnchanting
 		profession_table[GetSpellInfo(51306)] = addon.InitEngineering
 		profession_table[GetSpellInfo(45542)] = addon.InitFirstAid
-		profession_table["Premiers soins"] = addon.InitFirstAid			-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
 		profession_table[GetSpellInfo(51302)] = addon.InitLeatherworking
 		profession_table[GetSpellInfo(32606)] = addon.InitSmelting
 		profession_table[GetSpellInfo(51309)] = addon.InitTailoring
@@ -1733,7 +1732,6 @@ do
 			[GetSpellInfo(51313)] = false, -- Enchanting
 			[GetSpellInfo(51306)] = false, -- Engineering
 			[GetSpellInfo(45542)] = false, -- First Aid
-			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(51302)] = false, -- Leatherworking
 			[GetSpellInfo(32606)] = false, -- Mining
 			[GetSpellInfo(51309)] = false, -- Tailoring
