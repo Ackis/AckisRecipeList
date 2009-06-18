@@ -180,7 +180,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Golden Hare -- 26873
 	self:addTradeSkill(RecipeDB,26873,200,21756,2,25229)
-	self:addTradeFlags(RecipeDB,26873,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeFlags(RecipeDB,26873,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,61)
 	self:addTradeAcquire(RecipeDB,26873,7,2)
 
 	-- Aquamarine Signet -- 26874
@@ -390,7 +390,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Glowing Shadow Draenite -- 28925
 	self:addTradeSkill(RecipeDB,28925,300,23108,1,25229)
-	self:addTradeFlags(RecipeDB,28925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,56)
+	self:addTradeFlags(RecipeDB,28925,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,28925,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590)
 
 	-- Royal Shadow Draenite -- 28927
@@ -595,7 +595,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Talasite Owl -- 31082
 	self:addTradeSkill(RecipeDB,31082,370,24127,3,25229)
-	self:addTradeFlags(RecipeDB,31082,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63,111)
+	self:addTradeFlags(RecipeDB,31082,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54,61,111)
 	self:addTradeAcquire(RecipeDB,31082,6,935,3,21432)
 
 	-- Figurine - Nightseye Panther -- 31083
@@ -1900,7 +1900,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Pristine Monarch Topaz -- 53989
 	self:addTradeSkill(RecipeDB,53989,390,40053,3,25229)
-	self:addTradeFlags(RecipeDB,53989,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53989,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53989,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Empowered Monarch Topaz -- 53990
@@ -2110,7 +2110,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Relentless Earthsiege Diamond -- 55400
 	self:addTradeSkill(RecipeDB,55400,420,41398,3,25229)
-	self:addTradeFlags(RecipeDB,55400,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55400,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,55400,2,28721,2,33602)
 
 	-- Austere Earthsiege Diamond -- 55401
