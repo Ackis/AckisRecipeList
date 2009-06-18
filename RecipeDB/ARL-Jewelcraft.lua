@@ -90,7 +90,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Heavy Golden Necklace of Battle -- 25320
 	self:addTradeSkill(RecipeDB,25320,150,20831,1,25229)
-	self:addTradeFlags(RecipeDB,25320,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25320,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,63)
 	self:addTradeAcquire(RecipeDB,25320,2,1286,2,3367,2,16624,2,17512)
 
 	-- Moonsoul Crown -- 25321
