@@ -879,7 +879,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Boots - Surefooted -- 27954
 	self:addTradeSkill(RecipeDB,27954,370,nil,1,7411,nil,1)
-	self:addTradeFlags(RecipeDB,27954,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,27954,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,51,54)
 	self:addTradeAcquire(RecipeDB,27954,3,16472)
 
 	-- Enchant Chest - Exceptional Health -- 27957
