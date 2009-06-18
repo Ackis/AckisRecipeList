@@ -1,10 +1,6 @@
 
 require "core"
-require "wowdb_maps"
 require "wowdb_recipes"
-require "wowdb_pets_and_mounts"
-require "wowdb_factions"
-require "wowdb_quests"
 
 list = WoWDBRecipes.new
 
@@ -13,7 +9,7 @@ $alch = false
 $bs = false
 $cook = false
 $eng = false
-$ench = false
+$ench = true
 $insc = false
 $jc = false
 $lw = false
