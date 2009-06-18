@@ -65,6 +65,24 @@ local GetMerchantItemInfo = GetMerchantItemInfo
 local GetSpellInfo = GetSpellInfo
 
 -------------------------------------------------------------------------------
+-- Tradeskill professions
+-------------------------------------------------------------------------------
+local PROFESSIONS = {
+	["Alchemy"]		= GetSpellInfo(51304),
+	["Blacksmithing"]	= GetSpellInfo(51300),
+	["Cooking"]		= GetSpellInfo(51296),
+	["Enchanting"]		= GetSpellInfo(51313),
+	["Engineering"]		= GetSpellInfo(51306),
+	["FirstAid"]		= GetSpellInfo(45542),
+	["Inscription"]		= GetSpellInfo(45363),
+	["Jewelcrafting"]	= GetSpellInfo(51311),
+	["Leatherworking"]	= GetSpellInfo(51302),
+	["Runeforging"]		= GetSpellInfo(53428),
+	["Smelting"]		= GetSpellInfo(32606),
+	["Tailoring"]		= GetSpellInfo(51309),
+}
+
+-------------------------------------------------------------------------------
 -- Mined via Data-tools
 -- Table is Public Domain now
 -------------------------------------------------------------------------------
@@ -567,18 +585,9 @@ local function LoadRecipe()
 
 			if (not dbloaded) then return end
 
-			addon:AddRecipeData(GetSpellInfo(51304))
-			addon:AddRecipeData(GetSpellInfo(51300))
-			addon:AddRecipeData(GetSpellInfo(51296))
-			addon:AddRecipeData(GetSpellInfo(51313))
-			addon:AddRecipeData(GetSpellInfo(51306))
-			addon:AddRecipeData(GetSpellInfo(45542))
-			addon:AddRecipeData(GetSpellInfo(51302))
-			addon:AddRecipeData(GetSpellInfo(32606))
-			addon:AddRecipeData(GetSpellInfo(51309))
-			addon:AddRecipeData(GetSpellInfo(51311))
-			addon:AddRecipeData(GetSpellInfo(45363))
-			addon:AddRecipeData(GetSpellInfo(53428))
+			for idx, prof in pairs(PROFESSIONS) do
+				addon:AddRecipeData(prof)
+			end
 		else
 			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
@@ -586,18 +595,9 @@ local function LoadRecipe()
 	else
 		-- Recipe DB exists, we just need to populate it now
 		if (addon.db.profile.autoloaddb) then
-			addon:AddRecipeData(GetSpellInfo(51304))
-			addon:AddRecipeData(GetSpellInfo(51300))
-			addon:AddRecipeData(GetSpellInfo(51296))
-			addon:AddRecipeData(GetSpellInfo(51313))
-			addon:AddRecipeData(GetSpellInfo(51306))
-			addon:AddRecipeData(GetSpellInfo(45542))
-			addon:AddRecipeData(GetSpellInfo(51302))
-			addon:AddRecipeData(GetSpellInfo(32606))
-			addon:AddRecipeData(GetSpellInfo(51309))
-			addon:AddRecipeData(GetSpellInfo(51311))
-			addon:AddRecipeData(GetSpellInfo(45363))
-			addon:AddRecipeData(GetSpellInfo(53428))
+			for idx, prof in pairs(PROFESSIONS) do
+				addon:AddRecipeData(prof)
+			end
 		end
 	end
 	return recipe_list
@@ -890,19 +890,19 @@ end
 -------------------------------------------------------------------------------
 do
 
-	local ORDERED_PROFESSIONS = { 
-		strlower(GetSpellInfo(51304)),	-- 1 Alchemy
-		strlower(GetSpellInfo(51300)),	-- 2 Blacksmithing
-		strlower(GetSpellInfo(51296)),	-- 3 Cooking
-		strlower(GetSpellInfo(51313)),	-- 4 Enchanting
-		strlower(GetSpellInfo(51306)),	-- 5 Engineering
-		strlower(GetSpellInfo(45542)),	-- 6 First Aid
-		strlower(GetSpellInfo(45363)),	-- 7 Inscription
-		strlower(GetSpellInfo(51311)),	-- 8 Jewelcrafting
-		strlower(GetSpellInfo(51302)),	-- 9 Leatherworking
-		strlower(GetSpellInfo(53428)),	-- 10 Runeforging
-		strlower(GetSpellInfo(32606)),	-- 11 Smelting
-		strlower(GetSpellInfo(51309)),	-- 12 Tailoring
+	local ORDERED_PROFESSIONS = {
+		strlower(PROFESSIONS.Alchemy),		-- 1 Alchemy
+		strlower(PROFESSIONS.Blacksmithing),	-- 2 Blacksmithing
+		strlower(PROFESSIONS.Cooking),		-- 3 Cooking
+		strlower(PROFESSIONS.Enchanting),	-- 4 Enchanting
+		strlower(PROFESSIONS.Engineering),	-- 5 Engineering
+		strlower(PROFESSIONS.FirstAid),		-- 6 First Aid
+		strlower(PROFESSIONS.Inscription),	-- 7 Inscription
+		strlower(PROFESSIONS.Jewelcrafting),	-- 8 Jewelcrafting
+		strlower(PROFESSIONS.Leatherworking),	-- 9 Leatherworking
+		strlower(PROFESSIONS.Runeforging),	-- 10 Runeforging
+		strlower(PROFESSIONS.Smelting),		-- 11 Smelting
+		strlower(PROFESSIONS.Tailoring),	-- 12 Tailoring
 	}
 	local recipe_list = {}
 
