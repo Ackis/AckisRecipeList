@@ -1,13 +1,32 @@
-## Title: Ackis Recipe List (1.0 RC10)
-## Title-koKR: Ackis의 제조법 리스트 (1.0 RC10)
-## Title-deDE: Ackis Rezeptliste (1.0 RC10)
+#@debug@
+## Title: Ackis Recipe List - SVN Version
+#@end-debug@
+#@non-debug@
+## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
+## Title-frFR: @localization(locale="frFR", key="Title", namespace="ToC")@
+## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
+## Title-koKR: @localization(locale="koKR", key="Title", namespace="ToC")@
+## Title-esMX: @localization(locale="esMX", key="Title", namespace="ToC")@
+## Title-ruRU: @localization(locale="ruRU", key="Title", namespace="ToC")@
+## Title-zhCN: @localization(locale="zhCN", key="Title", namespace="ToC")@
+## Title-esES: @localization(locale="esES", key="Title", namespace="ToC")@
+## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
+#@end-non-debug@
 
-## Notes: Scans your tradeskills and tells you which recipes you are missing, along with information on how to obtain them.
-## Notes-frFR: Analyse vos métiers et vous indique les recettes qui vous manque, ainsi que des informations sur la façon de les obtenir.
-## Notes-deDE: Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen.
-## Notes-esES: Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador.
-## Notes-zhCN: 扫描并告知如何获取你所缺失的配方的详细商业技能信息插件。
-## Notes-koKR: 캐릭터가 배우지 못한 제조법을 표시합니다. 또한 제조법의 획득 정보을 알려줍니다.
+#@debug@
+## Notes: Latest alpha version of Ackis Recipe List
+#@end-debug@
+#@non-debug@
+## Notes: @localization(locale="enUS", key="Description", namespace="ToC")@
+## Notes-frFR: @localization(locale="frFR", key="Description", namespace="ToC")@
+## Notes-deDE: @localization(locale="deDE", key="Description", namespace="ToC")@
+## Notes-koKR: @localization(locale="koKR", key="Description", namespace="ToC")@
+## Notes-esMX: @localization(locale="esMX", key="Description", namespace="ToC")@
+## Notes-ruRU: @localization(locale="ruRU", key="Description", namespace="ToC")@
+## Notes-zhCN: @localization(locale="zhCN", key="Description", namespace="ToC")@
+## Notes-esES: @localization(locale="esES", key="Description", namespace="ToC")@
+## Notes-zhTW: @localization(locale="zhTW", key="Description", namespace="ToC")@
+#@end-non-debug@
 
 ## Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
 ## eMail: ackis AT shaw DOT ca
