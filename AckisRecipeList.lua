@@ -539,7 +539,6 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 		["Locations"] = nil,
 		["RecipeLink"] = spellLink,
 		["Name"] = recipe_name,
-		["Known"] = false,				-- Unknown until scan occurs
 		["Display"] = true,				-- Set to be displayed until the filtering occurs
 		["Search"] = true,				-- Set to be showing in the search results
 		["Flags"] = {},					-- Create the flag space in the RecipeDB
