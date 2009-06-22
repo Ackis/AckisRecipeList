@@ -1546,7 +1546,7 @@ do
 		end
 
 		-- BoP Item
-		if scan_data.is_item then
+		if scan_data.is_item and not flags[3] then
 			if (scan_data.bopitem) and (not flags[37]) then
 				tinsert(missing_flags,"37 (BoP Item)")
 				-- If it's a BoP item and flags BoE is set,mark it as extra
