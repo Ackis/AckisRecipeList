@@ -904,10 +904,13 @@ do
 			end
 		end
 
+		local t = {}
+
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-			addon:TooltipScanRecipe(i)
+			tinsert(t,addon:TooltipScanRecipe(i,false,true))
 		end
+		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 	end
 
 	--- Parses all recipes for a specified profession,scanning their tool tips.
@@ -965,6 +968,8 @@ function addon:ScanVendor()
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
 
+		local t = {}
+
 		-- Parse all the items on the merchant
 		for i = 1,GetMerchantNumItems(),1 do
 		
@@ -976,7 +981,7 @@ function addon:ScanVendor()
 			local spellid = reverse_lookup[recipename]
 			-- Do the scan if we have the spell ID
 			if (spellid) then
-				self:TooltipScanRecipe(spellid,true)
+				tinsert(t,addon:TooltipScanRecipe(i,false,true))
 				-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
 				local acquire = recipe_list[spellid]["Acquire"]
 				local found = false
@@ -987,12 +992,13 @@ function addon:ScanVendor()
 					end
 				end
 				if (not found) then
-					self:Print("Vendor ID missing from " .. spellid)
+					tinsert(t,"Vendor ID missing from " .. spellid)
 				end
 			else
-				self:Print("Spell ID not found for: " .. name)
+				tinsert(t,"Spell ID not found for: " .. name)
 			end
 		end
+		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
@@ -1011,10 +1017,13 @@ function addon:TooltipScanDatabase()
 		return
 	end
 
+	local t = {}
+
 	-- Parse the entire recipe database
 	for i in pairs(recipe_list) do
-		self:TooltipScanRecipe(i)
+		tinsert(t,addon:TooltipScanRecipe(i,false,true))
 	end
+	self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 end
 
 local RECIPE_NAMES = {
@@ -1048,8 +1057,10 @@ local RECIPE_NAMES = {
 --- Parses a specific recipe in the database,and scanning its tooltip.
 -- @name AckisRecipeList:TooltipScanRecipe
 -- @param spellid The [[[http://www.wowwiki.com/SpellLink | Spell ID]]] of the recipe being added to the database.
+-- @param is_vendor Boolean to determine if we're viewing a vendor or not.
+-- @param is_largescan Boolena to determine if we're doing a large scan.
 -- @return Recipe has its tooltips scanned.
-function addon:TooltipScanRecipe(spellid,is_vendor)
+function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 	local recipe_list = LoadRecipe()	-- Get internal database
 
 	if (not recipe_list) then
@@ -1060,8 +1071,6 @@ function addon:TooltipScanRecipe(spellid,is_vendor)
 
 	ARLDatamineTT:SetOwner(WorldFrame,"ANCHOR_NONE")
 	GameTooltip_SetDefaultAnchor(ARLDatamineTT,UIParent)
-
-	local t = {}
 
 	if (recipe_list[spellid]) then
 		local recipe_name = recipe_list[spellid]["Name"]
@@ -1090,7 +1099,11 @@ function addon:TooltipScanRecipe(spellid,is_vendor)
 						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
 					end
 				end
-				self:Print(self:PrintScanResults())
+				if (is_largescan) then
+					return self:PrintScanResults()
+				else
+					self:Print(self:PrintScanResults())
+				end
 			end
 
 		-- Lets hide this output for runeforging.

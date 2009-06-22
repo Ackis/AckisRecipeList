@@ -1326,7 +1326,7 @@ local function giveDatamine()
 					name = L["Scan Spell ID"],
 					desc = L["SCAN_SPELL_ID_DESC"],
 					get = false,
-					set = function(info, v) addon:TooltipScanRecipe(tonumber(v)) end,
+					set = function(info, v) addon:TooltipScanRecipe(tonumber(v),false,false) end,
 					order = 80,
 				},
 				scantrainers = {
