@@ -296,7 +296,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Phoenix Gloves -- 3868
 	self:addTradeSkill(RecipeDB,3868,125,4331,2,3908)
-	self:addTradeFlags(RecipeDB,3868,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,3868,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3868,7,2)
 
 	-- Bright Yellow Shirt -- 3869
@@ -450,7 +450,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Silk Headband -- 8762
 	self:addTradeSkill(RecipeDB,8762,160,7050,1,3908)
-	self:addTradeFlags(RecipeDB,8762,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,8762,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8762,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Earthen Vest -- 8764
@@ -588,7 +588,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Black Mageweave Gloves -- 12053
 	self:addTradeSkill(RecipeDB,12053,215,10003,1,3908)
-	self:addTradeFlags(RecipeDB,12053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,12053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12053,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Shadoweave Robe -- 12055
@@ -603,7 +603,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- White Bandit Mask -- 12059
 	self:addTradeSkill(RecipeDB,12059,215,10008,2,3908)
-	self:addTradeFlags(RecipeDB,12059,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,12059,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12059,7,2)
 
 	-- Red Mageweave Pants -- 12060
@@ -633,7 +633,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Dreamweave Gloves -- 12067
 	self:addTradeSkill(RecipeDB,12067,225,10019,1,3908)
-	self:addTradeFlags(RecipeDB,12067,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,12067,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12067,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Cindercloth Robe -- 12069
@@ -648,7 +648,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Shadoweave Gloves -- 12071
 	self:addTradeSkill(RecipeDB,12071,225,10023,1,3908)
-	self:addTradeFlags(RecipeDB,12071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,12071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12071,1,4578,1,9584)
 
 	-- Black Mageweave Headband -- 12072
@@ -753,12 +753,12 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Runecloth Belt -- 18402
 	self:addTradeSkill(RecipeDB,18402,255,13856,1,3908)
-	self:addTradeFlags(RecipeDB,18402,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,18402,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18402,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Frostweave Tunic -- 18403
 	self:addTradeSkill(RecipeDB,18403,255,13869,2,3908)
-	self:addTradeFlags(RecipeDB,18403,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,18403,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18403,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Frostweave Robe -- 18404
@@ -798,7 +798,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Frostweave Gloves -- 18411
 	self:addTradeSkill(RecipeDB,18411,265,13870,2,3908)
-	self:addTradeFlags(RecipeDB,18411,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,18411,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18411,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Cindercloth Gloves -- 18412
@@ -838,7 +838,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Felcloth Pants -- 18419
 	self:addTradeSkill(RecipeDB,18419,275,14107,1,3908)
-	self:addTradeFlags(RecipeDB,18419,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,18419,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18419,2,12022)
 
 	-- Brightcloth Cloak -- 18420
@@ -943,7 +943,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Felcloth Robe -- 18451
 	self:addTradeSkill(RecipeDB,18451,300,14106,2,3908)
-	self:addTradeFlags(RecipeDB,18451,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,18451,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18451,3,13152,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001)
 
 	-- Mooncloth Circlet -- 18452
@@ -1123,7 +1123,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Festival Dress -- 26403
 	self:addTradeSkill(RecipeDB,26403,250,21154,2,3908,0,250,265,280,295)
-	self:addTradeFlags(RecipeDB,26403,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,26403,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,26403,5,2,2,15909)
 
 	-- Festive Red Pant Suit -- 26407
@@ -1273,7 +1273,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Imbued Netherweave Tunic -- 26778
 	self:addTradeSkill(RecipeDB,26778,360,21862,1,3908)
-	self:addTradeFlags(RecipeDB,26778,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,26778,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,26778,2,19521)
 
 	-- Soulcloth Gloves -- 26779
@@ -1393,7 +1393,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Golden Spellthread -- 31433
 	self:addTradeSkill(RecipeDB,31433,375,24276,1,3908)
-	self:addTradeFlags(RecipeDB,31433,1,4,21,22,23,24,25,26,27,28,29,30,36,41,101)
+	self:addTradeFlags(RecipeDB,31433,1,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,101)
 	self:addTradeAcquire(RecipeDB,31433,6,932,4,19321)
 
 	-- Unyielding Bracers -- 31434
@@ -1648,7 +1648,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Swordguard Embroidery -- 55777
 	self:addTradeSkill(RecipeDB,55777,420,nil,1,3908)
-	self:addTradeFlags(RecipeDB,55777,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55777,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,55777,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Frostweave Net -- 55898
@@ -1733,7 +1733,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Duskweave Robe -- 55921
 	self:addTradeSkill(RecipeDB,55921,405,41549,2,3908)
-	self:addTradeFlags(RecipeDB,55921,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,55921,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,55921,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Duskweave Gloves -- 55922
@@ -1863,12 +1863,12 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Cloak of Frozen Spirits -- 56015
 	self:addTradeSkill(RecipeDB,56015,395,41608,1,3908)
-	self:addTradeFlags(RecipeDB,56015,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeFlags(RecipeDB,56015,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,56015,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Wispcloak -- 56016
 	self:addTradeSkill(RecipeDB,56016,415,41609,1,3908)
-	self:addTradeFlags(RecipeDB,56016,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeFlags(RecipeDB,56016,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,56016,1,26914,1,26964,1,26969)
 
 	-- Deathchill Cloak -- 56017
@@ -2033,7 +2033,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Sash of Ancient Power -- 63203
 	self:addTradeSkill(RecipeDB,63203,450,45102,4,3908)
-	self:addTradeFlags(RecipeDB,63203,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,54,56)
+	self:addTradeFlags(RecipeDB,63203,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,63203,8,39)
 
 	-- Savior's Slippers -- 63206

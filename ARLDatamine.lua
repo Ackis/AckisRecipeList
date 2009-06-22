@@ -1653,6 +1653,8 @@ do
 			tinsert(t,"No player role flag - " .. spellid)
 		end
 
+		-- Add a new line at the end to make things easier to read.
+		tinsert(t,"\n")
 		return tconcat(t,"\n")
 
 	end
