@@ -1414,7 +1414,7 @@ do
 			elseif (strmatch(text,"hunter")) then
 				scan_data.Hunter = true
 				scan_data.found_class = true
-			elseif (strmatch(text,"mage")) and strmatch(text,"damage") == nil and strmatch(text, "mageweave") == nil then
+			elseif ((strmatch(text,"mage")) and (strmatch(text,"damage") == nil) and (strmatch(text,"mageweave") == nil)) then
 				scan_data.Mage = true
 				scan_data.found_class = true
 			elseif (strmatch(text,"paladin")) then
@@ -1435,7 +1435,7 @@ do
 			elseif (strmatch(text,"warrior")) then
 				scan_data.Warrior = true
 				scan_data.found_class = true
-				-- Armor types
+			-- Armor types
 			-- Check the end of the item for cloth and leather because we can craft something with those items in it
 			elseif (strmatch(text,"cloth$")) then
 				scan_data.Cloth = true
@@ -1447,7 +1447,7 @@ do
 				scan_data.Plate = true
 			elseif (strmatch(text,"cloak")) then
 				scan_data.Cloak = true
-			elseif (strmatch(text,"ring")) and strmatch(text,"ring:") == nil and strmatch(text,"requires") == nil then
+			elseif ((strmatch(text,"ring")) and (strmatch(text,"ring:") == nil) and (strmatch(text,"requires") == nil)) then
 				scan_data.Ring = true
 			elseif (strmatch(text,"necklace")) then
 				scan_data.Necklace = true
