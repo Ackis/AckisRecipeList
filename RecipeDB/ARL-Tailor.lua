@@ -593,7 +593,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Shadoweave Robe -- 12055
 	self:addTradeSkill(RecipeDB,12055,215,10004,1,3908)
-	self:addTradeFlags(RecipeDB,12055,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,12055,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12055,1,4578,1,9584)
 
 	-- Red Mageweave Vest -- 12056
@@ -718,7 +718,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Shadoweave Mask -- 12086
 	self:addTradeSkill(RecipeDB,12086,245,10025,2,3908)
-	self:addTradeFlags(RecipeDB,12086,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,12086,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12086,4,3402)
 
 	-- Cindercloth Boots -- 12088
@@ -1338,7 +1338,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Glacial Vest -- 28207
 	self:addTradeSkill(RecipeDB,28207,300,22652,4,3908)
-	self:addTradeFlags(RecipeDB,28207,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,28207,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,28207,6,529,4,16365,8,41)
 
 	-- Glacial Cloak -- 28208
@@ -1468,7 +1468,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Battlecast Pants -- 31453
 	self:addTradeSkill(RecipeDB,31453,375,24263,4,3908)
-	self:addTradeFlags(RecipeDB,31453,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,31453,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,31453,3,17978)
 
 	-- Whitemend Hood -- 31454
@@ -1943,7 +1943,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Frostwoven Wristwraps -- 56031
 	self:addTradeSkill(RecipeDB,56031,350,41512,2,3908)
-	self:addTradeFlags(RecipeDB,56031,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,56031,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,56031,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Master's Spellthread -- 56034
