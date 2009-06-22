@@ -1122,7 +1122,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26087,8,26)
 
 	-- Festival Dress -- 26403
-	self:addTradeSkill(RecipeDB,26403,250,21154,2,3908,0,250,265,280,295)
+	self:addTradeSkill(RecipeDB,26403,250,21154,2,3908,nil,0,250,265,280,295)
 	self:addTradeFlags(RecipeDB,26403,1,2,4,7,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,26403,5,2,2,15909)
 
@@ -1162,22 +1162,22 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26751,2,22208,2,29512)
 
 	-- Spellfire Belt -- 26752
-	self:addTradeSkill(RecipeDB,26752,355,21846,1,3908,26797)
+	self:addTradeSkill(RecipeDB,26752,355,21846,1,3908,26797,1)
 	self:addTradeFlags(RecipeDB,26752,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,26752,2,22213,2,29511)
 
 	-- Spellfire Gloves -- 26753
-	self:addTradeSkill(RecipeDB,26753,365,21847,1,3908,26797)
+	self:addTradeSkill(RecipeDB,26753,365,21847,1,3908,26797,1)
 	self:addTradeFlags(RecipeDB,26753,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,26753,2,22213,2,29511)
 
 	-- Spellfire Robe -- 26754
-	self:addTradeSkill(RecipeDB,26754,375,21848,1,3908,26797)
+	self:addTradeSkill(RecipeDB,26754,375,21848,1,3908,26797,1)
 	self:addTradeFlags(RecipeDB,26754,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,26754,2,22213,2,29511)
 
 	-- Spellfire Bag -- 26755
-	self:addTradeSkill(RecipeDB,26755,375,21858,3,3908)
+	self:addTradeSkill(RecipeDB,26755,375,21858,3,3908,nil,1)
 	self:addTradeFlags(RecipeDB,26755,1,2,4,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,26755,3,20134,3,20135,2,22213,2,29511)
 

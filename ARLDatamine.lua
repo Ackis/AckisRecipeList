@@ -1460,7 +1460,7 @@ do
 				scan_data.TwoHanded = true
 			elseif (strmatch(text,"axe")) then
 				scan_data.Axe = true
-			elseif (strmatch(text,"sword")) then
+			elseif (strmatch(text,"sword") and (strmatch(text,"swordguard") == nil)) then
 				scan_data.Sword = true
 			elseif (strmatch(text,"mace")) then
 				scan_data.Mace = true
@@ -1616,7 +1616,7 @@ do
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
-			tinsert(t,recipe_name .. " - " .. spellid)
+			tinsert(t,recipe_name .. " (" .. spellid .. ")")
 
 			if (#missing_flags > 0) then
 				tinsert(t,"Missing flags: " .. tconcat(missing_flags,","))
@@ -1639,22 +1639,24 @@ do
 			elseif count > 1 then
 				tinsert(t,"Extra: item type flag")
 			end
+
+			tinsert(t,"\n")
 		end
 
 		if (not flags[1]) and (not flags[2]) then
-			tinsert(t,"Horde or alliance not selected - " .. spellid)
+			tinsert(t,"Horde or alliance not selected. " .. recipe_name .. " (" .. spellid .. ")\n")
 		end
 
 		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
-			tinsert(t,"No recipe binding information - " .. spellid)
+			tinsert(t,"No recipe binding information. " .. recipe_name .. " (" .. spellid .. ")\n")
 		end
 
 		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
-			tinsert(t,"No item binding information - " .. spellid)
+			tinsert(t,"No item binding information. " .. recipe_name .. " (" .. spellid .. ")\n")
 		end
 
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
-			tinsert(t,"No player role flag - " .. spellid)
+			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")\n")
 		end
 
 		if (scan_data.specialty) then
@@ -1668,7 +1670,6 @@ do
 		end
 
 		-- Add a new line at the end to make things easier to read.
-		tinsert(t,"\n")
 		return tconcat(t,"\n")
 
 	end
