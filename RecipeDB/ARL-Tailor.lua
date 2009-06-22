@@ -978,7 +978,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Robe of the Void -- 18458
 	self:addTradeSkill(RecipeDB,18458,300,14153,4,3908)
-	self:addTradeFlags(RecipeDB,18458,1,2,5,29,37,41,56)
+	self:addTradeFlags(RecipeDB,18458,1,2,5,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18458,3,1853)
 
 	-- Mooncloth -- 18560

@@ -1512,10 +1512,6 @@ do
 		twipe(missing_flags)
 		twipe(extra_flags)
 
-		if (scan_data.specialty) then
-			tinsert(t,"Recipe " ..  recipe_name .. " Specialty: " .. scan_data.specialty)
-		end
-
 		if scan_data.is_vendor then
 			if (not flags[4]) then
 				tinsert(missing_flags,"4 (Vendor)")
@@ -1649,8 +1645,26 @@ do
 			tinsert(t,"Horde or alliance not selected - " .. spellid)
 		end
 
+		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
+			tinsert(t,"No recipe binding information - " .. spellid)
+		end
+
+		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
+			tinsert(t,"No item binding information - " .. spellid)
+		end
+
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
 			tinsert(t,"No player role flag - " .. spellid)
+		end
+
+		if (scan_data.specialty) then
+			if (not scan_data.recipe_list[spellid]["Specialty"]) then
+				tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
+			elseif (scan_data.recipe_list[spellid]["Specialty"] ~= scan_data.specialty) then
+				tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty: " .. scan_data.specialty)
+			end
+		elseif (scan_data.recipe_list[spellid]["Specialty"]) then
+			tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
 		-- Add a new line at the end to make things easier to read.
