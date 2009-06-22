@@ -1546,7 +1546,7 @@ do
 		end
 
 		-- BoP Item
-		if scan_data.is_item and not flags[3] then
+		if scan_data.is_item then
 			if (scan_data.bopitem) and (not flags[37]) then
 				tinsert(missing_flags,"37 (BoP Item)")
 				-- If it's a BoP item and flags BoE is set,mark it as extra
@@ -1582,8 +1582,8 @@ do
 				if (flags[42]) then
 					tinsert(extra_flags,"42 (BoA Recipe)")
 				end
-				-- Not BoP recipe,assuming it's not BoA
-			elseif (not flags[40]) and (not scan_data.boprecipe) then
+				-- Not BoP recipe,assuming it's not BoA - trainer-taught recipes don't have bind information, skip those.
+			elseif not flags[3] and (not flags[40]) and (not scan_data.boprecipe) then
 				tinsert(missing_flags,"40 (BoE Recipe)")
 				-- If it's a BoE recipe and flags BoP is set,mark it as extra
 				if (flags[41]) then
