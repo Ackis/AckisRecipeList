@@ -910,7 +910,8 @@ do
 		for i in pairs(recipe_list) do
 			tinsert(t,addon:TooltipScanRecipe(i,false,true))
 		end
-		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+		addon:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+		ARLDatamineTT:Hide()
 	end
 
 	--- Parses all recipes for a specified profession,scanning their tool tips.
