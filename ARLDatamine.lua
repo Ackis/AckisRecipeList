@@ -1437,7 +1437,7 @@ do
 				scan_data.found_class = true
 			-- Armor types
 			-- Check the end of the item for cloth and leather because we can craft something with those items in it
-			elseif (strmatch(text,"cloth$")) then
+			elseif (strmatch(text,"$cloth$")) then
 				scan_data.Cloth = true
 			elseif (strmatch(text,"leather$")) then
 				scan_data.Leather = true
@@ -1669,7 +1669,6 @@ do
 			tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
-		-- Add a new line at the end to make things easier to read.
 		return tconcat(t,"\n")
 
 	end
