@@ -1414,7 +1414,7 @@ do
 			elseif (strmatch(text,"hunter")) then
 				scan_data.Hunter = true
 				scan_data.found_class = true
-			elseif ((strmatch(text,"mage")) and (strmatch(text,"damage") == nil) and (strmatch(text,"mageweave") == nil)) then
+			elseif ((strmatch(text,"mage")) and (strmatch(text,"damage") == nil) and (strmatch(text,"mageweave") == nil) and (strmatch(text,"archmage") == nil)) then
 				scan_data.Mage = true
 				scan_data.found_class = true
 			elseif (strmatch(text,"paladin")) then
