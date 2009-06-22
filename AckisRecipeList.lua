@@ -9,7 +9,7 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
-Author: Ackis, Zhinjio, Jim-Bim
+Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
 
 ************************************************************************
 
@@ -1476,6 +1476,13 @@ function addon:ChatCommand(input)
 
 end
 
+---Resets the known flag to false for all the recipes in the database.
+local function ResetKnown(RecipeDB)
+	for SpellID in pairs(RecipeDB) do
+		RecipeDB[SpellID]["Known"] = false
+	end
+end
+
 do
 
 	local UnitClass = UnitClass
@@ -1664,19 +1671,10 @@ do
 	--- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 	-- @class table
 	-- @name playerData
-	-- @field totalknownpets Total number of known mini-pets.
-	-- @field totalknownmounts Total number of known mounts.
-	-- @field totalpets Total number of mini-pets.
-	-- @field totalmounts Total number of mounts.
-	-- @field total Total number of items in the scan.
-	-- @field known Total number of items known in the scan.
-	-- @field total_filtered Total number of items filtered during the scan.
 	-- @field known_filtered Total number of items known filtered during the scan.
 	-- @field playerFaction Players faction
 	-- @field playerClass Players class
 	-- @field ["Reputation"] Listing of players reputation levels
-	-- @field excluded_unknown Number of unknown items excluded.
-	-- @field excluded_known Number of known items excluded.
 	local playerData = {}
 
 	-- All Alchemy Specialties
@@ -1850,12 +1848,12 @@ do
 			end
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
 			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
-
 			-- Get the current profession Specialty
 			playerData.playerSpecialty = GetTradeSpecialty(SpecialtyTable, playerData)
-
 			-- Add the recipes to the database
 			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
+			-- Reset all the known flags
+			ResetKnown(RecipeList)
 			-- Scan all recipes and mark the ones which ones we know
 			self:ScanForKnownRecipes(RecipeList, playerData)
 			-- Update the table containing which reps to display
