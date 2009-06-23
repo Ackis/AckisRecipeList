@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitBlacksmithing(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -2498,6 +2501,6 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
 	self:addTradeAcquire(RecipeDB,63182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
-	return 486
+	return 487
 
 end

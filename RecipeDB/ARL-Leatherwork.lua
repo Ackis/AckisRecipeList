@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitLeatherworking(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -2593,6 +2596,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,63200,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,63200,8,39)
 
-	return 510
+	return 511
 
 end

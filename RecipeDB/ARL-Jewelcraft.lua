@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitJewelcrafting(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -2448,6 +2451,6 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
 	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590,1,19775)
 
-	return 481
+	return 482
 
 end

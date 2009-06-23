@@ -37,12 +37,7 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local initialized	= false
-
 function addon:InitReputation(RepDB)
-	if initialized then return end
-
-	initialized = true
 
 	self:addLookupList(RepDB,59,BFAC["Thorium Brotherhood"],"N/A") -- Acquire Flag: 98
 	self:addLookupList(RepDB,270,BFAC["Zandalar Tribe"],"N/A") -- Acquire Flag: 100

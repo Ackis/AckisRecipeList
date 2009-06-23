@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitCooking(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -847,9 +850,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeSkill(RecipeDB,6417,90,44977,1,2550)
 	self:addTradeFlags(RecipeDB,6417,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,6417,4,862,2,3392)
-	--self:addTradeSkill(RecipeDB,6417,90,5478,1,2550)
-	--self:addTradeFlags(RecipeDB,6417,2,8,21,22,23,24,25,26,27,28,29,30,36,40)
-	--self:addTradeAcquire(RecipeDB,6417,4,862)
 
 	-- Black Jelly -- 64358
 	self:addTradeSkill(RecipeDB,64358,400,45932,1,2550)
@@ -886,6 +886,6 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB,62051,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,62051,5,5)
 
-	return 168
+	return 169
 
 end

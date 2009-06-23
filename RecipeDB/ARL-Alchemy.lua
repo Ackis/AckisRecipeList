@@ -33,7 +33,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitAlchemy(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -1274,6 +1277,6 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,63732,1,1386,1,2391,1,2837,1,3009,1,3347,1,4160,1,4609,1,4611,1,5177,1,5499,1,7948,1,11042,1,16588,
 	1,16642,1,16723,1,18802,1,19052,1,27029,1,3603,1,1470,1,3964,1,2132,1,3184)
 
-	return 248
+	return 244
 
 end

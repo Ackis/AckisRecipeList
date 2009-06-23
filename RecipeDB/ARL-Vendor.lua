@@ -38,12 +38,7 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local initialized	= false
-
 function addon:InitVendor(VendorDB)
-	if initialized then return end
-
-	initialized = true
 
 	self:addLookupList(VendorDB,66,L["Tharynn Bouden"],BZONE["Elwynn Forest"],42.20,67.21,1)
 	self:addLookupList(VendorDB,340,L["Kendor Kabonka"],BZONE["Stormwind City"],76.86,52.15,1)

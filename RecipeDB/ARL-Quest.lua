@@ -40,12 +40,7 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-local initialized	= false
-
 function addon:InitQuest(QuestDB)
-	if initialized then return end
-
-	initialized = true
 
 	self:addLookupList(QuestDB,22,L["Goretusk Liver Pie"],BZONE["Westfall"],55.77,30.92,1)
 	self:addLookupList(QuestDB,38,L["Westfall Stew"],BZONE["Westfall"],55.77,30.92,1)

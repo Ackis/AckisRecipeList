@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitInscription(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -2219,6 +2222,6 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,64053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66)
 	self:addTradeAcquire(RecipeDB,64053,1,33603,1,28702)
 
-	return 434
+	return 435
 
 end

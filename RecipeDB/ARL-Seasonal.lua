@@ -37,12 +37,8 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local GetCategoryInfo = GetCategoryInfo
-local initialized	= false
 
 function addon:InitSeasons(SeasonDB)
-	if initialized then return end
-
-	initialized = true
 
 	local name = ""
 	local seasonal = GetCategoryInfo(155)

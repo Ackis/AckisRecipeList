@@ -39,7 +39,10 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local initialized	= false
 
 function addon:InitTailoring(RecipeDB)
-	if initialized then return end
+
+	if initialized then
+		return
+	end
 
 	initialized = true
 
@@ -1997,27 +2000,27 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,59589,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Flying Carpet -- 60969
-	self:addTradeSkill(RecipeDB,60969,410,44554,3,3908,34090)
+	self:addTradeSkill(RecipeDB,60969,410,44554,3,3908,nil,2,410,420,425,430)
 	self:addTradeFlags(RecipeDB,60969,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60969,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Magnificent Flying Carpet -- 60971
-	self:addTradeSkill(RecipeDB,60971,425,44558,4,3908,34091)
+	self:addTradeSkill(RecipeDB,60971,425,44558,4,3908,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,60971,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,60971,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Glacial Waistband -- 60990
-	self:addTradeSkill(RecipeDB,60990,420,43584,1,3908,nil)
+	self:addTradeSkill(RecipeDB,60990,420,43584,1,3908,nil,2)
 	self:addTradeFlags(RecipeDB,60990,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,60990,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Glacial Robe -- 60993
-	self:addTradeSkill(RecipeDB,60993,425,43583,4,3908,nil)
+	self:addTradeSkill(RecipeDB,60993,425,43583,4,3908,nil,2)
 	self:addTradeFlags(RecipeDB,60993,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,60993,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Glacial Slippers -- 60994
-	self:addTradeSkill(RecipeDB,60994,420,43585,1,3908,nil)
+	self:addTradeSkill(RecipeDB,60994,420,43585,1,3908,nil,2)
 	self:addTradeFlags(RecipeDB,60994,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,60994,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
@@ -2066,6 +2069,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,63742,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,63742,1,26914,1,26964,1,26969,1,27001,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103)
 
-	return 400
+	return 401
 
 end
