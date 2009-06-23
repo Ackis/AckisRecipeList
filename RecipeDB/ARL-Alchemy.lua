@@ -1277,6 +1277,37 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,63732,1,1386,1,2391,1,2837,1,3009,1,3347,1,4160,1,4609,1,4611,1,5177,1,5499,1,7948,1,11042,1,16588,
 	1,16642,1,16723,1,18802,1,19052,1,27029,1,3603,1,1470,1,3964,1,2132,1,3184)
 
-	return 244
+	local _,_,_,toc = GetBuildInfo()
+
+	if (toc == 30200) then
+
+		-- Transmute: Ametrine -- 66658
+		self:addTradeSkill(RecipeDB,66658,350,nil,1,51304,2)
+
+		-- Transmute: Cardinal Ruby -- 66659
+		self:addTradeSkill(RecipeDB,66659,350,nil,1,51304,2)
+
+		-- Transmute: King's Amber -- 66660
+		self:addTradeSkill(RecipeDB,66660,350,nil,1,51304,2)
+
+		-- Transmute: Dreadstone -- 66662
+		self:addTradeSkill(RecipeDB,66662,350,nil,1,51304,2)
+
+		-- Transmute: Majestiv Zircon -- 66663
+		self:addTradeSkill(RecipeDB,66663,350,nil,1,51304,2)
+
+		-- Transmute: Eye of Zul -- 66664
+		self:addTradeSkill(RecipeDB,66664,350,nil,1,51304,2)
+
+		-- Flask of the North -- 67025
+		self:addTradeSkill(RecipeDB,67025,350,nil,1,51304,2)
+
+		return 251
+
+	else
+
+		return 244
+
+	end
 
 end
