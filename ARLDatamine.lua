@@ -1299,109 +1299,125 @@ do
 				end
 			end
 
-			-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-			if (strmatch(text,"strength")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"agility")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"spirit")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = true
-			elseif (strmatch(text,"spell power")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = true
-			elseif (strmatch(text,"spell crit")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = true
-			elseif (strmatch(text,"spell hit")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = false
-			elseif (strmatch(text,"spell penetration")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = false
-			elseif (strmatch(text,"mana every 5 seconds")) then
-				scan_data.dps = false
-				scan_data.tank = false
-				scan_data.caster = true
-				scan_data.healer = true
-			elseif (strmatch(text,"attack power")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"expertise")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"melee crit")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"ranged crit")) then
-				scan_data.dps = true
-				scan_data.tank = false
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"melee haste")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"ranged haste")) then
-				scan_data.dps = true
-				scan_data.tank = false
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"melee hit")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"ranged hit")) then
-				scan_data.dps = true
-				scan_data.tank = false
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"armor pen")) then
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"feral attack")) then
-				scan_data.tank = true
-				scan_data.dps = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"defense")) then
-				scan_data.dps = false
-				scan_data.tank = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"block")) then
-				scan_data.dps = false
-				scan_data.tank = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"parry")) then
-				scan_data.dps = false
-				scan_data.tank = true
-				scan_data.caster = false
-				scan_data.healer = false
-			elseif (strmatch(text,"dodge")) then
-				scan_data.dps = false
-				scan_data.tank = true
-				scan_data.caster = false
-				scan_data.healer = false
+			-- Flag so that we don't bother checking for classes if we're sure of the class
+			-- AKA +spell hit == caster DPS only no matter what other stats are on it
+			-- Saves processing cycles and it won't cause the flags to be overwritten if a non-specific stat is found after
+			scan_data.verifiedclass = false
+
+			if (not scan_data.verifiedclass) then
+				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
+				if (strmatch(text,"strength")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"agility")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"spirit")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = true
+				elseif (strmatch(text,"spell power")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = true
+				elseif (strmatch(text,"spell crit")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = true
+				elseif (strmatch(text,"spell hit")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"spell penetration")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"mana every 5 seconds")) then
+					scan_data.dps = false
+					scan_data.tank = false
+					scan_data.caster = true
+					scan_data.healer = true
+				elseif (strmatch(text,"attack power")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"expertise")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"melee crit")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"ranged crit")) then
+					scan_data.dps = true
+					scan_data.tank = false
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"melee haste")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"ranged haste")) then
+					scan_data.dps = true
+					scan_data.tank = false
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"melee hit")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"ranged hit")) then
+					scan_data.dps = true
+					scan_data.tank = false
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"armor pen")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"feral attack")) then
+					scan_data.tank = true
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"defense")) then
+					scan_data.dps = false
+					scan_data.tank = true
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"block")) then
+					scan_data.dps = false
+					scan_data.tank = true
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"parry")) then
+					scan_data.dps = false
+					scan_data.tank = true
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				elseif (strmatch(text,"dodge")) then
+					scan_data.dps = false
+					scan_data.tank = true
+					scan_data.caster = false
+					scan_data.healer = false
+					scan_data.verifiedclass = true
+				end
 			end
 
 			-- Classes
