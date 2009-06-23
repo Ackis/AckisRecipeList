@@ -2025,7 +2025,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,60994,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Duskweave Boots -- 55924
-	self:addTradeSkill(RecipeDB,55924,410,41544,1,3908,nil)
+	self:addTradeSkill(RecipeDB,55924,410,41544,1,3908,nil,2,410,410,410,420)
 	self:addTradeFlags(RecipeDB,55924,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,55924,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 

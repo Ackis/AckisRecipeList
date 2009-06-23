@@ -1525,6 +1525,7 @@ do
 		end
 
 		local flags = scan_data.recipe_list[spellid]["Flags"]
+		local acquire = scan_data.recipe_list[spellid]["Acquire"]
 		twipe(missing_flags)
 		twipe(extra_flags)
 
@@ -1627,8 +1628,16 @@ do
 		-- Reputations
 		local repid = scan_data.repid
 
-		if repid and not flags[repid] then
+		if ((repid) and (not flags[repid])) then
 			tinsert(missing_flags,repid)
+			for i,j in pairs(acquire) do
+				if (acquire[j]["Type"] == 6) then
+					local tmpacquire = acquire[j]
+					if (tmpacquire["RepLevel"] ~= scan_data.repidlevel) then
+						tinsert(t,"Rep level wrong. " .. recipe_name .. " (" .. spellid .. ")\n")
+					end
+				end
+			end
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
@@ -1685,7 +1694,11 @@ do
 			tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
-		return tconcat(t,"\n")
+		if (#t > 0) then
+			return tconcat(t,"\n")
+		else
+			return ""
+		end
 
 	end
 
