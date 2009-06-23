@@ -1639,7 +1639,7 @@ do
 				if (acquire[j]["Type"] == 6) then
 					local tmpacquire = acquire[j]
 					if (tmpacquire["RepLevel"] ~= scan_data.repidlevel) then
-						tinsert(t,"Rep level wrong. " .. recipe_name .. " (" .. spellid .. ")\n")
+						tinsert(t,"Rep level wrong. " .. recipe_name .. " (" .. spellid .. ")")
 					end
 				end
 			end
@@ -1670,23 +1670,22 @@ do
 				tinsert(t,"Extra: item type flag")
 			end
 
-			tinsert(t,"\n")
 		end
 
 		if (not flags[1]) and (not flags[2]) then
-			tinsert(t,"Horde or alliance not selected. " .. recipe_name .. " (" .. spellid .. ")\n")
+			tinsert(t,"Horde or alliance not selected. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
 		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
-			tinsert(t,"No recipe binding information. " .. recipe_name .. " (" .. spellid .. ")\n")
+			tinsert(t,"No recipe binding information. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
 		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
-			tinsert(t,"No item binding information. " .. recipe_name .. " (" .. spellid .. ")\n")
+			tinsert(t,"No item binding information. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
-			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")\n")
+			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
 		if (scan_data.specialty) then
@@ -1699,11 +1698,7 @@ do
 			tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
-		if (#t > 0) then
-			return tconcat(t,"\n")
-		else
-			return ""
-		end
+		return tconcat(t,"\n")
 
 	end
 

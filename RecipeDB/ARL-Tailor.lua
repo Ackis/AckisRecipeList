@@ -976,7 +976,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Robe of the Archmage -- 18457
 	self:addTradeSkill(RecipeDB,18457,300,14152,4,3908,nil)
-	self:addTradeFlags(RecipeDB,18457,1,2,5,24,37,41,56)
+	self:addTradeFlags(RecipeDB,18457,1,2,5,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18457,3,9264)
 
 	-- Robe of the Void -- 18458
