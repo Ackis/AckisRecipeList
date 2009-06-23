@@ -1089,6 +1089,8 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 			if (RECIPE_NAMES[matchtext]) then
 				self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,false)
 
+				local t = {}
+
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				local itemid = SPELL_ITEM[spellid]
 				if (itemid) then
@@ -1097,13 +1099,16 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
 						self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,true)
 					else
-						self:Print("Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
+						tinsert(t,"Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
 					end
 				end
+
+				-- Add the flag scan to the table
+				tinsert(t,self:PrintScanResults())
 				if (is_largescan) then
-					return self:PrintScanResults()
+					return tconcat(t,"\n")
 				else
-					self:Print(self:PrintScanResults())
+					self:Print(tconcat(t,"\n"))
 				end
 			end
 
