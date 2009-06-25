@@ -43,14 +43,22 @@ function addon:InitSeasons(SeasonDB)
 	local name = ""
 	local seasonal = GetCategoryInfo(155)
 
-	name = GetCategoryInfo(156)
+	name = GetCategoryInfo(156) -- Winter's Veil
 	self:addLookupList(SeasonDB,1,name,seasonal)
-	name = GetCategoryInfo(160)
+	name = GetCategoryInfo(160) -- Lunar Festival
 	self:addLookupList(SeasonDB,2,name,seasonal)
-	name = GetCategoryInfo(157)
+	name = GetCategoryInfo(157) -- Darkmoon Faire
 	self:addLookupList(SeasonDB,3,name,seasonal)
-	name = GetCategoryInfo(161)
+	name = GetCategoryInfo(161) -- Midsummer
 	self:addLookupList(SeasonDB,4,name,seasonal)
-	self:addLookupList(SeasonDB,5,"Thanksgiving Seasonal Placeholder - Speculation",seasonal)
+
+	local _,_,_,toc = GetBuildInfo()
+
+	if (toc == 30200) then
+		name = GetCategoryInfo(161) -- Pilgrim
+		self:addLookupList(SeasonDB,5,name,seasonal)
+		name = GetCategoryInfo(161) -- Dead
+		self:addLookupList(SeasonDB,6,name,seasonal)
+	end
 
 end

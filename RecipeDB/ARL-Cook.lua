@@ -880,7 +880,7 @@ function addon:InitCooking(RecipeDB)
 		self:addTradeFlags(RecipeDB,62049,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
 		self:addTradeAcquire(RecipeDB,62049,5,5)
 
-		-- Cornbread Stuffing -- 62050
+		-- Spice Bread Stuffing -- 62050
 		self:addTradeSkill(RecipeDB,62050,75,44837,1,2550)
 		self:addTradeFlags(RecipeDB,62050,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
 		self:addTradeAcquire(RecipeDB,62050,5,5)
@@ -890,7 +890,12 @@ function addon:InitCooking(RecipeDB)
 		self:addTradeFlags(RecipeDB,62051,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
 		self:addTradeAcquire(RecipeDB,62051,5,5)
 
-		return 169
+		-- Bread of the Dead -- 65454
+		self:addTradeSkill(RecipeDB,65454,45,46691,1,2550)
+		self:addTradeFlags(RecipeDB,65454,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,65454,5,6)
+
+		return 170
 
 	else
 
