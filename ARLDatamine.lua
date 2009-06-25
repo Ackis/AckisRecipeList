@@ -982,7 +982,7 @@ function addon:ScanVendor()
 			local spellid = reverse_lookup[recipename]
 			-- Do the scan if we have the spell ID
 			if (spellid) then
-				tinsert(t,addon:TooltipScanRecipe(i,false,true))
+				tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
 				-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
 				local acquire = recipe_list[spellid]["Acquire"]
 				local found = false
