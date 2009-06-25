@@ -1283,24 +1283,38 @@ function addon:InitAlchemy(RecipeDB)
 
 		-- Transmute: Ametrine -- 66658
 		self:addTradeSkill(RecipeDB,66658,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66658,1,2)
+		--self:addTradeAcquire(RecipeDB,66658
 
 		-- Transmute: Cardinal Ruby -- 66659
 		self:addTradeSkill(RecipeDB,66659,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66659,1,2)
+		--self:addTradeAcquire(RecipeDB,66659
 
 		-- Transmute: King's Amber -- 66660
 		self:addTradeSkill(RecipeDB,66660,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66660,1,2)
+		--self:addTradeAcquire(RecipeDB,66660
 
 		-- Transmute: Dreadstone -- 66662
 		self:addTradeSkill(RecipeDB,66662,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66662,1,2)
+		--self:addTradeAcquire(RecipeDB,66662
 
 		-- Transmute: Majestiv Zircon -- 66663
 		self:addTradeSkill(RecipeDB,66663,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66663,1,2)
+		--self:addTradeAcquire(RecipeDB,66663
 
 		-- Transmute: Eye of Zul -- 66664
 		self:addTradeSkill(RecipeDB,66664,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,66664,1,2)
+		--self:addTradeAcquire(RecipeDB,66664
 
 		-- Flask of the North -- 67025
 		self:addTradeSkill(RecipeDB,67025,350,nil,1,51304,2)
+		self:addTradeFlags(RecipeDB,67025,1,2)
+		--self:addTradeAcquire(RecipeDB,67025
 
 		return 251
 

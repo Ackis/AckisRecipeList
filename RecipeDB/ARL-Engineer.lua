@@ -1505,7 +1505,22 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,63750,250,45631,1,4036)
 	self:addTradeFlags(RecipeDB,63750,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,61)
 	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697,1,16667,1,1702,1,16726,1,11017,1,33586,1,3494,1,5174,1,3290,1,5518)
-	
-	return 291
+
+	local _,_,_,toc = GetBuildInfo()
+
+	if (toc == 30200) then
+
+		-- Goblin Beam Welder -- 67326
+		self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,2)
+		self:addTradeFlags(RecipeDB,67326,1,2)
+		--self:addTradeAcquire(RecipeDB,67326
+
+		return 292
+
+	else
+
+		return 291
+
+	end
 
 end
