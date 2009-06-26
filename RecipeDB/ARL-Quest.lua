@@ -140,5 +140,6 @@ function addon:InitQuest(QuestDB)
 	self:addLookupList(QuestDB,13088,L["Northern Cooking"],BZONE["Borean Tundra"],57.9,71.5,1)
 	self:addLookupList(QuestDB,13089,L["Northern Cooking"],BZONE["Howling Fjord"],78.7,29.5,2)
 	self:addLookupList(QuestDB,13090,L["Northern Cooking"],BZONE["Borean Tundra"],42.0,54.2,2)
+	self:addLookupList(QuestDB,14151,L["Cardinal Ruby"],BZONE["Dalaran"],42.5,32.1,0)
 
 end

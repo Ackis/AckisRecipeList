@@ -1288,8 +1288,8 @@ function addon:InitAlchemy(RecipeDB)
 
 		-- Transmute: Cardinal Ruby -- 66659
 		self:addTradeSkill(RecipeDB,66659,450,36919,1,51304,nil,2,440,440,452,465)
-		self:addTradeFlags(RecipeDB,66659,1,2)
-		--self:addTradeAcquire(RecipeDB,66659
+		self:addTradeFlags(RecipeDB,66659,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66659,4,14151)
 
 		-- Transmute: King's Amber -- 66660
 		self:addTradeSkill(RecipeDB,66660,440,36922,1,51304,nil,2,440,440,452,465)

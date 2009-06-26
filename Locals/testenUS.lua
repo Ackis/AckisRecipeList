@@ -1778,3 +1778,4 @@ L["Auto Scan Vendors"] = true
 L["AUTOSCAN_VENDORS_DESC"] = "Turns on scanning at vendors to compare skill levels, and recipe acquire methods."
 L["A Yeti of Your Own"] = true
 L["Mining"] = true
+L["Cardinal Ruby"] = true
