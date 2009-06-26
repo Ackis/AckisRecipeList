@@ -976,27 +976,29 @@ function addon:ScanVendor()
 		
 			-- Get the name
 			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
-			-- Get rid of the first part of the item
-			local recipename = gsub(name,"%a+\: ","")
-			-- Find out what spell ID we're using
-			local spellid = reverse_lookup[recipename]
-			-- Do the scan if we have the spell ID
-			if (spellid) then
-				tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
-				-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
-				local acquire = recipe_list[spellid]["Acquire"]
-				local found = false
-				for i in pairs(acquire) do
-					-- If the acquire type is a vendor
-					if (acquire[i]["Type"] == 2) and (acquire[i]["ID"] == targetID) then
-						found = true
+			if (name) then
+				-- Get rid of the first part of the item
+				local recipename = gsub(name,"%a+\: ","")
+				-- Find out what spell ID we're using
+				local spellid = reverse_lookup[recipename]
+				-- Do the scan if we have the spell ID
+				if (spellid) then
+					tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
+					-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
+					local acquire = recipe_list[spellid]["Acquire"]
+					local found = false
+					for i in pairs(acquire) do
+						-- If the acquire type is a vendor
+						if (acquire[i]["Type"] == 2) and (acquire[i]["ID"] == targetID) then
+							found = true
+						end
 					end
+					if (not found) then
+						tinsert(t,"Vendor ID missing from " .. spellid)
+					end
+				else
+					tinsert(t,"Spell ID not found for: " .. name)
 				end
-				if (not found) then
-					tinsert(t,"Vendor ID missing from " .. spellid)
-				end
-			else
-				tinsert(t,"Spell ID not found for: " .. name)
 			end
 		end
 		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
