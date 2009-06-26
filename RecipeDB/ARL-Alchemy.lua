@@ -1282,39 +1282,39 @@ function addon:InitAlchemy(RecipeDB)
 	if (toc == 30200) then
 
 		-- Transmute: Ametrine -- 66658
-		self:addTradeSkill(RecipeDB,66658,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,66658,1,2)
-		--self:addTradeAcquire(RecipeDB,66658
+		self:addTradeSkill(RecipeDB,66658,440,36931,1,51304,nil,2,440,440,452,465)
+		self:addTradeFlags(RecipeDB,66658,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66658,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		-- Transmute: Cardinal Ruby -- 66659
-		self:addTradeSkill(RecipeDB,66659,350,nil,1,51304,nil,2)
+		self:addTradeSkill(RecipeDB,66659,450,36919,1,51304,nil,2,440,440,452,465)
 		self:addTradeFlags(RecipeDB,66659,1,2)
 		--self:addTradeAcquire(RecipeDB,66659
 
 		-- Transmute: King's Amber -- 66660
-		self:addTradeSkill(RecipeDB,66660,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,66660,1,2)
-		--self:addTradeAcquire(RecipeDB,66660
+		self:addTradeSkill(RecipeDB,66660,440,36922,1,51304,nil,2,440,440,452,465)
+		self:addTradeFlags(RecipeDB,66660,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66660,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		-- Transmute: Dreadstone -- 66662
-		self:addTradeSkill(RecipeDB,66662,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,66662,1,2)
-		--self:addTradeAcquire(RecipeDB,66662
+		self:addTradeSkill(RecipeDB,66662,440,36928,1,51304,nil,2,440,440,452,465)
+		self:addTradeFlags(RecipeDB,66662,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66662,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: Majestiv Zircon -- 66663
-		self:addTradeSkill(RecipeDB,66663,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,66663,1,2)
-		--self:addTradeAcquire(RecipeDB,66663
+		-- Transmute: Majestic Zircon -- 66663
+		self:addTradeSkill(RecipeDB,66663,440,36925,1,51304,nil,2,440,440,452,465)
+		self:addTradeFlags(RecipeDB,66663,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66663,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		-- Transmute: Eye of Zul -- 66664
-		self:addTradeSkill(RecipeDB,66664,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,66664,1,2)
-		--self:addTradeAcquire(RecipeDB,66664
+		self:addTradeSkill(RecipeDB,66664,440,36934,1,51304,nil,2,440,440,452,465)
+		self:addTradeFlags(RecipeDB,66664,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,66664,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		-- Flask of the North -- 67025
-		self:addTradeSkill(RecipeDB,67025,350,nil,1,51304,nil,2)
-		self:addTradeFlags(RecipeDB,67025,1,2)
-		--self:addTradeAcquire(RecipeDB,67025
+		self:addTradeSkill(RecipeDB,67025,440,47499,1,51304,nil,2,440,440,445,450)
+		self:addTradeFlags(RecipeDB,67025,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+		self:addTradeAcquire(RecipeDB,67025,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		return 251
 
