@@ -1,8 +1,5 @@
-#@debug@
-## Title: Ackis Recipe List - SVN Version
-#@end-debug@
 #@non-debug@
-## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
+## Title: Ackis Recipe List
 ## Title-frFR: @localization(locale="frFR", key="Title", namespace="ToC")@
 ## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
 ## Title-koKR: @localization(locale="koKR", key="Title", namespace="ToC")@
@@ -13,9 +10,6 @@
 ## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
 #@end-non-debug@
 
-#@debug@
-## Notes: Latest alpha version of Ackis Recipe List
-#@end-debug@
 #@non-debug@
 ## Notes: @localization(locale="enUS", key="Description", namespace="ToC")@
 ## Notes-frFR: @localization(locale="frFR", key="Description", namespace="ToC")@
@@ -27,6 +21,9 @@
 ## Notes-esES: @localization(locale="esES", key="Description", namespace="ToC")@
 ## Notes-zhTW: @localization(locale="zhTW", key="Description", namespace="ToC")@
 #@end-non-debug@
+#@debug@
+## Notes: Latest alpha version of Ackis Recipe List
+#@end-debug@
 
 ## Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
 ## eMail: ackis AT shaw DOT ca
