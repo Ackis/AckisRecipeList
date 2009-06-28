@@ -1,5 +1,5 @@
 #@non-debug@
-## Title: Ackis Recipe List
+## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
 ## Title-frFR: @localization(locale="frFR", key="Title", namespace="ToC")@
 ## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
 ## Title-koKR: @localization(locale="koKR", key="Title", namespace="ToC")@
@@ -9,7 +9,10 @@
 ## Title-esES: @localization(locale="esES", key="Title", namespace="ToC")@
 ## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
 #@end-non-debug@
-
+#@debug@
+##Title: Ackis Recipe List - SVN Version
+#@end-debug@
+ 
 #@non-debug@
 ## Notes: @localization(locale="enUS", key="Description", namespace="ToC")@
 ## Notes-frFR: @localization(locale="frFR", key="Description", namespace="ToC")@
