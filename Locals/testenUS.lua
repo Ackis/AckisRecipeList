@@ -1087,6 +1087,7 @@ L["Knight Dameron"] = true
 L["Kodo Hide Bag"] = true
 L["Kor'geld"] = true
 L["Koren"] = true
+L["Korim"] = true
 L["Kradu Grimblade"] = true
 L["Kray"] = true
 L["Krek Cragcrush"] = true
