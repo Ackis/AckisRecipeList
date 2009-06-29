@@ -1061,7 +1061,7 @@ local RECIPE_NAMES = {
 -- @name AckisRecipeList:TooltipScanRecipe
 -- @param spellid The [[[http://www.wowwiki.com/SpellLink | Spell ID]]] of the recipe being added to the database.
 -- @param is_vendor Boolean to determine if we're viewing a vendor or not.
--- @param is_largescan Boolena to determine if we're doing a large scan.
+-- @param is_largescan Boolean to determine if we're doing a large scan.
 -- @return Recipe has its tooltips scanned.
 function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 	local recipe_list = LoadRecipe()	-- Get internal database
