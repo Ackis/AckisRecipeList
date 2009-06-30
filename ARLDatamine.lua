@@ -1002,6 +1002,7 @@ function addon:ScanVendor()
 			end
 		end
 		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+		ARLDatamineTT:Hide()
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
 	end
