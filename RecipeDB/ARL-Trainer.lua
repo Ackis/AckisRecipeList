@@ -441,8 +441,10 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,33617,GetSpellInfo(32606),BZONE["Shattrath City"],43.6,90.9,0) -- Mine
 	self:addLookupList(TrainerDB,33619,GetSpellInfo(51296),BZONE["Shattrath City"],43.6,91.1,0) -- Cooking
 	self:addLookupList(TrainerDB,33621,GetSpellInfo(45542),BZONE["Shattrath City"],43.6,90.4,0) -- First Aid
+	self:addLookupList(TrainerDB,33631,L["Barien"],BZONE["Shattrath City"],43.5,65.1,0)
 	self:addLookupList(TrainerDB,33634,L["Engineer Sinbei"],BZONE["Shattrath City"],43.1,64.9,0)
 	self:addLookupList(TrainerDB,33635,L["Daenril"],BZONE["Shattrath City"],41.9,63.4,0)
+	self:addLookupList(TrainerDB,33636,L["Miralisse"],BZONE["Shattrath City"],41.6,63.5,0)
 	self:addLookupList(TrainerDB,33681,L["Korim"],BZONE["Shattrath City"],37.6,28.0,0)
 
 
