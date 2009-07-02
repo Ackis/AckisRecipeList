@@ -10,7 +10,7 @@
 ## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
 #@end-non-debug@
 #@debug@
-##Title: Ackis Recipe List - SVN Version
+## Title: Ackis Recipe List - SVN Version
 #@end-debug@
  
 #@non-debug@
