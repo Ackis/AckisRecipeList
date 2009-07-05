@@ -332,8 +332,8 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Lesser Block -- 13689
 	self:addTradeSkill(RecipeDB,13689,195,nil,1,7411,nil,0,195,215,235,255)
-	self:addTradeFlags(RecipeDB,13689,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13689,3,4298,3,6426)
+	self:addTradeFlags(RecipeDB,13689,1,2,5,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,13689,7,2)
 
 	-- Enchant Weapon - Striking -- 13693
 	self:addTradeSkill(RecipeDB,13693,195,nil,1,7411,nil,0,195,215,235,255)
@@ -413,7 +413,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Lesser Agility -- 13882
 	self:addTradeSkill(RecipeDB,13882,225,nil,1,7411,nil,0,225,245,265,285)
 	self:addTradeFlags(RecipeDB,13882,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,13882,3,2246,3,2407,3,5420,3,5623,3,7805)
+	self:addTradeAcquire(RecipeDB,13882,3,2246,3,5623,3,7805)
 
 	-- Enchant Gloves - Strength -- 13887
 	self:addTradeSkill(RecipeDB,13887,225,nil,1,7411,nil,0,225,245,265,285)
