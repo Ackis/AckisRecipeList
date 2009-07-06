@@ -1212,7 +1212,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Deathblow X11 Goggles -- 41317
 	self:addTradeSkill(RecipeDB,41317,350,32478,1,4036,nil)
 	self:addTradeFlags(RecipeDB,41317,1,2,3,22,28,37,41,57)
-	self:addTradeAcquire(RecipeDB,41317,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33611,1,33634)
+	self:addTradeAcquire(RecipeDB,41317,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33611)
 
 	-- Wonderheal XT40 Shades -- 41318
 	self:addTradeSkill(RecipeDB,41318,350,32479,4,4036,nil)
@@ -1227,7 +1227,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Destruction Holo-gogs -- 41320
 	self:addTradeSkill(RecipeDB,41320,350,32494,1,4036,nil)
 	self:addTradeFlags(RecipeDB,41320,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955)
+	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33634)
 
 	-- Powerheal 4000 Lens -- 41321
 	self:addTradeSkill(RecipeDB,41321,350,32495,4,4036,nil)

@@ -162,7 +162,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3756,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,
 	1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,
 	1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,
-	1,16745,1,17442,1,18754,1,18771,1,19187,1,21087,1,1385,1,33635)
+	1,16745,1,17442,1,18754,1,18771,1,19187,1,21087,1,1385,1,33635,1,33612)
 
 	-- Embossed Leather Pants -- 3759
 	self:addTradeSkill(RecipeDB,3759,75,4242,1,2108,nil,0)
@@ -170,7 +170,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3759,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,
 	1,3069,1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,
 	1,5811,1,11081,1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,
-	1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087,1,33635)
+	1,16728,1,16745,1,17442,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Hillman's Cloak -- 3760
 	self:addTradeSkill(RecipeDB,3760,150,3719,1,2108,nil,0)
@@ -184,7 +184,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,3761,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,3761,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,
 	1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,
-	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635)
+	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635,1,33612)
 
 	-- Hillman's Leather Vest -- 3762
 	self:addTradeSkill(RecipeDB,3762,100,4244,2,2108,nil,0)
@@ -196,7 +196,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,3763,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,3763,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,
 	1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,
-	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635)
+	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635,1,33612)
 
 	-- Hillman's Leather Gloves -- 3764
 	self:addTradeSkill(RecipeDB,3764,145,4247,1,2108,nil,0)
@@ -442,7 +442,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9062,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,
 	1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,
 	1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,
-	1,18771,1,19187,1,21087,1,33635)
+	1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Rugged Leather Pants -- 9064
 	self:addTradeSkill(RecipeDB,9064,35,7280,2,2108,nil,0)
@@ -455,7 +455,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9065,1,223,1,1385,1,1466,1,1632,1,3007,1,3008,1,3069,
 	1,3365,1,3549,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,
 	1,11083,1,11084,1,11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,
-	1,18754,1,18771,1,19187,1,21087,1,33635)
+	1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Light Leather Pants -- 9068
 	self:addTradeSkill(RecipeDB,9068,95,7282,1,2108,nil,0)
@@ -1076,7 +1076,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,20648,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,20648,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,
 	1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,
-	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635)
+	1,19187,1,21087,1,1632,1,5784,1,1385,1,3549,1,33635,1,33612)
 
 	-- Heavy Leather -- 20649
 	self:addTradeSkill(RecipeDB,20649,150,4234,1,2108,nil,0)
@@ -1341,7 +1341,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Knothide Leather -- 32454
 	self:addTradeSkill(RecipeDB,32454,300,21887,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32454,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,32454,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32454,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Heavy Knothide Leather -- 32455
 	self:addTradeSkill(RecipeDB,32455,325,23793,1,2108,nil,1)
@@ -1351,7 +1351,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Knothide Armor Kit -- 32456
 	self:addTradeSkill(RecipeDB,32456,300,25650,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32456,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,32456,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32456,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Vindicator's Armor Kit -- 32457
 	self:addTradeSkill(RecipeDB,32457,325,25651,1,2108,nil,1)
@@ -1371,82 +1371,82 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Felscale Gloves -- 32462
 	self:addTradeSkill(RecipeDB,32462,300,25654,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32462,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32462,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32462,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Felscale Boots -- 32463
 	self:addTradeSkill(RecipeDB,32463,310,25655,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32463,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32463,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32463,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Felscale Pants -- 32464
 	self:addTradeSkill(RecipeDB,32464,320,25656,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32464,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32464,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32464,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Felscale Breastplate -- 32465
 	self:addTradeSkill(RecipeDB,32465,335,25657,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32465,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32465,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32465,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Scaled Draenic Pants -- 32466
 	self:addTradeSkill(RecipeDB,32466,300,25662,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32466,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32466,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32466,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Scaled Draenic Gloves -- 32467
 	self:addTradeSkill(RecipeDB,32467,310,25661,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32467,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32467,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32467,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Scaled Draenic Vest -- 32468
 	self:addTradeSkill(RecipeDB,32468,325,25660,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32468,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32468,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32468,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Scaled Draenic Boots -- 32469
 	self:addTradeSkill(RecipeDB,32469,335,25659,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32469,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32469,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32469,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Thick Draenic Gloves -- 32470
 	self:addTradeSkill(RecipeDB,32470,300,25669,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32470,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32470,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32470,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Thick Draenic Pants -- 32471
 	self:addTradeSkill(RecipeDB,32471,315,25670,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32471,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32471,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32471,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Thick Draenic Boots -- 32472
 	self:addTradeSkill(RecipeDB,32472,320,25668,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32472,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32472,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32472,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Thick Draenic Vest -- 32473
 	self:addTradeSkill(RecipeDB,32473,330,25671,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32473,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32473,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32473,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Wild Draenish Boots -- 32478
 	self:addTradeSkill(RecipeDB,32478,300,25673,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32478,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32478,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32478,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Wild Draenish Gloves -- 32479
 	self:addTradeSkill(RecipeDB,32479,310,25674,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32479,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32479,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32479,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Wild Draenish Leggings -- 32480
 	self:addTradeSkill(RecipeDB,32480,320,25675,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32480,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32480,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32480,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Wild Draenish Vest -- 32481
 	self:addTradeSkill(RecipeDB,32481,330,25676,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32481,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,54,57)
-	self:addTradeAcquire(RecipeDB,32481,1,18754,1,18771,1,19187,1,21087,1,33635)
+	self:addTradeAcquire(RecipeDB,32481,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612)
 
 	-- Comfortable Insoles -- 32482
 	self:addTradeSkill(RecipeDB,32482,300,25679,1,2108,nil,1)
