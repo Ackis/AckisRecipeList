@@ -989,7 +989,7 @@ function addon:ScanVendor()
 					local found = false
 					for i in pairs(acquire) do
 						-- If the acquire type is a vendor
-						if (acquire[i]["Type"] == 2) and (acquire[i]["ID"] == targetID) then
+						if (((acquire[i]["Type"] == 2) and (acquire[i]["ID"] == targetID)) or ((acquire[i]["Type"] == 6) and (acquire[i]["RepVendor"] == targetID))) then
 							found = true
 						end
 					end
