@@ -988,8 +988,10 @@ function addon:ScanVendor()
 					local acquire = recipe_list[spellid]["Acquire"]
 					local found = false
 					for i in pairs(acquire) do
+						local atype = acquire[i]["Type"]
 						-- If the acquire type is a vendor
-						if (((acquire[i]["Type"] == 2) and (acquire[i]["ID"] == targetID)) or ((acquire[i]["Type"] == 6) and (acquire[i]["RepVendor"] == targetID))) then
+						if (((atype == 2) and (acquire[i]["ID"] == targetID))
+						    or ((atype == 6) and (acquire[i]["RepVendor"] == targetID))) then
 							found = true
 						end
 					end
@@ -1314,7 +1316,7 @@ do
 
 			if (not scan_data.verifiedclass) then
 				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-				if (strmatch(text,"strength")) then
+				if (strmatch(text,"strength") and (strmatch(text,"strength of the clefthoof") == nil)) then
 					scan_data.dps = true
 					scan_data.caster = false
 					scan_data.healer = false
