@@ -1473,7 +1473,7 @@ do
 				scan_data.Plate = true
 			elseif (strmatch(text,"cloak")) then
 				scan_data.Cloak = true
-			elseif ((strmatch(text,"ring") or strmatch(text,"finger"))
+			elseif ((strmatch(text,"ring") or strmatch("finger", text))
 				and (strmatch(text,"ring:") == nil) and (strmatch(text,"requires") == nil)) then
 				scan_data.Ring = true
 			elseif (strmatch(text,"necklace")) then
