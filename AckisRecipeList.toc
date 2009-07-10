@@ -50,6 +50,11 @@
 ## X-WoWI-ID: 5061
 ## SavedVariables: ARLDB2
 
+## LoadManagers: AddonLoader
+## X-LoadOn-Slash: /arl
+## X-LoadOn-Events: TRADE_SKILL_SHOW
+## X-LoadOn-TRADE_SKILL_SHOW: AddonLoader:LoadAddOn("AckisRecipeList"); AckisRecipeList:TRADE_SKILL_SHOW()
+
 #@no-lib-strip@
 # Libraries
 embeds.xml
