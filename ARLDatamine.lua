@@ -1316,7 +1316,7 @@ do
 
 			if (not scan_data.verifiedclass) then
 				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-				if (strmatch(text,"strength") and (strmatch(text,"strength of the clefthoof") == nil)) then
+				if (strmatch(text,"strength") and (strmatch(text,"strength of the clefthoof") == nil) and (strmatch(text, "set:") == nil)) then
 					scan_data.dps = true
 					scan_data.caster = false
 					scan_data.healer = false
