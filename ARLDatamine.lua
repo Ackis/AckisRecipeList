@@ -970,6 +970,7 @@ function addon:ScanVendor()
 		local targetID = tonumber(string.sub(UnitGUID("target"),-12,-7),16)		-- Get the NPC ID
 
 		local t = {}
+		local added = false
 
 		-- Parse all the items on the merchant
 		for i = 1,GetMerchantNumItems(),1 do
@@ -977,6 +978,7 @@ function addon:ScanVendor()
 			-- Get the name
 			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
 			if (name) then
+				added = true
 				-- Get rid of the first part of the item
 				local recipename = gsub(name,"%a+\: ","")
 				-- Find out what spell ID we're using
@@ -1003,7 +1005,10 @@ function addon:ScanVendor()
 				end
 			end
 		end
-		self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+
+		if added then
+			self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+		end
 		ARLDatamineTT:Hide()
 	else
 		self:Print(L["DATAMINER_VENDOR_NOTTARGETTED"])
