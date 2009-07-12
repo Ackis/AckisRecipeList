@@ -2444,12 +2444,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Prismatic Black Diamond -- 62941
 	self:addTradeSkill(RecipeDB,62941,300,45054,1,25229,nil,2)
 	self:addTradeFlags(RecipeDB,62941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,62941,1,26915,1,26960,1,26982,1,26997,1,28701,1,18751,1,33590,1,33614)
+	self:addTradeAcquire(RecipeDB,62941,1,26915,1,26960,1,26982,1,26997,1,28701,1,18751,1,33590,1,33614,1,19063,1,19539)
 
 	-- Amulet of Truesight -- 63743
 	self:addTradeSkill(RecipeDB,63743,200,45627,1,25229,nil,2)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
-	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590,1,19775,1,33614)
+	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590,1,19775,1,33614,1,19063,1,19539)
 
 	local _,_,_,toc = GetBuildInfo()
 

@@ -468,7 +468,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Greater Strength -- 13939
 	self:addTradeSkill(RecipeDB,13939,240,nil,1,7411,nil,0,240,260,280,300)
 	self:addTradeFlags(RecipeDB,13939,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13939,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011)
+	self:addTradeAcquire(RecipeDB,13939,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,3606)
 
 	-- Enchant Chest - Stats -- 13941
 	self:addTradeSkill(RecipeDB,13941,245,nil,1,7411,nil,0,245,265,285,305)
@@ -893,7 +893,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Exceptional Mana -- 27958
 	self:addTradeSkill(RecipeDB,27958,350,nil,1,7411,nil,2,350,360,370,380)
 	self:addTradeFlags(RecipeDB,27958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,27958,1,18753,1,18773,1,19540,1,28693,1,33583,1,26990,1,26980)
+	self:addTradeAcquire(RecipeDB,27958,1,18753,1,18773,1,19540,1,28693,1,33583,1,26990,1,26980,1,26954)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	self:addTradeSkill(RecipeDB,27960,345,nil,1,7411,nil,1,345,355,367,380)
@@ -1003,7 +1003,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Runed Eternium Rod -- 32667
 	self:addTradeSkill(RecipeDB,32667,375,22463,1,7411,nil,1,375,375,377,385)
 	self:addTradeFlags(RecipeDB,32667,1,2,3,4,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,32667,2,19663,1,28693,1,33583,1,26990,1,26980)
+	self:addTradeAcquire(RecipeDB,32667,2,19663,1,28693,1,33583,1,26990,1,26980,1,26954)
 
 	-- Enchant Chest - Major Spirit -- 33990
 	self:addTradeSkill(RecipeDB,33990,320,nil,1,7411,nil,1,320,330,345,360)
