@@ -2476,7 +2476,7 @@ do
 			flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition),"
 		end
 		if (flags[126] == true) then
-			flagstr = flagstr .. "TWrath Common Factions (The Frostborn/The Taunka),"
+			flagstr = flagstr .. "Wrath Common Factions (The Frostborn/The Taunka),"
 		end
 		if (flags[127] == true) then
 			flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition),"
