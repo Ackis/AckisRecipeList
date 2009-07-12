@@ -882,6 +882,7 @@ L["Firegut Brute"] = true
 L["Flash Bomb Recipe"] = true
 L["Fledgling Chillwind"] = true
 L["Fleshbeast"] = true
+L["Fono"]= true
 L["Foreman Marcrid"] = true
 L["Forgotten One"] = true
 L["Fradd Swiftgear"] = true
