@@ -1507,7 +1507,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Adamantite Sharpening Stone -- 29656
 	self:addTradeSkill(RecipeDB,29656,350,23529,1,2018,nil)
-	self:addTradeFlags(RecipeDB,29656,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeFlags(RecipeDB,29656,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,103)
 	self:addTradeAcquire(RecipeDB,29656,6,942,2,17904)
 
 	-- Felsteel Shield Spike -- 29657
@@ -1722,7 +1722,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Adamantite Weightstone -- 34608
 	self:addTradeSkill(RecipeDB,34608,350,28421,1,2018,nil)
-	self:addTradeFlags(RecipeDB,34608,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeFlags(RecipeDB,34608,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,103)
 	self:addTradeAcquire(RecipeDB,34608,6,942,2,17904)
 
 	-- Thick Bronze Darts -- 34979
