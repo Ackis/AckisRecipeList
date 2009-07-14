@@ -909,7 +909,10 @@ do
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
-			tinsert(t,addon:TooltipScanRecipe(i,false,true))
+			local ttscantext = addon:TooltipScanRecipe(i,false,true)
+			if (ttscantext) then
+				tinsert(t,ttscantext)
+			end
 		end
 		addon:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 		ARLDatamineTT:Hide()
@@ -1008,21 +1011,21 @@ function addon:ScanVendor()
 			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
 			
 			if (name) then
-self:Print(name)
 				-- Lets scan recipes only on vendors
 				local matchtext = strmatch(name,"%a+: ")
 				-- Check to see if we're dealing with a recipe
 				if (matchtext) and (RECIPE_NAMES[strlower(matchtext)]) then
-self:Print("isarecipe")
 					-- Get rid of the first part of the item
 					local recipename = gsub(name,"%a+\: ","")
 					-- Find out what spell ID we're using
 					local spellid = reverse_lookup[recipename]
 					-- Do the scan if we have the spell ID
 					if (spellid) then
-self:Print("spellfound")
 						added = true
-						tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
+						local ttscantext = addon:TooltipScanRecipe(spellid,false,true)
+						if (ttscantext) then
+							tinsert(t,ttscantext)
+						end
 						-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
 						local acquire = recipe_list[spellid]["Acquire"]
 						local found = false
@@ -1073,7 +1076,10 @@ function addon:TooltipScanDatabase()
 
 	-- Parse the entire recipe database
 	for i in pairs(recipe_list) do
-		tinsert(t,addon:TooltipScanRecipe(i,false,true))
+		local ttscantext = addon:TooltipScanRecipe(i,false,true)
+		if (ttscantext) then
+			tinsert(t,ttscantext)
+		end
 	end
 	self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 end
@@ -1131,12 +1137,13 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 
 				if (results) then
 					tinsert(t,results)
-				end
-
-				if (is_largescan) then
-					return tconcat(t,"\n")
+					if (is_largescan) then
+						return tconcat(t,"\n")
+					else
+						self:Print(tconcat(t,"\n"))
+					end
 				else
-					self:Print(tconcat(t,"\n"))
+					return nil
 				end
 			end
 
