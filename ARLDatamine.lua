@@ -1709,8 +1709,8 @@ do
 		end
 
 		-- Check to see if we have an obtain method flag, all recipes must have at least one of these
-		if ((not flags[3]) or (not flags[4]) or (not flags[5]) or (not flags[6]) or (not flags[7])
-		or (not flags[8]) or (not flags[9]) or (not flags[10]) or (not flags[11]) or (not flags[12])) then
+		if ((not flags[3]) and (not flags[4]) and (not flags[5]) and (not flags[6]) and (not flags[7])
+		and (not flags[8]) and (not flags[9]) and (not flags[10]) and (not flags[11]) and (not flags[12])) then
 			addedtotable = true
 			tinsert(t,"No obtain flag. " .. recipe_name .. " (" .. spellid .. ")")
 		end
