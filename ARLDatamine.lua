@@ -1008,16 +1008,19 @@ function addon:ScanVendor()
 			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
 			
 			if (name) then
+self:Print(name)
 				-- Lets scan recipes only on vendors
 				local matchtext = strmatch(name,"%a+: ")
 				-- Check to see if we're dealing with a recipe
 				if (RECIPE_NAMES[matchtext]) then
+self:Print("isarecipe")
 					-- Get rid of the first part of the item
 					local recipename = gsub(name,"%a+\: ","")
 					-- Find out what spell ID we're using
 					local spellid = reverse_lookup[recipename]
 					-- Do the scan if we have the spell ID
 					if (spellid) then
+self:Print("spellfound")
 						added = true
 						tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
 						-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
