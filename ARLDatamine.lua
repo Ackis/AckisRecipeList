@@ -808,6 +808,7 @@ do
 			end
 		end
 	end
+
 end
 
 --- Generates tradeskill links for all professions so you can scan them for completeness.
@@ -952,6 +953,34 @@ do
 
 end	-- do
 
+local RECIPE_NAMES = {
+	-- JC
+	["design: "] = true,
+	-- LW or Tailoring
+	["pattern: "] = true,
+	-- Alchemy or Cooking
+	["recipe: "] = true,
+	-- BS
+	["plans: "] = true,
+	-- Enchanting
+	["formula: "] = true,
+	-- Engineering
+	["schematic: "] = true,
+	-- First Aid
+	["manual: "] = true,
+
+	["alchemy: "] = true,
+	["blacksmithing: "] = true,
+	["cooking: "] = true,
+	["enchanting: "] = true,
+	["engineering: "] = true,
+	["first aid: "] = true,
+	["inscription: "] = true,
+	["jewelcrafting: "] = true,
+	["leatherworking: "] = true,
+	["tailoring: "] = true,
+}
+
 --- Scans the items on a vendor,determining which recipes are available if any and compares it with the database entries.
 -- @name AckisRecipeList:ScanVendor
 -- @usage AckisRecipeList:ScanVendor()
@@ -977,34 +1006,40 @@ function addon:ScanVendor()
 		
 			-- Get the name
 			local name,_,_,_,numAvailable = GetMerchantItemInfo(i)
+			
 			if (name) then
-				-- Get rid of the first part of the item
-				local recipename = gsub(name,"%a+\: ","")
-				-- Find out what spell ID we're using
-				local spellid = reverse_lookup[recipename]
-				-- Do the scan if we have the spell ID
-				if (spellid) then
-					added = true
-					tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
-					-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
-					local acquire = recipe_list[spellid]["Acquire"]
-					local found = false
-					for i in pairs(acquire) do
-						local atype = acquire[i]["Type"]
-						-- If the acquire type is a vendor
-						if (((atype == 2) and (acquire[i]["ID"] == targetID))
-						    or ((atype == 6) and (acquire[i]["RepVendor"] == targetID))) then
-							found = true
+				-- Lets scan recipes only on vendors
+				local matchtext = strmatch(name,"%a+: ")
+				-- Check to see if we're dealing with a recipe
+				if (RECIPE_NAMES[matchtext]) then
+					-- Get rid of the first part of the item
+					local recipename = gsub(name,"%a+\: ","")
+					-- Find out what spell ID we're using
+					local spellid = reverse_lookup[recipename]
+					-- Do the scan if we have the spell ID
+					if (spellid) then
+						added = true
+						tinsert(t,addon:TooltipScanRecipe(spellid,false,true))
+						-- Ok now we know it's a vendor,lets check the database to see if the vendor is listed as an acquire method.
+						local acquire = recipe_list[spellid]["Acquire"]
+						local found = false
+						for i in pairs(acquire) do
+							local atype = acquire[i]["Type"]
+							-- If the acquire type is a vendor
+							if (((atype == 2) and (acquire[i]["ID"] == targetID))
+								or ((atype == 6) and (acquire[i]["RepVendor"] == targetID))) then
+								found = true
+							end
 						end
+						if (not found) then
+							tinsert(t,"Vendor ID missing from " .. spellid)
+						end
+					else
+						--@debug@
+						added = true
+						tinsert(t,"Spell ID not found for: " .. name)
+						--@end-debug@
 					end
-					if (not found) then
-						tinsert(t,"Vendor ID missing from " .. spellid)
-					end
-				else
-					--@debug@
-					added = true
-					tinsert(t,"Spell ID not found for: " .. name)
-					--@end-debug@
 				end
 			end
 		end
@@ -1039,34 +1074,6 @@ function addon:TooltipScanDatabase()
 	end
 	self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
 end
-
-local RECIPE_NAMES = {
-	-- JC
-	["design: "] = true,
-	-- LW or Tailoring
-	["pattern: "] = true,
-	-- Alchemy or Cooking
-	["recipe: "] = true,
-	-- BS
-	["plans: "] = true,
-	-- Enchanting
-	["formula: "] = true,
-	-- Engineering
-	["schematic: "] = true,
-	-- First Aid
-	["manual: "] = true,
-
-	["alchemy: "] = true,
-	["blacksmithing: "] = true,
-	["cooking: "] = true,
-	["enchanting: "] = true,
-	["engineering: "] = true,
-	["first aid: "] = true,
-	["inscription: "] = true,
-	["jewelcrafting: "] = true,
-	["leatherworking: "] = true,
-	["tailoring: "] = true,
-}
 
 --- Parses a specific recipe in the database,and scanning its tooltip.
 -- @name AckisRecipeList:TooltipScanRecipe
