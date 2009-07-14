@@ -557,7 +557,6 @@ L["Auchenai Monk"] = true
 L["Awan Iceborn"] = true
 L["Awilo Lon'gomba"] = true
 L["Badlands Reagent Run II"] = true
-L["Balai Lok'Wein"] = true
 L["Bale"] = true
 L["Balgaras the Foul"] = true
 L["Banalash"] = true
