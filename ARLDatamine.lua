@@ -1116,8 +1116,13 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 					end
 				end
 
-				-- Add the flag scan to the table
-				tinsert(t,self:PrintScanResults())
+				-- Add the flag scan to the table if it's not nil
+				local results = self:PrintScanResults()
+
+				if (results) then
+					tinsert(t,results)
+				end
+
 				if (is_largescan) then
 					return tconcat(t,"\n")
 				else
@@ -1548,7 +1553,7 @@ do
 		twipe(missing_flags)
 		twipe(extra_flags)
 
-		if scan_data.is_vendor then
+		if (scan_data.is_vendor) then
 			if (not flags[4]) then
 				tinsert(missing_flags,"4 (Vendor)")
 			end
@@ -1561,7 +1566,7 @@ do
 		end
 
 		-- If we've picked up at least one class flag
-		if scan_data.found_class then
+		if (scan_data.found_class) then
 			for k,v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not flags[CLASS_TYPES[v]] then
 					tinsert(missing_flags,tostring(CLASS_TYPES[v]).." ("..v..")")
@@ -1578,7 +1583,7 @@ do
 		end
 
 		-- BoP Item
-		if scan_data.is_item then
+		if s(can_data.is_item) then
 			if (scan_data.bopitem) and (not flags[37]) then
 				tinsert(missing_flags,"37 (BoP Item)")
 				-- If it's a BoP item and flags BoE is set,mark it as extra
@@ -1646,6 +1651,7 @@ do
 
 		-- Reputations
 		local repid = scan_data.repid
+		local addedtotable = false
 
 		if ((repid) and (not flags[repid])) then
 			tinsert(missing_flags,repid)
@@ -1660,12 +1666,15 @@ do
 		end
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
+			addedtotable = true
 			tinsert(t,recipe_name .. " (" .. spellid .. ")")
 
+			-- Add a string of the missing flag numbers
 			if (#missing_flags > 0) then
 				tinsert(t,"Missing flags: " .. tconcat(missing_flags,","))
 			end
 
+			-- Add a string of the extra flag numbers
 			if (#extra_flags > 0) then
 				tinsert(t,"Extra flags: " .. tconcat(extra_flags,","))
 			end
@@ -1686,33 +1695,54 @@ do
 
 		end
 
+		-- Check to see if we have a horde/alliance flag, all recipes must have one of these
 		if (not flags[1]) and (not flags[2]) then
+			addedtotable = true
 			tinsert(t,"Horde or alliance not selected. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
+		-- Check to see if we have an obtain method flag, all recipes must have at least one of these
+		if ((not flags[3]) or (not flags[4]) or (not flags[5]) or (not flags[6]) or (not flags[7])
+		or (not flags[8]) or (not flags[9]) or (not flags[10]) or (not flags[11]) or (not flags[12])) then
+			addedtotable = true
+			tinsert(t,"No obtain flag. " .. recipe_name .. " (" .. spellid .. ")")
+		end
+
+		-- Check for recipe binding information, all recipes must have one of these
 		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
+			addedtotable = true
 			tinsert(t,"No recipe binding information. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
+		-- Check for item binding information, all recipes must have one of these
 		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
+			addedtotable = true
 			tinsert(t,"No item binding information. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
+		-- Check for player role flags
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
+			addedtotable = true
 			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
 		if (scan_data.specialty) then
 			if (not scan_data.recipe_list[spellid]["Specialty"]) then
+				addedtotable = true
 				tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
 			elseif (scan_data.recipe_list[spellid]["Specialty"] ~= scan_data.specialty) then
 				tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty: " .. scan_data.specialty)
 			end
 		elseif (scan_data.recipe_list[spellid]["Specialty"]) then
+			addedtotable = true
 			tinsert(t,"Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
-		return tconcat(t,"\n")
+		if (addedtotable) then
+			return tconcat(t,"\n")
+		else
+			return nil
+		end
 
 	end
 
