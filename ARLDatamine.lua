@@ -818,7 +818,7 @@ function addon:GenerateLinks()
 	-- This code adopted from Gnomish Yellow Pages with permission
 
 	local guid = UnitGUID("player")
-	local playerGUID = string.gsub(guid,"0x0+","")
+	local playerGUID = gsub(guid,"0x0+","")
 
 	-- Listing of all tradeskill professions
 	local tradelist = {51304,51300,51313,51306,45363,51311,51302,51309,51296,45542}
