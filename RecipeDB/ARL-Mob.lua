@@ -437,7 +437,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,14354,BBOSS["Pusillin"],BZONE["Dire Maul"],0,0)
 	-- Drak'Tharon Keep
 	self:addLookupList(MobDB,26632,BBOSS["The Prophet Tharon'ja"],BZONE["Drak'Tharon Keep"],0,0)
-	self:addLookupList(MobDB,26830,L["Risen Drakkari Death Knight"],BZONE["Drak'Tharon Keep"],0,0)
 	-- Gnomeregan
 	self:addLookupList(MobDB,7800,BBOSS["Mekgineer Thermaplugg"],BZONE["Gnomeregan"],0,0)
 	-- Halls of Lightning

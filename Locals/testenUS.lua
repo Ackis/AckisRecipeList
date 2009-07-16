@@ -1331,7 +1331,6 @@ L["Rikqiz"] = true
 L["Rin'wosho the Trader"] = true
 L["Risen Bonewarder"] = true
 L["Risen Construct"] = true
-L["Risen Drakkari Death Knight"] = true
 L["Rivendark"] = true
 L["Rogue Ice Thistle"] = true
 L["Rogvar"] = true

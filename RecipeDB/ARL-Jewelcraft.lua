@@ -1934,7 +1934,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Timeless Forest Emerald -- 53995
 	self:addTradeSkill(RecipeDB,53995,390,40085,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53995,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53995,3,26632,3,26830)
+	self:addTradeAcquire(RecipeDB,53995,3,26632)
 
 	-- Jagged Forest Emerald -- 53996
 	self:addTradeSkill(RecipeDB,53996,390,40086,3,25229,nil,2)
