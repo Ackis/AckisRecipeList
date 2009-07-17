@@ -298,7 +298,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,30208,L["Stormforged Ambusher"],BZONE["The Storm Peaks"],70.09,59.89)
 	self:addLookupList(MobDB,30222,L["Stormforged Infiltrator"],BZONE["The Storm Peaks"],57.23,63.90)
 	self:addLookupList(MobDB,30260,L["Stoic Mammoth"],BZONE["The Storm Peaks"],57.29,63.15)
-	self:addLookupList(MobDB,30396,BBOSS["Loken"],BZONE["The Storm Peaks"],35.12,33.09)
 	self:addLookupList(MobDB,30448,L["Plains Mammoth"],BZONE["The Storm Peaks"],64.58,45.09)
 	-- Thousand Needles
 	self:addLookupList(MobDB,4117,L["Cloud Serpent"],BZONE["Thousand Needles"],43.01,48.87)
