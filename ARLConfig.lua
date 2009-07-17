@@ -1195,7 +1195,7 @@ local function giveMap()
 
 	local tomtomsupport = true
 
-	if (TomTom) then
+	if ((TomTom) or ((TomTom) and (Carbonite))) then
 		tomtomsupport = false
 	end
 

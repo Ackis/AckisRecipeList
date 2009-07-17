@@ -469,9 +469,6 @@ do
 	local maplist = {}
 	function addon:SetupMap(singlerecipe)
 		if (not TomTom) then
-			--@debug@
-			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
-			--@end-debug@
 			return
 		end
 
