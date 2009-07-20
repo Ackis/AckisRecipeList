@@ -1737,11 +1737,14 @@ do
 			tinsert(t,"No item binding information. " .. recipe_name .. " (" .. spellid .. ")")
 		end
 
+		-- We need to code this better.  Some items (aka bags) won't have a role at all.
+--[[
 		-- Check for player role flags
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
 			addedtotable = true
 			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")")
 		end
+]]--
 
 		if (scan_data.specialty) then
 			if (not scan_data.recipe_list[spellid]["Specialty"]) then
