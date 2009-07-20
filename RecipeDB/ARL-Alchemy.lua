@@ -673,7 +673,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Shadow Power -- 28558
 	self:addTradeSkill(RecipeDB,28558,350,22835,2,51304,nil,1,350,365,372,380)
-	self:addTradeFlags(RecipeDB,28558,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeFlags(RecipeDB,28558,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,107)
 	self:addTradeAcquire(RecipeDB,28558,6,1011,3,21655)
 
 	-- Major Dreamless Sleep Potion -- 28562

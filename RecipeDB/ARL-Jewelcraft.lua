@@ -368,7 +368,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Potent Flame Spessarite -- 28915
 	self:addTradeSkill(RecipeDB,28915,325,23101,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28915,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeFlags(RecipeDB,28915,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,107)
 	self:addTradeAcquire(RecipeDB,28915,6,1011,1,21655)
 
 	-- Radiant Deep Peridot -- 28916

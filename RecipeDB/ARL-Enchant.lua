@@ -747,7 +747,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Cloak - Dodge -- 25086
 	self:addTradeSkill(RecipeDB,25086,300,nil,1,7411,nil,1,300,310,325,340)
-	self:addTradeFlags(RecipeDB,25086,1,2,4,6,10,21,22,23,24,25,26,27,28,29,30,36,40,63,107)
+	self:addTradeFlags(RecipeDB,25086,1,2,4,6,10,21,22,23,24,25,26,27,28,29,30,36,40,52,60,107)
 	self:addTradeAcquire(RecipeDB,25086,8,22,6,1011,4,21655)
 
 	-- Minor Wizard Oil -- 25124
@@ -842,7 +842,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Stats -- 27927
 	self:addTradeSkill(RecipeDB,27927,375,nil,1,7411,nil,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,27927,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,107)
+	self:addTradeFlags(RecipeDB,27927,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,62,107)
 	self:addTradeAcquire(RecipeDB,27927,6,1011,2,21655)
 
 	-- Enchant Shield - Tough Shield -- 27944
