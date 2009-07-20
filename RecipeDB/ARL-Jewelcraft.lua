@@ -348,7 +348,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Delicate Blood Garnet -- 28907
 	self:addTradeSkill(RecipeDB,28907,325,23097,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28907,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,28907,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,105)
 	self:addTradeAcquire(RecipeDB,28907,6,933,2,20242,6,933,2,23007)
 
 	-- Inscribed Flame Spessarite -- 28910
@@ -358,7 +358,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Luminous Flame Spessarite -- 28912
 	self:addTradeSkill(RecipeDB,28912,305,23099,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28912,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,28912,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,105)
 	self:addTradeAcquire(RecipeDB,28912,6,933,1,20242,6,933,1,23007)
 
 	-- Glinting Flame Spessarite -- 28914
@@ -448,7 +448,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Lustrous Azure Moonstone -- 28957
 	self:addTradeSkill(RecipeDB,28957,325,23121,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,28957,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,105)
 	self:addTradeAcquire(RecipeDB,28957,6,933,2,20242,6,933,2,23007)
 
 	-- Fel Iron Blood Ring -- 31048
@@ -523,7 +523,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Pendant of Thawing -- 31063
 	self:addTradeSkill(RecipeDB,31063,360,24093,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31063,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeFlags(RecipeDB,31063,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,107)
 	self:addTradeAcquire(RecipeDB,31063,6,1011,3,21655)
 
 	-- Pendant of Withering -- 31064
@@ -538,7 +538,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Pendant of the Null Rune -- 31066
 	self:addTradeSkill(RecipeDB,31066,360,24098,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,31066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,105)
 	self:addTradeAcquire(RecipeDB,31066,6,933,3,20242,6,933,3,23007)
 
 	-- Thick Felsteel Necklace -- 31067
@@ -823,7 +823,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Swift Skyfire Diamond -- 32873
 	self:addTradeSkill(RecipeDB,32873,365,25894,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,32873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,32873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,105)
 	self:addTradeAcquire(RecipeDB,32873,6,933,2,20242,6,933,2,23007)
 
 	-- Enigmatic Skyfire Diamond -- 32874
@@ -1133,7 +1133,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Relentless Earthstorm Diamond -- 39961
 	self:addTradeSkill(RecipeDB,39961,365,32409,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39961,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
+	self:addTradeFlags(RecipeDB,39961,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,105)
 	self:addTradeAcquire(RecipeDB,39961,6,933,4,20242,6,933,4,23007)
 
 	-- Thundering Skyfire Diamond -- 39963
@@ -1173,7 +1173,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Don Julio's Heart -- 42558
 	self:addTradeSkill(RecipeDB,42558,360,33133,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,42558,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,105)
+	self:addTradeFlags(RecipeDB,42558,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54,105)
 	self:addTradeAcquire(RecipeDB,42558,6,933,3,20242,6,933,3,23007)
 
 	-- Kailee's Rose -- 42588
@@ -1183,12 +1183,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Crimson Sun -- 42589
 	self:addTradeSkill(RecipeDB,42589,360,33131,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,42589,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,105)
+	self:addTradeFlags(RecipeDB,42589,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,105)
 	self:addTradeAcquire(RecipeDB,42589,6,933,3,20242,6,933,3,23007)
 
 	-- Falling Star -- 42590
 	self:addTradeSkill(RecipeDB,42590,360,33135,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,42590,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,107)
+	self:addTradeFlags(RecipeDB,42590,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,52,53,54,107)
 	self:addTradeAcquire(RecipeDB,42590,6,1011,3,21655)
 
 	-- Stone of Blades -- 42591

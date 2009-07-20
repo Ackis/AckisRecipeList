@@ -552,7 +552,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of Chromatic Resistance -- 17638
 	self:addTradeSkill(RecipeDB,17638,300,13513,2,51304,nil,1,300,315,322,330)
-	self:addTradeFlags(RecipeDB,17638,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,107)
+	self:addTradeFlags(RecipeDB,17638,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,107)
 	self:addTradeAcquire(RecipeDB,17638,3,10339,6,1011,4,21655)
 
 	-- Elixir of Frost Power -- 21923

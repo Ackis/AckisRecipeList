@@ -2101,7 +2101,7 @@ function addon:InitInscription(RecipeDB)
 
 	--Glyph of Bladestorm  -- 64295
 	self:addTradeSkill(RecipeDB,64295,425,45790,1,45357)
-	self:addTradeFlags(RecipeDB,64295,1,2,30,36,41)
+	self:addTradeFlags(RecipeDB,64295,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,64295,8,40)
 
 	--Glyph of Chaos Bolt  -- 64294
