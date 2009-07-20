@@ -2104,7 +2104,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Eternal Earthsiege Diamond -- 55398
 	self:addTradeSkill(RecipeDB,55398,420,41396,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,55398,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,55398,3,28920,3,28923)
+	self:addTradeAcquire(RecipeDB,55398,3,28923)
 
 	-- Powerful Earthsiege Diamond -- 55399
 	self:addTradeSkill(RecipeDB,55399,420,41397,3,25229,nil,2)

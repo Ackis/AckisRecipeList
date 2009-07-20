@@ -1465,7 +1465,6 @@ L["Storm Fury"] = true
 L["Stormforged Ambusher"] = true
 L["Stormforged Artificer"] = true
 L["Stormforged Champion"] = true
-L["Stormforged Giant"] = true
 L["Stormforged Infiltrator"] = true
 L["Strashaz Myrmidon"] = true
 L["Strashaz Warrior"] = true

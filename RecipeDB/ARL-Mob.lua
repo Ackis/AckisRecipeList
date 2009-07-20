@@ -439,7 +439,6 @@ function addon:InitMob(MobDB)
 	-- Gnomeregan
 	self:addLookupList(MobDB,7800,BBOSS["Mekgineer Thermaplugg"],BZONE["Gnomeregan"],0,0)
 	-- Halls of Lightning
-	self:addLookupList(MobDB,28920,L["Stormforged Giant"],BZONE["Halls of Lightning"],0,0)
 	self:addLookupList(MobDB,28923,BBOSS["Loken"],BZONE["Halls of Lightning"],0,0)
 	-- Halls of Stone
 	self:addLookupList(MobDB,27977,BBOSS["Krystallus"],BZONE["Halls of Stone"],0,0)
