@@ -1537,7 +1537,7 @@ do
 				scan_data.CrossBow = true
 			elseif (strmatch(text,"gun")) then
 				scan_data.Gun = true
-			elseif (strmatch(text,"ammo")) then
+			elseif (strmatch(text,"ammo") and (strmatch(text,"mammoth") == nil)) then
 				scan_data.Ammo = true
 			elseif (strmatch(text,"fist")) then
 				scan_data.Fist = true
