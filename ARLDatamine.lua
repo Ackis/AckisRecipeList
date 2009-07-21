@@ -1428,7 +1428,7 @@ do
 					scan_data.dps = true
 					scan_data.caster = false
 					scan_data.healer = false
-				elseif (strmatch(text,"feral attack")) then
+				elseif (strmatch(text,"feral attack power")) then
 					scan_data.tank = true
 					scan_data.dps = true
 					scan_data.caster = false
@@ -1451,7 +1451,7 @@ do
 					scan_data.caster = false
 					scan_data.healer = false
 					scan_data.verifiedclass = true
-				elseif (strmatch(text,"dodge")) then
+				elseif (strmatch(text,"dodge") and (strmatch(text, "set:") == nil)) then
 					scan_data.dps = false
 					scan_data.tank = true
 					scan_data.caster = false
