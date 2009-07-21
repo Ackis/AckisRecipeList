@@ -842,7 +842,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Stats -- 27927
 	self:addTradeSkill(RecipeDB,27927,375,nil,1,7411,nil,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,27927,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,62,107)
+	self:addTradeFlags(RecipeDB,27927,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,62,107)
 	self:addTradeAcquire(RecipeDB,27927,6,1011,2,21655)
 
 	-- Enchant Shield - Tough Shield -- 27944
@@ -912,7 +912,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Major Striking -- 27967
 	self:addTradeSkill(RecipeDB,27967,340,nil,1,7411,nil,1,340,350,365,380)
-	self:addTradeFlags(RecipeDB,27967,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,52,105)
+	self:addTradeFlags(RecipeDB,27967,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,105)
 	self:addTradeAcquire(RecipeDB,27967,6,933,2,20242,6,933,2,23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968

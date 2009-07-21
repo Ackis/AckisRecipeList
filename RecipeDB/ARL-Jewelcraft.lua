@@ -523,7 +523,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Pendant of Thawing -- 31063
 	self:addTradeSkill(RecipeDB,31063,360,24093,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31063,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,107)
+	self:addTradeFlags(RecipeDB,31063,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
 	self:addTradeAcquire(RecipeDB,31063,6,1011,3,21655)
 
 	-- Pendant of Withering -- 31064
@@ -538,7 +538,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Pendant of the Null Rune -- 31066
 	self:addTradeSkill(RecipeDB,31066,360,24098,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,105)
+	self:addTradeFlags(RecipeDB,31066,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
 	self:addTradeAcquire(RecipeDB,31066,6,933,3,20242,6,933,3,23007)
 
 	-- Thick Felsteel Necklace -- 31067
@@ -1188,7 +1188,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Falling Star -- 42590
 	self:addTradeSkill(RecipeDB,42590,360,33135,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,42590,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,52,53,54,107)
+	self:addTradeFlags(RecipeDB,42590,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,107)
 	self:addTradeAcquire(RecipeDB,42590,6,1011,3,21655)
 
 	-- Stone of Blades -- 42591

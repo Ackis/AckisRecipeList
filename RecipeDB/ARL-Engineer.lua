@@ -1071,7 +1071,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Elemental Seaforium Charge -- 30547
 	self:addTradeSkill(RecipeDB,30547,350,23819,1,4036,nil)
-	self:addTradeFlags(RecipeDB,30547,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,105)
+	self:addTradeFlags(RecipeDB,30547,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
 	self:addTradeAcquire(RecipeDB,30547,6,933,3,20242,6,933,3,23007)
 
 	-- Zapthrottle Mote Extractor -- 30548

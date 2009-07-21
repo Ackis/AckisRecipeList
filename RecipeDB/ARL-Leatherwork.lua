@@ -1475,17 +1475,17 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Fel Leather Gloves -- 32490
 	self:addTradeSkill(RecipeDB,32490,340,25685,3,2108,nil,1)
-	self:addTradeFlags(RecipeDB,32490,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,105)
+	self:addTradeFlags(RecipeDB,32490,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,105)
 	self:addTradeAcquire(RecipeDB,32490,6,933,1,20242,6,933,1,23007)
 
 	-- Fel Leather Boots -- 32493
 	self:addTradeSkill(RecipeDB,32493,350,25686,3,2108,nil,1)
-	self:addTradeFlags(RecipeDB,32493,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,105)
+	self:addTradeFlags(RecipeDB,32493,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,105)
 	self:addTradeAcquire(RecipeDB,32493,6,933,2,20242,6,933,2,23007)
 
 	-- Fel Leather Leggings -- 32494
 	self:addTradeSkill(RecipeDB,32494,350,25687,3,2108,nil,1)
-	self:addTradeFlags(RecipeDB,32494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,105)
+	self:addTradeFlags(RecipeDB,32494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,105)
 	self:addTradeAcquire(RecipeDB,32494,6,933,3,20242,6,933,3,23007)
 
 	-- Heavy Clefthoof Vest -- 32495
@@ -1955,7 +1955,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Quiver of a Thousand Feathers -- 44359
 	self:addTradeSkill(RecipeDB,44359,350,34105,1,2108,nil,1)
-	self:addTradeFlags(RecipeDB,44359,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,107)
+	self:addTradeFlags(RecipeDB,44359,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,107)
 	self:addTradeAcquire(RecipeDB,44359,6,1011,3,21655)
 
 	-- Netherscale Ammo Pouch -- 44768

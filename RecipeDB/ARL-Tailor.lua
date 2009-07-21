@@ -1508,7 +1508,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Bag of Jewels -- 31459
 	self:addTradeSkill(RecipeDB,31459,340,24270,1,3908,nil)
-	self:addTradeFlags(RecipeDB,31459,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,105)
+	self:addTradeFlags(RecipeDB,31459,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,105)
 	self:addTradeAcquire(RecipeDB,31459,6,933,2,20242,6,933,2,23007)
 
 	-- Netherweave Net -- 31460
@@ -1543,7 +1543,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Cloak of Arcane Evasion -- 37873
 	self:addTradeSkill(RecipeDB,37873,350,30831,1,3908,nil)
-	self:addTradeFlags(RecipeDB,37873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54,60,107)
+	self:addTradeFlags(RecipeDB,37873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,60,107)
 	self:addTradeAcquire(RecipeDB,37873,6,1011,2,21655)
 
 	-- Flameheart Bracers -- 37882
