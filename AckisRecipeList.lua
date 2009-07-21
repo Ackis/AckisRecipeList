@@ -582,7 +582,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	end
 
 	if (not Orange) then
-		self:Print("No skill level information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+		--self:Print("No skill level information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
 	end
 	--@end-alpha@
 

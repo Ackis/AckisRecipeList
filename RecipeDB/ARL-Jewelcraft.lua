@@ -2212,12 +2212,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,56084,2,28721,2,33602)
 
 	-- Smooth Dragon's Eye -- 56085
-	self:addTradeSkill(RecipeDB,56085,370,42149,3,25229,2,370,390,415,440)
+	self:addTradeSkill(RecipeDB,56085,370,42149,3,25229,nil,2,370,390,415,440)
 	self:addTradeFlags(RecipeDB,56085,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,56085,2,28721,2,33602)
 
 	-- Solid Dragon's Eye -- 56086
-	self:addTradeSkill(RecipeDB,56086,370,36767,3,25229,2,370,390,415,440)
+	self:addTradeSkill(RecipeDB,56086,370,36767,3,25229,nil,2,370,390,415,440)
 	self:addTradeFlags(RecipeDB,56086,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 	self:addTradeAcquire(RecipeDB,56086,2,28721,2,33602)
 
