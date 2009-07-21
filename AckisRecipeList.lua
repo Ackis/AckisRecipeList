@@ -515,6 +515,7 @@ end	-- do block
 -- @param Grey Level at which recipe is considered greay.
 -- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
+
 	local spellLink = GetSpellLink(SpellID)	-- Get the recipe link from the spell ID
 	local profession_id = GetSpellInfo(Profession)
 	local recipe_name = GetSpellInfo(SpellID)
@@ -572,6 +573,19 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	elseif (SkillLevel <= 450) then
 		recipeentry["Game"] = 2
 	end
+
+	--@alpha@
+	if (not Game) then
+		self:Print("No expansion information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+	elseif (Game > 2) then
+		self:Print("Expansion information too high: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+	end
+
+	if (not Orange) then
+		self:Print("No skill level information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+	end
+	--@end-alpha@
+
 end
 
 --- Adds filtering flags to a specific tradeskill.
