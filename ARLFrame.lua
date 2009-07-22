@@ -31,7 +31,6 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick		= LibStub("LibQTipClick-1.1")
 
 -------------------------------------------------------------------------------
 -- Upvalued Lua globals
@@ -3278,12 +3277,7 @@ local function SetFramePosition()
 end
 
 -------------------------------------------------------------------------------
--- Alt-Tradeskills tooltip
--------------------------------------------------------------------------------
-local clicktip
-
--------------------------------------------------------------------------------
--- Data used in HandleTTClick() and GenerateClickableTT()
+-- Data used in GenerateClickableTT() and its support functions.
 -------------------------------------------------------------------------------
 local click_info = {
 	anchor = nil,
@@ -3293,21 +3287,75 @@ local click_info = {
 	name = nil,
 	realm = nil,
 }
+local clicktip
+local GenerateClickableTT	-- Upvalued!
 
--- Description: Creates a list of names/alts/etc in a tooltip which you can click on
+-------------------------------------------------------------------------------
+-- Clicktip OnMouseUp scripts.
+-------------------------------------------------------------------------------
+local function ChangeRealm(cell, arg, button)
+	click_info.modified = true
+	click_info.realm = nil
+	click_info.change_realm = true
+	click_info.target_realm = nil
+	GenerateClickableTT()
+end
 
-local function GenerateClickableTT(anchor)
+local function SelectRealm(cell, arg, button)
+	click_info.modified = true
+
+	if click_info.change_realm then
+		click_info.target_realm = arg
+	end
+	click_info.realm = arg
+	GenerateClickableTT()
+end
+
+local function SelectName(cell, arg, button)
+	click_info.modified = true
+	click_info.name = arg
+
+	-- Wipe tradeskill information for the selected toon. -Torhal
+	if IsAltKeyDown() and button == "LeftButton" then
+		local tskl_list = addon.db.global.tradeskill
+		tskl_list[click_info.realm][click_info.name] = nil
+
+		-- See if there are any toons left on the realm. If not, nuke it as well.
+		local found = false
+		for name in pairs(tskl_list[click_info.realm]) do
+			found = true
+		end
+		if not found then 
+			tskl_list[click_info.realm] = nil
+		end
+		local anchor = click_info.anchor
+		twipe(click_info)
+		click_info.anchor = anchor
+		GenerateClickableTT()
+		return
+	end
+	GenerateClickableTT()
+end
+
+local function SelectProfession(cell, arg, button)
+	local tskl_list = addon.db.global.tradeskill
+	click_info.modified = true
+	addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
+end
+
+-------------------------------------------------------------------------------
+-- Creates a list of names/alts/etc in a tooltip which can be clicked.
+-------------------------------------------------------------------------------
+function GenerateClickableTT(anchor)
 	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
 	local y, x
 	local prealm = GetRealmName()
-	local target_realm
+	local target_realm = prealm
 
 	if click_info.change_realm then
 		target_realm = click_info.target_realm
 		click_info.change_realm = nil
-	else
-		target_realm = prealm
 	end
 	tip:Clear()
 
@@ -3321,47 +3369,54 @@ local function GenerateClickableTT(anchor)
 
 			if not target_realm and (realm ~= prealm) then
 				if not header then
-					tip:AddNormalHeader(L["Other Realms"])
+					tip:AddHeader(L["Other Realms"])
 					tip:AddSeparator()
 					header = true
 				end
 				y, x = tip:AddLine()
-				tip:SetCell(y, x, realm, realm)
+				tip:SetCell(y, x, realm)
+				tip:SetCellScript(y, x, "OnMouseUp", SelectRealm, realm)
 			elseif realm == target_realm then
-				tip:AddNormalHeader(realm)
+				tip:AddHeader(realm)
 				tip:AddSeparator()
 
 				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
-					y, x = tip:AddLine()
-					tip:SetCell(y, x, name, name)
+					if name ~= UnitName("player") then
+						y, x = tip:AddLine()
+						tip:SetCell(y, x, name)
+						tip:SetCellScript(y, x, "OnMouseUp", SelectName, name)
+					end
 				end
 			end
 		end
 		if other_realms then
 			tip:AddSeparator()
 			y, x = tip:AddLine()
-			tip:SetCell(y, x, L["Other Realms"], "change realm")
+			tip:SetCell(y, x, L["Other Realms"])
+			tip:SetCellScript(y, x, "OnMouseUp", ChangeRealm)
 		end
 		tip:AddSeparator()
 	elseif not click_info.name then
 		local realm_list = tskl_list[click_info.realm]
 
 		if realm_list then
-			tip:AddNormalLine(click_info.realm)
+			tip:AddLine(click_info.realm)
 			tip:AddSeparator()
 			for name in pairs(realm_list) do
 				y, x = tip:AddLine()
-				tip:SetCell(y, x, name, name)
+				tip:SetCell(y, x, name)
+				tip:SetCellScript(y, x, "OnMouseUp", SelectName, name)
 			end
 			tip:AddSeparator()
 		end
 	else
-		tip:AddNormalHeader(click_info.name)
+		tip:AddHeader(click_info.name)
 		tip:AddSeparator()
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
-			tip:SetCell(y, x, prof, prof)
+			tip:SetCell(y, x, prof)
+			tip:SetCellScript(y, x, "OnMouseUp", SelectProfession, prof)
 		end
 		tip:AddSeparator()
 	end
@@ -3372,54 +3427,6 @@ local function GenerateClickableTT(anchor)
 		tip:SetPoint("TOP", click_info.anchor, "BOTTOM")
 	end
 	tip:Show()
-end
-
--- Description: Function called when tool tip is clicked for alt trade skills
-
-local function HandleTTClick(event, cell, arg, button)
-	click_info.modified = true
-
-	if arg == "change realm" then
-		click_info.realm = nil
-		click_info.change_realm = true
-		click_info.target_realm = nil
-		GenerateClickableTT()
-		return
-	end
-	local tskl_list = addon.db.global.tradeskill
-
-	if not click_info.realm then
-		if click_info.change_realm then
-			click_info.target_realm = arg
-		end
-		click_info.realm = arg
-		GenerateClickableTT()
-	elseif not click_info.name then
-		click_info.name = arg
-
-		-- Wipe tradeskill information for the selected toon. -Torhal
-		if IsAltKeyDown() and button == "LeftButton" then
-			tskl_list[click_info.realm][click_info.name] = nil
-
-			-- See if there are any toons left on the realm. If not, nuke it as well.
-			local found = false
-			for name in pairs(tskl_list[click_info.realm]) do
-				found = true
-			end
-			if not found then 
-				tskl_list[click_info.realm] = nil
-			end
-			local anchor = click_info.anchor
-			twipe(click_info)
-			click_info.anchor = anchor
-			GenerateClickableTT()
-			return
-		end
-		GenerateClickableTT()
-	else
-		-- Print link to chat frame, then reset tip data
-		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
-	end
 end
 
 -------------------------------------------------------------------------------
@@ -4682,15 +4689,14 @@ function InitializeFrame()
 				 function(this, button)
 					 if clicktip then
 						 if not click_info.modified then
-							 clicktip = QTipClick:Release(clicktip)
+							 clicktip = QTip:Release(clicktip)
 							 twipe(click_info)
 						 else
 							 twipe(click_info)
 							 GenerateClickableTT(this)
 						 end
 					 else
-						 clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
-						 clicktip:SetCallback("OnMouseDown", HandleTTClick)
+						 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
 						 twipe(click_info)
 						 if TipTac and TipTac.AddModifiedTip then
 							 TipTac:AddModifiedTip(clicktip, true)
@@ -4700,7 +4706,7 @@ function InitializeFrame()
 				 end)
 	ARL_MiscAltBtn:SetScript("OnHide",
 				 function(this, button)
-					 clicktip = QTipClick:Release(clicktip)
+					 clicktip = QTip:Release(clicktip)
 					 twipe(click_info)
 				 end)
 
