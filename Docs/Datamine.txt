@@ -4,7 +4,7 @@
 There are over 100 different flags on which recipes may be filtered, and there are over 1000 different recipes in World of Warcraft right now.  Updating all of these by hand is extremely difficult and takes a long time to complete.  As a result, there are certain datamining functions in-game which will assist with ensuring that ARL has the most complete information possible.
 
 ====History====
-The ARL database has been rewritten approximentally 5 times.  The first four times were pre-WotLK and involved me doing the entire database by hand.  The fifth time I wrote a dataminer script in Ruby, however due to database issues, the data was not 100%.  As a result, I decided the best method of obtaining information is to datamine it from in-game itself.
+The ARL database has been rewritten approximately 5 times.  The first four times were pre-WotLK and involved me doing the entire database by hand.  The fifth time I wrote a dataminer script in Ruby, however due to database issues, the data was not 100%.  As a result, I decided the best method of obtaining information is to datamine it from in-game itself.
 
 ===Commands===
 You may run the command with the <code>/script</code> command or use the built in interface options.

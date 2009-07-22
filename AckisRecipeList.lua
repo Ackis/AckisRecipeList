@@ -332,7 +332,7 @@ function addon:OnEnable()
 		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
 	end
 ]]--
-	-- Populate the repuatation level
+	-- Populate the reputation level
 	self:GetFactionLevels()
 
 	--Create the button now for later use
@@ -472,7 +472,7 @@ do
 
 			-- If the rep is greater than neutral
 			if (replevel > 4) then
-				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
+				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
 				RepTable[name] = replevel - 4
 			end
 		end
@@ -512,7 +512,7 @@ end	-- do block
 -- @param Orange Level at which recipe is considered orange.
 -- @param Yellow Level at which recipe is considered yellow.
 -- @param Green Level at which recipe is considered green.
--- @param Grey Level at which recipe is considered greay.
+-- @param Grey Level at which recipe is considered grey.
 -- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
 
@@ -894,7 +894,7 @@ do
 
 	end
 
-	---Scans a specific recpie to determine if it is to be displayed or not.
+	---Scans a specific recipe to determine if it is to be displayed or not.
 	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
 
 		-- For flag info see comments at start of file in comments
@@ -905,7 +905,7 @@ do
 		-- Stage 1
 		-- Loop through exclusive flags (hard filters)
 		-- If one of these does not pass we do not display the recipe
-		-- So to be more effecient we'll just leave this function if there's a false
+		-- So to be more efficient we'll just leave this function if there's a false
 
 		local generaldb = filterdb.general
 		local obtaindb = filterdb.obtain
@@ -1771,7 +1771,7 @@ do
 		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
 	end
 
-	---Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
+	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
 	function addon:SetRepDB()
 
 		if (playerData and playerData["Reputation"]) then
@@ -1780,7 +1780,7 @@ do
 
 	end
 
-	---Initalizes all the recipe databases to their initial
+	---Initializes all the recipe databases to their initial
 	local function InitDatabases()
 
 		-- Initializes the custom list
@@ -1851,7 +1851,7 @@ do
 			return
 		-- Trade type skills
 		else
-			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
+			-- First time a scan has been run, we need to get the player specific data, specifically faction information, profession information and other pertinent data.
 			if not playerData.playerClass then
 				InitPlayerData()
 			end
@@ -2048,7 +2048,7 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 		-- Allow us to search by spell ID
 		if sfind(strlower(SpellID),searchstring) or
 
-			-- Allow us to search byitem ID
+			-- Allow us to search by item ID
 			(recipe["ItemID"] and sfind(strlower(recipe["ItemID"]),searchstring)) or
 
 			-- Allow us to search by name
@@ -2084,14 +2084,14 @@ end
 -- Text dumping functions
 -------------------------------------------------------------------------------
 
----Scans through the recipe database providing a string of comma seperated values for all recipe information
+---Scans through the recipe database providing a string of comma separated values for all recipe information
 function addon:GetTextDump(RecipeDB, profession)
 
 	local texttable = {}
 
 	-- Add a header to the text table
 	tinsert(texttable,format("Ackis Recipe List Text Dump for %s",profession))
-	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
+	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
 	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(RecipeDB) do
@@ -2481,10 +2481,10 @@ do
 			flagstr = flagstr .. "Wyrm,"
 		end
 		if (flags[123] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (The Silver Convenant/The Sunreavers),"
+			flagstr = flagstr .. "Wrath Common Factions (The Silver Covenant/The Sunreavers),"
 		end
 		if (flags[124] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (Explorer's League/Hand of Vengance),"
+			flagstr = flagstr .. "Wrath Common Factions (Explorers' League/The Hand of Vengeance),"
 		end
 		if (flags[125] == true) then
 			flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition),"
