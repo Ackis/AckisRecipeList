@@ -1504,7 +1504,7 @@ do
 			elseif (strmatch(text,"cloak")) then
 				scan_data.Cloak = true
 			elseif ((strmatch(text,"ring") or strmatch("finger", text))	and (strmatch(text,"ring:") == nil)
-				and (strmatch(text,"requires") == nil) and (strmatch(text,"engineering") == nil)) then
+				and (strmatch(text,"requires") == nil) and (strmatch(text,"engineering") == nil) and (strmatch(text,"herring") == nil)) then
 				scan_data.Ring = true
 			elseif (strmatch(text,"necklace")) then
 				scan_data.Necklace = true
