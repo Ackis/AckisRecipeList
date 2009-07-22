@@ -1192,7 +1192,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,60350,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 	-- Elixir of Accuracy -- 60354
-	self:addTradeSkill(RecipeDB,60354,400,44325,1, 51304,2,400,415,422,430)
+	self:addTradeSkill(RecipeDB,60354,400,44325,1,51304,nil,2,400,415,422,430)
 	self:addTradeFlags(RecipeDB,60354,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,60354,8,18)
 
