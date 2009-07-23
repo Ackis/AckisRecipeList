@@ -263,651 +263,651 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3857,2,2670)
 
 	-- Shadow Hood -- 3858
-	self:addTradeSkill(RecipeDB,3858,170,4323,2,3908,nil)
+	self:addTradeSkill(RecipeDB,3858,170,4323,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3858,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3858,7,2)
 
 	-- Azure Silk Vest -- 3859
-	self:addTradeSkill(RecipeDB,3859,150,4324,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3859,150,4324,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3859,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,3859,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,
 	1,17487,1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Boots of the Enchanter -- 3860
-	self:addTradeSkill(RecipeDB,3860,175,4325,2,3908,nil)
+	self:addTradeSkill(RecipeDB,3860,175,4325,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3860,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3860,7,2)
 
 	-- Long Silken Cloak -- 3861
-	self:addTradeSkill(RecipeDB,3861,185,4326,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3861,185,4326,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3861,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,3861,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Icy Cloak -- 3862
-	self:addTradeSkill(RecipeDB,3862,200,4327,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3862,200,4327,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3862,1,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,60)
 	self:addTradeAcquire(RecipeDB,3862,2,2381)
 
 	-- Spider Belt -- 3863
-	self:addTradeSkill(RecipeDB,3863,180,4328,2,3908,nil)
+	self:addTradeSkill(RecipeDB,3863,180,4328,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3863,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,3863,7,2)
 
 	-- Star Belt -- 3864
-	self:addTradeSkill(RecipeDB,3864,200,4329,2,3908,nil)
+	self:addTradeSkill(RecipeDB,3864,200,4329,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3864,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3864,7,2)
 
 	-- Bolt of Mageweave -- 3865
-	self:addTradeSkill(RecipeDB,3865,175,4339,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3865,175,4339,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3865,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3865,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Stylish Red Shirt -- 3866
-	self:addTradeSkill(RecipeDB,3866,110,4330,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3866,110,4330,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3866,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3866,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,1,18749,
 	1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Phoenix Gloves -- 3868
-	self:addTradeSkill(RecipeDB,3868,125,4331,2,3908,nil)
+	self:addTradeSkill(RecipeDB,3868,125,4331,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3868,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3868,7,2)
 
 	-- Bright Yellow Shirt -- 3869
-	self:addTradeSkill(RecipeDB,3869,135,4332,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3869,135,4332,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3869,1,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3869,2,2668)
 
 	-- Dark Silk Shirt -- 3870
-	self:addTradeSkill(RecipeDB,3870,155,4333,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3870,155,4333,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3870,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3870,2,2394,2,2669)
 
 	-- Formal White Shirt -- 3871
-	self:addTradeSkill(RecipeDB,3871,170,4334,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3871,170,4334,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3871,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3871,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
     -- Rich Purple Silk Shirt -- 3872
-	self:addTradeSkill(RecipeDB,3872,185,4335,3,3908,nil)
+	self:addTradeSkill(RecipeDB,3872,185,4335,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3872,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,3872,7,2) 
 
 	-- Black Swashbuckler's Shirt -- 3873
-	self:addTradeSkill(RecipeDB,3873,200,4336,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3873,200,4336,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3873,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3873,2,2663)
 
 	-- Brown Linen Pants -- 3914
-	self:addTradeSkill(RecipeDB,3914,30,4343,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3914,30,4343,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3914,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,3914,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- Brown Linen Shirt -- 3915
-	self:addTradeSkill(RecipeDB,3915,1,4344,1,3908,nil)
+	self:addTradeSkill(RecipeDB,3915,1,4344,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,3915,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,3915,8,8)
 
 	-- Pearl-clasped Cloak -- 6521
-	self:addTradeSkill(RecipeDB,6521,90,5542,1,3908,nil)
+	self:addTradeSkill(RecipeDB,6521,90,5542,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6521,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,6521,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,
 	1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Red Linen Bag -- 6686
-	self:addTradeSkill(RecipeDB,6686,70,5762,1,3908,nil)
+	self:addTradeSkill(RecipeDB,6686,70,5762,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6686,1,2,4,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6686,3,157,3,547,3,590,3,3530,3,3531,2,843,2,3005,2,4189,2,16224)
 
 	-- Red Woolen Bag -- 6688
-	self:addTradeSkill(RecipeDB,6688,115,5763,1,3908,nil)
+	self:addTradeSkill(RecipeDB,6688,115,5763,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6688,1,2,4,5,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6688,3,450,3,2264,2,777,2,1454,2,1474,2,3005,2,3364,2,3485,2,3537,2,3683,2,4189,2,4577,2,5944)
 
 	-- Lesser Wizard's Robe -- 6690
-	self:addTradeSkill(RecipeDB,6690,135,5766,1,3908,nil)
+	self:addTradeSkill(RecipeDB,6690,135,5766,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6690,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,6690,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,
 	1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Robes of Arcana -- 6692
-	self:addTradeSkill(RecipeDB,6692,150,5770,2,3908,nil)
+	self:addTradeSkill(RecipeDB,6692,150,5770,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6692,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,6692,3,910,3,923,3,2337,3,4117,3,10760,3,10882)
 
 	-- Green Silk Pack -- 6693
-	self:addTradeSkill(RecipeDB,6693,175,5764,2,3908,nil)
+	self:addTradeSkill(RecipeDB,6693,175,5764,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6693,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6693,7,2)
 
 	-- Black Silk Pack -- 6695
-	self:addTradeSkill(RecipeDB,6695,185,5765,2,3908,nil)
+	self:addTradeSkill(RecipeDB,6695,185,5765,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6695,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6695,3,2242,3,4341,3,4343,3,4834)
 
 	-- Brown Linen Robe -- 7623
-	self:addTradeSkill(RecipeDB,7623,30,6238,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7623,30,6238,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7623,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7623,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- White Linen Robe -- 7624
-	self:addTradeSkill(RecipeDB,7624,30,6241,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7624,30,6241,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7624,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,7624,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- Red Linen Vest -- 7629
-	self:addTradeSkill(RecipeDB,7629,55,6239,2,3908,nil)
+	self:addTradeSkill(RecipeDB,7629,55,6239,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7629,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7629,7,2)
 
 	-- Blue Linen Vest -- 7630
-	self:addTradeSkill(RecipeDB,7630,55,6240,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7630,55,6240,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7630,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7630,2,66,2,3364,2,3485,2,3522,2,4189)
 
 	-- Blue Linen Robe -- 7633
-	self:addTradeSkill(RecipeDB,7633,70,6242,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7633,70,6242,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7633,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7633,2,1250,2,3485,2,4168)
 
 	-- Blue Overalls -- 7639
-	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394)
 
 	-- Greater Adept's Robe -- 7643
-	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908,nil)
+	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7643,1,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168)
 
 	-- Stylish Blue Shirt -- 7892
-	self:addTradeSkill(RecipeDB,7892,120,6384,2,3908,nil)
+	self:addTradeSkill(RecipeDB,7892,120,6384,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7892,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,7892,7,2)
 
 	-- Stylish Green Shirt -- 7893
-	self:addTradeSkill(RecipeDB,7893,120,6385,2,3908,nil)
+	self:addTradeSkill(RecipeDB,7893,120,6385,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,7893,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,7893,7,2)
 
 	-- Simple Dress -- 8465
-	self:addTradeSkill(RecipeDB,8465,40,6786,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8465,40,6786,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8465,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,8465,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- White Woolen Dress -- 8467
-	self:addTradeSkill(RecipeDB,8467,110,6787,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8467,110,6787,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8467,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8467,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,
 	1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- White Swashbuckler's Shirt -- 8483
-	self:addTradeSkill(RecipeDB,8483,160,6795,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8483,160,6795,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8483,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,8483,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Red Swashbuckler's Shirt -- 8489
-	self:addTradeSkill(RecipeDB,8489,175,6796,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8489,175,6796,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8489,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,8489,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Azure Silk Pants -- 8758
-	self:addTradeSkill(RecipeDB,8758,140,7046,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8758,140,7046,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8758,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8758,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,
 	1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Azure Silk Hood -- 8760
-	self:addTradeSkill(RecipeDB,8760,145,7048,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8760,145,7048,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8760,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8760,1,1346,1,2399,1,2627,1,3004,1,3363,1,3704,1,4159,1,4576,1,5153,1,5567,1,11049,1,11052,1,11557,1,16640,1,16729,1,17487,
 	1,18749,1,18772,1,28699,1,3484,1,33580,1,1103,1,27001,1,33613,1,33636)
 
 	-- Silk Headband -- 8762
-	self:addTradeSkill(RecipeDB,8762,160,7050,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8762,160,7050,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8762,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8762,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Earthen Vest -- 8764
-	self:addTradeSkill(RecipeDB,8764,170,7051,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8764,170,7051,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8764,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8764,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Azure Silk Belt -- 8766
-	self:addTradeSkill(RecipeDB,8766,175,7052,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8766,175,7052,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8766,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8766,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636,1,4159)
 
 	-- Robe of Power -- 8770
-	self:addTradeSkill(RecipeDB,8770,190,7054,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8770,190,7054,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8770,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8770,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636,1,4159)
 
 	-- Crimson Silk Belt -- 8772
-	self:addTradeSkill(RecipeDB,8772,175,7055,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8772,175,7055,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8772,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8772,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Green Silken Shoulders -- 8774
-	self:addTradeSkill(RecipeDB,8774,180,7057,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8774,180,7057,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8774,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8774,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636,1,4159)
 
 	-- Linen Belt -- 8776
-	self:addTradeSkill(RecipeDB,8776,15,7026,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8776,15,7026,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8776,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,8776,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- Hands of Darkness -- 8780
-	self:addTradeSkill(RecipeDB,8780,145,7047,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8780,145,7047,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8780,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8780,7,2)
 
 	-- Truefaith Gloves -- 8782
-	self:addTradeSkill(RecipeDB,8782,150,7049,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8782,150,7049,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8782,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8782,7,2)
 
 	-- Green Silk Armor -- 8784
-	self:addTradeSkill(RecipeDB,8784,165,7065,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8784,165,7065,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8784,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,8784,7,2)
 
 	-- Azure Silk Cloak -- 8786
-	self:addTradeSkill(RecipeDB,8786,175,7053,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8786,175,7053,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8786,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,8786,2,6574,2,6576)
 
 	-- Crimson Silk Cloak -- 8789
-	self:addTradeSkill(RecipeDB,8789,180,7056,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8789,180,7056,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8789,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,8789,2,2670)
 
 	-- Crimson Silk Vest -- 8791
-	self:addTradeSkill(RecipeDB,8791,185,7058,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8791,185,7058,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8791,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8791,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636,1,4159)
 
 	-- Crimson Silk Shoulders -- 8793
-	self:addTradeSkill(RecipeDB,8793,190,7059,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8793,190,7059,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8793,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8793,7,2)
 
 	-- Azure Shoulders -- 8795
-	self:addTradeSkill(RecipeDB,8795,190,7060,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8795,190,7060,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8795,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8795,7,2)
 
 	-- Earthen Silk Belt -- 8797
-	self:addTradeSkill(RecipeDB,8797,195,7061,2,3908,nil)
+	self:addTradeSkill(RecipeDB,8797,195,7061,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8797,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8797,7,2)
 
 	-- Crimson Silk Pantaloons -- 8799
-	self:addTradeSkill(RecipeDB,8799,195,7062,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8799,195,7062,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8799,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,8799,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Crimson Silk Robe -- 8802
-	self:addTradeSkill(RecipeDB,8802,205,7063,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8802,205,7063,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8802,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,8802,2,6568)
 
 	-- Crimson Silk Gloves -- 8804
-	self:addTradeSkill(RecipeDB,8804,210,7064,1,3908,nil)
+	self:addTradeSkill(RecipeDB,8804,210,7064,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8804,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,8804,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636)
 
 	-- Simple Linen Pants -- 12044
-	self:addTradeSkill(RecipeDB,12044,1,10045,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12044,1,10045,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12044,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,12044,8,8)
 
 	-- Simple Linen Boots -- 12045
-	self:addTradeSkill(RecipeDB,12045,20,10046,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12045,20,10046,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12045,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,12045,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- Simple Kilt -- 12046
-	self:addTradeSkill(RecipeDB,12046,75,10047,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12046,75,10047,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12046,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12046,1,1103,1,1300,1,1346,1,1703,1,2399,1,2627,1,2855,1,3004,1,3363,1,3484,1,3523,1,3704,1,4159,1,4193,1,4576,1,5153,1,5567,
 	1,11048,1,11049,1,11050,1,11051,1,11052,1,11557,1,16366,1,16639,1,16640,1,16729,1,16746,1,17487,1,18749,1,18772,1,28699,1,33580,1,27001,1,33613,1,33636)
 
 	-- Colorful Kilt -- 12047
-	self:addTradeSkill(RecipeDB,12047,120,10048,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12047,120,10048,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12047,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12047,7,2)
 
 	-- Black Mageweave Vest -- 12048
-	self:addTradeSkill(RecipeDB,12048,205,9998,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12048,205,9998,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12048,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12048,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Black Mageweave Leggings -- 12049
-	self:addTradeSkill(RecipeDB,12049,205,9999,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12049,205,9999,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12049,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12049,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Black Mageweave Robe -- 12050
-	self:addTradeSkill(RecipeDB,12050,210,10001,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12050,210,10001,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12050,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12050,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Shadoweave Pants -- 12052
-	self:addTradeSkill(RecipeDB,12052,210,10002,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12052,210,10002,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12052,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12052,1,4578,1,9584)
 
 	-- Black Mageweave Gloves -- 12053
-	self:addTradeSkill(RecipeDB,12053,215,10003,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12053,215,10003,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12053,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Shadoweave Robe -- 12055
-	self:addTradeSkill(RecipeDB,12055,215,10004,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12055,215,10004,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12055,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12055,1,4578,1,9584)
 
 	-- Red Mageweave Vest -- 12056
-	self:addTradeSkill(RecipeDB,12056,215,10007,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12056,215,10007,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12056,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12056,7,2)
 
 	-- White Bandit Mask -- 12059
-	self:addTradeSkill(RecipeDB,12059,215,10008,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12059,215,10008,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12059,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12059,7,2)
 
 	-- Red Mageweave Pants -- 12060
-	self:addTradeSkill(RecipeDB,12060,215,10009,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12060,215,10009,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12060,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12060,7,2)
 
 	-- Orange Mageweave Shirt -- 12061
-	self:addTradeSkill(RecipeDB,12061,215,10056,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12061,215,10056,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12061,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,12061,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Orange Martial Shirt -- 12064
-	self:addTradeSkill(RecipeDB,12064,220,10052,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12064,220,10052,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12064,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,12064,2,3005,2,4168)
 
 	-- Mageweave Bag -- 12065
-	self:addTradeSkill(RecipeDB,12065,225,10050,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12065,225,10050,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12065,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,12065,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Red Mageweave Gloves -- 12066
-	self:addTradeSkill(RecipeDB,12066,225,10018,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12066,225,10018,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12066,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12066,7,2)
 
 	-- Dreamweave Gloves -- 12067
-	self:addTradeSkill(RecipeDB,12067,225,10019,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12067,225,10019,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12067,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12067,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cindercloth Robe -- 12069
-	self:addTradeSkill(RecipeDB,12069,225,10042,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12069,225,10042,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12069,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12069,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Dreamweave Vest -- 12070
-	self:addTradeSkill(RecipeDB,12070,225,10021,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12070,225,10021,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12070,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12070,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Shadoweave Gloves -- 12071
-	self:addTradeSkill(RecipeDB,12071,225,10023,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12071,225,10023,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12071,1,4578,1,9584)
 
 	-- Black Mageweave Headband -- 12072
-	self:addTradeSkill(RecipeDB,12072,230,10024,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12072,230,10024,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12072,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12072,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Black Mageweave Boots -- 12073
-	self:addTradeSkill(RecipeDB,12073,230,10026,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12073,230,10026,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12073,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12073,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Black Mageweave Shoulders -- 12074
-	self:addTradeSkill(RecipeDB,12074,230,10027,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12074,230,10027,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12074,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12074,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Lavender Mageweave Shirt -- 12075
-	self:addTradeSkill(RecipeDB,12075,230,10054,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12075,230,10054,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12075,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,12075,2,3364,2,8681)
 
 	-- Shadoweave Shoulders -- 12076
-	self:addTradeSkill(RecipeDB,12076,235,10028,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12076,235,10028,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12076,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12076,1,4578,1,9584)
 
 	-- Simple Black Dress -- 12077
-	self:addTradeSkill(RecipeDB,12077,235,10053,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12077,235,10053,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12077,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,12077,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Red Mageweave Shoulders -- 12078
-	self:addTradeSkill(RecipeDB,12078,235,10029,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12078,235,10029,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12078,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12078,7,2)
 
 	-- Red Mageweave Bag -- 12079
-	self:addTradeSkill(RecipeDB,12079,235,10051,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12079,235,10051,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12079,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,12079,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Pink Mageweave Shirt -- 12080
-	self:addTradeSkill(RecipeDB,12080,235,10055,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12080,235,10055,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12080,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,12080,2,3364,2,8681)
 
 	-- Admiral's Hat -- 12081
-	self:addTradeSkill(RecipeDB,12081,240,10030,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12081,240,10030,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12081,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,12081,2,2672)
 
 	-- Shadoweave Boots -- 12082
-	self:addTradeSkill(RecipeDB,12082,240,10031,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12082,240,10031,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12082,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12082,1,4578,1,9584)
 
 	-- Red Mageweave Headband -- 12084
-	self:addTradeSkill(RecipeDB,12084,240,10033,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12084,240,10033,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12084,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12084,7,2)
 
 	-- Tuxedo Shirt -- 12085
-	self:addTradeSkill(RecipeDB,12085,240,10034,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12085,240,10034,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12085,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,12085,2,4577,2,8681)
 
 	-- Shadoweave Mask -- 12086
-	self:addTradeSkill(RecipeDB,12086,245,10025,2,3908,nil)
+	self:addTradeSkill(RecipeDB,12086,245,10025,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12086,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12086,4,3402)
 
 	-- Cindercloth Boots -- 12088
-	self:addTradeSkill(RecipeDB,12088,245,10044,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12088,245,10044,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12088,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12088,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Tuxedo Pants -- 12089
-	self:addTradeSkill(RecipeDB,12089,245,10035,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12089,245,10035,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12089,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12089,2,4577,2,8681)
 
 	-- White Wedding Dress -- 12091
-	self:addTradeSkill(RecipeDB,12091,250,10040,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12091,250,10040,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12091,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12091,2,1347,2,3005)
 
 	-- Dreamweave Circlet -- 12092
-	self:addTradeSkill(RecipeDB,12092,250,10041,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12092,250,10041,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12092,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12092,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Tuxedo Jacket -- 12093
-	self:addTradeSkill(RecipeDB,12093,250,10036,1,3908,nil)
+	self:addTradeSkill(RecipeDB,12093,250,10036,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,12093,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,12093,2,4577,2,8681)
 
 	-- Bolt of Runecloth -- 18401
-	self:addTradeSkill(RecipeDB,18401,250,14048,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18401,250,14048,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18401,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,18401,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Runecloth Belt -- 18402
-	self:addTradeSkill(RecipeDB,18402,255,13856,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18402,255,13856,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18402,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18402,1,2399,1,11052,1,11557,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Frostweave Tunic -- 18403
-	self:addTradeSkill(RecipeDB,18403,255,13869,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18403,255,13869,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18403,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18403,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Frostweave Robe -- 18404
-	self:addTradeSkill(RecipeDB,18404,255,13868,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18404,255,13868,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18404,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18404,7,2)
 
 	-- Runecloth Bag -- 18405
-	self:addTradeSkill(RecipeDB,18405,260,14046,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18405,260,14046,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18405,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,18405,2,11189)
 
 	-- Runecloth Robe -- 18406
-	self:addTradeSkill(RecipeDB,18406,260,13858,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18406,260,13858,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18406,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18406,1,2399,1,11052,1,18749,1,18772,2,7940,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Runecloth Tunic -- 18407
-	self:addTradeSkill(RecipeDB,18407,260,13857,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18407,260,13857,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18407,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18407,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cindercloth Vest -- 18408
-	self:addTradeSkill(RecipeDB,18408,260,14042,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18408,260,14042,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18408,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18408,3,5860,3,5861,3,5862)
 
 	-- Runecloth Cloak -- 18409
-	self:addTradeSkill(RecipeDB,18409,265,13860,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18409,265,13860,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18409,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,18409,1,2399,1,11052,1,18749,1,18772,2,7940,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Ghostweave Belt -- 18410
-	self:addTradeSkill(RecipeDB,18410,265,14143,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18410,265,14143,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18410,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18410,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Frostweave Gloves -- 18411
-	self:addTradeSkill(RecipeDB,18411,265,13870,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18411,265,13870,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18411,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18411,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cindercloth Gloves -- 18412
-	self:addTradeSkill(RecipeDB,18412,270,14043,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18412,270,14043,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18412,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18412,3,5861)
 
 	-- Ghostweave Gloves -- 18413
-	self:addTradeSkill(RecipeDB,18413,270,14142,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18413,270,14142,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18413,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18413,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Brightcloth Robe -- 18414
-	self:addTradeSkill(RecipeDB,18414,270,14100,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18414,270,14100,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18414,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18414,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Brightcloth Gloves -- 18415
-	self:addTradeSkill(RecipeDB,18415,270,14101,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18415,270,14101,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18415,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18415,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Ghostweave Vest -- 18416
-	self:addTradeSkill(RecipeDB,18416,275,14141,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18416,275,14141,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18416,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18416,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Runecloth Gloves -- 18417
-	self:addTradeSkill(RecipeDB,18417,275,13863,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18417,275,13863,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18417,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18417,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cindercloth Cloak -- 18418
-	self:addTradeSkill(RecipeDB,18418,275,14044,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18418,275,14044,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18418,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,60)
 	self:addTradeAcquire(RecipeDB,18418,3,7037,3,9695)
 
 	-- Felcloth Pants -- 18419
-	self:addTradeSkill(RecipeDB,18419,275,14107,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18419,275,14107,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18419,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18419,2,12022)
 
 	-- Brightcloth Cloak -- 18420
-	self:addTradeSkill(RecipeDB,18420,275,14103,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18420,275,14103,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18420,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,60)
 	self:addTradeAcquire(RecipeDB,18420,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Wizardweave Leggings -- 18421
-	self:addTradeSkill(RecipeDB,18421,275,14132,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18421,275,14132,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18421,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18421,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cloak of Fire -- 18422
-	self:addTradeSkill(RecipeDB,18422,275,14134,3,3908,nil)
+	self:addTradeSkill(RecipeDB,18422,275,14134,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18422,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,18422,3,8921,3,9026,3,24819)
 
 	-- Runecloth Boots -- 18423
-	self:addTradeSkill(RecipeDB,18423,280,13864,1,3908,nil)
+	self:addTradeSkill(RecipeDB,18423,280,13864,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18423,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18423,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Frostweave Pants -- 18424
-	self:addTradeSkill(RecipeDB,18424,280,13871,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18424,280,13871,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18424,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18424,3,13300,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Cindercloth Pants -- 18434
-	self:addTradeSkill(RecipeDB,18434,280,14045,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18434,280,14045,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18434,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18434,3,7037)
 
 	-- Robe of Winter Night -- 18436
-	self:addTradeSkill(RecipeDB,18436,285,14136,3,3908,nil)
+	self:addTradeSkill(RecipeDB,18436,285,14136,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18436,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18436,3,7435,3,7436,3,7437,3,7449,3,7458,3,10659,3,10660,3,10661,3,10663,3,10807)
 
 	-- Felcloth Boots -- 18437
-	self:addTradeSkill(RecipeDB,18437,285,14108,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18437,285,14108,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18437,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18437,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Runecloth Pants -- 18438
-	self:addTradeSkill(RecipeDB,18438,285,13865,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18438,285,13865,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18438,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18438,3,12397,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Brightcloth Pants -- 18439
-	self:addTradeSkill(RecipeDB,18439,290,14104,2,3908,nil)
+	self:addTradeSkill(RecipeDB,18439,290,14104,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18439,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,18439,7,2)
 
