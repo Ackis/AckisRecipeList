@@ -441,10 +441,7 @@ function addon:InitMob(MobDB)
 	-- Halls of Lightning
 	self:addLookupList(MobDB,28923,BBOSS["Loken"],BZONE["Halls of Lightning"],0,0)
 	-- Halls of Stone
-	self:addLookupList(MobDB,27977,BBOSS["Krystallus"],BZONE["Halls of Stone"],0,0)
 	self:addLookupList(MobDB,27978,BBOSS["Sjonnir The Ironshaper"],BZONE["Halls of Stone"],0,0)
-	-- Hellfire Ramparts
-	self:addLookupList(MobDB,17269,L["Bleeding Hollow Darkcaster"],BZONE["Hellfire Ramparts"],0,0)
 	-- Hyjal Summit
 	self:addLookupList(MobDB,17767,BBOSS["Rage Winterchill"],BZONE["Hyjal Summit"],0,0)
 	self:addLookupList(MobDB,17808,BBOSS["Anetheron"],BZONE["Hyjal Summit"],0,0)
@@ -495,7 +492,6 @@ function addon:InitMob(MobDB)
 	-- Magister's Terrace
 	self:addLookupList(MobDB,24560,BBOSS["Priestess Delrissa"],BZONE["Magisters' Terrace"],0,0)
 	self:addLookupList(MobDB,24664,BBOSS["Kael'thas Sunstrider"],BZONE["Magisters' Terrace"],0,0)
-	self:addLookupList(MobDB,24697,L["Sister of Torment"],BZONE["Magisters' Terrace"],0,0)
 	-- Mana-Tombs
 	self:addLookupList(MobDB,18317,L["Ethereal Priest"],BZONE["Mana-Tombs"],0,0)
 	self:addLookupList(MobDB,24698,L["Ethereum Smuggler"],BZONE["Mana-Tombs"],0,0)
@@ -516,7 +512,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,18096,BBOSS["Epoch Hunter"],BZONE["Old Hillsbrad Foothills"],0,0)
 	-- Onyxia's Lair
 	self:addLookupList(MobDB,10184,BBOSS["Onyxia"],BZONE["Onyxia's Lair"],0,0)
-	self:addLookupList(MobDB,12129,L["Onyxian Warder"],BZONE["Onyxia's Lair"],0,0)
 	-- Razorfen Downs
 	self:addLookupList(MobDB,7346,L["Splinterbone Centurion"],BZONE["Razorfen Downs"],0,0)
 	-- Ruins of Ahn'Qiraj
@@ -637,7 +632,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,5271,L["Atal'ai Deathwalker"],BZONE["The Temple of Atal'Hakkar"],0,0)
 	self:addLookupList(MobDB,5277,L["Nightmare Scalebane"],BZONE["The Temple of Atal'Hakkar"],0,0)
 	-- The Underbog
-	self:addLookupList(MobDB,17723,L["Bog Giant"],BZONE["The Underbog"],0,0)
 	self:addLookupList(MobDB,17724,L["Underbat"],BZONE["The Underbog"],0,0)
 	-- The Violet Hold
 	self:addLookupList(MobDB,31134,BBOSS["Cyanigosa"],BZONE["The Violet Hold"],0,0)
@@ -647,8 +641,6 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,24830,L["Stonevault Pillager"],BZONE["Uldaman"],0,0)
 	-- Utgarde Keep
 	self:addLookupList(MobDB,23954,BBOSS["Ingvar the Plunderer"],BZONE["Utgarde Keep"],0,0)
-	self:addLookupList(MobDB,24083,L["Enslaved Proto-Drake"],BZONE["Utgarde Keep"],0,0)
-	self:addLookupList(MobDB,29735,L["Savage Worg"],BZONE["Utgarde Keep"],0,0)
 	-- Utgarde Pinnacle
 	self:addLookupList(MobDB,26861,BBOSS["King Ymiron"],BZONE["Utgarde Pinnacle"],0,0)
 	-- Zul'Aman
