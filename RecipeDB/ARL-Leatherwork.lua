@@ -565,7 +565,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Dusky Boots -- 9207
 	self:addTradeSkill(RecipeDB,9207,200,7390,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,9207,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,9207,3,4676,3,5649,3,24830)
+	self:addTradeAcquire(RecipeDB,9207,3,5649,3,24830)
 
 	-- Swift Boots -- 9208
 	self:addTradeSkill(RecipeDB,9208,200,7391,2,2108,nil,0)

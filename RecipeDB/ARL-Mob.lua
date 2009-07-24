@@ -78,41 +78,35 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,7037,L["Thaurissan Firewalker"],BZONE["Burning Steppes"],61.1,42.0)
 	self:addLookupList(MobDB,10119,L["Volchan"],BZONE["Burning Steppes"],73.0,49.3)
 	-- Darkshore
-	self:addLookupList(MobDB,2337,L["Dark Strand Voidcaller"],BZONE["Darkshore"],56.31,25.10)  -- START NEXT TIME FROM HERE
-	self:addLookupList(MobDB,7106,L["Jadefire Rogue"],BZONE["Darkshore"],46.40,85.27)
-	self:addLookupList(MobDB,7109,L["Jadefire Felsworn"],BZONE["Darkshore"],46.44,84.67)
+	self:addLookupList(MobDB,2337,L["Dark Strand Voidcaller"],BZONE["Darkshore"],56.2,26.0)
 	-- Deadwind Pass
-	self:addLookupList(MobDB,7372,L["Deadwind Warlock"],BZONE["Deadwind Pass"],61.16,72.67)
-	-- Desolace
-	self:addLookupList(MobDB,4674,L["Hatefury Shadowstalker"],BZONE["Desolace"],75.37,20.74)
-	self:addLookupList(MobDB,4676,L["Lesser Infernal"],BZONE["Desolace"],52.49,74.71)
+	self:addLookupList(MobDB,7372,L["Deadwind Warlock"],BZONE["Deadwind Pass"],59.8,74.4)
 	-- Dragonblight
-	self:addLookupList(MobDB,27329,L["Onslaught Bloodhound"],BZONE["Dragonblight"],86.72,37.66)
+	self:addLookupList(MobDB,27333,L["Onslaught Mason"],BZONE["Dragonblight"],85.8,36.0)
 	-- Duskwood
-	self:addLookupList(MobDB,910,L["Defias Enchanter"],BZONE["Duskwood"],39.07,74.70)
-	self:addLookupList(MobDB,923,L["Young Black Ravager"],BZONE["Duskwood"],48.60,64.48)
+	self:addLookupList(MobDB,910,L["Defias Enchanter"],BZONE["Duskwood"],49.5,75.6)
 	-- Dustwallow Marsh
-	self:addLookupList(MobDB,4341,L["Drywallow Crocolisk"],BZONE["Dustwallow Marsh"],45.95,25.08)
-	self:addLookupList(MobDB,4343,L["Drywallow Snapper"],BZONE["Dustwallow Marsh"],39.52,37.74)
-	self:addLookupList(MobDB,4364,L["Strashaz Warrior"],BZONE["Dustwallow Marsh"],75.03,19.38)
-	self:addLookupList(MobDB,4366,L["Strashaz Serpent Guard"],BZONE["Dustwallow Marsh"],75.03,19.38)
-	self:addLookupList(MobDB,4368,L["Strashaz Myrmidon"],BZONE["Dustwallow Marsh"],76.20,17.97)
-	self:addLookupList(MobDB,4834,L["Theramore Infiltrator"],BZONE["Dustwallow Marsh"],39.48,31.01)
+	self:addLookupList(MobDB,4364,L["Strashaz Warrior"],BZONE["Dustwallow Marsh"],76.5,22.3)
+	self:addLookupList(MobDB,4366,L["Strashaz Serpent Guard"],BZONE["Dustwallow Marsh"],74.1,18.2)
+	self:addLookupList(MobDB,4368,L["Strashaz Myrmidon"],BZONE["Dustwallow Marsh"],75.1,14.2)
+	self:addLookupList(MobDB,4834,L["Theramore Infiltrator"],BZONE["Dustwallow Marsh"],44.0,27.3)
+	self:addLookupList(MobDB,16072,L["Tidelord Rrurgaz"],BZONE["Dustwallow Marsh"],76.7,19.5)
 	-- Eastern Plaguelands
-	self:addLookupList(MobDB,8546,L["Dark Adept"],BZONE["Eastern Plaguelands"],66.79,36.78)
+	self:addLookupList(MobDB,8546,L["Dark Adept"],BZONE["Eastern Plaguelands"],66.79,36.78) -- START HERE NEXT TIME
 	self:addLookupList(MobDB,8550,L["Shadowmage"],BZONE["Eastern Plaguelands"],70.60,40.03)
 	self:addLookupList(MobDB,8561,L["Mossflayer Shadowhunter"],BZONE["Eastern Plaguelands"],62.86,14.99)
 	self:addLookupList(MobDB,9447,L["Scarlet Warder"],BZONE["Eastern Plaguelands"],74.95,77.10)
 	self:addLookupList(MobDB,9451,L["Scarlet Archmage"],BZONE["Eastern Plaguelands"],80.87,76.58)
 	-- Grizzly Hills
 	self:addLookupList(MobDB,26270,L["Iron Rune-Shaper"],BZONE["Grizzly Hills"],67.79,15.46)
-	self:addLookupList(MobDB,27333,L["Onslaught Mason"],BZONE["Grizzly Hills"],6.38,20.86)
 	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Grizzly Hills"],11.95,14.3)
 	self:addLookupList(MobDB,28851,L["Enraged Mammoth"],BZONE["Grizzly Hills"],11.82,14.19)
 	self:addLookupList(MobDB,26679,L["Silverbrook Trapper"],BZONE["Grizzly Hills"],27.3,33.9)
 	self:addLookupList(MobDB,26708,L["Silverbrook Villager"],BZONE["Grizzly Hills"],27.3,33.9)
 	self:addLookupList(MobDB,27546,L["Silverbrook Hunter"],BZONE["Grizzly Hills"],37.5,68.0)
 	self:addLookupList(MobDB,27676,L["Silverbrook Defender"],BZONE["Grizzly Hills"],24.6,33.3)
+	--Hillsbrad Foothills
+	self:addLookupList(MobDB,2434,L["Shadowy Assassin"],BZONE["Hillsbrad Foothills"],52.7,52.8)
 	-- Hellfire Peninsula
 	self:addLookupList(MobDB,22323,L["Incandescent Fel Spark"],BZONE["Hellfire Peninsula"],61.48,20.11)
 	-- Icecrown
@@ -129,6 +123,7 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,25060,L["Darkspine Myrmidon"],BZONE["Isle of Quel'Danas"],61.68,55.13)
 	self:addLookupList(MobDB,25073,L["Darkspine Siren"],BZONE["Isle of Quel'Danas"],61.57,56.10)
 	-- Felwood
+	self:addLookupList(MobDB,7106,L["Jadefire Rogue"],BZONE["Felwood"],37.5,66.5)
 	self:addLookupList(MobDB,7120,L["Jaedenar Warlock"],BZONE["Felwood"],37.66,53.05)
 	self:addLookupList(MobDB,7158,L["Deadwood Shaman"],BZONE["Felwood"],62.72,9.527)
 	self:addLookupList(MobDB,7441,L["Winterfall Totemic"],BZONE["Felwood"],45.41,3.633)

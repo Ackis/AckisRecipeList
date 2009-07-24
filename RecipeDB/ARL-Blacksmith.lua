@@ -943,7 +943,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Runic Breastplate -- 16731
 	self:addTradeSkill(RecipeDB,16731,300,12613,2,2018,nil,0)
 	self:addTradeFlags(RecipeDB,16731,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,16731,3,4368)
+	self:addTradeAcquire(RecipeDB,16731,3,4368,3,16072)
 
 	-- Runic Plate Leggings -- 16732
 	self:addTradeSkill(RecipeDB,16732,300,12614,2,2018,nil,0)
@@ -2101,7 +2101,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Reinforced Cobalt Shoulders -- 54978
 	self:addTradeSkill(RecipeDB,54978,375,40956,2,2018,nil,2)
 	self:addTradeFlags(RecipeDB,54978,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,54978,3,27329,3,27333)
+	self:addTradeAcquire(RecipeDB,54978,3,27333)
 
 	-- Reinforced Cobalt Helm -- 54979
 	self:addTradeSkill(RecipeDB,54979,375,40957,2,2018,nil,2)

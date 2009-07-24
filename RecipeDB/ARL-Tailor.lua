@@ -375,7 +375,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Robes of Arcana -- 6692
 	self:addTradeSkill(RecipeDB,6692,150,5770,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6692,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,6692,3,910,3,923,3,2337,3,4117,3,10760,3,10882)
+	self:addTradeAcquire(RecipeDB,6692,3,910,3,2337,3,4117,3,10760,3,10882)
 
 	-- Green Silk Pack -- 6693
 	self:addTradeSkill(RecipeDB,6693,175,5764,2,3908,nil,0)
@@ -385,7 +385,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Black Silk Pack -- 6695
 	self:addTradeSkill(RecipeDB,6695,185,5765,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,6695,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,6695,3,2242,3,4341,3,4343,3,4834)
+	self:addTradeAcquire(RecipeDB,6695,3,2242,3,2434,3,4834)
 
 	-- Brown Linen Robe -- 7623
 	self:addTradeSkill(RecipeDB,7623,30,6238,1,3908,nil,0)
