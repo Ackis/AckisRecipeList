@@ -801,7 +801,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Heavy Scorpid Vest -- 19051
 	self:addTradeSkill(RecipeDB,19051,265,15076,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19051,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,19051,3,5990,3,5992,3,5993,3,6005)
+	self:addTradeAcquire(RecipeDB,19051,3,5981,3,6005)
 
 	-- Wicked Leather Bracers -- 19052
 	self:addTradeSkill(RecipeDB,19052,265,15084,2,2108,nil,0)
@@ -862,7 +862,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Heavy Scorpid Gauntlets -- 19064
 	self:addTradeSkill(RecipeDB,19064,275,15078,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19064,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,19064,3,7025,3,7055)
+	self:addTradeAcquire(RecipeDB,19064,3,7025)
 
 	-- Runic Leather Bracers -- 19065
 	self:addTradeSkill(RecipeDB,19065,275,15092,2,2108,nil,0)
@@ -915,7 +915,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Heavy Scorpid Leggings -- 19075
 	self:addTradeSkill(RecipeDB,19075,285,15079,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19075,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,19075,3,7027,3,7055)
+	self:addTradeAcquire(RecipeDB,19075,3,7027)
 
 	-- Volcanic Breastplate -- 19076
 	self:addTradeSkill(RecipeDB,19076,285,15053,2,2108,nil,0)

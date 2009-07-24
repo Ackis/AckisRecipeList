@@ -854,7 +854,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Cindercloth Cloak -- 18418
 	self:addTradeSkill(RecipeDB,18418,275,14044,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18418,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,60)
-	self:addTradeAcquire(RecipeDB,18418,3,7037,3,9695)
+	self:addTradeAcquire(RecipeDB,18418,3,7037)
 
 	-- Felcloth Pants -- 18419
 	self:addTradeSkill(RecipeDB,18419,275,14107,1,3908,nil,0)
@@ -904,7 +904,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Runecloth Pants -- 18438
 	self:addTradeSkill(RecipeDB,18438,285,13865,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18438,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18438,3,12397,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
+	self:addTradeAcquire(RecipeDB,18438,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Brightcloth Pants -- 18439
 	self:addTradeSkill(RecipeDB,18439,290,14104,2,3908,nil,0)
@@ -954,7 +954,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Runecloth Shoulders -- 18449
 	self:addTradeSkill(RecipeDB,18449,300,13867,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18449,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18449,3,12397,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
+	self:addTradeAcquire(RecipeDB,18449,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Wizardweave Turban -- 18450
 	self:addTradeSkill(RecipeDB,18450,300,14130,2,3908,nil,0)
@@ -974,7 +974,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Felcloth Shoulders -- 18453
 	self:addTradeSkill(RecipeDB,18453,300,14112,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18453,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18453,3,12397,3,13152,3,13153,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
+	self:addTradeAcquire(RecipeDB,18453,3,13152,3,13153,1,2399,1,11052,1,18749,1,18772,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,27001,1,33613,1,33636)
 
 	-- Gloves of Spell Mastery -- 18454
 	self:addTradeSkill(RecipeDB,18454,300,14146,4,3908,nil,0)

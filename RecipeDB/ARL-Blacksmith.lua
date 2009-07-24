@@ -883,7 +883,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Storm Gauntlets -- 16661
 	self:addTradeSkill(RecipeDB,16661,295,12632,3,2018,nil,0)
 	self:addTradeFlags(RecipeDB,16661,1,2,4,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,16661,3,10184,3,10491,3,12397,2,11278)
+	self:addTradeAcquire(RecipeDB,16661,3,10184,3,10491,2,11278)
 
 	-- Thorium Leggings -- 16662
 	self:addTradeSkill(RecipeDB,16662,300,12414,2,2018,nil,0)
@@ -1008,7 +1008,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Volcanic Hammer -- 16984
 	self:addTradeSkill(RecipeDB,16984,290,12792,2,2018,nil,0)
 	self:addTradeFlags(RecipeDB,16984,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,16984,3,7040,3,7047,3,10119)
+	self:addTradeAcquire(RecipeDB,16984,3,10119)
 
 	-- Corruption -- 16985
 	self:addTradeSkill(RecipeDB,16985,290,12782,1,2018,nil,0)

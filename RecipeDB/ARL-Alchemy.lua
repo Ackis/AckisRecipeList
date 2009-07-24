@@ -483,7 +483,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of the Mongoose -- 17571
 	self:addTradeSkill(RecipeDB,17571,280,13452,2,51304,nil,0,280,295,315,335)
 	self:addTradeFlags(RecipeDB,17571,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17571,3,6201,3,7106,3,8959)
+	self:addTradeAcquire(RecipeDB,17571,3,6201,3,7106)
 
 	-- Purification Potion -- 17572
 	self:addTradeSkill(RecipeDB,17572,285,13462,2,51304,nil,0,285,300,320,340)

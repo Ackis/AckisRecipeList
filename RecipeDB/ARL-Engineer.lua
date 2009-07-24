@@ -665,7 +665,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Thorium Rifle -- 19792
 	self:addTradeSkill(RecipeDB,19792,260,15995,2,4036,nil,0)
 	self:addTradeFlags(RecipeDB,19792,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,19792,3,12397,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,
+	self:addTradeAcquire(RecipeDB,19792,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,
 	1,3494,1,5174,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676)
 
 	-- Lifelike Mechanical Toad -- 19793
@@ -1257,7 +1257,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Field Repair Bot 110G -- 44391
 	self:addTradeSkill(RecipeDB,44391,360,34113,2,4036,nil,1)
 	self:addTradeFlags(RecipeDB,44391,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,44391,3,23385)
+	self:addTradeAcquire(RecipeDB,44391,3,23385,3,23386)
 
 	-- Wonderheal XT68 Shades -- 46106
 	self:addTradeSkill(RecipeDB,46106,375,35183,4,4036,nil,1)

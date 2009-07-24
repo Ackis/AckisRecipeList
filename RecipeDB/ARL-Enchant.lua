@@ -823,7 +823,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Spellpower -- 27917
 	self:addTradeSkill(RecipeDB,27917,360,nil,1,7411,nil,1,360,370,385,400)
 	self:addTradeFlags(RecipeDB,27917,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,27917,3,19952,3,20058)
+	self:addTradeAcquire(RecipeDB,27917,3,19952)
 
 	-- Enchant Ring - Striking -- 27920
 	self:addTradeSkill(RecipeDB,27920,360,nil,1,7411,nil,1,360,370,377,385)
@@ -933,7 +933,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Major Spellpower -- 27975
 	self:addTradeSkill(RecipeDB,27975,350,nil,1,7411,nil,1,350,370,375,380)
 	self:addTradeFlags(RecipeDB,27975,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,27975,3,22242,3,23385)
+	self:addTradeAcquire(RecipeDB,27975,3,22242)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
 	self:addTradeSkill(RecipeDB,27977,360,nil,1,7411,nil,1,360,370,377,385)

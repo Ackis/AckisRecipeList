@@ -929,7 +929,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Infused Shadow Draenite -- 39458
 	self:addTradeSkill(RecipeDB,39458,325,31864,2,25229,nil,1)
 	self:addTradeFlags(RecipeDB,39458,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,39458,3,23261,3,23281,3,23282,3,23354)
+	self:addTradeAcquire(RecipeDB,39458,8,35)
 
 	-- Infused Nightseye -- 39462
 	self:addTradeSkill(RecipeDB,39462,350,31865,3,25229,nil,1)
