@@ -1598,7 +1598,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Hand of Eternity -- 29700
 	self:addTradeSkill(RecipeDB,29700,365,23556,4,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29700,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
-	self:addTradeAcquire(RecipeDB,29700,3,22323,3,24065,3,24966)
+	self:addTradeAcquire(RecipeDB,29700,7,2)
 
 	-- Lesser Ward of Shielding -- 29728
 	self:addTradeSkill(RecipeDB,29728,340,23575,1,2018,nil,1)

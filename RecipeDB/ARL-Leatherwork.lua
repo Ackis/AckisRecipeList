@@ -883,7 +883,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Warbear Harness -- 19068
 	self:addTradeSkill(RecipeDB,19068,275,15064,1,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19068,1,2,4,6,11,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
-	self:addTradeAcquire(RecipeDB,19068,3,1791,3,9447,3,10184,6,576,1,11557)
+	self:addTradeAcquire(RecipeDB,19068,6,576,1,11557)
 
 	-- Heavy Scorpid Belt -- 19070
 	self:addTradeSkill(RecipeDB,19070,280,15082,2,2108,nil,0)
@@ -2267,7 +2267,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Fur Lining - Arcane Resist -- 57701
 	self:addTradeSkill(RecipeDB,57701,400,nil,3,2108,nil,2)
 	self:addTradeFlags(RecipeDB,57701,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57701,3,31702)
+	self:addTradeAcquire(RecipeDB,57701,3,31702,3,32297)
 
 	-- Jormungar Leg Reinforcements -- 60583
 	self:addTradeSkill(RecipeDB,60583,405,nil,1,2108,nil,2)

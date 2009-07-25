@@ -1114,7 +1114,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Mighty Arcane Protection Potion -- 53936
 	self:addTradeSkill(RecipeDB,53936,400,40213,2,51304,nil,2)
 	self:addTradeFlags(RecipeDB,53936,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53936,3,31702)
+	self:addTradeAcquire(RecipeDB,53936,3,32297,3,31702)
 
 	-- Mighty Frost Protection Potion -- 53937
 	self:addTradeSkill(RecipeDB,53937,400,40215,2,51304,nil,2)

@@ -92,32 +92,28 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,4834,L["Theramore Infiltrator"],BZONE["Dustwallow Marsh"],44.0,27.3)
 	self:addLookupList(MobDB,16072,L["Tidelord Rrurgaz"],BZONE["Dustwallow Marsh"],76.7,19.5)
 	-- Eastern Plaguelands
-	self:addLookupList(MobDB,8546,L["Dark Adept"],BZONE["Eastern Plaguelands"],66.79,36.78) -- START HERE NEXT TIME
-	self:addLookupList(MobDB,8550,L["Shadowmage"],BZONE["Eastern Plaguelands"],70.60,40.03)
-	self:addLookupList(MobDB,8561,L["Mossflayer Shadowhunter"],BZONE["Eastern Plaguelands"],62.86,14.99)
-	self:addLookupList(MobDB,9447,L["Scarlet Warder"],BZONE["Eastern Plaguelands"],74.95,77.10)
-	self:addLookupList(MobDB,9451,L["Scarlet Archmage"],BZONE["Eastern Plaguelands"],80.87,76.58)
+	self:addLookupList(MobDB,8546,L["Dark Adept"],BZONE["Eastern Plaguelands"],65.8,37.9)
+	self:addLookupList(MobDB,8550,L["Shadowmage"],BZONE["Eastern Plaguelands"],78.5,35.3)
+	self:addLookupList(MobDB,8561,L["Mossflayer Shadowhunter"],BZONE["Eastern Plaguelands"],60.9,21.5)
+	self:addLookupList(MobDB,9451,L["Scarlet Archmage"],BZONE["Eastern Plaguelands"],81.5,75.4)
 	-- Grizzly Hills
-	self:addLookupList(MobDB,26270,L["Iron Rune-Shaper"],BZONE["Grizzly Hills"],67.79,15.46)
-	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Grizzly Hills"],11.95,14.3)
-	self:addLookupList(MobDB,28851,L["Enraged Mammoth"],BZONE["Grizzly Hills"],11.82,14.19)
+	self:addLookupList(MobDB,26270,L["Iron Rune-Shaper"],BZONE["Grizzly Hills"],67.8,16.3)
 	self:addLookupList(MobDB,26679,L["Silverbrook Trapper"],BZONE["Grizzly Hills"],27.3,33.9)
 	self:addLookupList(MobDB,26708,L["Silverbrook Villager"],BZONE["Grizzly Hills"],27.3,33.9)
 	self:addLookupList(MobDB,27546,L["Silverbrook Hunter"],BZONE["Grizzly Hills"],37.5,68.0)
 	self:addLookupList(MobDB,27676,L["Silverbrook Defender"],BZONE["Grizzly Hills"],24.6,33.3)
 	--Hillsbrad Foothills
 	self:addLookupList(MobDB,2434,L["Shadowy Assassin"],BZONE["Hillsbrad Foothills"],52.7,52.8)
-	-- Hellfire Peninsula
-	self:addLookupList(MobDB,22323,L["Incandescent Fel Spark"],BZONE["Hellfire Peninsula"],61.48,20.11)
 	-- Icecrown
-	self:addLookupList(MobDB,29570,L["Nascent Val'kyr"],BZONE["Icecrown"],69.72,41.51)
-	self:addLookupList(MobDB,30921,L["Skeletal Runesmith"],BZONE["Icecrown"],58.75,73.98)
-	self:addLookupList(MobDB,31702,L["Frostbrood Spawn"],BZONE["Icecrown"],72.42,41.50)
-	self:addLookupList(MobDB,32289,L["Damned Apothecary"],BZONE["Icecrown"],49.08,34.08)
-	self:addLookupList(MobDB,32290,L["Cult Alchemist"],BZONE["Icecrown"],48.90,34.14)
-	self:addLookupList(MobDB,32349,L["Cultist Shard Watcher"],BZONE["Icecrown"],48.06,67.83)
+	self:addLookupList(MobDB,29570,L["Nascent Val'kyr"],BZONE["Icecrown"],27.1,60.0)
+	self:addLookupList(MobDB,30921,L["Skeletal Runesmith"],BZONE["Icecrown"],60.0,73.1)
+	self:addLookupList(MobDB,31702,L["Frostbrood Spawn"],BZONE["Icecrown"],75.3,43.4)
+	self:addLookupList(MobDB,32289,L["Damned Apothecary"],BZONE["Icecrown"],49.8,32.7)
+	self:addLookupList(MobDB,32290,L["Cult Alchemist"],BZONE["Icecrown"],49.5,33.1)
+	self:addLookupList(MobDB,32297,L["Cult Researcher"],BZONE["Icecrown"],50.7,30.9)
+	self:addLookupList(MobDB,32349,L["Cultist Shard Watcher"],BZONE["Icecrown"],48.1,67.9)
 	-- Isle of Quel'Danas
-	self:addLookupList(MobDB,24960,L["Wretched Devourer"],BZONE["Isle of Quel'Danas"],39.25,35.24)
+	self:addLookupList(MobDB,24960,L["Wretched Devourer"],BZONE["Isle of Quel'Danas"],39.25,35.24)      -- START HERE NEXT TIME
 	self:addLookupList(MobDB,24966,L["Wretched Fiend"],BZONE["Isle of Quel'Danas"],40.24,35.45)
 	self:addLookupList(MobDB,24979,L["Dawnblade Marksman"],BZONE["Isle of Quel'Danas"],41.31,39.07)
 	self:addLookupList(MobDB,25060,L["Darkspine Myrmidon"],BZONE["Isle of Quel'Danas"],61.68,55.13)
@@ -203,6 +199,7 @@ function addon:InitMob(MobDB)
 	-- Sholazar Basin
 	self:addLookupList(MobDB,28123,L["Venture Co. Excavator"],BZONE["Sholazar Basin"],34.83,47.51)
 	self:addLookupList(MobDB,28378,L["Primordial Drake"],BZONE["Sholazar Basin"],46.71,26.72)
+	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Sholozar Basin"],53.5,24.4)
 	self:addLookupList(MobDB,28380,L["Shattertusk Bull"],BZONE["Sholazar Basin"],53.00,30.19)
 	-- Silithus
 	self:addLookupList(MobDB,14454,BBOSS["The Windreaver"],BZONE["Silithus"],26.37,22.23)
@@ -346,6 +343,7 @@ function addon:InitMob(MobDB)
 	self:addLookupList(MobDB,14457,BBOSS["Princess Tempestria"],BZONE["Winterspring"],53.39,42.63)
 	-- Zangarmarsh
 	-- Zul'drak
+	self:addLookupList(MobDB,28851,L["Enraged Mammoth"],BZONE["Zul'Drak"],72.0,41.1)
 	self:addLookupList(MobDB,29235,L["Gundrak Savage"],BZONE["Zul'Drak"],73.80,30.92)
 -- Instances
 	-- Ahn'kahet

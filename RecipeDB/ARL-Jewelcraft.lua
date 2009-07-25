@@ -1714,7 +1714,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Fractured Scarlet Ruby -- 53950
 	self:addTradeSkill(RecipeDB,53950,390,40002,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53950,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	self:addTradeAcquire(RecipeDB,53950,3,29570,3,29590,3,29875)
+	self:addTradeAcquire(RecipeDB,53950,3,29570)
 
 	-- Precise Scarlet Ruby -- 53951
 	self:addTradeSkill(RecipeDB,53951,390,40003,3,25229,nil,2)

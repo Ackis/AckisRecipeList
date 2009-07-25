@@ -1263,7 +1263,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Superior Arcane Resistance -- 44596
 	self:addTradeSkill(RecipeDB,44596,400,nil,1,7411,nil,2,400,415,425,435)
 	self:addTradeFlags(RecipeDB,44596,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,44596,3,31702)
+	self:addTradeAcquire(RecipeDB,44596,3,31702,3,32297)
 
 	-- Enchant Bracers - Expertise -- 44598
 	self:addTradeSkill(RecipeDB,44598,415,nil,1,7411,nil,2,415,425,435,445)
