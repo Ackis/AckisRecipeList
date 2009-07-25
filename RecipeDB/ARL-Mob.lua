@@ -199,7 +199,7 @@ function addon:InitMob(MobDB)
 	-- Sholazar Basin
 	self:addLookupList(MobDB,28123,L["Venture Co. Excavator"],BZONE["Sholazar Basin"],34.83,47.51)
 	self:addLookupList(MobDB,28378,L["Primordial Drake"],BZONE["Sholazar Basin"],46.71,26.72)
-	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Sholozar Basin"],53.5,24.4)
+	self:addLookupList(MobDB,28379,L["Shattertusk Mammoth"],BZONE["Sholazar Basin"],53.5,24.4)
 	self:addLookupList(MobDB,28380,L["Shattertusk Bull"],BZONE["Sholazar Basin"],53.00,30.19)
 	-- Silithus
 	self:addLookupList(MobDB,14454,BBOSS["The Windreaver"],BZONE["Silithus"],26.37,22.23)
