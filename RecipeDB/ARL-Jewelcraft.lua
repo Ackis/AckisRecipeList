@@ -1929,7 +1929,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Accurate Monarch Topaz -- 53994
 	self:addTradeSkill(RecipeDB,53994,390,40058,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53994,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53994,3,28378,3,28379,3,28380,3,28851,3,29402,3,30260,3,30448)
+	self:addTradeAcquire(RecipeDB,53994,3,28379,3,28851,3,29402,3,30260,3,30448)
 
 	-- Timeless Forest Emerald -- 53995
 	self:addTradeSkill(RecipeDB,53995,390,40085,3,25229,nil,2)

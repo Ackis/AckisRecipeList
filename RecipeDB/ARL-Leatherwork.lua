@@ -287,7 +287,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Barbaric Belt -- 3779
 	self:addTradeSkill(RecipeDB,3779,200,4264,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,3779,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,3779,3,780,3,5649)
+	self:addTradeAcquire(RecipeDB,3779,7,2)
 
 	-- Heavy Armor Kit -- 3780
 	self:addTradeSkill(RecipeDB,3780,150,4265,1,2108,nil,0)
@@ -352,7 +352,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Murloc Scale Bracers -- 6705
 	self:addTradeSkill(RecipeDB,6705,190,5783,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,6705,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6705,3,1557,3,1561)
+	self:addTradeAcquire(RecipeDB,6705,3,2636,3,1561)
 
 	-- Handstitched Leather Vest -- 7126
 	self:addTradeSkill(RecipeDB,7126,10,5957,1,2108,nil,0)
@@ -646,8 +646,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Bracers -- 10533
 	self:addTradeSkill(RecipeDB,10533,220,8205,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10533,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10533,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,
-	3,5615,3,5617,3,8996)
+	self:addTradeAcquire(RecipeDB,10533,3,5617)
 
 	-- Tough Scorpid Gloves -- 10542
 	self:addTradeSkill(RecipeDB,10542,225,8204,2,2108,nil,0)
