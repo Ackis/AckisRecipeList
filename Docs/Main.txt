@@ -89,7 +89,7 @@ This is the functionality that occurs when you click on a recipe.
 *Shift Click
 **Generates an item link of the item that the recipe will make into your default chat box.
 *Ctrl Click
-**Genereates a spell link for the recipe you clicked.
+**Generates a spell link for the recipe you clicked.
 *Alt Click
 **Adds or removes a recipe from the exclusion list.
 *Ctrl-Shift Click
