@@ -803,7 +803,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Major Defense -- 27906
 	self:addTradeSkill(RecipeDB,27906,320,nil,1,7411,nil,1,320,330,345,360)
 	self:addTradeFlags(RecipeDB,27906,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,27906,3,22822)
+	self:addTradeAcquire(RecipeDB,27906,3,22822,3,23008)
 
 	-- Enchant Bracer - Superior Healing -- 27911
 	self:addTradeSkill(RecipeDB,27911,325,nil,1,7411,nil,1,325,335,350,365)

@@ -1478,7 +1478,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ragesteel Gloves -- 29642
 	self:addTradeSkill(RecipeDB,29642,365,23520,3,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29642,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,29642,3,17136,3,18062)
+	self:addTradeAcquire(RecipeDB,29642,3,17136)
 
 	-- Ragesteel Helm -- 29643
 	self:addTradeSkill(RecipeDB,29643,365,23521,3,2018,nil,1)
@@ -1488,7 +1488,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Ragesteel Breastplate -- 29645
 	self:addTradeSkill(RecipeDB,29645,370,23522,3,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29645,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,29645,3,21454,3,23305)
+	self:addTradeAcquire(RecipeDB,29645,3,21454,3,23305,3,23324)
 
 	-- Swiftsteel Gloves -- 29648
 	self:addTradeSkill(RecipeDB,29648,370,23526,3,2018,nil,1)
@@ -1558,7 +1558,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Felsteel Longblade -- 29692
 	self:addTradeSkill(RecipeDB,29692,365,23540,4,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29692,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,69)
-	self:addTradeAcquire(RecipeDB,29692,3,16492,3,16524,3,25060,3,25073)
+	self:addTradeAcquire(RecipeDB,29692,7,2)
 
 	-- Khorium Champion -- 29693
 	self:addTradeSkill(RecipeDB,29693,365,23541,4,2018,nil,1)
@@ -1578,7 +1578,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Runic Hammer -- 29696
 	self:addTradeSkill(RecipeDB,29696,365,23544,4,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29696,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
-	self:addTradeAcquire(RecipeDB,29696,3,16409,3,16539,3,17957,3,25060)
+	self:addTradeAcquire(RecipeDB,29696,7,2)
 
 	-- Fel Hardened Maul -- 29697
 	self:addTradeSkill(RecipeDB,29697,365,23546,4,2018,nil,1)
@@ -1593,7 +1593,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dirge -- 29699
 	self:addTradeSkill(RecipeDB,29699,365,23555,4,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29699,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
-	self:addTradeAcquire(RecipeDB,29699,3,16544,3,17840,3,21305)
+	self:addTradeAcquire(RecipeDB,29699,7,2)
 
 	-- Hand of Eternity -- 29700
 	self:addTradeSkill(RecipeDB,29700,365,23556,4,2018,nil,1)

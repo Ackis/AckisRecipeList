@@ -1828,7 +1828,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Guardian's Twilight Opal -- 53974
 	self:addTradeSkill(RecipeDB,53974,390,40034,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53974,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,115)
+	self:addTradeFlags(RecipeDB,53974,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,115)
 	self:addTradeAcquire(RecipeDB,53974,6,1106,3,30431)
 
 	-- Inscribed Monarch Topaz -- 53975

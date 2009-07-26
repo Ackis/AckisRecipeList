@@ -604,7 +604,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Greater Firepower -- 26277
 	self:addTradeSkill(RecipeDB,26277,250,21546,2,51304,nil,0,250,265,285,305)
 	self:addTradeFlags(RecipeDB,26277,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,26277,3,5843,3,5844,3,5846,3,8637,3,9318)
+	self:addTradeAcquire(RecipeDB,26277,3,5844,3,5846,3,8637)
 
 	-- Elixir of Camouflage -- 28543
 	self:addTradeSkill(RecipeDB,28543,305,22823,1,51304,nil,1,305,320,327,335)
@@ -874,7 +874,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Fel Mana Potion -- 38961
 	self:addTradeSkill(RecipeDB,38961,360,31677,3,51304,nil,1,360,375,377,380)
 	self:addTradeFlags(RecipeDB,38961,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,38961,3,19792,3,19795,3,19796,3,19806,3,20502,3,22016,3,22017,3,22018,3,22076,3,22093)
+	self:addTradeAcquire(RecipeDB,38961,3,19792,3,19795,3,19796,3,19806,3,22016,3,22017,3,22018,3,22076,3,22093)
 
 	-- Fel Regeneration Potion -- 38962
 	self:addTradeSkill(RecipeDB,38962,345,31676,3,51304,nil,1,345,360,367,375)

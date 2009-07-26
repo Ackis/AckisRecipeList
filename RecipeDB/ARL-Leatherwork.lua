@@ -587,7 +587,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Comfortable Leather Hat -- 10490
 	self:addTradeSkill(RecipeDB,10490,200,8174,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10490,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,10490,3,2249,3,4852)
+	self:addTradeAcquire(RecipeDB,10490,7,2)
 
 	-- Nightscape Tunic -- 10499
 	self:addTradeSkill(RecipeDB,10499,205,8175,1,2108,nil,0)
@@ -930,7 +930,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Living Leggings -- 19078
 	self:addTradeSkill(RecipeDB,19078,285,15060,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19078,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19078,3,7158,3,8957,3,8961)
+	self:addTradeAcquire(RecipeDB,19078,3,7158)
 
 	-- Stormshroud Armor -- 19079
 	self:addTradeSkill(RecipeDB,19079,285,15056,3,2108,nil,0)
@@ -979,7 +979,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Frostsaber Gloves -- 19087
 	self:addTradeSkill(RecipeDB,19087,295,15070,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19087,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19087,3,7441,3,7444,3,7447,3,7457)
+	self:addTradeAcquire(RecipeDB,19087,3,7441)
 
 	-- Heavy Scorpid Helm -- 19088
 	self:addTradeSkill(RecipeDB,19088,295,15080,1,2108,nil,0)

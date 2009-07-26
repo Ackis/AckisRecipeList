@@ -804,7 +804,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Cindercloth Vest -- 18408
 	self:addTradeSkill(RecipeDB,18408,260,14042,2,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18408,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18408,3,5860,3,5861,3,5862)
+	self:addTradeAcquire(RecipeDB,18408,3,5861)
 
 	-- Runecloth Cloak -- 18409
 	self:addTradeSkill(RecipeDB,18409,265,13860,1,3908,nil,0)
@@ -874,7 +874,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Cloak of Fire -- 18422
 	self:addTradeSkill(RecipeDB,18422,275,14134,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18422,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,60)
-	self:addTradeAcquire(RecipeDB,18422,3,8921,3,9026,3,24819)
+	self:addTradeAcquire(RecipeDB,18422,3,9026)
 
 	-- Runecloth Boots -- 18423
 	self:addTradeSkill(RecipeDB,18423,280,13864,1,3908,nil,0)
