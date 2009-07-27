@@ -1496,7 +1496,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
 
 	-- Enchant Staff - Spellpower -- 62959
-	self:addTradeSkill(RecipeDB,62959,385,nil,1,7411,nil,2,450,455,460,465)
+	self:addTradeSkill(RecipeDB,62959,385,nil,1,7411,nil,2,385,395,405,415)
 	self:addTradeFlags(RecipeDB,62959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,62959,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
