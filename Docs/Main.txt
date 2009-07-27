@@ -45,7 +45,7 @@ If you don't wish to donate money feel free to consider one of the following met
 
 ==Do this first==
 Read the documentation located at these locations:
-* [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
+* [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]]
 * [[http://www.wowace.com/projects/arl/pages/in-game-documentation/|In-game Documentation]]
 
 ==How to get it to work==
