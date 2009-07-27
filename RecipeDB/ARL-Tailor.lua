@@ -914,7 +914,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Mooncloth Leggings -- 18440
 	self:addTradeSkill(RecipeDB,18440,290,14137,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18440,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18440,3,10184)
+	self:addTradeAcquire(RecipeDB,18440,7,2)
 
 	-- Ghostweave Pants -- 18441
 	self:addTradeSkill(RecipeDB,18441,290,14144,2,3908,nil,0)
@@ -944,12 +944,12 @@ function addon:InitTailoring(RecipeDB)
 	-- Mooncloth Vest -- 18447
 	self:addTradeSkill(RecipeDB,18447,300,14138,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18447,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18447,3,10184,3,10412)
+	self:addTradeAcquire(RecipeDB,18447,7,2)
 
 	-- Mooncloth Shoulders -- 18448
 	self:addTradeSkill(RecipeDB,18448,300,14139,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18448,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18448,3,10184)
+	self:addTradeAcquire(RecipeDB,18448,7,2)
 
 	-- Runecloth Shoulders -- 18449
 	self:addTradeSkill(RecipeDB,18449,300,13867,2,3908,nil,0)
@@ -969,7 +969,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Mooncloth Circlet -- 18452
 	self:addTradeSkill(RecipeDB,18452,300,14140,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18452,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18452,3,10184)
+	self:addTradeAcquire(RecipeDB,18452,7,2)
 
 	-- Felcloth Shoulders -- 18453
 	self:addTradeSkill(RecipeDB,18453,300,14112,2,3908,nil,0)
@@ -979,17 +979,17 @@ function addon:InitTailoring(RecipeDB)
 	-- Gloves of Spell Mastery -- 18454
 	self:addTradeSkill(RecipeDB,18454,300,14146,4,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18454,1,2,6,11,24,26,29,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,18454,3,10184)
+	self:addTradeAcquire(RecipeDB,18454,7,2)
 
 	-- Bottomless Bag -- 18455
 	self:addTradeSkill(RecipeDB,18455,300,14156,3,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18455,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,18455,3,10184)
+	self:addTradeAcquire(RecipeDB,18455,7,2)
 
 	-- Truefaith Vestments -- 18456
 	self:addTradeSkill(RecipeDB,18456,300,14154,4,3908,nil,0)
 	self:addTradeFlags(RecipeDB,18456,1,2,5,26,37,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,18456,3,10812)
+	self:addTradeAcquire(RecipeDB,18456,3,10813)
 
 	-- Robe of the Archmage -- 18457
 	self:addTradeSkill(RecipeDB,18457,300,14152,4,3908,nil,0)
@@ -1499,7 +1499,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Spellstrike Hood -- 31455
 	self:addTradeSkill(RecipeDB,31455,375,24266,4,3908,nil,1)
 	self:addTradeFlags(RecipeDB,31455,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,31455,3,16807,3,17669)
+	self:addTradeAcquire(RecipeDB,31455,3,16807)
 
 	-- Battlecast Hood -- 31456
 	self:addTradeSkill(RecipeDB,31456,375,24267,4,3908,nil,1)

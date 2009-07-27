@@ -618,7 +618,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Superior Striking -- 20031
 	self:addTradeSkill(RecipeDB,20031,300,nil,1,7411,nil,0,300,310,325,340)
 	self:addTradeFlags(RecipeDB,20031,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20031,3,9216,3,9568)
+	self:addTradeAcquire(RecipeDB,20031,3,9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
 	self:addTradeSkill(RecipeDB,20032,300,nil,1,7411,nil,0,300,310,325,340)
@@ -638,7 +638,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant 2H Weapon - Major Spirit -- 20035
 	self:addTradeSkill(RecipeDB,20035,300,nil,1,7411,nil,0,300,310,325,340)
 	self:addTradeFlags(RecipeDB,20035,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20035,3,10469,3,10477)
+	self:addTradeAcquire(RecipeDB,20035,3,10469)
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
 	self:addTradeSkill(RecipeDB,20036,300,nil,1,7411,nil,0,300,310,325,340)

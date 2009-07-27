@@ -730,7 +730,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Arcane Bomb -- 19831
 	self:addTradeSkill(RecipeDB,19831,300,16040,2,4036,nil,0)
 	self:addTradeFlags(RecipeDB,19831,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19831,3,10184)
+	self:addTradeAcquire(RecipeDB,19831,7,2)
 
 	-- Flawless Arcanite Rifle -- 19833
 	self:addTradeSkill(RecipeDB,19833,300,16007,2,4036,nil,0)

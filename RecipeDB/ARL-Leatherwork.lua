@@ -565,7 +565,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Dusky Boots -- 9207
 	self:addTradeSkill(RecipeDB,9207,200,7390,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,9207,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,9207,3,5649,3,24830)
+	self:addTradeAcquire(RecipeDB,9207,7,2)
 
 	-- Swift Boots -- 9208
 	self:addTradeSkill(RecipeDB,9208,200,7391,2,2108,nil,0)
@@ -839,7 +839,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Green Dragonscale Leggings -- 19060
 	self:addTradeSkill(RecipeDB,19060,270,15046,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19060,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,19060,3,5225,3,5226,3,5708)
+	self:addTradeAcquire(RecipeDB,19060,3,5226)
 
 	-- Living Shoulders -- 19061
 	self:addTradeSkill(RecipeDB,19061,270,15061,1,2108,nil,0)
@@ -1458,17 +1458,17 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Stylin' Adventure Hat -- 32487
 	self:addTradeSkill(RecipeDB,32487,350,25681,3,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32487,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32487,3,17820,3,17840,3,28132)
+	self:addTradeAcquire(RecipeDB,32487,3,17820,3,28132)
 
 	-- Stylin' Crimson Hat -- 32488
 	self:addTradeSkill(RecipeDB,32488,350,25683,3,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32488,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,32488,3,18322,3,19428)
+	self:addTradeAcquire(RecipeDB,32488,3,18322)
 
 	-- Stylin' Jungle Hat -- 32489
 	self:addTradeSkill(RecipeDB,32489,350,25682,3,2108,nil,1)
 	self:addTradeFlags(RecipeDB,32489,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,32489,3,17839,3,17879,3,17952,3,18982,3,21104,3,21140,3,21148)
+	self:addTradeAcquire(RecipeDB,32489,3,17839,3,21104)
 
 	-- Fel Leather Gloves -- 32490
 	self:addTradeSkill(RecipeDB,32490,340,25685,3,2108,nil,1)
@@ -1533,7 +1533,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Shadow Armor Kit -- 35520
 	self:addTradeSkill(RecipeDB,35520,340,29483,2,2108,nil,1)
 	self:addTradeFlags(RecipeDB,35520,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,35520,3,18320,3,18325,3,19428)
+	self:addTradeAcquire(RecipeDB,35520,3,18320)
 
 	-- Flame Armor Kit -- 35521
 	self:addTradeSkill(RecipeDB,35521,340,29485,2,2108,nil,1)
@@ -1553,7 +1553,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Arcane Armor Kit -- 35524
 	self:addTradeSkill(RecipeDB,35524,340,29488,2,2108,nil,1)
 	self:addTradeFlags(RecipeDB,35524,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,35524,3,17879,3,17952,3,21104,3,21140,3,21148)
+	self:addTradeAcquire(RecipeDB,35524,3,17879)
 
 	-- Enchanted Felscale Leggings -- 35525
 	self:addTradeSkill(RecipeDB,35525,350,29489,1,2108,nil,1)
@@ -1643,7 +1643,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Drums of Speed -- 35544
 	self:addTradeSkill(RecipeDB,35544,345,29530,1,2108,nil,1)
 	self:addTradeFlags(RecipeDB,35544,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,108)
-	self:addTradeAcquire(RecipeDB,35544,3,22128,6,978,2,20240)
+	self:addTradeAcquire(RecipeDB,35544,6,941,2,20241,6,978,2,20240)
 
 	-- Cobrahide Leg Armor -- 35549
 	self:addTradeSkill(RecipeDB,35549,335,29533,1,2108,nil,1)

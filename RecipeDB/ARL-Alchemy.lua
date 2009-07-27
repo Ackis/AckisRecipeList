@@ -686,7 +686,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,28563,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,28563,7,2)
 
-	-- Haste Potion -- 28564
+	-- Haste Potion -- 28564 -- THERE'S 2 VERSIONS?
 	self:addTradeSkill(RecipeDB,28564,350,22838,2,51304,nil,1,350,365,372,380)
 	self:addTradeFlags(RecipeDB,28564,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,28564,3,24664)
@@ -751,10 +751,10 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeFlags(RecipeDB,28577,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,28577,3,19973)
 
-	-- Elixir of Empowerment -- 28578
+	-- Elixir of Empowerment -- 28578   -- THERE'S 2 VERSIONS?
 	self:addTradeSkill(RecipeDB,28578,365,22848,2,51304,nil,1,365,375,377,380)
 	self:addTradeFlags(RecipeDB,28578,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,28578,3,24664,1,22848)
+	self:addTradeAcquire(RecipeDB,28578,3,24664)
 
 	-- Ironshield Potion -- 28579
 	self:addTradeSkill(RecipeDB,28579,365,22849,2,51304,nil,1,365,375,377,380)
