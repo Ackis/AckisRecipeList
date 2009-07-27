@@ -428,7 +428,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Fiery Weapon -- 13898
 	self:addTradeSkill(RecipeDB,13898,265,nil,1,7411,nil,0,265,285,305,325)
 	self:addTradeFlags(RecipeDB,13898,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,13898,3,8913,3,9024)
+	self:addTradeAcquire(RecipeDB,13898,3,9024)
 
 	-- Enchant Shield - Greater Spirit -- 13905
 	self:addTradeSkill(RecipeDB,13905,230,nil,1,7411,nil,0,230,250,270,290)
@@ -583,7 +583,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Greater Agility -- 20023
 	self:addTradeSkill(RecipeDB,20023,295,nil,1,7411,nil,0,295,310,325,340)
 	self:addTradeFlags(RecipeDB,20023,1,2,3,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20023,3,13300,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011)
+	self:addTradeAcquire(RecipeDB,20023,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011)
 
 	-- Enchant Boots - Spirit -- 20024
 	self:addTradeSkill(RecipeDB,20024,275,nil,1,7411,nil,0)
@@ -1493,7 +1493,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Smoking Heart of the Mountain -- 15596
 	self:addTradeSkill(RecipeDB,15596,265,45050,2,7411,nil,0,365,285,305,325)
 	self:addTradeFlags(RecipeDB,15596,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,61)
-	self:addTradeAcquire(RecipeDB,15596,3,8921,3,9025)
+	self:addTradeAcquire(RecipeDB,15596,3,9025)
 
 	-- Enchant Staff - Spellpower -- 62959
 	self:addTradeSkill(RecipeDB,62959,385,nil,1,7411,nil,2,385,395,405,415)

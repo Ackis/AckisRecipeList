@@ -337,7 +337,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Murloc Scale Belt -- 6702
 	self:addTradeSkill(RecipeDB,6702,90,5780,1,2108,nil,0)
 	self:addTradeFlags(RecipeDB,6702,1,2,4,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,6702,3,1732,3,3256,3,3385,2,843,2,3556,2,4186)
+	self:addTradeAcquire(RecipeDB,6702,3,1732,3,3385,2,843,2,3556,2,4186)
 
 	-- Murloc Scale Breastplate -- 6703
 	self:addTradeSkill(RecipeDB,6703,95,5781,1,2108,nil,0)
@@ -631,7 +631,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Breastplate -- 10525
 	self:addTradeSkill(RecipeDB,10525,220,8203,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10525,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10525,3,5419,3,5422,3,5425,3,5426,3,5616,3,5618)
+	self:addTradeAcquire(RecipeDB,10525,3,5618)
 
 	-- Wild Leather Shoulders -- 10529
 	self:addTradeSkill(RecipeDB,10529,220,8210,2,2108,nil,0)
@@ -651,7 +651,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Gloves -- 10542
 	self:addTradeSkill(RecipeDB,10542,225,8204,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10542,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10542,3,5419,3,5422,3,5425,3,5616,3,5618)
+	self:addTradeAcquire(RecipeDB,10542,3,5616)
 
 	-- Wild Leather Vest -- 10544
 	self:addTradeSkill(RecipeDB,10544,225,8211,2,2108,nil,0)
@@ -678,7 +678,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Boots -- 10554
 	self:addTradeSkill(RecipeDB,10554,235,8209,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10554,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10554,3,5419,3,5422,3,5425,3,5615)
+	self:addTradeAcquire(RecipeDB,10554,3,5615)
 
 	-- Turtle Scale Leggings -- 10556
 	self:addTradeSkill(RecipeDB,10556,235,8185,1,2108,nil,0)
@@ -705,8 +705,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Shoulders -- 10564
 	self:addTradeSkill(RecipeDB,10564,240,8207,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10564,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10564,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,
-	3,5617,3,5623,3,7805,3,7883)
+	self:addTradeAcquire(RecipeDB,10564,3,5623,3,7805,3,7883)
 
 	-- Wild Leather Boots -- 10566
 	self:addTradeSkill(RecipeDB,10566,245,8213,2,2108,nil,0)
@@ -716,13 +715,12 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Tough Scorpid Leggings -- 10568
 	self:addTradeSkill(RecipeDB,10568,245,8206,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10568,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10568,3,5422,3,5423,3,5425,3,5615,3,5623)
+	self:addTradeAcquire(RecipeDB,10568,3,5615)
 
 	-- Tough Scorpid Helm -- 10570
 	self:addTradeSkill(RecipeDB,10570,250,8208,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,10570,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,10570,3,5419,3,5420,3,5422,3,5423,3,5425,3,5426,
-	3,5615,3,5623,3,7805,3,7883)
+	self:addTradeAcquire(RecipeDB,10570,3,5623,3,7805,3,7883)
 
 	-- Wild Leather Leggings -- 10572
 	self:addTradeSkill(RecipeDB,10572,250,8212,2,2108,nil,0)
@@ -909,7 +907,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Frostsaber Leggings -- 19074
 	self:addTradeSkill(RecipeDB,19074,285,15069,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19074,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19074,3,7440,3,7443,3,7447,3,7448,3,7458,3,7460,3,10806)
+	self:addTradeAcquire(RecipeDB,19074,3,7440)
 
 	-- Heavy Scorpid Leggings -- 19075
 	self:addTradeSkill(RecipeDB,19075,285,15079,2,2108,nil,0)
@@ -973,7 +971,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Ironfeather Breastplate -- 19086
 	self:addTradeSkill(RecipeDB,19086,290,15066,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19086,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19086,3,2644,3,2681,3,2926)
+	self:addTradeAcquire(RecipeDB,19086,3,2644)
 
 	-- Frostsaber Gloves -- 19087
 	self:addTradeSkill(RecipeDB,19087,295,15070,2,2108,nil,0)
@@ -1027,8 +1025,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Devilsaur Leggings -- 19097
 	self:addTradeSkill(RecipeDB,19097,300,15062,3,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19097,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19097,3,6556,3,6557,3,6559,3,9162,3,9163,3,9164,
-	3,9166,3,9167,3,9477)
+	self:addTradeAcquire(RecipeDB,19097,3,6556,3,6557,3,6559,3,9477)
 
 	-- Wicked Leather Armor -- 19098
 	self:addTradeSkill(RecipeDB,19098,300,15085,2,2108,nil,0)
@@ -1064,7 +1061,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Frostsaber Tunic -- 19104
 	self:addTradeSkill(RecipeDB,19104,300,15068,2,2108,nil,0)
 	self:addTradeFlags(RecipeDB,19104,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,19104,3,7438,3,7458,3,7459,3,7460)
+	self:addTradeAcquire(RecipeDB,19104,3,7438)
 
 	-- Black Dragonscale Leggings -- 19107
 	self:addTradeSkill(RecipeDB,19107,300,15052,3,2108,nil,0)

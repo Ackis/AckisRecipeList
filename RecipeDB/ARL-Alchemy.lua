@@ -503,7 +503,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Greater Frost Protection Potion -- 17575
 	self:addTradeSkill(RecipeDB,17575,290,13456,2,51304,nil,0,290,305,325,345)
 	self:addTradeFlags(RecipeDB,17575,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17575,3,7428,3,7445,3,7446,3,7448,3,7458,3,10807)
+	self:addTradeAcquire(RecipeDB,17575,3,7428)
 
 	-- Greater Nature Protection Potion -- 17576
 	self:addTradeSkill(RecipeDB,17576,290,13458,2,51304,nil,0,290,305,325,345)
@@ -513,7 +513,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Greater Arcane Protection Potion -- 17577
 	self:addTradeSkill(RecipeDB,17577,290,13461,2,51304,nil,0,290,305,325,345)
 	self:addTradeFlags(RecipeDB,17577,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,17577,3,7435,3,7436,3,7437,3,7443,3,7458,3,10659,3,10660,3,10661,3,10662,3,10663)
+	self:addTradeAcquire(RecipeDB,17577,3,7437)
 
 	-- Greater Shadow Protection Potion -- 17578
 	self:addTradeSkill(RecipeDB,17578,290,13459,2,51304,nil,0,290,305,325,345)

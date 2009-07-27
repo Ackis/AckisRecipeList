@@ -1719,7 +1719,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Precise Scarlet Ruby -- 53951
 	self:addTradeSkill(RecipeDB,53951,390,40003,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53951,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53951,3,29311,3,30414)
+	self:addTradeAcquire(RecipeDB,53951,3,29311)
 
 	-- Solid Sky Sapphire -- 53952
 	self:addTradeSkill(RecipeDB,53952,390,40008,3,25229,nil,2)
@@ -1819,7 +1819,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Defender's Twilight Opal -- 53972
 	self:addTradeSkill(RecipeDB,53972,390,40032,3,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53972,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
-	self:addTradeAcquire(RecipeDB,53972,3,29370,3,29376,3,30160,3,30208,3,30222)
+	self:addTradeAcquire(RecipeDB,53972,3,29370,3,29376,3,30208,3,30222)
 
 	-- Puissant Twilight Opal -- 53973
 	self:addTradeSkill(RecipeDB,53973,390,40033,3,25229,nil,2)

@@ -744,7 +744,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dark Iron Pulverizer -- 15292
 	self:addTradeSkill(RecipeDB,15292,265,11608,3,2018,nil,0)
 	self:addTradeFlags(RecipeDB,15292,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
-	self:addTradeAcquire(RecipeDB,15292,3,8921,3,8926,3,8927,3,8928,3,9028)
+	self:addTradeAcquire(RecipeDB,15292,3,9028)
 
 	-- Dark Iron Sunderer -- 15294
 	self:addTradeSkill(RecipeDB,15294,275,11607,3,2018,nil,0)
@@ -754,7 +754,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dark Iron Plate -- 15296
 	self:addTradeSkill(RecipeDB,15296,285,11604,3,2018,nil,0)
 	self:addTradeFlags(RecipeDB,15296,1,2,5,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,15296,3,9543,3,10043)
+	self:addTradeAcquire(RecipeDB,15296,3,9543)
 
 	-- Glinting Steel Dagger -- 15972
 	self:addTradeSkill(RecipeDB,15972,180,12259,1,2018,nil,0)
@@ -873,7 +873,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Radiant Circlet -- 16659
 	self:addTradeSkill(RecipeDB,16659,295,12417,2,2018,nil,0)
 	self:addTradeFlags(RecipeDB,16659,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,16659,3,6553,3,10184)
+	self:addTradeAcquire(RecipeDB,16659,7,2)
 
 	-- Dawnbringer Shoulders -- 16660
 	self:addTradeSkill(RecipeDB,16660,290,12625,3,2018,nil,0)
@@ -913,7 +913,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Whitesoul Helm -- 16724
 	self:addTradeSkill(RecipeDB,16724,300,12633,3,2018,nil,0)
 	self:addTradeFlags(RecipeDB,16724,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
-	self:addTradeAcquire(RecipeDB,16724,3,8899,3,10184,3,11459)
+	self:addTradeAcquire(RecipeDB,16724,7,2)
 
 	-- Radiant Leggings -- 16725
 	self:addTradeSkill(RecipeDB,16725,300,12420,2,2018,nil,0)
@@ -1518,7 +1518,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Felfury Gauntlets -- 29658
 	self:addTradeSkill(RecipeDB,29658,365,23531,4,2018,nil,1)
 	self:addTradeFlags(RecipeDB,29658,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,29658,3,21246,3,21911)
+	self:addTradeAcquire(RecipeDB,29658,7,2)
 
 	-- Steelgrip Gauntlets -- 29662
 	self:addTradeSkill(RecipeDB,29662,365,23533,4,2018,nil,1)

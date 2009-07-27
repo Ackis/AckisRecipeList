@@ -725,7 +725,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Arcanite Dragonling -- 19830
 	self:addTradeSkill(RecipeDB,19830,300,16022,2,4036,nil,0)
 	self:addTradeFlags(RecipeDB,19830,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,63)
-	self:addTradeAcquire(RecipeDB,19830,3,7435,3,7436,3,7437,3,10660)
+	self:addTradeAcquire(RecipeDB,19830,3,7437)
 
 	-- Arcane Bomb -- 19831
 	self:addTradeSkill(RecipeDB,19831,300,16040,2,4036,nil,0)
