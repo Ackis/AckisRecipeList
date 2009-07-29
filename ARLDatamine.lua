@@ -1574,7 +1574,7 @@ do
 				tinsert(missing_flags,"4 (Vendor)")
 			end
 
-			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Wintergrasp Fortress")) and (not flags[9])) then
+			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Halaa")) and (not flags[9])) then
 				tinsert(missing_flags,"9 (PvP)")
 			elseif (flags[9]) then
 				tinsert(extra_flags,"9 (PvP)")
