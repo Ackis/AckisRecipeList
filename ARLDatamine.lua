@@ -1022,7 +1022,7 @@ function addon:ScanVendor()
 					-- Do the scan if we have the spell ID
 					if (spellid) then
 						added = true
-						local ttscantext = addon:TooltipScanRecipe(spellid,false,true)
+						local ttscantext = addon:TooltipScanRecipe(spellid,true,true)
 						if (ttscantext) then
 							tinsert(t,ttscantext)
 						end

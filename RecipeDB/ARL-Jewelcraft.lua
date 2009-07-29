@@ -1738,7 +1738,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Stormy Sky Sapphire -- 53955 
 	self:addTradeSkill(RecipeDB,53955,390,40011,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53955,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeFlags(RecipeDB,53955,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
 	self:addTradeAcquire(RecipeDB,53955,2,30489,2,32294,2,32296)
 
 	-- Brilliant Autumn's Glow -- 53956
@@ -1763,7 +1763,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Mystic Autumn's Glow -- 53960
 	self:addTradeSkill(RecipeDB,53960,390,40016,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53960,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53960,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53960,2,30489,2,32294,2,32296)
 
 	-- Quick Autumn's Glow -- 53961
@@ -1798,7 +1798,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Mysterious Twilight Opal
 	self:addTradeSkill(RecipeDB,53968,390,40028,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53968,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeFlags(RecipeDB,53968,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53968,2,30489,2,32294,2,32296)
 
 	-- Balanced Twilight Opal -- 53969
@@ -1848,7 +1848,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Resplendent Monarch Topaz -- 53978
 	self:addTradeSkill(RecipeDB,53978,390,40040,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53978,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53978,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53978,2,30489,2,32294,2,32296)
 
 	-- Deadly Monarch Topaz -- 53979
@@ -1863,7 +1863,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Lucent Monarch Topaz -- 53981
 	self:addTradeSkill(RecipeDB,53981,390,40045,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53981,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53981,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53981,2,30489,2,32294,2,32296)
 
 	-- Deft Monarch Topaz -- 53982
@@ -1888,7 +1888,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Durable Monarch Topaz -- 53986
 	self:addTradeSkill(RecipeDB,53986,390,40050,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53986,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53986,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53986,2,30489,2,32294,2,32296)
 
 	-- Reckless Monarch Topaz -- 53987
@@ -1908,7 +1908,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Empowered Monarch Topaz -- 53990
 	self:addTradeSkill(RecipeDB,53990,390,40054,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53990,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53990,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53990,2,30489,2,32294,2,32296)
 
 	-- Stark Monarch Topaz -- 53991
@@ -1953,7 +1953,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Steady Forest Emerald -- 54000
 	self:addTradeSkill(RecipeDB,54000,390,40090,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54000,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54000,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,54000,2,30489,2,32294,2,32296)
 
 	-- Forceful Forest Emerald -- 54001
@@ -1978,7 +1978,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Turbid Forest Emerald -- 54005
 	self:addTradeSkill(RecipeDB,54005,390,40102,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54005,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54005,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,54005,2,30489,2,32294,2,32296)
 
 	-- Intricate Forest Emerald -- 54006
@@ -2003,7 +2003,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Opaque Forest Emerald -- 54010
 	self:addTradeSkill(RecipeDB,54010,390,40103,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54010,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54010,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,54010,2,30489,2,32294,2,32296)
 
 	-- Energized Forest Emerald -- 54011
@@ -2018,12 +2018,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Tense Forest Emerald -- 54013 
 	self:addTradeSkill(RecipeDB,54013,390,40101,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54013,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeFlags(RecipeDB,54013,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
 	self:addTradeAcquire(RecipeDB,54013,2,30489,2,32294,2,32296)
 
 	-- Shattered Forest Emerald -- 54014 
 	self:addTradeSkill(RecipeDB,54014,390,40106,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54014,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,54)
+	self:addTradeFlags(RecipeDB,54014,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
 	self:addTradeAcquire(RecipeDB,54014,2,30489,2,32294,2,32296)
 
 	-- Precise Bloodstone -- 54017
@@ -2053,12 +2053,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Forlorn Skyflare Diamond -- 55387
 	self:addTradeSkill(RecipeDB,55387,420,41378,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55387,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55387,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,55387,2,30489,2,32294,2,32296)
 
 	-- Impassive Skyflare Diamond -- 55388
 	self:addTradeSkill(RecipeDB,55388,420,41379,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55388,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55388,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55388,2,30489,2,32294,2,32296)
 
 	-- Chaotic Skyflare Diamond -- 55389
@@ -2078,7 +2078,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Enigmatic Skyflare Diamond -- 55393
 	self:addTradeSkill(RecipeDB,55393,420,41335,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55393,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55393,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55393,2,30489,2,32294,2,32296)
 
 	-- Swift Skyflare Diamond -- 55394
