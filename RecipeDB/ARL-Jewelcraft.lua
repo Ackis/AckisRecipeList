@@ -293,7 +293,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Black Diamond Crab -- 26912
 	self:addTradeSkill(RecipeDB,26912,300,21784,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26912,1,2,5,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
+	self:addTradeFlags(RecipeDB,26912,1,2,5,11,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
 	self:addTradeAcquire(RecipeDB,26912,3,9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
@@ -573,7 +573,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Coronet of Verdant Flame -- 31077
 	self:addTradeSkill(RecipeDB,31077,370,24122,4,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31077,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,31077,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,31077,3,18422)
 
 	-- Circlet of Arcane Might -- 31078
@@ -1838,7 +1838,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Etched Monarch Topaz -- 53976
 	self:addTradeSkill(RecipeDB,53976,380,40038,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53976,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,53976,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,53976,7,3)
 
 	-- Champion's Monarch Topaz -- 53977
@@ -1933,7 +1933,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Timeless Forest Emerald -- 53995
 	self:addTradeSkill(RecipeDB,53995,390,40085,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53995,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53995,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53995,3,26632)
 
 	-- Jagged Forest Emerald -- 53996
@@ -2033,7 +2033,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Fierce Monarch Topaz -- 54019
 	self:addTradeSkill(RecipeDB,54019,390,40041,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54019,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54019,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,54019,3,23954)
 
 	-- Resolute Monarch Topaz -- 54023
@@ -2103,7 +2103,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Eternal Earthsiege Diamond -- 55398
 	self:addTradeSkill(RecipeDB,55398,420,41396,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55398,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
+	self:addTradeFlags(RecipeDB,55398,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,52)
 	self:addTradeAcquire(RecipeDB,55398,3,28923)
 
 	-- Powerful Earthsiege Diamond -- 55399
@@ -2118,7 +2118,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Austere Earthsiege Diamond -- 55401
 	self:addTradeSkill(RecipeDB,55401,420,41380,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55401,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeFlags(RecipeDB,55401,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,55401,3,26861)
 
 	-- Persistent Earthsiege Diamond -- 55402
