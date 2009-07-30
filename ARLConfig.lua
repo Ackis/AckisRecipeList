@@ -274,7 +274,7 @@ local function giveFilter()
 							get		= function() return addon.db.profile.filters.obtain.vendor end,
 							set		= function() addon.db.profile.filters.obtain.vendor = not addon.db.profile.filters.obtain.vendor end,
 						},
-						PVP = {
+						pvp = {
 							order	= 9,
 							type	= "toggle",
 							name	= L["PVP"],

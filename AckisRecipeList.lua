@@ -1288,7 +1288,7 @@ do
 		end
 
 		-- Display PVP recipes
-		if (obtaindb.PVP == true) and (flags[9] == true) then
+		if (obtaindb.pvp == true) and (flags[9] == true) then
 			return true
 		end
 
