@@ -562,7 +562,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Crimson Silk Gloves -- 8804
 	self:addTradeSkill(RecipeDB,8804,210,7064,1,3908,nil,0)
 	self:addTradeFlags(RecipeDB,8804,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,8804,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636)
+	self:addTradeAcquire(RecipeDB,8804,1,1346,1,2399,1,4576,1,11052,1,11557,1,18749,1,18772,1,28699,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636,1,27001)
 
 	-- Simple Linen Pants -- 12044
 	self:addTradeSkill(RecipeDB,12044,1,10045,1,3908,nil,0)
