@@ -2454,18 +2454,15 @@ function addon.RecipeItem_OnClick(button)
 	-- Don't do anything if they've clicked on an empty button
 	if not clickedIndex or (clickedIndex == 0) then return end
 
-	local isRecipe = DisplayStrings[clickedIndex].IsRecipe
-	local isExpanded = DisplayStrings[clickedIndex].IsExpanded
-	local dString = DisplayStrings[clickedIndex].String
-	local clickedSpellIndex = DisplayStrings[clickedIndex].sID
+	local clicked_line = DisplayStrings[clickedIndex]
 	local traverseIndex = 0
 
 	-- First, check if this is a "modified" click, and react appropriately
 	if IsModifierKeyDown() then
 		if IsControlKeyDown() and IsShiftKeyDown() then
-			addon:SetupMap(clickedSpellIndex)
+			addon:SetupMap(clicked_line.sID)
 		elseif IsShiftKeyDown() then
-			local itemID = recipeDB[clickedSpellIndex]["ItemID"]
+			local itemID = recipeDB[clicked_line.sID]["ItemID"]
 			if itemID then
 				local _, itemLink = GetItemInfo(itemID)
 
@@ -2478,18 +2475,18 @@ function addon.RecipeItem_OnClick(button)
 				addon:Print(L["NoItemLink"])
 			end
 		elseif IsControlKeyDown() then
-			ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
+			ChatFrameEditBox:Insert(recipeDB[clicked_line.sID]["RecipeLink"])
 		elseif IsAltKeyDown() then
 			-- Code needed here to insert this item into the "Ignore List"
-			addon:ToggleExcludeRecipe(clickedSpellIndex)
+			addon:ToggleExcludeRecipe(clicked_line.sID)
 			ReDisplay()
 		end
-	elseif isRecipe then
+	elseif clicked_line.IsRecipe then
 		-- three possibilities here (all with no modifiers)
 		-- 1) We clicked on the recipe button on a closed recipe
 		-- 2) We clicked on the recipe button of an open recipe
 		-- 3) we clicked on the expanded text of an open recipe
-		if isExpanded then
+		if clicked_line.IsExpanded then
 			traverseIndex = clickedIndex + 1
 
 			-- get rid of our expanded lines
@@ -2500,10 +2497,10 @@ function addon.RecipeItem_OnClick(button)
 					break
 				end
 			end
-			DisplayStrings[clickedIndex].IsExpanded = false
+			clicked_line.IsExpanded = false
 		else
 			expandEntry(clickedIndex)
-			DisplayStrings[clickedIndex].IsExpanded = true
+			clicked_line.IsExpanded = true
 		end
 	else
 		-- this inherently implies that we're on an expanded recipe
