@@ -2165,29 +2165,28 @@ local function expandEntry(dsIndex)
 	local filterDB = addon.db.profile.filters
 	local obtainDB = filterDB.obtain
 	local recipeIndex = DisplayStrings[dsIndex].sID
+	local pad = "  "
 
 	dsIndex = dsIndex + 1
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-		local pad = "  "
-		local t
+		-- Initialize the first line here, since every type below will have one.
+		local t = AcquireTable()
+		t.IsRecipe = false
+		t.sID = recipeIndex
+		t.IsExpanded = true
 
 		if (v["Type"] == ACQUIRE_TRAINER) and obtainDB.trainer then
 			local trainer = trainerDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
-				local tStr = addon:Trainer(L["Trainer"] .. " : ")
 				local nStr = ""
 				local cStr = ""
 
 				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
 					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
 				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
 
 				if (trainer["Faction"] == factionHorde) then
 					nStr = addon:Horde(trainer["Name"])
@@ -2196,7 +2195,7 @@ local function expandEntry(dsIndex)
 				else
 					nStr = addon:Neutral(trainer["Name"])
 				end
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -2205,35 +2204,30 @@ local function expandEntry(dsIndex)
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
-
 				t.String = pad .. pad .. trainer["Location"] .. " " .. cStr
+
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
 		elseif (v["Type"] == ACQUIRE_VENDOR) and obtainDB.vendor then
-			local vndr = vendorDB[v["ID"]]
+			local vendor = vendorDB[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, vndr["Faction"]) then
-				local tStr = addon:Vendor(L["Vendor"] .. " : ")
-				local nStr = ""
+			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
 				local cStr = ""
 
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
 				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
+				local nStr = ""
 
-				if (vndr["Faction"] == factionHorde) then
-					nStr = addon:Horde(vndr["Name"])
-				elseif (vndr["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(vndr["Name"])
+				if (vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(vendor["Name"])
+				elseif (vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(vendor["Name"])
 				else
-					nStr = addon:Neutral(vndr["Name"])
+					nStr = addon:Neutral(vendor["Name"])
 				end
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -2242,28 +2236,19 @@ local function expandEntry(dsIndex)
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
+				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
 
-				t.String = pad .. pad .. vndr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
 		elseif (v["Type"] == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
-
-			local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
-			local nStr = ""
 			local cStr = ""
 
 			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
 				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
 			end
-			t = AcquireTable()
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			nStr = addon:Red(mob["Name"])
-			t.String = pad .. tStr .. nStr
+			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
@@ -2272,56 +2257,44 @@ local function expandEntry(dsIndex)
 			t.IsRecipe = false
 			t.sID = recipeIndex
 			t.IsExpanded = true
-
 			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
+
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif (v["Type"] == ACQUIRE_QUEST) and obtainDB.quest then
-			local qst = questDB[v["ID"]]
+			local quest = questDB[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, qst["Faction"]) then
-				local tStr = addon:Quest(L["Quest"] .. " : ")
+			if CheckDisplayFaction(filterDB, quest["Faction"]) then
 				local nStr = ""
-				local cStr = ""
 
-				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				if (qst["Faction"] == factionHorde) then
-					nStr = addon:Horde(qst["Name"])
-				elseif (qst["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(qst["Name"])
+				if (quest["Faction"] == factionHorde) then
+					nStr = addon:Horde(quest["Name"])
+				elseif (quest["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(quest["Name"])
 				else
-					nStr = addon:Neutral(qst["Name"])
+					nStr = addon:Neutral(quest["Name"])
 				end
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+
+				local cStr = ""
+
+				if (quest["Coordx"] ~= 0) and (quest["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
-				t.String = pad .. pad .. qst["Location"] .. " " .. cStr
+				t.String = pad .. pad .. quest["Location"] .. " " .. cStr
+
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
 		elseif (v["Type"] == ACQUIRE_SEASONAL) and obtainDB.seasonal then
-			local ssnname = seasonDB[v["ID"]]["Name"]
-
-			t = AcquireTable()
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			local tStr = addon:Season(seasonal .. " : " .. ssnname)
-
-			t.String = pad .. tStr
+			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -2329,31 +2302,10 @@ local function expandEntry(dsIndex)
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 			-- RepVendor - VendorID
-			-- Rep: RepName
-			--   RepLevel: RepVndrName
-			--     RepVndrLoc (Cx,Cy)
+			local rep_vendor = vendorDB[v["RepVendor"]]
 
-			local repfac = repDB[v["ID"]]
-			local repname = repfac["Name"] -- name
-			local rplvl = v["RepLevel"]
-			local repvndr = vendorDB[v["RepVendor"]]
-
-			if CheckDisplayFaction(filterDB, repvndr["Faction"]) then
-				-- properly colourize
-				local tStr = addon:Rep(L["Reputation"] .. " : ")
-				local nStr = ""
-				local rStr = ""
-				local cStr = ""
-
-				if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				t.String = pad .. tStr .. repname
+			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
+				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. repDB[v["ID"]]["Name"]
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
@@ -2366,65 +2318,51 @@ local function expandEntry(dsIndex)
 						[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
 					}
 				end
-				rStr = faction_strings[rplvl]
+				local nStr = ""
 
-				if (repvndr["Faction"] == factionHorde) then
-					nStr = addon:Horde(repvndr["Name"])
-				elseif (repvndr["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(repvndr["Name"])
+				if (rep_vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(rep_vendor["Name"])
+				elseif (rep_vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(rep_vendor["Name"])
 				else
-					nStr = addon:Neutral(repvndr["Name"])
+					nStr = addon:Neutral(rep_vendor["Name"])
 				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
 
-				t.String = pad .. pad .. rStr .. nStr 
+				t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
+				local cStr = ""
+
+				if (rep_vendor["Coordx"] ~= 0) and (rep_vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
+				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
+				t.String = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
 
-				t.String = pad .. pad .. pad .. repvndr["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
 		elseif (v["Type"] == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
-			t = AcquireTable()
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif (v["Type"] == ACQUIRE_CUSTOM) then
-			local customname = customDB[v["ID"]]["Name"]
-
-			t = AcquireTable()
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			local tStr = addon:Normal(customname)
-
-			t.String = pad .. tStr
+			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		else	-- We have an acquire type we aren't sure how to deal with.
-			t = AcquireTable()
-			t.IsRecipe = false
-			t.sID = recipeIndex
-			t.IsExpanded = true
-
-			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
+--			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
+--			tinsert(DisplayStrings, dsIndex, t)
+--			dsIndex = dsIndex + 1
 		end
 	end
 	return dsIndex
