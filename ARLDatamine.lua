@@ -1569,14 +1569,17 @@ do
 		twipe(missing_flags)
 		twipe(extra_flags)
 
+		-- If we're a vendor scan, do some extra checks
 		if (scan_data.is_vendor) then
+			-- Check to see if the vendor flag is set
 			if (not flags[4]) then
 				tinsert(missing_flags,"4 (Vendor)")
 			end
 
+			-- Check to see if we're in a PVP zone
 			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Halaa")) and (not flags[9])) then
 				tinsert(missing_flags,"9 (PvP)")
-			elseif (flags[9]) then
+			elseif ((flags[9]) and not ((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Halaa"))) then
 				tinsert(extra_flags,"9 (PvP)")
 			end
 		end
