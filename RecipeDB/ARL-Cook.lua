@@ -222,7 +222,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7213,2,2664)
 
 	-- Brilliant Smallfish -- 7751
-	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550,nil,0)
+	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550,nil,0,1,45,65,85)
 	self:addTradeFlags(RecipeDB,7751,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,5494,2,5940,2,8508)
 
@@ -542,7 +542,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,36210,2,18382)
 
 	-- Spice Bread -- 37836
-	self:addTradeSkill(RecipeDB,37836,1,30816,1,2550,nil,1)
+	self:addTradeSkill(RecipeDB,37836,1,30816,1,2550,nil,1,1,30,35,40)
 	self:addTradeFlags(RecipeDB,37836,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,37836,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 

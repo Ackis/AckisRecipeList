@@ -297,7 +297,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Goblin Rocket Fuel -- 11456
 	self:addTradeSkill(RecipeDB,11456,210,9061,1,51304,nil,0,210,225,245,265)
-	self:addTradeFlags(RecipeDB,11456,1,2,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,11456,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,11456,8,9)
 
 	-- Superior Healing Potion -- 11457
