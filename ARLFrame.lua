@@ -304,12 +304,13 @@ local factionNeutral	= BFAC["Neutral"]
 -------------------------------------------------------------------------------
 local ACQUIRE_TRAINER		= 1
 local ACQUIRE_VENDOR		= 2
-local ACQUIRE_MOB		= 3
-local ACQUIRE_QUEST		= 4
+local ACQUIRE_MOB			= 3
+local ACQUIRE_QUEST			= 4
 local ACQUIRE_SEASONAL		= 5
 local ACQUIRE_REPUTATION	= 6
 local ACQUIRE_WORLD_DROP	= 7
 local ACQUIRE_CUSTOM		= 8
+local ACQUIRE_PVP			= 9
 
 ------------------------------------------------------------------------------
 -- Description: Function to determine if the player has an appropiate level of faction.
@@ -1054,7 +1055,48 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
+		elseif (v["Type"] == ACQUIRE_PVP) then
+			-- Vendor:					VendorName
+			-- VendorZone				VendorCoords
+			local vndr = vendorDB[v["ID"]]
+			local cStr = ""
 
+			clr1 = addon:hexcolor("VENDOR")
+			-- Don't display vendors of opposite faction
+			local displaytt = false
+			local faction
+
+			if (vndr["Faction"] == factionHorde) then
+				clr2 = addon:hexcolor("HORDE")
+				if (playerFaction == factionHorde) then
+					displaytt = true
+				else
+					faction = factionHorde
+				end
+			elseif (vndr["Faction"] == factionAlliance) then
+				clr2 = addon:hexcolor("ALLIANCE")
+				if (playerFaction == factionAlliance) then
+					displaytt = true
+				else
+					faction = factionAlliance
+				end
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+				displaytt = true
+			end
+
+			if (displaytt) then
+				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+				end
+
+				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+			elseif faction then
+				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
+			end
 		else	-- Unhandled
 			ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
 		end
@@ -2359,10 +2401,42 @@ local function expandEntry(dsIndex)
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+		elseif (v["Type"] == ACQUIRE_PVP) and obtainDB.pvp then
+			local vendor = vendorDB[v["ID"]]
+
+			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
+				local cStr = ""
+
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+				end
+				local nStr = ""
+
+				if (vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(vendor["Name"])
+				elseif (vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(vendor["Name"])
+				else
+					nStr = addon:Neutral(vendor["Name"])
+				end
+				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
+				t = AcquireTable()
+				t.IsRecipe = false
+				t.sID = recipeIndex
+				t.IsExpanded = true
+				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			end
 		else	-- We have an acquire type we aren't sure how to deal with.
---			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
---			tinsert(DisplayStrings, dsIndex, t)
---			dsIndex = dsIndex + 1
+			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
 		end
 	end
 	return dsIndex
