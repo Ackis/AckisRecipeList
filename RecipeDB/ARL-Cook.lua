@@ -429,7 +429,7 @@ function addon:InitCooking(RecipeDB)
 	-- Smoked Desert Dumplings -- 24801
 	self:addTradeSkill(RecipeDB,24801,285,20452,1,2550,nil,0)
 	self:addTradeFlags(RecipeDB,24801,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,24801,4,8307)
+	self:addTradeAcquire(RecipeDB,24801,4,8313)
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	self:addTradeSkill(RecipeDB,25659,300,21023,4,2550,nil,0)
