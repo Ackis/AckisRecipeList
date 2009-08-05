@@ -2729,12 +2729,12 @@ function addon:InitJewelcrafting(RecipeDB)
 		self:addTradeSkill(RecipeDB,66437,450,40172,2,25229,nil,2,450,450,450,450)
 		self:addTradeFlags(RecipeDB,66437,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 		self:addTradeAcquire(RecipeDB,66437,2,28721,2,33602)
-
+--[[
 		-- Turbid Eye of Zul -- 66455
 		self:addTradeSkill(RecipeDB,66455,450,40173,2,25229,nil,2,450,450,450,450)
 		self:addTradeFlags(RecipeDB,66455,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 		self:addTradeAcquire(RecipeDB,66455,2,28721,2,33602)
-
+]]--
 		-- Intricate Eye of Zul -- 66440
 		self:addTradeSkill(RecipeDB,66440,450,40174,2,25229,nil,2,450,450,450,450)
 		self:addTradeFlags(RecipeDB,66440,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
@@ -2815,7 +2815,7 @@ function addon:InitJewelcrafting(RecipeDB)
 		self:addTradeFlags(RecipeDB,66433,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 		self:addTradeAcquire(RecipeDB,66433,2,28721,2,33602)
 
-		return 554
+		return 553
 
 	else
 
