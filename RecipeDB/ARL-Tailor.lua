@@ -2097,7 +2097,7 @@ function addon:InitTailoring(RecipeDB)
 
 		-- Merlin's Robe -- 67066
 		self:addTradeSkill(RecipeDB,67066,450,47603,3,3908,nil,2)
-		self:addTradeFlags(RecipeDB,670661,1,2)
+		self:addTradeFlags(RecipeDB,67066,1,2)
 		--self:addTradeAcquire(RecipeDB,67066
 
 		-- Royal Moonshroud Bracers -- 67065
