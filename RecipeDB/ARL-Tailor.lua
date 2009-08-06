@@ -2091,26 +2091,46 @@ function addon:InitTailoring(RecipeDB)
 	if (toc == 30200) then
 
 		-- Bejeweled Wizard's Bracers -- 67079
-		self:addTradeSkill(RecipeDB,67079,450,47585,3,3908,nil,2)
-		self:addTradeFlags(RecipeDB,67079,1,2)
+		self:addTradeSkill(RecipeDB,67079,450,47585,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67079,1)
 		--self:addTradeAcquire(RecipeDB,67079
 
+		-- Bejeweled Wizard's Bracers -- 67145
+		self:addTradeSkill(RecipeDB,67145,450,47586,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67145,2)
+		--self:addTradeAcquire(RecipeDB,67145
+
 		-- Merlin's Robe -- 67066
-		self:addTradeSkill(RecipeDB,67066,450,47603,3,3908,nil,2)
-		self:addTradeFlags(RecipeDB,67066,1,2)
+		self:addTradeSkill(RecipeDB,67066,450,47603,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67066,1)
 		--self:addTradeAcquire(RecipeDB,67066
 
+		-- Merlin's Robe -- 67146
+		self:addTradeSkill(RecipeDB,67146,450,47604,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67146,2)
+		--self:addTradeAcquire(RecipeDB,67146
+
 		-- Royal Moonshroud Bracers -- 67065
-		self:addTradeSkill(RecipeDB,67065,450,47587,3,3908,nil,2)
-		self:addTradeFlags(RecipeDB,67065,1,2)
+		self:addTradeSkill(RecipeDB,67065,450,47587,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67065,2)
 		--self:addTradeAcquire(RecipeDB,67065
 
+		-- Royal Moonshroud Bracers -- 67147
+		self:addTradeSkill(RecipeDB,67147,450,47588,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67147,2)
+		--self:addTradeAcquire(RecipeDB,
+
 		-- Royal Moonshroud Robe -- 67144
-		self:addTradeSkill(RecipeDB,67144,450,47606,3,3908,nil,2)
-		self:addTradeFlags(RecipeDB,67144,1,2)
+		self:addTradeSkill(RecipeDB,67064,450,47605,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67144,1)
 		--self:addTradeAcquire(RecipeDB,67144
+
+		-- Royal Moonshroud Robe -- 67064
+		self:addTradeSkill(RecipeDB,67064,450,47606,3,3908,nil,2,460,460,467,475)
+		self:addTradeFlags(RecipeDB,67064,2)
+		--self:addTradeAcquire(RecipeDB,67064
 	
-		return 405
+		return 409
 
 	else
 
