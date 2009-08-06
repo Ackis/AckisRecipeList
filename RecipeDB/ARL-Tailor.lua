@@ -2121,7 +2121,7 @@ function addon:InitTailoring(RecipeDB)
 		--self:addTradeAcquire(RecipeDB,
 
 		-- Royal Moonshroud Robe -- 67144
-		self:addTradeSkill(RecipeDB,67064,450,47605,3,3908,nil,2,460,460,467,475)
+		self:addTradeSkill(RecipeDB,67144,450,47605,3,3908,nil,2,460,460,467,475)
 		self:addTradeFlags(RecipeDB,67144,1)
 		--self:addTradeAcquire(RecipeDB,67144
 
