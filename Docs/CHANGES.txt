@@ -1,5 +1,11 @@
 ==ARL Changes
 
+===3.2 Release
+*Updated recipes for 3.2
+*Trainer updates
+*Recipes now have flags to determine which expansion they come from
+*Added leveling info to many recipes
+
 ===RC10
 *Significantly reduced memory usage over time.
 *Database updates (Flags, acquire, etc)
