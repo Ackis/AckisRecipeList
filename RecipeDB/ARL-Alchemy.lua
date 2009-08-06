@@ -1302,7 +1302,7 @@ function addon:InitAlchemy(RecipeDB)
 		self:addTradeAcquire(RecipeDB,66662,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
 		-- Transmute: Majestic Zircon -- 66663
-		self:addTradeSkill(RecipeDB,66663,440,36925,1,51304,nil,2,440,440,452,465)
+		self:addTradeSkill(RecipeDB,66663,450,36925,1,51304,nil,2,450,450,450,450)
 		self:addTradeFlags(RecipeDB,66663,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 		self:addTradeAcquire(RecipeDB,66663,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
