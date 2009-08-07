@@ -1589,8 +1589,13 @@ function addon:InitEngineering(RecipeDB)
 		self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
 		self:addTradeAcquire(RecipeDB,67920,1,25277)
 		
+		--Mind Amplification Disc -- 67839
+		self:addTradeSkill(RecipeDB,67839,410,nil,1,4036,nil,2,410,410,415,420)
+		self:addTradeFlags(RecipeDB,67839,1,2,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeAcquire(RecipeDB,67839,1,25277)
+		
 
-		return 294
+		return 295
 
 	else
 
