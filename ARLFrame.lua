@@ -2223,11 +2223,6 @@ local function expandEntry(dsIndex)
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
 				local nStr = ""
-				local cStr = ""
-
-				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
-				end
 
 				if (trainer["Faction"] == factionHorde) then
 					nStr = addon:Horde(trainer["Name"])
@@ -2241,6 +2236,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
+				local cStr = ""
+
+				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
+				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
@@ -2254,11 +2254,6 @@ local function expandEntry(dsIndex)
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
-				local cStr = ""
-
-				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
-				end
 				local nStr = ""
 
 				if (vendor["Faction"] == factionHorde) then
@@ -2273,6 +2268,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
+				local cStr = ""
+
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
@@ -2284,16 +2284,16 @@ local function expandEntry(dsIndex)
 			end
 		elseif (v["Type"] == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
-			local cStr = ""
-
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
-			end
 			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 
+			local cStr = ""
+
+			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+			end
 			t = AcquireTable()
 			t.IsRecipe = false
 			t.sID = recipeIndex
