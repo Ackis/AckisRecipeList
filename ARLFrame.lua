@@ -28,7 +28,6 @@ local MODNAME	= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
 
@@ -3814,7 +3813,7 @@ function InitializeFrame()
 	ARL_ClassButton:SetScript("OnClick",
 				  function(self,button)
 					  local filterdb = addon.db.profile.filters
-					  if button == "LeftButton" then
+					  if (button == "LeftButton") then
 						  -- Reset all classes to true
 						  filterdb.classes.deathknight = true
 						  filterdb.classes.druid = true
@@ -3826,7 +3825,7 @@ function InitializeFrame()
 						  filterdb.classes.shaman = true
 						  filterdb.classes.warlock = true
 						  filterdb.classes.warrior = true
-					  elseif button == "RightButton" then
+					  elseif (button == "RightButton") then
 						  -- Reset all classes to false
 						  filterdb.classes.deathknight = false
 						  filterdb.classes.druid = false
@@ -3858,45 +3857,50 @@ function InitializeFrame()
 					  -- Use new filters
 					  ReDisplay()
 				  end)
+
+	-- Get the localized class names
+	local BCM = LOCALIZED_CLASS_NAMES_MALE
+	--local BCF = LOCALIZED_CLASS_NAMES_FEMALE
+
 	local ARL_DeathKnightCB = CreateFrame("CheckButton", "ARL_DeathKnightCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_DeathKnightCB, addon.Fly_General, L["CLASS_DESC"], 87, 7, 1, 0)
-	ARL_DeathKnightCBText:SetText(BC["Deathknight"])
+	ARL_DeathKnightCBText:SetText(BCM["DEATHKNIGHT"])
 
 	local ARL_DruidCB = CreateFrame("CheckButton", "ARL_DruidCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_DruidCB, addon.Fly_General, L["CLASS_DESC"], 88, 8, 1, 0)
-	ARL_DruidCBText:SetText(BC["Druid"])
+	ARL_DruidCBText:SetText(BCM["DRUID"])
 
 	local ARL_HunterCB = CreateFrame("CheckButton", "ARL_HunterCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_HunterCB, addon.Fly_General, L["CLASS_DESC"], 19, 9, 1, 0)
-	ARL_HunterCBText:SetText(BC["Hunter"])
+	ARL_HunterCBText:SetText(BCM["HUNTER"])
 
 	local ARL_MageCB = CreateFrame("CheckButton", "ARL_MageCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_MageCB, addon.Fly_General, L["CLASS_DESC"], 20, 10, 1, 0)
-	ARL_MageCBText:SetText(BC["Mage"])
+	ARL_MageCBText:SetText(BCM["MAGE"])
 
 	local ARL_PaladinCB = CreateFrame("CheckButton", "ARL_PaladinCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_PaladinCB, addon.Fly_General, L["CLASS_DESC"], 25, 11, 1, 0)
-	ARL_PaladinCBText:SetText(BC["Paladin"])
+	ARL_PaladinCBText:SetText(BCM["PALADIN"])
 
 	local ARL_PriestCB = CreateFrame("CheckButton", "ARL_PriestCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_PriestCB, addon.Fly_General, L["CLASS_DESC"], 26, 12, 1, 0)
-	ARL_PriestCBText:SetText(BC["Priest"])
+	ARL_PriestCBText:SetText(BCM["PRIEST"])
 
 	local ARL_RogueCB = CreateFrame("CheckButton", "ARL_RogueCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_RogueCB, addon.Fly_General, L["CLASS_DESC"], 81, 13, 1, 0)
-	ARL_RogueCBText:SetText(BC["Rogue"])
+	ARL_RogueCBText:SetText(BCM["ROGUE"])
 
 	local ARL_ShamanCB = CreateFrame("CheckButton", "ARL_ShamanCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_ShamanCB, addon.Fly_General, L["CLASS_DESC"], 83, 14, 1, 0)
-	ARL_ShamanCBText:SetText(BC["Shaman"])
+	ARL_ShamanCBText:SetText(BCM["SHAMAN"])
 
 	local ARL_WarlockCB = CreateFrame("CheckButton", "ARL_WarlockCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_WarlockCB, addon.Fly_General, L["CLASS_DESC"], 78, 15, 1, 0)
-	ARL_WarlockCBText:SetText(BC["Warlock"])
+	ARL_WarlockCBText:SetText(BCM["WARLOCK"])
 
 	local ARL_WarriorCB = CreateFrame("CheckButton", "ARL_WarriorCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_WarriorCB, addon.Fly_General, L["CLASS_DESC"], 1, 16, 1, 0)
-	ARL_WarriorCBText:SetText(BC["Warrior"])
+	ARL_WarriorCBText:SetText(BCM["WARRIOR"])
 
 	addon.Fly_Obtain = CreateFrame("Frame", "ARL_Fly_Obtain", addon.Flyaway)
 	addon.Fly_Obtain:SetWidth(112)
