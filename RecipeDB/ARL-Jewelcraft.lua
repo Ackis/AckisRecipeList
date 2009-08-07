@@ -2815,7 +2815,12 @@ function addon:InitJewelcrafting(RecipeDB)
 		self:addTradeFlags(RecipeDB,66433,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 		self:addTradeAcquire(RecipeDB,66433,2,28721,2,33602)
 
-		return 554
+		-- Nightmare Tear -- 68253
+		self:addTradeSkill(RecipeDB,68253,450,49110,2,25229,nil,2,450,450,450,450)
+		self:addTradeFlags(RecipeDB,68253,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+		self:addTradeAcquire(RecipeDB,68253,2,28701)
+
+		return 555
 
 	else
 
