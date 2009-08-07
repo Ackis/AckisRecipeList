@@ -830,18 +830,19 @@ function addon:GenerateLinks()
 ]]--
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid (6)
-	bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking (30)
-	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
+	--bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking (30)
+	--bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
 	--bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW (87)
-	bitmap[51302] = string.rep("/",87)
-	bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
-	bitmap[51300] = string.rep("/",85) -- Blacksmithing (85)
-	bitmap[51309] = string.rep("/",71) -- Tailoring (71)
-	bitmap[51311] = string.rep("/",83) -- JC 83
-	bitmap[45363] = string.rep("/",74) -- Inscription (74)
+	--bitmap[51302] = string.rep("/",87)
+	--bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
+	--bitmap[51304] = string.rep("/",43) -- Alchemy (43)
+	--bitmap[51300] = string.rep("/",85) -- Blacksmithing (85)
+	--bitmap[51309] = string.rep("/",71) -- Tailoring (71)
+	--bitmap[51311] = string.rep("/",83) -- JC 83
+	--bitmap[45363] = string.rep("/",74) -- Inscription (74)
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
-	bitmap[51313] = string.rep("/",51) -- Enchanting (51)
+	--bitmap[51313] = string.rep("/",51) -- Enchanting (51)
 
 	for i in pairs(tradelist) do
 
@@ -860,7 +861,7 @@ function addon:GenerateLinks()
 		if (bitmap[tradelist[i]]) then
 			self:Print(tconcat(tradelink,""))
 		else
-			self:Print("I don't have the bitmap for " .. tradeName .. " yet.")
+			self:Print("I don't have the bitmap for " .. tradeName .. " yet (Professions were updated in 3.2.  If you want to help, talk to me on IRC.")
 		end
 		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(),"\124","\124\124"))
 	end
