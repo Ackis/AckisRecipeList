@@ -2384,7 +2384,18 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64053,350,45849,1,45357,nil,2)
 	self:addTradeFlags(RecipeDB,64053,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66)
 	self:addTradeAcquire(RecipeDB,64053,1,33603,1,28702,1,26977,1,26959,1,26995)
-
-	return 435
+	
+	--Glyph of Claw -- 67600
+	self:addTradeSkill(RecipeDB,67600,105,48720,1,45357,nil,2,105,105,110,115)
+	self:addTradeFlags(RecipeDB,67600,1,2,3,22,36,41)
+	self:addTradeAcquire(RecipeDB,67600,1,33603)
+	
+	--Glyph of Command -- 68166
+	self:addTradeSkill(RecipeDB,68166,355,49084,1,45357,nil,2,355,355,360,365)
+	self:addTradeFlags(RecipeDB,68166,1,2,3,30,36,41)
+	self:addTradeAcquire(RecipeDB,68166,1,33603)
+	
+	
+	return 437
 
 end
