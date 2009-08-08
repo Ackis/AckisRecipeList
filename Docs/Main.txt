@@ -1,10 +1,42 @@
-﻿Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
+﻿==Important Virus Announcement
+Some people are reporting that there is a malware warning with some virus scanners.  This is a false positive. I do not know why these scanners are picking it.  As you can see [[http://www.virustotal.com/analisis/822401bc55cb21e280bc527f66f12fb189c727ddb50d8170daad7527defccb90-1249613607 | here]] the zip is clean.  I've submitted the file to a few vendors to get this issue fixed and am looking at ways in code to fix it.
 
-YouTube video of ARL in action:
+This is a difference in the code from one version that works, to another version that causes the error:
+<<code diff>>
+Index: ARL-Engineer.lua
+===================================================================
+--- ARL-Engineer.lua (revision 2283)
++++ ARL-Engineer.lua (revision 2287)
+@@ -1575,11 +1575,22 @@
+if (toc == 30200) then
 
-<<youtube jZR5DLkRJBY>>
+-- Goblin Beam Welder -- 67326
+- self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2)
+- self:addTradeFlags(RecipeDB,67326,1,2)
+- --self:addTradeAcquire(RecipeDB,67326
++ self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2,415,415,420,425)
++ self:addTradeFlags(RecipeDB,67326,1,2,21,22,23,24,25,26,27,28,29,30)
++ self:addTradeAcquire(RecipeDB,67326,1,25277)
++
++ -- Jeeves -- 68067
++ self:addTradeSkill(RecipeDB,68067,450,49050,1,4036,nil,2,450,480,485,490)
++ self:addTradeFlags(RecipeDB,68067,1,2,21,22,23,24,25,26,27,28,29,30)
++ self:addTradeAcquire(RecipeDB,68067,7,2)
++
++ --Wormhole Generator -- 67920
++ self:addTradeSkill(RecipeDB,67920,450,48933,1,4036,nil,2,450,450,455,460)
++ self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
++ self:addTradeAcquire(RecipeDB,67920,1,25277)
++
+
+- return 292
++ return 294
+
+else
+<</code>>
 
 ==What it does
+Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
 
 {{arl:16}}
 
@@ -25,6 +57,11 @@ Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Func
 
 =====Traditional Chinese (zhTW)
 詳細的專業技能配方查詢插件。.
+
+=====Youtube Video
+YouTube video of ARL in action:
+
+<<youtube jZR5DLkRJBY>>
 
 ==Donations==
 I have setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
