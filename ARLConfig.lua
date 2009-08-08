@@ -28,7 +28,7 @@ local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BC				= LibStub("LibBabble-Class-3.0"):GetLookupTable()
+local LC				= LOCALIZED_CLASS_NAMES_MALE
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local AceConfig 		= LibStub("AceConfig-3.0")
@@ -131,7 +131,7 @@ local function giveFilter()
 						deathknight = {
 							order	= 8,
 							type	= "toggle",
-							name	= BC["Deathknight"],
+							name	= LC["DEATHKNIGHT"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.deathknight end,
 							set		= function() addon.db.profile.filters.classes.deathknight = not addon.db.profile.filters.classes.deathknight end,
@@ -139,7 +139,7 @@ local function giveFilter()
 						druid = {
 							order	= 9,
 							type	= "toggle",
-							name	= BC["Druid"],
+							name	= LC["DRUID"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.druid end,
 							set		= function() addon.db.profile.filters.classes.druid = not addon.db.profile.filters.classes.druid end,
@@ -147,7 +147,7 @@ local function giveFilter()
 						hunter = {
 							order	= 10,
 							type	= "toggle",
-							name	= BC["Hunter"],
+							name	= LC["HUNTER"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.hunter end,
 							set		= function() addon.db.profile.filters.classes.hunter = not addon.db.profile.filters.classes.hunter end,
@@ -155,7 +155,7 @@ local function giveFilter()
 						mage = {
 							order	= 11,
 							type	= "toggle",
-							name	= BC["Mage"],
+							name	= LC["MAGE"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.mage end,
 							set		= function() addon.db.profile.filters.classes.mage = not addon.db.profile.filters.classes.mage end,
@@ -163,7 +163,7 @@ local function giveFilter()
 						paladin = {
 							order	= 12,
 							type	= "toggle",
-							name	= BC["Paladin"],
+							name	= LC["PALADIN"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.paladin end,
 							set		= function() addon.db.profile.filters.classes.paladin = not addon.db.profile.filters.classes.paladin end,
@@ -171,7 +171,7 @@ local function giveFilter()
 						priest = {
 							order	= 13,
 							type	= "toggle",
-							name	= BC["Priest"],
+							name	= LC["PRIEST"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.priest end,
 							set		= function() addon.db.profile.filters.classes.priest = not addon.db.profile.filters.classes.priest end,
@@ -179,7 +179,7 @@ local function giveFilter()
 						rogue = {
 							order	= 14,
 							type	= "toggle",
-							name	= BC["Rogue"],
+							name	= LC["ROGUE"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.rogue end,
 							set		= function() addon.db.profile.filters.classes.rogue = not addon.db.profile.filters.classes.rogue end,
@@ -187,7 +187,7 @@ local function giveFilter()
 						shaman = {
 							order	= 15,
 							type	= "toggle",
-							name	= BC["Shaman"],
+							name	= LC["SHAMAN"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.shaman end,
 							set		= function() addon.db.profile.filters.classes.shaman = not addon.db.profile.filters.classes.shaman end,
@@ -195,7 +195,7 @@ local function giveFilter()
 						warlock = {
 							order	= 16,
 							type	= "toggle",
-							name	= BC["Warlock"],
+							name	= LC["WARLOCK"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.warlock end,
 							set		= function() addon.db.profile.filters.classes.warlock = not addon.db.profile.filters.classes.warlock end,
@@ -203,7 +203,7 @@ local function giveFilter()
 						warrior = {
 							order	= 17,
 							type	= "toggle",
-							name	= BC["Warrior"],
+							name	= LC["WARRIOR"],
 							desc	= L["CLASS_DESC"],
 							get		= function() return addon.db.profile.filters.classes.warrior end,
 							set		= function() addon.db.profile.filters.classes.warrior = not addon.db.profile.filters.classes.warrior end,
