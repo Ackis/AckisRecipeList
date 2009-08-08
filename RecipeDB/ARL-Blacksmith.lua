@@ -2553,46 +2553,36 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
 	self:addTradeAcquire(RecipeDB,63182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
-	local _,_,_,toc = GetBuildInfo()
-
-	if (toc == 30200) then
-
-		-- Breastplate of the White Knight -- 67091
-		self:addTradeSkill(RecipeDB,67091,450,47591,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67091,1,2)
-		--self:addTradeAcquire(RecipeDB,67091
-		
-		-- Saronite Swordbreakers -- 67131
-		self:addTradeSkill(RecipeDB,67131,450,47571,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67131,1,2)
-		--self:addTradeAcquire(RecipeDB,67131
-
-		-- Sunforged Bracers -- 67135
-		self:addTradeSkill(RecipeDB,67135,450,47575,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67135,1,2)
-		--self:addTradeAcquire(RecipeDB,67135
-
-		-- Sunforged Breastplate -- 67095
-		self:addTradeSkill(RecipeDB,67095,450,47593,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67095,1,2)
-		--self:addTradeAcquire(RecipeDB,67095
-
-		-- Titanium Razorplate -- 67132
-		self:addTradeSkill(RecipeDB,67132,450,47590,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67132,1,2)
-		--self:addTradeAcquire(RecipeDB,67132
-
-		-- Titanium Spikeguards -- 67133
-		self:addTradeSkill(RecipeDB,67133,450,47573,4,2018,nil,2)
-		self:addTradeFlags(RecipeDB,67133,1,2)
-		--self:addTradeAcquire(RecipeDB,67133
-
-		return 493
-
-	else
-
-		return 487
+	-- Breastplate of the White Knight -- 67091
+	self:addTradeSkill(RecipeDB,67091,450,47591,4,2018,nil,2)
+	self:addTradeFlags(RecipeDB,67091,1,2)
+	--self:addTradeAcquire(RecipeDB,67091
 	
-	end
+	-- Saronite Swordbreakers -- 67131
+	self:addTradeSkill(RecipeDB,67131,450,47571,4,2018,nil,2)
+	self:addTradeFlags(RecipeDB,67131,1,2)
+	--self:addTradeAcquire(RecipeDB,67131
+
+	-- Sunforged Bracers -- 67135
+	self:addTradeSkill(RecipeDB,67135,450,47575,4,2018,nil,2)
+	self:addTradeFlags(RecipeDB,67135,1,2)
+	--self:addTradeAcquire(RecipeDB,67135
+
+	-- Sunforged Breastplate -- 67095
+	self:addTradeSkill(RecipeDB,67095,450,47593,4,2018,nil,2,450,460,467,475)
+	self:addTradeFlags(RecipeDB,67095,1,2,10)
+	self:addTradeAcquire(RecipeDB,67095,8,42)
+
+    -- Titanium Razorplate -- 67132
+	self:addTradeSkill(RecipeDB,67132,450,47590,4,2018,nil,2)
+	self:addTradeFlags(RecipeDB,67132,1,2)
+	--self:addTradeAcquire(RecipeDB,67132
+
+	-- Titanium Spikeguards -- 67133
+	self:addTradeSkill(RecipeDB,67133,450,47573,4,2018,nil,2)
+	self:addTradeFlags(RecipeDB,67133,1,2)
+	--self:addTradeAcquire(RecipeDB,67133
+
+	return 493
 
 end

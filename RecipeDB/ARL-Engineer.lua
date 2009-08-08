@@ -1570,37 +1570,26 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697,1,16667,1,1702,1,16726,1,11017,1,33586,1,3494,
 	1,5174,1,3290,1,5518,1,33611,1,33634,1,1676,1,8736)
 
-	local _,_,_,toc = GetBuildInfo()
-
-	if (toc == 30200) then
-
-		-- Goblin Beam Welder -- 67326
-		self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2,415,415,420,425)
-		self:addTradeFlags(RecipeDB,67326,1,2,21,22,23,24,25,26,27,28,29,30)
-		self:addTradeAcquire(RecipeDB,67326,1,25277)
-		
-		-- Jeeves -- 68067
-		self:addTradeSkill(RecipeDB,68067,450,49050,1,4036,nil,2,450,480,485,490)
-		self:addTradeFlags(RecipeDB,68067,1,2,21,22,23,24,25,26,27,28,29,30)
-		self:addTradeAcquire(RecipeDB,68067,7,2)
-		
-		--Wormhole Generator -- 67920
-		self:addTradeSkill(RecipeDB,67920,450,48933,1,4036,nil,2,450,450,455,460)
-		self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
-		self:addTradeAcquire(RecipeDB,67920,1,25277)
-		
-		--Mind Amplification Disc -- 67839
-		self:addTradeSkill(RecipeDB,67839,410,nil,1,4036,nil,2,410,410,415,420)
-		self:addTradeFlags(RecipeDB,67839,1,2,21,22,23,24,25,26,27,28,29,30)
-		self:addTradeAcquire(RecipeDB,67839,1,25277)
-		
-
-		return 295
-
-	else
-
-		return 291
-
-	end
+	-- Goblin Beam Welder -- 67326
+	self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2,415,415,420,425)
+	self:addTradeFlags(RecipeDB,67326,1,2,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,67326,1,25277)
+	
+	-- Jeeves -- 68067
+	self:addTradeSkill(RecipeDB,68067,450,49050,1,4036,nil,2,450,480,485,490)
+	self:addTradeFlags(RecipeDB,68067,1,2,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,68067,7,2)
+	
+	--Wormhole Generator -- 67920
+	self:addTradeSkill(RecipeDB,67920,450,48933,1,4036,nil,2,450,450,455,460)
+	self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,67920,1,25277)
+	
+	--Mind Amplification Disc -- 67839
+	self:addTradeSkill(RecipeDB,67839,410,nil,1,4036,nil,2,410,410,415,420)
+	self:addTradeFlags(RecipeDB,67839,1,2,21,22,23,24,25,26,27,28,29,30)
+	self:addTradeAcquire(RecipeDB,67839,1,25277)
+	
+	return 295
 
 end

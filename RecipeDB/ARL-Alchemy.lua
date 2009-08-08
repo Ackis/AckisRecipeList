@@ -1277,51 +1277,41 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,63732,1,1386,1,2391,1,2837,1,3009,1,3347,1,4160,1,4609,1,4611,1,5177,1,5499,1,7948,1,11042,1,16588,
 	1,16642,1,16723,1,18802,1,19052,1,27029,1,3603,1,1470,1,3964,1,2132,1,3184,1,33608)
 
-	local _,_,_,toc = GetBuildInfo()
+	-- Transmute: Ametrine -- 66658
+	self:addTradeSkill(RecipeDB,66658,450,36931,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66658,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66658,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-	if (toc == 30200) then
+	-- Transmute: Cardinal Ruby -- 66659
+	self:addTradeSkill(RecipeDB,66659,450,36919,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66659,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66659,4,14151)
 
-		-- Transmute: Ametrine -- 66658
-		self:addTradeSkill(RecipeDB,66658,450,36931,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66658,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66658,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
+	-- Transmute: King's Amber -- 66660
+	self:addTradeSkill(RecipeDB,66660,450,36922,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66660,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66660,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: Cardinal Ruby -- 66659
-		self:addTradeSkill(RecipeDB,66659,450,36919,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66659,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66659,4,14151)
+	-- Transmute: Dreadstone -- 66662
+	self:addTradeSkill(RecipeDB,66662,450,36928,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66662,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66662,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: King's Amber -- 66660
-		self:addTradeSkill(RecipeDB,66660,450,36922,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66660,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66660,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
+	-- Transmute: Majestic Zircon -- 66663
+	self:addTradeSkill(RecipeDB,66663,450,36925,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66663,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66663,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: Dreadstone -- 66662
-		self:addTradeSkill(RecipeDB,66662,450,36928,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66662,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66662,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
+	-- Transmute: Eye of Zul -- 66664
+	self:addTradeSkill(RecipeDB,66664,450,36934,1,51304,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66664,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,66664,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: Majestic Zircon -- 66663
-		self:addTradeSkill(RecipeDB,66663,450,36925,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66663,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66663,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
+	-- Flask of the North -- 67025
+	self:addTradeSkill(RecipeDB,67025,440,47499,1,51304,nil,2,440,440,445,450)
+	self:addTradeFlags(RecipeDB,67025,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,67025,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
 
-		-- Transmute: Eye of Zul -- 66664
-		self:addTradeSkill(RecipeDB,66664,450,36934,1,51304,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66664,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-		self:addTradeAcquire(RecipeDB,66664,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
-
-		-- Flask of the North -- 67025
-		self:addTradeSkill(RecipeDB,67025,440,47499,1,51304,nil,2,440,440,445,450)
-		self:addTradeFlags(RecipeDB,67025,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,67025,1,26903,1,26951,1,26975,1,26987,1,28703,1,33588)
-
-		return 251
-
-	else
-
-		return 244
-
-	end
+	return 251
 
 end

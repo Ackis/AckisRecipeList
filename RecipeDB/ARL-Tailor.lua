@@ -2086,55 +2086,46 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,63742,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,63742,1,26914,1,26964,1,26969,1,27001,1,28699,1,1346,1,4159,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636,1,11052)
 
-	local _,_,_,toc = GetBuildInfo()
+	-- Bejeweled Wizard's Bracers -- 67079
+	self:addTradeSkill(RecipeDB,67079,450,47585,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67079,1)
+	--self:addTradeAcquire(RecipeDB,67079
 
-	if (toc == 30200) then
+	-- Bejeweled Wizard's Bracers -- 67145
+	self:addTradeSkill(RecipeDB,67145,450,47586,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67145,2)
+	--self:addTradeAcquire(RecipeDB,67145
 
-		-- Bejeweled Wizard's Bracers -- 67079
-		self:addTradeSkill(RecipeDB,67079,450,47585,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67079,1)
-		--self:addTradeAcquire(RecipeDB,67079
+	-- Merlin's Robe -- 67066
+	self:addTradeSkill(RecipeDB,67066,450,47603,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67066,1)
+	--self:addTradeAcquire(RecipeDB,67066
 
-		-- Bejeweled Wizard's Bracers -- 67145
-		self:addTradeSkill(RecipeDB,67145,450,47586,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67145,2)
-		--self:addTradeAcquire(RecipeDB,67145
+	-- Merlin's Robe -- 67146
+	self:addTradeSkill(RecipeDB,67146,450,47604,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67146,2)
+	--self:addTradeAcquire(RecipeDB,67146
 
-		-- Merlin's Robe -- 67066
-		self:addTradeSkill(RecipeDB,67066,450,47603,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67066,1)
-		--self:addTradeAcquire(RecipeDB,67066
+	-- Royal Moonshroud Bracers -- 67065
+	self:addTradeSkill(RecipeDB,67065,450,47587,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67065,2)
+	--self:addTradeAcquire(RecipeDB,67065
 
-		-- Merlin's Robe -- 67146
-		self:addTradeSkill(RecipeDB,67146,450,47604,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67146,2)
-		--self:addTradeAcquire(RecipeDB,67146
+	-- Royal Moonshroud Bracers -- 67147
+	self:addTradeSkill(RecipeDB,67147,450,47588,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67147,2)
+	--self:addTradeAcquire(RecipeDB,
 
-		-- Royal Moonshroud Bracers -- 67065
-		self:addTradeSkill(RecipeDB,67065,450,47587,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67065,2)
-		--self:addTradeAcquire(RecipeDB,67065
+	-- Royal Moonshroud Robe -- 67144
+	self:addTradeSkill(RecipeDB,67144,450,47605,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67144,1)
+	--self:addTradeAcquire(RecipeDB,67144
 
-		-- Royal Moonshroud Bracers -- 67147
-		self:addTradeSkill(RecipeDB,67147,450,47588,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67147,2)
-		--self:addTradeAcquire(RecipeDB,
+	-- Royal Moonshroud Robe -- 67064
+	self:addTradeSkill(RecipeDB,67064,450,47606,3,3908,nil,2,460,460,467,475)
+	self:addTradeFlags(RecipeDB,67064,2)
+	--self:addTradeAcquire(RecipeDB,67064
 
-		-- Royal Moonshroud Robe -- 67144
-		self:addTradeSkill(RecipeDB,67144,450,47605,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67144,1)
-		--self:addTradeAcquire(RecipeDB,67144
+	return 409
 
-		-- Royal Moonshroud Robe -- 67064
-		self:addTradeSkill(RecipeDB,67064,450,47606,3,3908,nil,2,460,460,467,475)
-		self:addTradeFlags(RecipeDB,67064,2)
-		--self:addTradeAcquire(RecipeDB,67064
-	
-		return 409
-
-	else
-
-		return 401
-
-	end
 end
