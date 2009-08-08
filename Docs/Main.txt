@@ -1,4 +1,6 @@
-﻿==Important Virus Announcement
+﻿Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
+
+==Important Virus Announcement
 Some people are reporting that there is a malware warning with some virus scanners.  This is a false positive. I do not know why these scanners are picking it.  As you can see [[http://www.virustotal.com/analisis/822401bc55cb21e280bc527f66f12fb189c727ddb50d8170daad7527defccb90-1249613607 | here]] the zip is clean.  I've submitted the file to a few vendors to get this issue fixed and am looking at ways in code to fix it.
 
 This is a difference in the code from one version that works, to another version that causes the error:
