@@ -2730,15 +2730,38 @@ function addon:InitLeatherworking(RecipeDB)
 	if (toc == 30200) then
 
 		-- Black Chitin Bracers -- 67137
+		self:addTradeSkill(RecipeDB,67137,450,47580,4,2108,nil,2)
+		self:addTradeFlags(RecipeDB,67137,2,10,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeAcquire(RecipeDB,67137,8,42)
+		
+		-- Black Chitin Bracers -- 67081
+		self:addTradeSkill(RecipeDB,67081,450,47579,4,2108,nil,2)
+		self:addTradeFlags(RecipeDB,67081,1,10,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeAcquire(RecipeDB,67081,8,42)
+		
 		-- Bracers of Swift Death -- 67139
+		self:addTradeSkill(RecipeDB,67139,450,47582,4,2108,nil,2)
+		self:addTradeFlags(RecipeDB,67139,2,10,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeAcquire(RecipeDB,67139,8,42)
+		
+		-- Bracers of Swift Death -- 67087
+		self:addTradeSkill(RecipeDB,67087,450,47581,4,2108,nil,2)
+		self:addTradeFlags(RecipeDB,67087,1,10,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeAcquire(RecipeDB,67087,8,42)
+		
 		-- Crusader's Dragonscale Bracers -- 67083
+		
 		-- Crusader's Dragonscale Breastplate -- 67082
+		
 		-- Ensorceled Nerubian Breastplate -- 67080
+		
 		-- Knightbane Carapace -- 67086
+		
 		-- Lunar Eclipse Chestguard -- 67084
+		
 		-- Moonshadow Armguards -- 67141
 
-		return 511
+		return 515
 
 	else
 

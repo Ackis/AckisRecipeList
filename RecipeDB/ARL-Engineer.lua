@@ -1580,7 +1580,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,68067,1,2,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,68067,7,2)
 	
-	--Wormhole Generator -- 67920
+	--Wormhole Generator: Northrend -- 67920
 	self:addTradeSkill(RecipeDB,67920,450,48933,1,4036,nil,2,450,450,455,460)
 	self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,67920,1,25277)
