@@ -85,6 +85,7 @@ local PROFESSIONS = {
 -------------------------------------------------------------------------------
 -- Mined via Data-tools
 -- Table is Public Domain now
+-- Look up table of Spell IDs to the recipe which trains them.
 -------------------------------------------------------------------------------
 local SPELL_ITEM = {
 	-------------------------------------------------------------------------------
@@ -556,6 +557,14 @@ local SPELL_ITEM = {
 	[55996] = 42175,	[55997] = 42177,	[55998] = 42176,	[55999] = 42178,
 	[56004] = 42183,	[56005] = 42184,	[56006] = 42185,	[56009] = 42187,
 	[56011] = 42188,	[63924] = 45774,
+}
+
+-------------------------------------------------------------------------------
+-- Look up table of spell IDs for recipes which do not have a player flag
+-- For example, fireworks.
+-------------------------------------------------------------------------------
+local NO_PLAYER_FLAG = {
+	[30344] = true,		[30341] = true,		[32814] = true,		[23066] = true,
 }
 
 local function LoadRecipe()
@@ -1744,13 +1753,11 @@ do
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
---[[
 		-- Check for player role flags
-		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) then
+		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spellid]) then
 			addedtotable = true
 			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")")
 		end
-]]--
 
 		if (scan_data.specialty) then
 			if (not scan_data.recipe_list[spellid]["Specialty"]) then
