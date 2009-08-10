@@ -3,6 +3,8 @@
 ==Important Virus Announcement
 Some people are reporting that there is a malware warning with some virus scanners.  This is a false positive. I do not know why these scanners are picking it.  As you can see [[http://www.virustotal.com/analisis/822401bc55cb21e280bc527f66f12fb189c727ddb50d8170daad7527defccb90-1249613607 | here]] the zip is clean.  I've submitted the file to a few vendors to get this issue fixed and am looking at ways in code to fix it.
 
+I've just got confirmation back from them [[http://analysis.avira.com/samples/details.php?uniqueid=m0B77IpHpG1zU0CLgNZhmXf3rzm4pMSb&incidentid=353354|here]].  It is now a confirmed false positive.
+
 This is a difference in the code from one version that works, to another version that causes the error:
 <<code diff>>
 Index: ARL-Engineer.lua
