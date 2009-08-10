@@ -1126,1463 +1126,1493 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,22757,8,26)
 
 	-- Heavy Timbermaw Belt -- 23628
-	self:addTradeSkill(RecipeDB,23628,290,19043,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23628,290,19043,1,2018,nil,0,290,310,320,330)
 	self:addTradeFlags(RecipeDB,23628,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
 	self:addTradeAcquire(RecipeDB,23628,6,576,2,11557)
 
 	-- Heavy Timbermaw Boots -- 23629
-	self:addTradeSkill(RecipeDB,23629,300,19048,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23629,300,19048,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23629,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,99)
 	self:addTradeAcquire(RecipeDB,23629,6,576,3,11557)
 
 	-- Girdle of the Dawn -- 23632
-	self:addTradeSkill(RecipeDB,23632,290,19051,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23632,290,19051,1,2018,nil,0,290,310,320,330)
 	self:addTradeFlags(RecipeDB,23632,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,96)
 	self:addTradeAcquire(RecipeDB,23632,6,529,2,10856,6,529,2,10857,6,529,2,11536)
 
 	-- Gloves of the Dawn -- 23633
-	self:addTradeSkill(RecipeDB,23633,300,19057,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23633,300,19057,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23633,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,96)
 	self:addTradeAcquire(RecipeDB,23633,6,529,3,10856,6,529,3,10857,6,529,3,11536)
 
 	-- Dark Iron Helm -- 23636
-	self:addTradeSkill(RecipeDB,23636,300,19148,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23636,300,19148,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23636,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,98)
 	self:addTradeAcquire(RecipeDB,23636,6,59,2,12944)
 
 	-- Dark Iron Gauntlets -- 23637
-	self:addTradeSkill(RecipeDB,23637,300,19164,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23637,300,19164,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23637,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,98)
 	self:addTradeAcquire(RecipeDB,23637,6,59,3,12944)
 
 	-- Black Amnesty -- 23638
-	self:addTradeSkill(RecipeDB,23638,300,19166,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23638,300,19166,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23638,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,72,98)
 	self:addTradeAcquire(RecipeDB,23638,6,59,3,12944)
 
 	-- Blackfury -- 23639
-	self:addTradeSkill(RecipeDB,23639,300,19167,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23639,300,19167,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,63,71,98)
 	self:addTradeAcquire(RecipeDB,23639,6,59,3,12944)
 
 	-- Ebon Hand -- 23650
-	self:addTradeSkill(RecipeDB,23650,300,19170,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23650,300,19170,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23650,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,70,98)
 	self:addTradeAcquire(RecipeDB,23650,6,59,2,12944)
 
 	-- Blackguard -- 23652
-	self:addTradeSkill(RecipeDB,23652,300,19168,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23652,300,19168,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23652,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,63,69,98)
 	self:addTradeAcquire(RecipeDB,23652,6,59,2,12944)
 
 	-- Nightfall -- 23653
-	self:addTradeSkill(RecipeDB,23653,300,19169,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,23653,300,19169,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,23653,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,68,98)
 	self:addTradeAcquire(RecipeDB,23653,6,59,4,12944)
 
 	-- Bloodsoul Breastplate -- 24136
-	self:addTradeSkill(RecipeDB,24136,300,19690,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24136,300,19690,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24136,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,100)
 	self:addTradeAcquire(RecipeDB,24136,6,270,3,14921)
 
 	-- Bloodsoul Shoulders -- 24137
-	self:addTradeSkill(RecipeDB,24137,300,19691,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24137,300,19691,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24137,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,100)
 	self:addTradeAcquire(RecipeDB,24137,6,270,2,14921)
 
 	-- Bloodsoul Gauntlets -- 24138
-	self:addTradeSkill(RecipeDB,24138,300,19692,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24138,300,19692,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24138,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,100)
 	self:addTradeAcquire(RecipeDB,24138,6,270,1,14921)
 
 	-- Darksoul Breastplate -- 24139
-	self:addTradeSkill(RecipeDB,24139,300,19693,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24139,300,19693,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24139,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,100)
 	self:addTradeAcquire(RecipeDB,24139,6,270,3,14921)
 
 	-- Darksoul Leggings -- 24140
-	self:addTradeSkill(RecipeDB,24140,300,19694,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24140,300,19694,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24140,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,100)
 	self:addTradeAcquire(RecipeDB,24140,6,270,2,14921)
 
 	-- Darksoul Shoulders -- 24141
-	self:addTradeSkill(RecipeDB,24141,300,19695,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24141,300,19695,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24141,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,100)
 	self:addTradeAcquire(RecipeDB,24141,6,270,1,14921)
 
 	-- Dark Iron Boots -- 24399
-	self:addTradeSkill(RecipeDB,24399,300,20039,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24399,300,20039,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24399,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,98)
 	self:addTradeAcquire(RecipeDB,24399,6,59,4,12944)
 
 	-- Darkrune Gauntlets -- 24912
-	self:addTradeSkill(RecipeDB,24912,300,20549,3,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24912,300,20549,3,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24912,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,24912,4,8323)
 
 	-- Darkrune Helm -- 24913
-	self:addTradeSkill(RecipeDB,24913,300,20551,3,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24913,300,20551,3,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24913,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,24913,4,8323)
 
 	-- Darkrune Breastplate -- 24914
-	self:addTradeSkill(RecipeDB,24914,300,20550,3,2018,nil,0)
+	self:addTradeSkill(RecipeDB,24914,300,20550,3,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,24914,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,24914,4,8323)
 
 	-- Heavy Obsidian Belt -- 27585
-	self:addTradeSkill(RecipeDB,27585,300,22197,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27585,300,22197,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27585,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,97)
 	self:addTradeAcquire(RecipeDB,27585,6,609,1,15176)
 
 	-- Jagged Obsidian Shield -- 27586
-	self:addTradeSkill(RecipeDB,27586,300,22198,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27586,300,22198,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27586,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,64,97)
 	self:addTradeAcquire(RecipeDB,27586,6,609,3,15471)
 
 	-- Thick Obsidian Breastplate -- 27587
-	self:addTradeSkill(RecipeDB,27587,300,22196,3,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27587,300,22196,3,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27587,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,27587,3,15263)
 
 	-- Light Obsidian Belt -- 27588
-	self:addTradeSkill(RecipeDB,27588,300,22195,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27588,300,22195,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27588,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,97)
 	self:addTradeAcquire(RecipeDB,27588,6,609,2,15176)
 
 	-- Black Grasp of the Destroyer -- 27589
-	self:addTradeSkill(RecipeDB,27589,300,22194,3,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27589,300,22194,3,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27589,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,58)
 	self:addTradeAcquire(RecipeDB,27589,3,15340)
 
 	-- Obsidian Mail Tunic -- 27590
-	self:addTradeSkill(RecipeDB,27590,300,22191,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27590,300,22191,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27590,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,97)
 	self:addTradeAcquire(RecipeDB,27590,6,609,4,15471)
 
 	-- Titanic Leggings -- 27829
-	self:addTradeSkill(RecipeDB,27829,300,22385,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27829,300,22385,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27829,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,27829,7,2)
 
 	-- Persuader -- 27830
-	self:addTradeSkill(RecipeDB,27830,300,22384,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27830,300,22384,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27830,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
 	self:addTradeAcquire(RecipeDB,27830,7,2)
 
 	-- Sageblade -- 27832
-	self:addTradeSkill(RecipeDB,27832,300,22383,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,27832,300,22383,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,27832,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,54,63,69)
 	self:addTradeAcquire(RecipeDB,27832,7,2)
 
 	-- Icebane Breastplate -- 28242
-	self:addTradeSkill(RecipeDB,28242,300,22669,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28242,300,22669,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28242,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28242,6,529,4,16365,8,41)
 
 	-- Icebane Gauntlets -- 28243
-	self:addTradeSkill(RecipeDB,28243,300,22670,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28243,300,22670,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28243,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28243,6,529,3,16365,8,41)
 
 	-- Icebane Bracers -- 28244
-	self:addTradeSkill(RecipeDB,28244,300,22671,4,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28244,300,22671,4,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28244,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28244,6,529,3,16365,8,41)
 
 	-- Ironvine Breastplate -- 28461
-	self:addTradeSkill(RecipeDB,28461,300,22762,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28461,300,22762,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28461,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,97)
 	self:addTradeAcquire(RecipeDB,28461,6,609,3,15176)
 
 	-- Ironvine Gloves -- 28462
-	self:addTradeSkill(RecipeDB,28462,300,22763,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28462,300,22763,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28462,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,97)
 	self:addTradeAcquire(RecipeDB,28462,6,609,2,15176)
 
 	-- Ironvine Belt -- 28463
-	self:addTradeSkill(RecipeDB,28463,300,22764,1,2018,nil,0)
+	self:addTradeSkill(RecipeDB,28463,300,22764,1,2018,nil,0,300,320,330,340)
 	self:addTradeFlags(RecipeDB,28463,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,97)
 	self:addTradeAcquire(RecipeDB,28463,6,609,1,15176)
 
 	-- Fel Iron Plate Gloves -- 29545
-	self:addTradeSkill(RecipeDB,29545,300,23482,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29545,300,23482,1,2018,nil,1,300,310,320,330)
 	self:addTradeFlags(RecipeDB,29545,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29545,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Plate Belt -- 29547
-	self:addTradeSkill(RecipeDB,29547,305,23484,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29547,305,23484,1,2018,nil,1,305,315,325,335)
 	self:addTradeFlags(RecipeDB,29547,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29547,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Plate Boots -- 29548
-	self:addTradeSkill(RecipeDB,29548,315,23487,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29548,315,23487,1,2018,nil,1,315,325,335,345)
 	self:addTradeFlags(RecipeDB,29548,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29548,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Plate Pants -- 29549
-	self:addTradeSkill(RecipeDB,29549,315,23488,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29549,315,23488,1,2018,nil,1,315,325,335,345)
 	self:addTradeFlags(RecipeDB,29549,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29549,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Breastplate -- 29550
-	self:addTradeSkill(RecipeDB,29550,325,23489,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29550,325,23489,1,2018,nil,1,325,335,345,355)
 	self:addTradeFlags(RecipeDB,29550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29550,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Chain Coif -- 29551
-	self:addTradeSkill(RecipeDB,29551,300,23493,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29551,300,23493,1,2018,nil,1,300,320,330,340)
 	self:addTradeFlags(RecipeDB,29551,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29551,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Chain Gloves -- 29552
-	self:addTradeSkill(RecipeDB,29552,310,23491,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29552,310,23491,1,2018,nil,1,310,320,330,340)
 	self:addTradeFlags(RecipeDB,29552,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29552,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Chain Bracers -- 29553
-	self:addTradeSkill(RecipeDB,29553,315,23494,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29553,315,23494,1,2018,nil,1,315,325,335,345)
 	self:addTradeFlags(RecipeDB,29553,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29553,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Chain Tunic -- 29556
-	self:addTradeSkill(RecipeDB,29556,320,23490,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29556,320,23490,1,2018,nil,1,320,330,340,350)
 	self:addTradeFlags(RecipeDB,29556,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29556,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Hatchet -- 29557
-	self:addTradeSkill(RecipeDB,29557,310,23497,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29557,310,23497,1,2018,nil,1,310,320,330,340)
 	self:addTradeFlags(RecipeDB,29557,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,68)
 	self:addTradeAcquire(RecipeDB,29557,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Hammer -- 29558
-	self:addTradeSkill(RecipeDB,29558,315,23498,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29558,315,23498,1,2018,nil,1,315,325,335,345)
 	self:addTradeFlags(RecipeDB,29558,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,29558,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Fel Iron Greatsword -- 29565
-	self:addTradeSkill(RecipeDB,29565,320,23499,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29565,320,23499,1,2018,nil,1,320,330,340,350)
 	self:addTradeFlags(RecipeDB,29565,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,29565,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Adamantite Maul -- 29566
-	self:addTradeSkill(RecipeDB,29566,325,23502,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29566,325,23502,1,2018,nil,1,325,335,345,355)
 	self:addTradeFlags(RecipeDB,29566,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,70)
 	self:addTradeAcquire(RecipeDB,29566,2,16670,2,16713,2,19662)
 
 	-- Adamantite Cleaver -- 29568
-	self:addTradeSkill(RecipeDB,29568,330,23503,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29568,330,23503,1,2018,nil,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,29568,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63,68)
 	self:addTradeAcquire(RecipeDB,29568,2,16670,2,16713,2,19662)
 
 	-- Adamantite Dagger -- 29569
-	self:addTradeSkill(RecipeDB,29569,330,23504,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29569,330,23504,1,2018,nil,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,29569,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
 	self:addTradeAcquire(RecipeDB,29569,2,16670,2,16713,2,19662)
 
 	-- Adamantite Rapier -- 29571
-	self:addTradeSkill(RecipeDB,29571,335,23505,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29571,335,23505,1,2018,nil,1,335,345,355,365)
 	self:addTradeFlags(RecipeDB,29571,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,52,63,69)
 	self:addTradeAcquire(RecipeDB,29571,2,16670,2,16713,2,19662)
 
 	-- Adamantite Plate Bracers -- 29603
-	self:addTradeSkill(RecipeDB,29603,335,23506,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29603,335,23506,1,2018,nil,1,335,345,355,365)
 	self:addTradeFlags(RecipeDB,29603,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29603,2,19342,2,19694)
 
 	-- Adamantite Plate Gloves -- 29605
-	self:addTradeSkill(RecipeDB,29605,335,23508,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29605,335,23508,1,2018,nil,1,335,345,355,365)
 	self:addTradeFlags(RecipeDB,29605,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29605,2,19342,2,19694)
 
 	-- Adamantite Breastplate -- 29606
-	self:addTradeSkill(RecipeDB,29606,340,23507,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29606,340,23507,1,2018,nil,1,340,350,360,370)
 	self:addTradeFlags(RecipeDB,29606,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29606,2,19342,2,19694)
 
 	-- Enchanted Adamantite Belt -- 29608
-	self:addTradeSkill(RecipeDB,29608,355,23510,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29608,355,23510,1,2018,nil,1,355,365,375,385)
 	self:addTradeFlags(RecipeDB,29608,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,110)
 	self:addTradeAcquire(RecipeDB,29608,6,934,1,19331)
 
 	-- Enchanted Adamantite Breastplate -- 29610
-	self:addTradeSkill(RecipeDB,29610,360,23509,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29610,360,23509,1,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29610,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,110)
 	self:addTradeAcquire(RecipeDB,29610,6,934,3,19331)
 
 	-- Enchanted Adamantite Boots -- 29611
-	self:addTradeSkill(RecipeDB,29611,355,23511,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29611,355,23511,1,2018,nil,1,355,365,375,385)
 	self:addTradeFlags(RecipeDB,29611,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,110)
 	self:addTradeAcquire(RecipeDB,29611,6,934,2,19331)
 
 	-- Enchanted Adamantite Leggings -- 29613
-	self:addTradeSkill(RecipeDB,29613,365,23512,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29613,365,23512,1,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29613,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,110)
 	self:addTradeAcquire(RecipeDB,29613,6,934,4,19331)
 
 	-- Flamebane Bracers -- 29614
-	self:addTradeSkill(RecipeDB,29614,350,23515,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29614,350,23515,1,2018,nil,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,29614,1,4,21,22,23,24,25,26,27,28,29,30,36,41,59,101)
 	self:addTradeAcquire(RecipeDB,29614,6,932,1,19321)
 
 	-- Flamebane Helm -- 29615
-	self:addTradeSkill(RecipeDB,29615,355,23516,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29615,355,23516,1,2018,nil,1,355,365,375,385)
 	self:addTradeFlags(RecipeDB,29615,1,4,21,22,23,24,25,26,27,28,29,30,36,41,59,101)
 	self:addTradeAcquire(RecipeDB,29615,6,932,4,19321)
 
 	-- Flamebane Gloves -- 29616
-	self:addTradeSkill(RecipeDB,29616,360,23514,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29616,360,23514,1,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29616,1,4,21,22,23,24,25,26,27,28,29,30,36,41,59,101)
 	self:addTradeAcquire(RecipeDB,29616,6,932,2,19321)
 
 	-- Flamebane Breastplate -- 29617
-	self:addTradeSkill(RecipeDB,29617,365,23513,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29617,365,23513,1,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29617,1,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,101)
 	self:addTradeAcquire(RecipeDB,29617,6,932,3,19321)
 
 	-- Felsteel Gloves -- 29619
-	self:addTradeSkill(RecipeDB,29619,360,23517,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29619,360,23517,3,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29619,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,29619,3,18497)
 
 	-- Felsteel Leggings -- 29620
-	self:addTradeSkill(RecipeDB,29620,360,23518,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29620,360,23518,3,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29620,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,29620,3,20900)
 
 	-- Felsteel Helm -- 29621
-	self:addTradeSkill(RecipeDB,29621,365,23519,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29621,365,23519,3,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29621,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,29621,3,18830)
 
 	-- Gauntlets of the Iron Tower -- 29622
-	self:addTradeSkill(RecipeDB,29622,365,23532,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29622,365,23532,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29622,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,29622,7,4)
 
 	-- Khorium Belt -- 29628
-	self:addTradeSkill(RecipeDB,29628,360,23524,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29628,360,23524,3,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29628,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29628,3,18203)
 
 	-- Khorium Pants -- 29629
-	self:addTradeSkill(RecipeDB,29629,360,23523,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29629,360,23523,3,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29629,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29629,3,20878)
 
 	-- Khorium Boots -- 29630
-	self:addTradeSkill(RecipeDB,29630,365,23525,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29630,365,23525,3,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29630,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29630,3,18873)
 
 	-- Ragesteel Gloves -- 29642
-	self:addTradeSkill(RecipeDB,29642,365,23520,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29642,365,23520,3,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29642,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29642,3,17136)
 
 	-- Ragesteel Helm -- 29643
-	self:addTradeSkill(RecipeDB,29643,365,23521,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29643,365,23521,3,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29643,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29643,3,16952)
 
 	-- Ragesteel Breastplate -- 29645
-	self:addTradeSkill(RecipeDB,29645,370,23522,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29645,370,23522,3,2018,nil,1,370,380,390,400)
 	self:addTradeFlags(RecipeDB,29645,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,29645,3,21454,3,23305,3,23324)
 
 	-- Swiftsteel Gloves -- 29648
-	self:addTradeSkill(RecipeDB,29648,370,23526,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29648,370,23526,3,2018,nil,1,370,380,390,400)
 	self:addTradeFlags(RecipeDB,29648,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29648,3,18314)
 
 	-- Earthpeace Breastplate -- 29649
-	self:addTradeSkill(RecipeDB,29649,370,23527,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29649,370,23527,3,2018,nil,1,370,380,390,400)
 	self:addTradeFlags(RecipeDB,29649,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
 	self:addTradeAcquire(RecipeDB,29649,3,17975)
 
 	-- Fel Sharpening Stone -- 29654
-	self:addTradeSkill(RecipeDB,29654,300,23528,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29654,300,23528,1,2018,nil,1,300,300,305,310)
 	self:addTradeFlags(RecipeDB,29654,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,29654,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Adamantite Sharpening Stone -- 29656
-	self:addTradeSkill(RecipeDB,29656,350,23529,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29656,350,23529,1,2018,nil,1,350,350,355,360)
 	self:addTradeFlags(RecipeDB,29656,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,103)
 	self:addTradeAcquire(RecipeDB,29656,6,942,2,17904)
 
 	-- Felsteel Shield Spike -- 29657
-	self:addTradeSkill(RecipeDB,29657,360,23530,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29657,360,23530,1,2018,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,29657,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
 	self:addTradeAcquire(RecipeDB,29657,6,946,4,17657,6,947,4,17585)
 
 	-- Felfury Gauntlets -- 29658
-	self:addTradeSkill(RecipeDB,29658,365,23531,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29658,365,23531,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29658,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
 	self:addTradeAcquire(RecipeDB,29658,7,2)
 
 	-- Steelgrip Gauntlets -- 29662
-	self:addTradeSkill(RecipeDB,29662,365,23533,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29662,365,23533,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29662,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29662,7,4)
 
 	-- Storm Helm -- 29663
-	self:addTradeSkill(RecipeDB,29663,365,23534,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29663,365,23534,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29663,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
 	self:addTradeAcquire(RecipeDB,29663,7,4)
 
 	-- Helm of the Stalwart Defender -- 29664
-	self:addTradeSkill(RecipeDB,29664,365,23535,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29664,365,23535,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29664,1,2,5,6,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,29664,7,4)
 
 	-- Oathkeeper's Helm -- 29668
-	self:addTradeSkill(RecipeDB,29668,365,23536,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29668,365,23536,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29668,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,29668,7,4)
 
 	-- Black Felsteel Bracers -- 29669
-	self:addTradeSkill(RecipeDB,29669,365,23537,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29669,365,23537,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29669,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29669,7,4)
 
 	-- Bracers of the Green Fortress -- 29671
-	self:addTradeSkill(RecipeDB,29671,365,23538,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29671,365,23538,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29671,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,29671,7,4)
 
 	-- Blessed Bracers -- 29672
-	self:addTradeSkill(RecipeDB,29672,365,23539,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29672,365,23539,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29672,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,29672,7,4)
 
 	-- Felsteel Longblade -- 29692
-	self:addTradeSkill(RecipeDB,29692,365,23540,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29692,365,23540,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29692,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,69)
 	self:addTradeAcquire(RecipeDB,29692,7,2)
 
 	-- Khorium Champion -- 29693
-	self:addTradeSkill(RecipeDB,29693,365,23541,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29693,365,23541,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29693,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,69)
 	self:addTradeAcquire(RecipeDB,29693,7,4)
 
 	-- Fel Edged Battleaxe -- 29694
-	self:addTradeSkill(RecipeDB,29694,365,23542,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29694,365,23542,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29694,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,68)
 	self:addTradeAcquire(RecipeDB,29694,7,4)
 
 	-- Felsteel Reaper -- 29695
-	self:addTradeSkill(RecipeDB,29695,365,23543,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29695,365,23543,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29695,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,68)
 	self:addTradeAcquire(RecipeDB,29695,7,4)
 
 	-- Runic Hammer -- 29696
-	self:addTradeSkill(RecipeDB,29696,365,23544,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29696,365,23544,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29696,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
 	self:addTradeAcquire(RecipeDB,29696,7,2)
 
 	-- Fel Hardened Maul -- 29697
-	self:addTradeSkill(RecipeDB,29697,365,23546,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29697,365,23546,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29697,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
 	self:addTradeAcquire(RecipeDB,29697,7,4)
 
 	-- Eternium Runed Blade -- 29698
-	self:addTradeSkill(RecipeDB,29698,365,23554,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29698,365,23554,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29698,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
 	self:addTradeAcquire(RecipeDB,29698,7,4)
 
 	-- Dirge -- 29699
-	self:addTradeSkill(RecipeDB,29699,365,23555,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29699,365,23555,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29699,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,72)
 	self:addTradeAcquire(RecipeDB,29699,7,2)
 
 	-- Hand of Eternity -- 29700
-	self:addTradeSkill(RecipeDB,29700,365,23556,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29700,365,23556,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,29700,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
 	self:addTradeAcquire(RecipeDB,29700,7,2)
 
 	-- Lesser Ward of Shielding -- 29728
-	self:addTradeSkill(RecipeDB,29728,340,23575,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29728,340,23575,1,2018,nil,1,340,340,345,350)
 	self:addTradeFlags(RecipeDB,29728,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,29728,2,16583,2,19373)
 
 	-- Greater Ward of Shielding -- 29729
-	self:addTradeSkill(RecipeDB,29729,375,23576,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,29729,375,23576,3,2018,nil,1,375,375,375,375)
 	self:addTradeFlags(RecipeDB,29729,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,29729,3,18853)
 
 	-- Lesser Rune of Warding -- 32284
-	self:addTradeSkill(RecipeDB,32284,325,23559,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,32284,325,23559,1,2018,nil,1,325,325,330,335)
 	self:addTradeFlags(RecipeDB,32284,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,32284,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Greater Rune of Warding -- 32285
-	self:addTradeSkill(RecipeDB,32285,350,25521,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,32285,350,25521,1,2018,nil,1,350,350,355,360)
 	self:addTradeFlags(RecipeDB,32285,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
 	self:addTradeAcquire(RecipeDB,32285,6,942,2,17904)
 
 	-- Fel Iron Rod -- 32655
-	self:addTradeSkill(RecipeDB,32655,300,25843,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,32655,300,25843,1,2018,nil,1,300,300,305,310)
 	self:addTradeFlags(RecipeDB,32655,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,32655,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Adamantite Rod -- 32656
-	self:addTradeSkill(RecipeDB,32656,350,25844,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,32656,350,25844,1,2018,nil,1,350,350,355,360)
 	self:addTradeFlags(RecipeDB,32656,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,32656,2,19662)
 
 	-- Eternium Rod -- 32657
-	self:addTradeSkill(RecipeDB,32657,375,25845,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,32657,375,25845,1,2018,nil,1,360,365,370,375)
 	self:addTradeFlags(RecipeDB,32657,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,32657,2,16583,2,19373)
 
 	-- Nether Chain Shirt -- 34529
-	self:addTradeSkill(RecipeDB,34529,350,23563,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,34529,350,23563,1,2018,9788,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34529,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,34529,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Twisting Nether Chain Shirt -- 34530
-	self:addTradeSkill(RecipeDB,34530,375,23564,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,34530,375,23564,1,2018,9788,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34530,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,34530,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Breastplate of Kings -- 34533
-	self:addTradeSkill(RecipeDB,34533,350,28483,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,34533,350,28483,1,2018,9788,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34533,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Bulwark of Kings -- 34534
-	self:addTradeSkill(RecipeDB,34534,375,28484,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,34534,375,28484,1,2018,9788,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34534,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,34534,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Fireguard -- 34535
-	self:addTradeSkill(RecipeDB,34535,350,28425,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,34535,350,28425,1,2018,17039,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34535,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,34535,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Blazeguard -- 34537
-	self:addTradeSkill(RecipeDB,34537,375,28426,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,34537,375,28426,1,2018,17039,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34537,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,34537,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Blade -- 34538
-	self:addTradeSkill(RecipeDB,34538,350,28428,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,34538,350,28428,1,2018,17039,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34538,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,34538,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Champion -- 34540
-	self:addTradeSkill(RecipeDB,34540,375,28429,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,34540,375,28429,1,2018,17039,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34540,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,34540,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- The Planar Edge -- 34541
-	self:addTradeSkill(RecipeDB,34541,350,28431,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,34541,350,28431,1,2018,17041,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34541,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,34541,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Black Planar Edge -- 34542
-	self:addTradeSkill(RecipeDB,34542,375,28432,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,34542,375,28432,1,2018,17041,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34542,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,34542,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lunar Crescent -- 34543
-	self:addTradeSkill(RecipeDB,34543,350,28434,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,34543,350,28434,1,2018,17041,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34543,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,34543,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Mooncleaver -- 34544
-	self:addTradeSkill(RecipeDB,34544,375,28435,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,34544,375,28435,1,2018,17041,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34544,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,34544,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Drakefist Hammer -- 34545
-	self:addTradeSkill(RecipeDB,34545,350,28437,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,34545,350,28437,1,2018,17040,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34545,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,34545,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dragonmaw -- 34546
-	self:addTradeSkill(RecipeDB,34546,375,28438,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,34546,375,28438,1,2018,17040,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34546,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,34546,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Thunder -- 34547
-	self:addTradeSkill(RecipeDB,34547,350,28440,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,34547,350,28440,1,2018,17040,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34547,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,34547,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Deep Thunder -- 34548
-	self:addTradeSkill(RecipeDB,34548,375,28441,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,34548,375,28441,1,2018,17040,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,34548,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,34548,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Fel Weightstone -- 34607
-	self:addTradeSkill(RecipeDB,34607,300,28420,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34607,300,28420,1,2018,nil,1,300,300,305,310)
 	self:addTradeFlags(RecipeDB,34607,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,34607,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Adamantite Weightstone -- 34608
-	self:addTradeSkill(RecipeDB,34608,350,28421,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34608,350,28421,1,2018,nil,1,350,350,355,360)
 	self:addTradeFlags(RecipeDB,34608,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,103)
 	self:addTradeAcquire(RecipeDB,34608,6,942,2,17904)
 
 	-- Thick Bronze Darts -- 34979
-	self:addTradeSkill(RecipeDB,34979,100,29201,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34979,100,29201,1,2018,nil,1,100,130,145,160)
 	self:addTradeFlags(RecipeDB,34979,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,75)
 	self:addTradeAcquire(RecipeDB,34979,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,
 	1,16823,1,19341,1,28694,1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631)
 
 	-- Whirling Steel Axes -- 34981
-	self:addTradeSkill(RecipeDB,34981,200,29202,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34981,200,29202,1,2018,nil,1,200,220,230,240)
 	self:addTradeFlags(RecipeDB,34981,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,75)
 	self:addTradeAcquire(RecipeDB,34981,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341,1,28694,1,27034,1,5511,1,514,1,1241,
 	1,16724,1,33591,1,2998,1,3478,1,3136,1,4596,1,3174,1,26988,1,33609,1,33631)
 
 	-- Enchanted Thorium Blades -- 34982
-	self:addTradeSkill(RecipeDB,34982,300,29203,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34982,300,29203,1,2018,nil,1,300,320,330,340)
 	self:addTradeFlags(RecipeDB,34982,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,75)
 	self:addTradeAcquire(RecipeDB,34982,1,2836,1,16583,1,16823,1,19341,1,28694,1,27034,1,4258,1,5511,1,514,1,1241,1,16724,
 	1,3355,1,33591,1,2998,1,3478,1,3136,1,4596,1,3174,1,26988,1,33609,1,33631)
 
 	-- Felsteel Whisper Knives -- 34983
-	self:addTradeSkill(RecipeDB,34983,350,29204,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,34983,350,29204,1,2018,nil,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,34983,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,75)
 	self:addTradeAcquire(RecipeDB,34983,1,16583,1,16823,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631)
 
 	-- Earthforged Leggings -- 36122
-	self:addTradeSkill(RecipeDB,36122,260,30069,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36122,260,30069,1,2018,9788,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36122,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,36122,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Windforged Leggings -- 36124
-	self:addTradeSkill(RecipeDB,36124,260,30070,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36124,260,30070,1,2018,9788,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36124,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,36124,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Light Earthforged Blade -- 36125
-	self:addTradeSkill(RecipeDB,36125,260,30071,1,2018,9787,1)
+	self:addTradeSkill(RecipeDB,36125,260,30071,1,2018,9787,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36125,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,69)
 	self:addTradeAcquire(RecipeDB,36125,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Light Skyforged Axe -- 36126
-	self:addTradeSkill(RecipeDB,36126,260,30072,1,2018,9787,1)
+	self:addTradeSkill(RecipeDB,36126,260,30072,1,2018,9787,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36126,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,36126,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Light Emberforged Hammer -- 36128
-	self:addTradeSkill(RecipeDB,36128,260,30073,1,2018,9787,1)
+	self:addTradeSkill(RecipeDB,36128,260,30073,1,2018,9787,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36128,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
 	self:addTradeAcquire(RecipeDB,36128,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Heavy Earthforged Breastplate -- 36129
-	self:addTradeSkill(RecipeDB,36129,330,30074,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36129,330,30074,1,2018,9788,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36129,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,36129,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Stormforged Hauberk -- 36130
-	self:addTradeSkill(RecipeDB,36130,330,30076,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36130,330,30076,1,2018,9788,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36130,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,36130,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Windforged Rapier -- 36131
-	self:addTradeSkill(RecipeDB,36131,330,30077,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,36131,330,30077,1,2018,17039,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36131,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,36131,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stoneforged Claymore -- 36133
-	self:addTradeSkill(RecipeDB,36133,330,30086,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,36133,330,30086,1,2018,17039,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36133,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,69)
 	self:addTradeAcquire(RecipeDB,36133,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormforged Axe -- 36134
-	self:addTradeSkill(RecipeDB,36134,330,30087,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,36134,330,30087,1,2018,17041,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36134,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,68)
 	self:addTradeAcquire(RecipeDB,36134,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Skyforged Great Axe -- 36135
-	self:addTradeSkill(RecipeDB,36135,330,30088,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,36135,330,30088,1,2018,17041,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36135,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,36135,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lavaforged Warhammer -- 36136
-	self:addTradeSkill(RecipeDB,36136,330,30089,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,36136,330,30089,1,2018,17040,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36136,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
 	self:addTradeAcquire(RecipeDB,36136,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Great Earthforged Hammer -- 36137
-	self:addTradeSkill(RecipeDB,36137,330,30093,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,36137,330,30093,1,2018,17040,1,330,340,350,360)
 	self:addTradeFlags(RecipeDB,36137,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
 	self:addTradeAcquire(RecipeDB,36137,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Embrace of the Twisting Nether -- 36256
-	self:addTradeSkill(RecipeDB,36256,375,23565,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36256,375,23565,1,2018,9788,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36256,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,36256,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Bulwark of the Ancient Kings -- 36257
-	self:addTradeSkill(RecipeDB,36257,375,28485,1,2018,9788,1)
+	self:addTradeSkill(RecipeDB,36257,375,28485,1,2018,9788,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36257,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,36257,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Blazefury -- 36258
-	self:addTradeSkill(RecipeDB,36258,375,28427,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,36258,375,28427,1,2018,17039,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36258,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,36258,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Executioner -- 36259
-	self:addTradeSkill(RecipeDB,36259,375,28430,1,2018,17039,1)
+	self:addTradeSkill(RecipeDB,36259,375,28430,1,2018,17039,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36259,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,36259,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Wicked Edge of the Planes -- 36260
-	self:addTradeSkill(RecipeDB,36260,375,28433,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,36260,375,28433,1,2018,17041,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36260,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,36260,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Bloodmoon -- 36261
-	self:addTradeSkill(RecipeDB,36261,375,28436,1,2018,17041,1)
+	self:addTradeSkill(RecipeDB,36261,375,28436,1,2018,17041,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36261,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,68)
 	self:addTradeAcquire(RecipeDB,36261,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dragonstrike -- 36262
-	self:addTradeSkill(RecipeDB,36262,375,28439,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,36262,375,28439,1,2018,17040,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36262,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,36262,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormherald -- 36263
-	self:addTradeSkill(RecipeDB,36263,375,28442,1,2018,17040,1)
+	self:addTradeSkill(RecipeDB,36263,375,28442,1,2018,17040,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36263,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
 	self:addTradeAcquire(RecipeDB,36263,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Belt of the Guardian -- 36389
-	self:addTradeSkill(RecipeDB,36389,375,30034,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,36389,375,30034,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36389,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,36389,8,37)
 
 	-- Red Belt of Battle -- 36390
-	self:addTradeSkill(RecipeDB,36390,375,30032,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,36390,375,30032,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36390,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,36390,8,37)
 
 	-- Boots of the Protector -- 36391
-	self:addTradeSkill(RecipeDB,36391,375,30033,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,36391,375,30033,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36391,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,36391,8,37)
 
 	-- Red Havoc Boots -- 36392
-	self:addTradeSkill(RecipeDB,36392,375,30031,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,36392,375,30031,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36392,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
 	self:addTradeAcquire(RecipeDB,36392,8,37)
 
 	-- Wildguard Breastplate -- 38473
-	self:addTradeSkill(RecipeDB,38473,375,31364,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38473,375,31364,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38473,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,103)
 	self:addTradeAcquire(RecipeDB,38473,6,942,4,17904)
 
 	-- Wildguard Leggings -- 38475
-	self:addTradeSkill(RecipeDB,38475,375,31367,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38475,375,31367,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38475,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,103)
 	self:addTradeAcquire(RecipeDB,38475,6,942,3,17904)
 
 	-- Wildguard Helm -- 38476
-	self:addTradeSkill(RecipeDB,38476,375,31368,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38476,375,31368,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38476,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,103)
 	self:addTradeAcquire(RecipeDB,38476,6,942,3,17904)
 
 	-- Iceguard Breastplate -- 38477
-	self:addTradeSkill(RecipeDB,38477,375,31369,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38477,375,31369,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38477,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,114)
 	self:addTradeAcquire(RecipeDB,38477,6,967,2,16388)
 
 	-- Iceguard Leggings -- 38478
-	self:addTradeSkill(RecipeDB,38478,375,31370,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38478,375,31370,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38478,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,114)
 	self:addTradeAcquire(RecipeDB,38478,6,967,3,16388)
 
 	-- Iceguard Helm -- 38479
-	self:addTradeSkill(RecipeDB,38479,375,31371,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,38479,375,31371,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,38479,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,59,114)
 	self:addTradeAcquire(RecipeDB,38479,6,967,2,16388)
 
 	-- Shadesteel Sabots -- 40033
-	self:addTradeSkill(RecipeDB,40033,375,32402,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,40033,375,32402,1,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,40033,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,102)
 	self:addTradeAcquire(RecipeDB,40033,6,1012,2,23159)
 
 	-- Shadesteel Bracers -- 40034
-	self:addTradeSkill(RecipeDB,40034,375,32403,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,40034,375,32403,1,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,40034,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,102)
 	self:addTradeAcquire(RecipeDB,40034,6,1012,1,23159)
 
 	-- Shadesteel Greaves -- 40035
-	self:addTradeSkill(RecipeDB,40035,375,32404,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,40035,375,32404,1,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,40035,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,102)
 	self:addTradeAcquire(RecipeDB,40035,6,1012,2,23159)
 
 	-- Shadesteel Girdle -- 40036
-	self:addTradeSkill(RecipeDB,40036,375,32401,1,2018,nil,1)
+	self:addTradeSkill(RecipeDB,40036,375,32401,1,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,40036,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,59,102)
 	self:addTradeAcquire(RecipeDB,40036,6,1012,1,23159)
 
 	-- Swiftsteel Bracers -- 41132
-	self:addTradeSkill(RecipeDB,41132,375,32568,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,41132,375,32568,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41132,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,41132,8,34)
 
 	-- Swiftsteel Shoulders -- 41133
-	self:addTradeSkill(RecipeDB,41133,375,32570,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,41133,375,32570,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41133,1,2,10,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,41133,7,4)
 
 	-- Dawnsteel Bracers -- 41134
-	self:addTradeSkill(RecipeDB,41134,375,32571,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,41134,375,32571,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41134,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,41134,7,4)
 
 	-- Dawnsteel Shoulders -- 41135
-	self:addTradeSkill(RecipeDB,41135,375,32573,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,41135,375,32573,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41135,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,41135,8,34)
 
 	-- Ragesteel Shoulders -- 42662
-	self:addTradeSkill(RecipeDB,42662,365,33173,3,2018,nil,1)
+	self:addTradeSkill(RecipeDB,42662,365,33173,3,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,42662,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,42662,3,21050,3,21059,3,21060,3,21061)
 
-	-- Adamantite Weapon Chain -- 42688   ---THERE'S 2 VERSIONS?
-	self:addTradeSkill(RecipeDB,42688,335,33185,2,2018,nil,1)
+	-- Adamantite Weapon Chain -- 42688
+	self:addTradeSkill(RecipeDB,42688,335,33185,2,2018,nil,1,335,345,350,355)
 	self:addTradeFlags(RecipeDB,42688,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,42688,3,24664)
 
 	-- Heavy Copper Longsword -- 43549
-	self:addTradeSkill(RecipeDB,43549,35,33791,2,2018,nil,1)
+	self:addTradeSkill(RecipeDB,43549,35,33791,2,2018,nil,1,35,75,95,115)
 	self:addTradeFlags(RecipeDB,43549,1,8,21,22,23,24,25,26,27,28,29,30,36,40,69)
 	self:addTradeAcquire(RecipeDB,43549,4,1578)
 
 	-- Hammer of Righteous Might -- 43846
-	self:addTradeSkill(RecipeDB,43846,365,32854,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,43846,365,32854,4,2018,nil,1,365,375,385,395)
 	self:addTradeFlags(RecipeDB,43846,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,63,70)
 	self:addTradeAcquire(RecipeDB,43846,7,4)
 
 	-- Sunblessed Gauntlets -- 46140
-	self:addTradeSkill(RecipeDB,46140,365,34380,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,46140,365,34380,4,2018,nil,1,365,375,392,410)
 	self:addTradeFlags(RecipeDB,46140,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,46140,8,24)
 
 	-- Hard Khorium Battlefists -- 46141
-	self:addTradeSkill(RecipeDB,46141,365,34378,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,46141,365,34378,4,2018,nil,1,365,375,392,410)
 	self:addTradeFlags(RecipeDB,46141,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,59)
 	self:addTradeAcquire(RecipeDB,46141,8,24)
 
 	-- Sunblessed Breastplate -- 46142
-	self:addTradeSkill(RecipeDB,46142,365,34379,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,46142,365,34379,4,2018,nil,1,365,375,392,410)
 	self:addTradeFlags(RecipeDB,46142,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,46142,8,24)
 
 	-- Hard Khorium Battleplate -- 46144
-	self:addTradeSkill(RecipeDB,46144,365,34377,4,2018,nil,1)
+	self:addTradeSkill(RecipeDB,46144,365,34377,4,2018,nil,1,365,375,392,410)
 	self:addTradeFlags(RecipeDB,46144,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,46144,8,24)
 
 	-- Cobalt Legplates -- 52567
-	self:addTradeSkill(RecipeDB,52567,370,39086,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52567,370,39086,2,2018,nil,2,370,375,380,3985)
 	self:addTradeFlags(RecipeDB,52567,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52567,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Belt -- 52568
-	self:addTradeSkill(RecipeDB,52568,350,39087,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52568,350,39087,2,2018,nil,2,350,360,370,380)
 	self:addTradeFlags(RecipeDB,52568,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52568,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Boots -- 52569
-	self:addTradeSkill(RecipeDB,52569,350,39088,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52569,350,39088,2,2018,nil,2,350,360,370,380)
 	self:addTradeFlags(RecipeDB,52569,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52569,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Chestpiece -- 52570
-	self:addTradeSkill(RecipeDB,52570,375,39085,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52570,375,39085,2,2018,nil,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,52570,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52570,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Helm -- 52571
-	self:addTradeSkill(RecipeDB,52571,370,39084,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52571,370,39084,2,2018,nil,2,370,375,380,385)
 	self:addTradeFlags(RecipeDB,52571,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52571,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Shoulders -- 52572
-	self:addTradeSkill(RecipeDB,52572,360,39083,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,52572,360,39083,2,2018,nil,2,360,370,375,380)
 	self:addTradeFlags(RecipeDB,52572,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,52572,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Triangle Shield -- 54550
-	self:addTradeSkill(RecipeDB,54550,360,40668,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54550,360,40668,2,2018,nil,2,360,370,375,380)
 	self:addTradeFlags(RecipeDB,54550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
 	self:addTradeAcquire(RecipeDB,54550,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Belt -- 54551
-	self:addTradeSkill(RecipeDB,54551,395,40669,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54551,395,40669,3,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,54551,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54551,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Boots -- 54552
-	self:addTradeSkill(RecipeDB,54552,400,40671,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54552,400,40671,3,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,54552,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54552,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Breastplate -- 54553
-	self:addTradeSkill(RecipeDB,54553,400,40672,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54553,400,40672,3,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,54553,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54553,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Legplates -- 54554
-	self:addTradeSkill(RecipeDB,54554,395,40674,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54554,395,40674,3,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,54554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54554,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Helm -- 54555
-	self:addTradeSkill(RecipeDB,54555,405,40673,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54555,405,40673,3,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,54555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54555,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Shoulders -- 54556
-	self:addTradeSkill(RecipeDB,54556,405,40675,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54556,405,40675,3,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,54556,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,54556,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Defender -- 54557
-	self:addTradeSkill(RecipeDB,54557,390,40670,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54557,390,40670,3,2018,nil,2,390,395,400,405)
 	self:addTradeFlags(RecipeDB,54557,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
 	self:addTradeAcquire(RecipeDB,54557,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Helm -- 54917
-	self:addTradeSkill(RecipeDB,54917,375,40942,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54917,375,40942,2,2018,nil,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,54917,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54917,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Boots -- 54918
-	self:addTradeSkill(RecipeDB,54918,380,40949,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54918,380,40949,2,2018,nil,2,380,385,390,395)
 	self:addTradeFlags(RecipeDB,54918,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54918,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Shoulders -- 54941
-	self:addTradeSkill(RecipeDB,54941,385,40950,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54941,385,40950,2,2018,nil,2,385,390,395,400)
 	self:addTradeFlags(RecipeDB,54941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54941,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Chestpiece -- 54944
-	self:addTradeSkill(RecipeDB,54944,385,40951,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54944,385,40951,2,2018,nil,2,385,390,395,400)
 	self:addTradeFlags(RecipeDB,54944,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54944,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Gauntlets -- 54945
-	self:addTradeSkill(RecipeDB,54945,390,40952,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54945,390,40952,2,2018,nil,2,390,395,400,405)
 	self:addTradeFlags(RecipeDB,54945,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54945,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Belt -- 54946
-	self:addTradeSkill(RecipeDB,54946,395,40953,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54946,395,40953,2,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,54946,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54946,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Legplates -- 54947
-	self:addTradeSkill(RecipeDB,54947,395,40943,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54947,395,40943,2,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,54947,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54947,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Bracers -- 54948
-	self:addTradeSkill(RecipeDB,54948,400,40954,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54948,400,40954,2,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,54948,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54948,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Horned Cobalt Helm -- 54949
-	self:addTradeSkill(RecipeDB,54949,400,40955,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54949,400,40955,2,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,54949,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54949,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Reinforced Cobalt Shoulders -- 54978
-	self:addTradeSkill(RecipeDB,54978,375,40956,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54978,375,40956,2,2018,nil,2,375,3950,400,405)
 	self:addTradeFlags(RecipeDB,54978,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54978,3,27333)
 
 	-- Reinforced Cobalt Helm -- 54979
-	self:addTradeSkill(RecipeDB,54979,375,40957,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54979,375,40957,2,2018,nil,2,375,405,410,415)
 	self:addTradeFlags(RecipeDB,54979,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54979,3,26270)
 
 	-- Reinforced Cobalt Legplates -- 54980
-	self:addTradeSkill(RecipeDB,54980,375,40958,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54980,375,40958,2,2018,nil,2,375,410,415,420)
 	self:addTradeFlags(RecipeDB,54980,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54980,3,29235)
 
 	-- Reinforced Cobalt Chestpiece -- 54981
-	self:addTradeSkill(RecipeDB,54981,375,40959,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,54981,375,40959,2,2018,nil,2,375,415,420,425)
 	self:addTradeFlags(RecipeDB,54981,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,54981,3,28123)
 
 	-- Saronite Protector -- 55013
-	self:addTradeSkill(RecipeDB,55013,390,41117,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55013,390,41117,3,2018,nil,2,390,395,400,405)
 	self:addTradeFlags(RecipeDB,55013,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,64)
 	self:addTradeAcquire(RecipeDB,55013,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Bulwark -- 55014
-	self:addTradeSkill(RecipeDB,55014,410,41113,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55014,410,41113,3,2018,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,55014,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
 	self:addTradeAcquire(RecipeDB,55014,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Gauntlets -- 55015
-	self:addTradeSkill(RecipeDB,55015,415,41114,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55015,415,41114,3,2018,nil,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55015,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55015,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Bracers -- 55017
-	self:addTradeSkill(RecipeDB,55017,410,41116,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55017,410,41116,3,2018,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,55017,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55017,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Legplates -- 55055
-	self:addTradeSkill(RecipeDB,55055,395,41126,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55055,395,41126,3,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,55055,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55055,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Gauntlets -- 55056
-	self:addTradeSkill(RecipeDB,55056,400,41127,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55056,400,41127,3,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,55056,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55056,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Boots -- 55057
-	self:addTradeSkill(RecipeDB,55057,405,41128,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55057,405,41128,3,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,55057,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55057,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Breastplate -- 55058
-	self:addTradeSkill(RecipeDB,55058,415,41129,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55058,415,41129,3,2018,nil,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55058,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55058,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Honed Cobalt Cleaver -- 55174
-	self:addTradeSkill(RecipeDB,55174,390,41181,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55174,390,41181,3,2018,nil,2,390,395,400,405)
 	self:addTradeFlags(RecipeDB,55174,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,68)
 	self:addTradeAcquire(RecipeDB,55174,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Cobalt Slicer -- 55177
-	self:addTradeSkill(RecipeDB,55177,395,41182,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55177,395,41182,3,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,55177,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,55177,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Ambusher -- 55179
-	self:addTradeSkill(RecipeDB,55179,400,41183,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55179,400,41183,3,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,55179,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,72)
 	self:addTradeAcquire(RecipeDB,55179,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Shiv -- 55181
-	self:addTradeSkill(RecipeDB,55181,405,41184,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55181,405,41184,3,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,55181,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,72)
 	self:addTradeAcquire(RecipeDB,55181,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Furious Saronite Beatstick -- 55182
-	self:addTradeSkill(RecipeDB,55182,410,41185,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55182,410,41185,3,2018,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,55182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,55182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Corroded Saronite Edge -- 55183
-	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787,2)
+	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,55183,1,26564,1,26904,1,26952,1,26981,1,29924,1,11146,1,29505,1,11178)
 
 	-- Corroded Saronite Woundbringer -- 55184
-	self:addTradeSkill(RecipeDB,55184,415,41187,3,2018,9787,2)
+	self:addTradeSkill(RecipeDB,55184,415,41187,3,2018,9787,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55184,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,69)
 	self:addTradeAcquire(RecipeDB,55184,1,26564,1,26904,1,26952,1,26981,1,29924,1,11146,1,29505,1,11178)
 
 	-- Saronite Mindcrusher -- 55185
-	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787,2)
+	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,63,70)
 	self:addTradeAcquire(RecipeDB,55185,1,26564,1,26904,1,26952,1,26981,1,29924,1,11146,1,29505,1,11178)
 
 	-- Chestplate of Conquest -- 55186
-	self:addTradeSkill(RecipeDB,55186,415,41189,3,2018,9788,2)
+	self:addTradeSkill(RecipeDB,55186,415,41189,3,2018,9788,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55186,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,55186,1,26564,1,26904,1,26952,1,26981,1,29924,1,29506,1,5164,1,11177)
 
 	-- Legplates of Conquest -- 55187
-	self:addTradeSkill(RecipeDB,55187,415,41190,3,2018,9788,2)
+	self:addTradeSkill(RecipeDB,55187,415,41190,3,2018,9788,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55187,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
 	self:addTradeAcquire(RecipeDB,55187,1,26564,1,26904,1,26952,1,26981,1,29924,1,29506,1,5164,1,11177)
 
 	-- Sturdy Cobalt Quickblade -- 55200
-	self:addTradeSkill(RecipeDB,55200,380,41239,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55200,380,41239,2,2018,nil,2,380,385,390,395)
 	self:addTradeFlags(RecipeDB,55200,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,55200,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Tenderizer -- 55201
-	self:addTradeSkill(RecipeDB,55201,380,41240,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55201,380,41240,2,2018,nil,2,380,385,390,395)
 	self:addTradeFlags(RecipeDB,55201,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,55201,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Sure-fire Shuriken -- 55202
-	self:addTradeSkill(RecipeDB,55202,385,41241,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55202,385,41241,2,2018,nil,2,385,390,395,400)
 	self:addTradeFlags(RecipeDB,55202,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,75)
 	self:addTradeAcquire(RecipeDB,55202,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Forged Cobalt Claymore -- 55203
-	self:addTradeSkill(RecipeDB,55203,385,41242,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55203,385,41242,2,2018,nil,2,385,390,395,400)
 	self:addTradeFlags(RecipeDB,55203,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,55203,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Notched Cobalt War Axe -- 55204
-	self:addTradeSkill(RecipeDB,55204,390,41243,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55204,390,41243,2,2018,nil,2,390,395,400,405)
 	self:addTradeFlags(RecipeDB,55204,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,68)
 	self:addTradeAcquire(RecipeDB,55204,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Deadly Saronite Dirk -- 55206
-	self:addTradeSkill(RecipeDB,55206,405,41245,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55206,405,41245,3,2018,nil,2,405,415,420,425)
 	self:addTradeFlags(RecipeDB,55206,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,75)
 	self:addTradeAcquire(RecipeDB,55206,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Vengeance Bindings -- 55298
-	self:addTradeSkill(RecipeDB,55298,420,41355,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55298,420,41355,3,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,55298,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55298,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Righteous Gauntlets -- 55300
-	self:addTradeSkill(RecipeDB,55300,420,41356,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55300,420,41356,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55300,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55300,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Daunting Handguards -- 55301
-	self:addTradeSkill(RecipeDB,55301,420,41357,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55301,420,41357,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55301,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55301,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Helm of Command -- 55302
-	self:addTradeSkill(RecipeDB,55302,425,41344,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55302,425,41344,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55302,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55302,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Daunting Legplates -- 55303
-	self:addTradeSkill(RecipeDB,55303,425,41345,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55303,425,41345,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55303,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55303,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Righteous Greaves -- 55304
-	self:addTradeSkill(RecipeDB,55304,425,41346,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55304,425,41346,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55304,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55304,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Bracers -- 55305
-	self:addTradeSkill(RecipeDB,55305,420,41354,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55305,420,41354,3,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,55305,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55305,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Pauldrons -- 55306
-	self:addTradeSkill(RecipeDB,55306,420,41351,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55306,420,41351,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55306,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55306,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Waistguard -- 55307
-	self:addTradeSkill(RecipeDB,55307,420,41352,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55307,420,41352,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55307,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55307,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Walkers -- 55308
-	self:addTradeSkill(RecipeDB,55308,420,41348,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55308,420,41348,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55308,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55308,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Gauntlets -- 55309
-	self:addTradeSkill(RecipeDB,55309,420,41349,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55309,420,41349,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,55309,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55309,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Legplates -- 55310
-	self:addTradeSkill(RecipeDB,55310,425,41347,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55310,425,41347,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55310,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55310,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Hauberk -- 55311
-	self:addTradeSkill(RecipeDB,55311,425,41353,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55311,425,41353,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55311,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55311,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Savage Saronite Skullshield -- 55312
-	self:addTradeSkill(RecipeDB,55312,425,41350,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55312,425,41350,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,55312,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55312,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Destroyer -- 55369
-	self:addTradeSkill(RecipeDB,55369,440,41257,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55369,440,41257,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55369,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,55369,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Bonecrusher -- 55370
-	self:addTradeSkill(RecipeDB,55370,440,41383,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55370,440,41383,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55370,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,55370,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Guardian -- 55371
-	self:addTradeSkill(RecipeDB,55371,440,41384,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55371,440,41384,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55371,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,55371,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Titansteel Helm -- 55372
-	self:addTradeSkill(RecipeDB,55372,440,41386,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55372,440,41386,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55372,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55372,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Titansteel Helm -- 55373
-	self:addTradeSkill(RecipeDB,55373,440,41387,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55373,440,41387,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55373,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55373,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Titansteel Helm -- 55374
-	self:addTradeSkill(RecipeDB,55374,440,41388,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55374,440,41388,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55374,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55374,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Titansteel Treads -- 55375
-	self:addTradeSkill(RecipeDB,55375,440,41391,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55375,440,41391,4,2018,nil,2,450,450,460,470)
 	self:addTradeFlags(RecipeDB,55375,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55375,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Titansteel Treads -- 55376
-	self:addTradeSkill(RecipeDB,55376,440,41392,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55376,440,41392,4,2018,nil,2,450,450,460,470)
 	self:addTradeFlags(RecipeDB,55376,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55376,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Titansteel Treads -- 55377
-	self:addTradeSkill(RecipeDB,55377,440,41394,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55377,440,41394,4,2018,nil,2,450,450,460,470)
 	self:addTradeFlags(RecipeDB,55377,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,55377,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Socket Bracer -- 55628
-	self:addTradeSkill(RecipeDB,55628,400,nil,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55628,400,nil,1,2018,nil,2,400,400,400,400)
 	self:addTradeFlags(RecipeDB,55628,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55628,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Socket Gloves -- 55641
-	self:addTradeSkill(RecipeDB,55641,400,nil,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55641,400,nil,1,2018,nil,2,400,400,400,400)
 	self:addTradeFlags(RecipeDB,55641,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55641,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Eternal Belt Buckle -- 55656
-	self:addTradeSkill(RecipeDB,55656,415,41611,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55656,415,41611,3,2018,nil,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,55656,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55656,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titanium Rod -- 55732
-	self:addTradeSkill(RecipeDB,55732,420,41745,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55732,420,41745,1,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,55732,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55732,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Bracers -- 55834
-	self:addTradeSkill(RecipeDB,55834,360,41974,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55834,360,41974,2,2018,nil,2,360,370,375,380)
 	self:addTradeFlags(RecipeDB,55834,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55834,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Gauntlets -- 55835
-	self:addTradeSkill(RecipeDB,55835,370,41975,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55835,370,41975,2,2018,nil,2,370,380,385,390)
 	self:addTradeFlags(RecipeDB,55835,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55835,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titanium Weapon Chain -- 55839
-	self:addTradeSkill(RecipeDB,55839,420,41976,2,2018,nil,2)
+	self:addTradeSkill(RecipeDB,55839,420,41976,2,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,55839,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,55839,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Shanker -- 56234
-	self:addTradeSkill(RecipeDB,56234,440,42435,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56234,440,42435,4,2018,nil,2,450,450,460,470)
 	self:addTradeFlags(RecipeDB,56234,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,72)
 	self:addTradeAcquire(RecipeDB,56234,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cudgel of Saronite Justice -- 56280
-	self:addTradeSkill(RecipeDB,56280,410,42443,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56280,410,42443,3,2018,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,56280,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,70)
 	self:addTradeAcquire(RecipeDB,56280,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titanium Shield Spike -- 56357
-	self:addTradeSkill(RecipeDB,56357,420,42500,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56357,420,42500,1,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,56357,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,56357,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Shield Wall -- 56400
-	self:addTradeSkill(RecipeDB,56400,440,42508,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56400,440,42508,4,2018,nil,2,450,450,460,470)
 	self:addTradeFlags(RecipeDB,56400,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
 	self:addTradeAcquire(RecipeDB,56400,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Bracers -- 56549
-	self:addTradeSkill(RecipeDB,56549,420,42723,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56549,420,42723,1,2018,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,56549,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56549,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Pauldrons -- 56550
-	self:addTradeSkill(RecipeDB,56550,420,42727,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56550,420,42727,1,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,56550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56550,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Waistguard -- 56551
-	self:addTradeSkill(RecipeDB,56551,420,42729,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56551,420,42729,1,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,56551,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56551,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Walkers -- 56552
-	self:addTradeSkill(RecipeDB,56552,420,42730,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56552,420,42730,3,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,56552,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56552,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Gauntlets -- 56553
-	self:addTradeSkill(RecipeDB,56553,420,42724,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56553,420,42724,1,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,56553,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56553,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Legplates -- 56554
-	self:addTradeSkill(RecipeDB,56554,425,42726,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56554,425,42726,1,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,56554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56554,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Hauberk -- 56555
-	self:addTradeSkill(RecipeDB,56555,425,42725,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56555,425,42725,1,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,56555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56555,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Skullshield -- 56556
-	self:addTradeSkill(RecipeDB,56556,425,42728,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,56556,425,42728,3,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,56556,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,56556,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Skeleton Key -- 59405
-	self:addTradeSkill(RecipeDB,59405,350,43854,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59405,350,43854,1,2018,nil,2,350,360,365,370)
 	self:addTradeFlags(RecipeDB,59405,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59405,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titanium Skeleton Key -- 59406
-	self:addTradeSkill(RecipeDB,59406,430,43853,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59406,430,43853,1,2018,nil,2,430,435,440,445)
 	self:addTradeFlags(RecipeDB,59406,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,59406,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Belt -- 59436
-	self:addTradeSkill(RecipeDB,59436,395,43860,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59436,395,43860,1,2018,nil,2,395,400,405,410)
 	self:addTradeFlags(RecipeDB,59436,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59436,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Bracers -- 59438
-	self:addTradeSkill(RecipeDB,59438,400,43864,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59438,400,43864,1,2018,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,59438,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59438,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Pauldrons -- 59440
-	self:addTradeSkill(RecipeDB,59440,405,43865,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59440,405,43865,1,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,59440,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59440,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Helm -- 59441
-	self:addTradeSkill(RecipeDB,59441,415,43870,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59441,415,43870,1,2018,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,59441,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,59441,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Spellblade -- 59442
-	self:addTradeSkill(RecipeDB,59442,410,43871,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,59442,410,43871,1,2018,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,59442,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63,69)
 	self:addTradeAcquire(RecipeDB,59442,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Icebane Chestguard -- 61008
-	self:addTradeSkill(RecipeDB,61008,425,43586,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,61008,425,43586,1,2018,nil,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,61008,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61008,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Icebane Girdle -- 61009
-	self:addTradeSkill(RecipeDB,61009,420,43587,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,61009,420,43587,1,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,61009,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61009,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Icebane Treads -- 61010
-	self:addTradeSkill(RecipeDB,61010,420,43588,1,2018,nil,2)
+	self:addTradeSkill(RecipeDB,61010,420,43588,1,2018,nil,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,61010,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
 	self:addTradeAcquire(RecipeDB,61010,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Orcish War Leggings -- 9957
-	self:addTradeSkill(RecipeDB, 9957,230,7929,2,2018,nil,0)
+	self:addTradeSkill(RecipeDB, 9957,250,7929,2,2018,nil,0,250,250,260,270)
 	self:addTradeFlags(RecipeDB, 9957,2,8,21,22,23,24,25,26,27,28,29,30,36,41,51,52,58)
 	self:addTradeAcquire(RecipeDB, 9957,4,2756)
 
 	-- Dark Iron Mail -- 15293
-	self:addTradeSkill(RecipeDB,15293,270,11606,2,2018,nil,0)
+	self:addTradeSkill(RecipeDB,15293,270,11606,2,2018,nil,0,270,290,300,310)
 	self:addTradeFlags(RecipeDB,15293,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,58)
 	self:addTradeAcquire(RecipeDB,15293,8,25)
 
 	-- Dark Iron Shoulders -- 15295
-	self:addTradeSkill(RecipeDB,15295,280,11605,2,2018,nil,0)
+	self:addTradeSkill(RecipeDB,15295,280,11605,2,2018,nil,0,280,300,310,320)
 	self:addTradeFlags(RecipeDB,15295,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,52,59)
 	self:addTradeAcquire(RecipeDB,15295,8,25)
 
 	-- Titanium Plating -- 62202
-	self:addTradeSkill(RecipeDB,62202,450,44936,3,2018,nil,2)
+	self:addTradeSkill(RecipeDB,62202,450,44936,3,2018,nil,2,450,455,460,465)
 	self:addTradeFlags(RecipeDB,62202,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130,131)
 	self:addTradeAcquire(RecipeDB,62202,6,1052,4,32565,6,1052,4,32774,6,1037,4,32564,6,1037,4,32773)
 
 	-- Battlelord's Plate Boots -- 63188
-	self:addTradeSkill(RecipeDB,63188,450,45089,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63188,450,45089,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63188,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
 	self:addTradeAcquire(RecipeDB,63188,8,39)
 
 	-- Belt of the Titans -- 63187
-	self:addTradeSkill(RecipeDB,63187,450,45088,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63187,450,45088,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63187,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
 	self:addTradeAcquire(RecipeDB,63187,8,39)
 
 	-- Indestructible Plate Girdle -- 63191
-	self:addTradeSkill(RecipeDB,63191,450,45092,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63191,450,45092,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63191,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,63191,8,39)
 
 	-- Plate Girdle of the Righteous -- 63189
-	self:addTradeSkill(RecipeDB,63189,450,45090,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63189,450,45090,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63189,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,59)
 	self:addTradeAcquire(RecipeDB,63189,8,39)
 
 	-- Spiked Deathdealers -- 63192
-	self:addTradeSkill(RecipeDB,63192,450,45093,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63192,450,45093,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63192,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
 	self:addTradeAcquire(RecipeDB,63192,8,39)
 
 	-- Treads of Destiny -- 63190
-	self:addTradeSkill(RecipeDB,63190,450,45091,4,2018,nil,2)
+	self:addTradeSkill(RecipeDB,63190,450,45091,4,2018,nil,2,450,455,465,475)
 	self:addTradeFlags(RecipeDB,63190,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,59)
 	self:addTradeAcquire(RecipeDB,63190,8,39)
 
-	-- Titanstell Spellblade -- 63182
-	self:addTradeSkill(RecipeDB,63182,440,45085,4,2018,nil,2)
+	-- Titansteel Spellblade -- 63182
+	self:addTradeSkill(RecipeDB,63182,440,45085,4,2018,nil,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
 	self:addTradeAcquire(RecipeDB,63182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
-	-- Breastplate of the White Knight -- 67091
-	self:addTradeSkill(RecipeDB,67091,450,47591,4,2018,nil,2)
-	self:addTradeFlags(RecipeDB,67091,1,2)
-	--self:addTradeAcquire(RecipeDB,67091
-	
-	-- Saronite Swordbreakers -- 67131
-	self:addTradeSkill(RecipeDB,67131,450,47571,4,2018,nil,2)
-	self:addTradeFlags(RecipeDB,67131,1,2)
-	--self:addTradeAcquire(RecipeDB,67131
+	-- Breastplate of the White Knight (Ally) -- 67091
+	self:addTradeSkill(RecipeDB,67091,450,47591,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67091,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
+	self:addTradeAcquire(RecipeDB,67091,8,42)
 
-	-- Sunforged Bracers -- 67135
-	self:addTradeSkill(RecipeDB,67135,450,47575,4,2018,nil,2)
-	self:addTradeFlags(RecipeDB,67135,1,2)
-	--self:addTradeAcquire(RecipeDB,67135
+	-- Breastplate of the White Knight (Horde) -- 67130
+	self:addTradeSkill(RecipeDB,67130,450,47592,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67130,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
+	self:addTradeAcquire(RecipeDB,67130,8,42)
 
-	-- Sunforged Breastplate -- 67095
+	-- Saronite Swordbreakers (Ally) -- 67092
+	self:addTradeSkill(RecipeDB,67092,450,47570,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67092,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
+	self:addTradeAcquire(RecipeDB,67092,8,42)
+
+	-- Saronite Swordbreakers (Horde) -- 67131
+	self:addTradeSkill(RecipeDB,67131,450,47571,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67131,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,52,59)
+	self:addTradeAcquire(RecipeDB,67131,8,42)
+
+	-- Sunforged Bracers (Ally) -- 67096
+	self:addTradeSkill(RecipeDB,67096,450,47574,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67096,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,59)
+	self:addTradeAcquire(RecipeDB,67096,8,42)
+
+	-- Sunforged Bracers (Horde) -- 67135
+	self:addTradeSkill(RecipeDB,67135,450,47575,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67135,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,59)
+	self:addTradeAcquire(RecipeDB,67135,8,42)
+
+	-- Sunforged Breastplate (Ally) -- 67095
 	self:addTradeSkill(RecipeDB,67095,450,47593,4,2018,nil,2,450,460,467,475)
-	self:addTradeFlags(RecipeDB,67095,1,2,10)
+	self:addTradeFlags(RecipeDB,67095,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,59)
 	self:addTradeAcquire(RecipeDB,67095,8,42)
 
-    -- Titanium Razorplate -- 67132
-	self:addTradeSkill(RecipeDB,67132,450,47590,4,2018,nil,2)
-	self:addTradeFlags(RecipeDB,67132,1,2)
-	--self:addTradeAcquire(RecipeDB,67132
+	-- Sunforged Breastplate (Horde) -- 67134
+	self:addTradeSkill(RecipeDB,67134,450,47594,4,2018,nil,2,450,460,467,475)
+	self:addTradeFlags(RecipeDB,67134,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,59)
+	self:addTradeAcquire(RecipeDB,67134,8,42)
 
-	-- Titanium Spikeguards -- 67133
-	self:addTradeSkill(RecipeDB,67133,450,47573,4,2018,nil,2)
-	self:addTradeFlags(RecipeDB,67133,1,2)
-	--self:addTradeAcquire(RecipeDB,67133
+    -- Titanium Razorplate (Ally) -- 67093
+	self:addTradeSkill(RecipeDB,67093,450,47589,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67093,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
+	self:addTradeAcquire(RecipeDB,67093,8,42)
 
-	return 493
+    -- Titanium Razorplate (Horde) -- 67132
+	self:addTradeSkill(RecipeDB,67132,450,47590,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67132,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
+	self:addTradeAcquire(RecipeDB,67132,8,42)
+
+	-- Titanium Spikeguards (Ally) -- 67094
+	self:addTradeSkill(RecipeDB,67094,450,47572,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67094,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
+	self:addTradeAcquire(RecipeDB,67094,8,42)
+
+	-- Titanium Spikeguards (Horde) -- 67133
+	self:addTradeSkill(RecipeDB,67133,450,47573,4,2018,nil,2,450,455,465,475)
+	self:addTradeFlags(RecipeDB,67133,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,59)
+	self:addTradeAcquire(RecipeDB,67133,8,42)
+
+	return 499
 
 end
