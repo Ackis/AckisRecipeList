@@ -1662,22 +1662,22 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Cobrahide Leg Armor -- 35549
 	self:addTradeSkill(RecipeDB,35549,335,29533,1,2108,nil,1)
-	self:addTradeFlags(RecipeDB,35549,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeFlags(RecipeDB,35549,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,104)
 	self:addTradeAcquire(RecipeDB,35549,6,946,2,17657,6,947,2,17585)
 
 	-- Nethercobra Leg Armor -- 35554
 	self:addTradeSkill(RecipeDB,35554,365,29535,1,2108,nil,1)
-	self:addTradeFlags(RecipeDB,35554,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,104)
+	self:addTradeFlags(RecipeDB,35554,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,104)
 	self:addTradeAcquire(RecipeDB,35554,6,946,4,17657,6,947,4,17585)
 
 	-- Clefthide Leg Armor -- 35555
 	self:addTradeSkill(RecipeDB,35555,335,29534,1,2108,nil,1)
-	self:addTradeFlags(RecipeDB,35555,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeFlags(RecipeDB,35555,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,103)
 	self:addTradeAcquire(RecipeDB,35555,6,942,2,17904)
 
 	-- Nethercleft Leg Armor -- 35557
 	self:addTradeSkill(RecipeDB,35557,365,29536,1,2108,nil,1)
-	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,103)
+	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,103)
 	self:addTradeAcquire(RecipeDB,35557,6,942,4,17904)
 
 	-- Cobrascale Hood -- 35558
