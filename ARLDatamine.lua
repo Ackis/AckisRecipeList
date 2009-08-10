@@ -1411,6 +1411,14 @@ do
 					scan_data.dps = true
 					scan_data.caster = false
 					scan_data.healer = false
+				elseif (strmatch(text,"critical hit")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
+				elseif (strmatch(text,"weapon damage")) then
+					scan_data.dps = true
+					scan_data.caster = false
+					scan_data.healer = false
 				elseif (strmatch(text,"ranged crit")) then
 					scan_data.dps = true
 					scan_data.tank = false
