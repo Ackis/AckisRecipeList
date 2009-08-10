@@ -2432,10 +2432,12 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		else	-- We have an acquire type we aren't sure how to deal with.
+		elseif	-- We have an acquire type we aren't sure how to deal with.
+		--[[
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+		]]--
 		end
 	end
 	return dsIndex
