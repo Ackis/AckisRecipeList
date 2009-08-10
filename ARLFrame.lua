@@ -310,6 +310,7 @@ local ACQUIRE_REPUTATION	= 6
 local ACQUIRE_WORLD_DROP	= 7
 local ACQUIRE_CUSTOM		= 8
 local ACQUIRE_PVP			= 9
+local ACQUIRE_MAX			= 9
 
 ------------------------------------------------------------------------------
 -- Description: Function to determine if the player has an appropiate level of faction.
@@ -913,7 +914,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
 		elseif (v["Type"] == ACQUIRE_MOB) then
-			-- Mob Drop:				Mob Name
+			-- Mob Drop:			Mob Name
 			-- MobZone				MobCoords
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
@@ -1096,8 +1097,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
+		--@alpha@
 		else	-- Unhandled
 			ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
+		--@end-alpha@
 		end
 	end
 	arlTooltip:AddSeparator()
@@ -2432,12 +2435,12 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif	-- We have an acquire type we aren't sure how to deal with.
-		--[[
+		--@alpha@
+		elseif	(v["Type"] > ACQUIRE_MAX) then -- We have an acquire type we aren't sure how to deal with.
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		]]--
+		--@end-alpha@
 		end
 	end
 	return dsIndex
