@@ -2,9 +2,9 @@
 
 license-output: LICENSE.txt
 
-#manual-changelog:
-#    filename: Docs/CHANGES.txt
-#    markup-type: wiki
+manual-changelog:
+ filename: Docs/CHANGES.txt
+ markup-type: wiki
 
 enable-nolib-creation: yes
 
