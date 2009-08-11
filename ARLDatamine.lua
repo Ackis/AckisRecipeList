@@ -1180,6 +1180,8 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 				-- Add the flag scan to the table if it's not nil
 				local results = self:PrintScanResults()
 
+				ARLDatamineTT:Hide()
+
 				if (results) then
 					tinsert(t,results)
 					if (is_largescan) then
@@ -1190,6 +1192,9 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 				else
 					return nil
 				end
+
+			else
+				ARLDatamineTT:Hide()
 			end
 
 		-- Lets hide this output for runeforging.
@@ -1199,7 +1204,7 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 	else
 		self:Print("Spell ID does not exist in the database.")
 	end
-	ARLDatamineTT:Hide()
+
 end
 
 -------------------------------------------------------------------------------
