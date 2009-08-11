@@ -1089,12 +1089,45 @@ function addon:TooltipScanDatabase()
 
 	-- Parse the entire recipe database
 	for i in pairs(recipe_list) do
+
+		-- Check for game version
+		local Game = i["Game"]
+		recipe_name = i["Name"]
+		if (not Game) then
+			tinsert(t,"No expansion information: " .. tostring(i) .. " " .. recipe_name)
+		elseif (Game > 2) then
+			tinsert(t,"Expansion information too high: " .. tostring(i) .. " " .. recipe_name)
+		end
+
+		local Orange = i["Orange"]
+		local Yellow = i["Yellow"]
+		local Green = i["Green"]
+		local Grey = i["Grey"]
+		local SkillLevel = i["Level"]
+
+		-- No skill level information
+		if (not Orange) then
+			tinsert(t,"No skill level information: " .. tostring(i) .. " " .. recipe_name)
+		else
+			-- Highest level is greater than the skill of the recipe
+			if (Orange > SkillLevel) then
+				tinsert(t,"Skill Level Error (Orange > Skill): " .. tostring(i) .. " " .. recipe_name)
+			end
+			-- Level info is messed up
+			if (Orange > Yellow) or (Orange > Green) or (Orange > Grey) or (Yellow > Green) or (Yellow > Grey) or (Green > Grey) then
+				tinsert(t,"Skill Level Error: " .. tostring(i) .. " " .. recipe_name)
+			end
+		end
+
 		local ttscantext = addon:TooltipScanRecipe(i,false,true)
 		if (ttscantext) then
 			tinsert(t,ttscantext)
 		end
+
 	end
+	
 	self:DisplayTextDump(nil,nil,tconcat(t,"\n"))
+
 end
 
 --- Parses a specific recipe in the database,and scanning its tooltip.

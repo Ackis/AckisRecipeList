@@ -544,6 +544,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 		["Flags"] = {},					-- Create the flag space in the RecipeDB
 		["Acquire"] = {},				-- Create the Acquire space in the RecipeDB
 		["Specialty"] = Specialty,			-- Assumption: there will only be 1 speciality for a trade skill
+		["Game"] = Game,
 		["Orange"] = Orange or SkillLevel,		-- If we don't have an orange value in the db, just assume the skill level
 		["Yellow"] = Yellow or SkillLevel + 10,		-- If we don't have a yellow value in the db, just assume the skill level
 		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
@@ -559,31 +560,6 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	for i = 1, 127, 1 do
 		recipeentry["Flags"][i] = false
 	end
-
-	-- Get the expansion that the recipe was added
-	if (Game) then
-		recipeentry["Game"] = Game
-		-- We don't have a game flag set, so we'll just make an assumption based on skill levels
-		-- Eventually once all these are added we won't need this code
-	elseif (SkillLevel <= 300) then
-		recipeentry["Game"] = 0
-	elseif (SkillLevel <= 375) then
-		recipeentry["Game"] = 1
-	elseif (SkillLevel <= 450) then
-		recipeentry["Game"] = 2
-	end
-
-	--@alpha@
-	if (not Game) then
-		self:Print("No expansion information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
-	elseif (Game > 2) then
-		self:Print("Expansion information too high: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
-	end
-
-	if (not Orange) then
-		--self:Print("No skill level information: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
-	end
-	--@end-alpha@
 
 end
 
