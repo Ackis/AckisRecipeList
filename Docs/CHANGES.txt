@@ -7,6 +7,7 @@
 *Added leveling info to many recipes.  There is still some info missing, this is slowly being added as it has to be done manually.
 *Fixed an issue with the PVP flags.
 *Code optimizations
+*Datamining tweaks.
 
 ===RC10
 *Significantly reduced memory usage over time.
