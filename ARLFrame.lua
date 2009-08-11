@@ -2253,7 +2253,10 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == ACQUIRE_VENDOR) and obtainDB.vendor then
+		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+		-- This allows us to select PVP only and to see just the PVP recipes
+		elseif (v["Type"] == ACQUIRE_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
