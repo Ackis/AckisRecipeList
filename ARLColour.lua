@@ -281,38 +281,38 @@ end
 -- used for tooltip rgb stuff
 function addon:hexcolor(colorstring)
 	if (colorstring == "NEUTRAL")			then return NEUTRAL
-	elseif (colorstring == "FRIENDLY")	then return FRIENDLY
+	elseif (colorstring == "FRIENDLY")		then return FRIENDLY
 	elseif (colorstring == "HONORED")		then return HONORED
 	elseif (colorstring == "REVERED")		then return REVERED
 	elseif (colorstring == "EXALTED")		then return EXALTED
 
 	elseif (colorstring == "TRAINER")		then return TRAINER
 	elseif (colorstring == "VENDOR")		then return VENDOR
-	elseif (colorstring == "QUEST")		then return QUEST
+	elseif (colorstring == "QUEST")			then return QUEST
 	elseif (colorstring == "REP")			then return REP
 	elseif (colorstring == "SEASON")		then return SEASON
 	elseif (colorstring == "MOBDROP")		then return MOBDROP
 
-	elseif (colorstring == "POOR")		then return POOR
+	elseif (colorstring == "POOR")			then return POOR
 	elseif (colorstring == "COMMON")		then return COMMON
-	elseif (colorstring == "UNCOMMON")	then return UNCOMMON
-	elseif (colorstring == "RARE")		then return RARE
-	elseif (colorstring == "EPIC")		then return EPIC
-	elseif (colorstring == "LEGENDARY")	then return LEGENDARY
-	elseif (colorstring == "ARTIFACT")	then return ARTIFACT
+	elseif (colorstring == "UNCOMMON")		then return UNCOMMON
+	elseif (colorstring == "RARE")			then return RARE
+	elseif (colorstring == "EPIC")			then return EPIC
+	elseif (colorstring == "LEGENDARY")		then return LEGENDARY
+	elseif (colorstring == "ARTIFACT")		then return ARTIFACT
 
-	elseif (colorstring == "HORDE")		then return HORDE
-	elseif (colorstring == "ALLIANCE")	then return ALLIANCE
+	elseif (colorstring == "HORDE")			then return HORDE
+	elseif (colorstring == "ALLIANCE")		then return ALLIANCE
 
-	elseif (colorstring == "BLACK")		then return BLACK
+	elseif (colorstring == "BLACK")			then return BLACK
 	elseif (colorstring == "ORANGE")		then return ORANGE
-	elseif (colorstring == "GREEN")		then return GREEN
+	elseif (colorstring == "GREEN")			then return GREEN
 	elseif (colorstring == "YELLOW")		then return YELLOW
 	elseif (colorstring == "GREY")			then return GREY
 	elseif (colorstring == "MIDGREY")		then return MIDGREY
 	elseif (colorstring == "RED")			then return RED
 
-	elseif (colorstring == "HIGH")		then return HIGH
+	elseif (colorstring == "HIGH")			then return HIGH
 --	elseif (colorstring == "NORMAL")		then return NORMAL
 	else
 		return NORMAL
