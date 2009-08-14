@@ -1109,7 +1109,8 @@ end
 -- @return Recipe has its tooltips scanned.
 function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 	local recipe_list = LoadRecipe()	-- Get internal database
-
+	local t = {}
+	
 	if (not recipe_list) then
 		self:Print(L["DATAMINER_NODB_ERROR"])
 		return
@@ -1123,19 +1124,19 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 		local recipe_name = recipe_list[spellid]["Name"]
 		local recipe_link = recipe_list[spellid]["RecipeLink"]
 		-- Check for game version
-		local Game = spellid["Game"]
-		recipe_name = spellid["Name"]
+		local Game = recipe_list[spellid]["Game"]
+		recipe_name = recipe_list[spellid]["Name"]
 		if (not Game) then
 			tinsert(t,"No expansion information: " .. tostring(spellid) .. " " .. recipe_name)
 		elseif (Game > 2) then
 			tinsert(t,"Expansion information too high: " .. tostring(spellid) .. " " .. recipe_name)
 		end
 
-		local Orange = spellid["Orange"]
-		local Yellow = spellid["Yellow"]
-		local Green = spellid["Green"]
-		local Grey = spellid["Grey"]
-		local SkillLevel = spellid["Level"]
+		local Orange = recipe_list[spellid]["Orange"]
+		local Yellow = recipe_list[spellid]["Yellow"]
+		local Green = recipe_list[spellid]["Green"]
+		local Grey = recipe_list[spellid]["Grey"]
+		local SkillLevel = recipe_list[spellid]["Level"]
 
 		-- No skill level information
 		if (not Orange) then
@@ -1162,8 +1163,6 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 			-- Check to see if we're dealing with a recipe
 			if (RECIPE_NAMES[matchtext]) then
 				self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,false)
-
-				local t = {}
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 				local itemid = SPELL_ITEM[spellid]
