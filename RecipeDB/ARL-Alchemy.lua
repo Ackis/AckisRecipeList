@@ -898,7 +898,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Ironskin -- 39639
 	self:addTradeSkill(RecipeDB,39639,330,32068,1,51304,nil,1,330,345,352,360)
-	self:addTradeFlags(RecipeDB,39639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,39639,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,39639,2,18821,2,18822)
 
 	-- Cauldron of Major Arcane Protection -- 41458

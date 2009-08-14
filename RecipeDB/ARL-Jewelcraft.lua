@@ -1208,7 +1208,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Steady Talasite -- 43493
 	self:addTradeSkill(RecipeDB,43493,350,33782,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,43493,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,43493,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,43493,2,18821,2,18822)
 
 	-- Chaotic Skyfire Diamond -- 44794
