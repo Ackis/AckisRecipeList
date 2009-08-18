@@ -802,6 +802,8 @@ do
 				end
 				tinsert(output,"Trainer Acquire Scan Complete.")
 
+				tinsert(output,"If you're doing an engineering scan, there may be some goggles listed as extra.  These goggles ONLY show up for those classes who can make them, so they may be false positives.")
+
 				if ((teachflag) or (noteachflag)) then
 					self:DisplayTextDump(nil,nil,tconcat(output,"\n"))
 				end
