@@ -1580,17 +1580,17 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,68067,450,49050,1,4036,nil,2,450,480,485,490)
 	self:addTradeFlags(RecipeDB,68067,1,2,10,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,68067,7,2)
-	
+
 	-- 67920 Northrend Port
 	self:addTradeSkill(RecipeDB,67920,435,48933,1,4036,nil,2,435,450,455,460)
 	self:addTradeFlags(RecipeDB,67920,1,2,3,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,67920,1,25277)
-	
+
 	--Mind Amplification Dish -- 67839
 	self:addTradeSkill(RecipeDB,67839,410,nil,1,4036,nil,2,410,410,415,420)
 	self:addTradeFlags(RecipeDB,67839,1,2,3,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,67839,1,25277)
-	
+
 	return 294
 
 end
