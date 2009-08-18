@@ -2776,7 +2776,7 @@ function addon:InitLeatherworking(RecipeDB)
 		
 		-- Moonshadow Armguards -- 67141
 
-		return 515
+		return 514
 
 	else
 

@@ -2820,7 +2820,7 @@ function addon:InitJewelcrafting(RecipeDB)
 		self:addTradeFlags(RecipeDB,68253,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
 		self:addTradeAcquire(RecipeDB,68253,2,28701)
 
-		return 555
+		return 554
 
 	else
 

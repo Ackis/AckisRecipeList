@@ -2127,6 +2127,6 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeFlags(RecipeDB,67064,2,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,67064,8,42)
 
-	return 409
+	return 408
 
 end
