@@ -372,7 +372,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8339,7,2)
 
 	-- Goblin Rocket Boots -- 8895
-	self:addTradeSkill(RecipeDB,8895,225,7189,1,4036,20222,0,)
+	self:addTradeSkill(RecipeDB,8895,130,7189,1,4036,20222,0,130,245,255,265)
 	self:addTradeFlags(RecipeDB,8895,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
 	self:addTradeAcquire(RecipeDB,8895,1,8126,1,29513)
 
@@ -401,8 +401,8 @@ function addon:InitEngineering(RecipeDB)
 	-- Solid Blasting Powder -- 12585
 	self:addTradeSkill(RecipeDB,12585,175,10505,1,4036,nil,0,175,175,185,195)
 	self:addTradeFlags(RecipeDB,12585,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,12585,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,
-	1,3494,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277)
+	self:addTradeAcquire(RecipeDB,12585,1,5174,1,8736,1,11017,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,33586,1,3494,1,3290,
+	1,5518,1,26991,1,33611,1,33634,1,1676,1,25277)
 
 	-- Solid Dynamite -- 12586
 	self:addTradeSkill(RecipeDB,12586,175,10507,1,4036,nil,0,175,175,185,195)
@@ -1401,7 +1401,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,56464,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Sonic Booster -- 56466
-	self:addTradeSkill(RecipeDB,56466,420,40767,3,4036,nil,2,420,435,440,445,)
+	self:addTradeSkill(RecipeDB,56466,420,40767,3,4036,nil,2,420,435,440,445)
 	self:addTradeFlags(RecipeDB,56466,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,56466,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
@@ -1510,16 +1510,6 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,56574,1,2,3,23,27,37,41,58)
 	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
-	-- Mechano-hog -- 60866
-	self:addTradeSkill(RecipeDB,60866,450,41508,4,4036,nil,2,450,480,485,490)
-	self:addTradeFlags(RecipeDB,60866,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
-	self:addTradeAcquire(RecipeDB,60866,6,1052,4,32565,6,1052,4,32774)
-
-	-- Mekgineer's Chopper -- 60867
-	self:addTradeSkill(RecipeDB,60867,450,44413,4,4036,nil,2,450,480,485,490)
-	self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
-	self:addTradeAcquire(RecipeDB,60867,6,1037,4,32564,6,1037,4,32773)
-
 	-- Nesingwary 4000 -- 60874
 	self:addTradeSkill(RecipeDB,60874,450,44504,4,4036,nil,2,450,455,460,465)
 	self:addTradeFlags(RecipeDB,60874,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
@@ -1591,6 +1581,33 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,67839,1,2,3,21,22,23,24,25,26,27,28,29,30)
 	self:addTradeAcquire(RecipeDB,67839,1,25277)
 
-	return 294
+	-- Some recipes are only availible to specific factions.
+	-- We only add the faction specific recipes if the user is part of that faction
+	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+	local faction = UnitFactionGroup("player")
+	-- Counter for how many faction specific recipes we have
+	local factioncount = 0
+
+	if (faction == BFAC["Alliance"]) then
+
+		-- Mekgineer's Chopper -- 60867
+		self:addTradeSkill(RecipeDB,60867,450,44413,4,4036,nil,2,450,480,485,490)
+		self:addTradeFlags(RecipeDB,60867,1,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
+		self:addTradeAcquire(RecipeDB,60867,6,1037,4,32564,6,1037,4,32773)
+
+		factioncount = 1
+
+	elseif (faction == BFAC["Horde"]) then
+
+		-- Mechano-hog -- 60866
+		self:addTradeSkill(RecipeDB,60866,450,41508,4,4036,nil,2,450,480,485,490)
+		self:addTradeFlags(RecipeDB,60866,2,4,21,22,23,24,25,26,27,28,29,30,36,41,130)
+		self:addTradeAcquire(RecipeDB,60866,6,1052,4,32565,6,1052,4,32774)
+
+		factioncount = 1
+	
+	end
+
+	return 292 + factioncount
 
 end
