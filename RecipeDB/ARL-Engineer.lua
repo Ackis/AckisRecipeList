@@ -1363,7 +1363,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Scrapbot Construction Kit -- 55252
 	self:addTradeSkill(RecipeDB,55252,425,40769,1,4036,nil,2)
 	self:addTradeFlags(RecipeDB,55252,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,55252,1,25277,1,26907,1,26955)
+	self:addTradeAcquire(RecipeDB,55252,1,26907,1,26955)
 
 	-- Handful of Cobalt Bolts -- 56349
 	self:addTradeSkill(RecipeDB,56349,350,39681,1,4036,nil,1)
@@ -1438,7 +1438,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Gnomish X-Ray Specs -- 56473
 	self:addTradeSkill(RecipeDB,56473,425,40895,3,4036,20219,2)
 	self:addTradeFlags(RecipeDB,56473,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
-	self:addTradeAcquire(RecipeDB,56473,1,25277,1,26907,1,26955,1,29514)
+	self:addTradeAcquire(RecipeDB,56473,1,26907,1,26955,1,29514)
 
 	-- Ultrasafe Bullet Machine -- 56474
 	self:addTradeSkill(RecipeDB,56474,410,44507,1,4036,nil,2)
@@ -1473,32 +1473,32 @@ function addon:InitEngineering(RecipeDB)
 	-- Armored Titanium Goggles -- 56480
 	self:addTradeSkill(RecipeDB,56480,440,42549,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56480,1,2,3,21,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Weakness Spectralizers -- 56481
 	self:addTradeSkill(RecipeDB,56481,440,42550,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56481,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,56481,1,25277,1,26907,1,26955)
+	self:addTradeAcquire(RecipeDB,56481,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Charged Titanium Specs -- 56483
 	self:addTradeSkill(RecipeDB,56483,440,42552,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56483,1,2,3,21,25,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Visage Liquification Goggles -- 56484
 	self:addTradeSkill(RecipeDB,56484,440,42553,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56484,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955)
+	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Greensight Gogs -- 56486
 	self:addTradeSkill(RecipeDB,56486,440,42554,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56486,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,56486,1,25277,1,26907,1,26955)
+	self:addTradeAcquire(RecipeDB,56486,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Electroflux Sight Enhancers -- 56487
 	self:addTradeSkill(RecipeDB,56487,440,42555,3,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56487,1,2,3,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,56487,1,25277,1,26907,1,26955,1,26991)
+	self:addTradeAcquire(RecipeDB,56487,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Global Thermal Sapper Charge -- 56514
 	self:addTradeSkill(RecipeDB,56514,425,42641,1,4036,20222,2)
@@ -1508,7 +1508,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Truesight Ice Blinders -- 56574
 	self:addTradeSkill(RecipeDB,56574,440,42551,1,4036,nil,2)
 	self:addTradeFlags(RecipeDB,56574,1,2,3,23,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991)
+	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Mechano-hog -- 60866
 	self:addTradeSkill(RecipeDB,60866,450,41508,4,4036,nil,2)
