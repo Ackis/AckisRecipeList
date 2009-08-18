@@ -9,6 +9,7 @@
 *Code optimizations
 *Datamining tweaks.
 *Removed comment in code that was causing AntiVir to screw up.  It's a fail anti-virus scanner.
+*Fix ATSW and Trade Junkie integrations (Thanks to Thrashfinger)
 
 ===RC10
 *Significantly reduced memory usage over time.
