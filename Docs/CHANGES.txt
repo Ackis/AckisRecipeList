@@ -2,14 +2,15 @@
 
 ===3.2 Release
 *Updated recipes for 3.2
-*Trainer updates
-*Recipes now have flags to determine which expansion they come from
+*Trainer updates.
+*Recipes now have flags to determine which expansion they come from.
 *Added leveling info to many recipes.  There is still some info missing, this is slowly being added as it has to be done manually.
 *Fixed an issue with the PVP flags.
-*Code optimizations
+*Code optimizations.
 *Datamining tweaks.
 *Removed comment in code that was causing AntiVir to screw up.  It's a fail anti-virus scanner.
-*Fix ATSW and Trade Junkie integrations (Thanks to Thrashfinger)
+*Fix ATSW and Trade Junkie integrations (Thanks to Thrashfinger).
+*Faction specific recipes which cannot be acquired by the other side (The choppers and the new 3.2 patterns) are now automatically filtered.
 
 ===RC10
 *Significantly reduced memory usage over time.
