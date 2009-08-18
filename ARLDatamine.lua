@@ -565,6 +565,22 @@ local SPELL_ITEM = {
 -------------------------------------------------------------------------------
 local NO_PLAYER_FLAG = {
 	[30344] = true,		[30341] = true,		[32814] = true,		[23066] = true,
+	[26421] = true,		[36955] = true,		[19788] = true,		[23129] = true,
+	[26422] = true,		[12715] = true,		[12899] = true,		[56459] = true,
+	[30307] = true,		[26423] = true,		[3918] = true,		[23067] = true,
+	[30308] = true,		[3953] = true,		[15255] = true,		[26424] = true,
+	[30548] = true,		[44157] = true,		[56462] = true,		[19567] = true,
+	[30552] = true,		[23068] = true,		[44155] = true,		[28327] = true,
+	[26425] = true,		[56461] = true,		[68067] = true,		[15633] = true,
+	[23096] = true,		[12589] = true,		[26442] = true,		[26426] = true,
+	[67920] = true,		[9273] = true,		[3926] = true,		[6458] = true,
+	[19793] = true,		[55252] = true,		[9271] = true,		[26427] = true,
+	[26443] = true,		[30551] = true,		[23486] = true,		[3922] = true,
+	[3924] = true,		[12590] = true,		[3928] = true,		[3942] = true,
+	[26428] = true,		[3952] = true,		[22704] = true,		[12902] = true,
+	[30569] = true,		[15628] = true,		[12895] = true,		[21940] = true,
+	[56349] = true,		[12584] = true,		[56477] = true,		[30348] = true,
+	[26416] = true,		[53281] = true,		[23507] = true,
 }
 
 local function LoadRecipe()
