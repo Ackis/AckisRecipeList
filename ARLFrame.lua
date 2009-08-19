@@ -1506,13 +1506,11 @@ function addon:ShowScanButton()
 		addon.ScanButton:ClearAllPoints()
 		if (TradeJunkieMain and TJ_OpenButtonATSW) then
 			addon.ScanButton:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
-			addon.ScanButton:SetHeight(TJ_OpenButtonATSW:GetHeight())
-			addon.ScanButton:SetWidth(TJ_OpenButtonATSW:GetWidth())
 		else
 			addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
-			addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
-			addon.ScanButton:SetWidth(ATSWOptionsButton:GetWidth())
 		end
+		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
+		addon.ScanButton:SetWidth(ATSWOptionsButton:GetWidth())
 	-- Anchor to Cauldron
 	elseif (CauldronFrame) then
 		addon.ScanButton:SetParent(CauldronFrame)
