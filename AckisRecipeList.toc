@@ -12,7 +12,7 @@
 #@debug@
 ## Title: Ackis Recipe List - SVN Version
 #@end-debug@
- 
+
 #@non-debug@
 ## Notes: @localization(locale="enUS", key="Description", namespace="ToC")@
 ## Notes-frFR: @localization(locale="frFR", key="Description", namespace="ToC")@
