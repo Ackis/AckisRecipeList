@@ -33,7 +33,7 @@
 ## X-Donate: http://www.wowace.com/projects/arl/#w_donations
 
 ## Interface: 30200
-## Version: 1.0 3.2 Beta 2 @project-revision@
+## Version: 1.0 3.2 Beta 3 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
