@@ -1180,6 +1180,7 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 
 			-- Check to see if we're dealing with a recipe
 			if (RECIPE_NAMES[matchtext]) then
+				-- Scan the recipe which is loaded on the tooltip
 				self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,false)
 
 				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
@@ -1188,9 +1189,17 @@ function addon:TooltipScanRecipe(spellid,is_vendor,is_largescan)
 					local incache = GetItemInfo(itemid)
 					if (incache) then
 						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
+						-- Scan the recipe item (aka pattern)
 						self:ScanToolTip(recipe_name,recipe_list,reverse_lookup,is_vendor,true)
 					else
 						tinsert(t,"Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
+					end
+				-- We are dealing with a recipe that does not have an item to learn it from
+				else
+					-- Lets check the recipe flags to see if we have a data error and the item should exist
+					local flags = recipe_list[spellid]["Flags"]
+					if (flags[4] or flags[5] or flags[6]) then
+						tinsert(t,"Spell ID: " .. spellid .. " Does not have a recipe pattern in the miner.  Please add it manually to the table SPELL_ITEM.")
 					end
 				end
 
@@ -1818,7 +1827,7 @@ do
 		-- Check for player role flags
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spellid]) then
 			addedtotable = true
-			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ")")
+			tinsert(t,"No player role flag. " .. recipe_name .. " (" .. spellid .. ").  If this is erroneous, please add the spell ID to the NO_PLAYER_FLAG table in the dataminer.")
 		end
 
 		if (scan_data.specialty) then
