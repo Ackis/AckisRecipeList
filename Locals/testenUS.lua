@@ -1552,3 +1552,4 @@ L["Zixil"] = true
 L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
+L["Recorder Lidio"] = true
