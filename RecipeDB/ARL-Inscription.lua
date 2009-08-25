@@ -669,7 +669,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57112,8,15)
 
 	-- Glyph of Ambush -- 57113
-	self:addTradeSkill(RecipeDB,57113,340,42955,1,45357,nil,2,)
+	self:addTradeSkill(RecipeDB,57113,340,42955,1,45357,nil,2)
 	self:addTradeFlags(RecipeDB,57113,1,2,3,28,36,41)
 	self:addTradeAcquire(RecipeDB,57113,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,33603,1,33615,1,33679)
 
