@@ -212,7 +212,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3765,7,2)
 
 	-- Dark Leather Belt -- 3766
-	self:addTradeSkill(RecipeDB,3766,125,4249,1,2108,nil,0,125.150.162.175)
+	self:addTradeSkill(RecipeDB,3766,125,4249,1,2108,nil,0,125,150,162,175)
 	self:addTradeFlags(RecipeDB,3766,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,3766,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,
 	1,4588,1,5127,1,5564,1,8153,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,
@@ -2181,7 +2181,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,50964,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Frosthide Leg Armor -- 50965
-	self:addTradeSkill(RecipeDB,50965,425,38373,4,2108,nil,2,)
+	self:addTradeSkill(RecipeDB,50965,425,38373,4,2108,nil,2,425,435,440,445)
 	self:addTradeFlags(RecipeDB,50965,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,50965,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
@@ -2191,7 +2191,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,50966,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Icescale Leg Armor -- 50967
-	self:addTradeSkill(RecipeDB,50967,425,38374,4,2108,nil,2,)
+	self:addTradeSkill(RecipeDB,50967,425,38374,4,2108,nil,2,425,435,440,445)
 	self:addTradeFlags(RecipeDB,50967,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,50967,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
