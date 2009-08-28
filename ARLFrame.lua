@@ -798,7 +798,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	else
 		clr2 = addon:hexcolor("MIDGREY")
 	end
-
 	ttAdd(0, -1, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
 	arlTooltip:AddSeparator()
 	-- Binding info
