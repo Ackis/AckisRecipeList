@@ -32,5 +32,9 @@
  output-page: "API"
 -
  type: luadoc
+ input-file: ARLFrame.lua
+ output-page: "API/Frame"
+-
+ type: luadoc
  input-file: ARLDatamine.lua
  output-page: "API/In-game Datamining"

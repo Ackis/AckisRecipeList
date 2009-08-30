@@ -29,7 +29,7 @@ This source code is released under All Rights Reserved.
 -- ARL supports all professions currently in World of Warcraft 3.1.
 -- @class file
 -- @name AckisRecipeList.lua
--- @release 1.0 RC9
+-- @release 1.0
 
 local LibStub = LibStub
 
@@ -1497,9 +1497,10 @@ do
 
 	---Determines all the locations a given recipe can be obtained
 	function addon:GetRecipeLocations(SpellID)
-		if not RecipeList or not RecipeList[SpellID] then
+		if ((not RecipeList) or (not RecipeList[SpellID])) then
 			return ""
 		end
+
 		wipe(location_list)
 		wipe(location_checklist)
 

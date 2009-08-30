@@ -298,8 +298,8 @@ function addon:InitMob(MobDB)
 	-- Blackwing Lair
 	self:addLookupList(MobDB,14401,L["Master Elemental Shaper Krixix"],BZONE["Blackwing Lair"],0,0)
 	-- Dire Maul
-	self:addLookupList(MobDB,11487,BBOSS["Magister Kalendris"],BZONE["Dire Maul"],0,0)
-	self:addLookupList(MobDB,14354,BBOSS["Pusillin"],BZONE["Dire Maul"],0,0)
+	self:addLookupList(MobDB,11487,BBOSS["Magister Kalendris"],BZONE["Dire Maul"],59.04,48.82)
+	self:addLookupList(MobDB,14354,BBOSS["Pusillin"],BZONE["Dire Maul"],59.04,48.82)
 	-- Drak'Tharon Keep
 	self:addLookupList(MobDB,26632,BBOSS["The Prophet Tharon'ja"],BZONE["Drak'Tharon Keep"],0,0)
 	-- Gnomeregan

@@ -24,6 +24,12 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
+--- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
+-- There are a set of functions which allow you make use of the ARL database outside of ARL.\\
+-- ARL supports all professions currently in World of Warcraft 3.1.
+-- @class file
+-- @name ARLFrame.lua
+
 local MODNAME	= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
@@ -462,11 +468,19 @@ do
 		return display
 	end
 
+	local dungeonlist = {
+		[14354] = {
+			["loc"] = 357,
+			["c"] = 1,
+		},
+	}
+
+	local maplist = {}
+
 	-- Description: Adds mini-map and world map icons with tomtom.
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
-	local maplist = {}
 	function addon:SetupMap(singlerecipe)
 		if (not TomTom) then
 			return
@@ -479,6 +493,7 @@ do
 
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
+--[[
 		-- Get the proper icon to put on the mini-map
 		for i, k in pairs(SortedProfessions) do
 			if (k["name"] == playerData.playerProfession) then
@@ -486,6 +501,7 @@ do
 				break
 			end
 		end
+]]--
 		local filters = addon.db.profile.filters
 		local autoscanmap = addon.db.profile.autoscanmap
 
@@ -564,9 +580,13 @@ do
 			elseif (c4[loc["Location"]]) then
 				continent = 4
 				zone = c4[loc["Location"]]
+			-- It's in a dungeon, lets check our manual listings for it.
+			elseif dungeonlist[k] then
+				continent = dungeonlist[k]["c"]
+				zone = dungeonlist[k]["loc"]
 			else
 				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. loc["Location"])
 				--@end-alpha@
 			end
 			

@@ -53,10 +53,11 @@ function addon:InitCooking(RecipeDB)
 
 	-- Spiced Wolf Meat -- 2539
 	self:addTradeSkill(RecipeDB,2539,10,2680,1,2550,nil,0,10,50,70,90)
-	self:addTradeFlags(RecipeDB,2539,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,2539,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,
-	1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,
-	1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeFlags(RecipeDB,2539,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
+	self:addTradeAcquire(RecipeDB,2539,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Roasted Boar Meat -- 2540
 	self:addTradeSkill(RecipeDB,2540,1,2681,1,2550,nil,0,1,45,65,85)
@@ -66,9 +67,9 @@ function addon:InitCooking(RecipeDB)
 	-- Coyote Steak -- 2541
 	self:addTradeSkill(RecipeDB,2541,50,2684,1,2550,nil,0,50,90,110,130)
 	self:addTradeFlags(RecipeDB,2541,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,2541,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,
-	1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,
-	1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,2541,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Goretusk Liver Pie -- 2542
 	self:addTradeSkill(RecipeDB,2542,50,724,1,2550,nil,0,50,90,110,130)
@@ -83,7 +84,9 @@ function addon:InitCooking(RecipeDB)
 	-- Crab Cake -- 2544
 	self:addTradeSkill(RecipeDB,2544,75,2683,1,2550,nil,0,75,115,135,155)
 	self:addTradeFlags(RecipeDB,2544,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,2544,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,2544,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Cooked Crab Claw -- 2545
 	self:addTradeSkill(RecipeDB,2545,85,2682,1,2550,nil,0,85,125,145,165)
@@ -93,11 +96,14 @@ function addon:InitCooking(RecipeDB)
 	-- Dry Pork Ribs -- 2546
 	self:addTradeSkill(RecipeDB,2546,80,2687,1,2550,nil,0,80,120,140,160)
 	self:addTradeFlags(RecipeDB,2546,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,2546,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,2546,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Redridge Goulash -- 2547
 	self:addTradeSkill(RecipeDB,2547,100,1082,1,2550,nil,0,100,135,155,175)
-	self:addTradeFlags(RecipeDB,2547,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,2547,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,2547,4,92,2,340)
 
 	-- Succulent Pork Ribs -- 2548
@@ -107,17 +113,20 @@ function addon:InitCooking(RecipeDB)
 
 	-- Seasoned Wolf Kabob -- 2549
 	self:addTradeSkill(RecipeDB,2549,100,1017,1,2550,nil,0,100,140,160,180)
-	self:addTradeFlags(RecipeDB,2549,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,2549,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,2549,4,90,2,340)
 
 	-- Beer Basted Boar Ribs -- 2795
 	self:addTradeSkill(RecipeDB,2795,10,2888,1,2550,nil,0,10,60,80,100)
-	self:addTradeFlags(RecipeDB,2795,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,2795,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,2795,4,384,2,340)
 
 	-- Crocolisk Steak -- 3370
 	self:addTradeSkill(RecipeDB,3370,80,3662,1,2550,nil,0,80,120,140,160)
-	self:addTradeFlags(RecipeDB,3370,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,3370,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53
+	,54)
 	self:addTradeAcquire(RecipeDB,3370,4,385,2,340)
 
 	-- Blood Sausage -- 3371
@@ -127,7 +136,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Murloc Fin Soup -- 3372
 	self:addTradeSkill(RecipeDB,3372,90,3663,1,2550,nil,0,90,130,150,170)
-	self:addTradeFlags(RecipeDB,3372,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,3372,1,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,3372,4,127,2,340)
 
 	-- Crocolisk Gumbo -- 3373
@@ -137,7 +147,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Curiously Tasty Omelet -- 3376
 	self:addTradeSkill(RecipeDB,3376,130,3665,1,2550,nil,0,130,170,190,210)
-	self:addTradeFlags(RecipeDB,3376,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,3376,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53
+	,54)
 	self:addTradeAcquire(RecipeDB,3376,4,296,2,340,2,1148,2,2821)
 
 	-- Gooey Spider Cake -- 3377
@@ -152,7 +163,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Hot Lion Chops -- 3398
 	self:addTradeSkill(RecipeDB,3398,125,3727,1,2550,nil,0,125,175,195,215)
-	self:addTradeFlags(RecipeDB,3398,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,3398,1,2,4,8,21,22,23,24,25,26,27,28,29,30,36,40,53
+	,54)
 	self:addTradeAcquire(RecipeDB,3398,4,501,2,3489,2,12245)
 
 	-- Tasty Lion Steak -- 3399
@@ -162,7 +174,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Soothing Turtle Bisque -- 3400
 	self:addTradeSkill(RecipeDB,3400,175,3729,1,2550,nil,0,175,215,235,255)
-	self:addTradeFlags(RecipeDB,3400,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,3400,1,2,8,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,3400,4,555,4,7321)
 
 	-- Barbecued Buzzard Wing -- 4094
@@ -208,12 +221,16 @@ function addon:InitCooking(RecipeDB)
 	-- Boiled Clams -- 6499
 	self:addTradeSkill(RecipeDB,6499,50,5525,1,2550,nil,0,50,90,110,130)
 	self:addTradeFlags(RecipeDB,6499,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,6499,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,6499,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Goblin Deviled Clams -- 6500
 	self:addTradeSkill(RecipeDB,6500,125,5527,1,2550,nil,0,125,165,185,205)
 	self:addTradeFlags(RecipeDB,6500,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,6500,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,6500,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,
+	3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Clam Chowder -- 6501
 	self:addTradeSkill(RecipeDB,6501,90,5526,1,2550,nil,0,90,130,150,170)
@@ -222,13 +239,15 @@ function addon:InitCooking(RecipeDB)
 
 	-- Giant Clam Scorcho -- 7213
 	self:addTradeSkill(RecipeDB,7213,175,6038,1,2550,nil,0,175,215,235,255)
-	self:addTradeFlags(RecipeDB,7213,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,7213,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,7213,2,2664)
 
 	-- Brilliant Smallfish -- 7751
 	self:addTradeSkill(RecipeDB,7751,1,6290,1,2550,nil,0,1,45,65,85)
 	self:addTradeFlags(RecipeDB,7751,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,5494,2,5940,2,8508)
+	self:addTradeAcquire(RecipeDB,7751,2,66,2,1684,2,3029,2,3550,2,4265,2,4574,2,
+	5494,2,5940,2,8508)
 
 	-- Slitherskin Mackerel -- 7752
 	self:addTradeSkill(RecipeDB,7752,1,787,1,2550,nil,0,1,45,65,85)
@@ -238,7 +257,8 @@ function addon:InitCooking(RecipeDB)
 	-- Longjaw Mud Snapper -- 7753
 	self:addTradeSkill(RecipeDB,7753,50,4592,1,2550,nil,0,50,90,110,130)
 	self:addTradeFlags(RecipeDB,7753,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4265,2,4574,2,5162,2,5748,2,5940)
+	self:addTradeAcquire(RecipeDB,7753,2,66,2,1684,2,3027,2,4265,2,4574,2,5162,2,
+	5748,2,5940)
 
 	-- Loch Frenzy Delight -- 7754
 	self:addTradeSkill(RecipeDB,7754,50,6316,1,2550,nil,0,50,90,110,130)
@@ -248,17 +268,20 @@ function addon:InitCooking(RecipeDB)
 	-- Bristle Whisker Catfish -- 7755
 	self:addTradeSkill(RecipeDB,7755,100,4593,1,2550,nil,0,100,140,160,180)
 	self:addTradeFlags(RecipeDB,7755,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7755,2,2383,2,2397,2,3027,2,3029,2,3497,2,4553,2,5494)
+	self:addTradeAcquire(RecipeDB,7755,2,2383,2,2397,2,3027,2,3029,2,3497,2,4553,2,
+	5494)
 
 	-- Rainbow Fin Albacore -- 7827
 	self:addTradeSkill(RecipeDB,7827,50,5095,1,2550,nil,0,50,90,110,130)
 	self:addTradeFlags(RecipeDB,7827,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7827,2,3178,2,3333,2,3497,2,4305,2,4307,2,4553,2,5494,2,5748,2,5942,2,10118)
+	self:addTradeAcquire(RecipeDB,7827,2,3178,2,3333,2,3497,2,4305,2,4307,2,4553,2,
+	5494,2,5748,2,5942,2,10118)
 
 	-- Rockscale Cod -- 7828
 	self:addTradeSkill(RecipeDB,7828,175,4594,1,2550,nil,0,175,190,210,230)
 	self:addTradeFlags(RecipeDB,7828,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7828,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2,5162,2,12033,2,12962)
+	self:addTradeAcquire(RecipeDB,7828,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2,
+	5162,2,12033,2,12962)
 
 	-- Savory Deviate Delight -- 8238
 	self:addTradeSkill(RecipeDB,8238,85,6657,2,2550,nil,0,85,125,145,165)
@@ -293,11 +316,13 @@ function addon:InitCooking(RecipeDB)
 	-- Roast Raptor -- 15855
 	self:addTradeSkill(RecipeDB,15855,175,12210,1,2550,nil,0,175,215,235,255)
 	self:addTradeFlags(RecipeDB,15855,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,15855,2,734,2,1148,2,2810,2,2821,2,4879,2,4897,2,12245)
+	self:addTradeAcquire(RecipeDB,15855,2,734,2,1148,2,2810,2,2821,2,4879,2,4897,2,
+	12245)
 
 	-- Hot Wolf Ribs -- 15856
 	self:addTradeSkill(RecipeDB,15856,175,13851,1,2550,nil,0,175,215,235,255)
-	self:addTradeFlags(RecipeDB,15856,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,15856,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,15856,2,7947,2,8145,2,12246)
 
 	-- Jungle Stew -- 15861
@@ -312,7 +337,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Mystery Stew -- 15865
 	self:addTradeSkill(RecipeDB,15865,175,12214,1,2550,nil,0,175,215,235,255)
-	self:addTradeFlags(RecipeDB,15865,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,15865,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,15865,2,4897,2,8150,2,12246)
 
 	-- Dragonbreath Chili -- 15906
@@ -362,12 +388,14 @@ function addon:InitCooking(RecipeDB)
 
 	-- Hot Smoked Bass -- 18242
 	self:addTradeSkill(RecipeDB,18242,240,13929,1,2550,nil,0,240,265,277,290)
-	self:addTradeFlags(RecipeDB,18242,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,18242,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,18242,2,2664)
 
 	-- Nightfin Soup -- 18243
 	self:addTradeSkill(RecipeDB,18243,250,13931,1,2550,nil,0,250,275,285,295)
-	self:addTradeFlags(RecipeDB,18243,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,18243,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,18243,2,8137)
 
 	-- Poached Sunscale Salmon -- 18244
@@ -398,22 +426,27 @@ function addon:InitCooking(RecipeDB)
 	-- Mithril Head Trout -- 20916
 	self:addTradeSkill(RecipeDB,20916,175,8364,1,2550,nil,0,175,215,235,255)
 	self:addTradeFlags(RecipeDB,20916,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,20916,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2,5162,2,12033,2,12962)
+	self:addTradeAcquire(RecipeDB,20916,2,2383,2,2664,2,3178,2,3333,2,4307,2,4574,2
+	,5162,2,12033,2,12962)
 
 	-- Gingerbread Cookie -- 21143
 	self:addTradeSkill(RecipeDB,21143,1,17197,1,2550,nil,0,1,45,65,85)
 	self:addTradeFlags(RecipeDB,21143,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21143,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23010,2,23012,2,23064)
+	self:addTradeAcquire(RecipeDB,21143,5,1,2,13420,2,13429,2,13432,2,13433,2,13435
+	,2,23010,2,23012,2,23064)
 
 	-- Egg Nog -- 21144
 	self:addTradeSkill(RecipeDB,21144,35,17198,1,2550,nil,0,35,75,95,115)
 	self:addTradeFlags(RecipeDB,21144,1,2,7,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,21144,5,1,2,13420,2,13429,2,13432,2,13433,2,13435,2,23010,2,23012,2,23064)
+	self:addTradeAcquire(RecipeDB,21144,5,1,2,13420,2,13429,2,13432,2,13433,2,13435
+	,2,23010,2,23012,2,23064)
 
 	-- Spider Sausage -- 21175
 	self:addTradeSkill(RecipeDB,21175,200,17222,1,2550,nil,0,200,225,237,250)
 	self:addTradeFlags(RecipeDB,21175,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,21175,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,21175,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1
+	,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Tender Wolf Steak -- 22480
 	self:addTradeSkill(RecipeDB,22480,225,18045,1,2550,nil,0,225,250,262,275)
@@ -442,13 +475,18 @@ function addon:InitCooking(RecipeDB)
 
 	-- Smoked Sagefish -- 25704
 	self:addTradeSkill(RecipeDB,25704,80,21072,1,2550,nil,0,80,120,140,160)
-	self:addTradeFlags(RecipeDB,25704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
-	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeFlags(RecipeDB,25704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
+	self:addTradeAcquire(RecipeDB,25704,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2
+	,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,
+	17246,2,19195,2,26868)
 
 	-- Sagefish Delight -- 25954
 	self:addTradeSkill(RecipeDB,25954,175,21217,1,2550,nil,0,175,215,235,255)
 	self:addTradeFlags(RecipeDB,25954,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,17246,2,19195,2,26868)
+	self:addTradeAcquire(RecipeDB,25954,2,2381,2,2397,2,2664,2,3027,2,3085,2,3400,2
+	,4223,2,4265,2,4553,2,5160,2,5483,2,8307,2,12033,2,14738,2,16253,2,16677,2,16718,2,
+	17246,2,19195,2,26868)
 
 	-- Crunchy Spider Surprise -- 28267
 	self:addTradeSkill(RecipeDB,28267,60,22645,1,2550,nil,1,60,100,120,140)
@@ -487,7 +525,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Blackened Basilisk -- 33286
 	self:addTradeSkill(RecipeDB,33286,315,27657,1,2550,nil,1,315,335,345,355)
-	self:addTradeFlags(RecipeDB,33286,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
+	self:addTradeFlags(RecipeDB,33286,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,
+	54)
 	self:addTradeAcquire(RecipeDB,33286,2,18957,2,19038)
 
 	-- Roasted Clefthoof -- 33287
@@ -548,7 +587,9 @@ function addon:InitCooking(RecipeDB)
 	-- Spice Bread -- 37836
 	self:addTradeSkill(RecipeDB,37836,1,30816,1,2550,nil,1,1,30,35,40)
 	self:addTradeFlags(RecipeDB,37836,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,37836,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
+	self:addTradeAcquire(RecipeDB,37836,1,1355,1,1382,1,1430,1,1699,1,3026,1,3067,1
+	,3087,1,3399,1,4210,1,4552,1,5159,1,5482,1,6286,1,8306,1,16253,1,16277,1,16676,1,
+	16719,1,17246,1,18987,1,18988,1,18993,1,19185,1,19369)
 
 	-- Mok'Nathal Shortribs -- 38867
 	self:addTradeSkill(RecipeDB,38867,335,31672,1,2550,nil,1,335,355,365,375)
@@ -567,7 +608,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Fisherman's Feast -- 42302
 	self:addTradeSkill(RecipeDB,42302,350,33052,1,2550,nil,1,350,375,380,385)
-	self:addTradeFlags(RecipeDB,42302,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,42302,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,42302,1,19186)
 
 	-- Hot Buttered Trout -- 42305
@@ -577,7 +619,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Skullfish Soup -- 43707
 	self:addTradeSkill(RecipeDB,43707,325,33825,2,2550,nil,1,325,335,345,355)
-	self:addTradeFlags(RecipeDB,43707,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,43707,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,43707,8,6)
 
 	-- Stormchops -- 43758
@@ -592,7 +635,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Spicy Hot Talbuk -- 43765
 	self:addTradeSkill(RecipeDB,43765,325,33872,2,2550,nil,1,325,335,345,355)
-	self:addTradeFlags(RecipeDB,43765,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,43765,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,43765,8,5)
 
 	-- Kibler's Bits -- 43772
@@ -607,38 +651,45 @@ function addon:InitCooking(RecipeDB)
 
 	-- Hot Apple Cider -- 45022
 	self:addTradeSkill(RecipeDB,45022,325,34411,1,2550,nil,2,325,325,325,325)
-	self:addTradeFlags(RecipeDB,45022,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,45022,1,2,7,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,45022,5,1,2,13420,2,13433)
 
 	-- Mammoth Meal -- 45549
 	self:addTradeSkill(RecipeDB,45549,350,34748,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45549,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45549,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45549,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Shoveltusk Steak -- 45550
 	self:addTradeSkill(RecipeDB,45550,350,34749,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45550,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45550,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Worm Delight -- 45551
 	self:addTradeSkill(RecipeDB,45551,350,34750,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45551,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45551,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45551,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Roasted Worg -- 45552
 	self:addTradeSkill(RecipeDB,45552,350,34751,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45552,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45552,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45552,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Rhino Dogs -- 45553
 	self:addTradeSkill(RecipeDB,45553,350,34752,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45553,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45553,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45553,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Feast -- 45554
 	self:addTradeSkill(RecipeDB,45554,375,34753,1,2550,nil,2,375,375,400,425)
 	self:addTradeFlags(RecipeDB,45554,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
-	self:addTradeAcquire(RecipeDB,45554,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45554,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Mega Mammoth Meal -- 45555
 	self:addTradeSkill(RecipeDB,45555,400,34754,2,2550,nil,2,400,400,420,460)
@@ -647,7 +698,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Tender Shoveltusk Steak -- 45556
 	self:addTradeSkill(RecipeDB,45556,400,34755,2,2550,nil,2,400,400,420,460)
-	self:addTradeFlags(RecipeDB,45556,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,45556,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,45556,2,31031,2,31032)
 
 	-- Spiced Wyrm Burger -- 45557
@@ -668,37 +720,44 @@ function addon:InitCooking(RecipeDB)
 	-- Smoked Rockfin -- 45560
 	self:addTradeSkill(RecipeDB,45560,350,34759,1,2550,nil,2,350,350,365,380)
 	self:addTradeFlags(RecipeDB,45560,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45560,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45560,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Grilled Bonescale -- 45561
 	self:addTradeSkill(RecipeDB,45561,350,34760,1,2550,nil,2,350,350,365,380)
 	self:addTradeFlags(RecipeDB,45561,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45561,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45561,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Sauteed Goby -- 45562
 	self:addTradeSkill(RecipeDB,45562,350,34761,1,2550,nil,2,350,350,365,380)
 	self:addTradeFlags(RecipeDB,45562,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45562,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45562,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Grilled Sculpin -- 45563
 	self:addTradeSkill(RecipeDB,45563,350,34762,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45563,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
-	self:addTradeAcquire(RecipeDB,45563,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45563,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Smoked Salmon -- 45564
 	self:addTradeSkill(RecipeDB,45564,350,34763,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45564,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45564,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45564,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Poached Nettlefish -- 45565
 	self:addTradeSkill(RecipeDB,45565,350,34764,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45565,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45565,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45565,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Pickled Fangtooth -- 45566
 	self:addTradeSkill(RecipeDB,45566,350,34765,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45566,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45566,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45566,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Poached Northern Sculpin -- 45567
 	self:addTradeSkill(RecipeDB,45567,400,34766,2,2550,nil,2,400,400,420,460)
@@ -707,13 +766,15 @@ function addon:InitCooking(RecipeDB)
 
 	-- Firecracker Salmon -- 45568
 	self:addTradeSkill(RecipeDB,45568,400,34767,2,2550,nil,2,400,400,420,460)
-	self:addTradeFlags(RecipeDB,45568,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,45568,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,45568,2,31031,2,31032)
 
 	-- Baked Manta Ray -- 45569
 	self:addTradeSkill(RecipeDB,45569,350,42942,1,2550,nil,2,350,350,382,415)
 	self:addTradeFlags(RecipeDB,45569,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,45569,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,45569,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Imperial Manta Steak -- 45570
 	self:addTradeSkill(RecipeDB,45570,400,34769,2,2550,nil,2,400,400,420,460)
@@ -747,7 +808,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Fish Feast -- 57423
 	self:addTradeSkill(RecipeDB,57423,450,43015,1,2550,nil,2,450,455,460,465)
-	self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,57423,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,57423,2,31031,2,31032)
 
 	-- Worg Tartare -- 62350
@@ -757,7 +819,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Northern Stew -- 57421
 	self:addTradeSkill(RecipeDB,57421,350,34747,1,2550,nil,2,350,350,362,365)
-	self:addTradeFlags(RecipeDB,57421,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,51,52,53,54)
+	self:addTradeFlags(RecipeDB,57421,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41,51,
+	52,53,54)
 	self:addTradeAcquire(RecipeDB,57421,4,13087,4,13088,4,13089,4,13090)
 
 	-- Spicy Fried Herring -- 57433
@@ -792,7 +855,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Cuttlesteak -- 57439
 	self:addTradeSkill(RecipeDB,57439,400,42998,2,2550,nil,2,400,400,420,460)
-	self:addTradeFlags(RecipeDB,57439,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,57439,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
 	self:addTradeAcquire(RecipeDB,57439,2,31031,2,31032)
 
 	-- Spiced Mammoth Treats -- 57440
@@ -817,8 +881,10 @@ function addon:InitCooking(RecipeDB)
 
 	-- Dalaran Clam Chowder -- 58065
 	self:addTradeSkill(RecipeDB,58065,350,43268,1,2550,nil,2,350,350,382,415)
-	self:addTradeFlags(RecipeDB,58065,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,58065,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeFlags(RecipeDB,58065,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,
+	54)
+	self:addTradeAcquire(RecipeDB,58065,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Tasty Cupcake -- 58512
 	self:addTradeSkill(RecipeDB,58512,350,43490,2,2550,nil,2,350,350,357,365)
@@ -858,7 +924,8 @@ function addon:InitCooking(RecipeDB)
 	-- Black Jelly -- 64358
 	self:addTradeSkill(RecipeDB,64358,400,45932,1,2550,nil,2,400,400,412,425)
 	self:addTradeFlags(RecipeDB,64358,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,64358,1,26905,1,26953,1,26972,1,26989,1,28705,1,29631,1,33587)
+	self:addTradeAcquire(RecipeDB,64358,1,26905,1,26953,1,26972,1,26989,1,28705,1,
+	29631,1,33587)
 
 	-- Clamlette Magnifique -- 64054
 	self:addTradeSkill(RecipeDB,64054,225,33004,1,2550,nil,2,250,250,275,300)
