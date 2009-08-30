@@ -30,6 +30,8 @@ This source code is released under All Rights Reserved.
 -- @class file
 -- @name ARLFrame.lua
 
+local LibStub = LibStub
+
 local MODNAME	= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
@@ -455,7 +457,6 @@ do
 
 	local function CheckMapDisplay(v, filters)
 		local display = false
-
 		if (v["Type"] == ACQUIRE_TRAINER) then		-- If it's a trainer, we don't display them on the mini-map
 			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
 		elseif (v["Type"] == ACQUIRE_VENDOR) then	-- If it's a vendor check to see if we're displaying it on the map
@@ -468,9 +469,15 @@ do
 		return display
 	end
 
+	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+
 	local dungeonlist = {
+		[11487] = {
+			["loc"] = c1[BZ["Feralas"]],
+			["c"] = 1,
+		},
 		[14354] = {
-			["loc"] = 357,
+			["loc"] = c1[BZ["Feralas"]],
 			["c"] = 1,
 		},
 	}
@@ -586,10 +593,10 @@ do
 				zone = dungeonlist[k]["loc"]
 			else
 				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. loc["Location"])
+				--addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. loc["Location"])
 				--@end-alpha@
 			end
-			
+
 			if ((zone) and (continent)) then
 				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
 				tinsert(iconlist, iconuid)
