@@ -11,6 +11,7 @@
 *Removed comment in code that was causing AntiVir to screw up.  It's a fail anti-virus scanner.
 *Fix ATSW and Trade Junkie integrations (Thanks to Thrashfinger).
 *Faction specific recipes which cannot be acquired by the other side (The choppers and the new 3.2 patterns) are now automatically filtered.
+*Fixed a map/mini-map coordinate display issue
 *All professions have skill level data added (exception being cooking and JC)
 
 ===RC10

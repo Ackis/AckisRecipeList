@@ -551,10 +551,8 @@ do
 				--@alpha@
 				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
 				--@end-alpha@
-				return
-			end
-
-			if (c1[loc["Location"]]) then
+			-- We have the location
+			elseif (c1[loc["Location"]]) then
 				continent = 1
 				zone = c1[loc["Location"]]
 			elseif (c2[loc["Location"]]) then
@@ -570,13 +568,13 @@ do
 				--@alpha@
 				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
 				--@end-alpha@
-				return
 			end
-		
+			
 			if ((zone) and (continent)) then
 				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
 				tinsert(iconlist, iconuid)
 			end
+
 		end
 	end	-- addon:SetupMap()
 end -- do block
