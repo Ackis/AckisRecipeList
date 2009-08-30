@@ -569,6 +569,10 @@ do
 				loc = questDB[k]
 			end
 
+			local name = loc["Name"]
+			local x = loc["Coordx"]
+			local y = loc["Coordy"]
+
 			-- We don't have a loc in our database for these entries
 			if (not loc) then
 				--@alpha@
@@ -591,6 +595,7 @@ do
 			elseif dungeonlist[k] then
 				continent = dungeonlist[k]["c"]
 				zone = dungeonlist[k]["loc"]
+				name = name .. " (" .. loc["Location"] .. ")"
 			else
 				--@alpha@
 				--addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. loc["Location"])
@@ -598,7 +603,7 @@ do
 			end
 
 			if ((zone) and (continent)) then
-				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
+				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, n, false, minimap, worldmap)
 				tinsert(iconlist, iconuid)
 			end
 
