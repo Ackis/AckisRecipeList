@@ -1415,8 +1415,15 @@ do
 				local reca = RecipeDB[a]["Acquire"][1]
 				local recb = RecipeDB[b]["Acquire"][1]
 				if (reca and recb) then
+					-- Both acquire methods are the same
 					if (reca["Type"] == recb["Type"]) then
-						return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+						-- If we have a custom string for sorting
+						if (reca["Type"] == 8) then
+							-- Sort on the ID of the custom string so they get grouped together
+							return RecipeDB[a]["Acquire"][1]["ID"] < RecipeDB[b]["Acquire"][1]["ID"]
+						else
+							return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+						end
 					else
 						return reca["Type"] < recb["Type"]
 					end

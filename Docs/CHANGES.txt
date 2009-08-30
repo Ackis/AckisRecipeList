@@ -14,6 +14,7 @@
 *Fixed a map/mini-map coordinate display issue
 *All professions have skill level data added (exception being cooking and JC)
 *Added the ability to customize which type of points you see on the mini-map (vendor, quest, trainer, mob).  By default trainer will be off, the rest will be on.
+*Sorting via acquire method will now sort the special strings (aka discoveries) together.
 
 ===RC10
 *Significantly reduced memory usage over time.
