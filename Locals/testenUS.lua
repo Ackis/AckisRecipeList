@@ -3,7 +3,7 @@
 ************************************************************************
 
 These are localization strings used for the testing of ARL.
-Manually add entries here and then procede to update the localization
+Manually add entries here and then proceed to update the localization
 application located here:
 	http://www.wowace.com/projects/arl/localization/
 
@@ -89,7 +89,7 @@ When posting a bug report, do NOT include all of the addons from swatter.  This 
 L["Common Issues"]			= true
 L["COMMON_ISSUES_DESC"]		= [[Please refer to these common issues before submitting a bug report.
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
-2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.
+2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
 3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]]
 L["Exclusion Issues"]		= true
 L["EXCLUSION_ISSUES_DESC"]	= "To add a recipe to the exclusion (ignore) list, just alt-click on it from the recipe window.  To get this recipe back, open up the ARL options and set the toggle of \"Show Excluded Recipes\" to be on.  This will show all the recipes you've excluded in your scan during your next scan.  Once you have done this, Alt Click on the recipe again to remove it from the exclusion list."
@@ -134,7 +134,7 @@ This is the functionality that occurs when you click on a recipe.
 - Shift Click
   Generates an item link of the item that the recipe will make into your default chat box.
 - Ctrl Click
-  Genereates a spell link for the recipe you clicked.
+  Generates a spell link for the recipe you clicked.
 - Alt Click
   Adds or removes a recipe from the exclusion list.
 - Ctrl-Shift Click
@@ -478,7 +478,7 @@ L["Custom21"] = "Gnome transport." -- Update
 L["Custom22"] = "Random BoP drop off of bosses in AQ40."
 L["Custom23"] = "Randomly obtained in Dire Maul (North) in Knot Thimblejack's cache."
 L["Custom24"] = "Random Sunwell trash drop."
-L["Custom25"] = "There is a chance that you find it in 5 different rooms in blackrock depths, its random spawn though, and sometimes it doesnt even spawn at all."
+L["Custom25"] = "There is a chance that you find it in 5 different rooms in blackrock depths, its a random spawn though, and sometimes it doesn't even spawn at all."
 L["Custom26"] = "Random drop off of Molten Core bosses."
 L["Custom27"] = "Learned from Goblin's Guide to Elementium book - dropped by Master Elemental Shaper Krixix in Blackwing Lair."
 L["Custom28"] = "Random drop from Black Temple/Hyjal Summit trash/bosses."
