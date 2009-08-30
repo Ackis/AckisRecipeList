@@ -456,14 +456,19 @@ do
 	end
 
 	local function CheckMapDisplay(v, filters)
+		local maptrainer = addon.db.profile.maptrainer
+		local mapquest = addon.db.profile.mapquest
+		local mapvendor = addon.db.profile.mapvendor
+		local mapmob = addon.db.profile.mapmob
 		local display = false
-		if (v["Type"] == ACQUIRE_TRAINER) then		-- If it's a trainer, we don't display them on the mini-map
+
+		if ((v["Type"] == ACQUIRE_TRAINER) and (maptrainer)) then		-- If it's a trainer, we don't display them on the mini-map
 			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
-		elseif (v["Type"] == ACQUIRE_VENDOR) then	-- If it's a vendor check to see if we're displaying it on the map
+		elseif ((v["Type"] == ACQUIRE_VENDOR) and (mapvendor)) then	-- If it's a vendor check to see if we're displaying it on the map
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
-		elseif (v["Type"] == ACQUIRE_MOB) then		-- If it's a mob, always return true
+		elseif ((v["Type"] == ACQUIRE_MOB) and (mapmob)) then		-- If it's a mob, always return true
 			return true
-		elseif (v["Type"] == ACQUIRE_QUEST) then	-- If it's a quest check to see if we're displaying it on the map
+		elseif ((v["Type"] == ACQUIRE_QUEST) and (mapquest)) then	-- If it's a quest check to see if we're displaying it on the map
 			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
 		end
 		return display

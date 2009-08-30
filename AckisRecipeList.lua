@@ -153,6 +153,10 @@ function addon:OnInitialize()
 			scantrainers = false,
 			scanvendors = false,
 			autoloaddb = false,
+			maptrainer = false,
+			mapvendor = true,
+			mapmob = true,
+			mapquest = true,
 
 			-- Recipe Exclusion
 			exclusionlist = {},
