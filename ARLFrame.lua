@@ -491,36 +491,205 @@ do
 		14401,
 		-- Dire Maul
 		11487, 14354,
+		-- Drak'Tharon Keep
+		26632,
+		-- Gnomeregan
+		7800,
+		-- Halls of Lightning
+		28923,
+		-- Halls of Stone
+		27978,
+		-- Karazhan
+		16406, 16408, 16472, 15687, 15688, 16152, 16524,
+		-- Magister's Terrace
+		24560, 24664,
+		-- Mana-Tombs
+		18314, 18317, 18344,
+		-- Oculus
+		27656,
+		-- Old Hillsbrad Foothills
+		17820, 17862, 18096, 28132,
+		-- Ruins of Ahn'Qiraj
+		15340,
+		-- Scholomance
+		1853, 10469, 10499, 10503, 10508,
+		-- Sethekk Halls
+		18320, 18322, 18472,
+		-- Shadow Labyrinth
+		18667, 18708, 18830,
+		-- Stratholme
+		10398, 10422, 10426, 10813, 10438, 10997,
+		-- Temple of Ahn'Qiraj
+		15263, 15275, 15276,
+		-- The Arcatraz
+		20869, 20880, 20898, 20900, 20885,
+		--The Black Morass
+		21104, 17839, 17879,
+		-- The Botanica
+		17975, 18422, 17977, 17978,
+		-- The Deadmines
+		657,
+		1732,
+		-- The Mechanar
+		19168, 19219, 19220, 19221,
+		-- The Nexus
+		26723,
+		-- The Shattered Halls
+		17465, 16807,
+		-- The Slave Pens
+		17941,
+		-- The Steamvault
+		17722, 17803, 17796, 17797, 17798,
+		-- The Temple of Atal'Hakkar
+		5226,
+		-- The Violet Hold
+		31134,
+		-- Utgarde Keep
+		23954,
+		-- Utgarde Pinnacle
+		26861,
 	}
 
 	local dungeonlocationlist = {
-		BZONE["Ahn'kahet: The Old Kingdom"] = {
+		[BZ["Ahn'kahet: The Old Kingdom"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
 		},
-		BZONE["Auchenai Crypts"] = {
+		[BZ["Auchenai Crypts"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
 			["c"] = 3,
 		},
-		BZONE["Azjol-Nerub"] = {
+		[BZ["Azjol-Nerub"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
 		},
-		BZONE["Blackrock Depths"] = {
+		[BZ["Blackrock Depths"]] = {
 			["loc"] = c1[BZ["Searring Gorge"]],
 			["c"] = 2,
 		},
-		BZONE["Blackrock Spire"] = {
+		[BZ["Blackrock Spire"]] = {
 			["loc"] = c1[BZ["Searring Gorge"]],
 			["c"] = 2,
 		},
-		BZONE["Blackwing Lair"] = {
+		[BZ["Blackwing Lair"]] = {
 			["loc"] = c1[BZ["Searring Gorge"]],
 			["c"] = 2,
 		},
-		[BZONE["Dire Maul"]] = {
+		[BZ["Dire Maul"]] = {
 			["loc"] = c1[BZ["Feralas"]],
 			["c"] = 1,
+		},
+		[BZ["Drak'Tharon Keep"]] = {
+			["loc"] = c1[BZ["Zul'drak"]],
+			["c"] = 4,
+		},
+		[BZ["Gnomeregan"]] = {
+			["loc"] = c1[BZ["Dun Morogh"]],
+			["c"] = 2,
+		},
+		[BZ["Halls of Lightning"]] = {
+			["loc"] = c1[BZ["Stormpeak Mountains"]],
+			["c"] = 4,
+		},
+		[BZ["Halls of Stone"]] = {
+			["loc"] = c1[BZ["Stormpeak Mountains"]],
+			["c"] = 4,
+		},
+		[BZ["Karazhan"]] = {
+			["loc"] = c1[BZ["Deadwind Pass"]],
+			["c"] = 2,
+		},
+		[BZ["Magisters' Terrace"]] = {
+			["loc"] = c1[BZ["Isle of Quel'Danas"]],
+			["c"] = 3,
+		},
+		[BZ["Mana-Tombs"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["The Oculus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["Old Hillsbrad Foothills"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Ruins of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Scholomance"]] = {
+			["loc"] = c1[BZ["Western Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Sethekk Halls"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Shadow Labyrinth"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Stratholme"]] = {
+			["loc"] = c1[BZ["Eastern Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Temple of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Arcatraz"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Black Morass"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Botanica"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Deadmines"]] = {
+			["loc"] = c1[BZ["Westfall"]],
+			["c"] = 2,
+		},
+		[BZ["The Mechanar"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Nexus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["The Shattered Halls"]] = {
+			["loc"] = c1[BZ["Hellfire Penninsula"]],
+			["c"] = 3,
+		},
+		[BZ["The Slave Pens"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Steamvault"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Temple of Atal'Hakkar"]] = {
+			["loc"] = c1[BZ["Swamp of Sorrows"]],
+			["c"] = 2,
+		},
+		[BZ["The Violet Hold"]] = {
+			["loc"] = c1[BZ["Dalaran"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Keep"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Pinnacle"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
 		},
 	}
 
@@ -987,7 +1156,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			end
 		elseif (v["Type"] == ACQUIRE_MOB) then
 			-- Mob Drop:			Mob Name
-			-- MobZone				MobCoords
+			-- MoBZ				MobCoords
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
 
