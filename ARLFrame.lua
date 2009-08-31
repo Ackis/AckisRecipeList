@@ -477,6 +477,47 @@ do
 	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 	local dungeonlist = {
+		-- Ahn'kahet: The Old Kingdom
+		[29311] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+--[[
+	-- Auchenai Crypts
+	self:addLookupList(MobDB,18497,L["Auchenai Monk"],BZONE["Auchenai Crypts"],0,0)
+	self:addLookupList(MobDB,18521,L["Raging Skeleton"],BZONE["Auchenai Crypts"],0,0)
+	-- Azjol-Nerub
+	self:addLookupList(MobDB,29120,BBOSS["Anub'arak"],BZONE["Azjol-Nerub"],0,0)
+	-- Blackrock Depths
+	self:addLookupList(MobDB,8897,L["Doomforge Craftsman"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,8898,L["Anvilrage Marshal"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,8903,L["Anvilrage Captain"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,8920,L["Weapon Technician"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,8983,BBOSS["Golem Lord Argelmach"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9024,BBOSS["Pyromancer Loregrain"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9025,BBOSS["Lord Roccor"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9028,BBOSS["Grizzle"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9499,BBOSS["Plugger Spazzring"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9543,BBOSS["Ribbly Screwspigot"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,9554,L["Hammered Patron"],BZONE["Blackrock Depths"],0,0)
+	self:addLookupList(MobDB,10043,L["Ribbly's Crony"],BZONE["Blackrock Depths"],0,0)
+	-- Blackrock Spire
+	self:addLookupList(MobDB,9216,L["Spirestone Warlord"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9259,L["Firebrand Grunt"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9260,L["Firebrand Legionnaire"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9262,L["Firebrand Invoker"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9264,L["Firebrand Pyromancer"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9596,BBOSS["Bannok Grimaxe"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,9736,BBOSS["Quartermaster Zigris"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,10264,BBOSS["Solakar Flamewreath"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,10317,L["Blackhand Elite"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,10339,BBOSS["Gyth"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,10363,BBOSS["General Drakkisath"],BZONE["Blackrock Spire"],0,0)
+	self:addLookupList(MobDB,10899,BBOSS["Goraluk Anvilcrack"],BZONE["Blackrock Spire"],0,0)
+	-- Blackwing Lair
+	self:addLookupList(MobDB,14401,L["Master Elemental Shaper Krixix"],BZONE["Blackwing Lair"],0,0)
+]]--
+		-- Dire Maul
 		[11487] = {
 			["loc"] = c1[BZ["Feralas"]],
 			["c"] = 1,
