@@ -810,7 +810,7 @@ do
 				name = name .. " (" .. location .. ")"
 			else
 				--@alpha@
-				--addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
 				--@end-alpha@
 			end
 
