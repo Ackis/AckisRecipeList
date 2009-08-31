@@ -678,9 +678,7 @@ end	-- do block
 -- @return None, array is passed as a reference.
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
-	--[[
-		For individual database structures, see Documentation.lua
-	]]--
+	--For individual database structures, see Documentation.lua
 
 	--@alpha@
 	if DB[ID] then

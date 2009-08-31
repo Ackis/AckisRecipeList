@@ -455,22 +455,47 @@ do
 
 	end
 
-	local function CheckMapDisplay(v, filters)
+	local function CheckMapDisplay(v, flags)
+
 		local maptrainer = addon.db.profile.maptrainer
 		local mapquest = addon.db.profile.mapquest
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
 		local display = false
 
-		if ((v["Type"] == ACQUIRE_TRAINER) and (maptrainer)) then		-- If it's a trainer, we don't display them on the mini-map
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
-		elseif ((v["Type"] == ACQUIRE_VENDOR) and (mapvendor)) then	-- If it's a vendor check to see if we're displaying it on the map
-			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
-		elseif ((v["Type"] == ACQUIRE_MOB) and (mapmob)) then		-- If it's a mob, always return true
+		-- Trainers - Display if it's your faction or neutral.
+		if (maptrainer) then
+			-- Trainer acquire
+			if (v["Type"] == ACQUIRE_TRAINER) then 
+				display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
+			-- Custom Acquire
+			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[3])) then
+				return true
+			end
+		-- Vendors - Display if it's your faction or neutral
+		elseif (mapvendor) then
+			-- Vendor Acquire
+			if (v["Type"] == ACQUIRE_VENDOR) then
+				display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
+			-- Custom Acquire
+			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[4])) then
+				return true
+			end
+		-- Always display mobs
+		elseif (((v["Type"] == ACQUIRE_MOB) and (mapmob)) or
+			((v["Type"] == ACQUIRE_CUSTOM) and (flags[5] or flags[6] or flags[10] or flags[11]))) then
 			return true
-		elseif ((v["Type"] == ACQUIRE_QUEST) and (mapquest)) then	-- If it's a quest check to see if we're displaying it on the map
-			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
+		-- Quests
+		elseif (mapquest) then
+			-- Quest Acquire
+			if (v["Type"] == ACQUIRE_QUEST) then
+				display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
+			-- Custom Acquire
+			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[8])) then
+				return true
+			end
 		end
+
 		return display
 	end
 
@@ -691,6 +716,10 @@ do
 			["loc"] = c1[BZ["Howling Fjord"]],
 			["c"] = 4,
 		},
+		[BZ["Zul'Gurub"]] = {
+			["loc"] = c1[BZ["Stranglethorn Vale"]],
+			["c"] = 2,
+		},
 	}
 
 	local maplist = {}
@@ -720,7 +749,6 @@ do
 			end
 		end
 ]]--
-		local filters = addon.db.profile.filters
 		local autoscanmap = addon.db.profile.autoscanmap
 
 		twipe(maplist)
@@ -729,7 +757,7 @@ do
 		if (singlerecipe) then
 			-- loop through acquire methods, display each
 			for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-				if (CheckMapDisplay(v, filters)) then
+				if (CheckMapDisplay(v, recipeDB[singlerecipe]["Flags"])) then
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
@@ -740,7 +768,7 @@ do
 				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 					-- loop through acquire methods, display each
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-						if (CheckMapDisplay(v, filters)) then
+						if (CheckMapDisplay(v, recipeDB[recipeIndex]["Flags"])) then
 							maplist[v["ID"]] = v["Type"]
 						end
 					end
@@ -778,6 +806,8 @@ do
 				loc = mobDB[k]
 			elseif (maplist[k] == 4) then
 				loc = questDB[k]
+			elseif (maplist[k] == 8) then
+				loc = customDB[k]
 			end
 
 			local name = loc["Name"]
