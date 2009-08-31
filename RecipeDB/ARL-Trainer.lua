@@ -446,5 +446,6 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,33679,L["Recorder Lidio"],BZONE["Shattrath City"],36.2,44.0,0)
 	self:addLookupList(TrainerDB,33681,L["Korim"],BZONE["Shattrath City"],37.6,28.0,0)
 	self:addLookupList(TrainerDB,33682,L["Fono"],BZONE["Shattrath City"],36.0,48.5,0)
+	self:addLookupList(TrainerDB,33684,L["Weaver Aoa"],BZONE["Shattrath City"],37.6,27.2,0)
 
 end

@@ -2,19 +2,19 @@
 
 ===3.2 Release
 *Updated recipes for 3.2
-*Trainer updates.  All LW trainers have been updated.
+*Trainer updates.  All LW and Tailoring trainers have been updated.
 *Recipes now have flags to determine which expansion they come from.
 *Added leveling info to many recipes.  There is still some info missing, this is slowly being added as it has to be done manually.
 *Fixed an issue with the PVP flags.
 *Code optimizations.
 *Datamining tweaks.
-*Removed comment in code that was causing AntiVir to screw up.  It's a fail anti-virus scanner.
+*Removed comment in code that was causing AntiVir to screw up.  Rest assured there was no virus/trojan ever.
 *Fix ATSW and Trade Junkie integrations (Thanks to Thrashfinger).
 *Faction specific recipes which cannot be acquired by the other side (The choppers and the new 3.2 patterns) are now automatically filtered.
 *Fixed a map/mini-map coordinate display issue
 *All professions have skill level data added (exception being cooking and JC)
 *Added the ability to customize which type of points you see on the mini-map (vendor, quest, trainer, mob).  By default trainer will be off, the rest will be on.
-*Sorting via acquire method will now sort the special strings (aka discoveries) together.
+*Sorting via acquire method will now sort the special strings (aka discoveries) together.  Items of the same "custom" type will be sorted alphabetically.
 
 ===RC10
 *Significantly reduced memory usage over time.
