@@ -2388,7 +2388,24 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,68166,355,49084,1,45357,nil,2,355,355,360,365)
 	self:addTradeFlags(RecipeDB,68166,1,2,3,30,36,41)
 	self:addTradeAcquire(RecipeDB,68166,8,14)
-		
-	return 436
+
+	-- The number of items added with patches
+	local patchitems = 0
+
+	-- 3.2.2 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
+	local version = GetBuildInfo()
+
+	if (version == "3.2.2") then
+
+		-- Runescroll of Stamina -- 69385
+		self:addTradeSkill(RecipeDB,69385,450,49632,1,45357,nil,2,450,455,465,475)
+		self:addTradeFlags(RecipeDB,69385,1,2,21,22,23,24,25,26,27,28,29,30)
+		--self:addTradeAcquire(RecipeDB,69385,)
+
+		patchitems = patchitems + 1
+
+	end
+
+	return 436 + patchitems
 
 end

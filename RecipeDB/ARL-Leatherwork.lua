@@ -2777,6 +2777,28 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,63200,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,63200,8,39)
 
+	-- The number of items added with patches
+	local patchitems = 0
+
+	-- 3.2.2 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
+	local version = GetBuildInfo()
+
+	if (version == "3.2.2") then
+
+		-- Drums of Forgotten Kings -- 69386
+		self:addTradeSkill(RecipeDB,69386,450,49633,1,2108,nil,2,450,455,465,475)
+		self:addTradeFlags(RecipeDB,69386,1,2,21,22,23,24,25,26,27,28,29,30)
+		--self:addTradeAcquire(RecipeDB,69386,)
+
+		-- Drums of the Wild -- 69388
+		self:addTradeSkill(RecipeDB,69388,450,49634,1,2108,nil,2,450,455,465,475)
+		self:addTradeFlags(RecipeDB,69388,1,2,21,22,23,24,25,26,27,28,29,30)
+		--self:addTradeAcquire(RecipeDB,69388,)
+
+		patchitems = patchitems + 2
+
+	end
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
@@ -2874,7 +2896,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	end
 
-	return 510 + factioncount
+	return 510 + factioncount + patchitems
 
 
 end
