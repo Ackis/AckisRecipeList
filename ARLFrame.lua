@@ -478,51 +478,47 @@ do
 
 	local dungeonlist = {
 		-- Ahn'kahet: The Old Kingdom
-		[29311] = {
+		29311,
+		-- Auchenai Crypts
+		18497, 18521,
+		-- Azjol-Nerub
+		29120,
+		-- Blackrock Depths
+		8897, 8898, 8903, 8920, 8983, 9024, 9025, 9028, 9499, 9543, 9554, 10043,
+		-- Blackrock Spire
+		9216, 9259,	9260, 9262, 9264, 9596, 9736, 10264, 10317, 10339, 10363, 10899,
+		-- Blackwing Lair
+		14401,
+		-- Dire Maul
+		11487, 14354,
+	}
+
+	local dungeonlocationlist = {
+		BZONE["Ahn'kahet: The Old Kingdom"] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
 		},
---[[
-	-- Auchenai Crypts
-	self:addLookupList(MobDB,18497,L["Auchenai Monk"],BZONE["Auchenai Crypts"],0,0)
-	self:addLookupList(MobDB,18521,L["Raging Skeleton"],BZONE["Auchenai Crypts"],0,0)
-	-- Azjol-Nerub
-	self:addLookupList(MobDB,29120,BBOSS["Anub'arak"],BZONE["Azjol-Nerub"],0,0)
-	-- Blackrock Depths
-	self:addLookupList(MobDB,8897,L["Doomforge Craftsman"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,8898,L["Anvilrage Marshal"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,8903,L["Anvilrage Captain"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,8920,L["Weapon Technician"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,8983,BBOSS["Golem Lord Argelmach"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9024,BBOSS["Pyromancer Loregrain"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9025,BBOSS["Lord Roccor"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9028,BBOSS["Grizzle"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9499,BBOSS["Plugger Spazzring"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9543,BBOSS["Ribbly Screwspigot"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,9554,L["Hammered Patron"],BZONE["Blackrock Depths"],0,0)
-	self:addLookupList(MobDB,10043,L["Ribbly's Crony"],BZONE["Blackrock Depths"],0,0)
-	-- Blackrock Spire
-	self:addLookupList(MobDB,9216,L["Spirestone Warlord"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9259,L["Firebrand Grunt"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9260,L["Firebrand Legionnaire"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9262,L["Firebrand Invoker"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9264,L["Firebrand Pyromancer"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9596,BBOSS["Bannok Grimaxe"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,9736,BBOSS["Quartermaster Zigris"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,10264,BBOSS["Solakar Flamewreath"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,10317,L["Blackhand Elite"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,10339,BBOSS["Gyth"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,10363,BBOSS["General Drakkisath"],BZONE["Blackrock Spire"],0,0)
-	self:addLookupList(MobDB,10899,BBOSS["Goraluk Anvilcrack"],BZONE["Blackrock Spire"],0,0)
-	-- Blackwing Lair
-	self:addLookupList(MobDB,14401,L["Master Elemental Shaper Krixix"],BZONE["Blackwing Lair"],0,0)
-]]--
-		-- Dire Maul
-		[11487] = {
-			["loc"] = c1[BZ["Feralas"]],
-			["c"] = 1,
+		BZONE["Auchenai Crypts"] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
 		},
-		[14354] = {
+		BZONE["Azjol-Nerub"] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+		BZONE["Blackrock Depths"] = {
+			["loc"] = c1[BZ["Searring Gorge"]],
+			["c"] = 2,
+		},
+		BZONE["Blackrock Spire"] = {
+			["loc"] = c1[BZ["Searring Gorge"]],
+			["c"] = 2,
+		},
+		BZONE["Blackwing Lair"] = {
+			["loc"] = c1[BZ["Searring Gorge"]],
+			["c"] = 2,
+		},
+		[BZONE["Dire Maul"]] = {
 			["loc"] = c1[BZ["Feralas"]],
 			["c"] = 1,
 		},
@@ -618,6 +614,7 @@ do
 			local name = loc["Name"]
 			local x = loc["Coordx"]
 			local y = loc["Coordy"]
+			local location = loc["Location"]
 
 			-- We don't have a loc in our database for these entries
 			if (not loc) then
@@ -625,26 +622,26 @@ do
 				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
 				--@end-alpha@
 			-- We have the location
-			elseif (c1[loc["Location"]]) then
+			elseif (c1[location]) then
 				continent = 1
-				zone = c1[loc["Location"]]
-			elseif (c2[loc["Location"]]) then
+				zone = c1[location]
+			elseif (c2[location]) then
 				continent = 2
-				zone = c2[loc["Location"]]
-			elseif (c3[loc["Location"]]) then
+				zone = c2[location]
+			elseif (c3[location]) then
 				continent = 3
-				zone = c3[loc["Location"]]
-			elseif (c4[loc["Location"]]) then
+				zone = c3[location]
+			elseif (c4[location]) then
 				continent = 4
-				zone = c4[loc["Location"]]
+				zone = c4[location]
 			-- It's in a dungeon, lets check our manual listings for it.
-			elseif dungeonlist[k] then
-				continent = dungeonlist[k]["c"]
-				zone = dungeonlist[k]["loc"]
-				name = name .. " (" .. loc["Location"] .. ")"
+			elseif (dungeonlist[k]) then
+				continent = dungeonlocationlist[location]["c"]
+				zone = dungeonlocationlist[location]["loc"]
+				name = name .. " (" .. location .. ")"
 			else
 				--@alpha@
-				--addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. loc["Location"])
+				--addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
 				--@end-alpha@
 			end
 
