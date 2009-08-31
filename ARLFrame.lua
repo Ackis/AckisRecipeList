@@ -1419,8 +1419,13 @@ do
 					if (reca["Type"] == recb["Type"]) then
 						-- If we have a custom string for sorting
 						if (reca["Type"] == 8) then
-							-- Sort on the ID of the custom string so they get grouped together
-							return RecipeDB[a]["Acquire"][1]["ID"] < RecipeDB[b]["Acquire"][1]["ID"]
+							-- Sort on name if they're the same custom ID
+							if (RecipeDB[a]["Acquire"][1]["ID"] == RecipeDB[b]["Acquire"][1]["ID"]) then
+								return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+							-- Sort on the ID of the custom string so they get grouped together							
+							else
+								return RecipeDB[a]["Acquire"][1]["ID"] < RecipeDB[b]["Acquire"][1]["ID"]
+							end
 						else
 							return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
 						end
