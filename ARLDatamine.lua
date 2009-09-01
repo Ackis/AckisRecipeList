@@ -859,8 +859,11 @@ function addon:GenerateLinks()
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid (6)
 	--bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking (30)
+	bitmap[51296] = "2/7///7///9////7//////////gC8/B" -- Cooking
 	--bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
+	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/Tol3B" -- Engineering
 	--bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW (87)
+	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+//////////////////HgAAw/P" -- Leatherworking
 	--bitmap[51302] = string.rep("/", 87)
 	--bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
 	--bitmap[51304] = string.rep("/", 43) -- Alchemy (43)
