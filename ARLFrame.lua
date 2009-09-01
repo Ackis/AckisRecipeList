@@ -6,10 +6,10 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
+File date: 2009-08-31T22:18:19Z 
+File revision: 2398 
+Project revision: 2398
+Project version: r2398
 
 ****************************************************************************************
 
@@ -589,15 +589,15 @@ do
 			["c"] = 4,
 		},
 		[BZ["Blackrock Depths"]] = {
-			["loc"] = c1[BZ["Searring Gorge"]],
+			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
 		},
 		[BZ["Blackrock Spire"]] = {
-			["loc"] = c1[BZ["Searring Gorge"]],
+			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
 		},
 		[BZ["Blackwing Lair"]] = {
-			["loc"] = c1[BZ["Searring Gorge"]],
+			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
 		},
 		[BZ["Dire Maul"]] = {
@@ -605,7 +605,7 @@ do
 			["c"] = 1,
 		},
 		[BZ["Drak'Tharon Keep"]] = {
-			["loc"] = c1[BZ["Zul'drak"]],
+			["loc"] = c1[BZ["Zul'Drak"]],
 			["c"] = 4,
 		},
 		[BZ["Gnomeregan"]] = {
@@ -613,7 +613,7 @@ do
 			["c"] = 2,
 		},
 		[BZ["Halls of Lightning"]] = {
-			["loc"] = c1[BZ["Stormpeak Mountains"]],
+			["loc"] = c1[BZ["Storm Peaks"]],
 			["c"] = 4,
 		},
 		[BZ["Halls of Stone"]] = {
@@ -689,7 +689,7 @@ do
 			["c"] = 4,
 		},
 		[BZ["The Shattered Halls"]] = {
-			["loc"] = c1[BZ["Hellfire Penninsula"]],
+			["loc"] = c1[BZ["Hellfire Peninsula"]],
 			["c"] = 3,
 		},
 		[BZ["The Slave Pens"]] = {
