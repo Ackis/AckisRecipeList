@@ -613,11 +613,11 @@ do
 			["c"] = 2,
 		},
 		[BZ["Halls of Lightning"]] = {
-			["loc"] = c1[BZ["Storm Peaks"]],
+			["loc"] = c1[BZ["The Storm Peaks"]],
 			["c"] = 4,
 		},
 		[BZ["Halls of Stone"]] = {
-			["loc"] = c1[BZ["Stormpeak Mountains"]],
+			["loc"] = c1[BZ["The Storm Peaks"]],
 			["c"] = 4,
 		},
 		[BZ["Karazhan"]] = {
