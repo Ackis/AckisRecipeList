@@ -1856,22 +1856,22 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Belt of the Guardian -- 36389
 	self:addTradeSkill(RecipeDB,36389,375,30034,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36389,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,52,59)
-	self:addTradeAcquire(RecipeDB,36389,8,37)
+	self:addTradeAcquire(RecipeDB,36389,8,37,8,43)
 
 	-- Red Belt of Battle -- 36390
 	self:addTradeSkill(RecipeDB,36390,375,30032,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36390,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,59)
-	self:addTradeAcquire(RecipeDB,36390,8,37)
+	self:addTradeAcquire(RecipeDB,36390,8,37,8,43)
 
 	-- Boots of the Protector -- 36391
 	self:addTradeSkill(RecipeDB,36391,375,30033,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36391,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,36391,8,37)
+	self:addTradeAcquire(RecipeDB,36391,8,37,8,43)
 
 	-- Red Havoc Boots -- 36392
 	self:addTradeSkill(RecipeDB,36392,375,30031,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36392,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,36392,8,37)
+	self:addTradeAcquire(RecipeDB,36392,8,37,8,43)
 
 	-- Wildguard Breastplate -- 38473
 	self:addTradeSkill(RecipeDB,38473,375,31364,4,2018,nil,1,375,385,395,405)
@@ -1926,7 +1926,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Swiftsteel Bracers -- 41132
 	self:addTradeSkill(RecipeDB,41132,375,32568,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41132,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,59)
-	self:addTradeAcquire(RecipeDB,41132,8,34)
+	self:addTradeAcquire(RecipeDB,41132,8,27,8,34)
 
 	-- Swiftsteel Shoulders -- 41133
 	self:addTradeSkill(RecipeDB,41133,375,32570,4,2018,nil,1,375,385,395,405)
@@ -1941,7 +1941,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Dawnsteel Shoulders -- 41135
 	self:addTradeSkill(RecipeDB,41135,375,32573,4,2018,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41135,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,41135,8,34)
+	self:addTradeAcquire(RecipeDB,41135,8,27,8,34)
 
 	-- Ragesteel Shoulders -- 42662
 	self:addTradeSkill(RecipeDB,42662,365,33173,3,2018,nil,1,365,375,385,395)

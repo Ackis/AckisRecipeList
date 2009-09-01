@@ -454,48 +454,58 @@ L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 L["Unknown Zone"] = true
 
 -- Custom database strings:
+-- Alchemy Discoveries
 L["DISCOVERY_ALCH_ELIXIRFLASK"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 L["DISCOVERY_ALCH_POTION"] = "Discovered by making potions using Burning Crusade or higher ingredients."
 L["DISCOVERY_ALCH_XMUTE"] = "Discovered by doing transmutes using Burning Crusade or higher ingredients."
 L["DISCOVERY_ALCH_PROT"] = "Discovered by Major Protection Potions using Burning Crusade or higher ingredients."
+L["DISCOVERY_ALCH_WRATH"] = "Discovered by doing transmutes using Wrath of the Lich King ingredients."
+L["DISCOVERY_ALCH_NORTHREND_RESEARCH"] = "Obtained randomly by conducting Northrend alchemy research."
+L["DISCOVERY_ALCH_NORTHREND_XMUTE"] = "Discovered by doing transmutes using Northrend or higher ingredients (transmute tooltip mentions that there is a chance to discovery something)."
+-- Inscription Discoveries
+L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting minor inscription research."
+L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend inscription research."
+L["DISCOVERY_INSC_BOOK"] = "Discovered randomly by reading the Book of Glyph Mastery."
+-- Cooking/Fishing Daily Quests
 L["DAILY_COOKING_MEAT"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate."
 L["DAILY_COOKING_FISH"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel."
 L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing the fishing daily quest in Shattrath."
+L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
+-- Engineering Related
+L["ENG_RENEW_MEMBERSHIP"] = "Obtained randomly by renewing your engineering membership."
+L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
+-- Default
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."
+-- Crafted by other professions
 L["CRAFTED_ENGINEERS"] = "Recipe is created by Engineers."
+-- Instances
+L["HENRY_STERN_RFD"] = "Obtained by talking to Henry Stern in Razorfen Downs."
+L["DM_CACHE"] = "Randomly obtained in Dire Maul (North) in Knot Thimblejack's cache."
+L["BRD_RANDOM_ROOM"] = "There is a chance that you will find it in 5 different rooms in blackrock depths, it is a random spawn though, and sometimes it doesn't even spawn at all."
+L["SCHOLO_BOOK_SPAWN"] = "After you kill Jandice Barov in Scholomance, a book spawns that let's you learn this recipe"
+L["STRATH_BS_PLANS"] = "Blacksmith plans in Stratholme" -- Update
+L["DM_TRIBUTE"] = "DM Tribute Run - Chest" -- Update
+L["WORLD_DRAGONS"] = "World Dragons" -- Update
+-- Quests
 L["ONYXIA_HEAD_QUEST"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
 L["EDGE_OF_MADNESS"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
-L["Custom12"] = "Discovered by doing transmutes using Wrath of the Lich King ingredients."
-L["Custom13"] = "Obtained by talking to Henry Stern in Razorfen Downs."
-L["Custom14"] = "Obtained randomly by conducting minor inscription research."
-L["Custom15"] = "Obtained randomly by conducting Northrend inscription research."
-L["Custom16"] = "Obtained randomly by renewing your engineering membership."
-L["Custom17"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
-L["Custom18"] = "Obtained randomly by conducting Northrend alchemy research."
-L["Custom19"] = "Discovered by doing transmutes using Northrend or higher ingredients (transmute tooltip mentions that there is a chance to discovery something)."
+-- Raids
+L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
+L["SUNWELL_RANDOM"] = "Random Sunwell trash drop."
+L["MC_RANDOM"] = "Random drop off of Molten Core bosses."
+L["HYJAL_RANDOM"] = "Random drop from Hyjal Summit trash/bosses."
+L["BT_RANDOM"] = "Random drop from Black Temple trash/bosses."
+L["ZA_RANDOM"] = "Random drop off of Zul'Aman bosses."
+L["SSC_RANDOM"] = "Random drop from mobs in Serpentshrine Cavern."
+L["TK_RANDOM"] = "Random drop from mobs in Tempest Keep: The Eye."
+L["ULDUAR_RANDOM"] = "Random drop off of Ulduar bosses."
+L["TOC25_RANDOM"] = "Random drop from the Trial of the Crusader, 25 man normal version."
+
 L["Custom20"] = "Goblin transport." -- Update
 L["Custom21"] = "Gnome transport." -- Update
-L["Custom22"] = "Random BoP drop off of bosses in AQ40."
-L["Custom23"] = "Randomly obtained in Dire Maul (North) in Knot Thimblejack's cache."
-L["Custom24"] = "Random Sunwell trash drop."
-L["Custom25"] = "There is a chance that you will find it in 5 different rooms in blackrock depths, it is a random spawn though, and sometimes it doesn't even spawn at all."
-L["Custom26"] = "Random drop off of Molten Core bosses."
---L["Custom27"] =
-L["Custom28"] = "Random drop from Black Temple/Hyjal Summit trash/bosses."
-L["Custom29"] = "Random drop off of Zul'Aman bosses."
-L["Custom30"] = "After you kill Jandice Barov in Scholomance, a book spawns that let's you learn this recipe"
-L["Custom31"] = "Blacksmith plans in Stratholme" -- Update
-L["Custom32"] = "DM Tribute Run - Chest" -- Update
-L["Custom33"] = "World Dragons" -- Update
-L["Custom34"] = "Random Black Temple / Hyjal Summit trash drop"
 L["Custom35"] = "Drops from dragons in Ogri'la and Blade's Edge Mountains Summon Bosses"
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
-L["Custom37"] = "Random SSC / TK trash drop"
-L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
-L["Custom39"] = "Random drop off of Ulduar bosses."
-L["Custom40"] = "Discovered randomly by reading the Book of Glyph Mastery."
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
-L["Custom42"] = "Random drop from the Trial of the Crusader, 25 man normal version."
 
 -- Monster/Quest/Trainer/Vendor strings:
 

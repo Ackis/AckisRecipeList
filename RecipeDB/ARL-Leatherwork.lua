@@ -1865,42 +1865,42 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Belt of Natural Power -- 36349
 	self:addTradeSkill(RecipeDB,36349,375,30042,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36349,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,36349,8,37)
+	self:addTradeAcquire(RecipeDB,36349,8,37,8,43)
 
 	-- Belt of Deep Shadow -- 36351
 	self:addTradeSkill(RecipeDB,36351,375,30040,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36351,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
-	self:addTradeAcquire(RecipeDB,36351,8,37)
+	self:addTradeAcquire(RecipeDB,36351,8,37,8,43)
 
 	-- Belt of the Black Eagle -- 36352
 	self:addTradeSkill(RecipeDB,36352,375,30046,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36352,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,36352,8,37)
+	self:addTradeAcquire(RecipeDB,36352,8,37,8,43)
 
 	-- Monsoon Belt -- 36353
 	self:addTradeSkill(RecipeDB,36353,375,30044,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
-	self:addTradeAcquire(RecipeDB,36353,8,37)
+	self:addTradeAcquire(RecipeDB,36353,8,37,8,43)
 
 	-- Boots of Natural Grace -- 36355
 	self:addTradeSkill(RecipeDB,36355,375,30041,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36355,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,36355,8,37)
+	self:addTradeAcquire(RecipeDB,36355,8,37,8,43)
 
 	-- Boots of Utter Darkness -- 36357
 	self:addTradeSkill(RecipeDB,36357,375,30039,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36357,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,36357,8,37)
+	self:addTradeAcquire(RecipeDB,36357,8,37,8,43)
 
 	-- Boots of the Crimson Hawk -- 36358
 	self:addTradeSkill(RecipeDB,36358,375,30045,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36358,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36358,8,37)
+	self:addTradeAcquire(RecipeDB,36358,8,37,8,43)
 
 	-- Hurricane Boots -- 36359
 	self:addTradeSkill(RecipeDB,36359,375,30043,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,36359,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,36359,8,37)
+	self:addTradeAcquire(RecipeDB,36359,8,37,8,43)
 
 	-- Boots of Shackled Souls -- 39997
 	self:addTradeSkill(RecipeDB,39997,375,32398,1,2108,nil,1,375,385,395,405)
@@ -1945,12 +1945,12 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Shoulderpads of Renewed Life -- 41157
 	self:addTradeSkill(RecipeDB,41157,375,32583,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41157,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
-	self:addTradeAcquire(RecipeDB,41157,8,34)
+	self:addTradeAcquire(RecipeDB,41157,8,27,8,34)
 
 	-- Swiftstrike Bracers -- 41158
 	self:addTradeSkill(RecipeDB,41158,375,32580,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41158,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,57)
-	self:addTradeAcquire(RecipeDB,41158,8,34)
+	self:addTradeAcquire(RecipeDB,41158,8,27,8,34)
 
 	-- Swiftstrike Shoulders -- 41160
 	self:addTradeSkill(RecipeDB,41160,375,32581,4,2108,nil,1,375,385,395,405)
@@ -1960,7 +1960,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Bindings of Lightning Reflexes -- 41161
 	self:addTradeSkill(RecipeDB,41161,375,32574,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41161,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,58)
-	self:addTradeAcquire(RecipeDB,41161,8,34)
+	self:addTradeAcquire(RecipeDB,41161,8,27,8,34)
 
 	-- Shoulders of Lightning Reflexes -- 41162
 	self:addTradeSkill(RecipeDB,41162,375,32575,4,2108,nil,1,375,385,395,405)
@@ -1975,7 +1975,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Living Earth Shoulders -- 41164
 	self:addTradeSkill(RecipeDB,41164,375,32579,4,2108,nil,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,41164,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
-	self:addTradeAcquire(RecipeDB,41164,8,34)
+	self:addTradeAcquire(RecipeDB,41164,8,27,8,34)
 
 	-- Cloak of Darkness -- 42546
 	self:addTradeSkill(RecipeDB,42546,360,33122,3,2108,nil,1,360,370,380,390)

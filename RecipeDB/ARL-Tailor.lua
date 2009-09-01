@@ -1705,22 +1705,22 @@ function addon:InitTailoring(RecipeDB)
 	-- Belt of Blasting -- 36315
 	self:addTradeSkill(RecipeDB,36315,375,30038,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,36315,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,36315,8,37)
+	self:addTradeAcquire(RecipeDB,36315,8,37,8,43)
 
 	-- Belt of the Long Road -- 36316
 	self:addTradeSkill(RecipeDB,36316,375,30036,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,36316,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,36316,8,37)
+	self:addTradeAcquire(RecipeDB,36316,8,37,8,43)
 
 	-- Boots of Blasting -- 36317
 	self:addTradeSkill(RecipeDB,36317,375,30037,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,36317,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,36317,8,37)
+	self:addTradeAcquire(RecipeDB,36317,8,37,8,43)
 
 	-- Boots of the Long Road -- 36318
 	self:addTradeSkill(RecipeDB,36318,375,30035,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,36318,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,36318,8,37)
+	self:addTradeAcquire(RecipeDB,36318,8,37,8,43)
 
 	-- Shadowcloth -- 36686
 	self:addTradeSkill(RecipeDB,36686,350,24272,1,3908,nil,1,350,350,355,360)
@@ -1775,17 +1775,17 @@ function addon:InitTailoring(RecipeDB)
 	-- Bracers of Nimble Thought -- 41205
 	self:addTradeSkill(RecipeDB,41205,375,32586,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,41205,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,41205,8,28)
+	self:addTradeAcquire(RecipeDB,41205,8,27,8,34)
 
 	-- Mantle of Nimble Thought -- 41206
 	self:addTradeSkill(RecipeDB,41206,375,32587,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,41206,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,53,54,56)
-	self:addTradeAcquire(RecipeDB,41206,8,34)
+	self:addTradeAcquire(RecipeDB,41206,8,27,8,34)
 
 	-- Swiftheal Wraps -- 41207
 	self:addTradeSkill(RecipeDB,41207,375,32584,4,3908,nil,1,375,385,390,395)
 	self:addTradeFlags(RecipeDB,41207,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,41207,8,34)
+	self:addTradeAcquire(RecipeDB,41207,8,27,8,34)
 
 	-- Swiftheal Mantle -- 41208
 	self:addTradeSkill(RecipeDB,41208,375,32585,4,3908,nil,1,375,385,390,395)
