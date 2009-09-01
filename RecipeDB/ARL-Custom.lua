@@ -76,7 +76,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB,11,L["EDGE_OF_MADNESS"],BZONE["Zul'Gurub"],0,0)
 	-- Raids
 	self:addLookupList(CustomDB,22,L["AQ40_RANDOM_BOP"],BZONE["Temple of Ahn'Qiraj"],0,0)
-	self:addLookupList(CustomDB,24,L["SUNWELL_RANDOM"],BZONE["Sunwell"],0,0)
+	self:addLookupList(CustomDB,24,L["SUNWELL_RANDOM"],BZONE["Sunwell Plateau"],0,0)
 	self:addLookupList(CustomDB,26,L["MC_RANDOM"],BZONE["Molten Core"],0,0)
 	self:addLookupList(CustomDB,27,L["HYJAL_RANDOM"],BZONE["Hyjal Summit"],0,0)
 	self:addLookupList(CustomDB,29,L["ZA_RANDOM"],BZONE["Zul'Aman"],0,0)
