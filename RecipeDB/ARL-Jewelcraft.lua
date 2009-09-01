@@ -1868,7 +1868,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Deft Monarch Topaz -- 53982
 	self:addTradeSkill(RecipeDB,53982,390,40046,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53982,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53982,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53982,3,27978)
 
 	-- Luminous Monarch Topaz -- 53983
