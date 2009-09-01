@@ -6,10 +6,10 @@ ARLFrame.lua
 
 Frame functions for all of AckisRecipeList
 
-File date: 2009-08-31T22:18:19Z 
-File revision: 2398 
-Project revision: 2398
-Project version: r2398
+File date: @file-date-iso@
+File revision: @file-revision@
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 
@@ -391,8 +391,6 @@ local function SetSortString(recipeSkill, recStr)
 
 end
 
--- Description: 
-
 local function CheckDisplayFaction(filterDB, faction)
 
 	if (filterDB.general.faction ~= true) then
@@ -501,80 +499,6 @@ do
 
 	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-	local dungeonlist = {
-		-- Ahn'kahet: The Old Kingdom
-		29311,
-		-- Auchenai Crypts
-		18497, 18521,
-		-- Azjol-Nerub
-		29120,
-		-- Blackrock Depths
-		8897, 8898, 8903, 8920, 8983, 9024, 9025, 9028, 9499, 9543, 9554, 10043,
-		-- Blackrock Spire
-		9216, 9259,	9260, 9262, 9264, 9596, 9736, 10264, 10317, 10339, 10363, 10899,
-		-- Blackwing Lair
-		14401,
-		-- Dire Maul
-		11487, 14354,
-		-- Drak'Tharon Keep
-		26632,
-		-- Gnomeregan
-		7800,
-		-- Halls of Lightning
-		28923,
-		-- Halls of Stone
-		27978,
-		-- Karazhan
-		16406, 16408, 16472, 15687, 15688, 16152, 16524,
-		-- Magister's Terrace
-		24560, 24664,
-		-- Mana-Tombs
-		18314, 18317, 18344,
-		-- Oculus
-		27656,
-		-- Old Hillsbrad Foothills
-		17820, 17862, 18096, 28132,
-		-- Ruins of Ahn'Qiraj
-		15340,
-		-- Scholomance
-		1853, 10469, 10499, 10503, 10508,
-		-- Sethekk Halls
-		18320, 18322, 18472,
-		-- Shadow Labyrinth
-		18667, 18708, 18830,
-		-- Stratholme
-		10398, 10422, 10426, 10813, 10438, 10997,
-		-- Temple of Ahn'Qiraj
-		15263, 15275, 15276,
-		-- The Arcatraz
-		20869, 20880, 20898, 20900, 20885,
-		--The Black Morass
-		21104, 17839, 17879,
-		-- The Botanica
-		17975, 18422, 17977, 17978,
-		-- The Deadmines
-		657,
-		1732,
-		-- The Mechanar
-		19168, 19219, 19220, 19221,
-		-- The Nexus
-		26723,
-		-- The Shattered Halls
-		17465, 16807,
-		-- The Slave Pens
-		17941,
-		-- The Steamvault
-		17722, 17803, 17796, 17797, 17798,
-		-- The Temple of Atal'Hakkar
-		5226,
-		-- The Violet Hold
-		31134,
-		-- Utgarde Keep
-		23954,
-		-- Utgarde Pinnacle
-		26861,
-	}
-
 	local dungeonlocationlist = {
 		[BZ["Ahn'kahet: The Old Kingdom"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
@@ -638,6 +562,10 @@ do
 		},
 		[BZ["Old Hillsbrad Foothills"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Onyxia's Lair"]] = {
+			["loc"] = c1[BZ["Dustwallow Marsh"]],
 			["c"] = 1,
 		},
 		[BZ["Ruins of Ahn'Qiraj"]] = {
@@ -796,6 +724,7 @@ do
 
 			local continent, zone
 			local loc = nil
+			local custom = false
 
 			-- Get the entries location
 			if (maplist[k] == 1) then
@@ -808,6 +737,7 @@ do
 				loc = questDB[k]
 			elseif (maplist[k] == 8) then
 				loc = customDB[k]
+				custom = true
 			end
 
 			local name = loc["Name"]
@@ -834,7 +764,7 @@ do
 				continent = 4
 				zone = c4[location]
 			-- It's in a dungeon, lets check our manual listings for it.
-			elseif (dungeonlist[k]) then
+			elseif (dungeonlocationlist[location]) then
 				continent = dungeonlocationlist[location]["c"]
 				zone = dungeonlocationlist[location]["loc"]
 				name = name .. " (" .. location .. ")"
@@ -850,7 +780,7 @@ do
 			end
 
 		end
-	end	-- addon:SetupMap()
+	end
 end -- do block
 
 -- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
@@ -910,7 +840,6 @@ local function initDisplayStrings()
 
 end
 
--- Description: 
 
 local function ClearRecipeButtonTooltip(bIndex)
 
@@ -933,7 +862,6 @@ local function toRGB(hex)
 
 end
 
--- Description: 
 
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
@@ -1001,7 +929,6 @@ local function SetSpellTooltip(owner, loc, link)
 	arlSpellTooltip:Show()
 end
 
--- Description: 
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
 	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
@@ -1598,8 +1525,6 @@ local function SetProgressBar(playerData)
 
 end
 
--- Description: 
-
 function addon:ResetGUI()
 
 	addon.db.profile.frameopts.offsetx = 0
@@ -1611,8 +1536,6 @@ function addon:ResetGUI()
 	addon.db.profile.frameopts.fontsize = 11
 
 end
-
-
 
 -------------------------------------------------------------------------------
 -- Sorts the recipe Database depending on the settings defined in the database.
@@ -1704,8 +1627,6 @@ end
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
 
--- Description: 
-
 local function ReDisplay()
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
@@ -1779,8 +1700,6 @@ function addon:CreateScanButton()
 
 end
 
--- Description: 
-
 function addon:ShowScanButton()
 
 	-- Anchor to ATSW
@@ -1823,8 +1742,6 @@ function addon:ShowScanButton()
 
 end
 
--- Description: 
-
 function addon:TooltipDisplay(this, textLabel)
 
 	this:SetScript("OnEnter",
@@ -1842,8 +1759,6 @@ function addon:TooltipDisplay(this, textLabel)
 		)
 
 end
-
--- Description: 
 
 function addon.numFilters()
 
@@ -1868,8 +1783,6 @@ function addon.numFilters()
 
 end
 
--- Description: 
-
 function addon.resetTitle()
 
 	-- reset the frame title line
@@ -1892,8 +1805,6 @@ function addon.resetTitle()
 
 end
 
--- Description: 
-
 function addon.filterSwitch(val)
 
 	if (FilterValueMap[val].cb:GetChecked()) then
@@ -1908,8 +1819,6 @@ function addon.filterSwitch(val)
 	ReDisplay()
 
 end
-
--- Description: 
 
 local function HideARL_ExpOptCB(ignorevalue)
 
@@ -1971,8 +1880,6 @@ local function HideARL_ExpOptCB(ignorevalue)
 	end
 
 end
-
--- Description: 
 
 function addon.ToggleFilters()
 
@@ -2047,8 +1954,6 @@ function addon.ToggleFilters()
 
 end
 
--- Description: 
-
 do
 	local PUSHDOWN = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [85] = 1,
@@ -2073,8 +1978,6 @@ do
 		addon:TooltipDisplay(cButton, ttText, 1)
 	end
 end	-- do
-
--- Description: 
 
 function addon:GenericCreateButton(
 	bName, parentFrame,	bHeight, bWidth,
@@ -2908,7 +2811,6 @@ function addon.RepFilterSwitch(whichrep)
 
 end
 
--- Description: 
 
 function addon.setFlyawayState()
 
@@ -3030,7 +2932,6 @@ function addon.setFlyawayState()
 	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 end
 
--- Description: 
 
 local function recursiveReset(t)
 
@@ -3052,7 +2953,6 @@ local function recursiveReset(t)
 
 end
 
--- Description: 
 
 function addon.resetFilters() 
 
@@ -3096,7 +2996,6 @@ function addon.resetFilters()
 	end
 end
 
--- Description: 
 
 function addon.DoFlyaway(panel)
 
@@ -3389,7 +3288,6 @@ local function expandallDisplayStrings()
 
 end
 
--- Description: 
 
 function addon.ExpandAll_Clicked()
 
@@ -3407,7 +3305,6 @@ function addon.ExpandAll_Clicked()
 
 end
 
--- Description: 
 
 local function SetSortName()
 
@@ -3427,7 +3324,6 @@ local function SetSortName()
 
 end
 
--- Description: 
 
 local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
@@ -3436,7 +3332,6 @@ local function ARL_DD_Sort_OnClick(button, value)
 	ReDisplay()
 end
 
--- Description: 
 
 local function ARL_DD_Sort_Initialize()
 
