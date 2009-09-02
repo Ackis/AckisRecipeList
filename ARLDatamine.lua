@@ -866,6 +866,7 @@ function addon:GenerateLinks()
 	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+//////////////////HgAAw/P" -- Leatherworking
 	--bitmap[51302] = string.rep("/", 87)
 	--bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
+	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy
 	--bitmap[51304] = string.rep("/", 43) -- Alchemy (43)
 	--bitmap[51300] = string.rep("/", 85) -- Blacksmithing (85)
 	--bitmap[51309] = string.rep("/", 71) -- Tailoring (71)
@@ -873,6 +874,7 @@ function addon:GenerateLinks()
 	--bitmap[45363] = string.rep("/", 74) -- Inscription (74)
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
+	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting
 	--bitmap[51313] = string.rep("/", 51) -- Enchanting (51)
 
 	for i in pairs(tradelist) do
