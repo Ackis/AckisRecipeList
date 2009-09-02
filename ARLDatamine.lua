@@ -1561,39 +1561,49 @@ self:Print("BoP Item")
 			if (strmatch(text, "death knight")) then
 				scan_data.Deathknight = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "druid")) then
+			end
+			if (strmatch(text, "druid")) then
 				scan_data.Druid = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "hunter")) then
+			end
+			if (strmatch(text, "hunter")) then
 				scan_data.Hunter = true
 				scan_data.found_class = true
-			elseif ((strmatch(text, "mage")) and (strmatch(text, "damage") == nil)
+			end
+			if ((strmatch(text, "mage")) and (strmatch(text, "damage") == nil)
 				and (strmatch(text, "mageweave") == nil)
 				and (strmatch(text, "archmage") == nil)
 				and (strmatch(text, "mageroyal") == nil)) then
 				scan_data.Mage = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "paladin")) then
+			end
+			if (strmatch(text, "paladin")) then
 				scan_data.Paladin = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "priest")) then
+			end
+			if (strmatch(text, "priest")) then
 				scan_data.Priest = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "rogue")) then
+			end
+			if (strmatch(text, "rogue")) then
 				scan_data.Rogue = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "shaman")) then
+			end
+			if (strmatch(text, "shaman")) then
 				scan_data.Shaman = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "warlock")) then
+			end
+			if (strmatch(text, "warlock")) then
 				scan_data.Warlock = true
 				scan_data.found_class = true
-			elseif (strmatch(text, "warrior")) then
+			end
+			if (strmatch(text, "warrior")) then
 				scan_data.Warrior = true
 				scan_data.found_class = true
+			end
 			-- Armor types
 			-- Check the end of the item for cloth and leather because we can craft something with those items in it
-			elseif (strmatch(text, "cloth$")) then
+			if (strmatch(text, "cloth$")) then
 				scan_data.Cloth = true
 			elseif (strmatch(text, "leather$")) then
 				scan_data.Leather = true
