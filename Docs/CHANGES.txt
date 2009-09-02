@@ -1,5 +1,8 @@
 ==ARL Changes
 
+===Version XXXX
+*ARL is now pretty much stable and we're on an official 1.0 release now. :)  Going to be doing incremental updates via revision number now.
+
 ===3.2 Release
 *Updated recipes for 3.2
 *Trainer updates.  All LW and Tailoring trainers have been updated.
