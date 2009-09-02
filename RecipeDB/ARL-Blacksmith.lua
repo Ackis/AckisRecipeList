@@ -1,5 +1,4 @@
 --[[
-
 ************************************************************************
 
 ARL-Blacksmith.lua
@@ -29,7 +28,6 @@ License:
 This source code is released under All Rights Reserved.
 
 ************************************************************************
-
 ]]--
 
 local MODNAME		= "Ackis Recipe List"
