@@ -775,6 +775,11 @@ do
 			end
 
 			if ((zone) and (continent)) then
+				--@alpha@
+				if (x == 0) and (y == 0) then
+					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
+				end
+				--@end-alpha@
 				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, n, false, minimap, worldmap)
 				tinsert(iconlist, iconuid)
 			end
