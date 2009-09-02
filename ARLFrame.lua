@@ -774,6 +774,12 @@ do
 				--@end-alpha@
 			end
 
+			--@alpha@
+			if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
+				addon:Print("DEBUG: Invalid location coordinates for ID " .. k .. " Location: " .. location)
+			end
+			--@end-alpha@
+
 			if ((zone) and (continent)) then
 				--@alpha@
 				if (x == 0) and (y == 0) then
