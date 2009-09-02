@@ -1393,20 +1393,23 @@ do
 			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
 			local text
  
-			if text_r then
+			if (text_r) then
 				text = text_l .. " " .. text_r
 			else
 				text = text_l
 			end
 
 			local text = strlower(text)
-
+self:Print(text)
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
 			if strmatch(text, "binds when picked up") then
+self:Print("BoP Match")
 				if (i < 3) then
+self:Print("BoP Recipe")
 					scan_data.boprecipe = true
 				else
+self:Print("BoP Item")
 					scan_data.bopitem = true
 				end
 			end
