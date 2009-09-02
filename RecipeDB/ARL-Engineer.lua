@@ -1193,52 +1193,55 @@ function addon:InitEngineering(RecipeDB)
 	-- Justicebringer 2000 Specs -- 41311
 	self:addTradeSkill(RecipeDB,41311,350,32472,1,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41311,1,2,3,25,37,41,59)
-	self:addTradeAcquire(RecipeDB,41311,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Tankatronic Goggles -- 41312
 	self:addTradeSkill(RecipeDB,41312,350,32473,1,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41312,1,2,3,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,41312,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	self:addTradeSkill(RecipeDB,41314,350,32474,1,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41314,1,2,3,23,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,41314,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Gadgetstorm Goggles -- 41315
 	self:addTradeSkill(RecipeDB,41315,350,32476,4,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41315,1,2,3,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,41315,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Living Replicator Specs -- 41316
 	self:addTradeSkill(RecipeDB,41316,350,32475,4,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41316,1,2,3,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,41316,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Deathblow X11 Goggles -- 41317
 	self:addTradeSkill(RecipeDB,41317,350,32478,1,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41317,1,2,3,22,28,37,41,57)
-	self:addTradeAcquire(RecipeDB,41317,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Wonderheal XT40 Shades -- 41318
 	self:addTradeSkill(RecipeDB,41318,350,32479,4,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41318,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,41318,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Magnified Moon Specs -- 41319
 	self:addTradeSkill(RecipeDB,41319,350,32480,4,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41319,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,41319,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Destruction Holo-gogs -- 41320
 	self:addTradeSkill(RecipeDB,41320,350,32494,1,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41320,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
 
 	-- Powerheal 4000 Lens -- 41321
 	self:addTradeSkill(RecipeDB,41321,350,32495,4,4036,nil,1,350,370,380,390)
 	self:addTradeFlags(RecipeDB,41321,1,2,3,26,37,41,56)
-	self:addTradeAcquire(RecipeDB,41321,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,33586,1,28697)
+
+	-- Level 70 Goggles
+	-- All are listed here because they all share the same trainers but can only be seen by specific classes
+	self:addTradeAcquire(RecipeDB,41311,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41312,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41314,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41315,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41316,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41317,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41318,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41319,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41320,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
+	self:addTradeAcquire(RecipeDB,41321,1,17634,1,17637,1,18752,1,18775,1,19576,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Adamantite Arrow Maker -- 43676
 	self:addTradeSkill(RecipeDB,43676,335,20475,2,4036,nil,1,335,335,345,355)
@@ -1473,32 +1476,26 @@ function addon:InitEngineering(RecipeDB)
 	-- Armored Titanium Goggles -- 56480
 	self:addTradeSkill(RecipeDB,56480,440,42549,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56480,1,2,3,21,25,30,37,41,52,59)
-	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Weakness Spectralizers -- 56481
 	self:addTradeSkill(RecipeDB,56481,440,42550,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56481,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,56481,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Charged Titanium Specs -- 56483
 	self:addTradeSkill(RecipeDB,56483,440,42552,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56483,1,2,3,21,25,30,37,41,59)
-	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Visage Liquification Goggles -- 56484
 	self:addTradeSkill(RecipeDB,56484,440,42553,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56484,1,2,3,24,26,29,37,41,56)
-	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Greensight Gogs -- 56486
 	self:addTradeSkill(RecipeDB,56486,440,42554,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56486,1,2,3,22,37,41,57)
-	self:addTradeAcquire(RecipeDB,56486,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Electroflux Sight Enhancers -- 56487
 	self:addTradeSkill(RecipeDB,56487,440,42555,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56487,1,2,3,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,56487,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Global Thermal Sapper Charge -- 56514
 	self:addTradeSkill(RecipeDB,56514,425,42641,1,4036,20222,2,425,425,430,435)
@@ -1508,7 +1505,6 @@ function addon:InitEngineering(RecipeDB)
 	-- Truesight Ice Blinders -- 56574
 	self:addTradeSkill(RecipeDB,56574,440,42551,1,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,56574,1,2,3,23,27,37,41,58)
-	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697)
 
 	-- Nesingwary 4000 -- 60874
 	self:addTradeSkill(RecipeDB,60874,450,44504,4,4036,nil,2,450,455,460,465)
@@ -1544,6 +1540,15 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeSkill(RecipeDB,62271,440,44949,3,4036,nil,2,440,450,455,460)
 	self:addTradeFlags(RecipeDB,62271,1,2,3,25,37,41,53,59)
 	self:addTradeAcquire(RecipeDB,62271,1,25277,1,26907,1,26955)
+
+	-- Level 80 Goggles
+	self:addTradeAcquire(RecipeDB,56484,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56483,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56481,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56480,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56486,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56487,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
+	self:addTradeAcquire(RecipeDB,56574,1,25277,1,26907,1,26955,1,26991,1,33586,1,28697,1,26991)
 
 	-- Reticulated Armor Webbing -- 63770
 	self:addTradeSkill(RecipeDB,63770,400,nil,1,4036,nil,2,400,400,402,405)
