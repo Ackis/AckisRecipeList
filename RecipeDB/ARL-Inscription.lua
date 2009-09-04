@@ -112,12 +112,12 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Intellect VII -- 50603
 	self:addTradeSkill(RecipeDB,50603,360,37091,1,45357,nil,2,360,365,370,375)
 	self:addTradeFlags(RecipeDB,50603,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,50603,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50603,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Intellect VIII -- 50604
 	self:addTradeSkill(RecipeDB,50604,410,37092,1,45357,nil,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,50604,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,50604,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50604,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Spirit II -- 50605
 	self:addTradeSkill(RecipeDB,50605,75,1712,1,45357,nil,2,75,75,80,85)
@@ -152,12 +152,12 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Spirit VII -- 50610
 	self:addTradeSkill(RecipeDB,50610,355,37097,1,45357,nil,2,355,360,365,370)
 	self:addTradeFlags(RecipeDB,50610,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,50610,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50610,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Spirit VIII -- 50611
 	self:addTradeSkill(RecipeDB,50611,405,37098,1,45357,nil,2,405,410,415,420)
 	self:addTradeFlags(RecipeDB,50611,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,50611,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50611,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Stamina II -- 50612
 	self:addTradeSkill(RecipeDB,50612,75,1711,1,45357,nil,2,75,75,80,85)
@@ -192,12 +192,12 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Stamina VII -- 50619
 	self:addTradeSkill(RecipeDB,50619,350,37093,1,45357,nil,2,350,355,360,365)
 	self:addTradeFlags(RecipeDB,50619,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,50619,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50619,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Stamina VIII -- 50620
 	self:addTradeSkill(RecipeDB,50620,400,37094,1,45357,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,50620,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,50620,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,50620,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Ivory Ink -- 52738
 	self:addTradeSkill(RecipeDB,52738,1,37101,1,45357,nil,2,1,15,22,30)
@@ -393,12 +393,12 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,56979,225,42744,1,45357,nil,2,225,230,235,240)
 	self:addTradeFlags(RecipeDB,56979,1,2,3,24,36,41,54)
 	self:addTradeAcquire(RecipeDB,56979,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,1,30709,
-	1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Ice Lance -- 56980
 	self:addTradeSkill(RecipeDB,56980,375,42745,1,45357,nil,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,56980,1,2,3,24,36,41,54)
-	self:addTradeAcquire(RecipeDB,56980,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,56980,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Icy Veins -- 56981
 	self:addTradeSkill(RecipeDB,56981,175,42746,1,45357,nil,2,175,180,185,190)
@@ -436,7 +436,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Polymorph -- 56987
 	self:addTradeSkill(RecipeDB,56987,400,42752,1,45357,nil,2,400,400,400,405)
 	self:addTradeFlags(RecipeDB,56987,1,2,3,24,36,41,54)
-	self:addTradeAcquire(RecipeDB,56987,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,56987,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Remove Curse -- 56988
 	self:addTradeSkill(RecipeDB,56988,385,42753,1,45357,nil,2,385,390,397,405)
@@ -519,13 +519,13 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of the Hawk -- 57006
 	self:addTradeSkill(RecipeDB,57006,375,42909,1,45357,nil,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,57006,1,2,3,23,36,41,51)
-	self:addTradeAcquire(RecipeDB,57006,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57006,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Multi-Shot -- 57007
 	self:addTradeSkill(RecipeDB,57007,150,42910,1,45357,nil,2,150,155,160,165)
 	self:addTradeFlags(RecipeDB,57007,1,2,3,23,36,41,51)
 	self:addTradeAcquire(RecipeDB,57007,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Rapid Fire -- 57008
 	self:addTradeSkill(RecipeDB,57008,315,42911,1,45357,nil,2,315,320,325,330)
@@ -661,7 +661,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Turn Evil -- 57036
 	self:addTradeSkill(RecipeDB,57036,385,41102,1,45357,nil,2,385,390,397,405)
 	self:addTradeFlags(RecipeDB,57036,1,2,3,25,36,41)
-	self:addTradeAcquire(RecipeDB,57036,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57036,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Adrenaline Rush -- 57112
 	self:addTradeSkill(RecipeDB,57112,385,42954,1,45357,nil,2,385,390,397,405)
@@ -973,7 +973,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,57196,95,42410,1,45357,nil,2,95,105,115,125)
 	self:addTradeFlags(RecipeDB,57196,1,2,3,26,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,57196,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Renew -- 57197
 	self:addTradeSkill(RecipeDB,57197,160,42411,1,45357,nil,2,160,165,170,175)
@@ -984,7 +984,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Scourge Imprisonment -- 57198
 	self:addTradeSkill(RecipeDB,57198,385,42412,1,45357,nil,2,385,390,397,405)
 	self:addTradeFlags(RecipeDB,57198,1,2,3,26,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,57198,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57198,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Shadow Word: Death -- 57199
 	self:addTradeSkill(RecipeDB,57199,385,42414,1,45357,nil,2,385,390,397,405)
@@ -1075,7 +1075,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,57219,280,43546,1,45357,nil,2,280,285,290,295)
 	self:addTradeFlags(RecipeDB,57219,1,2,3,21,36,41)
 	self:addTradeAcquire(RecipeDB,57219,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Obliterate -- 57220
 	self:addTradeSkill(RecipeDB,57220,385,43547,1,45357,nil,2,385,390,397,405)
@@ -1105,7 +1105,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Strangulate -- 57225
 	self:addTradeSkill(RecipeDB,57225,375,43552,1,45357,nil,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,57225,1,2,3,21,36,41)
-	self:addTradeAcquire(RecipeDB,57225,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57225,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Unbreakable Armor -- 57226
 	self:addTradeSkill(RecipeDB,57226,305,43553,1,45357,nil,2,305,310,315,320)
@@ -1223,7 +1223,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Stormstrike -- 57248
 	self:addTradeSkill(RecipeDB,57248,385,41539,1,45357,nil,2,385,390,397,405)
 	self:addTradeFlags(RecipeDB,57248,1,2,3,27,36,41)
-	self:addTradeAcquire(RecipeDB,57248,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57248,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Lava Lash -- 57249
 	self:addTradeSkill(RecipeDB,57249,165,41540,1,45357,nil,2,165,170,175,180)
@@ -1315,13 +1315,13 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,57269,140,42465,1,45357,nil,2,140,145,150,155)
 	self:addTradeFlags(RecipeDB,57269,1,2,3,29,36,41,54)
 	self:addTradeAcquire(RecipeDB,57269,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Searing Pain -- 57270
 	self:addTradeSkill(RecipeDB,57270,215,42466,1,45357,nil,2,215,220,225,230)
 	self:addTradeFlags(RecipeDB,57270,1,2,3,29,36,41,54)
 	self:addTradeAcquire(RecipeDB,57270,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Glyph of Shadow Bolt -- 57271
 	self:addTradeSkill(RecipeDB,57271,165,42467,1,45357,nil,2,165,170,175,180)
@@ -1396,7 +1396,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,57709,200,43120,1,45357,nil,2,200,200,200,205)
 	self:addTradeFlags(RecipeDB,57709,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,57709,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Fiery Ink -- 57710
 	self:addTradeSkill(RecipeDB,57710,225,43121,2,45357,nil,2,225,225,225,230)
@@ -1425,17 +1425,17 @@ function addon:InitInscription(RecipeDB)
 	-- Darkflame Ink -- 57714
 	self:addTradeSkill(RecipeDB,57714,325,43125,2,45357,nil,2,325,325,325,330)
 	self:addTradeFlags(RecipeDB,57714,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57714,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721)
+	self:addTradeAcquire(RecipeDB,57714,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721,1,33679)
 
 	-- Ink of the Sea -- 57715
 	self:addTradeSkill(RecipeDB,57715,350,43126,1,45357,nil,2,350,350,350,355)
 	self:addTradeFlags(RecipeDB,57715,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57715,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57715,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Snowfall Ink -- 57716
 	self:addTradeSkill(RecipeDB,57716,375,43127,2,45357,nil,2,375,375,375,380)
 	self:addTradeFlags(RecipeDB,57716,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,57716,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,57716,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Fire Blast -- 57719
 	self:addTradeSkill(RecipeDB,57719,385,42740,1,45357,nil,2,385,390,397,405)
@@ -1741,12 +1741,12 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Agility VII -- 58482
 	self:addTradeSkill(RecipeDB,58482,370,43463,1,45357,nil,2,370,375,380,385)
 	self:addTradeFlags(RecipeDB,58482,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
-	self:addTradeAcquire(RecipeDB,58482,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,58482,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Agility VIII -- 58483
 	self:addTradeSkill(RecipeDB,58483,420,43464,1,45357,nil,2,420,425,430,435)
 	self:addTradeFlags(RecipeDB,58483,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
-	self:addTradeAcquire(RecipeDB,58483,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,58483,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Strength -- 58484
 	self:addTradeSkill(RecipeDB,58484,15,954,1,45357,nil,2,15,35,40,45)
@@ -1787,12 +1787,12 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Strength VII -- 58490
 	self:addTradeSkill(RecipeDB,58490,365,43465,1,45357,nil,2,365,370,375,380)
 	self:addTradeFlags(RecipeDB,58490,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
-	self:addTradeAcquire(RecipeDB,58490,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,58490,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Scroll of Strength VIII -- 58491
 	self:addTradeSkill(RecipeDB,58491,415,43466,1,45357,nil,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,58491,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
-	self:addTradeAcquire(RecipeDB,58491,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,58491,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Mystic Tome -- 58565
 	self:addTradeSkill(RecipeDB,58565,110,43515,3,45357,nil,2,110,125,137,150)
@@ -1813,23 +1813,23 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Rune Tap -- 59338
 	self:addTradeSkill(RecipeDB,59338,310,43825,1,45357,nil,2,310,315,320,325)
 	self:addTradeFlags(RecipeDB,59338,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59338,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916)
+	self:addTradeAcquire(RecipeDB,59338,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916,1,33679)
 
 	-- Glyph of Blood Strike -- 59339
 	self:addTradeSkill(RecipeDB,59339,320,43826,1,45357,nil,2,320,325,330,335)
 	self:addTradeFlags(RecipeDB,59339,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59339,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916)
+	self:addTradeAcquire(RecipeDB,59339,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916,1,33679)
 
 	-- Glyph of Death Strike -- 59340
 	self:addTradeSkill(RecipeDB,59340,340,43827,1,45357,nil,2,340,345,350,355)
 	self:addTradeFlags(RecipeDB,59340,1,2,3,12,21,36,41)
-	self:addTradeAcquire(RecipeDB,59340,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916)
+	self:addTradeAcquire(RecipeDB,59340,1,28702,1,33603,1,26977,1,33615,1,30722,1,26959,1,26995,1,30721,1,26916,1,33679)
 
 	-- Certificate of Ownership -- 59387
 	self:addTradeSkill(RecipeDB,59387,200,43850,1,45357,nil,2,200,205,210,215)
 	self:addTradeFlags(RecipeDB,59387,1,2,3,23,36,41)
 	self:addTradeAcquire(RecipeDB,59387,1,26916,1,26959,1,26977,1,26995,1,28702,1,30721,1,30722,
-	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711)
+	1,30709,1,30706,1,30713,1,30715,1,30716,1,33603,1,33615,1,30710,1,30717,1,30711,1,33679)
 
 	-- Tome of the Dawn -- 59475
 	self:addTradeSkill(RecipeDB,59475,125,43654,3,45357,nil,2,125,150,162,175)
@@ -1911,17 +1911,17 @@ function addon:InitInscription(RecipeDB)
 	-- Book of Clever Tricks -- 59496
 	self:addTradeSkill(RecipeDB,59496,325,43667,3,45357,nil,2,325,340,345,350)
 	self:addTradeFlags(RecipeDB,59496,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66)
-	self:addTradeAcquire(RecipeDB,59496,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721)
+	self:addTradeAcquire(RecipeDB,59496,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721,1,33679)
 
 	-- Iron-bound Tome -- 59497
 	self:addTradeSkill(RecipeDB,59497,400,38322,4,45357,nil,2,400,425,437,450)
 	self:addTradeFlags(RecipeDB,59497,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66)
-	self:addTradeAcquire(RecipeDB,59497,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,59497,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Faces of Doom -- 59498
 	self:addTradeSkill(RecipeDB,59498,400,44210,4,45357,nil,2,400,425,437,450)
 	self:addTradeFlags(RecipeDB,59498,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66)
-	self:addTradeAcquire(RecipeDB,59498,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,59498,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Armor Vellum II -- 59499
 	self:addTradeSkill(RecipeDB,59499,200,37602,1,45357,nil,2,200,210,215,220)
@@ -1932,12 +1932,12 @@ function addon:InitInscription(RecipeDB)
 	-- Armor Vellum III -- 59500
 	self:addTradeSkill(RecipeDB,59500,350,43145,1,45357,nil,2,350,355,370,385)
 	self:addTradeFlags(RecipeDB,59500,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,59500,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,59500,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Weapon Vellum III -- 59501
 	self:addTradeSkill(RecipeDB,59501,400,43146,1,45357,nil,2,400,405,410,415)
 	self:addTradeFlags(RecipeDB,59501,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,59501,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,59501,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Darkmoon Card -- 59502
 	self:addTradeSkill(RecipeDB,59502,275,nil,1,45357,nil,2,275,290,295,300)
@@ -1953,7 +1953,7 @@ function addon:InitInscription(RecipeDB)
 	-- Darkmoon Card of the North -- 59504
 	self:addTradeSkill(RecipeDB,59504,400,nil,1,45357,nil,2,400,425,450,475)
 	self:addTradeFlags(RecipeDB,59504,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,59504,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,59504,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Seal of Blood -- 59559
 	self:addTradeSkill(RecipeDB,59559,385,43867,1,45357,nil,2,385,390,397,405)
@@ -1979,27 +1979,27 @@ function addon:InitInscription(RecipeDB)
 	-- Scroll of Recall III -- 60337
 	self:addTradeSkill(RecipeDB,60337,350,44315,1,45357,nil,2,350,350,350,355)
 	self:addTradeFlags(RecipeDB,60337,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,60337,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,60337,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Master's Inscription of the Axe -- 61117
 	self:addTradeSkill(RecipeDB,61117,400,nil,1,45357,nil,2,400,400,400,405)
 	self:addTradeFlags(RecipeDB,61117,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,61117,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,61117,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Master's Inscription of the Crag -- 61118
 	self:addTradeSkill(RecipeDB,61118,400,nil,1,45357,nil,2,400,400,400,405)
 	self:addTradeFlags(RecipeDB,61118,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,61118,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,61118,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Master's Inscription of the Pinnacle -- 61119
 	self:addTradeSkill(RecipeDB,61119,400,nil,1,45357,nil,2,400,400,400,405)
 	self:addTradeFlags(RecipeDB,61119,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,61119,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,61119,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Master's Inscription of the Storm -- 61120
 	self:addTradeSkill(RecipeDB,61120,400,nil,1,45357,nil,2,400,400,400,405)
 	self:addTradeFlags(RecipeDB,61120,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,61120,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,61120,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Northrend Inscription Research -- 61177
 	self:addTradeSkill(RecipeDB,61177,385,nil,1,45357,nil,2,385,425,437,450)
@@ -2025,7 +2025,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Arcane Blast -- 56991
 	self:addTradeSkill(RecipeDB,56991,315,44955,1,45357,nil,2,310,320,325,330)
 	self:addTradeFlags(RecipeDB,56991,1,2,3,24,36,41)
-	self:addTradeAcquire(RecipeDB,56991,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721)
+	self:addTradeAcquire(RecipeDB,56991,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33615,1,30722,1,30721,1,33679)
 
 	-- Glyph of Typhoon -- 56965
 	self:addTradeSkill(RecipeDB,56965,310,44955,1,45357,nil,2)
@@ -2035,7 +2035,7 @@ function addon:InitInscription(RecipeDB)
 	-- Glyph of Focus -- 62162
 	self:addTradeSkill(RecipeDB,62162,385,44928,1,45357,nil,2,385,390,397,405)
 	self:addTradeFlags(RecipeDB,62162,1,2,3,22,36,41)
-	self:addTradeAcquire(RecipeDB,62162,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603,1,33679)
+	self:addTradeAcquire(RecipeDB,62162,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
 	-- Glyph of Thunderstorm -- 57253
 	self:addTradeSkill(RecipeDB,57253,355,44923,1,45357,nil,2,355,355,360,365)
@@ -2056,13 +2056,13 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64266,275,45804,1,45357,nil,2,275,280,287,295)
 	self:addTradeFlags(RecipeDB,64266,1,2,3,21,36,41)
 	self:addTradeAcquire(RecipeDB,64266,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	-- Glyph of Disease -- 64267
 	self:addTradeSkill(RecipeDB,64267,280,45805,1,45357,nil,2,280,285,290,295)
 	self:addTradeFlags(RecipeDB,64267,1,2,3,21,36,41)
 	self:addTradeAcquire(RecipeDB,64267,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	-- Glyph of Howling Blast -- 64300
 	self:addTradeSkill(RecipeDB,64300,425,45806,1,45357,nil,2,425,430,435,440)
@@ -2148,7 +2148,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64261,250,45775,1,45357,nil,2,425,430,435,440)
 	self:addTradeFlags(RecipeDB,64261,1,2,3,27,36,41)
 	self:addTradeAcquire(RecipeDB,64261,1,30709,1,30706,1,28702,1,30713,1,30715,
-	1,30716,1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,30716,1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	--Glyph of Enraged Regeneration  -- 64312
 	self:addTradeSkill(RecipeDB,64312,425,45794,1,45357,nil,2,425,430,435,440)
@@ -2254,13 +2254,13 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64258,250,45622,1,45357,nil,2,250,255,262,270)
 	self:addTradeFlags(RecipeDB,64258,1,2,3,22,36,41)
 	self:addTradeAcquire(RecipeDB,64258,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	--Glyph of Mutilate -- 64260
 	self:addTradeSkill(RecipeDB,64260,255,45768,1,45357,nil,2,255,255,262,270)
 	self:addTradeFlags(RecipeDB,64260,1,2,3,28,36,41)
 	self:addTradeAcquire(RecipeDB,64260,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	--Glyph of Nourish -- 64313
 	self:addTradeSkill(RecipeDB,64313,425,45603,1,45357,nil,2,425,430,435,440)
@@ -2271,7 +2271,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64259,255,45760,1,45357,nil,2,255,255,262,270)
 	self:addTradeFlags(RecipeDB,64259,1,2,3,26,36,41)
 	self:addTradeAcquire(RecipeDB,64259,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,30721,1,26916,1,30711,1,33679)
 
 	--Glyph of Penance -- 64282
 	self:addTradeSkill(RecipeDB,64282,425,45756,1,45357,nil,2,425,430,435,440)
@@ -2357,7 +2357,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeSkill(RecipeDB,64262,255,45776,1,45357,nil,2,255,255,262,270)
 	self:addTradeFlags(RecipeDB,64262,1,2,3,27,36,41)
 	self:addTradeAcquire(RecipeDB,64262,1,30709,1,30706,1,28702,1,30713,1,30715,1,30716,
-	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711)
+	1,33603,1,26977,1,33615,1,30710,1,30722,1,30717,1,26959,1,26995,1,30721,1,26916,1,30711,1,33679)
 
 	--Glyph of Tricks of the Trade -- 64310
 	self:addTradeSkill(RecipeDB,64310,425,45767,1,45357,nil,2,425,430,435,440)
