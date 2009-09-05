@@ -289,7 +289,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Craftsman's Monocle -- 3966
 	self:addTradeSkill(RecipeDB,3966,185,4393,3,4036,nil,0,185,205,215,225)
-	self:addTradeFlags(RecipeDB,3966,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,56)
+	self:addTradeFlags(RecipeDB,3966,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,56)
 	self:addTradeAcquire(RecipeDB,3966,7,3)
 
 	-- Big Iron Bomb -- 3967
@@ -508,8 +508,8 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Sniper Scope -- 12620
 	self:addTradeSkill(RecipeDB,12620,240,10548,3,4036,nil,0,240,260,270,280)
-	self:addTradeFlags(RecipeDB,12620,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,12620,7,3,8,33)
+	self:addTradeFlags(RecipeDB,12620,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,12620,7,3)
 
 	-- Mithril Gyro-Shot -- 12621
 	self:addTradeSkill(RecipeDB,12621,245,10513,1,4036,nil,0,245,245,265,285)
@@ -671,8 +671,8 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Lifelike Mechanical Toad -- 19793
 	self:addTradeSkill(RecipeDB,19793,265,15996,2,4036,nil,0,265,285,295,305)
-	self:addTradeFlags(RecipeDB,19793,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,19793,7,2,8,33)
+	self:addTradeFlags(RecipeDB,19793,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeAcquire(RecipeDB,19793,7,2)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	self:addTradeSkill(RecipeDB,19794,270,15999,2,4036,nil,0,270,290,300,310)
@@ -730,7 +730,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Arcane Bomb -- 19831
 	self:addTradeSkill(RecipeDB,19831,300,16040,2,4036,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,19831,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,19831,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,19831,7,2)
 
 	-- Flawless Arcanite Rifle -- 19833
