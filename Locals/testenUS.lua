@@ -1228,6 +1228,7 @@ L["Okuno"] = true
 L["Olisarra the Kind"] = true
 L["Oluros"] = true
 L["On Iron Pauldrons"] = true
+L["Onodo"] = true
 L["Onslaught Mason"] = true
 L["Ontuvo"] = true
 L["Orland Schaeffer"] = true
