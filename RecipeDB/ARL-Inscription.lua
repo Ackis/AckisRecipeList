@@ -2386,7 +2386,7 @@ function addon:InitInscription(RecipeDB)
 	
 	--Glyph of Command -- 68166
 	self:addTradeSkill(RecipeDB,68166,355,49084,1,45357,nil,2,355,355,360,365)
-	self:addTradeFlags(RecipeDB,68166,1,2,3,30,36,41)
+	self:addTradeFlags(RecipeDB,68166,1,2,12,30,36,41)
 	self:addTradeAcquire(RecipeDB,68166,8,14)
 
 	-- The number of items added with patches
