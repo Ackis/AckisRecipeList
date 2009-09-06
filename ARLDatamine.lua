@@ -1637,7 +1637,7 @@ do
 				scan_data.Wand = true
 			elseif (strmatch(text, "thrown")) then
 				scan_data.Thrown = true
-			elseif (strmatch(text, "bow")) then
+			elseif (strmatch(text, "bow") and (strmatch(text, "rainbow") == nil)) then
 				scan_data.Bow = true
 			elseif (strmatch(text, "crossbow")) then
 				scan_data.CrossBow = true
