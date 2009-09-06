@@ -1430,6 +1430,7 @@ L["The Journey Has Just Begun"] = true
 L["The Mithril Kid"] = true
 L["The Old Ways"] = true
 L["The Origins of Smithing"] = true
+L["The Prototype Console"] = true
 L["The Rescue"] = true
 L["The Spectral Chalice"] = true
 L["The Undermarket"] = true

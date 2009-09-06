@@ -1365,8 +1365,8 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Scrapbot Construction Kit -- 55252
 	self:addTradeSkill(RecipeDB,55252,415,40769,1,4036,nil,2,415,415,417,420)
-	self:addTradeFlags(RecipeDB,55252,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,55252,1,26907,1,26955)
+	self:addTradeFlags(RecipeDB,55252,1,2,8,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeAcquire(RecipeDB,55252,4,12889)
 
 	-- Handful of Cobalt Bolts -- 56349
 	self:addTradeSkill(RecipeDB,56349,350,39681,1,4036,nil,1,350,360,370,380)
