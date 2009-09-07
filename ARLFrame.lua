@@ -853,14 +853,13 @@ end
 
 
 local function ClearRecipeButtonTooltip(bIndex)
-
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
-	pButton:SetScript("OnEnter", function () end)
-	pButton:SetScript("OnLeave", function () end)
-	rButton:SetScript("OnEnter", function () end)
-	rButton:SetScript("OnLeave", function () end)
 
+	pButton:SetScript("OnEnter", nil)
+	pButton:SetScript("OnLeave", nil)
+	rButton:SetScript("OnEnter", nil)
+	rButton:SetScript("OnLeave", nil)
 end
 
 -- Description: Converting from hex to rgb (Thanks Maldivia)
