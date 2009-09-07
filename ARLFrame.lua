@@ -1631,7 +1631,31 @@ do
 
 		return SortedRecipeIndex
 	end
-end
+end	-- do
+
+
+-------------------------------------------------------------------------------
+-- Displays a tooltip for the given frame.
+-------------------------------------------------------------------------------
+local TooltipDisplay
+do
+	local function Show_Tooltip(frame, motion)
+		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
+		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+		GameTooltip:Show()
+	end
+
+	local function Hide_Tooltip()
+		GameTooltip:Hide()
+	end
+
+	function TooltipDisplay(frame, textLabel)
+		frame.tooltip_text = textLabel
+
+		frame:SetScript("OnEnter", Show_Tooltip)
+		frame:SetScript("OnLeave", Hide_Tooltip)
+	end
+end	-- do
 
 -- Under various conditions, I'm going to have to redisplay my recipe list
 -- This could happen because a filter changes, a new profession is chosen, or
@@ -1649,7 +1673,7 @@ local function ReDisplay()
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+	TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	-- And update our scrollframe
 	RecipeList_Update()
@@ -1749,24 +1773,6 @@ function addon:ShowScanButton()
 	end
 
 	addon.ScanButton:Show()
-
-end
-
-function addon:TooltipDisplay(this, textLabel)
-
-	this:SetScript("OnEnter",
-			function (this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(textLabel, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
-				GameTooltip:Show()
-			end
-		)
-
-	this:SetScript("OnLeave",
-			function(this)
-				GameTooltip:Hide()
-			end
-		)
 
 end
 
@@ -1910,7 +1916,7 @@ function addon.ToggleFilters()
 
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_OPEN"])
-		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
+		TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
 
 		-- Hide my 7 buttons
 		ARL_ExpGeneralOptCB:Hide()
@@ -1943,7 +1949,7 @@ function addon.ToggleFilters()
 
 		-- Change the text and tooltip for the filter button
 		ARL_FilterButton:SetText(L["FILTER_CLOSE"])
-		addon:TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
+		TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
 
 		-- Show my 7 buttons
 		ARL_ExpGeneralOptCB:Show()
@@ -1968,24 +1974,25 @@ do
 	local PUSHDOWN = {
 		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [85] = 1,
 	}
-
 	function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
-
 		-- set the position of the new checkbox
 		local xPos = 2 + ((col - 1) * 100)
 		local yPos = -3 - ((row - 1) * 17)
-		if (PUSHDOWN[scriptVal]) then yPos = yPos - 5 end
+
+		if (PUSHDOWN[scriptVal]) then
+			yPos = yPos - 5
+		end
 		cButton:SetPoint("TOPLEFT", anchorFrame, "TOPLEFT", xPos, yPos)
 		cButton:SetHeight(24)
 		cButton:SetWidth(24)
-		-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
-		if (misc == 0) then
+
+		-- depending if we're on the misc panel or not, set an alternative OnClick method
+		if misc == 0 then
 			cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
 		else
 			cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay() end)
 		end
-
-		addon:TooltipDisplay(cButton, ttText, 1)
+		TooltipDisplay(cButton, ttText, 1)
 	end
 end	-- do
 
@@ -2102,7 +2109,7 @@ function addon:GenericCreateButton(
 
 	if (tooltipText ~= "") then
 
-		addon:TooltipDisplay(button, tooltipText)
+		TooltipDisplay(button, tooltipText)
 
 	end
 
@@ -2148,11 +2155,11 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 
 		-- And throw up a tooltip
 		if (bName == "ARL_RepOldWorldCB") then
-			addon:TooltipDisplay(cButton, L["FILTERING_OLDWORLD_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_OLDWORLD_DESC"])
 		elseif (bName == "ARL_RepBCCB") then
-			addon:TooltipDisplay(cButton, L["FILTERING_BC_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_BC_DESC"])
 		else
-			addon:TooltipDisplay(cButton, L["FILTERING_WOTLK_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_WOTLK_DESC"])
 		end
 
 		return cButton
@@ -2197,7 +2204,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 			cButton.text = cbText
 
 		-- And throw up a tooltip
-		addon:TooltipDisplay(cButton, ExpButtonTT[panelIndex])
+		TooltipDisplay(cButton, ExpButtonTT[panelIndex])
 		cButton:Hide()
 		return cButton
 
@@ -3304,11 +3311,11 @@ function addon.ExpandAll_Clicked()
 	-- Called when the expand all button is clicked
 	if (ARL_ExpandButton:GetText() == L["EXPANDALL"]) then
 		ARL_ExpandButton:SetText(L["CONTRACTALL"])
-		addon:TooltipDisplay(ARL_ExpandButton, L["CONTRACTALL_DESC"])
+		TooltipDisplay(ARL_ExpandButton, L["CONTRACTALL_DESC"])
 		expandallDisplayStrings()
 	else
 		ARL_ExpandButton:SetText(L["EXPANDALL"])
-		addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+		TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 		initDisplayStrings()
 	end
 	RecipeList_Update()
@@ -3614,7 +3621,7 @@ end
 -------------------------------------------------------------------------------
 -- Creates the initial frame to display recipes into.
 -------------------------------------------------------------------------------
-function InitializeFrame()
+local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
@@ -3735,7 +3742,7 @@ function InitializeFrame()
 						   RecipeList_Update()
 
 						   ARL_ExpandButton:SetText(L["EXPANDALL"])
-						   addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+						   TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						   ARL_SearchButton:Disable()
@@ -3752,7 +3759,7 @@ function InitializeFrame()
 
 					  -- Make sure our expand all button is set to expandall
 					  ARL_ExpandButton:SetText(L["EXPANDALL"])
-					  addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+					  TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 					  -- Make sure to clear the focus of the searchbox
 					  ARL_SearchText:ClearFocus()
@@ -3781,7 +3788,7 @@ function InitializeFrame()
 						 RecipeList_Update()
 
 						 ARL_ExpandButton:SetText(L["EXPANDALL"])
-						 addon:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+						 TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						 ARL_SearchButton:Disable()
@@ -4870,7 +4877,7 @@ function InitializeFrame()
 	ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 	ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 	ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-	addon:TooltipDisplay(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+	TooltipDisplay(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
 	ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 	ARL_MiscAltBtn:SetScript("OnClick",
 				 function(this, button)
@@ -5090,7 +5097,7 @@ function addon:DisplayFrame(
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	self:TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+	TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	self.resetTitle()							-- Reset our addon title text
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)		-- Set the texture on our switcher button correctly
