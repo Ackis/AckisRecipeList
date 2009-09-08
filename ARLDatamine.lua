@@ -1251,7 +1251,7 @@ do
 	local SPECIALTY_TEXT = {
 		["requires spellfire tailoring"] = 26797, 
 		["requires mooncloth tailoring"] = 26798, 
-		["requires shadowweave tailoring"] = 26801, 
+		["requires shadoweave tailoring"] = 26801, 
 		["dragonscale leatherworking"] = 10657, 
 		["elemental leatherworking"] = 10659, 
 		["tribal leatherworking"] = 10661, 
@@ -1858,13 +1858,13 @@ do
 		if (scan_data.specialty) then
 			if (not scan_data.recipe_list[spellid]["Specialty"]) then
 				addedtotable = true
-				tinsert(output, "Recipe " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
+				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
 			elseif (scan_data.recipe_list[spellid]["Specialty"] ~= scan_data.specialty) then
-				tinsert(output, "Recipe " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty: " .. scan_data.specialty)
+				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty: " .. scan_data.specialty)
 			end
 		elseif (scan_data.recipe_list[spellid]["Specialty"]) then
 			addedtotable = true
-			tinsert(output, "Recipe " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
+			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
 		end
 
 		if (addedtotable) then
