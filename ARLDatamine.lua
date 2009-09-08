@@ -1608,7 +1608,7 @@ do
 				scan_data.Mail = true
 			elseif (strmatch(text, "plate")) then
 				scan_data.Plate = true
-			elseif (strmatch(text, "cloak")) then
+			elseif (strmatch(text, "back")) then
 				scan_data.Cloak = true
 			elseif (strmatch("finger",  text)) then
 				scan_data.Ring = true
