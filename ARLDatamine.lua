@@ -1255,13 +1255,13 @@ do
 		["requires dragonscale leatherworking"] = 10657, 
 		["requires elemental leatherworking"] = 10659, 
 		["requires tribal leatherworking"] = 10661, 
-		["gnomish engineering"] = 20219, 
-		["goblin engineering"] = 20222, 
-		["armorsmith"] = 9788, 
-		["master axesmith"] = 17041, 
-		["master hammersmith"] = 17040, 
-		["master swordsmith"] = 17039, 
-		["weaponsmith"] = 9787, 
+		["requires gnomish engineering"] = 20219, 
+		["requires goblin engineering"] = 20222, 
+		["requires armorsmith"] = 9788, 
+		["requires master axesmith"] = 17041, 
+		["requires master hammersmith"] = 17040, 
+		["requires master swordsmith"] = 17039, 
+		["requires weaponsmith"] = 9787, 
 	}
 
 	local FACTION_TEXT = {
