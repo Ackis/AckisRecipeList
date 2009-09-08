@@ -2940,50 +2940,6 @@ local function recursiveReset(t)
 
 end
 
-
-function addon.resetFilters() 
-
-	local filterdb = addon.db.profile.filters
-
-	-- Reset all filters to true
-	recursiveReset(addon.db.profile.filters)
-
-	-- Reset specific filters to false
-	filterdb.general.class = false
-	filterdb.general.specialty = false
-	filterdb.general.known = false
-
-	-- Reset all classes to false
-	filterdb.classes.deathknight = false
-	filterdb.classes.druid = false
-	filterdb.classes.hunter = false
-	filterdb.classes.mage = false
-	filterdb.classes.paladin = false
-	filterdb.classes.priest = false
-	filterdb.classes.rogue = false
-	filterdb.classes.shaman = false
-	filterdb.classes.warlock = false
-	filterdb.classes.warrior = false
-
-	-- Set your own class to true
-	local _, currentclass = UnitClass("player")
-	filterdb.classes[strlower(currentclass)] = true
-
-	if (addon.Frame and addon.Frame:IsVisible()) then
-		addon.resetTitle()
-
-		-- Uncheck the seven buttons
-		HideARL_ExpOptCB()
-
-		-- Hide the flyaway panel
-		addon.Flyaway:Hide()
-
-		-- Reset the display
-		ReDisplay()
-	end
-end
-
-
 function addon.DoFlyaway(panel)
 
 	-- This is going to manage the flyaway panel, as well as checking or unchecking the
@@ -3881,7 +3837,41 @@ local function InitializeFrame()
 	local ARL_ResetButton = addon:GenericCreateButton("ARL_ResetButton", addon.Frame,
 							  25, 90, "TOPRIGHT", ARL_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall",
 							  "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
-	ARL_ResetButton:SetScript("OnClick", addon.resetFilters)
+	ARL_ResetButton:SetScript("OnClick", function()
+						     local filterdb = addon.db.profile.filters
+
+						     -- Reset all filters to true
+						     recursiveReset(addon.db.profile.filters)
+
+						     -- Reset specific filters to false
+						     filterdb.general.class = false
+						     filterdb.general.specialty = false
+						     filterdb.general.known = false
+
+						     -- Reset all classes to false
+						     filterdb.classes.deathknight = false
+						     filterdb.classes.druid = false
+						     filterdb.classes.hunter = false
+						     filterdb.classes.mage = false
+						     filterdb.classes.paladin = false
+						     filterdb.classes.priest = false
+						     filterdb.classes.rogue = false
+						     filterdb.classes.shaman = false
+						     filterdb.classes.warlock = false
+						     filterdb.classes.warrior = false
+
+						     -- Set your own class to true
+						     local _, currentclass = UnitClass("player")
+
+						     filterdb.classes[strlower(currentclass)] = true
+
+						     if addon.Frame:IsVisible() then
+							     addon.resetTitle()
+							     HideARL_ExpOptCB()
+							     addon.Flyaway:Hide()
+							     ReDisplay()
+						     end
+					     end)
 	ARL_ResetButton:Hide()
 
 	-------------------------------------------------------------------------------
