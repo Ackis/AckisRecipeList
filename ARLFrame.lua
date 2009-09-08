@@ -2798,146 +2798,15 @@ function addon.RepFilterSwitch(whichrep)
 
 end
 
-
-function addon.setFlyawayState()
-
-	-- This function sets all the current options in the flyaway panel to make
-	-- sure they are consistent with the SV options. This is run every time the
-	-- Flyaway panel "OnShow" triggers
-	local filterdb = addon.db.profile.filters
-	local armordb = filterdb.item.armor
-	local weapondb = filterdb.item.weapon
-	-- General Options
-	ARL_SpecialtyCB:SetChecked(filterdb.general.specialty)
-	ARL_LevelCB:SetChecked(filterdb.general.skill)
-	ARL_FactionCB:SetChecked(filterdb.general.faction)
-	ARL_KnownCB:SetChecked(filterdb.general.known)
-	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
-	-- Classes
-	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
-	ARL_DruidCB:SetChecked(filterdb.classes.druid)
-	ARL_HunterCB:SetChecked(filterdb.classes.hunter)
-	ARL_MageCB:SetChecked(filterdb.classes.mage)
-	ARL_PaladinCB:SetChecked(filterdb.classes.paladin)
-	ARL_PriestCB:SetChecked(filterdb.classes.priest)
-	ARL_RogueCB:SetChecked(filterdb.classes.rogue)
-	ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
-	ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
-	ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
-	-- Obtain Options
-	ARL_InstanceCB:SetChecked(filterdb.obtain.instance)
-	ARL_RaidCB:SetChecked(filterdb.obtain.raid)
-	ARL_QuestCB:SetChecked(filterdb.obtain.quest)
-	ARL_SeasonalCB:SetChecked(filterdb.obtain.seasonal)
-	ARL_TrainerCB:SetChecked(filterdb.obtain.trainer)
-	ARL_VendorCB:SetChecked(filterdb.obtain.vendor)
-	ARL_PVPCB:SetChecked(filterdb.obtain.pvp)
-	ARL_DiscoveryCB:SetChecked(filterdb.obtain.discovery)
-	ARL_WorldDropCB:SetChecked(filterdb.obtain.worlddrop)
-	ARL_MobDropCB:SetChecked(filterdb.obtain.mobdrop)
-	ARL_OriginalWoWCB:SetChecked(filterdb.obtain.originalwow)
-	ARL_BCCB:SetChecked(filterdb.obtain.bc)
-	ARL_WrathCB:SetChecked(filterdb.obtain.wrath)
-	-- Binding Options
-	ARL_iBoECB:SetChecked(filterdb.binding.itemboe)
-	ARL_iBoPCB:SetChecked(filterdb.binding.itembop)
-	ARL_rBoECB:SetChecked(filterdb.binding.recipeboe)
-	ARL_rBoPCB:SetChecked(filterdb.binding.recipebop)
-	-- Armor Options
-	ARL_ArmorClothCB:SetChecked(armordb.cloth)
-	ARL_ArmorLeatherCB:SetChecked(armordb.leather)
-	ARL_ArmorMailCB:SetChecked(armordb.mail)
-	ARL_ArmorPlateCB:SetChecked(armordb.plate)
-	ARL_ArmorCloakCB:SetChecked(armordb.cloak)
-	ARL_ArmorNecklaceCB:SetChecked(armordb.necklace)
-	ARL_ArmorRingCB:SetChecked(armordb.ring)
-	ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
-	ARL_ArmorShieldCB:SetChecked(armordb.shield)
-	-- Weapon Options
-	ARL_Weapon1HCB:SetChecked(weapondb.onehand)
-	ARL_Weapon2HCB:SetChecked(weapondb.twohand)
-	ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
-	ARL_WeaponAxeCB:SetChecked(weapondb.axe)
-	ARL_WeaponMaceCB:SetChecked(weapondb.mace)
-	ARL_WeaponSwordCB:SetChecked(weapondb.sword)
-	ARL_WeaponPolearmCB:SetChecked(weapondb.polearm)
-	ARL_WeaponWandCB:SetChecked(weapondb.wand)
-	ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
-	ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
-	ARL_WeaponFistCB:SetChecked(weapondb.fist)
-	ARL_WeaponGunCB:SetChecked(weapondb.gun)
---[[
-	--Disable weapon options. Probably don't need to touch these...
-	ARL_WeaponStaffCB
-	ARL_WeaponBowCB
-	ARL_WeaponCrossbowCB
-]]--
-	-- Player Type Options
-	ARL_PlayerTankCB:SetChecked(filterdb.player.tank)
-	ARL_PlayerMeleeCB:SetChecked(filterdb.player.melee)
-	ARL_PlayerHealerCB:SetChecked(filterdb.player.healer)
-	ARL_PlayerCasterCB:SetChecked(filterdb.player.caster)
-	-- Old World Rep Options
-	ARL_RepArgentDawnCB:SetChecked(filterdb.rep.argentdawn)
-	ARL_RepCenarionCircleCB:SetChecked(filterdb.rep.cenarioncircle)
-	ARL_RepThoriumCB:SetChecked(filterdb.rep.thoriumbrotherhood)
-	ARL_RepTimbermawCB:SetChecked(filterdb.rep.timbermaw)
-	ARL_RepZandalarCB:SetChecked(filterdb.rep.zandalar)
-	-- BC Rep Options
-	ARL_RepAldorCB:SetChecked(filterdb.rep.aldor)
-	ARL_RepAshtongueCB:SetChecked(filterdb.rep.ashtonguedeathsworn)
-	ARL_RepCenarionExpeditionCB:SetChecked(filterdb.rep.cenarionexpedition)
-	ARL_RepConsortiumCB:SetChecked(filterdb.rep.consortium)
-	ARL_RepHonorHoldCB:SetChecked(filterdb.rep.hellfire)
-	ARL_RepKeepersOfTimeCB:SetChecked(filterdb.rep.keepersoftime)
-	ARL_RepKurenaiCB:SetChecked(filterdb.rep.nagrand)
-	ARL_RepLowerCityCB:SetChecked(filterdb.rep.lowercity)
-	ARL_RepScaleSandsCB:SetChecked(filterdb.rep.scaleofthesands)
-	ARL_RepScryersCB:SetChecked(filterdb.rep.scryer)
-	ARL_RepShatarCB:SetChecked(filterdb.rep.shatar)
-	ARL_RepShatteredSunCB:SetChecked(filterdb.rep.shatteredsun)
-	ARL_RepSporeggarCB:SetChecked(filterdb.rep.sporeggar)
-	ARL_RepVioletEyeCB:SetChecked(filterdb.rep.violeteye)
-	-- WotLK Rep Options
-	ARL_RepArgentCrusadeCB:SetChecked(filterdb.rep.argentcrusade)
-	ARL_RepFrenzyheartCB:SetChecked(filterdb.rep.frenzyheart)
-	ARL_RepEbonBladeCB:SetChecked(filterdb.rep.ebonblade)
-	ARL_RepKirinTorCB:SetChecked(filterdb.rep.kirintor)
-	ARL_RepSonsOfHodirCB:SetChecked(filterdb.rep.sonsofhodir)
-	ARL_RepKaluakCB:SetChecked(filterdb.rep.kaluak)
-	ARL_RepOraclesCB:SetChecked(filterdb.rep.oracles)
-	ARL_RepWyrmrestCB:SetChecked(filterdb.rep.wyrmrest)
-	ARL_WrathCommon1CB:SetChecked(filterdb.rep.wrathcommon1)
---[[
-	--Disable unused Rep Options
-	ARL_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
-	ARL_WrathCommon3CB:SetChecked(filterdb.rep.wrathcommon3)
-	ARL_WrathCommon4CB:SetChecked(filterdb.rep.wrathcommon4)
-	ARL_WrathCommon5CB:SetChecked(filterdb.rep.wrathcommon5)
-]]--
-	-- Miscellaneous Options
-	ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-end
-
-
 local function recursiveReset(t)
-
 	-- Thanks to Antiarc for this code
-
 	for k, v in pairs(t) do
-
 		if type(v) == "table" then
-
 			recursiveReset(v)
-
 		else
-
 			t[k] = true
-
 		end
-
 	end
-
 end
 
 function addon.DoFlyaway(panel)
@@ -3918,7 +3787,19 @@ local function InitializeFrame()
 	addon.Flyaway:ClearAllPoints()
 	addon.Flyaway:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT", -6, -102)
 
-	addon.Flyaway:SetScript("OnShow", addon.setFlyawayState) 
+	-------------------------------------------------------------------------------
+	-- Set all the current options in the flyaway panel to make sure they are
+	-- consistent with the SV options.
+	-------------------------------------------------------------------------------
+	addon.Flyaway:SetScript("OnShow", function()
+						  for filter, info in pairs(FilterValueMap) do
+							  if info.svroot then
+								  info.cb:SetChecked(info.svroot[filter])
+							  end
+						  end
+						  -- Miscellaneous Options
+						  ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
+					  end)
 	addon.Flyaway:Hide()
 
 	-------------------------------------------------------------------------------
