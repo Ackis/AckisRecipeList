@@ -4737,7 +4737,7 @@ local function InitializeFrame()
 				   end)
 
 	local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-	addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 2, 1, 0)
+	addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), "wrathcommon1", 2, 1, 0)
 	ARL_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
 	ARL_WrathCommon1CBText:SetFont(narrowFont, 11)
 
