@@ -88,7 +88,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Embossed Leather Boots -- 2161
 	self:addTradeSkill(RecipeDB,2161,55,2309,1,2108,nil,0,55,85,100,115)
-	self:addTradeFlags(RecipeDB,2161,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,2161,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,2161,1,223,1,1466,1,1632,1,3007,1,3008,1,3069,1,3365,1,3549
 	,1,3605,1,3703,1,3967,1,4212,1,4588,1,5127,1,5564,1,5784,1,5811,1,11081,1,11083,1,11084,1,
 	11096,1,11097,1,11098,1,16278,1,16687,1,16688,1,16728,1,16745,1,17442,1,18754,1,18771,1,19187
@@ -104,7 +104,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- White Leather Jerkin -- 2163
 	self:addTradeSkill(RecipeDB,2163,60,2311,2,2108,nil,0,60,90,105,120)
-	self:addTradeFlags(RecipeDB,2163,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,2163,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 	self:addTradeAcquire(RecipeDB,2163,7,2)
 
 	-- Fine Leather Gloves -- 2164
@@ -365,7 +365,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Fine Leather Pants -- 7133
 	self:addTradeSkill(RecipeDB,7133,105,5958,2,2108,nil,0,105,130,142,155)
-	self:addTradeFlags(RecipeDB,7133,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,7133,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,7133,7,2)
 
 	-- Dark Leather Pants -- 7135
@@ -396,12 +396,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Guardian Cloak -- 7153
 	self:addTradeSkill(RecipeDB,7153,185,5965,2,2108,nil,0,185,205,215,225)
-	self:addTradeFlags(RecipeDB,7153,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,60)
+	self:addTradeFlags(RecipeDB,7153,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,60)
 	self:addTradeAcquire(RecipeDB,7153,7,2)
 
 	-- Guardian Gloves -- 7156
 	self:addTradeSkill(RecipeDB,7156,190,5966,1,2108,nil,0,190,210,220,230)
-	self:addTradeFlags(RecipeDB,7156,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,7156,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,7156,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,
 	1,21087,1,1632,1,5784,1,16728,1,1385,1,3549,1,3365,1,3967,1,3703,1,33612,1,33635,1,16688,1,
 	33681,1,8153,1,17442,1,16278,1,3605,1,5564,1,5127,1,4588)
@@ -548,8 +548,8 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,9197,7,2)
 
 	-- Frost Leather Cloak -- 9198
-	self:addTradeSkill(RecipeDB,9198,180,7377,1,2108,nil,0,180,200,210,22)
-	self:addTradeFlags(RecipeDB,9198,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
+	self:addTradeSkill(RecipeDB,9198,180,7377,1,2108,nil,0,180,200,210,220)
+	self:addTradeFlags(RecipeDB,9198,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,9198,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,
 	1,21087,1,1632,1,5784,1,16728,1,3703,1,1385,1,3549,1,3365,1,3967,1,33612,1,33635,1,16688
 	,1,33681,1,8153,1,17442,1,16278,1,3605,1,5564,1,5127,1,4588)
@@ -568,14 +568,14 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Dusky Belt -- 9206
 	self:addTradeSkill(RecipeDB,9206,195,7387,1,2108,nil,0,195,215,225,235)
-	self:addTradeFlags(RecipeDB,9206,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,9206,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,9206,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187,
 	1,21087,1,1632,1,5784,1,16728,1,3703,1,1385,1,3549,1,3365,1,3967,1,33612,1,33635,1,16688
 	,1,33681,1,8153,1,17442,1,16278,1,3605,1,5564,1,5127,1,4588)
 
 	-- Dusky Boots -- 9207
 	self:addTradeSkill(RecipeDB,9207,200,7390,3,2108,nil,0,200,220,230,240)
-	self:addTradeFlags(RecipeDB,9207,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,9207,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 	self:addTradeAcquire(RecipeDB,9207,7,2)
 
 	-- Swift Boots -- 9208
@@ -618,12 +618,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Turtle Scale Gloves -- 10509
 	self:addTradeSkill(RecipeDB,10509,205,8187,1,2108,nil,0,205,225,235,245)
-	self:addTradeFlags(RecipeDB,10509,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,10509,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
 	self:addTradeAcquire(RecipeDB,10509,2,7852,2,7854)
 
 	-- Turtle Scale Breastplate -- 10511
 	self:addTradeSkill(RecipeDB,10511,210,8189,1,2108,nil,0,210,230,240,250)
-	self:addTradeFlags(RecipeDB,10511,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,10511,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,10511,1,3007,1,4212,1,11097,1,11098,1,18754,1,18771,1,19187
 	,1,21087,1,1632,1,5784,1,16728,1,3703,1,1385,1,3549,1,3365,1,3967,1,33612,1,33635,1,16688
 	,1,33681,1,8153,1,17442,1,16278,1,3605,1,5564,1,5127,1,4588)
@@ -647,7 +647,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Tough Scorpid Breastplate -- 10525
 	self:addTradeSkill(RecipeDB,10525,220,8203,2,2108,nil,0,220,240,250,260)
-	self:addTradeFlags(RecipeDB,10525,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,10525,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,10525,3,5618)
 
 	-- Wild Leather Shoulders -- 10529
@@ -662,12 +662,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Tough Scorpid Bracers -- 10533
 	self:addTradeSkill(RecipeDB,10533,220,8205,2,2108,nil,0,220,240,250,260)
-	self:addTradeFlags(RecipeDB,10533,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,10533,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,10533,3,5617)
 
 	-- Tough Scorpid Gloves -- 10542
 	self:addTradeSkill(RecipeDB,10542,225,8204,2,2108,nil,0,225,245,255,265)
-	self:addTradeFlags(RecipeDB,10542,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,10542,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,10542,3,5616)
 
 	-- Wild Leather Vest -- 10544
@@ -760,12 +760,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Wolfshead Helm -- 10621
 	self:addTradeSkill(RecipeDB,10621,225,8345,1,2108,nil,0,225,245,255,265)
-	self:addTradeFlags(RecipeDB,10621,1,2,3,22,36,41,57)
+	self:addTradeFlags(RecipeDB,10621,1,2,3,22,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,10621,1,7870,1,7871,1,29509)
 
 	-- Gauntlets of the Sea -- 10630
 	self:addTradeSkill(RecipeDB,10630,230,8346,1,2108,nil,0,230,250,260,270)
-	self:addTradeFlags(RecipeDB,10630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,10630,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,10630,1,7868,1,7869,1,29507)
 
 	-- Helm of Fire -- 10632
@@ -775,7 +775,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Feathered Breastplate -- 10647
 	self:addTradeSkill(RecipeDB,10647,250,8349,1,2108,nil,0,250,270,280,290)
-	self:addTradeFlags(RecipeDB,10647,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,10647,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,10647,1,7870,1,7871,1,29509)
 
 	-- Dragonscale Breastplate -- 10650
@@ -838,12 +838,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Red Dragonscale Breastplate -- 19054
 	self:addTradeSkill(RecipeDB,19054,300,15047,3,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,19054,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,19054,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,19054,3,10363)
 
 	-- Runic Leather Gauntlets -- 19055
 	self:addTradeSkill(RecipeDB,19055,270,15091,2,2108,nil,0,270,290,300,310)
-	self:addTradeFlags(RecipeDB,19055,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,19055,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,19055,7,2,1,1385,1,3007,1,3365,1,3703,1,3967,1,4212,1,4588,
 	1,5127,1,5564,1,11081,1,11084,1,11097,1,11098,1,16688,1,16728,1,18754,1,18771,1,19187,1,21087
 	,1,1632,1,5784,1,3549,1,33612,1,33635,1,33681,1,8153,1,17442,1,16278,1,3605)
@@ -909,12 +909,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Heavy Scorpid Belt -- 19070
 	self:addTradeSkill(RecipeDB,19070,280,15082,2,2108,nil,0,280,300,310,320)
-	self:addTradeFlags(RecipeDB,19070,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,19070,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,19070,7,2)
 
 	-- Wicked Leather Headband -- 19071
 	self:addTradeSkill(RecipeDB,19071,280,15086,2,2108,nil,0,280,300,310,320)
-	self:addTradeFlags(RecipeDB,19071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,19071,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 	self:addTradeAcquire(RecipeDB,19071,1,11097,1,11098,1,18754,1,18771,1,19187,1,21087,1,
 	4212,1,3007,1,1632,1,5784,1,16728,1,3703,1,1385,1,3549,1,3365,1,3967,1,33612,1,33635,1,16688
 	,1,33681,1,8153,1,17442,1,16278,1,3605,1,5564,1,5127,1,4588)
@@ -997,7 +997,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Ironfeather Breastplate -- 19086
 	self:addTradeSkill(RecipeDB,19086,290,15066,3,2108,nil,0,290,310,320,330)
-	self:addTradeFlags(RecipeDB,19086,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,19086,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,19086,3,2644)
 
 	-- Frostsaber Gloves -- 19087
@@ -1007,12 +1007,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Heavy Scorpid Helm -- 19088
 	self:addTradeSkill(RecipeDB,19088,295,15080,1,2108,nil,0,295,315,325,335)
-	self:addTradeFlags(RecipeDB,19088,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,19088,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,19088,2,12956)
 
 	-- Blue Dragonscale Shoulders -- 19089
 	self:addTradeSkill(RecipeDB,19089,295,15049,3,2108,nil,0,295,315,325,335)
-	self:addTradeFlags(RecipeDB,19089,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,19089,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
 	self:addTradeAcquire(RecipeDB,19089,3,6146)
 
 	-- Stormshroud Shoulders -- 19090
@@ -1165,7 +1165,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Mongoose Boots -- 22922
 	self:addTradeSkill(RecipeDB,22922,300,18506,3,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,22922,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,22922,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,22922,8,23)
 
 	-- Swift Flight Bracers -- 22923
@@ -1205,12 +1205,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Timbermaw Brawlers -- 23704
 	self:addTradeSkill(RecipeDB,23704,300,19049,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,23704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,99)
+	self:addTradeFlags(RecipeDB,23704,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,99)
 	self:addTradeAcquire(RecipeDB,23704,6,576,3,11557)
 
 	-- Dawn Treaders -- 23705
 	self:addTradeSkill(RecipeDB,23705,290,19052,1,2108,nil,0,290,310,320,330)
-	self:addTradeFlags(RecipeDB,23705,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,57,96)
+	self:addTradeFlags(RecipeDB,23705,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,57,96)
 	self:addTradeAcquire(RecipeDB,23705,6,529,2,10856,6,529,2,10857,6,529,2,11536)
 
 	-- Golden Mantle of the Dawn -- 23706
@@ -1225,7 +1225,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Chromatic Gauntlets -- 23708
 	self:addTradeSkill(RecipeDB,23708,300,19157,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,23708,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,98)
+	self:addTradeFlags(RecipeDB,23708,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,98)
 	self:addTradeAcquire(RecipeDB,23708,6,59,3,12944)
 
 	-- Corehound Belt -- 23709
@@ -1240,22 +1240,22 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Primal Batskin Jerkin -- 24121
 	self:addTradeSkill(RecipeDB,24121,300,19685,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,24121,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,100)
+	self:addTradeFlags(RecipeDB,24121,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,100)
 	self:addTradeAcquire(RecipeDB,24121,6,270,3,14921)
 
 	-- Primal Batskin Gloves -- 24122
 	self:addTradeSkill(RecipeDB,24122,300,19686,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,24122,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,100)
+	self:addTradeFlags(RecipeDB,24122,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,100)
 	self:addTradeAcquire(RecipeDB,24122,6,270,2,14921)
 
 	-- Primal Batskin Bracers -- 24123
 	self:addTradeSkill(RecipeDB,24123,300,19687,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,24123,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,100)
+	self:addTradeFlags(RecipeDB,24123,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,57,100)
 	self:addTradeAcquire(RecipeDB,24123,6,270,1,14921)
 
 	-- Blood Tiger Breastplate -- 24124
 	self:addTradeSkill(RecipeDB,24124,300,19688,1,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,24124,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57,100)
+	self:addTradeFlags(RecipeDB,24124,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57,100)
 	self:addTradeAcquire(RecipeDB,24124,6,270,3,14921)
 
 	-- Blood Tiger Shoulders -- 24125
@@ -1315,7 +1315,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Stormshroud Gloves -- 26279
 	self:addTradeSkill(RecipeDB,26279,300,21278,3,2108,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,26279,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,26279,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 	self:addTradeAcquire(RecipeDB,26279,3,14454,3,14457)
 
 	-- Polar Tunic -- 28219
@@ -1409,31 +1409,31 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Felscale Pants -- 32464
 	self:addTradeSkill(RecipeDB,32464,320,25656,1,2108,nil,1,320,330,340,350)
-	self:addTradeFlags(RecipeDB,32464,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,32464,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,32464,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
 	-- Felscale Breastplate -- 32465
 	self:addTradeSkill(RecipeDB,32465,335,25657,1,2108,nil,1,335,345,355,365)
-	self:addTradeFlags(RecipeDB,32465,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,32465,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,32465,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
 	-- Scaled Draenic Pants -- 32466
 	self:addTradeSkill(RecipeDB,32466,300,25662,1,2108,nil,1,300,310,320,330)
-	self:addTradeFlags(RecipeDB,32466,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,32466,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,32466,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
 	-- Scaled Draenic Gloves -- 32467
 	self:addTradeSkill(RecipeDB,32467,310,25661,1,2108,nil,1,310,320,330,340)
-	self:addTradeFlags(RecipeDB,32467,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,32467,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,32467,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
 	-- Scaled Draenic Vest -- 32468
 	self:addTradeSkill(RecipeDB,32468,325,25660,1,2108,nil,1,325,335,345,355)
-	self:addTradeFlags(RecipeDB,32468,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,32468,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,32468,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
@@ -1474,7 +1474,7 @@ function addon:InitLeatherworking(RecipeDB)
 	,1,33681)
 
 	-- Wild Draenish Gloves -- 32479
-	self:addTradeSkill(RecipeDB,32479,310,25674,1,2108,nil,1,320,330,340,350)
+	self:addTradeSkill(RecipeDB,32479,310,25674,1,2108,nil,1,310,320,330,340)
 	self:addTradeFlags(RecipeDB,32479,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
 	self:addTradeAcquire(RecipeDB,32479,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
@@ -1487,7 +1487,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Wild Draenish Vest -- 32481
 	self:addTradeSkill(RecipeDB,32481,330,25676,1,2108,nil,1,330,340,350,360)
-	self:addTradeFlags(RecipeDB,32481,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,54,57)
+	self:addTradeFlags(RecipeDB,32481,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,32481,1,18754,1,18771,1,19187,1,21087,1,33635,1,33612
 	,1,33681)
 
@@ -1553,12 +1553,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Felstalker Bracer -- 32499
 	self:addTradeSkill(RecipeDB,32499,360,25697,3,2108,nil,1,360,370,380,390)
-	self:addTradeFlags(RecipeDB,32499,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,104)
+	self:addTradeFlags(RecipeDB,32499,1,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,104)
 	self:addTradeAcquire(RecipeDB,32499,6,946,2,17657)
 
 	-- Felstalker Breastplate -- 32500
 	self:addTradeSkill(RecipeDB,32500,360,25696,3,2108,nil,1,360,370,380,390)
-	self:addTradeFlags(RecipeDB,32500,1,4,21,22,23,24,25,26,27,28,29,30,36,41,58,104)
+	self:addTradeFlags(RecipeDB,32500,1,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,104)
 	self:addTradeAcquire(RecipeDB,32500,6,946,2,17657)
 
 	-- Netherfury Belt -- 32501
@@ -1597,13 +1597,13 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,35523,3,17941)
 
 	-- Arcane Armor Kit -- 35524
-	self:addTradeSkill(RecipeDB,35524,340,29488,2,2108,nil,1,340,3550,355,360)
+	self:addTradeSkill(RecipeDB,35524,340,29488,2,2108,nil,1,340,350,355,360)
 	self:addTradeFlags(RecipeDB,35524,1,2,5,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,35524,3,17879)
 
 	-- Enchanted Felscale Leggings -- 35525
 	self:addTradeSkill(RecipeDB,35525,350,29489,1,2108,nil,1,350,360,370,380)
-	self:addTradeFlags(RecipeDB,35525,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58,110)
+	self:addTradeFlags(RecipeDB,35525,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,110)
 	self:addTradeAcquire(RecipeDB,35525,6,934,4,19331)
 
 	-- Enchanted Felscale Gloves -- 35526
@@ -1704,12 +1704,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Clefthide Leg Armor -- 35555
 	self:addTradeSkill(RecipeDB,35555,335,29534,1,2108,nil,1,335,335,345,355)
-	self:addTradeFlags(RecipeDB,35555,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,103)
+	self:addTradeFlags(RecipeDB,35555,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,103)
 	self:addTradeAcquire(RecipeDB,35555,6,942,2,17904)
 
 	-- Nethercleft Leg Armor -- 35557
 	self:addTradeSkill(RecipeDB,35557,365,29536,1,2108,nil,1,365,365,375,385,395)
-	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,52,103)
+	self:addTradeFlags(RecipeDB,35557,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,52,103)
 	self:addTradeAcquire(RecipeDB,35557,6,942,4,17904)
 
 	-- Cobrascale Hood -- 35558
@@ -1794,32 +1794,32 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Netherstrike Belt -- 35582
 	self:addTradeSkill(RecipeDB,35582,375,29520,1,2108,10657,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35582,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,35582,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,35582,1,7866,1,7867,1,29508)
 
 	-- Netherstrike Bracers -- 35584
 	self:addTradeSkill(RecipeDB,35584,375,29521,1,2108,10657,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35584,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,35584,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,35584,1,7866,1,7867,1,29508)
 
 	-- Windhawk Hauberk -- 35585
-	self:addTradeSkill(RecipeDB,35585,375,29522,1,2108,10660,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35585,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,35585,375,29522,1,2108,10661,1,375,385,395,405)
+	self:addTradeFlags(RecipeDB,35585,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,35585,1,7870,1,7871,1,29509)
 
 	-- Windhawk Belt -- 35587
-	self:addTradeSkill(RecipeDB,35587,375,29524,1,2108,10660,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35587,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,35587,375,29524,1,2108,10661,1,375,385,395,405)
+	self:addTradeFlags(RecipeDB,35587,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,35587,1,7870,1,7871,1,29509)
 
 	-- Windhawk Bracers -- 35588
-	self:addTradeSkill(RecipeDB,35588,375,29523,1,2108,10660,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35588,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,35588,375,29523,1,2108,10661,1,375,385,395,405)
+	self:addTradeFlags(RecipeDB,35588,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,35588,1,7870,1,7871,1,29509)
 
 	-- Primalstrike Vest -- 35589
-	self:addTradeSkill(RecipeDB,35589,375,29525,1,2108,10658,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,35589,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeSkill(RecipeDB,35589,375,29525,1,2108,10659,1,375,385,395,405)
+	self:addTradeFlags(RecipeDB,35589,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,57)
 	self:addTradeAcquire(RecipeDB,35589,1,7868,1,7869,1,29507)
 
 	-- Primalstrike Belt -- 35590
@@ -1864,32 +1864,32 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Belt of Natural Power -- 36349
 	self:addTradeSkill(RecipeDB,36349,375,30042,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36349,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,36349,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,36349,8,37,8,43)
 
 	-- Belt of Deep Shadow -- 36351
 	self:addTradeSkill(RecipeDB,36351,375,30040,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36351,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,36351,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,36351,8,37,8,43)
 
 	-- Belt of the Black Eagle -- 36352
 	self:addTradeSkill(RecipeDB,36352,375,30046,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36352,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,36352,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,36352,8,37,8,43)
 
 	-- Monsoon Belt -- 36353
 	self:addTradeSkill(RecipeDB,36353,375,30044,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,36353,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,36353,8,37,8,43)
 
 	-- Boots of Natural Grace -- 36355
 	self:addTradeSkill(RecipeDB,36355,375,30041,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36355,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,36355,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,51,57)
 	self:addTradeAcquire(RecipeDB,36355,8,37,8,43)
 
 	-- Boots of Utter Darkness -- 36357
 	self:addTradeSkill(RecipeDB,36357,375,30039,4,2108,nil,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36357,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,36357,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,51,57)
 	self:addTradeAcquire(RecipeDB,36357,8,37,8,43)
 
 	-- Boots of the Crimson Hawk -- 36358
@@ -2039,17 +2039,17 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Leather Gauntlets of the Sun -- 46132
 	self:addTradeSkill(RecipeDB,46132,365,34372,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46132,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,57)
+	self:addTradeFlags(RecipeDB,46132,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,46132,8,24)
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
 	self:addTradeSkill(RecipeDB,46133,365,34374,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46133,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,58)
+	self:addTradeFlags(RecipeDB,46133,1,2,6,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 	self:addTradeAcquire(RecipeDB,46133,8,24)
 
 	-- Gloves of Immortal Dusk -- 46134
 	self:addTradeSkill(RecipeDB,46134,365,34370,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46134,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,46134,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,46134,8,24)
 
 	-- Sun-Drenched Scale Gloves -- 46135
@@ -2059,22 +2059,22 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Leather Chestguard of the Sun -- 46136
 	self:addTradeSkill(RecipeDB,46136,365,34371,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46136,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,46136,1,2,6,21,22,23,24,25,26,27,28,29,30,37,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,46136,8,24)
 
 	-- Embrace of the Phoenix -- 46137
 	self:addTradeSkill(RecipeDB,46137,365,34373,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46137,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,46137,1,2,6,21,22,23,24,25,26,27,28,29,30,37,40,51,58)
 	self:addTradeAcquire(RecipeDB,46137,8,24)
 
 	-- Carapace of Sun and Shadow -- 46138
 	self:addTradeSkill(RecipeDB,46138,365,34369,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46138,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,57)
+	self:addTradeFlags(RecipeDB,46138,1,2,6,21,22,23,24,25,26,27,28,29,30,37,40,51,57)
 	self:addTradeAcquire(RecipeDB,46138,8,24)
 
 	-- Sun-Drenched Scale Chestguard -- 46139
 	self:addTradeSkill(RecipeDB,46139,365,34375,4,2108,nil,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46139,1,2,6,21,22,23,24,25,26,27,28,29,30,37,41,58)
+	self:addTradeFlags(RecipeDB,46139,1,2,6,21,22,23,24,25,26,27,28,29,30,37,40,53,54,58)
 	self:addTradeAcquire(RecipeDB,46139,8,24)
 
 	-- Heavy Borean Leather -- 50936
@@ -2179,27 +2179,27 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Nerubian Legguards -- 50957
 	self:addTradeSkill(RecipeDB,50957,370,38422,2,2108,nil,2,370,385,395,405)
-	self:addTradeFlags(RecipeDB,50957,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,50957,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,50957,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Shoulders -- 50958
 	self:addTradeSkill(RecipeDB,50958,380,38417,1,2108,nil,2,380,395,405,415)
-	self:addTradeFlags(RecipeDB,50958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,50958,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,50958,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Gloves -- 50959
 	self:addTradeSkill(RecipeDB,50959,370,38421,1,2108,nil,2,370,385,395,405)
-	self:addTradeFlags(RecipeDB,50959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,50959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,50959,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Boots -- 50960
 	self:addTradeSkill(RecipeDB,50960,380,38419,1,2108,nil,2,380,395,405,415)
-	self:addTradeFlags(RecipeDB,50960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,50960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,50960,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Belt -- 50961
-	self:addTradeSkill(RecipeDB,50961,375,38418,1,2108,nil,2,375,390,40,410)
-	self:addTradeFlags(RecipeDB,50961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeSkill(RecipeDB,50961,375,38418,1,2108,nil,2,375,390,400,410)
+	self:addTradeFlags(RecipeDB,50961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,50961,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Borean Armor Kit -- 50962
@@ -2214,17 +2214,17 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Jormungar Leg Armor -- 50964
 	self:addTradeSkill(RecipeDB,50964,405,38371,1,2108,nil,2,405,410,415,420)
-	self:addTradeFlags(RecipeDB,50964,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,50964,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,50964,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Frosthide Leg Armor -- 50965
 	self:addTradeSkill(RecipeDB,50965,425,38373,4,2108,nil,2,425,435,440,445)
-	self:addTradeFlags(RecipeDB,50965,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,50965,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,50965,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Leg Armor -- 50966
 	self:addTradeSkill(RecipeDB,50966,400,38372,1,2108,nil,2,400,405,410,415)
-	self:addTradeFlags(RecipeDB,50966,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,50966,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,50966,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Icescale Leg Armor -- 50967
@@ -2244,22 +2244,22 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Black Chitinguard Boots -- 51568
 	self:addTradeSkill(RecipeDB,51568,400,38590,1,2108,nil,2,400,415,425,435)
-	self:addTradeFlags(RecipeDB,51568,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,51568,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,51568,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Dark Arctic Leggings -- 51569
 	self:addTradeSkill(RecipeDB,51569,395,38591,1,2108,nil,2,395,410,420,430)
-	self:addTradeFlags(RecipeDB,51569,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,51569,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,51569,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Dark Arctic Chestpiece -- 51570
 	self:addTradeSkill(RecipeDB,51570,395,38592,1,2108,nil,2,395,410,420,430)
-	self:addTradeFlags(RecipeDB,51570,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,51570,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,51570,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Arctic Wristguards -- 51571
 	self:addTradeSkill(RecipeDB,51571,385,38433,1,2108,nil,2,385,400,410,420)
-	self:addTradeFlags(RecipeDB,51571,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,51571,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,51571,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Arctic Helm -- 51572
@@ -2323,8 +2323,8 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,60583,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Leg Reinforcements -- 60584
-	self:addTradeSkill(RecipeDB,60584,400,nil,1,2108,nil,24,00,400,400,405)
-	self:addTradeFlags(RecipeDB,60584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeSkill(RecipeDB,60584,400,nil,1,2108,nil,2,400,400,400,405)
+	self:addTradeFlags(RecipeDB,60584,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,60584,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Frostscale Bracers -- 60599
@@ -2369,12 +2369,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Dark Iceborne Chestguard -- 60613
 	self:addTradeSkill(RecipeDB,60613,395,44441,1,2108,nil,2,395,410,420,430)
-	self:addTradeFlags(RecipeDB,60613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,60613,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,60613,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Bugsquashers -- 60620
 	self:addTradeSkill(RecipeDB,60620,400,44442,1,2108,nil,2,400,415,425,435)
-	self:addTradeFlags(RecipeDB,60620,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,60620,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,60620,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nerubian Bracers -- 60622
@@ -2444,7 +2444,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Eaglebane Bracers -- 60652
 	self:addTradeSkill(RecipeDB,60652,420,43131,1,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60652,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,60652,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,60652,1,26911,1,26961,1,26996,1,26998,1,28700,1,33581)
 
 	-- Nightshock Hood -- 60655
@@ -2524,12 +2524,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Overcast Headguard -- 60715
 	self:addTradeSkill(RecipeDB,60715,420,43261,3,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60715,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,60715,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,60715,2,32515)
 
 	-- Overcast Spaulders -- 60716
 	self:addTradeSkill(RecipeDB,60716,420,43262,3,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60716,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,57)
+	self:addTradeFlags(RecipeDB,60716,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,60716,2,32515)
 
 	-- Overcast Chestguard -- 60718
@@ -2604,12 +2604,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Stormhide Crown -- 60743
 	self:addTradeSkill(RecipeDB,60743,420,43455,3,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60743,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,60743,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,60743,2,32515)
 
 	-- Stormhide Shoulders -- 60746
 	self:addTradeSkill(RecipeDB,60746,420,43457,3,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60746,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,60746,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,60746,2,32515)
 
 	-- Stormhide Hauberk -- 60747
@@ -2619,12 +2619,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Stormhide Wristguards -- 60748
 	self:addTradeSkill(RecipeDB,60748,420,43452,3,2108,nil,2,420,425,430,435)
-	self:addTradeFlags(RecipeDB,60748,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,60748,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,60748,2,32515)
 
 	-- Stormhide Grips -- 60749
 	self:addTradeSkill(RecipeDB,60749,425,43454,3,2108,nil,2,425,430,435,440)
-	self:addTradeFlags(RecipeDB,60749,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,60749,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,58)
 	self:addTradeAcquire(RecipeDB,60749,2,32515)
 
 	-- Stormhide Belt -- 60750
@@ -2830,7 +2830,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Ensorcelled Nerubian Breastplate -- 67080
 		self:addTradeSkill(RecipeDB,67080,450,47597,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67080,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67080,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
 		self:addTradeAcquire(RecipeDB,67080,8,42)
 
 		-- Knightbane Carapace -- 67086
@@ -2854,12 +2854,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Black Chitin Bracers -- 67137
 		self:addTradeSkill(RecipeDB,67137,450,47580,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67137,2,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67137,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,58)
 		self:addTradeAcquire(RecipeDB,67137,8,42)
 
 		-- Bracers of Swift Death -- 67139
 		self:addTradeSkill(RecipeDB,67139,450,47582,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67139,2,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67139,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 		self:addTradeAcquire(RecipeDB,67139,8,42)
 
 		-- Crusader's Dragonscale Bracers -- 67083
@@ -2869,7 +2869,7 @@ function addon:InitLeatherworking(RecipeDB)
 		
 		-- Crusader's Dragonscale Breastplate -- 67138
 		self:addTradeSkill(RecipeDB,67138,450,47596,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67138,2,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67138,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 		self:addTradeAcquire(RecipeDB,67138,8,42)
 	
 		-- Ensorcelled Nerubian Breastplate -- 67136
@@ -2879,7 +2879,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Knightbane Carapace -- 67142
 		self:addTradeSkill(RecipeDB,67142,450,47600,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67142,2,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67142,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 		self:addTradeAcquire(RecipeDB,67142,8,42)
 
 		-- Lunar Eclipse Chestguard -- 67140
@@ -2889,7 +2889,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Moonshadow Armguards -- 67141
 		self:addTradeSkill(RecipeDB,67141,450,47584,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67141,2,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67141,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 		self:addTradeAcquire(RecipeDB,67141,8,42)
 
 		factioncount = 8

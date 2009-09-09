@@ -1606,7 +1606,10 @@ do
 				scan_data.Leather = true
 			elseif (strmatch(text, "mail")) then
 				scan_data.Mail = true
-			elseif (strmatch(text, "plate")) then
+			elseif (strmatch(text, "plate") and (strmatch(text, "tough scorpid") == nil) and (strmatch(text, "volcanic") == nil)
+			and (strmatch(text, "felscale") == nil) and (strmatch(text, "netherstrike") == nil) and (strmatch(text, "red dragonscale") == nil)
+			and (strmatch(text, "ironfeather") == nil) and (strmatch(text, "felstalker") == nil) and  (strmatch(text, "turtle scale") == nil)
+			and  (strmatch(text, "blood tiger") == nil) and  (strmatch(text, "blue dragonscale") == nil) and  (strmatch(text, "feathered") == nil)) then
 				scan_data.Plate = true
 			elseif (strmatch(text, "back")) or (strmatch(text, "embroidery")) then
 				scan_data.Cloak = true
@@ -1860,7 +1863,7 @@ do
 				addedtotable = true
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
 			elseif (scan_data.recipe_list[spellid]["Specialty"] ~= scan_data.specialty) then
-				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty: " .. scan_data.specialty)
+				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
 			end
 		elseif (scan_data.recipe_list[spellid]["Specialty"]) then
 			addedtotable = true
