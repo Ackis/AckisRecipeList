@@ -1773,32 +1773,32 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,35574,7,4)
 
 	-- Ebon Netherscale Breastplate -- 35575
-	self:addTradeSkill(RecipeDB,35575,375,29515,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35575,375,29515,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35575,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35575,1,7866,1,7867,1,29508)
 
 	-- Ebon Netherscale Belt -- 35576
-	self:addTradeSkill(RecipeDB,35576,375,29516,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35576,375,29516,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35576,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35576,1,7866,1,7867,1,29508)
 
 	-- Ebon Netherscale Bracers -- 35577
-	self:addTradeSkill(RecipeDB,35577,375,29517,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35577,375,29517,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35577,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35577,1,7866,1,7867,1,29508)
 
 	-- Netherstrike Breastplate -- 35580
-	self:addTradeSkill(RecipeDB,35580,375,29519,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35580,375,29519,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35580,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35580,1,7866,1,7867,1,29508)
 
 	-- Netherstrike Belt -- 35582
-	self:addTradeSkill(RecipeDB,35582,375,29520,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35582,375,29520,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35582,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35582,1,7866,1,7867,1,29508)
 
 	-- Netherstrike Bracers -- 35584
-	self:addTradeSkill(RecipeDB,35584,375,29521,1,2108,10656,1,375,385,395,405)
+	self:addTradeSkill(RecipeDB,35584,375,29521,1,2108,10657,1,375,385,395,405)
 	self:addTradeFlags(RecipeDB,35584,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,35584,1,7866,1,7867,1,29508)
 
@@ -1843,7 +1843,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,36075,1,7870,1,7871,1,29509)
 
 	-- Dragonstrike Leggings -- 36076
-	self:addTradeSkill(RecipeDB,36076,260,29971,1,2108,10656,1,260,280,290,300)
+	self:addTradeSkill(RecipeDB,36076,260,29971,1,2108,10657,1,260,280,290,300)
 	self:addTradeFlags(RecipeDB,36076,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,36076,1,7866,1,7867,1,29508)
 
@@ -1858,7 +1858,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,36078,1,7870,1,7871,1,29509)
 
 	-- Golden Dragonstrike Breastplate -- 36079
-	self:addTradeSkill(RecipeDB,36079,330,29975,1,2108,10656,1,330,350,360,370)
+	self:addTradeSkill(RecipeDB,36079,330,29975,1,2108,10657,1,330,350,360,370)
 	self:addTradeFlags(RecipeDB,36079,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,58)
 	self:addTradeAcquire(RecipeDB,36079,1,7866,1,7867,1,29508)
 

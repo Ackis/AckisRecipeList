@@ -1849,7 +1849,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Darkglow Embroidery -- 55769
 	self:addTradeSkill(RecipeDB,55769,420,nil,1,3908,nil,2,420,420,420,420)
-	self:addTradeFlags(RecipeDB,55769,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55769,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,60)
 	self:addTradeAcquire(RecipeDB,55769,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Swordguard Embroidery -- 55777
