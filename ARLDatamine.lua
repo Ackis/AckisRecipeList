@@ -1609,7 +1609,10 @@ do
 			elseif (strmatch(text, "plate") and (strmatch(text, "tough scorpid") == nil) and (strmatch(text, "volcanic") == nil)
 			and (strmatch(text, "felscale") == nil) and (strmatch(text, "netherstrike") == nil) and (strmatch(text, "red dragonscale") == nil)
 			and (strmatch(text, "ironfeather") == nil) and (strmatch(text, "felstalker") == nil) and  (strmatch(text, "turtle scale") == nil)
-			and  (strmatch(text, "blood tiger") == nil) and  (strmatch(text, "blue dragonscale") == nil) and  (strmatch(text, "feathered") == nil)) then
+			and  (strmatch(text, "blood tiger") == nil) and  (strmatch(text, "blue dragonscale") == nil) and  (strmatch(text, "feathered") == nil)
+			and (strmatch(text, "Ensorcelled Nerubian") == nil) and (strmatch(text, "Crusader's Dragonscale") == nil)
+			and (strmatch(text, "black dragonscale") == nil) and (strmatch(text, "green dragonscale") == nil) and (strmatch(text, "revenant's") == nil)
+			and (strmatch(text, "spitfire") == nil)  and (strmatch(text, "murloc scale") == nil)) then
 				scan_data.Plate = true
 			elseif (strmatch(text, "back")) or (strmatch(text, "embroidery")) then
 				scan_data.Cloak = true
