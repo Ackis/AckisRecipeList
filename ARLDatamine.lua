@@ -1619,7 +1619,7 @@ do
 			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)
 			and (strmatch(text, "thick leather") == nil)) then
 				scan_data.Plate = true
-			elseif (strmatch(text, "back")) or (strmatch(text, "embroidery")) then
+			elseif ((strmatch(text, "back") or (strmatch(text, "embroidery"))) and (strmatch(text, "musselback") == nil)) then
 				scan_data.Cloak = true
 			elseif (strmatch("finger",  text)) then
 				scan_data.Ring = true
