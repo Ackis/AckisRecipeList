@@ -3854,7 +3854,7 @@ local function InitializeFrame()
 	ARL_UnknownCBText:SetText(L["Unknown"])
 
 	local ARL_ClassButton = addon:GenericCreateButton("ARL_ClassButton", addon.Fly_General,
-							  20, 70, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
+							  20, 105, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
 							  "GameFontHighlightSmall", L["Classes"], "LEFT", L["CLASS_TEXT_DESC"], 0)
 	ARL_ClassButton:SetText(L["Classes"] .. ":")
 	ARL_ClassButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4068,7 +4068,7 @@ local function InitializeFrame()
 	--				() Shield
 	-------------------------------------------------------------------------------
 	local ARL_ArmorButton = addon:GenericCreateButton("ARL_ArmorButton", addon.Fly_Item,
-							  20, 60, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight",
+							  20, 105, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight",
 							  "GameFontHighlightSmall", L["Armor"], "LEFT", L["ARMOR_TEXT_DESC"], 0)
 	ARL_ArmorButton:SetText(L["Armor"] .. ":")
 	ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4161,7 +4161,7 @@ local function InitializeFrame()
 	--				() Staff    () Fist
 	-------------------------------------------------------------------------------
 	local ARL_WeaponButton = addon:GenericCreateButton("ARL_WeaponButton", addon.Fly_Item,
-							   20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight",
+							   20, 105, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight",
 							   "GameFontHighlightSmall", L["Weapon"], "LEFT", L["WEAPON_TEXT_DESC"], 0)
 	ARL_WeaponButton:SetText(L["Weapon"] .. ":")
 	ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4342,7 +4342,7 @@ local function InitializeFrame()
 	addon.Fly_Rep_OW:Hide()
 
 	local ARL_Rep_OWButton = addon:GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_OW,
-							   20, 85, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight",
+							   20, 140, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight",
 							   "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_OWButton:SetText(L["Reputation"] .. ":")
 	ARL_Rep_OWButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4415,7 +4415,7 @@ local function InitializeFrame()
 	addon.Fly_Rep_BC:Hide()
 
 	local ARL_Rep_BCButton = addon:GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_BC,
-							   20, 85, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight",
+							   20, 140, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight",
 							   "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_BCButton:SetText(L["Reputation"] .. ":")
 	ARL_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4560,7 +4560,7 @@ local function InitializeFrame()
 	addon.Fly_Rep_LK:Hide()
 
 	local ARL_Rep_LKButton = addon:GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_LK,
-							   20, 85, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight",
+							   20, 140, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight",
 							   "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_LKButton:SetText(L["Reputation"] .. ":")
 	ARL_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
