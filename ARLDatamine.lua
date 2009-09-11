@@ -1616,7 +1616,8 @@ do
 			and (strmatch(text, "living crystal") == nil) and (strmatch(text, "icy scale") == nil) and (strmatch(text, "living") == nil)
 			and (strmatch(text, "dragonscale") == nil) and (strmatch(text, "dark frostscale") == nil) and (strmatch(text, "sandstalker") == nil)
 			and (strmatch(text, "wildscale") == nil) and (strmatch(text, "thick netherscale") == nil) and (strmatch(text, "ebon netherscale") == nil)
-			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)) then
+			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)
+			and (strmatch(text, "thick leather") == nil)) then
 				scan_data.Plate = true
 			elseif (strmatch(text, "back")) or (strmatch(text, "embroidery")) then
 				scan_data.Cloak = true

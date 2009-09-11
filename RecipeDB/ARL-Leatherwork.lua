@@ -221,7 +221,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Hillman's Belt -- 3767
 	self:addTradeSkill(RecipeDB,3767,120,4250,2,2108,nil,0,120,145,157,170)
-	self:addTradeFlags(RecipeDB,3767,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,53,54,57)
+	self:addTradeFlags(RecipeDB,3767,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,3767,7,2)
 
 	-- Hillman's Shoulders -- 3768
@@ -992,7 +992,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Black Dragonscale Breastplate -- 19085
 	self:addTradeSkill(RecipeDB,19085,290,15050,1,2108,nil,0,290,310,320,330)
-	self:addTradeFlags(RecipeDB,19085,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,58)
+	self:addTradeFlags(RecipeDB,19085,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,41,51,58)
 	self:addTradeAcquire(RecipeDB,19085,2,9499)
 
 	-- Ironfeather Breastplate -- 19086
