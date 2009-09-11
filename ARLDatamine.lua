@@ -1610,9 +1610,13 @@ do
 			and (strmatch(text, "felscale") == nil) and (strmatch(text, "netherstrike") == nil) and (strmatch(text, "red dragonscale") == nil)
 			and (strmatch(text, "ironfeather") == nil) and (strmatch(text, "felstalker") == nil) and  (strmatch(text, "turtle scale") == nil)
 			and  (strmatch(text, "blood tiger") == nil) and  (strmatch(text, "blue dragonscale") == nil) and  (strmatch(text, "feathered") == nil)
-			and (strmatch(text, "Ensorcelled Nerubian") == nil) and (strmatch(text, "Crusader's Dragonscale") == nil)
+			and (strmatch(text, "ensorcelled nerubian") == nil) and (strmatch(text, "crusader's dragonscale") == nil)
 			and (strmatch(text, "black dragonscale") == nil) and (strmatch(text, "green dragonscale") == nil) and (strmatch(text, "revenant's") == nil)
-			and (strmatch(text, "spitfire") == nil)  and (strmatch(text, "murloc scale") == nil)) then
+			and (strmatch(text, "spitfire") == nil)  and (strmatch(text, "murloc scale") == nil) and (strmatch(text, "primalstorm") == nil)
+			and (strmatch(text, "living crystal") == nil) and (strmatch(text, "icy scale") == nil) and (strmatch(text, "living") == nil)
+			and (strmatch(text, "dragonscale") == nil) and (strmatch(text, "dark frostscale") == nil) and (strmatch(text, "sandstalker") == nil)
+			and (strmatch(text, "wildscale") == nil) and (strmatch(text, "thick netherscale") == nil) and (strmatch(text, "ebon netherscale") == nil)
+			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)) then
 				scan_data.Plate = true
 			elseif (strmatch(text, "back")) or (strmatch(text, "embroidery")) then
 				scan_data.Cloak = true
