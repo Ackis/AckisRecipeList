@@ -1,4 +1,6 @@
 ==ARL Changes
+===Version
+*Fixed the addon title in the ToC
 
 ===Version 2462
 *All trainer data has been added to the recipe databases
