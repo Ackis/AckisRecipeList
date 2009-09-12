@@ -918,8 +918,8 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28590,8,1)
 
 	-- Flask of Pure Death -- 28591
-	self:addTradeSkill(RecipeDB,28591,370,22866,1,51304,nil,1,375,375,377,380)
-	self:addTradeFlags(RecipeDB,28591,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeSkill(RecipeDB,28591,375,22866,1,51304,nil,1,375,375,377,380)
+	self:addTradeFlags(RecipeDB,28591,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,28591,8,1)
 
 	-- Transmute: Primal Might -- 29688
@@ -959,7 +959,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Adept's Elixir -- 33740
 	self:addTradeSkill(RecipeDB,33740,300,28103,1,51304,nil,0,300,315,322,330)
-	self:addTradeFlags(RecipeDB,33740,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,33740,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,33740,1,16588,1,18802,1,19052,1,27029,1,33608,1,
 	33674,1,27023)
 
@@ -982,7 +982,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Fel Mana Potion -- 38961
 	self:addTradeSkill(RecipeDB,38961,360,31677,3,51304,nil,1,360,375,377,380)
-	self:addTradeFlags(RecipeDB,38961,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,38961,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,38961,3,19792,3,19795,3,19796,3,19806,3,22016,3,
 	22017,3,22018,3,22076,3,22093)
 
@@ -1020,12 +1020,12 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,41458,8,4)
 
 	-- Cauldron of Major Fire Protection -- 41500
-	self:addTradeSkill(RecipeDB,41500,340,32849,1,51304,nil,1,360,360,370,380)
+	self:addTradeSkill(RecipeDB,41500,360,32849,1,51304,nil,1,360,360,370,380)
 	self:addTradeFlags(RecipeDB,41500,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,41500,8,4)
 
 	-- Cauldron of Major Frost Protection -- 41501
-	self:addTradeSkill(RecipeDB,41501,340,32850,1,51304,nil,1,360,360,370,380)
+	self:addTradeSkill(RecipeDB,41501,360,32850,1,51304,nil,1,360,360,370,380)
 	self:addTradeFlags(RecipeDB,41501,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,41501,8,4)
 
@@ -1116,7 +1116,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,53780,8,19)
 
 	-- Transmute: Eternal Earth to Air -- 53781
-	self:addTradeSkill(RecipeDB,53781,385,35623,2,51304,nil,2,405,405,415,425)
+	self:addTradeSkill(RecipeDB,53781,405,35623,2,51304,nil,2,405,405,415,425)
 	self:addTradeFlags(RecipeDB,53781,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53781,8,19)
 
@@ -1403,7 +1403,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Free Action Potion -- 6624
 	self:addTradeSkill(RecipeDB,6624,150,5634,1,51304,nil,2,150,175,195,215)
-	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,6624,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,6624,2,3348,2,5178,2,4226)
 
 	-- Elixir of Water Walking -- 62410
