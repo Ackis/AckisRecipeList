@@ -4961,13 +4961,12 @@ function addon:DisplayFrame(
 
 end
 
--- Description: Creates a new frame with the contents of a text dump so you can copy and paste
--- Expected result: New frame with all recipes listed and acquire info
--- Input: A text string of what to paste
--- Output: None
--- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
--- Code stolen from Antiarc and Chatter
-
+--- Creates a new frame with the contents of a text dump so you can copy and paste
+-- Code borrowed from Antiarc (Chatter) with permission
+-- @name AckisRecipeList:DisplayTextDump
+-- @param RecipeDB The database (array) which you wish read data from.
+-- @param profession Which profession are you displaying data for
+-- @param text The text to be dumped
 local PaneBackdrop  = {
 	bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
 	edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
