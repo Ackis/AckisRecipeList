@@ -1782,10 +1782,12 @@ function addon.resetTitle()
 		local total, active = 0, 0
 
 		for filter, info in pairs(FilterValueMap) do
-			if info.svroot and info.svroot[filter] == true then
-				active = active + 1
+			if info.svroot then
+				if info.svroot[filter] == true then
+					active = active + 1
+				end
+				total = total + 1
 			end
-			total = total + 1
 		end
 		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession ..
 			" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
