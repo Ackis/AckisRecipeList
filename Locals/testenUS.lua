@@ -963,7 +963,6 @@ L["Hula'mahi"] = true
 L["Humphry"] = true
 L["Hurnak Grimmord"] = true
 L["Ildine Sorrowspear"] = true
-L["Illidari Defiler"] = true
 L["Illidari Watcher"] = true
 L["Imindril Spearsong"] = true
 L["Imperial Plate Belt"] = true

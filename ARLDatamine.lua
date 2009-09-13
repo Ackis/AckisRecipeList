@@ -1527,7 +1527,7 @@ do
 					scan_data.dps = true
 					scan_data.caster = false
 					scan_data.healer = false
-				elseif (strmatch(text, "defense")) then
+				elseif (strmatch(text, "defense") and (strmatch(text, "defenseless") == nil)) then
 					scan_data.dps = false
 					scan_data.tank = true
 					scan_data.caster = false
@@ -1570,7 +1570,8 @@ do
 			if ((strmatch(text, "mage")) and (strmatch(text, "damage") == nil)
 				and (strmatch(text, "mageweave") == nil)
 				and (strmatch(text, "archmage") == nil)
-				and (strmatch(text, "mageroyal") == nil)) then
+				and (strmatch(text, "mageroyal") == nil)
+				and (strmatch(text, "mageblood") == nil)) then
 				scan_data.Mage = true
 				scan_data.found_class = true
 			end
@@ -1617,7 +1618,7 @@ do
 			and (strmatch(text, "dragonscale") == nil) and (strmatch(text, "dark frostscale") == nil) and (strmatch(text, "sandstalker") == nil)
 			and (strmatch(text, "wildscale") == nil) and (strmatch(text, "thick netherscale") == nil) and (strmatch(text, "ebon netherscale") == nil)
 			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)
-			and (strmatch(text, "thick leather") == nil) and (strmatch(text, "ironshield") == nil)) then
+			and (strmatch(text, "thick leather") == nil)) then
 				scan_data.Plate = true
 			elseif ((strmatch(text, "back") or (strmatch(text, "embroidery"))) and (strmatch(text, "musselback") == nil)) then
 				scan_data.Cloak = true
@@ -1625,7 +1626,7 @@ do
 				scan_data.Ring = true
 			elseif (strmatch(text, "necklace")) then
 				scan_data.Necklace = true
-			elseif (strmatch(text, "shield")) then
+			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil)) then
 				scan_data.Shield = true
 				-- Weapon types
 			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
