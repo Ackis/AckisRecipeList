@@ -42,8 +42,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lion's Strength -- 2329
 	self:addTradeSkill(RecipeDB,2329,1,2454,1,51304,nil,0,1,55,75,95)
-	self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,
-	52)
+	self:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,2329,8,8)
 
 	-- Minor Healing Potion -- 2330
@@ -69,8 +68,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lesser Agility -- 2333
 	self:addTradeSkill(RecipeDB,2333,140,3390,2,51304,nil,0,140,165,185,205)
-	self:addTradeFlags(RecipeDB,2333,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51
-	,52)
+	self:addTradeFlags(RecipeDB,2333,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,2333,7,2)
 
 	-- Elixir of Minor Fortitude -- 2334
@@ -156,7 +154,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Minor Agility -- 3230
 	self:addTradeSkill(RecipeDB,3230,50,2457,2,51304,nil,0,50,80,100,120)
-	self:addTradeFlags(RecipeDB,3230,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,3230,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,3230,7,2)
 
 	-- Healing Potion -- 3447
@@ -240,7 +238,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Minor Defense -- 7183
 	self:addTradeSkill(RecipeDB,7183,1,5997,1,51304,nil,0,1,55,75,95)
-	self:addTradeFlags(RecipeDB,7183,1,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,7183,1,3,21,22,23,24,25,26,27,28,29,30,36,41,52)
 	self:addTradeAcquire(RecipeDB,7183,8,8)
 
 	-- Holy Protection Potion -- 7255
@@ -374,7 +372,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Arcane Elixir -- 11461
 	self:addTradeSkill(RecipeDB,11461,235,9155,1,51304,nil,0,235,250,270,290)
-	self:addTradeFlags(RecipeDB,11461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,11461,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,11461,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -492,7 +490,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of the Sages -- 17555
 	self:addTradeSkill(RecipeDB,17555,270,13447,2,51304,nil,0,270,285,305,325)
-	self:addTradeFlags(RecipeDB,17555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,17555,1,2,3,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,17555,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -558,7 +556,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of the Mongoose -- 17571
 	self:addTradeSkill(RecipeDB,17571,280,13452,2,51304,nil,0,280,295,315,335)
-	self:addTradeFlags(RecipeDB,17571,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,17571,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,17571,3,6201,3,7106)
 
 	-- Purification Potion -- 17572
@@ -953,7 +951,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Onslaught Elixir -- 33738
 	self:addTradeSkill(RecipeDB,33738,300,28102,1,51304,nil,1,300,315,322,330)
-	self:addTradeFlags(RecipeDB,33738,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,33738,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,33738,1,16588,1,18802,1,19052,1,27029,1,33608,1,
 	33674,1,27023)
 
@@ -1015,7 +1013,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,39639,2,18821,2,18822)
 
 	-- Cauldron of Major Arcane Protection -- 41458
-	self:addTradeSkill(RecipeDB,41458,340,32839,1,51304,nil,1,360,360,370,380)
+	self:addTradeSkill(RecipeDB,41458,360,32839,1,51304,nil,1,360,360,370,380)
 	self:addTradeFlags(RecipeDB,41458,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,41458,8,4)
 
@@ -1053,8 +1051,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Guardian's Alchemist Stone -- 47046
 	self:addTradeSkill(RecipeDB,47046,375,35748,1,51304,nil,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,47046,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52
-	,63,112)
+	self:addTradeFlags(RecipeDB,47046,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,112)
 	self:addTradeAcquire(RecipeDB,47046,6,1077,4,25032)
 
 	-- Sorcerer's Alchemist Stone -- 47048
@@ -1076,12 +1073,12 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
 
 	-- Transmute: Eternal Life to Shadow -- 53771
-	self:addTradeSkill(RecipeDB,53771,385,35627,2,51304,nil,2,405,405,415,425)
+	self:addTradeSkill(RecipeDB,53771,405,35627,2,51304,nil,2,405,405,415,425)
 	self:addTradeFlags(RecipeDB,53771,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53771,8,19)
 
 	-- Transmute: Eternal Life to Fire -- 53773
-	self:addTradeSkill(RecipeDB,53773,385,36860,2,51304,nil,2,405,405,415,425)
+	self:addTradeSkill(RecipeDB,53773,405,36860,2,51304,nil,2,405,405,415,425)
 	self:addTradeFlags(RecipeDB,53773,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53773,8,19)
 
@@ -1106,7 +1103,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,53777,8,19)
 
 	-- Transmute: Eternal Shadow to Earth -- 53779
-	self:addTradeSkill(RecipeDB,53779,385,35624,2,51304,nil,2,405,405,415,425)
+	self:addTradeSkill(RecipeDB,53779,405,35624,2,51304,nil,2,405,405,415,425)
 	self:addTradeFlags(RecipeDB,53779,1,2,12,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,53779,8,19)
 

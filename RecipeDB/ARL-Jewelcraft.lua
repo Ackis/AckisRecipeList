@@ -2451,381 +2451,371 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,63743,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,63)
 	self:addTradeAcquire(RecipeDB,63743,1,26915,1,26960,1,26982,1,26997,1,28701,1,19778,1,15501,1,18751,1,33590,1,19775,1,33614,1,19063,1,19539,1,18774,1,33680)
 
-	local _,_,_,toc = GetBuildInfo()
-
-	if (toc == 30200) then
-
-		-- Precise Cardinal Ruby -- 66450
-		self:addTradeSkill(RecipeDB,66450,450,40118,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66450,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66450,2,28721,2,33602)
-
-		-- Runed Cardinal Ruby -- 66446
-		self:addTradeSkill(RecipeDB,66446,450,40113,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66446,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66446,2,28721,2,33602)
-
-		-- Bright Cardinal Ruby -- 66449
-		self:addTradeSkill(RecipeDB,66449,450,40114,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66449,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66449,2,28721,2,33602)
-
-		-- Flashing Cardinal Ruby -- 66453
-		self:addTradeSkill(RecipeDB,66453,450,40116,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66453,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66453,2,28721,2,33602)
-
-		-- Fractured Cardinal Ruby -- 66451
-		self:addTradeSkill(RecipeDB,66451,450,40117,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66451,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66451,2,28721,2,33602)
-
-		-- Bold Cardinal Ruby -- 66447
-		self:addTradeSkill(RecipeDB,66447,450,40111,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66447,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66447,2,28721,2,33602)
-
-		-- Delicate Cardinal Ruby -- 66448
-		self:addTradeSkill(RecipeDB,66448,450,40112,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66448,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66448,2,28721,2,33602)
-
-		-- Subtle Cardinal Ruby -- 66452
-		self:addTradeSkill(RecipeDB,66452,450,40115,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66452,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66452,2,28721,2,33602)
-
-		-- Sparkling Majestic Zircon -- 66498
-		self:addTradeSkill(RecipeDB,66498,450,40120,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66498,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66498,2,28721,2,33602)
-
-		-- Lustrous Majestic Zircon -- 66500
-		self:addTradeSkill(RecipeDB,66500,450,40121,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66500,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66500,2,28721,2,33602)
-
-		-- Stormy Majestic Zircon -- 66499
-		self:addTradeSkill(RecipeDB,66499,450,40122,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66499,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66499,2,28721,2,33602)
-
-		-- Solid Majestic Zircon -- 66497
-		self:addTradeSkill(RecipeDB,66497,450,40119,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66497,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66497,2,28721,2,33602)
-
-		-- Brilliant King's Amber -- 66503
-		self:addTradeSkill(RecipeDB,66503,450,40123,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66503,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66503,2,28721,2,33602)
-
-		-- Rigid King's Amber -- 66501
-		self:addTradeSkill(RecipeDB,66501,450,40125,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66501,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66501,2,28721,2,33602)
-
-		-- Thick King's Amber -- 66504
-		self:addTradeSkill(RecipeDB,66504,450,40126,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66504,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66504,2,28721,2,33602)
-
-		-- Mystic King's Amber -- 66505
-		self:addTradeSkill(RecipeDB,66505,450,40127,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66505,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66505,2,28721,2,33602)
-
-		-- Smooth King's Amber -- 66502
-		self:addTradeSkill(RecipeDB,66502,450,40124,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66502,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66502,2,28721,2,33602)
-
-		-- Quick King's Amber -- 66506
-		self:addTradeSkill(RecipeDB,66506,450,40128,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66506,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66506,2,28721,2,33602)
-
-		-- Sovereign Dreadstone -- 66554
-		self:addTradeSkill(RecipeDB,66554,450,40129,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66554,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66554,2,28721,2,33602)
-
-		-- Shifting Dreadstone -- 66557
-		self:addTradeSkill(RecipeDB,66557,450,40130,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66557,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66557,2,28721,2,33602)
-
-		-- Glowing Dreadstone -- 66555
-		self:addTradeSkill(RecipeDB,66555,450,40132,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66555,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66555,2,28721,2,33602)
-
-		-- Purified Dreadstone -- 66556
-		self:addTradeSkill(RecipeDB,66556,450,40133,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66556,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66556,2,28721,2,33602)
-
-		-- Guardian's Dreadstone -- 66561
-		self:addTradeSkill(RecipeDB,66561,450,40141,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66561,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66561,2,28721,2,33602)
-
-		-- Puissant Dreadstone -- 66563
-		self:addTradeSkill(RecipeDB,66563,450,40140,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66563,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66563,2,28721,2,33602)
-
-		-- Regal Dreadstone -- 66559
-		self:addTradeSkill(RecipeDB,66559,450,40138,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66559,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66559,2,28721,2,33602)
-
-		-- Balanced Dreadstone -- 66553
-		self:addTradeSkill(RecipeDB,66553,450,40136,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66553,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66553,2,28721,2,33602)
-
-		-- Infused Dreadstone -- 66564
-		self:addTradeSkill(RecipeDB,66564,450,40137,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66564,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66564,2,28721,2,33602)
-
-		-- Royal Dreadstone -- 66558
-		self:addTradeSkill(RecipeDB,66558,450,40134,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66558,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66558,2,28721,2,33602)
-
-		-- Tenuous Dreadstone -- 66565
-		self:addTradeSkill(RecipeDB,66565,450,40131,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66565,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66565,2,28721,2,33602)
-
-		-- Mysterious Dreadstone -- 66562
-		self:addTradeSkill(RecipeDB,66562,450,40135,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66562,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66562,2,28721,2,33602)
-
-		-- Defender's Dreadstone -- 66560
-		self:addTradeSkill(RecipeDB,66560,450,40139,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66560,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66560,2,28721,2,33602)
-
-		-- Etched Ametrine -- 66572
-		self:addTradeSkill(RecipeDB,66572,450,40143,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66572,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66572,2,28721,2,33602)
-
-		-- Champion's Ametrine -- 66579
-		self:addTradeSkill(RecipeDB,66579,450,40144,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66579,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66579,2,28721,2,33602)
-
-		-- Fierce Ametrine -- 66583
-		self:addTradeSkill(RecipeDB,66583,450,40146,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66583,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66583,2,28721,2,33602)
-
-		-- Deadly Ametrine -- 66568
-		self:addTradeSkill(RecipeDB,66568,450,40147,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66568,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66568,2,28721,2,33602)
-
-		-- Luminous Ametrine -- 66566
-		self:addTradeSkill(RecipeDB,66566,450,40151,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66566,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66566,2,28721,2,33602)
-
-		-- Reckless Ametrine -- 66574
-		self:addTradeSkill(RecipeDB,66574,450,40155,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66574,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66574,2,28721,2,33602)
-
-		-- Wicked Ametrine -- 66577
-		self:addTradeSkill(RecipeDB,66577,450,40156,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66577,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66577,2,28721,2,33602)
-
-		-- Empowered Ametrine -- 66580
-		self:addTradeSkill(RecipeDB,66580,450,40158,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66580,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66580,2,28721,2,33602)
-
-		-- Glinting Ametrine -- 66575
-		self:addTradeSkill(RecipeDB,66575,450,40148,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66575,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66575,2,28721,2,33602)
-
-		-- Deft Ametrine -- 66584
-		self:addTradeSkill(RecipeDB,66584,450,40150,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66584,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66584,2,28721,2,33602)
-
-		-- Potent Ametrine -- 66569
-		self:addTradeSkill(RecipeDB,66569,450,40152,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66569,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66569,2,28721,2,33602)
-
-		-- Durable Ametrine -- 66571
-		self:addTradeSkill(RecipeDB,66571,450,40154,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66571,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66571,2,28721,2,33602)
-
-		-- Stark Ametrine -- 66587
-		self:addTradeSkill(RecipeDB,66587,450,40159,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66587,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66587,2,28721,2,33602)
-
-		-- Stalwart Ametrine -- 66581
-		self:addTradeSkill(RecipeDB,66581,450,40160,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66581,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66581,2,28721,2,33602)
-
-		-- Accurate Ametrine -- 66576
-		self:addTradeSkill(RecipeDB,66576,450,40162,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66576,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66576,2,28721,2,33602)
-
-		-- Resolute Ametrine -- 66586
-		self:addTradeSkill(RecipeDB,66586,450,40163,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66586,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66586,2,28721,2,33602)
-
-		-- Inscribed Ametrine -- 66567
-		self:addTradeSkill(RecipeDB,66567,450,40142,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66567,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66567,2,28721,2,33602)
-
-		-- Replendent Ametrine -- 66582
-		self:addTradeSkill(RecipeDB,66582,450,40145,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66582,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66582,2,28721,2,33602)
-
-		-- Lucent Ametrine -- 66585
-		self:addTradeSkill(RecipeDB,66585,450,40149,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66585,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66585,2,28721,2,33602)
-
-		-- Veiled Ametrine -- 66570
-		self:addTradeSkill(RecipeDB,66570,450,40153,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66570,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66570,2,28721,2,33602)
-
-		-- Pristine Ametrine -- 66573
-		self:addTradeSkill(RecipeDB,66573,450,40157,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66573,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66573,2,28721,2,33602)
-
-		-- Glimmering Ametrine -- 66578
-		self:addTradeSkill(RecipeDB,66578,450,40161,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66578,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66578,2,28721,2,33602)
-
-		-- Misty Eye of Zul -- 66435
-		self:addTradeSkill(RecipeDB,66435,450,40171,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66435,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66435,2,28721,2,33602)
-
-		-- Shining Eye of Zul -- 66437
-		self:addTradeSkill(RecipeDB,66437,450,40172,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66437,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66437,2,28721,2,33602)
-
-		-- Turbid Eye of Zul -- 66445
-		self:addTradeSkill(RecipeDB,66445,450,40173,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66445,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66445,2,28721,2,33602)
-
-		-- Intricate Eye of Zul -- 66440
-		self:addTradeSkill(RecipeDB,66440,450,40174,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66440,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66440,2,28721,2,33602)
-
-		-- Sundered Eye of Zul -- 66436
-		self:addTradeSkill(RecipeDB,66436,450,40176,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66436,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66436,2,28721,2,33602)
-
-		-- Lambent Eye of Zul -- 66439
-		self:addTradeSkill(RecipeDB,66439,450,40177,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66439,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66439,2,28721,2,33602)
-
-		-- Opaque Eye of Zul -- 66444
-		self:addTradeSkill(RecipeDB,66444,450,40178,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66444,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66444,2,28721,2,33602)
-
-		-- Radiant Eye of Zul -- 66441
-		self:addTradeSkill(RecipeDB,66441,450,40180,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66441,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66441,2,28721,2,33602)
-
-		-- Tense Eye of Zul -- 66438
-		self:addTradeSkill(RecipeDB,66438,450,40181,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66438,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66438,2,28721,2,33602)
-
-		-- Shattered Eye of Zul -- 66443
-		self:addTradeSkill(RecipeDB,66443,450,40182,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66443,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66443,2,28721,2,33602)
-
-		-- Vivid Eye of Zul -- 66429
-		self:addTradeSkill(RecipeDB,66429,450,40166,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66429,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66429,2,28721,2,33602)
-
-		-- Enduring Eye of Zul -- 66338
-		self:addTradeSkill(RecipeDB,66338,450,40167,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66338,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66338,2,28721,2,33602)
-
-		-- Steady Eye of Zul -- 66428
-		self:addTradeSkill(RecipeDB,66428,450,40168,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66428,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66428,2,28721,2,33602)
-
-		-- Forceful Eye of Zul -- 66434
-		self:addTradeSkill(RecipeDB,66434,450,40169,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66434,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66434,2,28721,2,33602)
-
-		-- Energized Eye of Zul -- 66442
-		self:addTradeSkill(RecipeDB,66442,450,40179,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66442,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66442,2,28721,2,33602)
-
-		-- Timeless Eye of Zul -- 66432
-		self:addTradeSkill(RecipeDB,66432,450,40164,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66432,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66432,2,28721,2,33602)
-
-		-- Dazzling Eye of Zul -- 66430
-		self:addTradeSkill(RecipeDB,66430,450,40175,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66430,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66430,2,28721,2,33602)
-
-		-- Jagged Eye of Zul -- 66431
-		self:addTradeSkill(RecipeDB,66431,450,40165,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66431,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66431,2,28721,2,33602)
-
-		-- Seer's Eye of Zul -- 66433
-		self:addTradeSkill(RecipeDB,66433,450,40170,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,66433,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,66433,2,28721,2,33602)
-
-		-- Nightmare Tear -- 68253
-		self:addTradeSkill(RecipeDB,68253,450,49110,2,25229,nil,2,450,450,450,450)
-		self:addTradeFlags(RecipeDB,68253,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
-		self:addTradeAcquire(RecipeDB,68253,2,28701)
-
-		return 554
-
-	else
-
-		return 482
-
-	end
+	-- Precise Cardinal Ruby -- 66450
+	self:addTradeSkill(RecipeDB,66450,450,40118,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66450,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66450,2,19065,2,33637,2,33680,2,28701)
+
+	-- Runed Cardinal Ruby -- 66446
+	self:addTradeSkill(RecipeDB,66446,450,40113,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66446,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66446,2,19065,2,33637,2,33680,2,28701)
+
+	-- Bright Cardinal Ruby -- 66449
+	self:addTradeSkill(RecipeDB,66449,450,40114,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66449,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66449,2,19065,2,33637,2,33680,2,28701)
+
+	-- Flashing Cardinal Ruby -- 66453
+	self:addTradeSkill(RecipeDB,66453,450,40116,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66453,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66453,2,19065,2,33637,2,33680,2,28701)
+
+	-- Fractured Cardinal Ruby -- 66451
+	self:addTradeSkill(RecipeDB,66451,450,40117,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66451,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66451,2,19065,2,33637,2,33680,2,28701)
+
+	-- Bold Cardinal Ruby -- 66447
+	self:addTradeSkill(RecipeDB,66447,450,40111,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66447,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66447,2,19065,2,33637,2,33680,2,28701)
+
+	-- Delicate Cardinal Ruby -- 66448
+	self:addTradeSkill(RecipeDB,66448,450,40112,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66448,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66448,2,19065,2,33637,2,33680,2,28701)
+
+	-- Subtle Cardinal Ruby -- 66452
+	self:addTradeSkill(RecipeDB,66452,450,40115,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66452,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66452,2,19065,2,33637,2,33680,2,28701)
+
+	-- Sparkling Majestic Zircon -- 66498
+	self:addTradeSkill(RecipeDB,66498,450,40120,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66498,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66498,2,19065,2,33637,2,33680,2,28701)
+
+	-- Lustrous Majestic Zircon -- 66500
+	self:addTradeSkill(RecipeDB,66500,450,40121,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66500,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66500,2,19065,2,33637,2,33680,2,28701)
+
+	-- Stormy Majestic Zircon -- 66499
+	self:addTradeSkill(RecipeDB,66499,450,40122,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66499,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66499,2,19065,2,33637,2,33680,2,28701)
+
+	-- Solid Majestic Zircon -- 66497
+	self:addTradeSkill(RecipeDB,66497,450,40119,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66497,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66497,2,19065,2,33637,2,33680,2,28701)
+
+	-- Brilliant King's Amber -- 66503
+	self:addTradeSkill(RecipeDB,66503,450,40123,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66503,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66503,2,19065,2,33637,2,33680,2,28701)
+
+	-- Rigid King's Amber -- 66501
+	self:addTradeSkill(RecipeDB,66501,450,40125,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66501,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66501,2,19065,2,33637,2,33680,2,28701)
+
+	-- Thick King's Amber -- 66504
+	self:addTradeSkill(RecipeDB,66504,450,40126,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66504,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66504,2,19065,2,33637,2,33680,2,28701)
+
+	-- Mystic King's Amber -- 66505
+	self:addTradeSkill(RecipeDB,66505,450,40127,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66505,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66505,2,19065,2,33637,2,33680,2,28701)
+
+	-- Smooth King's Amber -- 66502
+	self:addTradeSkill(RecipeDB,66502,450,40124,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66502,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66502,2,19065,2,33637,2,33680,2,28701)
+
+	-- Quick King's Amber -- 66506
+	self:addTradeSkill(RecipeDB,66506,450,40128,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66506,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66506,2,19065,2,33637,2,33680,2,28701)
+
+	-- Sovereign Dreadstone -- 66554
+	self:addTradeSkill(RecipeDB,66554,450,40129,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66554,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66554,2,19065,2,33637,2,33680,2,28701)
+
+	-- Shifting Dreadstone -- 66557
+	self:addTradeSkill(RecipeDB,66557,450,40130,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66557,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66557,2,19065,2,33637,2,33680,2,28701)
+
+	-- Glowing Dreadstone -- 66555
+	self:addTradeSkill(RecipeDB,66555,450,40132,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66555,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66555,2,19065,2,33637,2,33680,2,28701)
+
+	-- Purified Dreadstone -- 66556
+	self:addTradeSkill(RecipeDB,66556,450,40133,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66556,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66556,2,19065,2,33637,2,33680,2,28701)
+
+	-- Guardian's Dreadstone -- 66561
+	self:addTradeSkill(RecipeDB,66561,450,40141,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66561,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66561,2,19065,2,33637,2,33680,2,28701)
+
+	-- Puissant Dreadstone -- 66563
+	self:addTradeSkill(RecipeDB,66563,450,40140,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66563,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66563,2,19065,2,33637,2,33680,2,28701)
+
+	-- Regal Dreadstone -- 66559
+	self:addTradeSkill(RecipeDB,66559,450,40138,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66559,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66559,2,19065,2,33637,2,33680,2,28701)
+
+	-- Balanced Dreadstone -- 66553
+	self:addTradeSkill(RecipeDB,66553,450,40136,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66553,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66553,2,19065,2,33637,2,33680,2,28701)
+
+	-- Infused Dreadstone -- 66564
+	self:addTradeSkill(RecipeDB,66564,450,40137,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66564,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66564,2,19065,2,33637,2,33680,2,28701)
+
+	-- Royal Dreadstone -- 66558
+	self:addTradeSkill(RecipeDB,66558,450,40134,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66558,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66558,2,19065,2,33637,2,33680,2,28701)
+
+	-- Tenuous Dreadstone -- 66565
+	self:addTradeSkill(RecipeDB,66565,450,40131,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66565,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66565,2,19065,2,33637,2,33680,2,28701)
+
+	-- Mysterious Dreadstone -- 66562
+	self:addTradeSkill(RecipeDB,66562,450,40135,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66562,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66562,2,19065,2,33637,2,33680,2,28701)
+
+	-- Defender's Dreadstone -- 66560
+	self:addTradeSkill(RecipeDB,66560,450,40139,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66560,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66560,2,19065,2,33637,2,33680,2,28701)
+
+	-- Etched Ametrine -- 66572
+	self:addTradeSkill(RecipeDB,66572,450,40143,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66572,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66572,2,19065,2,33637,2,33680,2,28701)
+
+	-- Champion's Ametrine -- 66579
+	self:addTradeSkill(RecipeDB,66579,450,40144,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66579,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66579,2,19065,2,33637,2,33680,2,28701)
+
+	-- Fierce Ametrine -- 66583
+	self:addTradeSkill(RecipeDB,66583,450,40146,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66583,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66583,2,19065,2,33637,2,33680,2,28701)
+
+	-- Deadly Ametrine -- 66568
+	self:addTradeSkill(RecipeDB,66568,450,40147,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66568,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66568,2,19065,2,33637,2,33680,2,28701)
+
+	-- Luminous Ametrine -- 66566
+	self:addTradeSkill(RecipeDB,66566,450,40151,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66566,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66566,2,19065,2,33637,2,33680,2,28701)
+
+	-- Reckless Ametrine -- 66574
+	self:addTradeSkill(RecipeDB,66574,450,40155,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66574,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66574,2,19065,2,33637,2,33680,2,28701)
+
+	-- Wicked Ametrine -- 66577
+	self:addTradeSkill(RecipeDB,66577,450,40156,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66577,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66577,2,19065,2,33637,2,33680,2,28701)
+
+	-- Empowered Ametrine -- 66580
+	self:addTradeSkill(RecipeDB,66580,450,40158,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66580,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66580,2,19065,2,33637,2,33680,2,28701)
+
+	-- Glinting Ametrine -- 66575
+	self:addTradeSkill(RecipeDB,66575,450,40148,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66575,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66575,2,19065,2,33637,2,33680,2,28701)
+
+	-- Deft Ametrine -- 66584
+	self:addTradeSkill(RecipeDB,66584,450,40150,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66584,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66584,2,19065,2,33637,2,33680,2,28701)
+
+	-- Potent Ametrine -- 66569
+	self:addTradeSkill(RecipeDB,66569,450,40152,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66569,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66569,2,19065,2,33637,2,33680,2,28701)
+
+	-- Durable Ametrine -- 66571
+	self:addTradeSkill(RecipeDB,66571,450,40154,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66571,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66571,2,19065,2,33637,2,33680,2,28701)
+
+	-- Stark Ametrine -- 66587
+	self:addTradeSkill(RecipeDB,66587,450,40159,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66587,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66587,2,19065,2,33637,2,33680,2,28701)
+
+	-- Stalwart Ametrine -- 66581
+	self:addTradeSkill(RecipeDB,66581,450,40160,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66581,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66581,2,19065,2,33637,2,33680,2,28701)
+
+	-- Accurate Ametrine -- 66576
+	self:addTradeSkill(RecipeDB,66576,450,40162,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66576,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66576,2,19065,2,33637,2,33680,2,28701)
+
+	-- Resolute Ametrine -- 66586
+	self:addTradeSkill(RecipeDB,66586,450,40163,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66586,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66586,2,19065,2,33637,2,33680,2,28701)
+
+	-- Inscribed Ametrine -- 66567
+	self:addTradeSkill(RecipeDB,66567,450,40142,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66567,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66567,2,19065,2,33637,2,33680,2,28701)
+
+	-- Replendent Ametrine -- 66582
+	self:addTradeSkill(RecipeDB,66582,450,40145,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66582,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66582,2,19065,2,33637,2,33680,2,28701)
+
+	-- Lucent Ametrine -- 66585
+	self:addTradeSkill(RecipeDB,66585,450,40149,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66585,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66585,2,19065,2,33637,2,33680,2,28701)
+
+	-- Veiled Ametrine -- 66570
+	self:addTradeSkill(RecipeDB,66570,450,40153,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66570,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66570,2,19065,2,33637,2,33680,2,28701)
+
+	-- Pristine Ametrine -- 66573
+	self:addTradeSkill(RecipeDB,66573,450,40157,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66573,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66573,2,19065,2,33637,2,33680,2,28701)
+
+	-- Glimmering Ametrine -- 66578
+	self:addTradeSkill(RecipeDB,66578,450,40161,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66578,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66578,2,19065,2,33637,2,33680,2,28701)
+
+	-- Misty Eye of Zul -- 66435
+	self:addTradeSkill(RecipeDB,66435,450,40171,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66435,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66435,2,19065,2,33637,2,33680,2,28701)
+
+	-- Shining Eye of Zul -- 66437
+	self:addTradeSkill(RecipeDB,66437,450,40172,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66437,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66437,2,19065,2,33637,2,33680,2,28701)
+
+	-- Turbid Eye of Zul -- 66445
+	self:addTradeSkill(RecipeDB,66445,450,40173,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66445,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66445,2,19065,2,33637,2,33680,2,28701)
+
+	-- Intricate Eye of Zul -- 66440
+	self:addTradeSkill(RecipeDB,66440,450,40174,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66440,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66440,2,19065,2,33637,2,33680,2,28701)
+
+	-- Sundered Eye of Zul -- 66436
+	self:addTradeSkill(RecipeDB,66436,450,40176,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66436,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66436,2,19065,2,33637,2,33680,2,28701)
+
+	-- Lambent Eye of Zul -- 66439
+	self:addTradeSkill(RecipeDB,66439,450,40177,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66439,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66439,2,19065,2,33637,2,33680,2,28701)
+
+	-- Opaque Eye of Zul -- 66444
+	self:addTradeSkill(RecipeDB,66444,450,40178,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66444,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66444,2,19065,2,33637,2,33680,2,28701)
+
+	-- Radiant Eye of Zul -- 66441
+	self:addTradeSkill(RecipeDB,66441,450,40180,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66441,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66441,2,19065,2,33637,2,33680,2,28701)
+
+	-- Tense Eye of Zul -- 66438
+	self:addTradeSkill(RecipeDB,66438,450,40181,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66438,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66438,2,19065,2,33637,2,33680,2,28701)
+
+	-- Shattered Eye of Zul -- 66443
+	self:addTradeSkill(RecipeDB,66443,450,40182,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66443,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66443,2,19065,2,33637,2,33680,2,28701)
+
+	-- Vivid Eye of Zul -- 66429
+	self:addTradeSkill(RecipeDB,66429,450,40166,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66429,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66429,2,19065,2,33637,2,33680,2,28701)
+
+	-- Enduring Eye of Zul -- 66338
+	self:addTradeSkill(RecipeDB,66338,450,40167,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66338,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66338,2,19065,2,33637,2,33680,2,28701)
+
+	-- Steady Eye of Zul -- 66428
+	self:addTradeSkill(RecipeDB,66428,450,40168,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66428,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66428,2,19065,2,33637,2,33680,2,28701)
+
+	-- Forceful Eye of Zul -- 66434
+	self:addTradeSkill(RecipeDB,66434,450,40169,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66434,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66434,2,19065,2,33637,2,33680,2,28701)
+
+	-- Energized Eye of Zul -- 66442
+	self:addTradeSkill(RecipeDB,66442,450,40179,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66442,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66442,2,19065,2,33637,2,33680,2,28701)
+
+	-- Timeless Eye of Zul -- 66432
+	self:addTradeSkill(RecipeDB,66432,450,40164,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66432,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66432,2,19065,2,33637,2,33680,2,28701)
+
+	-- Dazzling Eye of Zul -- 66430
+	self:addTradeSkill(RecipeDB,66430,450,40175,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66430,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66430,2,19065,2,33637,2,33680,2,28701)
+
+	-- Jagged Eye of Zul -- 66431
+	self:addTradeSkill(RecipeDB,66431,450,40165,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66431,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66431,2,19065,2,33637,2,33680,2,28701)
+
+	-- Seer's Eye of Zul -- 66433
+	self:addTradeSkill(RecipeDB,66433,450,40170,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,66433,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,66433,2,19065,2,33637,2,33680,2,28701)
+
+	-- Nightmare Tear -- 68253
+	self:addTradeSkill(RecipeDB,68253,450,49110,2,25229,nil,2,450,450,450,450)
+	self:addTradeFlags(RecipeDB,68253,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeAcquire(RecipeDB,68253,2,19065,2,33637,2,33680,2,28701)
+
+	return 554
 
 end
