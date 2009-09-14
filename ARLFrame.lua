@@ -3849,11 +3849,11 @@ local function InitializeFrame()
 
 	local ARL_KnownCB = CreateFrame("CheckButton", "ARL_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_KnownCB, addon.Fly_General, L["KNOWN_DESC"], "known", 4, 1, 0)
-	ARL_KnownCBText:SetText(L["Known"])
+	ARL_KnownCBText:SetText(L["Show Known"])
 
 	local ARL_UnknownCB = CreateFrame("CheckButton", "ARL_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], "unknown", 5, 1, 0)
-	ARL_UnknownCBText:SetText(L["Unknown"])
+	ARL_UnknownCBText:SetText(L["Show Unknown"])
 
 	local ARL_ClassButton = addon:GenericCreateButton("ARL_ClassButton", addon.Fly_General,
 							  20, 105, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",

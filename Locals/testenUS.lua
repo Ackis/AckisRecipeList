@@ -261,9 +261,9 @@ L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["Skill"]					= true
 L["SKILL_DESC"]				= "Include all recipes in the scan, regardless of your current skill level."
-L["Known"]					= true
+L["Show Known"]					= true
 L["KNOWN_DESC"]				= "Include all known recipes in the scan."
-L["Unknown"]				= true
+L["Show Unknown"]				= true
 L["UNKNOWN_DESC"]			= "Include all unknown recipes in the scan."
 
 -- Obtain Filter UI Elements and their associated descriptions

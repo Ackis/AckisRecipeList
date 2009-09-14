@@ -115,7 +115,7 @@ local function giveFilter()
 						known = {
 							order	= 6,
 							type	= "toggle",
-							name	= L["Known"],
+							name	= L["Show Known"],
 							desc	= L["KNOWN_DESC"],
 							get		= function() return addon.db.profile.filters.general.known end,
 							set		= function() addon.db.profile.filters.general.known = not addon.db.profile.filters.general.known end,
@@ -123,7 +123,7 @@ local function giveFilter()
 						unknown = {
 							order	= 7,
 							type	= "toggle",
-							name	= L["Unknown"],
+							name	= L["Show Unknown"],
 							desc	= L["UNKNOWN_DESC"],
 							get		= function() return addon.db.profile.filters.general.unknown end,
 							set		= function() addon.db.profile.filters.general.unknown = not addon.db.profile.filters.general.unknown end,
