@@ -1595,7 +1595,7 @@ do
 				scan_data.Warlock = true
 				scan_data.found_class = true
 			end
-			if (strmatch(text, "warrior")) then
+			if (strmatch(text, "warrior") and (strmatch(text, "Aquamarine Pendant of the Warrior") == nil)) then
 				scan_data.Warrior = true
 				scan_data.found_class = true
 			end
@@ -1626,9 +1626,9 @@ do
 				scan_data.Ring = true
 			elseif (strmatch(text, "trinket")) then
 				scan_data.Trinket = true
-			elseif (strmatch(text, "necklace")) then
+			elseif (strmatch(text, "necklace") or (strmatch(text, "neck"))) then
 				scan_data.Necklace = true
-			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil)) then
+			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil) and (strmatch(text, "shield block value") == nil)) then
 				scan_data.Shield = true
 				-- Weapon types
 			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then

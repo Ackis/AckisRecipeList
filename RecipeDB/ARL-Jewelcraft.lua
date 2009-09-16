@@ -58,7 +58,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Elegant Silver Ring -- 25280
 	self:addTradeSkill(RecipeDB,25280,50,20818,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,25280,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,25280,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,25280,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Inlaid Malachite Ring -- 25283
@@ -133,7 +133,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Heavy Iron Knuckles -- 25612
 	self:addTradeSkill(RecipeDB,25612,125,20954,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,25612,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,79)
+	self:addTradeFlags(RecipeDB,25612,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,79)
 	self:addTradeAcquire(RecipeDB,25612,2,2381,2,2393)
 
 	-- Golden Dragon Ring -- 25613
@@ -148,12 +148,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Blazing Citrine Ring -- 25617
 	self:addTradeSkill(RecipeDB,25617,150,20958,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,25617,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,62)
+	self:addTradeFlags(RecipeDB,25617,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,62)
 	self:addTradeAcquire(RecipeDB,25617,2,2381,2,9636)
 
 	-- Jade Pendant of Blasting -- 25618
 	self:addTradeSkill(RecipeDB,25618,160,20966,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,25618,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,25618,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,63)
 	self:addTradeAcquire(RecipeDB,25618,7,2)
 
 	-- The Jade Eye -- 25619
@@ -193,12 +193,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Black Pearl Panther -- 26875
 	self:addTradeSkill(RecipeDB,26875,215,21758,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26875,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63)
+	self:addTradeFlags(RecipeDB,26875,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,61)
 	self:addTradeAcquire(RecipeDB,26875,2,989,2,4897)
 
 	-- Aquamarine Pendant of the Warrior -- 26876
 	self:addTradeSkill(RecipeDB,26876,220,21755,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26876,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,26876,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,26876,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Ruby Crown of Restoration -- 26878
@@ -213,7 +213,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Truesilver Crab -- 26881
 	self:addTradeSkill(RecipeDB,26881,225,21760,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26881,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63)
+	self:addTradeFlags(RecipeDB,26881,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,61)
 	self:addTradeAcquire(RecipeDB,26881,2,1148,2,4897)
 
 	-- Figurine - Truesilver Boar -- 26882
@@ -238,12 +238,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Gem Studded Band -- 26896
 	self:addTradeSkill(RecipeDB,26896,250,21753,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26896,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,62)
+	self:addTradeFlags(RecipeDB,26896,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,62)
 	self:addTradeAcquire(RecipeDB,26896,7,2)
 
 	-- Opal Necklace of Impact -- 26897
 	self:addTradeSkill(RecipeDB,26897,250,21766,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26897,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,63)
+	self:addTradeFlags(RecipeDB,26897,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,63)
 	self:addTradeAcquire(RecipeDB,26897,2,5163,2,8363,2,16624,2,17512)
 
 	-- Figurine - Ruby Serpent -- 26900
@@ -288,7 +288,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Living Emerald Pendant -- 26911
 	self:addTradeSkill(RecipeDB,26911,290,21791,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26911,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,26911,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
 	self:addTradeAcquire(RecipeDB,26911,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Figurine - Black Diamond Crab -- 26912
@@ -323,12 +323,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Thick Bronze Necklace -- 26927
 	self:addTradeSkill(RecipeDB,26927,50,21933,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26927,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,26927,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,26927,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Ornate Tigerseye Necklace -- 26928
 	self:addTradeSkill(RecipeDB,26928,30,21934,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,26928,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,26928,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,63)
 	self:addTradeAcquire(RecipeDB,26928,1,15501,1,16703,1,16727,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Teardrop Blood Garnet -- 28903
@@ -338,12 +338,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Bold Blood Garnet -- 28905
 	self:addTradeSkill(RecipeDB,28905,305,23095,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28905,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,28905,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,28905,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590,1,33614,1,33680)
 
 	-- Runed Blood Garnet -- 28906
 	self:addTradeSkill(RecipeDB,28906,315,23096,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28906,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,110)
+	self:addTradeFlags(RecipeDB,28906,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,110)
 	self:addTradeAcquire(RecipeDB,28906,6,934,1,19331)
 
 	-- Delicate Blood Garnet -- 28907
@@ -353,7 +353,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Inscribed Flame Spessarite -- 28910
 	self:addTradeSkill(RecipeDB,28910,300,23098,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28910,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,28910,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,28910,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590,1,33614,1,33680)
 
 	-- Luminous Flame Spessarite -- 28912
@@ -413,7 +413,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Brilliant Golden Draenite -- 28938
 	self:addTradeSkill(RecipeDB,28938,300,23113,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,28938,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,28938,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,28938,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590,1,33614,1,33680)
 
 	-- Gleaming Golden Draenite -- 28944
@@ -453,12 +453,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Fel Iron Blood Ring -- 31048
 	self:addTradeSkill(RecipeDB,31048,310,24074,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31048,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,31048,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,62)
 	self:addTradeAcquire(RecipeDB,31048,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Golden Draenite Ring -- 31049
 	self:addTradeSkill(RecipeDB,31049,310,24075,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31049,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,31049,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,31049,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Azure Moonstone Ring -- 31050
@@ -468,7 +468,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Thick Adamantite Necklace -- 31051
 	self:addTradeSkill(RecipeDB,31051,335,24077,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31051,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,31051,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,63)
 	self:addTradeAcquire(RecipeDB,31051,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Heavy Adamantite Ring -- 31052
@@ -478,7 +478,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Khorium Band of Shadows -- 31053
 	self:addTradeSkill(RecipeDB,31053,350,24079,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31053,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,31053,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,31053,3,19826)
 
 	-- Khorium Band of Frost -- 31054
@@ -553,7 +553,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Braided Eternium Chain -- 31070
 	self:addTradeSkill(RecipeDB,31070,360,24114,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31070,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,31070,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,63)
 	self:addTradeAcquire(RecipeDB,31070,7,3)
 
 	-- Eye of the Night -- 31071 
@@ -588,12 +588,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Dawnstone Crab -- 31080
 	self:addTradeSkill(RecipeDB,31080,370,24125,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31080,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,63,104)
+	self:addTradeFlags(RecipeDB,31080,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,61,104)
 	self:addTradeAcquire(RecipeDB,31080,6,946,3,17657,6,947,3,17585)
 
 	-- Figurine - Living Ruby Serpent -- 31081
 	self:addTradeSkill(RecipeDB,31081,370,24126,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31081,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,63,106)
+	self:addTradeFlags(RecipeDB,31081,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54,61,106)
 	self:addTradeAcquire(RecipeDB,31081,6,989,3,21643)
 
 	-- Figurine - Talasite Owl -- 31082
@@ -608,7 +608,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Bold Living Ruby -- 31084
 	self:addTradeSkill(RecipeDB,31084,350,24027,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31084,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,31084,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,31084,7,3)
 
 	-- Delicate Living Ruby -- 31085
@@ -738,7 +738,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Dazzling Talasite -- 31112
 	self:addTradeSkill(RecipeDB,31112,350,24065,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31112,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,31112,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,31112,7,3)
 
 	-- Jagged Talasite -- 31113
@@ -833,7 +833,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Smooth Golden Draenite -- 34069
 	self:addTradeSkill(RecipeDB,34069,325,28290,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,34069,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,34069,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,34069,1,26997,1,26960,1,26982,1,19063,1,19539,1,18751,1,26915,1,18774,1,28701,1,33590,1,33614,1,33680)
 
 	-- Bright Blood Garnet -- 34590
@@ -843,27 +843,27 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Golden Ring of Power -- 34955
 	self:addTradeSkill(RecipeDB,34955,180,29157,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,34955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,34955,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,34955,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Truesilver Commander's Ring -- 34959
 	self:addTradeSkill(RecipeDB,34959,200,29158,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,34959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,34959,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,62)
 	self:addTradeAcquire(RecipeDB,34959,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Glowing Thorium Band -- 34960
 	self:addTradeSkill(RecipeDB,34960,280,29159,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,34960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,34960,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,34960,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Emerald Lion Ring -- 34961
 	self:addTradeSkill(RecipeDB,34961,290,29160,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,34961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,34961,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,34961,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Brilliant Necklace -- 36523
 	self:addTradeSkill(RecipeDB,36523,75,30419,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,36523,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,36523,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,63)
 	self:addTradeAcquire(RecipeDB,36523,1,18751,1,18774,1,19063,1,19539,1,19775,1,19778,1,28701,1,15501,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Heavy Jade Ring -- 36524
@@ -933,32 +933,32 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Infused Nightseye -- 39462
 	self:addTradeSkill(RecipeDB,39462,350,31865,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39462,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39462,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,39462,7,3)
 
 	-- Balanced Nightseye -- 39463
 	self:addTradeSkill(RecipeDB,39463,350,31863,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39463,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39463,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,39463,7,3)
 
 	-- Veiled Flame Spessarite -- 39466
 	self:addTradeSkill(RecipeDB,39466,325,31866,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39466,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39466,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,39466,8,35)
 
 	-- Wicked Flame Spessarite -- 39467
 	self:addTradeSkill(RecipeDB,39467,325,31869,2,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39467,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39467,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,39467,8,35)
 
 	-- Veiled Noble Topaz -- 39470
 	self:addTradeSkill(RecipeDB,39470,350,31867,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39470,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39470,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,39470,7,3)
 
 	-- Wicked Noble Topaz -- 39471
 	self:addTradeSkill(RecipeDB,39471,350,31868,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39471,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,39471,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,39471,7,3)
 
 	-- Bold Crimson Spinel -- 39705
@@ -1003,7 +1003,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Sparkling Empyrean Sapphire -- 39716
 	self:addTradeSkill(RecipeDB,39716,375,32201,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39716,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeFlags(RecipeDB,39716,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,112)
 	self:addTradeAcquire(RecipeDB,39716,6,1077,1,25950,6,1077,1,27666)
 
 	-- Lustrous Empyrean Sapphire -- 39717
@@ -1053,7 +1053,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Sovereign Shadowsong Amethyst -- 39727
 	self:addTradeSkill(RecipeDB,39727,375,32211,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,39727,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeFlags(RecipeDB,39727,1,2,4,6,21,22,23,24,25,26,27,28,29,30,36,41,51,112)
 	self:addTradeAcquire(RecipeDB,39727,8,27,8,34,6,1077,4,27666,6,1077,4,25950)
 
 	-- Shifting Shadowsong Amethyst -- 39728
@@ -1148,22 +1148,22 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Brilliant Pearl Band -- 41414
 	self:addTradeSkill(RecipeDB,41414,325,32772,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,41414,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,41414,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,41414,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- The Black Pearl -- 41415
 	self:addTradeSkill(RecipeDB,41415,330,32774,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,41415,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,41415,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,41415,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Crown of the Sea Witch -- 41418
 	self:addTradeSkill(RecipeDB,41418,365,32776,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,41418,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,56)
+	self:addTradeFlags(RecipeDB,41418,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,41418,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Purified Jaggal Pearl -- 41420
 	self:addTradeSkill(RecipeDB,41420,325,32833,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,41420,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,41420,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,41420,1,18751,1,18774,1,19063,1,19539,1,28701,1,33590,1,26997,1,26982,1,33614,1,26915,1,26960,1,33680)
 
 	-- Purified Shadow Pearl -- 41429
@@ -1218,7 +1218,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Loop of Forged Power -- 46122
 	self:addTradeSkill(RecipeDB,46122,365,34362,4,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46122,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,46122,1,2,6,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,46122,8,24)
 
 	-- Ring of Flowing Life -- 46123
@@ -1253,7 +1253,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Reckless Noble Topaz -- 46404
 	self:addTradeSkill(RecipeDB,46404,350,35316,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46404,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeFlags(RecipeDB,46404,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,112)
 	self:addTradeAcquire(RecipeDB,46404,6,1077,4,25950)
 
 	-- Forceful Talasite -- 46405
@@ -1268,32 +1268,32 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Ember Skyfire Diamond -- 46601
 	self:addTradeSkill(RecipeDB,46601,370,35503,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46601,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,112)
+	self:addTradeFlags(RecipeDB,46601,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,112)
 	self:addTradeAcquire(RecipeDB,46601,6,1077,3,25032)
 
 	-- Figurine - Empyrean Tortoise -- 46775
 	self:addTradeSkill(RecipeDB,46775,375,35693,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46775,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,112)
+	self:addTradeFlags(RecipeDB,46775,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52,61,112)
 	self:addTradeAcquire(RecipeDB,46775,6,1077,3,25032)
 
 	-- Figurine - Khorium Boar -- 46776
 	self:addTradeSkill(RecipeDB,46776,375,35694,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46776,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,112)
+	self:addTradeFlags(RecipeDB,46776,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,61,112)
 	self:addTradeAcquire(RecipeDB,46776,6,1077,3,25032)
 
 	-- Figurine - Crimson Serpent -- 46777
 	self:addTradeSkill(RecipeDB,46777,375,35700,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46777,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54,112)
+	self:addTradeFlags(RecipeDB,46777,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54,61,112)
 	self:addTradeAcquire(RecipeDB,46777,6,1077,3,25032)
 
 	-- Figurine - Shadowsong Panther -- 46778
 	self:addTradeSkill(RecipeDB,46778,375,35702,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46778,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,112)
+	self:addTradeFlags(RecipeDB,46778,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51,61,112)
 	self:addTradeAcquire(RecipeDB,46778,6,1077,3,25032)
 
 	-- Figurine - Seaspray Albatross -- 46779
 	self:addTradeSkill(RecipeDB,46779,375,35703,1,25229,nil,1)
-	self:addTradeFlags(RecipeDB,46779,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,112)
+	self:addTradeFlags(RecipeDB,46779,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,61,112)
 	self:addTradeAcquire(RecipeDB,46779,6,1077,3,25032)
 
 	-- Regal Nightseye -- 46803
@@ -1403,7 +1403,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Sovereign Shadow Crystal -- 53859
 	self:addTradeSkill(RecipeDB,53859,350,39934,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53859,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53859,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53859,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Shifting Shadow Crystal -- 53860
@@ -1498,17 +1498,17 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Glinting Huge Citrine -- 53878
 	self:addTradeSkill(RecipeDB,53878,350,39953,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53878,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53878,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53878,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Lucent Huge Citrine -- 53879
 	self:addTradeSkill(RecipeDB,53879,350,39954,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53879,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53879,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53879,2,32379,2,32382)
 
 	-- Deft Huge Citrine -- 53880
 	self:addTradeSkill(RecipeDB,53880,350,39955,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53880,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53880,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53880,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Luminous Huge Citrine -- 53881
@@ -1518,7 +1518,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Potent Huge Citrine -- 53882
 	self:addTradeSkill(RecipeDB,53882,350,39956,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53882,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53882,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53882,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Veiled Huge Citrine -- 53883
@@ -1528,17 +1528,17 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Durable Huge Citrine -- 53884
 	self:addTradeSkill(RecipeDB,53884,350,39958,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53884,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53884,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53884,2,32379,2,32382)
 
 	-- Reckless Huge Citrine -- 53885
 	self:addTradeSkill(RecipeDB,53885,350,39959,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53885,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,116)
+	self:addTradeFlags(RecipeDB,53885,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,116)
 	self:addTradeAcquire(RecipeDB,53885,6,1104,1,31911)
 
 	-- Wicked Huge Citrine -- 53886
 	self:addTradeSkill(RecipeDB,53886,350,39960,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53886,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53886,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53886,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Pristine Huge Citrine -- 53887
@@ -1548,7 +1548,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Empowered Huge Citrine -- 53888
 	self:addTradeSkill(RecipeDB,53888,350,39962,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53888,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53888,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53888,2,32379,2,32382)
 
 	-- Stark Huge Citrine -- 53889
@@ -1608,17 +1608,17 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Seer's Dark Jade -- 53921
 	self:addTradeSkill(RecipeDB,53921,350,39979,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53921,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,120)
+	self:addTradeFlags(RecipeDB,53921,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,120)
 	self:addTradeAcquire(RecipeDB,53921,6,1073,1,31916,6,1073,1,32763)
 
 	-- Misty Dark Jade -- 53922
 	self:addTradeSkill(RecipeDB,53922,350,39980,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53922,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53922,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53922,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Shining Dark Jade -- 53923
 	self:addTradeSkill(RecipeDB,53923,350,39981,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53923,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53923,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53923,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Turbid Dark Jade -- 53924
@@ -1688,7 +1688,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Stormy Chalcedony -- 53943
 	self:addTradeSkill(RecipeDB,53943,350,39927,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53943,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53943,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
 	self:addTradeAcquire(RecipeDB,53943,2,32379,2,32382)
 
 	-- Delicate Scarlet Ruby -- 53945
@@ -1698,7 +1698,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Runed Scarlet Ruby -- 53946
 	self:addTradeSkill(RecipeDB,53946,390,39998,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53946,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,118)
+	self:addTradeFlags(RecipeDB,53946,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,118)
 	self:addTradeAcquire(RecipeDB,53946,6,1090,4,32287)
 
 	-- Bright Scarlet Ruby -- 53947
@@ -1713,12 +1713,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Fractured Scarlet Ruby -- 53950
 	self:addTradeSkill(RecipeDB,53950,390,40002,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53950,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,63)
+	self:addTradeFlags(RecipeDB,53950,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53950,3,29570)
 
 	-- Precise Scarlet Ruby -- 53951
 	self:addTradeSkill(RecipeDB,53951,390,40003,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53951,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53951,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53951,3,29311)
 
 	-- Solid Sky Sapphire -- 53952
@@ -1733,7 +1733,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Lustrous Sky Sapphire -- 53954
 	self:addTradeSkill(RecipeDB,53954,390,40010,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53954,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53954,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53954,2,28721,2,33602)
 
 	-- Stormy Sky Sapphire -- 53955 
@@ -1833,12 +1833,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Inscribed Monarch Topaz -- 53975
 	self:addTradeSkill(RecipeDB,53975,390,40037,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53975,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,53975,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,53975,7,3)
 
 	-- Etched Monarch Topaz -- 53976
 	self:addTradeSkill(RecipeDB,53976,380,40038,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53976,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
+	self:addTradeFlags(RecipeDB,53976,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
 	self:addTradeAcquire(RecipeDB,53976,7,3)
 
 	-- Champion's Monarch Topaz -- 53977
@@ -1853,12 +1853,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Deadly Monarch Topaz -- 53979
 	self:addTradeSkill(RecipeDB,53979,390,40043,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53979,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53979,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53979,3,26723)
 
 	-- Glinting Monarch Topaz -- 53980
 	self:addTradeSkill(RecipeDB,53980,390,40044,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53980,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53980,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53980,2,28721,2,33602)
 
 	-- Lucent Monarch Topaz -- 53981
@@ -1868,22 +1868,22 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Deft Monarch Topaz -- 53982
 	self:addTradeSkill(RecipeDB,53982,390,40046,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53982,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53982,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,53982,3,27978)
 
 	-- Luminous Monarch Topaz -- 53983
 	self:addTradeSkill(RecipeDB,53983,390,40047,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53983,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53983,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53983,2,28721,2,33602)
 
 	-- Potent Monarch Topaz -- 53984
 	self:addTradeSkill(RecipeDB,53984,390,40048,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53984,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53984,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53984,2,28721,2,33602)
 
 	-- Veiled Monarch Topaz -- 53985
 	self:addTradeSkill(RecipeDB,53985,390,40049,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53985,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53985,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53985,2,28721,2,33602)
 
 	-- Durable Monarch Topaz -- 53986
@@ -1893,7 +1893,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Reckless Monarch Topaz -- 53987
 	self:addTradeSkill(RecipeDB,53987,390,40051,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,53987,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,53987,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,53987,2,28721,2,33602)
 
 	-- Wicked Monarch Topaz -- 53988
@@ -2008,7 +2008,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Energized Forest Emerald -- 54011
 	self:addTradeSkill(RecipeDB,54011,390,40105,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54011,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54011,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,54011,2,28721,2,33602)
 
 	-- Radiant Forest Emerald -- 54012 
@@ -2028,7 +2028,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Precise Bloodstone -- 54017
 	self:addTradeSkill(RecipeDB,54017,350,39910,2,25229,nil,2)
-	self:addTradeFlags(RecipeDB,54017,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,54017,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,54017,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Fierce Monarch Topaz -- 54019
@@ -2048,7 +2048,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Tireless Skyflare Diamond -- 55386
 	self:addTradeSkill(RecipeDB,55386,420,41375,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55386,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55386,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,55386,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Forlorn Skyflare Diamond -- 55387
@@ -2073,7 +2073,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Ember Skyflare Diamond -- 55392
 	self:addTradeSkill(RecipeDB,55392,420,41333,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,55392,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,55392,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,55392,2,28721,2,33602)
 
 	-- Enigmatic Skyflare Diamond -- 55393
@@ -2153,7 +2153,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Delicate Dragon's Eye -- 56052
 	self:addTradeSkill(RecipeDB,56052,370,42143,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56052,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,56052,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,56052,2,28721,2,33602)
 
 	-- Runed Dragon's Eye -- 56053
@@ -2163,7 +2163,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Bright Dragon's Eye -- 56054
 	self:addTradeSkill(RecipeDB,56054,370,36766,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56054,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,56054,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,56054,2,28721,2,33602)
 
 	-- Subtle Dragon's Eye -- 56055
@@ -2223,7 +2223,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Sparkling Dragon's Eye -- 56087
 	self:addTradeSkill(RecipeDB,56087,370,42145,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56087,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,56087,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
 	self:addTradeAcquire(RecipeDB,56087,2,28721,2,33602)
 
 	-- Stormy Dragon's Eye -- 56088 
@@ -2268,17 +2268,17 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Twilight Serpent -- 56201
 	self:addTradeSkill(RecipeDB,56201,400,42395,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56201,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54)
+	self:addTradeFlags(RecipeDB,56201,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,53,54,61)
 	self:addTradeAcquire(RecipeDB,56201,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Sapphire Owl -- 56202
 	self:addTradeSkill(RecipeDB,56202,400,42413,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56202,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,56202,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,61)
 	self:addTradeAcquire(RecipeDB,56202,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Emerald Boar -- 56203
 	self:addTradeSkill(RecipeDB,56203,400,42418,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56203,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51)
+	self:addTradeFlags(RecipeDB,56203,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,61)
 	self:addTradeAcquire(RecipeDB,56203,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Dark Jade Focusing Lens -- 56205
@@ -2323,7 +2323,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Titanium Spellshock Necklace -- 56501
 	self:addTradeSkill(RecipeDB,56501,440,42647,4,25229,nil,2)
-	self:addTradeFlags(RecipeDB,56501,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,56501,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,53,54,63)
 	self:addTradeAcquire(RecipeDB,56501,2,28721,2,33602)
 
 	-- Enchanted Pearl -- 56530
@@ -2343,7 +2343,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Crystal Chalcedony Amulet -- 58142
 	self:addTradeSkill(RecipeDB,58142,350,43245,1,25229,nil,2)
-	self:addTradeFlags(RecipeDB,58142,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,58142,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,58142,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Earthshadow Ring -- 58143
@@ -2388,7 +2388,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Savage Titanium Ring -- 58492
 	self:addTradeSkill(RecipeDB,58492,420,43482,3,25229,nil,2)
-	self:addTradeFlags(RecipeDB,58492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,62)
+	self:addTradeFlags(RecipeDB,58492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,62)
 	self:addTradeAcquire(RecipeDB,58492,2,28721,2,33602)
 
 	-- Savage Titanium Band -- 58507
@@ -2403,7 +2403,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Monarch Crab -- 59759
 	self:addTradeSkill(RecipeDB,59759,400,44063,1,25229,nil,2)
-	self:addTradeFlags(RecipeDB,59759,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52)
+	self:addTradeFlags(RecipeDB,59759,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,52,61)
 	self:addTradeAcquire(RecipeDB,59759,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Icy Prism -- 62242
@@ -2438,7 +2438,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Sky Sapphire Amulet -- 64726
 	self:addTradeSkill(RecipeDB,64726,420,45813,1,25229,nil,2)
-	self:addTradeFlags(RecipeDB,64726,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,62)
+	self:addTradeFlags(RecipeDB,64726,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,63)
 	self:addTradeAcquire(RecipeDB,64726,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Prismatic Black Diamond -- 62941
@@ -2618,7 +2618,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Fierce Ametrine -- 66583
 	self:addTradeSkill(RecipeDB,66583,450,40146,2,25229,nil,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66583,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,66583,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,66583,2,19065,2,33637,2,33680,2,28701)
 
 	-- Deadly Ametrine -- 66568
@@ -2653,7 +2653,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Deft Ametrine -- 66584
 	self:addTradeSkill(RecipeDB,66584,450,40150,2,25229,nil,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66584,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,66584,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,66584,2,19065,2,33637,2,33680,2,28701)
 
 	-- Potent Ametrine -- 66569
@@ -2683,7 +2683,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Resolute Ametrine -- 66586
 	self:addTradeSkill(RecipeDB,66586,450,40163,2,25229,nil,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66586,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,66586,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,66586,2,19065,2,33637,2,33680,2,28701)
 
 	-- Inscribed Ametrine -- 66567
@@ -2691,9 +2691,9 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,66567,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,66567,2,19065,2,33637,2,33680,2,28701)
 
-	-- Replendent Ametrine -- 66582
+	-- Resplendent Ametrine -- 66582
 	self:addTradeSkill(RecipeDB,66582,450,40145,2,25229,nil,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66582,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,66582,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,51)
 	self:addTradeAcquire(RecipeDB,66582,2,19065,2,33637,2,33680,2,28701)
 
 	-- Lucent Ametrine -- 66585
@@ -2773,7 +2773,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Enduring Eye of Zul -- 66338
 	self:addTradeSkill(RecipeDB,66338,450,40167,2,25229,nil,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66338,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41)
+	self:addTradeFlags(RecipeDB,66338,1,2,4,21,22,23,24,25,26,27,28,29,30,37,41,52)
 	self:addTradeAcquire(RecipeDB,66338,2,19065,2,33637,2,33680,2,28701)
 
 	-- Steady Eye of Zul -- 66428
