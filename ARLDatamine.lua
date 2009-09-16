@@ -1624,6 +1624,8 @@ do
 				scan_data.Cloak = true
 			elseif (strmatch("finger",  text)) then
 				scan_data.Ring = true
+			elseif (strmatch(text, "trinket")) then
+				scan_data.Trinket = true
 			elseif (strmatch(text, "necklace")) then
 				scan_data.Necklace = true
 			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil)) then
