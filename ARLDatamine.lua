@@ -1626,7 +1626,7 @@ do
 				scan_data.Ring = true
 			elseif (strmatch(text, "necklace")) then
 				scan_data.Necklace = true
-			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil)) then
+			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil)) then
 				scan_data.Shield = true
 				-- Weapon types
 			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
