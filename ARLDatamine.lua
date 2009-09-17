@@ -1595,7 +1595,7 @@ do
 				scan_data.Warlock = true
 				scan_data.found_class = true
 			end
-			if (strmatch(text, "warrior") and (strmatch(text, "Aquamarine Pendant of the Warrior") == nil)) then
+			if (strmatch(text, "warrior") and (strmatch(text, "aquamarine pendant of the warrior") == nil)) then
 				scan_data.Warrior = true
 				scan_data.found_class = true
 			end
@@ -1643,7 +1643,7 @@ do
 				scan_data.Mace = true
 			elseif (strmatch(text, "polearm")) then
 				scan_data.Polearm = true
-			elseif (strmatch(text, "dagger")) then
+			elseif (strmatch(text, "dagger") and (strmatch(text, "jade dagger pendant") == nil)) then
 				scan_data.Dagger = true
 			elseif (strmatch(text, "staff")) then
 				scan_data.Staff = true
