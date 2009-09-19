@@ -1347,9 +1347,6 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
 
-	playerData.filteredRecipes = 0
-	playerData.otherRecipes = 0
-
 	playerData.recipes_total = 0
 	playerData.recipes_known = 0
 	playerData.recipes_total_filtered = 0

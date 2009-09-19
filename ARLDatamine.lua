@@ -1338,12 +1338,12 @@ do
 	local ITEM_TYPES = {
 		-- Armor types
 		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58, 
-		["Plate"]	= 59, 	["Cloak"]	= 60, 	["Trinket"]	= 61, 
-		["Ring"]	= 62, 	["Necklace"]	= 63, 	["Shield"]	= 64, 
+		["Plate"]	= 59, 	["Back"]	= 60, 	["Trinket"]	= 61, 
+		["Finger"]	= 62, 	["Neck"]	= 63, 	["Shield"]	= 64, 
 		["RESERVED2"]	= 65, 
 
 		-- Weapon types
-		["OneHanded"]	= 66, 	["TwoHanded"]	= 67, 	["Axe"]		= 68, 
+		["One-Hand"]	= 66, 	["Two-Hand"]	= 67, 	["Axe"]		= 68, 
 		["Sword"]	= 69, 	["Mace"]	= 70, 	["Polearm"]	= 71, 
 		["Dagger"]	= 72, 	["Staff"]	= 73, 	["Wand"]	= 74, 
 		["Thrown"]	= 75, 	["Bow"]		= 76, 	["CrossBow"]	= 77, 
@@ -1353,12 +1353,12 @@ do
 	local ORDERED_ITEM_TYPES = {
 		-- Armor types
 		[1]	= "Cloth", 	[2]	= "Leather", 	[3]	= "Mail", 
-		[4]	= "Plate", 	[5]	= "Cloak", 	[6]	= "Trinket", 
-		[7]	= "Ring", 	[8]	= "Necklace", 	[9]	= "Shield", 
+		[4]	= "Plate", 	[5]	= "Back", 	[6]	= "Trinket", 
+		[7]	= "Finger", 	[8]	= "Neck", 	[9]	= "Shield", 
 		[10]	= "RESERVED2", 
 
 		-- Weapon types
-		[11]	= "OneHanded", 	[12]	= "TwoHanded", 	[13]	= "Axe", 
+		[11]	= "One-Hand", 	[12]	= "Two-Hand", 	[13]	= "Axe", 
 		[14]	= "Sword", 	[15]	= "Mace", 	[16]	= "Polearm", 
 		[17]	= "Dagger", 	[18]	= "Staff", 	[19]	= "Wand", 
 		[20]	= "Thrown", 	[21]	= "Bow", 	[22]	= "CrossBow", 
@@ -1378,7 +1378,7 @@ do
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
 	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
 		-- We only want to wipe the table if we're scanning a new entry (not an item associated with a spell ID)
-		if (not is_item) then
+		if not is_item then
 			twipe(scan_data)
 		end
 		scan_data.match_name = name
@@ -1559,14 +1559,17 @@ do
 				scan_data.Deathknight = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "druid")) then
 				scan_data.Druid = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "hunter")) then
 				scan_data.Hunter = true
 				scan_data.found_class = true
 			end
+
 			if ((strmatch(text, "mage")) and (strmatch(text, "damage") == nil)
 				and (strmatch(text, "mageweave") == nil)
 				and (strmatch(text, "archmage") == nil)
@@ -1575,22 +1578,27 @@ do
 				scan_data.Mage = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "paladin")) then
 				scan_data.Paladin = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "priest")) then
 				scan_data.Priest = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "rogue")) then
 				scan_data.Rogue = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "shaman")) then
 				scan_data.Shaman = true
 				scan_data.found_class = true
 			end
+
 			if (strmatch(text, "warlock")) then
 				scan_data.Warlock = true
 				scan_data.found_class = true
@@ -1599,71 +1607,21 @@ do
 				scan_data.Warrior = true
 				scan_data.found_class = true
 			end
+
 			-- Armor types
-			-- Check the end of the item for cloth and leather because we can craft something with those items in it
-			if (strmatch(text, "cloth$")) then
-				scan_data.Cloth = true
-			elseif (strmatch(text, "leather$")) then
-				scan_data.Leather = true
-			elseif (strmatch(text, "mail")) then
-				scan_data.Mail = true
-			elseif (strmatch(text, "plate") and (strmatch(text, "tough scorpid") == nil) and (strmatch(text, "volcanic") == nil)
-			and (strmatch(text, "felscale") == nil) and (strmatch(text, "netherstrike") == nil) and (strmatch(text, "red dragonscale") == nil)
-			and (strmatch(text, "ironfeather") == nil) and (strmatch(text, "felstalker") == nil) and  (strmatch(text, "turtle scale") == nil)
-			and  (strmatch(text, "blood tiger") == nil) and  (strmatch(text, "blue dragonscale") == nil) and  (strmatch(text, "feathered") == nil)
-			and (strmatch(text, "ensorcelled nerubian") == nil) and (strmatch(text, "crusader's dragonscale") == nil)
-			and (strmatch(text, "black dragonscale") == nil) and (strmatch(text, "green dragonscale") == nil) and (strmatch(text, "revenant's") == nil)
-			and (strmatch(text, "spitfire") == nil)  and (strmatch(text, "murloc scale") == nil) and (strmatch(text, "primalstorm") == nil)
-			and (strmatch(text, "living crystal") == nil) and (strmatch(text, "icy scale") == nil) and (strmatch(text, "living") == nil)
-			and (strmatch(text, "dragonscale") == nil) and (strmatch(text, "dark frostscale") == nil) and (strmatch(text, "sandstalker") == nil)
-			and (strmatch(text, "wildscale") == nil) and (strmatch(text, "thick netherscale") == nil) and (strmatch(text, "ebon netherscale") == nil)
-			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)
-			and (strmatch(text, "thick leather") == nil) and (strmatch(text, "bloodsoul") == nil) and (strmatch(text, "ironforge") == nil) and (strmatch(text, "steel breastplate") == nil)
-			and (strmatch(text, "runed copper") == nil) and (strmatch(text, "shining silver") == nil) and (strmatch(text, "barbaric iron breastplate") == nil) and (strmatch(text, "silvered bronze") == nil)
-			and (strmatch(text, "earthpeace") == nil) and (strmatch(text, "radiant") == nil)) then
-				scan_data.Plate = true
-			elseif ((strmatch(text, "back") or (strmatch(text, "embroidery"))) and (strmatch(text, "musselback") == nil)) then
-				scan_data.Cloak = true
-			elseif (strmatch("finger",  text)) then
-				scan_data.Ring = true
-			elseif (strmatch(text, "trinket")) then
-				scan_data.Trinket = true
-			elseif (strmatch(text, "necklace") or (strmatch(text, "neck"))) then
-				scan_data.Necklace = true
-			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil) and (strmatch(text, "shield block value") == nil)
-			and (strmatch(text, "shield.") == nil) and (strmatch(text, "shield block rating") == nil) and (strmatch(text, "block value of your shield") == nil) and (strmatch(text, "savage saronite skullshield") == nil) and (strmatch(text, "ornate saronite skullshield") == nil)) then
-				scan_data.Shield = true
-				-- Weapon types
-			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
-				scan_data.OneHanded = true
-			elseif (strmatch(text, "2 hand")) then
-				scan_data.TwoHanded = true
-			elseif (strmatch(text, "axe") and (strmatch(text, "whirling steel") == nil)) then
-				scan_data.Axe = true
-			elseif (strmatch(text, "sword") and (strmatch(text, "swordguard") == nil) and (strmatch(text, "swordbreakers") == nil)) then
-				scan_data.Sword = true
-			elseif (strmatch(text, "mace")) then
-				scan_data.Mace = true
-			elseif (strmatch(text, "polearm")) then
-				scan_data.Polearm = true
-			elseif (strmatch(text, "dagger") and (strmatch(text, "jade dagger pendant") == nil)) then
-				scan_data.Dagger = true
-			elseif (strmatch(text, "staff")) then
-				scan_data.Staff = true
-			elseif (strmatch(text, "wand")) then
-				scan_data.Wand = true
-			elseif (strmatch(text, "thrown")) then
-				scan_data.Thrown = true
-			elseif (strmatch(text, "bow") and (strmatch(text, "rainbow") == nil)) then
-				scan_data.Bow = true
-			elseif (strmatch(text, "crossbow")) then
-				scan_data.CrossBow = true
-			elseif (strmatch(text, "gun")) then
-				scan_data.Gun = true
-			elseif (strmatch(text, "ammo") and (strmatch(text, "mammoth") == nil)) then
-				scan_data.Ammo = true
-			elseif (strmatch(text, "fist") and (strmatch(text, "drakefist") == nil) and (strmatch(text, "battlefists") == nil)) then
-				scan_data.Fist = true
+			if text_l or text_r then
+				if text_l and ITEM_TYPES[text_l] then
+					scan_data[text_l] = true
+				end
+
+				if text_r and ITEM_TYPES[text_r] then
+					scan_data[text_r] = true
+				end
+
+				-- Special cases.
+				if text_l and (text_l == "Off Hand" or text_l == "Main Hand") then
+					scan_data["One-Hand"] = true
+				end
 			end
 		end	-- for
 		

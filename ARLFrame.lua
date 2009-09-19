@@ -4899,8 +4899,6 @@ function addon:DisplayFrame(
 	--	.playerSpecialty == Specialty if any or ""
 	--	.totalRecipes == Total recipes added to the database
 	--	.foundRecipes == Total recipes found that the player knows
-	--	.otherRecipes == Total non-profession recipes in the database
-	--	.filteredRecipes == Total recipes filtered
 	--	.playerFaction == Faction of the player
 	--	["Professions"] == list of all professions with the ones the player knows set as true
 	--	["Reputation"] == Reputation levels, what I had in current ARLform was if you didn't have the rep level, it would display it in red
