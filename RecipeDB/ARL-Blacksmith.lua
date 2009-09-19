@@ -1682,7 +1682,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Breastplate of Kings -- 34533
 	self:addTradeSkill(RecipeDB,34533,350,28483,1,2018,9788,1,350,360,370,380)
-	self:addTradeFlags(RecipeDB,34533,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,59)
+	self:addTradeFlags(RecipeDB,34533,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,59)
 	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Bulwark of Kings -- 34534
@@ -2104,7 +2104,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Spiked Cobalt Shoulders -- 54941
 	self:addTradeSkill(RecipeDB,54941,385,40950,2,2018,nil,2,385,390,395,400)
-	self:addTradeFlags(RecipeDB,54941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,54941,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,59)
 	self:addTradeAcquire(RecipeDB,54941,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Chestpiece -- 54944
@@ -2474,7 +2474,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Ornate Saronite Legplates -- 56554
 	self:addTradeSkill(RecipeDB,56554,425,42726,1,2018,nil,2,425,435,445,455)
-	self:addTradeFlags(RecipeDB,56554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,59)
+	self:addTradeFlags(RecipeDB,56554,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,59)
 	self:addTradeAcquire(RecipeDB,56554,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Ornate Saronite Hauberk -- 56555
