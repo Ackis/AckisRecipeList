@@ -1335,6 +1335,12 @@ do
 		[4]	= "caster", 	[5]	= "RESERVED1", 
 	}
 
+	local ENCHANT_TO_ITEM = {
+		["Cloak"]	= "Back",
+		["Ring"]	= "Finger",
+		["2H Weapon"]	= "Two-Hand",
+	}
+
 	local ITEM_TYPES = {
 		-- Armor types
 		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58, 
@@ -1393,7 +1399,7 @@ do
 			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
 			local text
  
-			if (text_r) then
+			if text_r then
 				text = text_l .. " " .. text_r
 			else
 				text = text_l
@@ -1417,12 +1423,11 @@ do
 			end
 
 			-- Recipe Reputations
-			if (strmatch(text, "Requires (.+) %- (.+)")) then
-				local rep, replevel = strmatch(text, "Requires (.+) %- (.+)")
-				if (FACTION_TEXT[rep]) then
-					scan_data.repid = FACTION_TEXT[rep]
-					scan_data.repidlevel = FACTION_LEVELS[replevel]
-				end
+			local rep, replevel = strmatch(text_l, "Requires (.+) %- (.+)")
+
+			if rep and replevel and FACTION_TEXT[rep] then
+				scan_data.repid = FACTION_TEXT[rep]
+				scan_data.repidlevel = FACTION_LEVELS[replevel]
 			end
 
 			-- Flag so that we don't bother checking for classes if we're sure of the class
@@ -1609,22 +1614,30 @@ do
 			end
 
 			-- Armor types
-			if text_l or text_r then
-				if text_l and ITEM_TYPES[text_l] then
-					scan_data[text_l] = true
-				end
+			if ITEM_TYPES[text_l] then
+				scan_data[text_l] = true
+			elseif text_l == "Off Hand" or text_l == "Main Hand" then	-- Special cases.
+				scan_data["One-Hand"] = true
+			end
 
-				if text_r and ITEM_TYPES[text_r] then
-					scan_data[text_r] = true
-				end
+			if text_r and ITEM_TYPES[text_r] then
+				scan_data[text_r] = true
+			end
 
-				-- Special cases.
-				if text_l and (text_l == "Off Hand" or text_l == "Main Hand") then
+			-- Enchantment voodoo
+			local ench_type, _ = strmatch(text_l, "Enchant (.+) %- (.+)")
+
+			if ench_type then
+				if ITEM_TYPES[ench_type] then
+					scan_data[ench_type] = true
+				elseif ITEM_TYPES[ENCHANT_TO_ITEM[ench_type]] then
+					scan_data[ENCHANT_TO_ITEM[ench_type]] = true
+				elseif ench_type == "Weapon" then		-- Special case.
 					scan_data["One-Hand"] = true
+					scan_data["Two-Hand"] = true
 				end
 			end
 		end	-- for
-		
 	end
 
 	-- Flag data for printing. Wiped and re-used.
@@ -1827,7 +1840,7 @@ do
 		-- Check for player role flags
 		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spellid]) then
 			addedtotable = true
-			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spellid .. ").  If this is erroneous,  please add the spell ID to the NO_PLAYER_FLAG table in the dataminer.")
+			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spellid .. ").")
 		end
 
 		if (scan_data.specialty) then
