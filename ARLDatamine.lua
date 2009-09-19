@@ -1796,9 +1796,11 @@ do
 			end
 
 			local count = 0
+			local types = ""
 
 			for k, v in ipairs(ORDERED_ITEM_TYPES) do
 				if scan_data[v] then
+					types = types .. (count == 0 and "" or ", ") .. k .. " (" .. v ..")"
 					count = count + 1
 				end
 			end
@@ -1806,7 +1808,7 @@ do
 			if count == 0 then
 				tinsert(output, "Missing: item type flag")
 			elseif count > 1 then
-				tinsert(output, "Extra: item type flag")
+				tinsert(output, "Extra item types in scan: ".. types)
 			end
 
 		end
