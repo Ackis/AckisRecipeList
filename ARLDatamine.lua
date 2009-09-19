@@ -1619,7 +1619,8 @@ do
 			and (strmatch(text, "wildscale") == nil) and (strmatch(text, "thick netherscale") == nil) and (strmatch(text, "ebon netherscale") == nil)
 			and (strmatch(text, "golden dragonstrike") == nil) and (strmatch(text, "dreamscale") == nil) and (strmatch(text, "razorstrike") == nil)
 			and (strmatch(text, "thick leather") == nil) and (strmatch(text, "bloodsoul") == nil) and (strmatch(text, "ironforge") == nil) and (strmatch(text, "steel breastplate") == nil)
-			and (strmatch(text, "runed copper") == nil) and (strmatch(text, "shining silver") == nil)) then
+			and (strmatch(text, "runed copper") == nil) and (strmatch(text, "shining silver") == nil) and (strmatch(text, "barbaric iron breastplate") == nil) and (strmatch(text, "silvered bronze") == nil)
+			and (strmatch(text, "earthpeace") == nil) and (strmatch(text, "radiant") == nil)) then
 				scan_data.Plate = true
 			elseif ((strmatch(text, "back") or (strmatch(text, "embroidery"))) and (strmatch(text, "musselback") == nil)) then
 				scan_data.Cloak = true
@@ -1630,14 +1631,14 @@ do
 			elseif (strmatch(text, "necklace") or (strmatch(text, "neck"))) then
 				scan_data.Necklace = true
 			elseif (strmatch(text, "shield") and (strmatch(text, "ironshield") == nil) and (strmatch(text, "stoneshield") == nil) and (strmatch(text, "shielding") == nil) and (strmatch(text, "agate shield") == nil) and (strmatch(text, "shield block value") == nil)
-			and (strmatch(text, "shield.") == nil) and (strmatch(text, "shield block rating") == nil) and (strmatch(text, "block value of your shield") == nil) and (strmatch(text, "savage saronite skullshield") == nil)) then
+			and (strmatch(text, "shield.") == nil) and (strmatch(text, "shield block rating") == nil) and (strmatch(text, "block value of your shield") == nil) and (strmatch(text, "savage saronite skullshield") == nil) and (strmatch(text, "ornate saronite skullshield") == nil)) then
 				scan_data.Shield = true
 				-- Weapon types
 			elseif (strmatch(text, "1 hand")) or (strmatch(text, "off hand")) then
 				scan_data.OneHanded = true
 			elseif (strmatch(text, "2 hand")) then
 				scan_data.TwoHanded = true
-			elseif (strmatch(text, "axe")) then
+			elseif (strmatch(text, "axe") and (strmatch(text, "whirling steel") == nil)) then
 				scan_data.Axe = true
 			elseif (strmatch(text, "sword") and (strmatch(text, "swordguard") == nil) and (strmatch(text, "swordbreakers") == nil)) then
 				scan_data.Sword = true
@@ -1661,7 +1662,7 @@ do
 				scan_data.Gun = true
 			elseif (strmatch(text, "ammo") and (strmatch(text, "mammoth") == nil)) then
 				scan_data.Ammo = true
-			elseif (strmatch(text, "fist") and (strmatch(text, "drakefist") == nil)) then
+			elseif (strmatch(text, "fist") and (strmatch(text, "drakefist") == nil) and (strmatch(text, "battlefists") == nil)) then
 				scan_data.Fist = true
 			end
 		end	-- for
