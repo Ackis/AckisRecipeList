@@ -1312,14 +1312,14 @@ do
 	}
 
 	local CLASS_TYPES = {
-		["Deathknight"]	= 21, 	["Druid"]	= 22, 	["Hunter"]	= 23, 
-		["Mage"]	= 24, 	["Paladin"]	= 25, 	["Priest"]	= 26, 
-		["Shaman"]	= 27, 	["Rogue"]	= 28, 	["Warlock"]	= 29, 
-		["Warrior"]	= 30, 
+		["Death Knight"]	= 21, 	["Druid"]	= 22, 	["Hunter"]	= 23, 
+		["Mage"]		= 24, 	["Paladin"]	= 25, 	["Priest"]	= 26, 
+		["Shaman"]		= 27, 	["Rogue"]	= 28, 	["Warlock"]	= 29, 
+		["Warrior"]		= 30, 
 	}
 
 	local ORDERED_CLASS_TYPES = {
-		[1]	= "Deathknight", 	[2]	= "Druid", 	[3]	= "Hunter", 
+		[1]	= "Death Knight", 	[2]	= "Druid", 	[3]	= "Hunter", 
 		[4]	= "Mage", 		[5]	= "Paladin", 	[6]	= "Priest", 
 		[7]	= "Shaman", 		[8]	= "Rogue", 	[9]	= "Warlock", 
 		[10]	= "Warrior", 
@@ -1560,57 +1560,15 @@ do
 			end
 
 			-- Classes
-			if (strmatch(text, "death knight")) then
-				scan_data.Deathknight = true
-				scan_data.found_class = true
-			end
+			local class_type = strmatch(text_l, "Classes: (.+)")
 
-			if (strmatch(text, "druid")) then
-				scan_data.Druid = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "hunter")) then
-				scan_data.Hunter = true
-				scan_data.found_class = true
-			end
-
-			if ((strmatch(text, "mage")) and (strmatch(text, "damage") == nil)
-				and (strmatch(text, "mageweave") == nil)
-				and (strmatch(text, "archmage") == nil)
-				and (strmatch(text, "mageroyal") == nil)
-				and (strmatch(text, "mageblood") == nil)) then
-				scan_data.Mage = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "paladin")) then
-				scan_data.Paladin = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "priest")) then
-				scan_data.Priest = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "rogue")) then
-				scan_data.Rogue = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "shaman")) then
-				scan_data.Shaman = true
-				scan_data.found_class = true
-			end
-
-			if (strmatch(text, "warlock")) then
-				scan_data.Warlock = true
-				scan_data.found_class = true
-			end
-			if (strmatch(text, "warrior") and (strmatch(text, "aquamarine pendant of the warrior") == nil)) then
-				scan_data.Warrior = true
-				scan_data.found_class = true
+			if class_type then
+				for idx, class in ipairs(ORDERED_CLASS_TYPES) do
+					if strmatch(class_type, class) then
+						scan_data[class] = true
+						scan_data.found_class = true
+					end
+				end
 			end
 
 			-- Armor types
@@ -1648,7 +1606,6 @@ do
 	--- Prints out the results of the tooltip scan.
 	-- @name AckisRecipeList:PrintScanResults
 	function addon:PrintScanResults()
-
 		-- Parse the recipe database until we get a match on the name
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
 		local spellid = scan_data.reverse_lookup[recipe_name]
@@ -1767,7 +1724,7 @@ do
 		local repid = scan_data.repid
 		local addedtotable = false
 
-		if ((repid) and (not flags[repid])) then
+		if repid and not flags[repid] then
 			tinsert(missing_flags, repid)
 
 			for i, j in pairs(acquire) do
