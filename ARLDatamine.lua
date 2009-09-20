@@ -1795,22 +1795,18 @@ do
 				tinsert(output, "Extra flags: " .. tconcat(extra_flags, ", "))
 			end
 
-			local count = 0
-			local types = ""
+			local found_type = false
 
 			for k, v in ipairs(ORDERED_ITEM_TYPES) do
 				if scan_data[v] then
-					types = types .. (count == 0 and "" or ", ") .. k .. " (" .. v ..")"
-					count = count + 1
+					found_type = true
+					break
 				end
 			end
 
-			if count == 0 then
+			if not found_type then
 				tinsert(output, "Missing: item type flag")
-			elseif count > 1 then
-				tinsert(output, "Extra item types in scan: ".. types)
 			end
-
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
