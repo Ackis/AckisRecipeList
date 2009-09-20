@@ -151,7 +151,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Bronze Mace -- 2740
 	self:addTradeSkill(RecipeDB,2740,110,2848,1,2018,nil,0,110,140,155,170)
-	self:addTradeFlags(RecipeDB,2740,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	self:addTradeFlags(RecipeDB,2740,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66,70)
 	self:addTradeAcquire(RecipeDB,2740,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341,1,28694,
 	1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,1,26981,1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
 
@@ -207,7 +207,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Deadly Bronze Poniard -- 3295
 	self:addTradeSkill(RecipeDB,3295,125,3490,2,2018,nil,0,125,155,170,195)
-	self:addTradeFlags(RecipeDB,3295,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,72)
+	self:addTradeFlags(RecipeDB,3295,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,66,72)
 	self:addTradeAcquire(RecipeDB,3295,7,2)
 
 	-- Heavy Bronze Mace -- 3296
@@ -307,23 +307,23 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Big Bronze Knife -- 3491
 	self:addTradeSkill(RecipeDB,3491,105,3848,1,2018,nil,0,105,135,150,165)
-	self:addTradeFlags(RecipeDB,3491,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,72)
+	self:addTradeFlags(RecipeDB,3491,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66,72)
 	self:addTradeAcquire(RecipeDB,3491,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341,
 	1,28694,1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,1,26981,1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
 
 	-- Hardened Iron Shortsword -- 3492
 	self:addTradeSkill(RecipeDB,3492,160,3849,1,2018,nil,0,160,185,197,210)
-	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,69)
+	self:addTradeFlags(RecipeDB,3492,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,66,69)
 	self:addTradeAcquire(RecipeDB,3492,2,2843,2,5512)
 
 	-- Jade Serpentblade -- 3493
 	self:addTradeSkill(RecipeDB,3493,175,3850,2,2018,nil,0,175,200,212,225)
-	self:addTradeFlags(RecipeDB,3493,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,69)
+	self:addTradeFlags(RecipeDB,3493,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,66,69)
 	self:addTradeAcquire(RecipeDB,3493,7,2)
 
 	-- Solid Iron Maul -- 3494
 	self:addTradeSkill(RecipeDB,3494,155,3851,1,2018,nil,0,155,180,192,205)
-	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	self:addTradeFlags(RecipeDB,3494,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,67,70)
 	self:addTradeAcquire(RecipeDB,3494,2,1471,2,8878,2,9179)
 
 	-- Golden Iron Destroyer -- 3495
@@ -333,7 +333,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Moonsteel Broadsword -- 3496
 	self:addTradeSkill(RecipeDB,3496,180,3853,1,2018,nil,0,180,205,217,230)
-	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	self:addTradeFlags(RecipeDB,3496,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,67,69)
 	self:addTradeAcquire(RecipeDB,3496,2,2482)
 
 	-- Frost Tiger Blade -- 3497
@@ -343,12 +343,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Massive Iron Axe -- 3498
 	self:addTradeSkill(RecipeDB,3498,185,3855,1,2018,nil,0,185,210,222,235)
-	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,68)
+	self:addTradeFlags(RecipeDB,3498,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,51,67,68)
 	self:addTradeAcquire(RecipeDB,3498,2,2483)
 
 	-- Shadow Crescent Axe -- 3500
 	self:addTradeSkill(RecipeDB,3500,200,3856,2,2018,nil,0,200,225,237,250)
-	self:addTradeFlags(RecipeDB,3500,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,68)
+	self:addTradeFlags(RecipeDB,3500,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,67,68)
 	self:addTradeAcquire(RecipeDB,3500,7,2)
 
 	-- Green Iron Bracers -- 3501
@@ -414,14 +414,14 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Pearl-handled Dagger -- 6517
 	self:addTradeSkill(RecipeDB,6517,110,5540,1,2018,nil,0,110,140,155,170)
-	self:addTradeFlags(RecipeDB,6517,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
+	self:addTradeFlags(RecipeDB,6517,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,72)
 	self:addTradeAcquire(RecipeDB,6517,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,
 	1,16669,1,16724,1,16823,1,19341,1,28694,1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,
 	1,26981,1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
 
 	-- Iridescent Hammer -- 6518
 	self:addTradeSkill(RecipeDB,6518,140,5541,2,2018,nil,0,140,170,185,200)
-	self:addTradeFlags(RecipeDB,6518,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,70)
+	self:addTradeFlags(RecipeDB,6518,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,51,66,70)
 	self:addTradeAcquire(RecipeDB,6518,7,2)
 
 	-- Iron Shield Spike -- 7221
@@ -448,7 +448,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Heavy Copper Maul -- 7408
 	self:addTradeSkill(RecipeDB,7408,65,6214,1,2018,nil,0,65,105,125,145)
-	self:addTradeFlags(RecipeDB,7408,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,70)
+	self:addTradeFlags(RecipeDB,7408,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,67,70)
 	self:addTradeAcquire(RecipeDB,7408,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,
 	1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631,1,33675,1,26981,1,26564,
 	1,26952,1,26904,1,29924)
@@ -478,7 +478,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Copper Dagger -- 8880
 	self:addTradeSkill(RecipeDB,8880,30,7166,1,2018,nil,0,30,70,90,110)
-	self:addTradeFlags(RecipeDB,8880,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,72)
+	self:addTradeFlags(RecipeDB,8880,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66,72)
 	self:addTradeAcquire(RecipeDB,8880,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,1,10276,
 	1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631,1,33675,1,26981,1,26564,
 	1,26952,1,26904,1,29924)
@@ -651,7 +651,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Copper Claymore -- 9983
 	self:addTradeSkill(RecipeDB,9983,30,7955,1,2018,nil,0,30,70,90,110)
-	self:addTradeFlags(RecipeDB,9983,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	self:addTradeFlags(RecipeDB,9983,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,67,69)
 	self:addTradeAcquire(RecipeDB,9983,1,514,1,957,1,1241,1,1383,1,2836,1,2998,1,3136,1,3174,1,3355,1,3478,1,3557,1,4258,1,4596,1,4605,1,5511,1,6299,1,10266,
 	1,10276,1,10277,1,10278,1,15400,1,16583,1,16669,1,16671,1,16724,1,16740,1,16823,1,17245,1,19341,1,28694,1,27034,1,33591,1,26988,1,33609,1,33631,1,33675,
 	1,26981,1,26564,1,26952,1,26904,1,29924)
@@ -664,13 +664,13 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Bronze Greatsword -- 9986
 	self:addTradeSkill(RecipeDB,9986,130,7957,1,2018,nil,0,130,160,175,190)
-	self:addTradeFlags(RecipeDB,9986,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,69)
+	self:addTradeFlags(RecipeDB,9986,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,67,69)
 	self:addTradeAcquire(RecipeDB,9986,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341,1,28694,
 	1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,1,26981,1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
 
 	-- Bronze Battle Axe -- 9987
 	self:addTradeSkill(RecipeDB,9987,135,7958,1,2018,nil,0,135,165,180,195)
-	self:addTradeFlags(RecipeDB,9987,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,68)
+	self:addTradeFlags(RecipeDB,9987,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,67,68)
 	self:addTradeAcquire(RecipeDB,9987,1,1383,1,2836,1,2998,1,3136,1,3355,1,3478,1,4258,1,4596,1,5511,1,10276,1,16583,1,16669,1,16724,1,16823,1,19341,1,28694,
 	1,27034,1,514,1,1241,1,33591,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,1,26981,1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
 
@@ -698,7 +698,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- The Shatterer -- 10003
 	self:addTradeSkill(RecipeDB,10003,235,7954,1,2018,nil,0,235,260,272,285)
-	self:addTradeFlags(RecipeDB,10003,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,70)
+	self:addTradeFlags(RecipeDB,10003,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66,70)
 	self:addTradeAcquire(RecipeDB,10003,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dazzling Mithril Rapier -- 10005
@@ -708,7 +708,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Phantom Blade -- 10007
 	self:addTradeSkill(RecipeDB,10007,245,7961,1,2018,nil,0,245,270,282,295)
-	self:addTradeFlags(RecipeDB,10007,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,69)
+	self:addTradeFlags(RecipeDB,10007,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,66,69)
 	self:addTradeAcquire(RecipeDB,10007,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Runed Mithril Hammer -- 10009
@@ -767,7 +767,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Dark Iron Pulverizer -- 15292
 	self:addTradeSkill(RecipeDB,15292,265,11608,3,2018,nil,0,265,285,295,305)
-	self:addTradeFlags(RecipeDB,15292,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
+	self:addTradeFlags(RecipeDB,15292,1,2,5,11,21,22,23,24,25,26,27,28,29,30,36,40,67,70)
 	self:addTradeAcquire(RecipeDB,15292,3,9028)
 
 	-- Dark Iron Sunderer -- 15294
@@ -1019,7 +1019,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Huge Thorium Battleaxe -- 16971
 	self:addTradeSkill(RecipeDB,16971,280,12775,1,2018,nil,0,280,305,317,330)
-	self:addTradeFlags(RecipeDB,16971,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,51,68)
+	self:addTradeFlags(RecipeDB,16971,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,41,51,67,68)
 	self:addTradeAcquire(RecipeDB,16971,2,11278,1,4258,1,5511,1,514,1,1241,1,16724,1,3355,1,2836,1,2998,
 	1,3478,1,3136,1,4596,1,3174,1,33609,1,33631,1,16823,1,15400,1,33675,1,17245,1,6299,1,3557)
 
@@ -1075,7 +1075,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Arcanite Reaper -- 16994
 	self:addTradeSkill(RecipeDB,16994,300,12784,3,2018,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,16994,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,51,68)
+	self:addTradeFlags(RecipeDB,16994,1,2,5,21,22,23,24,25,26,27,28,29,30,36,40,51,67,68)
 	self:addTradeAcquire(RecipeDB,16994,3,9596)
 
 	-- Heartseeker -- 16995
@@ -1192,12 +1192,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Black Amnesty -- 23638
 	self:addTradeSkill(RecipeDB,23638,300,19166,1,2018,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,23638,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,72,98)
+	self:addTradeFlags(RecipeDB,23638,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,66,72,98)
 	self:addTradeAcquire(RecipeDB,23638,6,59,3,12944)
 
 	-- Blackfury -- 23639
 	self:addTradeSkill(RecipeDB,23639,300,19167,1,2018,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,23639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,71,98)
+	self:addTradeFlags(RecipeDB,23639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,41,51,67,71,98)
 	self:addTradeAcquire(RecipeDB,23639,6,59,3,12944)
 
 	-- Ebon Hand -- 23650
@@ -1302,7 +1302,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Persuader -- 27830
 	self:addTradeSkill(RecipeDB,27830,300,22384,4,2018,nil,0,300,320,330,340)
-	self:addTradeFlags(RecipeDB,27830,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,70)
+	self:addTradeFlags(RecipeDB,27830,1,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,66,70)
 	self:addTradeAcquire(RecipeDB,27830,7,2)
 
 	-- Sageblade -- 27832
@@ -1622,12 +1622,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Eternium Runed Blade -- 29698
 	self:addTradeSkill(RecipeDB,29698,365,23554,4,2018,nil,1,365,375,385,395)
-	self:addTradeFlags(RecipeDB,29698,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,72)
+	self:addTradeFlags(RecipeDB,29698,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,53,54,66,72)
 	self:addTradeAcquire(RecipeDB,29698,7,4)
 
 	-- Dirge -- 29699
 	self:addTradeSkill(RecipeDB,29699,365,23555,4,2018,nil,1,365,375,385,395)
-	self:addTradeFlags(RecipeDB,29699,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,72)
+	self:addTradeFlags(RecipeDB,29699,1,2,5,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,66,72)
 	self:addTradeAcquire(RecipeDB,29699,7,2)
 
 	-- Hand of Eternity -- 29700
@@ -1692,7 +1692,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Fireguard -- 34535
 	self:addTradeSkill(RecipeDB,34535,350,28425,1,2018,17039,1,350,360,370,380)
-	self:addTradeFlags(RecipeDB,34535,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,69)
+	self:addTradeFlags(RecipeDB,34535,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,69)
 	self:addTradeAcquire(RecipeDB,34535,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Blazeguard -- 34537
@@ -1712,7 +1712,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- The Planar Edge -- 34541
 	self:addTradeSkill(RecipeDB,34541,350,28431,1,2018,17041,1,350,360,370,380)
-	self:addTradeFlags(RecipeDB,34541,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,68)
+	self:addTradeFlags(RecipeDB,34541,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,68)
 	self:addTradeAcquire(RecipeDB,34541,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Black Planar Edge -- 34542
@@ -1824,17 +1824,17 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Windforged Rapier -- 36131
 	self:addTradeSkill(RecipeDB,36131,330,30077,1,2018,17039,1,330,340,350,360)
-	self:addTradeFlags(RecipeDB,36131,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,69)
+	self:addTradeFlags(RecipeDB,36131,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,66,69)
 	self:addTradeAcquire(RecipeDB,36131,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stoneforged Claymore -- 36133
 	self:addTradeSkill(RecipeDB,36133,330,30086,1,2018,17039,1,330,340,350,360)
-	self:addTradeFlags(RecipeDB,36133,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,69)
+	self:addTradeFlags(RecipeDB,36133,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,69)
 	self:addTradeAcquire(RecipeDB,36133,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormforged Axe -- 36134
 	self:addTradeSkill(RecipeDB,36134,330,30087,1,2018,17041,1,330,340,350,360)
-	self:addTradeFlags(RecipeDB,36134,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,68)
+	self:addTradeFlags(RecipeDB,36134,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,68)
 	self:addTradeAcquire(RecipeDB,36134,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Skyforged Great Axe -- 36135
@@ -1849,7 +1849,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Great Earthforged Hammer -- 36137
 	self:addTradeSkill(RecipeDB,36137,330,30093,1,2018,17040,1,330,340,350,360)
-	self:addTradeFlags(RecipeDB,36137,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,70)
+	self:addTradeFlags(RecipeDB,36137,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,70)
 	self:addTradeAcquire(RecipeDB,36137,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Embrace of the Twisting Nether -- 36256
@@ -1864,32 +1864,32 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Blazefury -- 36258
 	self:addTradeSkill(RecipeDB,36258,375,28427,1,2018,17039,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36258,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,69)
+	self:addTradeFlags(RecipeDB,36258,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,69)
 	self:addTradeAcquire(RecipeDB,36258,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Lionheart Executioner -- 36259
 	self:addTradeSkill(RecipeDB,36259,375,28430,1,2018,17039,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36259,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,69)
+	self:addTradeFlags(RecipeDB,36259,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,69)
 	self:addTradeAcquire(RecipeDB,36259,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Wicked Edge of the Planes -- 36260
 	self:addTradeSkill(RecipeDB,36260,375,28433,1,2018,17041,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36260,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,68)
+	self:addTradeFlags(RecipeDB,36260,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,68)
 	self:addTradeAcquire(RecipeDB,36260,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Bloodmoon -- 36261
 	self:addTradeSkill(RecipeDB,36261,375,28436,1,2018,17041,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36261,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,68)
+	self:addTradeFlags(RecipeDB,36261,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,68)
 	self:addTradeAcquire(RecipeDB,36261,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Dragonstrike -- 36262
 	self:addTradeSkill(RecipeDB,36262,375,28439,1,2018,17040,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36262,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,70)
+	self:addTradeFlags(RecipeDB,36262,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,66,70)
 	self:addTradeAcquire(RecipeDB,36262,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Stormherald -- 36263
 	self:addTradeSkill(RecipeDB,36263,375,28442,1,2018,17040,1,375,385,395,405)
-	self:addTradeFlags(RecipeDB,36263,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,70)
+	self:addTradeFlags(RecipeDB,36263,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,70)
 	self:addTradeAcquire(RecipeDB,36263,1,7231,1,7232,1,11146,1,11178,1,20124,1,29505)
 
 	-- Belt of the Guardian -- 36389
@@ -1999,7 +1999,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Hammer of Righteous Might -- 43846
 	self:addTradeSkill(RecipeDB,43846,365,32854,4,2018,nil,1,365,375,385,395)
-	self:addTradeFlags(RecipeDB,43846,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,70)
+	self:addTradeFlags(RecipeDB,43846,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54,67,70)
 	self:addTradeAcquire(RecipeDB,43846,7,4)
 
 	-- Sunblessed Gauntlets -- 46140
@@ -2054,7 +2054,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Cobalt Triangle Shield -- 54550
 	self:addTradeSkill(RecipeDB,54550,360,40668,2,2018,nil,2,360,370,375,380)
-	self:addTradeFlags(RecipeDB,54550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
+	self:addTradeFlags(RecipeDB,54550,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64,66)
 	self:addTradeAcquire(RecipeDB,54550,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Belt -- 54551
@@ -2089,7 +2089,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Defender -- 54557
 	self:addTradeSkill(RecipeDB,54557,390,40670,3,2018,nil,2,390,395,400,405)
-	self:addTradeFlags(RecipeDB,54557,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
+	self:addTradeFlags(RecipeDB,54557,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64,66)
 	self:addTradeAcquire(RecipeDB,54557,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Cobalt Helm -- 54917
@@ -2164,7 +2164,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Bulwark -- 55014
 	self:addTradeSkill(RecipeDB,55014,410,41113,3,2018,nil,2,410,415,420,425)
-	self:addTradeFlags(RecipeDB,55014,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64)
+	self:addTradeFlags(RecipeDB,55014,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,52,64,66)
 	self:addTradeAcquire(RecipeDB,55014,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Saronite Gauntlets -- 55015
@@ -2204,7 +2204,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Savage Cobalt Slicer -- 55177
 	self:addTradeSkill(RecipeDB,55177,395,41182,3,2018,nil,2,395,400,405,410)
-	self:addTradeFlags(RecipeDB,55177,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,69)
+	self:addTradeFlags(RecipeDB,55177,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,69)
 	self:addTradeAcquire(RecipeDB,55177,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Ambusher -- 55179
@@ -2214,17 +2214,17 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Shiv -- 55181
 	self:addTradeSkill(RecipeDB,55181,405,41184,3,2018,nil,2,405,410,415,420)
-	self:addTradeFlags(RecipeDB,55181,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
+	self:addTradeFlags(RecipeDB,55181,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,72)
 	self:addTradeAcquire(RecipeDB,55181,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Furious Saronite Beatstick -- 55182
 	self:addTradeSkill(RecipeDB,55182,410,41185,3,2018,nil,2,410,415,420,425)
-	self:addTradeFlags(RecipeDB,55182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,70)
+	self:addTradeFlags(RecipeDB,55182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,70)
 	self:addTradeAcquire(RecipeDB,55182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Corroded Saronite Edge -- 55183
 	self:addTradeSkill(RecipeDB,55183,415,41186,3,2018,9787,2,415,420,425,430)
-	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,69)
+	self:addTradeFlags(RecipeDB,55183,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,66,69)
 	self:addTradeAcquire(RecipeDB,55183,1,11146,1,29505,1,11178)
 
 	-- Corroded Saronite Woundbringer -- 55184
@@ -2234,7 +2234,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Mindcrusher -- 55185
 	self:addTradeSkill(RecipeDB,55185,415,41188,3,2018,9787,2,415,420,425,430)
-	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,70)
+	self:addTradeFlags(RecipeDB,55185,1,2,3,21,22,23,24,25,26,27,28,29,30,37,41,51,67,70)
 	self:addTradeAcquire(RecipeDB,55185,1,11146,1,29505,1,11178)
 
 	-- Chestplate of Conquest -- 55186
@@ -2249,12 +2249,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	self:addTradeSkill(RecipeDB,55200,380,41239,2,2018,nil,2,380,385,390,395)
-	self:addTradeFlags(RecipeDB,55200,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,69)
+	self:addTradeFlags(RecipeDB,55200,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,69)
 	self:addTradeAcquire(RecipeDB,55200,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cobalt Tenderizer -- 55201
 	self:addTradeSkill(RecipeDB,55201,380,41240,2,2018,nil,2,380,385,390,395)
-	self:addTradeFlags(RecipeDB,55201,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,70)
+	self:addTradeFlags(RecipeDB,55201,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,70)
 	self:addTradeAcquire(RecipeDB,55201,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Sure-fire Shuriken -- 55202
@@ -2359,7 +2359,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Titansteel Guardian -- 55371
 	self:addTradeSkill(RecipeDB,55371,440,41384,4,2018,nil,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,55371,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,70)
+	self:addTradeFlags(RecipeDB,55371,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66,70)
 	self:addTradeAcquire(RecipeDB,55371,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Spiked Titansteel Helm -- 55372
@@ -2429,7 +2429,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Titansteel Shanker -- 56234
 	self:addTradeSkill(RecipeDB,56234,440,42435,4,2018,nil,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,56234,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,72)
+	self:addTradeFlags(RecipeDB,56234,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,66,72)
 	self:addTradeAcquire(RecipeDB,56234,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Cudgel of Saronite Justice -- 56280
@@ -2589,7 +2589,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Titansteel Spellblade -- 63182
 	self:addTradeSkill(RecipeDB,63182,440,45085,4,2018,nil,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,72)
+	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66,72)
 	self:addTradeAcquire(RecipeDB,63182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Some recipes are only availible to specific factions.
