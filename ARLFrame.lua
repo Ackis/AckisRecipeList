@@ -852,16 +852,6 @@ local function initDisplayStrings()
 end
 
 
-local function ClearRecipeButtonTooltip(bIndex)
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
-
-	pButton:SetScript("OnEnter", nil)
-	pButton:SetScript("OnLeave", nil)
-	rButton:SetScript("OnEnter", nil)
-	rButton:SetScript("OnLeave", nil)
-end
-
 -- Description: Converting from hex to rgb (Thanks Maldivia)
 
 local function toRGB(hex)
@@ -1334,173 +1324,178 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	end
 end
 
--- Description: This sets the tooltip on the button during a recipelist update
-
-local function SetRecipeButtonTooltip(bIndex)
-
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
-	local dStringIndex = rButton.sI
-	local rIndex = DisplayStrings[dStringIndex].sID
-	local playerFaction = playerData.playerFaction
-	local exclude = addon.db.profile.exclusionlist
-
-	pButton:SetScript("OnEnter",
-			function (pButton)
-				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
-			end
-		)
-
-	pButton:SetScript("OnLeave",
-			function()
-				QTip:Release(arlTooltip)
-				arlSpellTooltip:Hide()
-			end
-		)
-
-	rButton:SetScript("OnEnter",
-			function (rButton)
-				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
-			end
-		)
-
-	rButton:SetScript("OnLeave",
-			function()
-				QTip:Release(arlTooltip)
-				arlSpellTooltip:Hide()
-			end
-		)
-
-end
-
 -- Description: Scrollframe update stuff
+local RecipeList_Update
+do
+	local highlight = CreateFrame("Frame", nil, UIParent)
+	highlight:SetFrameStrata("TOOLTIP")
+	highlight:Hide()
 
-local function RecipeList_Update()
-	-- Clear out the current buttons
-	for i = 1, maxVisibleRecipes do
-		addon.RecipeListButton[i]:SetText("")
-		addon.RecipeListButton[i].sI = 0
-		addon.PlusListButton[i]:Hide()
-		ClearRecipeButtonTooltip(i)
+	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
+	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight._texture:SetBlendMode("ADD")
+	highlight._texture:SetAllPoints(highlight)
+
+
+	local function Button_OnLeave()
+		QTip:Release(arlTooltip)
+		arlSpellTooltip:Hide()
 	end
 
-	local entries = #DisplayStrings
+	local function Bar_OnEnter(self)
+		highlight:SetParent(self)
+		highlight:SetAllPoints(self)
+		highlight:Show()
+		GenerateTooltipContent(self, DisplayStrings[self.sI].sID, playerData.playerFaction, addon.db.profile.exclusionlist)
+	end
 
-	FauxScrollFrame_Update(ARL_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
+	local function Bar_OnLeave()
+		highlight:Hide()
+		highlight:ClearAllPoints()
+		highlight:SetParent(nil)
+		QTip:Release(arlTooltip)
+		arlSpellTooltip:Hide()
+	end
 
-	-- close all popups
-	addon:ClosePopups()
+	local function SetButtonScripts(bIndex)
+		local pButton = addon.PlusListButton[bIndex]
+		local rButton = addon.RecipeListButton[bIndex]
+		local dStringIndex = rButton.sI
+		local rIndex = DisplayStrings[dStringIndex].sID
+		local playerFaction = playerData.playerFaction
+		local exclude = addon.db.profile.exclusionlist
 
-	if (entries > 0) then
+		pButton:SetScript("OnEnter",
+				  function (pButton)
+					  GenerateTooltipContent(pButton, rIndex, playerFaction, addon.db.profile.exclusionlist)
+				  end)
 
-		-- enable expand button
-		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-		ARL_ExpandButton:Enable()
+		pButton:SetScript("OnLeave", Button_OnLeave)
 
-		-- now fill in our buttons
-		local listOffset = FauxScrollFrame_GetOffset(ARL_RecipeScrollFrame)
-		local buttonIndex = 1
-		local stringsIndex = buttonIndex + listOffset
+		rButton:SetScript("OnEnter", Bar_OnEnter)
+		rButton:SetScript("OnLeave", Bar_OnLeave)
+	end
 
-		local stayInLoop = true
+	local function ClearButtonScripts(bIndex)
+		local pButton = addon.PlusListButton[bIndex]
+		local rButton = addon.RecipeListButton[bIndex]
 
-		while (stayInLoop == true) do
+		pButton:SetScript("OnEnter", nil)
+		pButton:SetScript("OnLeave", nil)
+		rButton:SetScript("OnEnter", nil)
+		rButton:SetScript("OnLeave", nil)
+	end
 
-			if (DisplayStrings[stringsIndex].IsRecipe) then
+	function RecipeList_Update()
+		-- Clear out the current buttons
+		for i = 1, maxVisibleRecipes do
+			addon.RecipeListButton[i]:SetText("")
+			addon.RecipeListButton[i].sI = 0
+			addon.PlusListButton[i]:Hide()
+			ClearButtonScripts(i)
+		end
+		local entries = #DisplayStrings
 
-				-- display the + symbol
-				addon.PlusListButton[buttonIndex]:Show()
+		FauxScrollFrame_Update(ARL_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
+		addon:ClosePopups()
 
-				-- Is it expanded or not?
-				if (DisplayStrings[stringsIndex].IsExpanded) then
-					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+		if entries > 0 then
+			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+			ARL_ExpandButton:Enable()
+
+			-- now fill in our buttons
+			local listOffset = FauxScrollFrame_GetOffset(ARL_RecipeScrollFrame)
+			local buttonIndex = 1
+			local stringsIndex = buttonIndex + listOffset
+			local stayInLoop = true
+
+			while stayInLoop do
+				if DisplayStrings[stringsIndex].IsRecipe then
+					addon.PlusListButton[buttonIndex]:Show()
+
+					if DisplayStrings[stringsIndex].IsExpanded then
+						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+					else
+						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					end
 				else
-					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					addon.PlusListButton[buttonIndex]:Hide()
 				end
+				addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
+				addon.RecipeListButton[buttonIndex].sI = stringsIndex
 
-			else
-				addon.PlusListButton[buttonIndex]:Hide()
+				SetButtonScripts(buttonIndex)
+
+				buttonIndex = buttonIndex + 1
+				stringsIndex = stringsIndex + 1
+
+				if ((buttonIndex > maxVisibleRecipes) or (stringsIndex > entries)) then
+					stayInLoop = false
+				end
 			end
-
-			addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
-			addon.RecipeListButton[buttonIndex].sI = stringsIndex
-
-			-- Set the tooltip on the button
-			SetRecipeButtonTooltip(buttonIndex)
-
-			buttonIndex = buttonIndex + 1
-			stringsIndex = stringsIndex + 1
-
-			if ((buttonIndex > maxVisibleRecipes) or (stringsIndex > entries)) then
-				stayInLoop = false
-			end
-
-		end
-
-	-- Entries are 0 here, so we have 0 to display
-	else
-		-- disable expand button, it's useless here and would spam the same error again
-		ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
-		ARL_ExpandButton:Disable()
-
-		local showpopup = false
-
-		if (addon.db.profile.hidepopup ~= true) then
-			showpopup = true
-		end
-
-		-- If we haven't run this before we'll show pop-ups for the first time.
-		if (addon.db.profile.addonversion ~= addonversion) then
-			addon.db.profile.addonversion = addonversion
-			showpopup = true
-		end
-
-		-- If the recipe total is at 0, it means we have not scanned the profession yet
-		if (playerData.recipes_total == 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("ARL_NOTSCANNED")
-			end
-		-- We know all the recipes
-		elseif (playerData.recipes_known == playerData.recipes_total) then
-			if (showpopup == true) then
-				StaticPopup_Show("ARL_ALLKNOWN")
-			end
-		-- Our filters are actually filtering something
-		elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) == 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("ARL_ALLFILTERED")
-			end
-		-- Our exclusion list is preventing something from being displayed
-		elseif (playerData.excluded_recipes_unknown ~= 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("ARL_ALLEXCLUDED")
-			end
-		-- We have some search text that is preventing stuff from being displayed
-		elseif (ARL_SearchText:GetText() ~= "") then
-			StaticPopup_Show("ARL_SEARCHFILTERED")
+			-- Entries are 0 here, so we have 0 to display
 		else
-			addon:Print(L["NO_DISPLAY"])
-			addon:Print("DEBUG: recipes_total check for 0")
-			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
-			addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
-			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
-			addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
-			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
-			addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
-		end
+			-- disable expand button, it's useless here and would spam the same error again
+			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
+			ARL_ExpandButton:Disable()
 
+			local showpopup = false
+
+			if not addon.db.profile.hidepopup then
+				showpopup = true
+			end
+
+			-- If we haven't run this before we'll show pop-ups for the first time.
+			if addon.db.profile.addonversion ~= addonversion then
+				addon.db.profile.addonversion = addonversion
+				showpopup = true
+			end
+
+			-- If the recipe total is at 0, it means we have not scanned the profession yet
+			if playerData.recipes_total == 0 then
+				if showpopup then
+					StaticPopup_Show("ARL_NOTSCANNED")
+				end
+				-- We know all the recipes
+			elseif playerData.recipes_known == playerData.recipes_total then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLKNOWN")
+				end
+				-- Our filters are actually filtering something
+			elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) == 0) then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLFILTERED")
+				end
+				-- Our exclusion list is preventing something from being displayed
+			elseif playerData.excluded_recipes_unknown ~= 0 then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLEXCLUDED")
+				end
+				-- We have some search text that is preventing stuff from being displayed
+			elseif ARL_SearchText:GetText() ~= "" then
+				StaticPopup_Show("ARL_SEARCHFILTERED")
+			else
+				addon:Print(L["NO_DISPLAY"])
+				addon:Print("DEBUG: recipes_total check for 0")
+				addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
+				addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
+				addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
+				addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
+				addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
+				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
+				addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
+			end
+		end
 	end
-	
-end
+end	-- do
 
 -- Description: Updates the progress bar based on the number of known / total recipes
 
@@ -4944,7 +4939,7 @@ function addon:DisplayFrame(
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)		-- Set the texture on our switcher button correctly
 
 	-- Acquire the list, then sort it
-	recipeDB = self:GetRecipeTable()
+	recipeDB = self.recipe_list
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
 	SetProgressBar(cPlayer)							-- Update our progressbar
