@@ -1,6 +1,9 @@
-==ARL Changes
-===Version
-*Fixed the addon title in the ToC
+==ARL Change Log
+===Version 2500
+*Fixed the addon title in the ToC.
+*Fixed the tooltip flickering issue.
+*Updated many flags for different recipes, this will make the filtering a lot more accurate.
+*Refined the dataminer which will make flag updating easier.
 
 ===Version 2462
 *All trainer data has been added to the recipe databases
