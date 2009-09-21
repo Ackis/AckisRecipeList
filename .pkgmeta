@@ -23,8 +23,6 @@ ignore:
  - Docs
  - Dataminer
  - Locals/testenUS.lua
- - Locals/testdeDE.lua
- - Locals/testesMX.lua
 
 tools-used:
  - data-tools
