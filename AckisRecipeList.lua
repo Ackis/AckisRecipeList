@@ -1748,69 +1748,66 @@ do
 
 	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
 	function addon:SetRepDB()
-
-		if (playerData and playerData["Reputation"]) then
+		if playerData and playerData["Reputation"] then
 			self:GetFactionLevels(playerData["Reputation"])
 		end
-
 	end
 
 	---Initializes all the recipe databases to their initial
 	local function InitDatabases()
-
 		-- Initializes the custom list
-		if (CustomList == nil) then
+		if not CustomList then
 			CustomList = {}
 			addon:InitCustom(CustomList)
 		end
 
 		-- Initializes the mob list
-		if (MobList == nil) then
+		if not MobList then
 			MobList = {}
 			addon:InitMob(MobList)
 		end
 
 		-- Initializes the quest list
-		if (QuestList == nil) then
+		if not QuestList then
 			QuestList = {}
 			addon:InitQuest(QuestList)
 		end
 
 		-- Initializes the reputation list
-		if (ReputationList == nil) then
+		if not ReputationList then
 			ReputationList = {}
 			addon:InitReputation(ReputationList)
 		end
 
 		-- Initializes the trainer list
-		if (TrainerList == nil) then
+		if not TrainerList then
 			TrainerList = {}
 			addon:InitTrainer(TrainerList)
 		end
 
 		-- Initializes the season list
-		if (SeasonalList == nil) then
+		if not SeasonalList then
 			SeasonalList = {}
 			addon:InitSeasons(SeasonalList)
 		end
 
 		-- Initializes the vendor list
-		if (VendorList == nil) then
+		if not VendorList then
 			VendorList = {}
 			addon:InitVendor(VendorList)
 		end
 
 		-- Initializes the reputation filters
 		-- Don't assign values no because we do a scan later on
-		if (RepFilters == nil) then
+		if not RepFilters then
 			RepFilters = {}
 		end
 
 		-- Initializes the recipe list
-		if (RecipeList == nil) then
+		if not RecipeList then
 			RecipeList = {}
+			addon.recipe_list = RecipeList
 		end
-
 	end
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
@@ -1819,9 +1816,8 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:AckisRecipeList_Command(textdump)
-
 		-- If we don't have a trade skill window open, lets return out of here
-		if (not TRADE_WINDOW_OPENED) then
+		if not TRADE_WINDOW_OPENED then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		-- Trade type skills
@@ -1831,7 +1827,7 @@ do
 				InitPlayerData()
 			end
 			-- Lets create all the databases needed if this is the first time everything has been run.
-			if (RecipeList == nil) then
+			if not RecipeList then
 				InitDatabases()
 			end
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
@@ -1852,7 +1848,7 @@ do
 			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
 		end
 
-		if (textdump == true) then
+		if textdump then
 			self:DisplayTextDump(RecipeList, playerData.playerProfession)
 		else
 			self:DisplayFrame(playerData, AllSpecialtiesTable,
@@ -1867,14 +1863,11 @@ do
 	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
-
-		if (RecipeList) then
-			InitializeRecipes(RecipeList, profession)
-			return true
-		else
+		if not RecipeList then
 			return false
 		end
-
+		InitializeRecipes(RecipeList, profession)
+		return true
 	end
 
 	--- API for external addons to initialize the recipe database
@@ -1883,14 +1876,12 @@ do
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
-
-		if (RecipeList) then
+		if RecipeList then
 			return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 		else
 			InitDatabases()
 			return true, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 		end
-
 	end
 
 	--- API for external addons to get recipe information from ARL
@@ -1898,32 +1889,11 @@ do
 	-- @param spellID The spell ID of the recipe you want information about.
 	-- @return Table containing all spell ID information or nil if it's not found.
 	function addon:GetRecipeData(spellID)
-
-		if (RecipeList) then
-			if (RecipeList[spellID]) then
-				return RecipeList[spellID]
-			else
-				return nil
-			end
-		else
-			return nil
+		if not RecipeList then
+			return
 		end
-
+		return RecipeList[spellID]
 	end
-
-	--- API for external addons to get recipe database from ARL
-	-- @name AckisRecipeList:GetRecipeTable
-	-- @return Table containing all recipe information or nil if it's not found.
-	function addon:GetRecipeTable()
-
-		if (RecipeList) then
-			return RecipeList
-		else
-			return nil
-		end
-
-	end
-
 end
 
 -------------------------------------------------------------------------------
@@ -2146,7 +2116,7 @@ do
 	---Dumps all the info about a recipe out to chat
 	function addon:DumpRecipe(SpellID)
 
-		local recipelist = addon:GetRecipeTable()
+		local recipelist = addon.recipe_list
 
 		if not recipelist then return end
 
