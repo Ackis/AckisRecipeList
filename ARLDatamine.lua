@@ -1132,111 +1132,106 @@ do
 	local output = {}
 
 	function addon:TooltipScanRecipe(spellid, is_vendor, is_largescan)
-		local recipe_list = LoadRecipe()	-- Get internal database
-		twipe(output)
+		local recipe_list = LoadRecipe()
 
-		if (not recipe_list) then
+		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local reverse_lookup = CreateReverseLookup(recipe_list)
+		local spell_info = recipe_list[spellid]
 
-		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
-		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-
-		if (not recipe_list[spellid]) then
+		if not spell_info then
 			self:Print("Spell ID does not exist in the database.")
-			return nil
+			return
 		end
+		local reverse_lookup = CreateReverseLookup(recipe_list)
+		local recipe_name = spell_info["Name"]
+		local game_vers = spell_info["Game"]
 
-		local recipe_name = recipe_list[spellid]["Name"]
-		local recipe_link = recipe_list[spellid]["RecipeLink"]
-		local Game = recipe_list[spellid]["Game"]		-- Check for game version
+		twipe(output)
 
-		if (not Game) then
+		if not game_vers then
 			tinsert(output, "No expansion information: " .. tostring(spellid) .. " " .. recipe_name)
-		elseif (Game > 2) then
+		elseif game_vers > 2 then
 			tinsert(output, "Expansion information too high: " .. tostring(spellid) .. " " .. recipe_name)
 		end
+		local Orange = spell_info["Orange"]
+		local Yellow = spell_info["Yellow"]
+		local Green = spell_info["Green"]
+		local Grey = spell_info["Grey"]
+		local SkillLevel = spell_info["Level"]
 
-		local Orange = recipe_list[spellid]["Orange"]
-		local Yellow = recipe_list[spellid]["Yellow"]
-		local Green = recipe_list[spellid]["Green"]
-		local Grey = recipe_list[spellid]["Grey"]
-		local SkillLevel = recipe_list[spellid]["Level"]
-
-		-- No skill level information
-		if (not Orange) then
+		if not Orange then
 			tinsert(output, "No skill level information: " .. tostring(spellid) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
-			if (Orange > SkillLevel) then
+			if Orange > SkillLevel then
 				tinsert(output, "Skill Level Error (Orange > Skill): " .. tostring(spellid) .. " " .. recipe_name)
 			end
 			-- Level info is messed up
-			if (Orange > Yellow) or (Orange > Green) or (Orange > Grey) or (Yellow > Green) or (Yellow > Grey) or (Green > Grey) then
+			if Orange > Yellow or Orange > Green or Orange > Grey or Yellow > Green or Yellow > Grey or Green > Grey then
 				tinsert(output, "Skill Level Error: " .. tostring(spellid) .. " " .. recipe_name)
 			end
 		end
+		local recipe_link = spell_info["RecipeLink"]
 
-		-- If a link exists, we'll scan it.
-		if (recipe_link) then
-			ARLDatamineTT:SetHyperlink(recipe_link)	-- Load the tooltip
-
-			-- Lets check to see if it's a recipe tooltip
-			local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
-			local matchtext = strmatch(text, "%a+: ")
-
-			-- Check to see if we're dealing with a recipe
-			if (RECIPE_NAMES[matchtext]) then
-				-- Scan the recipe which is loaded on the tooltip
-				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
-
-				-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
-				local itemid = SPELL_ITEM[spellid]
-
-				if (itemid) then
-					local incache = GetItemInfo(itemid)
-
-					if (incache) then
-						ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
-						-- Scan the recipe item (aka pattern)
-						self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
-					else
-						tinsert(output, "Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
-					end
-					-- We are dealing with a recipe that does not have an item to learn it from
-				else
-					-- Lets check the recipe flags to see if we have a data error and the item should exist
-					local flags = recipe_list[spellid]["Flags"]
-
-					if (flags[4] or flags[5] or flags[6]) then
-						tinsert(output, "Spell ID: " .. spellid .. " Does not have a recipe pattern in the miner.  Please add it manually to the table SPELL_ITEM.")
-					end
-				end
-
-				-- Add the flag scan to the table if it's not nil
-				local results = self:PrintScanResults()
-
-				ARLDatamineTT:Hide()
-
-				if (results) then
-					tinsert(output, results)
-
-					if (is_largescan) then
-						return tconcat(output, "\n")
-					else
-						self:Print(tconcat(output, "\n"))
-					end
-				else
-					return nil
-				end
-			else
-				ARLDatamineTT:Hide()
+		if not recipe_link then
+			if spell_info["Profession"] ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
+				self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. recipe_name .. " (Normal for DK abilities.")
 			end
-			-- Lets hide this output for runeforging.
-		elseif (recipe_list[spellid]["Profession"] ~= GetSpellInfo(53428)) then
-			self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. recipe_name .. " (If these are DK abilities, don't worry, that's normal.")
+			return
+		end
+		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
+		ARLDatamineTT:SetHyperlink(recipe_link)	-- Link exists, so load the tooltip for scanning
+
+		-- Lets check to see if it's a recipe tooltip
+		local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
+		local matchtext = strmatch(text, "%a+: ")
+
+		-- Check to see if we're dealing with a recipe
+		if not RECIPE_NAMES[matchtext] then
+			ARLDatamineTT:Hide()
+			return
+		end
+		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
+
+		local itemid = SPELL_ITEM[spellid]
+
+		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
+		if itemid then
+			local incache = GetItemInfo(itemid)
+
+			if incache then
+				ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
+				-- Scan the recipe item (aka pattern)
+				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
+			else
+				tinsert(output, "Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
+			end
+			-- We are dealing with a recipe that does not have an item to learn it from
+		else
+			-- Lets check the recipe flags to see if we have a data error and the item should exist
+			local flags = spell_info["Flags"]
+
+			if (flags[4] or flags[5] or flags[6]) then
+				tinsert(output, "Spell ID: " .. spellid .. " does not exist in the SPELL_ITEM table.")
+			end
+		end
+		-- Add the flag scan to the table if it's not nil
+		local results = self:PrintScanResults()
+
+		ARLDatamineTT:Hide()
+
+		if not results then
+			return
+		end
+		tinsert(output, results)
+
+		if is_largescan then
+			return tconcat(output, "\n")
+		else
+			self:Print(tconcat(output, "\n"))
 		end
 	end
 end	-- do
