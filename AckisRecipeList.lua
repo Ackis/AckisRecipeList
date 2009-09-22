@@ -81,11 +81,6 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
 addon.optionsFrame = {}
-addon.ScanButton = nil
-addon.Frame = nil
-addon.ARLCopyFrame = nil
-_G["arlTooltip"] = nil
-_G["arlSpellTooltip"] = nil
 
 -- Make global API calls local to speed things up
 local GetNumTradeSkills = GetNumTradeSkills
@@ -281,13 +276,16 @@ function addon:OnInitialize()
 			}
 		}
 	}
-
-	addon.db = LibStub("AceDB-3.0"):New("ARLDB2",defaults)
+	addon.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
 	if (not addon.db) then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
+	local version = GetAddOnMetadata("AckisRecipeList", "Version")
+	version = string.gsub(version, "@project.revision@", "SVN")
+	self.version = version
+
 
 	self:SetupOptions()
 
@@ -299,7 +297,6 @@ end
 
 ---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
-
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 
@@ -340,7 +337,8 @@ function addon:OnEnable()
 
 	--Create the button now for later use
 	self:CreateScanButton()
-
+	self:InitializeFrame()
+	self.InitializeFrame = nil
 end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -2105,7 +2103,7 @@ function addon:GetTextDump(RecipeDB, profession)
 		end
 	end
 
-	return tconcat(texttable,"")
+	return tconcat(texttable, "")
 
 end
 
