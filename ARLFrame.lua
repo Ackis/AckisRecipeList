@@ -1973,45 +1973,41 @@ do
 	-- Output: Frame is toggled, etc depending on state.
 
 	function addon:ToggleFrame()
-
 		-- What profession is opened?
 		local cprof = GetTradeSkillLine()
 
 		-- The frame is visible
-		if (MainPanel and MainPanel:IsVisible()) then
+		if MainPanel:IsVisible() then
 			-- Shift only (Text dump)
-			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+			if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				self:Scan(true)
 			-- Alt only (Wipe icons from map)
-			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
+			elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 				self:ClearMap()
 			-- If we have the same profession open, then we close the scanned window
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (currentProfession == cprof) then
+			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() and currentProfession == cprof then
 				MainPanel:Hide()
 			-- If we have a different profession open we do a scan
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				self:Scan(false)
 				self:SetupMap()
 				currentProfession = cprof
 			end
-		-- Frame is hidden
 		else
 			currentProfession = cprof
 			-- Shift only (Text dump)
-			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+			if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				self:Scan(true)
 			-- Alt only (Wipe icons from map)
-			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
+			elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 				self:ClearMap()
 			-- No modification
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				self:Scan(false)
 				self:SetupMap()
 			end
 		end
-
 	end
-
 end
 
 -- Description: Set the texture on the switcher button.
@@ -3401,22 +3397,21 @@ function addon:InitializeFrame()
 						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 	ARL_FilterButton:SetScript("OnClick", function()
-						      local frame = MainPanel
 						      local xPos = frame:GetLeft()
 						      local yPos = frame:GetBottom()
 
-						      if frame._is_expanded then
+						      if MainPanel._is_expanded then
 							      -- Adjust the frame size and texture
-							      frame:ClearAllPoints()
-							      frame:SetWidth(293)
-							      frame:SetHeight(447)
+							      MainPanel:ClearAllPoints()
+							      MainPanel:SetWidth(293)
+							      MainPanel:SetHeight(447)
 
 							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
 							      addon.bgTexture:SetAllPoints(MainPanel)
 							      addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 
-							      frame._is_expanded = false
-							      frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+							      MainPanel._is_expanded = false
+							      MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
 							      ARL_ProgressBar:SetWidth(195)
 
 							      -- Change the text and tooltip for the filter button
@@ -3440,16 +3435,16 @@ function addon:InitializeFrame()
 							      ARL_ResetButton:Hide()
 						      else
 							      -- Adjust the frame size and texture
-							      frame:ClearAllPoints()
-							      frame:SetWidth(444)
-							      frame:SetHeight(447)
+							      MainPanel:ClearAllPoints()
+							      MainPanel:SetWidth(444)
+							      MainPanel:SetHeight(447)
 
 							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
 							      addon.bgTexture:SetAllPoints(MainPanel)
 							      addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 
-							      frame._is_expanded = true
-							      frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+							      MainPanel._is_expanded = true
+							      MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
 							      ARL_ProgressBar:SetWidth(345)
 
 							      -- Change the text and tooltip for the filter button
@@ -3467,7 +3462,7 @@ function addon:InitializeFrame()
 
 							      ARL_ResetButton:Show()
 						      end
-						      frame:ResetTitle()
+						      MainPanel:ResetTitle()
 					      end)
 
 	-------------------------------------------------------------------------------

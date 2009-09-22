@@ -314,7 +314,7 @@ function addon:OnEnable()
 			type = 'execute',
 			name = L["Scan"],
 			desc = L["SCAN_RECIPES_DESC"],
-			func = function() addon:AckisRecipeList_Command(false) end,
+			func = function() addon:Scan(false) end,
 			order = 550,
 		}
 	end
@@ -339,6 +339,9 @@ function addon:OnEnable()
 	self:CreateScanButton()
 	self:InitializeFrame()
 	self.InitializeFrame = nil
+
+	self:InitDatabases()
+	self.InitDatabases = nil
 end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1449,7 +1452,7 @@ function addon:ChatCommand(input)
 	elseif (input == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (input == strlower(L["Scan"])) then
-		self:AckisRecipeList_Command(false)
+		self:Scan(false)
 	elseif (input == strlower("scandata")) then
 		self:ScanSkillLevelData()
 	elseif (input == strlower("scanprof")) then
@@ -1469,21 +1472,21 @@ local function ResetKnown(RecipeDB)
 end
 
 do
-
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
 	local tsort = table.sort
 
-	local RecipeList = nil
+	local RecipeList = {}
 
-	local CustomList = nil
-	local MobList = nil
-	local QuestList = nil
-	local ReputationList = nil
-	local TrainerList = nil
-	local SeasonalList = nil
-	local VendorList = nil
-	local RepFilters = nil
+	-- Database tables.
+	local CustomList = {}
+	local MobList = {}
+	local QuestList = {}
+	local ReputationList = {}
+	local TrainerList = {}
+	local SeasonalList = {}
+	local VendorList = {}
+	local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 	local AllSpecialtiesTable = nil
 	local SpecialtyTable = nil
 
@@ -1752,99 +1755,51 @@ do
 	end
 
 	---Initializes all the recipe databases to their initial
-	local function InitDatabases()
-		-- Initializes the custom list
-		if not CustomList then
-			CustomList = {}
-			addon:InitCustom(CustomList)
-		end
+	function addon:InitDatabases()
+		addon:InitCustom(CustomList)
+		addon:InitMob(MobList)
+		addon:InitQuest(QuestList)
+		addon:InitReputation(ReputationList)
+		addon:InitTrainer(TrainerList)
+		addon:InitSeasons(SeasonalList)
+		addon:InitVendor(VendorList)
 
-		-- Initializes the mob list
-		if not MobList then
-			MobList = {}
-			addon:InitMob(MobList)
-		end
-
-		-- Initializes the quest list
-		if not QuestList then
-			QuestList = {}
-			addon:InitQuest(QuestList)
-		end
-
-		-- Initializes the reputation list
-		if not ReputationList then
-			ReputationList = {}
-			addon:InitReputation(ReputationList)
-		end
-
-		-- Initializes the trainer list
-		if not TrainerList then
-			TrainerList = {}
-			addon:InitTrainer(TrainerList)
-		end
-
-		-- Initializes the season list
-		if not SeasonalList then
-			SeasonalList = {}
-			addon:InitSeasons(SeasonalList)
-		end
-
-		-- Initializes the vendor list
-		if not VendorList then
-			VendorList = {}
-			addon:InitVendor(VendorList)
-		end
-
-		-- Initializes the reputation filters
-		-- Don't assign values no because we do a scan later on
-		if not RepFilters then
-			RepFilters = {}
-		end
-
-		-- Initializes the recipe list
-		if not RecipeList then
-			RecipeList = {}
-			addon.recipe_list = RecipeList
-		end
+		addon.recipe_list = RecipeList
 	end
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
-	-- @name AckisRecipeList:AckisRecipeList_Command
-	-- @usage AckisRecipeList:AckisRecipeList_Command(true)
+	-- @name AckisRecipeList:Scan
+	-- @usage AckisRecipeList:Scan(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
-	function addon:AckisRecipeList_Command(textdump)
+	function addon:Scan(textdump)
 		-- If we don't have a trade skill window open, lets return out of here
 		if not TRADE_WINDOW_OPENED then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
-		-- Trade type skills
-		else
-			-- First time a scan has been run, we need to get the player specific data, specifically faction information, profession information and other pertinent data.
-			if not playerData.playerClass then
-				InitPlayerData()
-			end
-			-- Lets create all the databases needed if this is the first time everything has been run.
-			if not RecipeList then
-				InitDatabases()
-			end
-			-- Get the name of the current trade skill opened, along with the current level of the skill.
-			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
-			-- Get the current profession Specialty
-			playerData.playerSpecialty = GetTradeSpecialty(SpecialtyTable, playerData)
-			-- Add the recipes to the database
-			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
-			-- Reset all the known flags
-			ResetKnown(RecipeList)
-			-- Scan all recipes and mark the ones which ones we know
-			self:ScanForKnownRecipes(RecipeList, playerData)
-			-- Update the table containing which reps to display
-			PopulateRepFilters(RepFilters)
-			-- Add filtering flags to the recipes
-			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
-			-- Mark excluded recipes
-			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
 		end
+
+		-- First time a scan has been run, we need to get the player specific data, specifically faction information, profession information and other pertinent data.
+		if not playerData.playerClass then
+			InitPlayerData()
+		end
+
+		-- Get the name of the current trade skill opened, along with the current level of the skill.
+		playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
+		-- Get the current profession Specialty
+		playerData.playerSpecialty = GetTradeSpecialty(SpecialtyTable, playerData)
+		-- Add the recipes to the database
+		playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
+		-- Reset all the known flags
+		ResetKnown(RecipeList)
+		-- Scan all recipes and mark the ones which ones we know
+		self:ScanForKnownRecipes(RecipeList, playerData)
+		-- Update the table containing which reps to display
+		PopulateRepFilters(RepFilters)
+		-- Add filtering flags to the recipes
+		self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
+		-- Mark excluded recipes
+		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
 
 		if textdump then
 			self:DisplayTextDump(RecipeList, playerData.playerProfession)
@@ -1874,12 +1829,7 @@ do
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
-		if RecipeList then
-			return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-		else
-			InitDatabases()
-			return true, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-		end
+		return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 	end
 
 	--- API for external addons to get recipe information from ARL
