@@ -46,9 +46,6 @@ local valliancewarsong = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Of
 local frosttaunka =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
 local explorerhand = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
 
-local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
-addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
-
 local function giveProfiles()
 
 	return LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
@@ -1067,7 +1064,7 @@ local function fullOptions()
 						version = {
 							order	= 11,
 							type	= "description",
-							name	= L["Version"] .. addonversion .. "\n",
+							name	= L["Version"] .. addon.version .. "\n",
 						},
 						run = {
 							order	= 12,
