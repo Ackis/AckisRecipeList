@@ -1634,9 +1634,9 @@ end	-- do
 
 
 -------------------------------------------------------------------------------
--- Displays a tooltip for the given frame.
+-- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
-local TooltipDisplay
+local SetTooltipScripts
 do
 	local function Show_Tooltip(frame, motion)
 		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
@@ -1648,7 +1648,7 @@ do
 		GameTooltip:Hide()
 	end
 
-	function TooltipDisplay(frame, textLabel)
+	function SetTooltipScripts(frame, textLabel)
 		frame.tooltip_text = textLabel
 
 		frame:SetScript("OnEnter", Show_Tooltip)
@@ -1672,7 +1672,7 @@ local function ReDisplay()
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	-- And update our scrollframe
 	RecipeList_Update()
@@ -1868,7 +1868,7 @@ do
 							     ReDisplay()
 						     end)
 		end
-		TooltipDisplay(cButton, ttText, 1)
+		SetTooltipScripts(cButton, ttText, 1)
 	end
 end	-- do
 
@@ -1910,11 +1910,11 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 
 		-- And throw up a tooltip
 		if (bName == "ARL_RepOldWorldCB") then
-			TooltipDisplay(cButton, L["FILTERING_OLDWORLD_DESC"])
+			SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
 		elseif (bName == "ARL_RepBCCB") then
-			TooltipDisplay(cButton, L["FILTERING_BC_DESC"])
+			SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
 		else
-			TooltipDisplay(cButton, L["FILTERING_WOTLK_DESC"])
+			SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
 		end
 
 		return cButton
@@ -1959,7 +1959,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 			cButton.text = cbText
 
 		-- And throw up a tooltip
-		TooltipDisplay(cButton, ExpButtonTT[panelIndex])
+		SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
 		cButton:Hide()
 		return cButton
 
@@ -2885,24 +2885,6 @@ local function expandallDisplayStrings()
 
 end
 
-
-function addon.ExpandAll_Clicked()
-
-	-- Called when the expand all button is clicked
-	if (ARL_ExpandButton:GetText() == L["EXPANDALL"]) then
-		ARL_ExpandButton:SetText(L["CONTRACTALL"])
-		TooltipDisplay(ARL_ExpandButton, L["CONTRACTALL_DESC"])
-		expandallDisplayStrings()
-	else
-		ARL_ExpandButton:SetText(L["EXPANDALL"])
-		TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
-		initDisplayStrings()
-	end
-	RecipeList_Update()
-
-end
-
-
 local function SetSortName()
 
 	local sorttype = addon.db.profile.sorting
@@ -3309,7 +3291,7 @@ do
 		button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
 
 		if tooltipText ~= "" then
-			TooltipDisplay(button, tooltipText)
+			SetTooltipScripts(button, tooltipText)
 		end
 		return button
 	end
@@ -3445,7 +3427,7 @@ local function InitializeFrame()
 
 							      -- Change the text and tooltip for the filter button
 							      ARL_FilterButton:SetText(L["FILTER_OPEN"])
-							      TooltipDisplay(ARL_FilterButton, L["FILTER_OPEN_DESC"])
+							      SetTooltipScripts(ARL_FilterButton, L["FILTER_OPEN_DESC"])
 
 							      -- Hide my 7 buttons
 							      ARL_ExpGeneralOptCB:Hide()
@@ -3478,7 +3460,7 @@ local function InitializeFrame()
 
 							      -- Change the text and tooltip for the filter button
 							      ARL_FilterButton:SetText(L["FILTER_CLOSE"])
-							      TooltipDisplay(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
+							      SetTooltipScripts(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
 
 							      -- Show my 7 buttons
 							      ARL_ExpGeneralOptCB:Show()
@@ -3510,7 +3492,20 @@ local function InitializeFrame()
 	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", addon.Frame,
 						     21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
-	ARL_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
+	ARL_ExpandButton:SetScript("OnClick", function(self, mouse_button, down)
+						      if self:GetText() == L["EXPANDALL"] then
+							      self:SetText(L["CONTRACTALL"])
+							      SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+							      expandallDisplayStrings()
+						      else
+							      self:SetText(L["EXPANDALL"])
+							      SetTooltipScripts(self, L["EXPANDALL_DESC"])
+							      initDisplayStrings()
+						      end
+						      RecipeList_Update()
+					      end)
+	ARL_ExpandButton:SetText(L["EXPANDALL"])
+	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", addon.Frame,
 						     25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
@@ -3529,7 +3524,7 @@ local function InitializeFrame()
 						   RecipeList_Update()
 
 						   ARL_ExpandButton:SetText(L["EXPANDALL"])
-						   TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+						   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						   ARL_SearchButton:Disable()
@@ -3546,7 +3541,7 @@ local function InitializeFrame()
 
 					  -- Make sure our expand all button is set to expandall
 					  ARL_ExpandButton:SetText(L["EXPANDALL"])
-					  TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+					  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 					  -- Make sure to clear the focus of the searchbox
 					  ARL_SearchText:ClearFocus()
@@ -3575,7 +3570,7 @@ local function InitializeFrame()
 						 RecipeList_Update()
 
 						 ARL_ExpandButton:SetText(L["EXPANDALL"])
-						 TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
+						 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						 ARL_SearchButton:Disable()
@@ -4710,7 +4705,7 @@ local function InitializeFrame()
 	ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 	ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 	ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-	TooltipDisplay(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+	SetTooltipScripts(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
 	ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 	ARL_MiscAltBtn:SetScript("OnClick",
 				 function(this, button)
@@ -4916,7 +4911,7 @@ function addon:DisplayFrame(
 		end
 	end
 
-	if (not self.Frame) then
+	if not self.Frame then
 		InitializeFrame()
 	end
 	SetFramePosition()							-- Set our addon frame position
@@ -4925,10 +4920,6 @@ function addon:DisplayFrame(
 	-- reset the scale
 	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
 	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
-
-	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
-	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	TooltipDisplay(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 	self.Frame:ResetTitle()							-- Reset our addon title text
 	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)		-- Set the texture on our switcher button correctly
@@ -4946,15 +4937,7 @@ function addon:DisplayFrame(
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-
 end
-
-local PaneBackdrop  = {
-	bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-	edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-	tile = true, tileSize = 16, edgeSize = 16,
-	insets = { left = 3, right = 3, top = 5, bottom = 3 }
-}
 
 --- Creates a new frame with the contents of a text dump so you can copy and paste
 -- Code borrowed from Antiarc (Chatter) with permission
@@ -4962,54 +4945,64 @@ local PaneBackdrop  = {
 -- @param RecipeDB The database (array) which you wish read data from.
 -- @param profession Which profession are you displaying data for
 -- @param text The text to be dumped
-function addon:DisplayTextDump(RecipeDB, profession, text)
+do
 
-	local textdump
+	local PaneBackdrop  = {
+		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+		tile = true, tileSize = 16, edgeSize = 16,
+		insets = { left = 3, right = 3, top = 5, bottom = 3 }
+	}
 
-	-- If we don't send in a RecipeDB and profession, just dump the text
-	if (not RecipeDB and not profession) then
-		textdump = text
-	else
-		textdump = self:GetTextDump(RecipeDB,profession)
+	function addon:DisplayTextDump(RecipeDB, profession, text)
+		local textdump
+
+		-- If we don't send in a RecipeDB and profession, just dump the text
+		if not RecipeDB and not profession then
+			textdump = text
+		else
+			textdump = self:GetTextDump(RecipeDB, profession)
+		end
+
+		-- If we haven't created these frames, then lets do so now.
+		if not addon.copy_frame then
+			local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
+			copy_frame:SetBackdrop(PaneBackdrop)
+			copy_frame:SetBackdropColor(0,0,0,1)
+			copy_frame:SetWidth(750)
+			copy_frame:SetHeight(400)
+			copy_frame:SetPoint("CENTER", UIParent, "CENTER")
+			copy_frame:SetFrameStrata("DIALOG")
+
+			tinsert(UISpecialFrames, "ARLCopyFrame")
+
+			local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+			scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
+			scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
+		
+			copy_frame.editBox = CreateFrame("EditBox", "ARLCopyEdit", copy_frame)
+			copy_frame.editBox:SetMultiLine(true)
+			copy_frame.editBox:SetMaxLetters(99999)
+			copy_frame.editBox:EnableMouse(true)
+			copy_frame.editBox:SetAutoFocus(true)
+			copy_frame.editBox:SetFontObject(ChatFontNormal)
+			copy_frame.editBox:SetWidth(650)
+			copy_frame.editBox:SetHeight(270)
+			copy_frame.editBox:SetScript("OnEscapePressed", function() addon.copy_frame:Hide() end)
+			copy_frame.editBox:SetText(textdump)
+			copy_frame.editBox:HighlightText(0)
+
+			scrollArea:SetScrollChild(copy_frame.editBox)
+		
+			local close = CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+			close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
+
+			addon.copy_frame = copy_frame
+			copy_frame:Show()
+		else
+			addon.copy_frame.editBox:SetText(textdump)
+			addon.copy_frame.editBox:HighlightText(0)
+			addon.copy_frame:Show()
+		end
 	end
-
-	-- If we haven't created these frames, then lets do so now.
-	if (not addon.ARLCopyFrame) then
-		addon.ARLCopyFrame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
-		tinsert(UISpecialFrames, "ARLCopyFrame")
-		addon.ARLCopyFrame:SetBackdrop(PaneBackdrop)
-		addon.ARLCopyFrame:SetBackdropColor(0,0,0,1)
-		addon.ARLCopyFrame:SetWidth(750)
-		addon.ARLCopyFrame:SetHeight(400)
-		addon.ARLCopyFrame:SetPoint("CENTER", UIParent, "CENTER")
-		addon.ARLCopyFrame:SetFrameStrata("DIALOG")
-		
-		local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", addon.ARLCopyFrame, "UIPanelScrollFrameTemplate")
-		scrollArea:SetPoint("TOPLEFT", addon.ARLCopyFrame, "TOPLEFT", 8, -30)
-		scrollArea:SetPoint("BOTTOMRIGHT", addon.ARLCopyFrame, "BOTTOMRIGHT", -30, 8)
-		
-		addon.ARLCopyFrame.editBox = CreateFrame("EditBox", "ARLCopyEdit", addon.ARLCopyFrame)
-		addon.ARLCopyFrame.editBox:SetMultiLine(true)
-		addon.ARLCopyFrame.editBox:SetMaxLetters(99999)
-		addon.ARLCopyFrame.editBox:EnableMouse(true)
-		addon.ARLCopyFrame.editBox:SetAutoFocus(true)
-		addon.ARLCopyFrame.editBox:SetFontObject(ChatFontNormal)
-		addon.ARLCopyFrame.editBox:SetWidth(650)
-		addon.ARLCopyFrame.editBox:SetHeight(270)
-		addon.ARLCopyFrame.editBox:SetScript("OnEscapePressed", function() addon.ARLCopyFrame:Hide() end)
-		addon.ARLCopyFrame.editBox:SetText(textdump)
-		addon.ARLCopyFrame.editBox:HighlightText(0)
-		
-		scrollArea:SetScrollChild(addon.ARLCopyFrame.editBox)
-		
-		local close = CreateFrame("Button", nil, addon.ARLCopyFrame, "UIPanelCloseButton")
-		close:SetPoint("TOPRIGHT", addon.ARLCopyFrame, "TOPRIGHT")
-		
-		addon.ARLCopyFrame:Show()
-	else
-		addon.ARLCopyFrame.editBox:SetText(textdump)
-		addon.ARLCopyFrame.editBox:HighlightText(0)
-		addon.ARLCopyFrame:Show()
-	end
-
-end
+end	-- do
