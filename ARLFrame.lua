@@ -80,16 +80,18 @@ local IsControlKeyDown = IsControlKeyDown
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local NUM_RECIPE_LINES = 24	-- Number of visible lines in the scrollframe.
+local NUM_RECIPE_LINES = 24			-- Number of visible lines in the scrollframe.
+local SEASONAL_CATEGORY = GetCategoryInfo(155)	-- Localized string - "World Events"
 
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
 local currentProfIndex = 0
 local currentProfession = ""
-local FilterValueMap		-- Assigned in InitializeFrame()
+local FilterValueMap		-- Assigned in addon:InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
+local MainPanel			-- Assigned in addon:InitializeFrame(), then set as addon.Frame
 
 -------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
@@ -100,9 +102,6 @@ local allSpecTable
 local playerData
 
 local sortedRecipeIndex
-
-local seasonal = GetCategoryInfo(155)
-
 
 -------------------------------------------------------------------------------
 -- Fonts
@@ -136,9 +135,6 @@ end
 
 local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
-
-local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
-addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
@@ -940,9 +936,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	if (acquireTooltipLocation == L["Off"]) then
 		QTip:Release(arlTooltip)
-		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
+		-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
 		if (spellTooltipLocation ~= L["Off"]) and (spellLink) then
-			SetSpellTooltip(addon.Frame, spellTooltipLocation, spellLink)
+			SetSpellTooltip(MainPanel, spellTooltipLocation, spellLink)
 		else
 			arlSpellTooltip:Hide()
 		end
@@ -953,13 +949,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	arlTooltip:ClearAllPoints()
 
 	if (acquireTooltipLocation == "Right") then
-		arlTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
+		arlTooltip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT")
 	elseif (acquireTooltipLocation == "Left") then
-		arlTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
+		arlTooltip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
 	elseif (acquireTooltipLocation == "Top") then
-		arlTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
+		arlTooltip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
 	elseif (acquireTooltipLocation == "Bottom") then
-		arlTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
+		arlTooltip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT")
 	elseif (acquireTooltipLocation == "Mouse") then
 		arlTooltip:ClearAllPoints()
 		local x,y = GetCursorPosition()
@@ -1180,7 +1176,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
-			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
+			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, ssnname, clr1)
 		elseif (v["Type"] == ACQUIRE_REPUTATION) then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
@@ -1456,8 +1452,8 @@ do
 			end
 
 			-- If we haven't run this before we'll show pop-ups for the first time.
-			if addon.db.profile.addonversion ~= addonversion then
-				addon.db.profile.addonversion = addonversion
+			if addon.db.profile.addonversion ~= addon.version then
+				addon.db.profile.addonversion = addon.version
 				showpopup = true
 			end
 
@@ -1859,7 +1855,7 @@ do
 		if misc == 0 then
 			cButton:SetScript("OnClick", function()
 							     FilterValueMap[scriptVal].svroot[scriptVal] = FilterValueMap[scriptVal].cb:GetChecked() and true or false
-							     addon.Frame:ResetTitle()
+							     MainPanel:ResetTitle()
 							     ReDisplay()
 						     end)
 		else
@@ -1919,7 +1915,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 
 		return cButton
 	else 
-		local cButton = CreateFrame("CheckButton", bName, addon.Frame) -- , "UICheckButtonTemplate")
+		local cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
 			cButton:SetWidth(ExpTextureSize)
 			cButton:SetHeight(ExpTextureSize)
 			cButton:SetScript("OnClick", function() 
@@ -1982,7 +1978,7 @@ do
 		local cprof = GetTradeSkillLine()
 
 		-- The frame is visible
-		if (addon.Frame and addon.Frame:IsVisible()) then
+		if (MainPanel and MainPanel:IsVisible()) then
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:AckisRecipeList_Command(true)
@@ -1991,7 +1987,7 @@ do
 				self:ClearMap()
 			-- If we have the same profession open, then we close the scanned window
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (currentProfession == cprof) then
-				addon.Frame:Hide()
+				MainPanel:Hide()
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:AckisRecipeList_Command(false)
@@ -2156,7 +2152,7 @@ function addon:SwitchProfs(button)
 	end
 	ReleaseTable(expandtable)
 	ReDisplay()
-	addon.Frame:ResetTitle()
+	MainPanel:ResetTitle()
 
 end
 
@@ -2304,7 +2300,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		elseif (v["Type"] == ACQUIRE_SEASONAL) and obtainDB.seasonal then
-			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
+			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -2960,11 +2956,11 @@ end
 local function SaveFramePosition()
 
 	local opts = addon.db.profile.frameopts
-	local from, _, to, x, y = addon.Frame:GetPoint()
+	local from, _, to, x, y = MainPanel:GetPoint()
 	opts.anchorFrom = from
 	opts.anchorTo = to
 
-	if addon.Frame._is_expanded then
+	if MainPanel._is_expanded then
 		if (opts.anchorFrom == "TOPLEFT") or (opts.anchorFrom == "LEFT") or (opts.anchorFrom == "BOTTOMLEFT") then
 			opts.offsetx = x
 		elseif (opts.anchorFrom == "TOP") or (opts.anchorFrom == "CENTER") or (opts.anchorFrom == "BOTTOM") then
@@ -2981,7 +2977,7 @@ end
 
 local function SetFramePosition()
 
-	addon.Frame:ClearAllPoints()
+	MainPanel:ClearAllPoints()
 
 	local opts = addon.db.profile.frameopts
 	local FixedOffsetX = opts.offsetx
@@ -2990,19 +2986,19 @@ local function SetFramePosition()
 		-- no values yet, clamp to whatever frame is appropriate
 		if (ATSWFrame) then
 			-- Anchor frame to ATSW
-			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+			MainPanel:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
 		elseif (CauldronFrame) then
 			-- Anchor frame to Cauldron
-			addon.Frame:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
+			MainPanel:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
 		elseif (Skillet) then
 			-- Anchor frame to Skillet
-			addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+			MainPanel:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
 		else
 			-- Anchor to default tradeskill frame
-			addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+			MainPanel:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
 		end
 	else
-		if addon.Frame._is_expanded then
+		if MainPanel._is_expanded then
 			if (opts.anchorFrom == "TOPLEFT") or
 			(opts.anchorFrom == "LEFT") or
 			(opts.anchorFrom == "BOTTOMLEFT") then
@@ -3017,7 +3013,7 @@ local function SetFramePosition()
 				FixedOffsetX = opts.offsetx + 151
 			end
 		end
-		addon.Frame:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+		MainPanel:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
 	end
 
 end
@@ -3300,7 +3296,7 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Creates the initial frame to display recipes into.
 -------------------------------------------------------------------------------
-local function InitializeFrame()
+function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
@@ -3318,15 +3314,17 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the main frame.
 	-------------------------------------------------------------------------------
-	addon.Frame = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+	MainPanel = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+	MainPanel:SetWidth(293)
+	MainPanel:SetHeight(447)
+	MainPanel:SetFrameStrata("DIALOG")
+	MainPanel:SetHitRectInsets(5, 5, 5, 5)
 
-	-- Allows ARL to be closed with the Escape key
-	tinsert(UISpecialFrames, "AckisRecipeList.Frame")
+	MainPanel:EnableMouse(true)
+	MainPanel:EnableKeyboard(true)
+	MainPanel:SetMovable(true)
 
-	addon.Frame:SetWidth(293)
-	addon.Frame:SetHeight(447)
-
-	function addon.Frame:ResetTitle()
+	function MainPanel:ResetTitle()
 		local new_title = ""	-- reset the frame title line
 
 		if self._is_expanded then
@@ -3340,74 +3338,70 @@ local function InitializeFrame()
 					total = total + 1
 				end
 			end
-			new_title = "ARL (v." .. addonversion .. ") - " .. currentProfession ..
+			new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession ..
 				" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
 		else
-			new_title = "ARL (v." .. addonversion .. ") - " .. currentProfession
+			new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession
 		end
 		self.HeadingText:SetText(addon:Normal(new_title))
 	end
+	tinsert(UISpecialFrames, "AckisRecipeList.Frame")	-- Allows ARL to be closed with the Escape key
+	addon.Frame = MainPanel
 
-	addon.bgTexture = addon.Frame:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
+	addon.bgTexture = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
 	addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-	addon.bgTexture:SetAllPoints(addon.Frame)
+	addon.bgTexture:SetAllPoints(MainPanel)
 	addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-	addon.Frame:SetFrameStrata("DIALOG")
-	addon.Frame:SetHitRectInsets(5, 5, 5, 5)
-
-	addon.Frame:EnableMouse(true)
-	addon.Frame:EnableKeyboard(true)
-	addon.Frame:SetMovable(true)
 
 	-------------------------------------------------------------------------------
 	-- Assign the frame scripts, then show it.
 	-------------------------------------------------------------------------------
-	addon.Frame:SetScript("OnMouseDown", function() addon.Frame:StartMoving() end)
-	addon.Frame:SetScript("OnHide", function() addon:CloseWindow() end)
-	addon.Frame:SetScript("OnMouseUp",
+	MainPanel:SetScript("OnMouseDown", function() MainPanel:StartMoving() end)
+	MainPanel:SetScript("OnHide", function() addon:CloseWindow() end)
+	MainPanel:SetScript("OnMouseUp",
 			      function()
-				      addon.Frame:StopMovingOrSizing()
+				      MainPanel:StopMovingOrSizing()
 				      SaveFramePosition()
 			      end)
 
-	addon.Frame:Show()
-	addon.Frame._is_expanded = false
+	MainPanel:Show()
+	MainPanel._is_expanded = false
 
 	-------------------------------------------------------------------------------
 	-- Create and position the header.
 	-------------------------------------------------------------------------------
-	addon.Frame.HeadingText = addon.Frame:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
-	addon.Frame.HeadingText:SetFontObject("GameFontHighlightSmall")
-	addon.Frame.HeadingText:ClearAllPoints()
-	addon.Frame.HeadingText:SetPoint("TOP", addon.Frame, "TOP", 20, -16)
-	addon.Frame.HeadingText:SetJustifyH("CENTER")
+	MainPanel.HeadingText = MainPanel:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
+	MainPanel.HeadingText:SetFontObject("GameFontHighlightSmall")
+	MainPanel.HeadingText:ClearAllPoints()
+	MainPanel.HeadingText:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+	MainPanel.HeadingText:SetJustifyH("CENTER")
 
 	-------------------------------------------------------------------------------
 	-- Create the switcher button and assign its scripts.
 	-------------------------------------------------------------------------------
-	local ARL_SwitcherButton = CreateFrame("Button", "ARL_SwitcherButton", addon.Frame, "UIPanelButtonTemplate")
+	local ARL_SwitcherButton = CreateFrame("Button", "ARL_SwitcherButton", MainPanel, "UIPanelButtonTemplate")
 	ARL_SwitcherButton:SetWidth(64)
 	ARL_SwitcherButton:SetHeight(64)
-	ARL_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
+	ARL_SwitcherButton:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
 	ARL_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_SwitcherButton:SetScript("OnClick", function(self, button) addon:SwitchProfs(button) end)
 
 	-------------------------------------------------------------------------------
 	-- Stuff in the non-expanded frame (or both)
 	-------------------------------------------------------------------------------
-	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", addon.Frame, "UIPanelCloseButton")
+	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", MainPanel, "UIPanelCloseButton")
 	-- Close all possible pop-up windows
 	ARL_CloseXButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
-	ARL_CloseXButton:SetPoint("TOPRIGHT", addon.Frame, "TOPRIGHT", 5, -6)
+	ARL_CloseXButton:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
 
 	-------------------------------------------------------------------------------
 	-- Create the filter button, position it, and set its scripts.
 	-------------------------------------------------------------------------------
-	local ARL_FilterButton = GenericCreateButton("ARL_FilterButton", addon.Frame,
-						     25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
+	local ARL_FilterButton = GenericCreateButton("ARL_FilterButton", MainPanel,
+						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 	ARL_FilterButton:SetScript("OnClick", function()
-						      local frame = addon.Frame
+						      local frame = MainPanel
 						      local xPos = frame:GetLeft()
 						      local yPos = frame:GetBottom()
 
@@ -3418,7 +3412,7 @@ local function InitializeFrame()
 							      frame:SetHeight(447)
 
 							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
-							      addon.bgTexture:SetAllPoints(addon.Frame)
+							      addon.bgTexture:SetAllPoints(MainPanel)
 							      addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 
 							      frame._is_expanded = false
@@ -3451,7 +3445,7 @@ local function InitializeFrame()
 							      frame:SetHeight(447)
 
 							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
-							      addon.bgTexture:SetAllPoints(addon.Frame)
+							      addon.bgTexture:SetAllPoints(MainPanel)
 							      addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 
 							      frame._is_expanded = true
@@ -3483,13 +3477,13 @@ local function InitializeFrame()
 		addon.db.profile.sorting = "SkillAsc"
 	end
 
-	local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
-	ARL_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
+	local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
+	ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
 	ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
 	SetSortName()
 	UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 
-	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", addon.Frame,
+	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel,
 						     21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 	ARL_ExpandButton:SetScript("OnClick", function(self, mouse_button, down)
@@ -3507,7 +3501,7 @@ local function InitializeFrame()
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
 	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
-	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", addon.Frame,
+	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel,
 						     25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
 						     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
 	ARL_SearchButton:Disable()
@@ -3531,7 +3525,7 @@ local function InitializeFrame()
 					   end
 				   end)
 
-	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", addon.Frame,
+	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel,
 						    28, 28, "RIGHT", ARL_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall",
 						    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 	ARL_ClearButton:SetScript("OnClick",
@@ -3556,7 +3550,7 @@ local function InitializeFrame()
 					  initDisplayStrings()
 					  RecipeList_Update()
 				  end)
-	ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", addon.Frame, "InputBoxTemplate")
+	ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 	ARL_SearchText:SetScript("OnEnterPressed",
 				 function(this)
@@ -3606,8 +3600,8 @@ local function InitializeFrame()
 	ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
 	ARL_SearchText:Show()
 
-	local ARL_CloseButton = GenericCreateButton("ARL_CloseButton", addon.Frame,
-						    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
+	local ARL_CloseButton = GenericCreateButton("ARL_CloseButton", MainPanel,
+						    22, 69, "BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
 						    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
 	ARL_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
@@ -3620,11 +3614,11 @@ local function InitializeFrame()
 	local pbMax = 100
 	local pbCur = 50
 
-	local ARL_ProgressBar = CreateFrame("StatusBar", "ARL_ProgressBar", addon.Frame)
+	local ARL_ProgressBar = CreateFrame("StatusBar", "ARL_ProgressBar", MainPanel)
 	ARL_ProgressBar:SetWidth(195)
 	ARL_ProgressBar:SetHeight(14)
 	ARL_ProgressBar:ClearAllPoints()
-	ARL_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
+	ARL_ProgressBar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
 	ARL_ProgressBar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
 	ARL_ProgressBar:SetOrientation("HORIZONTAL")
 	ARL_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
@@ -3643,7 +3637,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- I'm going to use my own tooltip for recipebuttons
 	-------------------------------------------------------------------------------
-	arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", addon.Frame, "GameTooltipTemplate")
+	arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", MainPanel, "GameTooltipTemplate")
 
 	-- Add TipTac Support
 	if (TipTac) and (TipTac.AddModifiedTip) then
@@ -3657,12 +3651,12 @@ local function InitializeFrame()
 	addon.RecipeListButton = {}
 
 	for i = 1, NUM_RECIPE_LINES do
-		local Temp_Plus = GenericCreateButton("ARL_PlusListButton" .. i, addon.Frame,
-						      16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall",
+		local Temp_Plus = GenericCreateButton("ARL_PlusListButton" .. i, MainPanel,
+						      16, 16, "TOPLEFT", MainPanel, "TOPLEFT", 20, -100, "GameFontNormalSmall",
 						      "GameFontHighlightSmall", "", "LEFT", "", 2)
 
-		local Temp_Recipe = GenericCreateButton("ARL_RecipeListButton" .. i, addon.Frame,
-							16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall",
+		local Temp_Recipe = GenericCreateButton("ARL_RecipeListButton" .. i, MainPanel,
+							16, 224, "TOPLEFT", MainPanel, "TOPLEFT", 37, -100, "GameFontNormalSmall",
 							"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 		if not (i == 1) then
@@ -3678,10 +3672,10 @@ local function InitializeFrame()
 		addon.RecipeListButton[i] = Temp_Recipe
 	end
 
-	local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
+	local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame", MainPanel, "FauxScrollFrameTemplate")
 	ARL_RecipeScrollFrame:SetHeight(322)
 	ARL_RecipeScrollFrame:SetWidth(243)
-	ARL_RecipeScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
+	ARL_RecipeScrollFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
 	ARL_RecipeScrollFrame:SetScript("OnVerticalScroll",
 					function(self, arg1)
 						FauxScrollFrame_OnVerticalScroll(self, arg1, 16, RecipeList_Update)
@@ -3690,7 +3684,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Stuff that appears on the main frame only when expanded
 	-------------------------------------------------------------------------------
-	local ARL_ResetButton = GenericCreateButton("ARL_ResetButton", addon.Frame,
+	local ARL_ResetButton = GenericCreateButton("ARL_ResetButton", MainPanel,
 						    25, 90, "TOPRIGHT", ARL_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall",
 						    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
 	ARL_ResetButton:SetScript("OnClick", function()
@@ -3721,8 +3715,8 @@ local function InitializeFrame()
 
 						     filterdb.classes[strlower(currentclass)] = true
 
-						     if addon.Frame:IsVisible() then
-							     addon.Frame:ResetTitle()
+						     if MainPanel:IsVisible() then
+							     MainPanel:ResetTitle()
 							     HideARL_ExpOptCB()
 							     addon.Flyaway:Hide()
 							     ReDisplay()
@@ -3757,7 +3751,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Frame for the flyaway pane
 	-------------------------------------------------------------------------------
-	addon.Flyaway = CreateFrame("Frame", "ARL_Flyaway", addon.Frame)
+	addon.Flyaway = CreateFrame("Frame", "ARL_Flyaway", MainPanel)
 	addon.Flyaway:SetWidth(234)
 	addon.Flyaway:SetHeight(312)
 
@@ -3772,7 +3766,7 @@ local function InitializeFrame()
 	addon.Flyaway:SetMovable(false)
 
 	addon.Flyaway:ClearAllPoints()
-	addon.Flyaway:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT", -6, -102)
+	addon.Flyaway:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
 
 	-------------------------------------------------------------------------------
 	-- Set all the current options in the flyaway panel to make sure they are
@@ -3889,7 +3883,7 @@ local function InitializeFrame()
 					  ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
 					  ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
 					  -- Reset our title
-					  addon.Frame:ResetTitle()
+					  MainPanel:ResetTitle()
 					  -- Use new filters
 					  ReDisplay()
 				  end)
@@ -3968,7 +3962,7 @@ local function InitializeFrame()
 
 	local ARL_SeasonalCB = CreateFrame("CheckButton", "ARL_SeasonalCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], "seasonal", 4, 1, 0)
-	ARL_SeasonalCBText:SetText(seasonal)
+	ARL_SeasonalCBText:SetText(SEASONAL_CATEGORY)
 
 	local ARL_TrainerCB = CreateFrame("CheckButton", "ARL_TrainerCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(ARL_TrainerCB, addon.Fly_Obtain, L["TRAINER_DESC"], "trainer", 5, 1, 0)
@@ -4097,7 +4091,7 @@ local function InitializeFrame()
 					  ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
 					  ARL_ArmorShieldCB:SetChecked(armordb.shield)
 					  -- Reset our title
-					  addon.Frame:ResetTitle()
+					  MainPanel:ResetTitle()
 					  -- Use new filters
 					  ReDisplay()
 				  end)
@@ -4199,7 +4193,7 @@ local function InitializeFrame()
 					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
 					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
 					   -- Reset our title
-					   addon.Frame:ResetTitle()
+					   MainPanel:ResetTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -4359,7 +4353,7 @@ local function InitializeFrame()
 					   ARL_RepTimbermawCB:SetChecked(filterdb.timbermaw)
 					   ARL_RepZandalarCB:SetChecked(filterdb.zandalar)
 					   -- Reset our title
-					   addon.Frame:ResetTitle()
+					   MainPanel:ResetTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -4459,7 +4453,7 @@ local function InitializeFrame()
 					   ARL_RepSporeggarCB:SetChecked(filterdb.sporeggar)
 					   ARL_RepVioletEyeCB:SetChecked(filterdb.violeteye)
 					   -- Reset our title
-					   addon.Frame:ResetTitle()
+					   MainPanel:ResetTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -4589,7 +4583,7 @@ local function InitializeFrame()
 					   ARL_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
 					   ARL_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
 					   -- Reset our title
-					   addon.Frame:ResetTitle()
+					   MainPanel:ResetTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -4910,10 +4904,6 @@ function addon:DisplayFrame(
 			break
 		end
 	end
-
-	if not self.Frame then
-		InitializeFrame()
-	end
 	SetFramePosition()							-- Set our addon frame position
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
@@ -4939,70 +4929,56 @@ function addon:DisplayFrame(
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 end
 
+-------------------------------------------------------------------------------
 --- Creates a new frame with the contents of a text dump so you can copy and paste
 -- Code borrowed from Antiarc (Chatter) with permission
 -- @name AckisRecipeList:DisplayTextDump
 -- @param RecipeDB The database (array) which you wish read data from.
 -- @param profession Which profession are you displaying data for
 -- @param text The text to be dumped
+-------------------------------------------------------------------------------
 do
+	local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
+	copy_frame:SetBackdrop({
+				       bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+				       edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+				       tile = true, tileSize = 16, edgeSize = 16,
+				       insets = { left = 3, right = 3, top = 5, bottom = 3 }
+			       })
+	copy_frame:SetBackdropColor(0, 0, 0, 1)
+	copy_frame:SetWidth(750)
+	copy_frame:SetHeight(400)
+	copy_frame:SetPoint("CENTER", UIParent, "CENTER")
+	copy_frame:SetFrameStrata("DIALOG")
 
-	local PaneBackdrop  = {
-		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-		tile = true, tileSize = 16, edgeSize = 16,
-		insets = { left = 3, right = 3, top = 5, bottom = 3 }
-	}
+	tinsert(UISpecialFrames, "ARLCopyFrame")
+
+	local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
+	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
+
+	local edit_box = CreateFrame("EditBox", nil, copy_frame)
+	edit_box:SetMultiLine(true)
+	edit_box:SetMaxLetters(0)
+--	edit_box:SetMaxLetters(99999)
+	edit_box:EnableMouse(true)
+	edit_box:SetAutoFocus(true)
+	edit_box:SetFontObject(ChatFontNormal)
+	edit_box:SetWidth(650)
+	edit_box:SetHeight(270)
+	edit_box:SetScript("OnEscapePressed", function() copy_frame:Hide() end)
+	edit_box:HighlightText(0)
+
+	scrollArea:SetScrollChild(edit_box)
+
+	local close = CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
+
+	copy_frame:Hide()
 
 	function addon:DisplayTextDump(RecipeDB, profession, text)
-		local textdump
-
-		-- If we don't send in a RecipeDB and profession, just dump the text
-		if not RecipeDB and not profession then
-			textdump = text
-		else
-			textdump = self:GetTextDump(RecipeDB, profession)
-		end
-
-		-- If we haven't created these frames, then lets do so now.
-		if not addon.copy_frame then
-			local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
-			copy_frame:SetBackdrop(PaneBackdrop)
-			copy_frame:SetBackdropColor(0,0,0,1)
-			copy_frame:SetWidth(750)
-			copy_frame:SetHeight(400)
-			copy_frame:SetPoint("CENTER", UIParent, "CENTER")
-			copy_frame:SetFrameStrata("DIALOG")
-
-			tinsert(UISpecialFrames, "ARLCopyFrame")
-
-			local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
-			scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
-			scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
-		
-			copy_frame.editBox = CreateFrame("EditBox", "ARLCopyEdit", copy_frame)
-			copy_frame.editBox:SetMultiLine(true)
-			copy_frame.editBox:SetMaxLetters(99999)
-			copy_frame.editBox:EnableMouse(true)
-			copy_frame.editBox:SetAutoFocus(true)
-			copy_frame.editBox:SetFontObject(ChatFontNormal)
-			copy_frame.editBox:SetWidth(650)
-			copy_frame.editBox:SetHeight(270)
-			copy_frame.editBox:SetScript("OnEscapePressed", function() addon.copy_frame:Hide() end)
-			copy_frame.editBox:SetText(textdump)
-			copy_frame.editBox:HighlightText(0)
-
-			scrollArea:SetScrollChild(copy_frame.editBox)
-		
-			local close = CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
-			close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
-
-			addon.copy_frame = copy_frame
-			copy_frame:Show()
-		else
-			addon.copy_frame.editBox:SetText(textdump)
-			addon.copy_frame.editBox:HighlightText(0)
-			addon.copy_frame:Show()
-		end
+		edit_box:SetText((not RecipeDB and not profession) and text or self:GetTextDump(RecipeDB, profession))
+		edit_box:HighlightText(0)
+		copy_frame:Show()
 	end
 end	-- do
