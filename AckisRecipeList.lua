@@ -31,17 +31,46 @@ This source code is released under All Rights Reserved.
 -- @name AckisRecipeList.lua
 -- @release 1.0
 
-local LibStub = LibStub
+-------------------------------------------------------------------------------
+-- Localized Lua globals.
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
 
+local tostring = _G.tostring
+local tonumber = _G.tonumber
+
+local pairs, ipairs = _G.pairs, _G.ipairs
+local select = _G.select
+
+local table = _G.table
+local twipe = table.wipe
+local tconcat = table.concat
+local tinsert = table.insert
+
+local string = _G.string
+local strformat = string.format
+local strfind = string.find
+local strmatch = string.match
+local strlower = string.lower
+
+-------------------------------------------------------------------------------
+-- Localized Blizzard API.
+-------------------------------------------------------------------------------
+local GetNumTradeSkills = _G.GetNumTradeSkills
+local GetSpellInfo = _G.GetSpellInfo
+
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local LibStub	= _G.LibStub
 local MODNAME	= "Ackis Recipe List"
-
-AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+local addon	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+_G.AckisRecipeList = addon
 
 --@alpha@
-ARL = AckisRecipeList
+_G.ARL = addon
 --@end-alpha@
 
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -------------------------------------------------------------------------------
@@ -62,7 +91,7 @@ do
 		for idx, lib in ipairs(REQUIRED_LIBS) do
 			if not LibStub:GetLibrary(lib, true) then
 				missing = true
-				addon:Print(format(L["MISSING_LIBRARY"], lib))
+				addon:Print(strformat(L["MISSING_LIBRARY"], lib))
 			end
 		end
 		return missing
@@ -73,7 +102,7 @@ if MissingLibraries() then
 	--@debug@
 	addon:Print("You are using an SVN version of ARL.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, and LibBetterBlizzoptions in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	_G.AckisRecipeList = nil
 	return
 end
 
@@ -82,34 +111,31 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -- Global Frame Variables
 addon.optionsFrame = {}
 
--- Make global API calls local to speed things up
-local GetNumTradeSkills = GetNumTradeSkills
-local GetSpellInfo = GetSpellInfo
-local GetTradeSkillLine = GetTradeSkillLine
+do
+	local output = {}
 
-local tostring = tostring
-local tonumber = tonumber
+	function addon:DumpMembers(match)
+		twipe(output)
+		tinsert(output, "Addon Object members.\n")
 
-local pairs = pairs
-local select = select
+		local count = 0
 
-local table = table
-local twipe = table.wipe
-local tremove = table.remove
-local tconcat = table.concat
-local tinsert = table.insert
+		for key, value in pairs(self) do
+			local val_type = type(value)
 
-local string = string
-local format = string.format
-local sfind = string.find
-local smatch = string.match
-local strlower = string.lower
+			if not match or val_type == match then
+				tinsert(output, key.. " ("..val_type..")")
+				count = count + 1
+			end
+		end
+		tinsert(output, string.format("\n%d found\n", count))
+		self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+	end
+end	-- do
 
 -------------------------------------------------------------------------------
 -- Initialization functions
 -------------------------------------------------------------------------------
-
----Function run when the addon is initialized.  Registers the slash commands, options, and database
 function addon:OnInitialize()
 
 	-- Set default options, which are to include everything in the scan
@@ -379,10 +405,10 @@ end
 
 do
 
-	local GetTradeSkillListLink = GetTradeSkillListLink
-	local UnitName = UnitName
-	local GetRealmName = GetRealmName
-	local IsTradeSkillLinked = IsTradeSkillLinked
+	local GetTradeSkillListLink = _G.GetTradeSkillListLink
+	local UnitName = _G.UnitName
+	local GetRealmName = _G.GetRealmName
+	local IsTradeSkillLinked = _G.IsTradeSkillLinked
 
 	function addon:TRADE_SKILL_SHOW()
 		local ownskill = IsTradeSkillLinked()
@@ -558,7 +584,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	local recipeentry = RecipeDB[SpellID]
 
 	if not recipeentry["Name"] then
-		self:Print(format(L["SpellIDCache"], SpellID))
+		self:Print(strformat(L["SpellIDCache"], SpellID))
 	end
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
@@ -613,7 +639,7 @@ do
 		local acquire = RecipeDB[SpellID]["Acquire"]
 
 		--@alpha@
-		wipe(AcquireIDList)
+		twipe(AcquireIDList)
 		--@end-alpha@
 
 		while (i < numvars) do
@@ -725,9 +751,9 @@ end
 -- This source code is release under Public Domain
 local function GetIDFromLink(SpellLink)
 
-	--return smatch(SpellLink, "|H%w+:(%d+)")
+	--return strmatch(SpellLink, "|H%w+:(%d+)")
 	-- Faster matching per Neffi
-	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
+	return strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 
 end
 
@@ -1501,8 +1527,8 @@ do
 			return ""
 		end
 
-		wipe(location_list)
-		wipe(location_checklist)
+		twipe(location_list)
+		twipe(location_checklist)
 
 		local recipe_acquire = RecipeList[SpellID]["Acquire"]
 
@@ -1651,7 +1677,7 @@ do
 				return ""
 			-- We have a match, return that spell name
 			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-				local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
+				local ID = strmatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
 				return ID
 			end
 		end
@@ -1939,25 +1965,25 @@ function addon:SearchRecipeDB(RecipeDB, searchstring)
 		recipe["Search"] = false
 
 		-- Allow us to search by spell ID
-		if sfind(strlower(SpellID),searchstring) or
+		if strfind(strlower(SpellID),searchstring) or
 
 			-- Allow us to search by item ID
-			(recipe["ItemID"] and sfind(strlower(recipe["ItemID"]),searchstring)) or
+			(recipe["ItemID"] and strfind(strlower(recipe["ItemID"]),searchstring)) or
 
 			-- Allow us to search by name
-			(recipe["Name"] and sfind(strlower(recipe["Name"]),searchstring)) or
+			(recipe["Name"] and strfind(strlower(recipe["Name"]),searchstring)) or
 
 			-- Allow us to search by locations
-			(recipe["Locations"] and sfind(recipe["Locations"],searchstring)) or
+			(recipe["Locations"] and strfind(recipe["Locations"],searchstring)) or
 
 			-- Allow us to search by specialty
-			(recipe["Specialty"] and sfind(recipe["Specialty"],searchstring)) or
+			(recipe["Specialty"] and strfind(recipe["Specialty"],searchstring)) or
 				
 			-- Allow us to search by skill level
-			(recipe["Level"] and sfind(recipe["Level"],searchstring)) or
+			(recipe["Level"] and strfind(recipe["Level"],searchstring)) or
 
 			-- Allow us to search by Rarity
-			(recipe["Rarity"] and sfind(recipe["Rarity"],searchstring)) then
+			(recipe["Rarity"] and strfind(recipe["Rarity"],searchstring)) then
 
 			recipe["Search"] = true
 		end
@@ -1983,9 +2009,9 @@ function addon:GetTextDump(RecipeDB, profession)
 	local texttable = {}
 
 	-- Add a header to the text table
-	tinsert(texttable,format("Ackis Recipe List Text Dump for %s",profession))
-	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
-	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
+	tinsert(texttable, strformat("Ackis Recipe List Text Dump for %s", profession))
+	tinsert(texttable, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
+	tinsert(texttable, "Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(RecipeDB) do
 
@@ -1994,25 +2020,25 @@ function addon:GetTextDump(RecipeDB, profession)
 		if (recipeprof == profession) then
 
 			-- Add Spell ID, Name and Skill Level to the list
-			tinsert(texttable,SpellID)
-			tinsert(texttable,",")
-			tinsert(texttable,RecipeDB[SpellID]["Name"])
-			tinsert(texttable,",")
-			tinsert(texttable,RecipeDB[SpellID]["Level"])
-			tinsert(texttable,",[")
+			tinsert(texttable, SpellID)
+			tinsert(texttable, ", ")
+			tinsert(texttable, RecipeDB[SpellID]["Name"])
+			tinsert(texttable, ", ")
+			tinsert(texttable, RecipeDB[SpellID]["Level"])
+			tinsert(texttable, ", [")
 
 			-- Add in all the filter flags
 			local flags = RecipeDB[SpellID]["Flags"]
 
 			-- Find out which flags are marked as "true"
-			for i=1,127,1 do
+			for i=1, 127, 1 do
 				if (flags[i] == true) then
-					tinsert(texttable,i)
-					tinsert(texttable,",")
+					tinsert(texttable, i)
+					tinsert(texttable, ", ")
 				end
 			end
 
-			tinsert(texttable,"],[")
+			tinsert(texttable, "], [")
 
 			-- Find out which unique acquire methods we have
 			local acquire = RecipeDB[SpellID]["Acquire"]
@@ -2040,14 +2066,14 @@ function addon:GetTextDump(RecipeDB, profession)
 
 			-- Add all the acquire methods in
 			for i in pairs(acquirelist) do
-				tinsert(texttable,i)
-				tinsert(texttable,",")
+				tinsert(texttable, i)
+				tinsert(texttable, ", ")
 			end
 
 			if (RecipeDB[SpellID]["Known"]) then
-				tinsert(texttable,"],true\n")
+				tinsert(texttable, "], true\n")
 			else
-				tinsert(texttable,"],false\n")
+				tinsert(texttable, "], false\n")
 			end
 
 		end
@@ -2083,7 +2109,7 @@ do
 			self:Print("Profession: " .. x["Profession"])
 		end
 		if (x["ItemID"]) then
-			local _,linky = GetItemInfo(x["ItemID"])
+			local _, linky = GetItemInfo(x["ItemID"])
 			self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
 		end
 		if (x["Locations"]) then
@@ -2094,299 +2120,299 @@ do
 		local flagstr = ""
 
 		if (flags[1] == true) then
-			flagstr = flagstr .. "Ally,"
+			flagstr = flagstr .. "Ally, "
 		end
 		if (flags[2] == true) then
-			flagstr = flagstr .. "Horde,"
+			flagstr = flagstr .. "Horde, "
 		end
 		if (flags[3] == true) then
-			flagstr = flagstr .. "Trn,"
+			flagstr = flagstr .. "Trn, "
 		end
 		if (flags[4] == true) then
-			flagstr = flagstr .. "Ven,"
+			flagstr = flagstr .. "Ven, "
 		end
 		if (flags[5] == true) then
-			flagstr = flagstr .. "Instance,"
+			flagstr = flagstr .. "Instance, "
 		end
 		if (flags[6] == true) then
-			flagstr = flagstr .. "Raid,"
+			flagstr = flagstr .. "Raid, "
 		end
 		if (flags[7] == true) then
-			flagstr = flagstr .. "Seasonal,"
+			flagstr = flagstr .. "Seasonal, "
 		end
 		if (flags[8] == true) then
-			flagstr = flagstr .. "Quest,"
+			flagstr = flagstr .. "Quest, "
 		end
 		if (flags[9] == true) then
-			flagstr = flagstr .. "PVP,"
+			flagstr = flagstr .. "PVP, "
 		end
 		if (flags[10] == true) then
-			flagstr = flagstr .. "World,"
+			flagstr = flagstr .. "World, "
 		end
 		if (flags[11] == true) then
-			flagstr = flagstr .. "Mob,"
+			flagstr = flagstr .. "Mob, "
 		end
 		if (flags[12] == true) then
-			flagstr = flagstr .. "Disc,"
+			flagstr = flagstr .. "Disc, "
 		end
 		if (flags[13] == true) then
-			flagstr = flagstr .. "13,"
+			flagstr = flagstr .. "13, "
 		end
 		if (flags[14] == true) then
-			flagstr = flagstr .. "14,"
+			flagstr = flagstr .. "14, "
 		end
 		if (flags[15] == true) then
-			flagstr = flagstr .. "15,"
+			flagstr = flagstr .. "15, "
 		end
 		if (flags[16] == true) then
-			flagstr = flagstr .. "16,"
+			flagstr = flagstr .. "16, "
 		end
 		if (flags[17] == true) then
-			flagstr = flagstr .. "17,"
+			flagstr = flagstr .. "17, "
 		end
 		if (flags[18] == true) then
-			flagstr = flagstr .. "18,"
+			flagstr = flagstr .. "18, "
 		end
 		if (flags[19] == true) then
-			flagstr = flagstr .. "19,"
+			flagstr = flagstr .. "19, "
 		end
 		if (flags[20] == true) then
-			flagstr = flagstr .. "20,"
+			flagstr = flagstr .. "20, "
 		end
 		if (flags[21] == true) then
-			flagstr = flagstr .. "DK,"
+			flagstr = flagstr .. "DK, "
 		end
 		if (flags[22] == true) then
-			flagstr = flagstr .. "Druid,"
+			flagstr = flagstr .. "Druid, "
 		end
 		if (flags[23] == true) then
-			flagstr = flagstr .. "Huntard,"
+			flagstr = flagstr .. "Huntard, "
 		end
 		if (flags[24] == true) then
-			flagstr = flagstr .. "Mage,"
+			flagstr = flagstr .. "Mage, "
 		end
 		if (flags[25] == true) then
-			flagstr = flagstr .. "Pally,"
+			flagstr = flagstr .. "Pally, "
 		end
 		if (flags[26] == true) then
-			flagstr = flagstr .. "Priest,"
+			flagstr = flagstr .. "Priest, "
 		end
 		if (flags[27] == true) then
-			flagstr = flagstr .. "Sham,"
+			flagstr = flagstr .. "Sham, "
 		end
 		if (flags[28] == true) then
-			flagstr = flagstr .. "Rogue,"
+			flagstr = flagstr .. "Rogue, "
 		end
 		if (flags[29] == true) then
-			flagstr = flagstr .. "Lock,"
+			flagstr = flagstr .. "Lock, "
 		end
 		if (flags[30] == true) then
-			flagstr = flagstr .. "War,"
+			flagstr = flagstr .. "War, "
 		end
 		if (flags[31] == true) then
-			flagstr = flagstr .. "31,"
+			flagstr = flagstr .. "31, "
 		end
 		if (flags[36] == true) then
-			flagstr = flagstr .. "IBoE,"
+			flagstr = flagstr .. "IBoE, "
 		end
 		if (flags[37] == true) then
-			flagstr = flagstr .. "IBoP,"
+			flagstr = flagstr .. "IBoP, "
 		end
 		if (flags[38] == true) then
-			flagstr = flagstr .. "IBoA,"
+			flagstr = flagstr .. "IBoA, "
 		end
 		if (flags[39] == true) then
-			flagstr = flagstr .. "39,"
+			flagstr = flagstr .. "39, "
 		end
 		if (flags[40] == true) then
-			flagstr = flagstr .. "RBoE,"
+			flagstr = flagstr .. "RBoE, "
 		end
 		if (flags[41] == true) then
-			flagstr = flagstr .. "RBoP,"
+			flagstr = flagstr .. "RBoP, "
 		end
 		if (flags[42] == true) then
-			flagstr = flagstr .. "RBoA,"
+			flagstr = flagstr .. "RBoA, "
 		end
 		if (flags[51] == true) then
-			flagstr = flagstr .. "Melee,"
+			flagstr = flagstr .. "Melee, "
 		end
 		if (flags[52] == true) then
-			flagstr = flagstr .. "Tank,"
+			flagstr = flagstr .. "Tank, "
 		end
 		if (flags[53] == true) then
-			flagstr = flagstr .. "Heal,"
+			flagstr = flagstr .. "Heal, "
 		end
 		if (flags[54] == true) then
-			flagstr = flagstr .. "Caster,"
+			flagstr = flagstr .. "Caster, "
 		end
 		if (flags[56] == true) then
-			flagstr = flagstr .. "Cloth,"
+			flagstr = flagstr .. "Cloth, "
 		end
 		if (flags[57] == true) then
-			flagstr = flagstr .. "Leather,"
+			flagstr = flagstr .. "Leather, "
 		end
 		if (flags[58] == true) then
-			flagstr = flagstr .. "Mail,"
+			flagstr = flagstr .. "Mail, "
 		end
 		if (flags[59] == true) then
-			flagstr = flagstr .. "Plate,"
+			flagstr = flagstr .. "Plate, "
 		end
 		if (flags[60] == true) then
-			flagstr = flagstr .. "Cloak,"
+			flagstr = flagstr .. "Cloak, "
 		end
 		if (flags[61] == true) then
-			flagstr = flagstr .. "Trinket,"
+			flagstr = flagstr .. "Trinket, "
 		end
 		if (flags[62] == true) then
-			flagstr = flagstr .. "Ring,"
+			flagstr = flagstr .. "Ring, "
 		end
 		if (flags[63] == true) then
-			flagstr = flagstr .. "Neck,"
+			flagstr = flagstr .. "Neck, "
 		end
 		if (flags[64] == true) then
-			flagstr = flagstr .. "Shield,"
+			flagstr = flagstr .. "Shield, "
 		end
 		if (flags[66] == true) then
-			flagstr = flagstr .. "1H,"
+			flagstr = flagstr .. "1H, "
 		end
 		if (flags[67] == true) then
-			flagstr = flagstr .. "2H,"
+			flagstr = flagstr .. "2H, "
 		end
 		if (flags[68] == true) then
-			flagstr = flagstr .. "Axe,"
+			flagstr = flagstr .. "Axe, "
 		end
 		if (flags[69] == true) then
-			flagstr = flagstr .. "Sword,"
+			flagstr = flagstr .. "Sword, "
 		end
 		if (flags[70] == true) then
-			flagstr = flagstr .. "Mace,"
+			flagstr = flagstr .. "Mace, "
 		end
 		if (flags[71] == true) then
-			flagstr = flagstr .. "Polearm,"
+			flagstr = flagstr .. "Polearm, "
 		end
 		if (flags[72] == true) then
-			flagstr = flagstr .. "Dagger,"
+			flagstr = flagstr .. "Dagger, "
 		end
 		if (flags[73] == true) then
-			flagstr = flagstr .. "Staff,"
+			flagstr = flagstr .. "Staff, "
 		end
 		if (flags[74] == true) then
-			flagstr = flagstr .. "Wand,"
+			flagstr = flagstr .. "Wand, "
 		end
 		if (flags[75] == true) then
-			flagstr = flagstr .. "Thrown,"
+			flagstr = flagstr .. "Thrown, "
 		end
 		if (flags[76] == true) then
-			flagstr = flagstr .. "Bow,"
+			flagstr = flagstr .. "Bow, "
 		end
 		if (flags[77] == true) then
-			flagstr = flagstr .. "xBow,"
+			flagstr = flagstr .. "xBow, "
 		end
 		if (flags[78] == true) then
-			flagstr = flagstr .. "Ammo,"
+			flagstr = flagstr .. "Ammo, "
 		end
 		if (flags[79] == true) then
-			flagstr = flagstr .. "Fist,"
+			flagstr = flagstr .. "Fist, "
 		end
 
 		self:Print("Flags: " .. flagstr)
 		flagstr = ""
 
 		if (flags[96] == true) then
-			flagstr = flagstr .. "AD,"
+			flagstr = flagstr .. "AD, "
 		end
 		if (flags[97] == true) then
-			flagstr = flagstr .. "CC,"
+			flagstr = flagstr .. "CC, "
 		end
 		if (flags[98] == true) then
-			flagstr = flagstr .. "TB,"
+			flagstr = flagstr .. "TB, "
 		end
 		if (flags[99] == true) then
-			flagstr = flagstr .. "TH,"
+			flagstr = flagstr .. "TH, "
 		end
 		if (flags[100] == true) then
-			flagstr = flagstr .. "ZH,"
+			flagstr = flagstr .. "ZH, "
 		end
 		if (flags[101] == true) then
-			flagstr = flagstr .. "Aldor,"
+			flagstr = flagstr .. "Aldor, "
 		end
 		if (flags[102] == true) then
-			flagstr = flagstr .. "Ashtongue,"
+			flagstr = flagstr .. "Ashtongue, "
 		end
 		if (flags[103] == true) then
-			flagstr = flagstr .. "CE,"
+			flagstr = flagstr .. "CE, "
 		end
 		if (flags[104] == true) then
-			flagstr = flagstr .. "Thrall/HH,"
+			flagstr = flagstr .. "Thrall/HH, "
 		end
 		if (flags[105] == true) then
-			flagstr = flagstr .. "Consort,"
+			flagstr = flagstr .. "Consort, "
 		end
 		if (flags[106] == true) then
-			flagstr = flagstr .. "KoT,"
+			flagstr = flagstr .. "KoT, "
 		end
 		if (flags[107] == true) then
-			flagstr = flagstr .. "LC,"
+			flagstr = flagstr .. "LC, "
 		end
 		if (flags[108] == true) then
-			flagstr = flagstr .. "Mag/Kur,"
+			flagstr = flagstr .. "Mag/Kur, "
 		end
 		if (flags[109] == true) then
-			flagstr = flagstr .. "SoS,"
+			flagstr = flagstr .. "SoS, "
 		end
 		if (flags[110] == true) then
-			flagstr = flagstr .. "Scryer,"
+			flagstr = flagstr .. "Scryer, "
 		end
 		if (flags[111] == true) then
-			flagstr = flagstr .. "Sha'tar,"
+			flagstr = flagstr .. "Sha'tar, "
 		end
 		if (flags[112] == true) then
-			flagstr = flagstr .. "Shattered Sun,"
+			flagstr = flagstr .. "Shattered Sun, "
 		end
 		if (flags[113] == true) then
-			flagstr = flagstr .. "Spore,"
+			flagstr = flagstr .. "Spore, "
 		end
 		if (flags[114] == true) then
-			flagstr = flagstr .. "VE,"
+			flagstr = flagstr .. "VE, "
 		end
 		if (flags[115] == true) then
-			flagstr = flagstr .. "AC,"
+			flagstr = flagstr .. "AC, "
 		end
 		if (flags[116] == true) then
-			flagstr = flagstr .. "Frenzy,"
+			flagstr = flagstr .. "Frenzy, "
 		end
 		if (flags[117] == true) then
-			flagstr = flagstr .. "Ebon,"
+			flagstr = flagstr .. "Ebon, "
 		end
 		if (flags[118] == true) then
-			flagstr = flagstr .. "Kirin,"
+			flagstr = flagstr .. "Kirin, "
 		end
 		if (flags[119] == true) then
-			flagstr = flagstr .. "Hodir,"
+			flagstr = flagstr .. "Hodir, "
 		end
 		if (flags[120] == true) then
-			flagstr = flagstr .. "Kalu'ak,"
+			flagstr = flagstr .. "Kalu'ak, "
 		end
 		if (flags[121] == true) then
-			flagstr = flagstr .. "Oracles,"
+			flagstr = flagstr .. "Oracles, "
 		end
 		if (flags[122] == true) then
-			flagstr = flagstr .. "Wyrm,"
+			flagstr = flagstr .. "Wyrm, "
 		end
 		if (flags[123] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (The Silver Covenant/The Sunreavers),"
+			flagstr = flagstr .. "Wrath Common Factions (The Silver Covenant/The Sunreavers), "
 		end
 		if (flags[124] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (Explorers' League/The Hand of Vengeance),"
+			flagstr = flagstr .. "Wrath Common Factions (Explorers' League/The Hand of Vengeance), "
 		end
 		if (flags[125] == true) then
-			flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition),"
+			flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition), "
 		end
 		if (flags[126] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (The Frostborn/The Taunka),"
+			flagstr = flagstr .. "Wrath Common Factions (The Frostborn/The Taunka), "
 		end
 		if (flags[127] == true) then
-			flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition),"
+			flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition), "
 		end
 		self:Print("Reps: " .. flagstr)
 	end

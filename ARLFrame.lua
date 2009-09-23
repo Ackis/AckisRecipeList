@@ -1358,8 +1358,8 @@ do
 	end
 
 	local function SetButtonScripts(bIndex)
-		local pButton = addon.PlusListButton[bIndex]
-		local rButton = addon.RecipeListButton[bIndex]
+		local pButton = MainPanel.waterfall_buttons[bIndex]
+		local rButton = MainPanel.recipe_buttons[bIndex]
 		local dStringIndex = rButton.sI
 		local rIndex = DisplayStrings[dStringIndex].sID
 		local playerFaction = playerData.playerFaction
@@ -1377,8 +1377,8 @@ do
 	end
 
 	local function ClearButtonScripts(bIndex)
-		local pButton = addon.PlusListButton[bIndex]
-		local rButton = addon.RecipeListButton[bIndex]
+		local pButton = MainPanel.waterfall_buttons[bIndex]
+		local rButton = MainPanel.recipe_buttons[bIndex]
 
 		pButton:SetScript("OnEnter", nil)
 		pButton:SetScript("OnLeave", nil)
@@ -1389,9 +1389,9 @@ do
 	function RecipeList_Update()
 		-- Clear out the current buttons
 		for i = 1, NUM_RECIPE_LINES do
-			addon.RecipeListButton[i]:SetText("")
-			addon.RecipeListButton[i].sI = 0
-			addon.PlusListButton[i]:Hide()
+			MainPanel.recipe_buttons[i]:SetText("")
+			MainPanel.recipe_buttons[i].sI = 0
+			MainPanel.waterfall_buttons[i]:Hide()
 			ClearButtonScripts(i)
 		end
 		local entries = #DisplayStrings
@@ -1411,24 +1411,24 @@ do
 
 			while stayInLoop do
 				if DisplayStrings[stringsIndex].IsRecipe then
-					addon.PlusListButton[buttonIndex]:Show()
+					MainPanel.waterfall_buttons[buttonIndex]:Show()
 
 					if DisplayStrings[stringsIndex].IsExpanded then
-						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+						MainPanel.waterfall_buttons[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+						MainPanel.waterfall_buttons[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+						MainPanel.waterfall_buttons[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						MainPanel.waterfall_buttons[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
 					else
-						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+						MainPanel.waterfall_buttons[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+						MainPanel.waterfall_buttons[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+						MainPanel.waterfall_buttons[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						MainPanel.waterfall_buttons[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
 					end
 				else
-					addon.PlusListButton[buttonIndex]:Hide()
+					MainPanel.waterfall_buttons[buttonIndex]:Hide()
 				end
-				addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
-				addon.RecipeListButton[buttonIndex].sI = stringsIndex
+				MainPanel.recipe_buttons[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
+				MainPanel.recipe_buttons[buttonIndex].sI = stringsIndex
 
 				SetButtonScripts(buttonIndex)
 
@@ -2405,7 +2405,7 @@ local function expandEntry(dsIndex)
 end
 
 function addon.RecipeItem_OnClick(button)
-	local clickedIndex = addon.RecipeListButton[button].sI
+	local clickedIndex = MainPanel.recipe_buttons[button].sI
 
 	-- Don't do anything if they've clicked on an empty button
 	if not clickedIndex or (clickedIndex == 0) then return end
@@ -3642,29 +3642,29 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- The main recipe list buttons and scrollframe
 	-------------------------------------------------------------------------------
-	addon.PlusListButton = {}
-	addon.RecipeListButton = {}
+	MainPanel.waterfall_buttons = {}
+	MainPanel.recipe_buttons = {}
 
 	for i = 1, NUM_RECIPE_LINES do
-		local Temp_Plus = GenericCreateButton("ARL_PlusListButton" .. i, MainPanel,
+		local Temp_Plus = GenericCreateButton("ARL_WaterfallButton" .. i, MainPanel,
 						      16, 16, "TOPLEFT", MainPanel, "TOPLEFT", 20, -100, "GameFontNormalSmall",
 						      "GameFontHighlightSmall", "", "LEFT", "", 2)
 
-		local Temp_Recipe = GenericCreateButton("ARL_RecipeListButton" .. i, MainPanel,
+		local Temp_Recipe = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel,
 							16, 224, "TOPLEFT", MainPanel, "TOPLEFT", 37, -100, "GameFontNormalSmall",
 							"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 		if not (i == 1) then
-			Temp_Plus:SetPoint("TOPLEFT", addon.PlusListButton[i-1], "BOTTOMLEFT", 0, 3)
-			Temp_Recipe:SetPoint("TOPLEFT", addon.RecipeListButton[i-1], "BOTTOMLEFT", 0, 3)
+			Temp_Plus:SetPoint("TOPLEFT", MainPanel.waterfall_buttons[i-1], "BOTTOMLEFT", 0, 3)
+			Temp_Recipe:SetPoint("TOPLEFT", MainPanel.recipe_buttons[i-1], "BOTTOMLEFT", 0, 3)
 		end
 
 		Temp_Plus:SetScript("OnClick", function() addon.RecipeItem_OnClick(i) end)
 
 		Temp_Recipe:SetScript("OnClick", function() addon.RecipeItem_OnClick(i) end)
 
-		addon.PlusListButton[i] = Temp_Plus
-		addon.RecipeListButton[i] = Temp_Recipe
+		MainPanel.waterfall_buttons[i] = Temp_Plus
+		MainPanel.recipe_buttons[i] = Temp_Recipe
 	end
 
 	local ARL_RecipeScrollFrame = CreateFrame("ScrollFrame", "ARL_RecipeScrollFrame", MainPanel, "FauxScrollFrameTemplate")
