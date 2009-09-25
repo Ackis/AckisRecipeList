@@ -763,9 +763,12 @@ do
 	local GetTradeSkillInfo = GetTradeSkillInfo
 	local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
 	local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
+	local CollapseTradeSkillSubClass = CollapseTradeSkillSubClass
 
 	---Scans the recipe listing and marks known recipes as true in the database
 	function addon:ScanForKnownRecipes(RecipeDB, playerData)
+
+		local headerlist = {}
 
 		-- Clear the "Have Materials" check box
 		-- If Mr Trader is installed
@@ -790,7 +793,10 @@ do
 
 			-- Expand all headers so we can see all the recipes there are
 			for i = GetNumTradeSkills(), 1, -1 do
-				local _, tradeType = GetTradeSkillInfo(i)
+				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+				if isExpanded then
+					headerlist[name] = true
+				end
 				if tradeType == "header" then
 					ExpandTradeSkillSubClass(i)
 				end
@@ -829,7 +835,13 @@ do
 		if MRTUIUtils_PopFilterSelection then
 			MRTUIUtils_PopFilterSelection()
 		else
-		
+			-- Collapse all headers that were collapsed before
+			for i = GetNumTradeSkills(), 1, -1 do
+				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+				if headerlist[name] then
+					CollapseTradeSkillSubClass(i)
+				end
+			end
 		end
 
 		playerData.foundRecipes = foundRecipes
