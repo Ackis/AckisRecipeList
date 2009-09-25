@@ -768,27 +768,34 @@ do
 	function addon:ScanForKnownRecipes(RecipeDB, playerData)
 
 		-- Clear the "Have Materials" check box
-		if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-			TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
-			TradeSkillOnlyShowMakeable(false)
-		end
-
-		-- Clear the inventory slot filter
-		UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
-		UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
-		SetTradeSkillInvSlotFilter(0, 1, 1)
-
-		-- Clear the sub-classes filters
-		UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
-		UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
-		SetTradeSkillSubClassFilter(0, 1, 1)
-
-		-- Expand all headers so we can see all the recipes there are
-		for i = GetNumTradeSkills(), 1, -1 do
-			local _, tradeType = GetTradeSkillInfo(i)
-			if tradeType == "header" then
-				ExpandTradeSkillSubClass(i)
+		-- If Mr Trader is installed
+		if MRTUIUtils_PushFilterSelection then
+			MRTUIUtils_PushFilterSelection()
+		-- Mr Trader isn't installed
+		else
+			if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
+				TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
+				TradeSkillOnlyShowMakeable(false)
 			end
+
+			-- Clear the inventory slot filter
+			UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
+			UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
+			SetTradeSkillInvSlotFilter(0, 1, 1)
+
+			-- Clear the sub-classes filters
+			UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
+			UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
+			SetTradeSkillSubClassFilter(0, 1, 1)
+
+			-- Expand all headers so we can see all the recipes there are
+			for i = GetNumTradeSkills(), 1, -1 do
+				local _, tradeType = GetTradeSkillInfo(i)
+				if tradeType == "header" then
+					ExpandTradeSkillSubClass(i)
+				end
+			end
+
 		end
 
 		local foundRecipes = 0
@@ -801,12 +808,9 @@ do
 			if (tradeType ~= "header") then
 				-- Get the trade skill link for the specified recipe
 				local SpellLink = GetTradeSkillRecipeLink(i)
-
 				local SpellString = GetIDFromLink(SpellLink)
-
 				-- Get the SpellID from the spell link or enchant link (to account for Skillet)
 				local SpellID = tonumber(SpellString)
-
 				-- Spell ID is in RecipeDB so lets flag it as known
 				if (RecipeDB[SpellID]) then
 					-- Update array that recipe was found
@@ -818,6 +822,14 @@ do
 				end
 			end
 
+		end
+
+		-- Close all the headers we've opened
+		-- If Mr Trader is installed use that API
+		if MRTUIUtils_PopFilterSelection then
+			MRTUIUtils_PopFilterSelection()
+		else
+		
 		end
 
 		playerData.foundRecipes = foundRecipes

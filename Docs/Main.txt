@@ -176,6 +176,7 @@ Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/skillet.aspx|Skillet]]
 * [[http://wow.curse.com/downloads/wow-addons/details/project-3361.aspx|Manufac]] - No longer maintained.
 * [[http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx|Cauldron]]
+* [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]]
 
 ==Detailed Documentation==
 * [[http://www.wowace.com/projects/arl/pages/api/|API]]
