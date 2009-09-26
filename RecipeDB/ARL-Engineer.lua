@@ -1589,7 +1589,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-	local faction = UnitFactionGroup("player")
+	local _,faction = UnitFactionGroup("player")
 	-- Counter for how many faction specific recipes we have
 	local factioncount = 0
 
