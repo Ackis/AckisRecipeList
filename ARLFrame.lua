@@ -3397,8 +3397,8 @@ function addon:InitializeFrame()
 						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 	ARL_FilterButton:SetScript("OnClick", function()
-						      local xPos = frame:GetLeft()
-						      local yPos = frame:GetBottom()
+						      local xPos = MainPanel:GetLeft()
+						      local yPos = MainPanel:GetBottom()
 
 						      if MainPanel._is_expanded then
 							      -- Adjust the frame size and texture
