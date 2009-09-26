@@ -794,10 +794,8 @@ do
 			-- Expand all headers so we can see all the recipes there are
 			for i = GetNumTradeSkills(), 1, -1 do
 				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
-				if isExpanded then
+				if tradeType == "header" and (not isExpanded) then
 					headerlist[name] = true
-				end
-				if tradeType == "header" then
 					ExpandTradeSkillSubClass(i)
 				end
 			end
