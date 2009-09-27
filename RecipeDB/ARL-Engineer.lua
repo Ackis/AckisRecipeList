@@ -390,7 +390,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Goblin Jumper Cables -- 9273
 	self:addTradeSkill(RecipeDB,9273,165,7148,1,4036,nil,0,165,165,180,200)
 	self:addTradeFlags(RecipeDB,9273,1,2,4,5,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537,2,4086)
+	self:addTradeAcquire(RecipeDB,9273,3,7800,2,3537,2,4086,2,3134)
 
 	-- Gold Power Core -- 12584
 	self:addTradeSkill(RecipeDB,12584,150,10558,1,4036,nil,0,150,150,170,190)

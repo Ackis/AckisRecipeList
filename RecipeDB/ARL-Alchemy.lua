@@ -486,7 +486,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Superior Defense -- 17554
 	self:addTradeSkill(RecipeDB,17554,265,13445,1,51304,nil,0,265,280,300,320)
 	self:addTradeFlags(RecipeDB,17554,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,52)
-	self:addTradeAcquire(RecipeDB,17554,1,13445,2,5178)
+	self:addTradeAcquire(RecipeDB,17554,2,5178,2,3348)
 
 	-- Elixir of the Sages -- 17555
 	self:addTradeSkill(RecipeDB,17555,270,13447,2,51304,nil,0,270,285,305,325)
