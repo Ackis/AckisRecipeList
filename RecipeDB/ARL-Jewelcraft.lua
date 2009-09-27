@@ -621,14 +621,14 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,31087,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
 	self:addTradeAcquire(RecipeDB,31087,7,3)
 
-	-- Runed Living Ruby -- 31088  -- THERE'S 2 VERSIONS?
+	-- Runed Living Ruby -- 31088
 	self:addTradeSkill(RecipeDB,31088,350,24030,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31088,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
+	self:addTradeFlags(RecipeDB,31088,1,2,10,11,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,31088,3,24664)
 
-	-- Bright Living Ruby -- 31089  -- THERE'S 2 VERSIONS?
+	-- Bright Living Ruby -- 31089
 	self:addTradeSkill(RecipeDB,31089,350,24031,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31089,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
+	self:addTradeFlags(RecipeDB,31089,1,2,10,11,21,22,23,24,25,26,27,28,29,30,36,41,51)
 	self:addTradeAcquire(RecipeDB,31089,3,24664)
 
 	-- Subtle Living Ruby -- 31090
@@ -641,9 +641,9 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,31091,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40,52)
 	self:addTradeAcquire(RecipeDB,31091,7,3)
 
-	-- Solid Star of Elune -- 31092  -- THERE'S 2 VERSIONS?
+	-- Solid Star of Elune -- 31092
 	self:addTradeSkill(RecipeDB,31092,350,24033,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31092,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,31092,1,2,10,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,31092,3,24664)
 
 	-- Lustrous Star of Elune -- 31094
@@ -666,9 +666,9 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB,31097,1,2,10,21,22,23,24,25,26,27,28,29,30,36,40)
 	self:addTradeAcquire(RecipeDB,31097,7,3)
 
-	-- Rigid Dawnstone -- 31098 -- THERE'S 2 VERSIONS?
+	-- Rigid Dawnstone -- 31098
 	self:addTradeSkill(RecipeDB,31098,350,24051,3,25229,nil,1)
-	self:addTradeFlags(RecipeDB,31098,1,2,11,21,22,23,24,25,26,27,28,29,30,36,41)
+	self:addTradeFlags(RecipeDB,31098,1,2,10,11,21,22,23,24,25,26,27,28,29,30,36,41)
 	self:addTradeAcquire(RecipeDB,31098,3,24664)
 
 	-- Gleaming Dawnstone -- 31099
