@@ -474,12 +474,12 @@ function addon:InitTailoring(RecipeDB)
 	-- Blue Overalls -- 7639
 	self:addTradeSkill(RecipeDB,7639,100,6263,1,3908,nil,0,100,125,142,160)
 	self:addTradeFlags(RecipeDB,7639,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,3364)
+	self:addTradeAcquire(RecipeDB,7639,2,843,2,1347,2,2394,2,3364,2,5944)
 
 	-- Greater Adept's Robe -- 7643
 	self:addTradeSkill(RecipeDB,7643,115,6264,1,3908,nil,0,115,140,157,175)
 	self:addTradeFlags(RecipeDB,7643,1,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54,56)
-	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168,2,2669,2,3499)
+	self:addTradeAcquire(RecipeDB,7643,2,1454,2,1474,2,4168,2,2669,2,3499,2,4577)
 
 	-- Stylish Blue Shirt -- 7892
 	self:addTradeSkill(RecipeDB,7892,120,6384,2,3908,nil,0,120,145,162,180)

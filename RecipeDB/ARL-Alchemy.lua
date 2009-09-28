@@ -264,7 +264,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Nature Protection Potion -- 7259
 	self:addTradeSkill(RecipeDB,7259,190,6052,1,51304,nil,0,190,210,230,250)
 	self:addTradeFlags(RecipeDB,7259,1,2,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,7259,2,2848,2,8157,2,8158)
+	self:addTradeAcquire(RecipeDB,7259,2,2848,2,8157,2,8158,2,5594)
 
 	-- Blackmouth Oil -- 7836
 	self:addTradeSkill(RecipeDB,7836,80,6370,1,51304,nil,0,80,80,90,100)

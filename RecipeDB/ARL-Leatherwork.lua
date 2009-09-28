@@ -356,7 +356,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Murloc Scale Bracers -- 6705
 	self:addTradeSkill(RecipeDB,6705,190,5783,2,2108,nil,0,190,210,220,230)
 	self:addTradeFlags(RecipeDB,6705,1,2,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
-	self:addTradeAcquire(RecipeDB,6705,3,2636,3,1561)
+	self:addTradeAcquire(RecipeDB,6705,3,2636,3,1561,2,4897)
 
 	-- Handstitched Leather Vest -- 7126
 	self:addTradeSkill(RecipeDB,7126,10,5957,1,2108,nil,0,1,40,55,70)
