@@ -580,7 +580,8 @@ local NO_PLAYER_FLAG = {
 	[26428] = true, 		[3952] = true,	 		[22704] = true, 		[12902] = true, 
 	[30569] = true, 		[15628] = true, 		[12895] = true, 		[21940] = true, 
 	[56349] = true, 		[12584] = true, 		[56477] = true, 		[30348] = true, 
-	[26416] = true, 		[53281] = true, 		[23507] = true, 
+	[26416] = true, 		[53281] = true, 		[23507] = true,			[12075] = true,
+	[12079] = true,			[26746] = true,			[56000] = true,
 }
 
 local function LoadRecipe()
@@ -651,58 +652,61 @@ do
 	-- @param autoscan True when autoscan is enabled in preferences, it will surpress output letting you know when a scan has occured.
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 	function addon:ScanSkillLevelData(autoscan)
-
-		if (IsTradeskillTrainer()) then	-- Are we at a trade skill trainer?
-			local recipe_list = LoadRecipe()	-- Get internal database
-
-			if (not recipe_list) then
-				self:Print(L["DATAMINER_NODB_ERROR"])
-				return
+		if not IsTradeskillTrainer() then
+			if not autoscan then
+				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 			end
-			-- Get the initial trainer filters
-			local avail = GetTrainerServiceTypeFilter("available")
-			local unavail = GetTrainerServiceTypeFilter("unavailable")
-			local used = GetTrainerServiceTypeFilter("used")
-
-			-- Clear the trainer filters
-			SetTrainerServiceTypeFilter("available", 1)
-			SetTrainerServiceTypeFilter("unavailable", 1)
-			SetTrainerServiceTypeFilter("used", 1)
-
-			twipe(info)
-
-			-- Get the skill levels from the trainer
-			for i = 1, GetNumTrainerServices(), 1 do
-				local name = GetTrainerServiceInfo(i)
-				local _, skilllevel = GetTrainerServiceSkillReq(i)
-				if not skilllevel then
-					skilllevel = 0
-				end
-				info[name] = skilllevel
-			end
-			local entryfound = false
-			twipe(output)
-
-			for i in pairs(recipe_list) do
-				local i_name = recipe_list[i]["Name"]
-				if (info[i_name]) and (info[i_name] ~= recipe_list[i]["Level"]) then
-					entryfound = true
-					tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i]["Level"], info[i_name]))
-				end
-			end
-			tinsert(output, "Trainer Skill Level Scan Complete.")
-
-			if (entryfound) then
-				self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
-			end
-			-- Reset the filters to what they were before
-			SetTrainerServiceTypeFilter("available", avail or 0)
-			SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-			SetTrainerServiceTypeFilter("used", used or 0)
-
-		elseif (not autoscan) then
-			self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+			return
 		end
+		local recipe_list = LoadRecipe()	-- Get internal database
+
+		if not recipe_list then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+		-- Get the initial trainer filters
+		local avail = GetTrainerServiceTypeFilter("available")
+		local unavail = GetTrainerServiceTypeFilter("unavailable")
+		local used = GetTrainerServiceTypeFilter("used")
+
+		-- Clear the trainer filters
+		SetTrainerServiceTypeFilter("available", 1)
+		SetTrainerServiceTypeFilter("unavailable", 1)
+		SetTrainerServiceTypeFilter("used", 1)
+
+		twipe(info)
+
+		-- Get the skill levels from the trainer
+		for i = 1, GetNumTrainerServices(), 1 do
+			local name = GetTrainerServiceInfo(i)
+			local _, skilllevel = GetTrainerServiceSkillReq(i)
+
+			if not skilllevel then
+				skilllevel = 0
+			end
+			info[name] = skilllevel
+		end
+		local found = false
+
+		twipe(output)
+
+		for i in pairs(recipe_list) do
+			local i_name = recipe_list[i]["Name"]
+
+			if info[i_name] and info[i_name] ~= recipe_list[i]["Level"] then
+				found = true
+				tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i]["Level"], info[i_name]))
+			end
+		end
+		tinsert(output, "Trainer Skill Level Scan Complete.")
+
+		if found then
+			self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+		end
+		-- Reset the filters to what they were before
+		SetTrainerServiceTypeFilter("available", avail or 0)
+		SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+		SetTrainerServiceTypeFilter("used", used or 0)
 	end
 
 	local teach, noteach = {}, {}
@@ -713,127 +717,130 @@ do
 	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
 	-- Compares the acquire information of the ARL database with what is available on the trainer.
 	function addon:ScanTrainerData(autoscan)
-		if (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
-			local targetname = UnitName("target")	-- Get its name
-			local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)	-- Get the NPC ID
-
-			if (IsTradeskillTrainer()) then		-- Are we at a trade skill trainer?
-				local recipe_list = LoadRecipe()	-- Get internal database
-
-				if (not recipe_list) then
-					self:Print(L["DATAMINER_NODB_ERROR"])
-					return
-				end
-
-				-- Get the initial trainer filters
-				local avail = GetTrainerServiceTypeFilter("available")
-				local unavail = GetTrainerServiceTypeFilter("unavailable")
-				local used = GetTrainerServiceTypeFilter("used")
-
-				-- Clear the trainer filters
-				SetTrainerServiceTypeFilter("available", 1)
-				SetTrainerServiceTypeFilter("unavailable", 1)
-				SetTrainerServiceTypeFilter("used", 1)
-
-				if (GetNumTrainerServices() == 0) then
-					self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
-				end
-				twipe(info)
-
-				-- Get all the names of recipes from the trainer
-				for i = 1, GetNumTrainerServices(), 1 do
-					local name = GetTrainerServiceInfo(i)
-					info[name] = true
-				end
-				twipe(teach)
-				twipe(noteach)
-				twipe(output)
-
-				-- Dump out trainer info
-				tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
-
-				local teachflag = false
-				local noteachflag = false
-
-				for i in pairs(recipe_list) do
-					local i_name = recipe_list[i]["Name"]
-					local acquire = recipe_list[i]["Acquire"]
-					local flags = recipe_list[i]["Flags"]
-
-					-- If the trainer teaches this recipe
-					if (info[i_name]) then
-						local found = false
-						-- Parse acquire info
-						for j in pairs(acquire) do
-							if (acquire[j]["Type"] == 1) then
-								if (acquire[j]["ID"] == targetID) then
-									found = true
-								end
-							end
-						end
-
-						if (not found) then
-							tinsert(teach, i)
-							teachflag = true
-
-							if (not flags[3]) then
-								tinsert(output, ": Trainer flag needs to be set.")
-							end
-						end
-						-- Trainer does not teach this recipe
-					else
-						local found = false
-						-- Parse acquire info
-						for j in pairs(acquire) do
-							if (acquire[j]["Type"] == 1) then
-								if (acquire[j]["ID"] == targetID) then
-									found = true
-								end
-							end
-						end
-						if (found) then
-							noteachflag = true
-							tinsert(noteach, i)
-						end
-					end
-				end
-
-				if (teachflag) then
-					tinsert(output, "Missing entries (need to be added):")
-					tsort(teach)
-					for i in ipairs(teach) do
-						tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]]["Name"]))
-					end
-				end
-
-				if (noteachflag) then
-					tinsert(output, "Extra entries (need to be removed):")
-					tsort(noteach)
-					for i in ipairs(noteach) do
-						tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]]["Name"]))
-					end
-				end
-				tinsert(output, "Trainer Acquire Scan Complete.")
-
-				tinsert(output, "If you're doing an engineering scan,  there may be some goggles listed as extra.  These goggles ONLY show up for those classes who can make them,  so they may be false positives.")
-
-				if ((teachflag) or (noteachflag)) then
-					self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
-				end
-
-				-- Reset the filters to what they were before
-				SetTrainerServiceTypeFilter("available", avail or 0)
-				SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-				SetTrainerServiceTypeFilter("used", used or 0)
-
-			elseif (not autoscan) then
-				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
-			end
-		else
-			if (not autoscan) then
+		if not (UnitExists("target") and (not UnitIsPlayer("target")) and (not UnitIsEnemy("player", "target"))) then	-- Make sure the target exists and is a NPC
+			if not autoscan then
 				self:Print(L["DATAMINER_TRAINER_NOTTARGETTED"])
 			end
+			return
 		end
+		local targetname = UnitName("target")	-- Get its name
+		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)	-- Get the NPC ID
+
+		if not IsTradeskillTrainer() then		-- Are we at a trade skill trainer?
+			if not autoscan then
+				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
+			end
+			return
+		end
+		local recipe_list = LoadRecipe()	-- Get internal database
+
+		if not recipe_list then
+			self:Print(L["DATAMINER_NODB_ERROR"])
+			return
+		end
+
+		-- Get the initial trainer filters
+		local avail = GetTrainerServiceTypeFilter("available")
+		local unavail = GetTrainerServiceTypeFilter("unavailable")
+		local used = GetTrainerServiceTypeFilter("used")
+
+		-- Clear the trainer filters
+		SetTrainerServiceTypeFilter("available", 1)
+		SetTrainerServiceTypeFilter("unavailable", 1)
+		SetTrainerServiceTypeFilter("used", 1)
+
+		if (GetNumTrainerServices() == 0) then
+			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
+		end
+		twipe(info)
+
+		-- Get all the names of recipes from the trainer
+		for i = 1, GetNumTrainerServices(), 1 do
+			local name = GetTrainerServiceInfo(i)
+			info[name] = true
+		end
+		twipe(teach)
+		twipe(noteach)
+		twipe(output)
+
+		-- Dump out trainer info
+		tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
+
+		local teachflag = false
+		local noteachflag = false
+
+		for i in pairs(recipe_list) do
+			local i_name = recipe_list[i]["Name"]
+			local acquire = recipe_list[i]["Acquire"]
+			local flags = recipe_list[i]["Flags"]
+
+			-- If the trainer teaches this recipe
+			if info[i_name] then
+				local found = false
+
+				-- Parse acquire info
+				for j in pairs(acquire) do
+					if (acquire[j]["Type"] == 1) then
+						if (acquire[j]["ID"] == targetID) then
+							found = true
+						end
+					end
+				end
+
+				if (not found) then
+					tinsert(teach, i)
+					teachflag = true
+
+					if (not flags[3]) then
+						tinsert(output, ": Trainer flag needs to be set.")
+					end
+				end
+				-- Trainer does not teach this recipe
+			else
+				local found = false
+				-- Parse acquire info
+				for j in pairs(acquire) do
+					if (acquire[j]["Type"] == 1) then
+						if (acquire[j]["ID"] == targetID) then
+							found = true
+						end
+					end
+				end
+
+				if found then
+					noteachflag = true
+					tinsert(noteach, i)
+				end
+			end
+		end
+
+		if teachflag then
+			tinsert(output, "Missing entries (need to be added):")
+			tsort(teach)
+
+			for i in ipairs(teach) do
+				tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]]["Name"]))
+			end
+		end
+
+		if noteachflag then
+			tinsert(output, "Extra entries (need to be removed):")
+			tsort(noteach)
+
+			for i in ipairs(noteach) do
+				tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]]["Name"]))
+			end
+		end
+		tinsert(output, "Trainer Acquire Scan Complete.")
+		tinsert(output, "If you're doing an engineering scan,  there may be some goggles listed as extra.  These goggles ONLY show up for those classes who can make them,  so they may be false positives.")
+
+		if teachflag or noteachflag then
+			self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+		end
+		-- Reset the filters to what they were before
+		SetTrainerServiceTypeFilter("available", avail or 0)
+		SetTrainerServiceTypeFilter("unavailable", unavail or 0)
+		SetTrainerServiceTypeFilter("used", used or 0)
 	end
 end	-- do
 
@@ -1029,7 +1036,7 @@ do
 		end
 		local recipe_list = LoadRecipe()		-- Get internal database
 
-		if (not recipe_list) then
+		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
@@ -1042,14 +1049,13 @@ do
 
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
-			-- Get the name
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
 
-			if (name) then
+			if name then
 				-- Lets scan recipes only on vendors
 				local matchtext = strmatch(name, "%a+: ")
 				-- Check to see if we're dealing with a recipe
-				if (matchtext) and (RECIPE_NAMES[strlower(matchtext)]) then
+				if matchtext and RECIPE_NAMES[strlower(matchtext)] then
 					local recipename = gsub(name, "%a+\: ", "")	-- Get rid of the first part of the item
 					local spellid = reverse_lookup[recipename]	-- Find out what spell ID we're using
 
@@ -1131,29 +1137,28 @@ end	-- do
 do
 	local output = {}
 
-	function addon:TooltipScanRecipe(spellid, is_vendor, is_largescan)
+	function addon:TooltipScanRecipe(spell_id, is_vendor, is_largescan)
 		local recipe_list = LoadRecipe()
 
 		if not recipe_list then
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local spell_info = recipe_list[spellid]
+		local spell_info = recipe_list[spell_id]
 
 		if not spell_info then
-			self:Print("Spell ID does not exist in the database.")
+			self:Print(string.format("Spell ID %d does not exist in the database.", tonumber(spell_id)))
 			return
 		end
-		local reverse_lookup = CreateReverseLookup(recipe_list)
 		local recipe_name = spell_info["Name"]
 		local game_vers = spell_info["Game"]
 
 		twipe(output)
 
 		if not game_vers then
-			tinsert(output, "No expansion information: " .. tostring(spellid) .. " " .. recipe_name)
+			tinsert(output, "No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
 		elseif game_vers > 2 then
-			tinsert(output, "Expansion information too high: " .. tostring(spellid) .. " " .. recipe_name)
+			tinsert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
 		local Orange = spell_info["Orange"]
 		local Yellow = spell_info["Yellow"]
@@ -1162,22 +1167,22 @@ do
 		local SkillLevel = spell_info["Level"]
 
 		if not Orange then
-			tinsert(output, "No skill level information: " .. tostring(spellid) .. " " .. recipe_name)
+			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
 			if Orange > SkillLevel then
-				tinsert(output, "Skill Level Error (Orange > Skill): " .. tostring(spellid) .. " " .. recipe_name)
+				tinsert(output, "Skill Level Error (Orange > Skill): " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 			-- Level info is messed up
 			if Orange > Yellow or Orange > Green or Orange > Grey or Yellow > Green or Yellow > Grey or Green > Grey then
-				tinsert(output, "Skill Level Error: " .. tostring(spellid) .. " " .. recipe_name)
+				tinsert(output, "Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
 		local recipe_link = spell_info["RecipeLink"]
 
 		if not recipe_link then
 			if spell_info["Profession"] ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
-				self:Print("Missing RecipeLink for ID " .. spellid .. " - " .. recipe_name .. " (Normal for DK abilities.")
+				self:Print("Missing RecipeLink for ID " .. spell_id .. " - " .. recipe_name .. " (Normal for DK abilities.")
 			end
 			return
 		end
@@ -1187,27 +1192,59 @@ do
 
 		-- Lets check to see if it's a recipe tooltip
 		local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
-		local matchtext = strmatch(text, "%a+: ")
+		local match_text = strmatch(text, "%a+: ")
 
 		-- Check to see if we're dealing with a recipe
-		if not RECIPE_NAMES[matchtext] then
+		if not RECIPE_NAMES[match_text] then
 			ARLDatamineTT:Hide()
 			return
 		end
+		local reverse_lookup = CreateReverseLookup(recipe_list)
+
+--		tinsert(output, "RECIPE SCAN")
+
+--		for i = 1, ARLDatamineTT:NumLines(), 1 do
+--			local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
+--			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
+--			local text
+ 
+--			if text_r then
+--				text = text_l .. "(Left) " .. text_r .. "(Right)"
+--			else
+--				text = text_l
+--			end
+
+--			tinsert(output, text)
+--		end
 		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
 
-		local itemid = SPELL_ITEM[spellid]
+		local item_id = SPELL_ITEM[spell_id]
 
+--		tinsert(output, "ITEM SCAN")
 		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
-		if itemid then
-			local incache = GetItemInfo(itemid)
+		if item_id then
+			local incache = GetItemInfo(item_id)
 
 			if incache then
-				ARLDatamineTT:SetHyperlink("item:" .. itemid .. ":0:0:0:0:0:0:0")
+				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
+
+--				for i = 1, ARLDatamineTT:NumLines(), 1 do
+--					local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
+--					local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
+--					local text
+ 
+--					if text_r then
+--						text = text_l .. "(Left) " .. text_r .. "(Right)"
+--					else
+--						text = text_l
+--					end
+
+--					tinsert(output, text)
+--				end
 				-- Scan the recipe item (aka pattern)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
 			else
-				tinsert(output, "Item ID: " .. itemid .. " not in cache.  If you have Querier use /iq " .. itemid)
+				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
 			end
 			-- We are dealing with a recipe that does not have an item to learn it from
 		else
@@ -1215,13 +1252,13 @@ do
 			local flags = spell_info["Flags"]
 
 			if (flags[4] or flags[5] or flags[6]) then
-				tinsert(output, "Spell ID: " .. spellid .. " does not exist in the SPELL_ITEM table.")
+				tinsert(output, "Spell/Item ID: " .. spell_id .. " does not exist in the SPELL_ITEM table.")
 			end
 		end
+		ARLDatamineTT:Hide()
+
 		-- Add the flag scan to the table if it's not nil
 		local results = self:PrintScanResults()
-
-		ARLDatamineTT:Hide()
 
 		if not results then
 			return
@@ -1240,6 +1277,18 @@ end	-- do
 -- Tooltip-scanning code
 -------------------------------------------------------------------------------
 do
+	-- These items apparently never cache on some servers due to the fact that
+	-- apparently nobody visits Sunwell on them anymore. Not in use yet.
+	local DO_NOT_SCAN = {
+		-------------------------------------------------------------------------------
+		--Leatherworking
+		-------------------------------------------------------------------------------
+		[35214] = true,	[32433] = true,	[32434] = true,	[15769] = true,
+		[32431] = true,	[32432] = true,	[35215] = true,	[35521] = true,
+		[35520] = true,	[35524] = true,	[35517] = true,	[35528] = true,
+		[35527] = true,	[35523] = true,	[35549] = true,	[35218] = true,
+		[35217] = true,	[35216] = true,	[35546] = true,	[35541] = true,
+	}
 
 	local SPECIALTY_TEXT = {
 		["requires spellfire tailoring"] = 26797, 
@@ -1601,15 +1650,15 @@ do
 	function addon:PrintScanResults()
 		-- Parse the recipe database until we get a match on the name
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
-		local spellid = scan_data.reverse_lookup[recipe_name]
+		local spell_id = scan_data.reverse_lookup[recipe_name]
 
-		if (not spellid) then
+		if (not spell_id) then
 			self:Print("Recipe " .. recipe_name .. " has no reverse lookup")
 			return
 		end
 
-		local flags = scan_data.recipe_list[spellid]["Flags"]
-		local acquire = scan_data.recipe_list[spellid]["Acquire"]
+		local flags = scan_data.recipe_list[spell_id]["Flags"]
+		local acquire = scan_data.recipe_list[spell_id]["Acquire"]
 		twipe(missing_flags)
 		twipe(extra_flags)
 		twipe(output)
@@ -1671,7 +1720,6 @@ do
 				end
 			end
 		else
-
 			-- BoP Recipe
 			if (scan_data.boprecipe) and (not flags[41]) then
 				tinsert(missing_flags, "41 (BoP Recipe)")
@@ -1725,7 +1773,7 @@ do
 					local tmpacquire = acquire[j]
 
 					if (tmpacquire["RepLevel"] ~= scan_data.repidlevel) then
-						tinsert(output, "Rep level wrong. " .. recipe_name .. " (" .. spellid .. ")")
+						tinsert(output, "Rep level wrong. " .. recipe_name .. " (" .. spell_id .. ")")
 					end
 				end
 			end
@@ -1733,7 +1781,7 @@ do
 
 		if (#missing_flags > 0) or (#extra_flags > 0) then
 			addedtotable = true
-			tinsert(output, recipe_name .. " (" .. spellid .. ")")
+			tinsert(output, recipe_name .. " (" .. spell_id .. ")")
 
 			-- Add a string of the missing flag numbers
 			if (#missing_flags > 0) then
@@ -1762,45 +1810,45 @@ do
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if (not flags[1]) and (not flags[2]) then
 			addedtotable = true
-			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spellid .. ")")
+			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
 		if ((not flags[3]) and (not flags[4]) and (not flags[5]) and (not flags[6]) and (not flags[7])
 		and (not flags[8]) and (not flags[9]) and (not flags[10]) and (not flags[11]) and (not flags[12])) then
 			addedtotable = true
-			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spellid .. ")")
+			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
 		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
 			addedtotable = true
-			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spellid .. ")")
+			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
 		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
 			addedtotable = true
-			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spellid .. ")")
+			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
-		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spellid]) then
+		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spell_id]) then
 			addedtotable = true
-			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spellid .. ").")
+			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spell_id .. ").")
 		end
 
 		if (scan_data.specialty) then
-			if (not scan_data.recipe_list[spellid]["Specialty"]) then
+			if (not scan_data.recipe_list[spell_id]["Specialty"]) then
 				addedtotable = true
-				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Missing Specialty: " .. scan_data.specialty)
-			elseif (scan_data.recipe_list[spellid]["Specialty"] ~= scan_data.specialty) then
-				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
+				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Missing Specialty: " .. scan_data.specialty)
+			elseif (scan_data.recipe_list[spell_id]["Specialty"] ~= scan_data.specialty) then
+				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
 			end
-		elseif (scan_data.recipe_list[spellid]["Specialty"]) then
+		elseif (scan_data.recipe_list[spell_id]["Specialty"]) then
 			addedtotable = true
-			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spellid .. ") Extra Specialty: " .. scan_data.recipe_list[spellid]["Specialty"])
+			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id]["Specialty"])
 		end
 
 		if (addedtotable) then
