@@ -33,7 +33,7 @@ In the RecipeDB is a single file for each profession. Each recipe is inserted in
 
 The first line is a human readable comment, which states the recipe name, with the [http://www.wowwiki.com/SpellLink spell ID] of the recipe.
 
-Please see the [[api]] page for detailed documentation on the database methods.
+Please see the [API] page for detailed documentation on the database methods.
 
 ==Filter Method==
 
