@@ -865,10 +865,11 @@ do
 	local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
 	local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
 	local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-	local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
+	local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA, = 36, 37, 38, 40, 41, 42
 	local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
 	local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-	local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER, F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80
+	local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
+	local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
 
 	-------------------------------------------------------------------------------
 	-- Reputation Filter flags
@@ -1002,8 +1003,7 @@ do
 			end
 		end
 
-		-- Filter out "era" recipes
-
+		-- Filter out game recipes
 		if ((obtaindb.originalwow == false) and (Recipe["Game"] == GAME_ORIG)) then
 			return false
 		end
@@ -1020,27 +1020,22 @@ do
 		if (bindingdb.itemboe == false) and (flags[F_IBOE] == true) then
 			return false
 		end
-
 		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
 		if (bindingdb.itembop == false) and (flags[F_IBOP] == true) then
 			return false
 		end
-
 		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
 		if (bindingdb.itemboa == false) and (flags[F_IBOA] == true) then
 			return false
 		end
-
 		-- Include BoE Recipes in the scan? (if I want to see BoE recipes, only filter those that are not BoE)
 		if (bindingdb.recipeboe == false) and (flags[F_RBOE] == true) then
 			return false
 		end
-
 		-- Include BoP Recipes in the scan? (if I want to see BoP recipes, only filter those that are not BoP)
 		if (bindingdb.recipebop == false) and (flags[F_RBOP] == true) then
 			return false
 		end
-
 		-- Include BoA Recipes in the scan? (if I want to see BoA recipes, only filter those that are not BoA)
 		if (bindingdb.recipeboa == false) and (flags[F_RBOA] == true) then
 			return false
@@ -1049,99 +1044,97 @@ do
 		local playerdb = filterdb.player
 
 		-- Include melee type recipes?
-		if (playerdb.melee == false) and (flags[51] == true) then
+		if (playerdb.melee == false) and (flags[F_DPS] == true) then
 			return false
 		end
-
 		-- Include tanking type recipes?
-		if (playerdb.tank == false) and (flags[52] == true) then
+		if (playerdb.tank == false) and (flags[F_TANK] == true) then
 			return false
 		end
-
 		-- Include healing type recipes?
-		if (playerdb.healer == false) and (flags[53] == true) then
+		if (playerdb.healer == false) and (flags[F_HEALER] == true) then
 			return false
 		end
-
 		-- Include caster type recipes?
-		if (playerdb.caster == false) and (flags[54] == true) then
+		if (playerdb.caster == false) and (flags[F_CASTER] == true) then
 			return false
 		end
 
 		local armordb = filterdb.item.armor
 
-		if (armordb.cloth == false) and (flags[56] == true) then
+		if (armordb.cloth == false) and (flags[F_CLOTH] == true) then
 			return false
 		end
-		if (armordb.leather == false) and (flags[57] == true) then
+		if (armordb.leather == false) and (flags[F_LEATHER] == true) then
 			return false
 		end
-		if (armordb.mail == false) and (flags[58] == true) then
+		if (armordb.mail == false) and (flags[F_MAIL] == true) then
 			return false
 		end
-		if (armordb.plate == false) and (flags[59] == true) then
+		if (armordb.plate == false) and (flags[F_PLATE] == true) then
 			return false
 		end
-		if (armordb.trinket == false) and (flags[61] == true) then
+		if (armordb.trinket == false) and (flags[F_TRINKET] == true) then
 			return false
 		end
-		if (armordb.cloak == false) and (flags[60] == true) then
+		if (armordb.cloak == false) and (flags[F_CLOAK] == true) then
 			return false
 		end
-		if (armordb.ring == false) and (flags[62] == true) then
+		if (armordb.ring == false) and (flags[F_RING] == true) then
 			return false
 		end
-		if (armordb.necklace == false) and (flags[63] == true) then
+		if (armordb.necklace == false) and (flags[F_NECK] == true) then
 			return false
 		end
-		if (armordb.shield == false) and (flags[64] == true) then
+		if (armordb.shield == false) and (flags[F_SHIELD] == true) then
 			return false
 		end
 
 		local weapondb = filterdb.item.weapon
-		if (weapondb.onehand == false) and (flags[66] == true) then
+
+		if (weapondb.onehand == false) and (flags[F_1H] == true) then
 			return false
 		end
-		if (weapondb.twohand == false) and (flags[67] == true) then
+		if (weapondb.twohand == false) and (flags[F_2H] == true) then
 			return false
 		end
-		if (weapondb.axe == false) and (flags[68] == true) then
+		if (weapondb.axe == false) and (flags[F_AXE] == true) then
 			return false
 		end
-		if (weapondb.sword == false) and (flags[69] == true) then
+		if (weapondb.sword == false) and (flags[F_SWORD] == true) then
 			return false
 		end
-		if (weapondb.mace == false) and (flags[70] == true) then
+		if (weapondb.mace == false) and (flags[F_MACE] == true) then
 			return false
 		end
-		if (weapondb.polearm == false) and (flags[71] == true) then
+		if (weapondb.polearm == false) and (flags[F_POLEARM] == true) then
 			return false
 		end
-		if (weapondb.dagger == false) and (flags[72] == true) then
+		if (weapondb.dagger == false) and (flags[F_DAGGER] == true) then
 			return false
 		end
-		if (weapondb.fist == false) and (flags[79] == true) then
+		if (weapondb.fist == false) and (flags[F_FIST] == true) then
 			return false
 		end
-		if (weapondb.gun == false) and (flags[80] == true) then
+		if (weapondb.gun == false) and (flags[F_GUN] == true) then
 			return false
 		end
-		if (weapondb.staff == false) and (flags[73] == true) then
+		if (weapondb.staff == false) and (flags[F_STAFF] == true) then
 			return false
 		end
-		if (weapondb.wand == false) and (flags[74] == true) then
+		if (weapondb.wand == false) and (flags[F_WAND] == true) then
 			return false
 		end
-		if (weapondb.thrown == false) and (flags[75] == true) then
+		if (weapondb.thrown == false) and (flags[F_THROWN] == true) then
 			return false
 		end
-		if (weapondb.bow == false) and (flags[76] == true) then
+		if (weapondb.bow == false) and (flags[F_BOW] == true) then
 			return false
 		end
-		if (weapondb.crossbow == false) and (flags[77] == true) then
+		if (weapondb.crossbow == false) and (flags[F_XBOW] == true) then
 			return false
 		end
-		if (weapondb.ammo == false) and (flags[78] == true) then
+		if (weapondb.ammo == false) and (flags[F_AMMO] == true) then
 			return false
 		end
 
@@ -1187,52 +1180,43 @@ do
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 
 		-- Display trainer recipes
-		if (obtaindb.trainer == true) and (flags[3] == true) then
+		if (obtaindb.trainer == true) and (flags[F_TRAINER] == true) then
 			return true
 		end
-
 		-- Display vendor recipes
-		if (obtaindb.vendor == true) and (flags[4] == true) then
+		if (obtaindb.vendor == true) and (flags[F_VENDOR] == true) then
 			return true
 		end
-
 		-- Display instance recipes
-		if (obtaindb.instance == true) and (flags[5] == true) then
+		if (obtaindb.instance == true) and (flags[F_INSTANCE] == true) then
 			return true
 		end
-
 		-- Display raid recipes
-		if (obtaindb.raid == true) and (flags[6] == true) then
+		if (obtaindb.raid == true) and (flags[F_RAID] == true) then
 			return true
 		end
-
 		-- Display seasonal recipes
-		if (obtaindb.seasonal == true) and (flags[7] == true) then
+		if (obtaindb.seasonal == true) and (flags[F_SEASONAL] == true) then
 			return true
 		end
-
 		-- Display quest recipes
-		if (obtaindb.quest == true) and (flags[8] == true) then
+		if (obtaindb.quest == true) and (flags[F_QUEST] == true) then
 			return true
 		end
-
 		-- Display PVP recipes
-		if (obtaindb.pvp == true) and (flags[9] == true) then
+		if (obtaindb.pvp == true) and (flags[F_PVP] == true) then
 			return true
 		end
-
 		-- Display world drop recipes
-		if (obtaindb.worlddrop == true) and (flags[10] == true) then
+		if (obtaindb.worlddrop == true) and (flags[F_WORLD_DROP] == true) then
 			return true
 		end
-
 		-- Display mob drop recipes
-		if (obtaindb.mobdrop == true) and (flags[11] == true) then
+		if (obtaindb.mobdrop == true) and (flags[F_MOB_DROP] == true) then
 			return true
 		end
-
 		-- Display discovery recipes
-		if (obtaindb.discovery == true) and (flags[12] == true) then
+		if (obtaindb.discovery == true) and (flags[F_DISC] == true) then
 			return true
 		end
 
