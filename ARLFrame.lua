@@ -1689,7 +1689,18 @@ function addon:CreateScanButton()
 		addon.ScanButton:Show()
 		Skillet:AddButtonToTradeskillWindow(addon.ScanButton)
 		addon.ScanButton:SetWidth(80)
-	end
+	elseif (MRTUIUtils_RegisterWindowOnShow) then
+		MRTUIUtils_RegisterWindowOnShow(
+			function()
+				addon.ScanButton:SetParent(MRTSkillFrame)
+				addon.ScanButton:ClearAllPoints()
+				addon.ScanButton:SetPoint("RIGHT",MRTSkillFrameCloseButton,"LEFT",4,0)
+				addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+				addon.ScanButton:Show()
+			end
+		)
+  	end
+
 
 	-- Set some of the common button properties
 	addon.ScanButton:SetHeight(20)
