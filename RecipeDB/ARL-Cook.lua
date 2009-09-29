@@ -68,6 +68,11 @@ local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 11
 local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
 local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5 = 125, 126, 127
 
+-------------------------------------------------------------------------------
+-- Acquire types
+-------------------------------------------------------------------------------
+local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
+
 local initialized = false
 local num_recipes = 0
 
@@ -89,8 +94,8 @@ function addon:InitCooking(RecipeDB)
 
 	-- Charred Wolf Meat -- 2538
 	AddRecipe(2538,1,2679,1,0,1,45,65,85)
-	self:addTradeFlags(RecipeDB,2538,1,2,3,21,22,23,24,25,26,27,28,29,30, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB,2538,8,8)
+	self:addTradeFlags(RecipeDB,2538, F_ALLIANCE, F_HORDER, F_TRAINER,21,22,23,24,25,26,27,28,29,30, F_IBOE, F_RBOP)
+	self:addTradeAcquire(RecipeDB, 2538, A_CUSTOM, 8)
 
 	-- Spiced Wolf Meat -- 2539
 	AddRecipe(2539,10,2680,1,0,10,50,70,90)
