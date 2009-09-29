@@ -1,6 +1,6 @@
 ==ARL Change Log
 ===Version 2XXX
-*Fixed an issue with Ulduar cross-faction recipes not appearing correctly.
+*Fixed an issue with Trial of the Crusader cross-faction recipes not appearing correctly.
 *Updated the database to make code more readible and remove redundancy.  Should make database updates a lot easier for people.
 *Add support for [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]].
 
