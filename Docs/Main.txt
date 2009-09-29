@@ -110,9 +110,6 @@ Please use the bug reporting feature to submit bug reports.  Do not contact me v
 ===IRC
 Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in the channel #arl
 
-====Mibbit
-Recently, [[http://www.mibbit.com | Mibbit]] was blocked by [[http://www.freenode.net | Freenode]].  This link may not work for you.
-[[http://widget.mibbit.com/?settings=5ec9a69db8a1d54761f84aa78810f1a2&server=irc.freenode.net&channel=%23arl&noServerNotices=true&noServerMotd=true&autoConnect=true|here]] (opens up a web-based IRC client)
 ====Freenode Webchat
 Freenode has come up with their alternative to Mibbit.
 [[http://webchat.freenode.net/?randomnick=1&channels=arl | Webchat]]
@@ -121,55 +118,16 @@ Freenode has come up with their alternative to Mibbit.
 * When gaining a reputation level recipes for that faction will still appear in red when doing a scan.
 * Recipe acquire information is slightly inaccurate.  I'm updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [[http://www.wowace.com/projects/arl/create-ticket/|here]] and I will get it updated.
 
-===Important Virus Announcement
-Some people are reporting that there is a malware warning with some virus scanners.  This is a false positive. I do not know why these scanners are picking it.  As you can see [[http://www.virustotal.com/analisis/822401bc55cb21e280bc527f66f12fb189c727ddb50d8170daad7527defccb90-1249613607 | here]] the zip is clean.  I've submitted the file to a few vendors to get this issue fixed and am looking at ways in code to fix it.
-
-I've just got confirmation back from them [[http://analysis.avira.com/samples/details.php?uniqueid=m0B77IpHpG1zU0CLgNZhmXf3rzm4pMSb&incidentid=353354|here]].  It is now a confirmed false positive.
-
-This is a difference in the code from one version that works, to another version that causes the error:
-<<code diff>>
-Index: ARL-Engineer.lua
-===================================================================
---- ARL-Engineer.lua (revision 2283)
-+++ ARL-Engineer.lua (revision 2287)
-@@ -1575,11 +1575,22 @@
-if (toc == 30200) then
-
--- Goblin Beam Welder -- 67326
-- self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2)
-- self:addTradeFlags(RecipeDB,67326,1,2)
-- --self:addTradeAcquire(RecipeDB,67326
-+ self:addTradeSkill(RecipeDB,67326,450,47828,1,4036,nil,2,415,415,420,425)
-+ self:addTradeFlags(RecipeDB,67326,1,2,21,22,23,24,25,26,27,28,29,30)
-+ self:addTradeAcquire(RecipeDB,67326,1,25277)
-+
-+ -- Jeeves -- 68067
-+ self:addTradeSkill(RecipeDB,68067,450,49050,1,4036,nil,2,450,480,485,490)
-+ self:addTradeFlags(RecipeDB,68067,1,2,21,22,23,24,25,26,27,28,29,30)
-+ self:addTradeAcquire(RecipeDB,68067,7,2)
-+
-+ --Wormhole Generator -- 67920
-+ self:addTradeSkill(RecipeDB,67920,450,48933,1,4036,nil,2,450,450,455,460)
-+ self:addTradeFlags(RecipeDB,67920,1,2,21,22,23,24,25,26,27,28,29,30)
-+ self:addTradeAcquire(RecipeDB,67920,1,25277)
-+
-
-- return 292
-+ return 294
-
-else
-<</code>>
-
-==Feature Requests/Bug Reporting==
+==Feature Requests/Bug Reporting
 Read the [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  I had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the mod, or you can see the thread on [[http://forums.wowace.com/showthread.php?t=11142|wowace]].  Please follow these small little instructions to make my life easier.  The easier you make development for Ackis Recipe List, the more time I will have to develop other addons.
 
-===Bug Reports===
+===Bug Reports
 Please use the [[http://www.wowace.com/projects/arl/tickets/|wowace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
 
-===Feature Request===
+===Feature Request
 Please use the [[http://www.wowace.com/projects/arl/tickets/|wowace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
 
-==Integration==
+==Integration
 Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/arl/tickets/|wowace]].  I make no promises that I will implement the feature at all.  There is a limited [[http://www.wowace.com/projects/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
 Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx|Advanced Trade Skill Window]] - [[http://www.wowace.com/projects/arl/images/13-arl-w-atsw/|Screenshot 1]]
@@ -178,14 +136,14 @@ Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx|Cauldron]]
 * [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]]
 
-==Detailed Documentation==
+==Detailed Documentation
 * [[http://www.wowace.com/projects/arl/pages/api/|API]]
 * [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
 * [[http://www.wowace.com/projects/arl/pages/in-game-documentation/|In-game Documentation]]
 * [[http://www.wowace.com/projects/arl/pages/api/database-documentation/|Database Documentation]]
 * [[http://www.wowace.com/projects/arl/pages/api/localization/|Localization]]
 
-==Acknowledgments==
+==Acknowledgments
 * Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).
 * Ace community for listening to my questions on the IRC channel and helping me out, and fellow mod authors for developing such great add-ons.
 * Please see the X-Credits field for more Acknowledgments.  Any code snippets borrowed or inspired from are credited in the code files.  The main display also lists all people who are in X-Credits.
@@ -193,5 +151,5 @@ Currently, the mod works with:
 
 {{arl:22}}
 
-==Wiki==
+==Wiki
 [[http://www.wowwiki.com/AckisRecipeList|WoW Wiki]]
