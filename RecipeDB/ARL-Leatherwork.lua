@@ -1549,17 +1549,17 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Felstalker Belt -- 32498
 	self:addTradeSkill(RecipeDB,32498,350,25695,3,2108,nil,1,350,360,370,380)
 	self:addTradeFlags(RecipeDB,32498,1,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,104)
-	self:addTradeAcquire(RecipeDB,32498,6,946,1,17657)
+	self:addTradeAcquire(RecipeDB,32498,6,946,1,17657,6,947,1,17585)
 
-	-- Felstalker Bracer -- 32499
+	-- Felstalker Bracers -- 32499
 	self:addTradeSkill(RecipeDB,32499,360,25697,3,2108,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,32499,1,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,104)
-	self:addTradeAcquire(RecipeDB,32499,6,946,2,17657)
+	self:addTradeAcquire(RecipeDB,32499,6,946,2,17657,6,947,2,17585)
 
 	-- Felstalker Breastplate -- 32500
 	self:addTradeSkill(RecipeDB,32500,360,25696,3,2108,nil,1,360,370,380,390)
 	self:addTradeFlags(RecipeDB,32500,1,4,21,22,23,24,25,26,27,28,29,30,36,41,51,58,104)
-	self:addTradeAcquire(RecipeDB,32500,6,946,2,17657)
+	self:addTradeAcquire(RecipeDB,32500,6,946,2,17657,6,947,2,17585)
 
 	-- Netherfury Belt -- 32501
 	self:addTradeSkill(RecipeDB,32501,340,25694,3,2108,nil,1,340,350,360,370)
