@@ -849,6 +849,38 @@ end
 
 do
 
+	-------------------------------------------------------------------------------
+	-- Item "rarity"
+	-------------------------------------------------------------------------------
+	local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
+
+	-------------------------------------------------------------------------------
+	-- Origin
+	-------------------------------------------------------------------------------
+	local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+
+	-------------------------------------------------------------------------------
+	-- Filter flags
+	-------------------------------------------------------------------------------
+	local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
+	local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
+	local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29 30
+	local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA, = 36, 37, 38, 40, 41, 42
+	local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
+	local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
+	local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER, F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80
+
+	-------------------------------------------------------------------------------
+	-- Reputation Filter flags
+	-------------------------------------------------------------------------------
+	local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
+	local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
+	local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110
+	local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 111, 112, 113, 114
+	local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
+	local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
+	local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5 = 125, 126, 127
+
 	local reptable = nil
 
 	local function CreateRepTable()
@@ -946,13 +978,13 @@ do
 			-- We want to filter out all the Horde only recipes
 			if (playerFaction == BFAC["Alliance"]) then
 				-- Filter out Horde only
-				if (flags[1] == false) and (flags[2] == true) then
+				if (flags[F_ALLIANCE] == false) and (flags[F_HORDE] == true) then
 					return false
 				end
 			-- We want to filter out all the Alliance only recipes
 			else
 				-- Filter out Alliance only
-				if (flags[2] == false) and (flags[1] == true) then
+				if (flags[F_HORDE] == false) and (flags[F_ALLIANCE] == true) then
 					return false
 				end
 			end
@@ -972,45 +1004,45 @@ do
 
 		-- Filter out "era" recipes
 
-		if ((obtaindb.originalwow == false) and (Recipe["Game"] == 0)) then
+		if ((obtaindb.originalwow == false) and (Recipe["Game"] == GAME_ORIG)) then
 			return false
 		end
-		if ((obtaindb.bc == false) and (Recipe["Game"] == 1)) then
+		if ((obtaindb.bc == false) and (Recipe["Game"] == GAME_TBC)) then
 			return false
 		end
-		if ((obtaindb.wrath == false) and (Recipe["Game"] == 2)) then
+		if ((obtaindb.wrath == false) and (Recipe["Game"] == GAME_WOTLK)) then
 			return false
 		end
 
 		local bindingdb = filterdb.binding
 
 		-- Include BoE Items in the scan? (if I want to see BoE items, only filter those that are not BoE)
-		if (bindingdb.itemboe == false) and (flags[36] == true) then
+		if (bindingdb.itemboe == false) and (flags[F_IBOE] == true) then
 			return false
 		end
 
 		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
-		if (bindingdb.itembop == false) and (flags[37] == true) then
+		if (bindingdb.itembop == false) and (flags[F_IBOP] == true) then
 			return false
 		end
 
 		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
-		if (bindingdb.itemboa == false) and (flags[38] == true) then
+		if (bindingdb.itemboa == false) and (flags[F_IBOA] == true) then
 			return false
 		end
 
 		-- Include BoE Recipes in the scan? (if I want to see BoE recipes, only filter those that are not BoE)
-		if (bindingdb.recipeboe == false) and (flags[40] == true) then
+		if (bindingdb.recipeboe == false) and (flags[F_RBOE] == true) then
 			return false
 		end
 
 		-- Include BoP Recipes in the scan? (if I want to see BoP recipes, only filter those that are not BoP)
-		if (bindingdb.recipebop == false) and (flags[41] == true) then
+		if (bindingdb.recipebop == false) and (flags[F_RBOP] == true) then
 			return false
 		end
 
 		-- Include BoA Recipes in the scan? (if I want to see BoA recipes, only filter those that are not BoA)
-		if (bindingdb.recipeboa == false) and (flags[42] == true) then
+		if (bindingdb.recipeboa == false) and (flags[F_RBOA] == true) then
 			return false
 		end
 
@@ -1119,165 +1151,36 @@ do
 
 		local classesdb = filterdb.classes
 
-			if (classesdb.deathknight == false) and (flags[21] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.druid == false) and (flags[22] == true) then
-				if (classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.hunter == false) and (flags[23] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.mage == false) and (flags[24] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.paladin == false) and (flags[25] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.priest == false) and (flags[26] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.shaman == false) and (flags[27] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.rogue == false) and (flags[28] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.warlock == false) and (flags[29] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.warrior == false) and (flags[30] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
+		if ((classesdb.deathknight == false) and (flags[F_DK] == true)) then
+			return false
+		end
+		if ((classesdb.druid == false) and (flags[F_DRUID] == true)) then
+			return false
+		end
+		if ((classesdb.hunter == false) and (flags[F_HUNTER] == true)) then
+			return false
+		end
+		if ((classesdb.mage == false) and (flags[F_MAGE] == true)) then
+			return false
+		end
+		if ((classesdb.paladin == false) and (flags[F_PALADIN] == true)) then
+			return false
+		end
+		if ((classesdb.priest == false) and (flags[F_PRIEST] == true)) then
+			return false
+		end
+		if ((classesdb.shaman == false) and (flags[F_SHAMAN] == true)) then
+			return false
+		end
+		if ((classesdb.rogue == false) and (flags[F_ROGUE] == true)) then
+			return false
+		end
+		if ((classesdb.warlock == false) and (flags[F_WARLOCK] == true)) then
+			return false
+		end
+		if ((classesdb.warrior == false) and (flags[F_WARRIOR] == true)) then
+			return false
+		end
 
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
