@@ -1399,7 +1399,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Mystic Sun Crystal -- 53857
 	self:addTradeSkill(RecipeDB,53857,350,39917,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53857,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53857,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53857,2,34079,2,34039)
 
 	-- Sovereign Shadow Crystal -- 53859
 	self:addTradeSkill(RecipeDB,53859,350,39934,2,25229,nil,2)
@@ -1434,7 +1434,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Mysterious Shadow Crystal -- 53865 
 	self:addTradeSkill(RecipeDB,53865,350,39945,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53865,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,53865,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53865,2,34079,2,34039)
 
 	-- Balanced Shadow Crystal -- 53866
 	self:addTradeSkill(RecipeDB,53866,350,39937,2,25229,nil,2)
@@ -1484,7 +1484,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Resplendent Huge Citrine -- 53875
 	self:addTradeSkill(RecipeDB,53875,350,39950,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53875,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
-	self:addTradeAcquire(RecipeDB,53875,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53875,2,34079,2,34039)
 
 	-- Fierce Huge Citrine -- 53876
 	self:addTradeSkill(RecipeDB,53876,350,39951,2,25229,nil,2)
@@ -1504,7 +1504,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Lucent Huge Citrine -- 53879
 	self:addTradeSkill(RecipeDB,53879,350,39954,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53879,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
-	self:addTradeAcquire(RecipeDB,53879,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53879,2,34079,2,34039)
 
 	-- Deft Huge Citrine -- 53880
 	self:addTradeSkill(RecipeDB,53880,350,39955,2,25229,nil,2)
@@ -1529,7 +1529,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Durable Huge Citrine -- 53884
 	self:addTradeSkill(RecipeDB,53884,350,39958,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53884,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,53884,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53884,2,34079,2,34039)
 
 	-- Reckless Huge Citrine -- 53885
 	self:addTradeSkill(RecipeDB,53885,350,39959,2,25229,nil,2)
@@ -1549,7 +1549,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Empowered Huge Citrine -- 53888
 	self:addTradeSkill(RecipeDB,53888,350,39962,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53888,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,51)
-	self:addTradeAcquire(RecipeDB,53888,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53888,2,34079,2,34039)
 
 	-- Stark Huge Citrine -- 53889
 	self:addTradeSkill(RecipeDB,53889,350,39963,2,25229,nil,2)
@@ -1599,7 +1599,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Steady Dark Jade -- 53919
 	self:addTradeSkill(RecipeDB,53919,350,39977,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53919,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41)
-	self:addTradeAcquire(RecipeDB,53919,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53919,2,34079,2,34039)
 
 	-- Forceful Dark Jade -- 53920
 	self:addTradeSkill(RecipeDB,53920,350,39978,2,25229,nil,2)
@@ -1624,7 +1624,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Turbid Dark Jade -- 53924
 	self:addTradeSkill(RecipeDB,53924,350,39982,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53924,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,53924,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53924,2,34079,2,34039)
 
 	-- Intricate Dark Jade -- 53925
 	self:addTradeSkill(RecipeDB,53925,350,39983,2,25229,nil,2)
@@ -1649,7 +1649,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Opaque Dark Jade -- 53929
 	self:addTradeSkill(RecipeDB,53929,350,39988,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53929,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,53929,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53929,2,34079,2,34039)
 
 	-- Energized Dark Jade -- 53930
 	self:addTradeSkill(RecipeDB,53930,350,39989,2,25229,nil,2)
@@ -1664,12 +1664,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Tense Dark Jade -- 53932 
 	self:addTradeSkill(RecipeDB,53932,350,39991,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53932,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,53932,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53932,2,34079,2,34039)
 
 	-- Shattered Dark Jade -- 53933 
 	self:addTradeSkill(RecipeDB,53933,350,39992,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53933,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,53933,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53933,2,34079,2,34039)
 
 	-- Solid Chalcedony -- 53934
 	self:addTradeSkill(RecipeDB,53934,350,39919,2,25229,nil,2)
@@ -1689,7 +1689,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Stormy Chalcedony -- 53943
 	self:addTradeSkill(RecipeDB,53943,350,39927,2,25229,nil,2)
 	self:addTradeFlags(RecipeDB,53943,1,2,4,9,21,22,23,24,25,26,27,28,29,30,36,41,54)
-	self:addTradeAcquire(RecipeDB,53943,2,32379,2,32382)
+	self:addTradeAcquire(RecipeDB,53943,2,34079,2,34039)
 
 	-- Delicate Scarlet Ruby -- 53945
 	self:addTradeSkill(RecipeDB,53945,390,39997,3,25229,nil,2)

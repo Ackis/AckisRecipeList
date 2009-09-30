@@ -1503,7 +1503,6 @@ L["Vilebranch Hideskinner"] = true
 L["Vir'aani Arcanist"] = true
 L["Vira Younghoof"] = true
 L["Vivianna"] = true
-L["Vix Chromeblaster"] = true
 L["Vizzklick"] = true
 L["Vodesiin"] = true
 L["Voidshrieker"] = true
