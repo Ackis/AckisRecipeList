@@ -1,54 +1,36 @@
---[[
-
-************************************************************************
-
-ARL-Cook.lua
-
-Cooking data for all of Ackis Recipe List
-
-************************************************************************
-
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
-
-************************************************************************
-
-Format:
-
-	AddRecipe( Spell ID, Skill Level, Item ID, Rarity, Specialty)
-
-************************************************************************
-
-Please see http://www.wowace.com/projects/arl/for more information.
-
-License:
-	Please see LICENSE.txt
-
-This source code is released under All Rights Reserved.
-
-************************************************************************
-
-]]--
+--------------------------------------------------------------------------------------------------------------------
+-- ARL-Cook.lua
+-- Cooking data for all of Ackis Recipe List
+--------------------------------------------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- File revision: @file-revision@ 
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+--------------------------------------------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/arl/for more information.
+--------------------------------------------------------------------------------------------------------------------
+-- License:
+-- 	Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------
 
 local MODNAME = "Ackis Recipe List"
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Item "rarity"
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Origin
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Filter flags
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
 local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
 local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
@@ -58,9 +40,9 @@ local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F
 local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
 local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Reputation Filter flags
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
 local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
 local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110
@@ -69,19 +51,19 @@ local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 11
 local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
 local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5 = 125, 126, 127
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Acquire types
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Reputation Acquire Flags
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local R_WINTERSPRING = 589
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 -- Reputation Levels
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 local FRIENDLY = 1
 local HONORED = 2
 local REVERED = 3
@@ -98,9 +80,9 @@ function addon:InitCooking(RecipeDB)
 
 	initialized = true
 
-	-------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------
 	-- Counter and wrapper function
-	-------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------------------------------------
 	local function AddRecipe(SpellID, Skill, ItemID, Rarity, Game, Orange, Yellow, Green, Gray)
 		num_recipes = num_recipes + 1
 		self:addTradeSkill(RecipeDB, SpellID, Skill, ItemID, Rarity, 2550, nil, Game, Orange, Yellow, Green, Gray)
@@ -114,9 +96,11 @@ function addon:InitCooking(RecipeDB)
 	-- Spiced Wolf Meat -- 2539
 	AddRecipe(2539, 10, 2680, R_COMMON, GAME_ORIG, 10, 50, 70, 90)
 	self:addTradeFlags(RecipeDB, 2539, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 2539, A_TRAINER, 1355, A_TRAINER, 1382, A_TRAINER, 1430, A_TRAINER, 1699, A_TRAINER, 3026, A_TRAINER, 3067, A_TRAINER,
-	3087, A_TRAINER, 3399, A_TRAINER, 4210, A_TRAINER, 4552, A_TRAINER, 5159, A_TRAINER, 5482, A_TRAINER, 6286, A_TRAINER, 8306, A_TRAINER, 16253, A_TRAINER, 16277, A_TRAINER, 16676, A_TRAINER,
-	16719, A_TRAINER, 17246, A_TRAINER, 18987, A_TRAINER, 18988, A_TRAINER, 18993, A_TRAINER, 19185, A_TRAINER, 19369)
+	self:addTradeAcquire(RecipeDB, 2539, A_TRAINER, 1355, A_TRAINER, 1382, A_TRAINER, 1430, A_TRAINER, 
+	1699, A_TRAINER, 3026, A_TRAINER, 3067, A_TRAINER,3087, A_TRAINER, 3399, A_TRAINER, 4210, A_TRAINER, 4552, 
+	A_TRAINER, 5159, A_TRAINER, 5482, A_TRAINER, 6286, A_TRAINER, 8306, A_TRAINER, 16253, A_TRAINER, 16277, 
+	A_TRAINER, 16676, A_TRAINER,16719, A_TRAINER, 17246, A_TRAINER, 18987, A_TRAINER, 18988, A_TRAINER, 18993, 
+	A_TRAINER, 19185, A_TRAINER, 19369)
 
 	-- Roasted Boar Meat -- 2540
 	AddRecipe(2540, 1, 2681, R_COMMON, GAME_ORIG, 1, 45, 65, 85)
