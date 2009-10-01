@@ -2786,16 +2786,16 @@ function addon:InitLeatherworking(RecipeDB)
 	if (version == "3.2.2") then
 
 		-- Drums of Forgotten Kings -- 69386
-		self:addTradeSkill(RecipeDB,69386,450,49633,1,2108,nil,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,69386,1,2,21,22,23,24,25,26,27,28,29,30)
-		--self:addTradeAcquire(RecipeDB,69386,)
+		self:addTradeSkill(RecipeDB,69386,450,49633,1,2108,nil,2,450,450,455,470)
+		self:addTradeFlags(RecipeDB,69386,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,69386,1,28700)
 
 		-- Drums of the Wild -- 69388
-		self:addTradeSkill(RecipeDB,69388,450,49634,1,2108,nil,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,69388,1,2,21,22,23,24,25,26,27,28,29,30)
-		--self:addTradeAcquire(RecipeDB,69388,)
+		self:addTradeSkill(RecipeDB,69388,450,49634,1,2108,nil,2,450,450,455,470)
+		self:addTradeFlags(RecipeDB,69388,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,69388,1,28700)
 
-		patchitems = patchitems + 2
+		patchitems = 2
 
 	end
 

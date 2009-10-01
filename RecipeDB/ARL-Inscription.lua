@@ -2397,12 +2397,12 @@ function addon:InitInscription(RecipeDB)
 
 	if (version == "3.2.2") then
 
-		-- Runescroll of Stamina -- 69385
-		self:addTradeSkill(RecipeDB,69385,450,49632,1,45357,nil,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,69385,1,2,21,22,23,24,25,26,27,28,29,30)
-		--self:addTradeAcquire(RecipeDB,69385,)
+		-- Runescroll of Fortitude -- 69385
+		self:addTradeSkill(RecipeDB,69385,440,49632,1,45357,nil,2,440,440,442,460)
+		self:addTradeFlags(RecipeDB,69385,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,69385,1,28702)
 
-		patchitems = patchitems + 1
+		patchitems = 1
 
 	end
 
