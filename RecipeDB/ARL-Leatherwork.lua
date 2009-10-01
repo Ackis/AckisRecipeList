@@ -2819,9 +2819,9 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeAcquire(RecipeDB,67087,8,42)
 
 		-- Crusader's Dragonscale Bracers -- 67143
-		self:addTradeSkill(RecipeDB,67143,450,47576,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67143,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
-		self:addTradeAcquire(RecipeDB,67143,8,42)
+		self:addTradeSkill(RecipeDB,67083,450,47576,4,2108,nil,2,450,460,467,475)
+		self:addTradeFlags(RecipeDB,67083,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
+		self:addTradeAcquire(RecipeDB,67083,8,42)
 
 		-- Crusader's Dragonscale Breastplate -- 67082
 		self:addTradeSkill(RecipeDB,67082,450,47595,4,2108,nil,2,450,460,467,475)
@@ -2863,9 +2863,9 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeAcquire(RecipeDB,67139,8,42)
 
 		-- Crusader's Dragonscale Bracers -- 67083
-		self:addTradeSkill(RecipeDB,67083,450,47577,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67083,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
-		self:addTradeAcquire(RecipeDB,67083,8,42)
+		self:addTradeSkill(RecipeDB,67143,450,47577,4,2108,nil,2,450,460,467,475)
+		self:addTradeFlags(RecipeDB,67143,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
+		self:addTradeAcquire(RecipeDB,67143,8,42)
 		
 		-- Crusader's Dragonscale Breastplate -- 67138
 		self:addTradeSkill(RecipeDB,67138,450,47596,4,2108,nil,2,450,460,467,475)
