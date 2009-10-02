@@ -155,7 +155,7 @@ local SortedProfessions = {
 	{ name = GetSpellInfo(51309),	texture = "tailor" },	-- 12 
 } 
 
-local MaxProfessions = 12
+local NUM_PROFESSIONS = 12
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
@@ -1674,113 +1674,6 @@ local function ReDisplay()
 	RecipeList_Update()
 end
 
--- Description: Creates the scan button for ARL. 
-
-function addon:CreateScanButton()
-
-	-- Create the scan button
-	if (not addon.ScanButton) then
-		addon.ScanButton = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
-	end
-
-	-- Add to Skillet interface
-	if (Skillet and Skillet:IsActive()) then
-		addon.ScanButton:SetParent(SkilletFrame)
-		addon.ScanButton:Show()
-		Skillet:AddButtonToTradeskillWindow(addon.ScanButton)
-		addon.ScanButton:SetWidth(80)
-	elseif (MRTUIUtils_RegisterWindowOnShow) then
-		MRTUIUtils_RegisterWindowOnShow(
-			function()
-				addon.ScanButton:SetParent(MRTSkillFrame)
-				addon.ScanButton:ClearAllPoints()
-				addon.ScanButton:SetPoint("RIGHT",MRTSkillFrameCloseButton,"LEFT",4,0)
-				addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-				addon.ScanButton:Show()
-			end
-		)
-  	end
-
-
-	-- Set some of the common button properties
-	addon.ScanButton:SetHeight(20)
-	addon.ScanButton:RegisterForClicks("LeftButtonUp")
-	addon.ScanButton:SetScript("OnClick",
-			function()
-				addon:ToggleFrame()
-			end
-		)
-
-	addon.ScanButton:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
-				GameTooltip:Show()
-			end
-		)
-
-	addon.ScanButton:SetScript("OnLeave",
-			function()
-				GameTooltip:Hide()
-			end
-		)
-
-	addon.ScanButton:SetText(L["Scan"])
-
-	local buttonparent = addon.ScanButton:GetParent()
-	local framelevel = buttonparent:GetFrameLevel()
-	local framestrata = buttonparent:GetFrameStrata()
-
-	-- Set the frame level of the button to be 1 deeper than its parent
-	addon.ScanButton:SetFrameLevel(framelevel + 1)
-	addon.ScanButton:SetFrameStrata(framestrata)
-
-	addon.ScanButton:Enable()
-
-end
-
-function addon:ShowScanButton()
-
-	-- Anchor to ATSW
-	if (ATSWFrame) then
-		addon.ScanButton:SetParent(ATSWFrame)
-		addon.ScanButton:ClearAllPoints()
-		if (TradeJunkieMain and TJ_OpenButtonATSW) then
-			addon.ScanButton:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
-		else
-			addon.ScanButton:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
-		end
-		addon.ScanButton:SetHeight(ATSWOptionsButton:GetHeight())
-		addon.ScanButton:SetWidth(ATSWOptionsButton:GetWidth())
-	-- Anchor to Cauldron
-	elseif (CauldronFrame) then
-		addon.ScanButton:SetParent(CauldronFrame)
-		addon.ScanButton:ClearAllPoints()
-		addon.ScanButton:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
-		addon.ScanButton:SetWidth(90)
-	-- Anchor to trade window
-	else
-		addon.ScanButton:SetParent(TradeSkillFrame)
-		addon.ScanButton:ClearAllPoints()
-
-		local loc = addon.db.profile.scanbuttonlocation
-
-		if (loc == "TR") then
-			addon.ScanButton:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
-		elseif (loc == "TL") then
-			addon.ScanButton:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
-		elseif (loc == "BR") then
-			addon.ScanButton:SetPoint("TOP",TradeSkillCancelButton,"BOTTOM",0,-5)
-		elseif (loc == "BL") then
-			addon.ScanButton:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
-		end
-		addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-	end
-
-	addon.ScanButton:Show()
-
-end
-
 local function HideARL_ExpOptCB(ignorevalue)
 
 	ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
@@ -2047,119 +1940,6 @@ local function SetSwitcherTexture(tex)
 	ARL_SwitcherButton:SetNormalTexture(ARL_S_NTexture)
 	ARL_SwitcherButton:SetPushedTexture(ARL_S_PTexture)
 	ARL_SwitcherButton:SetDisabledTexture(ARL_S_DTexture)
-
-end
-
--- Description: Switch the displayed profession in the main panel
-function addon:SwitchProfs(button)
-	-- Known professions should be in playerData["Professions"]
-
-	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known professions, but also
-	-- that we do so in order. That means that if the currently displayed
-	-- profession is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed profession
-	-- and then iterate again to make sure we display the next one in line.
-	-- Further, there is the nuance that the person may not know any
-	-- professions yet at all. User are so annoying.
-	local startLoop = 0
-	local endLoop = 0
-	local displayProf = 0
-
-	self:ClosePopups()
-
-	-- ok, so first off, if we've never done this before, there is no "current"
-	-- and a single iteration will do nicely, thank you
-	if button == "LeftButton" then
-		-- normal profession switch
-		if (currentProfIndex == 0) then
-			startLoop = 1
-			endLoop = addon.MaxProfessions + 1
-		else
-			startLoop = currentProfIndex + 1
-			endLoop = currentProfIndex
-		end
-		local index = startLoop
-	
-		while (index ~= endLoop) do
-			if (index > MaxProfessions) then
-				index = 1
-			else
-				if (playerData["Professions"][SortedProfessions[index].name] == true) then
-					displayProf = index
-					currentProfIndex = index
-					break
-				else
-					index = index + 1
-				end
-			end
-		end
-	elseif button == "RightButton" then
-		-- reverse profession switch
-		if (currentProfIndex == 0) then
-			startLoop = addon.MaxProfessions + 1
-			endLoop = 0
-		else
-			startLoop = currentProfIndex - 1
-			endLoop = currentProfIndex
-		end
-		local index = startLoop
-	
-		while (index ~= endLoop) do
-			if (index < 1) then
-				index = MaxProfessions
-			else
-				if (playerData["Professions"][SortedProfessions[index].name] == true) then
-					displayProf = index
-					currentProfIndex = index
-					break
-				else
-					index = index - 1
-				end
-			end
-		end
-	end
-
-	-- Redisplay the button with the new skill
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-	playerData.playerProfession = SortedProfessions[currentProfIndex].name
-	currentProfession = playerData.playerProfession
-
-	-- Lets get the new skill level
-	-- Expand all headers first
-
-	local NumSkillLines = GetNumSkillLines()
-	local expandtable = AcquireTable()
-
-	for i = NumSkillLines, 1, -1 do
-		local skillName, _, isExpanded = GetSkillLineInfo(i)
-		if (not isExpanded) then
-			expandtable[skillName] = true
-			ExpandSkillHeader(i)
-		end
-	end
-
-	NumSkillLines = GetNumSkillLines()
-
-	-- Get the skill level
-	for i = 1, NumSkillLines, 1 do
-		local skillName, _, _, skillRank = GetSkillLineInfo(i)
-		if (skillName == currentProfession) then
-			playerData.playerProfessionLevel = skillRank
-			break
-		end
-	end
-
-	-- Collapse expanded headers
-	for i = NumSkillLines, 1, -1 do
-		local skillName, _, isExpanded = GetSkillLineInfo(i)
-		if (expandtable[skillName] == true) then
-			CollapseSkillHeader(i)
-		end
-	end
-	ReleaseTable(expandtable)
-	ReDisplay()
-	MainPanel:ResetTitle()
 
 end
 
@@ -3392,7 +3172,116 @@ function addon:InitializeFrame()
 	ARL_SwitcherButton:SetHeight(64)
 	ARL_SwitcherButton:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
 	ARL_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_SwitcherButton:SetScript("OnClick", function(self, button) addon:SwitchProfs(button) end)
+	ARL_SwitcherButton:SetScript("OnClick",
+				     function(self, button, down)
+					     -- Known professions should be in playerData["Professions"]
+
+					     -- This loop is gonna be weird. The reason is because we need to
+					     -- ensure that we cycle through all the known professions, but also
+					     -- that we do so in order. That means that if the currently displayed
+					     -- profession is the last one in the list, we're actually going to
+					     -- iterate completely once to get to the currently displayed profession
+					     -- and then iterate again to make sure we display the next one in line.
+					     -- Further, there is the nuance that the person may not know any
+					     -- professions yet at all. User are so annoying.
+					     local startLoop = 0
+					     local endLoop = 0
+					     local displayProf = 0
+
+					     self:ClosePopups()
+
+					     -- ok, so first off, if we've never done this before, there is no "current"
+					     -- and a single iteration will do nicely, thank you
+					     if button == "LeftButton" then
+						     -- normal profession switch
+						     if currentProfIndex == 0 then
+							     startLoop = 1
+							     endLoop = NUM_PROFESSIONS + 1
+						     else
+							     startLoop = currentProfIndex + 1
+							     endLoop = currentProfIndex
+						     end
+						     local index = startLoop
+	
+						     while (index ~= endLoop) do
+							     if index > NUM_PROFESSIONS then
+								     index = 1
+							     elseif playerData["Professions"][SortedProfessions[index].name] then
+								     displayProf = index
+								     currentProfIndex = index
+								     break
+							     else
+								     index = index + 1
+							     end
+						     end
+					     elseif button == "RightButton" then
+						     -- reverse profession switch
+						     if currentProfIndex == 0 then
+							     startLoop = NUM_PROFESSIONS + 1
+							     endLoop = 0
+						     else
+							     startLoop = currentProfIndex - 1
+							     endLoop = currentProfIndex
+						     end
+						     local index = startLoop
+
+						     while index ~= endLoop do
+							     if index < 1 then
+								     index = NUM_PROFESSIONS
+							     elseif playerData["Professions"][SortedProfessions[index].name] then
+								     displayProf = index
+								     currentProfIndex = index
+								     break
+							     else
+								     index = index - 1
+							     end
+						     end
+					     end
+
+					     -- Redisplay the button with the new skill
+					     SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+					     playerData.playerProfession = SortedProfessions[currentProfIndex].name
+					     currentProfession = playerData.playerProfession
+
+					     -- Lets get the new skill level
+					     -- Expand all headers first
+
+					     local NumSkillLines = GetNumSkillLines()
+					     local expandtable = AcquireTable()
+
+					     for i = NumSkillLines, 1, -1 do
+						     local skillName, _, isExpanded = GetSkillLineInfo(i)
+
+						     if not isExpanded then
+							     expandtable[skillName] = true
+							     ExpandSkillHeader(i)
+						     end
+					     end
+
+					     NumSkillLines = GetNumSkillLines()
+
+					     -- Get the skill level
+					     for i = 1, NumSkillLines, 1 do
+						     local skillName, _, _, skillRank = GetSkillLineInfo(i)
+
+						     if skillName == currentProfession then
+							     playerData.playerProfessionLevel = skillRank
+							     break
+						     end
+					     end
+
+					     -- Collapse expanded headers
+					     for i = NumSkillLines, 1, -1 do
+						     local skillName, _, isExpanded = GetSkillLineInfo(i)
+
+						     if expandtable[skillName] then
+							     CollapseSkillHeader(i)
+						     end
+					     end
+					     ReleaseTable(expandtable)
+					     ReDisplay()
+					     MainPanel:ResetTitle()
+				     end)
 
 	-------------------------------------------------------------------------------
 	-- Stuff in the non-expanded frame (or both)

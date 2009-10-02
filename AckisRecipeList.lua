@@ -326,16 +326,16 @@ function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 
-	if (addon.db.profile.scantrainers) then
+	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
 	end
 
-	if (addon.db.profile.scanvendors) then
+	if addon.db.profile.scanvendors then
 		self:RegisterEvent("MERCHANT_SHOW")
 	end
 
 	-- Add an option so that ARL will work with Manufac
-	if (Manufac) then
+	if Manufac then
 		Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan"],
@@ -361,8 +361,51 @@ function addon:OnEnable()
 	-- Populate the reputation level
 	self:GetFactionLevels()
 
-	--Create the button now for later use
-	self:CreateScanButton()
+	-------------------------------------------------------------------------------
+	-- Create the scan button, then set its parent and scripts.
+	-------------------------------------------------------------------------------
+	local scan_button = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
+
+	-- Add to Skillet interface
+	if Skillet and Skillet:IsActive() then
+		scan_button:SetParent(SkilletFrame)
+		scan_button:Show()
+		Skillet:AddButtonToTradeskillWindow(scan_button)
+		scan_button:SetWidth(80)
+	elseif MRTUIUtils_RegisterWindowOnShow then
+		MRTUIUtils_RegisterWindowOnShow(function()
+							scan_button:SetParent(MRTSkillFrame)
+							scan_button:ClearAllPoints()
+							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
+							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+							scan_button:Show()
+						end)
+  	end
+	scan_button:SetHeight(20)
+	scan_button:RegisterForClicks("LeftButtonUp")
+	scan_button:SetScript("OnClick", function() addon:ToggleFrame()	end)
+	scan_button:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
+				GameTooltip:Show()
+			end)
+	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	scan_button:SetText(L["Scan"])
+
+	local buttonparent = scan_button:GetParent()
+	local framelevel = buttonparent:GetFrameLevel()
+	local framestrata = buttonparent:GetFrameStrata()
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	scan_button:SetFrameLevel(framelevel + 1)
+	scan_button:SetFrameStrata(framestrata)
+	scan_button:Enable()
+	addon.ScanButton = scan_button
+
+	-------------------------------------------------------------------------------
+	-- Initialize the main panel frame
+	-------------------------------------------------------------------------------
 	self:InitializeFrame()
 	self.InitializeFrame = nil
 
@@ -398,13 +441,10 @@ function addon:TRAINER_SHOW()
 end
 
 function addon:MERCHANT_SHOW()
-
 	addon:ScanVendor()
-
 end
 
 do
-
 	local GetTradeSkillListLink = _G.GetTradeSkillListLink
 	local UnitName = _G.UnitName
 	local GetRealmName = _G.GetRealmName
@@ -414,22 +454,24 @@ do
 		local ownskill = IsTradeSkillLinked()
 
 		-- If this is our own skill, save it, if not don't save it
-		if (not ownskill) then
+		if not ownskill then
 			-- Create an entry in the db to track alt trade skills
 			local pname = UnitName("player")
 			local prealm = GetRealmName()
 			local tradelink = GetTradeSkillListLink()
 			local tradename = GetTradeSkillLine()
 
-			if (tradelink) then
+			if tradelink then
 				-- Actual alt information saved here. -Torhal
-				if (not addon.db.global.tradeskill) then
+				if not addon.db.global.tradeskill then
 					addon.db.global.tradeskill = {}
 				end
-				if (not addon.db.global.tradeskill[prealm]) then
+
+				if not addon.db.global.tradeskill[prealm] then
 					addon.db.global.tradeskill[prealm] = {}
 				end
-				if (not addon.db.global.tradeskill[prealm][pname]) then
+
+				if not addon.db.global.tradeskill[prealm][pname] then
 					addon.db.global.tradeskill[prealm][pname] = {}
 				end
 				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
@@ -437,12 +479,46 @@ do
 		end
 		addon:OpenTradeWindow()
 
-		if (addon.ScanButton and not Skillet) then
-			self:ShowScanButton()
+		if Skillet then
+			return
 		end
+		local scan_button = self.ScanButton
 
+		if ATSWFrame then
+			scan_button:SetParent(ATSWFrame)
+			scan_button:ClearAllPoints()
+
+			if TradeJunkieMain and TJ_OpenButtonATSW then
+				scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
+			else
+				scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
+			end
+			scan_button:SetHeight(ATSWOptionsButton:GetHeight())
+			scan_button:SetWidth(ATSWOptionsButton:GetWidth())
+		elseif CauldronFrame then
+			scan_button:SetParent(CauldronFrame)
+			scan_button:ClearAllPoints()
+			scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
+			scan_button:SetWidth(90)
+		else
+			scan_button:SetParent(TradeSkillFrame)
+			scan_button:ClearAllPoints()
+
+			local loc = addon.db.profile.scanbuttonlocation
+
+			if loc == "TR" then
+				scan_button:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+			elseif loc == "TL" then
+				scan_button:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
+			elseif loc == "BR" then
+				scan_button:SetPoint("TOP",TradeSkillCancelButton,"BOTTOM",0,-5)
+			elseif loc == "BL" then
+				scan_button:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
+			end
+			scan_button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+		end
+		scan_button:Show()
 	end
-
 end
 
 function addon:TRADE_SKILL_CLOSE()
