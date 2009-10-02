@@ -3377,11 +3377,12 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create and position the header.
 	-------------------------------------------------------------------------------
-	MainPanel.HeadingText = MainPanel:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
-	MainPanel.HeadingText:SetFontObject("GameFontHighlightSmall")
-	MainPanel.HeadingText:ClearAllPoints()
-	MainPanel.HeadingText:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-	MainPanel.HeadingText:SetJustifyH("CENTER")
+	local heading_text = MainPanel:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
+	heading_text:SetFontObject("GameFontHighlightSmall")
+	heading_text:ClearAllPoints()
+	heading_text:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+	heading_text:SetJustifyH("CENTER")
+	MainPanel.HeadingText = heading_text
 
 	-------------------------------------------------------------------------------
 	-- Create the switcher button and assign its scripts.
@@ -4966,7 +4967,6 @@ do
 	local edit_box = CreateFrame("EditBox", nil, copy_frame)
 	edit_box:SetMultiLine(true)
 	edit_box:SetMaxLetters(0)
---	edit_box:SetMaxLetters(99999)
 	edit_box:EnableMouse(true)
 	edit_box:SetAutoFocus(true)
 	edit_box:SetFontObject(ChatFontNormal)
