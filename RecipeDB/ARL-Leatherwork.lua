@@ -2778,9 +2778,9 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,63200,8,39)
 
 	-- The number of items added with patches
-	local patchitems = 0
+	local patchitems322 = 0
 
-	-- 3.2.2 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
+	-- last recent patches Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
 	local version = GetBuildInfo()
 
 	if (version == "3.2.2") then
@@ -2795,10 +2795,53 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeFlags(RecipeDB,69388,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
 		self:addTradeAcquire(RecipeDB,69388,1,28700)
 
-		patchitems = 2
+		patchitems322 = 2
 
 	end
+	
+	
+		-- The number of items added with patches
+	-- local ICECROWNpatchitems = 0
 
+	-- if (version == "3.3.0") then
+	     -- Legwraps of Unleashed Nature
+		 -- self:addTradeSkill(RecipeDB,)
+		 -- self:addTradeFlags(RecipeDB,)
+		 -- self:addTradeAcquire(RecipeDB,)
+     -- Blessed Cenarion Boots
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+     -- Bladeborn Leggings
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+     -- Footpads of Impending Death
+	 -- self:addTradeSkill(RecipeDB,)
+	-- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+     -- Lightning-infused Leggings
+	 -- self:addTradeSkill(RecipeDB,)
+	-- self:addTradeFlags(RecipeDB,)
+	-- self:addTradeAcquire(RecipeDB,)
+     -- Earthsoul Boots
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+     -- Draconic Bonesplinter Legguards
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+     -- Rock-steady Treads
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+     -- self:addTradeAcquire(RecipeDB,)
+
+		 --ICECROWNpatchitems = 8
+		 
+	--end
+	
+	
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
@@ -2818,7 +2861,7 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeFlags(RecipeDB,67087,1,6,11,21,22,23,24,25,26,27,28,29,30)
 		self:addTradeAcquire(RecipeDB,67087,8,42)
 
-		-- Crusader's Dragonscale Bracers -- 67143
+		-- Crusader's Dragonscale Bracers -- 67083
 		self:addTradeSkill(RecipeDB,67083,450,47576,4,2108,nil,2,450,460,467,475)
 		self:addTradeFlags(RecipeDB,67083,1,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 		self:addTradeAcquire(RecipeDB,67083,8,42)
@@ -2862,7 +2905,7 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeFlags(RecipeDB,67139,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,57)
 		self:addTradeAcquire(RecipeDB,67139,8,42)
 
-		-- Crusader's Dragonscale Bracers -- 67083
+		-- Crusader's Dragonscale Bracers -- 67143
 		self:addTradeSkill(RecipeDB,67143,450,47577,4,2108,nil,2,450,460,467,475)
 		self:addTradeFlags(RecipeDB,67143,2,6,11,21,22,23,24,25,26,27,28,29,30,36,40,51,58)
 		self:addTradeAcquire(RecipeDB,67143,8,42)
@@ -2896,7 +2939,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	end
 
-	return 510 + factioncount + patchitems
+	return 510 + factioncount + patchitems322 --+ ICECROWNpatchitems
 
 
 end

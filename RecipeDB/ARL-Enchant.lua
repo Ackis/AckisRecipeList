@@ -1535,11 +1535,11 @@ function addon:InitEnchanting(RecipeDB)
 	if (version == "3.2.2") then
 
 		-- Abyssal Shatter -- 69412
-		self:addTradeSkill(RecipeDB,69412,450,49640,1,7411,nil,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,69412,1,2,21,22,23,24,25,26,27,28,29,30)
-		--self:addTradeAcquire(RecipeDB,69412,)
+		self:addTradeSkill(RecipeDB,69412,445,49640,1,7411,nil,2,445,445,447,450)
+		self:addTradeFlags(RecipeDB,69412,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41)
+		self:addTradeAcquire(RecipeDB,69412,1,28693)
 
-		patchitems = patchitems + 1
+		patchitems = 1
 
 	end
 

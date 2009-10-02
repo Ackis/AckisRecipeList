@@ -2274,6 +2274,36 @@ function addon:InitTailoring(RecipeDB)
 	,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636,1,11052,1,18772,1,
 	2399,1,4576,1,17487,1,16640,1,16366,1,5153,1,4193,1,3523,1,33684)
 
+	-- -- The number of items added with patches
+	-- local patchitems = 0
+
+	-- -- 3.3.0 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
+	-- local version = GetBuildInfo()
+
+	-- if (version == "3.3.0") then
+	
+		 -- -- Leggings of Woven Death
+		 -- self:addTradeSkill(RecipeDB,)
+		 -- self:addTradeFlags(RecipeDB,)
+		 -- self:addTradeAcquire(RecipeDB,)
+		 -- -- Deathfrost Boots
+		 -- self:addTradeSkill(RecipeDB,)
+		 -- self:addTradeFlags(RecipeDB,)
+		 -- self:addTradeAcquire(RecipeDB,)
+		 -- -- Lightweave Leggings
+		 -- self:addTradeSkill(RecipeDB,)
+		 -- self:addTradeFlags(RecipeDB,)
+		 -- self:addTradeAcquire(RecipeDB,)
+		 -- -- Sandals of Consecration
+		 -- self:addTradeSkill(RecipeDB,)
+		 -- self:addTradeFlags(RecipeDB,)
+		 -- self:addTradeAcquire(RecipeDB,)
+		  
+		  -- patchitems = 4
+		  
+	  -- end
+	  
+	  
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
@@ -2331,6 +2361,6 @@ function addon:InitTailoring(RecipeDB)
 
 	end
 
-	return 400 + factioncount
+	return 400 + factioncount --+ patchitems
 
 end

@@ -2592,6 +2592,43 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeFlags(RecipeDB,63182,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,53,54,66,72)
 	self:addTradeAcquire(RecipeDB,63182,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
+		-- -- The number of items added with patches
+	-- local patchitems = 0
+
+	-- -- 3.3.0 Items
+	-- local version = GetBuildInfo()
+
+	-- if (version == "3.3.0") then
+	
+	 -- Puresteel Legplates
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,) 
+	 -- Protectors of Life
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+	 -- Legplates of Painful Death
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+	 -- Hellfrozen Bonegrinders
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+	 -- Pillars of Might
+	  -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+	 -- Boots of Kingly Upheaval
+	 -- self:addTradeSkill(RecipeDB,)
+	 -- self:addTradeFlags(RecipeDB,)
+	 -- self:addTradeAcquire(RecipeDB,)
+	 
+		--patchitems = 6
+	 
+	 --end
+	 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
@@ -2669,6 +2706,6 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	end
 
-	return 486 + factioncount
+	return 486 + factioncount --+ patchitems
 
 end
