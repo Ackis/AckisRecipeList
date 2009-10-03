@@ -150,7 +150,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Ogre's Strength -- 3188
 	self:addTradeSkill(RecipeDB,3188,150,3391,1,51304,nil,0,150,175,195,215)
 	self:addTradeFlags(RecipeDB,3188,1,2,3,10,21,22,23,24,25,26,27,28,29,30,36,40,51)
-	self:addTradeAcquire(RecipeDB,3188,7,1,1,3391)
+	self:addTradeAcquire(RecipeDB,3188,7,1)
 
 	-- Elixir of Minor Agility -- 3230
 	self:addTradeSkill(RecipeDB,3230,50,2457,2,51304,nil,0,50,80,100,120)
