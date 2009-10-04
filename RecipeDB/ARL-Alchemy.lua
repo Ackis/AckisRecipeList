@@ -695,7 +695,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Camouflage -- 28543
 	self:addTradeSkill(RecipeDB,28543,305,22823,1,51304,nil,1,305,320,327,335)
 	self:addTradeFlags(RecipeDB,28543,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40)
-	self:addTradeAcquire(RecipeDB,28543,1,22823,2,16588,2,16641,2,16705,2,18802)
+	self:addTradeAcquire(RecipeDB,28543,2,16588,2,16641,2,16705,2,18802)
 
 	-- Elixir of Major Strength -- 28544
 	self:addTradeSkill(RecipeDB,28544,305,22824,1,51304,nil,1,305,320,327,335)
@@ -717,7 +717,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Frost Power -- 28549
 	self:addTradeSkill(RecipeDB,28549,320,22827,1,51304,nil,1,320,335,342,350)
 	self:addTradeFlags(RecipeDB,28549,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,53,54)
-	self:addTradeAcquire(RecipeDB,28549,1,22827,2,18005,2,18017)
+	self:addTradeAcquire(RecipeDB,28549,2,18005,2,18017)
 
 	-- Insane Strength Potion -- 28550
 	self:addTradeSkill(RecipeDB,28550,320,22828,2,51304,nil,1,320,335,342,350)
@@ -759,7 +759,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Defense -- 28557
 	self:addTradeSkill(RecipeDB,28557,345,22834,1,51304,nil,1,345,360,367,375)
 	self:addTradeFlags(RecipeDB,28557,1,2,3,4,21,22,23,24,25,26,27,28,29,30,36,40,52)
-	self:addTradeAcquire(RecipeDB,28557,1,22834,2,18005,2,19837)
+	self:addTradeAcquire(RecipeDB,28557,2,18005,2,19837)
 
 	-- Elixir of Major Shadow Power -- 28558
 	self:addTradeSkill(RecipeDB,28558,350,22835,2,51304,nil,1,350,365,372,380)
