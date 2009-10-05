@@ -875,7 +875,9 @@ function addon:GenerateLinks()
 	--bitmap[51304] = string.rep("/", 43) -- Alchemy (43)
 	--bitmap[51300] = string.rep("/", 85) -- Blacksmithing (85)
 	--bitmap[51309] = string.rep("/", 71) -- Tailoring (71)
+	bitmap[51309] = "YIEMCCgAicAjAGIAiQKAACBRxgBEAAAAAAAAA45BAqBQBAKAAAEAAAIICLHqiAuKAAAEABAAA"
 	--bitmap[51311] = string.rep("/", 83) -- JC 83
+	bitmap[51311] = "8fJRMqkmRwipmMHAQAACEAAQw/AgDkMJIAQgCA4AAwHMKFr/TCEx6tip+z7WyNsRWrnhm7wGPAAOgAUEALFAAWJWfqsBCAB"
 	--bitmap[45363] = string.rep("/", 74) -- Inscription (74)
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
