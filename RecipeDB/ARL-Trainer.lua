@@ -39,23 +39,18 @@ local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 function addon:InitTrainer(TrainerDB)
 
-	self:addLookupList(TrainerDB,223,L["Dan Golthas"],BZ["Undercity"],71.24,60.40,2)   ---------hmm
 	self:addLookupList(TrainerDB,514,L["Smith Argus"],BZ["Elwynn Forest"],41.7,65.6,1)
-	self:addLookupList(TrainerDB,957,L["Dane Lindgren"],BZ["Stormwind City"],64.34,37.35,1) --- hmmm
 	self:addLookupList(TrainerDB,1103,L["Eldrin"],BZ["Elwynn Forest"],79.3,69.0,1)
 	self:addLookupList(TrainerDB,1215,L["Alchemist Mallory"],BZ["Elwynn Forest"],39.8,48.3,1)
 	self:addLookupList(TrainerDB,1241,L["Tognus Flintfire"],BZ["Dun Morogh"],45.3,52.0,1)
 	self:addLookupList(TrainerDB,1246,L["Vosur Brakthel"],BZ["Ironforge"],66.5,55.2,1)
-	self:addLookupList(TrainerDB,1300,L["Lawrence Schneider"],BZ["Stormwind City"],53.27,80.97,1) -- hmm
 	self:addLookupList(TrainerDB,1317,L["Lucan Cordell"],BZ["Stormwind City"],53.0,74.3,1)
 	self:addLookupList(TrainerDB,1346,L["Georgio Bolero"],BZ["Stormwind City"],53.2,81.5,1)
 	self:addLookupList(TrainerDB,1355,L["Cook Ghilm"],BZ["Dun Morogh"],68.4,54.5,1)
 	self:addLookupList(TrainerDB,1382,L["Mudduk"],BZ["Stranglethorn Vale"],31.4,28.0,2)
-	self:addLookupList(TrainerDB,1383,L["Snarl"],BZ["Orgrimmar"],79.81,24.40,2)  --- hmmm
 	self:addLookupList(TrainerDB,1385,L["Brawn"],BZ["Stranglethorn Vale"],31.7,28.8,2)
 	self:addLookupList(TrainerDB,1386,L["Rogvar"],BZ["Swamp of Sorrows"],48.4,55.7,2)  ---confirm
 	self:addLookupList(TrainerDB,1430,L["Tomas"],BZ["Elwynn Forest"],44.3,66.0,1)   ---confirm
-	self:addLookupList(TrainerDB,1466,L["Gretta Finespindle"],BZ["Ironforge"],39.88,33.63,1)  --hmm
 	self:addLookupList(TrainerDB,1470,L["Ghak Healtouch"],BZ["Loch Modan"],37.0,49.2,1)
 	self:addLookupList(TrainerDB,1632,L["Adele Fielder"],BZ["Elwynn Forest"],46.4,62.1,1)
 	self:addLookupList(TrainerDB,1676,L["Finbus Geargrind"],BZ["Duskwood"],77.4,48.6,1)
@@ -63,7 +58,6 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,1699,L["Gremlock Pilsnor"],BZ["Dun Morogh"],47.6,52.3,1)
 	self:addLookupList(TrainerDB,1701,L["Dank Drizzlecut"],BZ["Dun Morogh"],69.3,55.5,1)
 	self:addLookupList(TrainerDB,1702,L["Bronk Guzzlegear"],BZ["Dun Morogh"],50.2,50.4,1)
-	self:addLookupList(TrainerDB,1703,L["Uthrar Threx"],BZ["Ironforge"],44.01,28.52,1) --- hmmmm
 	self:addLookupList(TrainerDB,2132,L["Carolai Anise"],BZ["Tirisfal Glades"],59.5,52.2,2)
 	self:addLookupList(TrainerDB,2326,L["Thamner Pol"],BZ["Dun Morogh"],47.2,52.6,1)
 	self:addLookupList(TrainerDB,2327,L["Shaina Fuller"],BZ["Stormwind City"],52.9,44.8,1)
@@ -75,13 +69,10 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,2818,L["Slagg"],BZ["Arathi Highlands"],74.1,33.8,2)
 	self:addLookupList(TrainerDB,2836,L["Brikk Keencraft"],BZ["Stranglethorn Vale"],29.0,75.5,0)
 	self:addLookupList(TrainerDB,2837,L["Jaxin Chong"],BZ["Stranglethorn Vale"],28.1,78.0,0)
-	self:addLookupList(TrainerDB,2855,L["Snang"],BZ["Orgrimmar"],62.86,49.60,2) --- hmmm
-	self:addLookupList(TrainerDB,2857,L["Thund"],BZ["Orgrimmar"],76.24,23.98,2) --- hmm
 	self:addLookupList(TrainerDB,2998,L["Karn Stonehoof"],BZ["Thunder Bluff"],39.0,56.5,2)
 	self:addLookupList(TrainerDB,3001,L["Brek Stonehoof"],BZ["Thunder Bluff"],34.5,57.6,2)
 	self:addLookupList(TrainerDB,3004,L["Tepa"],BZ["Thunder Bluff"],44.3,45.0,2)
 	self:addLookupList(TrainerDB,3007,L["Una"],BZ["Thunder Bluff"],41.8,42.7,2)
-	self:addLookupList(TrainerDB,3008,L["Mak"],BZ["Thunder Bluff"],43.42,43.17,2)  ---- hmmm
 	self:addLookupList(TrainerDB,3009,L["Bena Winterhoof"],BZ["Thunder Bluff"],46.8,33.5,2)
 	self:addLookupList(TrainerDB,3011,L["Teg Dawnstrider"],BZ["Thunder Bluff"],45.0,38.0,2)
 	self:addLookupList(TrainerDB,3026,L["Aska Mistrunner"],BZ["Thunder Bluff"],51.1,52.9,2)
@@ -103,7 +94,6 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,3365,L["Karolek"],BZ["Orgrimmar"],62.8,44.5,2)
 	self:addLookupList(TrainerDB,3373,L["Arnok"],BZ["Orgrimmar"],34.1,84.4,2)
 	self:addLookupList(TrainerDB,3399,L["Zamja"],BZ["Orgrimmar"],57.5,53.7,2)
-	self:addLookupList(TrainerDB,3412,L["Nogg"],BZ["Orgrimmar"],75.76,22.71,2)  --- hmm
 	self:addLookupList(TrainerDB,3478,L["Traugh"],BZ["The Barrens"],51.3,28.9,2)
 	self:addLookupList(TrainerDB,3484,L["Kil'hala"],BZ["The Barrens"],52.2,31.7,2)
 	self:addLookupList(TrainerDB,3494,L["Tinkerwiz"],BZ["The Barrens"],62.7,36.3,0)
@@ -118,7 +108,7 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,3704,L["Mahani"],BZ["The Barrens"],44.9,59.4,2)
 	self:addLookupList(TrainerDB,3964,L["Kylanna"],BZ["Ashenvale"],50.8,67.1,1)
 	self:addLookupList(TrainerDB,3967,L["Aayndia Floralwind"],BZ["Ashenvale"],35.9,52.1,1)
-	self:addLookupList(TrainerDB,4159,L["Me'lynn"],BZ["Darnassus"],61.7,23.0,1)  ----
+	self:addLookupList(TrainerDB,4159,L["Me'lynn"],BZ["Darnassus"],61.7,23.0,1)
 	self:addLookupList(TrainerDB,4160,L["Ainethil"],BZ["Darnassus"],55.0,23.8,1)
 	self:addLookupList(TrainerDB,4193,L["Grondal Moonbreeze"],BZ["Darkshore"],38.2,40.5,1)
 	self:addLookupList(TrainerDB,4210,L["Alegorn"],BZ["Darnassus"],49.2,21.2,1)
@@ -130,13 +120,10 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,4552,L["Eunice Burch"],BZ["Undercity"],62.3,44.6,2)
 	self:addLookupList(TrainerDB,4576,L["Josef Gregorian"],BZ["Undercity"],70.7,30.3,2)
 	self:addLookupList(TrainerDB,4578,L["Josephine Lister"],BZ["Undercity"],86.5,22.3,2)
-	self:addLookupList(TrainerDB,4586,L["Graham Van Talen"],BZ["Undercity"],76.42,73.38,2)  -----hmmm
 	self:addLookupList(TrainerDB,4588,L["Arthur Moore"],BZ["Undercity"],70.3,58.5,2)
 	self:addLookupList(TrainerDB,4591,L["Mary Edras"],BZ["Undercity"],73.5,54.8,2)
 	self:addLookupList(TrainerDB,4596,L["James Van Brunt"],BZ["Undercity"],61.2,29.9,2)
 	self:addLookupList(TrainerDB,4598,L["Brom Killian"],BZ["Undercity"],55.8,37.0,2)
-	self:addLookupList(TrainerDB,4605,L["Basil Frye"],BZ["Undercity"],60.04,29.03,2)   ---- hmm
-	self:addLookupList(TrainerDB,4609,L["Doctor Marsh"],BZ["Undercity"],51.0,75.1,2)  ---- hmmm
 	self:addLookupList(TrainerDB,4611,L["Doctor Herbert Halsey"],BZ["Undercity"],47.7,73.0,2)
 	self:addLookupList(TrainerDB,4616,L["Lavinia Crowe"],BZ["Undercity"],62.1,60.5,2)
 	self:addLookupList(TrainerDB,4900,L["Alchemist Narett"],BZ["Dustwallow Marsh"],64.0,47.7,1)
@@ -151,16 +138,13 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,5392,L["Yarr Hammerstone"],BZ["Dun Morogh"],50.0,50.3,1)
 	self:addLookupList(TrainerDB,5482,L["Stephen Ryback"],BZ["Stormwind City"],78.2,53.2,1)
 	self:addLookupList(TrainerDB,5499,L["Lilyssia Nightbreeze"],BZ["Stormwind City"],55.6,85.9,1)
-	self:addLookupList(TrainerDB,5500,L["Tel'Athir"],BZ["Stormwind City"],55.97,85.37,1)   ------ hmm
 	self:addLookupList(TrainerDB,5511,L["Therum Deepforge"],BZ["Stormwind City"],63.9,37.8,1)
 	self:addLookupList(TrainerDB,5513,L["Gelman Stonehand"],BZ["Stormwind City"],59.2,37.7,1)
 	self:addLookupList(TrainerDB,5518,L["Lilliam Sparkspindle"],BZ["Stormwind City"],62.2,30.5,1)
 	self:addLookupList(TrainerDB,5564,L["Simon Tanner"],BZ["Stormwind City"],71.8,62.9,1)
-	self:addLookupList(TrainerDB,5567,L["Sellandus"],BZ["Stormwind City"],52.11,82.95,1)  ----- hmmm
 	self:addLookupList(TrainerDB,5695,L["Vance Undergloom"],BZ["Tirisfal Glades"],61.7,51.6,2)
 	self:addLookupList(TrainerDB,5759,L["Nurse Neela"],BZ["Tirisfal Glades"],61.8,52.8,2)
 	self:addLookupList(TrainerDB,5784,L["Waldor"],BZ["Arathi Highlands"],32.6,28.5,0) --- confirm
-	self:addLookupList(TrainerDB,5811,L["Kamari"],BZ["Orgrimmar"],63.23,45.00,2) ---- hmm
 	self:addLookupList(TrainerDB,5939,L["Vira Younghoof"],BZ["Mulgore"],46.8,60.8,2)
 	self:addLookupList(TrainerDB,5943,L["Rawrk"],BZ["Durotar"],54.1,42.0,2)
 	self:addLookupList(TrainerDB,6094,L["Byancie"],BZ["Teldrassil"],55.3,56.8,1)
@@ -187,40 +171,14 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,8736,L["Buzzek Bracketswing"],BZ["Tanaris"],52.3,27.7,0)
 	self:addLookupList(TrainerDB,8738,L["Vazario Linkgrease"],BZ["The Barrens"],62.7,36.3,0)
 	self:addLookupList(TrainerDB,9584,L["Jalane Ayrole"],BZ["Stormwind City"],40.6,83.9,1)
-	self:addLookupList(TrainerDB,10266,L["Ug'thok"],BZ["Orgrimmar"],80.26,23.88,2) ---- hmmmmmm
-	self:addLookupList(TrainerDB,10276,L["Rotgath Stonebeard"],BZ["Ironforge"],51.85,43.16,1) --- hmmmmm
-	self:addLookupList(TrainerDB,10277,L["Groum Stonebeard"],BZ["Ironforge"],51.92,42.30,1)  --- hmmmm
-	self:addLookupList(TrainerDB,10278,L["Thrag Stonehoof"],BZ["Thunder Bluff"],40.20,57.08,2)  --- hmmm
 	self:addLookupList(TrainerDB,11017,L["Roxxik"],BZ["Orgrimmar"],76.0,25.1,2)
 	self:addLookupList(TrainerDB,11025,L["Mukdrak"],BZ["Durotar"],52.2,40.8,2)
-	self:addLookupList(TrainerDB,11026,L["Sprite Jumpsprocket"],BZ["Stormwind City"],62.1,30.4,1)  --- hmmm
-	self:addLookupList(TrainerDB,11028,L["Jemma Quikswitch"],BZ["Ironforge"],68.80,44.46,1)  ----- hmmmm
-	self:addLookupList(TrainerDB,11029,L["Trixie Quikswitch"],BZ["Ironforge"],68.84,45.50,1) ----- hmmm
 	self:addLookupList(TrainerDB,11031,L["Franklin Lloyd"],BZ["Undercity"],75.9,73.7,2)
 	self:addLookupList(TrainerDB,11037,L["Jenna Lemkenilli"],BZ["Darkshore"],38.3,41.1,1)
-	self:addLookupList(TrainerDB,11041,L["Milla Fairancora"],BZ["Darnassus"],54.64,22.04,1) --- hmmm
-	self:addLookupList(TrainerDB,11042,L["Sylvanna Forestmoon"],BZ["Darnassus"],55.83,24.74,1) --- hmmm
-	self:addLookupList(TrainerDB,11044,L["Doctor Martin Felben"],BZ["Undercity"],47.05,74.58,2)  --- hmmmm
-	self:addLookupList(TrainerDB,11046,L["Whuut"],BZ["Orgrimmar"],56.40,34.46,2)  ------ hmm
-	self:addLookupList(TrainerDB,11047,L["Kray"],BZ["Thunder Bluff"],47.75,34.77,2)  ----- hmmm
-	self:addLookupList(TrainerDB,11048,L["Victor Ward"],BZ["Undercity"],71.38,29.90,2)  ---- hmmm
-	self:addLookupList(TrainerDB,11049,L["Rhiannon Davis"],BZ["Undercity"],71.16,30.08,2) ---- hmmmm
-	self:addLookupList(TrainerDB,11050,L["Trianna"],BZ["Darnassus"],63.22,23.05,1)  --- hmmm
-	self:addLookupList(TrainerDB,11051,L["Vhan"],BZ["Thunder Bluff"],43.91,44.51,2) --- hmmm
 	self:addLookupList(TrainerDB,11052,L["Timothy Worthington"],BZ["Dustwallow Marsh"],66.22,51.7,1)
-	self:addLookupList(TrainerDB,11065,L["Thonys Pillarstone"],BZ["Ironforge"],60.64,44.86,1)  ---- hmmm
-	self:addLookupList(TrainerDB,11066,L["Jhag"],BZ["Orgrimmar"],53.82,38.74,2) ---- hmmm
-	self:addLookupList(TrainerDB,11067,L["Malcomb Wynn"],BZ["Undercity"],61.37,61.52,2)  --- hmmm
-	self:addLookupList(TrainerDB,11068,L["Betty Quin"],BZ["Stormwind City"],52.95,73.89,1) --- hmmm
-	self:addLookupList(TrainerDB,11070,L["Lalina Summermoon"],BZ["Darnassus"],59.76,13.56,1)  ---- hmmm
-	self:addLookupList(TrainerDB,11071,L["Mot Dawnstrider"],BZ["Thunder Bluff"],45.61,40.65,2) --- hmmm
 	self:addLookupList(TrainerDB,11072,L["Kitta Firewind"],BZ["Elwynn Forest"],64.9,70.6,1)
 	self:addLookupList(TrainerDB,11073,L["Annora"],BZ["Uldaman"],0,0,0)
 	self:addLookupList(TrainerDB,11074,L["Hgarth"],BZ["Stonetalon Mountains"],49.2,57.2,2)
-	self:addLookupList(TrainerDB,11081,L["Faldron"],BZ["Darnassus"],63.5,22.2,1) --- hmmm
-	self:addLookupList(TrainerDB,11083,L["Darianna"],BZ["Darnassus"],64.93,22.22,1)  --- hmmm
-	self:addLookupList(TrainerDB,11084,L["Tarn"],BZ["Thunder Bluff"],43.23,43.24,2)  --- hmmm
-	self:addLookupList(TrainerDB,11096,L["Randal Worth"],BZ["Stormwind City"],72.12,60.72,1) --- hmmm
 	self:addLookupList(TrainerDB,11097,L["Drakk Stonehand"],BZ["The Hinterlands"],13.4,43.4,1)
 	self:addLookupList(TrainerDB,11098,L["Hahrana Ironhide"],BZ["Feralas"],74.4,43.1,2)
 	self:addLookupList(TrainerDB,11146,L["Ironus Coldsteel"],BZ["Ironforge"],50.5,43.3,1)
@@ -241,36 +199,22 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,16583,L["Rohok"],BZ["Hellfire Peninsula"],53.2,38.2,2)
 	self:addLookupList(TrainerDB,16588,L["Apothecary Antonivich"],BZ["Hellfire Peninsula"],52.4,36.5,2)
 	self:addLookupList(TrainerDB,16633,L["Sedana"],BZ["Silvermoon City"],70.0,24.0,2)
-	self:addLookupList(TrainerDB,16634,L["Dolothos"],BZ["Silvermoon City"],68.63,25.56,2) ----- hmmmm
-	self:addLookupList(TrainerDB,16639,L["Galana"],BZ["Silvermoon City"],57.26,50.32,2)  --- hmmmm
 	self:addLookupList(TrainerDB,16640,L["Keelen Sheets"],BZ["Silvermoon City"],57.0,50.1,2)
 	self:addLookupList(TrainerDB,16642,L["Camberon"],BZ["Silvermoon City"],66.1,17.4,2)
-	self:addLookupList(TrainerDB,16643,L["Razia"],BZ["Silvermoon City"],67.00,18.33,2) --- hmmmm
 	self:addLookupList(TrainerDB,16662,L["Alestus"],BZ["Silvermoon City"],77.6,71.3,2)
 	self:addLookupList(TrainerDB,16663,L["Belil"],BZ["Silvermoon City"],79.1,42.9,2)
 	self:addLookupList(TrainerDB,16667,L["Danwe"],BZ["Silvermoon City"],76.5,40.9,2)
-	self:addLookupList(TrainerDB,16668,L["Gloresse"],BZ["Silvermoon City"],75.97,39.63,2)  --- hmmm
 	self:addLookupList(TrainerDB,16669,L["Bemarrin"],BZ["Silvermoon City"],79.5,39.0,2)
-	self:addLookupList(TrainerDB,16671,L["Mirvedon"],BZ["Silvermoon City"],79.95,35.89,2)  --- hmmm
 	self:addLookupList(TrainerDB,16676,L["Sylann"],BZ["Silvermoon City"],69.5,71.5,2)
-	self:addLookupList(TrainerDB,16687,L["Talmar"],BZ["Silvermoon City"],83.16,81.18,2)  --- hmmm
 	self:addLookupList(TrainerDB,16688,L["Lynalis"],BZ["Silvermoon City"],84.0,80.2,2)
-	self:addLookupList(TrainerDB,16703,L["Amin"],BZ["Silvermoon City"],90.36,75.05,2)  --- hmmm
 	self:addLookupList(TrainerDB,16719,L["Mumman"],BZ["The Exodar"],55.6,27.1,1)
 	self:addLookupList(TrainerDB,16723,L["Lucc"],BZ["The Exodar"],27.5,60.9,1)
 	self:addLookupList(TrainerDB,16724,L["Miall"],BZ["The Exodar"],60.0,89.6,1)
 	self:addLookupList(TrainerDB,16725,L["Nahogg"],BZ["The Exodar"],40.5,39.2,1)
 	self:addLookupList(TrainerDB,16726,L["Ockil"],BZ["The Exodar"],54.0,92.1,1)
-	self:addLookupList(TrainerDB,16727,L["Padaar"],BZ["The Exodar"],44.68,25.50,1) --- hmmm
 	self:addLookupList(TrainerDB,16728,L["Akham"],BZ["The Exodar"],66.0,74.6,1)
 	self:addLookupList(TrainerDB,16729,L["Refik"],BZ["The Exodar"],63.0,67.9,1)
 	self:addLookupList(TrainerDB,16731,L["Nus"],BZ["The Exodar"],39.0,22.5,1)
-	self:addLookupList(TrainerDB,16740,L["Edrem"],BZ["The Exodar"],60.76,87.74,1) -- hmmm
-	self:addLookupList(TrainerDB,16741,L["Deriz"],BZ["The Exodar"],28.91,61.55,1) ---- hmmm
-	self:addLookupList(TrainerDB,16742,L["Kudrii"],BZ["The Exodar"],39.74,39.20,1) --- hmmm
-	self:addLookupList(TrainerDB,16743,L["Ghermas"],BZ["The Exodar"],56.00,90.54,1)  --- hmmm
-	self:addLookupList(TrainerDB,16745,L["Feruul"],BZ["The Exodar"],66.36,74.54,1) --- hmmm
-	self:addLookupList(TrainerDB,16746,L["Kayaart"],BZ["The Exodar"],63.14,68.63,1) ---hmmm
 	self:addLookupList(TrainerDB,16752,L["Muaat"],BZ["The Exodar"],60.0,87.9,1)
 	self:addLookupList(TrainerDB,16823,L["Humphry"],BZ["Hellfire Peninsula"],56.8,63.8,1)
 	self:addLookupList(TrainerDB,17214,L["Anchorite Fateema"],BZ["Azuremyst Isle"],48.5,51.8,1) --- confirm
@@ -309,9 +253,6 @@ function addon:InitTrainer(TrainerDB)
 	self:addLookupList(TrainerDB,19185,L["Jack Trapper"],BZ["Shattrath City"],63.0,68.5,0)
 	self:addLookupList(TrainerDB,19186,L["Kylene"],BZ["Shattrath City"],76.5,33.0,0)
 	self:addLookupList(TrainerDB,19187,L["Darmari"],BZ["Shattrath City"],66.8,67.1,0)
-	self:addLookupList(TrainerDB,19248,L["Enchanter Salias"],BZ["Shattrath City"],44.27,90.74,0) --- hmmm
-	self:addLookupList(TrainerDB,19249,L["Enchantress Metura"],BZ["Shattrath City"],43.90,90.40,0) --- hmmm
-	self:addLookupList(TrainerDB,19250,L["Enchanter Aeldron"],BZ["Shattrath City"],43.98,90.34,0) --- hmmm
 	self:addLookupList(TrainerDB,19251,L["Enchantress Volali"],BZ["Shattrath City"],43.2,92.3,0)
 	self:addLookupList(TrainerDB,19252,L["High Enchanter Bardolan"],BZ["Shattrath City"],43.2,92.2,0)
 	self:addLookupList(TrainerDB,19341,L["Grutah"],BZ["Shadowmoon Valley"],29.7,31.5,2)

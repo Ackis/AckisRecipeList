@@ -1,7 +1,7 @@
 ==ARL Change Log
 ===Version 2XXX
 *Fixed an issue with Trial of the Crusader cross-faction recipes not appearing correctly.
-*Updated the database to make code more readible and remove redundancy.  Should make database updates a lot easier for people.
+*Updated the database to make code more readable and remove redundancy.  Should make database updates a lot easier for people.
 *Add support for [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]].
 
 ===Version 2500
@@ -59,7 +59,7 @@
 *Added in tooltip scanning for the dataminer.
 
 ===RC8
-*Fixed a bug when you did a scan, the drop down menus for the profession would change text to something non-existant.
+*Fixed a bug when you did a scan, the drop down menus for the profession would change text to something non-existent.
 *Added all/none functionality for classes, reputations.
 *All/none functionality has changed, now you click on the text to select all or none.  There are no individual buttons.  The tooltip explains this in more detail.
 *Updated many trainers to coincide with the argent tourney.
@@ -100,14 +100,14 @@
 *All opposite faction acquire methods in the tooltip will now be hidden automatically.  They will still be shown as part of the recipe window depending on your filter settings for faction.
 *You can now sort by skill level ascending and descending.
 *If you're at a trainer and want to see if the skill levels match those on the trainer, type /arl scandata.  This will do a comparison.  If you use this command wrong, you will get called names, yelled at, no one will like you, and God will kill a kitten.
-*You can now customize the font size for the tooltips.  It defaults at 11, however you can change it to betwwwn 8 and 16 now.
+*You can now customize the font size for the tooltips.  It defaults at 11, however you can change it to between 8 and 16 now.
 *Localization updates (thank you so much to everyone who helps localize, there are currently 1625 strings that need localization with ARL and you guys have done most of them!
 
 ===RC4
 *Updated recipe information (skill levels, flags, locations, etc)
 *Added more fine grained support for Tom Tom integration (Please see the ARL in-game options to see how to configure this.)
 *Many minor bug fixes
-*New API to get the entire recpie database
+*New API to get the entire recipe database
 *Localization updates
 
 ===RC3
