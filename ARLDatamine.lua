@@ -1355,19 +1355,19 @@ do
 		["exalted"] = 4, 
 	}
 
-	local CLASS_TYPES = {
-		["Death Knight"]	= 21, 	["Druid"]	= 22, 	["Hunter"]	= 23, 
-		["Mage"]		= 24, 	["Paladin"]	= 25, 	["Priest"]	= 26, 
-		["Shaman"]		= 27, 	["Rogue"]	= 28, 	["Warlock"]	= 29, 
-		["Warrior"]		= 30, 
-	}
+	-- local CLASS_TYPES = {
+		-- ["Death Knight"]	= 21, 	["Druid"]	= 22, 	["Hunter"]	= 23, 
+		-- ["Mage"]		= 24, 	["Paladin"]	= 25, 	["Priest"]	= 26, 
+		-- ["Shaman"]		= 27, 	["Rogue"]	= 28, 	["Warlock"]	= 29, 
+		-- ["Warrior"]		= 30, 
+	-- }
 
-	local ORDERED_CLASS_TYPES = {
-		[1]	= "Death Knight", 	[2]	= "Druid", 	[3]	= "Hunter", 
-		[4]	= "Mage", 		[5]	= "Paladin", 	[6]	= "Priest", 
-		[7]	= "Shaman", 		[8]	= "Rogue", 	[9]	= "Warlock", 
-		[10]	= "Warrior", 
-	}
+	-- local ORDERED_CLASS_TYPES = {
+		-- [1]	= "Death Knight", 	[2]	= "Druid", 	[3]	= "Hunter", 
+		-- [4]	= "Mage", 		[5]	= "Paladin", 	[6]	= "Priest", 
+		-- [7]	= "Shaman", 		[8]	= "Rogue", 	[9]	= "Warlock", 
+		-- [10]	= "Warrior", 
+	-- }
 
 	local ROLE_TYPES = {
 		["dps"]		= 51, 	["tank"]	= 52, 	["healer"]	= 53, 
@@ -1604,16 +1604,16 @@ do
 			end
 
 			-- Classes
-			local class_type = strmatch(text_l, "Classes: (.+)")
+			--local class_type = strmatch(text_l, "Classes: (.+)")
 
-			if class_type then
-				for idx, class in ipairs(ORDERED_CLASS_TYPES) do
-					if strmatch(class_type, class) then
-						scan_data[class] = true
-						scan_data.found_class = true
-					end
-				end
-			end
+			-- if class_type then
+				-- for idx, class in ipairs(ORDERED_CLASS_TYPES) do
+					-- if strmatch(class_type, class) then
+						-- scan_data[class] = true
+						-- scan_data.found_class = true
+					-- end
+				-- end
+			-- end
 
 			-- Armor types
 			if ITEM_TYPES[text_l] then
@@ -1680,22 +1680,22 @@ do
 			end
 		end
 
-		-- If we've picked up at least one class flag
-		if (scan_data.found_class) then
-			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if scan_data[v] and not flags[CLASS_TYPES[v]] then
-					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
-				elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
-					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
-				end
-			end
-		else	-- Recipe is not class specific - every flag should be set.
-			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if not flags[CLASS_TYPES[v]] then
-					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
-				end
-			end
-		end
+		-- -- If we've picked up at least one class flag
+		-- if (scan_data.found_class) then
+			-- for k, v in ipairs(ORDERED_CLASS_TYPES) do
+				-- if scan_data[v] and not flags[CLASS_TYPES[v]] then
+					-- tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+				-- elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
+					-- tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+				-- end
+			-- end
+		-- else	-- Recipe is not class specific - every flag should be set.
+			-- for k, v in ipairs(ORDERED_CLASS_TYPES) do
+				-- if not flags[CLASS_TYPES[v]] then
+					-- tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+				-- end
+			-- end
+		-- end
 
 		-- BoP Item
 		if (scan_data.is_item) then
