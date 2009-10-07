@@ -2853,12 +2853,12 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Black Chitin Bracers -- 67081
 		self:addTradeSkill(RecipeDB,67081,450,47579,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67081,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67081,1,6,11)
 		self:addTradeAcquire(RecipeDB,67081,8,42)
 
 		-- Bracers of Swift Death -- 67087
 		self:addTradeSkill(RecipeDB,67087,450,47581,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67087,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67087,1,6,11)
 		self:addTradeAcquire(RecipeDB,67087,8,42)
 
 		-- Crusader's Dragonscale Bracers -- 67083
@@ -2868,7 +2868,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Crusader's Dragonscale Breastplate -- 67082
 		self:addTradeSkill(RecipeDB,67082,450,47595,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67082,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67082,1,6,11)
 		self:addTradeAcquire(RecipeDB,67082,8,42)
 
 		-- Ensorcelled Nerubian Breastplate -- 67080
@@ -2878,17 +2878,17 @@ function addon:InitLeatherworking(RecipeDB)
 
 		-- Knightbane Carapace -- 67086
 		self:addTradeSkill(RecipeDB,67086,450,47599,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67086,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67086,1,6,11)
 		self:addTradeAcquire(RecipeDB,67086,8,42)
 
 		-- Lunar Eclipse Chestguard -- 67084
 		self:addTradeSkill(RecipeDB,67084,450,47602,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67084,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67084,1,6,11)
 		self:addTradeAcquire(RecipeDB,67084,8,42)
 
 		-- Moonshadow Armguards -- 67085
 		self:addTradeSkill(RecipeDB,67085,450,47583,4,2108,nil,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67085,1,6,11,21,22,23,24,25,26,27,28,29,30)
+		self:addTradeFlags(RecipeDB,67085,1,6,11)
 		self:addTradeAcquire(RecipeDB,67085,8,42)
 
 		factioncount = 8
