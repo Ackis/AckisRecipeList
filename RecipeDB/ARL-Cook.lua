@@ -328,7 +328,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 8604,8,8)
 
 	-- Smoked Bear Meat -- 8607
-	AddRecipe(8607, F_RBOE,6890,1,0, F_RBOE,80,100,120)
+	AddRecipe(8607, F_RBOE,6890,1,GAME_ORIG, F_RBOE,80,100,120)
 	self:addTradeFlags(RecipeDB, 8607, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB, 8607,2,1465,2,3556)
 
