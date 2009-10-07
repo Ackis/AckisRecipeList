@@ -213,12 +213,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Rage Potion -- 6617
 	self:addTradeSkill(RecipeDB,6617,60,5631,1,51304,nil,0,60,90,110,130)
-	self:addTradeFlags(RecipeDB,6617,1,2,4,22,30,36,40,51,52)
+	self:addTradeFlags(RecipeDB,6617,1,2,4,F_DRUID,F_WARRIOR,36,40,51,52)
 	self:addTradeAcquire(RecipeDB,6617,2,1669,2,1685,2,3335,2,3499)
 
 	-- Great Rage Potion -- 6618
 	self:addTradeSkill(RecipeDB,6618,175,5633,1,51304,nil,0,175,195,215,235)
-	self:addTradeFlags(RecipeDB,6618,1,2,4,22,30,36,40,51,52)
+	self:addTradeFlags(RecipeDB,6618,1,2,4,F_DRUID,F_WARRIOR,36,40,51,52)
 	self:addTradeAcquire(RecipeDB,6618,2,3335,2,4226)
 
 	-- Elixir of Water Breathing -- 7179
@@ -471,7 +471,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Mighty Rage Potion -- 17552
 	self:addTradeSkill(RecipeDB,17552,255,13442,2,51304,nil,0,255,270,290,310)
-	self:addTradeFlags(RecipeDB,17552,1,2,3,22,30,36,40,51,52)
+	self:addTradeFlags(RecipeDB,17552,1,2,3,F_DRUID,F_WARRIOR,36,40,51,52)
 	self:addTradeAcquire(RecipeDB,17552,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
