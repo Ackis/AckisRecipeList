@@ -10,7 +10,7 @@
 -- Please see http://www.wowace.com/projects/arl/for more information.
 --------------------------------------------------------------------------------------------------------------------
 -- License:
--- 	Please see LICENSE.txt
+-- Please see LICENSE.txt
 -- This source code is released under All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ function addon:InitCooking(RecipeDB)
 	-- Charred Wolf Meat -- 2538
 	AddRecipe(2538, 1, 2679, R_COMMON, GAME_ORIG, 1, 45, 65, 85)
 	self:addTradeFlags(RecipeDB, 2538, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB,  2538, A_CUSTOM, 8)
+	self:addTradeAcquire(RecipeDB, 2538, A_CUSTOM, 8)
 
 	-- Spiced Wolf Meat -- 2539
 	AddRecipe(2539, 10, 2680, R_COMMON, GAME_ORIG, 10, 50, 70, 90)
@@ -105,7 +105,7 @@ function addon:InitCooking(RecipeDB)
 	-- Roasted Boar Meat -- 2540
 	AddRecipe(2540, 1, 2681, R_COMMON, GAME_ORIG, 1, 45, 65, 85)
 	self:addTradeFlags(RecipeDB, 2540, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 2540,8,8)
+	self:addTradeAcquire(RecipeDB, 2540, A_CUSTOM, 8)
 
 	-- Coyote Steak -- 2541
 	AddRecipe(2541, 50, 2684, R_COMMON, GAME_ORIG, 50, 90, 110, 130)
@@ -117,12 +117,12 @@ function addon:InitCooking(RecipeDB)
 	-- Goretusk Liver Pie -- 2542
 	AddRecipe(2542, 50, 724, R_COMMON, GAME_ORIG, 50, 90, 110, 130)
 	self:addTradeFlags(RecipeDB, 2542, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 2542,4,22,2,340)
+	self:addTradeAcquire(RecipeDB, 2542, A_QUEST, 22,2,340)
 
 	-- Westfall Stew -- 2543
 	AddRecipe(2543, 75, 733, R_COMMON, GAME_ORIG, 75, 115, 135, 155)
 	self:addTradeFlags(RecipeDB, 2543, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB, 2543,4,38,2,340)
+	self:addTradeAcquire(RecipeDB, 2543, A_QUEST, 38,2,340)
 
 	-- Crab Cake -- 2544
 	AddRecipe(2544, 75, 2683, R_COMMON, GAME_ORIG, 75, 115, 135, 155)
@@ -146,7 +146,7 @@ function addon:InitCooking(RecipeDB)
 	-- Redridge Goulash -- 2547
 	AddRecipe(2547, 100, 1082, R_COMMON, GAME_ORIG, 100, 135, 155, 175)
 	self:addTradeFlags(RecipeDB, 2547, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 2547,4,92,2,340)
+	self:addTradeAcquire(RecipeDB, 2547, A_QUEST, 92,2,340)
 
 	-- Succulent Pork Ribs -- 2548
 	AddRecipe(2548, 110, 2685, R_COMMON, GAME_ORIG, 110, 130, 150, 170)
@@ -156,72 +156,72 @@ function addon:InitCooking(RecipeDB)
 	-- Seasoned Wolf Kabob -- 2549
 	AddRecipe(2549, 100, 1017, R_COMMON, GAME_ORIG, 100, 140, 160, 180)
 	self:addTradeFlags(RecipeDB, 2549, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 2549,4,90,2,340)
+	self:addTradeAcquire(RecipeDB, 2549, A_QUEST, 90,2,340)
 
 	-- Beer Basted Boar Ribs -- 2795
 	AddRecipe(2795, 10, 2888, R_COMMON, GAME_ORIG, 10, 60, 80, 100)
 	self:addTradeFlags(RecipeDB, 2795, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 2795,4,384,2,340)
+	self:addTradeAcquire(RecipeDB, 2795, A_QUEST, 384,2,340)
 
 	-- Crocolisk Steak -- 3370
 	AddRecipe(3370, 80, 3662, R_COMMON, GAME_ORIG, 80, 120, 140, 160)
 	self:addTradeFlags(RecipeDB, 3370, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3370,4,385,2,340)
+	self:addTradeAcquire(RecipeDB, 3370, A_QUEST, 385,2,340)
 
 	-- Blood Sausage -- 3371
 	AddRecipe(3371, 60, 3220, R_COMMON, GAME_ORIG, 60, 100, 120, 140)
 	self:addTradeFlags(RecipeDB, 3371, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3371,4,418,2,340)
+	self:addTradeAcquire(RecipeDB, 3371, A_QUEST, 418,2,340)
 
 	-- Murloc Fin Soup -- 3372
 	AddRecipe(3372, 90, 3663, R_COMMON, GAME_ORIG, 90, 130, 150, 170)
 	self:addTradeFlags(RecipeDB, 3372, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3372,4,127,2,340)
+	self:addTradeAcquire(RecipeDB, 3372, A_QUEST, 127,2,340)
 
 	-- Crocolisk Gumbo -- 3373
 	AddRecipe(3373, 120, 3664, R_COMMON, GAME_ORIG, 120, 160, 180, 200)
 	self:addTradeFlags(RecipeDB, 3373, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3373,4,471,2,340)
+	self:addTradeAcquire(RecipeDB, 3373, A_QUEST, 471,2,340)
 
 	-- Curiously Tasty Omelet -- 3376
 	AddRecipe(3376, 130, 3665, R_COMMON, GAME_ORIG, 130, 170, 190, 210)
 	self:addTradeFlags(RecipeDB, 3376, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3376,4,296,2,340,2,1148,2,2821)
+	self:addTradeAcquire(RecipeDB, 3376, A_QUEST, 296,2,340,2,1148,2,2821)
 
 	-- Gooey Spider Cake -- 3377
 	AddRecipe(3377, 110, 3666, R_COMMON, GAME_ORIG, 110, 150, 170, 190)
 	self:addTradeFlags(RecipeDB, 3377, F_ALLIANCE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3377,4,93,2,340)
+	self:addTradeAcquire(RecipeDB, 3377, A_QUEST, 93,2,340)
 
 	-- Big Bear Steak -- 3397
 	AddRecipe(3397, 110, 3726, R_COMMON, GAME_ORIG, 10, 150, 170, 190)
-	self:addTradeFlags(RecipeDB, 3397, F_ALLIANCE, F_HORDE,4,8, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3397,4,498,2,3960,2,12246)
+	self:addTradeFlags(RecipeDB, 3397, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
+	self:addTradeAcquire(RecipeDB, 3397, A_QUEST, 498,2,3960,2,12246)
 
 	-- Hot Lion Chops -- 3398
 	AddRecipe(3398, 125, 3727, R_COMMON, GAME_ORIG, 125, 175, 195, 215)
 	self:addTradeFlags(RecipeDB, 3398, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3398,4,501,2,3489,2,12245)
+	self:addTradeAcquire(RecipeDB, 3398, A_QUEST, 501,2,3489,2,12245)
 
 	-- Tasty Lion Steak -- 3399
 	AddRecipe(3399, 150, 3728, R_COMMON, GAME_ORIG, 150, 190, 210, 230)
 	self:addTradeFlags(RecipeDB, 3399, F_ALLIANCE, 8, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3399,4,564)
+	self:addTradeAcquire(RecipeDB, 3399, A_QUEST, 564)
 
 	-- Soothing Turtle Bisque -- 3400
 	AddRecipe(3400, 175, 3729, R_COMMON, GAME_ORIG, 175, 215, 235, 255)
 	self:addTradeFlags(RecipeDB, 3400, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 3400,4,555,4,7321)
+	self:addTradeAcquire(RecipeDB, 3400, A_QUEST, 555, A_QUEST, 7321)
 
 	-- Barbecued Buzzard Wing -- 4094
 	AddRecipe(4094, 175, 4457, R_COMMON, GAME_ORIG, 175, 215, 235, 255)
 	self:addTradeFlags(RecipeDB, 4094, F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 4094,4,703,1,2818,2,2814,2,12246)
+	self:addTradeAcquire(RecipeDB, 4094, A_QUEST, 703,1,2818,2,2814,2,12246)
 
 	-- Kaldorei Spider Kabob -- 6412
 	AddRecipe(6412, 10, 5472, R_COMMON, GAME_ORIG, 10, 50, 70, 90)
 	self:addTradeFlags(RecipeDB, 6412, F_ALLIANCE, 8, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 6412,4,4161)
+	self:addTradeAcquire(RecipeDB, 6412, A_QUEST, 4161)
 
 	-- Scorpid Surprise -- 6413
 	AddRecipe(6413, 20, 5473, R_COMMON, GAME_ORIG, 20, 60, 80, 100)
@@ -241,7 +241,7 @@ function addon:InitCooking(RecipeDB)
 	-- Strider Stew -- 6416
 	AddRecipe(6416, 50, 5477, R_COMMON, GAME_ORIG, 50, 90, 110, 130)
 	self:addTradeFlags(RecipeDB, 6416, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 6416,4,2178,2,3482)
+	self:addTradeAcquire(RecipeDB, 6416, A_QUEST, 2178,2,3482)
 
 	-- Crispy Lizard Tail -- 6418
 	AddRecipe(6418, 100, 5479, R_COMMON, GAME_ORIG, 100, 140, 160, 180)
@@ -325,7 +325,7 @@ function addon:InitCooking(RecipeDB)
 	-- Herb Baked Egg -- 8604
 	AddRecipe(8604, 1, 6888, R_COMMON, GAME_ORIG, 1, 45, 65, 85)
 	self:addTradeFlags(RecipeDB, 8604, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 8604,8,8)
+	self:addTradeAcquire(RecipeDB, 8604, A_CUSTOM, 8)
 
 	-- Smoked Bear Meat -- 8607
 	AddRecipe(8607, F_RBOE,6890,1,GAME_ORIG, F_RBOE,80,100,120)
@@ -335,12 +335,12 @@ function addon:InitCooking(RecipeDB)
 	-- Thistle Tea -- 9513
 	AddRecipe(9513, 60, 7676, R_UNCOMMON, GAME_ORIG, 60, 100, 120, 140)
 	self:addTradeFlags(RecipeDB, 9513, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_ROGUE, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 9513,4,2359,4,2478,2,6779)
+	self:addTradeAcquire(RecipeDB, 9513, A_QUEST, 2359, A_QUEST, 2478,2,6779)
 
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, R_COMMON, GAME_ORIG, 175, 175, 190, 205)
 	self:addTradeFlags(RecipeDB, 13028, F_ALLIANCE, F_HORDE, F_INSTANCE, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 13028,8,13)
+	self:addTradeAcquire(RecipeDB, 13028, A_CUSTOM, 13)
 
 	-- Lean Wolf Steak -- 15853
 	AddRecipe(15853, 125, 12209, R_COMMON, GAME_ORIG, 125, 165, 185, 205)
@@ -496,12 +496,12 @@ function addon:InitCooking(RecipeDB)
 	-- Smoked Desert Dumplings -- 24801
 	AddRecipe(24801, 285, 20452, R_COMMON, GAME_ORIG, 285, 310, 322, 335)
 	self:addTradeFlags(RecipeDB, 24801, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP, F_DPS)
-	self:addTradeAcquire(RecipeDB, 24801,4,8313)
+	self:addTradeAcquire(RecipeDB, 24801, A_QUEST, 8313)
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	AddRecipe(25659, 300, 21023, R_EPIC, GAME_ORIG, 300, 325, 337, 350)
 	self:addTradeFlags(RecipeDB, 25659, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB, 25659,4,8586)
+	self:addTradeAcquire(RecipeDB, 25659, A_QUEST, 8586)
 
 	-- Smoked Sagefish -- 25704
 	AddRecipe(25704, 80, 21072, R_COMMON, GAME_ORIG, 80, 120, 140, 160)
@@ -520,7 +520,7 @@ function addon:InitCooking(RecipeDB)
 	-- Crunchy Spider Surprise -- 28267
 	AddRecipe(28267, 60, 22645, R_COMMON, GAME_BC, 60, 100, 120, 140)
 	self:addTradeFlags(RecipeDB, 28267, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 28267,4,9171,2,16253,2,18427)
+	self:addTradeAcquire(RecipeDB, 28267, A_QUEST, 9171,2,16253,2,18427)
 
 	-- Lynx Steak -- 33276
 	AddRecipe(33276, 1, 27635, R_COMMON, GAME_BC, 1, 45, 65, 85)
@@ -530,7 +530,7 @@ function addon:InitCooking(RecipeDB)
 	-- Roasted Moongraze Tenderloin -- 33277
 	AddRecipe(33277, 1, 24105, R_COMMON, GAME_BC, 1, 45, 65, 85)
 	self:addTradeFlags(RecipeDB, 33277, F_ALLIANCE, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 33277,4,9454)
+	self:addTradeAcquire(RecipeDB, 33277, A_QUEST, 9454)
 
 	-- Bat Bites -- 33278
 	AddRecipe(33278, 50, 27636, R_COMMON, GAME_BC, 50, 90, 110, 130)
@@ -540,7 +540,7 @@ function addon:InitCooking(RecipeDB)
 	-- Buzzard Bites -- 33279
 	AddRecipe(33279, 300, 27651, R_COMMON, GAME_BC, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 33279, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 33279,4,9356)
+	self:addTradeAcquire(RecipeDB, 33279, A_QUEST, 9356)
 
 	-- Ravager Dog -- 33284
 	AddRecipe(33284, 300, 27655, R_COMMON, GAME_BC, 300, 320, 330, 340)
@@ -622,12 +622,12 @@ function addon:InitCooking(RecipeDB)
 	-- Mok'Nathal Shortribs -- 38867
 	AddRecipe(38867, 335, 31672, R_COMMON, GAME_BC, 335, 355, 365, 375)
 	self:addTradeFlags(RecipeDB, 38867, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 38867,4,10860,2,20916,2,21113)
+	self:addTradeAcquire(RecipeDB, 38867, A_QUEST, 10860,2,20916,2,21113)
 
 	-- Crunchy Serpent -- 38868
 	AddRecipe(38868, 335, 31673, R_COMMON, GAME_BC, 335, 355, 365, 375)
 	self:addTradeFlags(RecipeDB, 38868, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 38868,4,10860,2,20916,2,21113)
+	self:addTradeAcquire(RecipeDB, 38868, A_QUEST, 10860,2,20916,2,21113)
 
 	-- Stewed Trout -- 42296
 	AddRecipe(42296, 320, 33048, R_COMMON, GAME_BC, 320, 335, 345, 355)
@@ -647,32 +647,32 @@ function addon:InitCooking(RecipeDB)
 	-- Skullfish Soup -- 43707
 	AddRecipe(43707, 325, 33825, R_UNCOMMON, GAME_BC, 325, 335, 345, 355)
 	self:addTradeFlags(RecipeDB, 43707, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 43707,8,6)
+	self:addTradeAcquire(RecipeDB, 43707, A_CUSTOM, 6)
 
 	-- Stormchops -- 43758
 	AddRecipe(43758, 300, 33866, R_RARE, GAME_BC, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 43758, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 43758,8,5,8,6,8,38)
+	self:addTradeAcquire(RecipeDB, 43758, A_CUSTOM, 5, A_CUSTOM, 6, A_CUSTOM, 38)
 
 	-- Broiled Bloodfin -- 43761
 	AddRecipe(43761, 300, 33867, R_UNCOMMON, GAME_BC, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 43761, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 43761,8,6)
+	self:addTradeAcquire(RecipeDB, 43761, A_CUSTOM, 6)
 
 	-- Spicy Hot Talbuk -- 43765
 	AddRecipe(43765, 325, 33872, R_UNCOMMON, GAME_BC, 325, 335, 345, 355)
 	self:addTradeFlags(RecipeDB, 43765, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 43765,8,5)
+	self:addTradeAcquire(RecipeDB, 43765, A_CUSTOM, 5)
 
 	-- Kibler's Bits -- 43772
 	AddRecipe(43772, 300, 33874, R_UNCOMMON, GAME_BC, 300, 345, 355, 365)
 	self:addTradeFlags(RecipeDB, 43772, F_ALLIANCE, F_HORDE, F_QUEST, F_HUNTER, F_IBOE, F_RBOP, F_DPS)
-	self:addTradeAcquire(RecipeDB, 43772,8,5)
+	self:addTradeAcquire(RecipeDB, 43772, A_CUSTOM, 5)
 
 	-- Delicious Chocolate Cake -- 43779
 	AddRecipe(43779, 1, 33924, R_RARE, GAME_BC, 1, 50, 62, 75)
 	self:addTradeFlags(RecipeDB, 43779, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 43779,8,5,8,6,8,38)
+	self:addTradeAcquire(RecipeDB, 43779, A_CUSTOM, 5, A_CUSTOM, 6, A_CUSTOM, 38)
 
 	-- Hot Apple Cider -- 45022
 	AddRecipe(45022, 325, 34411, R_COMMON, GAME_WOTLK, 325, 325, 325, 325)
@@ -810,7 +810,7 @@ function addon:InitCooking(RecipeDB)
 	-- Captain Rumsey's Lager -- 45695
 	AddRecipe(45695, 100, 34832, R_UNCOMMON, GAME_WOTLK, 100, 100, 105, 110)
 	self:addTradeFlags(RecipeDB, 45695, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 45695,8,7)
+	self:addTradeAcquire(RecipeDB, 45695, A_CUSTOM, 7)
 
 	-- Charred Bear Kabobs -- 46684
 	AddRecipe(46684, 250, 35563, R_COMMON, GAME_WOTLK, 250, 275, 285, 295)
@@ -825,7 +825,7 @@ function addon:InitCooking(RecipeDB)
 	-- Kungaloosh -- 53056
 	AddRecipe(53056, 375, 39520, R_COMMON, GAME_WOTLK, 375, 375, 387, 400)
 	self:addTradeFlags(RecipeDB, 53056, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 53056,4,13571,8,36)
+	self:addTradeAcquire(RecipeDB, 53056, A_QUEST, 13571, A_CUSTOM, 36)
 
 	-- Fish Feast -- 57423
 	AddRecipe(57423, 450, 43015, R_COMMON, GAME_WOTLK, 450, 455, 460, 465)
@@ -840,7 +840,7 @@ function addon:InitCooking(RecipeDB)
 	-- Northern Stew -- 57421
 	AddRecipe(57421, 350, 34747, R_COMMON, GAME_WOTLK, 350, 350, 362, 365)
 	self:addTradeFlags(RecipeDB, 57421, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 57421,4,13087,4,13088,4,13089,4,13090)
+	self:addTradeAcquire(RecipeDB, 57421, A_QUEST, 13087, A_QUEST, 13088, A_QUEST, 13089, A_QUEST, 13090)
 
 	-- Spicy Fried Herring -- 57433
 	AddRecipe(57433, 400, 42993, R_UNCOMMON, GAME_WOTLK, 400, 400, 420, 460)
@@ -936,7 +936,7 @@ function addon:InitCooking(RecipeDB)
 	-- Dig Rat Stew -- 6417
 	AddRecipe(6417, 90, 44977, R_COMMON, GAME_WOTLK, 90, 130, 150, 170)
 	self:addTradeFlags(RecipeDB, 6417, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 6417,4,862,2,3392)
+	self:addTradeAcquire(RecipeDB, 6417, A_QUEST, 862,2,3392)
 
 	-- Black Jelly -- 64358
 	AddRecipe(64358, 400, 45932, R_COMMON, GAME_WOTLK, 400, 400, 412, 425)
@@ -947,7 +947,7 @@ function addon:InitCooking(RecipeDB)
 	-- Clamlette Magnifique -- 64054
 	AddRecipe(64054, 250, 33004, R_COMMON, GAME_WOTLK, 250, 250, 275, 300)
 	self:addTradeFlags(RecipeDB, 64054, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 64054,4,6610)
+	self:addTradeAcquire(RecipeDB, 64054, A_QUEST, 6610)
 
 	-- Pumpkin Pie -- 62044
 	AddRecipe(62044, 45, 44839, R_COMMON, GAME_WOTLK)
