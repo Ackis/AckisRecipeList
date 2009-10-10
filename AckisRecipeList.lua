@@ -529,7 +529,7 @@ function addon:TRADE_SKILL_CLOSE()
 		self:CloseWindow()
 	end
 
-	if (addon.ScanButton and not Skillet) then
+	if not Skillet then
 		addon.ScanButton:Hide()
 	end
 
@@ -626,12 +626,12 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	local profession_id = GetSpellInfo(Profession)
 	local recipe_name = GetSpellInfo(SpellID)
 
-	--@alpha@
 	if RecipeDB[SpellID] then
+		--@alpha@
 		self:Print("Duplicate recipe: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+		--@end-alpha@
 		return
 	end
-	--@end-alpha@
 
 	-------------------------------------------------------------------------------
 	-- Create a table inside the RecipeListing table which stores all information
@@ -779,46 +779,38 @@ end	-- do block
 -- @param Coordy Y coordinate of where the entry is found.
 -- @param Faction Faction identifier for the entry.
 -- @return None, array is passed as a reference.
-function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
-
-	--For individual database structures, see Documentation.lua
-
-	--@alpha@
-	if DB[ID] then
-		self:Print("Duplicate lookup: "..tostring(ID).." "..Name)
-		return
-	end
-	--@end-alpha@
-
-	DB[ID] = {
-		["Name"] = Name
+--For individual database structures, see Documentation.lua
+do
+	local FACTION_NAMES = {
+		[1]	= BFAC["Neutral"],
+		[2]	= BFAC["Alliance"],
+		[3]	= BFAC["Horde"]
 	}
-	if (Loc) then
-		DB[ID]["Location"] = Loc
-	else
-		--@alpha@
-		self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
-		--@end-alpha@
-		DB[ID]["Location"] = L["Unknown Zone"]
-	end
-
-	if (Coordx) and (Coordy) then
-		DB[ID]["Coordx"] = Coordx
-		DB[ID]["Coordy"] = Coordy
-	end
-
-	if (Faction) then
-		if (Faction == 0) then
-			DB[ID]["Faction"] = BFAC["Neutral"]
-		elseif (Faction == 1) then
-			DB[ID]["Faction"] = BFAC["Alliance"]
-		elseif (Faction == 2) then
-			DB[ID]["Faction"] = BFAC["Horde"]
+	function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
+		if DB[ID] then
+			--@alpha@
+			self:Print("Duplicate lookup: "..tostring(ID).." "..Name)
+			--@end-alpha@
+			return
 		end
+
+		DB[ID] = {
+			["Name"]	= Name,
+			["Location"]	= Loc or L["Unknown Zone"],
+			["Faction"]	= Faction and FACTION_NAMES[Faction + 1] or nil
+		}
+		if Coordx and Coordy then
+			DB[ID]["Coordx"] = Coordx
+			DB[ID]["Coordy"] = Coordy
+		end
+
+		--@alpha@
+		if not Loc then
+			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
+		end
+		--@end-alpha@
 	end
-
-end
-
+end	-- do
 -------------------------------------------------------------------------------
 -- Recipe Scanning Functions
 -------------------------------------------------------------------------------
@@ -1302,7 +1294,6 @@ end
 
 ---Creates an array of which factions we want to include in our display and which ones to ignore
 local function PopulateRepFilters(RepTable)
-
 	local repfilters = addon.db.profile.filters.rep
 
 	RepTable[BFAC["The Scryers"]] = repfilters.scryer
@@ -1344,12 +1335,10 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Frostborn"]] = repfilters.wrathcommon4
 	RepTable[BFAC["Explorers' League"]] = repfilters.wrathcommon5
 	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.wrathcommon5
-
 end
 
 ---Scans the recipe listing and updates the filters according to user preferences
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
-
 	local playerProfessionLevel = playerData.playerProfessionLevel
 	local playerProfession = playerData.playerProfession
 	local playerSpecialty = playerData.playerSpecialty
@@ -1396,9 +1385,7 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 		RecipeDB[RecipeID]["Display"] = displayflag
 
 	end
-
 	self:ClearRepTable()
-
 end
 
 -------------------------------------------------------------------------------
