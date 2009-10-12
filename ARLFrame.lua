@@ -3187,7 +3187,7 @@ function addon:InitializeFrame()
 					     local endLoop = 0
 					     local displayProf = 0
 
-					     self:ClosePopups()
+					     addon:ClosePopups()
 
 					     -- ok, so first off, if we've never done this before, there is no "current"
 					     -- and a single iteration will do nicely, thank you
