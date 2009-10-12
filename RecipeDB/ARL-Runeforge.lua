@@ -48,7 +48,7 @@ local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 local initialized = false
 local num_recipes = 0
 
-function addon:InitFirstAid(RecipeDB)
+function addon:InitRuneforging(RecipeDB)
 
 	if initialized then
 		return num_recipes

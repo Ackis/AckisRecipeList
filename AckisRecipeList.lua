@@ -882,6 +882,7 @@ do
 				local SpellString = GetIDFromLink(SpellLink)
 				-- Get the SpellID from the spell link or enchant link (to account for Skillet)
 				local SpellID = tonumber(SpellString)
+				
 				-- Spell ID is in RecipeDB so lets flag it as known
 				if (RecipeDB[SpellID]) then
 					-- Update array that recipe was found

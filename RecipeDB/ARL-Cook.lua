@@ -51,7 +51,6 @@ local initialized = false
 local num_recipes = 0
 
 function addon:InitCooking(RecipeDB)
-
 	if initialized then
 		return num_recipes
 	end

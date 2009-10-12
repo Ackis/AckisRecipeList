@@ -2686,7 +2686,6 @@ local function SetSortName()
 
 end
 
-
 local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
@@ -2694,45 +2693,45 @@ local function ARL_DD_Sort_OnClick(button, value)
 	ReDisplay()
 end
 
-
 local function ARL_DD_Sort_Initialize()
-
-	local k
 	local info = UIDropDownMenu_CreateInfo()
 
-	k = "Name"
-		info.text = k
-		info.arg1 = info.text
-		info.func = ARL_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
+	local k = "Name"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
 	k = "SkillAsc"
-		info.text = k
-		info.arg1 = info.text
-		info.func = ARL_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
 	k = "SkillDesc"
-		info.text = k
-		info.arg1 = info.text
-		info.func = ARL_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
 	k = "Acquisition"
-		info.text = k
-		info.arg1 = info.text
-		info.func = ARL_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
 	k = "Location"
-		info.text = k
-		info.arg1 = info.text
-		info.func = ARL_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
 
 	SetSortName()
-
 end
 
 -- Description: Saves the frame position into the database 
@@ -3297,74 +3296,75 @@ function addon:InitializeFrame()
 	local ARL_FilterButton = GenericCreateButton("ARL_FilterButton", MainPanel,
 						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-	ARL_FilterButton:SetScript("OnClick", function()
-						      local xPos = MainPanel:GetLeft()
-						      local yPos = MainPanel:GetBottom()
+	ARL_FilterButton:SetScript("OnClick",
+				   function()
+					   local xPos = MainPanel:GetLeft()
+					   local yPos = MainPanel:GetBottom()
 
-						      if MainPanel._is_expanded then
-							      -- Adjust the frame size and texture
-							      MainPanel:ClearAllPoints()
-							      MainPanel:SetWidth(293)
-							      MainPanel:SetHeight(447)
+					   if MainPanel._is_expanded then
+						   -- Adjust the frame size and texture
+						   MainPanel:ClearAllPoints()
+						   MainPanel:SetWidth(293)
+						   MainPanel:SetHeight(447)
 
-							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
-							      addon.bgTexture:SetAllPoints(MainPanel)
-							      addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
+						   addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
+						   addon.bgTexture:SetAllPoints(MainPanel)
+						   addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 
-							      MainPanel._is_expanded = false
-							      MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-							      ARL_ProgressBar:SetWidth(195)
+						   MainPanel._is_expanded = false
+						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+						   ARL_ProgressBar:SetWidth(195)
 
-							      -- Change the text and tooltip for the filter button
-							      ARL_FilterButton:SetText(L["FILTER_OPEN"])
-							      SetTooltipScripts(ARL_FilterButton, L["FILTER_OPEN_DESC"])
+						   -- Change the text and tooltip for the filter button
+						   ARL_FilterButton:SetText(L["FILTER_OPEN"])
+						   SetTooltipScripts(ARL_FilterButton, L["FILTER_OPEN_DESC"])
 
-							      -- Hide my 7 buttons
-							      ARL_ExpGeneralOptCB:Hide()
-							      ARL_ExpObtainOptCB:Hide()
-							      ARL_ExpBindingOptCB:Hide()
-							      ARL_ExpItemOptCB:Hide()
-							      ARL_ExpPlayerOptCB:Hide()
-							      ARL_ExpRepOptCB:Hide()
-							      ARL_ExpMiscOptCB:Hide()
+						   -- Hide my 7 buttons
+						   ARL_ExpGeneralOptCB:Hide()
+						   ARL_ExpObtainOptCB:Hide()
+						   ARL_ExpBindingOptCB:Hide()
+						   ARL_ExpItemOptCB:Hide()
+						   ARL_ExpPlayerOptCB:Hide()
+						   ARL_ExpRepOptCB:Hide()
+						   ARL_ExpMiscOptCB:Hide()
 
-							      -- Uncheck the seven buttons
-							      HideARL_ExpOptCB()
+						   -- Uncheck the seven buttons
+						   HideARL_ExpOptCB()
 
-							      -- Hide the flyaway panel
-							      addon.Flyaway:Hide()
-							      ARL_ResetButton:Hide()
-						      else
-							      -- Adjust the frame size and texture
-							      MainPanel:ClearAllPoints()
-							      MainPanel:SetWidth(444)
-							      MainPanel:SetHeight(447)
+						   -- Hide the flyaway panel
+						   addon.Flyaway:Hide()
+						   ARL_ResetButton:Hide()
+					   else
+						   -- Adjust the frame size and texture
+						   MainPanel:ClearAllPoints()
+						   MainPanel:SetWidth(444)
+						   MainPanel:SetHeight(447)
 
-							      addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
-							      addon.bgTexture:SetAllPoints(MainPanel)
-							      addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
+						   addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
+						   addon.bgTexture:SetAllPoints(MainPanel)
+						   addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 
-							      MainPanel._is_expanded = true
-							      MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-							      ARL_ProgressBar:SetWidth(345)
+						   MainPanel._is_expanded = true
+						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+						   ARL_ProgressBar:SetWidth(345)
 
-							      -- Change the text and tooltip for the filter button
-							      ARL_FilterButton:SetText(L["FILTER_CLOSE"])
-							      SetTooltipScripts(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
+						   -- Change the text and tooltip for the filter button
+						   ARL_FilterButton:SetText(L["FILTER_CLOSE"])
+						   SetTooltipScripts(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
 
-							      -- Show my 7 buttons
-							      ARL_ExpGeneralOptCB:Show()
-							      ARL_ExpObtainOptCB:Show()
-							      ARL_ExpBindingOptCB:Show()
-							      ARL_ExpItemOptCB:Show()
-							      ARL_ExpPlayerOptCB:Show()
-							      ARL_ExpRepOptCB:Show()
-							      ARL_ExpMiscOptCB:Show()
+						   -- Show my 7 buttons
+						   ARL_ExpGeneralOptCB:Show()
+						   ARL_ExpObtainOptCB:Show()
+						   ARL_ExpBindingOptCB:Show()
+						   ARL_ExpItemOptCB:Show()
+						   ARL_ExpPlayerOptCB:Show()
+						   ARL_ExpRepOptCB:Show()
+						   ARL_ExpMiscOptCB:Show()
 
-							      ARL_ResetButton:Show()
-						      end
-						      MainPanel:ResetTitle()
-					      end)
+						   ARL_ResetButton:Show()
+					   end
+					   MainPanel:ResetTitle()
+				   end)
 
 	-------------------------------------------------------------------------------
 	-- Check for old skill sorting, and create the sort frame.
@@ -3382,18 +3382,19 @@ function addon:InitializeFrame()
 	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel,
 						     21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
-	ARL_ExpandButton:SetScript("OnClick", function(self, mouse_button, down)
-						      if self:GetText() == L["EXPANDALL"] then
-							      self:SetText(L["CONTRACTALL"])
-							      SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-							      expandallDisplayStrings()
-						      else
-							      self:SetText(L["EXPANDALL"])
-							      SetTooltipScripts(self, L["EXPANDALL_DESC"])
-							      initDisplayStrings()
-						      end
-						      RecipeList_Update()
-					      end)
+	ARL_ExpandButton:SetScript("OnClick",
+				   function(self, mouse_button, down)
+					   if self:GetText() == L["EXPANDALL"] then
+						   self:SetText(L["CONTRACTALL"])
+						   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+						   expandallDisplayStrings()
+					   else
+						   self:SetText(L["EXPANDALL"])
+						   SetTooltipScripts(self, L["EXPANDALL_DESC"])
+						   initDisplayStrings()
+					   end
+					   RecipeList_Update()
+				   end)
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
 	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
