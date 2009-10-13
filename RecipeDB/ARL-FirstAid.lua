@@ -59,7 +59,7 @@ local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 --------------------------------------------------------------------------------------------------------------------
 -- Reputation Acquire Flags
 --------------------------------------------------------------------------------------------------------------------
-local R_ARGENTDAWNT = 529
+local R_ARGENTDAWN = 529
 
 --------------------------------------------------------------------------------------------------------------------
 -- Reputation Levels
@@ -179,15 +179,15 @@ function addon:InitFirstAid(RecipeDB)
 	-- Powerful Anti-Venom -- 23787
 	AddRecipe(23787, 300, 19440, R_COMMON, GAME_ORIG, 300, 300, 330, 360)
 	self:addTradeFlags(RecipeDB, 23787, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOP, F_ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23787, A_REPUTATION, R_ARGENTDAWNT, HONORED, 10856, A_REPUTATION, R_ARGENTDAWNT, HONORED, 10857, A_REPUTATION, R_ARGENTDAWNT, HONORED, 11536)
+	self:addTradeAcquire(RecipeDB, 23787, A_REPUTATION, R_ARGENTDAWN, HONORED, 10856, A_REPUTATION, R_ARGENTDAWN, HONORED, 10857, A_REPUTATION, R_ARGENTDAWN, HONORED, 11536)
 
 	-- Netherweave Bandage -- 27032
-	AddRecipe(27032, 300, 21990, R_COMMON, GAME_BC, 330, 330, 347, 365)
+	AddRecipe(27032, 330, 21990, R_COMMON, GAME_TBC, 330, 330, 347, 365)
 	self:addTradeFlags(RecipeDB, 27032, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB, 27032, 1, 33589, 1, 28706, 1, 18991, 1, 29233, 1, 18990, 1, 26956, 1, 26992, 1, 23734)
 
 	-- Heavy Netherweave Bandage -- 27033
-	AddRecipe(27033, 330, 21991, R_COMMON, GAME_BC, 360, 360, 367, 375)
+	AddRecipe(27033, 360, 21991, R_COMMON, GAME_TBC, 360, 360, 367, 375)
 	self:addTradeFlags(RecipeDB, 27033, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB, 27033, 1, 33589, 1, 28706, 1, 18991, 1, 29233, 1, 18990, 1, 26956, 1, 26992, 1, 23734)
 
