@@ -1,36 +1,18 @@
---[[
-
-************************************************************************
-
-ARL-Engineer.lua
-
-Engineering data for all of Ackis Recipe List
-
-************************************************************************
-
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
-
-************************************************************************
-
-Format:
-
-	self:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
-
-************************************************************************
-
-Please see http://www.wowace.com/projects/arl/for more information.
-
-License:
-	Please see LICENSE.txt
-
-This source code is released under All Rights Reserved.
-
-************************************************************************
-
-]]--
+--------------------------------------------------------------------------------------------------------------------
+-- ARL-Engineer.lua
+-- Engineering data for all of Ackis Recipe List
+--------------------------------------------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- File revision: @file-revision@ 
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+--------------------------------------------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/arl/for more information.
+--------------------------------------------------------------------------------------------------------------------
+-- License:
+-- Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------
 
 local MODNAME = "Ackis Recipe List"
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
