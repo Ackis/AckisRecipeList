@@ -33,7 +33,7 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 --------------------------------------------------------------------------------------------------------------------
 local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
 local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
-local F_DK = 21
+local F_DK  = 21
 local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
 local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
 local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
