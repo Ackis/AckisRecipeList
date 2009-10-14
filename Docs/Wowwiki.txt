@@ -1,7 +1,7 @@
 ﻿{{Addon Infobox
  | Name = Ackis Recipe List
  | Summary = An addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including Runeforging.
- | TOC = 30100
+ | TOC = 30200
  | Category = Tradeskill
  | Author = Ackis
  | WoWI = 8512
