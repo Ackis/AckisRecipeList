@@ -1,8 +1,13 @@
 ==ARL Change Log
-===Version 2XXX
+===Version 2570
+*New recipes added.
 *Fixed an issue with Trial of the Crusader cross-faction recipes not appearing correctly.
 *Updated the database to make code more readable and remove redundancy.  Should make database updates a lot easier for people.
+*Optimized the database to remove extra flags which didn't need to be included.
 *Add support for [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]].
+*Internal code cleanup and optimization.
+*Memory optimizations.
+*Trainer updates (names fixed, locations more accurate, and erroneous trainers removed).
 
 ===Version 2500
 *Fixed the addon title in the ToC.
