@@ -1209,36 +1209,175 @@ do
 		end
 
 		local classesdb = filterdb.classes
+		
+		if (classesdb.deathknight == false) and (flags[F_DK] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
+		end
 
-		if ((classesdb.deathknight == false) and (flags[F_DK] == true)) then
-			return false
+		if (classesdb.druid == false) and (flags[F_DRUID] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.druid == false) and (flags[F_DRUID] == true)) then
-			return false
+
+		if (classesdb.hunter == false) and (flags[F_HUNTER] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.hunter == false) and (flags[F_HUNTER] == true)) then
-			return false
+
+		if (classesdb.mage == false) and (flags[F_MAGE] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.mage == false) and (flags[F_MAGE] == true)) then
-			return false
+
+		if (classesdb.paladin == false) and (flags[F_PALADIN] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.paladin == false) and (flags[F_PALADIN] == true)) then
-			return false
+
+		if (classesdb.priest == false) and (flags[F_PRIEST] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.priest == false) and (flags[F_PRIEST] == true)) then
-			return false
+
+		if (classesdb.shaman == false) and (flags[F_SHAMAN] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.shaman == false) and (flags[F_SHAMAN] == true)) then
-			return false
+
+		if (classesdb.rogue == false) and (flags[F_ROGUE] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.rogue == false) and (flags[F_ROGUE] == true)) then
-			return false
+
+		if (classesdb.warlock == false) and (flags[F_WARLOCK] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) or
+			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
-		if ((classesdb.warlock == false) and (flags[F_WARLOCK] == true)) then
-			return false
-		end
-		if ((classesdb.warrior == false) and (flags[F_WARRIOR] == true)) then
-			return false
+
+		if (classesdb.warrior == false) and (flags[F_WARRIOR] == true) then
+			--check if the recipe has another class which is shown
+			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
+			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+			(classesdb.mage == true) and (flags[F_MAGE] == true) or
+			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+			(classesdb.deathknight == true) and (flags[F_DK] == true) then
+				--do nothing
+			else
+				return false
+			end
 		end
 
 		-- Stage 2
