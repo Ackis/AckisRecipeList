@@ -1,6 +1,7 @@
 ==ARL Change Log
-===Version 2575
+===Version 2576
 *Major issue with class filtering fixed.
+*Fixed class scanning in the dataminer.
 
 ===Version 2570
 *New recipes added.
