@@ -2416,7 +2416,7 @@ function addon:InitInscription(RecipeDB)
 		-- Runescroll of Fortitude -- 69385
 		AddRecipe(69385,440,49632,1,2,440,440,442,460)
 		self:addTradeFlags(RecipeDB,69385,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69385,1,28702)
+		self:addTradeAcquire(RecipeDB,69385,1,28702,1,26977,1,33603,1,26959,1,26916,1,26995)
 
 	end
 

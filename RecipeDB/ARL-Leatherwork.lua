@@ -2801,12 +2801,12 @@ function addon:InitLeatherworking(RecipeDB)
 		-- Drums of Forgotten Kings -- 69386
 		AddRecipe(69386,450,49633,1,2,450,450,455,470)
 		self:addTradeFlags(RecipeDB,69386,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69386,1,28700)
+		self:addTradeAcquire(RecipeDB,69386,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
 		-- Drums of the Wild -- 69388
 		AddRecipe(69388,450,49634,1,2,450,450,455,470)
 		self:addTradeFlags(RecipeDB,69388,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69388,1,28700)
+		self:addTradeAcquire(RecipeDB,69388,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
 	end
 	
