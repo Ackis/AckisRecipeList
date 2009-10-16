@@ -1,4 +1,7 @@
 ==ARL Change Log
+===Version 2575
+*Major issue with class filtering fixed.
+
 ===Version 2570
 *New recipes added.
 *Fixed an issue with Trial of the Crusader cross-faction recipes not appearing correctly.
