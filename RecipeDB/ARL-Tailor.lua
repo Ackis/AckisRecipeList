@@ -2322,8 +2322,6 @@ function addon:InitTailoring(RecipeDB)
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
-	-- Counter for how many faction specific recipes we have
-	local factioncount = 0
 
 	if (faction == BFAC["Alliance"]) then
 
