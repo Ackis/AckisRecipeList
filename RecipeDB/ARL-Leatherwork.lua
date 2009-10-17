@@ -1724,7 +1724,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,35555,6,942,2,17904)
 
 	-- Nethercleft Leg Armor -- 35557
-	AddRecipe(35557,365,29536,1,1,365,365,375,385,395)
+	AddRecipe(35557,365,29536,1,1,365,365,375,385)
 	self:addTradeFlags(RecipeDB,35557,1,2,4,36,41,51,52,103)
 	self:addTradeAcquire(RecipeDB,35557,6,942,4,17904)
 
