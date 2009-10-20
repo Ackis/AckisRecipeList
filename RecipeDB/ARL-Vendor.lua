@@ -355,9 +355,9 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,23012,L["Hotoppik Copperpinch"],BZ["Silvermoon City"],63.5,79.1,2)
 	self:addLookupList(VendorDB,23064,L["Eebee Jinglepocket"],BZ["Shattrath City"],51.0,31.3,0)
 	self:addLookupList(VendorDB,23159,L["Okuno"],BZ["Black Temple"],0,0,0)
-	self:addLookupList(VendorDB,23437,L["Indormi"],BZ["Hyjal Summit"],0,0,0)   ----gooo thrrruuuuu
-	self:addLookupList(VendorDB,25032,L["Eldara Dawnrunner"],BZ["Isle of Quel'Danas"],47.1,30.0,0) ----gooooo thrruuu
-	self:addLookupList(VendorDB,25950,L["Shaani"],BZ["Isle of Quel'Danas"],51.5,32.6,0) ---gooo thrrruuu
+	self:addLookupList(VendorDB,23437,L["Indormi"],BZ["Hyjal Summit"],0,0,0)
+	self:addLookupList(VendorDB,25032,L["Eldara Dawnrunner"],BZ["Isle of Quel'Danas"],47.1,30.0,0)
+	self:addLookupList(VendorDB,25950,L["Shaani"],BZ["Isle of Quel'Danas"],51.5,32.6,0)
 	self:addLookupList(VendorDB,26569,L["Alys Vol'tyr"],BZ["Dragonblight"],36.3,46.5,2)
 	self:addLookupList(VendorDB,26868,L["Provisioner Lorkran"],BZ["Grizzly Hills"],22.6,66.1,2)
 	self:addLookupList(VendorDB,27030,L["Bradley Towns"],BZ["Dragonblight"],76.9,62.2,2)
