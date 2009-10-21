@@ -643,12 +643,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Runed Living Ruby -- 31088
 	AddRecipe(31088,350,24030,3,1)
 	self:addTradeFlags(RecipeDB,31088,1,2,10,11,36,41,53,54)
-	self:addTradeAcquire(RecipeDB,31088,3,24664)
+	self:addTradeAcquire(RecipeDB,31088,3,24664,7,3)
 
 	-- Bright Living Ruby -- 31089
 	AddRecipe(31089,350,24031,3,1)
 	self:addTradeFlags(RecipeDB,31089,1,2,10,11,36,41,51)
-	self:addTradeAcquire(RecipeDB,31089,3,24664)
+	self:addTradeAcquire(RecipeDB,31089,3,24664,7,3)
 
 	-- Subtle Living Ruby -- 31090
 	AddRecipe(31090,350,24032,3,1)
@@ -663,7 +663,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Solid Star of Elune -- 31092
 	AddRecipe(31092,350,24033,3,1)
 	self:addTradeFlags(RecipeDB,31092,1,2,10,11,36,41)
-	self:addTradeAcquire(RecipeDB,31092,3,24664)
+	self:addTradeAcquire(RecipeDB,31092,3,24664,7,3)
 
 	-- Lustrous Star of Elune -- 31094
 	AddRecipe(31094,350,24037,3,1)
@@ -688,7 +688,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	-- Rigid Dawnstone -- 31098
 	AddRecipe(31098,350,24051,3,1)
 	self:addTradeFlags(RecipeDB,31098,1,2,10,11,36,41)
-	self:addTradeAcquire(RecipeDB,31098,3,24664)
+	self:addTradeAcquire(RecipeDB,31098,3,24664,7,3)
 
 	-- Gleaming Dawnstone -- 31099
 	AddRecipe(31099,350,24050,3,1)
