@@ -30,14 +30,13 @@ YouTube video of ARL in action:
 I have setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
 
 If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
-* Volunteer time at your local animal shelter such as the [[http://www.edmontonhumanesociety.com/|Society for Prevention of Cruelty for Animals (SPCA)]] or drop a few bucks off for them.  If you do this, please let [[http://www.wowace.com/home/send-private-message/|me]] know.
+* Volunteer time at your local animal shelter such as the [[http://www.aspca.org/|Society for Prevention of Cruelty for Animals (SPCA)]] or a [[http://www.edmontonhumanesociety.com/|local humane shelter]] or drop a few bucks off for them.  If you do this, please let [[mailto:ackis@shaw.ca|me]] know.
 * Send [[http://www.wowace.com/home/send-private-message/|me]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
 * Send some gold to one of the authors in-game or help out with some achievements, or even send a message saying thanks. :)
 ** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
-*** Ackis is currently looking for a guild (along with his girlfriend).  We're looking for a guild which has competent people that can progress through the hard modes, aren't full of themselves and raids somewhat casually (2-3 nights a week).
-** [[http://eu.wowarmory.com/character-sheet.xml?r=Aegwynn&n=Ascalia|Ascalia Aegwynn (EU)]]  Jim-Bim
-** [[http://www.wowarmory.com/character-sheet.xml?r=Nathrezim&n=Miksta|Miksta Nathrezim (US)]]  Pompy
-** [[http://www.wowarmory.com/character-sheet.xml?r=Eldre%27Thalas&n=Munnin|Munnin Eldre-Thalas (US)]]  Zhinjio
+** [[http://eu.wowarmory.com/character-sheet.xml?r=Aegwynn&n=Ascalia|Ascalia Aegwynn (EU)]] Jim-Bim
+** [[http://www.wowarmory.com/character-sheet.xml?r=Nathrezim&n=Miksta|Miksta Nathrezim (US)]] Pompy
+** [[http://www.wowarmory.com/character-sheet.xml?r=Eldre%27Thalas&n=Munnin|Munnin Eldre-Thalas (US)]] Zhinjio
 
 ==Where to get it
 * [[http://www.wowace.com/projects/arl/files/|WoW Ace]] - Alpha Quality
