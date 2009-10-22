@@ -118,16 +118,16 @@ Freenode has come up with their alternative to Mibbit.
 * Recipe acquire information is slightly inaccurate.  I'm updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [[http://www.wowace.com/projects/arl/create-ticket/|here]] and I will get it updated.
 
 ==Feature Requests/Bug Reporting
-Read the [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  I had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the mod, or you can see the thread on [[http://forums.wowace.com/showthread.php?t=11142|wowace]].  Please follow these small little instructions to make my life easier.  The easier you make development for Ackis Recipe List, the more time I will have to develop other addons.
+Read the [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  I had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the mod, or you can see the thread on [[http://forums.wowace.com/showthread.php?t=11142|WoW Ace]].  Please follow these small little instructions to make my life easier.  The easier you make development for Ackis Recipe List, the more time I will have to develop other addons.
 
 ===Bug Reports
-Please use the [[http://www.wowace.com/projects/arl/tickets/|wowace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
+Please use the [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
 
 ===Feature Request
-Please use the [[http://www.wowace.com/projects/arl/tickets/|wowace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
+Please use the [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
 
 ==Integration
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/arl/tickets/|wowace]].  I make no promises that I will implement the feature at all.  There is a limited [[http://www.wowace.com/projects/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]].  I make no promises that I will implement the feature at all.  There is a limited [[http://www.wowace.com/projects/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
 Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx|Advanced Trade Skill Window]] - [[http://www.wowace.com/projects/arl/images/13-arl-w-atsw/|Screenshot 1]]
 * [[http://wow.curse.com/downloads/wow-addons/details/skillet.aspx|Skillet]]
