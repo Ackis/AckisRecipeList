@@ -285,6 +285,7 @@ function addon:OnInitialize()
 					wrathcommon3 = true,
 					wrathcommon4 = true,
 					wrathcommon5 = true,
+					ashenverdict = true,
 				},
 				-- Classes
 				classes = {
@@ -936,7 +937,7 @@ do
 		local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 111, 112, 113, 114
 		local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
 		local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
-		local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5 = 125, 126, 127
+		local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
 
 		reptable = {
 			[96] = repdb.argentdawn,
@@ -971,6 +972,7 @@ do
 			[125] = repdb.wrathcommon3,
 			[126] = repdb.wrathcommon4,
 			[127] = repdb.wrathcommon5,
+			[F_ASHEN_VERDICT] = repdb.ashenverdict,
 		}
 
 	end
