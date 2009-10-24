@@ -47,13 +47,13 @@ function addon:InitSeasons(SeasonDB)
 	self:addLookupList(SeasonDB,1,name,seasonal)
 	name = GetCategoryInfo(160) -- Lunar Festival
 	self:addLookupList(SeasonDB,2,name,seasonal)
-	name = "Darkmoon Faire" -- Darkmoon Faire
+	name = L["Darkmoon Faire"] -- Darkmoon Faire
 	self:addLookupList(SeasonDB,3,name,seasonal)
 	name = GetCategoryInfo(161) -- Midsummer
 	self:addLookupList(SeasonDB,4,name,seasonal)
 	name = GetCategoryInfo(14981) -- Pilgrim's Bounty
 	self:addLookupList(SeasonDB,5,name,seasonal)
-	name = "Day of the Dead" -- Day of the Dead
+	name = L["Day of the Dead"] -- Day of the Dead
 	self:addLookupList(SeasonDB,6,name,seasonal)
 
 end

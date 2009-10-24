@@ -1507,3 +1507,5 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
+L["Darkmoon Faire"] = true
+L["Day of the Dead"] = true
