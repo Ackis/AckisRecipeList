@@ -1137,6 +1137,20 @@ end	-- do
 -- @param is_largescan Boolean to determine if we're doing a large scan.
 -- @return Recipe has its tooltips scanned.
 do
+
+	-- These items apparently never cache on some servers due to the fact that
+	-- apparently nobody visits Sunwell on them anymore. Not in use yet.
+	local DO_NOT_SCAN = {
+		-------------------------------------------------------------------------------
+		--Leatherworking
+		-------------------------------------------------------------------------------
+		[35214] = true,	[32434] = true,	[15769] = true,
+		[32431] = true,	[32432] = true,	[35215] = true,	[35521] = true,
+		[35520] = true,	[35524] = true,	[35517] = true,	[35528] = true,
+		[35527] = true,	[35523] = true,	[35549] = true,	[35218] = true,
+		[35217] = true,	[35216] = true,	[35546] = true,	[35541] = true, [15756] = true, --(15756, hmm)
+	}
+	
 	local output = {}
 
 	function addon:TooltipScanRecipe(spell_id, is_vendor, is_largescan)
@@ -1225,9 +1239,11 @@ do
 --		tinsert(output, "ITEM SCAN")
 		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 		if item_id then
-			local incache = GetItemInfo(item_id)
+			if not DO_NOT_SCAN[item_id] then
+				local incache = GetItemInfo(item_id)
 
-			if incache then
+			   if incache then 
+
 				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
 
 --				for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -1248,6 +1264,7 @@ do
 			else
 				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
 			end
+		end
 			-- We are dealing with a recipe that does not have an item to learn it from
 		else
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
@@ -1279,19 +1296,6 @@ end	-- do
 -- Tooltip-scanning code
 -------------------------------------------------------------------------------
 do
-	-- These items apparently never cache on some servers due to the fact that
-	-- apparently nobody visits Sunwell on them anymore. Not in use yet.
-	local DO_NOT_SCAN = {
-		-------------------------------------------------------------------------------
-		--Leatherworking
-		-------------------------------------------------------------------------------
-		[35214] = true,	[32433] = true,	[32434] = true,	[15769] = true,
-		[32431] = true,	[32432] = true,	[35215] = true,	[35521] = true,
-		[35520] = true,	[35524] = true,	[35517] = true,	[35528] = true,
-		[35527] = true,	[35523] = true,	[35549] = true,	[35218] = true,
-		[35217] = true,	[35216] = true,	[35546] = true,	[35541] = true,
-	}
-
 	local SPECIALTY_TEXT = {
 		["requires spellfire tailoring"] = 26797, 
 		["requires mooncloth tailoring"] = 26798, 
