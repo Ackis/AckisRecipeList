@@ -4456,6 +4456,7 @@ function addon:InitializeFrame()
 						   filterdb.kaluak = true
 						   filterdb.oracles = true
 						   filterdb.wyrmrest = true
+						   filterdb.ashenverdict = true
 						   filterdb.wrathcommon1 = true
 					   elseif button == "RightButton" then
 						   -- Reset all armor to false
@@ -4467,6 +4468,7 @@ function addon:InitializeFrame()
 						   filterdb.kaluak = false
 						   filterdb.oracles = false
 						   filterdb.wyrmrest = false
+						   filterdb.ashenverdict = false
 						   filterdb.wrathcommon1 = false
 					   end
 					   -- Update the checkboxes with the new value
@@ -4478,6 +4480,7 @@ function addon:InitializeFrame()
 					   ARL_RepKaluakCB:SetChecked(filterdb.kaluak)
 					   ARL_RepOraclesCB:SetChecked(filterdb.oracles)
 					   ARL_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
+					   ARL_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
 					   ARL_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
 					   -- Reset our title
 					   MainPanel:ResetTitle()
@@ -4557,6 +4560,11 @@ function addon:InitializeFrame()
 	addon:GenericMakeCB(ARL_RepWyrmrestCB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), "wyrmrest", 14, 1, 0)
 	ARL_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
 	ARL_RepWyrmrestCBText:SetFont(narrowFont, 11)
+
+	local ARL_AshenVerdictCB = CreateFrame("CheckButton", "ARL_RepAshenVerdictCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(ARL_RepAshenVerdictCB, addon.Fly_Rep_LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Ashen Verdict"]), "ashenverdict", 15, 1, 0)
+	ARL_RepAshenVerdictCBText:SetText(BFAC["The Ashen Verdict"])
+	ARL_RepAshenVerdictCBText:SetFont(narrowFont, 11)
 
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Flyaway Frame
@@ -4746,6 +4754,7 @@ function addon:InitializeFrame()
 		["kaluak"]		= { cb = ARL_RepKaluakCB,		svroot = filterdb.rep },
 		["oracles"]		= { cb = ARL_RepOraclesCB,		svroot = filterdb.rep },
 		["wyrmrest"]		= { cb = ARL_RepWyrmrestCB,		svroot = filterdb.rep },
+		["ashenverdict"]	= { cb = ARL_RepAshenVerdictCB,		svroot = filterdb.rep },
 		["wrathcommon1"]	= { cb = ARL_WrathCommon1CB,		svroot = filterdb.rep },
 		["wrathcommon2"]	= { cb = ARL_WrathCommon2CB,		svroot = nil },
 		["wrathcommon3"]	= { cb = ARL_WrathCommon3CB,		svroot = nil },
