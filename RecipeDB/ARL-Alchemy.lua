@@ -378,7 +378,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Philosopher's Stone -- 11459
 	AddRecipe(11459,225,9149,1,GAME_ORIG,225,240,260,280)
-	self:addTradeFlags(RecipeDB,11459, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54)
+	self:addTradeFlags(RecipeDB,11459, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,61)
 	self:addTradeAcquire(RecipeDB,11459,2,5594)
 
 	-- Elixir of Detect Undead -- 11460
@@ -623,7 +623,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Alchemist's Stone -- 17632
 	AddRecipe(17632,350,13503,1,GAME_ORIG,350,365,372,380)
-	self:addTradeFlags(RecipeDB,17632, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,111)
+	self:addTradeFlags(RecipeDB,17632, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,61,111)
 	self:addTradeAcquire(RecipeDB,17632,6,935,3,21432)
 
 	-- Flask of Petrification -- 17634
@@ -978,7 +978,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Mercurial Stone -- 38070
 	AddRecipe(38070,325,31080,1,1,325,340,347,355)
-	self:addTradeFlags(RecipeDB,38070, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP)
+	self:addTradeFlags(RecipeDB,38070, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOP,61)
 	self:addTradeAcquire(RecipeDB,38070,1,16588,1,18802,1,19052,1,27029,1,33608,1,
 	33674,1,27023)
 
@@ -1060,22 +1060,22 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Guardian's Alchemist Stone -- 47046
 	AddRecipe(47046,375,35748,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,47046, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,52,112)
+	self:addTradeFlags(RecipeDB,47046, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,52,61,112)
 	self:addTradeAcquire(RecipeDB,47046,6,1077,4,25032)
 
 	-- Sorcerer's Alchemist Stone -- 47048
 	AddRecipe(47048,375,35749,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,47048, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,112)
+	self:addTradeFlags(RecipeDB,47048, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,61,112)
 	self:addTradeAcquire(RecipeDB,47048,6,1077,4,25032)
 
 	-- Redeemer's Alchemist Stone -- 47049
 	AddRecipe(47049,375,35750,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,47049, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,112)
+	self:addTradeFlags(RecipeDB,47049, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,61,112)
 	self:addTradeAcquire(RecipeDB,47049,6,1077,4,25032)
 
 	-- Assassin's Alchemist Stone -- 47050
 	AddRecipe(47050,375,35751,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,47050, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,51,112)
+	self:addTradeFlags(RecipeDB,47050, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,51,61,112)
 	self:addTradeAcquire(RecipeDB,47050,6,1077,4,25032)
 
 	-- Transmute: Eternal Life to Shadow -- 53771
@@ -1375,19 +1375,19 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Mercurial Alchemist Stone -- 60396
 	AddRecipe(60396,400,44322,3,2)
-	self:addTradeFlags(RecipeDB,60396, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,53,54)
+	self:addTradeFlags(RecipeDB,60396, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,53,54,61)
 	self:addTradeAcquire(RecipeDB,60396,1,26903,1,26951,1,26975,1,26987,1,28703,1,
 	33588)
 
 	-- Indestructible Alchemist Stone -- 60403
 	AddRecipe(60403,400,44323,3,2)
-	self:addTradeFlags(RecipeDB,60403, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,52)
+	self:addTradeFlags(RecipeDB,60403, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,52,61)
 	self:addTradeAcquire(RecipeDB,60403,1,26903,1,26951,1,26975,1,26987,1,28703,1,
 	33588)
 
 	-- Mighty Alchemist Stone -- 60405
 	AddRecipe(60405,400,44324,3,2)
-	self:addTradeFlags(RecipeDB,60405, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,51)
+	self:addTradeFlags(RecipeDB,60405, F_ALLIANCE, F_HORDE, F_TRAINER, 37,41,51,61)
 	self:addTradeAcquire(RecipeDB,60405,1,26903,1,26951,1,26975,1,26987,1,28703,1,
 	33588)
 
