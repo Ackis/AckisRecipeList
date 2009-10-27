@@ -501,7 +501,7 @@ function addon:InitCooking(RecipeDB)
 
 	-- Sporeling Snack -- 33285
 	AddRecipe(33285, 310, 27656, R_COMMON, GAME_TBC, 310, 330, 340, 350)
-	self:addTradeFlags(RecipeDB, 33285, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE)
+	self:addTradeFlags(RecipeDB, 33285, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB, 33285, A_VENDOR, 18382)
 
 	-- Blackened Basilisk -- 33286
