@@ -1657,7 +1657,7 @@ do
 			-- Armor types
 			if ITEM_TYPES[text_l] then
 				scan_data[text_l] = true
-			elseif text_l == "Off Hand" or text_l == "Main Hand" then	-- Special cases.
+			elseif text_l == "Off-hand" or text_l == "Main Hand" then	-- Special cases.
 				scan_data["One-Hand"] = true
 			end
 
