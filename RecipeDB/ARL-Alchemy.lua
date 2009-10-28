@@ -534,7 +534,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Transmute: Fire to Earth -- 17560
 	AddRecipe(17560,275,7076,2,GAME_ORIG,275,275,282,290)
-	self:addTradeFlags(RecipeDB,17560,4,F_IBOE, F_RBOP)
+	self:addTradeFlags(RecipeDB,17560,F_ALLIANCE, F_HORDE,4,F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,17560,2,9499)
 
 	-- Transmute: Earth to Water -- 17561

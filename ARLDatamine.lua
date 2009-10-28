@@ -1137,8 +1137,10 @@ end	-- do
 -- @return Recipe has its tooltips scanned.
 do
 
-	-- These items apparently never cache on some servers due to the fact that
-	-- apparently nobody visits Sunwell on them anymore. Not in use yet.
+	---------------------------------------------------------------------------------------------------------
+	----This table, DO_NOT_SCAN, contains itemid's that will not cache on the servers
+	---------------------------------------------------------------------------------------------------------
+	
 	local DO_NOT_SCAN = {
 		-------------------------------------------------------------------------------
 		--Leatherworking

@@ -126,7 +126,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Rough Boomstick -- 3925
 	AddRecipe(3925,50,4362,1,GAME_ORIG,50,80,95,110)
-	self:addTradeFlags(RecipeDB,3925,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,3925,1,2,3,36,41,80)
 	self:addTradeAcquire(RecipeDB,3925,1,1702,1,3290,1,3494,1,5174,1,5518,1,8736,1,11017,1,11025,
 	1,11031,1,11037,1,16726,1,17222,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,
 	1,33586,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,26955)
@@ -183,7 +183,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Deadly Blunderbuss -- 3936
 	AddRecipe(3936,105,4369,1,GAME_ORIG,105,130,142,155)
-	self:addTradeFlags(RecipeDB,3936,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,3936,1,2,3,36,41,80)
 	self:addTradeAcquire(RecipeDB,3936,1,1676,1,5174,1,5518,1,8736,1,11017,1,11031,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,
 	1,16667,1,28697,1,1702,1,33586,1,3494,1,3290,1,26991,1,33611,1,33634,1,25277,1,26907,1,11025,1,26955,1,11037,1,17222)
 
@@ -201,7 +201,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Lovingly Crafted Boomstick -- 3939
 	AddRecipe(3939,120,4372,1,GAME_ORIG,120,145,157,170)
-	self:addTradeFlags(RecipeDB,3939,1,2,4,36,41)
+	self:addTradeFlags(RecipeDB,3939,1,2,4,36,41,80)
 	self:addTradeAcquire(RecipeDB,3939,2,2682,2,6730)
 
 	-- Shadow Goggles -- 3940
@@ -246,7 +246,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Silver-plated Shotgun -- 3949
 	AddRecipe(3949,130,4379,1,GAME_ORIG,130,155,167,180)
-	self:addTradeFlags(RecipeDB,3949,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,3949,1,2,3,36,41,80)
 	self:addTradeAcquire(RecipeDB,3949,1,1676,1,5174,1,5518,1,8736,1,11017,1,11031,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,
 	1,16667,1,28697,1,1702,1,33586,1,3494,1,3290,1,26991,1,33611,1,33634,1,25277,1,26907,1,11025,1,26955,1,11037,1,17222)
 
@@ -269,7 +269,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Moonsight Rifle -- 3954
 	AddRecipe(3954,145,4383,2,GAME_ORIG,145,170,182,195)
-	self:addTradeFlags(RecipeDB,3954,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,3954,1,2,10,36,40,80)
 	self:addTradeAcquire(RecipeDB,3954,7,2)
 
 	-- Explosive Sheep -- 3955
@@ -347,7 +347,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Mechanical Dragonling -- 3969
 	AddRecipe(3969,200,4396,1,GAME_ORIG,200,220,230,240)
-	self:addTradeFlags(RecipeDB,3969,1,2,4,36,40,63)
+	self:addTradeFlags(RecipeDB,3969,1,2,4,36,40,61)
 	self:addTradeAcquire(RecipeDB,3969,2,2687)
 
 	-- Gnomish Cloaking Device -- 3971
@@ -577,7 +577,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Goblin Mortar -- 12716
 	AddRecipe(12716,205,10577,1,GAME_ORIG,205,225,235,245,20222)
-	self:addTradeFlags(RecipeDB,12716,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,12716,1,2,3,36,41,61)
 	self:addTradeAcquire(RecipeDB,12716,1,8126,1,8738,1,29513)
 
 	-- Goblin Mining Helmet -- 12717
@@ -767,7 +767,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Arcanite Dragonling -- 19830
 	AddRecipe(19830,300,16022,2,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,19830,1,2,11,36,40,63)
+	self:addTradeFlags(RecipeDB,19830,1,2,11,36,40,61)
 	self:addTradeAcquire(RecipeDB,19830,3,7437)
 
 	-- Arcane Bomb -- 19831
@@ -849,7 +849,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Major Recombobulator -- 23079
 	AddRecipe(23079,275,18637,2,GAME_ORIG,275,285,290,295)
-	self:addTradeFlags(RecipeDB,23079,1,2,5,36,40,63)
+	self:addTradeFlags(RecipeDB,23079,1,2,5,36,40,61)
 	self:addTradeAcquire(RecipeDB,23079,8,32)
 
 	-- Powerful Seaforium Charge -- 23080
@@ -879,7 +879,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Dimensional Ripper - Everlook -- 23486
 	AddRecipe(23486,260,18984,2,GAME_ORIG,260,285,295,305,20219)
-	self:addTradeFlags(RecipeDB,23486,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,23486,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,23486,8,21)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
@@ -1034,12 +1034,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Adamantite Rifle -- 30313
 	AddRecipe(30313,350,23746,1,1,350,360,370,380)
-	self:addTradeFlags(RecipeDB,30313,1,2,4,36,40,63)
+	self:addTradeFlags(RecipeDB,30313,1,2,4,36,40,51,80)
 	self:addTradeAcquire(RecipeDB,30313,2,16657,2,16782,2,19661)
 
 	-- Felsteel Boomstick -- 30314
 	AddRecipe(30314,360,23747,3,1,360,370,380,390)
-	self:addTradeFlags(RecipeDB,30314,1,2,11,36,41,63)
+	self:addTradeFlags(RecipeDB,30314,1,2,11,36,41,80)
 	self:addTradeAcquire(RecipeDB,30314,3,19960)
 
 	-- Ornate Khorium Rifle -- 30315
@@ -1154,7 +1154,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Goblin Rocket Launcher -- 30563
 	AddRecipe(30563,350,23836,1,1,350,360,370,380,20222)
-	self:addTradeFlags(RecipeDB,30563,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,30563,1,2,3,36,41,61)
 	self:addTradeAcquire(RecipeDB,30563,1,8126,1,8738,1,29513)
 
 	-- Foreman's Enchanted Helmet -- 30565
@@ -1174,7 +1174,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Poultryizer -- 30569
 	AddRecipe(30569,340,23835,1,1,340,360,370,380,20219)
-	self:addTradeFlags(RecipeDB,30569,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,30569,1,2,3,36,41,61)
 	self:addTradeAcquire(RecipeDB,30569,1,7406,1,7944,1,29514)
 
 	-- Nigh-Invulnerability Belt -- 30570
@@ -1482,7 +1482,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish X-Ray Specs -- 56473
 	AddRecipe(56473,425,40895,3,2,425,430,435,440,20219)
-	self:addTradeFlags(RecipeDB,56473,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,56473,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,56473,1,26907,1,26955,1,29514)
 
 	-- Ultrasafe Bullet Machine -- 56474

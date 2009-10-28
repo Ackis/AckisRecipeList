@@ -1071,7 +1071,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Hammer of the Titans -- 16988
 	AddRecipe(16988,300,12796,3,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,16988,1,2,5,36,40,51,70)
+	self:addTradeFlags(RecipeDB,16988,1,2,5,36,40,51,67,70)
 	self:addTradeAcquire(RecipeDB,16988,3,10438)
 
 	-- Arcanite Champion -- 16990
@@ -2180,7 +2180,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Protector -- 55013
 	AddRecipe(55013,390,41117,3,2,390,395,400,405)
-	self:addTradeFlags(RecipeDB,55013,1,2,3,36,41,53,54,64)
+	self:addTradeFlags(RecipeDB,55013,1,2,3,36,41,53,54,64,66)
 	self:addTradeAcquire(RecipeDB,55013,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Saronite Bulwark -- 55014
