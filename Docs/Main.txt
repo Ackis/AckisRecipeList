@@ -27,11 +27,11 @@ YouTube video of ARL in action:
 <<youtube jZR5DLkRJBY>>
 
 ==Donations
-I have setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
+Ackis has setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this AddOn - we have put countless hours of time and effort into it along with many people who have helped us.  We did not write this AddOn with the intent to make any money from it.  It was written help us (and others) with some needs that we saw in-game, and with our goal to make it filled with information it's become a massive project.
 
 If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
 * Volunteer time at your local animal shelter such as the [[http://www.aspca.org/|Society for Prevention of Cruelty for Animals (SPCA)]] or a [[http://www.edmontonhumanesociety.com/|local humane shelter]] or drop a few bucks off for them.  If you do this, please let [[mailto:ackis@shaw.ca|me]] know.
-* Send [[http://www.wowace.com/home/send-private-message/|me]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
+* Send [[http://www.wowace.com/home/send-private-message/|Ackis]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
 * Send some gold to one of the authors in-game or help out with some achievements, or even send a message saying thanks. :)
 ** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
 ** [[http://eu.wowarmory.com/character-sheet.xml?r=Aegwynn&n=Ascalia|Ascalia Aegwynn (EU)]] Jim-Bim
@@ -104,8 +104,8 @@ There are many different ways to filter which recipes you want to display.
 
 {{arl:18}}
 
-==Contacting the Author
-Please use the bug reporting feature to submit bug reports.  Do not contact me via Curse PM.  Do not submit bug reports in comments.
+==Contacting the Authors
+Please use the bug reporting feature to submit bug reports.  Do not contact us via Curse PM.  Do not submit bug reports in comments.
 
 ===IRC
 Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in the channel #arl
@@ -116,19 +116,19 @@ Freenode has come up with their alternative to Mibbit.
 
 ==Known Issues
 * When gaining a reputation level recipes for that faction will still appear in red when doing a scan.
-* Recipe acquire information is slightly inaccurate.  I'm updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [[http://www.wowace.com/projects/arl/create-ticket/|here]] and I will get it updated.
+* Recipe acquire information is slightly inaccurate.  We are updating recipes daily as information is identified.  If you find something inaccurate or wrong, submit a ticket [[http://www.wowace.com/projects/arl/create-ticket/|here]] and we will get it updated.
 
 ==Feature Requests/Bug Reporting
-Read the [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  I had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the mod, or you can see the thread on [[http://forums.wowace.com/showthread.php?t=11142|WoW Ace]].  Please follow these small little instructions to make my life easier.  The easier you make development for Ackis Recipe List, the more time I will have to develop other addons.
+Read the [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  Ackis had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the mod, or you can see the thread on [[http://forums.wowace.com/showthread.php?t=11142|WoW Ace]].  Please follow these small little instructions to make our lives easier.  The easier you make development for Ackis Recipe List, the more time we will have to develop other addons.
 
 ===Bug Reports
 Please use the [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
 
 ===Feature Request
-Please use the [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
+Please use the [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted: there are many people who use this addon, each with separate views. We will, however, try to make it as user friendly as possible...but when a decision is made please accept it.
 
 ==Integration
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]].  I make no promises that I will implement the feature at all.  There is a limited [[http://www.wowace.com/projects/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact me on IRC.
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/arl/tickets/|WoW Ace]].  We make no promises to implement the feature at all.  There is a limited [[http://www.wowace.com/projects/arl/pages/api/|API]] documented to interface with the ARL database.  If you are a developer and would like more functions, please contact us on IRC.
 Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/advanced-trade-skill-window.aspx|Advanced Trade Skill Window]] - [[http://www.wowace.com/projects/arl/images/13-arl-w-atsw/|Screenshot 1]]
 * [[http://wow.curse.com/downloads/wow-addons/details/skillet.aspx|Skillet]]
