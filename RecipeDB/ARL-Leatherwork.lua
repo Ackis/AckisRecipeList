@@ -2812,7 +2812,6 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,63200,1,2,6,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,63200,8,39)
 
-	-- last recent patches Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
 	local version = GetBuildInfo()
 
 	if (version == "3.2.2") then
