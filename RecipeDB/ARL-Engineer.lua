@@ -258,7 +258,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Minor Recombobulator -- 3952
 	AddRecipe(3952,140,4381,1,GAME_ORIG,140,165,177,190)
-	self:addTradeFlags(RecipeDB,3952,1,2,4,36,40,63)
+	self:addTradeFlags(RecipeDB,3952,1,2,4,36,40,61)
 	self:addTradeAcquire(RecipeDB,3952,2,2682,2,3495,2,2683)
 
 	-- Bronze Framework -- 3953
@@ -454,7 +454,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Bright-Eye Goggles -- 12587
 	AddRecipe(12587,175,10499,2,GAME_ORIG,175,195,205,215)
-	self:addTradeFlags(RecipeDB,12587,1,2,10,36,40,56)
+	self:addTradeFlags(RecipeDB,12587,1,2,10,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12587,7,2)
 
 	-- Mithril Tube -- 12589
@@ -522,7 +522,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Spellpower Goggles Xtreme -- 12615
 	AddRecipe(12615,225,10502,3,GAME_ORIG,225,245,255,265)
-	self:addTradeFlags(RecipeDB,12615,1,2,3,36,40,56)
+	self:addTradeFlags(RecipeDB,12615,1,2,3,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,12615,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,
 	1,5174,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11031,1,11025,1,26955,1,11037,1,17222)
 
@@ -652,12 +652,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Mind Control Cap -- 12907
 	AddRecipe(12907,235,10726,1,GAME_ORIG,235,255,265,275,20219)
-	self:addTradeFlags(RecipeDB,12907,1,2,3,36,41,56)
+	self:addTradeFlags(RecipeDB,12907,1,2,3,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12907,1,7406,1,7944,1,29514)
 
 	-- Goblin Dragon Gun -- 12908
 	AddRecipe(12908,240,10727,1,GAME_ORIG,240,260,270,280,20222)
-	self:addTradeFlags(RecipeDB,12908,1,2,3,37,41,63)
+	self:addTradeFlags(RecipeDB,12908,1,2,3,37,41,61)
 	self:addTradeAcquire(RecipeDB,12908,1,8126,1,8738,1,29513)
 
 	-- The Mortar: Reloaded -- 13240
@@ -718,7 +718,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	AddRecipe(19794,270,15999,2,GAME_ORIG,270,290,300,310)
-	self:addTradeFlags(RecipeDB,19794,1,2,3,36,40,56)
+	self:addTradeFlags(RecipeDB,19794,1,2,3,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,19794,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,
 	1,5174,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11031,1,11025,1,26955,1,11037,1,17222)
 
@@ -730,7 +730,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Dark Iron Rifle -- 19796
 	AddRecipe(19796,275,16004,2,GAME_ORIG,275,295,305,315)
-	self:addTradeFlags(RecipeDB,19796,1,2,5,36,40,63)
+	self:addTradeFlags(RecipeDB,19796,1,2,5,36,40,80)
 	self:addTradeAcquire(RecipeDB,19796,3,8897)
 
 	-- Dark Iron Bomb -- 19799
@@ -838,7 +838,7 @@ function addon:InitEngineering(RecipeDB)
 	1,5174,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11031,1,11025,1,26955,1,11037,1,17222)
 
 	-- Gyrofreeze Ice Reflector -- 23077
-	AddRecipe(23077,260,18634,1,GAME_ORIG,260,280,290,30)
+	AddRecipe(23077,260,18634,1,GAME_ORIG,260,280,290,300)
 	self:addTradeFlags(RecipeDB,23077,1,2,4,36,40,61)
 	self:addTradeAcquire(RecipeDB,23077,2,11185)
 
@@ -884,7 +884,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
 	AddRecipe(23489,260,18986,2,GAME_ORIG,260,285,295,305,20219)
-	self:addTradeFlags(RecipeDB,23489,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,23489,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,23489,8,20)
 
 	-- Snake Burst Firework -- 23507
@@ -1184,7 +1184,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Power Goggles -- 30574
 	AddRecipe(30574,375,23828,1,1,375,375,385,395,20219)
-	self:addTradeFlags(RecipeDB,30574,1,2,3,37,41,56)
+	self:addTradeFlags(RecipeDB,30574,1,2,3,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,30574,1,7406,1,7944,1,29514)
 
 	-- Gnomish Battle Goggles -- 30575
@@ -1224,7 +1224,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Furious Gizmatic Goggles -- 40274
 	AddRecipe(40274,350,32461,1,1,350,370,380,390)
-	self:addTradeFlags(RecipeDB,40274,1,2,3, F_PALADIN, F_WARRIOR,37,41,59)
+	self:addTradeFlags(RecipeDB,40274,1,2,3, F_PALADIN, F_WARRIOR,37,41,51,59)
 	self:addTradeAcquire(RecipeDB,40274,1,17634,1,17637,1,18752,1,18775,1,19576,1,33586,1,28697,1,25277,1,26955)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
@@ -1467,7 +1467,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Sun Scope -- 56470
 	AddRecipe(56470,425,41146,3,2,425,430,432,435)
-	self:addTradeFlags(RecipeDB,56470,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,56470,1,2,3,36,41,51)
 	self:addTradeAcquire(RecipeDB,56470,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Froststeel Tube -- 56471
