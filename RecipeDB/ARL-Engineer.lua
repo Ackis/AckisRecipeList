@@ -177,7 +177,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Flying Tiger Goggles -- 3934
 	AddRecipe(3934,100,4368,1,GAME_ORIG,100,130,145,160)
-	self:addTradeFlags(RecipeDB,3934,1,2,3,36,41,56)
+	self:addTradeFlags(RecipeDB,3934,1,2,3,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,3934,1,5174,1,5518,1,8736,1,11017,1,11031,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,
 	1,28697,1,1702,1,33586,1,3494,1,3290,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11025,1,26955,1,11037,1,17222)
 
@@ -206,7 +206,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Shadow Goggles -- 3940
 	AddRecipe(3940,120,4373,2,GAME_ORIG,120,145,157,170)
-	self:addTradeFlags(RecipeDB,3940,1,2,10,36,40,56)
+	self:addTradeFlags(RecipeDB,3940,1,2,10,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,3940,7,2)
 
 	-- Small Bronze Bomb -- 3941
@@ -280,7 +280,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Green Tinted Goggles -- 3956
 	AddRecipe(3956,150,4385,1,GAME_ORIG,150,175,187,200)
-	self:addTradeFlags(RecipeDB,3956,1,2,3,36,41,56)
+	self:addTradeFlags(RecipeDB,3956,1,2,3,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,3956,1,1676,1,5174,1,5518,1,8736,1,11017,1,11031,1,16726,1,17634,1,17637,1,18752,1,18775,1,19576,
 	1,16667,1,28697,1,1702,1,33586,1,3494,1,3290,1,26991,1,33611,1,33634,1,25277,1,26907,1,11025,1,26955,1,11037,1,17222)
 
@@ -528,7 +528,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Parachute Cloak -- 12616
 	AddRecipe(12616,225,10518,2,GAME_ORIG,225,245,255,265)
-	self:addTradeFlags(RecipeDB,12616,1,2,10,36,40,60)
+	self:addTradeFlags(RecipeDB,12616,1,2,10,36,40,51,60)
 	self:addTradeAcquire(RecipeDB,12616,7,2)
 
 	-- Deepdive Helmet -- 12617
@@ -538,7 +538,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Rose Colored Goggles -- 12618
 	AddRecipe(12618,230,10503,1,GAME_ORIG,230,250,260,270)
-	self:addTradeFlags(RecipeDB,12618,1,2,3,36,41,56)
+	self:addTradeFlags(RecipeDB,12618,1,2,3,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12618,1,8736,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,1,1702,1,16726,1,11017,1,33586,1,3494,
 	1,5174,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11031,1,11025,1,26955,1,11037,1,17222)
 
@@ -622,7 +622,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Goggles -- 12897
 	AddRecipe(12897,210,10545,1,GAME_ORIG,210,230,240,250,20219)
-	self:addTradeFlags(RecipeDB,12897,1,2,3,37,41,56)
+	self:addTradeFlags(RecipeDB,12897,1,2,3,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,12897,1,7406,1,7944,1,29514)
 
 	-- Gnomish Shrink Ray -- 12899
@@ -673,12 +673,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Pet Bombling -- 15628
 	AddRecipe(15628,205,11825,2,GAME_ORIG,205,205,205,205,20222)
-	self:addTradeFlags(RecipeDB,15628,1,2,37,41)
+	self:addTradeFlags(RecipeDB,15628,1,2,5,37,41)
 	self:addTradeAcquire(RecipeDB,15628,8,16)
 
 	-- Lil' Smoky -- 15633
 	AddRecipe(15633,205,11826,2,GAME_ORIG,205,205,205,205,20219)
-	self:addTradeFlags(RecipeDB,15633,1,2,37,41)
+	self:addTradeFlags(RecipeDB,15633,1,2,5,37,41)
 	self:addTradeAcquire(RecipeDB,15633,8,16)
 
 	-- Salt Shaker -- 19567
@@ -1054,7 +1054,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Power Amplification Goggles -- 30317
 	AddRecipe(30317,340,23761,3,1,340,350,360,370)
-	self:addTradeFlags(RecipeDB,30317,1,2,10,36,40,56)
+	self:addTradeFlags(RecipeDB,30317,1,2,10,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,30317,7,3)
 
 	-- Ultra-Spectropic Detection Goggles -- 30318
@@ -1159,7 +1159,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Foreman's Enchanted Helmet -- 30565
 	AddRecipe(30565,375,23838,1,1,375,375,385,395,20222)
-	self:addTradeFlags(RecipeDB,30565,1,2,3,37,41,56)
+	self:addTradeFlags(RecipeDB,30565,1,2,3,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,30565,1,8126,1,8738,1,29513)
 
 	-- Foreman's Reinforced Helmet -- 30566
@@ -1189,7 +1189,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Battle Goggles -- 30575
 	AddRecipe(30575,375,23829,1,1,375,375,385,395,20219)
-	self:addTradeFlags(RecipeDB,30575,1,2,3,37,41,57)
+	self:addTradeFlags(RecipeDB,30575,1,2,3,37,41,51,57)
 	self:addTradeAcquire(RecipeDB,30575,1,7406,1,7944,1,29514)
 
 	-- Purple Smoke Flare -- 32814
@@ -1347,7 +1347,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Mayhem Projection Goggles -- 46114
 	AddRecipe(46114,375,34354,4,1,375,390,410,430)
-	self:addTradeFlags(RecipeDB,46114,1,2,6, F_PALADIN, F_WARRIOR,37,41,59)
+	self:addTradeFlags(RecipeDB,46114,1,2,6, F_DK,F_PALADIN, F_WARRIOR,37,41,51,59)
 	self:addTradeAcquire(RecipeDB,46114,8,24)
 
 	-- Hard Khorium Goggles -- 46115
@@ -1362,7 +1362,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	AddRecipe(46697,355,35581,3,1,355,365,375,385)
-	self:addTradeFlags(RecipeDB,46697,1,2,5,36,41,56)
+	self:addTradeFlags(RecipeDB,46697,1,2,5,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,46697,3,19219)
 
 	-- Volatile Blasting Trigger -- 53281
@@ -1397,7 +1397,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Flexweave Underlay -- 55002
 	AddRecipe(55002,380,nil,1,2,380,380,382,385)
-	self:addTradeFlags(RecipeDB,55002,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,55002,1,2,3,36,41,51)
 	self:addTradeAcquire(RecipeDB,55002,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Nitro Boosts -- 55016
@@ -1452,7 +1452,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Noise Machine -- 56467
 	AddRecipe(56467,420,40865,3,2,420,435,440,445)
-	self:addTradeFlags(RecipeDB,56467,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,56467,1,2,3,36,41,53,54,61)
 	self:addTradeAcquire(RecipeDB,56467,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Saronite Bomb -- 56468
@@ -1525,7 +1525,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Charged Titanium Specs -- 56483
 	AddRecipe(56483,440,42552,3,2,440,450,455,460)
-	self:addTradeFlags(RecipeDB,56483,1,2,3, F_DK, F_PALADIN, F_WARRIOR,37,41,59)
+	self:addTradeFlags(RecipeDB,56483,1,2,3, F_DK, F_PALADIN, F_WARRIOR,37,41,51,59)
 
 	-- Visage Liquification Goggles -- 56484
 	AddRecipe(56484,440,42553,3,2,440,450,455,460)
@@ -1625,7 +1625,7 @@ function addon:InitEngineering(RecipeDB)
 
 	--Mind Amplification Dish -- 67839
 	AddRecipe(67839,410,nil,1,2,410,410,415,420)
-	self:addTradeFlags(RecipeDB,67839,1,2,3)
+	self:addTradeFlags(RecipeDB,67839,1,2,3,37,41)
 	self:addTradeAcquire(RecipeDB,67839,1,25277)
 
 	-- Some recipes are only availible to specific factions.
