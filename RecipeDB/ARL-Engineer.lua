@@ -352,7 +352,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gnomish Cloaking Device -- 3971
 	AddRecipe(3971,200,4397,1,GAME_ORIG,20,220,230,240)
-	self:addTradeFlags(RecipeDB,3971,1,2,4,5,36,40,63)
+	self:addTradeFlags(RecipeDB,3971,1,2,4,5,36,40,61)
 	self:addTradeAcquire(RecipeDB,3971,3,7800,2,6777)
 
 	-- Large Seaforium Charge -- 3972
@@ -392,7 +392,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Arclight Spanner -- 7430
 	AddRecipe(7430,50,6219,1,GAME_ORIG,50,70,80,90)
-	self:addTradeFlags(RecipeDB,7430,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,7430,1,2,3,36,41,66)
 	self:addTradeAcquire(RecipeDB,7430,1,1702,1,3290,1,3494,1,5174,1,5518,1,8736,1,11017,1,11025,
 	1,11031,1,11037,1,16726,1,17222,1,17634,1,17637,1,18752,1,18775,1,19576,1,16667,1,28697,
 	1,33586,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,26955)
@@ -662,7 +662,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- The Mortar: Reloaded -- 13240
 	AddRecipe(13240,205,10577,1,GAME_ORIG,205,205,205,205,20222)
-	self:addTradeFlags(RecipeDB,13240,3,36,41,63)
+	self:addTradeFlags(RecipeDB,13240,F_ALLIANCE, F_HORDE,3,36,41,61)
 	self:addTradeAcquire(RecipeDB,13240,1,8126,1,8738)
 
 	-- Mechanical Repair Kit -- 15255
@@ -792,7 +792,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Biznicks 247x128 Accurascope -- 22793
 	AddRecipe(22793,300,18283,3,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,22793,1,2,6,36,41)
+	self:addTradeFlags(RecipeDB,22793,1,2,6,36,41,51)
 	self:addTradeAcquire(RecipeDB,22793,8,26)
 
 	-- Core Marksman Rifle -- 22795
@@ -1029,7 +1029,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Fel Iron Musket -- 30312
 	AddRecipe(30312,320,23742,1,1,320,330,340,350)
-	self:addTradeFlags(RecipeDB,30312,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,30312,1,2,3,36,41,80)
 	self:addTradeAcquire(RecipeDB,30312,1,17634,1,17637,1,18752,1,18775,1,19576,1,28697,1,33586,1,26991,1,33611,1,33634,1,25277,1,26907,1,26955)
 
 	-- Adamantite Rifle -- 30313
@@ -1139,7 +1139,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Rocket Boots Xtreme -- 30556
 	AddRecipe(30556,355,23824,3,1,355,365,375,385)
-	self:addTradeFlags(RecipeDB,30556,1,2,5,36,41,57)
+	self:addTradeFlags(RecipeDB,30556,1,2,5,36,41,51,57)
 	self:addTradeAcquire(RecipeDB,30556,3,17796)
 
 	-- The Bigger One -- 30558
@@ -1164,7 +1164,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Foreman's Reinforced Helmet -- 30566
 	AddRecipe(30566,375,23839,1,1,375,375,385,395,20222)
-	self:addTradeFlags(RecipeDB,30566,1,2,3,37,41,58)
+	self:addTradeFlags(RecipeDB,30566,1,2,3,37,41,51,58)
 	self:addTradeAcquire(RecipeDB,30566,1,8126,1,8738,1,29513)
 
 	-- Gnomish Flame Turret -- 30568
@@ -1199,12 +1199,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Dimensional Ripper - Area 52 -- 36954
 	AddRecipe(36954,350,30542,2,1,350,350,360,370,20222)
-	self:addTradeFlags(RecipeDB,36954,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,36954,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,36954,8,20)
 
 	-- Ultrasafe Transporter - Toshley's Station -- 36955
 	AddRecipe(36955,350,30544,2,1,350,350,360,370,20219)
-	self:addTradeFlags(RecipeDB,36955,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,36955,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,36955,8,21)
 
 	-- Fused Wiring -- 39895
@@ -1229,7 +1229,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
 	AddRecipe(41307,375,32756,1,1,375,375,392,410)
-	self:addTradeFlags(RecipeDB,41307,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,41307,1,2,3,36,41,80)
 	self:addTradeAcquire(RecipeDB,41307,1,17634,1,17637,1,18752,1,18775,1,19576,1,28697,1,33586,1,26991,1,33611,1,33634,1,25277,1,26907,1,26955)
 
 	-- Justicebringer 2000 Specs -- 41311
@@ -1370,9 +1370,9 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeFlags(RecipeDB,53281,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,53281,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
-	-- Mark \"S\" Boomstick -- 54353
+	-- Mark "S" Boomstick -- 54353
 	AddRecipe(54353,400,39688,3,2,400,405,410,415)
-	self:addTradeFlags(RecipeDB,54353,1,2,3,37,41,63)
+	self:addTradeFlags(RecipeDB,54353,1,2,3,37,41,51,80)
 	self:addTradeAcquire(RecipeDB,54353,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Personal Electromagnetic Pulse Generator -- 54736
@@ -1447,7 +1447,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Sonic Booster -- 56466
 	AddRecipe(56466,420,40767,3,2,420,435,440,445)
-	self:addTradeFlags(RecipeDB,56466,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,56466,1,2,3,36,41,51,61)
 	self:addTradeAcquire(RecipeDB,56466,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Noise Machine -- 56467
@@ -1507,12 +1507,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Heartseeker Scope -- 56478
 	AddRecipe(56478,430,41167,3,2,430,435,445,455)
-	self:addTradeFlags(RecipeDB,56478,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,56478,1,2,3,36,41,51)
 	self:addTradeAcquire(RecipeDB,56478,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Armor Plated Combat Shotgun -- 56479
 	AddRecipe(56479,450,41168,4,2,450,455,460,465)
-	self:addTradeFlags(RecipeDB,56479,1,2,3,36,41,52,63)
+	self:addTradeFlags(RecipeDB,56479,1,2,3,36,41,52,80)
 	self:addTradeAcquire(RecipeDB,56479,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Armored Titanium Goggles -- 56480
@@ -1550,7 +1550,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Nesingwary 4000 -- 60874
 	AddRecipe(60874,450,44504,4,2,450,455,460,465)
-	self:addTradeFlags(RecipeDB,60874,1,2,3,36,41,63)
+	self:addTradeFlags(RecipeDB,60874,1,2,3,36,41,51,80)
 	self:addTradeAcquire(RecipeDB,60874,1,25277,1,26907,1,26955,1,26991,1,28697,1,33586)
 
 	-- Diamond-cut Refractor Scope -- 61471
@@ -1610,17 +1610,17 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Goblin Beam Welder -- 67326
 	AddRecipe(67326,450,47828,1,2,415,415,420,425)
-	self:addTradeFlags(RecipeDB,67326,1,2,3)
+	self:addTradeFlags(RecipeDB,67326,1,2,3,37,41)
 	self:addTradeAcquire(RecipeDB,67326,1,25277)
 	
 	-- Jeeves -- 68067
 	AddRecipe(68067,450,49050,1,2,450,480,485,490)
-	self:addTradeFlags(RecipeDB,68067,1,2,10)
+	self:addTradeFlags(RecipeDB,68067,1,2,10,37,41)
 	self:addTradeAcquire(RecipeDB,68067,7,2)
 
 	-- 67920 Northrend Port
 	AddRecipe(67920,435,48933,1,2,435,450,455,460)
-	self:addTradeFlags(RecipeDB,67920,1,2,3)
+	self:addTradeFlags(RecipeDB,67920,1,2,3,37,41)
 	self:addTradeAcquire(RecipeDB,67920,1,25277)
 
 	--Mind Amplification Dish -- 67839
