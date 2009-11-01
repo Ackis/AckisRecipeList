@@ -1,4 +1,7 @@
 ==ARL Change Log
+===Version 2XXX
+* more optimizations to the databases.
+
 ===Version 2576
 *Major issue with class filtering fixed.
 *Fixed class scanning in the dataminer.
