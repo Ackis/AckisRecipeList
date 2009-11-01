@@ -2408,17 +2408,10 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,68166,1,2,12,F_WARRIOR,36,41)
 	self:addTradeAcquire(RecipeDB,68166,8,14)
 
-	-- 3.2.2 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
-	local version = GetBuildInfo()
-
-	if (version == "3.2.2") then
-
-		-- Runescroll of Fortitude -- 69385
-		AddRecipe(69385,440,49632,1,2,440,440,442,460)
-		self:addTradeFlags(RecipeDB,69385,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69385,1,28702,1,26977,1,33603,1,26959,1,26916,1,26995)
-
-	end
+	-- Runescroll of Fortitude -- 69385
+	AddRecipe(69385,440,49632,1,2,440,440,442,460)
+	self:addTradeFlags(RecipeDB,69385,1,2,3,36,41)
+	self:addTradeAcquire(RecipeDB,69385,1,28702,1,26977,1,33603,1,26959,1,26916,1,26995)
 
 	return num_recipes
 

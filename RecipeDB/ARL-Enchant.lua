@@ -1551,17 +1551,10 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB,64579,1,2,6,11,36,41)
 	self:addTradeAcquire(RecipeDB,64579,8,39)
 
-	-- 3.2.2 Items (Leave this code in here because I think asian servers don't actually have 3.1 even)
-	local version = GetBuildInfo()
-
-	if (version == "3.2.2") then
-
-		-- Abyssal Shatter -- 69412
-		AddRecipe(69412,445,49640,1,2,445,445,447,450)
-		self:addTradeFlags(RecipeDB,69412,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69412,1,28693,1,26990,1,26906,1,26954,1,26980,1,33583)
-
-	end
+	-- Abyssal Shatter -- 69412
+	AddRecipe(69412,445,49640,1,2,445,445,447,450)
+	self:addTradeFlags(RecipeDB,69412,1,2,3,36,41)
+	self:addTradeAcquire(RecipeDB,69412,1,28693,1,26990,1,26906,1,26954,1,26980,1,33583)
 
 	return num_recipes
 

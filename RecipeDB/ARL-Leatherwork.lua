@@ -2812,23 +2812,19 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,63200,1,2,6,36,40,53,54,57)
 	self:addTradeAcquire(RecipeDB,63200,8,39)
 
-	local version = GetBuildInfo()
+	-- Drums of Forgotten Kings -- 69386
+	AddRecipe(69386,450,49633,1,2,450,450,455,470)
+	self:addTradeFlags(RecipeDB,69386,1,2,3,36,41)
+	self:addTradeAcquire(RecipeDB,69386,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
-	if (version == "3.2.2") then
+	-- Drums of the Wild -- 69388
+	AddRecipe(69388,450,49634,1,2,450,450,455,470)
+	self:addTradeFlags(RecipeDB,69388,1,2,3,36,41)
+	self:addTradeAcquire(RecipeDB,69388,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
-		-- Drums of Forgotten Kings -- 69386
-		AddRecipe(69386,450,49633,1,2,450,450,455,470)
-		self:addTradeFlags(RecipeDB,69386,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69386,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
-
-		-- Drums of the Wild -- 69388
-		AddRecipe(69388,450,49634,1,2,450,450,455,470)
-		self:addTradeFlags(RecipeDB,69388,1,2,3,36,41)
-		self:addTradeAcquire(RecipeDB,69388,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
-
-	end
-
-	-- The number of items added with patches
+	-------------------------------------------------------------------------------------------
+	--PATCH 3.3, ICECROWN CITADEL CRAFTED RECIPES------------------
+	-------------------------------------------------------------------------------------------
 	if (version == "3.3.0") then
 
 	-- Legwraps of Unleashed Nature - 70554
@@ -2872,7 +2868,7 @@ function addon:InitLeatherworking(RecipeDB)
 	--self:addTradeAcquire(RecipeDB, 70561, A_REPUTATION, 1156, HONORED)
  
 	end
-	
+	------------------------------------------------------------------------------------------------------------------------------------
 	
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
