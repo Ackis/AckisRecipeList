@@ -1529,7 +1529,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Visage Liquification Goggles -- 56484
 	AddRecipe(56484,440,42553,3,2,440,450,455,460)
-	self:addTradeFlags(RecipeDB,56484,1,2,3, F_MAGE, F_PRIEST, F_WARLOCK,37,41,56)
+	self:addTradeFlags(RecipeDB,56484,1,2,3, F_MAGE, F_PRIEST, F_WARLOCK,37,41,53,54,56)
 
 	-- Greensight Gogs -- 56486
 	AddRecipe(56486,440,42554,3,2,440,450,455,460)
@@ -1604,7 +1604,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- High-powered Flashlight -- 63750
 	AddRecipe(63750,250,45631,1,2,250,270,280,290)
-	self:addTradeFlags(RecipeDB,63750,1,2,3,36,41,51,61)
+	self:addTradeFlags(RecipeDB,63750,1,2,3,36,41,61)
 	self:addTradeAcquire(RecipeDB,63750,1,25277,1,26907,1,26955,1,26991,1,28697,1,16667,1,1702,1,16726,1,11017,1,33586,1,3494,
 	1,5174,1,3290,1,5518,1,33611,1,33634,1,1676,1,8736,1,17637,1,17634,1,11031,1,11025,1,11037,1,17222)
 
