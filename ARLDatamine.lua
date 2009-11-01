@@ -1663,6 +1663,8 @@ do
 				scan_data[text_l] = true
 			elseif text_l == "Off-hand" or text_l == "Main Hand" then	-- Special cases.
 				scan_data["One-Hand"] = true
+			elseif text_l == "Projectile" then
+				scan_data["Ammo"] = true
 			end
 
 			if text_r and ITEM_TYPES[text_r] then
