@@ -110,7 +110,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Minor Impact -- 7745
 	AddRecipe(7745,100,nil,1,GAME_ORIG,100,130,150,170)
-	self:addTradeFlags(RecipeDB,7745,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,7745,1,2,3,36,40,67)
 	self:addTradeAcquire(RecipeDB,7745,1,1317,1,3011,1,3345,1,4213,1,4616,1,5157,1,11072,1,11073,1,11074,1,16633,1,16725,
 	1,19251,1,19252,1,33610,1,3606,1,33676,1,18773,1,5695,1,7949,1,19540,1,18753,1,16160)
 
@@ -148,17 +148,17 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Minor Beastslayer -- 7786
 	AddRecipe(7786,90,nil,1,GAME_ORIG,90,120,140,160)
-	self:addTradeFlags(RecipeDB,7786,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,7786,1,2,10,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,7786,7,1)
 
 	-- Enchant Weapon - Minor Striking -- 7788
 	AddRecipe(7788,90,nil,1,GAME_ORIG,90,120,140,160)
-	self:addTradeFlags(RecipeDB,7788,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,7788,1,2,3,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,7788,1,1317,1,3011,1,3345,1,4213,1,4616,1,5157,1,11072,1,11073,1,11074,1,16633,1,16725,1,19251,1,19252,1,33610,1,3606,1,33676,1,18773,1,5695,1,7949,1,19540,1,18753,1,16160)
 
 	-- Enchant 2H Weapon - Lesser Intellect -- 7793
 	AddRecipe(7793,100,nil,1,GAME_ORIG,100,130,150,170)
-	self:addTradeFlags(RecipeDB,7793,1,2,4,36,40)
+	self:addTradeFlags(RecipeDB,7793,1,2,4,36,40,67)
 	self:addTradeAcquire(RecipeDB,7793,2,3012,2,3346,2,5158,2,5758)
 
 	-- Runed Silver Rod -- 7795
@@ -198,7 +198,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Lesser Spirit -- 13380
 	AddRecipe(13380,110,nil,1,GAME_ORIG,110,135,155,175)
-	self:addTradeFlags(RecipeDB,13380,1,2,10,36,40,53,54)
+	self:addTradeFlags(RecipeDB,13380,1,2,10,36,40,53,54,67)
 	self:addTradeAcquire(RecipeDB,13380,7,1)
 
 	-- Enchant Cloak - Minor Agility -- 13419
@@ -213,7 +213,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Lesser Protection -- 13464
 	AddRecipe(13464,115,nil,1,GAME_ORIG,115,140,160,180)
-	self:addTradeFlags(RecipeDB,13464,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,13464,1,2,10,36,40,64)
 	self:addTradeAcquire(RecipeDB,13464,7,1)
 
 	-- Enchant Shield - Lesser Spirit -- 13485
@@ -228,7 +228,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Lesser Striking -- 13503
 	AddRecipe(13503,140,nil,1,GAME_ORIG,140,165,185,205)
-	self:addTradeFlags(RecipeDB,13503,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13503,1,2,3,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13503,1,1317,1,3011,1,3345,1,4213,1,4616,1,5157,1,7949,1,11072,1,11073,1,11074,1,16633,1,16725,1,19251,1,19252,1,33610,1,3606,1,33676,1,18773,1,5695,1,19540,1,18753,1,16160)
 
 	-- Enchant Cloak - Lesser Shadow Resistance -- 13522
@@ -288,12 +288,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Lesser Stamina -- 13631
 	AddRecipe(13631,155,nil,1,GAME_ORIG,155,175,195,215)
-	self:addTradeFlags(RecipeDB,13631,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13631,1,2,3,36,40,64)
 	self:addTradeAcquire(RecipeDB,13631,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Cloak - Defense -- 13635
 	AddRecipe(13635,155,nil,1,GAME_ORIG,155,175,195,215)
-	self:addTradeFlags(RecipeDB,13635,1,2,3,36,40,52)
+	self:addTradeFlags(RecipeDB,13635,1,2,3,36,40,52,60)
 	self:addTradeAcquire(RecipeDB,13635,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Boots - Lesser Agility -- 13637
@@ -328,12 +328,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Lesser Beastslayer -- 13653
 	AddRecipe(13653,175,nil,1,GAME_ORIG,175,195,215,235)
-	self:addTradeFlags(RecipeDB,13653,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,13653,1,2,10,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13653,7,1)
 
 	-- Enchant Weapon - Lesser Elemental Slayer -- 13655
 	AddRecipe(13655,175,nil,1,GAME_ORIG,175,195,215,235)
-	self:addTradeFlags(RecipeDB,13655,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,13655,1,2,10,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13655,7,1)
 
 	-- Enchant Cloak - Fire Resistance -- 13657
@@ -343,7 +343,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Spirit -- 13659
 	AddRecipe(13659,180,nil,1,GAME_ORIG,180,200,220,240)
-	self:addTradeFlags(RecipeDB,13659,1,2,3,36,40,53,54)
+	self:addTradeFlags(RecipeDB,13659,1,2,3,36,40,53,54,64)
 	self:addTradeAcquire(RecipeDB,13659,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Bracer - Strength -- 13661
@@ -363,17 +363,17 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Lesser Block -- 13689
 	AddRecipe(13689,195,nil,1,GAME_ORIG,195,215,235,255)
-	self:addTradeFlags(RecipeDB,13689,1,2,5,10,36,40,52)
+	self:addTradeFlags(RecipeDB,13689,1,2,5,10,36,40,52,64)
 	self:addTradeAcquire(RecipeDB,13689,7,2)
 
 	-- Enchant Weapon - Striking -- 13693
 	AddRecipe(13693,195,nil,1,GAME_ORIG,195,215,235,255)
-	self:addTradeFlags(RecipeDB,13693,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13693,1,2,3,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13693,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant 2H Weapon - Impact -- 13695
 	AddRecipe(13695,200,nil,1,GAME_ORIG,200,220,240,260)
-	self:addTradeFlags(RecipeDB,13695,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13695,1,2,3,36,40,67)
 	self:addTradeAcquire(RecipeDB,13695,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Gloves - Skinning -- 13698
@@ -458,7 +458,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Fiery Weapon -- 13898
 	AddRecipe(13898,265,nil,1,GAME_ORIG,265,285,305,325)
-	self:addTradeFlags(RecipeDB,13898,1,2,5,36,40)
+	self:addTradeFlags(RecipeDB,13898,1,2,5,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13898,3,9024)
 
 	-- Enchant Shield - Greater Spirit -- 13905
@@ -468,7 +468,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Demonslaying -- 13915
 	AddRecipe(13915,230,nil,1,GAME_ORIG,230,250,270,290)
-	self:addTradeFlags(RecipeDB,13915,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,13915,1,2,10,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13915,7,1)
 
 	-- Enchant Chest - Superior Mana -- 13917
@@ -493,7 +493,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Greater Impact -- 13937
 	AddRecipe(13937,240,nil,1,GAME_ORIG,240,260,280,300)
-	self:addTradeFlags(RecipeDB,13937,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13937,1,2,3,36,40,67)
 	self:addTradeAcquire(RecipeDB,13937,1,1317,1,3011,1,3345,1,3606,1,4213,1,4616,1,5157,1,5695,
 	1,11072,1,11073,1,11074,1,16160,1,16633,1,16725,1,19251,1,19252,1,33610,1,33676,1,18773,1,7949,1,19540,1,18753)
 
@@ -509,7 +509,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Greater Striking -- 13943
 	AddRecipe(13943,245,nil,1,GAME_ORIG,245,265,285,305)
-	self:addTradeFlags(RecipeDB,13943,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13943,1,2,3,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,13943,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,11074,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Bracer - Greater Stamina -- 13945
@@ -641,42 +641,42 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Icy Chill -- 20029
 	AddRecipe(20029,285,nil,1,GAME_ORIG,285,300,317,335)
-	self:addTradeFlags(RecipeDB,20029,1,2,11,36,40)
+	self:addTradeFlags(RecipeDB,20029,1,2,11,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,20029,3,7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	AddRecipe(20030,295,nil,1,GAME_ORIG,295,310,325,340)
-	self:addTradeFlags(RecipeDB,20030,1,2,5,36,40)
+	self:addTradeFlags(RecipeDB,20030,1,2,5,36,40,67)
 	self:addTradeAcquire(RecipeDB,20030,3,10317)
 
 	-- Enchant Weapon - Superior Striking -- 20031
 	AddRecipe(20031,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,20031,1,2,5,36,40)
+	self:addTradeFlags(RecipeDB,20031,1,2,5,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,20031,3,9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
 	AddRecipe(20032,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,20032,1,2,5,36,40)
+	self:addTradeFlags(RecipeDB,20032,1,2,5,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,20032,3,10499)
 
 	-- Enchant Weapon - Unholy Weapon -- 20033
 	AddRecipe(20033,295,nil,1,GAME_ORIG,295,310,325,340)
-	self:addTradeFlags(RecipeDB,20033,1,2,5,11,36,40)
+	self:addTradeFlags(RecipeDB,20033,1,2,5,11,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,20033,3,10398,3,16810)
 
 	-- Enchant Weapon - Crusader -- 20034
 	AddRecipe(20034,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,20034,1,2,11,36,40,51)
+	self:addTradeFlags(RecipeDB,20034,1,2,11,36,40,51,66,67)
 	self:addTradeAcquire(RecipeDB,20034,3,4494,3,9451)
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
 	AddRecipe(20035,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,20035,1,2,5,36,40,53,54)
+	self:addTradeFlags(RecipeDB,20035,1,2,5,36,40,53,54,67)
 	self:addTradeAcquire(RecipeDB,20035,3,10469)
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
 	AddRecipe(20036,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,20036,1,2,5,36,40)
+	self:addTradeFlags(RecipeDB,20036,1,2,5,36,40,67)
 	self:addTradeAcquire(RecipeDB,20036,3,10422)
 
 	-- Runed Arcanite Rod -- 20051
@@ -686,27 +686,27 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Winter's Might -- 21931
 	AddRecipe(21931,190,nil,1,GAME_ORIG,190,210,230,250)
-	self:addTradeFlags(RecipeDB,21931,1,2,7,11,36,40,53,54)
+	self:addTradeFlags(RecipeDB,21931,1,2,7,11,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,21931,5,1)
 
 	-- Enchant Weapon - Spellpower -- 22749
 	AddRecipe(22749,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,22749,1,2,6,36,40,53,54)
+	self:addTradeFlags(RecipeDB,22749,1,2,6,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,22749,8,26)
 
 	-- Enchant Weapon - Healing Power -- 22750
 	AddRecipe(22750,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,22750,1,2,6,36,40,53,54)
+	self:addTradeFlags(RecipeDB,22750,1,2,6,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,22750,8,26)
 
 	-- Enchant Weapon - Strength -- 23799
 	AddRecipe(23799,290,nil,1,GAME_ORIG,290,305,322,340)
-	self:addTradeFlags(RecipeDB,23799,1,2,4,36,40,51,98)
+	self:addTradeFlags(RecipeDB,23799,1,2,4,36,40,51,66,67,98)
 	self:addTradeAcquire(RecipeDB,23799,6,59,1,12944)
 
 	-- Enchant Weapon - Agility -- 23800
 	AddRecipe(23800,290,nil,1,GAME_ORIG,290,305,322,340)
-	self:addTradeFlags(RecipeDB,23800,2,4,36,40,51,99)
+	self:addTradeFlags(RecipeDB,23800,2,4,36,40,51,66,67,99)
 	self:addTradeAcquire(RecipeDB,23800,6,576,2,11557)
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
@@ -721,12 +721,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
 	AddRecipe(23803,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,23803,1,2,4,36,41,53,54,98)
+	self:addTradeFlags(RecipeDB,23803,1,2,4,36,41,53,54,66,67,98)
 	self:addTradeAcquire(RecipeDB,23803,6,59,2,12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
 	AddRecipe(23804,300,nil,1,GAME_ORIG,300,310,325,340)
-	self:addTradeFlags(RecipeDB,23804,1,2,4,36,41,98)
+	self:addTradeFlags(RecipeDB,23804,1,2,4,36,41,66,67,98)
 	self:addTradeAcquire(RecipeDB,23804,6,59,3,12944)
 
 	-- Enchant Gloves - Threat -- 25072
@@ -821,7 +821,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	AddRecipe(27837,290,nil,1,GAME_ORIG,290,305,322,340)
-	self:addTradeFlags(RecipeDB,27837,1,2,4,36,40,51,99)
+	self:addTradeFlags(RecipeDB,27837,1,2,4,36,40,51,66,67,99)
 	self:addTradeAcquire(RecipeDB,27837,6,576,1,11557)
 
 	-- Enchant Bracer - Brawn -- 27899
@@ -861,17 +861,17 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Striking -- 27920
 	AddRecipe(27920,360,nil,1,1,360,370,377,385)
-	self:addTradeFlags(RecipeDB,27920,1,2,4,36,41,105)
+	self:addTradeFlags(RecipeDB,27920,1,2,4,36,41,62,105)
 	self:addTradeAcquire(RecipeDB,27920,6,933,3,17518)
 
 	-- Enchant Ring - Spellpower -- 27924
 	AddRecipe(27924,360,nil,1,1,360,370,377,385)
-	self:addTradeFlags(RecipeDB,27924,1,2,4,36,41,53,54,106)
+	self:addTradeFlags(RecipeDB,27924,1,2,4,36,41,53,54,62,106)
 	self:addTradeAcquire(RecipeDB,27924,6,989,2,21643)
 
 	-- Enchant Ring - Healing Power -- 27926
 	AddRecipe(27926,370,nil,1,1,370,380,385,390)
-	self:addTradeFlags(RecipeDB,27926,1,2,4,36,41,53,54,111)
+	self:addTradeFlags(RecipeDB,27926,1,2,4,36,41,53,54,62,111)
 	self:addTradeAcquire(RecipeDB,27926,6,935,3,21432)
 
 	-- Enchant Ring - Stats -- 27927
@@ -896,7 +896,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Resistance -- 27947
 	AddRecipe(27947,360,nil,1,1)
-	self:addTradeFlags(RecipeDB,27947,1,2,10,36,40)
+	self:addTradeFlags(RecipeDB,27947,1,2,10,36,40,64)
 	self:addTradeAcquire(RecipeDB,27947,7,1)
 
 	-- Enchant Boots - Vitality -- 27948
@@ -946,57 +946,57 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Major Striking -- 27967
 	AddRecipe(27967,340,nil,1,1,340,350,365,380)
-	self:addTradeFlags(RecipeDB,27967,1,2,4,36,40,105)
+	self:addTradeFlags(RecipeDB,27967,1,2,4,36,40,66,67,105)
 	self:addTradeAcquire(RecipeDB,27967,6,933,2,20242,6,933,2,23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968
 	AddRecipe(27968,340,nil,1,1,340,350,365,380)
-	self:addTradeFlags(RecipeDB,27968,1,2,11,36,40)
+	self:addTradeFlags(RecipeDB,27968,1,2,11,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,27968,3,20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971
 	AddRecipe(27971,350,nil,1,1,350,370,375,380)
-	self:addTradeFlags(RecipeDB,27971,1,2,5,36,40,51)
+	self:addTradeFlags(RecipeDB,27971,1,2,5,36,40,51,67)
 	self:addTradeAcquire(RecipeDB,27971,3,17465)
 
 	-- Enchant Weapon - Potency -- 27972
 	AddRecipe(27972,350,nil,1,1,350,370,375,380)
-	self:addTradeFlags(RecipeDB,27972,1,2,10,36,40,51)
+	self:addTradeFlags(RecipeDB,27972,1,2,10,36,40,51,66,67)
 	self:addTradeAcquire(RecipeDB,27972,7,1)
 
 	-- Enchant Weapon - Major Spellpower -- 27975
 	AddRecipe(27975,350,nil,1,1,350,370,375,380)
-	self:addTradeFlags(RecipeDB,27975,1,2,11,36,40,53,54)
+	self:addTradeFlags(RecipeDB,27975,1,2,11,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,27975,3,22242)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
 	AddRecipe(27977,360,nil,1,1,360,370,377,385)
-	self:addTradeFlags(RecipeDB,27977,1,2,5,36,40,51)
+	self:addTradeFlags(RecipeDB,27977,1,2,5,36,40,51,67)
 	self:addTradeAcquire(RecipeDB,27977,3,20880)
 
 	-- Enchant Weapon - Sunfire -- 27981
 	AddRecipe(27981,375,nil,1,1,375,375,375,390)
-	self:addTradeFlags(RecipeDB,27981,1,2,6,11,36,40,53,54)
+	self:addTradeFlags(RecipeDB,27981,1,2,6,11,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,27981,3,16524)
 
 	-- Enchant Weapon - Soulfrost -- 27982
 	AddRecipe(27982,375,nil,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,27982,1,2,6,36,40,53,54)
+	self:addTradeFlags(RecipeDB,27982,1,2,6,36,40,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,27982,3,15688)
 
 	-- Enchant Weapon - Mongoose -- 27984
 	AddRecipe(27984,375,nil,3,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,27984,1,2,6,11,36,40,51)
+	self:addTradeFlags(RecipeDB,27984,1,2,6,11,36,40,51,66,67)
 	self:addTradeAcquire(RecipeDB,27984,3,15687)
 
 	-- Enchant Weapon - Spellsurge -- 28003
 	AddRecipe(28003,360,nil,1,1,360,370,377,385)
-	self:addTradeFlags(RecipeDB,28003,1,2,5,6,11,36,40)
+	self:addTradeFlags(RecipeDB,28003,1,2,5,6,11,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,28003,7,2)
 
 	-- Enchant Weapon - Battlemaster -- 28004
 	AddRecipe(28004,360,nil,1,1,360,370,377,385)
-	self:addTradeFlags(RecipeDB,28004,1,2,5,6,11,36,40)
+	self:addTradeFlags(RecipeDB,28004,1,2,5,6,11,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,28004,7,2)
 
 	-- Superior Mana Oil -- 28016
@@ -1126,12 +1126,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Major Stamina -- 34009
 	AddRecipe(34009,325,nil,1,1,325,335,350,365)
-	self:addTradeFlags(RecipeDB,34009,1,2,4,36,40)
+	self:addTradeFlags(RecipeDB,34009,1,2,4,36,40,64)
 	self:addTradeAcquire(RecipeDB,34009,2,19663)
 
 	-- Enchant Weapon - Major Healing -- 34010
 	AddRecipe(34010,350,nil,1,1,350,370,375,380)
-	self:addTradeFlags(RecipeDB,34010,1,2,4,36,40,53,54,111)
+	self:addTradeFlags(RecipeDB,34010,1,2,4,36,40,53,54,66,67,111)
 	self:addTradeAcquire(RecipeDB,34010,6,935,3,21432)
 
 	-- Nexus Transformation -- 42613
@@ -1146,12 +1146,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Greater Agility -- 42620
 	AddRecipe(42620,350,nil,1,1,350,360,367,375)
-	self:addTradeFlags(RecipeDB,42620,1,2,4,36,40,51,114)
+	self:addTradeFlags(RecipeDB,42620,1,2,4,36,40,51,66,67,114)
 	self:addTradeAcquire(RecipeDB,42620,6,967,4,18255)
 
 	-- Enchant Weapon - Executioner -- 42974
 	AddRecipe(42974,375,nil,1,1,375,380,385,390)
-	self:addTradeFlags(RecipeDB,42974,1,2,6,36,40,51)
+	self:addTradeFlags(RecipeDB,42974,1,2,6,36,40,51,66,67)
 	self:addTradeAcquire(RecipeDB,42974,8,29)
 
 	-- Enchant Shield - Resilience -- 44383
@@ -1211,7 +1211,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Exceptional Spirit -- 44510
 	AddRecipe(44510,410,nil,1,2,410,420,430,440)
-	self:addTradeFlags(RecipeDB,44510,1,2,3,36,41,53,54)
+	self:addTradeFlags(RecipeDB,44510,1,2,3,36,41,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,44510,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Gloves - Greater Assault -- 44513
@@ -1221,7 +1221,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Icebreaker -- 44524
 	AddRecipe(44524,425,nil,1,2,425,435,445,455)
-	self:addTradeFlags(RecipeDB,44524,1,2,4,36,40)
+	self:addTradeFlags(RecipeDB,44524,1,2,4,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,44524,2,32514)
 
 	-- Enchant Boots - Greater Fortitude -- 44528
@@ -1251,7 +1251,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Lifeward -- 44576
 	AddRecipe(44576,440,nil,3,2,425,435,445,455)
-	self:addTradeFlags(RecipeDB,44576,1,2,4,36,41)
+	self:addTradeFlags(RecipeDB,44576,1,2,4,36,41,66,67)
 	self:addTradeAcquire(RecipeDB,44576,2,32514)
 
 	-- Enchant Cloak - Spell Piercing -- 44582
@@ -1291,7 +1291,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
 	AddRecipe(44595,430,nil,3,2,430,440,450,460)
-	self:addTradeFlags(RecipeDB,44595,1,2,4,36,41,51)
+	self:addTradeFlags(RecipeDB,44595,1,2,4,36,41,51,66,67)
 	self:addTradeAcquire(RecipeDB,44595,2,32514)
 
 	-- Enchant Cloak - Superior Arcane Resistance -- 44596
@@ -1311,7 +1311,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Giant Slayer -- 44621
 	AddRecipe(44621,430,nil,1,2,430,440,450,460)
-	self:addTradeFlags(RecipeDB,44621,1,2,4,36,40)
+	self:addTradeFlags(RecipeDB,44621,1,2,4,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,44621,2,32514)
 
 	-- Enchant Chest - Super Stats -- 44623
@@ -1326,12 +1326,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Exceptional Spellpower -- 44629
 	AddRecipe(44629,395,nil,1,2,395,405,415,425)
-	self:addTradeFlags(RecipeDB,44629,1,2,3,36,41,53,54)
+	self:addTradeFlags(RecipeDB,44629,1,2,3,36,41,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,44629,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
 	AddRecipe(44630,390,nil,1,2,390,400,410,420)
-	self:addTradeFlags(RecipeDB,44630,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,44630,1,2,3,36,41,51,67)
 	self:addTradeAcquire(RecipeDB,44630,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Cloak - Shadow Armor -- 44631
@@ -1341,7 +1341,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Exceptional Agility -- 44633
 	AddRecipe(44633,410,nil,1,2,410,420,430,440)
-	self:addTradeFlags(RecipeDB,44633,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,44633,1,2,3,36,41,51,66,67)
 	self:addTradeAcquire(RecipeDB,44633,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Bracers - Greater Spellpower -- 44635
@@ -1351,12 +1351,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Greater Spellpower -- 44636
 	AddRecipe(44636,400,nil,1,2,400,400,407,415)
-	self:addTradeFlags(RecipeDB,44636,1,2,3,36,41,53,54)
+	self:addTradeFlags(RecipeDB,44636,1,2,3,36,41,53,54,62)
 	self:addTradeAcquire(RecipeDB,44636,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Ring - Assault -- 44645
 	AddRecipe(44645,400,nil,1,2,400,400,407,415)
-	self:addTradeFlags(RecipeDB,44645,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,44645,1,2,3,36,41,51,62)
 	self:addTradeAcquire(RecipeDB,44645,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Void Shatter -- 45765
@@ -1366,7 +1366,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Deathfrost -- 46578
 	AddRecipe(46578,350,nil,1,1,350,350,357,365)
-	self:addTradeFlags(RecipeDB,46578,1,2,7,36,40)
+	self:addTradeFlags(RecipeDB,46578,1,2,7,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,46578,5,4)
 
 	-- Enchant Chest - Defense -- 46594
@@ -1396,7 +1396,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Cloak - Wisdom -- 47899
 	AddRecipe(47899,440,nil,2,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,47899,1,2,4,36,41,53,54)
+	self:addTradeFlags(RecipeDB,47899,1,2,4,36,41,53,54,60)
 	self:addTradeAcquire(RecipeDB,47899,2,32514)
 
 	-- Enchant Chest - Super Health -- 47900
@@ -1411,22 +1411,22 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Accuracy -- 59619
 	AddRecipe(59619,440,nil,1,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,59619,1,2,4,36,40)
+	self:addTradeFlags(RecipeDB,59619,1,2,4,36,40,66,67)
 	self:addTradeAcquire(RecipeDB,59619,2,32514)
 
 	-- Enchant Weapon - Berserking -- 59621
 	AddRecipe(59621,440,nil,1,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,59621,1,2,4,36,40,51)
+	self:addTradeFlags(RecipeDB,59621,1,2,4,36,40,51,66,67)
 	self:addTradeAcquire(RecipeDB,59621,2,32514)
 
 	-- Enchant Weapon - Black Magic -- 59625
 	AddRecipe(59625,440,nil,3,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,59625,1,2,4,36,41)
+	self:addTradeFlags(RecipeDB,59625,1,2,4,36,41,66,67)
 	self:addTradeAcquire(RecipeDB,59625,2,32514)
 
 	-- Enchant Ring - Stamina -- 59636
 	AddRecipe(59636,400,nil,1,2,400,400,407,415)
-	self:addTradeFlags(RecipeDB,59636,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,59636,1,2,3,36,41,62)
 	self:addTradeAcquire(RecipeDB,59636,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Boots - Assault -- 60606
@@ -1451,7 +1451,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Greater Potency -- 60621
 	AddRecipe(60621,380,nil,1,2,380,390,400,410)
-	self:addTradeFlags(RecipeDB,60621,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,60621,1,2,3,36,41,51,66,67)
 	self:addTradeAcquire(RecipeDB,60621,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Boots - Icewalker -- 60623
@@ -1461,7 +1461,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Shield - Greater Intellect -- 60653
 	AddRecipe(60653,395,nil,1,2,395,405,415,425)
-	self:addTradeFlags(RecipeDB,60653,1,2,3,36,41)
+	self:addTradeFlags(RecipeDB,60653,1,2,3,36,41,64)
 	self:addTradeAcquire(RecipeDB,60653,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Cloak - Major Agility -- 60663
@@ -1476,7 +1476,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Massacre -- 60691
 	AddRecipe(60691,430,nil,3,2,430,440,450,460)
-	self:addTradeFlags(RecipeDB,60691,1,2,4,36,41,51)
+	self:addTradeFlags(RecipeDB,60691,1,2,4,36,41,51,67)
 	self:addTradeAcquire(RecipeDB,60691,2,32514)
 
 	-- Enchant Chest - Powerful Stats -- 60692
@@ -1486,12 +1486,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Superior Potency -- 60707
 	AddRecipe(60707,435,nil,3,2,435,445,455,465)
-	self:addTradeFlags(RecipeDB,60707,1,2,4,36,41,51)
+	self:addTradeFlags(RecipeDB,60707,1,2,4,36,41,51,66,67)
 	self:addTradeAcquire(RecipeDB,60707,2,32514)
 
 	-- Enchant Weapon - Mighty Spellpower -- 60714
 	AddRecipe(60714,435,nil,3,2,435,445,455,465)
-	self:addTradeFlags(RecipeDB,60714,1,2,4,36,41,53,54)
+	self:addTradeFlags(RecipeDB,60714,1,2,4,36,41,53,54,66,67)
 	self:addTradeAcquire(RecipeDB,60714,2,32514)
 
 	-- Enchant Boots - Greater Assault -- 60763
@@ -1542,12 +1542,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Blade Ward -- 64441
 	AddRecipe(64441,450,nil,3,2,450,455,460,465)
-	self:addTradeFlags(RecipeDB,64441,1,2,6,11,36,41,52)
+	self:addTradeFlags(RecipeDB,64441,1,2,6,11,36,41,52,66,67)
 	self:addTradeAcquire(RecipeDB,64441,8,39)
 
 	-- Enchant Weapon - Blood Draining -- 64579
 	AddRecipe(64579,450,nil,3,2,450,455,460,465)
-	self:addTradeFlags(RecipeDB,64579,1,2,6,11,36,41)
+	self:addTradeFlags(RecipeDB,64579,1,2,6,11,36,41,66,67)
 	self:addTradeAcquire(RecipeDB,64579,8,39)
 
 	-- Abyssal Shatter -- 69412
