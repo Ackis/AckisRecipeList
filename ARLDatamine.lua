@@ -1523,7 +1523,7 @@ do
 		["Sword"]	= 69, 	["Mace"]	= 70, 	["Polearm"]	= 71, 
 		["Dagger"]	= 72, 	["Staff"]	= 73, 	["Wand"]	= 74, 
 		["Thrown"]	= 75, 	["Bow"]		= 76, 	["CrossBow"]	= 77, 
-		["Ammo"]	= 78, 	["Fist"]	= 79, 	["Gun"]		= 80, 
+		["Ammo"]	= 78, 	["Fist Weapon"]	= 79, 	["Gun"]		= 80, 
 	}
 
 	local ORDERED_ITEM_TYPES = {
@@ -1538,7 +1538,7 @@ do
 		[14]	= "Sword", 	[15]	= "Mace", 	[16]	= "Polearm", 
 		[17]	= "Dagger", 	[18]	= "Staff", 	[19]	= "Wand", 
 		[20]	= "Thrown", 	[21]	= "Bow", 	[22]	= "CrossBow", 
-		[23]	= "Ammo", 	[24]	= "Fist", 	[25]	= "Gun", 
+		[23]	= "Ammo", 	[24]	= "Fist Weapon", 	[25]	= "Gun", 
 	}
 
 	-- Table to store scanned information. Wiped and re-used every scan.
