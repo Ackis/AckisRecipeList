@@ -1,6 +1,6 @@
 ﻿{{Addon Infobox
  | Name = Ackis Recipe List
- | Summary = An addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including Runeforging.
+ | Summary = An addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including Runeforging.
  | TOC = 30200
  | Category = Tradeskill
  | Author = Ackis
@@ -12,7 +12,7 @@
 }}
 
 ==What it does==
-Ackis Recipe List is an addon which will scan your trade skill recipes and print out a list of which recipes you are currently missing.  It will work for all tradeskills including [[Runeforge | Runeforging]].
+Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[Runeforge | Runeforging]].
 
 You can view a YouTube video of ARL in action [http://www.youtube.com/watch?v=jZR5DLkRJBY here]:
 
