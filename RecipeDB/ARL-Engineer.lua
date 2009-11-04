@@ -1293,7 +1293,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Flying Machine -- 44155
 	AddRecipe(44155,300,34060,3,1,300,330,340,350)
 	self:addTradeFlags(RecipeDB,44155,1,2,3,36,41)
-	self:addTradeAcquire(RecipeDB,44155,1,24868,1,25099,1,25277)
+	self:addTradeAcquire(RecipeDB,44155,1,24868,1,25099,1,25277,1,28697)
 
 	-- Turbo-Charged Flying Machine -- 44157
 	AddRecipe(44157,375,34061,4,1,375,385,390,395)
@@ -1611,7 +1611,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Goblin Beam Welder -- 67326
 	AddRecipe(67326,450,47828,1,2,415,415,420,425)
 	self:addTradeFlags(RecipeDB,67326,1,2,3,37,41)
-	self:addTradeAcquire(RecipeDB,67326,1,25277)
+	self:addTradeAcquire(RecipeDB,67326,1,25277,1,28697)
 	
 	-- Jeeves -- 68067
 	AddRecipe(68067,450,49050,1,2,450,480,485,490)
@@ -1621,12 +1621,12 @@ function addon:InitEngineering(RecipeDB)
 	-- 67920 Northrend Port
 	AddRecipe(67920,435,48933,1,2,435,450,455,460)
 	self:addTradeFlags(RecipeDB,67920,1,2,3,37,41)
-	self:addTradeAcquire(RecipeDB,67920,1,25277)
+	self:addTradeAcquire(RecipeDB,67920,1,25277,1,28697)
 
 	--Mind Amplification Dish -- 67839
 	AddRecipe(67839,410,nil,1,2,410,410,415,420)
 	self:addTradeFlags(RecipeDB,67839,1,2,3,37,41)
-	self:addTradeAcquire(RecipeDB,67839,1,25277)
+	self:addTradeAcquire(RecipeDB,67839,1,25277,1,28697)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
