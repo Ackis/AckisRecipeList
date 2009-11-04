@@ -152,7 +152,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Heavy Iron Knuckles -- 25612
 	AddRecipe(25612,125,20954,1,1)
-	self:addTradeFlags(RecipeDB,25612,1,2,4,36,40,51,79)
+	self:addTradeFlags(RecipeDB,25612,1,2,4,36,40,51,66,79)
 	self:addTradeAcquire(RecipeDB,25612,2,2381,2,2393)
 
 	-- Golden Dragon Ring -- 25613

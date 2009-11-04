@@ -238,7 +238,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Lesser Impact -- 13529
 	AddRecipe(13529,145,nil,1,GAME_ORIG,145,170,190,210)
-	self:addTradeFlags(RecipeDB,13529,1,2,3,36,40)
+	self:addTradeFlags(RecipeDB,13529,1,2,3,36,40,67)
 	self:addTradeAcquire(RecipeDB,13529,1,1317,1,3011,1,3345,1,4213,1,4616,1,5157,1,7949,1,11072,1,11073,1,11074,1,16633,1,16725,1,19251,1,19252,1,33610,1,3606,1,33676,1,18773,1,5695,1,19540,1,18753,1,16160)
 
 	-- Enchant Bracer - Lesser Strength -- 13536
@@ -821,7 +821,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	AddRecipe(27837,290,nil,1,GAME_ORIG,290,305,322,340)
-	self:addTradeFlags(RecipeDB,27837,1,2,4,36,40,51,66,67,99)
+	self:addTradeFlags(RecipeDB,27837,1,2,4,36,40,51,67,99)
 	self:addTradeAcquire(RecipeDB,27837,6,576,1,11557)
 
 	-- Enchant Bracer - Brawn -- 27899

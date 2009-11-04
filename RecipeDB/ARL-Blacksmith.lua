@@ -1333,17 +1333,17 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Icebane Breastplate -- 28242
 	AddRecipe(28242,300,22669,4,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,28242,1,2,4,6,36,41,52,59)
+	self:addTradeFlags(RecipeDB,28242,1,2,3,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28242,6,529,4,16365,8,41)
 
 	-- Icebane Gauntlets -- 28243
 	AddRecipe(28243,300,22670,4,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,28243,1,2,4,6,36,41,52,59)
+	self:addTradeFlags(RecipeDB,28243,1,2,3,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28243,6,529,3,16365,8,41)
 
 	-- Icebane Bracers -- 28244
 	AddRecipe(28244,300,22671,4,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,28244,1,2,4,6,36,41,52,59)
+	self:addTradeFlags(RecipeDB,28244,1,2,3,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,28244,6,529,3,16365,8,41)
 
 	-- Ironvine Breastplate -- 28461

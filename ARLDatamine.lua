@@ -2012,6 +2012,7 @@ do
 					scan_data.healer = false
 				elseif (strmatch(text, "expertise")) then
 					scan_data.dps = true
+					scan_data.tank = true
 					scan_data.caster = false
 					scan_data.healer = false
 				elseif (strmatch(text, "melee crit")) then
