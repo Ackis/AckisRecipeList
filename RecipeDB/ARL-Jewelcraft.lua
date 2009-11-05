@@ -1482,7 +1482,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Guardian's Shadow Crystal -- 53871
 	AddRecipe(53871,350,39940,2,2)
-	self:addTradeFlags(RecipeDB,53871,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,53871,1,2,3,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,53871,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Inscribed Huge Citrine -- 53872
@@ -1587,12 +1587,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Accurate Huge Citrine -- 53892
 	AddRecipe(53892,350,39966,2,2)
-	self:addTradeFlags(RecipeDB,53892,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,53892,1,2,3,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,53892,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Resolute Huge Citrine -- 53893
 	AddRecipe(53893,350,39967,2,2)
-	self:addTradeFlags(RecipeDB,53893,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,53893,1,2,3,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,53893,1,26915,1,26960,1,26982,1,26997,1,28701,1,33590)
 
 	-- Timeless Dark Jade -- 53894
@@ -1947,7 +1947,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Accurate Monarch Topaz -- 53994
 	AddRecipe(53994,390,40058,3,2)
-	self:addTradeFlags(RecipeDB,53994,1,2,11,36,41,51)
+	self:addTradeFlags(RecipeDB,53994,1,2,11,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,53994,3,28379,3,28851,3,29402,3,30260,3,30448)
 
 	-- Timeless Forest Emerald -- 53995
@@ -2217,7 +2217,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Precise Dragon's Eye -- 56081
 	AddRecipe(56081,370,42154,3,2)
-	self:addTradeFlags(RecipeDB,56081,1,2,4,37,41,51)
+	self:addTradeFlags(RecipeDB,56081,1,2,4,37,41,51,52)
 	self:addTradeAcquire(RecipeDB,56081,2,28721,2,33602)
 
 	-- Quick Dragon's Eye -- 56083
@@ -2582,7 +2582,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Guardian's Dreadstone -- 66561
 	AddRecipe(66561,450,40141,2,2,450,450,450,450)
-	self:addTradeFlags(RecipeDB,66561,1,2,4,36,41,51)
+	self:addTradeFlags(RecipeDB,66561,1,2,4,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,66561,2,19065,2,33637,2,33680,2,28701)
 
 	-- Puissant Dreadstone -- 66563

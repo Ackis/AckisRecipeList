@@ -1166,7 +1166,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Gloves - Expertise -- 44484
 	AddRecipe(44484,405,nil,1,2,405,415,425,435)
-	self:addTradeFlags(RecipeDB,44484,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,44484,1,2,3,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,44484,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Gloves - Precision -- 44488
@@ -1301,7 +1301,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Bracers - Expertise -- 44598
 	AddRecipe(44598,415,nil,1,2,415,425,435,445)
-	self:addTradeFlags(RecipeDB,44598,1,2,3,36,41,51)
+	self:addTradeFlags(RecipeDB,44598,1,2,3,36,41,51,52)
 	self:addTradeAcquire(RecipeDB,44598,1,26906,1,26954,1,26980,1,26990,1,28693,1,33583)
 
 	-- Enchant Bracers - Greater Stats -- 44616
