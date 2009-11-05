@@ -457,7 +457,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Golden Scale Bracers -- 7223
 	AddRecipe(7223,185,6040,1,GAME_ORIG,185,210,222,235)
-	self:addTradeFlags(RecipeDB,7223,1,2,3,36,41,51,58)
+	self:addTradeFlags(RecipeDB,7223,1,2,3,36,41,51,52,58)
 	self:addTradeAcquire(RecipeDB,7223,1,2836,1,3355,1,4258,1,16583,1,16669,1,16823,1,19341,1,28694,1,27034,1,5511,
 	1,514,1,1241,1,16724,1,33591,1,2998,1,3478,1,3136,1,4596,1,3174,1,26988,1,33609,1,33631,1,15400,1,33675,1,26981,
 	1,17245,1,6299,1,26564,1,26952,1,3557,1,26904,1,29924)
@@ -1238,7 +1238,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Bloodsoul Breastplate -- 24136
 	AddRecipe(24136,300,19690,1,GAME_ORIG,300,320,330,340)
-	self:addTradeFlags(RecipeDB,24136,1,2,4,36,41,51,58,100)
+	self:addTradeFlags(RecipeDB,24136,1,2,4,36,41,51,53,54,58,100)
 	self:addTradeAcquire(RecipeDB,24136,6,270,3,14921)
 
 	-- Bloodsoul Shoulders -- 24137
@@ -1693,7 +1693,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Nether Chain Shirt -- 34529
 	AddRecipe(34529,350,23563,1,1,350,360,370,380,9788)
-	self:addTradeFlags(RecipeDB,34529,1,2,3,37,41,51,58)
+	self:addTradeFlags(RecipeDB,34529,1,2,3,37,41,51,53,54,58)
 	self:addTradeAcquire(RecipeDB,34529,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Twisting Nether Chain Shirt -- 34530
@@ -2235,7 +2235,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Saronite Shiv -- 55181
 	AddRecipe(55181,405,41184,3,2,405,410,415,420)
-	self:addTradeFlags(RecipeDB,55181,1,2,3,36,41,51,66,72)
+	self:addTradeFlags(RecipeDB,55181,1,2,3,36,41,51,52,66,72)
 	self:addTradeAcquire(RecipeDB,55181,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Furious Saronite Beatstick -- 55182
@@ -2295,7 +2295,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Deadly Saronite Dirk -- 55206
 	AddRecipe(55206,405,41245,3,2,405,415,420,425)
-	self:addTradeFlags(RecipeDB,55206,1,2,3,36,41,51,75)
+	self:addTradeFlags(RecipeDB,55206,1,2,3,36,41,51,52,75)
 	self:addTradeAcquire(RecipeDB,55206,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Vengeance Bindings -- 55298
@@ -2375,7 +2375,7 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Titansteel Bonecrusher -- 55370
 	AddRecipe(55370,440,41383,4,2,440,450,460,470)
-	self:addTradeFlags(RecipeDB,55370,1,2,3,36,41,51,66,70)
+	self:addTradeFlags(RecipeDB,55370,1,2,3,36,41,51,52,66,70)
 	self:addTradeAcquire(RecipeDB,55370,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Guardian -- 55371
