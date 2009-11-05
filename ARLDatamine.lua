@@ -2001,7 +2001,7 @@ do
 					scan_data.caster = true
 					scan_data.healer = false
 					scan_data.verifiedclass = true
-				elseif (strmatch(text, "mana per 5 sec.")) then
+				elseif (strmatch(text, "mana per 5 sec.") or (strmatch(text, "mana every 5 seconds"))) then
 					scan_data.dps = false
 					scan_data.tank = false
 					scan_data.caster = true
