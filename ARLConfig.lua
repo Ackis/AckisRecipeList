@@ -239,7 +239,7 @@ local function giveMap()
 					get		= function() return addon.db.profile.minimap end,
 					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 				},
-				minimap = {
+				maptrainer = {
 					order	= 5,
 					type	= "toggle",
 					name	= L["Trainer"],
@@ -248,7 +248,7 @@ local function giveMap()
 					get		= function() return addon.db.profile.maptrainer end,
 					set		= function() addon.db.profile.maptrainer = not addon.db.profile.maptrainer end,
 				},
-				minimap = {
+				mapvendor = {
 					order	= 6,
 					type	= "toggle",
 					name	= L["Vendor"],
@@ -257,7 +257,7 @@ local function giveMap()
 					get		= function() return addon.db.profile.mapvendor end,
 					set		= function() addon.db.profile.mapvendor = not addon.db.profile.mapvendor end,
 				},
-				minimap = {
+				mapmob = {
 					order	= 7,
 					type	= "toggle",
 					name	= L["Monster"],
@@ -266,7 +266,7 @@ local function giveMap()
 					get		= function() return addon.db.profile.mapmob end,
 					set		= function() addon.db.profile.mapmob = not addon.db.profile.mapmob end,
 				},
-				minimap = {
+				mapquest = {
 					order	= 8,
 					type	= "toggle",
 					name	= L["Quest"],
