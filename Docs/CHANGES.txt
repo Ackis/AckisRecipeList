@@ -1,6 +1,8 @@
 ==ARL Change Log
-===Version 2XXX
-* more optimizations to the Jewelcrafting, and Inscription databases.
+===Version 2634
+*More optimizations to the Jewelcrafting, and Inscription databases.
+*Fixed an old bug which prevented you from customizing which items appear when you link things via TomTom.
+*Removed LibBetterBlizzOptions.  This is not longer needed as the complex filters have all been removed from the interface options and are only availible via the GUI.
 
 ===Version 2576
 *Major issue with class filtering fixed.
