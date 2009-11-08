@@ -100,7 +100,7 @@ end -- do
 
 if MissingLibraries() then
 	--@debug@
-	addon:Print("You are using an SVN version of ARL.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, and LibBetterBlizzoptions in order for the addon to function correctly.")
+	addon:Print("You are using an SVN version of ARL.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, and LibSharedMedia-3.0 in order for the addon to function correctly.")
 	--@end-debug@
 	_G.AckisRecipeList = nil
 	return
