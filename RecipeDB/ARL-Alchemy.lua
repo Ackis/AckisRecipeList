@@ -758,8 +758,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Shrouding Potion -- 28554
 	AddRecipe(28554,335,22871,2,1,335,350,357,365)
-	self:addTradeFlags(RecipeDB,28554, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 41,
-	113)
+	self:addTradeFlags(RecipeDB,28554, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, 41, 113)
 	self:addTradeAcquire(RecipeDB,28554,6,970,4,18382)
 
 	-- Super Mana Potion -- 28555

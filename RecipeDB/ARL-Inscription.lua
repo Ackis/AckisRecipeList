@@ -678,7 +678,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57035,8,15)
 
 	-- Glyph of Turn Evil -- 57036
-	AddRecipe(57036,385,41102,1,2,385,390,397,405)
+	AddRecipe(57036,375,41102,1,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,57036,1,2,3,F_PALADIN,36,41)
 	self:addTradeAcquire(RecipeDB,57036,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
@@ -1001,7 +1001,7 @@ function addon:InitInscription(RecipeDB)
 	1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603,1,33615,1,33679)
 
 	-- Glyph of Scourge Imprisonment -- 57198
-	AddRecipe(57198,385,42412,1,2,385,390,397,405)
+	AddRecipe(57198,375,42412,1,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,57198,1,2,3,F_PRIEST,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,57198,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
@@ -1240,7 +1240,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57247,8,15)
 
 	-- Glyph of Stormstrike -- 57248
-	AddRecipe(57248,385,41539,1,2,385,390,397,405)
+	AddRecipe(57248,375,41539,1,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,57248,1,2,3,F_SHAMAN,36,41)
 	self:addTradeAcquire(RecipeDB,57248,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
@@ -2052,7 +2052,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,56965,8,14)
 
 	-- Glyph of Focus -- 62162
-	AddRecipe(62162,385,44928,1,2,385,390,397,405)
+	AddRecipe(62162,375,44928,1,2,375,380,385,390)
 	self:addTradeFlags(RecipeDB,62162,1,2,3,F_DRUID,36,41)
 	self:addTradeAcquire(RecipeDB,62162,1,26916,1,26959,1,26977,1,26995,1,28702,1,33603)
 
@@ -2399,7 +2399,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,64053,1,33603,1,28702,1,26977,1,26959,1,26995,1,26916)
 	
 	--Glyph of Claw -- 67600
-	AddRecipe(67600,105,48720,1,2,105,105,110,115)
+	AddRecipe(67600,100,48720,1,2,100,105,110,115)
 	self:addTradeFlags(RecipeDB,67600,1,2,3,F_DRUID,36,41)
 	self:addTradeAcquire(RecipeDB,67600,1,33603,1,33679,1,28702,1,30722)
 	
