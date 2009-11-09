@@ -365,7 +365,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Massive Iron Axe -- 3498
 	AddRecipe(3498,185,3855,1,GAME_ORIG,185,210,222,235)
 	self:addTradeFlags(RecipeDB,3498,1,2,4,36,40,51,67,68)
-	self:addTradeAcquire(RecipeDB,3498,2,2483)
+	self:addTradeAcquire(RecipeDB,3498,2,2483,2,1146)
 
 	-- Shadow Crescent Axe -- 3500
 	AddRecipe(3500,200,3856,2,GAME_ORIG,200,225,237,250)
