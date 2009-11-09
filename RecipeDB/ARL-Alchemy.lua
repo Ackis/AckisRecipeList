@@ -727,7 +727,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Sneaking Potion -- 28546
 	AddRecipe(28546,315,22826,1,1,315,330,337,345)
-	self:addTradeFlags(RecipeDB,28546, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE)
+	self:addTradeFlags(RecipeDB,28546, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB,28546,2,18017,2,19042)
 
 	-- Elixir of Major Frost Power -- 28549
