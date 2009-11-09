@@ -2030,12 +2030,12 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Hard Khorium Battlefists -- 46141
 	AddRecipe(46141,365,34378,4,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46141,1,2,6,36,40,51,59)
+	self:addTradeFlags(RecipeDB,46141,1,2,6,36,41,51,59)
 	self:addTradeAcquire(RecipeDB,46141,8,24)
 
 	-- Sunblessed Breastplate -- 46142
 	AddRecipe(46142,365,34379,4,1,365,375,392,410)
-	self:addTradeFlags(RecipeDB,46142,1,2,6,37,41,53,54,59)
+	self:addTradeFlags(RecipeDB,46142,1,2,6,37,40,53,54,59)
 	self:addTradeAcquire(RecipeDB,46142,8,24)
 
 	-- Hard Khorium Battleplate -- 46144
