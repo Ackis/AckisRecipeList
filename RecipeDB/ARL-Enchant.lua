@@ -126,7 +126,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,7766,7,1)
 
 	-- Enchant Cloak - Minor Protection -- 7771
-	AddRecipe(7771,90,nil,1,GAME_ORIG,90,110,130,150)
+	AddRecipe(7771,70,nil,1,GAME_ORIG,70,110,130,150)
 	self:addTradeFlags(RecipeDB,7771,1,2,3,36,40,60)
 	self:addTradeAcquire(RecipeDB,7771,1,1317,1,3011,1,3345,1,3606,1,4213,1,4616,1,5157,1,5695,
 	1,11072,1,11073,1,11074,1,16160,1,16633,1,16725,1,19251,1,19252,1,33610,1,33676,1,18773,1,7949,1,19540,1,18753)
