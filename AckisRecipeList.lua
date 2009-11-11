@@ -73,6 +73,37 @@ _G.ARL = addon
 
 local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+
+------------------------------------------------------------------------------
+-- Database tables
+------------------------------------------------------------------------------
+local RecipeList = {}
+local CustomList = {}
+local MobList = {}
+local QuestList = {}
+local ReputationList = {}
+local TrainerList = {}
+local SeasonalList = {}
+local VendorList = {}
+local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
+local AllSpecialtiesTable = {}
+local SpecialtyTable
+
+------------------------------------------------------------------------------
+-- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
+------------------------------------------------------------------------------
+-- @class table
+-- @name playerData
+-- @field known_filtered Total number of items known filtered during the scan.
+-- @field playerFaction Players faction
+-- @field playerClass Players class
+-- @field ["Reputation"] Listing of players reputation levels
+local playerData = {}
+
+-- Global Frame Variables
+addon.optionsFrame = {}
+
 -------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
 -- which are missing and return.
@@ -106,11 +137,6 @@ if MissingLibraries() then
 	return
 end
 
-local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-
--- Global Frame Variables
-addon.optionsFrame = {}
-
 do
 	local output = {}
 
@@ -137,7 +163,6 @@ end	-- do
 -- Initialization functions
 -------------------------------------------------------------------------------
 function addon:OnInitialize()
-
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		global = {
@@ -303,9 +328,9 @@ function addon:OnInitialize()
 			}
 		}
 	}
-	addon.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
+	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
 
-	if (not addon.db) then
+	if not self.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
@@ -313,13 +338,66 @@ function addon:OnInitialize()
 	version = string.gsub(version, "@project.revision@", "SVN")
 	self.version = version
 
-
 	self:SetupOptions()
 
 	-- Register slash commands
 	self:RegisterChatCommand("arl", "ChatCommand")
 	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
 
+	-------------------------------------------------------------------------------
+	-- Create the scan button, then set its parent and scripts.
+	-------------------------------------------------------------------------------
+	local scan_button = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
+
+	-- Add to Skillet interface
+	if Skillet and Skillet:IsActive() then
+		scan_button:SetParent(SkilletFrame)
+		scan_button:Show()
+		Skillet:AddButtonToTradeskillWindow(scan_button)
+		scan_button:SetWidth(80)
+	elseif MRTUIUtils_RegisterWindowOnShow then
+		MRTUIUtils_RegisterWindowOnShow(function()
+							scan_button:SetParent(MRTSkillFrame)
+							scan_button:ClearAllPoints()
+							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
+							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+							scan_button:Show()
+						end)
+  	end
+	scan_button:SetHeight(20)
+	scan_button:RegisterForClicks("LeftButtonUp")
+	scan_button:SetScript("OnClick", function() addon:ToggleFrame()	end)
+	scan_button:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
+				GameTooltip:Show()
+			end)
+	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	scan_button:SetText(L["Scan"])
+
+	local buttonparent = scan_button:GetParent()
+	local framelevel = buttonparent:GetFrameLevel()
+	local framestrata = buttonparent:GetFrameStrata()
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	scan_button:SetFrameLevel(framelevel + 1)
+	scan_button:SetFrameStrata(framestrata)
+	scan_button:Enable()
+	self.ScanButton = scan_button
+
+	-------------------------------------------------------------------------------
+	-- Initialize the databases
+	-------------------------------------------------------------------------------
+	self:InitCustom(CustomList)
+	self:InitMob(MobList)
+	self:InitQuest(QuestList)
+	self:InitReputation(ReputationList)
+	self:InitTrainer(TrainerList)
+	self:InitSeasons(SeasonalList)
+	self:InitVendor(VendorList)
+
+	self.recipe_list = RecipeList
 end
 
 ---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
@@ -363,55 +441,109 @@ function addon:OnEnable()
 	self:GetFactionLevels()
 
 	-------------------------------------------------------------------------------
-	-- Create the scan button, then set its parent and scripts.
-	-------------------------------------------------------------------------------
-	local scan_button = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
-
-	-- Add to Skillet interface
-	if Skillet and Skillet:IsActive() then
-		scan_button:SetParent(SkilletFrame)
-		scan_button:Show()
-		Skillet:AddButtonToTradeskillWindow(scan_button)
-		scan_button:SetWidth(80)
-	elseif MRTUIUtils_RegisterWindowOnShow then
-		MRTUIUtils_RegisterWindowOnShow(function()
-							scan_button:SetParent(MRTSkillFrame)
-							scan_button:ClearAllPoints()
-							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
-							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-							scan_button:Show()
-						end)
-  	end
-	scan_button:SetHeight(20)
-	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick", function() addon:ToggleFrame()	end)
-	scan_button:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
-				GameTooltip:Show()
-			end)
-	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
-	scan_button:SetText(L["Scan"])
-
-	local buttonparent = scan_button:GetParent()
-	local framelevel = buttonparent:GetFrameLevel()
-	local framestrata = buttonparent:GetFrameStrata()
-
-	-- Set the frame level of the button to be 1 deeper than its parent
-	scan_button:SetFrameLevel(framelevel + 1)
-	scan_button:SetFrameStrata(framestrata)
-	scan_button:Enable()
-	addon.ScanButton = scan_button
-
-	-------------------------------------------------------------------------------
 	-- Initialize the main panel frame
 	-------------------------------------------------------------------------------
 	self:InitializeFrame()
 	self.InitializeFrame = nil
 
-	self:InitDatabases()
-	self.InitDatabases = nil
+	-------------------------------------------------------------------------------
+	-- Initialize the player's data
+	-------------------------------------------------------------------------------
+	do
+		playerData.playerFaction = UnitFactionGroup("player")
+		playerData.playerClass = select(2, UnitClass("player"))
+
+		playerData["Reputation"] = {}
+		self:GetFactionLevels(playerData["Reputation"])
+
+		playerData["Professions"] = {
+			[GetSpellInfo(51304)] = false, -- Alchemy
+			[GetSpellInfo(51300)] = false, -- Blacksmithing
+			[GetSpellInfo(51296)] = false, -- Cooking
+			[GetSpellInfo(51313)] = false, -- Enchanting
+			[GetSpellInfo(51306)] = false, -- Engineering
+			[GetSpellInfo(45542)] = false, -- First Aid
+			[GetSpellInfo(51302)] = false, -- Leatherworking
+			[GetSpellInfo(32606)] = false, -- Mining
+			[GetSpellInfo(51309)] = false, -- Tailoring
+			[GetSpellInfo(51311)] = false, -- Jewelcrafting
+			[GetSpellInfo(45363)] = false, -- Inscription
+			[GetSpellInfo(53428)] = false, -- Runeforging
+		}
+
+		-------------------------------------------------------------------------------
+		---Scan first 25 spellbook slots to identify all applicable professions
+		-------------------------------------------------------------------------------
+		local profession_list = playerData["Professions"]
+
+		-- Reset the table, they may have unlearnt a profession
+		for i in pairs(profession_list) do
+			profession_list[i] = false
+		end
+
+		-- Scan through the spell book getting the spell names
+		for index = 1, 25, 1 do
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			if not spellName or index == 25 then
+				break
+			end
+
+			if not profession_list[spellName] or spellName == GetSpellInfo(2656) then
+				if spellName == GetSpellInfo(2656) then
+					profession_list[GetSpellInfo(32606)] = true
+				else
+					profession_list[spellName] = true
+				end
+			end
+		end
+
+
+		local AlchemySpec = {
+			[GetSpellInfo(28674)] = true,
+			[GetSpellInfo(28678)] = true,
+			[GetSpellInfo(28676)] = true,
+		}
+
+		local BlacksmithSpec = {
+			[GetSpellInfo(9788)] = true, -- Armorsmith
+			[GetSpellInfo(17041)] = true, -- Master Axesmith
+			[GetSpellInfo(17040)] = true, -- Master Hammersmith
+			[GetSpellInfo(17039)] = true, -- Master Swordsmith
+			[GetSpellInfo(9787)] = true, -- Weaponsmith
+		}
+		
+		local EngineeringSpec = {
+			[GetSpellInfo(20219)] = true, -- Gnomish
+			[GetSpellInfo(20222)] = true, -- Goblin
+		}
+
+		local LeatherworkSpec = {
+			[GetSpellInfo(10657)] = true, -- Dragonscale
+			[GetSpellInfo(10659)] = true, -- Elemental
+			[GetSpellInfo(10661)] = true, -- Tribal
+		}
+
+		local TailorSpec = {
+			[GetSpellInfo(26797)] = true, -- Spellfire
+			[GetSpellInfo(26801)] = true, -- Shadoweave
+			[GetSpellInfo(26798)] = true, -- Primal Mooncloth
+		}
+
+		SpecialtyTable = {
+			[GetSpellInfo(51304)] = AlchemySpec,
+			[GetSpellInfo(51300)] = BlacksmithSpec,
+			[GetSpellInfo(51306)] = EngineeringSpec,
+			[GetSpellInfo(51302)] = LeatherworkSpec,
+			[GetSpellInfo(51309)] = TailorSpec,
+		}
+
+		-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
+		for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
+		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
+	end	-- do
 end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1613,21 +1745,6 @@ do
 	local UnitFactionGroup = UnitFactionGroup
 	local tsort = table.sort
 
-	local RecipeList = {}
-
-	-- Database tables.
-	local CustomList = {}
-	local MobList = {}
-	local QuestList = {}
-	local ReputationList = {}
-	local TrainerList = {}
-	local SeasonalList = {}
-	local VendorList = {}
-	local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
-	local AllSpecialtiesTable = nil
-	local SpecialtyTable = nil
-
-
 	-- Tables for getting the locations
 	local location_list = {}
 	local location_checklist = {}
@@ -1744,39 +1861,6 @@ do
 		TRADE_WINDOW_OPENED = false
 	end
 
-	-------------------------------------------------------------------------------
-	-- Upvalued globals
-	-------------------------------------------------------------------------------
-	local GetSpellName = GetSpellName
-	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-
-	---Scans first 25 spellbook slots to identify all applicable professions
-	local function GetKnownProfessions(ProfTable)
-		-- Reset the table, they may have unlearnt a profession
-		for i in pairs(ProfTable) do
-			ProfTable[i] = false
-		end
-
-		-- Scan through the spell book getting the spell names
-		for index=1,25,1 do
-
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			if (not spellName) or (index == 25) then
-				-- Nothing found
-				break
-			end
-			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
-				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(32606)] = true
-				else
-					ProfTable[spellName] = true
-				end
-			end
-		end
-
-	end
-
 	-- Scans first 25 spellbook slots to identify which trade skill Specialty we have
 	local function GetTradeSpecialty(SpecialtyTable, playerData)
 		--Scan the first 25 entries
@@ -1794,114 +1878,13 @@ do
 		end
 	end
 
-	--- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
-	-- @class table
-	-- @name playerData
-	-- @field known_filtered Total number of items known filtered during the scan.
-	-- @field playerFaction Players faction
-	-- @field playerClass Players class
-	-- @field ["Reputation"] Listing of players reputation levels
-	local playerData = {}
-
-	-- All Alchemy Specialties
-	local AlchemySpec = {
-		[GetSpellInfo(28674)] = true,
-		[GetSpellInfo(28678)] = true,
-		[GetSpellInfo(28676)] = true,
-	}
-
-	-- All Blacksmithing Specialties
-	local BlacksmithSpec = {
-		[GetSpellInfo(9788)] = true, -- Armorsmith
-		[GetSpellInfo(17041)] = true, -- Master Axesmith
-		[GetSpellInfo(17040)] = true, -- Master Hammersmith
-		[GetSpellInfo(17039)] = true, -- Master Swordsmith
-		[GetSpellInfo(9787)] = true, -- Weaponsmith
-	}
-
-	-- All Engineering Specialties
-	local EngineeringSpec = {
-		[GetSpellInfo(20219)] = true, -- Gnomish
-		[GetSpellInfo(20222)] = true, -- Goblin
-	}
-
-	-- All Leatherworking Specialties
-	local LeatherworkSpec = {
-		[GetSpellInfo(10657)] = true, -- Dragonscale
-		[GetSpellInfo(10659)] = true, -- Elemental
-		[GetSpellInfo(10661)] = true, -- Tribal
-	}
-
-	-- All Tailoring Specialties
-	local TailorSpec = {
-		[GetSpellInfo(26797)] = true, -- Spellfire
-		[GetSpellInfo(26801)] = true, -- Shadoweave
-		[GetSpellInfo(26798)] = true, -- Primal Mooncloth
-	}
-
-	---Initializes and adds data relavent to the player character
-	local function InitPlayerData()
-		local _, cls = UnitClass("player")
-
-		playerData.playerFaction = UnitFactionGroup("player")
-		playerData.playerClass = cls
-		playerData["Reputation"] = {}
-
-		addon:GetFactionLevels(playerData["Reputation"])
-
-		playerData["Professions"] = {
-			[GetSpellInfo(51304)] = false, -- Alchemy
-			[GetSpellInfo(51300)] = false, -- Blacksmithing
-			[GetSpellInfo(51296)] = false, -- Cooking
-			[GetSpellInfo(51313)] = false, -- Enchanting
-			[GetSpellInfo(51306)] = false, -- Engineering
-			[GetSpellInfo(45542)] = false, -- First Aid
-			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(32606)] = false, -- Mining
-			[GetSpellInfo(51309)] = false, -- Tailoring
-			[GetSpellInfo(51311)] = false, -- Jewelcrafting
-			[GetSpellInfo(45363)] = false, -- Inscription
-			[GetSpellInfo(53428)] = false, -- Runeforging
-		}
-		GetKnownProfessions(playerData["Professions"])
-
-		-- List of classes which have Specialties
-		SpecialtyTable = {
-			[GetSpellInfo(51304)] = AlchemySpec,
-			[GetSpellInfo(51300)] = BlacksmithSpec,
-			[GetSpellInfo(51306)] = EngineeringSpec,
-			[GetSpellInfo(51302)] = LeatherworkSpec,
-			[GetSpellInfo(51309)] = TailorSpec,
-		}
-
-		-- List containing all possible Specialties
-		AllSpecialtiesTable = {}
-
-		-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
-		for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
-	end
+	
 
 	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
 	function addon:SetRepDB()
 		if playerData and playerData["Reputation"] then
 			self:GetFactionLevels(playerData["Reputation"])
 		end
-	end
-
-	---Initializes all the recipe databases to their initial
-	function addon:InitDatabases()
-		addon:InitCustom(CustomList)
-		addon:InitMob(MobList)
-		addon:InitQuest(QuestList)
-		addon:InitReputation(ReputationList)
-		addon:InitTrainer(TrainerList)
-		addon:InitSeasons(SeasonalList)
-		addon:InitVendor(VendorList)
-
-		addon.recipe_list = RecipeList
 	end
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
@@ -1914,11 +1897,6 @@ do
 		if not TRADE_WINDOW_OPENED then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
-		end
-
-		-- First time a scan has been run, we need to get the player specific data, specifically faction information, profession information and other pertinent data.
-		if not playerData.playerClass then
-			InitPlayerData()
 		end
 
 		-- Get the name of the current trade skill opened, along with the current level of the skill.
