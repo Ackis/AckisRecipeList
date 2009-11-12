@@ -500,34 +500,34 @@ function addon:OnEnable()
 
 
 		local AlchemySpec = {
-			[GetSpellInfo(28674)] = true,
-			[GetSpellInfo(28678)] = true,
-			[GetSpellInfo(28676)] = true,
+			[GetSpellInfo(28674)] = 28674,
+			[GetSpellInfo(28678)] = 28678,
+			[GetSpellInfo(28676)] = 28676,
 		}
 
 		local BlacksmithSpec = {
-			[GetSpellInfo(9788)] = true, -- Armorsmith
-			[GetSpellInfo(17041)] = true, -- Master Axesmith
-			[GetSpellInfo(17040)] = true, -- Master Hammersmith
-			[GetSpellInfo(17039)] = true, -- Master Swordsmith
-			[GetSpellInfo(9787)] = true, -- Weaponsmith
+			[GetSpellInfo(9788)] = 9788, -- Armorsmith
+			[GetSpellInfo(17041)] = 17041, -- Master Axesmith
+			[GetSpellInfo(17040)] = 17040, -- Master Hammersmith
+			[GetSpellInfo(17039)] = 17039, -- Master Swordsmith
+			[GetSpellInfo(9787)] = 9787, -- Weaponsmith
 		}
 		
 		local EngineeringSpec = {
-			[GetSpellInfo(20219)] = true, -- Gnomish
-			[GetSpellInfo(20222)] = true, -- Goblin
+			[GetSpellInfo(20219)] = 20219, -- Gnomish
+			[GetSpellInfo(20222)] = 20222, -- Goblin
 		}
 
 		local LeatherworkSpec = {
-			[GetSpellInfo(10657)] = true, -- Dragonscale
-			[GetSpellInfo(10659)] = true, -- Elemental
-			[GetSpellInfo(10661)] = true, -- Tribal
+			[GetSpellInfo(10657)] = 10657, -- Dragonscale
+			[GetSpellInfo(10659)] = 10659, -- Elemental
+			[GetSpellInfo(10661)] = 10661, -- Tribal
 		}
 
 		local TailorSpec = {
-			[GetSpellInfo(26797)] = true, -- Spellfire
-			[GetSpellInfo(26801)] = true, -- Shadoweave
-			[GetSpellInfo(26798)] = true, -- Primal Mooncloth
+			[GetSpellInfo(26797)] = 26797, -- Spellfire
+			[GetSpellInfo(26801)] = 26801, -- Shadoweave
+			[GetSpellInfo(26798)] = 26798, -- Primal Mooncloth
 		}
 
 		SpecialtyTable = {
@@ -538,7 +538,8 @@ function addon:OnEnable()
 			[GetSpellInfo(51309)] = TailorSpec,
 		}
 
-		-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
+		-- Populate the Specialty table with all Specialties, adding alchemy even though no recipes have alchemy filters
+		for i in pairs(AlchemySpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
@@ -548,11 +549,7 @@ end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
-
-	-- If we disable the addon when the GUI is up, hide it.
-	if (addon.Frame) then
-		addon.Frame:Hide()
-	end
+	addon.Frame:Hide()
 
 	-- Remove the option from Manufac
 	if Manufac then
@@ -658,7 +655,7 @@ function addon:TRADE_SKILL_CLOSE()
 
 	addon:CloseTradeWindow()
 
-	if (addon.db.profile.closeguionskillclose and addon.Frame) then
+	if addon.db.profile.closeguionskillclose then
 		self:CloseWindow()
 	end
 
@@ -955,97 +952,6 @@ local function GetIDFromLink(SpellLink)
 	--return strmatch(SpellLink, "|H%w+:(%d+)")
 	-- Faster matching per Neffi
 	return strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-
-end
-
-do
-
-	local GetTradeSkillInfo = GetTradeSkillInfo
-	local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
-	local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
-	local CollapseTradeSkillSubClass = CollapseTradeSkillSubClass
-
-	---Scans the recipe listing and marks known recipes as true in the database
-	function addon:ScanForKnownRecipes(RecipeDB, playerData)
-
-		local headerlist = {}
-
-		-- Clear the "Have Materials" check box
-		-- If Mr Trader is installed
-		if MRTUIUtils_PushFilterSelection then
-			MRTUIUtils_PushFilterSelection()
-		-- Mr Trader isn't installed
-		else
-			if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-				TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
-				TradeSkillOnlyShowMakeable(false)
-			end
-
-			-- Clear the inventory slot filter
-			UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
-			UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
-			SetTradeSkillInvSlotFilter(0, 1, 1)
-
-			-- Clear the sub-classes filters
-			UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
-			UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
-			SetTradeSkillSubClassFilter(0, 1, 1)
-
-			-- Expand all headers so we can see all the recipes there are
-			for i = GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
-				if tradeType == "header" and (not isExpanded) then
-					headerlist[name] = true
-					ExpandTradeSkillSubClass(i)
-				end
-			end
-
-		end
-
-		local foundRecipes = 0
-
-		-- Scan through all recipes
-		for i = 1, GetNumTradeSkills() do
-			local tradeName, tradeType = GetTradeSkillInfo(i)
-
-			-- Ignore all trade skill headers
-			if (tradeType ~= "header") then
-				-- Get the trade skill link for the specified recipe
-				local SpellLink = GetTradeSkillRecipeLink(i)
-				local SpellString = GetIDFromLink(SpellLink)
-				-- Get the SpellID from the spell link or enchant link (to account for Skillet)
-				local SpellID = tonumber(SpellString)
-				
-				-- Spell ID is in RecipeDB so lets flag it as known
-				if (RecipeDB[SpellID]) then
-					-- Update array that recipe was found
-					RecipeDB[SpellID]["Known"] = true
-					foundRecipes = foundRecipes + 1
-				-- We didn't find it in our database, lets notify people that we don't have it
-				else
-					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
-				end
-			end
-
-		end
-
-		-- Close all the headers we've opened
-		-- If Mr Trader is installed use that API
-		if MRTUIUtils_PopFilterSelection then
-			MRTUIUtils_PopFilterSelection()
-		else
-			-- Collapse all headers that were collapsed before
-			for i = GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
-				if headerlist[name] then
-					CollapseTradeSkillSubClass(i)
-				end
-			end
-		end
-
-		playerData.foundRecipes = foundRecipes
-
-	end
 
 end
 
@@ -1733,13 +1639,6 @@ function addon:ChatCommand(input)
 
 end
 
----Resets the known flag to false for all the recipes in the database.
-local function ResetKnown(RecipeDB)
-	for SpellID in pairs(RecipeDB) do
-		RecipeDB[SpellID]["Known"] = false
-	end
-end
-
 do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
@@ -1861,25 +1760,6 @@ do
 		TRADE_WINDOW_OPENED = false
 	end
 
-	-- Scans first 25 spellbook slots to identify which trade skill Specialty we have
-	local function GetTradeSpecialty(SpecialtyTable, playerData)
-		--Scan the first 25 entries
-		for index = 1, 25, 1 do
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			-- Nothing found, return nothing
-			if (not spellName) or (index == 25) then
-				return ""
-			-- We have a match, return that spell name
-			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-				local ID = strmatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
-				return ID
-			end
-		end
-	end
-
-	
-
 	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
 	function addon:SetRepDB()
 		if playerData and playerData["Reputation"] then
@@ -1887,28 +1767,114 @@ do
 		end
 	end
 
+	-- List of tradeskill headers, used in addon:Scan()
+	local header_list = {}
+
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:Scan(textdump)
-		-- If we don't have a trade skill window open, lets return out of here
 		if not TRADE_WINDOW_OPENED then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
-
-		-- Get the name of the current trade skill opened, along with the current level of the skill.
+		-- Get the name of the currently opened trade skill, along with the current level of the skill.
 		playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
+
 		-- Get the current profession Specialty
-		playerData.playerSpecialty = GetTradeSpecialty(SpecialtyTable, playerData)
+		local specialty = SpecialtyTable[playerData.playerProfession]
+
+		for index = 1, 25, 1 do
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			if not spellName or index == 25 then
+				playerData.playerSpecialty = nil
+				break
+			elseif specialty and specialty[spellName] then
+				playerData.playerSpecialty = specialty[spellName]
+				break
+			end
+		end
+
 		-- Add the recipes to the database
 		playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
-		-- Reset all the known flags
-		ResetKnown(RecipeList)
-		-- Scan all recipes and mark the ones which ones we know
-		self:ScanForKnownRecipes(RecipeList, playerData)
+
+		--- Set the known flag to false for every recipe in the database.
+		for SpellID in pairs(RecipeList) do
+			RecipeList[SpellID]["Known"] = false
+		end
+
+		-------------------------------------------------------------------------------
+		-- Scan all recipes and mark the ones we know
+		-------------------------------------------------------------------------------
+		wipe(header_list)
+
+		if MRTUIUtils_PushFilterSelection then
+			MRTUIUtils_PushFilterSelection()
+		else
+			if not Skillet and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
+				TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
+				TradeSkillOnlyShowMakeable(false)
+			end
+
+			-- Clear the inventory slot filter
+			UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
+			UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
+			SetTradeSkillInvSlotFilter(0, 1, 1)
+
+			-- Clear the sub-classes filters
+			UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
+			UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
+			SetTradeSkillSubClassFilter(0, 1, 1)
+
+			-- Expand all headers so we can see all the recipes there are
+			for i = GetNumTradeSkills(), 1, -1 do
+				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+
+				if tradeType == "header" and not isExpanded then
+					header_list[name] = true
+					ExpandTradeSkillSubClass(i)
+				end
+			end
+		end
+		local recipes_found = 0
+
+		for i = 1, GetNumTradeSkills() do
+			local tradeName, tradeType = GetTradeSkillInfo(i)
+
+			if tradeType ~= "header" then
+				-- Get the trade skill link for the specified recipe
+				local SpellLink = GetTradeSkillRecipeLink(i)
+				local SpellString = GetIDFromLink(SpellLink)
+				local recipe = RecipeList[tonumber(SpellString)]
+
+				if recipe then
+					recipe["Known"] = true
+					recipes_found = recipes_found + 1
+				else
+					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
+				end
+			end
+		end
+
+		-- Close all the headers we've opened
+		-- If Mr Trader is installed use that API
+		if MRTUIUtils_PopFilterSelection then
+			MRTUIUtils_PopFilterSelection()
+		else
+			-- Collapse all headers that were collapsed before
+			for i = GetNumTradeSkills(), 1, -1 do
+				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+
+				if header_list[name] then
+					CollapseTradeSkillSubClass(i)
+				end
+			end
+		end
+		playerData.foundRecipes = recipes_found
+
 		-- Update the table containing which reps to display
 		PopulateRepFilters(RepFilters)
 		-- Add filtering flags to the recipes
