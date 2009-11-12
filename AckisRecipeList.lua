@@ -366,7 +366,7 @@ function addon:OnInitialize()
   	end
 	scan_button:SetHeight(20)
 	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick", function() addon:ToggleFrame()	end)
+	scan_button:SetScript("OnClick", function() addon:ToggleFrame() end)
 	scan_button:SetScript("OnEnter",
 			function(this)
 				GameTooltip_SetDefaultAnchor(GameTooltip, this)
@@ -564,10 +564,8 @@ end
 
 ---Event used for datamining when a trainer is shown.
 function addon:TRAINER_SHOW()
-
 	self:ScanSkillLevelData(true)
 	self:ScanTrainerData(true)
-
 end
 
 function addon:MERCHANT_SHOW()
@@ -652,7 +650,6 @@ do
 end
 
 function addon:TRADE_SKILL_CLOSE()
-
 	addon:CloseTradeWindow()
 
 	if addon.db.profile.closeguionskillclose then
@@ -662,7 +659,6 @@ function addon:TRADE_SKILL_CLOSE()
 	if not Skillet then
 		addon.ScanButton:Hide()
 	end
-
 end
 
 -------------------------------------------------------------------------------
@@ -681,7 +677,7 @@ do
 	function addon:GetFactionLevels(RepTable)
 
 		-- Bug here when I reload UI
-		if (not RepTable) then
+		if not RepTable then
 			return
 		end
 		twipe(rep_list)
@@ -721,9 +717,7 @@ do
 				CollapseFactionHeader(i)
 			end
 		end
-
 	end
-
 end	-- do block
 
 -------------------------------------------------------------------------------
@@ -751,8 +745,7 @@ end	-- do block
 -- @param Grey Level at which recipe is considered grey.
 -- @return None, array is passed as a reference.
 function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
-
-	local spellLink = GetSpellLink(SpellID)	-- Get the recipe link from the spell ID
+	local spellLink = GetSpellLink(SpellID)
 	local profession_id = GetSpellInfo(Profession)
 	local recipe_name = GetSpellInfo(SpellID)
 
@@ -767,7 +760,6 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	-- Create a table inside the RecipeListing table which stores all information
 	-- about a recipe
 	-------------------------------------------------------------------------------
-
 	RecipeDB[SpellID] = {
 		["Level"] = SkillLevel,
 		["ItemID"] = ItemID,
@@ -797,7 +789,6 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	for i = 1, 127, 1 do
 		recipeentry["Flags"][i] = false
 	end
-
 end
 
 --- Adds filtering flags to a specific tradeskill.
@@ -808,20 +799,17 @@ end
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
 function addon:addTradeFlags(RecipeDB, SpellID, ...)
-
 	-- flags are defined in Documentation.lua
 
 	local numvars = select('#',...)
 	local flags = RecipeDB[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
-	for i=1,numvars,1 do
+	for i = 1, numvars, 1 do
 		-- Get the value of the current flag
 		local flag = select(i, ...)
 		flags[flag] = true
 	end
-	
-
 end
 
 --- Adds acquire methods to a specific tradeskill.
@@ -838,7 +826,6 @@ do
 	--@end-alpha@
 
 	function addon:addTradeAcquire(RecipeDB, SpellID, ...)
-
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
 		local index = 1				-- Index for the number of Acquire entries we have
 		local i = 1				-- Index for which variables we're parsing through
@@ -849,7 +836,6 @@ do
 		--@end-alpha@
 
 		while (i < numvars) do
-
 			-- Create the space for the current Acquire method
 			if not acquire[index] then
 				acquire[index] = {}
@@ -879,7 +865,6 @@ do
 				--@end-alpha@
 
 			end
-
 			index = index + 1
 
 			--@alpha@
@@ -892,7 +877,6 @@ do
 			--@end-alpha@
 
 		end
-
 		-- Populate the location field with all the data
 		RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
 	end
@@ -1016,35 +1000,33 @@ do
 	end
 
 	function addon:ClearRepTable()
-
 		reptable = nil
-
 	end
 
 	local function CheckReputationDisplay(flags)
-
-		if (not reptable) then
+		if not reptable then
 			CreateRepTable()
 		end
-
 		local display = true
 
 		for i in pairs(reptable) do
-			if (flags[i]) then
-				if (reptable[i]) then
-					display = true
-				else
-					display = false
-				end
+			if flags[i] then
+				display = reptable[i] and true or false
 			end
 		end
-
 		return display
-
 	end
+
+	-- HardFilterMap is used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
+	-- Its keys and values are populated the first time addon:CheckDisplayRecipe() is called.
+	local HardFilterMap
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
 	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
+		if Recipe["Profession"] ~= playerProfession then
+			return false
+		end
+
 		-------------------------------------------------------------------------------
 		-- Origin
 		-------------------------------------------------------------------------------
@@ -1056,211 +1038,152 @@ do
 		local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
 		local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
 		local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-		local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-		local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
-		local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-		local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
-		local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
 
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
+		local generaldb = filterdb.general
+
 		local flags = Recipe["Flags"]
 
 		-- See Documentation file for logic explanation
+		-------------------------------------------------------------------------------
 		-- Stage 1
 		-- Loop through exclusive flags (hard filters)
 		-- If one of these does not pass we do not display the recipe
 		-- So to be more efficient we'll just leave this function if there's a false
-
-		local generaldb = filterdb.general
-		local obtaindb = filterdb.obtain
-
-		-- Is this recipe in my currently selected profession?
-		if (Recipe["Profession"] ~= playerProfession) then
-			return false
-		end
+		-------------------------------------------------------------------------------
 
 		-- Display both horde and alliance factions?
-		if (generaldb.faction == false) then
+		if not generaldb.faction then
 			-- We want to filter out all the Horde only recipes
-			if (playerFaction == BFAC["Alliance"]) then
+			if playerFaction == BFAC["Alliance"] then
 				-- Filter out Horde only
-				if (flags[F_ALLIANCE] == false) and (flags[F_HORDE] == true) then
+				if not flags[F_ALLIANCE] and flags[F_HORDE] then
 					return false
 				end
 			-- We want to filter out all the Alliance only recipes
 			else
 				-- Filter out Alliance only
-				if (flags[F_HORDE] == false) and (flags[F_ALLIANCE] == true) then
+				if not flags[F_HORDE] and flags[F_ALLIANCE] then
 					return false
 				end
 			end
 		end
 
 		-- Display all skill levels?
-		if (generaldb.skill == false) and (Recipe["Level"] > playerProfessionLevel) then
+		if not generaldb.skill and Recipe["Level"] > playerProfessionLevel then
 			return false
 		end
 
 		-- Display all specialities?
-		if (generaldb.specialty == false) then
-			if (Recipe["Specialty"]) and (Recipe["Specialty"] ~= playerSpecialty) then
+		if not generaldb.specialty then
+			if Recipe["Specialty"] and Recipe["Specialty"] ~= playerSpecialty then
 				return false
 			end
 		end
+		local obtaindb = filterdb.obtain
 
 		-- Filter out game recipes
-		if ((obtaindb.originalwow == false) and (Recipe["Game"] == GAME_ORIG)) then
-			return false
-		end
-		if ((obtaindb.bc == false) and (Recipe["Game"] == GAME_TBC)) then
-			return false
-		end
-		if ((obtaindb.wrath == false) and (Recipe["Game"] == GAME_WOTLK)) then
+		if not obtaindb.originalwow and Recipe["Game"] == GAME_ORIG then
 			return false
 		end
 
-		local bindingdb = filterdb.binding
-
-		-- Include BoE Items in the scan? (if I want to see BoE items, only filter those that are not BoE)
-		if (bindingdb.itemboe == false) and (flags[F_IBOE] == true) then
-			return false
-		end
-		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
-		if (bindingdb.itembop == false) and (flags[F_IBOP] == true) then
-			return false
-		end
-		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
-		if (bindingdb.itemboa == false) and (flags[F_IBOA] == true) then
-			return false
-		end
-		-- Include BoE Recipes in the scan? (if I want to see BoE recipes, only filter those that are not BoE)
-		if (bindingdb.recipeboe == false) and (flags[F_RBOE] == true) then
-			return false
-		end
-		-- Include BoP Recipes in the scan? (if I want to see BoP recipes, only filter those that are not BoP)
-		if (bindingdb.recipebop == false) and (flags[F_RBOP] == true) then
-			return false
-		end
-		-- Include BoA Recipes in the scan? (if I want to see BoA recipes, only filter those that are not BoA)
-		if (bindingdb.recipeboa == false) and (flags[F_RBOA] == true) then
+		if not obtaindb.bc and Recipe["Game"] == GAME_TBC then
 			return false
 		end
 
-		local playerdb = filterdb.player
-
-		-- Include melee type recipes?
-		if (playerdb.melee == false) and (flags[F_DPS] == true) then
-			return false
-		end
-		-- Include tanking type recipes?
-		if (playerdb.tank == false) and (flags[F_TANK] == true) then
-			return false
-		end
-		-- Include healing type recipes?
-		if (playerdb.healer == false) and (flags[F_HEALER] == true) then
-			return false
-		end
-		-- Include caster type recipes?
-		if (playerdb.caster == false) and (flags[F_CASTER] == true) then
+		if not obtaindb.wrath and Recipe["Game"] == GAME_WOTLK then
 			return false
 		end
 
-		local armordb = filterdb.item.armor
+		if not HardFilterMap then
+			local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
+			local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
+			local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
+			local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
+			local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
 
-		if (armordb.cloth == false) and (flags[F_CLOTH] == true) then
-			return false
-		end
-		if (armordb.leather == false) and (flags[F_LEATHER] == true) then
-			return false
-		end
-		if (armordb.mail == false) and (flags[F_MAIL] == true) then
-			return false
-		end
-		if (armordb.plate == false) and (flags[F_PLATE] == true) then
-			return false
-		end
-		if (armordb.trinket == false) and (flags[F_TRINKET] == true) then
-			return false
-		end
-		if (armordb.cloak == false) and (flags[F_CLOAK] == true) then
-			return false
-		end
-		if (armordb.ring == false) and (flags[F_RING] == true) then
-			return false
-		end
-		if (armordb.necklace == false) and (flags[F_NECK] == true) then
-			return false
-		end
-		if (armordb.shield == false) and (flags[F_SHIELD] == true) then
-			return false
-		end
+			local filter_db		= addon.db.profile.filters
+			local binding_filters	= filter_db.binding
+			local player_filters	= filter_db.player
+			local armor_filters	= filter_db.item.armor
+			local weapon_filters	= filter_db.item.weapon
 
-		local weapondb = filterdb.item.weapon
-
-		if (weapondb.onehand == false) and (flags[F_1H] == true) then
-			return false
-		end
-		if (weapondb.twohand == false) and (flags[F_2H] == true) then
-			return false
-		end
-		if (weapondb.axe == false) and (flags[F_AXE] == true) then
-			return false
-		end
-		if (weapondb.sword == false) and (flags[F_SWORD] == true) then
-			return false
-		end
-		if (weapondb.mace == false) and (flags[F_MACE] == true) then
-			return false
-		end
-		if (weapondb.polearm == false) and (flags[F_POLEARM] == true) then
-			return false
-		end
-		if (weapondb.dagger == false) and (flags[F_DAGGER] == true) then
-			return false
-		end
-		if (weapondb.fist == false) and (flags[F_FIST] == true) then
-			return false
-		end
-		if (weapondb.gun == false) and (flags[F_GUN] == true) then
-			return false
-		end
-		if (weapondb.staff == false) and (flags[F_STAFF] == true) then
-			return false
-		end
-		if (weapondb.wand == false) and (flags[F_WAND] == true) then
-			return false
-		end
-		if (weapondb.thrown == false) and (flags[F_THROWN] == true) then
-			return false
-		end
-		if (weapondb.bow == false) and (flags[F_BOW] == true) then
-			return false
-		end
-		if (weapondb.crossbow == false) and (flags[F_XBOW] == true) then
-			return false
-		end
-		if (weapondb.ammo == false) and (flags[F_AMMO] == true) then
-			return false
+			HardFilterMap = {
+				------------------------------------------------------------------------------------------------
+				-- Binding flags.
+				------------------------------------------------------------------------------------------------
+				["itemboe"]	= { flag = F_IBOE,	sv_root = binding_filters },
+				["itembop"]	= { flag = F_IBOP,	sv_root = binding_filters },
+				["itemboa"]	= { flag = F_IBOA,	sv_root = binding_filters },
+				["recipeboe"]	= { flag = F_RBOE,	sv_root = binding_filters },
+				["recipebop"]	= { flag = F_RBOP,	sv_root = binding_filters },
+				["recipeboa"]	= { flag = F_RBOA,	sv_root = binding_filters },
+				------------------------------------------------------------------------------------------------
+				-- Player Type flags.
+				------------------------------------------------------------------------------------------------
+				["melee"]	= { flag = F_DPS,	sv_root = player_filters },
+				["tank"]	= { flag = F_TANK,	sv_root = player_filters },
+				["healer"]	= { flag = F_HEALER,	sv_root = player_filters },
+				["caster"]	= { flag = F_CASTER,	sv_root = player_filters },
+				------------------------------------------------------------------------------------------------
+				-- Armor flags.
+				------------------------------------------------------------------------------------------------
+				["cloth"]	= { flag = F_CLOTH,	sv_root = armor_filters },
+				["leather"]	= { flag = F_LEATHER,	sv_root = armor_filters },
+				["mail"]	= { flag = F_MAIL,	sv_root = armor_filters },
+				["plate"]	= { flag = F_PLATE,	sv_root = armor_filters },
+				["trinket"]	= { flag = F_TRINKET,	sv_root = armor_filters },
+				["cloak"]	= { flag = F_CLOAK,	sv_root = armor_filters },
+				["ring"]	= { flag = F_RING,	sv_root = armor_filters },
+				["necklace"]	= { flag = F_NECK,	sv_root = armor_filters },
+				["shield"]	= { flag = F_SHIELD,	sv_root = armor_filters },
+				------------------------------------------------------------------------------------------------
+				-- Weapon flags.
+				------------------------------------------------------------------------------------------------
+				["onehand"]	= { flag = F_1H,	sv_root = weapon_filters },
+				["twohand"]	= { flag = F_2H,	sv_root = weapon_filters },
+				["axe"]		= { flag = F_AXE,	sv_root = weapon_filters },
+				["sword"]	= { flag = F_SWORD,	sv_root = weapon_filters },
+				["mace"]	= { flag = F_MACE,	sv_root = weapon_filters },
+				["polearm"]	= { flag = F_POLEARM,	sv_root = weapon_filters },
+				["dagger"]	= { flag = F_DAGGER,	sv_root = weapon_filters },
+				["fist"]	= { flag = F_FIST,	sv_root = weapon_filters },
+				["gun"]		= { flag = F_GUN,	sv_root = weapon_filters },
+				["staff"]	= { flag = F_STAFF,	sv_root = weapon_filters },
+				["wand"]	= { flag = F_WAND,	sv_root = weapon_filters },
+				["thrown"]	= { flag = F_THROWN,	sv_root = weapon_filters },
+				["bow"]		= { flag = F_BOW,	sv_root = weapon_filters },
+				["crossbow"]	= { flag = F_XBOW,	sv_root = weapon_filters },
+				["ammo"]	= { flag = F_AMMO,	sv_root = weapon_filters },
+			}
 		end
 
-		if (not CheckReputationDisplay(flags)) then
-			return false
+		-- Return false if info.flag is set to true, and the savedvariable associated with it is set to false
+		for filter, data in pairs(HardFilterMap) do
+			if data.sv_root then
+				if flags[data.flag] and not data.sv_root[filter] then
+					return false
+				end
+			end
 		end
 
+		if not CheckReputationDisplay(flags) then
+			return false
+		end
 		local classesdb = filterdb.classes
 		
 		if (classesdb.deathknight == false) and (flags[F_DK] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1270,14 +1193,14 @@ do
 		if (classesdb.druid == false) and (flags[F_DRUID] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1287,14 +1210,14 @@ do
 		if (classesdb.hunter == false) and (flags[F_HUNTER] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1304,14 +1227,14 @@ do
 		if (classesdb.mage == false) and (flags[F_MAGE] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1321,14 +1244,14 @@ do
 		if (classesdb.paladin == false) and (flags[F_PALADIN] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1338,14 +1261,14 @@ do
 		if (classesdb.priest == false) and (flags[F_PRIEST] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1355,14 +1278,14 @@ do
 		if (classesdb.shaman == false) and (flags[F_SHAMAN] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1372,14 +1295,14 @@ do
 		if (classesdb.rogue == false) and (flags[F_ROGUE] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1389,14 +1312,14 @@ do
 		if (classesdb.warlock == false) and (flags[F_WARLOCK] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) or
-			(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) or
+				(classesdb.warrior == true) and (flags[F_WARRIOR] == true) then
 				--do nothing
 			else
 				return false
@@ -1406,70 +1329,78 @@ do
 		if (classesdb.warrior == false) and (flags[F_WARRIOR] == true) then
 			--check if the recipe has another class which is shown
 			if (classesdb.druid == true) and (flags[F_DRUID] == true) or
-			(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
-			(classesdb.mage == true) and (flags[F_MAGE] == true) or
-			(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
-			(classesdb.priest == true) and (flags[F_PRIEST] == true) or
-			(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
-			(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
-			(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
-			(classesdb.deathknight == true) and (flags[F_DK] == true) then
+				(classesdb.hunter == true) and (flags[F_HUNTER] == true) or
+				(classesdb.mage == true) and (flags[F_MAGE] == true) or
+				(classesdb.paladin == true) and (flags[F_PALADIN] == true) or
+				(classesdb.priest == true) and (flags[F_PRIEST] == true) or
+				(classesdb.shaman == true) and (flags[F_SHAMAN] == true) or
+				(classesdb.rogue == true) and (flags[F_ROGUE] == true) or
+				(classesdb.warlock == true) and (flags[F_WARLOCK] == true) or
+				(classesdb.deathknight == true) and (flags[F_DK] == true) then
 				--do nothing
 			else
 				return false
 			end
 		end
 
+		------------------------------------------------------------------------------------------------
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
-
+		------------------------------------------------------------------------------------------------
 		-- Display trainer recipes
-		if (obtaindb.trainer == true) and (flags[F_TRAINER] == true) then
+		if obtaindb.trainer and flags[F_TRAINER] then
 			return true
 		end
+
 		-- Display vendor recipes
-		if (obtaindb.vendor == true) and (flags[F_VENDOR] == true) then
+		if obtaindb.vendor and flags[F_VENDOR] then
 			return true
 		end
+
 		-- Display instance recipes
-		if (obtaindb.instance == true) and (flags[F_INSTANCE] == true) then
+		if obtaindb.instance and flags[F_INSTANCE] then
 			return true
 		end
+
 		-- Display raid recipes
-		if (obtaindb.raid == true) and (flags[F_RAID] == true) then
+		if obtaindb.raid and flags[F_RAID] then
 			return true
 		end
+
 		-- Display seasonal recipes
-		if (obtaindb.seasonal == true) and (flags[F_SEASONAL] == true) then
+		if obtaindb.seasonal and flags[F_SEASONAL] then
 			return true
 		end
+
 		-- Display quest recipes
-		if (obtaindb.quest == true) and (flags[F_QUEST] == true) then
+		if obtaindb.quest and flags[F_QUEST] then
 			return true
 		end
+
 		-- Display PVP recipes
-		if (obtaindb.pvp == true) and (flags[F_PVP] == true) then
+		if obtaindb.pvp and flags[F_PVP] then
 			return true
 		end
+
 		-- Display world drop recipes
-		if (obtaindb.worlddrop == true) and (flags[F_WORLD_DROP] == true) then
+		if obtaindb.worlddrop and flags[F_WORLD_DROP] then
 			return true
 		end
+
 		-- Display mob drop recipes
-		if (obtaindb.mobdrop == true) and (flags[F_MOB_DROP] == true) then
+		if obtaindb.mobdrop and flags[F_MOB_DROP] then
 			return true
 		end
+
 		-- Display discovery recipes
-		if (obtaindb.discovery == true) and (flags[F_DISC] == true) then
+		if obtaindb.discovery and flags[F_DISC] then
 			return true
 		end
 
 		-- If we get here it means that no flags matched our values
 		return false
-
 	end
-
 end
 
 ---Creates an array of which factions we want to include in our display and which ones to ignore
@@ -1809,7 +1740,7 @@ do
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
 		-------------------------------------------------------------------------------
-		wipe(header_list)
+		twipe(header_list)
 
 		if MRTUIUtils_PushFilterSelection then
 			MRTUIUtils_PushFilterSelection()
