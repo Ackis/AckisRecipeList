@@ -30,6 +30,9 @@ This source code is released under All Rights Reserved.
 -- @class file
 -- @name ARLFrame.lua
 
+-------------------------------------------------------------------------------
+-- AddOn Namespace
+-------------------------------------------------------------------------------
 local LibStub = LibStub
 
 local MODNAME		= "Ackis Recipe List"
@@ -38,6 +41,8 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
+
+local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
 
 -------------------------------------------------------------------------------
 -- Upvalued Lua globals
@@ -91,7 +96,6 @@ local currentProfession = ""
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
-local MainPanel			-- Assigned in addon:InitializeFrame(), then set as addon.Frame
 
 -------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
@@ -929,7 +933,7 @@ local function SetSpellTooltip(owner, loc, link)
 	arlSpellTooltip:Show()
 end
 
-local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
+local function GenerateTooltipContent(owner, rIndex)
 	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
 	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
 	local spellLink = recipeDB[rIndex]["RecipeLink"]
@@ -976,7 +980,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	arlTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipeDB[rIndex]["Name"], "CENTER", 2)
 
 	-- check if the recipe is excluded
-	if (exclude[rIndex] == true) then
+	local exclude = addon.db.profile.exclusionlist
+
+	if exclude[rIndex] then
 		ttAdd(0, -1, 1, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
 	end
 
@@ -986,13 +992,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local recipeSkill = recipeDB[rIndex]["Level"]
 	local playerSkill = playerData.playerProfessionLevel
 
-	if (recipeSkill > playerSkill) then
+	if recipeSkill > playerSkill then
 		clr2 = addon:hexcolor("RED")
-	elseif ((playerSkill - recipeSkill) < 20) then
+	elseif (playerSkill - recipeSkill) < 20 then
 		clr2 = addon:hexcolor("ORANGE")
-	elseif ((playerSkill - recipeSkill) < 30) then
+	elseif (playerSkill - recipeSkill) < 30 then
 		clr2 = addon:hexcolor("YELLOW")
-	elseif ((playerSkill - recipeSkill) < 40) then
+	elseif (playerSkill - recipeSkill) < 40 then
 		clr2 = addon:hexcolor("GREEN") 
 	else
 		clr2 = addon:hexcolor("MIDGREY")
@@ -1030,7 +1036,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	-- obtain info
 	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
-	local factiondisp = addon.db.profile.filters.general.faction
+	local playerFaction = playerData.playerFaction
 
 	-- loop through acquire methods, display each
 	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
@@ -1346,7 +1352,7 @@ do
 		highlight:SetParent(self)
 		highlight:SetAllPoints(self)
 		highlight:Show()
-		GenerateTooltipContent(self, DisplayStrings[self.sI].sID, playerData.playerFaction, addon.db.profile.exclusionlist)
+		GenerateTooltipContent(self, DisplayStrings[self.sI].sID)
 	end
 
 	local function Bar_OnLeave()
@@ -1362,12 +1368,10 @@ do
 		local rButton = MainPanel.recipe_buttons[bIndex]
 		local dStringIndex = rButton.sI
 		local rIndex = DisplayStrings[dStringIndex].sID
-		local playerFaction = playerData.playerFaction
-		local exclude = addon.db.profile.exclusionlist
 
 		pButton:SetScript("OnEnter",
-				  function (pButton)
-					  GenerateTooltipContent(pButton, rIndex, playerFaction, addon.db.profile.exclusionlist)
+				  function(pButton)
+					  GenerateTooltipContent(pButton, rIndex)
 				  end)
 
 		pButton:SetScript("OnLeave", Button_OnLeave)
@@ -1912,35 +1916,6 @@ do
 			end
 		end
 	end
-end
-
--- Description: Set the texture on the switcher button.
-
-local function SetSwitcherTexture(tex)
-
-	-- This is really only called the first time its displayed. It should reflect the first
-	-- profession the user has selected, or that shows up in his lists.
-
-	-- For now, just display the first texture
-	local ARL_S_NTexture = ARL_SwitcherButton:CreateTexture("ARL_S_NTexture", "BACKGROUND")
-	ARL_S_NTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
-	ARL_S_NTexture:SetTexCoord(0, 1, 0, 1)
-	ARL_S_NTexture:SetAllPoints(ARL_SwitcherButton)
-
-	local ARL_S_PTexture = ARL_SwitcherButton:CreateTexture("ARL_S_PTexture", "BACKGROUND")
-	ARL_S_PTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_down]])
-	ARL_S_PTexture:SetTexCoord(0, 1, 0, 1)
-	ARL_S_PTexture:SetAllPoints(ARL_SwitcherButton)
-
-	local ARL_S_DTexture = ARL_SwitcherButton:CreateTexture("ARL_S_DTexture", "BACKGROUND")
-	ARL_S_DTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
-	ARL_S_DTexture:SetTexCoord(0, 1, 0, 1)
-	ARL_S_DTexture:SetAllPoints(ARL_SwitcherButton)
-
-	ARL_SwitcherButton:SetNormalTexture(ARL_S_NTexture)
-	ARL_SwitcherButton:SetPushedTexture(ARL_S_PTexture)
-	ARL_SwitcherButton:SetDisabledTexture(ARL_S_DTexture)
-
 end
 
 local faction_strings	-- This is populated in expandEntry()
@@ -2761,49 +2736,6 @@ local function SaveFramePosition()
 
 end
 
-local function SetFramePosition()
-
-	MainPanel:ClearAllPoints()
-
-	local opts = addon.db.profile.frameopts
-	local FixedOffsetX = opts.offsetx
-	
-	if (opts.anchorTo == "") then
-		-- no values yet, clamp to whatever frame is appropriate
-		if (ATSWFrame) then
-			-- Anchor frame to ATSW
-			MainPanel:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif (CauldronFrame) then
-			-- Anchor frame to Cauldron
-			MainPanel:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif (Skillet) then
-			-- Anchor frame to Skillet
-			MainPanel:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-		else
-			-- Anchor to default tradeskill frame
-			MainPanel:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
-		end
-	else
-		if MainPanel._is_expanded then
-			if (opts.anchorFrom == "TOPLEFT") or
-			(opts.anchorFrom == "LEFT") or
-			(opts.anchorFrom == "BOTTOMLEFT") then
-				FixedOffsetX = opts.offsetx
-			elseif (opts.anchorFrom == "TOP") or
-			(opts.anchorFrom == "CENTER") or
-			(opts.anchorFrom == "BOTTOM") then
-				FixedOffsetX = opts.offsetx + 151/2
-			elseif (opts.anchorFrom == "TOPRIGHT") or
-			(opts.anchorFrom == "RIGHT") or
-			(opts.anchorFrom == "BOTTOMRIGHT") then
-				FixedOffsetX = opts.offsetx + 151
-			end
-		end
-		MainPanel:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
-	end
-
-end
-
 -------------------------------------------------------------------------------
 -- Data used in GenerateClickableTT() and its support functions.
 -------------------------------------------------------------------------------
@@ -3098,9 +3030,8 @@ function addon:InitializeFrame()
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
 	-------------------------------------------------------------------------------
-	-- Create the main frame.
+	-- Initialize the main frame.
 	-------------------------------------------------------------------------------
-	MainPanel = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
 	MainPanel:SetWidth(293)
 	MainPanel:SetHeight(447)
 	MainPanel:SetFrameStrata("DIALOG")
@@ -3110,27 +3041,6 @@ function addon:InitializeFrame()
 	MainPanel:EnableKeyboard(true)
 	MainPanel:SetMovable(true)
 
-	function MainPanel:ResetTitle()
-		local new_title = ""	-- reset the frame title line
-
-		if self._is_expanded then
-			local total, active = 0, 0
-
-			for filter, info in pairs(FilterValueMap) do
-				if info.svroot then
-					if info.svroot[filter] == true then
-						active = active + 1
-					end
-					total = total + 1
-				end
-			end
-			new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession ..
-				" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
-		else
-			new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession
-		end
-		self.HeadingText:SetText(addon:Normal(new_title))
-	end
 	tinsert(UISpecialFrames, "AckisRecipeList.Frame")	-- Allows ARL to be closed with the Escape key
 	addon.Frame = MainPanel
 
@@ -3164,14 +3074,46 @@ function addon:InitializeFrame()
 	MainPanel.HeadingText = heading_text
 
 	-------------------------------------------------------------------------------
-	-- Create the switcher button and assign its scripts.
+	-- Create the mode button and assign its values.
 	-------------------------------------------------------------------------------
-	local ARL_SwitcherButton = CreateFrame("Button", "ARL_SwitcherButton", MainPanel, "UIPanelButtonTemplate")
-	ARL_SwitcherButton:SetWidth(64)
-	ARL_SwitcherButton:SetHeight(64)
-	ARL_SwitcherButton:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
-	ARL_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_SwitcherButton:SetScript("OnClick",
+	local mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+	mode_button:SetWidth(64)
+	mode_button:SetHeight(64)
+	mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
+	mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+	MainPanel.mode_button = mode_button
+
+	-------------------------------------------------------------------------------
+	-- Normal, Pushed, and Disabled textures for the mode button.
+	-------------------------------------------------------------------------------
+	mode_button._normal = mode_button:CreateTexture(nil, "BACKGROUND")
+	mode_button._pushed = mode_button:CreateTexture(nil, "BACKGROUND")
+	mode_button._disabled = mode_button:CreateTexture(nil, "BACKGROUND")
+
+	-------------------------------------------------------------------------------
+	-- Mode button scripts/functions.
+	-------------------------------------------------------------------------------
+	function mode_button:ChangeTexture(texture)
+		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
+
+		normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+		normal:SetTexCoord(0, 1, 0, 1)
+		normal:SetAllPoints(self)
+		self:SetNormalTexture(normal)
+
+		pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
+		pushed:SetTexCoord(0, 1, 0, 1)
+		pushed:SetAllPoints(self)
+		self:SetPushedTexture(pushed)
+
+		disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+		disabled:SetTexCoord(0, 1, 0, 1)
+		disabled:SetAllPoints(self)
+		self:SetDisabledTexture(disabled)
+	end
+
+	mode_button:SetScript("OnClick",
 				     function(self, button, down)
 					     -- Known professions should be in playerData["Professions"]
 
@@ -3238,7 +3180,7 @@ function addon:InitializeFrame()
 					     end
 
 					     -- Redisplay the button with the new skill
-					     SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+					     self:ChangeTexture(SortedProfessions[currentProfIndex].texture)
 					     playerData.playerProfession = SortedProfessions[currentProfIndex].name
 					     currentProfession = playerData.playerProfession
 
@@ -4764,8 +4706,7 @@ function addon:InitializeFrame()
 end
 
 -------------------------------------------------------------------------------
--- Displays the main recipe frame if it exists. Otherwise, create the frame
--- and initialize it, then show it.
+-- Displays the main recipe frame.
 -------------------------------------------------------------------------------
 function addon:DisplayFrame(
 	cPlayer,	-- playerdata
@@ -4805,26 +4746,28 @@ function addon:DisplayFrame(
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
-		if (v.name == currentProfession) then
+		if v.name == currentProfession then
 			currentProfIndex = k
 			break
 		end
 	end
-	SetFramePosition()							-- Set our addon frame position
+	MainPanel:SetPosition()							-- Set our addon frame position
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	-- reset the scale
-	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
+	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
 	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
-	self.Frame:ResetTitle()							-- Reset our addon title text
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)		-- Set the texture on our switcher button correctly
+	MainPanel:ResetTitle()
+	MainPanel.mode_button:ChangeTexture(SortedProfessions[currentProfIndex].texture)
 
 	-- Acquire the list, then sort it
 	recipeDB = self.recipe_list
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
-	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
-	SetProgressBar(cPlayer)							-- Update our progressbar
+
+	-- Fill the DisplayStrings from the sorted list and update the progressbar
+	initDisplayStrings()
+	SetProgressBar(cPlayer)
 
 	-- And update our scrollframe
 	RecipeList_Update()
@@ -4833,6 +4776,66 @@ function addon:DisplayFrame(
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""
 	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+end
+
+-------------------------------------------------------------------------------
+-- MainPanel methods
+-------------------------------------------------------------------------------
+function MainPanel:SetPosition()
+	self:ClearAllPoints()
+
+	local opts = addon.db.profile.frameopts
+	local FixedOffsetX = opts.offsetx
+
+	if opts.anchorTo == "" then
+		-- no values yet, clamp to whatever frame is appropriate
+		if ATSWFrame then
+			-- Anchor frame to ATSW
+			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+		elseif CauldronFrame then
+			-- Anchor frame to Cauldron
+			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
+		elseif Skillet then
+			-- Anchor frame to Skillet
+			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		else
+			-- Anchor to default tradeskill frame
+			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+		end
+	else
+		if self._is_expanded then
+			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+				FixedOffsetX = opts.offsetx
+			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+				FixedOffsetX = opts.offsetx + 151/2
+			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+				FixedOffsetX = opts.offsetx + 151
+			end
+		end
+		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+	end
+end
+
+function MainPanel:ResetTitle()
+	local new_title = ""	-- reset the frame title line
+
+	if self._is_expanded then
+		local total, active = 0, 0
+
+		for filter, info in pairs(FilterValueMap) do
+			if info.svroot then
+				if info.svroot[filter] == true then
+					active = active + 1
+				end
+				total = total + 1
+			end
+		end
+		new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession ..
+			" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
+	else
+		new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession
+	end
+	self.HeadingText:SetText(addon:Normal(new_title))
 end
 
 -------------------------------------------------------------------------------
