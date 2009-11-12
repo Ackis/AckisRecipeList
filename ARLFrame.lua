@@ -3184,6 +3184,13 @@ function addon:InitializeFrame()
 					     playerData.playerProfession = SortedProfessions[currentProfIndex].name
 					     currentProfession = playerData.playerProfession
 
+					     local is_shown = TradeSkillFrame:IsVisible()
+					     CastSpellByName(currentProfession)
+					     addon:Scan()
+
+					     if not is_shown then
+						     TradeSkillFrame:Hide()
+					     end
 					     -- Lets get the new skill level
 					     -- Expand all headers first
 
