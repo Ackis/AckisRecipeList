@@ -1995,9 +1995,9 @@ function addon:GetTextDump(RecipeDB, profession)
 	local texttable = {}
 
 	-- Add a header to the text table
-	tinsert(texttable, strformat("Ackis Recipe List Text Dump for %s", profession))
+	tinsert(texttable, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
 	tinsert(texttable, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
-	tinsert(texttable, "Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
+	tinsert(texttable, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 
 	for SpellID in pairs(RecipeDB) do
 
@@ -2007,11 +2007,11 @@ function addon:GetTextDump(RecipeDB, profession)
 
 			-- Add Spell ID, Name and Skill Level to the list
 			tinsert(texttable, SpellID)
-			tinsert(texttable, ", ")
+			tinsert(texttable, ",")
 			tinsert(texttable, RecipeDB[SpellID]["Name"])
-			tinsert(texttable, ", ")
+			tinsert(texttable, ",")
 			tinsert(texttable, RecipeDB[SpellID]["Level"])
-			tinsert(texttable, ", [")
+			tinsert(texttable, ",\"")
 
 			-- Add in all the filter flags
 			local flags = RecipeDB[SpellID]["Flags"]
@@ -2020,11 +2020,11 @@ function addon:GetTextDump(RecipeDB, profession)
 			for i=1, 127, 1 do
 				if (flags[i] == true) then
 					tinsert(texttable, i)
-					tinsert(texttable, ", ")
+					tinsert(texttable, ",")
 				end
 			end
 
-			tinsert(texttable, "], [")
+			tinsert(texttable, "\",\"")
 
 			-- Find out which unique acquire methods we have
 			local acquire = RecipeDB[SpellID]["Acquire"]
@@ -2053,15 +2053,15 @@ function addon:GetTextDump(RecipeDB, profession)
 			-- Add all the acquire methods in
 			for i in pairs(acquirelist) do
 				tinsert(texttable, i)
-				tinsert(texttable, ", ")
+				tinsert(texttable, ",")
 			end
 
 			if (RecipeDB[SpellID]["Known"]) then
-				tinsert(texttable, "], true\n")
+				tinsert(texttable, "\",true\n")
 			else
-				tinsert(texttable, "], false\n")
+				tinsert(texttable, "\",false\n")
 			end
-
+			
 		end
 	end
 

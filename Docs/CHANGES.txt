@@ -1,4 +1,8 @@
 ==ARL Change Log
+===Version 2xxx
+*Fixed the Text Dump output to use correct csv syntax, therefore making .csv files show the output much cleaner now.
+*Much more optimizations to the ARL core.
+
 ===Version 2634
 *More optimizations to the Jewelcrafting, and Inscription databases.
 *Fixed an old bug which prevented you from customizing which items appear when you link things via TomTom.
