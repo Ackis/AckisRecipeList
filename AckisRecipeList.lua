@@ -1112,81 +1112,9 @@ do
 	-------------------------------------------------------------------------------
 	local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
-	local reptable = nil
-
-	local function CreateRepTable()
-		local repdb = addon.db.profile.filters.rep
-
-		-------------------------------------------------------------------------------
-		-- Reputation Filter flags
-		-------------------------------------------------------------------------------
-		local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
-		local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
-		local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110
-		local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 111, 112, 113, 114
-		local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
-		local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
-		local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
-
-		reptable = {
-			[96] = repdb.argentdawn,
-			[97] = repdb.cenarioncircle,
-			[98] = repdb.thoriumbrotherhood,
-			[99] = repdb.timbermaw,
-			[100] = repdb.zandalar,
-			[101] = repdb.aldor,
-			[102] = repdb.ashtonguedeathsworn,
-			[103] = repdb.cenarionexpedition,
-			[104] = repdb.hellfire,
-			[105] = repdb.consortium,
-			[106] = repdb.keepersoftime,
-			[107] = repdb.lowercity,
-			[108] = repdb.nagrand,
-			[109] = repdb.scaleofthesands,
-			[110] = repdb.scryer,
-			[111] = repdb.shatar,
-			[112] = repdb.shatteredsun,
-			[113] = repdb.sporeggar,
-			[114] = repdb.violeteye,
-			[115] = repdb.argentcrusade,
-			[116] = repdb.frenzyheart,
-			[117] = repdb.ebonblade,
-			[118] = repdb.kirintor,
-			[119] = repdb.sonsofhodir,
-			[120] = repdb.kaluak,
-			[121] = repdb.oracles,
-			[122] = repdb.wyrmrest,
-			[123] = repdb.wrathcommon1,
-			[124] = repdb.wrathcommon2,
-			[125] = repdb.wrathcommon3,
-			[126] = repdb.wrathcommon4,
-			[127] = repdb.wrathcommon5,
-			[F_ASHEN_VERDICT] = repdb.ashenverdict,
-		}
-
-	end
-
-	function addon:ClearRepTable()
-		reptable = nil
-	end
-
-	local function CheckReputationDisplay(flags)
-		if not reptable then
-			CreateRepTable()
-		end
-		local display = true
-
-		for i in pairs(reptable) do
-			if flags[i] then
-				display = reptable[i] and true or false
-			end
-		end
-		return display
-	end
-
 	-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
 	-- Its keys and values are populated the first time addon:CheckDisplayRecipe() is called.
-	local HardFilterFlags, SoftFilterFlags
+	local HardFilterFlags, SoftFilterFlags, RepFilterFlags
 
 	local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
 	local ClassFilterFlags = {
@@ -1195,8 +1123,6 @@ do
 		["shaman"]	= F_SHAMAN,	["rogue"]	= F_ROGUE,	["warlock"]	= F_WARLOCK,
 		["warrior"]	= F_WARRIOR,
 	}
-
-
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
 	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
@@ -1266,6 +1192,9 @@ do
 			return false
 		end
 
+		-------------------------------------------------------------------------------
+		-- Check the hard filter flags
+		-------------------------------------------------------------------------------
 		if not HardFilterFlags then
 			local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
 			local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
@@ -1334,9 +1263,71 @@ do
 			end
 		end
 
-		if not CheckReputationDisplay(flags) then
+		-------------------------------------------------------------------------------
+		-- Check the reputation filter flags
+		-------------------------------------------------------------------------------
+		if not RepFilterFlags then
+			local rep_filters = filter_db.rep
+
+			local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
+			local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
+			local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110
+			local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 111, 112, 113, 114
+			local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
+			local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
+			local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
+
+			RepFilterFlags = {
+				[F_ARGENTDAWN]		= rep_filters.argentdawn,
+				[F_CENARION_CIRCLE]	= rep_filters.cenarioncircle,
+				[F_THORIUM_BROTHERHOOD]	= rep_filters.thoriumbrotherhood,
+				[F_TIMBERMAW_HOLD]	= rep_filters.timbermaw,
+				[F_ZANDALAR]		= rep_filters.zandalar,
+				[F_ALDOR]		= rep_filters.aldor,
+				[F_ASHTONGUE]		= rep_filters.ashtonguedeathsworn,
+				[F_CENARION_EXPEDITION]	= rep_filters.cenarionexpedition,
+				[F_HELLFIRE]		= rep_filters.hellfire,
+				[F_CONSORTIUM]		= rep_filters.consortium,
+				[F_KOT]			= rep_filters.keepersoftime,
+				[F_LOWERCITY]		= rep_filters.lowercity,
+				[F_NAGRAND]		= rep_filters.nagrand,
+				[F_SCALE_SANDS]		= rep_filters.scaleofthesands,
+				[F_SCRYER]		= rep_filters.scryer,
+				[F_SHATAR]		= rep_filters.shatar,
+				[F_SHATTEREDSUN]	= rep_filters.shatteredsun,
+				[F_SPOREGGAR]		= rep_filters.sporeggar,
+				[F_VIOLETEYE]		= rep_filters.violeteye,
+				[F_ARGENTCRUSADE]	= rep_filters.argentcrusade,
+				[F_FRENZYHEART]		= rep_filters.frenzyheart,
+				[F_EBONBLADE]		= rep_filters.ebonblade,
+				[F_KIRINTOR]		= rep_filters.kirintor,
+				[F_HODIR]		= rep_filters.sonsofhodir,
+				[F_KALUAK]		= rep_filters.kaluak,
+				[F_ORACLES]		= rep_filters.oracles,
+				[F_WYRMREST]		= rep_filters.wyrmrest,
+				[F_WRATHCOMMON1]	= rep_filters.wrathcommon1,
+				[F_WRATHCOMMON2]	= rep_filters.wrathcommon2,
+				[F_WRATHCOMMON3]	= rep_filters.wrathcommon3,
+				[F_WRATHCOMMON4]	= rep_filters.wrathcommon4,
+				[F_WRATHCOMMON5]	= rep_filters.wrathcommon5,
+				[F_ASHEN_VERDICT]	= rep_filters.ashenverdict,
+			}
+		end
+		local rep_display = true
+
+		for flag in pairs(RepFilterFlags) do
+			if flags[flag] then
+				rep_display = RepFilterFlags[flag] and true or false
+			end
+		end
+
+		if not rep_display then
 			return false
 		end
+
+		-------------------------------------------------------------------------------
+		-- Check the class filter flags
+		-------------------------------------------------------------------------------
 		local toggled_off, toggled_on = 0, 0
 		local class_filters = filter_db.classes
 
@@ -1436,7 +1427,6 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 		RecipeDB[RecipeID]["Display"] = displayflag
 
 	end
-	self:ClearRepTable()
 end
 
 -------------------------------------------------------------------------------
