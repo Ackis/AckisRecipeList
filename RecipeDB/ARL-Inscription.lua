@@ -2401,7 +2401,7 @@ function addon:InitInscription(RecipeDB)
 	--Glyph of Claw -- 67600
 	AddRecipe(67600,100,48720,1,2,100,105,110,115)
 	self:addTradeFlags(RecipeDB,67600,1,2,3,F_DRUID,36,41)
-	self:addTradeAcquire(RecipeDB,67600,1,33603,1,33679,1,28702,1,30722)
+	self:addTradeAcquire(RecipeDB,67600,1,33603,1,33679,1,28702,1,30722,1,30710,1,26959)
 	
 	--Glyph of Command -- 68166
 	AddRecipe(68166,355,49084,1,2,355,355,360,365)
