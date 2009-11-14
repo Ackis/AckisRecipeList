@@ -1347,9 +1347,9 @@ do
 		-- Now we check to see if _all_ of the pertinent class flags are toggled off. If even one is toggled on, we still show the recipe.
 		for class, flag in pairs(ClassFilterFlags) do
 			if flags[flag] then
-				if class_filters.class then
+				if class_filters[class] then
 					toggled_on = toggled_on + 1
-				elseif not class_filters.class then
+				elseif not class_filters[class] then
 					toggled_off = toggled_off + 1
 				end
 			end
