@@ -564,7 +564,6 @@ function addon:OnEnable()
 			end
 		end
 
-
 		local AlchemySpec = {
 			[GetSpellInfo(28674)] = 28674,
 			[GetSpellInfo(28678)] = 28678,
@@ -671,7 +670,6 @@ do
 				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
 			end
 		end
-		addon:OpenTradeWindow()
 
 		if Skillet then
 			return
@@ -716,8 +714,6 @@ do
 end
 
 function addon:TRADE_SKILL_CLOSE()
-	addon:CloseTradeWindow()
-
 	if addon.db.profile.closeguionskillclose then
 		self:CloseWindow()
 	end
@@ -1392,51 +1388,6 @@ do
 	end
 end	-- do
 
----Creates an array of which factions we want to include in our display and which ones to ignore
-local function PopulateRepFilters(RepTable)
-	local repfilters = addon.db.profile.filters.rep
-
-	RepTable[BFAC["The Scryers"]] = repfilters.scryer
-	RepTable[BFAC["The Aldor"]] = repfilters.aldor
-	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
-	RepTable[BFAC["Ashtongue Deathsworn"]] = repfilters.ashtonguedeathsworn
-	RepTable[BFAC["Cenarion Circle"]] = repfilters.cenarioncircle
-	RepTable[BFAC["Cenarion Expedition"]] = repfilters.cenarionexpedition
-	RepTable[BFAC["The Consortium"]] = repfilters.consortium
-	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
-	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
-	RepTable[BFAC["Keepers of Time"]] = repfilters.keepersoftime
-	RepTable[BFAC["Kurenai"]] = repfilters.nagrand
-	RepTable[BFAC["The Mag'har"]] = repfilters.nagrand
-	RepTable[BFAC["Lower City"]] = repfilters.lowercity
-	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
-	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
-	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
-	RepTable[BFAC["Sporeggar"]] = repfilters.sporeggar
-	RepTable[BFAC["Thorium Brotherhood"]] = repfilters.thoriumbrotherhood
-	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw
-	RepTable[BFAC["The Violet Eye"]] = repfilters.violeteye
-	RepTable[BFAC["Zandalar Tribe"]] = repfilters.zandalar
-	RepTable[BFAC["Argent Crusade"]] = repfilters.argentcrusade
-	RepTable[BFAC["Frenzyheart Tribe"]] = repfilters.frenzyheart
-	RepTable[BFAC["Knights of the Ebon Blade"]] = repfilters.ebonblade
-	RepTable[BFAC["Kirin Tor"]] = repfilters.kirintor
-	RepTable[BFAC["The Sons of Hodir"]] = repfilters.sonsofhodir
-	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
-	RepTable[BFAC["The Oracles"]] = repfilters.oracles
-	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
-	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
-	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
-	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
-	RepTable[BFAC["The Sunreavers"]] = repfilters.wrathcommon2
-	RepTable[BFAC["Valiance Expedition"]] = repfilters.wrathcommon3
-	RepTable[BFAC["Warsong Offensive"]] = repfilters.wrathcommon3
-	RepTable[BFAC["The Taunka"]] = repfilters.wrathcommon4
-	RepTable[BFAC["The Frostborn"]] = repfilters.wrathcommon4
-	RepTable[BFAC["Explorers' League"]] = repfilters.wrathcommon5
-	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.wrathcommon5
-end
-
 ---Scans the recipe listing and updates the filters according to user preferences
 function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	local playerProfessionLevel = playerData.playerProfessionLevel
@@ -1563,18 +1514,6 @@ do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
 
-	---Toggles the flag that a trade window is opened
-	local TRADE_WINDOW_OPENED = false
-
-	function addon:OpenTradeWindow()
-		TRADE_WINDOW_OPENED = true
-	end
-
-	---Toggles the flag that a trade window is opened
-	function addon:CloseTradeWindow()
-		TRADE_WINDOW_OPENED = false
-	end
-
 	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
 	function addon:SetRepDB()
 		if playerData and playerData["Reputation"] then
@@ -1591,7 +1530,7 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:Scan(textdump)
-		if not TRADE_WINDOW_OPENED then
+		if not TradeSkillFrame:IsVisible() then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
@@ -1690,10 +1629,54 @@ do
 		end
 		playerData.foundRecipes = recipes_found
 
-		-- Update the table containing which reps to display
-		PopulateRepFilters(RepFilters)
+		-------------------------------------------------------------------------------
+		-- Update the reputation filters table.
+		-------------------------------------------------------------------------------
+		local reputation_filters = addon.db.profile.filters.rep
+
+		RepFilters[BFAC["The Scryers"]]			= reputation_filters.scryer
+		RepFilters[BFAC["The Aldor"]]			= reputation_filters.aldor
+		RepFilters[BFAC["Argent Dawn"]]			= reputation_filters.argentdawn
+		RepFilters[BFAC["Ashtongue Deathsworn"]]	= reputation_filters.ashtonguedeathsworn
+		RepFilters[BFAC["Cenarion Circle"]]		= reputation_filters.cenarioncircle
+		RepFilters[BFAC["Cenarion Expedition"]]		= reputation_filters.cenarionexpedition
+		RepFilters[BFAC["The Consortium"]]		= reputation_filters.consortium
+		RepFilters[BFAC["Honor Hold"]]			= reputation_filters.hellfire
+		RepFilters[BFAC["Thrallmar"]]			= reputation_filters.hellfire
+		RepFilters[BFAC["Keepers of Time"]]		= reputation_filters.keepersoftime
+		RepFilters[BFAC["Kurenai"]]			= reputation_filters.nagrand
+		RepFilters[BFAC["The Mag'har"]]			= reputation_filters.nagrand
+		RepFilters[BFAC["Lower City"]]			= reputation_filters.lowercity
+		RepFilters[BFAC["The Scale of the Sands"]]	= reputation_filters.scaleofthesands
+		RepFilters[BFAC["The Sha'tar"]]			= reputation_filters.shatar
+		RepFilters[BFAC["Shattered Sun Offensive"]]	= reputation_filters.shatteredsun
+		RepFilters[BFAC["Sporeggar"]]			= reputation_filters.sporeggar
+		RepFilters[BFAC["Thorium Brotherhood"]]		= reputation_filters.thoriumbrotherhood
+		RepFilters[BFAC["Timbermaw Hold"]]		= reputation_filters.timbermaw
+		RepFilters[BFAC["The Violet Eye"]]		= reputation_filters.violeteye
+		RepFilters[BFAC["Zandalar Tribe"]]		= reputation_filters.zandalar
+		RepFilters[BFAC["Argent Crusade"]]		= reputation_filters.argentcrusade
+		RepFilters[BFAC["Frenzyheart Tribe"]]		= reputation_filters.frenzyheart
+		RepFilters[BFAC["Knights of the Ebon Blade"]]	= reputation_filters.ebonblade
+		RepFilters[BFAC["Kirin Tor"]]			= reputation_filters.kirintor
+		RepFilters[BFAC["The Sons of Hodir"]]		= reputation_filters.sonsofhodir
+		RepFilters[BFAC["The Kalu'ak"]]			= reputation_filters.kaluak
+		RepFilters[BFAC["The Oracles"]]			= reputation_filters.oracles
+		RepFilters[BFAC["The Wyrmrest Accord"]]		= reputation_filters.wyrmrest
+		RepFilters[BFAC["Alliance Vanguard"]]		= reputation_filters.wrathcommon1
+		RepFilters[BFAC["Horde Expedition"]]		= reputation_filters.wrathcommon1
+		RepFilters[BFAC["The Silver Covenant"]]		= reputation_filters.wrathcommon2
+		RepFilters[BFAC["The Sunreavers"]]		= reputation_filters.wrathcommon2
+		RepFilters[BFAC["Valiance Expedition"]]		= reputation_filters.wrathcommon3
+		RepFilters[BFAC["Warsong Offensive"]]		= reputation_filters.wrathcommon3
+		RepFilters[BFAC["The Taunka"]]			= reputation_filters.wrathcommon4
+		RepFilters[BFAC["The Frostborn"]]		= reputation_filters.wrathcommon4
+		RepFilters[BFAC["Explorers' League"]]		= reputation_filters.wrathcommon5
+		RepFilters[BFAC["The Hand of Vengeance"]]	= reputation_filters.wrathcommon5
+
 		-- Add filtering flags to the recipes
 		self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
+
 		-- Mark excluded recipes
 		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
 
