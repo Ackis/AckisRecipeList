@@ -75,6 +75,11 @@ local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
+--------------------------------------------------------------------------------------------------------------------
+-- Acquire types
+--------------------------------------------------------------------------------------------------------------------
+local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
+
 ------------------------------------------------------------------------------
 -- Database tables
 ------------------------------------------------------------------------------
@@ -398,6 +403,67 @@ function addon:OnInitialize()
 	self:InitVendor(VendorList)
 
 	self.recipe_list = RecipeList
+
+	-------------------------------------------------------------------------------
+	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
+	-------------------------------------------------------------------------------
+        GameTooltip:HookScript("OnTooltipSetUnit",
+		       function(self)
+			       local name, unit = self:GetUnit()
+
+			       if not unit then
+				       return
+			       end
+			       local guid = UnitGUID(unit)
+
+			       if not guid then
+				       return
+			       end
+			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
+			       local mob = MobList[GUID]
+			       local shifted = IsShiftKeyDown()
+
+			       if mob and mob["DropList"] then
+				       for spell_id in pairs(mob["DropList"]) do
+					       local recipe = RecipeList[spell_id]
+
+					       if not recipe["Known"] or shifted then
+						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+
+						       self:AddLine("Drops: "..hex..recipe["Name"].."|r")
+					       end
+				       end
+				       return
+			       end
+			       local vendor = VendorList[GUID]
+
+			       if vendor and vendor["SellList"] then
+				       for spell_id in pairs(vendor["SellList"]) do
+					       local recipe = RecipeList[spell_id]
+
+					       if (not recipe["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, recipe["Flags"]) then
+						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+
+						       self:AddLine("Sells: "..hex..recipe["Name"].."|r")
+					       end
+				       end
+				       return
+			       end
+			       local trainer = TrainerList[GUID]
+
+			       if trainer and trainer["TrainList"] then
+				       for spell_id in pairs(trainer["TrainList"]) do
+					       local recipe = RecipeList[spell_id]
+
+					       if (not recipe["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, recipe["Flags"]) then
+						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+
+						       self:AddLine("Trains: "..hex..recipe["Name"].."|r")
+					       end
+				       end
+				       return
+			       end
+		       end)
 end
 
 ---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
@@ -820,65 +886,156 @@ end
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
 do
-	--@alpha@
-	-- Internal DB to check to see if we're adding duplicate ID's as an acquire method
-	local AcquireIDList = {}
-	--@end-alpha@
+	-- Tables for getting the locations
+	local location_list = {}
+	local location_checklist = {}
 
-	function addon:addTradeAcquire(RecipeDB, SpellID, ...)
+	local function LocationSort(a, b)
+		return a < b
+	end
+
+	function addon:addTradeAcquire(DB, SpellID, ...)
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
 		local index = 1				-- Index for the number of Acquire entries we have
 		local i = 1				-- Index for which variables we're parsing through
-		local acquire = RecipeDB[SpellID]["Acquire"]
+		local acquire = DB[SpellID]["Acquire"]
 
-		--@alpha@
-		twipe(AcquireIDList)
-		--@end-alpha@
+		twipe(location_list)
+		twipe(location_checklist)
 
-		while (i < numvars) do
-			-- Create the space for the current Acquire method
-			if not acquire[index] then
-				acquire[index] = {}
-			end
-
-			-- Get the Type and ID of the values
-			local AcquireType, AcquireID = select(i, ...)
-
-			acquire[index]["Type"] = AcquireType
-			acquire[index]["ID"] = AcquireID
-
-			--@alpha@
-			local AcquireIDNumber = AcquireID
-			--@end-alpha@
-
+		while i < numvars do
+			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
 
-			if (AcquireType == 6) then
+			--@alpha@
+			if acquire[index] then
+				self:Print("addTradeAcquire called more than once for SpellID "..SpellID)
+			end
+			--@end-alpha@
+
+			acquire[index] = {
+				["Type"] = acquire_type,
+				["ID"] = acquire_id
+			}
+			local location
+
+			if not acquire_type then
+				self:Print("SpellID: "..SpellID.." has no acquire type.")
+			elseif acquire_type == A_TRAINER then
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": TrainerID is nil.")
+					--@end-alpha@
+				elseif not TrainerList[acquire_id] then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": TrainerID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
+				else
+					location = TrainerList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+					TrainerList[acquire_id]["TrainList"] = TrainerList[acquire_id]["TrainList"] or {}
+					TrainerList[acquire_id]["TrainList"][SpellID] = true
+				end
+			elseif acquire_type == A_VENDOR then
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": VendorID is nil.")
+					--@end-alpha@
+				elseif not VendorList[acquire_id] then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": VendorID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
+				else
+					location = VendorList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+					VendorList[acquire_id]["SellList"] = VendorList[acquire_id]["SellList"] or {}
+					VendorList[acquire_id]["SellList"][SpellID] = true
+				end
+			elseif acquire_type == A_MOB then
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": MobID is nil.")
+					--@end-alpha@
+				elseif not MobList[acquire_id] then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
+				else
+					location = MobList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+					MobList[acquire_id]["DropList"] = MobList[acquire_id]["DropList"] or {}
+					MobList[acquire_id]["DropList"][SpellID] = true
+				end
+			elseif acquire_type == A_QUEST then
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": QuestID is nil.")
+					--@end-alpha@
+				elseif not QuestList[acquire_id] then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
+				else
+					location = QuestList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+				end
+				--@alpha@
+			elseif acquire_type == A_SEASONAL then
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": SeasonalID is nil.")
+				end
+				--@end-alpha@
+			elseif acquire_type == A_REPUTATION then
 				local RepLevel, RepVendor = select(i, ...)
+				i = i + 2
 
 				acquire[index]["RepLevel"] = RepLevel
 				acquire[index]["RepVendor"] = RepVendor
-				i = i + 2
+				VendorList[RepVendor]["SellList"] = VendorList[RepVendor]["SellList"] or {}
+				VendorList[RepVendor]["SellList"][SpellID] = true
 
 				--@alpha@
-				AcquireIDNumber = RepVendor
-				--@end-alpha@
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": ReputationID is nil.")
+				elseif not ReputationList[acquire_id] then
+					self:Print("SpellID "..SpellID..": ReputationID "..acquire_id.." does not exist in the database.")
+				end
 
+				if not RepVendor then
+					self:Print("SpellID "..SpellID..": Reputation VendorID is nil.")
+				elseif not VendorList[RepVendor] then
+					self:Print("SpellID "..SpellID..": Reputation VendorID "..RepVendor.." does not exist in the database.")
+				end
+				--@end-alpha@
+			elseif acquire_type == A_WORLD_DROP then
+				local location = L["World Drop"]
+
+				if not location_checklist[location] then
+					tinsert(location_list, location)
+					location_checklist[location] = true
+				end
 			end
 			index = index + 1
-
-			--@alpha@
-			-- We haven't seen this Acquire ID before (trainer ID, etc)
-			if (not AcquireIDList[AcquireIDNumber]) then
-				AcquireIDList[AcquireIDNumber] = true
-			else
-				self:Print("Duplicate entry: " .. SpellID .. " AcquireID: " .. AcquireIDNumber)
-			end
-			--@end-alpha@
-
 		end
 		-- Populate the location field with all the data
-		RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
+		table.sort(location_list, LocationSort)
+		DB[SpellID]["Locations"] = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
@@ -940,6 +1097,20 @@ local function GetIDFromLink(SpellLink)
 end
 
 do
+	-------------------------------------------------------------------------------
+	-- Filter flags
+	-------------------------------------------------------------------------------
+	local F_ALLIANCE, F_HORDE = 1, 2
+
+	function addon.IsCorrectFaction(player_faction, flags)
+		if player_faction == BFAC["Alliance"] and flags[F_HORDE] and not flags[F_ALLIANCE] then
+			return false
+		elseif player_faction == BFAC["Horde"] and flags[F_ALLIANCE] and not flags[F_HORDE] then
+			return false
+		end
+		return true
+	end
+
 	-------------------------------------------------------------------------------
 	-- Item "rarity"
 	-------------------------------------------------------------------------------
@@ -1041,11 +1212,6 @@ do
 		-- Origin
 		-------------------------------------------------------------------------------
 		local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
-
-		-------------------------------------------------------------------------------
-		-- Filter flags
-		-------------------------------------------------------------------------------
-		local F_ALLIANCE, F_HORDE = 1, 2
 
 		-- For flag info see comments at start of file in comments
 		local filter_db = addon.db.profile.filters
@@ -1396,111 +1562,6 @@ end
 do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
-	local tsort = table.sort
-
-	-- Tables for getting the locations
-	local location_list = {}
-	local location_checklist = {}
-
-	---Determines all the locations a given recipe can be obtained
-	function addon:GetRecipeLocations(SpellID)
-		if ((not RecipeList) or (not RecipeList[SpellID])) then
-			return ""
-		end
-
-		twipe(location_list)
-		twipe(location_checklist)
-
-		local recipe_acquire = RecipeList[SpellID]["Acquire"]
-
-		for i in pairs(recipe_acquire) do
-
-			-- Trainer
-			if (recipe_acquire[i]["Type"] == 1) then
-				if (TrainerList) then
-					if (not TrainerList[recipe_acquire[i]["ID"]]) then
-						--@alpha@
-						self:Print("Missing trainer in database: " .. recipe_acquire[i]["ID"])
-						--@end-alpha@
-						return
-					end
-					local location = TrainerList[recipe_acquire[i]["ID"]]["Location"]
-					if (not location_checklist[location]) then
-						-- Add the location to the list
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-				-- Vendor
-			elseif (recipe_acquire[i]["Type"] == 2) then
-				if (VendorList) then
-					if (not VendorList[recipe_acquire[i]["ID"]]) then
-						--@alpha@
-						self:Print("Missing vendor in database: " .. recipe_acquire[i]["ID"])
-						--@end-alpha@
-						return
-					end
-
-					local location = VendorList[recipe_acquire[i]["ID"]]["Location"]
-					if (not location_checklist[location]) then
-						-- Add the location to the list
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-				-- Mob Drop
-			elseif (recipe_acquire[i]["Type"] == 3) then
-				if (MobList) then
-					if (not MobList[recipe_acquire[i]["ID"]]) then
-						--@alpha@
-						self:Print("Missing mob in database: " .. recipe_acquire[i]["ID"])
-						--@end-alpha@
-						return
-					end
-					local location = MobList[recipe_acquire[i]["ID"]]["Location"]
-					if (not location_checklist[location]) then
-						-- Add the location to the list
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-				-- Quest
-			elseif (recipe_acquire[i]["Type"] == 4) then
-				if (QuestList) then
-					if (not QuestList[recipe_acquire[i]["ID"]]) then
-						--@alpha@
-						self:Print("Missing quest in database: " .. recipe_acquire[i]["ID"])
-						--@end-alpha@
-						return
-					end
-					local location = QuestList[recipe_acquire[i]["ID"]]["Location"]
-					if (not location_checklist[location]) then
-						-- Add the location to the list
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-				-- World Drop
-			elseif (recipe_acquire[i]["Type"] == 7) then
-				local location = L["World Drop"]
-				if (not location_checklist[location]) then
-					-- Add the location to the list
-					tinsert(location_list, location)
-					location_checklist[location] = true
-				end
-			end
-		end
-
-		-- Sort the list by the name
-		tsort(location_list, function(a, b) return a < b end)
-
-		-- Return the list as a string
-		if (#location_list == 0)then
-			return ""
-		else
-			return tconcat(location_list, ",")
-		end
-	end
 
 	---Toggles the flag that a trade window is opened
 	local TRADE_WINDOW_OPENED = false
