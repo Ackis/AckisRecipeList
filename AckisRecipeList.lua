@@ -81,6 +81,11 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
 
 ------------------------------------------------------------------------------
+-- Constants.
+------------------------------------------------------------------------------
+local PROFESSION_INITS = {}	-- Professions initialization functions.
+
+------------------------------------------------------------------------------
 -- Database tables
 ------------------------------------------------------------------------------
 local RecipeList = {}
@@ -91,7 +96,6 @@ local ReputationList = {}
 local TrainerList = {}
 local SeasonalList = {}
 local VendorList = {}
-local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 local AllSpecialtiesTable = {}
 local SpecialtyTable
 
@@ -390,6 +394,22 @@ function addon:OnInitialize()
 	scan_button:SetFrameStrata(framestrata)
 	scan_button:Enable()
 	self.ScanButton = scan_button
+
+	-------------------------------------------------------------------------------
+	-- Populate the profession initialization functions.
+	-------------------------------------------------------------------------------
+	PROFESSION_INITS[GetSpellInfo(51304)] = addon.InitAlchemy
+	PROFESSION_INITS[GetSpellInfo(51300)] = addon.InitBlacksmithing
+	PROFESSION_INITS[GetSpellInfo(51296)] = addon.InitCooking
+	PROFESSION_INITS[GetSpellInfo(51313)] = addon.InitEnchanting
+	PROFESSION_INITS[GetSpellInfo(51306)] = addon.InitEngineering
+	PROFESSION_INITS[GetSpellInfo(45542)] = addon.InitFirstAid
+	PROFESSION_INITS[GetSpellInfo(51302)] = addon.InitLeatherworking
+	PROFESSION_INITS[GetSpellInfo(32606)] = addon.InitSmelting
+	PROFESSION_INITS[GetSpellInfo(51309)] = addon.InitTailoring
+	PROFESSION_INITS[GetSpellInfo(51311)] = addon.InitJewelcrafting
+	PROFESSION_INITS[GetSpellInfo(45363)] = addon.InitInscription
+	PROFESSION_INITS[GetSpellInfo(53428)] = addon.InitRuneforging
 
 	-------------------------------------------------------------------------------
 	-- Initialize the databases
@@ -1420,41 +1440,23 @@ end	-- do
 -- ARL Logic Functions
 -------------------------------------------------------------------------------
 
-local InitializeRecipes
-do
-	local profession_table = {}	-- Table of all possible professions with init functions
-
-	---Determines which profession we are dealing with and loads up the recipe information for it.
-	function InitializeRecipes(RecipeDB, playerProfession)
-		twipe(profession_table)
-
-		profession_table[GetSpellInfo(51304)] = addon.InitAlchemy
-		profession_table[GetSpellInfo(51300)] = addon.InitBlacksmithing
-		profession_table[GetSpellInfo(51296)] = addon.InitCooking
-		profession_table[GetSpellInfo(51313)] = addon.InitEnchanting
-		profession_table[GetSpellInfo(51306)] = addon.InitEngineering
-		profession_table[GetSpellInfo(45542)] = addon.InitFirstAid
-		profession_table[GetSpellInfo(51302)] = addon.InitLeatherworking
-		profession_table[GetSpellInfo(32606)] = addon.InitSmelting
-		profession_table[GetSpellInfo(51309)] = addon.InitTailoring
-		profession_table[GetSpellInfo(51311)] = addon.InitJewelcrafting
-		profession_table[GetSpellInfo(45363)] = addon.InitInscription
-		profession_table[GetSpellInfo(53428)] = addon.InitRuneforging
-
-		-- Check for player profession to fix some bugs with addons that interface with ARL
-		-- This source code is release under Public Domain
-		-- Thanks to sylvanaar/xinhuan for the code snippet
-		if (playerProfession) then
-			local a = profession_table[playerProfession]
-
-			if a then
-				return a(addon, RecipeDB)
-			else
-				addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
-			end
-		end
+---Determines which profession we are dealing with and loads up the recipe information for it.
+local function InitializeRecipe(profession)
+	if not profession then
+		--@alpha@
+		addon:Print("nil profession passed to InitializeRecipe()")
+		--@end-alpha@
+		return
 	end
-end	-- do
+	local func = PROFESSION_INITS[profession]
+
+	if func then
+		return func(addon, RecipeList)
+	else
+		addon:Print(L["UnknownTradeSkill"]:format(profession))
+		return 0
+	end
+end
 
 ---Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
@@ -1530,7 +1532,7 @@ do
 		end
 
 		-- Add the recipes to the database
-		playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
+		playerData.totalRecipes = InitializeRecipe(playerData.playerProfession)
 
 		--- Set the known flag to false for every recipe in the database.
 		for SpellID in pairs(RecipeList) do
@@ -1606,55 +1608,10 @@ do
 		end
 		playerData.foundRecipes = recipes_found
 
-		-------------------------------------------------------------------------------
-		-- Update the reputation filters table.
-		-------------------------------------------------------------------------------
-		local reputation_filters = addon.db.profile.filters.rep
-
-		RepFilters[BFAC["The Scryers"]]			= reputation_filters.scryer
-		RepFilters[BFAC["The Aldor"]]			= reputation_filters.aldor
-		RepFilters[BFAC["Argent Dawn"]]			= reputation_filters.argentdawn
-		RepFilters[BFAC["Ashtongue Deathsworn"]]	= reputation_filters.ashtonguedeathsworn
-		RepFilters[BFAC["Cenarion Circle"]]		= reputation_filters.cenarioncircle
-		RepFilters[BFAC["Cenarion Expedition"]]		= reputation_filters.cenarionexpedition
-		RepFilters[BFAC["The Consortium"]]		= reputation_filters.consortium
-		RepFilters[BFAC["Honor Hold"]]			= reputation_filters.hellfire
-		RepFilters[BFAC["Thrallmar"]]			= reputation_filters.hellfire
-		RepFilters[BFAC["Keepers of Time"]]		= reputation_filters.keepersoftime
-		RepFilters[BFAC["Kurenai"]]			= reputation_filters.nagrand
-		RepFilters[BFAC["The Mag'har"]]			= reputation_filters.nagrand
-		RepFilters[BFAC["Lower City"]]			= reputation_filters.lowercity
-		RepFilters[BFAC["The Scale of the Sands"]]	= reputation_filters.scaleofthesands
-		RepFilters[BFAC["The Sha'tar"]]			= reputation_filters.shatar
-		RepFilters[BFAC["Shattered Sun Offensive"]]	= reputation_filters.shatteredsun
-		RepFilters[BFAC["Sporeggar"]]			= reputation_filters.sporeggar
-		RepFilters[BFAC["Thorium Brotherhood"]]		= reputation_filters.thoriumbrotherhood
-		RepFilters[BFAC["Timbermaw Hold"]]		= reputation_filters.timbermaw
-		RepFilters[BFAC["The Violet Eye"]]		= reputation_filters.violeteye
-		RepFilters[BFAC["Zandalar Tribe"]]		= reputation_filters.zandalar
-		RepFilters[BFAC["Argent Crusade"]]		= reputation_filters.argentcrusade
-		RepFilters[BFAC["Frenzyheart Tribe"]]		= reputation_filters.frenzyheart
-		RepFilters[BFAC["Knights of the Ebon Blade"]]	= reputation_filters.ebonblade
-		RepFilters[BFAC["Kirin Tor"]]			= reputation_filters.kirintor
-		RepFilters[BFAC["The Sons of Hodir"]]		= reputation_filters.sonsofhodir
-		RepFilters[BFAC["The Kalu'ak"]]			= reputation_filters.kaluak
-		RepFilters[BFAC["The Oracles"]]			= reputation_filters.oracles
-		RepFilters[BFAC["The Wyrmrest Accord"]]		= reputation_filters.wyrmrest
-		RepFilters[BFAC["Alliance Vanguard"]]		= reputation_filters.wrathcommon1
-		RepFilters[BFAC["Horde Expedition"]]		= reputation_filters.wrathcommon1
-		RepFilters[BFAC["The Silver Covenant"]]		= reputation_filters.wrathcommon2
-		RepFilters[BFAC["The Sunreavers"]]		= reputation_filters.wrathcommon2
-		RepFilters[BFAC["Valiance Expedition"]]		= reputation_filters.wrathcommon3
-		RepFilters[BFAC["Warsong Offensive"]]		= reputation_filters.wrathcommon3
-		RepFilters[BFAC["The Taunka"]]			= reputation_filters.wrathcommon4
-		RepFilters[BFAC["The Frostborn"]]		= reputation_filters.wrathcommon4
-		RepFilters[BFAC["Explorers' League"]]		= reputation_filters.wrathcommon5
-		RepFilters[BFAC["The Hand of Vengeance"]]	= reputation_filters.wrathcommon5
-
 		self:UpdateFilters()
 
 		-- Mark excluded recipes
-		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
+		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(playerData.playerProfession)
 
 		if textdump then
 			self:DisplayTextDump(RecipeList, playerData.playerProfession)
@@ -1671,11 +1628,7 @@ do
 	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
-		if not RecipeList then
-			return false
-		end
-		InitializeRecipes(RecipeList, profession)
-		return true
+		return InitializeRecipe(profession)
 	end
 
 	--- API for external addons to initialize the recipe database
@@ -1704,34 +1657,33 @@ end
 -------------------------------------------------------------------------------
 
 ---Marks all exclusions in the recipe database to not be displayed
-function addon:GetExclusions(RecipeDB, prof)
-
+function addon:GetExclusions(prof)
 	local exclusionlist = addon.db.profile.exclusionlist
-	local countknown = 0
-	local countunknown = 0
-
 	local ignored = not addon.db.profile.ignoreexclusionlist
+	local known_count = 0
+	local unknown_count = 0
+
 
 	for i in pairs(exclusionlist) do
+		local recipe = RecipeList[i]
 
-		-- We may have a recipe in the exclusion list that has not been scanned yet
-		-- check if the entry exists in RecipeDB first
-		if (RecipeDB[i]) then
-			if (ignored) then
-				RecipeDB[i]["Display"] = false
+		-- We may have an item in the exclusion list that has not been scanned yet
+		-- check if the entry exists in DB first
+		if recipe then
+			if ignored then
+				recipe["Display"] = false
 			end
 
-			local tmpprof = GetSpellInfo(RecipeDB[i]["Profession"])
-			if (RecipeDB[i]["Known"] == false and tmpprof == prof) then
-				countknown = countknown + 1
-			elseif (tmpprof == prof) then
-				countunknown = countunknown + 1
-			end
+			local tmpprof = GetSpellInfo(recipe["Profession"])
 
+			if not recipe["Known"] and tmpprof == prof then
+				known_count = known_count + 1
+			elseif tmpprof == prof then
+				unknown_count = unknown_count + 1
+			end
 		end
-
 	end
-	return countknown, countunknown
+	return known_count, unknown_count
 end
 
 ---Removes or adds a recipe to the exclusion list.

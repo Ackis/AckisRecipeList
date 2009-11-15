@@ -1664,7 +1664,7 @@ local function ReDisplay()
 	addon:UpdateFilters()
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
-	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
+	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(playerData.playerProfession)
 
 	initDisplayStrings()
 	SetProgressBar(playerData)
