@@ -31,38 +31,26 @@ This source code is released under All Rights Reserved.
 -- @name ARLFrame.lua
 
 -------------------------------------------------------------------------------
--- AddOn Namespace
--------------------------------------------------------------------------------
-local LibStub = LibStub
-
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local QTip		= LibStub("LibQTip-1.0")
-
-local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
-
--------------------------------------------------------------------------------
 -- Upvalued Lua globals
 -------------------------------------------------------------------------------
-local string = string
+local _G = getfenv(0)
+local string = _G.string
 local sformat = string.format
 local strlower = string.lower
 local smatch = string.match
 
-local select = select
-local type = type
+local select = _G.select
+local type = _G.type
 
-local table = table
+local table = _G.table
 local twipe = table.wipe
 local tinsert, tremove = table.insert, table.remove
-local ipairs, pairs = ipairs, pairs
+local ipairs, pairs = _G.ipairs, _G.pairs
 
-local tonumber = tonumber
-local math = math
+local math = _G.math
 local floor = math.floor
+
+local tonumber = _G.tonumber
 
 -------------------------------------------------------------------------------
 -- Upvalued Blizzard globals
@@ -81,6 +69,20 @@ local IsModifierKeyDown = IsModifierKeyDown
 local IsShiftKeyDown = IsShiftKeyDown
 local IsAltKeyDown = IsAltKeyDown
 local IsControlKeyDown = IsControlKeyDown
+
+-------------------------------------------------------------------------------
+-- AddOn Namespace
+-------------------------------------------------------------------------------
+local LibStub = LibStub
+
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local QTip		= LibStub("LibQTip-1.0")
+
+local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -344,27 +346,25 @@ do
 		local fac = true
 		local acquire = DB[recipeIndex]["Acquire"]
 
-		-- Scan through all acquire types
 		for i in pairs(acquire) do
-			-- If it's a reputation type
-			if (acquire[i]["Type"] == ACQUIRE_REPUTATION) then
+			if acquire[i]["Type"] == ACQUIRE_REPUTATION then
 				local repid = acquire[i]["ID"]
 
-				if (repid == REP_HONOR_HOLD) or (repid == REP_THRALLMAR) then
-					if (playerFaction == factionAlliance) then
+				if repid == REP_HONOR_HOLD or repid == REP_THRALLMAR then
+					if playerFaction == factionAlliance then
 						repid = REP_HONOR_HOLD
 					else
 						repid = REP_THRALLMAR
 					end
-				elseif (repid == REP_MAGHAR) or (repid == REP_KURENI) then
-					if (playerFaction == factionAlliance) then
+				elseif repid == REP_MAGHAR or repid == REP_KURENI then
+					if playerFaction == factionAlliance then
 						repid = REP_KURENI
 					else
 						repid = REP_MAGHAR
 					end
 				end
 
-				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+				if (not playerRep[repDB[repid]["Name"]]) or playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"] then
 					fac = false
 				else
 					-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
@@ -384,10 +384,9 @@ end	--do
 -- Output:  A combined string with the skill level integrated into the skill
 
 local function SetSortString(recipeSkill, recStr)
+	local sort_type = addon.db.profile.sorting
 
-	local sorttype = addon.db.profile.sorting
-
-	if (sorttype == "SkillAsc" or sorttype == "SkillDesc") then
+	if sort_type == "SkillAsc" or sort_type == "SkillDesc" then
 		return "[" .. recipeSkill .. "] - " .. recStr
 	else
 		return recStr .. " - [" .. recipeSkill .. "]"
@@ -1662,7 +1661,7 @@ end	-- do
 -- a new search occurred. Use this function to do all the dirty work
 -------------------------------------------------------------------------------
 local function ReDisplay()
-	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
+	addon:UpdateFilters()
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
@@ -2625,7 +2624,7 @@ local function expandallDisplayStrings()
 			t.sID = sortedRecipeIndex[i]
 			t.IsRecipe = true
 
-			if (recipeEntry["Acquire"]) then
+			if recipeEntry["Acquire"] then
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
@@ -2644,18 +2643,17 @@ local function expandallDisplayStrings()
 end
 
 local function SetSortName()
+	local sort_type = addon.db.profile.sorting
 
-	local sorttype = addon.db.profile.sorting
-
-	if (sorttype == "Name") then
+	if sort_type == "Name" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Name"])
-	elseif (sorttype == "SkillAsc") then
+	elseif sort_type == "SkillAsc" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
-	elseif (sorttype == "SkillDesc") then
+	elseif sort_type == "SkillDesc" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
-	elseif (sorttype == "Acquisition") then
+	elseif sort_type == "Acquisition" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
-	elseif (sorttype == "Location") then
+	elseif sort_type == "Location" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
 	end
 

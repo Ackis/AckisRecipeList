@@ -1092,10 +1092,10 @@ local function GetIDFromLink(SpellLink)
 
 end
 
+-------------------------------------------------------------------------------
+-- Filter flag functions
+-------------------------------------------------------------------------------
 do
-	-------------------------------------------------------------------------------
-	-- Filter flags
-	-------------------------------------------------------------------------------
 	local F_ALLIANCE, F_HORDE = 1, 2
 
 	function addon.IsCorrectFaction(player_faction, flags)
@@ -1113,7 +1113,7 @@ do
 	local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
 	-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
-	-- Its keys and values are populated the first time addon:CheckDisplayRecipe() is called.
+	-- Its keys and values are populated the first time CanDisplayRecipe() is called.
 	local HardFilterFlags, SoftFilterFlags, RepFilterFlags
 
 	local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
@@ -1125,11 +1125,7 @@ do
 	}
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
-	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
-		if Recipe["Profession"] ~= playerProfession then
-			return false
-		end
-
+	local function CanDisplayRecipe(recipe)
 		-------------------------------------------------------------------------------
 		-- Origin
 		-------------------------------------------------------------------------------
@@ -1137,9 +1133,8 @@ do
 
 		-- For flag info see comments at start of file in comments
 		local filter_db = addon.db.profile.filters
-		local generaldb = filter_db.general
-
-		local flags = Recipe["Flags"]
+		local general_filters = filter_db.general
+		local recipe_flags = recipe["Flags"]
 
 		-- See Documentation file for logic explanation
 		-------------------------------------------------------------------------------
@@ -1150,45 +1145,46 @@ do
 		-------------------------------------------------------------------------------
 
 		-- Display both horde and alliance factions?
-		if not generaldb.faction then
-			-- We want to filter out all the Horde only recipes
-			if playerFaction == BFAC["Alliance"] then
+		if not general_filters.faction then
+			if playerData.playerFaction == BFAC["Alliance"] then
 				-- Filter out Horde only
-				if not flags[F_ALLIANCE] and flags[F_HORDE] then
+				if not recipe_flags[F_ALLIANCE] and recipe_flags[F_HORDE] then
 					return false
 				end
-			-- We want to filter out all the Alliance only recipes
 			else
 				-- Filter out Alliance only
-				if not flags[F_HORDE] and flags[F_ALLIANCE] then
+				if not recipe_flags[F_HORDE] and recipe_flags[F_ALLIANCE] then
 					return false
 				end
 			end
 		end
 
 		-- Display all skill levels?
-		if not generaldb.skill and Recipe["Level"] > playerProfessionLevel then
+		if not general_filters.skill and recipe["Level"] > playerData.playerProfessionLevel then
 			return false
 		end
 
 		-- Display all specialities?
-		if not generaldb.specialty then
-			if Recipe["Specialty"] and Recipe["Specialty"] ~= playerSpecialty then
+		if not general_filters.specialty then
+			local specialty = recipe["Specialty"]
+
+			if specialty and specialty ~= playerData.playerSpecialty then
 				return false
 			end
 		end
 		local obtain_filters = filter_db.obtain
+		local game_version = recipe["Game"]
 
 		-- Filter out game recipes
-		if not obtain_filters.originalwow and Recipe["Game"] == GAME_ORIG then
+		if not obtain_filters.originalwow and game_version == GAME_ORIG then
 			return false
 		end
 
-		if not obtain_filters.bc and Recipe["Game"] == GAME_TBC then
+		if not obtain_filters.bc and game_version == GAME_TBC then
 			return false
 		end
 
-		if not obtain_filters.wrath and Recipe["Game"] == GAME_WOTLK then
+		if not obtain_filters.wrath and game_version == GAME_WOTLK then
 			return false
 		end
 
@@ -1258,7 +1254,7 @@ do
 		end
 
 		for filter, data in pairs(HardFilterFlags) do
-			if flags[data.flag] and not data.sv_root[filter] then
+			if recipe_flags[data.flag] and not data.sv_root[filter] then
 				return false
 			end
 		end
@@ -1271,8 +1267,8 @@ do
 
 			local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
 			local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
-			local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110
-			local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 111, 112, 113, 114
+			local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110, 111
+			local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 112, 113, 114
 			local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
 			local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
 			local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
@@ -1316,7 +1312,7 @@ do
 		local rep_display = true
 
 		for flag in pairs(RepFilterFlags) do
-			if flags[flag] then
+			if recipe_flags[flag] then
 				rep_display = RepFilterFlags[flag] and true or false
 			end
 		end
@@ -1333,7 +1329,7 @@ do
 
 		-- Now we check to see if _all_ of the pertinent class flags are toggled off. If even one is toggled on, we still show the recipe.
 		for class, flag in pairs(ClassFilterFlags) do
-			if flags[flag] then
+			if recipe_flags[flag] then
 				if class_filters[class] then
 					toggled_on = toggled_on + 1
 				elseif not class_filters[class] then
@@ -1369,7 +1365,7 @@ do
 		end
 
 		for filter, data in pairs(SoftFilterFlags) do
-			if flags[data.flag] and data.sv_root[filter] then
+			if recipe_flags[data.flag] and data.sv_root[filter] then
 				return true
 			end
 		end
@@ -1377,57 +1373,48 @@ do
 		-- If we get here it means that no flags matched our values
 		return false
 	end
-end	-- do
 
----Scans the recipe listing and updates the filters according to user preferences
-function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
-	local playerProfessionLevel = playerData.playerProfessionLevel
-	local playerProfession = playerData.playerProfession
-	local playerSpecialty = playerData.playerSpecialty
-	local playerFaction = playerData.playerFaction
-	local playerClass = playerData.playerClass
+	---Scans the recipe listing and updates the filters according to user preferences
+	function addon:UpdateFilters()
+		local general_filters = addon.db.profile.filters.general
+		local recipes_total = 0
+		local recipes_known = 0
+		local recipes_total_filtered = 0
+		local recipes_known_filtered = 0
+		local can_display = false
+		local current_profession = playerData.playerProfession
 
-	playerData.recipes_total = 0
-	playerData.recipes_known = 0
-	playerData.recipes_total_filtered = 0
-	playerData.recipes_known_filtered = 0
+		for recipe_id, recipe in pairs(RecipeList) do
+			if recipe["Profession"] == current_profession then
+				local is_known = recipe["Known"]
 
-	local displayflag = false
+				can_display = CanDisplayRecipe(recipe)
+				recipes_total = recipes_total + 1
+				recipes_known = recipes_known + (is_known and 1 or 0)
 
-	-- Parse through all the entries in the Recipe array
-	for RecipeID, Recipe in pairs(RecipeDB) do
+				if can_display then
+					recipes_total_filtered = recipes_total_filtered + 1
+					recipes_known_filtered = recipes_known_filtered + (is_known and 1 or 0)
 
-		-- only interested in the current profession
-		if (Recipe["Profession"] == playerProfession) then
+					if not general_filters.known and is_known then
+						can_display = false
+					end
 
-			-- Determine if we are to display this recipe or not
-			displayflag = self:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
-
-			playerData.recipes_total = playerData.recipes_total + 1
-			playerData.recipes_known = playerData.recipes_known + (Recipe["Known"] == true and 1 or 0)
-
-			if (displayflag == true) then
-				playerData.recipes_total_filtered = playerData.recipes_total_filtered + 1
-				playerData.recipes_known_filtered = playerData.recipes_known_filtered + (Recipe["Known"] == true and 1 or 0)
-
-				-- Include known
-				if (addon.db.profile.filters.general.known == false) and (Recipe["Known"] == true) then
-					displayflag = false
+					if not general_filters.unknown and not is_known then
+						can_display = false
+					end
 				end
-				-- Include unknown
-				if (addon.db.profile.filters.general.unknown == false) and (Recipe["Known"] == false) then
-					displayflag = false
-				end
+			else
+				can_display = false
 			end
-		else
-				displayflag = false
+			RecipeList[recipe_id]["Display"] = can_display
 		end
-
-		-- Set the display flag
-		RecipeDB[RecipeID]["Display"] = displayflag
-
+		playerData.recipes_total = recipes_total
+		playerData.recipes_known = recipes_known
+		playerData.recipes_total_filtered = recipes_total_filtered
+		playerData.recipes_known_filtered = recipes_known_filtered
 	end
-end
+end	-- do
 
 -------------------------------------------------------------------------------
 -- ARL Logic Functions
@@ -1664,8 +1651,7 @@ do
 		RepFilters[BFAC["Explorers' League"]]		= reputation_filters.wrathcommon5
 		RepFilters[BFAC["The Hand of Vengeance"]]	= reputation_filters.wrathcommon5
 
-		-- Add filtering flags to the recipes
-		self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
+		self:UpdateFilters()
 
 		-- Mark excluded recipes
 		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList, playerData.playerProfession)
