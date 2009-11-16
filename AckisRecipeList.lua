@@ -1,29 +1,20 @@
---[[
+-------------------------------------------------------------------------------
+-- AckisRecipeList.lua
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
+-- Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
+-------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/arl/for more information.
+-------------------------------------------------------------------------------
+-- License:
+--	Please see LICENSE.txt
 
-************************************************************************
-
-AckisRecipeList.lua
-
-File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
-Project version: @project-version@
-
-Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
-
-************************************************************************
-
-Please see http://www.wowace.com/projects/arl/for more information.
-
-License:
-	Please see LICENSE.txt
-
-This source code is released under All Rights Reserved.
-
-************************************************************************
-
---]]
-
+-- This source code is released under All Rights Reserved.
+-------------------------------------------------------------------------------
 --- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
 -- There are a set of functions which allow you make use of the ARL database outside of ARL.
 -- ARL supports all professions currently in World of Warcraft 3.2
@@ -83,6 +74,7 @@ local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
+local NUM_FLAGS = 128
 local PROFESSION_INITS = {}	-- Professions initialization functions.
 
 ------------------------------------------------------------------------------
@@ -640,7 +632,6 @@ function addon:OnDisable()
 	if Manufac then
 		Manufac.options.args.ARLScan = nil
 	end
-
 end
 
 -------------------------------------------------------------------------------
@@ -748,7 +739,6 @@ end
 -------------------------------------------------------------------------------
 
 do
-
 	local GetNumFactions = GetNumFactions
 	local GetFactionInfo = GetFactionInfo
 	local CollapseFactionHeader = CollapseFactionHeader
@@ -771,7 +761,7 @@ do
 		for i = numfactions, 1, -1 do
 			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
 
-			if (isCollapsed) then
+			if isCollapsed then
 				ExpandFactionHeader(i)
 				rep_list[name] = true
 			end
@@ -785,7 +775,7 @@ do
 			local name, _, replevel = GetFactionInfo(i)
 
 			-- If the rep is greater than neutral
-			if (replevel > 4) then
+			if replevel > 4 then
 				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
 				RepTable[name] = replevel - 4
 			end
@@ -795,7 +785,7 @@ do
 		for i = numfactions, 1, -1 do
 			local name = GetFactionInfo(i)
 
-			if (rep_list[name]) then
+			if rep_list[name] then
 				CollapseFactionHeader(i)
 			end
 		end
@@ -804,9 +794,6 @@ end	-- do block
 
 -------------------------------------------------------------------------------
 -- Tradeskill functions
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
 -- Recipe DB Structures are defined in Documentation.lua
 -------------------------------------------------------------------------------
 
@@ -861,15 +848,15 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
 		["Grey"] = Grey or SkillLevel + 20,		-- If we don't have a grey value in the db, just assume the skill level
 	}
-	local recipeentry = RecipeDB[SpellID]
+	local recipe = RecipeDB[SpellID]
 
-	if not recipeentry["Name"] then
+	if not recipe["Name"] then
 		self:Print(strformat(L["SpellIDCache"], SpellID))
 	end
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	for i = 1, 127, 1 do
-		recipeentry["Flags"][i] = false
+	for i = 1, NUM_FLAGS, 1 do
+		recipe["Flags"][i] = false
 	end
 end
 
@@ -882,7 +869,6 @@ end
 -- @return None, array is passed as a reference.
 function addon:addTradeFlags(RecipeDB, SpellID, ...)
 	-- flags are defined in Documentation.lua
-
 	local numvars = select('#',...)
 	local flags = RecipeDB[SpellID]["Flags"]
 
@@ -1098,19 +1084,6 @@ do
 		--@end-alpha@
 	end
 end	-- do
--------------------------------------------------------------------------------
--- Recipe Scanning Functions
--------------------------------------------------------------------------------
-
----Obtains a spell ID from a spell link.
--- This source code is release under Public Domain
-local function GetIDFromLink(SpellLink)
-
-	--return strmatch(SpellLink, "|H%w+:(%d+)")
-	-- Faster matching per Neffi
-	return strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-
-end
 
 -------------------------------------------------------------------------------
 -- Filter flag functions
@@ -1489,6 +1462,9 @@ function addon:ChatCommand(input)
 
 end
 
+-------------------------------------------------------------------------------
+-- Recipe Scanning Functions
+-------------------------------------------------------------------------------
 do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
@@ -1580,7 +1556,7 @@ do
 			if tradeType ~= "header" then
 				-- Get the trade skill link for the specified recipe
 				local SpellLink = GetTradeSkillRecipeLink(i)
-				local SpellString = GetIDFromLink(SpellLink)
+				local SpellString = strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 				local recipe = RecipeList[tonumber(SpellString)]
 
 				if recipe then
@@ -1621,48 +1597,17 @@ do
 					  SeasonalList, MobList, CustomList)
 		end
 	end
-
-	--- API for external addons to initialize the recipe database with a specific profession
-	-- @name AckisRecipeList:AddRecipeData
-	-- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
-	-- @param profession Spell ID of the profession which you want to populate the database with.
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-	function addon:AddRecipeData(profession)
-		return InitializeRecipe(profession)
-	end
-
-	--- API for external addons to initialize the recipe database
-	-- @name AckisRecipeList:InitRecipeData
-	-- @usage AckisRecipeList:InitRecipeData()
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
-	function addon:InitRecipeData()
-		return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-	end
-
-	--- API for external addons to get recipe information from ARL
-	-- @name AckisRecipeList:GetRecipeData
-	-- @param spellID The spell ID of the recipe you want information about.
-	-- @return Table containing all spell ID information or nil if it's not found.
-	function addon:GetRecipeData(spellID)
-		if not RecipeList then
-			return
-		end
-		return RecipeList[spellID]
-	end
 end
 
 -------------------------------------------------------------------------------
 -- Recipe Exclusion Functions
 -------------------------------------------------------------------------------
-
 ---Marks all exclusions in the recipe database to not be displayed
 function addon:GetExclusions(prof)
 	local exclusionlist = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
 	local known_count = 0
 	local unknown_count = 0
-
 
 	for i in pairs(exclusionlist) do
 		local recipe = RecipeList[i]
@@ -1688,41 +1633,25 @@ end
 
 ---Removes or adds a recipe to the exclusion list.
 function addon:ToggleExcludeRecipe(SpellID)
+	local exclusion_list = addon.db.profile.exclusionlist
 
-	local exclusionlist = addon.db.profile.exclusionlist
-
-	-- Remove the Spell from the exclusion list
-	if (exclusionlist[SpellID]) then
-
-		exclusionlist[SpellID] = nil
-
-	else
-
-		exclusionlist[SpellID] = true
-
-	end
-
+	exclusion_list[SpellID] = (not exclusion_list[SpellID] and true or nil)
 end
 
 ---Prints all the ID's in the exclusion list out into chat.
 function addon:ViewExclusionList()
-
-	local exclusionlist = addon.db.profile.exclusionlist
+	local exclusion_list = addon.db.profile.exclusionlist
 
 	-- Parse all items in the exclusion list
-	for i in pairs(exclusionlist) do
+	for i in pairs(exclusion_list) do
 		self:Print(i .. ": " .. GetSpellInfo(i))
 	end
-
 end
 
 function addon:ClearExclusionList()
+	local exclusion_list = addon.db.profile.exclusionlist
 
-	local exclusionlist = addon.db.profile.exclusionlist
-
-	-- Nuke our exclusion table
-	exclusionlist = twipe(exclusionlist)
-
+	exclusion_list = twipe(exclusion_list)
 end
 
 -------------------------------------------------------------------------------
@@ -1731,41 +1660,37 @@ end
 
 ---Scans through the recipe database and toggles the flag on if the item is in the search criteria
 function addon:SearchRecipeDB(RecipeDB, searchstring)
-
-	if not searchstring then return end
-
+	if not searchstring then
+		return
+	end
 	searchstring = strlower(searchstring)
 
-	-- Go through the entire database
 	for SpellID in pairs(RecipeDB) do
-
-		-- Get the Spell object
 		local recipe = RecipeDB[SpellID]
 
 		-- Set the search as false automatically
 		recipe["Search"] = false
 
 		-- Allow us to search by spell ID
-		if strfind(strlower(SpellID),searchstring) or
+		if strfind(strlower(SpellID), searchstring) or
 
 			-- Allow us to search by item ID
-			(recipe["ItemID"] and strfind(strlower(recipe["ItemID"]),searchstring)) or
+			(recipe["ItemID"] and strfind(strlower(recipe["ItemID"]), searchstring)) or
 
 			-- Allow us to search by name
-			(recipe["Name"] and strfind(strlower(recipe["Name"]),searchstring)) or
+			(recipe["Name"] and strfind(strlower(recipe["Name"]), searchstring)) or
 
 			-- Allow us to search by locations
-			(recipe["Locations"] and strfind(recipe["Locations"],searchstring)) or
+			(recipe["Locations"] and strfind(recipe["Locations"], searchstring)) or
 
 			-- Allow us to search by specialty
-			(recipe["Specialty"] and strfind(recipe["Specialty"],searchstring)) or
+			(recipe["Specialty"] and strfind(recipe["Specialty"], searchstring)) or
 				
 			-- Allow us to search by skill level
-			(recipe["Level"] and strfind(recipe["Level"],searchstring)) or
+			(recipe["Level"] and strfind(recipe["Level"], searchstring)) or
 
 			-- Allow us to search by Rarity
-			(recipe["Rarity"] and strfind(recipe["Rarity"],searchstring)) then
-
+			(recipe["Rarity"] and strfind(recipe["Rarity"], searchstring)) then
 			recipe["Search"] = true
 		end
 	end
@@ -1773,95 +1698,87 @@ end
 
 ---Goes through the recipe database and resets all the search flags
 function addon:ResetSearch(RecipeDB)
-
 	for SpellID in pairs(RecipeDB) do
 		RecipeDB[SpellID]["Search"] = true
 	end
-
 end
 
 -------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
-
 ---Scans through the recipe database providing a string of comma separated values for all recipe information
 function addon:GetTextDump(RecipeDB, profession)
-
-	local texttable = {}
+	local text_table = {}
 
 	-- Add a header to the text table
-	tinsert(texttable, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
-	tinsert(texttable, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
-	tinsert(texttable, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+	tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
+	tinsert(text_table, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
+	tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 
 	for SpellID in pairs(RecipeDB) do
+		local recipe_prof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
 
-		local recipeprof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
-
-		if (recipeprof == profession) then
-
+		if recipe_prof == profession then
 			-- Add Spell ID, Name and Skill Level to the list
-			tinsert(texttable, SpellID)
-			tinsert(texttable, ",")
-			tinsert(texttable, RecipeDB[SpellID]["Name"])
-			tinsert(texttable, ",")
-			tinsert(texttable, RecipeDB[SpellID]["Level"])
-			tinsert(texttable, ",\"")
+			tinsert(text_table, SpellID)
+			tinsert(text_table, ",")
+			tinsert(text_table, RecipeDB[SpellID]["Name"])
+			tinsert(text_table, ",")
+			tinsert(text_table, RecipeDB[SpellID]["Level"])
+			tinsert(text_table, ",\"")
 
 			-- Add in all the filter flags
-			local flags = RecipeDB[SpellID]["Flags"]
+			local recipe_flags = RecipeDB[SpellID]["Flags"]
 
 			-- Find out which flags are marked as "true"
-			for i=1, 127, 1 do
-				if (flags[i] == true) then
-					tinsert(texttable, i)
-					tinsert(texttable, ",")
+			for i = 1, NUM_FLAGS, 1 do
+				if recipe_flags[i] then
+					tinsert(text_table, i)
+					tinsert(text_table, ",")
 				end
 			end
-
-			tinsert(texttable, "\",\"")
+			tinsert(text_table, "\",\"")
 
 			-- Find out which unique acquire methods we have
 			local acquire = RecipeDB[SpellID]["Acquire"]
-			local acquirelist = {}
+			local acquire_list = {}
 
 			for i in pairs(acquire) do
-				if (acquire[i]["Type"] == 1) then
-					acquirelist["Trainer"] = true
-				elseif (acquire[i]["Type"] == 2) then
-					acquirelist["Vendor"] = true
-				elseif (acquire[i]["Type"] == 3) then
-					acquirelist["Mob Drop"] = true
-				elseif (acquire[i]["Type"] == 4) then
-					acquirelist["Quest"] = true
-				elseif (acquire[i]["Type"] == 5) then
-					acquirelist["Seasonal"] = true
-				elseif (acquire[i]["Type"] == 6) then
-					acquirelist["Reputation"] = true
-				elseif (acquire[i]["Type"] == 7) then
-					acquirelist["World Drop"] = true
-				elseif (acquire[i]["Type"] == 8) then
-					acquirelist["Custom"] = true
+				local acquire_type = acquire[i]["Type"]
+
+				if acquire_type == 1 then
+					acquire_list["Trainer"] = true
+				elseif acquire_type == 2 then
+					acquire_list["Vendor"] = true
+				elseif acquire_type == 3 then
+					acquire_list["Mob Drop"] = true
+				elseif acquire_type == 4 then
+					acquire_list["Quest"] = true
+				elseif acquire_type == 5 then
+					acquire_list["Seasonal"] = true
+				elseif acquire_type == 6 then
+					acquire_list["Reputation"] = true
+				elseif acquire_type == 7 then
+					acquire_list["World Drop"] = true
+				elseif acquire_type == 8 then
+					acquire_list["Custom"] = true
 				end
 			end
 
 			-- Add all the acquire methods in
-			for i in pairs(acquirelist) do
-				tinsert(texttable, i)
-				tinsert(texttable, ",")
+			for i in pairs(acquire_list) do
+				tinsert(text_table, i)
+				tinsert(text_table, ",")
 			end
 
 			if (RecipeDB[SpellID]["Known"]) then
-				tinsert(texttable, "\",true\n")
+				tinsert(text_table, "\",true\n")
 			else
-				tinsert(texttable, "\",false\n")
+				tinsert(text_table, "\",false\n")
 			end
-			
 		end
 	end
-
-	return tconcat(texttable, "")
-
+	return tconcat(text_table, "")
 end
 
 do
@@ -1870,334 +1787,333 @@ do
 
 	---Dumps all the info about a recipe out to chat
 	function addon:DumpRecipe(SpellID)
-
 		local recipelist = addon.recipe_list
-
-		if not recipelist then return end
 
 		if not recipelist[SpellID] then
 			self:Print("Spell ID not in recipe database.")
 			return
 		end
+		local recipe = recipelist[SpellID]
 
-		local x = recipelist[SpellID]
-		self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
-		self:Print("Rarity: " .. x["Rarity"])
+		self:Print(recipe["Name"] .. "(" .. recipe["Level"] .. ") -- " .. SpellID)
+		self:Print("Rarity: " .. recipe["Rarity"])
 
-		if (x["Specialty"]) then
-			self:Print("Profession: " .. x["Profession"] .. "(" .. x["Specialty"] .. ")")
+		if recipe["Specialty"] then
+			self:Print("Profession: " .. recipe["Profession"] .. "(" .. recipe["Specialty"] .. ")")
 		else
-			self:Print("Profession: " .. x["Profession"])
-		end
-		if (x["ItemID"]) then
-			local _, linky = GetItemInfo(x["ItemID"])
-			self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
-		end
-		if (x["Locations"]) then
-			self:Print("Located: " .. x["Locations"])
+			self:Print("Profession: " .. recipe["Profession"])
 		end
 
-		local flags = x["Flags"]
+		if recipe["ItemID"] then
+			local _, linky = GetItemInfo(recipe["ItemID"])
+
+			self:Print("Creates: " .. linky .. "(" .. recipe["ItemID"] .. ")")
+		end
+
+		if recipe["Locations"] then
+			self:Print("Located: " .. recipe["Locations"])
+		end
+
+		local recipe_flags = recipe["Flags"]
 		local flagstr = ""
 
-		if (flags[1] == true) then
+		if recipe_flags[1] then
 			flagstr = flagstr .. "Ally, "
 		end
-		if (flags[2] == true) then
+		if recipe_flags[2] then
 			flagstr = flagstr .. "Horde, "
 		end
-		if (flags[3] == true) then
+		if recipe_flags[3] then
 			flagstr = flagstr .. "Trn, "
 		end
-		if (flags[4] == true) then
+		if recipe_flags[4] then
 			flagstr = flagstr .. "Ven, "
 		end
-		if (flags[5] == true) then
+		if recipe_flags[5] then
 			flagstr = flagstr .. "Instance, "
 		end
-		if (flags[6] == true) then
+		if recipe_flags[6] then
 			flagstr = flagstr .. "Raid, "
 		end
-		if (flags[7] == true) then
+		if recipe_flags[7] then
 			flagstr = flagstr .. "Seasonal, "
 		end
-		if (flags[8] == true) then
+		if recipe_flags[8] then
 			flagstr = flagstr .. "Quest, "
 		end
-		if (flags[9] == true) then
+		if recipe_flags[9] then
 			flagstr = flagstr .. "PVP, "
 		end
-		if (flags[10] == true) then
+		if recipe_flags[10] then
 			flagstr = flagstr .. "World, "
 		end
-		if (flags[11] == true) then
+		if recipe_flags[11] then
 			flagstr = flagstr .. "Mob, "
 		end
-		if (flags[12] == true) then
+		if recipe_flags[12] then
 			flagstr = flagstr .. "Disc, "
 		end
-		if (flags[13] == true) then
+		if recipe_flags[13] then
 			flagstr = flagstr .. "13, "
 		end
-		if (flags[14] == true) then
+		if recipe_flags[14] then
 			flagstr = flagstr .. "14, "
 		end
-		if (flags[15] == true) then
+		if recipe_flags[15] then
 			flagstr = flagstr .. "15, "
 		end
-		if (flags[16] == true) then
+		if recipe_flags[16] then
 			flagstr = flagstr .. "16, "
 		end
-		if (flags[17] == true) then
+		if recipe_flags[17] then
 			flagstr = flagstr .. "17, "
 		end
-		if (flags[18] == true) then
+		if recipe_flags[18] then
 			flagstr = flagstr .. "18, "
 		end
-		if (flags[19] == true) then
+		if recipe_flags[19] then
 			flagstr = flagstr .. "19, "
 		end
-		if (flags[20] == true) then
+		if recipe_flags[20] then
 			flagstr = flagstr .. "20, "
 		end
-		if (flags[21] == true) then
+		if recipe_flags[21] then
 			flagstr = flagstr .. "DK, "
 		end
-		if (flags[22] == true) then
+		if recipe_flags[22] then
 			flagstr = flagstr .. "Druid, "
 		end
-		if (flags[23] == true) then
+		if recipe_flags[23] then
 			flagstr = flagstr .. "Huntard, "
 		end
-		if (flags[24] == true) then
+		if recipe_flags[24] then
 			flagstr = flagstr .. "Mage, "
 		end
-		if (flags[25] == true) then
+		if recipe_flags[25] then
 			flagstr = flagstr .. "Pally, "
 		end
-		if (flags[26] == true) then
+		if recipe_flags[26] then
 			flagstr = flagstr .. "Priest, "
 		end
-		if (flags[27] == true) then
+		if recipe_flags[27] then
 			flagstr = flagstr .. "Sham, "
 		end
-		if (flags[28] == true) then
+		if recipe_flags[28] then
 			flagstr = flagstr .. "Rogue, "
 		end
-		if (flags[29] == true) then
+		if recipe_flags[29] then
 			flagstr = flagstr .. "Lock, "
 		end
-		if (flags[30] == true) then
+		if recipe_flags[30] then
 			flagstr = flagstr .. "War, "
 		end
-		if (flags[31] == true) then
+		if recipe_flags[31] then
 			flagstr = flagstr .. "31, "
 		end
-		if (flags[36] == true) then
+		if recipe_flags[36] then
 			flagstr = flagstr .. "IBoE, "
 		end
-		if (flags[37] == true) then
+		if recipe_flags[37] then
 			flagstr = flagstr .. "IBoP, "
 		end
-		if (flags[38] == true) then
+		if recipe_flags[38] then
 			flagstr = flagstr .. "IBoA, "
 		end
-		if (flags[39] == true) then
+		if recipe_flags[39] then
 			flagstr = flagstr .. "39, "
 		end
-		if (flags[40] == true) then
+		if recipe_flags[40] then
 			flagstr = flagstr .. "RBoE, "
 		end
-		if (flags[41] == true) then
+		if recipe_flags[41] then
 			flagstr = flagstr .. "RBoP, "
 		end
-		if (flags[42] == true) then
+		if recipe_flags[42] then
 			flagstr = flagstr .. "RBoA, "
 		end
-		if (flags[51] == true) then
+		if recipe_flags[51] then
 			flagstr = flagstr .. "Melee, "
 		end
-		if (flags[52] == true) then
+		if recipe_flags[52] then
 			flagstr = flagstr .. "Tank, "
 		end
-		if (flags[53] == true) then
+		if recipe_flags[53] then
 			flagstr = flagstr .. "Heal, "
 		end
-		if (flags[54] == true) then
+		if recipe_flags[54] then
 			flagstr = flagstr .. "Caster, "
 		end
-		if (flags[56] == true) then
+		if recipe_flags[56] then
 			flagstr = flagstr .. "Cloth, "
 		end
-		if (flags[57] == true) then
+		if recipe_flags[57] then
 			flagstr = flagstr .. "Leather, "
 		end
-		if (flags[58] == true) then
+		if recipe_flags[58] then
 			flagstr = flagstr .. "Mail, "
 		end
-		if (flags[59] == true) then
+		if recipe_flags[59] then
 			flagstr = flagstr .. "Plate, "
 		end
-		if (flags[60] == true) then
+		if recipe_flags[60] then
 			flagstr = flagstr .. "Cloak, "
 		end
-		if (flags[61] == true) then
+		if recipe_flags[61] then
 			flagstr = flagstr .. "Trinket, "
 		end
-		if (flags[62] == true) then
+		if recipe_flags[62] then
 			flagstr = flagstr .. "Ring, "
 		end
-		if (flags[63] == true) then
+		if recipe_flags[63] then
 			flagstr = flagstr .. "Neck, "
 		end
-		if (flags[64] == true) then
+		if recipe_flags[64] then
 			flagstr = flagstr .. "Shield, "
 		end
-		if (flags[66] == true) then
+		if recipe_flags[66] then
 			flagstr = flagstr .. "1H, "
 		end
-		if (flags[67] == true) then
+		if recipe_flags[67] then
 			flagstr = flagstr .. "2H, "
 		end
-		if (flags[68] == true) then
+		if recipe_flags[68] then
 			flagstr = flagstr .. "Axe, "
 		end
-		if (flags[69] == true) then
+		if recipe_flags[69] then
 			flagstr = flagstr .. "Sword, "
 		end
-		if (flags[70] == true) then
+		if recipe_flags[70] then
 			flagstr = flagstr .. "Mace, "
 		end
-		if (flags[71] == true) then
+		if recipe_flags[71] then
 			flagstr = flagstr .. "Polearm, "
 		end
-		if (flags[72] == true) then
+		if recipe_flags[72] then
 			flagstr = flagstr .. "Dagger, "
 		end
-		if (flags[73] == true) then
+		if recipe_flags[73] then
 			flagstr = flagstr .. "Staff, "
 		end
-		if (flags[74] == true) then
+		if recipe_flags[74] then
 			flagstr = flagstr .. "Wand, "
 		end
-		if (flags[75] == true) then
+		if recipe_flags[75] then
 			flagstr = flagstr .. "Thrown, "
 		end
-		if (flags[76] == true) then
+		if recipe_flags[76] then
 			flagstr = flagstr .. "Bow, "
 		end
-		if (flags[77] == true) then
+		if recipe_flags[77] then
 			flagstr = flagstr .. "xBow, "
 		end
-		if (flags[78] == true) then
+		if recipe_flags[78] then
 			flagstr = flagstr .. "Ammo, "
 		end
-		if (flags[79] == true) then
+		if recipe_flags[79] then
 			flagstr = flagstr .. "Fist, "
 		end
 
 		self:Print("Flags: " .. flagstr)
 		flagstr = ""
 
-		if (flags[96] == true) then
+		if recipe_flags[96] then
 			flagstr = flagstr .. "AD, "
 		end
-		if (flags[97] == true) then
+		if recipe_flags[97] then
 			flagstr = flagstr .. "CC, "
 		end
-		if (flags[98] == true) then
+		if recipe_flags[98] then
 			flagstr = flagstr .. "TB, "
 		end
-		if (flags[99] == true) then
+		if recipe_flags[99] then
 			flagstr = flagstr .. "TH, "
 		end
-		if (flags[100] == true) then
+		if recipe_flags[100] then
 			flagstr = flagstr .. "ZH, "
 		end
-		if (flags[101] == true) then
+		if recipe_flags[101] then
 			flagstr = flagstr .. "Aldor, "
 		end
-		if (flags[102] == true) then
+		if recipe_flags[102] then
 			flagstr = flagstr .. "Ashtongue, "
 		end
-		if (flags[103] == true) then
+		if recipe_flags[103] then
 			flagstr = flagstr .. "CE, "
 		end
-		if (flags[104] == true) then
+		if recipe_flags[104] then
 			flagstr = flagstr .. "Thrall/HH, "
 		end
-		if (flags[105] == true) then
+		if recipe_flags[105] then
 			flagstr = flagstr .. "Consort, "
 		end
-		if (flags[106] == true) then
+		if recipe_flags[106] then
 			flagstr = flagstr .. "KoT, "
 		end
-		if (flags[107] == true) then
+		if recipe_flags[107] then
 			flagstr = flagstr .. "LC, "
 		end
-		if (flags[108] == true) then
+		if recipe_flags[108] then
 			flagstr = flagstr .. "Mag/Kur, "
 		end
-		if (flags[109] == true) then
+		if recipe_flags[109] then
 			flagstr = flagstr .. "SoS, "
 		end
-		if (flags[110] == true) then
+		if recipe_flags[110] then
 			flagstr = flagstr .. "Scryer, "
 		end
-		if (flags[111] == true) then
+		if recipe_flags[111] then
 			flagstr = flagstr .. "Sha'tar, "
 		end
-		if (flags[112] == true) then
+		if recipe_flags[112] then
 			flagstr = flagstr .. "Shattered Sun, "
 		end
-		if (flags[113] == true) then
+		if recipe_flags[113] then
 			flagstr = flagstr .. "Spore, "
 		end
-		if (flags[114] == true) then
+		if recipe_flags[114] then
 			flagstr = flagstr .. "VE, "
 		end
-		if (flags[115] == true) then
+		if recipe_flags[115] then
 			flagstr = flagstr .. "AC, "
 		end
-		if (flags[116] == true) then
+		if recipe_flags[116] then
 			flagstr = flagstr .. "Frenzy, "
 		end
-		if (flags[117] == true) then
+		if recipe_flags[117] then
 			flagstr = flagstr .. "Ebon, "
 		end
-		if (flags[118] == true) then
+		if recipe_flags[118] then
 			flagstr = flagstr .. "Kirin, "
 		end
-		if (flags[119] == true) then
+		if recipe_flags[119] then
 			flagstr = flagstr .. "Hodir, "
 		end
-		if (flags[120] == true) then
+		if recipe_flags[120] then
 			flagstr = flagstr .. "Kalu'ak, "
 		end
-		if (flags[121] == true) then
+		if recipe_flags[121] then
 			flagstr = flagstr .. "Oracles, "
 		end
-		if (flags[122] == true) then
+		if recipe_flags[122] then
 			flagstr = flagstr .. "Wyrm, "
 		end
-		if (flags[123] == true) then
+		if recipe_flags[123] then
 			flagstr = flagstr .. "Wrath Common Factions (The Silver Covenant/The Sunreavers), "
 		end
-		if (flags[124] == true) then
+		if recipe_flags[124] then
 			flagstr = flagstr .. "Wrath Common Factions (Explorers' League/The Hand of Vengeance), "
 		end
-		if (flags[125] == true) then
+		if recipe_flags[125] then
 			flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition), "
 		end
-		if (flags[126] == true) then
+		if recipe_flags[126] then
 			flagstr = flagstr .. "Wrath Common Factions (The Frostborn/The Taunka), "
 		end
-		if (flags[127] == true) then
+		if recipe_flags[127] then
 			flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition), "
 		end
 		self:Print("Reps: " .. flagstr)
 	end
-
 end
 
 ---Clears all saved tradeskills
@@ -2208,4 +2124,33 @@ function addon:ClearSavedSkills()
 		addon.db.profile.tradeskill = nil
 	end
 
+end
+
+-------------------------------------------------------------------------------
+-- API to interface with external AddOns.
+-------------------------------------------------------------------------------
+--- Initialize the recipe database with a specific profession
+-- @name AckisRecipeList:AddRecipeData
+-- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
+-- @param profession Spell ID of the profession which you want to populate the database with.
+-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
+function addon:AddRecipeData(profession)
+	return InitializeRecipe(profession)
+end
+
+--- Initialize the recipe database
+-- @name AckisRecipeList:InitRecipeData
+-- @usage AckisRecipeList:InitRecipeData()
+-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
+-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
+function addon:InitRecipeData()
+	return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
+end
+
+--- Get recipe information from ARL
+-- @name AckisRecipeList:GetRecipeData
+-- @param spellID The spell ID of the recipe you want information about.
+-- @return Table containing all spell ID information or nil if it's not found.
+function addon:GetRecipeData(spellID)
+	return RecipeList[spellID]
 end
