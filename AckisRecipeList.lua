@@ -655,29 +655,22 @@ do
 	local IsTradeSkillLinked = _G.IsTradeSkillLinked
 
 	function addon:TRADE_SKILL_SHOW()
-		local ownskill = IsTradeSkillLinked()
+		local is_linked = IsTradeSkillLinked()
 
 		-- If this is our own skill, save it, if not don't save it
-		if not ownskill then
-			-- Create an entry in the db to track alt trade skills
-			local pname = UnitName("player")
-			local prealm = GetRealmName()
+		if not is_linked then
 			local tradelink = GetTradeSkillListLink()
-			local tradename = GetTradeSkillLine()
 
 			if tradelink then
+				local pname = UnitName("player")
+				local prealm = GetRealmName()
+				local tradename = GetTradeSkillLine()
+
 				-- Actual alt information saved here. -Torhal
-				if not addon.db.global.tradeskill then
-					addon.db.global.tradeskill = {}
-				end
+				addon.db.global.tradeskill = addon.db.global.tradeskill or {}
+				addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
+				addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
 
-				if not addon.db.global.tradeskill[prealm] then
-					addon.db.global.tradeskill[prealm] = {}
-				end
-
-				if not addon.db.global.tradeskill[prealm][pname] then
-					addon.db.global.tradeskill[prealm][pname] = {}
-				end
 				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
 			end
 		end
@@ -1657,45 +1650,6 @@ end
 -------------------------------------------------------------------------------
 -- Searching Functions
 -------------------------------------------------------------------------------
-
----Scans through the recipe database and toggles the flag on if the item is in the search criteria
-function addon:SearchRecipeDB(RecipeDB, searchstring)
-	if not searchstring then
-		return
-	end
-	searchstring = strlower(searchstring)
-
-	for SpellID in pairs(RecipeDB) do
-		local recipe = RecipeDB[SpellID]
-
-		-- Set the search as false automatically
-		recipe["Search"] = false
-
-		-- Allow us to search by spell ID
-		if strfind(strlower(SpellID), searchstring) or
-
-			-- Allow us to search by item ID
-			(recipe["ItemID"] and strfind(strlower(recipe["ItemID"]), searchstring)) or
-
-			-- Allow us to search by name
-			(recipe["Name"] and strfind(strlower(recipe["Name"]), searchstring)) or
-
-			-- Allow us to search by locations
-			(recipe["Locations"] and strfind(recipe["Locations"], searchstring)) or
-
-			-- Allow us to search by specialty
-			(recipe["Specialty"] and strfind(recipe["Specialty"], searchstring)) or
-				
-			-- Allow us to search by skill level
-			(recipe["Level"] and strfind(recipe["Level"], searchstring)) or
-
-			-- Allow us to search by Rarity
-			(recipe["Rarity"] and strfind(recipe["Rarity"], searchstring)) then
-			recipe["Search"] = true
-		end
-	end
-end
-
 ---Goes through the recipe database and resets all the search flags
 function addon:ResetSearch(RecipeDB)
 	for SpellID in pairs(RecipeDB) do

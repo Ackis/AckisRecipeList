@@ -2249,7 +2249,7 @@ end
 
 -- Description: Rep Filtering panel switcher
 
-function addon.RepFilterSwitch(whichrep)
+function RepFilterSwitch(whichrep)
 	-- 1	ARL_RepOldWorldCB		Old World Rep
 	-- 2	ARL_RepBCCB				Burning Crusade
 	-- 3	ARL_RepLKCB				Wrath of the Lich King
@@ -2308,8 +2308,7 @@ function addon.RepFilterSwitch(whichrep)
 
 	end
 
-	if (ShowPanel == true) then
-
+	if ShowPanel then
 		addon.flyTexture:ClearAllPoints()
 		addon.Flyaway:SetWidth(296)
 		addon.Flyaway:SetHeight(312)
@@ -3345,6 +3344,39 @@ function addon:InitializeFrame()
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
 	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
+	local SearchRecipes
+	do
+		local search_params = {
+			["ItemID"]	= true,
+			["Name"]	= true,
+			["Locations"]	= true,
+			["Specialty"]	= true,
+			["Level"]	= true,
+			["Rarity"]	= true,
+		}
+		---Scans through the recipe database and toggles the flag on if the item is in the search criteria
+		function SearchRecipes(pattern)
+			if not pattern then
+				return
+			end
+			pattern = pattern:lower()
+
+			for index in pairs(recipeDB) do
+				local entry = recipeDB[index]
+				entry["Search"] = false
+
+				for field in pairs(search_params) do
+					local str = entry[field] and tostring(entry[field]):lower() or nil
+
+					if str and str:find(pattern) then
+						entry["Search"] = true
+						break
+					end
+				end
+			end
+		end
+	end	-- do
+
 	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel,
 						     25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
 						     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
@@ -3357,7 +3389,7 @@ function addon:InitializeFrame()
 					   if (searchtext ~= "") then
 						   ARL_LastSearchedText = searchtext
 
-						   addon:SearchRecipeDB(recipeDB, searchtext)
+						   SearchRecipes(searchtext)
 						   initDisplayStrings()
 						   RecipeList_Update()
 
@@ -3403,7 +3435,7 @@ function addon:InitializeFrame()
 					 if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 						 ARL_LastSearchedText = searchtext
 
-						 addon:SearchRecipeDB(recipeDB, searchtext)
+						 SearchRecipes(searchtext)
 						 initDisplayStrings()
 						 RecipeList_Update()
 
@@ -4144,15 +4176,15 @@ function addon:InitializeFrame()
 
 	ARL_RepOldWorldCB = addon:CreateExpCB("ARL_RepOldWorldCB", "Glues-WoW-Logo", 1)
 	ARL_RepOldWorldCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -10)
-	ARL_RepOldWorldCB:SetScript("OnClick", function() addon.RepFilterSwitch(1) end)
+	ARL_RepOldWorldCB:SetScript("OnClick", function() RepFilterSwitch(1) end)
 
 	ARL_RepBCCB = addon:CreateExpCB("ARL_RepBCCB", "GLUES-WOW-BCLOGO", 1)
 	ARL_RepBCCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -60)
-	ARL_RepBCCB:SetScript("OnClick", function() addon.RepFilterSwitch(2) end)
+	ARL_RepBCCB:SetScript("OnClick", function() RepFilterSwitch(2) end)
 
 	ARL_RepLKCB = addon:CreateExpCB("ARL_RepLKCB", "wotlk_logo", 1)
 	ARL_RepLKCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -110)
-	ARL_RepLKCB:SetScript("OnClick", function() addon.RepFilterSwitch(3) end)
+	ARL_RepLKCB:SetScript("OnClick", function() RepFilterSwitch(3) end)
 
 	-------------------------------------------------------------------------------
 	-- Original Reputations
