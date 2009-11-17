@@ -1683,12 +1683,16 @@ function addon:GetTextDump(RecipeDB, profession)
 
 			-- Add in all the filter flags
 			local recipe_flags = RecipeDB[SpellID]["Flags"]
-
+			local prev
+			
 			-- Find out which flags are marked as "true"
 			for i = 1, NUM_FLAGS, 1 do
-				if recipe_flags[i] then
-					tinsert(text_table, i)
-					tinsert(text_table, ",")
+					if recipe_flags[i] then
+							if prev then
+								tinsert(text_table, ",")
+							end
+						tinsert(text_table, i)
+						prev = true
 				end
 			end
 			tinsert(text_table, "\",\"")
@@ -1720,9 +1724,13 @@ function addon:GetTextDump(RecipeDB, profession)
 			end
 
 			-- Add all the acquire methods in
+			prev = false
 			for i in pairs(acquire_list) do
-				tinsert(text_table, i)
-				tinsert(text_table, ",")
+						  if prev then
+								tinsert(text_table, ",")
+						 end
+						tinsert(text_table, i)
+						prev = true
 			end
 
 			if (RecipeDB[SpellID]["Known"]) then
