@@ -315,16 +315,7 @@ local factionNeutral	= BFAC["Neutral"]
 -------------------------------------------------------------------------------
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
-local ACQUIRE_TRAINER		= 1
-local ACQUIRE_VENDOR		= 2
-local ACQUIRE_MOB			= 3
-local ACQUIRE_QUEST			= 4
-local ACQUIRE_SEASONAL		= 5
-local ACQUIRE_REPUTATION	= 6
-local ACQUIRE_WORLD_DROP	= 7
-local ACQUIRE_CUSTOM		= 8
-local ACQUIRE_PVP			= 9
-local ACQUIRE_MAX			= 9
+local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
 
 ------------------------------------------------------------------------------
 -- Description: Function to determine if the player has an appropiate level of faction.
@@ -347,7 +338,7 @@ do
 		local acquire = DB[recipeIndex]["Acquire"]
 
 		for i in pairs(acquire) do
-			if acquire[i]["Type"] == ACQUIRE_REPUTATION then
+			if acquire[i]["Type"] == A_REPUTATION then
 				local repid = acquire[i]["ID"]
 
 				if repid == REP_HONOR_HOLD or repid == REP_THRALLMAR then
@@ -467,32 +458,32 @@ do
 		-- Trainers - Display if it's your faction or neutral.
 		if (maptrainer) then
 			-- Trainer acquire
-			if (v["Type"] == ACQUIRE_TRAINER) then 
+			if (v["Type"] == A_TRAINER) then 
 				display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
 			-- Custom Acquire
-			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[3])) then
+			elseif ((v["Type"] == A_CUSTOM) and (flags[3])) then
 				return true
 			end
 		-- Vendors - Display if it's your faction or neutral
 		elseif (mapvendor) then
 			-- Vendor Acquire
-			if (v["Type"] == ACQUIRE_VENDOR) then
+			if (v["Type"] == A_VENDOR) then
 				display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
 			-- Custom Acquire
-			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[4])) then
+			elseif ((v["Type"] == A_CUSTOM) and (flags[4])) then
 				return true
 			end
 		-- Always display mobs
-		elseif (((v["Type"] == ACQUIRE_MOB) and (mapmob)) or
-			((v["Type"] == ACQUIRE_CUSTOM) and (flags[5] or flags[6] or flags[10] or flags[11]))) then
+		elseif (((v["Type"] == A_MOB) and (mapmob)) or
+			((v["Type"] == A_CUSTOM) and (flags[5] or flags[6] or flags[10] or flags[11]))) then
 			return true
 		-- Quests
 		elseif (mapquest) then
 			-- Quest Acquire
-			if (v["Type"] == ACQUIRE_QUEST) then
+			if (v["Type"] == A_QUEST) then
 				display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
 			-- Custom Acquire
-			elseif ((v["Type"] == ACQUIRE_CUSTOM) and (flags[8])) then
+			elseif ((v["Type"] == A_CUSTOM) and (flags[8])) then
 				return true
 			end
 		end
@@ -1039,7 +1030,7 @@ local function GenerateTooltipContent(owner, rIndex)
 
 	-- loop through acquire methods, display each
 	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-		if (v["Type"] == ACQUIRE_TRAINER) then
+		if (v["Type"] == A_TRAINER) then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
 			local trnr = trainerDB[v["ID"]]
@@ -1074,7 +1065,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, trnr["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == ACQUIRE_VENDOR) then
+		elseif (v["Type"] == A_VENDOR) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -1116,7 +1107,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
-		elseif (v["Type"] == ACQUIRE_MOB) then
+		elseif (v["Type"] == A_MOB) then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
 			local mob = mobDB[v["ID"]]
@@ -1132,7 +1123,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			clr1 = addon:hexcolor("NORMAL")
 			clr2 = addon:hexcolor("HIGH")
 			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
-		elseif (v["Type"] == ACQUIRE_QUEST) then
+		elseif (v["Type"] == A_QUEST) then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
 			local qst = questDB[v["ID"]]
@@ -1176,13 +1167,13 @@ local function GenerateTooltipContent(owner, rIndex)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-		elseif (v["Type"] == ACQUIRE_SEASONAL) then
+		elseif (v["Type"] == A_SEASONAL) then
 			-- Seasonal:				SeasonEventName
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, ssnname, clr1)
-		elseif (v["Type"] == ACQUIRE_REPUTATION) then
+		elseif (v["Type"] == A_REPUTATION) then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
@@ -1240,7 +1231,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == ACQUIRE_WORLD_DROP) then
+		elseif (v["Type"] == A_WORLD_DROP) then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -1254,11 +1245,11 @@ local function GenerateTooltipContent(owner, rIndex)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+		elseif (v["Type"] == A_CUSTOM) then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
-		elseif (v["Type"] == ACQUIRE_PVP) then
+		elseif (v["Type"] == A_PVP) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -1556,68 +1547,74 @@ do
 	local SortedRecipeIndex = {}	-- Create a new array for the sorted index
 
 	function SortMissingRecipes(RecipeDB)
-		if (not sortFuncs) then
-			sortFuncs = {}
-			sortFuncs["SkillAsc"] = function(a, b)
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
-				end
-			end
+		if not sortFuncs then
+			sortFuncs = {
+				["SkillAsc"]	= function(a, b)
+							  local reca, recb = RecipeDB[a], RecipeDB[b]
 
-			sortFuncs["SkillDesc"] = function(a, b)
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
-				end
-			end
+							  if reca["Level"] == recb["Level"] then
+								  return reca["Name"] < recb["Name"]
+							  else
+								  return reca["Level"] < recb["Level"]
+							  end
+						  end,
 
-			sortFuncs["Name"] = function(a, b)
-				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-			end
+				["SkillDesc"]	= function(a, b)
+							  local reca, recb = RecipeDB[a], RecipeDB[b]
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Acquisition"] = function (a, b)
-				local reca = RecipeDB[a]["Acquire"][1]
-				local recb = RecipeDB[b]["Acquire"][1]
-				if (reca and recb) then
-					-- Both acquire methods are the same
-					if (reca["Type"] == recb["Type"]) then
-						-- If we have a custom string for sorting
-						if (reca["Type"] == 8) then
-							-- Sort on name if they're the same custom ID
-							if (RecipeDB[a]["Acquire"][1]["ID"] == RecipeDB[b]["Acquire"][1]["ID"]) then
-								return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-							-- Sort on the ID of the custom string so they get grouped together							
-							else
-								return RecipeDB[a]["Acquire"][1]["ID"] < RecipeDB[b]["Acquire"][1]["ID"]
-							end
-						else
-							return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-						end
-					else
-						return reca["Type"] < recb["Type"]
-					end
-				else
-					return not not reca
-				end
-			end
+							  if reca["Level"] == recb["Level"] then
+								  return reca["Name"] < recb["Name"]
+							  else
+								  return recb["Level"] < reca["Level"]
+							  end
+						  end,
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Location"] = function (a, b)
-				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = RecipeDB[a]["Locations"] or ""
-				local recb = RecipeDB[b]["Locations"] or ""
-				reca = smatch(reca,"(%w+),") or ""
-				recb = smatch(recb,"(%w+),") or ""
-				if (reca == recb) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-				else
-					return (reca < recb)
-				end
-			end
+				["Name"]	= function(a, b)
+							  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+						  end,
+
+				-- Will only sort based off of the first acquire type
+				["Acquisition"]	= function(a, b)
+							  local reca = RecipeDB[a]["Acquire"][1]
+							  local recb = RecipeDB[b]["Acquire"][1]
+
+							  if not reca or not recb then
+								  return not not reca
+							  end
+
+							  if reca["Type"] ~= recb["Type"] then
+								  return reca["Type"] < recb["Type"]
+							  end
+
+							  if reca["Type"] == A_CUSTOM then
+								  -- Sort on name if they're the same custom ID
+								  if reca["ID"] == recb["ID"] then
+									  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+								  else
+									  return reca["ID"] < recb["ID"]
+								  end
+							  else
+								  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+							  end
+						  end,
+
+				-- Will only sort based off of the first acquire type
+				["Location"]	= function(a, b)
+							  -- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+							  local reca = RecipeDB[a]["Locations"] or ""
+							  local recb = RecipeDB[b]["Locations"] or ""
+
+							  reca = smatch(reca,"(%w+), ") or reca
+							  recb = smatch(recb,"(%w+), ") or recb
+
+							  if reca == recb then
+								  return sortFuncs["Acquisition"](a, b)
+--								  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+							  else
+								  return reca < recb
+							  end
+						  end,
+			}
 		end
 		twipe(SortedRecipeIndex)
 
@@ -1940,7 +1937,7 @@ local function expandEntry(dsIndex)
 		t.sID = recipeIndex
 		t.IsExpanded = true
 
-		if (v["Type"] == ACQUIRE_TRAINER) and obtainDB.trainer then
+		if (v["Type"] == A_TRAINER) and obtainDB.trainer then
 			local trainer = trainerDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
@@ -1975,7 +1972,7 @@ local function expandEntry(dsIndex)
 		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
 		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 		-- This allows us to select PVP only and to see just the PVP recipes
-		elseif (v["Type"] == ACQUIRE_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
+		elseif (v["Type"] == A_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
@@ -2008,7 +2005,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif (v["Type"] == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+		elseif (v["Type"] == A_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
 			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
@@ -2028,7 +2025,7 @@ local function expandEntry(dsIndex)
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_QUEST) and obtainDB.quest then
+		elseif (v["Type"] == A_QUEST) and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, quest["Faction"]) then
@@ -2060,11 +2057,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == ACQUIRE_SEASONAL) and obtainDB.seasonal then
+		elseif (v["Type"] == A_SEASONAL) and obtainDB.seasonal then
 			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif (v["Type"] == A_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2118,15 +2115,15 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
+		elseif (v["Type"] == A_WORLD_DROP) and obtainDB.worlddrop then
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+		elseif (v["Type"] == A_CUSTOM) then
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_PVP) and obtainDB.pvp then
+		elseif (v["Type"] == A_PVP) and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
@@ -2159,7 +2156,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		--@alpha@
-		elseif	(v["Type"] > ACQUIRE_MAX) then -- We have an acquire type we aren't sure how to deal with.
+		elseif	(v["Type"] > A_MAX) then -- We have an acquire type we aren't sure how to deal with.
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
