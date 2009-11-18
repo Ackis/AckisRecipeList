@@ -147,18 +147,18 @@ local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptC
 
 -- To make tabbing between professions easier 
 local SortedProfessions = { 
-	{ name = GetSpellInfo(51304),	texture = "alchemy" },	-- 1 
-	{ name = GetSpellInfo(51300),	texture = "blacksmith" }, -- 2 
-	{ name = GetSpellInfo(51296),	texture = "cooking" },	-- 3 
-	{ name = GetSpellInfo(51313),	texture = "enchant" },	-- 4 
-	{ name = GetSpellInfo(51306),	texture = "engineer" },	-- 5 
-	{ name = GetSpellInfo(45542),	texture = "firstaid" },	-- 6 
-	{ name = GetSpellInfo(45363),	texture = "inscribe" },	-- 7 
-	{ name = GetSpellInfo(51311),	texture = "jewel" },	-- 8 
-	{ name = GetSpellInfo(51302),	texture = "leather" },	-- 9 
-	{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
-	{ name = GetSpellInfo(32606),	texture = "smelting" },	-- 11 
-	{ name = GetSpellInfo(51309),	texture = "tailor" },	-- 12 
+	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1 
+	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2 
+	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3 
+	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4 
+	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5 
+	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6 
+	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7 
+	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8 
+	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9 
+	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10 
+	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11 
+	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
 } 
 
 local NUM_PROFESSIONS = 12
@@ -168,27 +168,28 @@ local ExpButtonText = {
 	L["General"],		-- 1
 	L["Obtain"],		-- 2
 	L["Binding"],		-- 3
-	L["Item"],			-- 4
+	L["Item"],		-- 4
 	L["Player Type"],	-- 5
 	L["Reputation"],	-- 6
-	L["Misc"]			-- 7
+	L["Misc"]		-- 7
 }
 
 local ExpButtonTT = {
 	L["FILTERING_GENERAL_DESC"],	-- 1
-	L["FILTERING_OBTAIN_DESC"],		-- 2
+	L["FILTERING_OBTAIN_DESC"],	-- 2
 	L["FILTERING_BINDING_DESC"],	-- 3
-	L["FILTERING_ITEM_DESC"],		-- 4
+	L["FILTERING_ITEM_DESC"],	-- 4
 	L["FILTERING_PLAYERTYPE_DESC"],	-- 5
-	L["FILTERING_REP_DESC"],		-- 6
-	L["FILTERING_MISC_DESC"]		-- 7
+	L["FILTERING_REP_DESC"],	-- 6
+	L["FILTERING_MISC_DESC"]	-- 7
 }
 
 
+-------------------------------------------------------------------------------
 -- Define the static popups we're going to call when people don't have a
 -- scanned or don't are blocking all recipes from being displayed
 -- with current filters
-
+-------------------------------------------------------------------------------
 StaticPopupDialogs["ARL_NOTSCANNED"] = {
 	text = L["NOTSCANNED"],
 	button1 = L["Ok"],
@@ -265,14 +266,6 @@ function addon:ClosePopups()
 	StaticPopup_Hide("ARL_ALLKNOWN")
 	StaticPopup_Hide("ARL_ALLEXCLUDED")
 	StaticPopup_Hide("ARL_SEARCHFILTERED")
-end
-
--------------------------------------------------------------------------------
--- Hide the main recipe frame, and close all popups.
--------------------------------------------------------------------------------
-function addon:CloseWindow()
-	self:ClosePopups()
-	self.Frame:Hide()
 end
 
 -------------------------------------------------------------------------------
@@ -788,8 +781,9 @@ do
 	end
 end -- do block
 
--- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
-
+-------------------------------------------------------------------------------
+-- DisplayString methods.
+-------------------------------------------------------------------------------
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
 		ReleaseTable(DisplayStrings[i])
@@ -797,26 +791,22 @@ local function WipeDisplayStrings()
 	twipe(DisplayStrings)
 end
 
-local function initDisplayStrings()
+-- Parses the recipes and determines which ones to display, and makes them display appropriately
+local function initDisplayStrings(expand_acquires)
 	local exclude = addon.db.profile.exclusionlist
+	local insertIndex = 1
 
 	WipeDisplayStrings()
 
-	local insertIndex = 1
-
 	for i = 1, #sortedRecipeIndex do
-
 		local recipeIndex = sortedRecipeIndex[i]
 		local recipeEntry = recipeDB[recipeIndex]
 
-		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
-			-- add in recipe difficulty coloring
-			local recStr = ""
+		if recipeEntry["Display"] and recipeEntry["Search"] then
+			local recStr = recipeEntry["Name"]
 
-			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeEntry["Name"] .. " **"
-			else
-				recStr = recipeEntry["Name"]
+			if exclude[recipeIndex] then
+				recStr = "** " .. recStr .. " **"
 			end
 
 			local recipeSkill = recipeEntry["Level"]
@@ -835,32 +825,33 @@ local function initDisplayStrings()
 
 			t.sID = recipeIndex
 			t.IsRecipe = true
-			t.IsExpanded = false
-			tinsert(DisplayStrings, insertIndex, t)
-			insertIndex = insertIndex + 1
 
+			if expand_acquires and recipeEntry["Acquire"] then
+				-- we have acquire information for this. push the title entry into the strings
+				-- and start processing the acquires
+				t.IsExpanded = true
+				tinsert(DisplayStrings, insertIndex, t)
+				insertIndex = expandEntry(insertIndex)
+			else
+				t.IsExpanded = false
+				tinsert(DisplayStrings, insertIndex, t)
+				insertIndex = insertIndex + 1
+			end
 		end
-
 	end
-
 end
 
-
 -- Description: Converting from hex to rgb (Thanks Maldivia)
-
 local function toRGB(hex)
-
 	local r, g, b = hex:match("(..)(..)(..)")
 
 	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
-
 end
 
 
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
-
 local function ttAdd(
 	leftPad,		-- number of times to pad two spaces on left side
 	textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
@@ -1669,7 +1660,7 @@ local function ReDisplay()
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(playerData.playerProfession)
 
-	initDisplayStrings()
+	initDisplayStrings(false)
 	SetProgressBar(playerData)
 
 	-- Make sure our expand all button is set to expandall
@@ -2584,67 +2575,6 @@ function addon.DoFlyaway(panel)
 
 end
 
--- Description: This does an initial fillup of the DisplayStrings, as above.
--- However, in this case, it expands every recipe
-
-local function expandallDisplayStrings()
-
-	local exclude = addon.db.profile.exclusionlist
-
-	WipeDisplayStrings()
-
-	local insertIndex = 1
-
-	for i = 1, #sortedRecipeIndex do
-
-		local recipeIndex = sortedRecipeIndex[i]
-		local recipeEntry = recipeDB[recipeIndex]
-
-		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
-			-- add in recipe difficulty coloring
-			local recStr = ""
-
-			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeEntry["Name"] .. " **"
-			else
-				recStr = recipeEntry["Name"]
-			end
-
-			local recipeSkill = recipeEntry["Level"]
-			local playerSkill = playerData.playerProfessionLevel
-			local recipeOrange = recipeEntry["Orange"]
-			local recipeYellow = recipeEntry["Yellow"]
-			local recipeGreen = recipeEntry["Green"]
-			local recipeGrey = recipeEntry["Grey"]
-
-			recStr = SetSortString(recipeSkill, recStr)
-
-			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
-
-			local t = AcquireTable()
-			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
-
-			t.sID = sortedRecipeIndex[i]
-			t.IsRecipe = true
-
-			if recipeEntry["Acquire"] then
-				-- we have acquire information for this. push the title entry into the strings
-				-- and start processing the acquires
-				t.IsExpanded = true
-				tinsert(DisplayStrings, insertIndex, t)
-				insertIndex = expandEntry(insertIndex)
-			else
-				t.IsExpanded = false
-				tinsert(DisplayStrings, insertIndex, t)
-				insertIndex = insertIndex + 1
-			end
-
-		end
-
-	end
-
-end
-
 local function SetSortName()
 	local sort_type = addon.db.profile.sorting
 
@@ -3054,7 +2984,7 @@ function addon:InitializeFrame()
 	-- Assign the frame scripts, then show it.
 	-------------------------------------------------------------------------------
 	MainPanel:SetScript("OnMouseDown", function() MainPanel:StartMoving() end)
-	MainPanel:SetScript("OnHide", function() addon:CloseWindow() end)
+	MainPanel:SetScript("OnHide", function() addon:ClosePopups() end)
 	MainPanel:SetScript("OnMouseUp",
 			      function()
 				      MainPanel:StopMovingOrSizing()
@@ -3237,7 +3167,7 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", MainPanel, "UIPanelCloseButton")
 	-- Close all possible pop-up windows
-	ARL_CloseXButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
+	ARL_CloseXButton:SetScript("OnClick", function(self) MainPanel:Close() end)
 	ARL_CloseXButton:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
 
 	-------------------------------------------------------------------------------
@@ -3337,11 +3267,11 @@ function addon:InitializeFrame()
 					   if self:GetText() == L["EXPANDALL"] then
 						   self:SetText(L["CONTRACTALL"])
 						   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-						   expandallDisplayStrings()
+						   initDisplayStrings(true)
 					   else
 						   self:SetText(L["EXPANDALL"])
 						   SetTooltipScripts(self, L["EXPANDALL_DESC"])
-						   initDisplayStrings()
+						   initDisplayStrings(false)
 					   end
 					   RecipeList_Update()
 				   end)
@@ -3394,7 +3324,7 @@ function addon:InitializeFrame()
 						   ARL_LastSearchedText = searchtext
 
 						   SearchRecipes(searchtext)
-						   initDisplayStrings()
+						   initDisplayStrings(false)
 						   RecipeList_Update()
 
 						   ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -3430,7 +3360,7 @@ function addon:InitializeFrame()
 					  -- Make sure to clear text for last search
 					  ARL_LastSearchedText = ""
 
-					  initDisplayStrings()
+					  initDisplayStrings(false)
 					  RecipeList_Update()
 				  end)
 	ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
@@ -3443,7 +3373,7 @@ function addon:InitializeFrame()
 						 ARL_LastSearchedText = searchtext
 
 						 SearchRecipes(searchtext)
-						 initDisplayStrings()
+						 initDisplayStrings(false)
 						 RecipeList_Update()
 
 						 ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -3487,7 +3417,7 @@ function addon:InitializeFrame()
 						    22, 69, "BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
 						    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
-	ARL_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
+	ARL_CloseButton:SetScript("OnClick", function(self) MainPanel:Close() end)
 
 	-------------------------------------------------------------------------------
 	-- ProgressBar for our skills
@@ -4810,7 +4740,7 @@ function addon:DisplayFrame(
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
 	-- Fill the DisplayStrings from the sorted list and update the progressbar
-	initDisplayStrings()
+	initDisplayStrings(false)
 	SetProgressBar(cPlayer)
 
 	-- And update our scrollframe
@@ -4880,6 +4810,11 @@ function MainPanel:ResetTitle()
 		new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession
 	end
 	self.HeadingText:SetText(addon:Normal(new_title))
+end
+
+function MainPanel:Close()
+	self:Hide()
+	addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
