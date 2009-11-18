@@ -171,7 +171,9 @@ function addon:OnInitialize()
 			tradeskill = {},
 		},
 		profile = {
+			-------------------------------------------------------------------------------
 			-- Frame options
+			-------------------------------------------------------------------------------
 			frameopts = {
 				offsetx = 0,
 				offsety = 0,
@@ -182,10 +184,14 @@ function addon:OnInitialize()
 				fontsize = 11,
 			},
 
+			-------------------------------------------------------------------------------
 			-- Sorting Options
+			-------------------------------------------------------------------------------
 			sorting = "SkillAsc",
 
+			-------------------------------------------------------------------------------
 			-- Display Options
+			-------------------------------------------------------------------------------
 			includefiltered = false,
 			includeexcluded = false,
 			closeguionskillclose = false,
@@ -205,12 +211,18 @@ function addon:OnInitialize()
 			mapmob = true,
 			mapquest = true,
 
+			-------------------------------------------------------------------------------
 			-- Recipe Exclusion
+			-------------------------------------------------------------------------------
 			exclusionlist = {},
 
+			-------------------------------------------------------------------------------
 			-- Filter Options
+			-------------------------------------------------------------------------------
 			filters = {
+				-------------------------------------------------------------------------------
 				-- General Filters
+				-------------------------------------------------------------------------------
 				general = {
 					faction = true,
 					specialty = false,
@@ -218,7 +230,9 @@ function addon:OnInitialize()
 					known = false,
 					unknown = true,
 				},
-				-- Obtain Options
+				-------------------------------------------------------------------------------
+				-- Obtain Filters
+				-------------------------------------------------------------------------------
 				obtain = {
 					trainer = true,
 					vendor = true,
@@ -234,7 +248,9 @@ function addon:OnInitialize()
 					bc = true,
 					wrath = true,
 				},
+				-------------------------------------------------------------------------------
 				-- Item Filters (Armor/Weapon)
+				-------------------------------------------------------------------------------
 				item = {
 					armor = {
 						cloth = true,
@@ -265,19 +281,27 @@ function addon:OnInitialize()
 						gun = true,
 					},
 				},
+				-------------------------------------------------------------------------------
+				-- Binding Filters
+				-------------------------------------------------------------------------------
 				binding = {
 					itemboe = true,
 					itembop = true,
 					recipebop = true,
 					recipeboe = true,
 				},
+				-------------------------------------------------------------------------------
+				-- Player Role Filters
+				-------------------------------------------------------------------------------
 				player = {
 					melee = true,
 					tank = true,
 					healer = true,
 					caster = true,
 				},
-				-- Reputation Options
+				-------------------------------------------------------------------------------
+				-- Reputation Filters
+				-------------------------------------------------------------------------------
 				rep = {
 					aldor = true,
 					scryer = true,
@@ -313,7 +337,9 @@ function addon:OnInitialize()
 					wrathcommon5 = true,
 					ashenverdict = true,
 				},
-				-- Classes
+				-------------------------------------------------------------------------------
+				-- Class Filters
+				-------------------------------------------------------------------------------
 				classes = {
 					deathknight = true,
 					druid = true,
@@ -1399,7 +1425,8 @@ do
 		playerData.recipes_known = recipes_known
 		playerData.recipes_total_filtered = recipes_total_filtered
 		playerData.recipes_known_filtered = recipes_known_filtered
-	end
+		end
+
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -1648,104 +1675,91 @@ function addon:ClearExclusionList()
 end
 
 -------------------------------------------------------------------------------
--- Searching Functions
--------------------------------------------------------------------------------
----Goes through the recipe database and resets all the search flags
-function addon:ResetSearch(RecipeDB)
-	for SpellID in pairs(RecipeDB) do
-		RecipeDB[SpellID]["Search"] = true
-	end
-end
-
--------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
----Scans through the recipe database providing a string of comma separated values for all recipe information
-function addon:GetTextDump(RecipeDB, profession)
+do
+	-------------------------------------------------------------------------------
+	-- Provides a string of comma separated values for all recipe information
+	-------------------------------------------------------------------------------
 	local text_table = {}
+	local acquire_list = {}
 
-	-- Add a header to the text table
-	tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
-	tinsert(text_table, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
-	tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+	local ACQUIRE_NAMES = {
+		[A_TRAINER]	= "Trainer",
+		[A_VENDOR]	= "Vendor",
+		[A_MOB]		= "Mob Drop",
+		[A_QUEST]	= "Quest",
+		[A_SEASONAL]	= "Seasonal",
+		[A_REPUTATION]	= "Reputation",
+		[A_WORLD_DROP]	= "World Drop",
+		[A_CUSTOM]	= "Custom",
+	}
 
-	for SpellID in pairs(RecipeDB) do
-		local recipe_prof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
+	function addon:GetTextDump(RecipeDB, profession)
+		twipe(text_table)
 
-		if recipe_prof == profession then
-			-- Add Spell ID, Name and Skill Level to the list
-			tinsert(text_table, SpellID)
-			tinsert(text_table, ",")
-			tinsert(text_table, RecipeDB[SpellID]["Name"])
-			tinsert(text_table, ",")
-			tinsert(text_table, RecipeDB[SpellID]["Level"])
-			tinsert(text_table, ",\"")
+		tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
+		tinsert(text_table, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
+		tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 
-			-- Add in all the filter flags
-			local recipe_flags = RecipeDB[SpellID]["Flags"]
-			local prev
-			
-			-- Find out which flags are marked as "true"
-			for i = 1, NUM_FLAGS, 1 do
+		for SpellID in pairs(RecipeDB) do
+			local recipe_prof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
+
+			if recipe_prof == profession then
+				-- Add Spell ID, Name and Skill Level to the list
+				tinsert(text_table, SpellID)
+				tinsert(text_table, ",")
+				tinsert(text_table, RecipeDB[SpellID]["Name"])
+				tinsert(text_table, ",")
+				tinsert(text_table, RecipeDB[SpellID]["Level"])
+				tinsert(text_table, ",\"")
+
+				-- Add in all the filter flags
+				local recipe_flags = RecipeDB[SpellID]["Flags"]
+				local prev
+
+				-- Find out which flags are marked as "true"
+				for i = 1, NUM_FLAGS, 1 do
 					if recipe_flags[i] then
-							if prev then
-								tinsert(text_table, ",")
-							end
+						if prev then
+							tinsert(text_table, ",")
+						end
 						tinsert(text_table, i)
 						prev = true
+					end
 				end
-			end
-			tinsert(text_table, "\",\"")
+				tinsert(text_table, "\",\"")
 
-			-- Find out which unique acquire methods we have
-			local acquire = RecipeDB[SpellID]["Acquire"]
-			local acquire_list = {}
+				-- Find out which unique acquire methods we have
+				local acquire = RecipeDB[SpellID]["Acquire"]
+				twipe(acquire_list)
 
-			for i in pairs(acquire) do
-				local acquire_type = acquire[i]["Type"]
+				for i in pairs(acquire) do
+					local acquire_type = acquire[i]["Type"]
 
-				if acquire_type == 1 then
-					acquire_list["Trainer"] = true
-				elseif acquire_type == 2 then
-					acquire_list["Vendor"] = true
-				elseif acquire_type == 3 then
-					acquire_list["Mob Drop"] = true
-				elseif acquire_type == 4 then
-					acquire_list["Quest"] = true
-				elseif acquire_type == 5 then
-					acquire_list["Seasonal"] = true
-				elseif acquire_type == 6 then
-					acquire_list["Reputation"] = true
-				elseif acquire_type == 7 then
-					acquire_list["World Drop"] = true
-				elseif acquire_type == 8 then
-					acquire_list["Custom"] = true
+					acquire_list[ACQUIRE_NAMES[acquire_type]] = true
 				end
-			end
 
-			-- Add all the acquire methods in
-			prev = false
-			for i in pairs(acquire_list) do
-						  if prev then
-								tinsert(text_table, ",")
-						 end
-						tinsert(text_table, i)
-						prev = true
-			end
+				-- Add all the acquire methods in
+				prev = false
 
-			if (RecipeDB[SpellID]["Known"]) then
-				tinsert(text_table, "\",true\n")
-			else
-				tinsert(text_table, "\",false\n")
+				for i in pairs(acquire_list) do
+					if prev then
+						tinsert(text_table, ",")
+					end
+					tinsert(text_table, i)
+					prev = true
+				end
+
+				if (RecipeDB[SpellID]["Known"]) then
+					tinsert(text_table, "\",true\n")
+				else
+					tinsert(text_table, "\",false\n")
+				end
 			end
 		end
+		return tconcat(text_table, "")
 	end
-	return tconcat(text_table, "")
-end
-
-do
-
-	local GetItemInfo = GetItemInfo
 
 	---Dumps all the info about a recipe out to chat
 	function addon:DumpRecipe(SpellID)

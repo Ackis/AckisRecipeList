@@ -1030,7 +1030,9 @@ local function GenerateTooltipContent(owner, rIndex)
 
 	-- loop through acquire methods, display each
 	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
-		if (v["Type"] == A_TRAINER) then
+		local acquire_type = v["Type"]
+
+		if acquire_type == A_TRAINER then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
 			local trnr = trainerDB[v["ID"]]
@@ -1039,13 +1041,16 @@ local function GenerateTooltipContent(owner, rIndex)
 			clr1 = addon:hexcolor("TRAINER")
 			-- Don't display trainers if it's opposite faction
 			local displaytt = false
+
 			if (trnr["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
+
 				if (playerFaction == factionHorde) then
 					displaytt = true
 				end
 			elseif (trnr["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
+
 				if (playerFaction == factionAlliance) then
 					displaytt = true
 				end
@@ -1065,7 +1070,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, trnr["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == A_VENDOR) then
+		elseif acquire_type == A_VENDOR then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -1095,7 +1100,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				displaytt = true
 			end
 
-			if (displaytt) then
+			if displaytt then
 				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 				end
@@ -1107,7 +1112,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
-		elseif (v["Type"] == A_MOB) then
+		elseif acquire_type == A_MOB then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
 			local mob = mobDB[v["ID"]]
@@ -1123,7 +1128,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			clr1 = addon:hexcolor("NORMAL")
 			clr2 = addon:hexcolor("HIGH")
 			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
-		elseif (v["Type"] == A_QUEST) then
+		elseif acquire_type == A_QUEST then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
 			local qst = questDB[v["ID"]]
@@ -1153,8 +1158,9 @@ local function GenerateTooltipContent(owner, rIndex)
 					displaytt = true
 				end
 
-				if (displaytt) then
+				if displaytt then
 					local cStr = ""
+
 					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
 						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 					end
@@ -1167,13 +1173,13 @@ local function GenerateTooltipContent(owner, rIndex)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-		elseif (v["Type"] == A_SEASONAL) then
+		elseif acquire_type == A_SEASONAL then
 			-- Seasonal:				SeasonEventName
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, ssnname, clr1)
-		elseif (v["Type"] == A_REPUTATION) then
+		elseif acquire_type == A_REPUTATION then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
@@ -1210,14 +1216,16 @@ local function GenerateTooltipContent(owner, rIndex)
 			end
 
 			local displaytt = false
-			if (repvndr["Faction"] == factionHorde) then
+			if repvndr["Faction"] == factionHorde then
 				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == factionHorde) then
+
+				if playerFaction == factionHorde then
 					displaytt = true
 				end
-			elseif (repvndr["Faction"] == factionAlliance) then
+			elseif repvndr["Faction"] == factionAlliance then
 				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == factionAlliance) then
+
+				if playerFaction == factionAlliance then
 					displaytt = true
 				end
 			else
@@ -1225,13 +1233,13 @@ local function GenerateTooltipContent(owner, rIndex)
 				displaytt = true
 			end
 
-			if (displaytt) then
+			if displaytt then
 				ttAdd(1, -2, 0, rStr, clr1, repvndr["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == A_WORLD_DROP) then
+		elseif acquire_type == A_WORLD_DROP then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -1245,11 +1253,11 @@ local function GenerateTooltipContent(owner, rIndex)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (v["Type"] == A_CUSTOM) then
+		elseif acquire_type == A_CUSTOM then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
-		elseif (v["Type"] == A_PVP) then
+		elseif acquire_type == A_PVP then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -1279,11 +1287,10 @@ local function GenerateTooltipContent(owner, rIndex)
 				displaytt = true
 			end
 
-			if (displaytt) then
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+			if displaytt then
+				if vndr["Coordx"] ~= 0 and vndr["Coordy"] ~= 0 then
 					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 				end
-
 				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
@@ -1309,11 +1316,10 @@ local function GenerateTooltipContent(owner, rIndex)
 	if addon.db.profile.worldmap or addon.db.profile.minimap then
 		ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], clr1)
 	end
-
 	arlTooltip:Show()
 
 	-- If we have the spell link tooltip, link it to the acquire tooltip.
-	if (spellTooltipLocation ~= L["Off"]) and (spellLink) then
+	if spellTooltipLocation ~= L["Off"] and spellLink then
 		SetSpellTooltip(arlTooltip, spellTooltipLocation, spellLink)
 	else
 		arlSpellTooltip:Hide()
@@ -1932,12 +1938,13 @@ local function expandEntry(dsIndex)
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
 		-- Initialize the first line here, since every type below will have one.
+		local acquire_type = v["Type"]
 		local t = AcquireTable()
 		t.IsRecipe = false
 		t.sID = recipeIndex
 		t.IsExpanded = true
 
-		if (v["Type"] == A_TRAINER) and obtainDB.trainer then
+		if acquire_type == A_TRAINER and obtainDB.trainer then
 			local trainer = trainerDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
@@ -1972,7 +1979,7 @@ local function expandEntry(dsIndex)
 		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
 		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 		-- This allows us to select PVP only and to see just the PVP recipes
-		elseif (v["Type"] == A_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
+		elseif acquire_type == A_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
@@ -2005,7 +2012,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif (v["Type"] == A_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+		elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
 			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
@@ -2025,7 +2032,7 @@ local function expandEntry(dsIndex)
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == A_QUEST) and obtainDB.quest then
+		elseif acquire_type == A_QUEST and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, quest["Faction"]) then
@@ -2057,11 +2064,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == A_SEASONAL) and obtainDB.seasonal then
+		elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
 			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == A_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2115,15 +2122,15 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == A_WORLD_DROP) and obtainDB.worlddrop then
+		elseif acquire_type == A_WORLD_DROP and obtainDB.worlddrop then
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == A_CUSTOM) then
+		elseif acquire_type == A_CUSTOM then
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == A_PVP) and obtainDB.pvp then
+		elseif acquire_type == A_PVP and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
@@ -2155,12 +2162,12 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		--@alpha@
-		elseif	(v["Type"] > A_MAX) then -- We have an acquire type we aren't sure how to deal with.
-			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
+			--@alpha@
+		elseif acquire_type > A_MAX then -- We have an acquire type we aren't sure how to deal with.
+			t.String = "Unhandled Acquire Case - Type: " .. acquire_type
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		--@end-alpha@
+			--@end-alpha@
 		end
 	end
 	return dsIndex
@@ -3403,7 +3410,10 @@ function addon:InitializeFrame()
 						    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 	ARL_ClearButton:SetScript("OnClick",
 				  function()
-					  addon:ResetSearch(recipeDB)
+					  -- Reset the search flags
+					  for index in pairs(recipeDB) do
+						  recipeDB[index]["Search"] = true
+					  end
 					  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
 					  -- Make sure our expand all button is set to expandall
