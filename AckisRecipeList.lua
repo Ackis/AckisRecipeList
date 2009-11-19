@@ -560,8 +560,8 @@ function addon:OnEnable()
 	-- Initialize the player's data.
 	-------------------------------------------------------------------------------
 	do
-		Player.Faction = UnitFactionGroup("player")
-		Player.Class = select(2, UnitClass("player"))
+		Player["Faction"] = UnitFactionGroup("player")
+		Player["Class"] = select(2, UnitClass("player"))
 
 		-------------------------------------------------------------------------------
 		-- Get the player's reputation levels.
@@ -570,7 +570,7 @@ function addon:OnEnable()
 		Player:SetReputationLevels()
 
 		-------------------------------------------------------------------------------
-		---Scan first 25 spellbook slots to identify all applicable professions
+		-- Get the player's professions.
 		-------------------------------------------------------------------------------
 		Player["Professions"] = {
 			[GetSpellInfo(51304)] = false, -- Alchemy
@@ -586,30 +586,13 @@ function addon:OnEnable()
 			[GetSpellInfo(45363)] = false, -- Inscription
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
-		local profession_list = Player["Professions"]
+		Player:SetProfessions()
+	end	-- do
 
-		-- Reset the table, they may have unlearnt a profession
-		for i in pairs(profession_list) do
-			profession_list[i] = false
-		end
-
-		-- Scan through the spell book getting the spell names
-		for index = 1, 25, 1 do
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			if not spellName or index == 25 then
-				break
-			end
-
-			if not profession_list[spellName] or spellName == GetSpellInfo(2656) then
-				if spellName == GetSpellInfo(2656) then
-					profession_list[GetSpellInfo(32606)] = true
-				else
-					profession_list[spellName] = true
-				end
-			end
-		end
-
+	-------------------------------------------------------------------------------
+	-- Initialize the SpecialtyTable and AllSpecialtiesTable.
+	-------------------------------------------------------------------------------
+	do
 		local AlchemySpec = {
 			[GetSpellInfo(28674)] = 28674,
 			[GetSpellInfo(28678)] = 28678,
@@ -617,11 +600,11 @@ function addon:OnEnable()
 		}
 
 		local BlacksmithSpec = {
-			[GetSpellInfo(9788)] = 9788, -- Armorsmith
-			[GetSpellInfo(17041)] = 17041, -- Master Axesmith
-			[GetSpellInfo(17040)] = 17040, -- Master Hammersmith
-			[GetSpellInfo(17039)] = 17039, -- Master Swordsmith
-			[GetSpellInfo(9787)] = 9787, -- Weaponsmith
+			[GetSpellInfo(9788)] = 9788,	-- Armorsmith
+			[GetSpellInfo(17041)] = 17041,	-- Master Axesmith
+			[GetSpellInfo(17040)] = 17040,	-- Master Hammersmith
+			[GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
+			[GetSpellInfo(9787)] = 9787,	-- Weaponsmith
 		}
 		
 		local EngineeringSpec = {
@@ -1417,9 +1400,6 @@ end
 -- Recipe Scanning Functions
 -------------------------------------------------------------------------------
 do
-	local UnitClass = UnitClass
-	local UnitFactionGroup = UnitFactionGroup
-
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
@@ -1452,6 +1432,7 @@ do
 		end
 
 		-- Add the recipes to the database
+		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
 		Player.totalRecipes = InitializeRecipe(Player["Profession"])
 
 		--- Set the known flag to false for every recipe in the database.
@@ -1526,13 +1507,14 @@ do
 				end
 			end
 		end
+		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
 		Player.foundRecipes = recipes_found
 
 		self:UpdateFilters()
 		Player:MarkExclusions()
 
 		if textdump then
-			self:DisplayTextDump(RecipeList, Player.Profession)
+			self:DisplayTextDump(RecipeList, Player["Profession"])
 		else
 			self:DisplayFrame(AllSpecialtiesTable)
 		end

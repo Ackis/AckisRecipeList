@@ -24,31 +24,37 @@ This source code is released under All Rights Reserved.
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Ackis Recipe List"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local LC				= LOCALIZED_CLASS_NAMES_MALE
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local LC		= LOCALIZED_CLASS_NAMES_MALE
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local AceConfig 		= LibStub("AceConfig-3.0")
-local AceConfigReg 		= LibStub("AceConfigRegistry-3.0")
+local AceConfig 	= LibStub("AceConfig-3.0")
+local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
 local modularOptions = {}
 
 local function giveProfiles()
-
 	return LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
-
 end
 
-local options = nil
+local function ResetGUI()
+	addon.db.profile.frameopts.offsetx = 0
+	addon.db.profile.frameopts.offsety = 0
+	addon.db.profile.frameopts.anchorTo = ""
+	addon.db.profile.frameopts.anchorFrom = ""
+	addon.db.profile.frameopts.uiscale = 1
+	addon.db.profile.frameopts.tooltipscale = .9
+	addon.db.profile.frameopts.fontsize = 11
+end
+
+local options
 
 local function fullOptions()
-
-	if (not options) then
-
+	if not options then
 		options = {
 			type = "group",
 			name = MODNAME,
@@ -109,7 +115,7 @@ local function fullOptions()
 							type	= "execute",
 							name	= L["Reset Window Position"],
 							desc	= L["RESET_WINDOW_DESC"],
-							func	= function(info) addon:ResetGUI() end,
+							func	= function(info) ResetGUI() end,
 						},
 						spacer1 = {
 							order	= 19,

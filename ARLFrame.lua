@@ -271,7 +271,7 @@ end
 -- skill level or faction to learn it.
 -------------------------------------------------------------------------------
 local function ColourSkillLevel(recipeEntry, hasFaction, recStr)
-	local playerSkill = Player.ProfessionLevel
+	local playerSkill = Player["ProfessionLevel"]
 	local recipeSkill = recipeEntry["Level"]
 	local recipeOrange = recipeEntry["Orange"]
 	local recipeYellow = recipeEntry["Yellow"]
@@ -892,7 +892,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	clr1 = addon:hexcolor("NORMAL")
 
 	local recipeSkill = recipeDB[rIndex]["Level"]
-	local playerSkill = Player.ProfessionLevel
+	local playerSkill = Player["ProfessionLevel"]
 
 	if recipeSkill > playerSkill then
 		clr2 = addon:hexcolor("RED")
@@ -1443,18 +1443,6 @@ local function SetProgressBar()
 
 end
 
-function addon:ResetGUI()
-
-	addon.db.profile.frameopts.offsetx = 0
-	addon.db.profile.frameopts.offsety = 0
-	addon.db.profile.frameopts.anchorTo = ""
-	addon.db.profile.frameopts.anchorFrom = ""
-	addon.db.profile.frameopts.uiscale = 1
-	addon.db.profile.frameopts.tooltipscale = .9
-	addon.db.profile.frameopts.fontsize = 11
-
-end
-
 -------------------------------------------------------------------------------
 -- Sorts the recipe Database depending on the settings defined in the database.
 -------------------------------------------------------------------------------
@@ -1462,8 +1450,8 @@ local SortMissingRecipes
 do
 	local tsort = table.sort
 
-	local sortFuncs = nil		-- Sorting functions
-	local SortedRecipeIndex = {}	-- Create a new array for the sorted index
+	local sortFuncs
+	local SortedRecipeIndex = {}
 
 	function SortMissingRecipes(RecipeDB)
 		if not sortFuncs then
@@ -1517,7 +1505,6 @@ do
 							  end
 						  end,
 
-				-- Will only sort based off of the first acquire type
 				["Location"]	= function(a, b)
 							  -- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
 							  local reca = RecipeDB[a]["Locations"] or ""
@@ -1528,7 +1515,6 @@ do
 
 							  if reca == recb then
 								  return sortFuncs["Acquisition"](a, b)
---								  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
 							  else
 								  return reca < recb
 							  end
@@ -1795,7 +1781,7 @@ do
 	function addon:ToggleFrame()
 		-- What profession is opened?
 		local cprof = GetTradeSkillLine()
-		local current_prof = Player.Profession
+		local current_prof = Player["Profession"]
 
 		-- The frame is visible
 		if MainPanel:IsVisible() then
@@ -2871,7 +2857,7 @@ function addon:InitializeFrame()
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
 	-------------------------------------------------------------------------------
-	local isAlliance = (Player.Faction == "Alliance")
+	local isAlliance = (Player["Faction"] == "Alliance")
 
 	local HonorHold_Thrallmar_FactionText = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
 	local Kurenai_Maghar_FactionText = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
@@ -3036,7 +3022,7 @@ function addon:InitializeFrame()
 					     Player["Profession"] = SortedProfessions[currentProfIndex].name
 
 					     local is_shown = TradeSkillFrame:IsVisible()
-					     CastSpellByName(Player.Profession)
+					     CastSpellByName(Player["Profession"])
 					     addon:Scan()
 
 					     if not is_shown then
@@ -3063,7 +3049,7 @@ function addon:InitializeFrame()
 					     for i = 1, NumSkillLines, 1 do
 						     local skillName, _, _, skillRank = GetSkillLineInfo(i)
 
-						     if skillName == Player.Profession then
+						     if skillName == Player["Profession"] then
 							     Player["ProfessionLevel"] = skillRank
 							     break
 						     end
@@ -4607,7 +4593,7 @@ function addon:DisplayFrame(asTable)	-- AllSpecialtiesTable
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
-		if v.name == Player.Profession then
+		if v.name == Player["Profession"] then
 			currentProfIndex = k
 			break
 		end

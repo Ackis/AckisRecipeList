@@ -140,6 +140,34 @@ function Player:IsCorrectFaction(recipe_flags)
 	return true
 end
 
+-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
+-- TODO: Make the AddOn actually detect when a profession is learned/unlearned, then call this function. -Torhal
+function Player:SetProfessions()
+	local profession_list = self["Professions"]
+
+	for i in pairs(profession_list) do
+		profession_list[i] = false
+	end
+	local smelting_spell = GetSpellInfo(2656)
+	local mining_spell = GetSpellInfo(32606)
+
+	for index = 1, 25, 1 do
+		local spell_name = GetSpellName(index, BOOKTYPE_SPELL)
+
+		if not spell_name or index == 25 then
+			break
+		end
+
+		if not profession_list[spell_name] or spell_name == smelting_spell then
+			-- If the player has smelting, then mining is also known.
+			if spell_name == smelting_spell then
+				profession_list[mining_spell] = true
+			else
+				profession_list[spell_name] = true
+			end
+		end
+	end
+end
 
 do
 	local GetNumFactions = GetNumFactions
