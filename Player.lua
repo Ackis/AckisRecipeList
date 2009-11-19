@@ -66,6 +66,7 @@ function Player:MarkExclusions()
 	local exclusion_list = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
 	local recipe_list = addon.recipe_list
+	local profession = self["Profession"]
 	local known_count = 0
 	local unknown_count = 0
 
@@ -81,9 +82,9 @@ function Player:MarkExclusions()
 
 			local tmp_prof = GetSpellInfo(recipe["Profession"])
 
-			if not recipe["Known"] and tmp_prof == prof then
+			if not recipe["Known"] and tmp_prof == profession then
 				known_count = known_count + 1
-			elseif tmp_prof == prof then
+			elseif tmp_prof == profession then
 				unknown_count = unknown_count + 1
 			end
 		end
@@ -103,7 +104,7 @@ function Player:HasProperRepLevel(recipe_index)
 	local REP_KURENI	= 978
 
 	local has_faction = true
-	local is_alliance = self["Faction"] == factionAlliance
+	local is_alliance = self["Faction"] == BFAC["Alliance"]
 	local player_rep = self["Reputation"]
 	local acquire_info = addon.recipe_list[recipe_index]["Acquire"]
 	local reputations = addon.reputation_list
@@ -134,7 +135,7 @@ end
 function Player:IsCorrectFaction(recipe_flags)
 	if self["Faction"] == BFAC["Alliance"] and recipe_flags[F_HORDE] and not recipe_flags[F_ALLIANCE] then
 		return false
-	elseif self["Faction"] == BFAC["Horde"] and recipe_flags[F_ALLIANCE] and not recpie_flags[F_HORDE] then
+	elseif self["Faction"] == BFAC["Horde"] and recipe_flags[F_ALLIANCE] and not recipe_flags[F_HORDE] then
 		return false
 	end
 	return true
