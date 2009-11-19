@@ -1,39 +1,30 @@
---[[
+-------------------------------------------------------------------------------
+-- ARLFrame.lua		Frame functions for all of AckisRecipeList
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/arl/for more information.
+-------------------------------------------------------------------------------
+-- License:
+--	Please see LICENSE.txt
 
-****************************************************************************************
-
-ARLFrame.lua
-
-Frame functions for all of AckisRecipeList
-
-File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
-Project version: @project-version@
-
-****************************************************************************************
-
-Please see http://www.wowace.com/projects/arl/for more information.
-
-License:
-	Please see LICENSE.txt
-
-This source code is released under All Rights Reserved.
-
-************************************************************************
-
-]]--
-
+-- This source code is released under All Rights Reserved.
+-------------------------------------------------------------------------------
 --- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
 -- There are a set of functions which allow you make use of the ARL database outside of ARL.
 -- ARL supports all professions currently in World of Warcraft 3.2
 -- @class file
 -- @name ARLFrame.lua
+-------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
--- Upvalued Lua globals
+-- Localized Lua globals.
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
+
 local string = _G.string
 local sformat = string.format
 local strlower = string.lower
@@ -53,7 +44,7 @@ local floor = math.floor
 local tonumber = _G.tonumber
 
 -------------------------------------------------------------------------------
--- Upvalued Blizzard globals
+-- Localized Blizzard API.
 -------------------------------------------------------------------------------
 local GetSpellInfo = GetSpellInfo
 local GetSkillLineInfo = GetSkillLineInfo
@@ -64,14 +55,13 @@ local GetTradeSkillLine = GetTradeSkillLine
 local GetItemInfo = GetItemInfo
 local UnitClass = UnitClass
 
--- Modifier functions which we deal with
 local IsModifierKeyDown = IsModifierKeyDown
 local IsShiftKeyDown = IsShiftKeyDown
 local IsAltKeyDown = IsAltKeyDown
 local IsControlKeyDown = IsControlKeyDown
 
 -------------------------------------------------------------------------------
--- AddOn Namespace
+-- AddOn namespace.
 -------------------------------------------------------------------------------
 local LibStub = LibStub
 
@@ -272,24 +262,24 @@ end
 -- Colours a skill level based on whether or not the player has a high enough
 -- skill level or faction to learn it.
 -------------------------------------------------------------------------------
-local function ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
+local function ColourSkillLevel(recipeEntry, hasFaction, recStr)
+	local playerSkill = playerData.playerProfessionLevel
+	local recipeSkill = recipeEntry["Level"]
+	local recipeOrange = recipeEntry["Orange"]
+	local recipeYellow = recipeEntry["Yellow"]
+	local recipeGreen = recipeEntry["Green"]
+	local recipeGrey = recipeEntry["Grey"]
 
-	-- Players skill level is not high enough or they do not have hte needed faction.
-	if ((recipeSkill > playerSkill) or (not hasFaction)) then
+	if recipeSkill > playerSkill or not hasFaction then
 		return addon:Red(recStr)
-	-- Players skill level is above the threshold in which the recipe is grey
-	elseif (playerSkill >= recipeGrey) then
+	elseif playerSkill >= recipeGrey then
 		return addon:MidGrey(recStr)
-	-- Players skills is at the threshold when the recipe turns green.
-	elseif (playerSkill >= recipeGreen) then
+	elseif playerSkill >= recipeGreen then
 		return addon:Green(recStr)
-	-- Players skills is at the threshold when the recipe turns yellow.
-	elseif (playerSkill >= recipeYellow) then
+	elseif playerSkill >= recipeYellow then
 		return addon:Yellow(recStr)
-	-- Players skills is at the threshold when the recipe turns orange.
-	elseif (playerSkill >= recipeOrange) then
+	elseif playerSkill >= recipeOrange then
 		return addon:Orange(recStr)
-	-- Fallback
 	else
 		--@alpha@
 		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recStr)
@@ -309,74 +299,6 @@ local factionNeutral	= BFAC["Neutral"]
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-
-------------------------------------------------------------------------------
--- Description: Function to determine if the player has an appropiate level of faction.
--- Expected result: A boolean value determing if the player can learn the recipe based on faction
--- Input: The database, the index of the recipe, the players faction and reputation levels
--- Output: A boolean indicating if they can learn the recipe or not
-------------------------------------------------------------------------------
-local checkFactions
-do
-	------------------------------------------------------------------------------
-	-- Reputation constants
-	------------------------------------------------------------------------------
-	local REP_MAGHAR	= 941
-	local REP_HONOR_HOLD	= 946
-	local REP_THRALLMAR	= 947
-	local REP_KURENI	= 978
-
-	function checkFactions(DB, recipeIndex, playerFaction, playerRep)
-		local fac = true
-		local acquire = DB[recipeIndex]["Acquire"]
-
-		for i in pairs(acquire) do
-			if acquire[i]["Type"] == A_REPUTATION then
-				local repid = acquire[i]["ID"]
-
-				if repid == REP_HONOR_HOLD or repid == REP_THRALLMAR then
-					if playerFaction == factionAlliance then
-						repid = REP_HONOR_HOLD
-					else
-						repid = REP_THRALLMAR
-					end
-				elseif repid == REP_MAGHAR or repid == REP_KURENI then
-					if playerFaction == factionAlliance then
-						repid = REP_KURENI
-					else
-						repid = REP_MAGHAR
-					end
-				end
-
-				if (not playerRep[repDB[repid]["Name"]]) or playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"] then
-					fac = false
-				else
-					-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
-					-- This should allow recipes which have multiple reputations to work correctly
-					fac = true
-					break
-				end
-			end
-		end
-		return fac
-	end
-end	--do
-
--- Description: Sets the string to display baseed off of what type of sorting is being done.
--- Expected result:  Displayed string will have the skill level located in different areas
--- Input: The skil level of the recipe and the remaining string
--- Output:  A combined string with the skill level integrated into the skill
-
-local function SetSortString(recipeSkill, recStr)
-	local sort_type = addon.db.profile.sorting
-
-	if sort_type == "SkillAsc" or sort_type == "SkillDesc" then
-		return "[" .. recipeSkill .. "] - " .. recStr
-	else
-		return recStr .. " - [" .. recipeSkill .. "]"
-	end
-
-end
 
 local function CheckDisplayFaction(filterDB, faction)
 
@@ -784,6 +706,52 @@ end -- do block
 -------------------------------------------------------------------------------
 -- DisplayString methods.
 -------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+-- Description: Function to determine if the player has an appropiate level of faction.
+-- Expected result: A boolean value determing if the player can learn the recipe based on faction
+-- Input: The database, the index of the recipe, the players faction and reputation levels
+-- Output: A boolean indicating if they can learn the recipe or not
+------------------------------------------------------------------------------
+local HasProperRepLevel
+do
+	------------------------------------------------------------------------------
+	-- Reputation constants for special cases.
+	------------------------------------------------------------------------------
+	local REP_MAGHAR	= 941
+	local REP_HONOR_HOLD	= 946
+	local REP_THRALLMAR	= 947
+	local REP_KURENI	= 978
+
+	function HasProperRepLevel(recipeIndex)
+		local has_faction = true
+		local acquire_info = recipeDB[recipeIndex]["Acquire"]
+		local is_alliance = playerData.playerFaction == factionAlliance
+		local player_rep = playerData["Reputation"]
+
+		for index in pairs(acquire_info) do
+			if acquire_info[index]["Type"] == A_REPUTATION then
+				local rep_id = acquire_info[index]["ID"]
+
+				if rep_id == REP_HONOR_HOLD or rep_id == REP_THRALLMAR then
+					rep_id = is_alliance and REP_HONOR_HOLD or REP_THRALLMAR
+				elseif rep_id == REP_MAGHAR or rep_id == REP_KURENI then
+					rep_id = is_alliance and REP_KURENI or REP_MAGHAR
+				end
+				local rep_name = repDB[rep_id]["Name"]
+
+				if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index]["RepLevel"] then
+					has_faction = false
+				else
+					-- The player's faction level is high enough to learn the recipe. Set to true and break out.
+					has_faction = true
+					break
+				end
+			end
+		end
+		return has_faction
+	end
+end	--do
+
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
 		ReleaseTable(DisplayStrings[i])
@@ -808,20 +776,12 @@ local function initDisplayStrings(expand_acquires)
 			if exclude[recipeIndex] then
 				recStr = "** " .. recStr .. " **"
 			end
-
+			local sort_type = addon.db.profile.sorting
 			local recipeSkill = recipeEntry["Level"]
-			local recipeOrange = recipeEntry["Orange"]
-			local recipeYellow = recipeEntry["Yellow"]
-			local recipeGreen = recipeEntry["Green"]
-			local recipeGrey = recipeEntry["Grey"]
-			local playerSkill = playerData.playerProfessionLevel
-
-			recStr = SetSortString(recipeSkill, recStr)
-
-			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+			recStr = (sort_type == "SkillAsc" or sort_type == "SkillDesc") and ("[" .. recipeSkill .. "] - " .. recStr) or (recStr .. " - [" .. recipeSkill .. "]")
 
 			local t = AcquireTable()
-			t.String = ColourSkillLevel(recipeSkill, playerSkill, hasFaction, recStr, recipeOrange, recipeYellow, recipeGreen, recipeGrey)
+			t.String = ColourSkillLevel(recipeEntry, HasProperRepLevel(recipeIndex), recStr)
 
 			t.sID = recipeIndex
 			t.IsRecipe = true
@@ -1172,7 +1132,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, ssnname, clr1)
 		elseif acquire_type == A_REPUTATION then
 			-- Reputation:				Faction
-			-- FactionLevel				RepVendor				
+			-- RepLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
 
 			local repfac = repDB[v["ID"]]
