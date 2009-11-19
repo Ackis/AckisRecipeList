@@ -67,6 +67,7 @@ ARLConfig.lua
 ARLFrame.lua
 ARLColour.lua
 ARLDatamine.lua
+Player.lua
 
 # Recipe database files
 database.xml

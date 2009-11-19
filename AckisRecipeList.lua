@@ -74,7 +74,7 @@ local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
-local NUM_FLAGS = 128
+local NUM_FILTER_FLAGS = 128
 local PROFESSION_INITS = {}	-- Professions initialization functions.
 
 ------------------------------------------------------------------------------
@@ -91,16 +91,27 @@ local VendorList = {}
 local AllSpecialtiesTable = {}
 local SpecialtyTable
 
+addon.custom_list	= CustomList
+addon.mob_list		= MobList
+addon.quest_list	= QuestList
+addon.recipe_list	= RecipeList
+addon.reputation_list	= ReputationList
+addon.trainer_list	= TrainerList
+addon.seasonal_list	= SeasonalList
+addon.vendor_list	= VendorList
+
+
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 ------------------------------------------------------------------------------
 -- @class table
--- @name playerData
+-- @name Player
 -- @field known_filtered Total number of items known filtered during the scan.
--- @field playerFaction Players faction
--- @field playerClass Players class
+-- @field Faction Player's faction
+-- @field Class Player's class
 -- @field ["Reputation"] Listing of players reputation levels
-local playerData = {}
+local Player = {}
+addon.Player = Player
 
 -- Global Frame Variables
 addon.optionsFrame = {}
@@ -440,8 +451,6 @@ function addon:OnInitialize()
 	self:InitSeasons(SeasonalList)
 	self:InitVendor(VendorList)
 
-	self.recipe_list = RecipeList
-
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
@@ -479,7 +488,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local recipe = RecipeList[spell_id]
 
-					       if (not recipe["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, recipe["Flags"]) then
+					       if (not recipe["Known"] or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
 						       self:AddLine("Sells: "..hex..recipe["Name"].."|r")
@@ -493,7 +502,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(trainer["TrainList"]) do
 					       local recipe = RecipeList[spell_id]
 
-					       if (not recipe["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, recipe["Flags"]) then
+					       if (not recipe["Known"] or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
 						       self:AddLine("Trains: "..hex..recipe["Name"].."|r")
@@ -541,26 +550,29 @@ function addon:OnEnable()
 		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
 	end
 ]]--
-	-- Populate the reputation level
-	self:GetFactionLevels()
-
 	-------------------------------------------------------------------------------
-	-- Initialize the main panel frame
+	-- Initialize the main panel frame.
 	-------------------------------------------------------------------------------
 	self:InitializeFrame()
 	self.InitializeFrame = nil
 
 	-------------------------------------------------------------------------------
-	-- Initialize the player's data
+	-- Initialize the player's data.
 	-------------------------------------------------------------------------------
 	do
-		playerData.playerFaction = UnitFactionGroup("player")
-		playerData.playerClass = select(2, UnitClass("player"))
+		Player.Faction = UnitFactionGroup("player")
+		Player.Class = select(2, UnitClass("player"))
 
-		playerData["Reputation"] = {}
-		self:GetFactionLevels(playerData["Reputation"])
+		-------------------------------------------------------------------------------
+		-- Get the player's reputation levels.
+		-------------------------------------------------------------------------------
+		Player["Reputation"] = {}
+		Player:SetReputationLevels()
 
-		playerData["Professions"] = {
+		-------------------------------------------------------------------------------
+		---Scan first 25 spellbook slots to identify all applicable professions
+		-------------------------------------------------------------------------------
+		Player["Professions"] = {
 			[GetSpellInfo(51304)] = false, -- Alchemy
 			[GetSpellInfo(51300)] = false, -- Blacksmithing
 			[GetSpellInfo(51296)] = false, -- Cooking
@@ -574,11 +586,7 @@ function addon:OnEnable()
 			[GetSpellInfo(45363)] = false, -- Inscription
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
-
-		-------------------------------------------------------------------------------
-		---Scan first 25 spellbook slots to identify all applicable professions
-		-------------------------------------------------------------------------------
-		local profession_list = playerData["Professions"]
+		local profession_list = Player["Professions"]
 
 		-- Reset the table, they may have unlearnt a profession
 		for i in pairs(profession_list) do
@@ -754,64 +762,6 @@ function addon:TRADE_SKILL_CLOSE()
 end
 
 -------------------------------------------------------------------------------
--- Player Data Acquisition Functions
--------------------------------------------------------------------------------
-
-do
-	local GetNumFactions = GetNumFactions
-	local GetFactionInfo = GetFactionInfo
-	local CollapseFactionHeader = CollapseFactionHeader
-	local ExpandFactionHeader = ExpandFactionHeader
-	local rep_list = {}
-
-	---Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
-	function addon:GetFactionLevels(RepTable)
-
-		-- Bug here when I reload UI
-		if not RepTable then
-			return
-		end
-		twipe(rep_list)
-
-		-- Number of factions before we expand
-		local numfactions = GetNumFactions()
-
-		-- Lets expand all the headers
-		for i = numfactions, 1, -1 do
-			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
-
-			if isCollapsed then
-				ExpandFactionHeader(i)
-				rep_list[name] = true
-			end
-		end
-
-		-- Number of factions with everything expanded
-		numfactions = GetNumFactions()
-
-		-- Get the rep levels
-		for i = 1, numfactions, 1 do
-			local name, _, replevel = GetFactionInfo(i)
-
-			-- If the rep is greater than neutral
-			if replevel > 4 then
-				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
-				RepTable[name] = replevel - 4
-			end
-		end
-
-		-- Collapse the headers again
-		for i = numfactions, 1, -1 do
-			local name = GetFactionInfo(i)
-
-			if rep_list[name] then
-				CollapseFactionHeader(i)
-			end
-		end
-	end
-end	-- do block
-
--------------------------------------------------------------------------------
 -- Tradeskill functions
 -- Recipe DB Structures are defined in Documentation.lua
 -------------------------------------------------------------------------------
@@ -874,7 +824,7 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	end
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	for i = 1, NUM_FLAGS, 1 do
+	for i = 1, NUM_FILTER_FLAGS, 1 do
 		recipe["Flags"][i] = false
 	end
 end
@@ -1110,15 +1060,6 @@ end	-- do
 do
 	local F_ALLIANCE, F_HORDE = 1, 2
 
-	function addon.IsCorrectFaction(player_faction, flags)
-		if player_faction == BFAC["Alliance"] and flags[F_HORDE] and not flags[F_ALLIANCE] then
-			return false
-		elseif player_faction == BFAC["Horde"] and flags[F_ALLIANCE] and not flags[F_HORDE] then
-			return false
-		end
-		return true
-	end
-
 	-------------------------------------------------------------------------------
 	-- Item "rarity"
 	-------------------------------------------------------------------------------
@@ -1157,22 +1098,12 @@ do
 		-------------------------------------------------------------------------------
 
 		-- Display both horde and alliance factions?
-		if not general_filters.faction then
-			if playerData.playerFaction == BFAC["Alliance"] then
-				-- Filter out Horde only
-				if not recipe_flags[F_ALLIANCE] and recipe_flags[F_HORDE] then
-					return false
-				end
-			else
-				-- Filter out Alliance only
-				if not recipe_flags[F_HORDE] and recipe_flags[F_ALLIANCE] then
-					return false
-				end
-			end
+		if not general_filters.faction and not Player:IsCorrectFaction(recipe_flags) then
+			return false
 		end
 
 		-- Display all skill levels?
-		if not general_filters.skill and recipe["Level"] > playerData.playerProfessionLevel then
+		if not general_filters.skill and recipe["Level"] > Player["ProfessionLevel"] then
 			return false
 		end
 
@@ -1180,7 +1111,7 @@ do
 		if not general_filters.specialty then
 			local specialty = recipe["Specialty"]
 
-			if specialty and specialty ~= playerData.playerSpecialty then
+			if specialty and specialty ~= Player["Specialty"] then
 				return false
 			end
 		end
@@ -1394,7 +1325,7 @@ do
 		local recipes_total_filtered = 0
 		local recipes_known_filtered = 0
 		local can_display = false
-		local current_profession = playerData.playerProfession
+		local current_profession = Player["Profession"]
 
 		for recipe_id, recipe in pairs(RecipeList) do
 			if recipe["Profession"] == current_profession then
@@ -1421,10 +1352,10 @@ do
 			end
 			RecipeList[recipe_id]["Display"] = can_display
 		end
-		playerData.recipes_total = recipes_total
-		playerData.recipes_known = recipes_known
-		playerData.recipes_total_filtered = recipes_total_filtered
-		playerData.recipes_known_filtered = recipes_known_filtered
+		Player.recipes_total = recipes_total
+		Player.recipes_known = recipes_known
+		Player.recipes_total_filtered = recipes_total_filtered
+		Player.recipes_known_filtered = recipes_known_filtered
 		end
 
 end	-- do
@@ -1489,13 +1420,6 @@ do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
 
-	---Updates the reputation table.  This only happens more seldom so I'm not worried about efficiency
-	function addon:SetRepDB()
-		if playerData and playerData["Reputation"] then
-			self:GetFactionLevels(playerData["Reputation"])
-		end
-	end
-
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
@@ -1510,25 +1434,25 @@ do
 			return
 		end
 		-- Get the name of the currently opened trade skill, along with the current level of the skill.
-		playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
+		Player["Profession"], Player["ProfessionLevel"] = GetTradeSkillLine()
 
 		-- Get the current profession Specialty
-		local specialty = SpecialtyTable[playerData.playerProfession]
+		local specialty = SpecialtyTable[Player["Profession"]]
 
 		for index = 1, 25, 1 do
 			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
 
 			if not spellName or index == 25 then
-				playerData.playerSpecialty = nil
+				Player["Specialty"] = nil
 				break
 			elseif specialty and specialty[spellName] then
-				playerData.playerSpecialty = specialty[spellName]
+				Player["Specialty"] = specialty[spellName]
 				break
 			end
 		end
 
 		-- Add the recipes to the database
-		playerData.totalRecipes = InitializeRecipe(playerData.playerProfession)
+		Player.totalRecipes = InitializeRecipe(Player["Profession"])
 
 		--- Set the known flag to false for every recipe in the database.
 		for SpellID in pairs(RecipeList) do
@@ -1602,19 +1526,15 @@ do
 				end
 			end
 		end
-		playerData.foundRecipes = recipes_found
+		Player.foundRecipes = recipes_found
 
 		self:UpdateFilters()
-
-		-- Mark excluded recipes
-		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(playerData.playerProfession)
+		Player:MarkExclusions()
 
 		if textdump then
-			self:DisplayTextDump(RecipeList, playerData.playerProfession)
+			self:DisplayTextDump(RecipeList, Player.Profession)
 		else
-			self:DisplayFrame(playerData, AllSpecialtiesTable,
-					  TrainerList, VendorList, QuestList, ReputationList,
-					  SeasonalList, MobList, CustomList)
+			self:DisplayFrame(AllSpecialtiesTable)
 		end
 	end
 end
@@ -1622,35 +1542,6 @@ end
 -------------------------------------------------------------------------------
 -- Recipe Exclusion Functions
 -------------------------------------------------------------------------------
----Marks all exclusions in the recipe database to not be displayed
-function addon:GetExclusions(prof)
-	local exclusionlist = addon.db.profile.exclusionlist
-	local ignored = not addon.db.profile.ignoreexclusionlist
-	local known_count = 0
-	local unknown_count = 0
-
-	for i in pairs(exclusionlist) do
-		local recipe = RecipeList[i]
-
-		-- We may have an item in the exclusion list that has not been scanned yet
-		-- check if the entry exists in DB first
-		if recipe then
-			if ignored then
-				recipe["Display"] = false
-			end
-
-			local tmpprof = GetSpellInfo(recipe["Profession"])
-
-			if not recipe["Known"] and tmpprof == prof then
-				known_count = known_count + 1
-			elseif tmpprof == prof then
-				unknown_count = unknown_count + 1
-			end
-		end
-	end
-	return known_count, unknown_count
-end
-
 ---Removes or adds a recipe to the exclusion list.
 function addon:ToggleExcludeRecipe(SpellID)
 	local exclusion_list = addon.db.profile.exclusionlist
@@ -1719,7 +1610,7 @@ do
 				local prev
 
 				-- Find out which flags are marked as "true"
-				for i = 1, NUM_FLAGS, 1 do
+				for i = 1, NUM_FILTER_FLAGS, 1 do
 					if recipe_flags[i] then
 						if prev then
 							tinsert(text_table, ",")

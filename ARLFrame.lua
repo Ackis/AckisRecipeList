@@ -73,6 +73,7 @@ local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
 
 local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+local Player		= addon.Player
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -84,20 +85,27 @@ local SEASONAL_CATEGORY = GetCategoryInfo(155)	-- Localized string - "World Even
 -- Variables
 -------------------------------------------------------------------------------
 local currentProfIndex = 0
-local currentProfession = ""
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 local DisplayStrings = {}
-local myFaction = ""
 
 -------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
 -------------------------------------------------------------------------------
-local recipeDB, trainerDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
-
 local allSpecTable
-local playerData
 
 local sortedRecipeIndex
+
+-------------------------------------------------------------------------------
+-- TODO: Get rid of this shit. None of these should be "local globals", as it
+-- encourages thoughtless coding practices. -Torhal
+-------------------------------------------------------------------------------
+local customDB	= addon.custom_list
+local mobDB	= addon.mob_list
+local questDB	= addon.quest_list
+local recipeDB	= addon.recipe_list
+local seasonDB	= addon.seasonal_list
+local trainerDB	= addon.trainer_list
+local vendorDB	= addon.vendor_list
 
 -------------------------------------------------------------------------------
 -- Fonts
@@ -263,7 +271,7 @@ end
 -- skill level or faction to learn it.
 -------------------------------------------------------------------------------
 local function ColourSkillLevel(recipeEntry, hasFaction, recStr)
-	local playerSkill = playerData.playerProfessionLevel
+	local playerSkill = Player.ProfessionLevel
 	local recipeSkill = recipeEntry["Level"]
 	local recipeOrange = recipeEntry["Orange"]
 	local recipeYellow = recipeEntry["Yellow"]
@@ -301,17 +309,15 @@ local factionNeutral	= BFAC["Neutral"]
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
 
 local function CheckDisplayFaction(filterDB, faction)
-
-	if (filterDB.general.faction ~= true) then
-		if ((faction == BFAC[myFaction]) or (faction == factionNeutral) or (faction == nil)) then
-			return true
-		else
-			return false
-		end
-	else
+	if filterDB.general.faction then
 		return true
 	end
 
+	if not faction or faction == BFAC[Player["Faction"]] or faction == factionNeutral then
+		return true
+	else
+		return false
+	end
 end
 
 do
@@ -369,6 +375,7 @@ do
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
 		local display = false
+		local myFaction = Player["Faction"]
 
 		-- Trainers - Display if it's your faction or neutral.
 		if (maptrainer) then
@@ -580,7 +587,7 @@ do
 --[[
 		-- Get the proper icon to put on the mini-map
 		for i, k in pairs(SortedProfessions) do
-			if (k["name"] == playerData.playerProfession) then
+			if (k["name"] == Player["Profession"]) then
 				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
 				break
 			end
@@ -706,52 +713,6 @@ end -- do block
 -------------------------------------------------------------------------------
 -- DisplayString methods.
 -------------------------------------------------------------------------------
-------------------------------------------------------------------------------
--- Description: Function to determine if the player has an appropiate level of faction.
--- Expected result: A boolean value determing if the player can learn the recipe based on faction
--- Input: The database, the index of the recipe, the players faction and reputation levels
--- Output: A boolean indicating if they can learn the recipe or not
-------------------------------------------------------------------------------
-local HasProperRepLevel
-do
-	------------------------------------------------------------------------------
-	-- Reputation constants for special cases.
-	------------------------------------------------------------------------------
-	local REP_MAGHAR	= 941
-	local REP_HONOR_HOLD	= 946
-	local REP_THRALLMAR	= 947
-	local REP_KURENI	= 978
-
-	function HasProperRepLevel(recipeIndex)
-		local has_faction = true
-		local acquire_info = recipeDB[recipeIndex]["Acquire"]
-		local is_alliance = playerData.playerFaction == factionAlliance
-		local player_rep = playerData["Reputation"]
-
-		for index in pairs(acquire_info) do
-			if acquire_info[index]["Type"] == A_REPUTATION then
-				local rep_id = acquire_info[index]["ID"]
-
-				if rep_id == REP_HONOR_HOLD or rep_id == REP_THRALLMAR then
-					rep_id = is_alliance and REP_HONOR_HOLD or REP_THRALLMAR
-				elseif rep_id == REP_MAGHAR or rep_id == REP_KURENI then
-					rep_id = is_alliance and REP_KURENI or REP_MAGHAR
-				end
-				local rep_name = repDB[rep_id]["Name"]
-
-				if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index]["RepLevel"] then
-					has_faction = false
-				else
-					-- The player's faction level is high enough to learn the recipe. Set to true and break out.
-					has_faction = true
-					break
-				end
-			end
-		end
-		return has_faction
-	end
-end	--do
-
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
 		ReleaseTable(DisplayStrings[i])
@@ -781,7 +742,7 @@ local function initDisplayStrings(expand_acquires)
 			recStr = (sort_type == "SkillAsc" or sort_type == "SkillDesc") and ("[" .. recipeSkill .. "] - " .. recStr) or (recStr .. " - [" .. recipeSkill .. "]")
 
 			local t = AcquireTable()
-			t.String = ColourSkillLevel(recipeEntry, HasProperRepLevel(recipeIndex), recStr)
+			t.String = ColourSkillLevel(recipeEntry, Player:HasProperRepLevel(recipeIndex), recStr)
 
 			t.sID = recipeIndex
 			t.IsRecipe = true
@@ -931,7 +892,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	clr1 = addon:hexcolor("NORMAL")
 
 	local recipeSkill = recipeDB[rIndex]["Level"]
-	local playerSkill = playerData.playerProfessionLevel
+	local playerSkill = Player.ProfessionLevel
 
 	if recipeSkill > playerSkill then
 		clr2 = addon:hexcolor("RED")
@@ -977,7 +938,8 @@ local function GenerateTooltipContent(owner, rIndex)
 	-- obtain info
 	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
-	local playerFaction = playerData.playerFaction
+	local playerFaction = Player["Faction"]
+	local rep_list = addon.reputation_list
 
 	-- loop through acquire methods, display each
 	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
@@ -1135,7 +1097,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			-- RepLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
 
-			local repfac = repDB[v["ID"]]
+			local repfac = rep_list[v["ID"]]
 			local repname = repfac["Name"] -- name
 			local rplvl = v["RepLevel"]
 			local repvndr = vendorDB[v["RepVendor"]]
@@ -1409,22 +1371,22 @@ do
 			end
 
 			-- If the recipe total is at 0, it means we have not scanned the profession yet
-			if playerData.recipes_total == 0 then
+			if Player.recipes_total == 0 then
 				if showpopup then
 					StaticPopup_Show("ARL_NOTSCANNED")
 				end
 				-- We know all the recipes
-			elseif playerData.recipes_known == playerData.recipes_total then
+			elseif Player.recipes_known == Player.recipes_total then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLKNOWN")
 				end
 				-- Our filters are actually filtering something
-			elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) == 0) then
+			elseif ((Player.recipes_total_filtered - Player.recipes_known_filtered) == 0) then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLFILTERED")
 				end
 				-- Our exclusion list is preventing something from being displayed
-			elseif playerData.excluded_recipes_unknown ~= 0 then
+			elseif Player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
@@ -1434,15 +1396,15 @@ do
 			else
 				addon:Print(L["NO_DISPLAY"])
 				addon:Print("DEBUG: recipes_total check for 0")
-				addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
 				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-				addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
-				addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
+				addon:Print("DEBUG: recipes_known: " .. Player.recipes_known)
+				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
 				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
-				addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
+				addon:Print("DEBUG: recipes_total_filtered: " .. Player.recipes_total_filtered)
+				addon:Print("DEBUG: recipes_known_filtered: " .. Player.recipes_known_filtered)
 				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-				addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
+				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
 		end
 	end
@@ -1450,22 +1412,22 @@ end	-- do
 
 -- Description: Updates the progress bar based on the number of known / total recipes
 
-local function SetProgressBar(playerData)
+local function SetProgressBar()
 
 	local pbCur, pbMax
 
 	if (addon.db.profile.includefiltered == true) then
-		pbCur = playerData.recipes_known
-		pbMax = playerData.recipes_total
+		pbCur = Player.recipes_known
+		pbMax = Player.recipes_total
 	-- We're removing filtered recipes from the final count
 	else
-		pbCur = playerData.recipes_known_filtered
-		pbMax = playerData.recipes_total_filtered
+		pbCur = Player.recipes_known_filtered
+		pbMax = Player.recipes_total_filtered
 	end
 
 	if (not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist) then
-		pbCur = pbCur - playerData.excluded_recipes_unknown
-		pbMax = pbMax - playerData.excluded_recipes_known
+		pbCur = pbCur - Player.excluded_recipes_unknown
+		pbMax = pbMax - Player.excluded_recipes_known
 	end
 
 	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
@@ -1618,10 +1580,10 @@ local function ReDisplay()
 	addon:UpdateFilters()
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
-	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(playerData.playerProfession)
+	Player:MarkExclusions()
 
 	initDisplayStrings(false)
-	SetProgressBar(playerData)
+	SetProgressBar()
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -1825,9 +1787,6 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 end
 
 do
-
-	local currentProfession = nil
-
 	-- Description: Provides logic for when you are clicking the scan button.
 	-- Expected result: Does appropiate task depending on what button has been clicked and the current state.
 	-- Input: None.
@@ -1836,6 +1795,7 @@ do
 	function addon:ToggleFrame()
 		-- What profession is opened?
 		local cprof = GetTradeSkillLine()
+		local current_prof = Player.Profession
 
 		-- The frame is visible
 		if MainPanel:IsVisible() then
@@ -1846,16 +1806,16 @@ do
 			elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 				self:ClearMap()
 			-- If we have the same profession open, then we close the scanned window
-			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() and currentProfession == cprof then
+			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() and current_prof == cprof then
 				MainPanel:Hide()
 			-- If we have a different profession open we do a scan
 			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 				self:Scan(false)
 				self:SetupMap()
-				currentProfession = cprof
+				current_prof = cprof
 			end
 		else
-			currentProfession = cprof
+			current_prof = cprof
 			-- Shift only (Text dump)
 			if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 				self:Scan(true)
@@ -1882,6 +1842,7 @@ local function expandEntry(dsIndex)
 	local filterDB = addon.db.profile.filters
 	local obtainDB = filterDB.obtain
 	local recipeIndex = DisplayStrings[dsIndex].sID
+	local rep_list = addon.reputation_list
 	local pad = "  "
 
 	dsIndex = dsIndex + 1
@@ -2027,7 +1988,7 @@ local function expandEntry(dsIndex)
 			local rep_vendor = vendorDB[v["RepVendor"]]
 
 			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
-				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. repDB[v["ID"]]["Name"]
+				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. rep_list[v["ID"]]["Name"]
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
@@ -2910,7 +2871,7 @@ function addon:InitializeFrame()
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
 	-------------------------------------------------------------------------------
-	local isAlliance = (myFaction == "Alliance")
+	local isAlliance = (Player.Faction == "Alliance")
 
 	local HonorHold_Thrallmar_FactionText = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
 	local Kurenai_Maghar_FactionText = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
@@ -3006,7 +2967,7 @@ function addon:InitializeFrame()
 
 	mode_button:SetScript("OnClick",
 				     function(self, button, down)
-					     -- Known professions should be in playerData["Professions"]
+					     -- Known professions should be in Player["Professions"]
 
 					     -- This loop is gonna be weird. The reason is because we need to
 					     -- ensure that we cycle through all the known professions, but also
@@ -3038,7 +2999,7 @@ function addon:InitializeFrame()
 						     while (index ~= endLoop) do
 							     if index > NUM_PROFESSIONS then
 								     index = 1
-							     elseif playerData["Professions"][SortedProfessions[index].name] then
+							     elseif Player["Professions"][SortedProfessions[index].name] then
 								     displayProf = index
 								     currentProfIndex = index
 								     break
@@ -3060,7 +3021,7 @@ function addon:InitializeFrame()
 						     while index ~= endLoop do
 							     if index < 1 then
 								     index = NUM_PROFESSIONS
-							     elseif playerData["Professions"][SortedProfessions[index].name] then
+							     elseif Player["Professions"][SortedProfessions[index].name] then
 								     displayProf = index
 								     currentProfIndex = index
 								     break
@@ -3072,11 +3033,10 @@ function addon:InitializeFrame()
 
 					     -- Redisplay the button with the new skill
 					     self:ChangeTexture(SortedProfessions[currentProfIndex].texture)
-					     playerData.playerProfession = SortedProfessions[currentProfIndex].name
-					     currentProfession = playerData.playerProfession
+					     Player["Profession"] = SortedProfessions[currentProfIndex].name
 
 					     local is_shown = TradeSkillFrame:IsVisible()
-					     CastSpellByName(currentProfession)
+					     CastSpellByName(Player.Profession)
 					     addon:Scan()
 
 					     if not is_shown then
@@ -3103,8 +3063,8 @@ function addon:InitializeFrame()
 					     for i = 1, NumSkillLines, 1 do
 						     local skillName, _, _, skillRank = GetSkillLineInfo(i)
 
-						     if skillName == currentProfession then
-							     playerData.playerProfessionLevel = skillRank
+						     if skillName == Player.Profession then
+							     Player["ProfessionLevel"] = skillRank
 							     break
 						     end
 					     end
@@ -4642,45 +4602,12 @@ end
 -------------------------------------------------------------------------------
 -- Displays the main recipe frame.
 -------------------------------------------------------------------------------
-function addon:DisplayFrame(
-	cPlayer,	-- playerdata
-	asTable,	-- AllSpecialtiesTable
-	trList,		-- TrainerList
-	vList,		-- VendorList
-	qList,		-- QuestList
-	rList,		-- ReputationList
-	sList,		-- SeasonalList
-	mList,		-- MobList
-	cList)		-- Customlist
-	-------------------------------------------------------------------------------
-	-- cPlayer is a table containing:
-	--	.playerProfession == player profession which has been opened
-	--	.playerProfessionLevel == skill level of profession
-	--	.playerSpecialty == Specialty if any or ""
-	--	.totalRecipes == Total recipes added to the database
-	--	.foundRecipes == Total recipes found that the player knows
-	--	.playerFaction == Faction of the player
-	--	["Professions"] == list of all professions with the ones the player knows set as true
-	--	["Reputation"] == Reputation levels, what I had in current ARLform was if you didn't have the rep level, it would display it in red
-	-------------------------------------------------------------------------------
-	myFaction = cPlayer.playerFaction
-
+function addon:DisplayFrame(asTable)	-- AllSpecialtiesTable
 	allSpecTable = asTable
-	playerData = cPlayer
-	currentProfession = playerData.playerProfession
-	trainerDB = trList
-	vendorDB = vList
-	questDB = qList
-	repDB = rList
-	seasonDB = sList
-	mobDB = mList
-	customDB = cList
-
-	WipeDisplayStrings()	-- reset current display items
 
 	-- get our current profession's index
 	for k, v in pairs(SortedProfessions) do
-		if v.name == currentProfession then
+		if v.name == Player.Profession then
 			currentProfIndex = k
 			break
 		end
@@ -4695,13 +4622,12 @@ function addon:DisplayFrame(
 	MainPanel:ResetTitle()
 	MainPanel.mode_button:ChangeTexture(SortedProfessions[currentProfIndex].texture)
 
-	-- Acquire the list, then sort it
-	recipeDB = self.recipe_list
+	-- Sort the list
 	sortedRecipeIndex = SortMissingRecipes(recipeDB)
 
 	-- Fill the DisplayStrings from the sorted list and update the progressbar
 	initDisplayStrings(false)
-	SetProgressBar(cPlayer)
+	SetProgressBar()
 
 	-- And update our scrollframe
 	RecipeList_Update()
@@ -4764,10 +4690,10 @@ function MainPanel:ResetTitle()
 				total = total + 1
 			end
 		end
-		new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession ..
+		new_title = "ARL (v." .. addon.version .. ") - " .. Player["Profession"] ..
 			" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
 	else
-		new_title = "ARL (v." .. addon.version .. ") - " .. currentProfession
+		new_title = "ARL (v." .. addon.version .. ") - " .. Player["Profession"]
 	end
 	self.HeadingText:SetText(addon:Normal(new_title))
 end
