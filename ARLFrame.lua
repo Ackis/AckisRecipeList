@@ -90,13 +90,6 @@ local FilterValueMap		-- Assigned in addon:InitializeFrame()
 local DisplayStrings = {}
 
 -------------------------------------------------------------------------------
--- Tables assigned in addon:DisplayFrame()
--------------------------------------------------------------------------------
-local allSpecTable
-
-local sortedRecipeIndex
-
--------------------------------------------------------------------------------
 -- TODO: This should not be a "local global", as it encourages thoughtless
 -- coding practices. -Torhal
 -------------------------------------------------------------------------------
@@ -311,8 +304,10 @@ local function CheckDisplayFaction(filterDB, faction)
 	end
 end
 
+-------------------------------------------------------------------------------
+-- Map waypoint code.
+-------------------------------------------------------------------------------
 do
-
 	local function LoadZones(c, y, ...)
 		-- Fill up the list for normal lookup
 		for i = 1, select('#', ...),1 do
@@ -340,20 +335,12 @@ do
 
 	local iconlist = {}
 
-	-- Description: Clears all the icons from the map.
-	-- Expected result: All icons are removed from the world map and the mini-map
-	-- Input: None
-	-- Output: All icons are removed.
-
+	-- Clears all the icons from the world map and the mini-map
 	function addon:ClearMap()
-
-		-- Make sure we have TomTom installed
-		if (TomTom) then
-			-- Remove all the waypoints from TomTom
+		if TomTom then
 			for i in pairs(iconlist) do
 				TomTom:RemoveWaypoint(iconlist[i])
 			end
-			-- Nuke our own internal table
 			iconlist = twipe(iconlist)
 		end
 
@@ -404,7 +391,7 @@ do
 
 	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
-	local dungeonlocationlist = {
+	local INSTANCE_LOCATIONS = {
 		[BZ["Ahn'kahet: The Old Kingdom"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
@@ -561,7 +548,7 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
-	function addon:SetupMap(singlerecipe)
+	function addon:SetupMap(single_recipe)
 		if not TomTom then
 			return
 		end
@@ -589,22 +576,24 @@ do
 		twipe(maplist)
 
 		-- We're only getting a single recipe, not a bunch
-		if singlerecipe then
+		if single_recipe then
 			-- loop through acquire methods, display each
-			for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-				if CheckMapDisplay(v, recipeDB[singlerecipe]["Flags"]) then
+			for k, v in pairs(recipeDB[single_recipe]["Acquire"]) do
+				if CheckMapDisplay(v, recipeDB[single_recipe]["Flags"]) then
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
 		elseif autoscanmap then
-			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-			for i = 1, #sortedRecipeIndex do
-				local recipeIndex = sortedRecipeIndex[i]
+			local sorted_recipes = addon.sorted_recipes
 
-				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+			for i = 1, #sorted_recipes do
+				local recipeIndex = sorted_recipes[i]
+
+				if recipeDB[recipeIndex]["Display"] and recipeDB[recipeIndex]["Search"] then
 					-- loop through acquire methods, display each
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-						if (CheckMapDisplay(v, recipeDB[recipeIndex]["Flags"])) then
+						if CheckMapDisplay(v, recipeDB[recipeIndex]["Flags"]) then
 							maplist[v["ID"]] = v["Type"]
 						end
 					end
@@ -629,7 +618,7 @@ do
 --		ARLMiniMap.icon:SetAllPoints()
 
 		for k, j in pairs(maplist) do
-			local loc = nil
+			local loc
 			local custom = false
 
 			-- Get the entries location
@@ -652,28 +641,25 @@ do
 			local location = loc["Location"]
 			local continent, zone
 
-			-- We don't have a loc in our database for these entries
-			if (not loc) then
+			if not loc then
 				--@alpha@
 				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
 				--@end-alpha@
-			-- We have the location
-			elseif (c1[location]) then
+			elseif c1[location] then
 				continent = 1
 				zone = c1[location]
-			elseif (c2[location]) then
+			elseif c2[location] then
 				continent = 2
 				zone = c2[location]
-			elseif (c3[location]) then
+			elseif c3[location] then
 				continent = 3
 				zone = c3[location]
-			elseif (c4[location]) then
+			elseif c4[location] then
 				continent = 4
 				zone = c4[location]
-			-- It's in a dungeon, lets check our manual listings for it.
-			elseif (dungeonlocationlist[location]) then
-				continent = dungeonlocationlist[location]["c"]
-				zone = dungeonlocationlist[location]["loc"]
+			elseif INSTANCE_LOCATIONS[location] then
+				continent = INSTANCE_LOCATIONS[location]["c"]
+				zone = INSTANCE_LOCATIONS[location]["loc"]
 				name = name .. " (" .. location .. ")"
 			else
 				--@alpha@
@@ -968,12 +954,13 @@ end
 -- Parses the recipes and determines which ones to display, and makes them display appropriately
 local function initDisplayStrings(expand_acquires)
 	local exclude = addon.db.profile.exclusionlist
+	local sorted_recipes = addon.sorted_recipes
 	local insertIndex = 1
 
 	WipeDisplayStrings()
 
-	for i = 1, #sortedRecipeIndex do
-		local recipeIndex = sortedRecipeIndex[i]
+	for i = 1, #sorted_recipes do
+		local recipeIndex = sorted_recipes[i]
 		local recipeEntry = recipeDB[recipeIndex]
 
 		if recipeEntry["Display"] and recipeEntry["Search"] then
@@ -1089,10 +1076,11 @@ local function GenerateTooltipContent(owner, rIndex)
 	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
 	local spellLink = recipeDB[rIndex]["RecipeLink"]
 
-	if (acquireTooltipLocation == L["Off"]) then
+	if acquireTooltipLocation == L["Off"] then
 		QTip:Release(arlTooltip)
+
 		-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-		if (spellTooltipLocation ~= L["Off"]) and (spellLink) then
+		if spellTooltipLocation ~= L["Off"] and spellLink then
 			SetSpellTooltip(MainPanel, spellTooltipLocation, spellLink)
 		else
 			arlSpellTooltip:Hide()
@@ -1103,21 +1091,20 @@ local function GenerateTooltipContent(owner, rIndex)
 	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	arlTooltip:ClearAllPoints()
 
-	if (acquireTooltipLocation == "Right") then
+	if acquireTooltipLocation == "Right" then
 		arlTooltip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT")
-	elseif (acquireTooltipLocation == "Left") then
+	elseif acquireTooltipLocation == "Left" then
 		arlTooltip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
-	elseif (acquireTooltipLocation == "Top") then
+	elseif acquireTooltipLocation == "Top" then
 		arlTooltip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
-	elseif (acquireTooltipLocation == "Bottom") then
+	elseif acquireTooltipLocation == "Bottom" then
 		arlTooltip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT")
-	elseif (acquireTooltipLocation == "Mouse") then
-		arlTooltip:ClearAllPoints()
-		local x,y = GetCursorPosition()
+	elseif acquireTooltipLocation == "Mouse" then
+		local x, y = GetCursorPosition()
 		local uiscale = UIParent:GetEffectiveScale()
-		x = x/uiscale
-		y = y/uiscale
-		arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
+
+		arlTooltip:ClearAllPoints()
+		arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 	end
 
 	if TipTac and TipTac.AddModifiedTip then
@@ -1145,11 +1132,11 @@ local function GenerateTooltipContent(owner, rIndex)
 
 	if recipeSkill > playerSkill then
 		clr2 = addon:hexcolor("RED")
-	elseif (playerSkill - recipeSkill) < 20 then
+	elseif playerSkill - recipeSkill < 20 then
 		clr2 = addon:hexcolor("ORANGE")
-	elseif (playerSkill - recipeSkill) < 30 then
+	elseif playerSkill - recipeSkill < 30 then
 		clr2 = addon:hexcolor("YELLOW")
-	elseif (playerSkill - recipeSkill) < 40 then
+	elseif playerSkill - recipeSkill < 40 then
 		clr2 = addon:hexcolor("GREEN") 
 	else
 		clr2 = addon:hexcolor("MIDGREY")
@@ -1691,92 +1678,93 @@ local function SetProgressBar()
 end
 
 -------------------------------------------------------------------------------
--- Sorts the recipe Database depending on the settings defined in the database.
 -------------------------------------------------------------------------------
-local SortMissingRecipes
+local SortRecipeList
 do
-	local tsort = table.sort
+	addon.sorted_recipes = {}
 
-	local sortFuncs
-	local SortedRecipeIndex = {}
+	local recipe_list = addon.recipe_list
 
-	function SortMissingRecipes(RecipeDB)
-		if not sortFuncs then
-			sortFuncs = {
-				["SkillAsc"]	= function(a, b)
-							  local reca, recb = RecipeDB[a], RecipeDB[b]
+	local function Sort_SkillAsc(a, b)
+		local reca, recb = recipe_list[a], recipe_list[b]
 
-							  if reca["Level"] == recb["Level"] then
-								  return reca["Name"] < recb["Name"]
-							  else
-								  return reca["Level"] < recb["Level"]
-							  end
-						  end,
-
-				["SkillDesc"]	= function(a, b)
-							  local reca, recb = RecipeDB[a], RecipeDB[b]
-
-							  if reca["Level"] == recb["Level"] then
-								  return reca["Name"] < recb["Name"]
-							  else
-								  return recb["Level"] < reca["Level"]
-							  end
-						  end,
-
-				["Name"]	= function(a, b)
-							  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-						  end,
-
-				-- Will only sort based off of the first acquire type
-				["Acquisition"]	= function(a, b)
-							  local reca = RecipeDB[a]["Acquire"][1]
-							  local recb = RecipeDB[b]["Acquire"][1]
-
-							  if not reca or not recb then
-								  return not not reca
-							  end
-
-							  if reca["Type"] ~= recb["Type"] then
-								  return reca["Type"] < recb["Type"]
-							  end
-
-							  if reca["Type"] == A_CUSTOM then
-								  -- Sort on name if they're the same custom ID
-								  if reca["ID"] == recb["ID"] then
-									  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-								  else
-									  return reca["ID"] < recb["ID"]
-								  end
-							  else
-								  return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
-							  end
-						  end,
-
-				["Location"]	= function(a, b)
-							  -- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-							  local reca = RecipeDB[a]["Locations"] or ""
-							  local recb = RecipeDB[b]["Locations"] or ""
-
-							  reca = smatch(reca,"(%w+), ") or reca
-							  recb = smatch(recb,"(%w+), ") or recb
-
-							  if reca == recb then
-								  return sortFuncs["Acquisition"](a, b)
-							  else
-								  return reca < recb
-							  end
-						  end,
-			}
+		if reca["Level"] == recb["Level"] then
+			return reca["Name"] < recb["Name"]
+		else
+			return reca["Level"] < recb["Level"]
 		end
-		twipe(SortedRecipeIndex)
+	end
 
-		-- Get all the indexes of the RecipeListing
-		for n, v in pairs(RecipeDB) do
-			tinsert(SortedRecipeIndex, n)
+	local function Sort_SkillDesc(a, b)
+		local reca, recb = recipe_list[a], recipe_list[b]
+
+		if reca["Level"] == recb["Level"] then
+			return reca["Name"] < recb["Name"]
+		else
+			return recb["Level"] < reca["Level"]
 		end
-		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
+	end
 
-		return SortedRecipeIndex
+	local function Sort_Name(a, b)
+		return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+	end
+
+	-- Will only sort based off of the first acquire type
+	local function Sort_Acquisition(a, b)
+		local reca = recipe_list[a]["Acquire"][1]
+		local recb = recipe_list[b]["Acquire"][1]
+
+		if not reca or not recb then
+			return not not reca
+		end
+
+		if reca["Type"] ~= recb["Type"] then
+			return reca["Type"] < recb["Type"]
+		end
+
+		if reca["Type"] == A_CUSTOM then
+			if reca["ID"] == recb["ID"] then
+				return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+			else
+				return reca["ID"] < recb["ID"]
+			end
+		else
+			return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+		end
+	end
+
+	local function Sort_Location(a, b)
+		-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+		local reca = recipe_list[a]["Locations"] or ""
+		local recb = recipe_list[b]["Locations"] or ""
+
+		reca = smatch(reca,"(%w+), ") or reca
+		recb = smatch(recb,"(%w+), ") or recb
+
+		if reca == recb then
+			return Sort_Acquisition(a, b)
+		else
+			return reca < recb
+		end
+	end
+
+	local sortFuncs = {
+		["SkillAsc"]	= Sort_SkillAsc,
+		["SkillDesc"]	= Sort_SkillDesc,
+		["Name"]	= Sort_Name,
+		["Acquisition"]	= Sort_Acquisition,
+		["Location"]	= Sort_Location,
+	}
+
+	-- Sorts the recipe list according to configuration settings.
+	function SortRecipeList()
+		local sorted_recipes = addon.sorted_recipes
+		twipe(sorted_recipes)
+
+		for n, v in pairs(addon.recipe_list) do
+			tinsert(sorted_recipes, n)
+		end
+		table.sort(sorted_recipes, sortFuncs[addon.db.profile.sorting])
 	end
 end	-- do
 
@@ -1811,7 +1799,7 @@ end	-- do
 -------------------------------------------------------------------------------
 local function ReDisplay()
 	addon:UpdateFilters()
-	sortedRecipeIndex = SortMissingRecipes(recipeDB)
+	SortRecipeList()
 
 	Player:MarkExclusions()
 
@@ -4579,10 +4567,8 @@ end
 -------------------------------------------------------------------------------
 -- Displays the main recipe frame.
 -------------------------------------------------------------------------------
-function addon:DisplayFrame(asTable)	-- AllSpecialtiesTable
-	allSpecTable = asTable
-
-	-- get our current profession's index
+function addon:DisplayFrame()
+	-- Get our current profession's index
 	for k, v in pairs(SortedProfessions) do
 		if v.name == Player["Profession"] then
 			currentProfIndex = k
@@ -4592,15 +4578,14 @@ function addon:DisplayFrame(asTable)	-- AllSpecialtiesTable
 	MainPanel:SetPosition()							-- Set our addon frame position
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
-	-- reset the scale
+	-- Reset the scale
 	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
 	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	MainPanel:ResetTitle()
 	MainPanel.mode_button:ChangeTexture(SortedProfessions[currentProfIndex].texture)
 
-	-- Sort the list
-	sortedRecipeIndex = SortMissingRecipes(recipeDB)
+	SortRecipeList()
 
 	-- Fill the DisplayStrings from the sorted list and update the progressbar
 	initDisplayStrings(false)
@@ -4608,7 +4593,7 @@ function addon:DisplayFrame(asTable)	-- AllSpecialtiesTable
 
 	-- And update our scrollframe
 	RecipeList_Update()
-	self.Frame:Show()
+	MainPanel:Show()
 
 	-- Make sure to reset search gui elements
 	ARL_LastSearchedText = ""

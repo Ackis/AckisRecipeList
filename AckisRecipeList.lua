@@ -1516,7 +1516,7 @@ do
 		if textdump then
 			self:DisplayTextDump(RecipeList, Player["Profession"])
 		else
-			self:DisplayFrame(AllSpecialtiesTable)
+			self:DisplayFrame()
 		end
 	end
 end
