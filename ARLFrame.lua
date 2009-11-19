@@ -97,26 +97,16 @@ local allSpecTable
 local sortedRecipeIndex
 
 -------------------------------------------------------------------------------
--- TODO: Get rid of this shit. None of these should be "local globals", as it
--- encourages thoughtless coding practices. -Torhal
+-- TODO: This should not be a "local global", as it encourages thoughtless
+-- coding practices. -Torhal
 -------------------------------------------------------------------------------
-local customDB	= addon.custom_list
-local mobDB	= addon.mob_list
-local questDB	= addon.quest_list
 local recipeDB	= addon.recipe_list
-local seasonDB	= addon.seasonal_list
-local trainerDB	= addon.trainer_list
-local vendorDB	= addon.vendor_list
 
 -------------------------------------------------------------------------------
 -- Fonts
 -------------------------------------------------------------------------------
 local narrowFont
 local normalFont
-
--- Font Objects needed for arlTooltip
-local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
-local normalFontObj = CreateFont(MODNAME.."normalFontObj")
 
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
@@ -370,47 +360,45 @@ do
 	end
 
 	local function CheckMapDisplay(v, flags)
-
 		local maptrainer = addon.db.profile.maptrainer
 		local mapquest = addon.db.profile.mapquest
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
+		local player_faction = Player["Faction"]
+		local acquire_type = v["Type"]
 		local display = false
-		local myFaction = Player["Faction"]
 
 		-- Trainers - Display if it's your faction or neutral.
-		if (maptrainer) then
-			-- Trainer acquire
-			if (v["Type"] == A_TRAINER) then 
-				display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == factionNeutral))
-			-- Custom Acquire
-			elseif ((v["Type"] == A_CUSTOM) and (flags[3])) then
+		if maptrainer then
+			if acquire_type == A_TRAINER then 
+				local trainer = addon.trainer_list[v["ID"]]
+
+				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == factionNeutral)
+			elseif acquire_type == A_CUSTOM and flags[3] then
 				return true
 			end
-		-- Vendors - Display if it's your faction or neutral
-		elseif (mapvendor) then
-			-- Vendor Acquire
-			if (v["Type"] == A_VENDOR) then
-				display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == factionNeutral))
-			-- Custom Acquire
-			elseif ((v["Type"] == A_CUSTOM) and (flags[4])) then
+			-- Vendors - Display if it's your faction or neutral
+		elseif mapvendor then
+			if acquire_type == A_VENDOR then
+				local vendor = addon.vendor_list[v["ID"]]
+
+				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == factionNeutral)
+			elseif acquire_type == A_CUSTOM and flags[4] then
 				return true
 			end
-		-- Always display mobs
-		elseif (((v["Type"] == A_MOB) and (mapmob)) or
-			((v["Type"] == A_CUSTOM) and (flags[5] or flags[6] or flags[10] or flags[11]))) then
+			-- Always display mobs
+		elseif (acquire_type == A_MOB and mapmob) or
+			(acquire_type == A_CUSTOM and (flags[5] or flags[6] or flags[10] or flags[11])) then
 			return true
 		-- Quests
-		elseif (mapquest) then
-			-- Quest Acquire
-			if (v["Type"] == A_QUEST) then
-				display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == factionNeutral))
-			-- Custom Acquire
-			elseif ((v["Type"] == A_CUSTOM) and (flags[8])) then
+		elseif mapquest then
+			if acquire_type == A_QUEST then
+				local quest = addon.quest_list[v["ID"]]
+				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == factionNeutral)
+			elseif acquire_type == A_CUSTOM and flags[8] then
 				return true
 			end
 		end
-
 		return display
 	end
 
@@ -574,14 +562,16 @@ do
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
 	function addon:SetupMap(singlerecipe)
-		if (not TomTom) then
+		if not TomTom then
 			return
 		end
 
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
 
-		if not (worldmap or minimap) then return end
+		if not (worldmap or minimap) then
+			return
+		end
 
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
@@ -599,17 +589,18 @@ do
 		twipe(maplist)
 
 		-- We're only getting a single recipe, not a bunch
-		if (singlerecipe) then
+		if singlerecipe then
 			-- loop through acquire methods, display each
 			for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-				if (CheckMapDisplay(v, recipeDB[singlerecipe]["Flags"])) then
+				if CheckMapDisplay(v, recipeDB[singlerecipe]["Flags"]) then
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
-		elseif (autoscanmap == true) then
+		elseif autoscanmap then
 			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 			for i = 1, #sortedRecipeIndex do
 				local recipeIndex = sortedRecipeIndex[i]
+
 				if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
 					-- loop through acquire methods, display each
 					for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
@@ -638,22 +629,20 @@ do
 --		ARLMiniMap.icon:SetAllPoints()
 
 		for k, j in pairs(maplist) do
-
-			local continent, zone
 			local loc = nil
 			local custom = false
 
 			-- Get the entries location
-			if (maplist[k] == 1) then
-				loc = trainerDB[k]
-			elseif (maplist[k] == 2) then
-				loc = vendorDB[k]
-			elseif (maplist[k] == 3) then
-				loc = mobDB[k]
-			elseif (maplist[k] == 4) then
-				loc = questDB[k]
-			elseif (maplist[k] == 8) then
-				loc = customDB[k]
+			if maplist[k] == A_TRAINER then
+				loc = addon.trainer_list[k]
+			elseif maplist[k] == A_VENDOR then
+				loc = addon.vendor_list[k]
+			elseif maplist[k] == A_MOB then
+				loc = addon.mob_list[k]
+			elseif maplist[k] == A_QUEST then
+				loc = addon.quest_list[k]
+			elseif maplist[k] == A_CUSTOM then
+				loc = addon.custom_list[k]
 				custom = true
 			end
 
@@ -661,6 +650,7 @@ do
 			local x = loc["Coordx"]
 			local y = loc["Coordy"]
 			local location = loc["Location"]
+			local continent, zone
 
 			-- We don't have a loc in our database for these entries
 			if (not loc) then
@@ -740,7 +730,7 @@ local function expandEntry(dsIndex)
 		t.IsExpanded = true
 
 		if acquire_type == A_TRAINER and obtainDB.trainer then
-			local trainer = trainerDB[v["ID"]]
+			local trainer = addon.trainer_list[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
 				local nStr = ""
@@ -775,7 +765,7 @@ local function expandEntry(dsIndex)
 		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 		-- This allows us to select PVP only and to see just the PVP recipes
 		elseif acquire_type == A_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
-			local vendor = vendorDB[v["ID"]]
+			local vendor = addon.vendor_list[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
 				local nStr = ""
@@ -808,7 +798,7 @@ local function expandEntry(dsIndex)
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
 		elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
-			local mob = mobDB[v["ID"]]
+			local mob = addon.mob_list[v["ID"]]
 			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 			tinsert(DisplayStrings, dsIndex, t)
@@ -828,7 +818,7 @@ local function expandEntry(dsIndex)
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif acquire_type == A_QUEST and obtainDB.quest then
-			local quest = questDB[v["ID"]]
+			local quest = addon.quest_list[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, quest["Faction"]) then
 				local nStr = ""
@@ -860,7 +850,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
-			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. seasonDB[v["ID"]]["Name"])
+			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -868,7 +858,7 @@ local function expandEntry(dsIndex)
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 			-- RepVendor - VendorID
-			local rep_vendor = vendorDB[v["RepVendor"]]
+			local rep_vendor = addon.vendor_list[v["RepVendor"]]
 
 			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
 				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. rep_list[v["ID"]]["Name"]
@@ -922,11 +912,11 @@ local function expandEntry(dsIndex)
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif acquire_type == A_CUSTOM then
-			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
+			t.String = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif acquire_type == A_PVP and obtainDB.pvp then
-			local vendor = vendorDB[v["ID"]]
+			local vendor = addon.vendor_list[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
 				local cStr = ""
@@ -1024,6 +1014,10 @@ local function toRGB(hex)
 	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
 end
 
+
+-- Font Objects needed for arlTooltip
+local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
+local normalFontObj = CreateFont(MODNAME.."normalFontObj")
 
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
@@ -1203,7 +1197,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		if acquire_type == A_TRAINER then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
-			local trnr = trainerDB[v["ID"]]
+			local trnr = addon.trainer_list[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("TRAINER")
@@ -1241,7 +1235,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		elseif acquire_type == A_VENDOR then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
-			local vndr = vendorDB[v["ID"]]
+			local vndr = addon.vendor_list[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
@@ -1283,7 +1277,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		elseif acquire_type == A_MOB then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
-			local mob = mobDB[v["ID"]]
+			local mob = addon.mob_list[v["ID"]]
 			local cStr = ""
 
 			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
@@ -1299,7 +1293,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		elseif acquire_type == A_QUEST then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
-			local qst = questDB[v["ID"]]
+			local qst = addon.quest_list[v["ID"]]
 
 			if qst then
 				clr1 = addon:hexcolor("QUEST")
@@ -1343,10 +1337,8 @@ local function GenerateTooltipContent(owner, rIndex)
 			end
 		elseif acquire_type == A_SEASONAL then
 			-- Seasonal:				SeasonEventName
-			local ssnname = seasonDB[v["ID"]]["Name"]
-
 			clr1 = addon:hexcolor("SEASON")
-			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, ssnname, clr1)
+			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, addon.seasonal_list[v["ID"]]["Name"], clr1)
 		elseif acquire_type == A_REPUTATION then
 			-- Reputation:				Faction
 			-- RepLevel				RepVendor				
@@ -1355,7 +1347,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			local repfac = rep_list[v["ID"]]
 			local repname = repfac["Name"] -- name
 			local rplvl = v["RepLevel"]
-			local repvndr = vendorDB[v["RepVendor"]]
+			local repvndr = addon.vendor_list[v["RepVendor"]]
 			local cStr = ""
 
 			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
@@ -1422,13 +1414,13 @@ local function GenerateTooltipContent(owner, rIndex)
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
 		elseif acquire_type == A_CUSTOM then
-			local customname = customDB[v["ID"]]["Name"]
+			local customname = addon.custom_list[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
 		elseif acquire_type == A_PVP then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
-			local vndr = vendorDB[v["ID"]]
+			local vndr = addon.vendor_list[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
