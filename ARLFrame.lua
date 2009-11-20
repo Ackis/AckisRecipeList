@@ -558,8 +558,6 @@ do
 		--			end
 		--		end
 
-		local autoscanmap = addon.db.profile.autoscanmap
-
 		twipe(maplist)
 
 		-- We're only getting a single recipe, not a bunch
@@ -570,7 +568,7 @@ do
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
-		elseif autoscanmap then
+		elseif addon.db.profile.autoscanmap then
 			local sorted_recipes = addon.sorted_recipes
 
 			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info

@@ -1409,7 +1409,7 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:Scan(textdump)
-		if not TradeSkillFrame:IsVisible() then
+		if not TradeSkillFrame or not TradeSkillFrame:IsVisible() then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
