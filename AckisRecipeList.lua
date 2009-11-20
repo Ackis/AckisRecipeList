@@ -736,7 +736,7 @@ end
 
 function addon:TRADE_SKILL_CLOSE()
 	if addon.db.profile.closeguionskillclose then
-		self.Frame:Close()
+		self.Frame:Hide()
 	end
 
 	if not Skillet then

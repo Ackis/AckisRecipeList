@@ -79,13 +79,27 @@ local Player		= addon.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local NUM_RECIPE_LINES = 24			-- Number of visible lines in the scrollframe.
-local SEASONAL_CATEGORY = GetCategoryInfo(155)	-- Localized string - "World Events"
+local SortedProfessions = {	-- To make tabbing between professions easier 
+	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1 
+	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2 
+	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3 
+	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4 
+	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5 
+	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6 
+	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7 
+	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8 
+	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9 
+	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10 
+	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11 
+	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
+} 
+local NUM_PROFESSIONS	= 12
+local NUM_RECIPE_LINES	= 24			-- Number of visible lines in the scrollframe.
+local SEASONAL_CATEGORY	= GetCategoryInfo(155)	-- Localized string - "World Events"
 
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
-local currentProfIndex = 0
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 local DisplayStrings = {}
 
@@ -127,23 +141,7 @@ local arlSpellTooltip = _G["arlSpellTooltip"]
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
 
--- To make tabbing between professions easier 
-local SortedProfessions = { 
-	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1 
-	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2 
-	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3 
-	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4 
-	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5 
-	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6 
-	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7 
-	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8 
-	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9 
-	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10 
-	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11 
-	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
-} 
 
-local NUM_PROFESSIONS = 12
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
@@ -291,18 +289,6 @@ local factionNeutral	= BFAC["Neutral"]
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-
-local function CheckDisplayFaction(filterDB, faction)
-	if filterDB.general.faction then
-		return true
-	end
-
-	if not faction or faction == BFAC[Player["Faction"]] or faction == factionNeutral then
-		return true
-	else
-		return false
-	end
-end
 
 -------------------------------------------------------------------------------
 -- Map waypoint code.
@@ -562,15 +548,14 @@ do
 
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
---[[
 		-- Get the proper icon to put on the mini-map
-		for i, k in pairs(SortedProfessions) do
-			if (k["name"] == Player["Profession"]) then
-				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-				break
-			end
-		end
-]]--
+		--		for i, k in pairs(SortedProfessions) do
+		--			if (k["name"] == Player["Profession"]) then
+		--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
+		--				break
+		--			end
+		--		end
+
 		local autoscanmap = addon.db.profile.autoscanmap
 
 		twipe(maplist)
@@ -601,21 +586,21 @@ do
 			end
 		end
 
---		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
---		ARLWorldMap:ClearAllPoints()
---		ARLWorldMap:SetWidth(8)
---		ARLWorldMap:SetHeight(8)
---		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
---		ARLWorldMap.icon:SetTexture(icontext)
---		ARLWorldMap.icon:SetAllPoints()
+		--		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
+		--		ARLWorldMap:ClearAllPoints()
+		--		ARLWorldMap:SetWidth(8)
+		--		ARLWorldMap:SetHeight(8)
+		--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+		--		ARLWorldMap.icon:SetTexture(icontext)
+		--		ARLWorldMap.icon:SetAllPoints()
 
---		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
---		ARLMiniMap:ClearAllPoints()
---		ARLMiniMap:SetWidth(8)
---		ARLMiniMap:SetHeight(8)
---		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
---		ARLMiniMap.icon:SetTexture(icontext)
---		ARLMiniMap.icon:SetAllPoints()
+		--		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
+		--		ARLMiniMap:ClearAllPoints()
+		--		ARLMiniMap:SetWidth(8)
+		--		ARLMiniMap:SetHeight(8)
+		--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+		--		ARLMiniMap.icon:SetTexture(icontext)
+		--		ARLMiniMap.icon:SetAllPoints()
 
 		for k, j in pairs(maplist) do
 			local loc
@@ -690,259 +675,267 @@ end -- do block
 -------------------------------------------------------------------------------
 -- DisplayString methods.
 -------------------------------------------------------------------------------
-local faction_strings	-- This is populated in expandEntry()
+local expandEntry
+do
+	local faction_strings	-- This is populated in expandEntry()
 
-local function expandEntry(dsIndex)
-	-- insertIndex is the position in DisplayStrings that we want
-	-- to expand. Since we are expanding the current entry, the return
-	-- value should be the index of the next button after the expansion
-	-- occurs
+	local function CheckDisplayFaction(faction)
+		if addon.db.profile.filters.general.faction then
+			return true
+		end
+		return (not faction or faction == BFAC[Player["Faction"]] or faction == factionNeutral)
+	end
 
-	local filterDB = addon.db.profile.filters
-	local obtainDB = filterDB.obtain
-	local recipeIndex = DisplayStrings[dsIndex].sID
-	local rep_list = addon.reputation_list
-	local pad = "  "
+	function expandEntry(dsIndex)
+		local obtainDB = addon.db.profile.filters.obtain
+		local recipeIndex = DisplayStrings[dsIndex].sID
+		local rep_list = addon.reputation_list
+		local pad = "  "
 
-	dsIndex = dsIndex + 1
+		-- dsIndex is the position in DisplayStrings that we want
+		-- to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion
+		-- occurs
+		dsIndex = dsIndex + 1
 
-	-- Need to loop through the available acquires and put them all in
-	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-		-- Initialize the first line here, since every type below will have one.
-		local acquire_type = v["Type"]
-		local t = AcquireTable()
-		t.IsRecipe = false
-		t.sID = recipeIndex
-		t.IsExpanded = true
-
-		if acquire_type == A_TRAINER and obtainDB.trainer then
-			local trainer = addon.trainer_list[v["ID"]]
-
-			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
-				local nStr = ""
-
-				if (trainer["Faction"] == factionHorde) then
-					nStr = addon:Horde(trainer["Name"])
-				elseif (trainer["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(trainer["Name"])
-				else
-					nStr = addon:Neutral(trainer["Name"])
-				end
-				t.String = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				local cStr = ""
-
-				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-				t.String = pad .. pad .. trainer["Location"] .. " " .. cStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-			end
-		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
-		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
-		-- This allows us to select PVP only and to see just the PVP recipes
-		elseif acquire_type == A_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
-			local vendor = addon.vendor_list[v["ID"]]
-
-			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
-				local nStr = ""
-
-				if (vendor["Faction"] == factionHorde) then
-					nStr = addon:Horde(vendor["Name"])
-				elseif (vendor["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(vendor["Name"])
-				else
-					nStr = addon:Neutral(vendor["Name"])
-				end
-				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				local cStr = ""
-
-				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-			end
-		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
-			local mob = addon.mob_list[v["ID"]]
-			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
-
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-
-			local cStr = ""
-
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
-			end
-			t = AcquireTable()
+		-- Need to loop through the available acquires and put them all in
+		for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+			-- Initialize the first line here, since every type below will have one.
+			local acquire_type = v["Type"]
+			local t = AcquireTable()
 			t.IsRecipe = false
 			t.sID = recipeIndex
 			t.IsExpanded = true
-			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
 
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-		elseif acquire_type == A_QUEST and obtainDB.quest then
-			local quest = addon.quest_list[v["ID"]]
+			if acquire_type == A_TRAINER and obtainDB.trainer then
+				local trainer = addon.trainer_list[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, quest["Faction"]) then
-				local nStr = ""
+				if CheckDisplayFaction(trainer["Faction"]) then
+					local nStr = ""
 
-				if (quest["Faction"] == factionHorde) then
-					nStr = addon:Horde(quest["Name"])
-				elseif (quest["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(quest["Name"])
-				else
-					nStr = addon:Neutral(quest["Name"])
+					if (trainer["Faction"] == factionHorde) then
+						nStr = addon:Horde(trainer["Name"])
+					elseif (trainer["Faction"] == factionAlliance) then
+						nStr = addon:Alliance(trainer["Name"])
+					else
+						nStr = addon:Neutral(trainer["Name"])
+					end
+					t.String = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					local cStr = ""
+
+					if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
+						cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+					t.String = pad .. pad .. trainer["Location"] .. " " .. cStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
 				end
-				t.String = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
+				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+				-- This allows us to select PVP only and to see just the PVP recipes
+			elseif acquire_type == A_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
+				local vendor = addon.vendor_list[v["ID"]]
+
+				if CheckDisplayFaction(vendor["Faction"]) then
+					local nStr = ""
+
+					if (vendor["Faction"] == factionHorde) then
+						nStr = addon:Horde(vendor["Name"])
+					elseif (vendor["Faction"] == factionAlliance) then
+						nStr = addon:Alliance(vendor["Name"])
+					else
+						nStr = addon:Neutral(vendor["Name"])
+					end
+					t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					local cStr = ""
+
+					if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+					t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+				end
+				-- Mobs can be in instances, raids, or specific mob related drops.
+			elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+				local mob = addon.mob_list[v["ID"]]
+				t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
 				local cStr = ""
 
-				if (quest["Coordx"] ~= 0) and (quest["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
 				end
 				t = AcquireTable()
 				t.IsRecipe = false
 				t.sID = recipeIndex
 				t.IsExpanded = true
-				t.String = pad .. pad .. quest["Location"] .. " " .. cStr
+				t.String = pad .. pad .. mob["Location"] .. " " .. cStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
+			elseif acquire_type == A_QUEST and obtainDB.quest then
+				local quest = addon.quest_list[v["ID"]]
+
+				if CheckDisplayFaction(quest["Faction"]) then
+					local nStr = ""
+
+					if (quest["Faction"] == factionHorde) then
+						nStr = addon:Horde(quest["Name"])
+					elseif (quest["Faction"] == factionAlliance) then
+						nStr = addon:Alliance(quest["Name"])
+					else
+						nStr = addon:Neutral(quest["Name"])
+					end
+					t.String = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					local cStr = ""
+
+					if (quest["Coordx"] ~= 0) and (quest["Coordy"] ~= 0) then
+						cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+					t.String = pad .. pad .. quest["Location"] .. " " .. cStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+				end
+			elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
+				t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
+				-- Reputation Obtain
+				-- Rep: ID, Faction
+				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
+				-- RepVendor - VendorID
+				local rep_vendor = addon.vendor_list[v["RepVendor"]]
+
+				if CheckDisplayFaction(rep_vendor["Faction"]) then
+					t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. rep_list[v["ID"]]["Name"]
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					if not faction_strings then
+						faction_strings = {
+							[0] = addon:Neutral(factionNeutral .. " : "),
+							[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
+							[2] = addon:Honored(BFAC["Honored"] .. " : "),
+							[3] = addon:Revered(BFAC["Revered"] .. " : "),
+							[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
+						}
+					end
+					local nStr = ""
+
+					if rep_vendor["Faction"] == factionHorde then
+						nStr = addon:Horde(rep_vendor["Name"])
+					elseif rep_vendor["Faction"] == factionAlliance then
+						nStr = addon:Alliance(rep_vendor["Name"])
+					else
+						nStr = addon:Neutral(rep_vendor["Name"])
+					end
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+
+					t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					local cStr = ""
+
+					if rep_vendor["Coordx"] ~= 0 and rep_vendor["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+					t.String = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+				end
+			elseif acquire_type == A_WORLD_DROP and obtainDB.worlddrop then
+				t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			elseif acquire_type == A_CUSTOM then
+				t.String = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			elseif acquire_type == A_PVP and obtainDB.pvp then
+				local vendor = addon.vendor_list[v["ID"]]
+
+				if CheckDisplayFaction(vendor["Faction"]) then
+					local cStr = ""
+
+					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					end
+					local nStr = ""
+
+					if vendor["Faction"] == factionHorde then
+						nStr = addon:Horde(vendor["Name"])
+					elseif vendor["Faction"] == factionAlliance then
+						nStr = addon:Alliance(vendor["Name"])
+					else
+						nStr = addon:Neutral(vendor["Name"])
+					end
+					t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+
+					t = AcquireTable()
+					t.IsRecipe = false
+					t.sID = recipeIndex
+					t.IsExpanded = true
+					t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+					tinsert(DisplayStrings, dsIndex, t)
+					dsIndex = dsIndex + 1
+				end
+				--@alpha@
+			elseif acquire_type > A_MAX then -- We have an acquire type we aren't sure how to deal with.
+				t.String = "Unhandled Acquire Case - Type: " .. acquire_type
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+				--@end-alpha@
 			end
-		elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
-			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-		elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
-			-- Reputation Obtain
-			-- Rep: ID, Faction
-			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-			-- RepVendor - VendorID
-			local rep_vendor = addon.vendor_list[v["RepVendor"]]
-
-			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
-				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. rep_list[v["ID"]]["Name"]
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				if not faction_strings then
-					faction_strings = {
-						[0] = addon:Neutral(factionNeutral .. " : "),
-						[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
-						[2] = addon:Honored(BFAC["Honored"] .. " : "),
-						[3] = addon:Revered(BFAC["Revered"] .. " : "),
-						[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
-					}
-				end
-				local nStr = ""
-
-				if (rep_vendor["Faction"] == factionHorde) then
-					nStr = addon:Horde(rep_vendor["Name"])
-				elseif (rep_vendor["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(rep_vendor["Name"])
-				else
-					nStr = addon:Neutral(rep_vendor["Name"])
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				local cStr = ""
-
-				if (rep_vendor["Coordx"] ~= 0) and (rep_vendor["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-				t.String = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-			end
-		elseif acquire_type == A_WORLD_DROP and obtainDB.worlddrop then
-			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-		elseif acquire_type == A_CUSTOM then
-			t.String = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-		elseif acquire_type == A_PVP and obtainDB.pvp then
-			local vendor = addon.vendor_list[v["ID"]]
-
-			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
-				local cStr = ""
-
-				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
-				end
-				local nStr = ""
-
-				if (vendor["Faction"] == factionHorde) then
-					nStr = addon:Horde(vendor["Name"])
-				elseif (vendor["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(vendor["Name"])
-				else
-					nStr = addon:Neutral(vendor["Name"])
-				end
-				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				t = AcquireTable()
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-			end
-			--@alpha@
-		elseif acquire_type > A_MAX then -- We have an acquire type we aren't sure how to deal with.
-			t.String = "Unhandled Acquire Case - Type: " .. acquire_type
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-			--@end-alpha@
 		end
+		return dsIndex
 	end
-	return dsIndex
-end
+end	 -- do
 
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
@@ -2528,33 +2521,6 @@ local function ARL_DD_Sort_Initialize()
 	SetSortName()
 end
 
--- Description: Saves the frame position into the database 
--- Expected result: Frame coordinates are saved
--- Input: None
--- Output: Database values updated with frame position
-
-local function SaveFramePosition()
-
-	local opts = addon.db.profile.frameopts
-	local from, _, to, x, y = MainPanel:GetPoint()
-	opts.anchorFrom = from
-	opts.anchorTo = to
-
-	if MainPanel._is_expanded then
-		if (opts.anchorFrom == "TOPLEFT") or (opts.anchorFrom == "LEFT") or (opts.anchorFrom == "BOTTOMLEFT") then
-			opts.offsetx = x
-		elseif (opts.anchorFrom == "TOP") or (opts.anchorFrom == "CENTER") or (opts.anchorFrom == "BOTTOM") then
-			opts.offsetx = x - 151/2
-		elseif (opts.anchorFrom == "TOPRIGHT") or (opts.anchorFrom == "RIGHT") or (opts.anchorFrom == "BOTTOMRIGHT") then
-			opts.offsetx = x - 151
-		end
-	else
-		opts.offsetx = x
-	end
-	opts.offsety = y
-
-end
-
 -------------------------------------------------------------------------------
 -- Data used in GenerateClickableTT() and its support functions.
 -------------------------------------------------------------------------------
@@ -2869,12 +2835,30 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Assign the frame scripts, then show it.
 	-------------------------------------------------------------------------------
-	MainPanel:SetScript("OnMouseDown", function() MainPanel:StartMoving() end)
-	MainPanel:SetScript("OnHide", function() addon:ClosePopups() end)
+	MainPanel:SetScript("OnMouseDown", function(self, button) self:StartMoving() end)
+	MainPanel:SetScript("OnHide", function(self) addon:ClosePopups() end)
 	MainPanel:SetScript("OnMouseUp",
-			      function()
-				      MainPanel:StopMovingOrSizing()
-				      SaveFramePosition()
+			      function(self, button)
+				      self:StopMovingOrSizing()
+
+				      local opts = addon.db.profile.frameopts
+				      local from, _, to, x, y = self:GetPoint()
+
+				      opts.anchorFrom = from
+				      opts.anchorTo = to
+
+				      if self._is_expanded then
+					      if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+						      opts.offsetx = x
+					      elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+						      opts.offsetx = x - 151/2
+					      elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+						      opts.offsetx = x - 151
+					      end
+				      else
+					      opts.offsetx = x
+				      end
+				      opts.offsety = y
 			      end)
 
 	MainPanel:Show()
@@ -2946,27 +2930,25 @@ function addon:InitializeFrame()
 					     local endLoop = 0
 					     local displayProf = 0
 
-					     addon:ClosePopups()
-
 					     -- ok, so first off, if we've never done this before, there is no "current"
 					     -- and a single iteration will do nicely, thank you
 					     if button == "LeftButton" then
 						     -- normal profession switch
-						     if currentProfIndex == 0 then
+						     if MainPanel.profession == 0 then
 							     startLoop = 1
 							     endLoop = NUM_PROFESSIONS + 1
 						     else
-							     startLoop = currentProfIndex + 1
-							     endLoop = currentProfIndex
+							     startLoop = MainPanel.profession + 1
+							     endLoop = MainPanel.profession
 						     end
 						     local index = startLoop
 	
-						     while (index ~= endLoop) do
+						     while index ~= endLoop do
 							     if index > NUM_PROFESSIONS then
 								     index = 1
 							     elseif Player["Professions"][SortedProfessions[index].name] then
 								     displayProf = index
-								     currentProfIndex = index
+								     MainPanel.profession = index
 								     break
 							     else
 								     index = index + 1
@@ -2974,12 +2956,12 @@ function addon:InitializeFrame()
 						     end
 					     elseif button == "RightButton" then
 						     -- reverse profession switch
-						     if currentProfIndex == 0 then
+						     if MainPanel.profession == 0 then
 							     startLoop = NUM_PROFESSIONS + 1
 							     endLoop = 0
 						     else
-							     startLoop = currentProfIndex - 1
-							     endLoop = currentProfIndex
+							     startLoop = MainPanel.profession - 1
+							     endLoop = MainPanel.profession
 						     end
 						     local index = startLoop
 
@@ -2988,71 +2970,28 @@ function addon:InitializeFrame()
 								     index = NUM_PROFESSIONS
 							     elseif Player["Professions"][SortedProfessions[index].name] then
 								     displayProf = index
-								     currentProfIndex = index
+								     MainPanel.profession = index
 								     break
 							     else
 								     index = index - 1
 							     end
 						     end
 					     end
-
-					     -- Redisplay the button with the new skill
-					     self:ChangeTexture(SortedProfessions[currentProfIndex].texture)
-					     Player["Profession"] = SortedProfessions[currentProfIndex].name
-
 					     local is_shown = TradeSkillFrame:IsVisible()
-					     CastSpellByName(Player["Profession"])
+
+					     CastSpellByName(SortedProfessions[MainPanel.profession].name)
 					     addon:Scan()
 
 					     if not is_shown then
 						     TradeSkillFrame:Hide()
 					     end
-					     -- Lets get the new skill level
-					     -- Expand all headers first
-
-					     local NumSkillLines = GetNumSkillLines()
-					     local expandtable = AcquireTable()
-
-					     for i = NumSkillLines, 1, -1 do
-						     local skillName, _, isExpanded = GetSkillLineInfo(i)
-
-						     if not isExpanded then
-							     expandtable[skillName] = true
-							     ExpandSkillHeader(i)
-						     end
-					     end
-
-					     NumSkillLines = GetNumSkillLines()
-
-					     -- Get the skill level
-					     for i = 1, NumSkillLines, 1 do
-						     local skillName, _, _, skillRank = GetSkillLineInfo(i)
-
-						     if skillName == Player["Profession"] then
-							     Player["ProfessionLevel"] = skillRank
-							     break
-						     end
-					     end
-
-					     -- Collapse expanded headers
-					     for i = NumSkillLines, 1, -1 do
-						     local skillName, _, isExpanded = GetSkillLineInfo(i)
-
-						     if expandtable[skillName] then
-							     CollapseSkillHeader(i)
-						     end
-					     end
-					     ReleaseTable(expandtable)
-					     ReDisplay()
-					     MainPanel:ResetTitle()
 				     end)
 
 	-------------------------------------------------------------------------------
 	-- Stuff in the non-expanded frame (or both)
 	-------------------------------------------------------------------------------
 	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", MainPanel, "UIPanelCloseButton")
-	-- Close all possible pop-up windows
-	ARL_CloseXButton:SetScript("OnClick", function(self) MainPanel:Close() end)
+	ARL_CloseXButton:SetScript("OnClick", function(self) MainPanel:Hide() end)
 	ARL_CloseXButton:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
 
 	-------------------------------------------------------------------------------
@@ -3302,7 +3241,7 @@ function addon:InitializeFrame()
 						    22, 69, "BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
 						    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
-	ARL_CloseButton:SetScript("OnClick", function(self) MainPanel:Close() end)
+	ARL_CloseButton:SetScript("OnClick", function(self) MainPanel:Hide() end)
 
 	-------------------------------------------------------------------------------
 	-- ProgressBar for our skills
@@ -4568,22 +4507,13 @@ end
 -- Displays the main recipe frame.
 -------------------------------------------------------------------------------
 function addon:DisplayFrame()
-	-- Get our current profession's index
-	for k, v in pairs(SortedProfessions) do
-		if v.name == Player["Profession"] then
-			currentProfIndex = k
-			break
-		end
-	end
-	MainPanel:SetPosition()							-- Set our addon frame position
-	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
-
-	-- Reset the scale
-	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
-	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
-
+	MainPanel:SetPosition()
+	MainPanel:SetProfession()
 	MainPanel:ResetTitle()
-	MainPanel.mode_button:ChangeTexture(SortedProfessions[currentProfIndex].texture)
+	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
+
+	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
+	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	SortRecipeList()
 
@@ -4603,6 +4533,16 @@ end
 -------------------------------------------------------------------------------
 -- MainPanel methods
 -------------------------------------------------------------------------------
+function MainPanel:SetProfession()
+	for k, v in pairs(SortedProfessions) do
+		if v.name == Player["Profession"] then
+			self.profession = k
+			break
+		end
+	end
+	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
+end
+
 function MainPanel:SetPosition()
 	self:ClearAllPoints()
 
@@ -4658,11 +4598,6 @@ function MainPanel:ResetTitle()
 		new_title = "ARL (v." .. addon.version .. ") - " .. Player["Profession"]
 	end
 	self.HeadingText:SetText(addon:Normal(new_title))
-end
-
-function MainPanel:Close()
-	self:Hide()
-	addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
