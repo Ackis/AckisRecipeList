@@ -4219,9 +4219,10 @@ function addon:DisplayFrame()
 	MainPanel:Show()
 	SetProgressBar()
 
-	-- Make sure to reset search gui elements
-	ARL_LastSearchedText = ""
-	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+	-- Set the search text to the last searched text or the global default string for the search box
+	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
+	ARL_SearchText:SetText(ARL_LastSearchedText  or L["SEARCH_BOX_DESC"])
+	
 end
 
 -------------------------------------------------------------------------------
