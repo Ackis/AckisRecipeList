@@ -408,13 +408,47 @@ function addon:OnInitialize()
   	end
 	scan_button:SetHeight(20)
 	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick", function() addon:ToggleFrame() end)
+	scan_button:SetScript("OnClick",
+			      function(self, button, down)
+				      local cprof = GetTradeSkillLine()
+				      local current_prof = Player["Profession"]
+
+				      if addon.Frame:IsVisible() then
+					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						      -- Shift only (Text dump)
+						      addon:Scan(true)
+					      elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						      -- Alt only (Wipe icons from map)
+						      addon:ClearMap()
+					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() and current_prof == cprof then
+						      -- If we have the same profession open, then we close the scanned window
+						      addon.Frame:Hide()
+					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						      -- If we have a different profession open we do a scan
+						      addon:Scan(false)
+						      addon:SetupMap()
+					      end
+				      else
+					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						      -- Shift only (Text dump)
+						      addon:Scan(true)
+					      elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						      -- Alt only (Wipe icons from map)
+						      addon:ClearMap()
+					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						      -- No modification
+						      addon:Scan(false)
+						      addon:SetupMap()
+					      end
+				      end
+			      end)
+
 	scan_button:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
-				GameTooltip:Show()
-			end)
+			      function(this)
+				      GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				      GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
+				      GameTooltip:Show()
+			      end)
 	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	scan_button:SetText(L["Scan"])
 
