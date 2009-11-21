@@ -104,12 +104,6 @@ local SEASONAL_CATEGORY	= GetCategoryInfo(155)	-- Localized string - "World Even
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
 -------------------------------------------------------------------------------
--- TODO: This should not be a "local global", as it encourages thoughtless
--- coding practices. -Torhal
--------------------------------------------------------------------------------
-local recipeDB	= addon.recipe_list
-
--------------------------------------------------------------------------------
 -- Fonts
 -------------------------------------------------------------------------------
 local narrowFont
@@ -558,11 +552,13 @@ do
 
 		twipe(maplist)
 
+		local recipe_list = addon.recipe_list
+
 		-- We're only getting a single recipe, not a bunch
 		if single_recipe then
 			-- loop through acquire methods, display each
-			for k, v in pairs(recipeDB[single_recipe]["Acquire"]) do
-				if CheckMapDisplay(v, recipeDB[single_recipe]["Flags"]) then
+			for k, v in pairs(recipe_list[single_recipe]["Acquire"]) do
+				if CheckMapDisplay(v, recipe_list[single_recipe]["Flags"]) then
 					maplist[v["ID"]] = v["Type"]
 				end
 			end
@@ -573,10 +569,10 @@ do
 			for i = 1, #sorted_recipes do
 				local recipe_index = sorted_recipes[i]
 
-				if recipeDB[recipe_index]["Display"] and recipeDB[recipe_index]["Search"] then
+				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
 					-- loop through acquire methods, display each
-					for k, v in pairs(recipeDB[recipe_index]["Acquire"]) do
-						if CheckMapDisplay(v, recipeDB[recipe_index]["Flags"]) then
+					for k, v in pairs(recipe_list[recipe_index]["Acquire"]) do
+						if CheckMapDisplay(v, recipe_list[recipe_index]["Flags"]) then
 							maplist[v["ID"]] = v["Type"]
 						end
 					end
@@ -749,7 +745,8 @@ end
 local function GenerateTooltipContent(owner, rIndex)
 	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
 	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
-	local spellLink = recipeDB[rIndex]["RecipeLink"]
+	local recipe_entry = addon.recipe_list[rIndex]
+	local spellLink = recipe_entry["RecipeLink"]
 
 	if acquireTooltipLocation == L["Off"] then
 		QTip:Release(arlTooltip)
@@ -790,7 +787,7 @@ local function GenerateTooltipContent(owner, rIndex)
 
 	arlTooltip:Clear()
 	arlTooltip:AddHeader()
-	arlTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipeDB[rIndex]["Name"], "CENTER", 2)
+	arlTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry["Name"], "CENTER", 2)
 
 	-- check if the recipe is excluded
 	local exclude = addon.db.profile.exclusionlist
@@ -802,7 +799,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	-- Add in skill level requirement, colored correctly
 	clr1 = addon:hexcolor("NORMAL")
 
-	local recipeSkill = recipeDB[rIndex]["Level"]
+	local recipeSkill = recipe_entry["Level"]
 	local playerSkill = Player["ProfessionLevel"]
 
 	if recipeSkill > playerSkill then
@@ -816,32 +813,32 @@ local function GenerateTooltipContent(owner, rIndex)
 	else
 		clr2 = addon:hexcolor("MIDGREY")
 	end
-	ttAdd(0, -1, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+	ttAdd(0, -1, 0, L["Required Skill"] .. " :", clr1, recipe_entry["Level"], clr2)
 	arlTooltip:AddSeparator()
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
 
-	if (recipeDB[rIndex]["Flags"][36]) then
+	if (recipe_entry["Flags"][36]) then
 		ttAdd(0, -1, 1, L["BOEFilter"], clr1)
 	end
 
-	if (recipeDB[rIndex]["Flags"][37]) then
+	if (recipe_entry["Flags"][37]) then
 		ttAdd(0, -1, 1, L["BOPFilter"], clr1)
 	end
 
-	if (recipeDB[rIndex]["Flags"][38]) then
+	if (recipe_entry["Flags"][38]) then
 		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
 	end
 
-	if (recipeDB[rIndex]["Flags"][40]) then
+	if (recipe_entry["Flags"][40]) then
 		ttAdd(0, -1, 1, L["RecipeBOEFilter"], clr1)
 	end
 
-	if (recipeDB[rIndex]["Flags"][41]) then
+	if (recipe_entry["Flags"][41]) then
 		ttAdd(0, -1, 1, L["RecipeBOPFilter"], clr1)
 	end
 
-	if (recipeDB[rIndex]["Flags"][42]) then
+	if (recipe_entry["Flags"][42]) then
 		ttAdd(0, -1, 1, L["RecipeBOAFilter"], clr1)
 	end
 	arlTooltip:AddSeparator()
@@ -853,7 +850,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	local rep_list = addon.reputation_list
 
 	-- loop through acquire methods, display each
-	for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
+	for k, v in pairs(recipe_entry["Acquire"]) do
 		local acquire_type = v["Type"]
 
 		if acquire_type == A_TRAINER then
@@ -2404,8 +2401,10 @@ function addon:InitializeFrame()
 			end
 			pattern = pattern:lower()
 
-			for index in pairs(recipeDB) do
-				local entry = recipeDB[index]
+			local recipe_list = addon.recipe_list
+
+			for index in pairs(recipe_list) do
+				local entry = recipe_list[index]
 				entry["Search"] = false
 
 				for field in pairs(search_params) do
@@ -2448,9 +2447,11 @@ function addon:InitializeFrame()
 						    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 	ARL_ClearButton:SetScript("OnClick",
 				  function()
+					  local recipe_list = addon.recipe_list
+
 					  -- Reset the search flags
-					  for index in pairs(recipeDB) do
-						  recipeDB[index]["Search"] = true
+					  for index in pairs(recipe_list) do
+						  recipe_list[index]["Search"] = true
 					  end
 					  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
