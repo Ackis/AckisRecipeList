@@ -76,6 +76,7 @@ local QTip		= LibStub("LibQTip-1.0")
 local Player		= addon.Player
 
 local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+addon.Frame = MainPanel
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -1145,36 +1146,6 @@ local function GenerateTooltipContent(owner, rIndex)
 	end
 end
 
--- Updates the progress bar based on the number of known / total recipes
-local function SetProgressBar()
-	local pbCur, pbMax
-	local settings = addon.db.profile
-
-	if settings.includefiltered then
-		pbCur = Player.recipes_known
-		pbMax = Player.recipes_total
-	else
-		-- We're removing filtered recipes from the final count
-		pbCur = Player.recipes_known_filtered
-		pbMax = Player.recipes_total_filtered
-	end
-
-	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbCur = pbCur - Player.excluded_recipes_unknown
-		pbMax = pbMax - Player.excluded_recipes_known
-	end
-
-	ARL_ProgressBar:SetMinMaxValues(0, pbMax)
-	ARL_ProgressBar:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		ARL_ProgressBarText:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
-	else
-		ARL_ProgressBarText:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-	end
-
-end
-
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 local SortRecipeList
@@ -1302,7 +1273,7 @@ local function ReDisplay()
 	Player:MarkExclusions()
 
 	MainPanel.scroll_frame:Update(false)
-	SetProgressBar()
+	MainPanel:UpdateProgressBar()
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -1392,7 +1363,7 @@ do
 		if misc == 0 then
 			cButton:SetScript("OnClick", function()
 							     FilterValueMap[scriptVal].svroot[scriptVal] = FilterValueMap[scriptVal].cb:GetChecked() and true or false
-							     MainPanel:ResetTitle()
+							     MainPanel:UpdateTitle()
 							     ReDisplay()
 						     end)
 		else
@@ -2105,7 +2076,6 @@ function addon:InitializeFrame()
 	MainPanel:SetMovable(true)
 
 	tinsert(UISpecialFrames, "AckisRecipeList.Frame")	-- Allows ARL to be closed with the Escape key
-	addon.Frame = MainPanel
 
 	addon.bgTexture = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
 	addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
@@ -2297,7 +2267,7 @@ function addon:InitializeFrame()
 
 						   MainPanel.is_expanded = false
 						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-						   ARL_ProgressBar:SetWidth(195)
+						   MainPanel.progress_bar:SetWidth(195)
 
 						   -- Change the text and tooltip for the filter button
 						   ARL_FilterButton:SetText(L["FILTER_OPEN"])
@@ -2330,7 +2300,7 @@ function addon:InitializeFrame()
 
 						   MainPanel.is_expanded = true
 						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-						   ARL_ProgressBar:SetWidth(345)
+						   MainPanel.progress_bar:SetWidth(345)
 
 						   -- Change the text and tooltip for the filter button
 						   ARL_FilterButton:SetText(L["FILTER_CLOSE"])
@@ -2347,7 +2317,7 @@ function addon:InitializeFrame()
 
 						   ARL_ResetButton:Show()
 					   end
-					   MainPanel:ResetTitle()
+					   MainPanel:UpdateTitle()
 				   end)
 
 	-------------------------------------------------------------------------------
@@ -2529,30 +2499,35 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- ProgressBar for our skills
 	-------------------------------------------------------------------------------
-	-- Values for the progressbar (defaults)
-	local pbMin = 0
-	local pbMax = 100
-	local pbCur = 50
+	do
+		-- Values for the progressbar (defaults)
+		local pbMin = 0
+		local pbMax = 100
+		local pbCur = 50
 
-	local ARL_ProgressBar = CreateFrame("StatusBar", "ARL_ProgressBar", MainPanel)
-	ARL_ProgressBar:SetWidth(195)
-	ARL_ProgressBar:SetHeight(14)
-	ARL_ProgressBar:ClearAllPoints()
-	ARL_ProgressBar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
-	ARL_ProgressBar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
-	ARL_ProgressBar:SetOrientation("HORIZONTAL")
-	ARL_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
-	ARL_ProgressBar:SetMinMaxValues(pbMin, pbMax)
-	ARL_ProgressBar:SetValue(pbCur)
+		local progress_bar = CreateFrame("StatusBar", nil, MainPanel)
+		progress_bar:SetWidth(195)
+		progress_bar:SetHeight(14)
+		progress_bar:ClearAllPoints()
+		progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
+		progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+		progress_bar:SetOrientation("HORIZONTAL")
+		progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+		progress_bar:SetMinMaxValues(pbMin, pbMax)
+		progress_bar:SetValue(pbCur)
 
-	local ARL_ProgressBarText = ARL_ProgressBar:CreateFontString("ARL_ProgressBarText", "ARTWORK")
-	ARL_ProgressBarText:SetWidth(195)
-	ARL_ProgressBarText:SetHeight(14)
-	ARL_ProgressBarText:SetFontObject("GameFontHighlightSmall")
-	ARL_ProgressBarText:ClearAllPoints()
-	ARL_ProgressBarText:SetPoint("CENTER", ARL_ProgressBar, "CENTER", 0, 0)
-	ARL_ProgressBarText:SetJustifyH("CENTER")
-	ARL_ProgressBarText:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+		local progress_text = progress_bar:CreateFontString(nil, "ARTWORK")
+		progress_text:SetWidth(195)
+		progress_text:SetHeight(14)
+		progress_text:SetFontObject("GameFontHighlightSmall")
+		progress_text:ClearAllPoints()
+		progress_text:SetPoint("CENTER", progress_bar, "CENTER", 0, 0)
+		progress_text:SetJustifyH("CENTER")
+		progress_text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+
+		progress_bar.text = progress_text
+		MainPanel.progress_bar = progress_bar
+	end	-- do
 
 	-------------------------------------------------------------------------------
 	-- I'm going to use my own tooltip for recipebuttons
@@ -2560,7 +2535,7 @@ function addon:InitializeFrame()
 	arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", MainPanel, "GameTooltipTemplate")
 
 	-- Add TipTac Support
-	if (TipTac) and (TipTac.AddModifiedTip) then
+	if TipTac and TipTac.AddModifiedTip then
 		TipTac:AddModifiedTip(arlSpellTooltip)
 	end
 
@@ -2715,7 +2690,7 @@ function addon:InitializeFrame()
 						     filterdb.classes[strlower(currentclass)] = true
 
 						     if MainPanel:IsVisible() then
-							     MainPanel:ResetTitle()
+							     MainPanel:UpdateTitle()
 							     HideARL_ExpOptCB()
 							     addon.Flyaway:Hide()
 							     ReDisplay()
@@ -2840,36 +2815,21 @@ function addon:InitializeFrame()
 	ARL_ClassButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_ClassButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_ClassButton:SetScript("OnClick",
-				  function(self,button)
+				  function(self, button)
 					  local filterdb = addon.db.profile.filters
-					  if (button == "LeftButton") then
-						  -- Reset all classes to true
-						  filterdb.classes.deathknight = true
-						  filterdb.classes.druid = true
-						  filterdb.classes.hunter = true
-						  filterdb.classes.mage = true
-						  filterdb.classes.paladin = true
-						  filterdb.classes.priest = true
-						  filterdb.classes.rogue = true
-						  filterdb.classes.shaman = true
-						  filterdb.classes.warlock = true
-						  filterdb.classes.warrior = true
-					  elseif (button == "RightButton") then
-						  -- Reset all classes to false
-						  filterdb.classes.deathknight = false
-						  filterdb.classes.druid = false
-						  filterdb.classes.hunter = false
-						  filterdb.classes.mage = false
-						  filterdb.classes.paladin = false
-						  filterdb.classes.priest = false
-						  filterdb.classes.rogue = false
-						  filterdb.classes.shaman = false
-						  filterdb.classes.warlock = false
-						  filterdb.classes.warrior = false
+
+					  if button == "LeftButton" then
+						  for class in pairs(filterdb.classes) do
+							  filterdb.classes[class] = true
+						  end
+					  elseif button == "RightButton" then
+						  for class in pairs(filterdb.classes) do
+							  filterdb.classes[class] = false
+						  end
 						  -- Set your own class to true
-						  local _, currentclass = UnitClass("player")
-						  filterdb.classes[strlower(currentclass)] = true
+						  filterdb.classes[strlower(Player["Class"])] = true
 					  end
+
 					  -- Update the checkboxes with the new value
 					  ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
 					  ARL_DruidCB:SetChecked(filterdb.classes.druid)
@@ -2882,7 +2842,7 @@ function addon:InitializeFrame()
 					  ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
 					  ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
 					  -- Reset our title
-					  MainPanel:ResetTitle()
+					  MainPanel:UpdateTitle()
 					  -- Use new filters
 					  ReDisplay()
 				  end)
@@ -3090,7 +3050,7 @@ function addon:InitializeFrame()
 					  ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
 					  ARL_ArmorShieldCB:SetChecked(armordb.shield)
 					  -- Reset our title
-					  MainPanel:ResetTitle()
+					  MainPanel:UpdateTitle()
 					  -- Use new filters
 					  ReDisplay()
 				  end)
@@ -3192,7 +3152,7 @@ function addon:InitializeFrame()
 					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
 					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
 					   -- Reset our title
-					   MainPanel:ResetTitle()
+					   MainPanel:UpdateTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -3422,7 +3382,7 @@ function addon:InitializeFrame()
 					   ARL_RepTimbermawCB:SetChecked(filterdb.timbermaw)
 					   ARL_RepZandalarCB:SetChecked(filterdb.zandalar)
 					   -- Reset our title
-					   MainPanel:ResetTitle()
+					   MainPanel:UpdateTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -3522,7 +3482,7 @@ function addon:InitializeFrame()
 					   ARL_RepSporeggarCB:SetChecked(filterdb.sporeggar)
 					   ARL_RepVioletEyeCB:SetChecked(filterdb.violeteye)
 					   -- Reset our title
-					   MainPanel:ResetTitle()
+					   MainPanel:UpdateTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -3655,7 +3615,7 @@ function addon:InitializeFrame()
 					   ARL_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
 					   ARL_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
 					   -- Reset our title
-					   MainPanel:ResetTitle()
+					   MainPanel:UpdateTitle()
 					   -- Use new filters
 					   ReDisplay()
 				   end)
@@ -3941,7 +3901,8 @@ end
 function addon:DisplayFrame()
 	MainPanel:SetPosition()
 	MainPanel:SetProfession()
-	MainPanel:ResetTitle()
+	MainPanel:UpdateTitle()
+	MainPanel:UpdateProgressBar()
 	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
@@ -3951,7 +3912,6 @@ function addon:DisplayFrame()
 
 	MainPanel.scroll_frame:Update(false)
 	MainPanel:Show()
-	SetProgressBar()
 
 	-- Set the search text to the last searched text or the global default string for the search box
 	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
@@ -4006,7 +3966,7 @@ function MainPanel:SetPosition()
 	end
 end
 
-function MainPanel:ResetTitle()
+function MainPanel:UpdateTitle()
 	if self.is_expanded then
 		local total, active = 0, 0
 
@@ -4022,6 +3982,35 @@ function MainPanel:ResetTitle()
 	else
 		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
 	end
+end
+
+-- Updates the progress bar based on the number of known / total recipes
+function MainPanel:UpdateProgressBar()
+	local pbCur, pbMax
+	local settings = addon.db.profile
+
+	if settings.includefiltered then
+		pbCur = Player.recipes_known
+		pbMax = Player.recipes_total
+	else
+		-- We're removing filtered recipes from the final count
+		pbCur = Player.recipes_known_filtered
+		pbMax = Player.recipes_total_filtered
+	end
+
+	if not settings.includeexcluded and not settings.ignoreexclusionlist then
+		pbCur = pbCur - Player.excluded_recipes_unknown
+		pbMax = pbMax - Player.excluded_recipes_known
+	end
+	self.progress_bar:SetMinMaxValues(0, pbMax)
+	self.progress_bar:SetValue(pbCur)
+
+	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
+		self.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+	else
+		self.progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+	end
+
 end
 
 -------------------------------------------------------------------------------
@@ -4132,8 +4121,13 @@ do
 			state:SetScript("OnLeave", nil)
 		end
 		local num_entries = #self.entries
+		local display_lines = NUM_RECIPE_LINES
 
-		FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
+		if num_entries < display_lines then
+			display_lines = num_entries / 2
+		end
+
+		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
 		addon:ClosePopups()
 
 		if num_entries > 0 then
