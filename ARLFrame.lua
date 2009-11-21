@@ -136,6 +136,9 @@ local ARL_SearchText, ARL_LastSearchedText
 local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemOptCB, ARL_ExpPlayerOptCB, ARL_ExpRepOptCB, ARL_RepOldWorldCB, ARL_RepBCCB, ARL_RepLKCB,ARL_ExpMiscOptCB
 
 
+local function DEBUG(str, ...)
+	print(string.format(addon:Red("DEBUG: ") .. str, ...))
+end
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
