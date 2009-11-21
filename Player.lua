@@ -159,7 +159,8 @@ function Player:SetProfessions()
 			break
 		end
 
-		if not profession_list[spell_name] or spell_name == smelting_spell then
+		-- Check for false in the profession_list - a nil entry means we don't care about the spell.
+		if profession_list[spell_name] == false or spell_name == smelting_spell then
 			-- If the player has smelting, then mining is also known.
 			if spell_name == smelting_spell then
 				profession_list[mining_spell] = true

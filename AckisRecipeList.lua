@@ -149,6 +149,10 @@ if MissingLibraries() then
 	return
 end
 
+function addon:DEBUG(str, ...)
+	print(string.format(addon:Red("DEBUG: ") .. tostring(str), ...))
+end
+
 do
 	local output = {}
 

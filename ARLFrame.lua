@@ -135,11 +135,6 @@ local arlSpellTooltip = _G["arlSpellTooltip"]
 local ARL_SearchText, ARL_LastSearchedText
 local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemOptCB, ARL_ExpPlayerOptCB, ARL_ExpRepOptCB, ARL_RepOldWorldCB, ARL_RepBCCB, ARL_RepLKCB,ARL_ExpMiscOptCB
 
-
-local function DEBUG(str, ...)
-	print(string.format(addon:Red("DEBUG: ") .. str, ...))
-end
-
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
 	L["General"],		-- 1
@@ -329,19 +324,20 @@ do
 
 	end
 
-	local function CheckMapDisplay(v, flags)
+	local function CheckMapDisplay(acquire_entry, flags)
 		local maptrainer = addon.db.profile.maptrainer
 		local mapquest = addon.db.profile.mapquest
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
 		local player_faction = Player["Faction"]
-		local acquire_type = v["Type"]
+		local acquire_type = acquire_entry["Type"]
+		local acquire_id = acquire_entry["ID"]
 		local display = false
 
 		-- Trainers - Display if it's your faction or neutral.
 		if maptrainer then
 			if acquire_type == A_TRAINER then 
-				local trainer = addon.trainer_list[v["ID"]]
+				local trainer = addon.trainer_list[acquire_id]
 
 				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == factionNeutral)
 			elseif acquire_type == A_CUSTOM and flags[3] then
@@ -350,7 +346,7 @@ do
 			-- Vendors - Display if it's your faction or neutral
 		elseif mapvendor then
 			if acquire_type == A_VENDOR then
-				local vendor = addon.vendor_list[v["ID"]]
+				local vendor = addon.vendor_list[acquire_id]
 
 				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == factionNeutral)
 			elseif acquire_type == A_CUSTOM and flags[4] then
@@ -363,7 +359,7 @@ do
 		-- Quests
 		elseif mapquest then
 			if acquire_type == A_QUEST then
-				local quest = addon.quest_list[v["ID"]]
+				local quest = addon.quest_list[acquire_id]
 				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == factionNeutral)
 			elseif acquire_type == A_CUSTOM and flags[8] then
 				return true
@@ -655,13 +651,14 @@ do
 			end
 			--@end-alpha@
 
-			if ((zone) and (continent)) then
+			if zone and continent then
 				--@alpha@
 				if (x == 0) and (y == 0) then
 					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
 				end
 				--@end-alpha@
 				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, nil, false, minimap, worldmap)
+
 				tinsert(iconlist, iconuid)
 			end
 
@@ -2130,7 +2127,7 @@ function addon:InitializeFrame()
 				      opts.anchorFrom = from
 				      opts.anchorTo = to
 
-				      if self._is_expanded then
+				      if self.is_expanded then
 					      if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
 						      opts.offsetx = x
 					      elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
@@ -2145,17 +2142,17 @@ function addon:InitializeFrame()
 			      end)
 
 	MainPanel:Show()
-	MainPanel._is_expanded = false
+	MainPanel.is_expanded = false
 
 	-------------------------------------------------------------------------------
 	-- Create and position the header.
 	-------------------------------------------------------------------------------
-	local heading_text = MainPanel:CreateFontString("ARL_Frame.HeadingText", "ARTWORK")
+	local heading_text = MainPanel:CreateFontString(nil, "ARTWORK")
 	heading_text:SetFontObject("GameFontHighlightSmall")
 	heading_text:ClearAllPoints()
 	heading_text:SetPoint("TOP", MainPanel, "TOP", 20, -16)
 	heading_text:SetJustifyH("CENTER")
-	MainPanel.HeadingText = heading_text
+	MainPanel.title_bar = heading_text
 
 	-------------------------------------------------------------------------------
 	-- Create the mode button and assign its values.
@@ -2288,7 +2285,7 @@ function addon:InitializeFrame()
 					   local xPos = MainPanel:GetLeft()
 					   local yPos = MainPanel:GetBottom()
 
-					   if MainPanel._is_expanded then
+					   if MainPanel.is_expanded then
 						   -- Adjust the frame size and texture
 						   MainPanel:ClearAllPoints()
 						   MainPanel:SetWidth(293)
@@ -2298,7 +2295,7 @@ function addon:InitializeFrame()
 						   addon.bgTexture:SetAllPoints(MainPanel)
 						   addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 
-						   MainPanel._is_expanded = false
+						   MainPanel.is_expanded = false
 						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
 						   ARL_ProgressBar:SetWidth(195)
 
@@ -2331,7 +2328,7 @@ function addon:InitializeFrame()
 						   addon.bgTexture:SetAllPoints(MainPanel)
 						   addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 
-						   MainPanel._is_expanded = true
+						   MainPanel.is_expanded = true
 						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
 						   ARL_ProgressBar:SetWidth(345)
 
@@ -2614,7 +2611,7 @@ function addon:InitializeFrame()
 				-- 1) We clicked on the recipe button on a closed recipe
 				-- 2) We clicked on the recipe button of an open recipe
 				-- 3) we clicked on the expanded text of an open recipe
-				if clicked_line.IsExpanded then
+				if clicked_line.is_expanded then
 					traverseIndex = clickedIndex + 1
 
 					-- get rid of our expanded lines
@@ -2625,10 +2622,10 @@ function addon:InitializeFrame()
 							break
 						end
 					end
-					clicked_line.IsExpanded = false
+					clicked_line.is_expanded = false
 				else
 					MainPanel.scroll_frame:ExpandEntry(clickedIndex)
-					clicked_line.IsExpanded = true
+					clicked_line.is_expanded = true
 				end
 			else
 				-- this inherently implies that we're on an expanded recipe
@@ -2640,13 +2637,13 @@ function addon:InitializeFrame()
 				while (entries[traverseIndex] and not entries[traverseIndex].is_header) do
 					traverseIndex = traverseIndex - 1
 				end
-				entries[traverseIndex].IsExpanded = false	-- unexpand it
+				entries[traverseIndex].is_expanded = false
 				traverseIndex = traverseIndex + 1
 
 				-- now remove the expanded lines until we get to a recipe again
 				while (entries[traverseIndex] and not entries[traverseIndex].is_header) do
 					ReleaseTable(tremove(entries, traverseIndex))
-					-- if this is the last entry in the whole list, we should break out
+
 					if not entries[traverseIndex] then
 						break
 					end
@@ -3959,7 +3956,6 @@ function addon:DisplayFrame()
 	-- Set the search text to the last searched text or the global default string for the search box
 	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
 	ARL_SearchText:SetText(ARL_LastSearchedText  or L["SEARCH_BOX_DESC"])
-	
 end
 
 -------------------------------------------------------------------------------
@@ -3997,7 +3993,7 @@ function MainPanel:SetPosition()
 			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
 		end
 	else
-		if self._is_expanded then
+		if self.is_expanded then
 			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
 				FixedOffsetX = opts.offsetx
 			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
@@ -4011,9 +4007,7 @@ function MainPanel:SetPosition()
 end
 
 function MainPanel:ResetTitle()
-	local new_title = ""	-- reset the frame title line
-
-	if self._is_expanded then
+	if self.is_expanded then
 		local total, active = 0, 0
 
 		for filter, info in pairs(FilterValueMap) do
@@ -4024,12 +4018,10 @@ function MainPanel:ResetTitle()
 				total = total + 1
 			end
 		end
-		new_title = "ARL (v." .. addon.version .. ") - " .. Player["Profession"] ..
-			" (" .. active .. "/" .. total .. " " .. L["Filters"] .. ")"
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, L["Filters"])
 	else
-		new_title = "ARL (v." .. addon.version .. ") - " .. Player["Profession"]
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
 	end
-	self.HeadingText:SetText(addon:Normal(new_title))
 end
 
 -------------------------------------------------------------------------------
@@ -4082,6 +4074,7 @@ do
 		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 		local insert_index = 1
 
+		-- If not refreshing an existing list (after expanding/contracting an entry), wipe and re-initialize the entries.
 		if not refresh then
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
@@ -4111,11 +4104,11 @@ do
 					if expand_acquires and recipe_entry["Acquire"] then
 						-- we have acquire information for this. push the title entry into the strings
 						-- and start processing the acquires
-						t.IsExpanded = true
+						t.is_expanded = true
 						tinsert(self.entries, insert_index, t)
 						insert_index = self:ExpandEntry(insert_index)
 					else
-						t.IsExpanded = false
+						t.is_expanded = false
 						tinsert(self.entries, insert_index, t)
 						insert_index = insert_index + 1
 					end
@@ -4159,7 +4152,7 @@ do
 				if cur_entry.is_header then
 					cur_state:Show()
 
-					if cur_entry.IsExpanded then
+					if cur_entry.is_expanded then
 						cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
 						cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
 						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4265,14 +4258,12 @@ do
 		-- occurs
 		entry_index = entry_index + 1
 
-		-- Need to loop through the available acquires and put them all in
 		for k, v in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
 			-- Initialize the first line here, since every type below will have one.
 			local acquire_type = v["Type"]
 			local t = AcquireTable()
-			t.is_header = false
 			t.recipe_id = recipe_id
-			t.IsExpanded = true
+			t.is_expanded = true
 
 			if acquire_type == A_TRAINER and obtain_filters.trainer then
 				local trainer = addon.trainer_list[v["ID"]]
@@ -4298,9 +4289,8 @@ do
 						cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
 					end
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 					t.text = pad .. pad .. trainer["Location"] .. " " .. cStr
 
 					tinsert(self.entries, entry_index, t)
@@ -4333,9 +4323,8 @@ do
 						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
 					end
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
 
 					tinsert(self.entries, entry_index, t)
@@ -4355,9 +4344,8 @@ do
 					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
 				end
 				t = AcquireTable()
-				t.is_header = false
 				t.recipe_id = recipe_id
-				t.IsExpanded = true
+				t.is_expanded = true
 				t.text = pad .. pad .. mob["Location"] .. " " .. cStr
 
 				tinsert(self.entries, entry_index, t)
@@ -4386,9 +4374,8 @@ do
 						cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
 					end
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 					t.text = pad .. pad .. quest["Location"] .. " " .. cStr
 
 					tinsert(self.entries, entry_index, t)
@@ -4429,9 +4416,8 @@ do
 						nStr = addon:Neutral(rep_vendor["Name"])
 					end
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 
 					t.text = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
 
@@ -4444,9 +4430,8 @@ do
 						cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
 					end
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 					t.text = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
 
 					tinsert(self.entries, entry_index, t)
@@ -4484,9 +4469,8 @@ do
 					entry_index = entry_index + 1
 
 					t = AcquireTable()
-					t.is_header = false
 					t.recipe_id = recipe_id
-					t.IsExpanded = true
+					t.is_expanded = true
 					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
 
 					tinsert(self.entries, entry_index, t)
