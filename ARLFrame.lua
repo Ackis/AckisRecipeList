@@ -70,9 +70,6 @@ local QTip		= LibStub("LibQTip-1.0")
 
 local Player		= addon.Player
 
-local MainPanel		= CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
-addon.Frame = MainPanel
-
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
@@ -224,6 +221,308 @@ do
 		tinsert(table_cache, tbl)
 	end
 end	-- do block
+
+-------------------------------------------------------------------------------
+-- Create the MainPanel and set its values
+-------------------------------------------------------------------------------
+local MainPanel	= CreateFrame("Frame", "ARL_MainPanel", UIParent)
+MainPanel:SetWidth(293)
+MainPanel:SetHeight(447)
+MainPanel:SetFrameStrata("DIALOG")
+MainPanel:SetHitRectInsets(5, 5, 5, 5)
+
+MainPanel:EnableMouse(true)
+MainPanel:EnableKeyboard(true)
+MainPanel:SetMovable(true)
+MainPanel:Show()
+
+MainPanel.is_expanded = false
+
+tinsert(UISpecialFrames, "ARL_MainPanel")	-- Allows ARL to be closed with the Escape key
+
+addon.Frame = MainPanel
+
+MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
+MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+MainPanel.backdrop:SetAllPoints(MainPanel)
+MainPanel.backdrop:SetTexCoord(0, (293/512), 0, (447/512))
+
+MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
+MainPanel.title_bar:ClearAllPoints()
+MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+MainPanel.title_bar:SetJustifyH("CENTER")
+
+-------------------------------------------------------------------------------
+-- MainPanel scripts/functions.
+-------------------------------------------------------------------------------
+MainPanel:SetScript("OnHide",
+		    function(self)
+			    addon:ClosePopups()
+		    end)
+
+MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)
+
+MainPanel:SetScript("OnMouseUp",
+		    function(self, button)
+			    self:StopMovingOrSizing()
+
+			    local opts = addon.db.profile.frameopts
+			    local from, _, to, x, y = self:GetPoint()
+
+			    opts.anchorFrom = from
+			    opts.anchorTo = to
+
+			    if self.is_expanded then
+				    if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+					    opts.offsetx = x
+				    elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+					    opts.offsetx = x - 151/2
+				    elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+					    opts.offsetx = x - 151
+				    end
+			    else
+				    opts.offsetx = x
+			    end
+			    opts.offsety = y
+		    end)
+
+function MainPanel:ToggleState()
+	if self.is_expanded then
+		self:SetWidth(293)
+
+		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
+		self.backdrop:SetAllPoints(self)
+		self.backdrop:SetTexCoord(0, (293/512), 0, (447/512))
+
+		self.progress_bar:SetWidth(195)
+	else
+		self:SetWidth(444)
+
+		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
+		self.backdrop:SetAllPoints(self)
+		self.backdrop:SetTexCoord(0, (444/512), 0, (447/512))
+
+		self.progress_bar:SetWidth(345)
+	end
+	self.is_expanded = not self.is_expanded
+
+	local x, y = self:GetLeft(), self:GetBottom()
+
+	self:ClearAllPoints()
+	self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
+	self:UpdateTitle()
+end
+
+function MainPanel:SetProfession()
+	for k, v in pairs(SortedProfessions) do
+		if v.name == Player["Profession"] then
+			self.profession = k
+			break
+		end
+	end
+	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
+end
+
+function MainPanel:SetPosition()
+	self:ClearAllPoints()
+
+	local opts = addon.db.profile.frameopts
+	local FixedOffsetX = opts.offsetx
+
+	if opts.anchorTo == "" then
+		-- no values yet, clamp to whatever frame is appropriate
+		if ATSWFrame then
+			-- Anchor frame to ATSW
+			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+		elseif CauldronFrame then
+			-- Anchor frame to Cauldron
+			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
+		elseif Skillet then
+			-- Anchor frame to Skillet
+			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		else
+			-- Anchor to default tradeskill frame
+			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+		end
+	else
+		if self.is_expanded then
+			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+				FixedOffsetX = opts.offsetx
+			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+				FixedOffsetX = opts.offsetx + 151/2
+			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+				FixedOffsetX = opts.offsetx + 151
+			end
+		end
+		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+	end
+end
+
+function MainPanel:UpdateTitle()
+	if self.is_expanded then
+		local total, active = 0, 0
+
+		for filter, info in pairs(FilterValueMap) do
+			if info.svroot then
+				if info.svroot[filter] == true then
+					active = active + 1
+				end
+				total = total + 1
+			end
+		end
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, L["Filters"])
+	else
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
+	end
+end
+
+function MainPanel:UpdateProgressBar()
+	local pbCur, pbMax
+	local settings = addon.db.profile
+
+	if settings.includefiltered then
+		pbCur = Player.recipes_known
+		pbMax = Player.recipes_total
+	else
+		-- We're removing filtered recipes from the final count
+		pbCur = Player.recipes_known_filtered
+		pbMax = Player.recipes_total_filtered
+	end
+
+	if not settings.includeexcluded and not settings.ignoreexclusionlist then
+		pbCur = pbCur - Player.excluded_recipes_unknown
+		pbMax = pbMax - Player.excluded_recipes_known
+	end
+	self.progress_bar:SetMinMaxValues(0, pbMax)
+	self.progress_bar:SetValue(pbCur)
+
+	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
+		self.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+	else
+		self.progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+	end
+
+end
+
+-------------------------------------------------------------------------------
+-- Create the MainPanel.mode_button and assign its values.
+-------------------------------------------------------------------------------
+MainPanel.mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+MainPanel.mode_button:SetWidth(64)
+MainPanel.mode_button:SetHeight(64)
+MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
+MainPanel.mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+MainPanel.mode_button._normal = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+MainPanel.mode_button._pushed = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+MainPanel.mode_button._disabled = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+
+-------------------------------------------------------------------------------
+-- MainPanel.mode_button scripts/functions.
+-------------------------------------------------------------------------------
+MainPanel.mode_button:SetScript("OnClick",
+				function(self, button, down)
+					-- Known professions should be in Player["Professions"]
+
+					-- This loop is gonna be weird. The reason is because we need to
+					-- ensure that we cycle through all the known professions, but also
+					-- that we do so in order. That means that if the currently displayed
+					-- profession is the last one in the list, we're actually going to
+					-- iterate completely once to get to the currently displayed profession
+					-- and then iterate again to make sure we display the next one in line.
+					-- Further, there is the nuance that the person may not know any
+					-- professions yet at all. User are so annoying.
+					local startLoop = 0
+					local endLoop = 0
+					local displayProf = 0
+
+					-- ok, so first off, if we've never done this before, there is no "current"
+					-- and a single iteration will do nicely, thank you
+					if button == "LeftButton" then
+						-- normal profession switch
+						if MainPanel.profession == 0 then
+							startLoop = 1
+							endLoop = NUM_PROFESSIONS + 1
+						else
+							startLoop = MainPanel.profession + 1
+							endLoop = MainPanel.profession
+						end
+						local index = startLoop
+	
+						while index ~= endLoop do
+							if index > NUM_PROFESSIONS then
+								index = 1
+							elseif Player["Professions"][SortedProfessions[index].name] then
+								displayProf = index
+								MainPanel.profession = index
+								break
+							else
+								index = index + 1
+							end
+						end
+					elseif button == "RightButton" then
+						-- reverse profession switch
+						if MainPanel.profession == 0 then
+							startLoop = NUM_PROFESSIONS + 1
+							endLoop = 0
+						else
+							startLoop = MainPanel.profession - 1
+							endLoop = MainPanel.profession
+						end
+						local index = startLoop
+
+						while index ~= endLoop do
+							if index < 1 then
+								index = NUM_PROFESSIONS
+							elseif Player["Professions"][SortedProfessions[index].name] then
+								displayProf = index
+								MainPanel.profession = index
+								break
+							else
+								index = index - 1
+							end
+						end
+					end
+					local is_shown = TradeSkillFrame:IsVisible()
+
+					CastSpellByName(SortedProfessions[MainPanel.profession].name)
+					addon:Scan()
+
+					if not is_shown then
+						TradeSkillFrame:Hide()
+					end
+				end)
+
+function MainPanel.mode_button:ChangeTexture(texture)
+	local normal, pushed, disabled = self._normal, self._pushed, self._disabled
+
+	normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+	normal:SetTexCoord(0, 1, 0, 1)
+	normal:SetAllPoints(self)
+	self:SetNormalTexture(normal)
+
+	pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
+	pushed:SetTexCoord(0, 1, 0, 1)
+	pushed:SetAllPoints(self)
+	self:SetPushedTexture(pushed)
+
+	disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+	disabled:SetTexCoord(0, 1, 0, 1)
+	disabled:SetAllPoints(self)
+	self:SetDisabledTexture(disabled)
+end
+
+-------------------------------------------------------------------------------
+-- Create the close button, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.close_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
+MainPanel.close_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
+
+MainPanel.close_button:SetScript("OnClick",
+				 function(self, button, down)
+					 MainPanel:Hide()
+				 end)
 
 -------------------------------------------------------------------------------
 -- Close all possible pop-up windows
@@ -2014,211 +2313,14 @@ function addon:InitializeFrame()
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
 	-------------------------------------------------------------------------------
-	-- Initialize the main frame.
-	-------------------------------------------------------------------------------
-	MainPanel:SetWidth(293)
-	MainPanel:SetHeight(447)
-	MainPanel:SetFrameStrata("DIALOG")
-	MainPanel:SetHitRectInsets(5, 5, 5, 5)
-
-	MainPanel:EnableMouse(true)
-	MainPanel:EnableKeyboard(true)
-	MainPanel:SetMovable(true)
-
-	tinsert(UISpecialFrames, "AckisRecipeList.Frame")	-- Allows ARL to be closed with the Escape key
-
-	addon.bgTexture = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
-	addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-	addon.bgTexture:SetAllPoints(MainPanel)
-	addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-
-	-------------------------------------------------------------------------------
-	-- Assign the frame scripts, then show it.
-	-------------------------------------------------------------------------------
-	MainPanel:SetScript("OnMouseDown", function(self, button) self:StartMoving() end)
-	MainPanel:SetScript("OnHide", function(self) addon:ClosePopups() end)
-	MainPanel:SetScript("OnMouseUp",
-			      function(self, button)
-				      self:StopMovingOrSizing()
-
-				      local opts = addon.db.profile.frameopts
-				      local from, _, to, x, y = self:GetPoint()
-
-				      opts.anchorFrom = from
-				      opts.anchorTo = to
-
-				      if self.is_expanded then
-					      if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-						      opts.offsetx = x
-					      elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-						      opts.offsetx = x - 151/2
-					      elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-						      opts.offsetx = x - 151
-					      end
-				      else
-					      opts.offsetx = x
-				      end
-				      opts.offsety = y
-			      end)
-
-	MainPanel:Show()
-	MainPanel.is_expanded = false
-
-	-------------------------------------------------------------------------------
-	-- Create and position the header.
-	-------------------------------------------------------------------------------
-	local heading_text = MainPanel:CreateFontString(nil, "ARTWORK")
-	heading_text:SetFontObject("GameFontHighlightSmall")
-	heading_text:ClearAllPoints()
-	heading_text:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-	heading_text:SetJustifyH("CENTER")
-	MainPanel.title_bar = heading_text
-
-	-------------------------------------------------------------------------------
-	-- Create the mode button and assign its values.
-	-------------------------------------------------------------------------------
-	local mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
-	mode_button:SetWidth(64)
-	mode_button:SetHeight(64)
-	mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
-	mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-	MainPanel.mode_button = mode_button
-
-	-------------------------------------------------------------------------------
-	-- Normal, Pushed, and Disabled textures for the mode button.
-	-------------------------------------------------------------------------------
-	mode_button._normal = mode_button:CreateTexture(nil, "BACKGROUND")
-	mode_button._pushed = mode_button:CreateTexture(nil, "BACKGROUND")
-	mode_button._disabled = mode_button:CreateTexture(nil, "BACKGROUND")
-
-	-------------------------------------------------------------------------------
-	-- Mode button scripts/functions.
-	-------------------------------------------------------------------------------
-	function mode_button:ChangeTexture(texture)
-		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
-
-		normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
-		normal:SetTexCoord(0, 1, 0, 1)
-		normal:SetAllPoints(self)
-		self:SetNormalTexture(normal)
-
-		pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
-		pushed:SetTexCoord(0, 1, 0, 1)
-		pushed:SetAllPoints(self)
-		self:SetPushedTexture(pushed)
-
-		disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
-		disabled:SetTexCoord(0, 1, 0, 1)
-		disabled:SetAllPoints(self)
-		self:SetDisabledTexture(disabled)
-	end
-
-	mode_button:SetScript("OnClick",
-				     function(self, button, down)
-					     -- Known professions should be in Player["Professions"]
-
-					     -- This loop is gonna be weird. The reason is because we need to
-					     -- ensure that we cycle through all the known professions, but also
-					     -- that we do so in order. That means that if the currently displayed
-					     -- profession is the last one in the list, we're actually going to
-					     -- iterate completely once to get to the currently displayed profession
-					     -- and then iterate again to make sure we display the next one in line.
-					     -- Further, there is the nuance that the person may not know any
-					     -- professions yet at all. User are so annoying.
-					     local startLoop = 0
-					     local endLoop = 0
-					     local displayProf = 0
-
-					     -- ok, so first off, if we've never done this before, there is no "current"
-					     -- and a single iteration will do nicely, thank you
-					     if button == "LeftButton" then
-						     -- normal profession switch
-						     if MainPanel.profession == 0 then
-							     startLoop = 1
-							     endLoop = NUM_PROFESSIONS + 1
-						     else
-							     startLoop = MainPanel.profession + 1
-							     endLoop = MainPanel.profession
-						     end
-						     local index = startLoop
-	
-						     while index ~= endLoop do
-							     if index > NUM_PROFESSIONS then
-								     index = 1
-							     elseif Player["Professions"][SortedProfessions[index].name] then
-								     displayProf = index
-								     MainPanel.profession = index
-								     break
-							     else
-								     index = index + 1
-							     end
-						     end
-					     elseif button == "RightButton" then
-						     -- reverse profession switch
-						     if MainPanel.profession == 0 then
-							     startLoop = NUM_PROFESSIONS + 1
-							     endLoop = 0
-						     else
-							     startLoop = MainPanel.profession - 1
-							     endLoop = MainPanel.profession
-						     end
-						     local index = startLoop
-
-						     while index ~= endLoop do
-							     if index < 1 then
-								     index = NUM_PROFESSIONS
-							     elseif Player["Professions"][SortedProfessions[index].name] then
-								     displayProf = index
-								     MainPanel.profession = index
-								     break
-							     else
-								     index = index - 1
-							     end
-						     end
-					     end
-					     local is_shown = TradeSkillFrame:IsVisible()
-
-					     CastSpellByName(SortedProfessions[MainPanel.profession].name)
-					     addon:Scan()
-
-					     if not is_shown then
-						     TradeSkillFrame:Hide()
-					     end
-				     end)
-
-	-------------------------------------------------------------------------------
-	-- Stuff in the non-expanded frame (or both)
-	-------------------------------------------------------------------------------
-	local ARL_CloseXButton = CreateFrame("Button", "ARL_CloseXButton", MainPanel, "UIPanelCloseButton")
-	ARL_CloseXButton:SetScript("OnClick", function(self) MainPanel:Hide() end)
-	ARL_CloseXButton:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
-
-	-------------------------------------------------------------------------------
 	-- Create the filter button, position it, and set its scripts.
 	-------------------------------------------------------------------------------
 	local ARL_FilterButton = GenericCreateButton("ARL_FilterButton", MainPanel,
 						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 	ARL_FilterButton:SetScript("OnClick",
-				   function()
-					   local xPos = MainPanel:GetLeft()
-					   local yPos = MainPanel:GetBottom()
-
+				   function(self, button, down)
 					   if MainPanel.is_expanded then
-						   -- Adjust the frame size and texture
-						   MainPanel:ClearAllPoints()
-						   MainPanel:SetWidth(293)
-						   MainPanel:SetHeight(447)
-
-						   addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
-						   addon.bgTexture:SetAllPoints(MainPanel)
-						   addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-
-						   MainPanel.is_expanded = false
-						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-						   MainPanel.progress_bar:SetWidth(195)
-
 						   -- Change the text and tooltip for the filter button
 						   ARL_FilterButton:SetText(L["FILTER_OPEN"])
 						   SetTooltipScripts(ARL_FilterButton, L["FILTER_OPEN_DESC"])
@@ -2239,19 +2341,6 @@ function addon:InitializeFrame()
 						   addon.Flyaway:Hide()
 						   ARL_ResetButton:Hide()
 					   else
-						   -- Adjust the frame size and texture
-						   MainPanel:ClearAllPoints()
-						   MainPanel:SetWidth(444)
-						   MainPanel:SetHeight(447)
-
-						   addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
-						   addon.bgTexture:SetAllPoints(MainPanel)
-						   addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
-
-						   MainPanel.is_expanded = true
-						   MainPanel:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-						   MainPanel.progress_bar:SetWidth(345)
-
 						   -- Change the text and tooltip for the filter button
 						   ARL_FilterButton:SetText(L["FILTER_CLOSE"])
 						   SetTooltipScripts(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
@@ -2267,7 +2356,7 @@ function addon:InitializeFrame()
 
 						   ARL_ResetButton:Show()
 					   end
-					   MainPanel:UpdateTitle()
+					   MainPanel:ToggleState()
 				   end)
 
 	-------------------------------------------------------------------------------
@@ -3830,101 +3919,6 @@ function addon:DisplayFrame()
 	-- Set the search text to the last searched text or the global default string for the search box
 	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
 	ARL_SearchText:SetText(ARL_LastSearchedText  or L["SEARCH_BOX_DESC"])
-end
-
--------------------------------------------------------------------------------
--- MainPanel methods
--------------------------------------------------------------------------------
-function MainPanel:SetProfession()
-	for k, v in pairs(SortedProfessions) do
-		if v.name == Player["Profession"] then
-			self.profession = k
-			break
-		end
-	end
-	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
-end
-
-function MainPanel:SetPosition()
-	self:ClearAllPoints()
-
-	local opts = addon.db.profile.frameopts
-	local FixedOffsetX = opts.offsetx
-
-	if opts.anchorTo == "" then
-		-- no values yet, clamp to whatever frame is appropriate
-		if ATSWFrame then
-			-- Anchor frame to ATSW
-			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif CauldronFrame then
-			-- Anchor frame to Cauldron
-			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif Skillet then
-			-- Anchor frame to Skillet
-			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-		else
-			-- Anchor to default tradeskill frame
-			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
-		end
-	else
-		if self.is_expanded then
-			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-				FixedOffsetX = opts.offsetx
-			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-				FixedOffsetX = opts.offsetx + 151/2
-			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-				FixedOffsetX = opts.offsetx + 151
-			end
-		end
-		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
-	end
-end
-
-function MainPanel:UpdateTitle()
-	if self.is_expanded then
-		local total, active = 0, 0
-
-		for filter, info in pairs(FilterValueMap) do
-			if info.svroot then
-				if info.svroot[filter] == true then
-					active = active + 1
-				end
-				total = total + 1
-			end
-		end
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, L["Filters"])
-	else
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
-	end
-end
-
--- Updates the progress bar based on the number of known / total recipes
-function MainPanel:UpdateProgressBar()
-	local pbCur, pbMax
-	local settings = addon.db.profile
-
-	if settings.includefiltered then
-		pbCur = Player.recipes_known
-		pbMax = Player.recipes_total
-	else
-		-- We're removing filtered recipes from the final count
-		pbCur = Player.recipes_known_filtered
-		pbMax = Player.recipes_total_filtered
-	end
-
-	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbCur = pbCur - Player.excluded_recipes_unknown
-		pbMax = pbMax - Player.excluded_recipes_known
-	end
-	self.progress_bar:SetMinMaxValues(0, pbMax)
-	self.progress_bar:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
-	else
-		self.progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-	end
-
 end
 
 -------------------------------------------------------------------------------
