@@ -389,7 +389,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button, then set its parent and scripts.
 	-------------------------------------------------------------------------------
-	local scan_button = CreateFrame("Button", "ARL_ScanButton", UIParent, "UIPanelButtonTemplate")
+	local scan_button = CreateFrame("Button", nil, UIParent, "UIPanelButtonTemplate")
 
 	-- Add to Skillet interface
 	if Skillet and Skillet:IsActive() then
@@ -460,7 +460,7 @@ function addon:OnInitialize()
 	scan_button:SetFrameLevel(framelevel + 1)
 	scan_button:SetFrameStrata(framestrata)
 	scan_button:Enable()
-	self.ScanButton = scan_button
+	self.scan_button = scan_button
 
 	-------------------------------------------------------------------------------
 	-- Populate the profession initialization functions.
@@ -733,7 +733,7 @@ do
 		if Skillet then
 			return
 		end
-		local scan_button = self.ScanButton
+		local scan_button = self.scan_button
 
 		if ATSWFrame then
 			scan_button:SetParent(ATSWFrame)
@@ -766,7 +766,7 @@ do
 			elseif loc == "BL" then
 				scan_button:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
 			end
-			scan_button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+			scan_button:SetWidth(addon.scan_button:GetTextWidth() + 10)
 		end
 		scan_button:Show()
 	end
@@ -778,7 +778,7 @@ function addon:TRADE_SKILL_CLOSE()
 	end
 
 	if not Skillet then
-		addon.ScanButton:Hide()
+		addon.scan_button:Hide()
 	end
 end
 
@@ -1447,11 +1447,14 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:Scan(textdump)
-		if not TradeSkillFrame or not TradeSkillFrame:IsVisible() then
+		local scan_parent = self.scan_button:GetParent()
+
+		-- The scan button is re-parented to whichever interface it's anchored to, whether it's TradeSkillFrame or a replacement AddOn,
+		-- so we make sure its parent exists and is visible before proceeding.
+		if not scan_parent or not scan_parent:IsVisible() then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
-		-- Get the name of the currently opened trade skill, along with the current level of the skill.
 		Player["Profession"], Player["ProfessionLevel"] = GetTradeSkillLine()
 
 		-- Get the current profession Specialty
