@@ -2601,7 +2601,9 @@ function addon:InitializeFrame()
 		MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
 		MainPanel.scroll_frame:SetScript("OnVerticalScroll",
 						 function(self, arg1)
+							 self.scrolling = true
 							 FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+							 self.scrolling = nil
 						 end)
 	end	-- do
 
@@ -3975,8 +3977,8 @@ do
 		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 		local insert_index = 1
 
-		-- If not refreshing an existing list (after expanding/contracting an entry), wipe and re-initialize the entries.
-		if not refresh then
+		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
+		if not refresh and not self.scrolling then
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
 			end
