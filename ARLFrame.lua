@@ -87,17 +87,14 @@ local FLYAWAY_SINGLE_WIDTH	= 136
 local FLYAWAY_DOUBLE_WIDTH	= 300
 local FLYAWAY_HEIGHT		= 312
 
-local FLYAWAY_SMALL = 112
-local FLYAWAY_LARGE = 210
+local FLYAWAY_SMALL		= 112
+local FLYAWAY_LARGE		= 210
 
 
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
-
-local arlTooltip = _G["arlTooltip"]
-local arlSpellTooltip = _G["arlSpellTooltip"]
 
 local ARL_SearchText, ARL_LastSearchedText
 local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemOptCB, ARL_ExpPlayerOptCB, ARL_ExpRepOptCB, ARL_RepOldWorldCB, ARL_RepBCCB, ARL_RepLKCB,ARL_ExpMiscOptCB
@@ -175,6 +172,11 @@ do
 end	-- do block
 
 -------------------------------------------------------------------------------
+-- Create arlSpellTooltip
+-------------------------------------------------------------------------------
+local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
+
+-------------------------------------------------------------------------------
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
 local MainPanel	= CreateFrame("Frame", "ARL_MainPanel", UIParent)
@@ -190,7 +192,8 @@ MainPanel:Show()
 
 MainPanel.is_expanded = false
 
-tinsert(UISpecialFrames, "ARL_MainPanel")	-- Allows ARL to be closed with the Escape key
+-- Let the user banish the MainPanel with the ESC key.
+tinsert(UISpecialFrames, "ARL_MainPanel")
 
 addon.Frame = MainPanel
 
@@ -923,6 +926,8 @@ end
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
+local arlTooltip
+
 -- Font Objects needed for arlTooltip
 local narrowFont
 local normalFont
@@ -1002,15 +1007,29 @@ end
 local function SetSpellTooltip(owner, loc, link)
 	arlSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
 	arlSpellTooltip:ClearAllPoints()
-	if (loc == "Top") then
+
+	if loc == "Top" then
 		arlSpellTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-	elseif (loc == "Bottom") then
+	elseif loc == "Bottom" then
 		arlSpellTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-	elseif (loc == "Left") then
+	elseif loc == "Left" then
 		arlSpellTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-	elseif (loc == "Right") then
+	elseif loc == "Right" then
 		arlSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
+
+	-- Add TipTac Support
+	if TipTac and TipTac.AddModifiedTip and not arlSpellTooltip.tiptac then
+		TipTac:AddModifiedTip(arlSpellTooltip)
+		arlSpellTooltip.tiptac = true
+	end
+
+	-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
+	arlSpellTooltip:SetBackdrop(GameTooltip:GetBackdrop())
+	arlSpellTooltip:SetBackdropColor(GameTooltip:GetBackdropColor())
+	arlSpellTooltip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
+	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
+
 	arlSpellTooltip:SetHyperlink(link)
 	arlSpellTooltip:Show()
 end
@@ -1033,7 +1052,6 @@ local function GenerateTooltipContent(owner, rIndex)
 		return
 	end
 	arlTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
-	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	arlTooltip:ClearAllPoints()
 
 	if acquireTooltipLocation == "Right" then
@@ -1059,6 +1077,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	local clr1, clr2 = "", ""
 
 	arlTooltip:Clear()
+	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	arlTooltip:AddHeader()
 	arlTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry["Name"], "CENTER", 2)
 
@@ -2571,16 +2590,6 @@ function addon:InitializeFrame()
 	end	-- do
 
 	-------------------------------------------------------------------------------
-	-- I'm going to use my own tooltip for recipebuttons
-	-------------------------------------------------------------------------------
-	arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", MainPanel, "GameTooltipTemplate")
-
-	-- Add TipTac Support
-	if TipTac and TipTac.AddModifiedTip then
-		TipTac:AddModifiedTip(arlSpellTooltip)
-	end
-
-	-------------------------------------------------------------------------------
 	-- The main recipe list buttons and scrollframe
 	-------------------------------------------------------------------------------
 	do
@@ -3909,7 +3918,6 @@ function addon:DisplayFrame()
 	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
-	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	SortRecipeList()
 
@@ -4034,7 +4042,6 @@ do
 		if num_entries < display_lines then
 			display_lines = num_entries / 2
 		end
-
 		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
 		addon:ClosePopups()
 
@@ -4102,27 +4109,22 @@ do
 				showpopup = true
 			end
 
-			-- If the recipe total is at 0, it means we have not scanned the profession yet
 			if Player.recipes_total == 0 then
 				if showpopup then
 					StaticPopup_Show("ARL_NOTSCANNED")
 				end
-				-- We know all the recipes
 			elseif Player.recipes_known == Player.recipes_total then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLKNOWN")
 				end
-				-- Our filters are actually filtering something
 			elseif (Player.recipes_total_filtered - Player.recipes_known_filtered) == 0 then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLFILTERED")
 				end
-				-- Our exclusion list is preventing something from being displayed
 			elseif Player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
 					StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
-				-- We have some search text that is preventing stuff from being displayed
 			elseif ARL_SearchText:GetText() ~= "" then
 				StaticPopup_Show("ARL_SEARCHFILTERED")
 			else

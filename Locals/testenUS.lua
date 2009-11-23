@@ -151,7 +151,6 @@ L["Display Exclusions"]		= true
 L["DISPLAY_EXCLUSION_DESC"]	= "Display recipes that are in the exclusion list."
 L["Reset Window Position"]	= true
 L["RESET_WINDOW_DESC"]		= "Resets the ARL GUI to default position."
-L["UI Scale"]				= true
 L["UI_SCALE_DESC"]			= "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
 L["Tooltip Scale"]			= true
 L["TOOLTIP_SCALE_DESC"]		= "Changes the scale of the ARL tooltip. Ranges from .5 to 1.5 (.9 is default)"

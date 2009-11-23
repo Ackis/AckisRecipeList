@@ -512,10 +512,8 @@ end
 local displayoptions = nil
 
 local function giveDisplay()
-
-	if (not displayoptions) then
-
-	displayoptions = {
+	if not displayoptions then
+		displayoptions = {
 			order = 1,
 			type = "group",
 			name = L["Display Options"],
@@ -538,7 +536,7 @@ local function giveDisplay()
 				uiscale = {
 					order	= 3,
 					type	= "range",
-					name	= L["UI Scale"],
+					name	= _G.UI_SCALE,
 					desc	= L["UI_SCALE_DESC"],
 					min		= .5,
 					max		= 1.5,
@@ -546,8 +544,8 @@ local function giveDisplay()
 					bigStep = .05,
 					get		= function() return addon.db.profile.frameopts.uiscale end,
 					set		= function(info, v)
-								addon.db.profile.frameopts.uiscale = v
-								if (addon.Frame) then addon.Frame:SetScale(v) end
+								  addon.db.profile.frameopts.uiscale = v
+								  addon.Frame:SetScale(v)
 							  end,
 				},
 				fontsize = {
@@ -602,11 +600,11 @@ local function giveDisplay()
 					max		= 1.5,
 					step	= .05,
 					bigStep = .05,
-					get		= function() return addon.db.profile.frameopts.tooltipscale end,
+					get		= function()
+								  return addon.db.profile.frameopts.tooltipscale
+							  end,
 					set		= function(info, v)
-								addon.db.profile.frameopts.tooltipscale = v
-								if (arlTooltip) then arlTooltip:SetScale(v) end
-								if (arlSpellTooltip) then arlSpellTooltip:SetScale(v) end
+								  addon.db.profile.frameopts.tooltipscale = v
 							  end,
 				},
 				acquiretooltiplocation = {
@@ -629,16 +627,11 @@ local function giveDisplay()
 				},
 			},
 		}
-
-
 	end
-
 	return displayoptions
-
 end
 
 function addon:SetupOptions()
-
 	AceConfigReg:RegisterOptionsTable(MODNAME, fullOptions)
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
@@ -655,7 +648,6 @@ function addon:SetupOptions()
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
-
 end
 
 -- Description: Function which extends our options table in a modular way
@@ -667,8 +659,6 @@ end
 -- Output: None.
 
 function addon:RegisterModuleOptions(name, optionsTable, displayName)
-
 	modularOptions[name] = optionsTable
 	self.optionsFrame[name] = AceConfigDialog:AddToBlizOptions(MODNAME, displayName, MODNAME, name)
-
 end
