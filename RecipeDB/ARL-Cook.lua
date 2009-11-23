@@ -887,35 +887,71 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeFlags(RecipeDB, 64054, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
 	self:addTradeAcquire(RecipeDB, 64054, A_QUEST, 6610)
 
-	-- Pumpkin Pie -- 62044
-	AddRecipe(62044, 45, 44839, R_COMMON, GAME_WOTLK)
-	self:addTradeFlags(RecipeDB, 62044, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 62044, A_SEASONAL, 5)
-
-	-- Slow-Roasted Turkey -- 62045
-	AddRecipe(62045, 45, 44839, R_COMMON, GAME_WOTLK)
-	self:addTradeFlags(RecipeDB, 62045, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_DPS)
-	self:addTradeAcquire(RecipeDB, 62045, A_SEASONAL, 5)
-
-	-- Cranberry Chutney -- 62049
-	AddRecipe(62049, 25, 44840, R_COMMON, GAME_WOTLK)
-	self:addTradeFlags(RecipeDB, 62049, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
-	self:addTradeAcquire(RecipeDB, 62049, A_SEASONAL, 5)
-
-	-- Spice Bread Stuffing -- 62050
-	AddRecipe(62050, 75, 44837, R_COMMON, GAME_WOTLK)
-	self:addTradeFlags(RecipeDB, 62050, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB, 62050, A_SEASONAL, 5)
-
-	-- Candied Yam -- 62051
-	AddRecipe(62051, 45, 44839, R_COMMON, GAME_WOTLK)
-	self:addTradeFlags(RecipeDB, 62051, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP)
-	self:addTradeAcquire(RecipeDB, 62051, A_SEASONAL, 5)
-
 	-- Bread of the Dead -- 65454
 	AddRecipe(65454, 45, 46691, R_COMMON, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 65454, F_ALLIANCE, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
 	self:addTradeAcquire(RecipeDB, 65454, A_SEASONAL, 6)
+	
+	-- Some recipes are only availible to specific factions.
+	-- We only add the faction specific recipes if the user is part of that faction
+	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+	local _,faction = UnitFactionGroup("player")
+
+	if (faction == BFAC["Alliance"]) then
+	
+		-- Pumpkin Pie -- 62044
+		AddRecipe(62044, 100, 44839, R_COMMON, GAME_WOTLK, 100, 150, 162, 175)
+		self:addTradeFlags(RecipeDB, 62044, F_ALLIANCE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
+		self:addTradeAcquire(RecipeDB, 62044, A_SEASONAL, 5)
+
+		-- Slow-Roasted Turkey -- 62045
+		AddRecipe(62045, 330, 44839, R_COMMON, GAME_WOTLK, 330,330, 342, 355)
+		self:addTradeFlags(RecipeDB, 62045, F_ALLIANCE, F_SEASONAL, F_IBOE, F_RBOP, F_DPS)
+		self:addTradeAcquire(RecipeDB, 62045, A_SEASONAL, 5)
+
+		-- Cranberry Chutney -- 62049
+		AddRecipe(62049, 210, 44840, R_COMMON, GAME_WOTLK, 210, 210, 222, 235)
+		self:addTradeFlags(RecipeDB, 62049, F_ALLIANCE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
+		self:addTradeAcquire(RecipeDB, 62049, A_SEASONAL, 5)
+
+		-- Spice Bread Stuffing -- 62050
+		AddRecipe(62050, 90, 44837, R_COMMON, GAME_WOTLK, 90, 90, 102, 115)
+		self:addTradeFlags(RecipeDB, 62050, F_ALLIANCE, F_SEASONAL, F_IBOE, F_RBOE)
+		self:addTradeAcquire(RecipeDB, 62050, A_SEASONAL, 5)
+
+		-- Candied Sweet Potatoes -- 62051
+		AddRecipe(62051, 270, 44839, R_COMMON, GAME_WOTLK, 270, 270, 282, 295)
+		self:addTradeFlags(RecipeDB, 62051, F_ALLIANCE, F_SEASONAL, F_IBOE, F_RBOP)
+		self:addTradeAcquire(RecipeDB, 62051, A_SEASONAL, 5)
+		
+	elseif (faction == BFAC["Horde"]) then
+		
+		-- Pumpkin Pie -- 66036
+		AddRecipe(66036, 100, 44839, R_COMMON, GAME_WOTLK, 100, 150, 162, 175)
+		self:addTradeFlags(RecipeDB, 66036,  F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
+		self:addTradeAcquire(RecipeDB, 66036, A_SEASONAL, 5)
+
+		-- Slow-Roasted Turkey -- 66037
+		AddRecipe(66037, 330, 44839, R_COMMON, GAME_WOTLK, 330,330, 342, 355)
+		self:addTradeFlags(RecipeDB, 66037,  F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_DPS)
+		self:addTradeAcquire(RecipeDB, 66037, A_SEASONAL, 5)
+
+		-- Cranberry Chutney -- 66035
+		AddRecipe(66035, 210, 44840, R_COMMON, GAME_WOTLK, 210, 210, 222, 235)
+		self:addTradeFlags(RecipeDB, 66035, F_HORDE, F_SEASONAL, F_IBOE, F_RBOP, F_HEALER, F_CASTER)
+		self:addTradeAcquire(RecipeDB, 66035, A_SEASONAL, 5)
+
+		-- Spice Bread Stuffing -- 66038
+		AddRecipe(66038, 90, 44837, R_COMMON, GAME_WOTLK, 90, 90, 102, 115)
+		self:addTradeFlags(RecipeDB, 66038, F_HORDE, F_SEASONAL, F_IBOE, F_RBOE)
+		self:addTradeAcquire(RecipeDB, 66038, A_SEASONAL, 5)
+
+		-- Candied Sweet Potatoes -- 66034
+		AddRecipe(66034, 270, 44839, R_COMMON, GAME_WOTLK, 270, 270, 282, 295)
+		self:addTradeFlags(RecipeDB, 66034,  F_HORDE, F_SEASONAL, F_IBOE, F_RBOP)
+		self:addTradeAcquire(RecipeDB, 66034, A_SEASONAL, 5)
+	
+	end
 
 	return num_recipes
 
