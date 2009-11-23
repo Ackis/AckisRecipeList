@@ -47,14 +47,6 @@ local tostring = _G.tostring
 -------------------------------------------------------------------------------
 -- Localized Blizzard API.
 -------------------------------------------------------------------------------
-local GetSpellInfo = GetSpellInfo
-local GetSkillLineInfo = GetSkillLineInfo
-local GetNumSkillLines = GetNumSkillLines
-local ExpandSkillHeader = ExpandSkillHeader
-local CollapseSkillHeader = CollapseSkillHeader
-local GetTradeSkillLine = GetTradeSkillLine
-local GetItemInfo = GetItemInfo
-local UnitClass = UnitClass
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -87,68 +79,28 @@ local SortedProfessions = {	-- To make tabbing between professions easier
 	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11 
 	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
 } 
-local NUM_PROFESSIONS	= 12
-local NUM_RECIPE_LINES	= 24			-- Number of visible lines in the scrollframe.
-local SEASONAL_CATEGORY	= GetCategoryInfo(155)	-- Localized string - "World Events"
+local NUM_PROFESSIONS		= 12
+local NUM_RECIPE_LINES		= 24			-- Number of visible lines in the scrollframe.
+local SEASONAL_CATEGORY		= GetCategoryInfo(155)	-- Localized string - "World Events"
+
+local FLYAWAY_SINGLE_WIDTH	= 136
+local FLYAWAY_DOUBLE_WIDTH	= 300
+local FLYAWAY_HEIGHT		= 312
+
+local FLYAWAY_SMALL = 112
+local FLYAWAY_LARGE = 210
+
 
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
--------------------------------------------------------------------------------
--- Fonts
--------------------------------------------------------------------------------
-local narrowFont
-local normalFont
-
--- Fallback in case the user doesn't have LSM-3.0 installed
-if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
-
-	local locale = GetLocale()
-	-- Fix for font issues on koKR
-	if (locale == "koKR") then
-		narrowFont = "Fonts\\2002.TTF"
-		normalFont = "Fonts\\2002.TTF"
-	else
-		narrowFont = "Fonts\\ARIALN.TTF"
-		normalFont = "Fonts\\FRIZQT__.TTF"
-	end
-else
-	-- Register LSM 3.0
-	local LSM3 = LibStub("LibSharedMedia-3.0")
-
-	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
-	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
-end
-
 local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
 
 local ARL_SearchText, ARL_LastSearchedText
 local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemOptCB, ARL_ExpPlayerOptCB, ARL_ExpRepOptCB, ARL_RepOldWorldCB, ARL_RepBCCB, ARL_RepLKCB,ARL_ExpMiscOptCB
-
--- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
-local ExpButtonText = {
-	L["General"],		-- 1
-	L["Obtain"],		-- 2
-	L["Binding"],		-- 3
-	L["Item"],		-- 4
-	L["Player Type"],	-- 5
-	L["Reputation"],	-- 6
-	L["Misc"]		-- 7
-}
-
-local ExpButtonTT = {
-	L["FILTERING_GENERAL_DESC"],	-- 1
-	L["FILTERING_OBTAIN_DESC"],	-- 2
-	L["FILTERING_BINDING_DESC"],	-- 3
-	L["FILTERING_ITEM_DESC"],	-- 4
-	L["FILTERING_PLAYERTYPE_DESC"],	-- 5
-	L["FILTERING_REP_DESC"],	-- 6
-	L["FILTERING_MISC_DESC"]	-- 7
-}
-
 
 -------------------------------------------------------------------------------
 -- Define the static popups we're going to call when people don't have a
@@ -968,9 +920,35 @@ local function toRGB(hex)
 	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
 end
 
+-------------------------------------------------------------------------------
+-- Tooltip functions and data.
+-------------------------------------------------------------------------------
 -- Font Objects needed for arlTooltip
+local narrowFont
+local normalFont
+
 local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
 local normalFontObj = CreateFont(MODNAME.."normalFontObj")
+
+-- Fallback in case the user doesn't have LSM-3.0 installed
+if not LibStub:GetLibrary("LibSharedMedia-3.0", true) then
+
+	local locale = GetLocale()
+	-- Fix for font issues on koKR
+	if locale == "koKR" then
+		narrowFont = "Fonts\\2002.TTF"
+		normalFont = "Fonts\\2002.TTF"
+	else
+		narrowFont = "Fonts\\ARIALN.TTF"
+		normalFont = "Fonts\\FRIZQT__.TTF"
+	end
+else
+	-- Register LSM 3.0
+	local LSM3 = LibStub("LibSharedMedia-3.0")
+
+	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
+	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
+end
 
 -- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
@@ -1574,6 +1552,17 @@ local function ReDisplay()
 	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 end
 
+-- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
+local ExpButtonText = {
+	L["General"],		-- 1
+	L["Obtain"],		-- 2
+	L["Binding"],		-- 3
+	L["Item"],		-- 4
+	L["Player Type"],	-- 5
+	L["Reputation"],	-- 6
+	L["Misc"]		-- 7
+}
+
 local function HideARL_ExpOptCB(ignorevalue)
 	ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
 	ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
@@ -1672,17 +1661,206 @@ do
 end	-- do
 
 -- Generic function for creating the expanded panel buttons
-local function CreateExpandedPanelCheckButton(bName, bTex, panelIndex)
-	local ExpTextureSize = 34
+local CreateExpandedPanelCheckButton
+do
+	local ExpButtonTT = {
+		L["FILTERING_GENERAL_DESC"],	-- 1
+		L["FILTERING_OBTAIN_DESC"],	-- 2
+		L["FILTERING_BINDING_DESC"],	-- 3
+		L["FILTERING_ITEM_DESC"],	-- 4
+		L["FILTERING_PLAYERTYPE_DESC"],	-- 5
+		L["FILTERING_REP_DESC"],	-- 6
+		L["FILTERING_MISC_DESC"]	-- 7
+	}
 
-	if ((bName == "ARL_RepOldWorldCB") or (bName == "ARL_RepBCCB") or (bName == "ARL_RepLKCB")) then
-		local cButton = CreateFrame("CheckButton", bName, addon.Fly_Rep) -- , "UICheckButtonTemplate")
+	local function DoFlyaway(panel)
+		-- This manages the flyaway panel, as well as checking or unchecking the
+		-- buttons that got us here in the first place
+		--
+		-- our panels are:
+		-- 1	ARL_ExpGeneralOptCB			General Filters
+		-- 2	ARL_ExpObtainOptCB			Obtain Filters
+		-- 3	ARL_ExpBindingOptCB			Binding Filters
+		-- 4	ARL_ExpItemOptCB			Item Filters
+		-- 5	ARL_ExpPlayerOptCB			Player Type Filters
+		-- 6	ARL_ExpRepOptCB				Reputation Filters
+		-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
+
+		local ChangeFilters = false
+
+		addon.Fly_Rep_OW:Hide()
+		addon.Fly_Rep_BC:Hide()
+		addon.Fly_Rep_LK:Hide()
+		ARL_RepOldWorldCB:SetChecked(false)
+		ARL_RepBCCB:SetChecked(false)
+		ARL_RepLKCB:SetChecked(false)
+
+		if panel == 1 then
+			if ARL_ExpGeneralOptCB:GetChecked() then
+				-- uncheck all other buttons
+				HideARL_ExpOptCB("general")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Show()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
+				ChangeFilters = false
+			end
+		elseif panel == 2 then
+			if ARL_ExpObtainOptCB:GetChecked() then
+				HideARL_ExpOptCB("obtain")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Show()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
+				ChangeFilters = false
+			end
+		elseif panel == 3 then
+			if ARL_ExpBindingOptCB:GetChecked() then
+				HideARL_ExpOptCB("binding")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Show()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
+				ChangeFilters = false
+			end
+		elseif panel == 4 then
+			if ARL_ExpItemOptCB:GetChecked() then
+				HideARL_ExpOptCB("item")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Show()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+				ChangeFilters = false
+			end
+		elseif panel == 5 then
+			if ARL_ExpPlayerOptCB:GetChecked() then
+				HideARL_ExpOptCB("player")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Show()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
+				ChangeFilters = false
+			end
+		elseif panel == 6 then
+			if ARL_ExpRepOptCB:GetChecked() then
+				HideARL_ExpOptCB("rep")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Show()
+				addon.Fly_Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
+				ChangeFilters = false
+			end
+		elseif panel == 7 then
+			if ARL_ExpMiscOptCB:GetChecked() then
+				HideARL_ExpOptCB("misc")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				addon.Fly_General:Hide()
+				addon.Fly_Obtain:Hide()
+				addon.Fly_Binding:Hide()
+				addon.Fly_Item:Hide()
+				addon.Fly_Player:Hide()
+				addon.Fly_Rep:Hide()
+				addon.Fly_Misc:Show()
+
+				ChangeFilters = true
+			else
+				ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
+				ChangeFilters = false
+			end
+		end
+
+		if ChangeFilters then
+			-- Depending on which panel we're showing, either display one column
+			-- or two column
+			if ((panel == 3) or (panel == 4) or (panel == 7)) then
+				addon.flyTexture:ClearAllPoints()
+				addon.Flyaway:SetWidth(FLYAWAY_DOUBLE_WIDTH)
+				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
+				addon.flyTexture:SetAllPoints(addon.Flyaway)
+				addon.flyTexture:SetTexCoord(0, (FLYAWAY_DOUBLE_WIDTH/256), 0, (FLYAWAY_HEIGHT/512))
+			elseif ((panel == 1) or (panel == 2) or (panel == 5) or (panel == 6)) then
+				addon.flyTexture:ClearAllPoints()
+				addon.Flyaway:SetWidth(FLYAWAY_SINGLE_WIDTH)
+				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
+				addon.flyTexture:SetAllPoints(addon.Flyaway)
+				addon.flyTexture:SetTexCoord(0, (FLYAWAY_SINGLE_WIDTH/256), 0, (FLYAWAY_HEIGHT/512))
+			end
+			-- Change the filters to the current panel
+			addon.Flyaway:Show()
+		else
+			-- We're hiding, don't bother changing anything
+			addon.Flyaway:Hide()
+		end
+	end
+
+	function CreateExpandedPanelCheckButton(bName, bTex, panelIndex)
+		local ExpTextureSize = 34
+		local cButton
+
+		if bName == "ARL_RepOldWorldCB" or bName == "ARL_RepBCCB" or bName == "ARL_RepLKCB" then
+			cButton = CreateFrame("CheckButton", bName, addon.Fly_Rep)
 			cButton:SetWidth(100)
 			cButton:SetHeight(46)
 			cButton:SetChecked(false)
 	
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
-			if (bName == "ARL_RepLKCB") then
+			local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
+
+			if bName == "ARL_RepLKCB" then
 				iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
 			else
 				iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
@@ -1691,64 +1869,69 @@ local function CreateExpandedPanelCheckButton(bName, bTex, panelIndex)
 			iconTex:SetHeight(46)
 			iconTex:SetAllPoints(cButton)
 
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+			local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
 			pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
 			pushedTexture:SetAllPoints(cButton)
 			cButton:SetPushedTexture(pushedTexture)
-		local highlightTexture = cButton:CreateTexture()
+
+			local highlightTexture = cButton:CreateTexture()
 			highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
 			highlightTexture:SetAllPoints(cButton)
 			highlightTexture:SetBlendMode('ADD')
 			cButton:SetHighlightTexture(highlightTexture)
-		local checkedTexture = cButton:CreateTexture()
+
+			local checkedTexture = cButton:CreateTexture()
 			checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
 			checkedTexture:SetAllPoints(cButton)
 			checkedTexture:SetBlendMode('ADD')
 			cButton:SetCheckedTexture(checkedTexture)
 
-		-- And throw up a tooltip
-		if (bName == "ARL_RepOldWorldCB") then
-			SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
-		elseif (bName == "ARL_RepBCCB") then
-			SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
+			-- And throw up a tooltip
+			if bName == "ARL_RepOldWorldCB" then
+				SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
+			elseif bName == "ARL_RepBCCB" then
+				SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
+			else
+				SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
+			end
 		else
-			SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
-		end
+			cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
+			cButton:SetWidth(ExpTextureSize)
+			cButton:SetHeight(ExpTextureSize)
+			cButton:SetScript("OnClick", function() 
+							     DoFlyaway(panelIndex)
+						     end)
 
-		return cButton
-	else 
-		local cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
-		cButton:SetWidth(ExpTextureSize)
-		cButton:SetHeight(ExpTextureSize)
-		cButton:SetScript("OnClick", function() 
-						     addon.DoFlyaway(panelIndex)
-					     end)
-
-		local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
+			local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
 			bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
 			bgTex:SetHeight(ExpTextureSize + 6)
 			bgTex:SetWidth(ExpTextureSize + 4)
 			bgTex:SetTexCoord(0, (43/64), 0, (43/64))
 			bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
+
+			local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
 			iconTex:SetTexture('Interface/Icons/' .. bTex)
 			iconTex:SetAllPoints(cButton)
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+
+			local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
 			pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
 			pushedTexture:SetAllPoints(cButton)
 			cButton:SetPushedTexture(pushedTexture)
-		local highlightTexture = cButton:CreateTexture()
+
+			local highlightTexture = cButton:CreateTexture()
 			highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
 			highlightTexture:SetAllPoints(cButton)
 			highlightTexture:SetBlendMode('ADD')
 			cButton:SetHighlightTexture(highlightTexture)
-		local checkedTexture = cButton:CreateTexture()
+
+			local checkedTexture = cButton:CreateTexture()
 			checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
 			checkedTexture:SetAllPoints(cButton)
 			checkedTexture:SetBlendMode('ADD')
 			cButton:SetCheckedTexture(checkedTexture)
-		-- Create the text object to go along with it
-		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
+
+			-- Create the text object to go along with it
+			local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
 			cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
 			cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
 			cbText:SetHeight(14)
@@ -1756,205 +1939,13 @@ local function CreateExpandedPanelCheckButton(bName, bTex, panelIndex)
 			cbText:SetJustifyH("LEFT")
 			cButton.text = cbText
 
-		-- And throw up a tooltip
-		SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
-		cButton:Hide()
+			-- And throw up a tooltip
+			SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
+			cButton:Hide()
+		end
 		return cButton
-
 	end
-
-end
-
-local function recursiveReset(t)
-	-- Thanks to Antiarc for this code
-	for k, v in pairs(t) do
-		if type(v) == "table" then
-			recursiveReset(v)
-		else
-			t[k] = true
-		end
-	end
-end
-
-function addon.DoFlyaway(panel)
-
-	-- This is going to manage the flyaway panel, as well as checking or unchecking the
-	-- buttons that got us here in the first place
-	--
-	-- our panels are:
-	-- 1	ARL_ExpGeneralOptCB			General Filters
-	-- 2	ARL_ExpObtainOptCB			Obtain Filters
-	-- 3	ARL_ExpBindingOptCB			Binding Filters
-	-- 4	ARL_ExpItemOptCB			Item Filters
-	-- 5	ARL_ExpPlayerOptCB			Player Type Filters
-	-- 6	ARL_ExpRepOptCB				Reputation Filters
-	-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
-
-	local ChangeFilters = false
-
-	addon.Fly_Rep_OW:Hide()
-	addon.Fly_Rep_BC:Hide()
-	addon.Fly_Rep_LK:Hide()
-	ARL_RepOldWorldCB:SetChecked(false)
-	ARL_RepBCCB:SetChecked(false)
-	ARL_RepLKCB:SetChecked(false)
-
-	if (panel == 1) then
-		if (ARL_ExpGeneralOptCB:GetChecked()) then
-			-- uncheck all other buttons
-			HideARL_ExpOptCB("general")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Show()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-			ChangeFilters = false
-
-		end
-	elseif (panel == 2) then
-		if (ARL_ExpObtainOptCB:GetChecked()) then
-			HideARL_ExpOptCB("obtain")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Show()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-			ChangeFilters = false
-		end
-	elseif (panel == 3) then
-		if (ARL_ExpBindingOptCB:GetChecked()) then
-			HideARL_ExpOptCB("binding")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Show()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-			ChangeFilters = false
-
-		end
-	elseif (panel == 4) then
-		if (ARL_ExpItemOptCB:GetChecked()) then
-			HideARL_ExpOptCB("item")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Show()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-			ChangeFilters = false
-		end
-	elseif (panel == 5) then
-		if (ARL_ExpPlayerOptCB:GetChecked()) then
-			HideARL_ExpOptCB("player")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Show()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ChangeFilters = false
-		end
-	elseif (panel == 6) then
-		if (ARL_ExpRepOptCB:GetChecked()) then
-			HideARL_ExpOptCB("rep")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Show()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-		else
-			ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
-			ChangeFilters = false
-		end
-	elseif (panel == 7) then
-		if (ARL_ExpMiscOptCB:GetChecked()) then
-			HideARL_ExpOptCB("misc")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Show()
-
-			ChangeFilters = true
-		else
-			ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
-			ChangeFilters = false
-		end
-	end
-
-	if ChangeFilters then
-		-- Depending on which panel we're showing, either display one column
-		-- or two column
-		if ((panel == 3) or (panel == 4) or (panel == 7)) then
-			addon.flyTexture:ClearAllPoints()
-			addon.Flyaway:SetWidth(234)
-			addon.Flyaway:SetHeight(312)
-			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
-			addon.flyTexture:SetAllPoints(addon.Flyaway)
-			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-		elseif ((panel == 1) or (panel == 2) or (panel == 5) or (panel == 6)) then
-			addon.flyTexture:ClearAllPoints()
-			addon.Flyaway:SetWidth(136)
-			addon.Flyaway:SetHeight(312)
-			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
-			addon.flyTexture:SetAllPoints(addon.Flyaway)
-			addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
-		end
-		-- Change the filters to the current panel
-		addon.Flyaway:Show()
-	else
-		-- We're hiding, don't bother changing anything
-		addon.Flyaway:Hide()
-	end
-end
+end	-- do
 
 local function SetSortName()
 	local sort_type = addon.db.profile.sorting
@@ -2297,6 +2288,17 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Creates the initial frame to display recipes into.
 -------------------------------------------------------------------------------
+local function recursiveReset(t)
+	-- Thanks to Antiarc for this code
+	for k, v in pairs(t) do
+		if type(v) == "table" then
+			recursiveReset(v)
+		else
+			t[k] = true
+		end
+	end
+end
+
 function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Check to see if we're Horde or Alliance, and change the displayed
@@ -2757,13 +2759,13 @@ function addon:InitializeFrame()
 	-- Frame for the flyaway pane
 	-------------------------------------------------------------------------------
 	addon.Flyaway = CreateFrame("Frame", "ARL_Flyaway", MainPanel)
-	addon.Flyaway:SetWidth(234)
-	addon.Flyaway:SetHeight(312)
+	addon.Flyaway:SetWidth(FLYAWAY_DOUBLE_WIDTH)
+	addon.Flyaway:SetHeight(FLYAWAY_HEIGHT)
 
 	addon.flyTexture = addon.Flyaway:CreateTexture("AckisRecipeList.flyTexture", "ARTWORK")
 	addon.flyTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
 	addon.flyTexture:SetAllPoints(addon.Flyaway)
-	addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
+	addon.flyTexture:SetTexCoord(0, (FLYAWAY_DOUBLE_WIDTH/256), 0, (FLYAWAY_HEIGHT/512))
 	addon.Flyaway:SetHitRectInsets(5, 5, 5, 5)
 
 	addon.Flyaway:EnableMouse(true)
@@ -2792,7 +2794,7 @@ function addon:InitializeFrame()
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 	-------------------------------------------------------------------------------
 	addon.Fly_General = CreateFrame("Frame", "ARL_Fly_General", addon.Flyaway)
-	addon.Fly_General:SetWidth(112)
+	addon.Fly_General:SetWidth(FLYAWAY_SMALL)
 	addon.Fly_General:SetHeight(280)
 	addon.Fly_General:EnableMouse(true)
 	addon.Fly_General:EnableKeyboard(true)
@@ -2923,7 +2925,7 @@ function addon:InitializeFrame()
 	ARL_WarriorCBText:SetText(BCM["WARRIOR"])
 
 	addon.Fly_Obtain = CreateFrame("Frame", "ARL_Fly_Obtain", addon.Flyaway)
-	addon.Fly_Obtain:SetWidth(112)
+	addon.Fly_Obtain:SetWidth(FLYAWAY_SMALL)
 	addon.Fly_Obtain:SetHeight(280)
 	addon.Fly_Obtain:EnableMouse(true)
 	addon.Fly_Obtain:EnableKeyboard(true)
@@ -2991,7 +2993,7 @@ function addon:InitializeFrame()
 	ARL_WrathCBText:SetText(L["Lich King"])
 
 	addon.Fly_Binding = CreateFrame("Frame", "ARL_Fly_Binding", addon.Flyaway)
-	addon.Fly_Binding:SetWidth(210)
+	addon.Fly_Binding:SetWidth(FLYAWAY_LARGE)
 	addon.Fly_Binding:SetHeight(280)
 	addon.Fly_Binding:EnableMouse(true)
 	addon.Fly_Binding:EnableKeyboard(true)
@@ -3022,7 +3024,7 @@ function addon:InitializeFrame()
 	ARL_rBoPCBText:SetText(L["RecipeBOPFilter"])
 
 	addon.Fly_Item = CreateFrame("Frame", "ARL_Fly_Item", addon.Flyaway)
-	addon.Fly_Item:SetWidth(210)
+	addon.Fly_Item:SetWidth(FLYAWAY_LARGE)
 	addon.Fly_Item:SetHeight(280)
 	addon.Fly_Item:EnableMouse(true)
 	addon.Fly_Item:EnableKeyboard(true)
@@ -3227,7 +3229,7 @@ function addon:InitializeFrame()
 	ARL_WeaponGunCBText:SetText(L["Gun"])
 
 	addon.Fly_Player = CreateFrame("Frame", "ARL_Fly_Player", addon.Flyaway)
-	addon.Fly_Player:SetWidth(112)
+	addon.Fly_Player:SetWidth(FLYAWAY_SMALL)
 	addon.Fly_Player:SetHeight(280)
 	addon.Fly_Player:EnableMouse(true)
 	addon.Fly_Player:EnableKeyboard(true)
@@ -3252,7 +3254,7 @@ function addon:InitializeFrame()
 	ARL_PlayerCasterCBText:SetText(L["Caster DPS"])
 
 	addon.Fly_Rep = CreateFrame("Frame", "ARL_Fly_Rep", addon.Flyaway)
-	addon.Fly_Rep:SetWidth(112)
+	addon.Fly_Rep:SetWidth(FLYAWAY_SMALL)
 	addon.Fly_Rep:SetHeight(280)
 	addon.Fly_Rep:EnableMouse(true)
 	addon.Fly_Rep:EnableKeyboard(true)
@@ -3268,8 +3270,8 @@ function addon:InitializeFrame()
 			-- 3	ARL_RepLKCB				Wrath of the Lich King
 			local ShowPanel = false
 
-			if (whichrep == 1) then
-				if (ARL_RepOldWorldCB:GetChecked()) then
+			if whichrep == 1 then
+				if ARL_RepOldWorldCB:GetChecked() then
 					ShowPanel = true
 					addon.Fly_Rep_OW:Show()
 					addon.Fly_Rep_BC:Hide()
@@ -3279,8 +3281,8 @@ function addon:InitializeFrame()
 				else
 					ShowPanel = false
 				end
-			elseif (whichrep == 2) then
-				if (ARL_RepBCCB:GetChecked()) then
+			elseif whichrep == 2 then
+				if ARL_RepBCCB:GetChecked() then
 					ShowPanel = true
 					addon.Fly_Rep_OW:Hide()
 					addon.Fly_Rep_BC:Show()
@@ -3291,7 +3293,7 @@ function addon:InitializeFrame()
 					ShowPanel = false
 				end
 			else -- whichrep == 3 (WotLK)
-				if (ARL_RepLKCB:GetChecked()) then
+				if ARL_RepLKCB:GetChecked() then
 					ShowPanel = true
 					addon.Fly_Rep_OW:Hide()
 					addon.Fly_Rep_BC:Hide()
@@ -3305,22 +3307,20 @@ function addon:InitializeFrame()
 
 			if ShowPanel then
 				addon.flyTexture:ClearAllPoints()
-				addon.Flyaway:SetWidth(296)
-				addon.Flyaway:SetHeight(312)
+				addon.Flyaway:SetWidth(FLYAWAY_DOUBLE_WIDTH)
 				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_repcol]])
 				addon.flyTexture:SetAllPoints(addon.Flyaway)
-				addon.flyTexture:SetTexCoord(0, (296/512), 0, (312/512))
+				addon.flyTexture:SetTexCoord(0, (FLYAWAY_DOUBLE_WIDTH/512), 0, (FLYAWAY_HEIGHT/512))
 
 				addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -14)
 				addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -14)
 				addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -14)
 			else
 				addon.flyTexture:ClearAllPoints()
-				addon.Flyaway:SetWidth(136)
-				addon.Flyaway:SetHeight(312)
+				addon.Flyaway:SetWidth(FLYAWAY_SINGLE_WIDTH)
 				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
 				addon.flyTexture:SetAllPoints(addon.Flyaway)
-				addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
+				addon.flyTexture:SetTexCoord(0, (FLYAWAY_SINGLE_WIDTH/256), 0, (FLYAWAY_HEIGHT/512))
 				addon.Fly_Rep_OW:Hide()
 				addon.Fly_Rep_BC:Hide()
 				addon.Fly_Rep_LK:Hide()
@@ -3705,7 +3705,7 @@ function addon:InitializeFrame()
 	-- Miscellaneous Flyaway Frame
 	-------------------------------------------------------------------------------
 	addon.Fly_Misc = CreateFrame("Frame", "ARL_Fly_Misc", addon.Flyaway)
-	addon.Fly_Misc:SetWidth(210)
+	addon.Fly_Misc:SetWidth(FLYAWAY_LARGE)
 	addon.Fly_Misc:SetHeight(280)
 	addon.Fly_Misc:EnableMouse(true)
 	addon.Fly_Misc:EnableKeyboard(true)
