@@ -106,7 +106,7 @@ local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemO
 -------------------------------------------------------------------------------
 StaticPopupDialogs["ARL_NOTSCANNED"] = {
 	text = L["NOTSCANNED"],
-	button1 = L["Ok"],
+	button1 = _G.OKAY,
 	timeout = 0,
 	exclusive = 1,
 	whileDead = 1,
@@ -115,7 +115,7 @@ StaticPopupDialogs["ARL_NOTSCANNED"] = {
 
 StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	text = L["ALL_FILTERED"],
-	button1 = L["Ok"],
+	button1 = _G.OKAY,
 	timeout = 0,
 	exclusive = 1,
 	whileDead = 1,
@@ -124,7 +124,7 @@ StaticPopupDialogs["ARL_ALLFILTERED"] = {
 
 StaticPopupDialogs["ARL_ALLKNOWN"] = {
 	text = L["ARL_ALLKNOWN"],
-	button1 = L["Ok"],
+	button1 = _G.OKAY,
 	timeout = 0,
 	exclusive = 1,
 	whileDead = 1,
@@ -133,7 +133,7 @@ StaticPopupDialogs["ARL_ALLKNOWN"] = {
 
 StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 	text = L["ARL_ALLEXCLUDED"],
-	button1 = L["Ok"],
+	button1 = _G.OKAY,
 	timeout = 0,
 	exclusive = 1,
 	whileDead = 1,
@@ -142,7 +142,7 @@ StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 
 StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 	text = L["ARL_SEARCHFILTERED"],
-	button1 = L["Ok"],
+	button1 = _G.OKAY,
 	timeout = 0,
 	exclusive = 1,
 	whileDead = 1,
@@ -326,7 +326,7 @@ function MainPanel:UpdateTitle()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, L["Filters"])
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, _G.FILTERS)
 	else
 		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
 	end
@@ -1040,11 +1040,11 @@ local function GenerateTooltipContent(owner, rIndex)
 	local recipe_entry = addon.recipe_list[rIndex]
 	local spellLink = recipe_entry["RecipeLink"]
 
-	if acquireTooltipLocation == L["Off"] then
+	if acquireTooltipLocation == _G.OFF then
 		QTip:Release(arlTooltip)
 
 		-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-		if spellTooltipLocation ~= L["Off"] and spellLink then
+		if spellTooltipLocation ~= _G.OFF and spellLink then
 			SetSpellTooltip(MainPanel, spellTooltipLocation, spellLink)
 		else
 			arlSpellTooltip:Hide()
@@ -1306,7 +1306,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			end
 			clr1 = addon:hexcolor("REP")
 			clr2 = addon:hexcolor("NORMAL")
-			ttAdd(0, -1, 0, L["Reputation"], clr1, repname, clr2)
+			ttAdd(0, -1, 0, _G.REPUTATION, clr1, repname, clr2)
 
 			local rStr = ""
 			if (rplvl == 0) then
@@ -1430,7 +1430,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	arlTooltip:Show()
 
 	-- If we have the spell link tooltip, link it to the acquire tooltip.
-	if spellTooltipLocation ~= L["Off"] and spellLink then
+	if spellTooltipLocation ~= _G.OFF and spellLink then
 		SetSpellTooltip(arlTooltip, spellTooltipLocation, spellLink)
 	else
 		arlSpellTooltip:Hide()
@@ -1573,13 +1573,13 @@ end
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
-	L["General"],		-- 1
+	_G.GENERAL,		-- 1
 	L["Obtain"],		-- 2
 	L["Binding"],		-- 3
 	L["Item"],		-- 4
-	L["Player Type"],	-- 5
-	L["Reputation"],	-- 6
-	L["Misc"]		-- 7
+	_G.ROLE,	-- 5
+	_G.REPUTATION,		-- 6
+	_G.MISCELLANEOUS
 }
 
 local function HideARL_ExpOptCB(ignorevalue)
@@ -1701,7 +1701,7 @@ do
 		-- 2	ARL_ExpObtainOptCB			Obtain Filters
 		-- 3	ARL_ExpBindingOptCB			Binding Filters
 		-- 4	ARL_ExpItemOptCB			Item Filters
-		-- 5	ARL_ExpPlayerOptCB			Player Type Filters
+		-- 5	ARL_ExpPlayerOptCB			Role Filters
 		-- 6	ARL_ExpRepOptCB				Reputation Filters
 		-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
 
@@ -1846,13 +1846,13 @@ do
 		if ChangeFilters then
 			-- Depending on which panel we're showing, either display one column
 			-- or two column
-			if ((panel == 3) or (panel == 4) or (panel == 7)) then
+			if panel == 2 or panel == 3 or panel == 4 or panel == 7 then
 				addon.flyTexture:ClearAllPoints()
 				addon.Flyaway:SetWidth(FLYAWAY_DOUBLE_WIDTH)
 				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
 				addon.flyTexture:SetAllPoints(addon.Flyaway)
 				addon.flyTexture:SetTexCoord(0, (FLYAWAY_DOUBLE_WIDTH/256), 0, (FLYAWAY_HEIGHT/512))
-			elseif ((panel == 1) or (panel == 2) or (panel == 5) or (panel == 6)) then
+			elseif ((panel == 1) or (panel == 5) or (panel == 6)) then
 				addon.flyTexture:ClearAllPoints()
 				addon.Flyaway:SetWidth(FLYAWAY_SINGLE_WIDTH)
 				addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
@@ -1970,7 +1970,7 @@ local function SetSortName()
 	local sort_type = addon.db.profile.sorting
 
 	if sort_type == "Name" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Name"])
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
 	elseif sort_type == "SkillAsc" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
 	elseif sort_type == "SkillDesc" then
@@ -2451,7 +2451,7 @@ function addon:InitializeFrame()
 
 	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel,
 						     25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
-						     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+						     "GameFontHighlightSmall", _G.SEARCH, "CENTER", L["SEARCH_DESC"], 1)
 	ARL_SearchButton:Disable()
 	ARL_SearchButton:SetScript("OnClick",
 				   function(this)
@@ -2712,7 +2712,7 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	local ARL_ResetButton = GenericCreateButton("ARL_ResetButton", MainPanel,
 						    25, 90, "TOPRIGHT", ARL_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall",
-						    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
+						    "GameFontHighlightSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
 	ARL_ResetButton:SetScript("OnClick",
 				  function()
 					  local filterdb = addon.db.profile.filters
@@ -2836,11 +2836,11 @@ function addon:InitializeFrame()
 
 	local ARL_LevelCB = CreateFrame("CheckButton", "ARL_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_LevelCB, addon.Fly_General, L["SKILL_DESC"], "skill", 2, 1, 0)
-	ARL_LevelCBText:SetText(L["Skill"])
+	ARL_LevelCBText:SetText(_G.SKILL)
 
 	local ARL_FactionCB = CreateFrame("CheckButton", "ARL_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_FactionCB, addon.Fly_General, L["FACTION_DESC"], "faction", 3, 1, 0)
-	ARL_FactionCBText:SetText(L["Faction"])
+	ARL_FactionCBText:SetText(_G.FACTION)
 
 	local ARL_KnownCB = CreateFrame("CheckButton", "ARL_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_KnownCB, addon.Fly_General, L["KNOWN_DESC"], "known", 4, 1, 0)
@@ -2951,11 +2951,11 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	local ARL_InstanceCB = CreateFrame("CheckButton", "ARL_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_InstanceCB, addon.Fly_Obtain, L["INSTANCE_DESC"], "instance", 1, 1, 0)
-	ARL_InstanceCBText:SetText(L["Instance"])
+	ARL_InstanceCBText:SetText(_G.INSTANCE)
 
 	local ARL_RaidCB = CreateFrame("CheckButton", "ARL_RaidCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_RaidCB, addon.Fly_Obtain, L["RAID_DESC"], "raid", 2, 1, 0)
-	ARL_RaidCBText:SetText(L["Raid"])
+	ARL_RaidCBText:SetText(_G.RAID)
 
 	local ARL_QuestCB = CreateFrame("CheckButton", "ARL_QuestCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_QuestCB, addon.Fly_Obtain, L["QUEST_DESC"], "quest", 3, 1, 0)
@@ -2975,7 +2975,7 @@ function addon:InitializeFrame()
 
 	local ARL_PVPCB = CreateFrame("CheckButton", "ARL_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 7, 1, 0)
-	ARL_PVPCBText:SetText(L["PVP"])
+	ARL_PVPCBText:SetText(_G.PVP)
 
 	local ARL_DiscoveryCB = CreateFrame("CheckButton", "ARL_DiscoveryCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_DiscoveryCB, addon.Fly_Obtain, L["DISCOVERY_DESC"], "discovery", 8, 1, 0)
@@ -2991,15 +2991,15 @@ function addon:InitializeFrame()
 
 	local ARL_OriginalWoWCB = CreateFrame("CheckButton", "ARL_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 12, 1, 0)
-	ARL_OriginalWoWCBText:SetText(L["Old World"])
+	ARL_OriginalWoWCBText:SetText(_G.EXPANSION_NAME0)
 
 	local ARL_BCCB = CreateFrame("CheckButton", "ARL_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 13, 1, 0)
-	ARL_BCCBText:SetText(L["Burning Crusade"])
+	ARL_BCCBText:SetText(_G.EXPANSION_NAME1)
 
 	local ARL_WrathCB = CreateFrame("CheckButton", "ARL_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 14, 1, 0)
-	ARL_WrathCBText:SetText(L["Lich King"])
+	ARL_WrathCBText:SetText(_G.EXPANSION_NAME2)
 
 	addon.Fly_Binding = CreateFrame("Frame", "ARL_Fly_Binding", addon.Flyaway)
 	addon.Fly_Binding:SetWidth(FLYAWAY_LARGE)
@@ -3051,8 +3051,8 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	local ARL_ArmorButton = GenericCreateButton("ARL_ArmorButton", addon.Fly_Item,
 						    20, 105, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight",
-						    "GameFontHighlightSmall", L["Armor"], "LEFT", L["ARMOR_TEXT_DESC"], 0)
-	ARL_ArmorButton:SetText(L["Armor"] .. ":")
+						    "GameFontHighlightSmall", _G.ARMOR, "LEFT", L["ARMOR_TEXT_DESC"], 0)
+	ARL_ArmorButton:SetText(_G.ARMOR_COLON)
 	ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_ArmorButton:SetScript("OnClick",
@@ -3248,19 +3248,19 @@ function addon:InitializeFrame()
 
 	local ARL_PlayerTankCB = CreateFrame("CheckButton", "ARL_PlayerTankCB", addon.Fly_Player, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_PlayerTankCB, addon.Fly_Player, L["TANKS_DESC"], "tank", 1, 1, 0)
-	ARL_PlayerTankCBText:SetText(L["Tanks"])
+	ARL_PlayerTankCBText:SetText(_G.TANK)
 
 	local ARL_PlayerMeleeCB = CreateFrame("CheckButton", "ARL_PlayerMeleeCB", addon.Fly_Player, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_PlayerMeleeCB, addon.Fly_Player, L["MELEE_DPS_DESC"], "melee", 2, 1, 0)
-	ARL_PlayerMeleeCBText:SetText(L["Melee DPS"])
+	ARL_PlayerMeleeCBText:SetText(_G.MELEE)
 
 	local ARL_PlayerHealerCB = CreateFrame("CheckButton", "ARL_PlayerHealerCB", addon.Fly_Player, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_PlayerHealerCB, addon.Fly_Player, L["HEALERS_DESC"], "healer", 3, 1, 0)
-	ARL_PlayerHealerCBText:SetText(L["Healers"])
+	ARL_PlayerHealerCBText:SetText(_G.HEALER)
 
 	local ARL_PlayerCasterCB = CreateFrame("CheckButton", "ARL_PlayerCasterCB", addon.Fly_Player, "UICheckButtonTemplate")
 	Generic_MakeCheckButton(ARL_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], "caster", 4, 1, 0)
-	ARL_PlayerCasterCBText:SetText(L["Caster DPS"])
+	ARL_PlayerCasterCBText:SetText(_G.DAMAGER)
 
 	addon.Fly_Rep = CreateFrame("Frame", "ARL_Fly_Rep", addon.Flyaway)
 	addon.Fly_Rep:SetWidth(FLYAWAY_SMALL)
@@ -3365,8 +3365,8 @@ function addon:InitializeFrame()
 
 	local ARL_Rep_OWButton = GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_OW,
 						     20, 140, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_OWButton:SetText(L["Reputation"] .. ":")
+						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_OWButton:SetText(_G.REPUTATION .. ":")
 	ARL_Rep_OWButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_OWButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_OWButton:SetScript("OnClick",
@@ -3438,8 +3438,8 @@ function addon:InitializeFrame()
 
 	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_BC,
 						     20, 140, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_BCButton:SetText(L["Reputation"] .. ":")
+						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_BCButton:SetText(_G.REPUTATION .. ":")
 	ARL_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_BCButton:SetScript("OnClick",
@@ -3583,8 +3583,8 @@ function addon:InitializeFrame()
 
 	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_OWButton", addon.Fly_Rep_LK,
 						     20, 140, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_LKButton:SetText(L["Reputation"] .. ":")
+						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_LKButton:SetText(_G.REPUTATION .. ":")
 	ARL_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_LKButton:SetScript("OnClick",
@@ -3723,7 +3723,7 @@ function addon:InitializeFrame()
 	addon.Fly_Misc:Hide()
 
 	local ARL_MiscText = addon.Fly_Misc:CreateFontString("ARL_MiscText", "OVERLAY", "GameFontHighlight")
-	ARL_MiscText:SetText(L["Miscellaneous"] .. ":")
+	ARL_MiscText:SetText(_G.MISCELLANEOUS .. ":")
 	ARL_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
 	ARL_MiscText:SetHeight(14)
 	ARL_MiscText:SetWidth(150)
@@ -3856,7 +3856,7 @@ function addon:InitializeFrame()
 		["ammo"]		= { cb = ARL_WeaponAmmoCB,		svroot = filterdb.item.weapon },
 		["gun"]			= { cb = ARL_WeaponGunCB,		svroot = filterdb.item.weapon },
 		------------------------------------------------------------------------------------------------
-		-- Player Type Options
+		-- Role Options
 		------------------------------------------------------------------------------------------------
 		["tank"]		= { cb = ARL_PlayerTankCB,		svroot = filterdb.player },
 		["melee"]		= { cb = ARL_PlayerMeleeCB,		svroot = filterdb.player },
@@ -4297,7 +4297,7 @@ do
 				local rep_vendor = addon.vendor_list[v["RepVendor"]]
 
 				if CheckDisplayFaction(rep_vendor["Faction"]) then
-					t.text = pad .. addon:Rep(L["Reputation"] .. " : ") .. addon.reputation_list[v["ID"]]["Name"]
+					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[v["ID"]]["Name"]
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 

@@ -73,7 +73,7 @@ local function fullOptions()
 						version = {
 							order	= 11,
 							type	= "description",
-							name	= L["Version"] .. addon.version .. "\n",
+							name	= _G.GAME_VERSION_LABEL .. ": " .. addon.version .. "\n",
 						},
 						run = {
 							order	= 12,
@@ -176,9 +176,21 @@ local function fullOptions()
 							type	= "select",
 							name	= L["Sorting"],
 							desc	= L["SORTING_DESC"],
-							get		= function() return addon.db.profile.sorting end,
-							set		= function(info,name) addon.db.profile.sorting = name end,
-							values	= function() return {Name = L["Name"], SkillAsc = L["Skill (Asc)"], SkillDesc = L["Skill (Desc)"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
+							get	= function()
+									  return addon.db.profile.sorting
+								  end,
+							set	= function(info, name)
+									  addon.db.profile.sorting = name
+								  end,
+							values	= function()
+									  return {
+										  Name = _G.NAME,
+										  SkillAsc = L["Skill (Asc)"],
+										  SkillDesc = L["Skill (Desc)"],
+										  Acquisition = L["Acquisition"],
+										  Location = L["Location"]
+									  }
+								  end,
 						},
 					},
 				},
@@ -230,7 +242,7 @@ local function giveMap()
 				worldmap = {
 					order	= 3,
 					type	= "toggle",
-					name	= L["World Map"],
+					name	= _G.WORLD_MAP,
 					desc	= L["WORLDMAP_DESC"],
 					disabled = tomtomsupport,
 					get		= function() return addon.db.profile.worldmap end,
@@ -551,7 +563,7 @@ local function giveDisplay()
 				fontsize = {
 					order	= 4,
 					type	= "range",
-					name	= L["Font Size"],
+					name	= _G.FONT_SIZE,
 					desc	= L["FONT_SIZE_DESC"],
 					min		= 6,
 					max		= 20,
@@ -612,18 +624,43 @@ local function giveDisplay()
 					type	= "select",
 					name	= L["Tooltip (Acquire) Position"],
 					desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
-					get		= function() return addon.db.profile.acquiretooltiplocation end,
-					set		= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
-					values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
+					get	= function()
+							  return addon.db.profile.acquiretooltiplocation
+						  end,
+					set	= function(info, name)
+							  addon.db.profile.acquiretooltiplocation = name
+						  end,
+					values	= function()
+							  return {
+								  Right = L["Right"],
+								  Left = L["Left"],
+								  Top = L["Top"],
+								  Bottom = L["Bottom"],
+								  Off = _G.OFF,
+								  Mouse = _G.MOUSE_LABEL
+							  }
+						  end,
 				},
 				spelltooltiplocation = {
 					order	= 22,
 					type	= "select",
 					name	= L["Tooltip (Recipe) Position"],
 					desc	= L["SPELLTOOLTIPPOSITION_DESC"],
-					get		= function() return addon.db.profile.spelltooltiplocation end,
-					set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,
-					values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"]} end,
+					get	= function()
+							  return addon.db.profile.spelltooltiplocation
+						  end,
+					set	= function(info,name)
+							  addon.db.profile.spelltooltiplocation = name
+						  end,
+					values	= function()
+							  return { 
+								  Right = L["Right"],
+								  Left = L["Left"],
+								  Top = L["Top"],
+								  Bottom = L["Bottom"],
+								  Off = _G.OFF
+							  }
+						  end,
 				},
 			},
 		}
