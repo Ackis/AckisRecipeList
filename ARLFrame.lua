@@ -3373,14 +3373,14 @@ function addon:InitializeFrame()
 				   function(self,button)
 					   local filterdb = addon.db.profile.filters.rep
 					   if button == "LeftButton" then
-						   -- Reset all armor to true
+						   -- Set all Reputations to true
 						   filterdb.argentdawn = true
 						   filterdb.cenarioncircle = true
 						   filterdb.thoriumbrotherhood = true
 						   filterdb.timbermaw = true
 						   filterdb.zandalar = true
 					   elseif button == "RightButton" then
-						   -- Reset all armor to false
+						   -- Set all Reputations to false
 						   filterdb.argentdawn = false
 						   filterdb.cenarioncircle = false
 						   filterdb.thoriumbrotherhood = false
@@ -3446,7 +3446,7 @@ function addon:InitializeFrame()
 				   function(self,button)
 					   local filterdb = addon.db.profile.filters.rep
 					   if button == "LeftButton" then
-						   -- Reset all armor to true
+						   -- Set all Reputations to true
 						   filterdb.aldor = true
 						   filterdb.ashtonguedeathsworn = true
 						   filterdb.cenarionexpedition = true
@@ -3462,7 +3462,7 @@ function addon:InitializeFrame()
 						   filterdb.sporeggar = true
 						   filterdb.violeteye = true
 					   elseif button == "RightButton" then
-						   -- Reset all armor to false
+						   -- Set all Reputations to false
 						   filterdb.aldor = false
 						   filterdb.ashtonguedeathsworn = false
 						   filterdb.cenarionexpedition = false
@@ -3591,7 +3591,7 @@ function addon:InitializeFrame()
 				   function(self,button)
 					   local filterdb = addon.db.profile.filters.rep
 					   if button == "LeftButton" then
-						   -- Reset all armor to true
+						   -- Set all Reputations to true
 						   filterdb.argentcrusade = true
 						   filterdb.frenzyheart = true
 						   filterdb.ebonblade = true
@@ -3603,7 +3603,7 @@ function addon:InitializeFrame()
 						   filterdb.ashenverdict = true
 						   filterdb.wrathcommon1 = true
 					   elseif button == "RightButton" then
-						   -- Reset all armor to false
+						   -- Set all Reputations to false
 						   filterdb.argentcrusade = false
 						   filterdb.frenzyheart = false
 						   filterdb.ebonblade = false
