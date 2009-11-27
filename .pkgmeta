@@ -8,15 +8,6 @@ license-output: LICENSE.txt
 
 enable-nolib-creation: yes
 
-optional-dependencies:
- - advanced-trade-skill-window
- - atsw
- - skillet
- - manufac
- - cauldron
- - tomtom
- - tiptac
-
 ignore:
  - .pkgmeta
  - .docmeta
