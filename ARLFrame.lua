@@ -197,6 +197,47 @@ do
 end	-- do block
 
 -------------------------------------------------------------------------------
+-- Close all possible pop-up windows
+-------------------------------------------------------------------------------
+function addon:ClosePopups()
+	StaticPopup_Hide("ARL_NOTSCANNED")
+	StaticPopup_Hide("ARL_ALLFILTERED")
+	StaticPopup_Hide("ARL_ALLKNOWN")
+	StaticPopup_Hide("ARL_ALLEXCLUDED")
+	StaticPopup_Hide("ARL_SEARCHFILTERED")
+end
+
+-------------------------------------------------------------------------------
+-- Colours a skill level based on whether or not the player has a high enough
+-- skill level or faction to learn it.
+-------------------------------------------------------------------------------
+local function ColourSkillLevel(recipeEntry, hasFaction, recStr)
+	local playerSkill = Player["ProfessionLevel"]
+	local recipeSkill = recipeEntry["Level"]
+	local recipeOrange = recipeEntry["Orange"]
+	local recipeYellow = recipeEntry["Yellow"]
+	local recipeGreen = recipeEntry["Green"]
+	local recipeGrey = recipeEntry["Grey"]
+
+	if recipeSkill > playerSkill or not hasFaction then
+		return addon:Red(recStr)
+	elseif playerSkill >= recipeGrey then
+		return addon:MidGrey(recStr)
+	elseif playerSkill >= recipeGreen then
+		return addon:Green(recStr)
+	elseif playerSkill >= recipeYellow then
+		return addon:Yellow(recStr)
+	elseif playerSkill >= recipeOrange then
+		return addon:Orange(recStr)
+	else
+		--@alpha@
+		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recStr)
+		--@end-alpha@
+		return addon:MidGrey(recStr)
+	end
+end
+
+-------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
 local SetTooltipScripts
@@ -485,900 +526,9 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
--- Create arlSpellTooltip
--------------------------------------------------------------------------------
-local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
-
--------------------------------------------------------------------------------
--- Create the MainPanel and set its values
--------------------------------------------------------------------------------
-local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
-MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
-MainPanel:SetHeight(447)
-MainPanel:SetFrameStrata("DIALOG")
-MainPanel:SetHitRectInsets(5, 5, 5, 5)
-
-MainPanel:EnableMouse(true)
-MainPanel:EnableKeyboard(true)
-MainPanel:SetMovable(true)
-MainPanel:Show()
-
-MainPanel.is_expanded = false
-
--- Let the user banish the MainPanel with the ESC key.
-tinsert(UISpecialFrames, "ARL_MainPanel")
-
-addon.Frame = MainPanel
-
-MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
-MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-MainPanel.backdrop:SetAllPoints(MainPanel)
-MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
-
-MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
-MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
-MainPanel.title_bar:ClearAllPoints()
-MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-MainPanel.title_bar:SetJustifyH("CENTER")
-
--------------------------------------------------------------------------------
--- MainPanel scripts/functions.
--------------------------------------------------------------------------------
-MainPanel:SetScript("OnHide",
-		    function(self)
-			    addon:ClosePopups()
-		    end)
-
-MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)
-
-MainPanel:SetScript("OnMouseUp",
-		    function(self, button)
-			    self:StopMovingOrSizing()
-
-			    local opts = addon.db.profile.frameopts
-			    local from, _, to, x, y = self:GetPoint()
-
-			    opts.anchorFrom = from
-			    opts.anchorTo = to
-
-			    if self.is_expanded then
-				    if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-					    opts.offsetx = x
-				    elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-					    opts.offsetx = x - 151/2
-				    elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-					    opts.offsetx = x - 151
-				    end
-			    else
-				    opts.offsetx = x
-			    end
-			    opts.offsety = y
-		    end)
-
-function MainPanel:ToggleState()
-	if self.is_expanded then
-		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
-
-		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
-		self.backdrop:SetAllPoints(self)
-		self.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
-
-		self.progress_bar:SetWidth(195)
-	else
-		self:SetWidth(MAINPANEL_EXPANDED_WIDTH)
-
-		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
-		self.backdrop:SetAllPoints(self)
-		self.backdrop:SetTexCoord(0, (MAINPANEL_EXPANDED_WIDTH/512), 0, (447/512))
-
-		self.progress_bar:SetWidth(345)
-	end
-	self.is_expanded = not self.is_expanded
-
-	local x, y = self:GetLeft(), self:GetBottom()
-
-	self:ClearAllPoints()
-	self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
-	self:UpdateTitle()
-end
-
-function MainPanel:SetProfession()
-	for k, v in pairs(SortedProfessions) do
-		if v.name == Player["Profession"] then
-			self.profession = k
-			break
-		end
-	end
-	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
-end
-
-function MainPanel:SetPosition()
-	self:ClearAllPoints()
-
-	local opts = addon.db.profile.frameopts
-	local FixedOffsetX = opts.offsetx
-
-	if opts.anchorTo == "" then
-		-- no values yet, clamp to whatever frame is appropriate
-		if ATSWFrame then
-			-- Anchor frame to ATSW
-			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif CauldronFrame then
-			-- Anchor frame to Cauldron
-			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif Skillet then
-			-- Anchor frame to Skillet
-			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-		else
-			-- Anchor to default tradeskill frame
-			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
-		end
-	else
-		if self.is_expanded then
-			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-				FixedOffsetX = opts.offsetx
-			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-				FixedOffsetX = opts.offsetx + 151/2
-			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-				FixedOffsetX = opts.offsetx + 151
-			end
-		end
-		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
-	end
-end
-
-function MainPanel:UpdateTitle()
-	if self.is_expanded then
-		local total, active = 0, 0
-
-		for filter, info in pairs(FilterValueMap) do
-			if info.svroot then
-				if info.svroot[filter] == true then
-					active = active + 1
-				end
-				total = total + 1
-			end
-		end
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, _G.FILTERS)
-	else
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
-	end
-end
-
--------------------------------------------------------------------------------
--- Create the MainPanel.mode_button and assign its values.
--------------------------------------------------------------------------------
-MainPanel.mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
-MainPanel.mode_button:SetWidth(64)
-MainPanel.mode_button:SetHeight(64)
-MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
-MainPanel.mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-MainPanel.mode_button._normal = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
-MainPanel.mode_button._pushed = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
-MainPanel.mode_button._disabled = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
-
--------------------------------------------------------------------------------
--- MainPanel.mode_button scripts/functions.
--------------------------------------------------------------------------------
-MainPanel.mode_button:SetScript("OnClick",
-				function(self, button, down)
-					-- Known professions should be in Player["Professions"]
-
-					-- This loop is gonna be weird. The reason is because we need to
-					-- ensure that we cycle through all the known professions, but also
-					-- that we do so in order. That means that if the currently displayed
-					-- profession is the last one in the list, we're actually going to
-					-- iterate completely once to get to the currently displayed profession
-					-- and then iterate again to make sure we display the next one in line.
-					-- Further, there is the nuance that the person may not know any
-					-- professions yet at all. User are so annoying.
-					local startLoop = 0
-					local endLoop = 0
-					local displayProf = 0
-
-					-- ok, so first off, if we've never done this before, there is no "current"
-					-- and a single iteration will do nicely, thank you
-					if button == "LeftButton" then
-						-- normal profession switch
-						if MainPanel.profession == 0 then
-							startLoop = 1
-							endLoop = NUM_PROFESSIONS + 1
-						else
-							startLoop = MainPanel.profession + 1
-							endLoop = MainPanel.profession
-						end
-						local index = startLoop
-	
-						while index ~= endLoop do
-							if index > NUM_PROFESSIONS then
-								index = 1
-							elseif Player["Professions"][SortedProfessions[index].name] then
-								displayProf = index
-								MainPanel.profession = index
-								break
-							else
-								index = index + 1
-							end
-						end
-					elseif button == "RightButton" then
-						-- reverse profession switch
-						if MainPanel.profession == 0 then
-							startLoop = NUM_PROFESSIONS + 1
-							endLoop = 0
-						else
-							startLoop = MainPanel.profession - 1
-							endLoop = MainPanel.profession
-						end
-						local index = startLoop
-
-						while index ~= endLoop do
-							if index < 1 then
-								index = NUM_PROFESSIONS
-							elseif Player["Professions"][SortedProfessions[index].name] then
-								displayProf = index
-								MainPanel.profession = index
-								break
-							else
-								index = index - 1
-							end
-						end
-					end
-					local is_shown = TradeSkillFrame:IsVisible()
-
-					CastSpellByName(SortedProfessions[MainPanel.profession].name)
-					addon:Scan()
-
-					if not is_shown then
-						TradeSkillFrame:Hide()
-					end
-				end)
-
-function MainPanel.mode_button:ChangeTexture(texture)
-	local normal, pushed, disabled = self._normal, self._pushed, self._disabled
-
-	normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
-	normal:SetTexCoord(0, 1, 0, 1)
-	normal:SetAllPoints(self)
-	self:SetNormalTexture(normal)
-
-	pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
-	pushed:SetTexCoord(0, 1, 0, 1)
-	pushed:SetAllPoints(self)
-	self:SetPushedTexture(pushed)
-
-	disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
-	disabled:SetTexCoord(0, 1, 0, 1)
-	disabled:SetAllPoints(self)
-	self:SetDisabledTexture(disabled)
-end
-
--------------------------------------------------------------------------------
--- Create the X-close button, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.close_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
-MainPanel.close_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
-
-MainPanel.close_button:SetScript("OnClick",
-				 function(self, button, down)
-					 MainPanel:Hide()
-				 end)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_toggle, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
-
-MainPanel.filter_toggle:SetScript("OnClick",
-			   function(self, button, down)
-				   if MainPanel.is_expanded then
-					   -- Change the text and tooltip for the filter button
-					   self:SetText(L["FILTER_OPEN"])
-					   SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
-
-					   -- Hide my 7 buttons
-					   ARL_ExpGeneralOptCB:Hide()
-					   ARL_ExpObtainOptCB:Hide()
-					   ARL_ExpBindingOptCB:Hide()
-					   ARL_ExpItemOptCB:Hide()
-					   ARL_ExpPlayerOptCB:Hide()
-					   ARL_ExpRepOptCB:Hide()
-					   ARL_ExpMiscOptCB:Hide()
-
-					   -- Uncheck the seven buttons
-					   HideARL_ExpOptCB()
-
-					   MainPanel.filter_menu:Hide()
-					   MainPanel.filter_reset:Hide()
-				   else
-					   -- Change the text and tooltip for the filter button
-					   self:SetText(L["FILTER_CLOSE"])
-					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
-
-					   -- Show my 7 buttons
-					   ARL_ExpGeneralOptCB:Show()
-					   ARL_ExpObtainOptCB:Show()
-					   ARL_ExpBindingOptCB:Show()
-					   ARL_ExpItemOptCB:Show()
-					   ARL_ExpPlayerOptCB:Show()
-					   ARL_ExpRepOptCB:Show()
-					   ARL_ExpMiscOptCB:Show()
-
-					   MainPanel.filter_reset:Show()
-				   end
-				   MainPanel:ToggleState()
-			   end)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
-MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
-MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
-MainPanel.filter_menu:EnableMouse(true)
-MainPanel.filter_menu:EnableKeyboard(true)
-MainPanel.filter_menu:SetMovable(false)
-MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
-MainPanel.filter_menu:Hide()
-
--- Set all the current options in the filter menu to make sure they are consistent with the SV options.
-MainPanel.filter_menu:SetScript("OnShow",
-				function()
-					for filter, info in pairs(FilterValueMap) do
-						if info.svroot then
-							info.cb:SetChecked(info.svroot[filter])
-						end
-					end
-					-- Miscellaneous Options
-					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-				end)
-
-MainPanel.filter_menu.texture = MainPanel.filter_menu:CreateTexture(nil, "ARTWORK")
-MainPanel.filter_menu.texture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
-MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_reset and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
-					     L["RESET_DESC"], 1)
-MainPanel.filter_reset:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMRIGHT", 0, -2)
-MainPanel.filter_reset:Hide()
-
-do
-	local function recursiveReset(t)
-		-- Thanks to Antiarc for this code
-		for k, v in pairs(t) do
-			if type(v) == "table" then
-				recursiveReset(v)
-			else
-				t[k] = true
-			end
-		end
-	end
-
-	MainPanel.filter_reset:SetScript("OnClick",
-					 function()
-						 local filterdb = addon.db.profile.filters
-
-						 -- Reset all filters to true
-						 recursiveReset(addon.db.profile.filters)
-
-						 -- Reset specific filters to false
-						 filterdb.general.specialty = false
-						 filterdb.general.known = false
-
-						 -- Reset all classes to false
-						 for class in pairs(filterdb.classes) do
-							 filterdb.classes[class] = false
-						 end
-						 -- Set your own class to true
-						 filterdb.classes[strlower(Player["Class"])] = true
-
-						 if MainPanel:IsVisible() then
-							 MainPanel:UpdateTitle()
-							 HideARL_ExpOptCB()
-							 MainPanel.filter_menu:Hide()
-							 ReDisplay()
-						 end
-					 end)
-end	-- do
-
--------------------------------------------------------------------------------
--- Create MainPanel.progress_bar and set its scripts
--------------------------------------------------------------------------------
-do
-	-- Default values for the progressbar
-	local pbMin = 0
-	local pbMax = 100
-	local pbCur = 50
-
-	MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
-	MainPanel.progress_bar:SetWidth(195)
-	MainPanel.progress_bar:SetHeight(14)
-	MainPanel.progress_bar:ClearAllPoints()
-	MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
-	MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
-	MainPanel.progress_bar:SetOrientation("HORIZONTAL")
-	MainPanel.progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
-	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
-	MainPanel.progress_bar:SetValue(pbCur)
-
-	MainPanel.progress_bar.text = MainPanel.progress_bar:CreateFontString(nil, "ARTWORK")
-	MainPanel.progress_bar.text:SetWidth(195)
-	MainPanel.progress_bar.text:SetHeight(14)
-	MainPanel.progress_bar.text:SetFontObject("GameFontHighlightSmall")
-	MainPanel.progress_bar.text:ClearAllPoints()
-	MainPanel.progress_bar.text:SetPoint("CENTER", MainPanel.progress_bar, "CENTER", 0, 0)
-	MainPanel.progress_bar.text:SetJustifyH("CENTER")
-	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
-end	-- do
-
-function MainPanel.progress_bar:Update()
-	local pbCur, pbMax
-	local settings = addon.db.profile
-
-	if settings.includefiltered then
-		pbCur = Player.recipes_known
-		pbMax = Player.recipes_total
-	else
-		-- We're removing filtered recipes from the final count
-		pbCur = Player.recipes_known_filtered
-		pbMax = Player.recipes_total_filtered
-	end
-
-	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbCur = pbCur - Player.excluded_recipes_unknown
-		pbMax = pbMax - Player.excluded_recipes_known
-	end
-	self:SetMinMaxValues(0, pbMax)
-	self:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
-	else
-		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-	end
-end
-
--------------------------------------------------------------------------------
--- Close all possible pop-up windows
--------------------------------------------------------------------------------
-function addon:ClosePopups()
-	StaticPopup_Hide("ARL_NOTSCANNED")
-	StaticPopup_Hide("ARL_ALLFILTERED")
-	StaticPopup_Hide("ARL_ALLKNOWN")
-	StaticPopup_Hide("ARL_ALLEXCLUDED")
-	StaticPopup_Hide("ARL_SEARCHFILTERED")
-end
-
--------------------------------------------------------------------------------
--- Colours a skill level based on whether or not the player has a high enough
--- skill level or faction to learn it.
--------------------------------------------------------------------------------
-local function ColourSkillLevel(recipeEntry, hasFaction, recStr)
-	local playerSkill = Player["ProfessionLevel"]
-	local recipeSkill = recipeEntry["Level"]
-	local recipeOrange = recipeEntry["Orange"]
-	local recipeYellow = recipeEntry["Yellow"]
-	local recipeGreen = recipeEntry["Green"]
-	local recipeGrey = recipeEntry["Grey"]
-
-	if recipeSkill > playerSkill or not hasFaction then
-		return addon:Red(recStr)
-	elseif playerSkill >= recipeGrey then
-		return addon:MidGrey(recStr)
-	elseif playerSkill >= recipeGreen then
-		return addon:Green(recStr)
-	elseif playerSkill >= recipeYellow then
-		return addon:Yellow(recStr)
-	elseif playerSkill >= recipeOrange then
-		return addon:Orange(recStr)
-	else
-		--@alpha@
-		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recStr)
-		--@end-alpha@
-		return addon:MidGrey(recStr)
-	end
-end
-
--------------------------------------------------------------------------------
--- Map waypoint code.
--------------------------------------------------------------------------------
-do
-	local function LoadZones(c, y, ...)
-		-- Fill up the list for normal lookup
-		for i = 1, select('#', ...),1 do
-			c[i] = select(i,...)
-		end
-		-- Reverse lookup to make work easier later on
-		for i in pairs(c) do
-			y[c[i]] = i
-		end
-	end
-
-	local C1 = {}
-	local C2 = {}
-	local C3 = {}
-	local C4 = {}
-	local c1 = {}
-	local c2 = {}
-	local c3 = {}
-	local c4 = {}
-
-	LoadZones(C1, c1, GetMapZones(1))
-	LoadZones(C2, c2, GetMapZones(2))
-	LoadZones(C3, c3, GetMapZones(3))
-	LoadZones(C4, c4, GetMapZones(4))
-
-	local iconlist = {}
-
-	-- Clears all the icons from the world map and the mini-map
-	function addon:ClearMap()
-		if TomTom then
-			for i in pairs(iconlist) do
-				TomTom:RemoveWaypoint(iconlist[i])
-			end
-			iconlist = twipe(iconlist)
-		end
-
-	end
-
-	local function CheckMapDisplay(acquire_entry, flags)
-		local maptrainer = addon.db.profile.maptrainer
-		local mapquest = addon.db.profile.mapquest
-		local mapvendor = addon.db.profile.mapvendor
-		local mapmob = addon.db.profile.mapmob
-		local player_faction = Player["Faction"]
-		local acquire_type = acquire_entry["Type"]
-		local acquire_id = acquire_entry["ID"]
-		local display = false
-
-		-- Trainers - Display if it's your faction or neutral.
-		if maptrainer then
-			if acquire_type == A_TRAINER then 
-				local trainer = addon.trainer_list[acquire_id]
-
-				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[3] then
-				return true
-			end
-			-- Vendors - Display if it's your faction or neutral
-		elseif mapvendor then
-			if acquire_type == A_VENDOR then
-				local vendor = addon.vendor_list[acquire_id]
-
-				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[4] then
-				return true
-			end
-			-- Always display mobs
-		elseif (acquire_type == A_MOB and mapmob) or
-			(acquire_type == A_CUSTOM and (flags[5] or flags[6] or flags[10] or flags[11])) then
-			return true
-		-- Quests
-		elseif mapquest then
-			if acquire_type == A_QUEST then
-				local quest = addon.quest_list[acquire_id]
-				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[8] then
-				return true
-			end
-		end
-		return display
-	end
-
-	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-
-	local INSTANCE_LOCATIONS = {
-		[BZ["Ahn'kahet: The Old Kingdom"]] = {
-			["loc"] = c1[BZ["Dragonblight"]],
-			["c"] = 4,
-		},
-		[BZ["Auchenai Crypts"]] = {
-			["loc"] = c1[BZ["Terokkar Forest"]],
-			["c"] = 3,
-		},
-		[BZ["Azjol-Nerub"]] = {
-			["loc"] = c1[BZ["Dragonblight"]],
-			["c"] = 4,
-		},
-		[BZ["Blackrock Depths"]] = {
-			["loc"] = c1[BZ["Searing Gorge"]],
-			["c"] = 2,
-		},
-		[BZ["Blackrock Spire"]] = {
-			["loc"] = c1[BZ["Searing Gorge"]],
-			["c"] = 2,
-		},
-		[BZ["Blackwing Lair"]] = {
-			["loc"] = c1[BZ["Searing Gorge"]],
-			["c"] = 2,
-		},
-		[BZ["Dire Maul"]] = {
-			["loc"] = c1[BZ["Feralas"]],
-			["c"] = 1,
-		},
-		[BZ["Drak'Tharon Keep"]] = {
-			["loc"] = c1[BZ["Zul'Drak"]],
-			["c"] = 4,
-		},
-		[BZ["Gnomeregan"]] = {
-			["loc"] = c1[BZ["Dun Morogh"]],
-			["c"] = 2,
-		},
-		[BZ["Halls of Lightning"]] = {
-			["loc"] = c1[BZ["The Storm Peaks"]],
-			["c"] = 4,
-		},
-		[BZ["Halls of Stone"]] = {
-			["loc"] = c1[BZ["The Storm Peaks"]],
-			["c"] = 4,
-		},
-		[BZ["Karazhan"]] = {
-			["loc"] = c1[BZ["Deadwind Pass"]],
-			["c"] = 2,
-		},
-		[BZ["Magisters' Terrace"]] = {
-			["loc"] = c1[BZ["Isle of Quel'Danas"]],
-			["c"] = 3,
-		},
-		[BZ["Mana-Tombs"]] = {
-			["loc"] = c1[BZ["Terokkar Forest"]],
-			["c"] = 3,
-		},
-		[BZ["The Oculus"]] = {
-			["loc"] = c1[BZ["Borean Tundra"]],
-			["c"] = 4,
-		},
-		[BZ["Old Hillsbrad Foothills"]] = {
-			["loc"] = c1[BZ["Tanaris"]],
-			["c"] = 1,
-		},
-		[BZ["Onyxia's Lair"]] = {
-			["loc"] = c1[BZ["Dustwallow Marsh"]],
-			["c"] = 1,
-		},
-		[BZ["Ruins of Ahn'Qiraj"]] = {
-			["loc"] = c1[BZ["Tanaris"]],
-			["c"] = 1,
-		},
-		[BZ["Scholomance"]] = {
-			["loc"] = c1[BZ["Western Plaguelands"]],
-			["c"] = 2,
-		},
-		[BZ["Sethekk Halls"]] = {
-			["loc"] = c1[BZ["Terokkar Forest"]],
-			["c"] = 3,
-		},
-		[BZ["Shadow Labyrinth"]] = {
-			["loc"] = c1[BZ["Terokkar Forest"]],
-			["c"] = 3,
-		},
-		[BZ["Stratholme"]] = {
-			["loc"] = c1[BZ["Eastern Plaguelands"]],
-			["c"] = 2,
-		},
-		[BZ["Temple of Ahn'Qiraj"]] = {
-			["loc"] = c1[BZ["Tanaris"]],
-			["c"] = 1,
-		},
-		[BZ["The Arcatraz"]] = {
-			["loc"] = c1[BZ["Netherstorm"]],
-			["c"] = 3,
-		},
-		[BZ["The Black Morass"]] = {
-			["loc"] = c1[BZ["Tanaris"]],
-			["c"] = 1,
-		},
-		[BZ["The Botanica"]] = {
-			["loc"] = c1[BZ["Netherstorm"]],
-			["c"] = 3,
-		},
-		[BZ["The Deadmines"]] = {
-			["loc"] = c1[BZ["Westfall"]],
-			["c"] = 2,
-		},
-		[BZ["The Mechanar"]] = {
-			["loc"] = c1[BZ["Netherstorm"]],
-			["c"] = 3,
-		},
-		[BZ["The Nexus"]] = {
-			["loc"] = c1[BZ["Borean Tundra"]],
-			["c"] = 4,
-		},
-		[BZ["The Shattered Halls"]] = {
-			["loc"] = c1[BZ["Hellfire Peninsula"]],
-			["c"] = 3,
-		},
-		[BZ["The Slave Pens"]] = {
-			["loc"] = c1[BZ["Zangarmarsh"]],
-			["c"] = 3,
-		},
-		[BZ["The Steamvault"]] = {
-			["loc"] = c1[BZ["Zangarmarsh"]],
-			["c"] = 3,
-		},
-		[BZ["The Temple of Atal'Hakkar"]] = {
-			["loc"] = c1[BZ["Swamp of Sorrows"]],
-			["c"] = 2,
-		},
-		[BZ["The Violet Hold"]] = {
-			["loc"] = c1[BZ["Dalaran"]],
-			["c"] = 4,
-		},
-		[BZ["Utgarde Keep"]] = {
-			["loc"] = c1[BZ["Howling Fjord"]],
-			["c"] = 4,
-		},
-		[BZ["Utgarde Pinnacle"]] = {
-			["loc"] = c1[BZ["Howling Fjord"]],
-			["c"] = 4,
-		},
-		[BZ["Zul'Gurub"]] = {
-			["loc"] = c1[BZ["Stranglethorn Vale"]],
-			["c"] = 2,
-		},
-	}
-
-	local maplist = {}
-
-	-- Description: Adds mini-map and world map icons with tomtom.
-	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional recipe ID
-	-- Output: Points are added to the maps
-	function addon:SetupMap(single_recipe)
-		if not TomTom then
-			return
-		end
-
-		local worldmap = addon.db.profile.worldmap
-		local minimap = addon.db.profile.minimap
-
-		if not (worldmap or minimap) then
-			return
-		end
-
-		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-		-- Get the proper icon to put on the mini-map
-		--		for i, k in pairs(SortedProfessions) do
-		--			if (k["name"] == Player["Profession"]) then
-		--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-		--				break
-		--			end
-		--		end
-
-		twipe(maplist)
-
-		local recipe_list = addon.recipe_list
-
-		-- We're only getting a single recipe, not a bunch
-		if single_recipe then
-			-- loop through acquire methods, display each
-			for k, v in pairs(recipe_list[single_recipe]["Acquire"]) do
-				if CheckMapDisplay(v, recipe_list[single_recipe]["Flags"]) then
-					maplist[v["ID"]] = v["Type"]
-				end
-			end
-		elseif addon.db.profile.autoscanmap then
-			local sorted_recipes = addon.sorted_recipes
-
-			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-			for i = 1, #sorted_recipes do
-				local recipe_index = sorted_recipes[i]
-
-				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
-					-- loop through acquire methods, display each
-					for k, v in pairs(recipe_list[recipe_index]["Acquire"]) do
-						if CheckMapDisplay(v, recipe_list[recipe_index]["Flags"]) then
-							maplist[v["ID"]] = v["Type"]
-						end
-					end
-				end
-			end
-		end
-
-		--		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
-		--		ARLWorldMap:ClearAllPoints()
-		--		ARLWorldMap:SetWidth(8)
-		--		ARLWorldMap:SetHeight(8)
-		--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
-		--		ARLWorldMap.icon:SetTexture(icontext)
-		--		ARLWorldMap.icon:SetAllPoints()
-
-		--		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-		--		ARLMiniMap:ClearAllPoints()
-		--		ARLMiniMap:SetWidth(8)
-		--		ARLMiniMap:SetHeight(8)
-		--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
-		--		ARLMiniMap.icon:SetTexture(icontext)
-		--		ARLMiniMap.icon:SetAllPoints()
-
-		for k, j in pairs(maplist) do
-			local loc
-			local custom = false
-
-			-- Get the entries location
-			if maplist[k] == A_TRAINER then
-				loc = addon.trainer_list[k]
-			elseif maplist[k] == A_VENDOR then
-				loc = addon.vendor_list[k]
-			elseif maplist[k] == A_MOB then
-				loc = addon.mob_list[k]
-			elseif maplist[k] == A_QUEST then
-				loc = addon.quest_list[k]
-			elseif maplist[k] == A_CUSTOM then
-				loc = addon.custom_list[k]
-				custom = true
-			end
-
-			local name = loc["Name"]
-			local x = loc["Coordx"]
-			local y = loc["Coordy"]
-			local location = loc["Location"]
-			local continent, zone
-
-			if not loc then
-				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
-				--@end-alpha@
-			elseif c1[location] then
-				continent = 1
-				zone = c1[location]
-			elseif c2[location] then
-				continent = 2
-				zone = c2[location]
-			elseif c3[location] then
-				continent = 3
-				zone = c3[location]
-			elseif c4[location] then
-				continent = 4
-				zone = c4[location]
-			elseif INSTANCE_LOCATIONS[location] then
-				continent = INSTANCE_LOCATIONS[location]["c"]
-				zone = INSTANCE_LOCATIONS[location]["loc"]
-				name = name .. " (" .. location .. ")"
-			else
-				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
-				--@end-alpha@
-			end
-
-			--@alpha@
-			if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
-				addon:Print("DEBUG: Invalid location coordinates for ID " .. k .. " Location: " .. location)
-			end
-			--@end-alpha@
-
-			if zone and continent then
-				--@alpha@
-				if (x == 0) and (y == 0) then
-					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
-				end
-				--@end-alpha@
-				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, nil, false, minimap, worldmap)
-
-				tinsert(iconlist, iconuid)
-			end
-
-		end
-	end
-end -- do block
-
--- Description: Converting from hex to rgb (Thanks Maldivia)
-local function toRGB(hex)
-	local r, g, b = hex:match("(..)(..)(..)")
-
-	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
-end
-
--------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
+local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
 local arlTooltip
 
 -- Font Objects needed for arlTooltip
@@ -1888,6 +1038,1339 @@ local function GenerateTooltipContent(owner, rIndex)
 	else
 		arlSpellTooltip:Hide()
 	end
+end
+
+-------------------------------------------------------------------------------
+-- Create the MainPanel and set its values
+-------------------------------------------------------------------------------
+local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
+MainPanel:SetHeight(447)
+MainPanel:SetFrameStrata("DIALOG")
+MainPanel:SetHitRectInsets(5, 5, 5, 5)
+
+MainPanel:EnableMouse(true)
+MainPanel:EnableKeyboard(true)
+MainPanel:SetMovable(true)
+MainPanel:Show()
+
+MainPanel.is_expanded = false
+
+-- Let the user banish the MainPanel with the ESC key.
+tinsert(UISpecialFrames, "ARL_MainPanel")
+
+addon.Frame = MainPanel
+
+MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
+MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+MainPanel.backdrop:SetAllPoints(MainPanel)
+MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+
+MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
+MainPanel.title_bar:ClearAllPoints()
+MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+MainPanel.title_bar:SetJustifyH("CENTER")
+
+-------------------------------------------------------------------------------
+-- MainPanel scripts/functions.
+-------------------------------------------------------------------------------
+MainPanel:SetScript("OnHide",
+		    function(self)
+			    addon:ClosePopups()
+		    end)
+
+MainPanel:SetScript("OnMouseDown", MainPanel.StartMoving)
+
+MainPanel:SetScript("OnMouseUp",
+		    function(self, button)
+			    self:StopMovingOrSizing()
+
+			    local opts = addon.db.profile.frameopts
+			    local from, _, to, x, y = self:GetPoint()
+
+			    opts.anchorFrom = from
+			    opts.anchorTo = to
+
+			    if self.is_expanded then
+				    if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+					    opts.offsetx = x
+				    elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+					    opts.offsetx = x - 151/2
+				    elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+					    opts.offsetx = x - 151
+				    end
+			    else
+				    opts.offsetx = x
+			    end
+			    opts.offsety = y
+		    end)
+
+function MainPanel:ToggleState()
+	if self.is_expanded then
+		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
+
+		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
+		self.backdrop:SetAllPoints(self)
+		self.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+
+		self.progress_bar:SetWidth(195)
+	else
+		self:SetWidth(MAINPANEL_EXPANDED_WIDTH)
+
+		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
+		self.backdrop:SetAllPoints(self)
+		self.backdrop:SetTexCoord(0, (MAINPANEL_EXPANDED_WIDTH/512), 0, (447/512))
+
+		self.progress_bar:SetWidth(345)
+	end
+	self.is_expanded = not self.is_expanded
+
+	local x, y = self:GetLeft(), self:GetBottom()
+
+	self:ClearAllPoints()
+	self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
+	self:UpdateTitle()
+end
+
+function MainPanel:SetProfession()
+	for k, v in pairs(SortedProfessions) do
+		if v.name == Player["Profession"] then
+			self.profession = k
+			break
+		end
+	end
+	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
+end
+
+function MainPanel:SetPosition()
+	self:ClearAllPoints()
+
+	local opts = addon.db.profile.frameopts
+	local FixedOffsetX = opts.offsetx
+
+	if opts.anchorTo == "" then
+		-- no values yet, clamp to whatever frame is appropriate
+		if ATSWFrame then
+			-- Anchor frame to ATSW
+			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
+		elseif CauldronFrame then
+			-- Anchor frame to Cauldron
+			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
+		elseif Skillet then
+			-- Anchor frame to Skillet
+			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		else
+			-- Anchor to default tradeskill frame
+			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+		end
+	else
+		if self.is_expanded then
+			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+				FixedOffsetX = opts.offsetx
+			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+				FixedOffsetX = opts.offsetx + 151/2
+			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+				FixedOffsetX = opts.offsetx + 151
+			end
+		end
+		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+	end
+end
+
+function MainPanel:UpdateTitle()
+	if self.is_expanded then
+		local total, active = 0, 0
+
+		for filter, info in pairs(FilterValueMap) do
+			if info.svroot then
+				if info.svroot[filter] == true then
+					active = active + 1
+				end
+				total = total + 1
+			end
+		end
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, _G.FILTERS)
+	else
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
+	end
+end
+
+-------------------------------------------------------------------------------
+-- Create the MainPanel.mode_button and assign its values.
+-------------------------------------------------------------------------------
+MainPanel.mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+MainPanel.mode_button:SetWidth(64)
+MainPanel.mode_button:SetHeight(64)
+MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
+MainPanel.mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+MainPanel.mode_button._normal = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+MainPanel.mode_button._pushed = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+MainPanel.mode_button._disabled = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+
+-------------------------------------------------------------------------------
+-- MainPanel.mode_button scripts/functions.
+-------------------------------------------------------------------------------
+MainPanel.mode_button:SetScript("OnClick",
+				function(self, button, down)
+					-- Known professions should be in Player["Professions"]
+
+					-- This loop is gonna be weird. The reason is because we need to
+					-- ensure that we cycle through all the known professions, but also
+					-- that we do so in order. That means that if the currently displayed
+					-- profession is the last one in the list, we're actually going to
+					-- iterate completely once to get to the currently displayed profession
+					-- and then iterate again to make sure we display the next one in line.
+					-- Further, there is the nuance that the person may not know any
+					-- professions yet at all. User are so annoying.
+					local startLoop = 0
+					local endLoop = 0
+					local displayProf = 0
+
+					-- ok, so first off, if we've never done this before, there is no "current"
+					-- and a single iteration will do nicely, thank you
+					if button == "LeftButton" then
+						-- normal profession switch
+						if MainPanel.profession == 0 then
+							startLoop = 1
+							endLoop = NUM_PROFESSIONS + 1
+						else
+							startLoop = MainPanel.profession + 1
+							endLoop = MainPanel.profession
+						end
+						local index = startLoop
+	
+						while index ~= endLoop do
+							if index > NUM_PROFESSIONS then
+								index = 1
+							elseif Player["Professions"][SortedProfessions[index].name] then
+								displayProf = index
+								MainPanel.profession = index
+								break
+							else
+								index = index + 1
+							end
+						end
+					elseif button == "RightButton" then
+						-- reverse profession switch
+						if MainPanel.profession == 0 then
+							startLoop = NUM_PROFESSIONS + 1
+							endLoop = 0
+						else
+							startLoop = MainPanel.profession - 1
+							endLoop = MainPanel.profession
+						end
+						local index = startLoop
+
+						while index ~= endLoop do
+							if index < 1 then
+								index = NUM_PROFESSIONS
+							elseif Player["Professions"][SortedProfessions[index].name] then
+								displayProf = index
+								MainPanel.profession = index
+								break
+							else
+								index = index - 1
+							end
+						end
+					end
+					local is_shown = TradeSkillFrame:IsVisible()
+
+					CastSpellByName(SortedProfessions[MainPanel.profession].name)
+					addon:Scan()
+
+					if not is_shown then
+						TradeSkillFrame:Hide()
+					end
+				end)
+
+function MainPanel.mode_button:ChangeTexture(texture)
+	local normal, pushed, disabled = self._normal, self._pushed, self._disabled
+
+	normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+	normal:SetTexCoord(0, 1, 0, 1)
+	normal:SetAllPoints(self)
+	self:SetNormalTexture(normal)
+
+	pushed:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_down]])
+	pushed:SetTexCoord(0, 1, 0, 1)
+	pushed:SetAllPoints(self)
+	self:SetPushedTexture(pushed)
+
+	disabled:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
+	disabled:SetTexCoord(0, 1, 0, 1)
+	disabled:SetAllPoints(self)
+	self:SetDisabledTexture(disabled)
+end
+
+-------------------------------------------------------------------------------
+-- Create the X-close button, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.xclose_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
+MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
+
+MainPanel.xclose_button:SetScript("OnClick",
+				  function(self, button, down)
+					  MainPanel:Hide()
+				  end)
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_toggle, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
+
+MainPanel.filter_toggle:SetScript("OnClick",
+			   function(self, button, down)
+				   if MainPanel.is_expanded then
+					   -- Change the text and tooltip for the filter button
+					   self:SetText(L["FILTER_OPEN"])
+					   SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
+
+					   -- Hide my 7 buttons
+					   ARL_ExpGeneralOptCB:Hide()
+					   ARL_ExpObtainOptCB:Hide()
+					   ARL_ExpBindingOptCB:Hide()
+					   ARL_ExpItemOptCB:Hide()
+					   ARL_ExpPlayerOptCB:Hide()
+					   ARL_ExpRepOptCB:Hide()
+					   ARL_ExpMiscOptCB:Hide()
+
+					   -- Uncheck the seven buttons
+					   HideARL_ExpOptCB()
+
+					   MainPanel.filter_menu:Hide()
+					   MainPanel.filter_reset:Hide()
+				   else
+					   -- Change the text and tooltip for the filter button
+					   self:SetText(L["FILTER_CLOSE"])
+					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
+
+					   -- Show my 7 buttons
+					   ARL_ExpGeneralOptCB:Show()
+					   ARL_ExpObtainOptCB:Show()
+					   ARL_ExpBindingOptCB:Show()
+					   ARL_ExpItemOptCB:Show()
+					   ARL_ExpPlayerOptCB:Show()
+					   ARL_ExpRepOptCB:Show()
+					   ARL_ExpMiscOptCB:Show()
+
+					   MainPanel.filter_reset:Show()
+				   end
+				   MainPanel:ToggleState()
+			   end)
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
+MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
+MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
+MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
+MainPanel.filter_menu:EnableMouse(true)
+MainPanel.filter_menu:EnableKeyboard(true)
+MainPanel.filter_menu:SetMovable(false)
+MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
+MainPanel.filter_menu:Hide()
+
+-- Set all the current options in the filter menu to make sure they are consistent with the SV options.
+MainPanel.filter_menu:SetScript("OnShow",
+				function()
+					for filter, info in pairs(FilterValueMap) do
+						if info.svroot then
+							info.cb:SetChecked(info.svroot[filter])
+						end
+					end
+					-- Miscellaneous Options
+					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
+				end)
+
+MainPanel.filter_menu.texture = MainPanel.filter_menu:CreateTexture(nil, "ARTWORK")
+MainPanel.filter_menu.texture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
+MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
+MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_reset and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
+					     L["RESET_DESC"], 1)
+MainPanel.filter_reset:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMRIGHT", 0, -2)
+MainPanel.filter_reset:Hide()
+
+do
+	local function recursiveReset(t)
+		-- Thanks to Antiarc for this code
+		for k, v in pairs(t) do
+			if type(v) == "table" then
+				recursiveReset(v)
+			else
+				t[k] = true
+			end
+		end
+	end
+
+	MainPanel.filter_reset:SetScript("OnClick",
+					 function()
+						 local filterdb = addon.db.profile.filters
+
+						 -- Reset all filters to true
+						 recursiveReset(addon.db.profile.filters)
+
+						 -- Reset specific filters to false
+						 filterdb.general.specialty = false
+						 filterdb.general.known = false
+
+						 -- Reset all classes to false
+						 for class in pairs(filterdb.classes) do
+							 filterdb.classes[class] = false
+						 end
+						 -- Set your own class to true
+						 filterdb.classes[strlower(Player["Class"])] = true
+
+						 if MainPanel:IsVisible() then
+							 MainPanel:UpdateTitle()
+							 HideARL_ExpOptCB()
+							 MainPanel.filter_menu:Hide()
+							 ReDisplay()
+						 end
+					 end)
+end	-- do
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.scrollframe and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.scroll_frame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
+MainPanel.scroll_frame:SetHeight(322)
+MainPanel.scroll_frame:SetWidth(243)
+MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
+MainPanel.scroll_frame:SetScript("OnVerticalScroll",
+				 function(self, arg1)
+					 self.scrolling = true
+					 FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+					 self.scrolling = nil
+				 end)
+
+MainPanel.scroll_frame.entries = {}
+MainPanel.scroll_frame.state_buttons = {}
+MainPanel.scroll_frame.recipe_buttons = {}
+
+do
+	local highlight = CreateFrame("Frame", nil, UIParent)
+	highlight:SetFrameStrata("TOOLTIP")
+	highlight:Hide()
+
+	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
+	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight._texture:SetBlendMode("ADD")
+	highlight._texture:SetAllPoints(highlight)
+
+	local function Button_OnEnter(self)
+		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+	end
+
+	local function Button_OnLeave()
+		QTip:Release(arlTooltip)
+		arlSpellTooltip:Hide()
+	end
+
+	local function Bar_OnEnter(self)
+		highlight:SetParent(self)
+		highlight:SetAllPoints(self)
+		highlight:Show()
+		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+	end
+
+	local function Bar_OnLeave()
+		highlight:Hide()
+		highlight:ClearAllPoints()
+		highlight:SetParent(nil)
+		QTip:Release(arlTooltip)
+		arlSpellTooltip:Hide()
+	end
+
+	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
+		local sorted_recipes = addon.sorted_recipes
+		local recipe_list = addon.recipe_list
+		local exclusions = addon.db.profile.exclusionlist
+		local sort_type = addon.db.profile.sorting
+		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
+		local insert_index = 1
+
+		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
+		if not refresh and not self.scrolling then
+			for i = 1, #self.entries do
+				ReleaseTable(self.entries[i])
+			end
+			twipe(self.entries)
+
+			for i = 1, #sorted_recipes do
+				local recipe_index = sorted_recipes[i]
+				local recipe_entry = recipe_list[recipe_index]
+
+				if recipe_entry["Display"] and recipe_entry["Search"] then
+					local recipe_string = recipe_entry["Name"]
+
+					if exclusions[recipe_index] then
+						recipe_string = "** " .. recipe_string .. " **"
+					end
+					local recipe_level = recipe_entry["Level"]
+
+					recipe_string = skill_sort and ("[" .. recipe_level .. "] - " .. recipe_string) or (recipe_string .. " - [" .. recipe_level .. "]")
+
+					local t = AcquireTable()
+					t.text = ColourSkillLevel(recipe_entry, Player:HasProperRepLevel(recipe_index), recipe_string)
+
+					t.recipe_id = recipe_index
+					t.is_header = true
+
+					if expand_acquires and recipe_entry["Acquire"] then
+						-- we have acquire information for this. push the title entry into the strings
+						-- and start processing the acquires
+						t.is_expanded = true
+						tinsert(self.entries, insert_index, t)
+						insert_index = self:ExpandEntry(insert_index)
+					else
+						t.is_expanded = false
+						tinsert(self.entries, insert_index, t)
+						insert_index = insert_index + 1
+					end
+				end
+			end
+		end
+
+		-- Reset the current buttons/lines
+		for i = 1, NUM_RECIPE_LINES do
+			local recipe = self.recipe_buttons[i]
+			local state = self.state_buttons[i]
+
+			recipe.string_index = 0
+			recipe:SetText("")
+			recipe:SetScript("OnEnter", nil)
+			recipe:SetScript("OnLeave", nil)
+
+			state.string_index = 0
+			state:Hide()
+			state:SetScript("OnEnter", nil)
+			state:SetScript("OnLeave", nil)
+		end
+		local num_entries = #self.entries
+		local display_lines = NUM_RECIPE_LINES
+
+		if num_entries < display_lines then
+			display_lines = num_entries / 2
+		end
+		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
+		addon:ClosePopups()
+
+		if num_entries > 0 then
+			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+			ARL_ExpandButton:Enable()
+
+			-- Populate the buttons with new values
+			local button_index = 1
+			local string_index = button_index + FauxScrollFrame_GetOffset(self)
+			local stayInLoop = true
+
+			while stayInLoop do
+				local cur_state = self.state_buttons[button_index]
+				local cur_entry = self.entries[string_index]
+
+				if cur_entry.is_header then
+					cur_state:Show()
+
+					if cur_entry.is_expanded then
+						cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+						cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+					else
+						cur_state:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+						cur_state:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					end
+					cur_state.string_index = string_index
+					cur_state:SetScript("OnEnter", Button_OnEnter)
+					cur_state:SetScript("OnLeave", Button_OnLeave)
+				else
+					cur_state:Hide()
+				end
+				local cur_recipe = self.recipe_buttons[button_index]
+
+				cur_recipe.string_index = string_index
+				cur_recipe:SetText(cur_entry.text)
+				cur_recipe:SetScript("OnEnter", Bar_OnEnter)
+				cur_recipe:SetScript("OnLeave", Bar_OnLeave)
+
+				button_index = button_index + 1
+				string_index = string_index + 1
+
+				if (button_index > NUM_RECIPE_LINES) or (string_index > num_entries) then
+					stayInLoop = false
+				end
+			end
+		else
+			-- disable expand button, it's useless here and would spam the same error again
+			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
+			ARL_ExpandButton:Disable()
+
+			local showpopup = false
+
+			if not addon.db.profile.hidepopup then
+				showpopup = true
+			end
+
+			-- If we haven't run this before we'll show pop-ups for the first time.
+			if addon.db.profile.addonversion ~= addon.version then
+				addon.db.profile.addonversion = addon.version
+				showpopup = true
+			end
+
+			if Player.recipes_total == 0 then
+				if showpopup then
+					StaticPopup_Show("ARL_NOTSCANNED")
+				end
+			elseif Player.recipes_known == Player.recipes_total then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLKNOWN")
+				end
+			elseif (Player.recipes_total_filtered - Player.recipes_known_filtered) == 0 then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLFILTERED")
+				end
+			elseif Player.excluded_recipes_unknown ~= 0 then
+				if showpopup then
+					StaticPopup_Show("ARL_ALLEXCLUDED")
+				end
+			elseif ARL_SearchText:GetText() ~= "" then
+				StaticPopup_Show("ARL_SEARCHFILTERED")
+			else
+				addon:Print(L["NO_DISPLAY"])
+				addon:Print("DEBUG: recipes_total check for 0")
+				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
+				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
+				addon:Print("DEBUG: recipes_known: " .. Player.recipes_known)
+				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
+				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
+				addon:Print("DEBUG: recipes_total_filtered: " .. Player.recipes_total_filtered)
+				addon:Print("DEBUG: recipes_known_filtered: " .. Player.recipes_known_filtered)
+				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
+				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
+			end
+		end
+	end
+	local faction_strings
+
+	local function CheckDisplayFaction(faction)
+		if addon.db.profile.filters.general.faction then
+			return true
+		end
+		return (not faction or faction == BFAC[Player["Faction"]] or faction == FACTION_NEUTRAL)
+	end
+
+	function MainPanel.scroll_frame:ExpandEntry(entry_index)
+		local obtain_filters = addon.db.profile.filters.obtain
+		local recipe_id = self.entries[entry_index].recipe_id
+		local pad = "  "
+
+		-- entry_index is the position in self.entries that we want
+		-- to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion
+		-- occurs
+		entry_index = entry_index + 1
+
+		for k, v in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
+			-- Initialize the first line here, since every type below will have one.
+			local acquire_type = v["Type"]
+			local t = AcquireTable()
+			t.recipe_id = recipe_id
+			t.is_expanded = true
+
+			if acquire_type == A_TRAINER and obtain_filters.trainer then
+				local trainer = addon.trainer_list[v["ID"]]
+
+				if CheckDisplayFaction(trainer["Faction"]) then
+					local nStr = ""
+
+					if trainer["Faction"] == FACTION_HORDE then
+						nStr = addon:Horde(trainer["Name"])
+					elseif trainer["Faction"] == FACTION_ALLIANCE then
+						nStr = addon:Alliance(trainer["Name"])
+					else
+						nStr = addon:Neutral(trainer["Name"])
+					end
+					t.text = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					local cStr = ""
+
+					if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = pad .. pad .. trainer["Location"] .. " " .. cStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+				-- This allows us to select PVP only and to see just the PVP recipes
+			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
+				local vendor = addon.vendor_list[v["ID"]]
+
+				if CheckDisplayFaction(vendor["Faction"]) then
+					local nStr = ""
+
+					if vendor["Faction"] == FACTION_HORDE then
+						nStr = addon:Horde(vendor["Name"])
+					elseif vendor["Faction"] == FACTION_ALLIANCE then
+						nStr = addon:Alliance(vendor["Name"])
+					else
+						nStr = addon:Neutral(vendor["Name"])
+					end
+					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					local cStr = ""
+
+					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+				-- Mobs can be in instances, raids, or specific mob related drops.
+			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
+				local mob = addon.mob_list[v["ID"]]
+				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+
+				local cStr = ""
+
+				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
+					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				end
+				t = AcquireTable()
+				t.recipe_id = recipe_id
+				t.is_expanded = true
+				t.text = pad .. pad .. mob["Location"] .. " " .. cStr
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			elseif acquire_type == A_QUEST and obtain_filters.quest then
+				local quest = addon.quest_list[v["ID"]]
+
+				if CheckDisplayFaction(quest["Faction"]) then
+					local nStr = ""
+
+					if quest["Faction"] == FACTION_HORDE then
+						nStr = addon:Horde(quest["Name"])
+					elseif quest["Faction"] == FACTION_ALLIANCE then
+						nStr = addon:Alliance(quest["Name"])
+					else
+						nStr = addon:Neutral(quest["Name"])
+					end
+					t.text = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					local cStr = ""
+
+					if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = pad .. pad .. quest["Location"] .. " " .. cStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
+				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
+				-- Reputation Obtain
+				-- Rep: ID, Faction
+				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
+				-- RepVendor - VendorID
+				local rep_vendor = addon.vendor_list[v["RepVendor"]]
+
+				if CheckDisplayFaction(rep_vendor["Faction"]) then
+					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[v["ID"]]["Name"]
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					if not faction_strings then
+						faction_strings = {
+							[0] = addon:Neutral(FACTION_NEUTRAL .. " : "),
+							[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
+							[2] = addon:Honored(BFAC["Honored"] .. " : "),
+							[3] = addon:Revered(BFAC["Revered"] .. " : "),
+							[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
+						}
+					end
+					local nStr = ""
+
+					if rep_vendor["Faction"] == FACTION_HORDE then
+						nStr = addon:Horde(rep_vendor["Name"])
+					elseif rep_vendor["Faction"] == FACTION_ALLIANCE then
+						nStr = addon:Alliance(rep_vendor["Name"])
+					else
+						nStr = addon:Neutral(rep_vendor["Name"])
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+
+					t.text = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					local cStr = ""
+
+					if rep_vendor["Coordx"] ~= 0 and rep_vendor["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			elseif acquire_type == A_WORLD_DROP and obtain_filters.worlddrop then
+				t.text = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			elseif acquire_type == A_CUSTOM then
+				t.text = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			elseif acquire_type == A_PVP and obtain_filters.pvp then
+				local vendor = addon.vendor_list[v["ID"]]
+
+				if CheckDisplayFaction(vendor["Faction"]) then
+					local cStr = ""
+
+					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
+						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					end
+					local nStr = ""
+
+					if vendor["Faction"] == FACTION_HORDE then
+						nStr = addon:Horde(vendor["Name"])
+					elseif vendor["Faction"] == FACTION_ALLIANCE then
+						nStr = addon:Alliance(vendor["Name"])
+					else
+						nStr = addon:Neutral(vendor["Name"])
+					end
+					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+				--@alpha@
+			elseif acquire_type > A_MAX then
+				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+				--@end-alpha@
+			end
+		end
+		return entry_index
+	end
+end	-- do
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.progress_bar and set its scripts
+-------------------------------------------------------------------------------
+do
+	-- Default values for the progressbar
+	local pbMin = 0
+	local pbMax = 100
+	local pbCur = 50
+
+	MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
+	MainPanel.progress_bar:SetWidth(195)
+	MainPanel.progress_bar:SetHeight(14)
+
+	MainPanel.progress_bar:ClearAllPoints()
+	MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
+
+	MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+	MainPanel.progress_bar:SetOrientation("HORIZONTAL")
+	MainPanel.progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
+	MainPanel.progress_bar:SetValue(pbCur)
+
+	MainPanel.progress_bar.text = MainPanel.progress_bar:CreateFontString(nil, "ARTWORK")
+	MainPanel.progress_bar.text:SetWidth(195)
+	MainPanel.progress_bar.text:SetHeight(14)
+	MainPanel.progress_bar.text:SetFontObject("GameFontHighlightSmall")
+
+	MainPanel.progress_bar.text:ClearAllPoints()
+	MainPanel.progress_bar.text:SetPoint("CENTER", MainPanel.progress_bar, "CENTER", 0, 0)
+	MainPanel.progress_bar.text:SetJustifyH("CENTER")
+	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+end	-- do
+
+function MainPanel.progress_bar:Update()
+	local pbCur, pbMax
+	local settings = addon.db.profile
+
+	if settings.includefiltered then
+		pbCur = Player.recipes_known
+		pbMax = Player.recipes_total
+	else
+		-- We're removing filtered recipes from the final count
+		pbCur = Player.recipes_known_filtered
+		pbMax = Player.recipes_total_filtered
+	end
+
+	if not settings.includeexcluded and not settings.ignoreexclusionlist then
+		pbCur = pbCur - Player.excluded_recipes_unknown
+		pbMax = pbMax - Player.excluded_recipes_known
+	end
+	self:SetMinMaxValues(0, pbMax)
+	self:SetValue(pbCur)
+
+	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
+		self.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+	else
+		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+	end
+end
+
+-------------------------------------------------------------------------------
+-- Create the close button, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.close_button = GenericCreateButton(nil, MainPanel, 22, 69, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+MainPanel.close_button:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3)
+
+MainPanel.close_button:SetScript("OnClick",
+				 function(self, button, down)
+					 MainPanel:Hide()
+				 end)
+
+-------------------------------------------------------------------------------
+-- Map waypoint code.
+-------------------------------------------------------------------------------
+do
+	local function LoadZones(c, y, ...)
+		-- Fill up the list for normal lookup
+		for i = 1, select('#', ...),1 do
+			c[i] = select(i,...)
+		end
+		-- Reverse lookup to make work easier later on
+		for i in pairs(c) do
+			y[c[i]] = i
+		end
+	end
+
+	local C1 = {}
+	local C2 = {}
+	local C3 = {}
+	local C4 = {}
+	local c1 = {}
+	local c2 = {}
+	local c3 = {}
+	local c4 = {}
+
+	LoadZones(C1, c1, GetMapZones(1))
+	LoadZones(C2, c2, GetMapZones(2))
+	LoadZones(C3, c3, GetMapZones(3))
+	LoadZones(C4, c4, GetMapZones(4))
+
+	local iconlist = {}
+
+	-- Clears all the icons from the world map and the mini-map
+	function addon:ClearMap()
+		if TomTom then
+			for i in pairs(iconlist) do
+				TomTom:RemoveWaypoint(iconlist[i])
+			end
+			iconlist = twipe(iconlist)
+		end
+
+	end
+
+	local function CheckMapDisplay(acquire_entry, flags)
+		local maptrainer = addon.db.profile.maptrainer
+		local mapquest = addon.db.profile.mapquest
+		local mapvendor = addon.db.profile.mapvendor
+		local mapmob = addon.db.profile.mapmob
+		local player_faction = Player["Faction"]
+		local acquire_type = acquire_entry["Type"]
+		local acquire_id = acquire_entry["ID"]
+		local display = false
+
+		-- Trainers - Display if it's your faction or neutral.
+		if maptrainer then
+			if acquire_type == A_TRAINER then 
+				local trainer = addon.trainer_list[acquire_id]
+
+				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
+			elseif acquire_type == A_CUSTOM and flags[3] then
+				return true
+			end
+			-- Vendors - Display if it's your faction or neutral
+		elseif mapvendor then
+			if acquire_type == A_VENDOR then
+				local vendor = addon.vendor_list[acquire_id]
+
+				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
+			elseif acquire_type == A_CUSTOM and flags[4] then
+				return true
+			end
+			-- Always display mobs
+		elseif (acquire_type == A_MOB and mapmob) or
+			(acquire_type == A_CUSTOM and (flags[5] or flags[6] or flags[10] or flags[11])) then
+			return true
+		-- Quests
+		elseif mapquest then
+			if acquire_type == A_QUEST then
+				local quest = addon.quest_list[acquire_id]
+				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
+			elseif acquire_type == A_CUSTOM and flags[8] then
+				return true
+			end
+		end
+		return display
+	end
+
+	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+
+	local INSTANCE_LOCATIONS = {
+		[BZ["Ahn'kahet: The Old Kingdom"]] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+		[BZ["Auchenai Crypts"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Azjol-Nerub"]] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+		[BZ["Blackrock Depths"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Blackrock Spire"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Blackwing Lair"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Dire Maul"]] = {
+			["loc"] = c1[BZ["Feralas"]],
+			["c"] = 1,
+		},
+		[BZ["Drak'Tharon Keep"]] = {
+			["loc"] = c1[BZ["Zul'Drak"]],
+			["c"] = 4,
+		},
+		[BZ["Gnomeregan"]] = {
+			["loc"] = c1[BZ["Dun Morogh"]],
+			["c"] = 2,
+		},
+		[BZ["Halls of Lightning"]] = {
+			["loc"] = c1[BZ["The Storm Peaks"]],
+			["c"] = 4,
+		},
+		[BZ["Halls of Stone"]] = {
+			["loc"] = c1[BZ["The Storm Peaks"]],
+			["c"] = 4,
+		},
+		[BZ["Karazhan"]] = {
+			["loc"] = c1[BZ["Deadwind Pass"]],
+			["c"] = 2,
+		},
+		[BZ["Magisters' Terrace"]] = {
+			["loc"] = c1[BZ["Isle of Quel'Danas"]],
+			["c"] = 3,
+		},
+		[BZ["Mana-Tombs"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["The Oculus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["Old Hillsbrad Foothills"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Onyxia's Lair"]] = {
+			["loc"] = c1[BZ["Dustwallow Marsh"]],
+			["c"] = 1,
+		},
+		[BZ["Ruins of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Scholomance"]] = {
+			["loc"] = c1[BZ["Western Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Sethekk Halls"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Shadow Labyrinth"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Stratholme"]] = {
+			["loc"] = c1[BZ["Eastern Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Temple of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Arcatraz"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Black Morass"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Botanica"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Deadmines"]] = {
+			["loc"] = c1[BZ["Westfall"]],
+			["c"] = 2,
+		},
+		[BZ["The Mechanar"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Nexus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["The Shattered Halls"]] = {
+			["loc"] = c1[BZ["Hellfire Peninsula"]],
+			["c"] = 3,
+		},
+		[BZ["The Slave Pens"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Steamvault"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Temple of Atal'Hakkar"]] = {
+			["loc"] = c1[BZ["Swamp of Sorrows"]],
+			["c"] = 2,
+		},
+		[BZ["The Violet Hold"]] = {
+			["loc"] = c1[BZ["Dalaran"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Keep"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Pinnacle"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
+		},
+		[BZ["Zul'Gurub"]] = {
+			["loc"] = c1[BZ["Stranglethorn Vale"]],
+			["c"] = 2,
+		},
+	}
+
+	local maplist = {}
+
+	-- Description: Adds mini-map and world map icons with tomtom.
+	-- Expected result: Icons are added to the world map and mini-map.
+	-- Input: An optional recipe ID
+	-- Output: Points are added to the maps
+	function addon:SetupMap(single_recipe)
+		if not TomTom then
+			return
+		end
+
+		local worldmap = addon.db.profile.worldmap
+		local minimap = addon.db.profile.minimap
+
+		if not (worldmap or minimap) then
+			return
+		end
+
+		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
+
+		-- Get the proper icon to put on the mini-map
+		--		for i, k in pairs(SortedProfessions) do
+		--			if (k["name"] == Player["Profession"]) then
+		--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
+		--				break
+		--			end
+		--		end
+
+		twipe(maplist)
+
+		local recipe_list = addon.recipe_list
+
+		-- We're only getting a single recipe, not a bunch
+		if single_recipe then
+			-- loop through acquire methods, display each
+			for k, v in pairs(recipe_list[single_recipe]["Acquire"]) do
+				if CheckMapDisplay(v, recipe_list[single_recipe]["Flags"]) then
+					maplist[v["ID"]] = v["Type"]
+				end
+			end
+		elseif addon.db.profile.autoscanmap then
+			local sorted_recipes = addon.sorted_recipes
+
+			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
+			for i = 1, #sorted_recipes do
+				local recipe_index = sorted_recipes[i]
+
+				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
+					-- loop through acquire methods, display each
+					for k, v in pairs(recipe_list[recipe_index]["Acquire"]) do
+						if CheckMapDisplay(v, recipe_list[recipe_index]["Flags"]) then
+							maplist[v["ID"]] = v["Type"]
+						end
+					end
+				end
+			end
+		end
+
+		--		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
+		--		ARLWorldMap:ClearAllPoints()
+		--		ARLWorldMap:SetWidth(8)
+		--		ARLWorldMap:SetHeight(8)
+		--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+		--		ARLWorldMap.icon:SetTexture(icontext)
+		--		ARLWorldMap.icon:SetAllPoints()
+
+		--		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
+		--		ARLMiniMap:ClearAllPoints()
+		--		ARLMiniMap:SetWidth(8)
+		--		ARLMiniMap:SetHeight(8)
+		--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+		--		ARLMiniMap.icon:SetTexture(icontext)
+		--		ARLMiniMap.icon:SetAllPoints()
+
+		for k, j in pairs(maplist) do
+			local loc
+			local custom = false
+
+			-- Get the entries location
+			if maplist[k] == A_TRAINER then
+				loc = addon.trainer_list[k]
+			elseif maplist[k] == A_VENDOR then
+				loc = addon.vendor_list[k]
+			elseif maplist[k] == A_MOB then
+				loc = addon.mob_list[k]
+			elseif maplist[k] == A_QUEST then
+				loc = addon.quest_list[k]
+			elseif maplist[k] == A_CUSTOM then
+				loc = addon.custom_list[k]
+				custom = true
+			end
+
+			local name = loc["Name"]
+			local x = loc["Coordx"]
+			local y = loc["Coordy"]
+			local location = loc["Location"]
+			local continent, zone
+
+			if not loc then
+				--@alpha@
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
+				--@end-alpha@
+			elseif c1[location] then
+				continent = 1
+				zone = c1[location]
+			elseif c2[location] then
+				continent = 2
+				zone = c2[location]
+			elseif c3[location] then
+				continent = 3
+				zone = c3[location]
+			elseif c4[location] then
+				continent = 4
+				zone = c4[location]
+			elseif INSTANCE_LOCATIONS[location] then
+				continent = INSTANCE_LOCATIONS[location]["c"]
+				zone = INSTANCE_LOCATIONS[location]["loc"]
+				name = name .. " (" .. location .. ")"
+			else
+				--@alpha@
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
+				--@end-alpha@
+			end
+
+			--@alpha@
+			if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
+				addon:Print("DEBUG: Invalid location coordinates for ID " .. k .. " Location: " .. location)
+			end
+			--@end-alpha@
+
+			if zone and continent then
+				--@alpha@
+				if (x == 0) and (y == 0) then
+					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
+				end
+				--@end-alpha@
+				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, nil, false, minimap, worldmap)
+
+				tinsert(iconlist, iconuid)
+			end
+
+		end
+	end
+end -- do block
+
+-- Description: Converting from hex to rgb (Thanks Maldivia)
+local function toRGB(hex)
+	local r, g, b = hex:match("(..)(..)(..)")
+
+	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
 end
 
 local Generic_MakeCheckButton
@@ -2628,15 +3111,6 @@ function addon:InitializeFrame()
 	ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
 	ARL_SearchText:Show()
 
-	local ARL_CloseButton = GenericCreateButton("ARL_CloseButton", MainPanel, 22, 69, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER",
-						    L["CLOSE_DESC"], 1)
-	ARL_CloseButton:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3)
-
-	ARL_CloseButton:SetScript("OnClick",
-				  function(self)
-					  MainPanel:Hide()
-				  end)
-
 	-------------------------------------------------------------------------------
 	-- Set the scripts for MainPanel.scroll_frame's buttons.
 	-------------------------------------------------------------------------------
@@ -2748,7 +3222,7 @@ function addon:InitializeFrame()
 	-- EXPANDED : 7 buttons for opening/closing the filter menu
 	-------------------------------------------------------------------------------
 	ARL_ExpGeneralOptCB = CreateFilterMenuButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-	ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMLEFT", -1, -50)
+	ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMLEFT", -7, -50)
 
 	ARL_ExpObtainOptCB = CreateFilterMenuButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
 	ARL_ExpObtainOptCB:SetPoint("TOPLEFT", ARL_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
@@ -3895,15 +4369,15 @@ end
 function addon:DisplayFrame()
 	MainPanel:SetPosition()
 	MainPanel:SetProfession()
-	MainPanel:UpdateTitle()
-	MainPanel.progress_bar:Update()
 	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	SortRecipeList()
 
+	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
+	MainPanel.progress_bar:Update()
 	MainPanel:Show()
 
 	-- Set the search text to the last searched text or the global default string for the search box
@@ -3932,481 +4406,6 @@ function ReDisplay()
 end
 
 -------------------------------------------------------------------------------
--- MainPanel.scrollframe methods and data
--------------------------------------------------------------------------------
-do
-	MainPanel.scroll_frame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
-	MainPanel.scroll_frame:SetHeight(322)
-	MainPanel.scroll_frame:SetWidth(243)
-	MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
-	MainPanel.scroll_frame:SetScript("OnVerticalScroll",
-					 function(self, arg1)
-						 self.scrolling = true
-						 FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
-						 self.scrolling = nil
-					 end)
-
-	MainPanel.scroll_frame.entries = {}
-	MainPanel.scroll_frame.state_buttons = {}
-	MainPanel.scroll_frame.recipe_buttons = {}
-
-	local ScrollFrame = MainPanel.scroll_frame
-
-	local highlight = CreateFrame("Frame", nil, UIParent)
-	highlight:SetFrameStrata("TOOLTIP")
-	highlight:Hide()
-
-	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
-	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-	highlight._texture:SetBlendMode("ADD")
-	highlight._texture:SetAllPoints(highlight)
-
-	local function Button_OnEnter(self)
-		GenerateTooltipContent(self, ScrollFrame.entries[self.string_index].recipe_id)
-	end
-
-	local function Button_OnLeave()
-		QTip:Release(arlTooltip)
-		arlSpellTooltip:Hide()
-	end
-
-	local function Bar_OnEnter(self)
-		highlight:SetParent(self)
-		highlight:SetAllPoints(self)
-		highlight:Show()
-		GenerateTooltipContent(self, ScrollFrame.entries[self.string_index].recipe_id)
-	end
-
-	local function Bar_OnLeave()
-		highlight:Hide()
-		highlight:ClearAllPoints()
-		highlight:SetParent(nil)
-		QTip:Release(arlTooltip)
-		arlSpellTooltip:Hide()
-	end
-
-	function ScrollFrame:Update(expand_acquires, refresh)
-		local sorted_recipes = addon.sorted_recipes
-		local recipe_list = addon.recipe_list
-		local exclusions = addon.db.profile.exclusionlist
-		local sort_type = addon.db.profile.sorting
-		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
-		local insert_index = 1
-
-		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
-		if not refresh and not self.scrolling then
-			for i = 1, #self.entries do
-				ReleaseTable(self.entries[i])
-			end
-			twipe(self.entries)
-
-			for i = 1, #sorted_recipes do
-				local recipe_index = sorted_recipes[i]
-				local recipe_entry = recipe_list[recipe_index]
-
-				if recipe_entry["Display"] and recipe_entry["Search"] then
-					local recipe_string = recipe_entry["Name"]
-
-					if exclusions[recipe_index] then
-						recipe_string = "** " .. recipe_string .. " **"
-					end
-					local recipe_level = recipe_entry["Level"]
-
-					recipe_string = skill_sort and ("[" .. recipe_level .. "] - " .. recipe_string) or (recipe_string .. " - [" .. recipe_level .. "]")
-
-					local t = AcquireTable()
-					t.text = ColourSkillLevel(recipe_entry, Player:HasProperRepLevel(recipe_index), recipe_string)
-
-					t.recipe_id = recipe_index
-					t.is_header = true
-
-					if expand_acquires and recipe_entry["Acquire"] then
-						-- we have acquire information for this. push the title entry into the strings
-						-- and start processing the acquires
-						t.is_expanded = true
-						tinsert(self.entries, insert_index, t)
-						insert_index = self:ExpandEntry(insert_index)
-					else
-						t.is_expanded = false
-						tinsert(self.entries, insert_index, t)
-						insert_index = insert_index + 1
-					end
-				end
-			end
-		end
-
-		-- Reset the current buttons/lines
-		for i = 1, NUM_RECIPE_LINES do
-			local recipe = self.recipe_buttons[i]
-			local state = self.state_buttons[i]
-
-			recipe.string_index = 0
-			recipe:SetText("")
-			recipe:SetScript("OnEnter", nil)
-			recipe:SetScript("OnLeave", nil)
-
-			state.string_index = 0
-			state:Hide()
-			state:SetScript("OnEnter", nil)
-			state:SetScript("OnLeave", nil)
-		end
-		local num_entries = #self.entries
-		local display_lines = NUM_RECIPE_LINES
-
-		if num_entries < display_lines then
-			display_lines = num_entries / 2
-		end
-		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
-		addon:ClosePopups()
-
-		if num_entries > 0 then
-			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-			ARL_ExpandButton:Enable()
-
-			-- Populate the buttons with new values
-			local button_index = 1
-			local string_index = button_index + FauxScrollFrame_GetOffset(self)
-			local stayInLoop = true
-
-			while stayInLoop do
-				local cur_state = self.state_buttons[button_index]
-				local cur_entry = self.entries[string_index]
-
-				if cur_entry.is_header then
-					cur_state:Show()
-
-					if cur_entry.is_expanded then
-						cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-						cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
-					else
-						cur_state:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-						cur_state:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-					end
-					cur_state.string_index = string_index
-					cur_state:SetScript("OnEnter", Button_OnEnter)
-					cur_state:SetScript("OnLeave", Button_OnLeave)
-				else
-					cur_state:Hide()
-				end
-				local cur_recipe = self.recipe_buttons[button_index]
-
-				cur_recipe.string_index = string_index
-				cur_recipe:SetText(cur_entry.text)
-				cur_recipe:SetScript("OnEnter", Bar_OnEnter)
-				cur_recipe:SetScript("OnLeave", Bar_OnLeave)
-
-				button_index = button_index + 1
-				string_index = string_index + 1
-
-				if (button_index > NUM_RECIPE_LINES) or (string_index > num_entries) then
-					stayInLoop = false
-				end
-			end
-		else
-			-- disable expand button, it's useless here and would spam the same error again
-			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
-			ARL_ExpandButton:Disable()
-
-			local showpopup = false
-
-			if not addon.db.profile.hidepopup then
-				showpopup = true
-			end
-
-			-- If we haven't run this before we'll show pop-ups for the first time.
-			if addon.db.profile.addonversion ~= addon.version then
-				addon.db.profile.addonversion = addon.version
-				showpopup = true
-			end
-
-			if Player.recipes_total == 0 then
-				if showpopup then
-					StaticPopup_Show("ARL_NOTSCANNED")
-				end
-			elseif Player.recipes_known == Player.recipes_total then
-				if showpopup then
-					StaticPopup_Show("ARL_ALLKNOWN")
-				end
-			elseif (Player.recipes_total_filtered - Player.recipes_known_filtered) == 0 then
-				if showpopup then
-					StaticPopup_Show("ARL_ALLFILTERED")
-				end
-			elseif Player.excluded_recipes_unknown ~= 0 then
-				if showpopup then
-					StaticPopup_Show("ARL_ALLEXCLUDED")
-				end
-			elseif ARL_SearchText:GetText() ~= "" then
-				StaticPopup_Show("ARL_SEARCHFILTERED")
-			else
-				addon:Print(L["NO_DISPLAY"])
-				addon:Print("DEBUG: recipes_total check for 0")
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-				addon:Print("DEBUG: recipes_known: " .. Player.recipes_known)
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Print("DEBUG: recipes_total_filtered: " .. Player.recipes_total_filtered)
-				addon:Print("DEBUG: recipes_known_filtered: " .. Player.recipes_known_filtered)
-				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
-			end
-		end
-	end
-	local faction_strings
-
-	local function CheckDisplayFaction(faction)
-		if addon.db.profile.filters.general.faction then
-			return true
-		end
-		return (not faction or faction == BFAC[Player["Faction"]] or faction == FACTION_NEUTRAL)
-	end
-
-	function ScrollFrame:ExpandEntry(entry_index)
-		local obtain_filters = addon.db.profile.filters.obtain
-		local recipe_id = self.entries[entry_index].recipe_id
-		local pad = "  "
-
-		-- entry_index is the position in self.entries that we want
-		-- to expand. Since we are expanding the current entry, the return
-		-- value should be the index of the next button after the expansion
-		-- occurs
-		entry_index = entry_index + 1
-
-		for k, v in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
-			-- Initialize the first line here, since every type below will have one.
-			local acquire_type = v["Type"]
-			local t = AcquireTable()
-			t.recipe_id = recipe_id
-			t.is_expanded = true
-
-			if acquire_type == A_TRAINER and obtain_filters.trainer then
-				local trainer = addon.trainer_list[v["ID"]]
-
-				if CheckDisplayFaction(trainer["Faction"]) then
-					local nStr = ""
-
-					if trainer["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(trainer["Name"])
-					elseif (trainer["Faction"] == FACTION_ALLIANCE) then
-						nStr = addon:Alliance(trainer["Name"])
-					else
-						nStr = addon:Neutral(trainer["Name"])
-					end
-					t.text = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					local cStr = ""
-
-					if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
-						cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
-					end
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-					t.text = pad .. pad .. trainer["Location"] .. " " .. cStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
-				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
-				-- This allows us to select PVP only and to see just the PVP recipes
-			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				local vendor = addon.vendor_list[v["ID"]]
-
-				if CheckDisplayFaction(vendor["Faction"]) then
-					local nStr = ""
-
-					if (vendor["Faction"] == FACTION_HORDE) then
-						nStr = addon:Horde(vendor["Name"])
-					elseif (vendor["Faction"] == FACTION_ALLIANCE) then
-						nStr = addon:Alliance(vendor["Name"])
-					else
-						nStr = addon:Neutral(vendor["Name"])
-					end
-					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					local cStr = ""
-
-					if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
-						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
-					end
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-				-- Mobs can be in instances, raids, or specific mob related drops.
-			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				local mob = addon.mob_list[v["ID"]]
-				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
-
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-
-				local cStr = ""
-
-				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.recipe_id = recipe_id
-				t.is_expanded = true
-				t.text = pad .. pad .. mob["Location"] .. " " .. cStr
-
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-			elseif acquire_type == A_QUEST and obtain_filters.quest then
-				local quest = addon.quest_list[v["ID"]]
-
-				if CheckDisplayFaction(quest["Faction"]) then
-					local nStr = ""
-
-					if (quest["Faction"] == FACTION_HORDE) then
-						nStr = addon:Horde(quest["Name"])
-					elseif (quest["Faction"] == FACTION_ALLIANCE) then
-						nStr = addon:Alliance(quest["Name"])
-					else
-						nStr = addon:Neutral(quest["Name"])
-					end
-					t.text = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					local cStr = ""
-
-					if (quest["Coordx"] ~= 0) and (quest["Coordy"] ~= 0) then
-						cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
-					end
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-					t.text = pad .. pad .. quest["Location"] .. " " .. cStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
-				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
-				-- Reputation Obtain
-				-- Rep: ID, Faction
-				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				-- RepVendor - VendorID
-				local rep_vendor = addon.vendor_list[v["RepVendor"]]
-
-				if CheckDisplayFaction(rep_vendor["Faction"]) then
-					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[v["ID"]]["Name"]
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					if not faction_strings then
-						faction_strings = {
-							[0] = addon:Neutral(FACTION_NEUTRAL .. " : "),
-							[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
-							[2] = addon:Honored(BFAC["Honored"] .. " : "),
-							[3] = addon:Revered(BFAC["Revered"] .. " : "),
-							[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
-						}
-					end
-					local nStr = ""
-
-					if rep_vendor["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(rep_vendor["Name"])
-					elseif rep_vendor["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(rep_vendor["Name"])
-					else
-						nStr = addon:Neutral(rep_vendor["Name"])
-					end
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-
-					t.text = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					local cStr = ""
-
-					if rep_vendor["Coordx"] ~= 0 and rep_vendor["Coordy"] ~= 0 then
-						cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
-					end
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-					t.text = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-			elseif acquire_type == A_WORLD_DROP and obtain_filters.worlddrop then
-				t.text = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-			elseif acquire_type == A_CUSTOM then
-				t.text = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-			elseif acquire_type == A_PVP and obtain_filters.pvp then
-				local vendor = addon.vendor_list[v["ID"]]
-
-				if CheckDisplayFaction(vendor["Faction"]) then
-					local cStr = ""
-
-					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-						cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
-					end
-					local nStr = ""
-
-					if vendor["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(vendor["Name"])
-					elseif vendor["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(vendor["Name"])
-					else
-						nStr = addon:Neutral(vendor["Name"])
-					end
-					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-
-					t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-					t.text = pad .. pad .. vendor["Location"] .. " " .. cStr
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-				--@alpha@
-			elseif acquire_type > A_MAX then
-				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
-				--@end-alpha@
-			end
-		end
-		return entry_index
-	end
-end	-- do
-
--------------------------------------------------------------------------------
 --- Creates a new frame with the contents of a text dump so you can copy and paste
 -- Code borrowed from Antiarc (Chatter) with permission
 -- @name AckisRecipeList:DisplayTextDump
@@ -4419,8 +4418,15 @@ do
 	copy_frame:SetBackdrop({
 				       bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
 				       edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-				       tile = true, tileSize = 16, edgeSize = 16,
-				       insets = { left = 3, right = 3, top = 5, bottom = 3 }
+				       tile = true,
+				       tileSize = 16,
+				       edgeSize = 16,
+				       insets = {
+					       left = 3,
+					       right = 3,
+					       top = 5,
+					       bottom = 3
+				       }
 			       })
 	copy_frame:SetBackdropColor(0, 0, 0, 1)
 	copy_frame:SetWidth(750)
