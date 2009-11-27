@@ -171,6 +171,143 @@ do
 end	-- do block
 
 -------------------------------------------------------------------------------
+-- Sets show and hide scripts as well as text for a tooltip for the given frame.
+-------------------------------------------------------------------------------
+local SetTooltipScripts
+do
+	local function Show_Tooltip(frame, motion)
+		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
+		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+		GameTooltip:Show()
+	end
+
+	local function Hide_Tooltip()
+		GameTooltip:Hide()
+	end
+
+	function SetTooltipScripts(frame, textLabel)
+		frame.tooltip_text = textLabel
+
+		frame:SetScript("OnEnter", Show_Tooltip)
+		frame:SetScript("OnLeave", Hide_Tooltip)
+	end
+end	-- do
+
+-------------------------------------------------------------------------------
+-- Generic function for creating buttons.
+-------------------------------------------------------------------------------
+local GenericCreateButton
+do
+	-- I hate stretchy buttons. Thanks very much to ckknight for this code
+	-- (found in RockConfig)
+
+	-- when pressed, the button should look pressed
+	local function button_OnMouseDown(this)
+		if this:IsEnabled() == 1 then
+			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+		end
+	end
+
+	-- when depressed, return to normal
+	local function button_OnMouseUp(this)
+		if this:IsEnabled() == 1 then
+			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		end
+	end
+
+	local function button_Disable(this)
+		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		this:__Disable()
+		this:EnableMouse(false)
+	end
+
+	local function button_Enable(this)
+		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		this:__Enable()
+		this:EnableMouse(true)
+	end
+
+	function GenericCreateButton(bName, parentFrame, bHeight, bWidth, bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
+		local button = CreateFrame("Button", bName, parentFrame)
+
+		button:SetWidth(bWidth)
+		button:SetHeight(bHeight)
+
+		if noTextures == 1 then
+			local left = button:CreateTexture(nil, "BACKGROUND")
+			button.left = left
+			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+
+			local middle = button:CreateTexture(nil, "BACKGROUND")
+			button.middle = middle
+			middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+
+			local right = button:CreateTexture(nil, "BACKGROUND")
+			button.right = right
+			right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+
+			left:SetPoint("TOPLEFT")
+			left:SetPoint("BOTTOMLEFT")
+			left:SetWidth(12)
+			left:SetTexCoord(0, 0.09375, 0, 0.6875)
+
+			right:SetPoint("TOPRIGHT")
+			right:SetPoint("BOTTOMRIGHT")
+			right:SetWidth(12)
+			right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
+
+			middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
+			middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
+			middle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
+
+			button:SetScript("OnMouseDown", button_OnMouseDown)
+			button:SetScript("OnMouseUp", button_OnMouseUp)
+
+			button.__Enable = button.Enable
+			button.__Disable = button.Disable
+			button.Enable = button_Enable
+			button.Disable = button_Disable
+
+			local highlight = button:CreateTexture(nil, "OVERLAY", "UIPanelButtonHighlightTexture")
+			button:SetHighlightTexture(highlight)
+		elseif noTextures == 2 then
+			button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+			button:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+		elseif noTextures == 3 then
+			button:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+			button:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+		end
+
+		local text = button:CreateFontString(nil, "ARTWORK")
+		button:SetFontString(text)
+		button.text = text
+		text:SetPoint("LEFT", button, "LEFT", 7, 0)
+		text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
+		text:SetJustifyH(tAlign)
+
+		text:SetFontObject(bNormFont)
+		text:SetText(initText)
+
+		if tooltipText and tooltipText ~= "" then
+			SetTooltipScripts(button, tooltipText)
+		end
+		return button
+	end
+end	-- do
+
+-------------------------------------------------------------------------------
 -- Create arlSpellTooltip
 -------------------------------------------------------------------------------
 local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
@@ -178,7 +315,7 @@ local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, 
 -------------------------------------------------------------------------------
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
-local MainPanel	= CreateFrame("Frame", "ARL_MainPanel", UIParent)
+local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
 MainPanel:SetWidth(293)
 MainPanel:SetHeight(447)
 MainPanel:SetFrameStrata("DIALOG")
@@ -477,6 +614,52 @@ MainPanel.close_button:SetScript("OnClick",
 				 function(self, button, down)
 					 MainPanel:Hide()
 				 end)
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_toggle, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
+
+MainPanel.filter_toggle:SetScript("OnClick",
+			   function(self, button, down)
+				   if MainPanel.is_expanded then
+					   -- Change the text and tooltip for the filter button
+					   MainPanel.filter_toggle:SetText(L["FILTER_OPEN"])
+					   SetTooltipScripts(MainPanel.filter_toggle, L["FILTER_OPEN_DESC"])
+
+					   -- Hide my 7 buttons
+					   ARL_ExpGeneralOptCB:Hide()
+					   ARL_ExpObtainOptCB:Hide()
+					   ARL_ExpBindingOptCB:Hide()
+					   ARL_ExpItemOptCB:Hide()
+					   ARL_ExpPlayerOptCB:Hide()
+					   ARL_ExpRepOptCB:Hide()
+					   ARL_ExpMiscOptCB:Hide()
+
+					   -- Uncheck the seven buttons
+					   HideARL_ExpOptCB()
+
+					   MainPanel.filter_menu:Hide()
+					   ARL_ResetButton:Hide()
+				   else
+					   -- Change the text and tooltip for the filter button
+					   MainPanel.filter_toggle:SetText(L["FILTER_CLOSE"])
+					   SetTooltipScripts(MainPanel.filter_toggle, L["FILTER_CLOSE_DESC"])
+
+					   -- Show my 7 buttons
+					   ARL_ExpGeneralOptCB:Show()
+					   ARL_ExpObtainOptCB:Show()
+					   ARL_ExpBindingOptCB:Show()
+					   ARL_ExpItemOptCB:Show()
+					   ARL_ExpPlayerOptCB:Show()
+					   ARL_ExpRepOptCB:Show()
+					   ARL_ExpMiscOptCB:Show()
+
+					   ARL_ResetButton:Show()
+				   end
+				   MainPanel:ToggleState()
+			   end)
 
 -------------------------------------------------------------------------------
 -- Close all possible pop-up windows
@@ -1529,29 +1712,6 @@ end	-- do
 
 
 -------------------------------------------------------------------------------
--- Sets show and hide scripts as well as text for a tooltip for the given frame.
--------------------------------------------------------------------------------
-local SetTooltipScripts
-do
-	local function Show_Tooltip(frame, motion)
-		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
-		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
-		GameTooltip:Show()
-	end
-
-	local function Hide_Tooltip()
-		GameTooltip:Hide()
-	end
-
-	function SetTooltipScripts(frame, textLabel)
-		frame.tooltip_text = textLabel
-
-		frame:SetScript("OnEnter", Show_Tooltip)
-		frame:SetScript("OnLeave", Hide_Tooltip)
-	end
-end	-- do
-
--------------------------------------------------------------------------------
 -- Under various conditions, the recipe list will have to be re-displayed.
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
@@ -1680,7 +1840,7 @@ do
 end	-- do
 
 -- Generic function for creating the expanded panel buttons
-local CreateExpandedPanelCheckButton
+local CreateFilterMenuButton
 do
 	local ExpButtonTT = {
 		L["FILTERING_GENERAL_DESC"],	-- 1
@@ -1868,7 +2028,7 @@ do
 		end
 	end
 
-	function CreateExpandedPanelCheckButton(bName, bTex, panelIndex)
+	function CreateFilterMenuButton(bName, bTex, panelIndex)
 		local ExpTextureSize = 34
 		local cButton
 
@@ -2187,126 +2347,6 @@ function GenerateClickableTT(anchor)
 end
 
 -------------------------------------------------------------------------------
--- Generic function for creating buttons.
--------------------------------------------------------------------------------
-local GenericCreateButton
-do
-	-- I hate stretchy buttons. Thanks very much to ckknight for this code
-	-- (found in RockConfig)
-
-	-- when pressed, the button should look pressed
-	local function button_OnMouseDown(this)
-		if this:IsEnabled() == 1 then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-		end
-	end
-
-	-- when depressed, return to normal
-	local function button_OnMouseUp(this)
-		if this:IsEnabled() == 1 then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		end
-	end
-
-	local function button_Disable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this:__Disable()
-		this:EnableMouse(false)
-	end
-
-	local function button_Enable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this:__Enable()
-		this:EnableMouse(true)
-	end
-
-	function GenericCreateButton(bName, parentFrame, bHeight, bWidth,
-				     anchorFrom, anchorFrame, anchorTo, xOffset, yOffset,
-				     bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
-		local button = CreateFrame("Button", bName, parentFrame)
-
-		button:SetWidth(bWidth)
-		button:SetHeight(bHeight)
-
-		if (noTextures == 1) then
-			local left = button:CreateTexture(bName .. "_LeftTexture", "BACKGROUND")
-			button.left = left
-			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			local middle = button:CreateTexture(bName .. "_MiddleTexture", "BACKGROUND")
-			button.middle = middle
-			middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			local right = button:CreateTexture(bName .. "_RightTexture", "BACKGROUND")
-			button.right = right
-			right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			left:SetPoint("TOPLEFT")
-			left:SetPoint("BOTTOMLEFT")
-			left:SetWidth(12)
-			left:SetTexCoord(0, 0.09375, 0, 0.6875)
-
-			right:SetPoint("TOPRIGHT")
-			right:SetPoint("BOTTOMRIGHT")
-			right:SetWidth(12)
-			right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
-
-			middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
-			middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
-			middle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
-
-			button:SetScript("OnMouseDown", button_OnMouseDown)
-			button:SetScript("OnMouseUp", button_OnMouseUp)
-
-			button.__Enable = button.Enable
-			button.__Disable = button.Disable
-			button.Enable = button_Enable
-			button.Disable = button_Disable
-
-			local highlight = button:CreateTexture(button:GetName() .. "_Highlight", "OVERLAY", "UIPanelButtonHighlightTexture")
-			button:SetHighlightTexture(highlight)
-		elseif (noTextures == 2) then
-			button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-			button:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-		elseif (noTextures == 3) then
-			button:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			button:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Hilight")
-			button:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disable")
-		end
-		local text = button:CreateFontString(button:GetName() .. "_FontString", "ARTWORK")
-		button:SetFontString(text)
-		button.text = text
-		text:SetPoint("LEFT", button, "LEFT", 7, 0)
-		text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
-		text:SetJustifyH(tAlign)
-
-		text:SetFontObject(bNormFont)
-		--	text:SetHighlightFontObject(bHighFont)
-		--	text:SetDisabledFontObject(GameFontDisableSmall)
-
-		text:SetText(initText)
-
-		button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
-
-		if tooltipText ~= "" then
-			SetTooltipScripts(button, tooltipText)
-		end
-		return button
-	end
-end	-- do
-
--------------------------------------------------------------------------------
 -- Creates the initial frame to display recipes into.
 -------------------------------------------------------------------------------
 local function recursiveReset(t)
@@ -2336,52 +2376,6 @@ function addon:InitializeFrame()
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
 	-------------------------------------------------------------------------------
-	-- Create the filter button, position it, and set its scripts.
-	-------------------------------------------------------------------------------
-	local ARL_FilterButton = GenericCreateButton("ARL_FilterButton", MainPanel,
-						     25, 90, "TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
-						     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-	ARL_FilterButton:SetScript("OnClick",
-				   function(self, button, down)
-					   if MainPanel.is_expanded then
-						   -- Change the text and tooltip for the filter button
-						   ARL_FilterButton:SetText(L["FILTER_OPEN"])
-						   SetTooltipScripts(ARL_FilterButton, L["FILTER_OPEN_DESC"])
-
-						   -- Hide my 7 buttons
-						   ARL_ExpGeneralOptCB:Hide()
-						   ARL_ExpObtainOptCB:Hide()
-						   ARL_ExpBindingOptCB:Hide()
-						   ARL_ExpItemOptCB:Hide()
-						   ARL_ExpPlayerOptCB:Hide()
-						   ARL_ExpRepOptCB:Hide()
-						   ARL_ExpMiscOptCB:Hide()
-
-						   -- Uncheck the seven buttons
-						   HideARL_ExpOptCB()
-
-						   MainPanel.filter_menu:Hide()
-						   ARL_ResetButton:Hide()
-					   else
-						   -- Change the text and tooltip for the filter button
-						   ARL_FilterButton:SetText(L["FILTER_CLOSE"])
-						   SetTooltipScripts(ARL_FilterButton, L["FILTER_CLOSE_DESC"])
-
-						   -- Show my 7 buttons
-						   ARL_ExpGeneralOptCB:Show()
-						   ARL_ExpObtainOptCB:Show()
-						   ARL_ExpBindingOptCB:Show()
-						   ARL_ExpItemOptCB:Show()
-						   ARL_ExpPlayerOptCB:Show()
-						   ARL_ExpRepOptCB:Show()
-						   ARL_ExpMiscOptCB:Show()
-
-						   ARL_ResetButton:Show()
-					   end
-					   MainPanel:ToggleState()
-				   end)
-
-	-------------------------------------------------------------------------------
 	-- Create the sort-type DropDown.
 	-------------------------------------------------------------------------------
 	local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
@@ -2393,9 +2387,10 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the expand button and set its scripts.
 	-------------------------------------------------------------------------------
-	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel,
-						     21, 40, "TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
-						     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
+	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
+						     L["EXPANDALL_DESC"], 1)
+	ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
+
 	ARL_ExpandButton:SetScript("OnClick",
 				   function(self, mouse_button, down)
 					   local expand_acquires = (self:GetText() == L["EXPANDALL"])
@@ -2450,9 +2445,10 @@ function addon:InitializeFrame()
 		end
 	end	-- do
 
-	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel,
-						     25, 74, "TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
-						     "GameFontHighlightSmall", _G.SEARCH, "CENTER", L["SEARCH_DESC"], 1)
+	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
+						     L["SEARCH_DESC"], 1)
+	ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
+
 	ARL_SearchButton:Disable()
 	ARL_SearchButton:SetScript("OnClick",
 				   function(this)
@@ -2473,9 +2469,9 @@ function addon:InitializeFrame()
 					   end
 				   end)
 
-	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel,
-						    28, 28, "RIGHT", ARL_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall",
-						    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+	ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
+
 	ARL_ClearButton:SetScript("OnClick",
 				  function()
 					  local recipe_list = addon.recipe_list
@@ -2552,9 +2548,10 @@ function addon:InitializeFrame()
 	ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
 	ARL_SearchText:Show()
 
-	local ARL_CloseButton = GenericCreateButton("ARL_CloseButton", MainPanel,
-						    22, 69, "BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
-						    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+	local ARL_CloseButton = GenericCreateButton("ARL_CloseButton", MainPanel, 22, 69, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER",
+						    L["CLOSE_DESC"], 1)
+	ARL_CloseButton:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3)
+
 	ARL_CloseButton:SetScript("OnClick",
 				  function(self)
 					  MainPanel:Hide()
@@ -2679,17 +2676,18 @@ function addon:InitializeFrame()
 		end
 
 		for i = 1, NUM_RECIPE_LINES do
-			local temp_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame,
-							       16, 16, "TOPLEFT", MainPanel, "TOPLEFT", 20, -100, "GameFontNormalSmall",
-							       "GameFontHighlightSmall", "", "LEFT", "", 2)
+			local temp_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
+							       "", "LEFT", "", 2)
 
-			local temp_recipe = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame,
-								16, 224, "TOPLEFT", MainPanel, "TOPLEFT", 37, -100, "GameFontNormalSmall",
-								"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+			local temp_recipe = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
+								"Blort", "LEFT", "", 0)
 
 			if i ~= 1 then
 				temp_state:SetPoint("TOPLEFT", MainPanel.scroll_frame.state_buttons[i - 1], "BOTTOMLEFT", 0, 3)
 				temp_recipe:SetPoint("TOPLEFT", MainPanel.scroll_frame.recipe_buttons[i - 1], "BOTTOMLEFT", 0, 3)
+			else
+				temp_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+				temp_recipe:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 37, -100)
 			end
 			temp_state:SetScript("OnClick", RecipeItem_OnClick)
 			temp_recipe:SetScript("OnClick", RecipeItem_OnClick)
@@ -2702,9 +2700,10 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Stuff that appears on the main frame only when expanded
 	-------------------------------------------------------------------------------
-	local ARL_ResetButton = GenericCreateButton("ARL_ResetButton", MainPanel,
-						    25, 90, "TOPRIGHT", ARL_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall",
-						    "GameFontHighlightSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
+	local ARL_ResetButton = GenericCreateButton("ARL_ResetButton", MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
+						    L["RESET_DESC"], 1)
+	ARL_ResetButton:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMRIGHT", 0, -2)
+
 	ARL_ResetButton:SetScript("OnClick",
 				  function()
 					  local filterdb = addon.db.profile.filters
@@ -2735,25 +2734,25 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- EXPANDED : 7 buttons for opening/closing the filter menu
 	-------------------------------------------------------------------------------
-	ARL_ExpGeneralOptCB = CreateExpandedPanelCheckButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-	ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", ARL_FilterButton, "BOTTOMLEFT", -1, -50)
+	ARL_ExpGeneralOptCB = CreateFilterMenuButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
+	ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMLEFT", -1, -50)
 
-	ARL_ExpObtainOptCB = CreateExpandedPanelCheckButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
+	ARL_ExpObtainOptCB = CreateFilterMenuButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
 	ARL_ExpObtainOptCB:SetPoint("TOPLEFT", ARL_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
 
-	ARL_ExpBindingOptCB = CreateExpandedPanelCheckButton("ARL_ExpBindingOptCB", "INV_Belt_20", 3)
+	ARL_ExpBindingOptCB = CreateFilterMenuButton("ARL_ExpBindingOptCB", "INV_Belt_20", 3)
 	ARL_ExpBindingOptCB:SetPoint("TOPLEFT", ARL_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
 
-	ARL_ExpItemOptCB = CreateExpandedPanelCheckButton("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
+	ARL_ExpItemOptCB = CreateFilterMenuButton("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
 	ARL_ExpItemOptCB:SetPoint("TOPLEFT", ARL_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
 
-	ARL_ExpPlayerOptCB = CreateExpandedPanelCheckButton("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
+	ARL_ExpPlayerOptCB = CreateFilterMenuButton("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
 	ARL_ExpPlayerOptCB:SetPoint("TOPLEFT", ARL_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
 
-	ARL_ExpRepOptCB = CreateExpandedPanelCheckButton("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
+	ARL_ExpRepOptCB = CreateFilterMenuButton("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
 	ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
 
-	ARL_ExpMiscOptCB = CreateExpandedPanelCheckButton("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
+	ARL_ExpMiscOptCB = CreateFilterMenuButton("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
 	ARL_ExpMiscOptCB:SetPoint("TOPLEFT", ARL_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
 
 	-------------------------------------------------------------------------------
@@ -2843,10 +2842,10 @@ function addon:InitializeFrame()
 	Generic_MakeCheckButton(ARL_UnknownCB, MainPanel.filter_menu.General, L["UNKNOWN_DESC"], "unknown", 5, 1, 0)
 	ARL_UnknownCBText:SetText(L["Show Unknown"])
 
-	local ARL_ClassButton = GenericCreateButton("ARL_ClassButton", MainPanel.filter_menu.General,
-						    20, 105, "TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6, "GameFontHighlight",
-						    "GameFontHighlightSmall", L["Classes"], "LEFT", L["CLASS_TEXT_DESC"], 0)
-	ARL_ClassButton:SetText(L["Classes"] .. ":")
+	local ARL_ClassButton = GenericCreateButton("ARL_ClassButton", MainPanel.filter_menu.General, 20, 105, "GameFontHighlight", "GameFontHighlightSmall",
+						    L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
+	ARL_ClassButton:SetPoint("TOPLEFT", ARL_UnknownCB, "BOTTOMLEFT", -4, 6)
+
 	ARL_ClassButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_ClassButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_ClassButton:SetScript("OnClick",
@@ -3042,10 +3041,10 @@ function addon:InitializeFrame()
 	--				() Rings	() Trinkets 
 	--				() Shield
 	-------------------------------------------------------------------------------
-	local ARL_ArmorButton = GenericCreateButton("ARL_ArmorButton", MainPanel.filter_menu.Item,
-						    20, 105, "TOPLEFT", MainPanel.filter_menu.Item, "TOPLEFT", -2, -4, "GameFontHighlight",
-						    "GameFontHighlightSmall", _G.ARMOR, "LEFT", L["ARMOR_TEXT_DESC"], 0)
-	ARL_ArmorButton:SetText(_G.ARMOR_COLON)
+	local ARL_ArmorButton = GenericCreateButton("ARL_ArmorButton", MainPanel.filter_menu.Item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR_COLON,
+						    "LEFT", L["ARMOR_TEXT_DESC"], 0)
+	ARL_ArmorButton:SetPoint("TOPLEFT", MainPanel.filter_menu.Item, "TOPLEFT", -2, -4)
+
 	ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_ArmorButton:SetScript("OnClick",
@@ -3124,10 +3123,10 @@ function addon:InitializeFrame()
 	--				() Bow		() Crossbow
 	--				() Staff    () Fist
 	-------------------------------------------------------------------------------
-	local ARL_WeaponButton = GenericCreateButton("ARL_WeaponButton", MainPanel.filter_menu.Item,
-						     20, 105, "TOPLEFT", MainPanel.filter_menu.Item, "TOPLEFT", -2, -122, "GameFontHighlight",
-						     "GameFontHighlightSmall", L["Weapon"], "LEFT", L["WEAPON_TEXT_DESC"], 0)
-	ARL_WeaponButton:SetText(L["Weapon"] .. ":")
+	local ARL_WeaponButton = GenericCreateButton("ARL_WeaponButton", MainPanel.filter_menu.Item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
+						     "LEFT", L["WEAPON_TEXT_DESC"], 0)
+	ARL_WeaponButton:SetPoint("TOPLEFT", MainPanel.filter_menu.Item, "TOPLEFT", -2, -122)
+
 	ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_WeaponButton:SetScript("OnClick",
@@ -3332,21 +3331,21 @@ function addon:InitializeFrame()
 			end
 		end
 
-		ARL_Rep_ClassicCB = CreateExpandedPanelCheckButton("ARL_Rep_ClassicCB", "Glues-WoW-Logo", 1)
+		ARL_Rep_ClassicCB = CreateFilterMenuButton("ARL_Rep_ClassicCB", "Glues-WoW-Logo", 1)
 		ARL_Rep_ClassicCB:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep, "TOPLEFT", 0, -10)
 		ARL_Rep_ClassicCB:SetScript("OnClick",
 					    function()
 						    RepFilterSwitch(1)
 					    end)
 
-		ARL_Rep_BCCB = CreateExpandedPanelCheckButton("ARL_Rep_BCCB", "GLUES-WOW-BCLOGO", 1)
+		ARL_Rep_BCCB = CreateFilterMenuButton("ARL_Rep_BCCB", "GLUES-WOW-BCLOGO", 1)
 		ARL_Rep_BCCB:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep, "TOPLEFT", 0, -60)
 		ARL_Rep_BCCB:SetScript("OnClick",
 				      function()
 					      RepFilterSwitch(2)
 				      end)
 
-		ARL_Rep_LKCB = CreateExpandedPanelCheckButton("ARL_Rep_LKCB", "wotlk_logo", 1)
+		ARL_Rep_LKCB = CreateFilterMenuButton("ARL_Rep_LKCB", "wotlk_logo", 1)
 		ARL_Rep_LKCB:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep, "TOPLEFT", 0, -110)
 		ARL_Rep_LKCB:SetScript("OnClick",
 				      function()
@@ -3365,10 +3364,10 @@ function addon:InitializeFrame()
 	MainPanel.filter_menu.Rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
 	MainPanel.filter_menu.Rep.Classic:Hide()
 
-	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.Classic,
-						     20, 140, "TOPLEFT", MainPanel.filter_menu.Rep.Classic, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_ClassicButton:SetText(_G.REPUTATION .. ":")
+	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.Classic, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+							  _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_ClassicButton:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep.Classic, "TOPLEFT", -2, -4)
+
 	ARL_Rep_ClassicButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_ClassicButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_ClassicButton:SetScript("OnClick",
@@ -3438,10 +3437,10 @@ function addon:InitializeFrame()
 	MainPanel.filter_menu.Rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
 	MainPanel.filter_menu.Rep.BC:Hide()
 
-	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.BC,
-						     20, 140, "TOPLEFT", MainPanel.filter_menu.Rep.BC, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_BCButton:SetText(_G.REPUTATION .. ":")
+	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.BC, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_BCButton:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep.BC, "TOPLEFT", -2, -4)
+
 	ARL_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_BCButton:SetScript("OnClick",
@@ -3583,10 +3582,10 @@ function addon:InitializeFrame()
 	MainPanel.filter_menu.Rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
 	MainPanel.filter_menu.Rep.LK:Hide()
 
-	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.LK,
-						     20, 140, "TOPLEFT", MainPanel.filter_menu.Rep.LK, "TOPLEFT", -2, -4, "GameFontHighlight",
-						     "GameFontHighlightSmall", _G.REPUTATION, "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_LKButton:SetText(_G.REPUTATION .. ":")
+	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.Rep.LK, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+	ARL_Rep_LKButton:SetPoint("TOPLEFT", MainPanel.filter_menu.Rep.LK, "TOPLEFT", -2, -4)
+
 	ARL_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	ARL_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 	ARL_Rep_LKButton:SetScript("OnClick",
