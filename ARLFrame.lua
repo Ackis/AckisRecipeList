@@ -1362,36 +1362,6 @@ MainPanel.filter_toggle:SetScript("OnClick",
 			   end)
 
 -------------------------------------------------------------------------------
--- Create MainPanel.filter_menu and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
-MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
-MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
-MainPanel.filter_menu:EnableMouse(true)
-MainPanel.filter_menu:EnableKeyboard(true)
-MainPanel.filter_menu:SetMovable(false)
-MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
-MainPanel.filter_menu:Hide()
-
--- Set all the current options in the filter menu to make sure they are consistent with the SV options.
-MainPanel.filter_menu:SetScript("OnShow",
-				function()
-					for filter, info in pairs(FilterValueMap) do
-						if info.svroot then
-							info.cb:SetChecked(info.svroot[filter])
-						end
-					end
-					-- Miscellaneous Options
-					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-				end)
-
-MainPanel.filter_menu.texture = MainPanel.filter_menu:CreateTexture(nil, "ARTWORK")
-MainPanel.filter_menu.texture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
-MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-
--------------------------------------------------------------------------------
 -- Create MainPanel.filter_reset and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 25, 90, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
@@ -1437,6 +1407,352 @@ do
 						 end
 					 end)
 end	-- do
+
+-------------------------------------------------------------------------------
+-- Create the seven buttons for opening/closing the filter menus
+-------------------------------------------------------------------------------
+local CreateFilterMenuButton
+do
+	local ExpButtonTT = {
+		L["FILTERING_GENERAL_DESC"],	-- 1
+		L["FILTERING_OBTAIN_DESC"],	-- 2
+		L["FILTERING_BINDING_DESC"],	-- 3
+		L["FILTERING_ITEM_DESC"],	-- 4
+		L["FILTERING_PLAYERTYPE_DESC"],	-- 5
+		L["FILTERING_REP_DESC"],	-- 6
+		L["FILTERING_MISC_DESC"]	-- 7
+	}
+
+	local function ToggleFilterMenu(panel)
+		-- This manages the filter menu panel, as well as checking or unchecking the
+		-- buttons that got us here in the first place
+		--
+		-- our panels are:
+		-- 1	ARL_ExpGeneralOptCB			General Filters
+		-- 2	ARL_ExpObtainOptCB			Obtain Filters
+		-- 3	ARL_ExpBindingOptCB			Binding Filters
+		-- 4	ARL_ExpItemOptCB			Item Filters
+		-- 5	ARL_ExpPlayerOptCB			Role Filters
+		-- 6	ARL_ExpRepOptCB				Reputation Filters
+		-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
+
+		local ChangeFilters = false
+
+		MainPanel.filter_menu.Rep.Classic:Hide()
+		MainPanel.filter_menu.Rep.BC:Hide()
+		MainPanel.filter_menu.Rep.LK:Hide()
+
+		ARL_Rep_ClassicCB:SetChecked(false)
+		ARL_Rep_BCCB:SetChecked(false)
+		ARL_Rep_LKCB:SetChecked(false)
+
+		if panel == 1 then
+			if ARL_ExpGeneralOptCB:GetChecked() then
+				-- uncheck all other buttons
+				HideARL_ExpOptCB("general")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Show()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
+				ChangeFilters = false
+			end
+		elseif panel == 2 then
+			if ARL_ExpObtainOptCB:GetChecked() then
+				HideARL_ExpOptCB("obtain")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Show()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
+				ChangeFilters = false
+			end
+		elseif panel == 3 then
+			if ARL_ExpBindingOptCB:GetChecked() then
+				HideARL_ExpOptCB("binding")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Show()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
+				ChangeFilters = false
+			end
+		elseif panel == 4 then
+			if ARL_ExpItemOptCB:GetChecked() then
+				HideARL_ExpOptCB("item")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Show()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+				ChangeFilters = false
+			end
+		elseif panel == 5 then
+			if ARL_ExpPlayerOptCB:GetChecked() then
+				HideARL_ExpOptCB("player")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Show()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
+				ChangeFilters = false
+			end
+		elseif panel == 6 then
+			if ARL_ExpRepOptCB:GetChecked() then
+				HideARL_ExpOptCB("rep")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Show()
+				MainPanel.filter_menu.Misc:Hide()
+
+				ChangeFilters = true
+			else
+				ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
+				ChangeFilters = false
+			end
+		elseif panel == 7 then
+			if ARL_ExpMiscOptCB:GetChecked() then
+				HideARL_ExpOptCB("misc")
+
+				-- display the correct subframe with all the buttons and such, hide the others
+				MainPanel.filter_menu.General:Hide()
+				MainPanel.filter_menu.Obtain:Hide()
+				MainPanel.filter_menu.Binding:Hide()
+				MainPanel.filter_menu.Item:Hide()
+				MainPanel.filter_menu.Player:Hide()
+				MainPanel.filter_menu.Rep:Hide()
+				MainPanel.filter_menu.Misc:Show()
+
+				ChangeFilters = true
+			else
+				ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
+				ChangeFilters = false
+			end
+		end
+
+		if ChangeFilters then
+			-- Depending on which panel we're showing, either display one column
+			-- or two column
+			if panel == 1 or panel == 2 or panel == 3 or panel == 4 or panel == 7 then
+				MainPanel.filter_menu.texture:ClearAllPoints()
+				MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
+				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
+				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
+				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
+			elseif ((panel == 5) or (panel == 6)) then
+				MainPanel.filter_menu.texture:ClearAllPoints()
+				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
+				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
+				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
+				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
+			end
+			-- Change the filters to the current panel
+			MainPanel.filter_menu:Show()
+		else
+			-- We're hiding, don't bother changing anything
+			MainPanel.filter_menu:Hide()
+		end
+	end
+
+	function CreateFilterMenuButton(bName, bTex, panelIndex)
+		local ExpTextureSize = 34
+		local cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
+
+		cButton:SetWidth(ExpTextureSize)
+		cButton:SetHeight(ExpTextureSize)
+		cButton:SetScript("OnClick",
+				  function() 
+					  ToggleFilterMenu(panelIndex)
+				  end)
+
+		local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
+		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
+		bgTex:SetHeight(ExpTextureSize + 6)
+		bgTex:SetWidth(ExpTextureSize + 4)
+		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
+		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
+
+		local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
+		iconTex:SetTexture('Interface/Icons/' .. bTex)
+		iconTex:SetAllPoints(cButton)
+
+		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+		pushedTexture:SetAllPoints(cButton)
+		cButton:SetPushedTexture(pushedTexture)
+
+		local highlightTexture = cButton:CreateTexture()
+		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+		highlightTexture:SetAllPoints(cButton)
+		highlightTexture:SetBlendMode('ADD')
+		cButton:SetHighlightTexture(highlightTexture)
+
+		local checkedTexture = cButton:CreateTexture()
+		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+		checkedTexture:SetAllPoints(cButton)
+		checkedTexture:SetBlendMode('ADD')
+		cButton:SetCheckedTexture(checkedTexture)
+
+		-- Create the text object to go along with it
+		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
+		cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
+		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
+		cbText:SetHeight(14)
+		cbText:SetWidth(100)
+		cbText:SetJustifyH("LEFT")
+		cButton.text = cbText
+
+		-- And throw up a tooltip
+		SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
+		cButton:Hide()
+
+		return cButton
+	end
+end	-- do
+
+ARL_ExpGeneralOptCB = CreateFilterMenuButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
+ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -7, -23)
+
+ARL_ExpObtainOptCB = CreateFilterMenuButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
+ARL_ExpObtainOptCB:SetPoint("TOPLEFT", ARL_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
+
+ARL_ExpBindingOptCB = CreateFilterMenuButton("ARL_ExpBindingOptCB", "INV_Belt_20", 3)
+ARL_ExpBindingOptCB:SetPoint("TOPLEFT", ARL_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
+
+ARL_ExpItemOptCB = CreateFilterMenuButton("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
+ARL_ExpItemOptCB:SetPoint("TOPLEFT", ARL_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
+
+ARL_ExpPlayerOptCB = CreateFilterMenuButton("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
+ARL_ExpPlayerOptCB:SetPoint("TOPLEFT", ARL_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
+
+ARL_ExpRepOptCB = CreateFilterMenuButton("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
+ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
+
+ARL_ExpMiscOptCB = CreateFilterMenuButton("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
+ARL_ExpMiscOptCB:SetPoint("TOPLEFT", ARL_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
+MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
+MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
+MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
+MainPanel.filter_menu:EnableMouse(true)
+MainPanel.filter_menu:EnableKeyboard(true)
+MainPanel.filter_menu:SetMovable(false)
+MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
+MainPanel.filter_menu:Hide()
+
+-- Set all the current options in the filter menu to make sure they are consistent with the SV options.
+MainPanel.filter_menu:SetScript("OnShow",
+				function()
+					for filter, info in pairs(FilterValueMap) do
+						if info.svroot then
+							info.cb:SetChecked(info.svroot[filter])
+						end
+					end
+					-- Miscellaneous Options
+					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
+				end)
+
+MainPanel.filter_menu.texture = MainPanel.filter_menu:CreateTexture(nil, "ARTWORK")
+MainPanel.filter_menu.texture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
+MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
+MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
+
+-------------------------------------------------------------------------------
+-- Generic function to create expansion buttons in MainPanel.filter_menu.Rep
+-------------------------------------------------------------------------------
+local function CreateExpansionButton(bName, bTex)
+	local cButton = CreateFrame("CheckButton", bName, MainPanel.filter_menu.Rep)
+	cButton:SetWidth(100)
+	cButton:SetHeight(46)
+	cButton:SetChecked(false)
+	
+	local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
+
+	if bName == "ARL_Rep_LKCB" then
+		iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
+	else
+		iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
+	end
+	iconTex:SetWidth(100)
+	iconTex:SetHeight(46)
+	iconTex:SetAllPoints(cButton)
+
+	local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+	pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+	pushedTexture:SetAllPoints(cButton)
+	cButton:SetPushedTexture(pushedTexture)
+
+	local highlightTexture = cButton:CreateTexture()
+	highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+	highlightTexture:SetAllPoints(cButton)
+	highlightTexture:SetBlendMode('ADD')
+	cButton:SetHighlightTexture(highlightTexture)
+
+	local checkedTexture = cButton:CreateTexture()
+	checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+	checkedTexture:SetAllPoints(cButton)
+	checkedTexture:SetBlendMode('ADD')
+	cButton:SetCheckedTexture(checkedTexture)
+
+	-- And throw up a tooltip
+	if bName == "ARL_Rep_ClassicCB" then
+		SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
+	elseif bName == "ARL_Rep_BCCB" then
+		SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
+	else
+		SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
+	end
+	return cButton
+end
 
 -------------------------------------------------------------------------------
 -- Create MainPanel.scrollframe and set its scripts.
@@ -2413,297 +2729,6 @@ do
 	end
 end	-- do
 
--- Generic function for creating the expanded panel buttons
-local CreateFilterMenuButton
-do
-	local ExpButtonTT = {
-		L["FILTERING_GENERAL_DESC"],	-- 1
-		L["FILTERING_OBTAIN_DESC"],	-- 2
-		L["FILTERING_BINDING_DESC"],	-- 3
-		L["FILTERING_ITEM_DESC"],	-- 4
-		L["FILTERING_PLAYERTYPE_DESC"],	-- 5
-		L["FILTERING_REP_DESC"],	-- 6
-		L["FILTERING_MISC_DESC"]	-- 7
-	}
-
-	local function ToggleFilterMenu(panel)
-		-- This manages the filter menu panel, as well as checking or unchecking the
-		-- buttons that got us here in the first place
-		--
-		-- our panels are:
-		-- 1	ARL_ExpGeneralOptCB			General Filters
-		-- 2	ARL_ExpObtainOptCB			Obtain Filters
-		-- 3	ARL_ExpBindingOptCB			Binding Filters
-		-- 4	ARL_ExpItemOptCB			Item Filters
-		-- 5	ARL_ExpPlayerOptCB			Role Filters
-		-- 6	ARL_ExpRepOptCB				Reputation Filters
-		-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
-
-		local ChangeFilters = false
-
-		MainPanel.filter_menu.Rep.Classic:Hide()
-		MainPanel.filter_menu.Rep.BC:Hide()
-		MainPanel.filter_menu.Rep.LK:Hide()
-
-		ARL_Rep_ClassicCB:SetChecked(false)
-		ARL_Rep_BCCB:SetChecked(false)
-		ARL_Rep_LKCB:SetChecked(false)
-
-		if panel == 1 then
-			if ARL_ExpGeneralOptCB:GetChecked() then
-				-- uncheck all other buttons
-				HideARL_ExpOptCB("general")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Show()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
-				ChangeFilters = false
-			end
-		elseif panel == 2 then
-			if ARL_ExpObtainOptCB:GetChecked() then
-				HideARL_ExpOptCB("obtain")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Show()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
-				ChangeFilters = false
-			end
-		elseif panel == 3 then
-			if ARL_ExpBindingOptCB:GetChecked() then
-				HideARL_ExpOptCB("binding")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Show()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
-				ChangeFilters = false
-			end
-		elseif panel == 4 then
-			if ARL_ExpItemOptCB:GetChecked() then
-				HideARL_ExpOptCB("item")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Show()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
-				ChangeFilters = false
-			end
-		elseif panel == 5 then
-			if ARL_ExpPlayerOptCB:GetChecked() then
-				HideARL_ExpOptCB("player")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Show()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-				ChangeFilters = false
-			end
-		elseif panel == 6 then
-			if ARL_ExpRepOptCB:GetChecked() then
-				HideARL_ExpOptCB("rep")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Show()
-				MainPanel.filter_menu.Misc:Hide()
-
-				ChangeFilters = true
-			else
-				ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
-				ChangeFilters = false
-			end
-		elseif panel == 7 then
-			if ARL_ExpMiscOptCB:GetChecked() then
-				HideARL_ExpOptCB("misc")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.General:Hide()
-				MainPanel.filter_menu.Obtain:Hide()
-				MainPanel.filter_menu.Binding:Hide()
-				MainPanel.filter_menu.Item:Hide()
-				MainPanel.filter_menu.Player:Hide()
-				MainPanel.filter_menu.Rep:Hide()
-				MainPanel.filter_menu.Misc:Show()
-
-				ChangeFilters = true
-			else
-				ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
-				ChangeFilters = false
-			end
-		end
-
-		if ChangeFilters then
-			-- Depending on which panel we're showing, either display one column
-			-- or two column
-			if panel == 1 or panel == 2 or panel == 3 or panel == 4 or panel == 7 then
-				MainPanel.filter_menu.texture:ClearAllPoints()
-				MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
-				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			elseif ((panel == 5) or (panel == 6)) then
-				MainPanel.filter_menu.texture:ClearAllPoints()
-				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
-				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
-				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			end
-			-- Change the filters to the current panel
-			MainPanel.filter_menu:Show()
-		else
-			-- We're hiding, don't bother changing anything
-			MainPanel.filter_menu:Hide()
-		end
-	end
-
-	function CreateExpansionButton(bName, bTex)
-		local cButton = CreateFrame("CheckButton", bName, MainPanel.filter_menu.Rep)
-		cButton:SetWidth(100)
-		cButton:SetHeight(46)
-		cButton:SetChecked(false)
-	
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
-
-		if bName == "ARL_Rep_LKCB" then
-			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
-		else
-			iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
-		end
-		iconTex:SetWidth(100)
-		iconTex:SetHeight(46)
-		iconTex:SetAllPoints(cButton)
-
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
-		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
-		pushedTexture:SetAllPoints(cButton)
-		cButton:SetPushedTexture(pushedTexture)
-
-		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
-		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode('ADD')
-		cButton:SetHighlightTexture(highlightTexture)
-
-		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
-		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode('ADD')
-		cButton:SetCheckedTexture(checkedTexture)
-
-		-- And throw up a tooltip
-		if bName == "ARL_Rep_ClassicCB" then
-			SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
-		elseif bName == "ARL_Rep_BCCB" then
-			SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
-		else
-			SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
-		end
-		return cButton
-	end
-
-	function CreateFilterMenuButton(bName, bTex, panelIndex)
-		local ExpTextureSize = 34
-		local cButton
-
-		cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
-		cButton:SetWidth(ExpTextureSize)
-		cButton:SetHeight(ExpTextureSize)
-		cButton:SetScript("OnClick",
-				  function() 
-					  ToggleFilterMenu(panelIndex)
-				  end)
-
-		local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
-		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
-		bgTex:SetHeight(ExpTextureSize + 6)
-		bgTex:SetWidth(ExpTextureSize + 4)
-		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
-		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
-
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
-		iconTex:SetTexture('Interface/Icons/' .. bTex)
-		iconTex:SetAllPoints(cButton)
-
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
-		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
-		pushedTexture:SetAllPoints(cButton)
-		cButton:SetPushedTexture(pushedTexture)
-
-		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
-		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode('ADD')
-		cButton:SetHighlightTexture(highlightTexture)
-
-		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
-		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode('ADD')
-		cButton:SetCheckedTexture(checkedTexture)
-
-		-- Create the text object to go along with it
-		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
-		cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
-		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
-		cbText:SetHeight(14)
-		cbText:SetWidth(100)
-		cbText:SetJustifyH("LEFT")
-		cButton.text = cbText
-
-		-- And throw up a tooltip
-		SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
-		cButton:Hide()
-
-		return cButton
-	end
-end	-- do
-
 local function SetSortName()
 	local sort_type = addon.db.profile.sorting
 
@@ -3219,30 +3244,6 @@ function addon:InitializeFrame()
 			MainPanel.scroll_frame.recipe_buttons[i] = temp_recipe
 		end
 	end	-- do
-
-	-------------------------------------------------------------------------------
-	-- EXPANDED : 7 buttons for opening/closing the filter menu
-	-------------------------------------------------------------------------------
-	ARL_ExpGeneralOptCB = CreateFilterMenuButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-	ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMLEFT", -7, -50)
-
-	ARL_ExpObtainOptCB = CreateFilterMenuButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
-	ARL_ExpObtainOptCB:SetPoint("TOPLEFT", ARL_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
-
-	ARL_ExpBindingOptCB = CreateFilterMenuButton("ARL_ExpBindingOptCB", "INV_Belt_20", 3)
-	ARL_ExpBindingOptCB:SetPoint("TOPLEFT", ARL_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
-
-	ARL_ExpItemOptCB = CreateFilterMenuButton("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
-	ARL_ExpItemOptCB:SetPoint("TOPLEFT", ARL_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
-
-	ARL_ExpPlayerOptCB = CreateFilterMenuButton("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
-	ARL_ExpPlayerOptCB:SetPoint("TOPLEFT", ARL_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
-
-	ARL_ExpRepOptCB = CreateFilterMenuButton("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
-	ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
-
-	ARL_ExpMiscOptCB = CreateFilterMenuButton("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
-	ARL_ExpMiscOptCB:SetPoint("TOPLEFT", ARL_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
 
 	-------------------------------------------------------------------------------
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)

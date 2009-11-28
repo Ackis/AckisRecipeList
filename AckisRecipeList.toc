@@ -64,8 +64,8 @@ local.xml
 
 AckisRecipeList.lua
 ARLConfig.lua
-ARLFrame.lua
 ARLColour.lua
+ARLFrame.lua
 ARLDatamine.lua
 Player.lua
 
