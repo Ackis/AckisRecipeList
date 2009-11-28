@@ -2035,111 +2035,131 @@ MainPanel.filter_menu.item.shield.text:SetText(L["Shield"])
 -------------------------------------------------------------------------------
 -- Create the Weapon toggle and CheckButtons for MainPanel.filter_menu.item
 -------------------------------------------------------------------------------
-	local ARL_WeaponButton = GenericCreateButton("ARL_WeaponButton", MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
-						     "LEFT", L["WEAPON_TEXT_DESC"], 0)
-	ARL_WeaponButton:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -122)
+MainPanel.filter_menu.item.weapon_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
+							       "LEFT", L["WEAPON_TEXT_DESC"], 0)
+MainPanel.filter_menu.item.weapon_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -122)
 
-	ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_WeaponButton:SetScript("OnClick",
-				   function(self, button)
-					   local weapondb = addon.db.profile.filters.item.weapon
+MainPanel.filter_menu.item.weapon_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+MainPanel.filter_menu.item.weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+MainPanel.filter_menu.item.weapon_toggle:SetScript("OnClick",
+						   function(self, button)
+							   local weapons = addon.db.profile.filters.item.weapon
+							   local items = MainPanel.filter_menu.item
+							   local toggle = (button == "LeftButton") and true or false
 
-					   if button == "LeftButton" then
-						   -- Reset all weapon to true
-						   for weapon in pairs(weapondb) do
-							   weapondb[weapon] = true
-						   end
-					   elseif button == "RightButton" then
-						   -- Reset all weapon to false
-						   for weapon in pairs(weapondb) do
-							   weapondb[weapon] = false
-						   end
-					   end
-					   -- Update the checkboxes with the new value
-					   ARL_Weapon1HCB:SetChecked(weapondb.onehand)
-					   ARL_Weapon2HCB:SetChecked(weapondb.twohand)
-					   ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
-					   ARL_WeaponAxeCB:SetChecked(weapondb.axe)
-					   ARL_WeaponMaceCB:SetChecked(weapondb.mace)
-					   ARL_WeaponSwordCB:SetChecked(weapondb.sword)
-					   ARL_WeaponPolearmCB:SetChecked(weapondb.polearm)
-					   ARL_WeaponWandCB:SetChecked(weapondb.wand)
-					   ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
-					   ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
-					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
-					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
-					   -- Reset our title
-					   MainPanel:UpdateTitle()
-					   -- Use new filters
-					   ReDisplay()
-				   end)
+							   for weapon in pairs(weapons) do
+								   weapons[weapon] = true
 
-	local ARL_Weapon1HCB = CreateFrame("CheckButton", "ARL_Weapon1HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_Weapon1HCB, MainPanel.filter_menu.item, L["ONEHAND_DESC"], "onehand", 9, 1, 0)
-	ARL_Weapon1HCBText:SetText(L["One Hand"])
+								   if FilterValueMap[weapon].svroot then
+									   items[weapon]:SetChecked(toggle)
+								   end
+							   end
+							   MainPanel:UpdateTitle()
+							   ReDisplay()
+						   end)
 
-	local ARL_Weapon2HCB = CreateFrame("CheckButton", "ARL_Weapon2HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_Weapon2HCB, MainPanel.filter_menu.item, L["TWOHAND_DESC"], "twohand", 9, 2, 0)
-	ARL_Weapon2HCBText:SetText(L["Two Hand"])
+MainPanel.filter_menu.item.onehand = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.onehand, MainPanel.filter_menu.item, L["ONEHAND_DESC"], "onehand", 9, 1, 0)
+MainPanel.filter_menu.item.onehand.text:SetText(L["One Hand"])
 
-	local ARL_WeaponDaggerCB = CreateFrame("CheckButton", "ARL_WeaponDaggerCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponDaggerCB, MainPanel.filter_menu.item, L["DAGGER_DESC"], "dagger", 10, 1, 0)
-	ARL_WeaponDaggerCBText:SetText(L["Dagger"])
+MainPanel.filter_menu.item.twohand = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.twohand, MainPanel.filter_menu.item, L["TWOHAND_DESC"], "twohand", 9, 2, 0)
+MainPanel.filter_menu.item.twohand.text:SetText(L["Two Hand"])
 
-	local ARL_WeaponAxeCB = CreateFrame("CheckButton", "ARL_WeaponAxeCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponAxeCB, MainPanel.filter_menu.item, L["AXE_DESC"], "axe", 10, 2, 0)
-	ARL_WeaponAxeCBText:SetText(L["Axe"])
+MainPanel.filter_menu.item.dagger = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.dagger, MainPanel.filter_menu.item, L["DAGGER_DESC"], "dagger", 10, 1, 0)
+MainPanel.filter_menu.item.dagger.text:SetText(L["Dagger"])
 
-	local ARL_WeaponMaceCB = CreateFrame("CheckButton", "ARL_WeaponMaceCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponMaceCB, MainPanel.filter_menu.item, L["MACE_DESC"], "mace", 11, 1, 0)
-	ARL_WeaponMaceCBText:SetText(L["Mace"])
+MainPanel.filter_menu.item.axe = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.axe, MainPanel.filter_menu.item, L["AXE_DESC"], "axe", 10, 2, 0)
+MainPanel.filter_menu.item.axe.text:SetText(L["Axe"])
 
-	local ARL_WeaponSwordCB = CreateFrame("CheckButton", "ARL_WeaponSwordCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponSwordCB, MainPanel.filter_menu.item, L["SWORD_DESC"], "sword", 11, 2, 0)
-	ARL_WeaponSwordCBText:SetText(L["Sword"])
+MainPanel.filter_menu.item.mace = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.mace, MainPanel.filter_menu.item, L["MACE_DESC"], "mace", 11, 1, 0)
+MainPanel.filter_menu.item.mace.text:SetText(L["Mace"])
 
-	local ARL_WeaponPolearmCB = CreateFrame("CheckButton", "ARL_WeaponPolearmCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponPolearmCB, MainPanel.filter_menu.item, L["POLEARM_DESC"], "polearm", 12, 1, 0)
-	ARL_WeaponPolearmCBText:SetText(L["Polearm"])
+MainPanel.filter_menu.item.sword = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.sword, MainPanel.filter_menu.item, L["SWORD_DESC"], "sword", 11, 2, 0)
+MainPanel.filter_menu.item.sword.text:SetText(L["Sword"])
 
-	local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponFistCB, MainPanel.filter_menu.item, L["FIST_DESC"], "fist", 12, 2, 0)
-	ARL_WeaponFistCBText:SetText(L["Fist"])
+MainPanel.filter_menu.item.polearm = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.polearm, MainPanel.filter_menu.item, L["POLEARM_DESC"], "polearm", 12, 1, 0)
+MainPanel.filter_menu.item.polearm.text:SetText(L["Polearm"])
 
-	local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponStaffCB, MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1, 0)
-	ARL_WeaponStaffCBText:SetText(L["Staff"])
-	ARL_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
-	ARL_WeaponStaffCB:Disable()
+MainPanel.filter_menu.item.fist = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.fist, MainPanel.filter_menu.item, L["FIST_DESC"], "fist", 12, 2, 0)
+MainPanel.filter_menu.item.fist.text:SetText(L["Fist"])
 
-	local ARL_WeaponWandCB = CreateFrame("CheckButton", "ARL_WeaponWandCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponWandCB, MainPanel.filter_menu.item, L["WAND_DESC"], "wand", 13, 2, 0)
-	ARL_WeaponWandCBText:SetText(L["Wand"])
+MainPanel.filter_menu.item.staff = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.staff, MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1, 0)
+MainPanel.filter_menu.item.staff.text:SetText(addon:Grey(L["Staff"]))
+MainPanel.filter_menu.item.staff:Disable()
 
-	local ARL_WeaponThrownCB = CreateFrame("CheckButton", "ARL_WeaponThrownCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponThrownCB, MainPanel.filter_menu.item, L["THROWN_DESC"], "thrown", 14, 1, 0)
-	ARL_WeaponThrownCBText:SetText(L["Thrown"])
+MainPanel.filter_menu.item.wand = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.wand, MainPanel.filter_menu.item, L["WAND_DESC"], "wand", 13, 2, 0)
+MainPanel.filter_menu.item.wand.text:SetText(L["Wand"])
 
-	local ARL_WeaponBowCB = CreateFrame("CheckButton", "ARL_WeaponBowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponBowCB, MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2, 0)
-	ARL_WeaponBowCBText:SetText(L["Bow"])
-	ARL_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
-	ARL_WeaponBowCB:Disable()
+MainPanel.filter_menu.item.thrown = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.thrown, MainPanel.filter_menu.item, L["THROWN_DESC"], "thrown", 14, 1, 0)
+MainPanel.filter_menu.item.thrown.text:SetText(L["Thrown"])
 
-	local ARL_WeaponCrossbowCB = CreateFrame("CheckButton", "ARL_WeaponCrossbowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponCrossbowCB, MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1, 0)
-	ARL_WeaponCrossbowCBText:SetText(L["Crossbow"])
-	ARL_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
-	ARL_WeaponCrossbowCB:Disable()
+MainPanel.filter_menu.item.bow = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.bow, MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2, 0)
+MainPanel.filter_menu.item.bow.text:SetText(addon:Grey(L["Bow"]))
+MainPanel.filter_menu.item.bow:Disable()
 
-	local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponAmmoCB, MainPanel.filter_menu.item, L["AMMO_DESC"], "ammo", 15, 2, 0)
-	ARL_WeaponAmmoCBText:SetText(L["Ammo"])
+MainPanel.filter_menu.item.crossbow = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.crossbow, MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1, 0)
+MainPanel.filter_menu.item.crossbow.text:SetText(addon:Grey(L["Crossbow"]))
+MainPanel.filter_menu.item.crossbow:Disable()
 
-	local ARL_WeaponGunCB = CreateFrame("CheckButton", "ARL_WeaponGunCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponGunCB, MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1, 0)
-	ARL_WeaponGunCBText:SetText(L["Gun"])
+MainPanel.filter_menu.item.ammo = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.ammo, MainPanel.filter_menu.item, L["AMMO_DESC"], "ammo", 15, 2, 0)
+MainPanel.filter_menu.item.ammo.text:SetText(L["Ammo"])
+
+MainPanel.filter_menu.item.gun = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.gun, MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1, 0)
+MainPanel.filter_menu.item.gun.text:SetText(L["Gun"])
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.player, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.player = CreateFrame("Frame", nil, MainPanel.filter_menu)
+MainPanel.filter_menu.player:SetWidth(FILTERMENU_SMALL)
+MainPanel.filter_menu.player:SetHeight(280)
+MainPanel.filter_menu.player:EnableMouse(true)
+MainPanel.filter_menu.player:EnableKeyboard(true)
+MainPanel.filter_menu.player:SetMovable(false)
+MainPanel.filter_menu.player:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
+MainPanel.filter_menu.player:Hide()
+
+MainPanel.filter_menu.player.tank = CreateFrame("CheckButton", nil, MainPanel.filter_menu.player)
+InitializeCheckButton(MainPanel.filter_menu.player.tank, MainPanel.filter_menu.player, L["TANKS_DESC"], "tank", 1, 1, 0)
+MainPanel.filter_menu.player.tank.text:SetText(_G.TANK)
+
+MainPanel.filter_menu.player.melee = CreateFrame("CheckButton", nil, MainPanel.filter_menu.player)
+InitializeCheckButton(MainPanel.filter_menu.player.melee, MainPanel.filter_menu.player, L["MELEE_DPS_DESC"], "melee", 2, 1, 0)
+MainPanel.filter_menu.player.melee.text:SetText(_G.MELEE)
+
+MainPanel.filter_menu.player.healer = CreateFrame("CheckButton", nil, MainPanel.filter_menu.player)
+InitializeCheckButton(MainPanel.filter_menu.player.healer, MainPanel.filter_menu.player, L["HEALERS_DESC"], "healer", 3, 1, 0)
+MainPanel.filter_menu.player.healer.text:SetText(_G.HEALER)
+
+MainPanel.filter_menu.player.caster = CreateFrame("CheckButton", nil, MainPanel.filter_menu.player)
+InitializeCheckButton(MainPanel.filter_menu.player.caster, MainPanel.filter_menu.player, L["CASTER_DPS_DESC"], "caster", 4, 1, 0)
+MainPanel.filter_menu.player.caster.text:SetText(_G.DAMAGER)
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.rep, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.rep = CreateFrame("Frame", "ARL_FilterMenu_Rep", MainPanel.filter_menu)
+MainPanel.filter_menu.rep:SetWidth(FILTERMENU_SMALL)
+MainPanel.filter_menu.rep:SetHeight(280)
+MainPanel.filter_menu.rep:EnableMouse(true)
+MainPanel.filter_menu.rep:EnableKeyboard(true)
+MainPanel.filter_menu.rep:SetMovable(false)
+MainPanel.filter_menu.rep:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
+MainPanel.filter_menu.rep:Hide()
 
 -------------------------------------------------------------------------------
 -- Generic function to create expansion buttons in MainPanel.filter_menu.rep
@@ -3644,40 +3664,6 @@ function addon:InitializeFrame()
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 	-------------------------------------------------------------------------------
 
-	MainPanel.filter_menu.player = CreateFrame("Frame", "ARL_FilterMenu_Player", MainPanel.filter_menu)
-	MainPanel.filter_menu.player:SetWidth(FILTERMENU_SMALL)
-	MainPanel.filter_menu.player:SetHeight(280)
-	MainPanel.filter_menu.player:EnableMouse(true)
-	MainPanel.filter_menu.player:EnableKeyboard(true)
-	MainPanel.filter_menu.player:SetMovable(false)
-	MainPanel.filter_menu.player:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-	MainPanel.filter_menu.player:Hide()
-
-	local ARL_PlayerTankCB = CreateFrame("CheckButton", "ARL_PlayerTankCB", MainPanel.filter_menu.player, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_PlayerTankCB, MainPanel.filter_menu.player, L["TANKS_DESC"], "tank", 1, 1, 0)
-	ARL_PlayerTankCBText:SetText(_G.TANK)
-
-	local ARL_PlayerMeleeCB = CreateFrame("CheckButton", "ARL_PlayerMeleeCB", MainPanel.filter_menu.player, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_PlayerMeleeCB, MainPanel.filter_menu.player, L["MELEE_DPS_DESC"], "melee", 2, 1, 0)
-	ARL_PlayerMeleeCBText:SetText(_G.MELEE)
-
-	local ARL_PlayerHealerCB = CreateFrame("CheckButton", "ARL_PlayerHealerCB", MainPanel.filter_menu.player, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_PlayerHealerCB, MainPanel.filter_menu.player, L["HEALERS_DESC"], "healer", 3, 1, 0)
-	ARL_PlayerHealerCBText:SetText(_G.HEALER)
-
-	local ARL_PlayerCasterCB = CreateFrame("CheckButton", "ARL_PlayerCasterCB", MainPanel.filter_menu.player, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_PlayerCasterCB, MainPanel.filter_menu.player, L["CASTER_DPS_DESC"], "caster", 4, 1, 0)
-	ARL_PlayerCasterCBText:SetText(_G.DAMAGER)
-
-	MainPanel.filter_menu.rep = CreateFrame("Frame", "ARL_FilterMenu_Rep", MainPanel.filter_menu)
-	MainPanel.filter_menu.rep:SetWidth(FILTERMENU_SMALL)
-	MainPanel.filter_menu.rep:SetHeight(280)
-	MainPanel.filter_menu.rep:EnableMouse(true)
-	MainPanel.filter_menu.rep:EnableKeyboard(true)
-	MainPanel.filter_menu.rep:SetMovable(false)
-	MainPanel.filter_menu.rep:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-	MainPanel.filter_menu.rep:Hide()
-
 	do
 		-- Rep Filtering panel switcher
 		local function RepFilterSwitch(whichrep)
@@ -4260,28 +4246,28 @@ function addon:InitializeFrame()
 		------------------------------------------------------------------------------------------------
 		-- Weapon Options
 		------------------------------------------------------------------------------------------------
-		["onehand"]		= { cb = ARL_Weapon1HCB,		svroot = filterdb.item.weapon },
-		["twohand"]		= { cb = ARL_Weapon2HCB,		svroot = filterdb.item.weapon },
-		["dagger"]		= { cb = ARL_WeaponDaggerCB,		svroot = filterdb.item.weapon },
-		["axe"]			= { cb = ARL_WeaponAxeCB,		svroot = filterdb.item.weapon },
-		["mace"]		= { cb = ARL_WeaponMaceCB,		svroot = filterdb.item.weapon },
-		["sword"]		= { cb = ARL_WeaponSwordCB,		svroot = filterdb.item.weapon },
-		["polearm"]		= { cb = ARL_WeaponPolearmCB,		svroot = filterdb.item.weapon },
-		["fist"]		= { cb = ARL_WeaponFistCB,		svroot = filterdb.item.weapon },
-		["staff"]		= { cb = ARL_WeaponStaffCB,		svroot = nil },
-		["wand"]		= { cb = ARL_WeaponWandCB,		svroot = filterdb.item.weapon },
-		["thrown"]		= { cb = ARL_WeaponThrownCB,		svroot = filterdb.item.weapon },
-		["bow"]			= { cb = ARL_WeaponBowCB,		svroot = nil },
-		["crossbow"]		= { cb = ARL_WeaponCrossbowCB,		svroot = nil },
-		["ammo"]		= { cb = ARL_WeaponAmmoCB,		svroot = filterdb.item.weapon },
-		["gun"]			= { cb = ARL_WeaponGunCB,		svroot = filterdb.item.weapon },
+		["onehand"]		= { cb = MainPanel.filter_menu.item.onehand,			svroot = filterdb.item.weapon },
+		["twohand"]		= { cb = MainPanel.filter_menu.item.twohand,			svroot = filterdb.item.weapon },
+		["dagger"]		= { cb = MainPanel.filter_menu.item.dagger,			svroot = filterdb.item.weapon },
+		["axe"]			= { cb = MainPanel.filter_menu.item.axe,			svroot = filterdb.item.weapon },
+		["mace"]		= { cb = MainPanel.filter_menu.item.mace,			svroot = filterdb.item.weapon },
+		["sword"]		= { cb = MainPanel.filter_menu.item.sword,			svroot = filterdb.item.weapon },
+		["polearm"]		= { cb = MainPanel.filter_menu.item.polearm,			svroot = filterdb.item.weapon },
+		["fist"]		= { cb = MainPanel.filter_menu.item.fist,			svroot = filterdb.item.weapon },
+		["staff"]		= { cb = MainPanel.filter_menu.item.staff,			svroot = nil },
+		["wand"]		= { cb = MainPanel.filter_menu.item.wand,			svroot = filterdb.item.weapon },
+		["thrown"]		= { cb = MainPanel.filter_menu.item.thrown,			svroot = filterdb.item.weapon },
+		["bow"]			= { cb = MainPanel.filter_menu.item.bow,			svroot = nil },
+		["crossbow"]		= { cb = MainPanel.filter_menu.item.crossbow,			svroot = nil },
+		["ammo"]		= { cb = MainPanel.filter_menu.item.ammo,			svroot = filterdb.item.weapon },
+		["gun"]			= { cb = MainPanel.filter_menu.item.gun,			svroot = filterdb.item.weapon },
 		------------------------------------------------------------------------------------------------
 		-- Role Options
 		------------------------------------------------------------------------------------------------
-		["tank"]		= { cb = ARL_PlayerTankCB,		svroot = filterdb.player },
-		["melee"]		= { cb = ARL_PlayerMeleeCB,		svroot = filterdb.player },
-		["healer"]		= { cb = ARL_PlayerHealerCB,		svroot = filterdb.player },
-		["caster"]		= { cb = ARL_PlayerCasterCB,		svroot = filterdb.player },
+		["tank"]		= { cb = MainPanel.filter_menu.player.tank,			svroot = filterdb.player },
+		["melee"]		= { cb = MainPanel.filter_menu.player.melee,			svroot = filterdb.player },
+		["healer"]		= { cb = MainPanel.filter_menu.player.healer,			svroot = filterdb.player },
+		["caster"]		= { cb = MainPanel.filter_menu.player.caster,			svroot = filterdb.player },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
