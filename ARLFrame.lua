@@ -642,6 +642,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
 	local recipe_entry = addon.recipe_list[rIndex]
 	local spellLink = recipe_entry["RecipeLink"]
+	local MainPanel = addon.Frame
 
 	if acquireTooltipLocation == _G.OFF then
 		QTip:Release(arlTooltip)
@@ -1806,17 +1807,18 @@ MainPanel.filter_menu.general.class_toggle:RegisterForClicks("LeftButtonUp", "Ri
 MainPanel.filter_menu.general.class_toggle:SetScript("OnClick",
 						     function(self, button)
 							     local classes = addon.db.profile.filters.classes
+							     local general = MainPanel.filter_menu.general
 							     local toggle = (button == "LeftButton") and true or false
 
 							     for class in pairs(classes) do
 								     classes[class] = toggle
-								     MainPanel.filter_menu.general[class]:SetChecked(toggle)
+								     general[class]:SetChecked(toggle)
 							     end
 
 							     if toggle == false then
 								     local class = strlower(Player["Class"])
 								     classes[class] = true
-								     MainPanel.filter_menu.general[class]:SetChecked(true)
+								     general[class]:SetChecked(true)
 							     end
 							     MainPanel:UpdateTitle()
 							     ReDisplay()
@@ -1961,7 +1963,7 @@ InitializeCheckButton(MainPanel.filter_menu.binding.recipebop, MainPanel.filter_
 MainPanel.filter_menu.binding.recipebop.text:SetText(L["RecipeBOPFilter"])
 
 -------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.item
+-- Create MainPanel.filter_menu.item, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.filter_menu.item = CreateFrame("Frame", nil, MainPanel.filter_menu)
 MainPanel.filter_menu.item:SetWidth(FILTERMENU_LARGE)
@@ -1971,6 +1973,173 @@ MainPanel.filter_menu.item:EnableKeyboard(true)
 MainPanel.filter_menu.item:SetMovable(false)
 MainPanel.filter_menu.item:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
 MainPanel.filter_menu.item:Hide()
+
+-------------------------------------------------------------------------------
+-- Create the Armor toggle and CheckButtons for MainPanel.filter_menu.item
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.item.armor_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR_COLON,
+							      "LEFT", L["ARMOR_TEXT_DESC"], 0)
+MainPanel.filter_menu.item.armor_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -4)
+MainPanel.filter_menu.item.armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+MainPanel.filter_menu.item.armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+MainPanel.filter_menu.item.armor_toggle:SetScript("OnClick",
+						  function(self, button)
+							  local armors = addon.db.profile.filters.item.armor
+							  local items = MainPanel.filter_menu.item
+							  local toggle = (button == "LeftButton") and true or false
+
+							  for armor in pairs(armors) do
+								  armors[armor] = toggle
+								  items[armor]:SetChecked(toggle)
+							  end
+							  MainPanel:UpdateTitle()
+							  ReDisplay()
+						  end)
+
+MainPanel.filter_menu.item.cloth = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.cloth, MainPanel.filter_menu.item, L["CLOTH_DESC"], "cloth", 2, 1, 0)
+MainPanel.filter_menu.item.cloth.text:SetText(L["Cloth"])
+
+MainPanel.filter_menu.item.leather = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.leather, MainPanel.filter_menu.item, L["LEATHER_DESC"], "leather", 2, 2, 0)
+MainPanel.filter_menu.item.leather.text:SetText(L["Leather"])
+
+MainPanel.filter_menu.item.mail = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.mail, MainPanel.filter_menu.item, L["MAIL_DESC"], "mail", 3, 1, 0)
+MainPanel.filter_menu.item.mail.text:SetText(L["Mail"])
+
+MainPanel.filter_menu.item.plate = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.plate, MainPanel.filter_menu.item, L["PLATE_DESC"], "plate", 3, 2, 0)
+MainPanel.filter_menu.item.plate.text:SetText(L["Plate"])
+
+MainPanel.filter_menu.item.cloak = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.cloak, MainPanel.filter_menu.item, L["CLOAK_DESC"], "cloak", 4, 1, 0)
+MainPanel.filter_menu.item.cloak.text:SetText(L["Cloak"])
+
+MainPanel.filter_menu.item.necklace = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.necklace, MainPanel.filter_menu.item, L["NECKLACE_DESC"], "necklace", 4, 2, 0)
+MainPanel.filter_menu.item.necklace.text:SetText(L["Necklace"])
+
+MainPanel.filter_menu.item.ring = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.ring, MainPanel.filter_menu.item, L["RING_DESC"], "ring", 5, 1, 0)
+MainPanel.filter_menu.item.ring.text:SetText(L["Ring"])
+
+MainPanel.filter_menu.item.trinket = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.trinket, MainPanel.filter_menu.item, L["TRINKET_DESC"], "trinket", 5, 2, 0)
+MainPanel.filter_menu.item.trinket.text:SetText(L["Trinket"])
+
+MainPanel.filter_menu.item.shield = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
+InitializeCheckButton(MainPanel.filter_menu.item.shield, MainPanel.filter_menu.item, L["SHIELD_DESC"], "shield", 6, 1, 0)
+MainPanel.filter_menu.item.shield.text:SetText(L["Shield"])
+
+-------------------------------------------------------------------------------
+-- Create the Weapon toggle and CheckButtons for MainPanel.filter_menu.item
+-------------------------------------------------------------------------------
+	local ARL_WeaponButton = GenericCreateButton("ARL_WeaponButton", MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
+						     "LEFT", L["WEAPON_TEXT_DESC"], 0)
+	ARL_WeaponButton:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -122)
+
+	ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	ARL_WeaponButton:SetScript("OnClick",
+				   function(self, button)
+					   local weapondb = addon.db.profile.filters.item.weapon
+
+					   if button == "LeftButton" then
+						   -- Reset all weapon to true
+						   for weapon in pairs(weapondb) do
+							   weapondb[weapon] = true
+						   end
+					   elseif button == "RightButton" then
+						   -- Reset all weapon to false
+						   for weapon in pairs(weapondb) do
+							   weapondb[weapon] = false
+						   end
+					   end
+					   -- Update the checkboxes with the new value
+					   ARL_Weapon1HCB:SetChecked(weapondb.onehand)
+					   ARL_Weapon2HCB:SetChecked(weapondb.twohand)
+					   ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
+					   ARL_WeaponAxeCB:SetChecked(weapondb.axe)
+					   ARL_WeaponMaceCB:SetChecked(weapondb.mace)
+					   ARL_WeaponSwordCB:SetChecked(weapondb.sword)
+					   ARL_WeaponPolearmCB:SetChecked(weapondb.polearm)
+					   ARL_WeaponWandCB:SetChecked(weapondb.wand)
+					   ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
+					   ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
+					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
+					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
+					   -- Reset our title
+					   MainPanel:UpdateTitle()
+					   -- Use new filters
+					   ReDisplay()
+				   end)
+
+	local ARL_Weapon1HCB = CreateFrame("CheckButton", "ARL_Weapon1HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_Weapon1HCB, MainPanel.filter_menu.item, L["ONEHAND_DESC"], "onehand", 9, 1, 0)
+	ARL_Weapon1HCBText:SetText(L["One Hand"])
+
+	local ARL_Weapon2HCB = CreateFrame("CheckButton", "ARL_Weapon2HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_Weapon2HCB, MainPanel.filter_menu.item, L["TWOHAND_DESC"], "twohand", 9, 2, 0)
+	ARL_Weapon2HCBText:SetText(L["Two Hand"])
+
+	local ARL_WeaponDaggerCB = CreateFrame("CheckButton", "ARL_WeaponDaggerCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponDaggerCB, MainPanel.filter_menu.item, L["DAGGER_DESC"], "dagger", 10, 1, 0)
+	ARL_WeaponDaggerCBText:SetText(L["Dagger"])
+
+	local ARL_WeaponAxeCB = CreateFrame("CheckButton", "ARL_WeaponAxeCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponAxeCB, MainPanel.filter_menu.item, L["AXE_DESC"], "axe", 10, 2, 0)
+	ARL_WeaponAxeCBText:SetText(L["Axe"])
+
+	local ARL_WeaponMaceCB = CreateFrame("CheckButton", "ARL_WeaponMaceCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponMaceCB, MainPanel.filter_menu.item, L["MACE_DESC"], "mace", 11, 1, 0)
+	ARL_WeaponMaceCBText:SetText(L["Mace"])
+
+	local ARL_WeaponSwordCB = CreateFrame("CheckButton", "ARL_WeaponSwordCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponSwordCB, MainPanel.filter_menu.item, L["SWORD_DESC"], "sword", 11, 2, 0)
+	ARL_WeaponSwordCBText:SetText(L["Sword"])
+
+	local ARL_WeaponPolearmCB = CreateFrame("CheckButton", "ARL_WeaponPolearmCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponPolearmCB, MainPanel.filter_menu.item, L["POLEARM_DESC"], "polearm", 12, 1, 0)
+	ARL_WeaponPolearmCBText:SetText(L["Polearm"])
+
+	local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponFistCB, MainPanel.filter_menu.item, L["FIST_DESC"], "fist", 12, 2, 0)
+	ARL_WeaponFistCBText:SetText(L["Fist"])
+
+	local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponStaffCB, MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1, 0)
+	ARL_WeaponStaffCBText:SetText(L["Staff"])
+	ARL_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
+	ARL_WeaponStaffCB:Disable()
+
+	local ARL_WeaponWandCB = CreateFrame("CheckButton", "ARL_WeaponWandCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponWandCB, MainPanel.filter_menu.item, L["WAND_DESC"], "wand", 13, 2, 0)
+	ARL_WeaponWandCBText:SetText(L["Wand"])
+
+	local ARL_WeaponThrownCB = CreateFrame("CheckButton", "ARL_WeaponThrownCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponThrownCB, MainPanel.filter_menu.item, L["THROWN_DESC"], "thrown", 14, 1, 0)
+	ARL_WeaponThrownCBText:SetText(L["Thrown"])
+
+	local ARL_WeaponBowCB = CreateFrame("CheckButton", "ARL_WeaponBowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponBowCB, MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2, 0)
+	ARL_WeaponBowCBText:SetText(L["Bow"])
+	ARL_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
+	ARL_WeaponBowCB:Disable()
+
+	local ARL_WeaponCrossbowCB = CreateFrame("CheckButton", "ARL_WeaponCrossbowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponCrossbowCB, MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1, 0)
+	ARL_WeaponCrossbowCBText:SetText(L["Crossbow"])
+	ARL_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
+	ARL_WeaponCrossbowCB:Disable()
+
+	local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponAmmoCB, MainPanel.filter_menu.item, L["AMMO_DESC"], "ammo", 15, 2, 0)
+	ARL_WeaponAmmoCBText:SetText(L["Ammo"])
+
+	local ARL_WeaponGunCB = CreateFrame("CheckButton", "ARL_WeaponGunCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
+	InitializeCheckButton(ARL_WeaponGunCB, MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1, 0)
+	ARL_WeaponGunCBText:SetText(L["Gun"])
 
 -------------------------------------------------------------------------------
 -- Generic function to create expansion buttons in MainPanel.filter_menu.rep
@@ -3475,194 +3644,6 @@ function addon:InitializeFrame()
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 	-------------------------------------------------------------------------------
 
-	local ARL_ArmorButton = GenericCreateButton("ARL_ArmorButton", MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR_COLON,
-						    "LEFT", L["ARMOR_TEXT_DESC"], 0)
-	ARL_ArmorButton:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -4)
-
-	ARL_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_ArmorButton:SetScript("OnClick",
-				  function(self, button)
-					  local armordb = addon.db.profile.filters.item.armor
-
-					  if button == "LeftButton" then
-						  -- Reset all armor to true
-						  for armor in pairs(armordb) do
-							  armordb[armor] = true
-						  end
-					  elseif button == "RightButton" then
-						  -- Reset all armor to false
-						  for armor in pairs(armordb) do
-							  armordb[armor] = false
-						  end
-					  end
-					  -- Update the checkboxes with the new value
-					  ARL_ArmorClothCB:SetChecked(armordb.cloth)
-					  ARL_ArmorLeatherCB:SetChecked(armordb.leather)
-					  ARL_ArmorMailCB:SetChecked(armordb.mail)
-					  ARL_ArmorPlateCB:SetChecked(armordb.plate)
-					  ARL_ArmorCloakCB:SetChecked(armordb.cloak)
-					  ARL_ArmorNecklaceCB:SetChecked(armordb.necklace)
-					  ARL_ArmorRingCB:SetChecked(armordb.ring)
-					  ARL_ArmorTrinketCB:SetChecked(armordb.trinket)
-					  ARL_ArmorShieldCB:SetChecked(armordb.shield)
-					  -- Reset our title
-					  MainPanel:UpdateTitle()
-					  -- Use new filters
-					  ReDisplay()
-				  end)
-
-	local ARL_ArmorClothCB = CreateFrame("CheckButton", "ARL_ArmorClothCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorClothCB, MainPanel.filter_menu.item, L["CLOTH_DESC"], "cloth", 2, 1, 0)
-	ARL_ArmorClothCBText:SetText(L["Cloth"])
-
-	local ARL_ArmorLeatherCB = CreateFrame("CheckButton", "ARL_ArmorLeatherCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorLeatherCB, MainPanel.filter_menu.item, L["LEATHER_DESC"], "leather", 2, 2, 0)
-	ARL_ArmorLeatherCBText:SetText(L["Leather"])
-
-	local ARL_ArmorMailCB = CreateFrame("CheckButton", "ARL_ArmorMailCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorMailCB, MainPanel.filter_menu.item, L["MAIL_DESC"], "mail", 3, 1, 0)
-	ARL_ArmorMailCBText:SetText(L["Mail"])
-
-	local ARL_ArmorPlateCB = CreateFrame("CheckButton", "ARL_ArmorPlateCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorPlateCB, MainPanel.filter_menu.item, L["PLATE_DESC"], "plate", 3, 2, 0)
-	ARL_ArmorPlateCBText:SetText(L["Plate"])
-
-	local ARL_ArmorCloakCB = CreateFrame("CheckButton", "ARL_ArmorCloakCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorCloakCB, MainPanel.filter_menu.item, L["CLOAK_DESC"], "cloak", 4, 1, 0)
-	ARL_ArmorCloakCBText:SetText(L["Cloak"])
-
-	local ARL_ArmorNecklaceCB = CreateFrame("CheckButton", "ARL_ArmorNecklaceCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorNecklaceCB, MainPanel.filter_menu.item, L["NECKLACE_DESC"], "necklace", 4, 2, 0)
-	ARL_ArmorNecklaceCBText:SetText(L["Necklace"])
-
-	local ARL_ArmorRingCB = CreateFrame("CheckButton", "ARL_ArmorRingCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorRingCB, MainPanel.filter_menu.item, L["RING_DESC"], "ring", 5, 1, 0)
-	ARL_ArmorRingCBText:SetText(L["Ring"])
-
-	local ARL_ArmorTrinketCB = CreateFrame("CheckButton", "ARL_ArmorTrinketCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorTrinketCB, MainPanel.filter_menu.item, L["TRINKET_DESC"], "trinket", 5, 2, 0)
-	ARL_ArmorTrinketCBText:SetText(L["Trinket"])
-
-	local ARL_ArmorShieldCB = CreateFrame("CheckButton", "ARL_ArmorShieldCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_ArmorShieldCB, MainPanel.filter_menu.item, L["SHIELD_DESC"], "shield", 6, 1, 0)
-	ARL_ArmorShieldCBText:SetText(L["Shield"])
-
-	-------------------------------------------------------------------------------
-	--			Weapon:
-	--				() 1H		() 2H
-	--				() Dagger	() Axe
-	--				() Mace		() Sword
-	--				() Polearm	() Thrown
-	--				() Bow		() Crossbow
-	--				() Staff    () Fist
-	-------------------------------------------------------------------------------
-	local ARL_WeaponButton = GenericCreateButton("ARL_WeaponButton", MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
-						     "LEFT", L["WEAPON_TEXT_DESC"], 0)
-	ARL_WeaponButton:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -122)
-
-	ARL_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_WeaponButton:SetScript("OnClick",
-				   function(self, button)
-					   local weapondb = addon.db.profile.filters.item.weapon
-
-					   if button == "LeftButton" then
-						   -- Reset all weapon to true
-						   for weapon in pairs(weapondb) do
-							   weapondb[weapon] = true
-						   end
-					   elseif button == "RightButton" then
-						   -- Reset all weapon to false
-						   for weapon in pairs(weapondb) do
-							   weapondb[weapon] = false
-						   end
-					   end
-					   -- Update the checkboxes with the new value
-					   ARL_Weapon1HCB:SetChecked(weapondb.onehand)
-					   ARL_Weapon2HCB:SetChecked(weapondb.twohand)
-					   ARL_WeaponDaggerCB:SetChecked(weapondb.dagger)
-					   ARL_WeaponAxeCB:SetChecked(weapondb.axe)
-					   ARL_WeaponMaceCB:SetChecked(weapondb.mace)
-					   ARL_WeaponSwordCB:SetChecked(weapondb.sword)
-					   ARL_WeaponPolearmCB:SetChecked(weapondb.polearm)
-					   ARL_WeaponWandCB:SetChecked(weapondb.wand)
-					   ARL_WeaponThrownCB:SetChecked(weapondb.thrown)
-					   ARL_WeaponAmmoCB:SetChecked(weapondb.ammo)
-					   ARL_WeaponFistCB:SetChecked(weapondb.fist)
-					   ARL_WeaponGunCB:SetChecked(weapondb.gun)
-					   -- Reset our title
-					   MainPanel:UpdateTitle()
-					   -- Use new filters
-					   ReDisplay()
-				   end)
-
-	local ARL_Weapon1HCB = CreateFrame("CheckButton", "ARL_Weapon1HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_Weapon1HCB, MainPanel.filter_menu.item, L["ONEHAND_DESC"], "onehand", 9, 1, 0)
-	ARL_Weapon1HCBText:SetText(L["One Hand"])
-
-	local ARL_Weapon2HCB = CreateFrame("CheckButton", "ARL_Weapon2HCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_Weapon2HCB, MainPanel.filter_menu.item, L["TWOHAND_DESC"], "twohand", 9, 2, 0)
-	ARL_Weapon2HCBText:SetText(L["Two Hand"])
-
-	local ARL_WeaponDaggerCB = CreateFrame("CheckButton", "ARL_WeaponDaggerCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponDaggerCB, MainPanel.filter_menu.item, L["DAGGER_DESC"], "dagger", 10, 1, 0)
-	ARL_WeaponDaggerCBText:SetText(L["Dagger"])
-
-	local ARL_WeaponAxeCB = CreateFrame("CheckButton", "ARL_WeaponAxeCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponAxeCB, MainPanel.filter_menu.item, L["AXE_DESC"], "axe", 10, 2, 0)
-	ARL_WeaponAxeCBText:SetText(L["Axe"])
-
-	local ARL_WeaponMaceCB = CreateFrame("CheckButton", "ARL_WeaponMaceCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponMaceCB, MainPanel.filter_menu.item, L["MACE_DESC"], "mace", 11, 1, 0)
-	ARL_WeaponMaceCBText:SetText(L["Mace"])
-
-	local ARL_WeaponSwordCB = CreateFrame("CheckButton", "ARL_WeaponSwordCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponSwordCB, MainPanel.filter_menu.item, L["SWORD_DESC"], "sword", 11, 2, 0)
-	ARL_WeaponSwordCBText:SetText(L["Sword"])
-
-	local ARL_WeaponPolearmCB = CreateFrame("CheckButton", "ARL_WeaponPolearmCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponPolearmCB, MainPanel.filter_menu.item, L["POLEARM_DESC"], "polearm", 12, 1, 0)
-	ARL_WeaponPolearmCBText:SetText(L["Polearm"])
-
-	local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponFistCB, MainPanel.filter_menu.item, L["FIST_DESC"], "fist", 12, 2, 0)
-	ARL_WeaponFistCBText:SetText(L["Fist"])
-
-	local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponStaffCB, MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1, 0)
-	ARL_WeaponStaffCBText:SetText(L["Staff"])
-	ARL_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
-	ARL_WeaponStaffCB:Disable()
-
-	local ARL_WeaponWandCB = CreateFrame("CheckButton", "ARL_WeaponWandCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponWandCB, MainPanel.filter_menu.item, L["WAND_DESC"], "wand", 13, 2, 0)
-	ARL_WeaponWandCBText:SetText(L["Wand"])
-
-	local ARL_WeaponThrownCB = CreateFrame("CheckButton", "ARL_WeaponThrownCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponThrownCB, MainPanel.filter_menu.item, L["THROWN_DESC"], "thrown", 14, 1, 0)
-	ARL_WeaponThrownCBText:SetText(L["Thrown"])
-
-	local ARL_WeaponBowCB = CreateFrame("CheckButton", "ARL_WeaponBowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponBowCB, MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2, 0)
-	ARL_WeaponBowCBText:SetText(L["Bow"])
-	ARL_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
-	ARL_WeaponBowCB:Disable()
-
-	local ARL_WeaponCrossbowCB = CreateFrame("CheckButton", "ARL_WeaponCrossbowCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponCrossbowCB, MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1, 0)
-	ARL_WeaponCrossbowCBText:SetText(L["Crossbow"])
-	ARL_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
-	ARL_WeaponCrossbowCB:Disable()
-
-	local ARL_WeaponAmmoCB = CreateFrame("CheckButton", "ARL_WeaponAmmoCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponAmmoCB, MainPanel.filter_menu.item, L["AMMO_DESC"], "ammo", 15, 2, 0)
-	ARL_WeaponAmmoCBText:SetText(L["Ammo"])
-
-	local ARL_WeaponGunCB = CreateFrame("CheckButton", "ARL_WeaponGunCB", MainPanel.filter_menu.item, "UICheckButtonTemplate")
-	InitializeCheckButton(ARL_WeaponGunCB, MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1, 0)
-	ARL_WeaponGunCBText:SetText(L["Gun"])
-
 	MainPanel.filter_menu.player = CreateFrame("Frame", "ARL_FilterMenu_Player", MainPanel.filter_menu)
 	MainPanel.filter_menu.player:SetWidth(FILTERMENU_SMALL)
 	MainPanel.filter_menu.player:SetHeight(280)
@@ -4267,15 +4248,15 @@ function addon:InitializeFrame()
 		------------------------------------------------------------------------------------------------
 		-- Armor Options
 		------------------------------------------------------------------------------------------------
-		["cloth"]		= { cb = ARL_ArmorClothCB,		svroot = filterdb.item.armor },
-		["leather"]		= { cb = ARL_ArmorLeatherCB,		svroot = filterdb.item.armor },
-		["mail"]		= { cb = ARL_ArmorMailCB,		svroot = filterdb.item.armor },
-		["plate"]		= { cb = ARL_ArmorPlateCB,		svroot = filterdb.item.armor },
-		["cloak"]		= { cb = ARL_ArmorCloakCB,		svroot = filterdb.item.armor },
-		["necklace"]		= { cb = ARL_ArmorNecklaceCB,		svroot = filterdb.item.armor },
-		["ring"]		= { cb = ARL_ArmorRingCB,		svroot = filterdb.item.armor },
-		["trinket"]		= { cb = ARL_ArmorTrinketCB,		svroot = filterdb.item.armor },
-		["shield"]		= { cb = ARL_ArmorShieldCB,		svroot = filterdb.item.armor },
+		["cloth"]		= { cb = MainPanel.filter_menu.item.cloth,			svroot = filterdb.item.armor },
+		["leather"]		= { cb = MainPanel.filter_menu.item.leather,			svroot = filterdb.item.armor },
+		["mail"]		= { cb = MainPanel.filter_menu.item.mail,			svroot = filterdb.item.armor },
+		["plate"]		= { cb = MainPanel.filter_menu.item.plate,			svroot = filterdb.item.armor },
+		["cloak"]		= { cb = MainPanel.filter_menu.item.cloak,			svroot = filterdb.item.armor },
+		["necklace"]		= { cb = MainPanel.filter_menu.item.necklace,			svroot = filterdb.item.armor },
+		["ring"]		= { cb = MainPanel.filter_menu.item.ring,			svroot = filterdb.item.armor },
+		["trinket"]		= { cb = MainPanel.filter_menu.item.trinket,			svroot = filterdb.item.armor },
+		["shield"]		= { cb = MainPanel.filter_menu.item.shield,			svroot = filterdb.item.armor },
 		------------------------------------------------------------------------------------------------
 		-- Weapon Options
 		------------------------------------------------------------------------------------------------
