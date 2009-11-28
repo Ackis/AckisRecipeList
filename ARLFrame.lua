@@ -374,58 +374,50 @@ do
 	end
 end	-- do
 
-local function HideARL_ExpOptCB(ignorevalue)
-	ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
-	ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
-	ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
-	ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
-	ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
-	ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
-	ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
-
-	if (ignorevalue ~= "general") then
+local function ShowFilterMenu(target)
+	if target ~= "general" then
 		ARL_ExpGeneralOptCB:SetChecked(false)
 		ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
 	else
 		ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1]))
 	end
 
-	if (ignorevalue ~= "obtain") then
+	if target ~= "obtain" then
 		ARL_ExpObtainOptCB:SetChecked(false)
 		ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
 	else
 		ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2]))
 	end
 
-	if (ignorevalue ~= "binding") then
+	if target ~= "binding" then
 		ARL_ExpBindingOptCB:SetChecked(false)
 		ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
 	else
 		ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3]))
 	end
 
-	if (ignorevalue ~= "item") then
+	if target ~= "item" then
 		ARL_ExpItemOptCB:SetChecked(false)
 		ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 	else
 		ARL_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
 	end
 
-	if (ignorevalue ~= "player") then
+	if target ~= "player" then
 		ARL_ExpPlayerOptCB:SetChecked(false)
 		ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
 	else
 		ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5]))
 	end
 
-	if (ignorevalue ~= "rep") then
+	if target ~= "rep" then
 		ARL_ExpRepOptCB:SetChecked(false)
 		ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 	else
 		ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
 	end
 
-	if (ignorevalue ~= "misc") then
+	if target ~= "misc" then
 		ARL_ExpMiscOptCB:SetChecked(false)
 		ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
 	else
@@ -1340,7 +1332,7 @@ MainPanel.filter_toggle:SetScript("OnClick",
 					   ARL_ExpMiscOptCB:Hide()
 
 					   -- Uncheck the seven buttons
-					   HideARL_ExpOptCB()
+					   ShowFilterMenu()
 
 					   MainPanel.filter_menu:Hide()
 					   MainPanel.filter_reset:Hide()
@@ -1403,7 +1395,7 @@ do
 
 						 if MainPanel:IsVisible() then
 							 MainPanel:UpdateTitle()
-							 HideARL_ExpOptCB()
+							 ShowFilterMenu()
 							 MainPanel.filter_menu:Hide()
 							 ReDisplay()
 						 end
@@ -1451,7 +1443,7 @@ do
 		if panel == 1 then
 			if ARL_ExpGeneralOptCB:GetChecked() then
 				-- uncheck all other buttons
-				HideARL_ExpOptCB("general")
+				ShowFilterMenu("general")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Show()
@@ -1469,7 +1461,7 @@ do
 			end
 		elseif panel == 2 then
 			if ARL_ExpObtainOptCB:GetChecked() then
-				HideARL_ExpOptCB("obtain")
+				ShowFilterMenu("obtain")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1487,7 +1479,7 @@ do
 			end
 		elseif panel == 3 then
 			if ARL_ExpBindingOptCB:GetChecked() then
-				HideARL_ExpOptCB("binding")
+				ShowFilterMenu("binding")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1505,7 +1497,7 @@ do
 			end
 		elseif panel == 4 then
 			if ARL_ExpItemOptCB:GetChecked() then
-				HideARL_ExpOptCB("item")
+				ShowFilterMenu("item")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1523,7 +1515,7 @@ do
 			end
 		elseif panel == 5 then
 			if ARL_ExpPlayerOptCB:GetChecked() then
-				HideARL_ExpOptCB("player")
+				ShowFilterMenu("player")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1541,7 +1533,7 @@ do
 			end
 		elseif panel == 6 then
 			if ARL_ExpRepOptCB:GetChecked() then
-				HideARL_ExpOptCB("rep")
+				ShowFilterMenu("rep")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1559,7 +1551,7 @@ do
 			end
 		elseif panel == 7 then
 			if ARL_ExpMiscOptCB:GetChecked() then
-				HideARL_ExpOptCB("misc")
+				ShowFilterMenu("misc")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1603,7 +1595,7 @@ do
 
 	function CreateFilterMenuButton(bName, bTex, panelIndex)
 		local ExpTextureSize = 34
-		local cButton = CreateFrame("CheckButton", bName, MainPanel) -- , "UICheckButtonTemplate")
+		local cButton = CreateFrame("CheckButton", bName, MainPanel)
 
 		cButton:SetWidth(ExpTextureSize)
 		cButton:SetHeight(ExpTextureSize)
@@ -2133,6 +2125,9 @@ MainPanel.filter_menu.player:SetMovable(false)
 MainPanel.filter_menu.player:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
 MainPanel.filter_menu.player:Hide()
 
+-------------------------------------------------------------------------------
+-- Create the CheckButtons for MainPanel.filter_menu.player
+-------------------------------------------------------------------------------
 MainPanel.filter_menu.player.tank = CreateFrame("CheckButton", nil, MainPanel.filter_menu.player)
 InitializeCheckButton(MainPanel.filter_menu.player.tank, MainPanel.filter_menu.player, L["TANKS_DESC"], "tank", 1, 1, 0)
 MainPanel.filter_menu.player.tank.text:SetText(_G.TANK)
@@ -2162,52 +2157,150 @@ MainPanel.filter_menu.rep:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 
 MainPanel.filter_menu.rep:Hide()
 
 -------------------------------------------------------------------------------
--- Generic function to create expansion buttons in MainPanel.filter_menu.rep
+-- Create the expansion toggles for MainPanel.filter_menu.rep
 -------------------------------------------------------------------------------
-local function CreateExpansionButton(bName, bTex)
-	local cButton = CreateFrame("CheckButton", bName, MainPanel.filter_menu.rep)
-	cButton:SetWidth(100)
-	cButton:SetHeight(46)
-	cButton:SetChecked(false)
-	
-	local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
+do
+	-------------------------------------------------------------------------------
+	-- Generic function to create expansion buttons in MainPanel.filter_menu.rep
+	-------------------------------------------------------------------------------
+	local function CreateExpansionButton(bName, bTex)
+		local cButton = CreateFrame("CheckButton", bName, MainPanel.filter_menu.rep)
+		cButton:SetWidth(100)
+		cButton:SetHeight(46)
+		cButton:SetChecked(false)
 
-	if bName == "ARL_Rep_LKCB" then
-		iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
-	else
-		iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
+		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
+
+		if bName == "ARL_Rep_LKCB" then
+			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
+		else
+			iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
+		end
+		iconTex:SetWidth(100)
+		iconTex:SetHeight(46)
+		iconTex:SetAllPoints(cButton)
+
+		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+		pushedTexture:SetAllPoints(cButton)
+		cButton:SetPushedTexture(pushedTexture)
+
+		local highlightTexture = cButton:CreateTexture()
+		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+		highlightTexture:SetAllPoints(cButton)
+		highlightTexture:SetBlendMode('ADD')
+		cButton:SetHighlightTexture(highlightTexture)
+
+		local checkedTexture = cButton:CreateTexture()
+		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+		checkedTexture:SetAllPoints(cButton)
+		checkedTexture:SetBlendMode('ADD')
+		cButton:SetCheckedTexture(checkedTexture)
+
+		-- And throw up a tooltip
+		if bName == "ARL_Rep_ClassicCB" then
+			SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
+		elseif bName == "ARL_Rep_BCCB" then
+			SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
+		else
+			SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
+		end
+		return cButton
 	end
-	iconTex:SetWidth(100)
-	iconTex:SetHeight(46)
-	iconTex:SetAllPoints(cButton)
 
-	local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
-	pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
-	pushedTexture:SetAllPoints(cButton)
-	cButton:SetPushedTexture(pushedTexture)
+	-------------------------------------------------------------------------------
+	-- Rep Filtering panel switcher
+	-------------------------------------------------------------------------------
+	local function RepFilterSwitch(whichrep)
+		-- 1	ARL_Rep_ClassicCB		Classic Rep
+		-- 2	ARL_Rep_BCCB			Burning Crusade
+		-- 3	ARL_Rep_LKCB			Wrath of the Lich King
+		local ShowPanel = false
 
-	local highlightTexture = cButton:CreateTexture()
-	highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
-	highlightTexture:SetAllPoints(cButton)
-	highlightTexture:SetBlendMode('ADD')
-	cButton:SetHighlightTexture(highlightTexture)
+		if whichrep == 1 then
+			if ARL_Rep_ClassicCB:GetChecked() then
+				ShowPanel = true
+				MainPanel.filter_menu.rep.Classic:Show()
+				MainPanel.filter_menu.rep.BC:Hide()
+				MainPanel.filter_menu.rep.LK:Hide()
+				ARL_Rep_BCCB:SetChecked(false)
+				ARL_Rep_LKCB:SetChecked(false)
+			else
+				ShowPanel = false
+			end
+		elseif whichrep == 2 then
+			if ARL_Rep_BCCB:GetChecked() then
+				ShowPanel = true
+				MainPanel.filter_menu.rep.Classic:Hide()
+				MainPanel.filter_menu.rep.BC:Show()
+				MainPanel.filter_menu.rep.LK:Hide()
+				ARL_Rep_ClassicCB:SetChecked(false)
+				ARL_Rep_LKCB:SetChecked(false)
+			else
+				ShowPanel = false
+			end
+		else -- whichrep == 3 (WotLK)
+			if ARL_Rep_LKCB:GetChecked() then
+				ShowPanel = true
+				MainPanel.filter_menu.rep.Classic:Hide()
+				MainPanel.filter_menu.rep.BC:Hide()
+				MainPanel.filter_menu.rep.LK:Show()
+				ARL_Rep_ClassicCB:SetChecked(false)
+				ARL_Rep_BCCB:SetChecked(false)
+			else
+				ShowPanel = false
+			end
+		end
+		local texture = MainPanel.filter_menu.texture
+		texture:ClearAllPoints()
 
-	local checkedTexture = cButton:CreateTexture()
-	checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
-	checkedTexture:SetAllPoints(cButton)
-	checkedTexture:SetBlendMode('ADD')
-	cButton:SetCheckedTexture(checkedTexture)
+		if ShowPanel then
+			MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
 
-	-- And throw up a tooltip
-	if bName == "ARL_Rep_ClassicCB" then
-		SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
-	elseif bName == "ARL_Rep_BCCB" then
-		SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
-	else
-		SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
+			texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_repcol]])
+			texture:SetAllPoints(MainPanel.filter_menu)
+			texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/512), 0, (FILTERMENU_HEIGHT/512))
+
+			MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
+			MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
+			MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
+		else
+			MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
+
+			texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
+			texture:SetAllPoints(MainPanel.filter_menu)
+			texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
+
+			MainPanel.filter_menu.rep.Classic:Hide()
+			MainPanel.filter_menu.rep.BC:Hide()
+			MainPanel.filter_menu.rep.LK:Hide()
+
+			ARL_Rep_ClassicCB:SetChecked(false)
+			ARL_Rep_BCCB:SetChecked(false)
+			ARL_Rep_LKCB:SetChecked(false)
+		end
 	end
-	return cButton
-end
+	ARL_Rep_ClassicCB = CreateExpansionButton("ARL_Rep_ClassicCB", "Glues-WoW-Logo")
+	ARL_Rep_ClassicCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
+	ARL_Rep_ClassicCB:SetScript("OnClick",
+				    function()
+					    RepFilterSwitch(1)
+				    end)
+
+	ARL_Rep_BCCB = CreateExpansionButton("ARL_Rep_BCCB", "GLUES-WOW-BCLOGO")
+	ARL_Rep_BCCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
+	ARL_Rep_BCCB:SetScript("OnClick",
+			       function()
+				       RepFilterSwitch(2)
+			       end)
+
+	ARL_Rep_LKCB = CreateExpansionButton("ARL_Rep_LKCB", "wotlk_logo")
+	ARL_Rep_LKCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
+	ARL_Rep_LKCB:SetScript("OnClick",
+			       function()
+				       RepFilterSwitch(3)
+			       end)
+end	-- do
 
 -------------------------------------------------------------------------------
 -- Create MainPanel.scrollframe and set its scripts.
@@ -3664,99 +3757,6 @@ function addon:InitializeFrame()
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 	-------------------------------------------------------------------------------
 
-	do
-		-- Rep Filtering panel switcher
-		local function RepFilterSwitch(whichrep)
-			-- 1	ARL_Rep_ClassicCB		Classic Rep
-			-- 2	ARL_Rep_BCCB			Burning Crusade
-			-- 3	ARL_Rep_LKCB			Wrath of the Lich King
-			local ShowPanel = false
-
-			if whichrep == 1 then
-				if ARL_Rep_ClassicCB:GetChecked() then
-					ShowPanel = true
-					MainPanel.filter_menu.rep.Classic:Show()
-					MainPanel.filter_menu.rep.BC:Hide()
-					MainPanel.filter_menu.rep.LK:Hide()
-					ARL_Rep_BCCB:SetChecked(false)
-					ARL_Rep_LKCB:SetChecked(false)
-				else
-					ShowPanel = false
-				end
-			elseif whichrep == 2 then
-				if ARL_Rep_BCCB:GetChecked() then
-					ShowPanel = true
-					MainPanel.filter_menu.rep.Classic:Hide()
-					MainPanel.filter_menu.rep.BC:Show()
-					MainPanel.filter_menu.rep.LK:Hide()
-					ARL_Rep_ClassicCB:SetChecked(false)
-					ARL_Rep_LKCB:SetChecked(false)
-				else
-					ShowPanel = false
-				end
-			else -- whichrep == 3 (WotLK)
-				if ARL_Rep_LKCB:GetChecked() then
-					ShowPanel = true
-					MainPanel.filter_menu.rep.Classic:Hide()
-					MainPanel.filter_menu.rep.BC:Hide()
-					MainPanel.filter_menu.rep.LK:Show()
-					ARL_Rep_ClassicCB:SetChecked(false)
-					ARL_Rep_BCCB:SetChecked(false)
-				else
-					ShowPanel = false
-				end
-			end
-			local texture = MainPanel.filter_menu.texture
-			texture:ClearAllPoints()
-
-			if ShowPanel then
-				MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-
-				texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_repcol]])
-				texture:SetAllPoints(MainPanel.filter_menu)
-				texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/512), 0, (FILTERMENU_HEIGHT/512))
-
-				MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-				MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-				MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-			else
-				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
-
-				texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
-				texture:SetAllPoints(MainPanel.filter_menu)
-				texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-
-				MainPanel.filter_menu.rep.Classic:Hide()
-				MainPanel.filter_menu.rep.BC:Hide()
-				MainPanel.filter_menu.rep.LK:Hide()
-
-				ARL_Rep_ClassicCB:SetChecked(false)
-				ARL_Rep_BCCB:SetChecked(false)
-				ARL_Rep_LKCB:SetChecked(false)
-			end
-		end
-
-		ARL_Rep_ClassicCB = CreateExpansionButton("ARL_Rep_ClassicCB", "Glues-WoW-Logo")
-		ARL_Rep_ClassicCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
-		ARL_Rep_ClassicCB:SetScript("OnClick",
-					    function()
-						    RepFilterSwitch(1)
-					    end)
-
-		ARL_Rep_BCCB = CreateExpansionButton("ARL_Rep_BCCB", "GLUES-WOW-BCLOGO")
-		ARL_Rep_BCCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
-		ARL_Rep_BCCB:SetScript("OnClick",
-				      function()
-					      RepFilterSwitch(2)
-				      end)
-
-		ARL_Rep_LKCB = CreateExpansionButton("ARL_Rep_LKCB", "wotlk_logo")
-		ARL_Rep_LKCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
-		ARL_Rep_LKCB:SetScript("OnClick",
-				      function()
-					      RepFilterSwitch(3)
-				      end)
-	end
 	-------------------------------------------------------------------------------
 	-- Classic Reputations
 	-------------------------------------------------------------------------------
@@ -4185,89 +4185,90 @@ function addon:InitializeFrame()
 	-- Now that everything exists, populate the global filter table
 	-------------------------------------------------------------------------------
 	local filterdb = addon.db.profile.filters
+	local filter_menu = MainPanel.filter_menu
 
 	FilterValueMap = {
 		------------------------------------------------------------------------------------------------
 		-- General Options
 		------------------------------------------------------------------------------------------------
-		["specialty"]		= { cb = MainPanel.filter_menu.general.specialty,		svroot = filterdb.general },
-		["skill"]		= { cb = MainPanel.filter_menu.general.skill,			svroot = filterdb.general },
-		["faction"]		= { cb = MainPanel.filter_menu.general.faction,			svroot = filterdb.general },
-		["known"]		= { cb = MainPanel.filter_menu.general.known,			svroot = filterdb.general },
-		["unknown"]		= { cb = MainPanel.filter_menu.general.unknown,			svroot = filterdb.general },
+		["specialty"]		= { cb = filter_menu.general.specialty,			svroot = filterdb.general },
+		["skill"]		= { cb = filter_menu.general.skill,			svroot = filterdb.general },
+		["faction"]		= { cb = filter_menu.general.faction,			svroot = filterdb.general },
+		["known"]		= { cb = filter_menu.general.known,			svroot = filterdb.general },
+		["unknown"]		= { cb = filter_menu.general.unknown,			svroot = filterdb.general },
 		------------------------------------------------------------------------------------------------
 		-- Classes
 		------------------------------------------------------------------------------------------------
-		["deathknight"]		= { cb = MainPanel.filter_menu.general.deathknight,		svroot = filterdb.classes },
-		["druid"]		= { cb = MainPanel.filter_menu.general.druid,			svroot = filterdb.classes },
-		["hunter"]		= { cb = MainPanel.filter_menu.general.hunter,			svroot = filterdb.classes },
-		["mage"]		= { cb = MainPanel.filter_menu.general.mage,			svroot = filterdb.classes },
-		["paladin"]		= { cb = MainPanel.filter_menu.general.paladin,			svroot = filterdb.classes },
-		["priest"]		= { cb = MainPanel.filter_menu.general.priest,			svroot = filterdb.classes },
-		["rogue"]		= { cb = MainPanel.filter_menu.general.rogue,			svroot = filterdb.classes },
-		["shaman"]		= { cb = MainPanel.filter_menu.general.shaman,			svroot = filterdb.classes },
-		["warlock"]		= { cb = MainPanel.filter_menu.general.warlock,			svroot = filterdb.classes },
-		["warrior"]		= { cb = MainPanel.filter_menu.general.warrior,			svroot = filterdb.classes },
+		["deathknight"]		= { cb = filter_menu.general.deathknight,		svroot = filterdb.classes },
+		["druid"]		= { cb = filter_menu.general.druid,			svroot = filterdb.classes },
+		["hunter"]		= { cb = filter_menu.general.hunter,			svroot = filterdb.classes },
+		["mage"]		= { cb = filter_menu.general.mage,			svroot = filterdb.classes },
+		["paladin"]		= { cb = filter_menu.general.paladin,			svroot = filterdb.classes },
+		["priest"]		= { cb = filter_menu.general.priest,			svroot = filterdb.classes },
+		["rogue"]		= { cb = filter_menu.general.rogue,			svroot = filterdb.classes },
+		["shaman"]		= { cb = filter_menu.general.shaman,			svroot = filterdb.classes },
+		["warlock"]		= { cb = filter_menu.general.warlock,			svroot = filterdb.classes },
+		["warrior"]		= { cb = filter_menu.general.warrior,			svroot = filterdb.classes },
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
-		["instance"]		= { cb = MainPanel.filter_menu.obtain.instance,			svroot = filterdb.obtain },
-		["raid"]		= { cb = MainPanel.filter_menu.obtain.raid,			svroot = filterdb.obtain },
-		["quest"]		= { cb = MainPanel.filter_menu.obtain.quest,			svroot = filterdb.obtain },
-		["seasonal"]		= { cb = MainPanel.filter_menu.obtain.seasonal,			svroot = filterdb.obtain },
-		["trainer"]		= { cb = MainPanel.filter_menu.obtain.trainer,			svroot = filterdb.obtain },
-		["vendor"]		= { cb = MainPanel.filter_menu.obtain.vendor,			svroot = filterdb.obtain },
-		["pvp"]			= { cb = MainPanel.filter_menu.obtain.pvp,			svroot = filterdb.obtain },
-		["discovery"]		= { cb = MainPanel.filter_menu.obtain.discovery,		svroot = filterdb.obtain },
-		["worlddrop"]		= { cb = MainPanel.filter_menu.obtain.worlddrop,		svroot = filterdb.obtain },
-		["mobdrop"]		= { cb = MainPanel.filter_menu.obtain.mobdrop,			svroot = filterdb.obtain },
-		["originalwow"]		= { cb = MainPanel.filter_menu.obtain.originalwow,		svroot = filterdb.obtain },
-		["bc"]			= { cb = MainPanel.filter_menu.obtain.bc,			svroot = filterdb.obtain },
-		["wrath"]		= { cb = MainPanel.filter_menu.obtain.wrath,			svroot = filterdb.obtain },
+		["instance"]		= { cb = filter_menu.obtain.instance,			svroot = filterdb.obtain },
+		["raid"]		= { cb = filter_menu.obtain.raid,			svroot = filterdb.obtain },
+		["quest"]		= { cb = filter_menu.obtain.quest,			svroot = filterdb.obtain },
+		["seasonal"]		= { cb = filter_menu.obtain.seasonal,			svroot = filterdb.obtain },
+		["trainer"]		= { cb = filter_menu.obtain.trainer,			svroot = filterdb.obtain },
+		["vendor"]		= { cb = filter_menu.obtain.vendor,			svroot = filterdb.obtain },
+		["pvp"]			= { cb = filter_menu.obtain.pvp,			svroot = filterdb.obtain },
+		["discovery"]		= { cb = filter_menu.obtain.discovery,			svroot = filterdb.obtain },
+		["worlddrop"]		= { cb = filter_menu.obtain.worlddrop,			svroot = filterdb.obtain },
+		["mobdrop"]		= { cb = filter_menu.obtain.mobdrop,			svroot = filterdb.obtain },
+		["originalwow"]		= { cb = filter_menu.obtain.originalwow,		svroot = filterdb.obtain },
+		["bc"]			= { cb = filter_menu.obtain.bc,				svroot = filterdb.obtain },
+		["wrath"]		= { cb = filter_menu.obtain.wrath,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
-		["itemboe"]		= { cb = MainPanel.filter_menu.binding.itemboe,			svroot = filterdb.binding },
-		["itembop"]		= { cb = MainPanel.filter_menu.binding.itembop,			svroot = filterdb.binding },
-		["recipeboe"]		= { cb = MainPanel.filter_menu.binding.recipeboe,		svroot = filterdb.binding },
-		["recipebop"]		= { cb = MainPanel.filter_menu.binding.recipebop,		svroot = filterdb.binding },
+		["itemboe"]		= { cb = filter_menu.binding.itemboe,			svroot = filterdb.binding },
+		["itembop"]		= { cb = filter_menu.binding.itembop,			svroot = filterdb.binding },
+		["recipeboe"]		= { cb = filter_menu.binding.recipeboe,			svroot = filterdb.binding },
+		["recipebop"]		= { cb = filter_menu.binding.recipebop,			svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
 		-- Armor Options
 		------------------------------------------------------------------------------------------------
-		["cloth"]		= { cb = MainPanel.filter_menu.item.cloth,			svroot = filterdb.item.armor },
-		["leather"]		= { cb = MainPanel.filter_menu.item.leather,			svroot = filterdb.item.armor },
-		["mail"]		= { cb = MainPanel.filter_menu.item.mail,			svroot = filterdb.item.armor },
-		["plate"]		= { cb = MainPanel.filter_menu.item.plate,			svroot = filterdb.item.armor },
-		["cloak"]		= { cb = MainPanel.filter_menu.item.cloak,			svroot = filterdb.item.armor },
-		["necklace"]		= { cb = MainPanel.filter_menu.item.necklace,			svroot = filterdb.item.armor },
-		["ring"]		= { cb = MainPanel.filter_menu.item.ring,			svroot = filterdb.item.armor },
-		["trinket"]		= { cb = MainPanel.filter_menu.item.trinket,			svroot = filterdb.item.armor },
-		["shield"]		= { cb = MainPanel.filter_menu.item.shield,			svroot = filterdb.item.armor },
+		["cloth"]		= { cb = filter_menu.item.cloth,			svroot = filterdb.item.armor },
+		["leather"]		= { cb = filter_menu.item.leather,			svroot = filterdb.item.armor },
+		["mail"]		= { cb = filter_menu.item.mail,				svroot = filterdb.item.armor },
+		["plate"]		= { cb = filter_menu.item.plate,			svroot = filterdb.item.armor },
+		["cloak"]		= { cb = filter_menu.item.cloak,			svroot = filterdb.item.armor },
+		["necklace"]		= { cb = filter_menu.item.necklace,			svroot = filterdb.item.armor },
+		["ring"]		= { cb = filter_menu.item.ring,				svroot = filterdb.item.armor },
+		["trinket"]		= { cb = filter_menu.item.trinket,			svroot = filterdb.item.armor },
+		["shield"]		= { cb = filter_menu.item.shield,			svroot = filterdb.item.armor },
 		------------------------------------------------------------------------------------------------
 		-- Weapon Options
 		------------------------------------------------------------------------------------------------
-		["onehand"]		= { cb = MainPanel.filter_menu.item.onehand,			svroot = filterdb.item.weapon },
-		["twohand"]		= { cb = MainPanel.filter_menu.item.twohand,			svroot = filterdb.item.weapon },
-		["dagger"]		= { cb = MainPanel.filter_menu.item.dagger,			svroot = filterdb.item.weapon },
-		["axe"]			= { cb = MainPanel.filter_menu.item.axe,			svroot = filterdb.item.weapon },
-		["mace"]		= { cb = MainPanel.filter_menu.item.mace,			svroot = filterdb.item.weapon },
-		["sword"]		= { cb = MainPanel.filter_menu.item.sword,			svroot = filterdb.item.weapon },
-		["polearm"]		= { cb = MainPanel.filter_menu.item.polearm,			svroot = filterdb.item.weapon },
-		["fist"]		= { cb = MainPanel.filter_menu.item.fist,			svroot = filterdb.item.weapon },
-		["staff"]		= { cb = MainPanel.filter_menu.item.staff,			svroot = nil },
-		["wand"]		= { cb = MainPanel.filter_menu.item.wand,			svroot = filterdb.item.weapon },
-		["thrown"]		= { cb = MainPanel.filter_menu.item.thrown,			svroot = filterdb.item.weapon },
-		["bow"]			= { cb = MainPanel.filter_menu.item.bow,			svroot = nil },
-		["crossbow"]		= { cb = MainPanel.filter_menu.item.crossbow,			svroot = nil },
-		["ammo"]		= { cb = MainPanel.filter_menu.item.ammo,			svroot = filterdb.item.weapon },
-		["gun"]			= { cb = MainPanel.filter_menu.item.gun,			svroot = filterdb.item.weapon },
+		["onehand"]		= { cb = filter_menu.item.onehand,			svroot = filterdb.item.weapon },
+		["twohand"]		= { cb = filter_menu.item.twohand,			svroot = filterdb.item.weapon },
+		["dagger"]		= { cb = filter_menu.item.dagger,			svroot = filterdb.item.weapon },
+		["axe"]			= { cb = filter_menu.item.axe,				svroot = filterdb.item.weapon },
+		["mace"]		= { cb = filter_menu.item.mace,				svroot = filterdb.item.weapon },
+		["sword"]		= { cb = filter_menu.item.sword,			svroot = filterdb.item.weapon },
+		["polearm"]		= { cb = filter_menu.item.polearm,			svroot = filterdb.item.weapon },
+		["fist"]		= { cb = filter_menu.item.fist,				svroot = filterdb.item.weapon },
+		["staff"]		= { cb = filter_menu.item.staff,			svroot = nil },
+		["wand"]		= { cb = filter_menu.item.wand,				svroot = filterdb.item.weapon },
+		["thrown"]		= { cb = filter_menu.item.thrown,			svroot = filterdb.item.weapon },
+		["bow"]			= { cb = filter_menu.item.bow,				svroot = nil },
+		["crossbow"]		= { cb = filter_menu.item.crossbow,			svroot = nil },
+		["ammo"]		= { cb = filter_menu.item.ammo,				svroot = filterdb.item.weapon },
+		["gun"]			= { cb = filter_menu.item.gun,				svroot = filterdb.item.weapon },
 		------------------------------------------------------------------------------------------------
 		-- Role Options
 		------------------------------------------------------------------------------------------------
-		["tank"]		= { cb = MainPanel.filter_menu.player.tank,			svroot = filterdb.player },
-		["melee"]		= { cb = MainPanel.filter_menu.player.melee,			svroot = filterdb.player },
-		["healer"]		= { cb = MainPanel.filter_menu.player.healer,			svroot = filterdb.player },
-		["caster"]		= { cb = MainPanel.filter_menu.player.caster,			svroot = filterdb.player },
+		["tank"]		= { cb = filter_menu.player.tank,			svroot = filterdb.player },
+		["melee"]		= { cb = filter_menu.player.melee,			svroot = filterdb.player },
+		["healer"]		= { cb = filter_menu.player.healer,			svroot = filterdb.player },
+		["caster"]		= { cb = filter_menu.player.caster,			svroot = filterdb.player },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
