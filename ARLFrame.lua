@@ -1289,15 +1289,11 @@ MainPanel.filter_toggle:SetScript("OnClick",
 					   SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
 
 					   -- Hide the category buttons
-					   MainPanel.menu_toggle_general:Hide()
-					   MainPanel.menu_toggle_obtain:Hide()
-					   MainPanel.menu_toggle_binding:Hide()
-					   MainPanel.menu_toggle_item:Hide()
-					   MainPanel.menu_toggle_player:Hide()
-					   MainPanel.menu_toggle_rep:Hide()
-					   MainPanel.menu_toggle_misc:Hide()
-
-					   -- Uncheck the seven buttons
+					   for category in pairs(MainPanel.filter_menu) do
+						   if category ~= 0 and category ~= "texture" then
+							   MainPanel["menu_toggle_" .. category]:Hide()
+						   end
+					   end
 					   MainPanel:HighlightCategory(nil)
 					   MainPanel.filter_reset:Hide()
 				   else
@@ -1306,14 +1302,11 @@ MainPanel.filter_toggle:SetScript("OnClick",
 					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
 					   -- Show the category buttons
-					   MainPanel.menu_toggle_general:Show()
-					   MainPanel.menu_toggle_obtain:Show()
-					   MainPanel.menu_toggle_binding:Show()
-					   MainPanel.menu_toggle_item:Show()
-					   MainPanel.menu_toggle_player:Show()
-					   MainPanel.menu_toggle_rep:Show()
-					   MainPanel.menu_toggle_misc:Show()
-
+					   for category in pairs(MainPanel.filter_menu) do
+						   if category ~= 0 and category ~= "texture" then
+							   MainPanel["menu_toggle_" .. category]:Show()
+						   end
+					   end
 					   MainPanel.filter_reset:Show()
 				   end
 				   MainPanel:ToggleState()
@@ -1393,132 +1386,23 @@ do
 		ARL_Rep_BCCB:SetChecked(false)
 		ARL_Rep_LKCB:SetChecked(false)
 
-		if panel == "general" then
-			if MainPanel.menu_toggle_general:GetChecked() then
-				MainPanel:HighlightCategory("general")
+		local toggle = "menu_toggle_" .. panel
 
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Show()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Hide()
+		if MainPanel[toggle]:GetChecked() then
+			-- Display the selected filter_menu category frame
+			MainPanel:HighlightCategory(panel)
+			MainPanel.filter_menu[panel]:Show()
 
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_general.text:SetText(addon:Yellow(CATEGORY_TEXT["general"])) 
-				ChangeFilters = false
+			-- Hide all of the other filter_menu category frames
+			for category in pairs(MainPanel.filter_menu) do
+				if category ~= panel and category ~= 0 and category ~= "texture" then
+					MainPanel.filter_menu[category]:Hide()
+				end
 			end
-		elseif panel == "obtain" then
-			if MainPanel.menu_toggle_obtain:GetChecked() then
-				MainPanel:HighlightCategory("obtain")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Show()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Hide()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_obtain.text:SetText(addon:Yellow(CATEGORY_TEXT["obtain"]))
-				ChangeFilters = false
-			end
-		elseif panel == "binding" then
-			if MainPanel.menu_toggle_binding:GetChecked() then
-				MainPanel:HighlightCategory("binding")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Show()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Hide()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_binding.text:SetText(addon:Yellow(CATEGORY_TEXT["binding"])) 
-				ChangeFilters = false
-			end
-		elseif panel == "item" then
-			if MainPanel.menu_toggle_item:GetChecked() then
-				MainPanel:HighlightCategory("item")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Show()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Hide()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_item.text:SetText(addon:Yellow(CATEGORY_TEXT["item"])) 
-				ChangeFilters = false
-			end
-		elseif panel == "player" then
-			if MainPanel.menu_toggle_player:GetChecked() then
-				MainPanel:HighlightCategory("player")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Show()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Hide()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_player.text:SetText(addon:Yellow(CATEGORY_TEXT["player"])) 
-				ChangeFilters = false
-			end
-		elseif panel == "rep" then
-			if MainPanel.menu_toggle_rep:GetChecked() then
-				MainPanel:HighlightCategory("rep")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Show()
-				MainPanel.filter_menu.misc:Hide()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_rep.text:SetText(addon:Yellow(CATEGORY_TEXT["rep"])) 
-				ChangeFilters = false
-			end
-		elseif panel == "misc" then
-			if MainPanel.menu_toggle_misc:GetChecked() then
-				MainPanel:HighlightCategory("misc")
-
-				-- display the correct subframe with all the buttons and such, hide the others
-				MainPanel.filter_menu.general:Hide()
-				MainPanel.filter_menu.obtain:Hide()
-				MainPanel.filter_menu.binding:Hide()
-				MainPanel.filter_menu.item:Hide()
-				MainPanel.filter_menu.player:Hide()
-				MainPanel.filter_menu.rep:Hide()
-				MainPanel.filter_menu.misc:Show()
-
-				ChangeFilters = true
-			else
-				MainPanel.menu_toggle_misc.text:SetText(addon:Yellow(CATEGORY_TEXT["misc"])) 
-				ChangeFilters = false
-			end
+			ChangeFilters = true
+		else
+			MainPanel[toggle].text:SetText(addon:Yellow(CATEGORY_TEXT[panel]))
+			ChangeFilters = false
 		end
 
 		if ChangeFilters then
@@ -1545,7 +1429,7 @@ do
 		end
 	end
 
-	function CreateFilterMenuButton(bTex, panelIndex)
+	function CreateFilterMenuButton(bTex, category)
 		local ExpTextureSize = 34
 		local cButton = CreateFrame("CheckButton", nil, MainPanel)
 
@@ -1553,7 +1437,7 @@ do
 		cButton:SetHeight(ExpTextureSize)
 		cButton:SetScript("OnClick",
 				  function(self, button, down) 
-					  ToggleFilterMenu(panelIndex)
+					  ToggleFilterMenu(category)
 				  end)
 
 		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
@@ -1586,7 +1470,7 @@ do
 
 		-- Create the text object to go along with it
 		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
-		cbText:SetText(addon:Yellow(CATEGORY_TEXT[panelIndex]))
+		cbText:SetText(addon:Yellow(CATEGORY_TEXT[category]))
 		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
 		cbText:SetHeight(14)
 		cbText:SetWidth(100)
@@ -1594,7 +1478,7 @@ do
 		cButton.text = cbText
 
 		-- And throw up a tooltip
-		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[panelIndex])
+		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[category])
 		cButton:Hide()
 
 		return cButton
