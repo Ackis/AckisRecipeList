@@ -80,14 +80,14 @@ local SortedProfessions = {	-- To make tabbing between professions easier
 	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
 } 
 
-local ExpButtonText = {		-- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
-	_G.GENERAL,		-- 1
-	L["Obtain"],		-- 2
-	L["Binding"],		-- 3
-	L["Item"],		-- 4
-	_G.ROLE,		-- 5
-	_G.REPUTATION,		-- 6
-	_G.MISCELLANEOUS
+local CATEGORY_TEXT = {
+	["general"]	= _G.GENERAL,
+	["obtain"]	= L["Obtain"],
+	["binding"]	= L["Binding"],
+	["item"]	= L["Item"],
+	["player"]	= _G.ROLE,
+	["rep"]		= _G.REPUTATION,
+	["misc"]	= _G.MISCELLANEOUS
 }
 
 local NUM_PROFESSIONS		= 12
@@ -168,7 +168,7 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
 local ARL_SearchText, ARL_LastSearchedText
-local ARL_ExpGeneralOptCB, ARL_ExpObtainOptCB, ARL_ExpBindingOptCB, ARL_ExpItemOptCB, ARL_ExpPlayerOptCB, ARL_ExpRepOptCB, ARL_Rep_ClassicCB, ARL_Rep_BCCB, ARL_Rep_LKCB,ARL_ExpMiscOptCB
+local ARL_Rep_ClassicCB, ARL_Rep_BCCB, ARL_Rep_LKCB
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -373,57 +373,6 @@ do
 		return button
 	end
 end	-- do
-
-local function ShowFilterMenu(target)
-	if target ~= "general" then
-		ARL_ExpGeneralOptCB:SetChecked(false)
-		ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
-	else
-		ARL_ExpGeneralOptCB.text:SetText(addon:White(ExpButtonText[1]))
-	end
-
-	if target ~= "obtain" then
-		ARL_ExpObtainOptCB:SetChecked(false)
-		ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
-	else
-		ARL_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2]))
-	end
-
-	if target ~= "binding" then
-		ARL_ExpBindingOptCB:SetChecked(false)
-		ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
-	else
-		ARL_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3]))
-	end
-
-	if target ~= "item" then
-		ARL_ExpItemOptCB:SetChecked(false)
-		ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
-	else
-		ARL_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
-	end
-
-	if target ~= "player" then
-		ARL_ExpPlayerOptCB:SetChecked(false)
-		ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
-	else
-		ARL_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5]))
-	end
-
-	if target ~= "rep" then
-		ARL_ExpRepOptCB:SetChecked(false)
-		ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
-	else
-		ARL_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
-	end
-
-	if target ~= "misc" then
-		ARL_ExpMiscOptCB:SetChecked(false)
-		ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
-	else
-		ARL_ExpMiscOptCB.text:SetText(addon:White(ExpButtonText[7]))
-	end
-end
 
 -------------------------------------------------------------------------------
 -- Sort functions
@@ -1100,6 +1049,23 @@ MainPanel:SetScript("OnMouseUp",
 			    opts.offsety = y
 		    end)
 
+function MainPanel:HighlightCategory(target)
+	if not target then
+		self.filter_menu:Hide()
+	end
+
+	for category in pairs(self.filter_menu) do
+		local toggle = "menu_toggle_" .. category
+
+		if target == category then
+			self[toggle].text:SetText(addon:White(CATEGORY_TEXT[category]))
+		elseif category ~= 0 and category ~= "texture" then
+			self[toggle]:SetChecked(false)
+			self[toggle].text:SetText(addon:Yellow(CATEGORY_TEXT[category]))
+		end
+	end
+end
+
 function MainPanel:ToggleState()
 	if self.is_expanded then
 		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
@@ -1322,33 +1288,31 @@ MainPanel.filter_toggle:SetScript("OnClick",
 					   self:SetText(L["FILTER_OPEN"])
 					   SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
 
-					   -- Hide my 7 buttons
-					   ARL_ExpGeneralOptCB:Hide()
-					   ARL_ExpObtainOptCB:Hide()
-					   ARL_ExpBindingOptCB:Hide()
-					   ARL_ExpItemOptCB:Hide()
-					   ARL_ExpPlayerOptCB:Hide()
-					   ARL_ExpRepOptCB:Hide()
-					   ARL_ExpMiscOptCB:Hide()
+					   -- Hide the category buttons
+					   MainPanel.menu_toggle_general:Hide()
+					   MainPanel.menu_toggle_obtain:Hide()
+					   MainPanel.menu_toggle_binding:Hide()
+					   MainPanel.menu_toggle_item:Hide()
+					   MainPanel.menu_toggle_player:Hide()
+					   MainPanel.menu_toggle_rep:Hide()
+					   MainPanel.menu_toggle_misc:Hide()
 
 					   -- Uncheck the seven buttons
-					   ShowFilterMenu()
-
-					   MainPanel.filter_menu:Hide()
+					   MainPanel:HighlightCategory(nil)
 					   MainPanel.filter_reset:Hide()
 				   else
 					   -- Change the text and tooltip for the filter button
 					   self:SetText(L["FILTER_CLOSE"])
 					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
-					   -- Show my 7 buttons
-					   ARL_ExpGeneralOptCB:Show()
-					   ARL_ExpObtainOptCB:Show()
-					   ARL_ExpBindingOptCB:Show()
-					   ARL_ExpItemOptCB:Show()
-					   ARL_ExpPlayerOptCB:Show()
-					   ARL_ExpRepOptCB:Show()
-					   ARL_ExpMiscOptCB:Show()
+					   -- Show the category buttons
+					   MainPanel.menu_toggle_general:Show()
+					   MainPanel.menu_toggle_obtain:Show()
+					   MainPanel.menu_toggle_binding:Show()
+					   MainPanel.menu_toggle_item:Show()
+					   MainPanel.menu_toggle_player:Show()
+					   MainPanel.menu_toggle_rep:Show()
+					   MainPanel.menu_toggle_misc:Show()
 
 					   MainPanel.filter_reset:Show()
 				   end
@@ -1395,8 +1359,7 @@ do
 
 						 if MainPanel:IsVisible() then
 							 MainPanel:UpdateTitle()
-							 ShowFilterMenu()
-							 MainPanel.filter_menu:Hide()
+							 MainPanel:HighlightCategory(nil)
 							 ReDisplay()
 						 end
 					 end)
@@ -1407,29 +1370,19 @@ end	-- do
 -------------------------------------------------------------------------------
 local CreateFilterMenuButton
 do
-	local ExpButtonTT = {
-		L["FILTERING_GENERAL_DESC"],	-- 1
-		L["FILTERING_OBTAIN_DESC"],	-- 2
-		L["FILTERING_BINDING_DESC"],	-- 3
-		L["FILTERING_ITEM_DESC"],	-- 4
-		L["FILTERING_PLAYERTYPE_DESC"],	-- 5
-		L["FILTERING_REP_DESC"],	-- 6
-		L["FILTERING_MISC_DESC"]	-- 7
+	local CATEGORY_TOOLTIP = {
+		["general"]	= L["FILTERING_GENERAL_DESC"],
+		["obtain"]	= L["FILTERING_OBTAIN_DESC"],
+		["binding"]	= L["FILTERING_BINDING_DESC"],
+		["item"]	= L["FILTERING_ITEM_DESC"],
+		["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
+		["rep"]		= L["FILTERING_REP_DESC"],
+		["misc"]	= L["FILTERING_MISC_DESC"]
 	}
 
+	-- This manages the filter menu panel, as well as checking or unchecking the
+	-- buttons that got us here in the first place
 	local function ToggleFilterMenu(panel)
-		-- This manages the filter menu panel, as well as checking or unchecking the
-		-- buttons that got us here in the first place
-		--
-		-- our panels are:
-		-- 1	ARL_ExpGeneralOptCB			General Filters
-		-- 2	ARL_ExpObtainOptCB			Obtain Filters
-		-- 3	ARL_ExpBindingOptCB			Binding Filters
-		-- 4	ARL_ExpItemOptCB			Item Filters
-		-- 5	ARL_ExpPlayerOptCB			Role Filters
-		-- 6	ARL_ExpRepOptCB				Reputation Filters
-		-- 7	ARL_ExpMiscOptCB			Miscellaneous Filters
-
 		local ChangeFilters = false
 
 		MainPanel.filter_menu.rep.Classic:Hide()
@@ -1440,10 +1393,9 @@ do
 		ARL_Rep_BCCB:SetChecked(false)
 		ARL_Rep_LKCB:SetChecked(false)
 
-		if panel == 1 then
-			if ARL_ExpGeneralOptCB:GetChecked() then
-				-- uncheck all other buttons
-				ShowFilterMenu("general")
+		if panel == "general" then
+			if MainPanel.menu_toggle_general:GetChecked() then
+				MainPanel:HighlightCategory("general")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Show()
@@ -1456,12 +1408,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
+				MainPanel.menu_toggle_general.text:SetText(addon:Yellow(CATEGORY_TEXT["general"])) 
 				ChangeFilters = false
 			end
-		elseif panel == 2 then
-			if ARL_ExpObtainOptCB:GetChecked() then
-				ShowFilterMenu("obtain")
+		elseif panel == "obtain" then
+			if MainPanel.menu_toggle_obtain:GetChecked() then
+				MainPanel:HighlightCategory("obtain")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1474,12 +1426,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
+				MainPanel.menu_toggle_obtain.text:SetText(addon:Yellow(CATEGORY_TEXT["obtain"]))
 				ChangeFilters = false
 			end
-		elseif panel == 3 then
-			if ARL_ExpBindingOptCB:GetChecked() then
-				ShowFilterMenu("binding")
+		elseif panel == "binding" then
+			if MainPanel.menu_toggle_binding:GetChecked() then
+				MainPanel:HighlightCategory("binding")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1492,12 +1444,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
+				MainPanel.menu_toggle_binding.text:SetText(addon:Yellow(CATEGORY_TEXT["binding"])) 
 				ChangeFilters = false
 			end
-		elseif panel == 4 then
-			if ARL_ExpItemOptCB:GetChecked() then
-				ShowFilterMenu("item")
+		elseif panel == "item" then
+			if MainPanel.menu_toggle_item:GetChecked() then
+				MainPanel:HighlightCategory("item")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1510,12 +1462,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+				MainPanel.menu_toggle_item.text:SetText(addon:Yellow(CATEGORY_TEXT["item"])) 
 				ChangeFilters = false
 			end
-		elseif panel == 5 then
-			if ARL_ExpPlayerOptCB:GetChecked() then
-				ShowFilterMenu("player")
+		elseif panel == "player" then
+			if MainPanel.menu_toggle_player:GetChecked() then
+				MainPanel:HighlightCategory("player")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1528,12 +1480,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
+				MainPanel.menu_toggle_player.text:SetText(addon:Yellow(CATEGORY_TEXT["player"])) 
 				ChangeFilters = false
 			end
-		elseif panel == 6 then
-			if ARL_ExpRepOptCB:GetChecked() then
-				ShowFilterMenu("rep")
+		elseif panel == "rep" then
+			if MainPanel.menu_toggle_rep:GetChecked() then
+				MainPanel:HighlightCategory("rep")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1546,12 +1498,12 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
+				MainPanel.menu_toggle_rep.text:SetText(addon:Yellow(CATEGORY_TEXT["rep"])) 
 				ChangeFilters = false
 			end
-		elseif panel == 7 then
-			if ARL_ExpMiscOptCB:GetChecked() then
-				ShowFilterMenu("misc")
+		elseif panel == "misc" then
+			if MainPanel.menu_toggle_misc:GetChecked() then
+				MainPanel:HighlightCategory("misc")
 
 				-- display the correct subframe with all the buttons and such, hide the others
 				MainPanel.filter_menu.general:Hide()
@@ -1564,7 +1516,7 @@ do
 
 				ChangeFilters = true
 			else
-				ARL_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
+				MainPanel.menu_toggle_misc.text:SetText(addon:Yellow(CATEGORY_TEXT["misc"])) 
 				ChangeFilters = false
 			end
 		end
@@ -1572,13 +1524,13 @@ do
 		if ChangeFilters then
 			-- Depending on which panel we're showing, either display one column
 			-- or two column
-			if panel == 1 or panel == 2 or panel == 3 or panel == 4 or panel == 7 then
+			if panel == "general" or panel == "obtain" or panel == "binding" or panel == "item" or panel == "misc" then
 				MainPanel.filter_menu.texture:ClearAllPoints()
 				MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
 				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
 				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
 				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			elseif ((panel == 5) or (panel == 6)) then
+			elseif panel == "player" or panel == "rep" then
 				MainPanel.filter_menu.texture:ClearAllPoints()
 				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
 				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
@@ -1593,29 +1545,29 @@ do
 		end
 	end
 
-	function CreateFilterMenuButton(bName, bTex, panelIndex)
+	function CreateFilterMenuButton(bTex, panelIndex)
 		local ExpTextureSize = 34
-		local cButton = CreateFrame("CheckButton", bName, MainPanel)
+		local cButton = CreateFrame("CheckButton", nil, MainPanel)
 
 		cButton:SetWidth(ExpTextureSize)
 		cButton:SetHeight(ExpTextureSize)
 		cButton:SetScript("OnClick",
-				  function() 
+				  function(self, button, down) 
 					  ToggleFilterMenu(panelIndex)
 				  end)
 
-		local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
+		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
 		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
 		bgTex:SetHeight(ExpTextureSize + 6)
 		bgTex:SetWidth(ExpTextureSize + 4)
 		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
 		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
 
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
+		local iconTex = cButton:CreateTexture(nil, "BORDER")
 		iconTex:SetTexture('Interface/Icons/' .. bTex)
 		iconTex:SetAllPoints(cButton)
 
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
 		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
 		pushedTexture:SetAllPoints(cButton)
 		cButton:SetPushedTexture(pushedTexture)
@@ -1634,7 +1586,7 @@ do
 
 		-- Create the text object to go along with it
 		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
-		cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
+		cbText:SetText(addon:Yellow(CATEGORY_TEXT[panelIndex]))
 		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
 		cbText:SetHeight(14)
 		cbText:SetWidth(100)
@@ -1642,33 +1594,33 @@ do
 		cButton.text = cbText
 
 		-- And throw up a tooltip
-		SetTooltipScripts(cButton, ExpButtonTT[panelIndex])
+		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[panelIndex])
 		cButton:Hide()
 
 		return cButton
 	end
 end	-- do
 
-ARL_ExpGeneralOptCB = CreateFilterMenuButton("ARL_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-ARL_ExpGeneralOptCB:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -7, -23)
+MainPanel.menu_toggle_general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
+MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -7, -23)
 
-ARL_ExpObtainOptCB = CreateFilterMenuButton("ARL_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
-ARL_ExpObtainOptCB:SetPoint("TOPLEFT", ARL_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
+MainPanel.menu_toggle_obtain = CreateFilterMenuButton("Spell_Shadow_MindRot", "obtain")
+MainPanel.menu_toggle_obtain:SetPoint("TOPLEFT", MainPanel.menu_toggle_general, "BOTTOMLEFT", 0, -8)
 
-ARL_ExpBindingOptCB = CreateFilterMenuButton("ARL_ExpBindingOptCB", "INV_Belt_20", 3)
-ARL_ExpBindingOptCB:SetPoint("TOPLEFT", ARL_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_binding = CreateFilterMenuButton("INV_Belt_20", "binding")
+MainPanel.menu_toggle_binding:SetPoint("TOPLEFT", MainPanel.menu_toggle_obtain, "BOTTOMLEFT", -0, -8)
 
-ARL_ExpItemOptCB = CreateFilterMenuButton("ARL_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
-ARL_ExpItemOptCB:SetPoint("TOPLEFT", ARL_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_item = CreateFilterMenuButton("INV_Misc_EngGizmos_19", "item")
+MainPanel.menu_toggle_item:SetPoint("TOPLEFT", MainPanel.menu_toggle_binding, "BOTTOMLEFT", -0, -8)
 
-ARL_ExpPlayerOptCB = CreateFilterMenuButton("ARL_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
-ARL_ExpPlayerOptCB:SetPoint("TOPLEFT", ARL_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
+MainPanel.menu_toggle_player:SetPoint("TOPLEFT", MainPanel.menu_toggle_item, "BOTTOMLEFT", -0, -8)
 
-ARL_ExpRepOptCB = CreateFilterMenuButton("ARL_ExpRepOptCB", "INV_Scroll_05", 6)
-ARL_ExpRepOptCB:SetPoint("TOPLEFT", ARL_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_rep = CreateFilterMenuButton("INV_Scroll_05", "rep")
+MainPanel.menu_toggle_rep:SetPoint("TOPLEFT", MainPanel.menu_toggle_player, "BOTTOMLEFT", -0, -8)
 
-ARL_ExpMiscOptCB = CreateFilterMenuButton("ARL_ExpMiscOptCB", "Trade_Engineering", 7)
-ARL_ExpMiscOptCB:SetPoint("TOPLEFT", ARL_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_misc = CreateFilterMenuButton("Trade_Engineering", "misc")
+MainPanel.menu_toggle_misc:SetPoint("TOPLEFT", MainPanel.menu_toggle_rep, "BOTTOMLEFT", -0, -8)
 
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_menu and set its scripts.
