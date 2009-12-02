@@ -65,18 +65,6 @@ local Player		= addon.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-
-local BINDING_FLAGS = {
-	[F_IBOE] = L["BOEFilter"],
-	[F_IBOP] = L["BOPFilter"],
-	[F_IBOA] = L["BOAFilter"],
-	[F_RBOE] = L["RecipeBOEFilter"],
-	[F_RBOP] = L["RecipeBOPFilter"],
-	[F_RBOA] = L["RecipeBOAFilter"]
-}
-
 local SortedProfessions = {	-- To make tabbing between professions easier 
 	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1 
 	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2 
@@ -119,6 +107,27 @@ local FILTERMENU_LARGE		= 210
 local FACTION_HORDE		= BFAC["Horde"]
 local FACTION_ALLIANCE		= BFAC["Alliance"]
 local FACTION_NEUTRAL		= BFAC["Neutral"]
+
+-------------------------------------------------------------------------------
+-- Acquire flag constants.
+-------------------------------------------------------------------------------
+local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+
+-------------------------------------------------------------------------------
+-- Filter flag constants.
+-------------------------------------------------------------------------------
+local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
+local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
+local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
+
+local BINDING_FLAGS = {
+	[F_IBOE] = L["BOEFilter"],
+	[F_IBOP] = L["BOPFilter"],
+	[F_IBOA] = L["BOAFilter"],
+	[F_RBOE] = L["RecipeBOEFilter"],
+	[F_RBOP] = L["RecipeBOPFilter"],
+	[F_RBOA] = L["RecipeBOAFilter"]
+}
 
 -------------------------------------------------------------------------------
 -- Define the static popups we're going to call when people haven't scanned or
@@ -175,7 +184,6 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
 local ARL_SearchText, ARL_LastSearchedText
-local ARL_Rep_ClassicCB, ARL_Rep_BCCB, ARL_Rep_LKCB
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -277,7 +285,7 @@ do
 
 	-- when pressed, the button should look pressed
 	local function button_OnMouseDown(this)
-		if this:IsEnabled() == 1 then
+		if this:IsEnabled() then
 			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
 			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
 			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
@@ -286,7 +294,7 @@ do
 
 	-- when depressed, return to normal
 	local function button_OnMouseUp(this)
-		if this:IsEnabled() == 1 then
+		if this:IsEnabled() then
 			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
 			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
 			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
@@ -524,7 +532,7 @@ local function ttAdd(
 	if narrow == 1 or textSize ~= 0 then
 		local font, fontObj = normalFont, normalFontObj
 
-		if narrow == 1 then
+		if narrow then
 			font = narrowFont
 			fontObj = narrowFontObj
 		end
@@ -654,8 +662,6 @@ local function GenerateTooltipContent(owner, rIndex)
 		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 		TipTac:AddModifiedTip(arlTooltip, true)
 	end
-	local color_1, color_2 = "", ""
-
 	arlTooltip:Clear()
 	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	arlTooltip:AddHeader()
@@ -665,14 +671,15 @@ local function GenerateTooltipContent(owner, rIndex)
 	local exclude = addon.db.profile.exclusionlist
 
 	if exclude[rIndex] then
-		ttAdd(0, -1, 1, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
+		ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
 	end
 
 	-- Add in skill level requirement, colored correctly
-	color_1 = addon:hexcolor("NORMAL")
+	local color_1 = addon:hexcolor("NORMAL")
 
 	local recipeSkill = recipe_entry["Level"]
 	local playerSkill = Player["ProfessionLevel"]
+	local color_2
 
 	if recipeSkill > playerSkill then
 		color_2 = addon:hexcolor("RED")
@@ -685,7 +692,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	else
 		color_2 = addon:hexcolor("MIDGREY")
 	end
-	ttAdd(0, -1, 0, L["Required Skill"] .. " :", color_1, recipe_entry["Level"], color_2)
+	ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry["Level"], color_2)
 
 	-- Binding info
 	arlTooltip:AddSeparator()
@@ -695,25 +702,25 @@ local function GenerateTooltipContent(owner, rIndex)
 
 	for flag, label in pairs(BINDING_FLAGS) do
 		if recipe_flags[flag] then
-			ttAdd(0, -1, 1, label, color_1)
+			ttAdd(0, -1, true, label, color_1)
 		end
 	end
 	arlTooltip:AddSeparator()
 
-	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+	ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
 	local playerFaction = Player["Faction"]
 	local rep_list = addon.reputation_list
 
 	-- loop through acquire methods, display each
-	for k, v in pairs(recipe_entry["Acquire"]) do
-		local acquire_type = v["Type"]
+	for index, acquire in pairs(recipe_entry["Acquire"]) do
+		local acquire_type = acquire["Type"]
 		local display_tip = false
 
 		if acquire_type == A_TRAINER then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
-			local trainer = addon.trainer_list[v["ID"]]
+			local trainer = addon.trainer_list[acquire["ID"]]
 
 			color_1 = addon:hexcolor("TRAINER")
 			display_tip, color_2 = GetTipFactionInfo(trainer["Faction"])
@@ -724,13 +731,13 @@ local function GenerateTooltipContent(owner, rIndex)
 				if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
 					coord_text = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
 				end
-				ttAdd(0, -2, 0, L["Trainer"], color_1, trainer["Name"], color_2)
+				ttAdd(0, -2, false, L["Trainer"], color_1, trainer["Name"], color_2)
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, trainer["Location"], color_1, coord_text, color_2)
+				ttAdd(1, -2, true, trainer["Location"], color_1, coord_text, color_2)
 			end
 		elseif acquire_type == A_VENDOR then
-			local vendor = addon.vendor_list[v["ID"]]
+			local vendor = addon.vendor_list[acquire["ID"]]
 			local faction
 
 			color_1 = addon:hexcolor("VENDOR")
@@ -742,39 +749,39 @@ local function GenerateTooltipContent(owner, rIndex)
 				if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
 					coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
 				end
-				ttAdd(0, -1, 0, L["Vendor"], color_1, vendor["Name"], color_2)
+				ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, vendor["Location"], color_1, coord_text, color_2)
+				ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
 			elseif faction then
-				ttAdd(0, -1, 0, faction.." "..L["Vendor"], color_1)
+				ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 			end
 		elseif acquire_type == A_MOB then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
-			local mob = addon.mob_list[v["ID"]]
+			local mob = addon.mob_list[acquire["ID"]]
 			local coord_text = ""
 
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+			if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
 				coord_text = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
 			end
 
 			color_1 = addon:hexcolor("MOBDROP")
 			color_2 = addon:hexcolor("HORDE")
-			ttAdd(0, -1, 0, L["Mob Drop"], color_1, mob["Name"], color_2)
+			ttAdd(0, -1, false, L["Mob Drop"], color_1, mob["Name"], color_2)
 			color_1 = addon:hexcolor("NORMAL")
 			color_2 = addon:hexcolor("HIGH")
-			ttAdd(1, -2, 1, mob["Location"], color_1, coord_text, color_2)
+			ttAdd(1, -2, true, mob["Location"], color_1, coord_text, color_2)
 		elseif acquire_type == A_QUEST then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
-			local quest = addon.quest_list[v["ID"]]
+			local quest = addon.quest_list[acquire["ID"]]
 
 			if quest then
 				local faction
 
 				color_1 = addon:hexcolor("QUEST")
-				display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
+				display_tip, color_2, faction = GetTipFactionInfo(quest["Faction"])
 
 				if display_tip then
 					local coord_text = ""
@@ -782,37 +789,38 @@ local function GenerateTooltipContent(owner, rIndex)
 					if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
 						coord_text = "(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")"
 					end
-					ttAdd(0, -1, 0, L["Quest"], color_1, quest["Name"], color_2)
+					ttAdd(0, -1, false, L["Quest"], color_1, quest["Name"], color_2)
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, quest["Location"], color_1, coord_text, color_2)
+					ttAdd(1, -2, true, quest["Location"], color_1, coord_text, color_2)
 				elseif faction then
-					ttAdd(0, -1, 0, faction.." "..L["Quest"], color_1)
+					ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
 				end
 			end
 		elseif acquire_type == A_SEASONAL then
 			-- Seasonal:				SeasonEventName
 			color_1 = addon:hexcolor("SEASON")
-			ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, addon.seasonal_list[v["ID"]]["Name"], color_1)
+			ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, addon.seasonal_list[acquire["ID"]]["Name"], color_1)
 		elseif acquire_type == A_REPUTATION then
 			-- Reputation:				Faction
 			-- RepLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
 
-			local repfac = rep_list[v["ID"]]
-			local repname = repfac["Name"] -- name
-			local rep_level = v["RepLevel"]
-			local repvendor = addon.vendor_list[v["RepVendor"]]
+			local repvendor = addon.vendor_list[acquire["RepVendor"]]
 			local coord_text = ""
 
-			if (repvendor["Coordx"] ~= 0) and (repvendor["Coordy"] ~= 0) then
+			if repvendor["Coordx"] ~= 0 and repvendor["Coordy"] ~= 0 then
 				coord_text = "(" .. repvendor["Coordx"] .. ", " .. repvendor["Coordy"] .. ")"
 			end
+			local repfac = rep_list[acquire["ID"]]
+			local repname = repfac["Name"]
+
 			color_1 = addon:hexcolor("REP")
 			color_2 = addon:hexcolor("NORMAL")
-			ttAdd(0, -1, 0, _G.REPUTATION, color_1, repname, color_2)
+			ttAdd(0, -1, false, _G.REPUTATION, color_1, repname, color_2)
 
 			local rStr = ""
+			local rep_level = acquire["RepLevel"]
 
 			if rep_level == 0 then
 				rStr = FACTION_NEUTRAL
@@ -833,35 +841,36 @@ local function GenerateTooltipContent(owner, rIndex)
 			display_tip, color_2 = GetTipFactionInfo(repvendor["Faction"])
 
 			if display_tip then
-				ttAdd(1, -2, 0, rStr, color_1, repvendor["Name"], color_2)
+				ttAdd(1, -2, false, rStr, color_1, repvendor["Name"], color_2)
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
-				ttAdd(2, -2, 1, repvendor["Location"], color_1, coord_text, color_2)
+				ttAdd(2, -2, true, repvendor["Location"], color_1, coord_text, color_2)
 			end
 		elseif acquire_type == A_WORLD_DROP then
-			-- World Drop				RarityLevel
-			if (v["ID"] == 1) then
+			local acquire_id = acquire["ID"]
+
+			if acquire_id == 1 then
 				color_1 = addon:hexcolor("COMMON")
-			elseif (v["ID"] == 2) then
+			elseif acquire_id == 2 then
 				color_1 = addon:hexcolor("UNCOMMON")
-			elseif (v["ID"] == 3) then
+			elseif acquire_id == 3 then
 				color_1 = addon:hexcolor("RARE")
-			elseif (v["ID"] == 4) then
+			elseif acquire_id == 4 then
 				color_1 = addon:hexcolor("EPIC")
 			else
 				color_1 = addon:hexcolor("NORMAL")
 			end
-			ttAdd(0, -1, 0, L["World Drop"], color_1)
+			ttAdd(0, -1, false, L["World Drop"], color_1)
 		elseif acquire_type == A_CUSTOM then
-			ttAdd(0, -1, 0, addon.custom_list[v["ID"]]["Name"], addon:hexcolor("NORMAL"))
+			ttAdd(0, -1, false, addon.custom_list[acquire["ID"]]["Name"], addon:hexcolor("NORMAL"))
 		elseif acquire_type == A_PVP then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
-			local vendor = addon.vendor_list[v["ID"]]
+			local vendor = addon.vendor_list[acquire["ID"]]
 			local faction
 
 			color_1 = addon:hexcolor("VENDOR")
-			display_tip, color_2, faction  = GetTipFactionInfo(vendor["Faction"])
+			display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
 
 			if display_tip then
 				local coord_text = ""
@@ -869,12 +878,12 @@ local function GenerateTooltipContent(owner, rIndex)
 				if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
 					coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
 				end
-				ttAdd(0, -1, 0, L["Vendor"], color_1, vendor["Name"], color_2)
+				ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, vendor["Location"], color_1, coord_text, color_2)
+				ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
 			elseif faction then
-				ttAdd(0, -1, 0, faction.." "..L["Vendor"], color_1)
+				ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 			end
 		--@alpha@
 		else	-- Unhandled
@@ -1304,9 +1313,9 @@ do
 		MainPanel.filter_menu.rep.BC:Hide()
 		MainPanel.filter_menu.rep.LK:Hide()
 
-		ARL_Rep_ClassicCB:SetChecked(false)
-		ARL_Rep_BCCB:SetChecked(false)
-		ARL_Rep_LKCB:SetChecked(false)
+		MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+		MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+		MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 
 		local toggle = "menu_toggle_" .. panel
 
@@ -1905,7 +1914,7 @@ MainPanel.filter_menu.player.caster.text:SetText(_G.DAMAGER)
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_menu.rep, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.filter_menu.rep = CreateFrame("Frame", "ARL_FilterMenu_Rep", MainPanel.filter_menu)
+MainPanel.filter_menu.rep = CreateFrame("Frame", nil, MainPanel.filter_menu)
 MainPanel.filter_menu.rep:SetWidth(FILTERMENU_SMALL)
 MainPanel.filter_menu.rep:SetHeight(280)
 MainPanel.filter_menu.rep:EnableMouse(true)
@@ -1921,24 +1930,24 @@ do
 	-------------------------------------------------------------------------------
 	-- Generic function to create expansion buttons in MainPanel.filter_menu.rep
 	-------------------------------------------------------------------------------
-	local function CreateExpansionButton(bName, bTex)
-		local cButton = CreateFrame("CheckButton", bName, MainPanel.filter_menu.rep)
+	local function CreateExpansionButton(texture, tooltip_text)
+		local cButton = CreateFrame("CheckButton", nil, MainPanel.filter_menu.rep)
 		cButton:SetWidth(100)
 		cButton:SetHeight(46)
 		cButton:SetChecked(false)
 
-		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
+		local iconTex = cButton:CreateTexture(nil, "BORDER")
 
-		if bName == "ARL_Rep_LKCB" then
-			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
+		if texture == "wotlk_logo" then
+			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. texture)
 		else
-			iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
+			iconTex:SetTexture('Interface/Glues/Common/' .. texture)
 		end
 		iconTex:SetWidth(100)
 		iconTex:SetHeight(46)
 		iconTex:SetAllPoints(cButton)
 
-		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
+		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
 		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
 		pushedTexture:SetAllPoints(cButton)
 		cButton:SetPushedTexture(pushedTexture)
@@ -1956,13 +1965,8 @@ do
 		cButton:SetCheckedTexture(checkedTexture)
 
 		-- And throw up a tooltip
-		if bName == "ARL_Rep_ClassicCB" then
-			SetTooltipScripts(cButton, L["FILTERING_OLDWORLD_DESC"])
-		elseif bName == "ARL_Rep_BCCB" then
-			SetTooltipScripts(cButton, L["FILTERING_BC_DESC"])
-		else
-			SetTooltipScripts(cButton, L["FILTERING_WOTLK_DESC"])
-		end
+		SetTooltipScripts(cButton, tooltip_text)
+		
 		return cButton
 	end
 
@@ -1970,41 +1974,41 @@ do
 	-- Rep Filtering panel switcher
 	-------------------------------------------------------------------------------
 	local function RepFilterSwitch(whichrep)
-		-- 1	ARL_Rep_ClassicCB		Classic Rep
-		-- 2	ARL_Rep_BCCB			Burning Crusade
-		-- 3	ARL_Rep_LKCB			Wrath of the Lich King
+		-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
+		-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
+		-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
 		local ShowPanel = false
 
 		if whichrep == 1 then
-			if ARL_Rep_ClassicCB:GetChecked() then
+			if MainPanel.filter_menu.rep.toggle_originalwow:GetChecked() then
 				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Show()
 				MainPanel.filter_menu.rep.BC:Hide()
 				MainPanel.filter_menu.rep.LK:Hide()
-				ARL_Rep_BCCB:SetChecked(false)
-				ARL_Rep_LKCB:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 			else
 				ShowPanel = false
 			end
 		elseif whichrep == 2 then
-			if ARL_Rep_BCCB:GetChecked() then
+			if MainPanel.filter_menu.rep.toggle_bc:GetChecked() then
 				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Hide()
 				MainPanel.filter_menu.rep.BC:Show()
 				MainPanel.filter_menu.rep.LK:Hide()
-				ARL_Rep_ClassicCB:SetChecked(false)
-				ARL_Rep_LKCB:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 			else
 				ShowPanel = false
 			end
 		else -- whichrep == 3 (WotLK)
-			if ARL_Rep_LKCB:GetChecked() then
+			if MainPanel.filter_menu.rep.toggle_wrath:GetChecked() then
 				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Hide()
 				MainPanel.filter_menu.rep.BC:Hide()
 				MainPanel.filter_menu.rep.LK:Show()
-				ARL_Rep_ClassicCB:SetChecked(false)
-				ARL_Rep_BCCB:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
 			else
 				ShowPanel = false
 			end
@@ -2033,31 +2037,31 @@ do
 			MainPanel.filter_menu.rep.BC:Hide()
 			MainPanel.filter_menu.rep.LK:Hide()
 
-			ARL_Rep_ClassicCB:SetChecked(false)
-			ARL_Rep_BCCB:SetChecked(false)
-			ARL_Rep_LKCB:SetChecked(false)
+			MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+			MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+			MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 		end
 	end
-	ARL_Rep_ClassicCB = CreateExpansionButton("ARL_Rep_ClassicCB", "Glues-WoW-Logo")
-	ARL_Rep_ClassicCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
-	ARL_Rep_ClassicCB:SetScript("OnClick",
+	MainPanel.filter_menu.rep.toggle_originalwow = CreateExpansionButton("Glues-WoW-Logo", L["FILTERING_OLDWORLD_DESC"])
+	MainPanel.filter_menu.rep.toggle_originalwow:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
+	MainPanel.filter_menu.rep.toggle_originalwow:SetScript("OnClick",
 				    function()
 					    RepFilterSwitch(1)
 				    end)
 
-	ARL_Rep_BCCB = CreateExpansionButton("ARL_Rep_BCCB", "GLUES-WOW-BCLOGO")
-	ARL_Rep_BCCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
-	ARL_Rep_BCCB:SetScript("OnClick",
-			       function()
-				       RepFilterSwitch(2)
-			       end)
+	MainPanel.filter_menu.rep.toggle_bc = CreateExpansionButton("GLUES-WOW-BCLOGO", L["FILTERING_BC_DESC"])
+	MainPanel.filter_menu.rep.toggle_bc:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
+	MainPanel.filter_menu.rep.toggle_bc:SetScript("OnClick",
+						      function()
+							      RepFilterSwitch(2)
+						      end)
 
-	ARL_Rep_LKCB = CreateExpansionButton("ARL_Rep_LKCB", "wotlk_logo")
-	ARL_Rep_LKCB:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
-	ARL_Rep_LKCB:SetScript("OnClick",
-			       function()
-				       RepFilterSwitch(3)
-			       end)
+	MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("wotlk_logo", L["FILTERING_WOTLK_DESC"])
+	MainPanel.filter_menu.rep.toggle_wrath:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
+	MainPanel.filter_menu.rep.toggle_wrath:SetScript("OnClick",
+							 function()
+								 RepFilterSwitch(3)
+							 end)
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -2229,7 +2233,7 @@ do
 				button_index = button_index + 1
 				string_index = string_index + 1
 
-				if (button_index > NUM_RECIPE_LINES) or (string_index > num_entries) then
+				if button_index > NUM_RECIPE_LINES or string_index > num_entries then
 					stayInLoop = false
 				end
 			end
@@ -2303,15 +2307,15 @@ do
 		-- occurs
 		entry_index = entry_index + 1
 
-		for k, v in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
+		for index, acquire in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
 			-- Initialize the first line here, since every type below will have one.
-			local acquire_type = v["Type"]
+			local acquire_type = acquire["Type"]
 			local t = AcquireTable()
 			t.recipe_id = recipe_id
 			t.is_expanded = true
 
 			if acquire_type == A_TRAINER and obtain_filters.trainer then
-				local trainer = addon.trainer_list[v["ID"]]
+				local trainer = addon.trainer_list[acquire["ID"]]
 
 				if CheckDisplayFaction(trainer["Faction"]) then
 					local nStr = ""
@@ -2345,7 +2349,7 @@ do
 				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 				-- This allows us to select PVP only and to see just the PVP recipes
 			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				local vendor = addon.vendor_list[v["ID"]]
+				local vendor = addon.vendor_list[acquire["ID"]]
 
 				if CheckDisplayFaction(vendor["Faction"]) then
 					local nStr = ""
@@ -2377,7 +2381,7 @@ do
 				end
 				-- Mobs can be in instances, raids, or specific mob related drops.
 			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				local mob = addon.mob_list[v["ID"]]
+				local mob = addon.mob_list[acquire["ID"]]
 				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 				tinsert(self.entries, entry_index, t)
@@ -2396,7 +2400,7 @@ do
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_QUEST and obtain_filters.quest then
-				local quest = addon.quest_list[v["ID"]]
+				local quest = addon.quest_list[acquire["ID"]]
 
 				if CheckDisplayFaction(quest["Faction"]) then
 					local nStr = ""
@@ -2427,7 +2431,7 @@ do
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
-				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[v["ID"]]["Name"])
+				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[acquire["ID"]]["Name"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -2435,10 +2439,10 @@ do
 				-- Rep: ID, Faction
 				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 				-- RepVendor - VendorID
-				local rep_vendor = addon.vendor_list[v["RepVendor"]]
+				local rep_vendor = addon.vendor_list[acquire["RepVendor"]]
 
 				if CheckDisplayFaction(rep_vendor["Faction"]) then
-					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[v["ID"]]["Name"]
+					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[acquire["ID"]]["Name"]
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 
@@ -2464,7 +2468,7 @@ do
 					t.recipe_id = recipe_id
 					t.is_expanded = true
 
-					t.text = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
+					t.text = pad .. pad .. faction_strings[acquire["RepLevel"]] .. nStr 
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2483,15 +2487,15 @@ do
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A_WORLD_DROP and obtain_filters.worlddrop then
-				t.text = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
+				t.text = pad .. addon:RarityColor(acquire["ID"] + 1, L["World Drop"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_CUSTOM then
-				t.text = pad .. addon:Normal(addon.custom_list[v["ID"]]["Name"])
+				t.text = pad .. addon:Normal(addon.custom_list[acquire["ID"]]["Name"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_PVP and obtain_filters.pvp then
-				local vendor = addon.vendor_list[v["ID"]]
+				local vendor = addon.vendor_list[acquire["ID"]]
 
 				if CheckDisplayFaction(vendor["Faction"]) then
 					local coord_text = ""
@@ -2656,34 +2660,30 @@ do
 		local acquire_id = acquire_entry["ID"]
 		local display = false
 
-		-- Trainers - Display if it's your faction or neutral.
 		if maptrainer then
 			if acquire_type == A_TRAINER then 
 				local trainer = addon.trainer_list[acquire_id]
 
 				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[3] then
+			elseif acquire_type == A_CUSTOM and flags[F_TRAINER] then
 				return true
 			end
-			-- Vendors - Display if it's your faction or neutral
 		elseif mapvendor then
 			if acquire_type == A_VENDOR then
 				local vendor = addon.vendor_list[acquire_id]
 
 				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[4] then
+			elseif acquire_type == A_CUSTOM and flags[F_VENDOR] then
 				return true
 			end
-			-- Always display mobs
 		elseif (acquire_type == A_MOB and mapmob) or
-			(acquire_type == A_CUSTOM and (flags[5] or flags[6] or flags[10] or flags[11])) then
+			(acquire_type == A_CUSTOM and (flags[F_INSTANCE] or flags[F_RAID] or flags[F_WORLD_DROP] or flags[F_MOB_DROP])) then
 			return true
-		-- Quests
 		elseif mapquest then
 			if acquire_type == A_QUEST then
 				local quest = addon.quest_list[acquire_id]
 				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[8] then
+			elseif acquire_type == A_CUSTOM and flags[F_QUEST] then
 				return true
 			end
 		end
@@ -2842,7 +2842,6 @@ do
 			["c"] = 2,
 		},
 	}
-
 	local maplist = {}
 
 	-- Description: Adds mini-map and world map icons with tomtom.
@@ -2878,9 +2877,9 @@ do
 		-- We're only getting a single recipe, not a bunch
 		if single_recipe then
 			-- loop through acquire methods, display each
-			for k, v in pairs(recipe_list[single_recipe]["Acquire"]) do
+			for index, acquire in pairs(recipe_list[single_recipe]["Acquire"]) do
 				if CheckMapDisplay(v, recipe_list[single_recipe]["Flags"]) then
-					maplist[v["ID"]] = v["Type"]
+					maplist[acquire["ID"]] = acquire["Type"]
 				end
 			end
 		elseif addon.db.profile.autoscanmap then
@@ -2892,9 +2891,9 @@ do
 
 				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
 					-- loop through acquire methods, display each
-					for k, v in pairs(recipe_list[recipe_index]["Acquire"]) do
+					for index, acquire in pairs(recipe_list[recipe_index]["Acquire"]) do
 						if CheckMapDisplay(v, recipe_list[recipe_index]["Flags"]) then
-							maplist[v["ID"]] = v["Type"]
+							maplist[acquire["ID"]] = acquire["Type"]
 						end
 					end
 				end
@@ -2975,7 +2974,7 @@ do
 
 			if zone and continent then
 				--@alpha@
-				if (x == 0) and (y == 0) then
+				if x == 0 and y == 0 then
 					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
 				end
 				--@end-alpha@
@@ -3146,6 +3145,7 @@ function GenerateClickableTT(anchor)
 	if not click_info.realm then
 		local other_realms = nil
 		local header = nil
+
 		for realm in pairs(tskl_list) do
 			if target_realm and (realm ~= target_realm) then
 				other_realms = true
@@ -3161,10 +3161,11 @@ function GenerateClickableTT(anchor)
 				tip:SetCell(y, x, realm)
 				tip:SetCellScript(y, x, "OnMouseUp", SelectRealm, realm)
 			elseif realm == target_realm then
+				click_info.realm = realm
+
 				tip:AddHeader(realm)
 				tip:AddSeparator()
 
-				click_info.realm = realm
 				for name in pairs(tskl_list[click_info.realm]) do
 					if name ~= UnitName("player") then
 						y, x = tip:AddLine()
@@ -3174,6 +3175,7 @@ function GenerateClickableTT(anchor)
 				end
 			end
 		end
+
 		if other_realms then
 			tip:AddSeparator()
 			y, x = tip:AddLine()
@@ -3187,6 +3189,7 @@ function GenerateClickableTT(anchor)
 		if realm_list then
 			tip:AddLine(click_info.realm)
 			tip:AddSeparator()
+
 			for name in pairs(realm_list) do
 				y, x = tip:AddLine()
 				tip:SetCell(y, x, name)
@@ -3197,6 +3200,7 @@ function GenerateClickableTT(anchor)
 	else
 		tip:AddHeader(click_info.name)
 		tip:AddSeparator()
+
 		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
 			y, x = tip:AddLine()
 			tip:SetCell(y, x, prof)
@@ -3204,6 +3208,7 @@ function GenerateClickableTT(anchor)
 		end
 		tip:AddSeparator()
 	end
+
 	if anchor then
 		click_info.anchor = anchor
 		tip:SetPoint("TOP", anchor, "BOTTOM")
@@ -3311,7 +3316,7 @@ function addon:InitializeFrame()
 					   local searchtext = ARL_SearchText:GetText()
 					   searchtext = searchtext:trim()
 
-					   if (searchtext ~= "") then
+					   if searchtext ~= "" then
 						   ARL_LastSearchedText = searchtext
 
 						   SearchRecipes(searchtext)
@@ -3361,7 +3366,8 @@ function addon:InitializeFrame()
 				 function(this)
 					 local searchtext = ARL_SearchText:GetText()
 					 searchtext = searchtext:trim()
-					 if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
+
+					 if searchtext ~= "" and searchtext ~= L["SEARCH_BOX_DESC"] then
 						 ARL_LastSearchedText = searchtext
 
 						 SearchRecipes(searchtext)
@@ -3388,7 +3394,9 @@ function addon:InitializeFrame()
 				 end)
 	ARL_SearchText:SetScript("OnTextChanged",
 				 function(this)
-					 if (this:GetText() ~= "" and this:GetText() ~= L["SEARCH_BOX_DESC"] and this:GetText() ~= ARL_LastSearchedText) then
+					 local text = this:GetText()
+
+					 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= ARL_LastSearchedText then
 						 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
 						 ARL_SearchButton:Enable()
 					 else
