@@ -223,36 +223,6 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
--- Colours a skill level based on whether or not the player has a high enough
--- skill level or faction to learn it.
--------------------------------------------------------------------------------
-local function ColourSkillLevel(recipeEntry, hasFaction, recipe_text)
-	local playerSkill = Player["ProfessionLevel"]
-	local recipeSkill = recipeEntry["Level"]
-	local recipeOrange = recipeEntry["Orange"]
-	local recipeYellow = recipeEntry["Yellow"]
-	local recipeGreen = recipeEntry["Green"]
-	local recipeGrey = recipeEntry["Grey"]
-
-	if recipeSkill > playerSkill or not hasFaction then
-		return addon:Red(recipe_text)
-	elseif playerSkill >= recipeGrey then
-		return addon:MidGrey(recipe_text)
-	elseif playerSkill >= recipeGreen then
-		return addon:Green(recipe_text)
-	elseif playerSkill >= recipeYellow then
-		return addon:Yellow(recipe_text)
-	elseif playerSkill >= recipeOrange then
-		return addon:Orange(recipe_text)
-	else
-		--@alpha@
-		addon:Print("DEBUG: ColourSkillLevel fallback: " .. recipe_text)
-		--@end-alpha@
-		return addon:MidGrey(recipe_text)
-	end
-end
-
--------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
 local SetTooltipScripts
@@ -484,434 +454,432 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
-local arlSpellTooltip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
-local arlTooltip
+local spell_tip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
+local acquire_tip
 
--- Font Objects needed for arlTooltip
+-- Font Objects needed for acquire_tip
 local narrowFont
 local normalFont
 
-local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
-local normalFontObj = CreateFont(MODNAME.."normalFontObj")
+local GenerateTooltipContent
+do
+	-- Fallback in case the user doesn't have LSM-3.0 installed
+	if not LibStub:GetLibrary("LibSharedMedia-3.0", true) then
 
--- Fallback in case the user doesn't have LSM-3.0 installed
-if not LibStub:GetLibrary("LibSharedMedia-3.0", true) then
-
-	local locale = GetLocale()
-	-- Fix for font issues on koKR
-	if locale == "koKR" then
-		narrowFont = "Fonts\\2002.TTF"
-		normalFont = "Fonts\\2002.TTF"
-	else
-		narrowFont = "Fonts\\ARIALN.TTF"
-		normalFont = "Fonts\\FRIZQT__.TTF"
-	end
-else
-	-- Register LSM 3.0
-	local LSM3 = LibStub("LibSharedMedia-3.0")
-
-	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
-	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
-end
-
--- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
--- adding padding to the left hand side, and using better color handling. So... this function
--- will do that for me.
-local function ttAdd(
-	leftPad,		-- number of times to pad two spaces on left side
-	textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
-	narrow,			-- if 1, use ARIALN instead of FRITZQ
-	str1,			-- left-hand string
-	hexcolor1,		-- hex color code for left-hand side
-	str2,			-- if present, this is the right-hand string
-	hexcolor2)		-- if present, hex color code for right-hand side
-
-	-- are we changing fontsize or narrow?
-	local fontSize
-
-	if narrow == 1 or textSize ~= 0 then
-		local font, fontObj = normalFont, normalFontObj
-
-		if narrow then
-			font = narrowFont
-			fontObj = narrowFontObj
-		end
-		fontSize = addon.db.profile.frameopts.fontsize + textSize
-
-		fontObj:SetFont(font, fontSize)
-		arlTooltip:SetFont(fontObj)
-	end
-
-	-- Add in our left hand padding
-	local loopPad = leftPad
-	local leftStr = str1
-
-	while loopPad > 0 do
-		leftStr = "  " .. leftStr
-		loopPad = loopPad - 1
-	end
-	local lineNum
-
-	if str2 then
-		lineNum = arlTooltip:AddLine()
-		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
-		arlTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
-	else
-		-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
-		local width = math.ceil(fontSize * 37.5)
-		lineNum = arlTooltip:AddLine()
-		arlTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
-	end
-end
-
-local function SetSpellTooltip(owner, loc, link)
-	arlSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
-	arlSpellTooltip:ClearAllPoints()
-
-	if loc == "Top" then
-		arlSpellTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-	elseif loc == "Bottom" then
-		arlSpellTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-	elseif loc == "Left" then
-		arlSpellTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-	elseif loc == "Right" then
-		arlSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
-	end
-
-	-- Add TipTac Support
-	if TipTac and TipTac.AddModifiedTip and not arlSpellTooltip.tiptac then
-		TipTac:AddModifiedTip(arlSpellTooltip)
-		arlSpellTooltip.tiptac = true
-	end
-
-	-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
-	arlSpellTooltip:SetBackdrop(GameTooltip:GetBackdrop())
-	arlSpellTooltip:SetBackdropColor(GameTooltip:GetBackdropColor())
-	arlSpellTooltip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
-	arlSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
-
-	arlSpellTooltip:SetHyperlink(link)
-	arlSpellTooltip:Show()
-end
-
-local function GetTipFactionInfo(comp_faction)
-	local display_tip = false
-	local color = addon:hexcolor("NEUTRAL")
-	local faction = FACTION_NEUTRAL
-
-	if comp_faction == FACTION_HORDE then
-		color = addon:hexcolor("HORDE")
-
-		if Player["Faction"] == FACTION_HORDE then
-			display_tip = true
+		local locale = GetLocale()
+		-- Fix for font issues on koKR
+		if locale == "koKR" then
+			narrowFont = "Fonts\\2002.TTF"
+			normalFont = "Fonts\\2002.TTF"
 		else
-			faction = FACTION_HORDE
-		end
-	elseif comp_faction == FACTION_ALLIANCE then
-		color = addon:hexcolor("ALLIANCE")
-
-		if Player["Faction"] == FACTION_ALLIANCE then
-			display_tip = true
-		else
-			faction = FACTION_ALLIANCE
+			narrowFont = "Fonts\\ARIALN.TTF"
+			normalFont = "Fonts\\FRIZQT__.TTF"
 		end
 	else
-		display_tip = true
+		-- Register LSM 3.0
+		local LSM3 = LibStub("LibSharedMedia-3.0")
+
+		narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
+		normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 	end
-	return display_tip, color, faction
-end
+	local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
+	local normalFontObj = CreateFont(MODNAME.."normalFontObj")
 
-local function GenerateTooltipContent(owner, rIndex)
-	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
-	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
-	local recipe_entry = addon.recipe_list[rIndex]
-	local spell_link = recipe_entry["RecipeLink"]
-	local MainPanel = addon.Frame
+	-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
+	-- adding padding to the left hand side, and using better color handling. So... this function
+	-- will do that for me.
+	local function ttAdd(
+			leftPad,		-- number of times to pad two spaces on left side
+			textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
+			narrow,			-- if 1, use ARIALN instead of FRITZQ
+			str1,			-- left-hand string
+			hexcolor1,		-- hex color code for left-hand side
+			str2,			-- if present, this is the right-hand string
+			hexcolor2)		-- if present, hex color code for right-hand side
 
-	if acquireTooltipLocation == _G.OFF then
-		QTip:Release(arlTooltip)
+		-- are we changing fontsize or narrow?
+		local fontSize
 
-		-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-		if spellTooltipLocation ~= _G.OFF and spell_link then
-			SetSpellTooltip(MainPanel, spellTooltipLocation, spell_link)
+		if narrow or textSize ~= 0 then
+			local font = narrow and narrowFont or normalFont
+			local fontObj = narrow and narrowFontObj or normalFontObj
+
+			fontSize = addon.db.profile.frameopts.fontsize + textSize
+
+			fontObj:SetFont(font, fontSize)
+			acquire_tip:SetFont(fontObj)
+		end
+
+		-- Add in our left hand padding
+		local loopPad = leftPad
+		local leftStr = str1
+
+		while loopPad > 0 do
+			leftStr = "  " .. leftStr
+			loopPad = loopPad - 1
+		end
+
+		if str2 then
+			local lineNum = acquire_tip:AddLine()
+
+			acquire_tip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
+			acquire_tip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
 		else
-			arlSpellTooltip:Hide()
-		end
-		return
-	end
-	arlTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
-	arlTooltip:ClearAllPoints()
+			-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
+			local width = math.ceil(fontSize * 37.5)
+			local lineNum = acquire_tip:AddLine()
 
-	if acquireTooltipLocation == "Right" then
-		arlTooltip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT")
-	elseif acquireTooltipLocation == "Left" then
-		arlTooltip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
-	elseif acquireTooltipLocation == "Top" then
-		arlTooltip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
-	elseif acquireTooltipLocation == "Bottom" then
-		arlTooltip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT")
-	elseif acquireTooltipLocation == "Mouse" then
-		local x, y = GetCursorPosition()
-		local uiscale = UIParent:GetEffectiveScale()
-
-		arlTooltip:ClearAllPoints()
-		arlTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
-	end
-
-	if TipTac and TipTac.AddModifiedTip then
-		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-		TipTac:AddModifiedTip(arlTooltip, true)
-	end
-	arlTooltip:Clear()
-	arlTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
-	arlTooltip:AddHeader()
-	arlTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry["Name"], "CENTER", 2)
-
-	-- check if the recipe is excluded
-	local exclude = addon.db.profile.exclusionlist
-
-	if exclude[rIndex] then
-		ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
-	end
-
-	-- Add in skill level requirement, colored correctly
-	local color_1 = addon:hexcolor("NORMAL")
-
-	local recipeSkill = recipe_entry["Level"]
-	local playerSkill = Player["ProfessionLevel"]
-	local color_2
-
-	if recipeSkill > playerSkill then
-		color_2 = addon:hexcolor("RED")
-	elseif playerSkill - recipeSkill < 20 then
-		color_2 = addon:hexcolor("ORANGE")
-	elseif playerSkill - recipeSkill < 30 then
-		color_2 = addon:hexcolor("YELLOW")
-	elseif playerSkill - recipeSkill < 40 then
-		color_2 = addon:hexcolor("GREEN") 
-	else
-		color_2 = addon:hexcolor("MIDGREY")
-	end
-	ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry["Level"], color_2)
-
-	-- Binding info
-	arlTooltip:AddSeparator()
-	color_1 = addon:hexcolor("NORMAL")
-
-	local recipe_flags = recipe_entry["Flags"]
-
-	for flag, label in pairs(BINDING_FLAGS) do
-		if recipe_flags[flag] then
-			ttAdd(0, -1, true, label, color_1)
+			acquire_tip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 	end
-	arlTooltip:AddSeparator()
 
-	ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+	local function SetSpellTooltip(owner, loc, link)
+		local anchor = 
+		spell_tip:SetOwner(owner, "ANCHOR_NONE")
+		spell_tip:ClearAllPoints()
 
-	local playerFaction = Player["Faction"]
-	local rep_list = addon.reputation_list
+		if loc == "Top" then
+			spell_tip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
+		elseif loc == "Bottom" then
+			spell_tip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
+		elseif loc == "Left" then
+			spell_tip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
+		elseif loc == "Right" then
+			spell_tip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
+		end
 
-	-- loop through acquire methods, display each
-	for index, acquire in pairs(recipe_entry["Acquire"]) do
-		local acquire_type = acquire["Type"]
+		-- Add TipTac Support
+		if TipTac and TipTac.AddModifiedTip and not spell_tip.tiptac then
+			TipTac:AddModifiedTip(spell_tip)
+			spell_tip.tiptac = true
+		end
+
+		-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
+		spell_tip:SetBackdrop(GameTooltip:GetBackdrop())
+		spell_tip:SetBackdropColor(GameTooltip:GetBackdropColor())
+		spell_tip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
+		spell_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
+
+		spell_tip:SetHyperlink(link)
+		spell_tip:Show()
+	end
+
+	local function GetTipFactionInfo(comp_faction)
 		local display_tip = false
+		local color = addon:hexcolor("NEUTRAL")
+		local faction = FACTION_NEUTRAL
 
-		if acquire_type == A_TRAINER then
-			-- Trainer:			TrainerName
-			-- TrainerZone			TrainerCoords
-			local trainer = addon.trainer_list[acquire["ID"]]
+		if comp_faction == FACTION_HORDE then
+			color = addon:hexcolor("HORDE")
 
-			color_1 = addon:hexcolor("TRAINER")
-			display_tip, color_2 = GetTipFactionInfo(trainer["Faction"])
-
-			if display_tip then
-				local coord_text = ""
-
-				if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
-					coord_text = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
-				end
-				ttAdd(0, -2, false, L["Trainer"], color_1, trainer["Name"], color_2)
-				color_1 = addon:hexcolor("NORMAL")
-				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, true, trainer["Location"], color_1, coord_text, color_2)
+			if Player["Faction"] == FACTION_HORDE then
+				display_tip = true
+			else
+				faction = FACTION_HORDE
 			end
-		elseif acquire_type == A_VENDOR then
-			local vendor = addon.vendor_list[acquire["ID"]]
-			local faction
+		elseif comp_faction == FACTION_ALLIANCE then
+			color = addon:hexcolor("ALLIANCE")
 
-			color_1 = addon:hexcolor("VENDOR")
-			display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
-
-			if display_tip then
-				local coord_text = ""
-
-				if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-					coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
-				end
-				ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
-				color_1 = addon:hexcolor("NORMAL")
-				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
-			elseif faction then
-				ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+			if Player["Faction"] == FACTION_ALLIANCE then
+				display_tip = true
+			else
+				faction = FACTION_ALLIANCE
 			end
-		elseif acquire_type == A_MOB then
-			-- Mob Drop:			Mob Name
-			-- MoBZ				MobCoords
-			local mob = addon.mob_list[acquire["ID"]]
-			local coord_text = ""
+		else
+			display_tip = true
+		end
+		return display_tip, color, faction
+	end
 
-			if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
-				coord_text = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+	function GenerateTooltipContent(owner, rIndex)
+		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
+		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
+		local recipe_entry = addon.recipe_list[rIndex]
+		local spell_link = recipe_entry["RecipeLink"]
+		local MainPanel = addon.Frame
+
+		if acquire_tip_anchor == _G.OFF then
+			QTip:Release(acquire_tip)
+
+			-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
+			if spell_tip_anchor ~= _G.OFF and spell_link then
+				SetSpellTooltip(MainPanel, spell_tip_anchor, spell_link)
+			else
+				spell_tip:Hide()
 			end
+			return
+		end
+		acquire_tip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
+		acquire_tip:ClearAllPoints()
 
-			color_1 = addon:hexcolor("MOBDROP")
-			color_2 = addon:hexcolor("HORDE")
-			ttAdd(0, -1, false, L["Mob Drop"], color_1, mob["Name"], color_2)
-			color_1 = addon:hexcolor("NORMAL")
-			color_2 = addon:hexcolor("HIGH")
-			ttAdd(1, -2, true, mob["Location"], color_1, coord_text, color_2)
-		elseif acquire_type == A_QUEST then
-			-- Quest:				QuestName
-			-- QuestZone				QuestCoords
-			local quest = addon.quest_list[acquire["ID"]]
+		if acquire_tip_anchor == "Right" then
+			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT")
+		elseif acquire_tip_anchor == "Left" then
+			acquire_tip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
+		elseif acquire_tip_anchor == "Top" then
+			acquire_tip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
+		elseif acquire_tip_anchor == "Bottom" then
+			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT")
+		elseif acquire_tip_anchor == "Mouse" then
+			local x, y = GetCursorPosition()
+			local uiscale = UIParent:GetEffectiveScale()
 
-			if quest then
-				local faction
+			acquire_tip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
+		end
 
-				color_1 = addon:hexcolor("QUEST")
-				display_tip, color_2, faction = GetTipFactionInfo(quest["Faction"])
+		if TipTac and TipTac.AddModifiedTip then
+			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
+			TipTac:AddModifiedTip(acquire_tip, true)
+		end
+		acquire_tip:Clear()
+		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
+		acquire_tip:AddHeader()
+		acquire_tip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry["Name"], "CENTER", 2)
+
+		-- check if the recipe is excluded
+		local exclude = addon.db.profile.exclusionlist
+
+		if exclude[rIndex] then
+			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
+		end
+
+		-- Add in skill level requirement, colored correctly
+		local color_1 = addon:hexcolor("NORMAL")
+
+		local recipe_level = recipe_entry["Level"]
+		local skill_level = Player["ProfessionLevel"]
+		local color_2
+
+		if recipe_level > skill_level then
+			color_2 = addon:hexcolor("RED")
+		elseif skill_level - recipe_level < 20 then
+			color_2 = addon:hexcolor("ORANGE")
+		elseif skill_level - recipe_level < 30 then
+			color_2 = addon:hexcolor("YELLOW")
+		elseif skill_level - recipe_level < 40 then
+			color_2 = addon:hexcolor("GREEN") 
+		else
+			color_2 = addon:hexcolor("MIDGREY")
+		end
+		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry["Level"], color_2)
+
+		-- Binding info
+		acquire_tip:AddSeparator()
+		color_1 = addon:hexcolor("NORMAL")
+
+		local recipe_flags = recipe_entry["Flags"]
+
+		for flag, label in pairs(BINDING_FLAGS) do
+			if recipe_flags[flag] then
+				ttAdd(0, -1, true, label, color_1)
+			end
+		end
+		acquire_tip:AddSeparator()
+
+		ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+
+		local playerFaction = Player["Faction"]
+		local rep_list = addon.reputation_list
+
+		for index, acquire in pairs(recipe_entry["Acquire"]) do
+			local acquire_type = acquire["Type"]
+			local display_tip = false
+
+			if acquire_type == A_TRAINER then
+				local trainer = addon.trainer_list[acquire["ID"]]
+
+				color_1 = addon:hexcolor("TRAINER")
+				display_tip, color_2 = GetTipFactionInfo(trainer["Faction"])
 
 				if display_tip then
 					local coord_text = ""
 
-					if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
-						coord_text = "(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")"
+					if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
+						coord_text = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
 					end
-					ttAdd(0, -1, false, L["Quest"], color_1, quest["Name"], color_2)
+					ttAdd(0, -2, false, L["Trainer"], color_1, trainer["Name"], color_2)
+
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, true, quest["Location"], color_1, coord_text, color_2)
-				elseif faction then
-					ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
+
+					ttAdd(1, -2, true, trainer["Location"], color_1, coord_text, color_2)
 				end
-			end
-		elseif acquire_type == A_SEASONAL then
-			-- Seasonal:				SeasonEventName
-			color_1 = addon:hexcolor("SEASON")
-			ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, addon.seasonal_list[acquire["ID"]]["Name"], color_1)
-		elseif acquire_type == A_REPUTATION then
-			-- Reputation:				Faction
-			-- RepLevel				RepVendor				
-			-- RepVendorZone			RepVendorCoords
+			elseif acquire_type == A_VENDOR then
+				local vendor = addon.vendor_list[acquire["ID"]]
+				local faction
 
-			local repvendor = addon.vendor_list[acquire["RepVendor"]]
-			local coord_text = ""
+				color_1 = addon:hexcolor("VENDOR")
+				display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
 
-			if repvendor["Coordx"] ~= 0 and repvendor["Coordy"] ~= 0 then
-				coord_text = "(" .. repvendor["Coordx"] .. ", " .. repvendor["Coordy"] .. ")"
-			end
-			local repfac = rep_list[acquire["ID"]]
-			local repname = repfac["Name"]
+				if display_tip then
+					local coord_text = ""
 
-			color_1 = addon:hexcolor("REP")
-			color_2 = addon:hexcolor("NORMAL")
-			ttAdd(0, -1, false, _G.REPUTATION, color_1, repname, color_2)
+					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
+						coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
+					end
+					ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
 
-			local rStr = ""
-			local rep_level = acquire["RepLevel"]
+					color_1 = addon:hexcolor("NORMAL")
+					color_2 = addon:hexcolor("HIGH")
 
-			if rep_level == 0 then
-				rStr = FACTION_NEUTRAL
-				color_1 = addon:hexcolor("NEUTRAL")
-			elseif rep_level == 1 then
-				rStr = BFAC["Friendly"]
-				color_1 = addon:hexcolor("FRIENDLY")
-			elseif rep_level == 2 then
-				rStr = BFAC["Honored"]
-				color_1 = addon:hexcolor("HONORED")
-			elseif rep_level == 3 then
-				rStr = BFAC["Revered"]
-				color_1 = addon:hexcolor("REVERED")
-			else
-				rStr = BFAC["Exalted"]
-				color_1 = addon:hexcolor("EXALTED")
-			end
-			display_tip, color_2 = GetTipFactionInfo(repvendor["Faction"])
-
-			if display_tip then
-				ttAdd(1, -2, false, rStr, color_1, repvendor["Name"], color_2)
-				color_1 = addon:hexcolor("NORMAL")
-				color_2 = addon:hexcolor("HIGH")
-				ttAdd(2, -2, true, repvendor["Location"], color_1, coord_text, color_2)
-			end
-		elseif acquire_type == A_WORLD_DROP then
-			local acquire_id = acquire["ID"]
-
-			if acquire_id == 1 then
-				color_1 = addon:hexcolor("COMMON")
-			elseif acquire_id == 2 then
-				color_1 = addon:hexcolor("UNCOMMON")
-			elseif acquire_id == 3 then
-				color_1 = addon:hexcolor("RARE")
-			elseif acquire_id == 4 then
-				color_1 = addon:hexcolor("EPIC")
-			else
-				color_1 = addon:hexcolor("NORMAL")
-			end
-			ttAdd(0, -1, false, L["World Drop"], color_1)
-		elseif acquire_type == A_CUSTOM then
-			ttAdd(0, -1, false, addon.custom_list[acquire["ID"]]["Name"], addon:hexcolor("NORMAL"))
-		elseif acquire_type == A_PVP then
-			-- Vendor:					VendorName
-			-- VendorZone				VendorCoords
-			local vendor = addon.vendor_list[acquire["ID"]]
-			local faction
-
-			color_1 = addon:hexcolor("VENDOR")
-			display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
-
-			if display_tip then
+					ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
+				elseif faction then
+					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+				end
+			elseif acquire_type == A_MOB then
+				local mob = addon.mob_list[acquire["ID"]]
 				local coord_text = ""
 
-				if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-					coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
+				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
+					coord_text = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
 				end
-				ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
+				color_1 = addon:hexcolor("MOBDROP")
+				color_2 = addon:hexcolor("HORDE")
+
+				ttAdd(0, -1, false, L["Mob Drop"], color_1, mob["Name"], color_2)
+
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
-			elseif faction then
-				ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+
+				ttAdd(1, -2, true, mob["Location"], color_1, coord_text, color_2)
+			elseif acquire_type == A_QUEST then
+				local quest = addon.quest_list[acquire["ID"]]
+
+				if quest then
+					local faction
+
+					color_1 = addon:hexcolor("QUEST")
+					display_tip, color_2, faction = GetTipFactionInfo(quest["Faction"])
+
+					if display_tip then
+						local coord_text = ""
+
+						if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
+							coord_text = "(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")"
+						end
+						ttAdd(0, -1, false, L["Quest"], color_1, quest["Name"], color_2)
+
+						color_1 = addon:hexcolor("NORMAL")
+						color_2 = addon:hexcolor("HIGH")
+
+						ttAdd(1, -2, true, quest["Location"], color_1, coord_text, color_2)
+					elseif faction then
+						ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
+					end
+				end
+			elseif acquire_type == A_SEASONAL then
+				color_1 = addon:hexcolor("SEASON")
+				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, addon.seasonal_list[acquire["ID"]]["Name"], color_1)
+			elseif acquire_type == A_REPUTATION then
+				local repvendor = addon.vendor_list[acquire["RepVendor"]]
+				local coord_text = ""
+
+				if repvendor["Coordx"] ~= 0 and repvendor["Coordy"] ~= 0 then
+					coord_text = "(" .. repvendor["Coordx"] .. ", " .. repvendor["Coordy"] .. ")"
+				end
+				local repfac = rep_list[acquire["ID"]]
+				local repname = repfac["Name"]
+
+				color_1 = addon:hexcolor("REP")
+				color_2 = addon:hexcolor("NORMAL")
+				ttAdd(0, -1, false, _G.REPUTATION, color_1, repname, color_2)
+
+				local rStr = ""
+				local rep_level = acquire["RepLevel"]
+
+				if rep_level == 0 then
+					rStr = FACTION_NEUTRAL
+					color_1 = addon:hexcolor("NEUTRAL")
+				elseif rep_level == 1 then
+					rStr = BFAC["Friendly"]
+					color_1 = addon:hexcolor("FRIENDLY")
+				elseif rep_level == 2 then
+					rStr = BFAC["Honored"]
+					color_1 = addon:hexcolor("HONORED")
+				elseif rep_level == 3 then
+					rStr = BFAC["Revered"]
+					color_1 = addon:hexcolor("REVERED")
+				else
+					rStr = BFAC["Exalted"]
+					color_1 = addon:hexcolor("EXALTED")
+				end
+				display_tip, color_2 = GetTipFactionInfo(repvendor["Faction"])
+
+				if display_tip then
+					ttAdd(1, -2, false, rStr, color_1, repvendor["Name"], color_2)
+
+					color_1 = addon:hexcolor("NORMAL")
+					color_2 = addon:hexcolor("HIGH")
+
+					ttAdd(2, -2, true, repvendor["Location"], color_1, coord_text, color_2)
+				end
+			elseif acquire_type == A_WORLD_DROP then
+				local acquire_id = acquire["ID"]
+
+				if acquire_id == 1 then
+					color_1 = addon:hexcolor("COMMON")
+				elseif acquire_id == 2 then
+					color_1 = addon:hexcolor("UNCOMMON")
+				elseif acquire_id == 3 then
+					color_1 = addon:hexcolor("RARE")
+				elseif acquire_id == 4 then
+					color_1 = addon:hexcolor("EPIC")
+				else
+					color_1 = addon:hexcolor("NORMAL")
+				end
+				ttAdd(0, -1, false, L["World Drop"], color_1)
+			elseif acquire_type == A_CUSTOM then
+				ttAdd(0, -1, false, addon.custom_list[acquire["ID"]]["Name"], addon:hexcolor("NORMAL"))
+			elseif acquire_type == A_PVP then
+				local vendor = addon.vendor_list[acquire["ID"]]
+				local faction
+
+				color_1 = addon:hexcolor("VENDOR")
+				display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
+
+				if display_tip then
+					local coord_text = ""
+
+					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
+						coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
+					end
+					ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
+
+					color_1 = addon:hexcolor("NORMAL")
+					color_2 = addon:hexcolor("HIGH")
+
+					ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
+				elseif faction then
+					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+				end
+				--@alpha@
+			else	-- Unhandled
+				ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
+				--@end-alpha@
 			end
-		--@alpha@
-		else	-- Unhandled
-			ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
-		--@end-alpha@
+		end
+		acquire_tip:AddSeparator()
+		acquire_tip:AddSeparator()
+
+		color_1 = addon:hexcolor("NORMAL")
+
+		ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
+		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
+		ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
+
+		if addon.db.profile.worldmap or addon.db.profile.minimap then
+			ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
+		end
+		acquire_tip:Show()
+
+		-- If we have the spell link tooltip, link it to the acquire tooltip.
+		if spell_tip_anchor ~= _G.OFF and spell_link then
+			SetSpellTooltip(acquire_tip, spell_tip_anchor, spell_link)
+		else
+			spell_tip:Hide()
 		end
 	end
-	arlTooltip:AddSeparator()
-	arlTooltip:AddSeparator()
-
-	color_1 = addon:hexcolor("NORMAL")
-
-	ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
-	ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
-	ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
-
-	if addon.db.profile.worldmap or addon.db.profile.minimap then
-		ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
-	end
-	arlTooltip:Show()
-
-	-- If we have the spell link tooltip, link it to the acquire tooltip.
-	if spellTooltipLocation ~= _G.OFF and spell_link then
-		SetSpellTooltip(arlTooltip, spellTooltipLocation, spell_link)
-	else
-		arlSpellTooltip:Hide()
-	end
-end
+end	-- do
 
 -------------------------------------------------------------------------------
 -- Create the MainPanel and set its values
@@ -2065,6 +2033,43 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.rep.Classic, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.rep.Classic = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+MainPanel.filter_menu.rep.Classic:SetWidth(150)
+MainPanel.filter_menu.rep.Classic:SetHeight(280)
+MainPanel.filter_menu.rep.Classic:EnableMouse(true)
+MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
+MainPanel.filter_menu.rep.Classic:SetMovable(false)
+MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.Classic:Hide()
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.rep.BC, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.rep.BC = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+MainPanel.filter_menu.rep.BC:SetWidth(150)
+MainPanel.filter_menu.rep.BC:SetHeight(280)
+MainPanel.filter_menu.rep.BC:EnableMouse(true)
+MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
+MainPanel.filter_menu.rep.BC:SetMovable(false)
+MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.BC:Hide()
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.rep.LK, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.rep.LK = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+MainPanel.filter_menu.rep.LK:SetWidth(150)
+MainPanel.filter_menu.rep.LK:SetHeight(280)
+MainPanel.filter_menu.rep.LK:EnableMouse(true)
+MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
+MainPanel.filter_menu.rep.LK:SetMovable(false)
+MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.LK:Hide()
+
+
+-------------------------------------------------------------------------------
 -- Create MainPanel.scrollframe and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.scroll_frame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
@@ -2097,8 +2102,8 @@ do
 	end
 
 	local function Button_OnLeave()
-		QTip:Release(arlTooltip)
-		arlSpellTooltip:Hide()
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
 	end
 
 	local function Bar_OnEnter(self)
@@ -2112,8 +2117,38 @@ do
 		highlight:Hide()
 		highlight:ClearAllPoints()
 		highlight:SetParent(nil)
-		QTip:Release(arlTooltip)
-		arlSpellTooltip:Hide()
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
+	end
+
+	-------------------------------------------------------------------------------
+	-- Colours a skill level based on whether or not the player has a high enough
+	-- skill level or faction to learn it.
+	-------------------------------------------------------------------------------
+	local function ColourSkillLevel(recipeEntry, hasFaction, recipe_text)
+		local skill_level = Player["ProfessionLevel"]
+		local recipe_level = recipeEntry["Level"]
+		local recipeOrange = recipeEntry["Orange"]
+		local recipeYellow = recipeEntry["Yellow"]
+		local recipeGreen = recipeEntry["Green"]
+		local recipeGrey = recipeEntry["Grey"]
+
+		if recipe_level > skill_level or not hasFaction then
+			return addon:Red(recipe_text)
+		elseif skill_level >= recipeGrey then
+			return addon:MidGrey(recipe_text)
+		elseif skill_level >= recipeGreen then
+			return addon:Green(recipe_text)
+		elseif skill_level >= recipeYellow then
+			return addon:Yellow(recipe_text)
+		elseif skill_level >= recipeOrange then
+			return addon:Orange(recipe_text)
+		else
+			--@alpha@
+			addon:Print("DEBUG: ColourSkillLevel fallback: " .. recipe_text)
+			--@end-alpha@
+			return addon:MidGrey(recipe_text)
+		end
 	end
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
@@ -3526,15 +3561,6 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Classic Reputations
 	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.Classic = CreateFrame("Frame", "ARL_FilterMenu_Rep_Classic", MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.Classic:SetWidth(150)
-	MainPanel.filter_menu.rep.Classic:SetHeight(280)
-	MainPanel.filter_menu.rep.Classic:EnableMouse(true)
-	MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.Classic:SetMovable(false)
-	MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
-	MainPanel.filter_menu.rep.Classic:Hide()
-
 	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.Classic, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
 							  _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_ClassicButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.Classic, "TOPLEFT", -2, -4)
@@ -3599,15 +3625,6 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- The Burning Crusade Reputations
 	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.BC = CreateFrame("Frame", "ARL_FilterMenu_Rep_BC", MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.BC:SetWidth(150)
-	MainPanel.filter_menu.rep.BC:SetHeight(280)
-	MainPanel.filter_menu.rep.BC:EnableMouse(true)
-	MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.BC:SetMovable(false)
-	MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
-	MainPanel.filter_menu.rep.BC:Hide()
-
 	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.BC, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
 						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_BCButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.BC, "TOPLEFT", -2, -4)
@@ -3744,15 +3761,6 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Wrath of the Lich King Reputations
 	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.LK = CreateFrame("Frame", "ARL_FilterMenu_Rep_LK", MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.LK:SetWidth(150)
-	MainPanel.filter_menu.rep.LK:SetHeight(280)
-	MainPanel.filter_menu.rep.LK:EnableMouse(true)
-	MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.LK:SetMovable(false)
-	MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
-	MainPanel.filter_menu.rep.LK:Hide()
-
 	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.LK, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
 						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_LKButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.LK, "TOPLEFT", -2, -4)
@@ -3935,6 +3943,7 @@ function addon:InitializeFrame()
 					 else
 						 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
 						 twipe(click_info)
+
 						 if TipTac and TipTac.AddModifiedTip then
 							 TipTac:AddModifiedTip(clicktip, true)
 						 end
