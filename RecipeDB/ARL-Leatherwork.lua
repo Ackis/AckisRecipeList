@@ -2823,8 +2823,11 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,69388,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
 	-------------------------------------------------------------------------------------------
-	--PATCH 3.3, ICECROWN CITADEL CRAFTED RECIPES------------------
+	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
 	-------------------------------------------------------------------------------------------
+	-- 3.3.0 Items
+	local version = GetBuildInfo()
+	
 	if (version == "3.3.0") then
 
 	-- Legwraps of Unleashed Nature - 70554

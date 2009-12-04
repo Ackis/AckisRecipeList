@@ -1627,6 +1627,25 @@ function addon:InitEngineering(RecipeDB)
 	AddRecipe(67839,410,nil,1,2,410,410,415,420)
 	self:addTradeFlags(RecipeDB,67839,1,2,3,37,41)
 	self:addTradeAcquire(RecipeDB,67839,1,25277,1,28697,1,26955)
+	
+	-------------------------------------------------------------------------------------------
+	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
+	-------------------------------------------------------------------------------------------
+    -- 3.3.0 Items
+	local version = GetBuildInfo()
+
+	 if (version == "3.3.0") then
+	
+		 -- Iceblade Arrow -- 72953
+		 AddRecipe(72953,450,52021,4,2,450,450,450,460)
+		 self:addTradeFlags(RecipeDB,72953,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+		 -- self:addTradeAcquire(RecipeDB,72953,A_REPUTATION,1156,2,)
+		 -- Shatter Rounds -- 72952
+		 AddRecipe(72952,450,52020,4,2,450,450,450,460)
+		 self:addTradeFlags(RecipeDB,72952,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+		 -- self:addTradeAcquire(RecipeDB,72952,A_REPUTATION,1156,2,)
+
+	   end
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
