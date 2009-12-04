@@ -1339,12 +1339,12 @@ function addon:InitTailoring(RecipeDB)
 	-- Festival Dress -- 26403
 	AddRecipe(26403,250,21154,2,GAME_ORIG,250,265,280,295)
 	self:addTradeFlags(RecipeDB,26403,1,2,4,7,36,41,56)
-	self:addTradeAcquire(RecipeDB,26403,5,2,2,15909, A_SEASONAL, 2)
+	self:addTradeAcquire(RecipeDB,26403,A_SEASONAL,2,2,15909)
 
 	-- Festive Red Pant Suit -- 26407
 	AddRecipe(26407,250,21542,2,GAME_ORIG,250,265,280,295)
 	self:addTradeFlags(RecipeDB,26407,1,2,4,7,36,41)
-	self:addTradeAcquire(RecipeDB,26407,5,2,2,15909, A_SEASONAL, 2)
+	self:addTradeAcquire(RecipeDB,26407,A_SEASONAL,2,2,15909)
 
 	-- Bolt of Netherweave -- 26745
 	AddRecipe(26745,300,21840,1,1,300,305,315,325)
@@ -1818,7 +1818,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Red Winter Clothes -- 44958
 	AddRecipe(44958,250,34085,2,1,250,250,250,250)
-	self:addTradeFlags(RecipeDB,44958,1,2,4,36,41,56)
+	self:addTradeFlags(RecipeDB,44958,1,2,4,7,36,41,56)
 	self:addTradeAcquire(RecipeDB,44958,2,13433, A_SEASONAL, 1)
 
 	-- Sunfire Handwraps -- 46128
