@@ -442,7 +442,7 @@ L["DAILY_COOKING_FISH"] = "Randomly obtained by completing the cooking daily que
 L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing the fishing daily quest in Shattrath."
 L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
 -- Engineering Related
-L["ENG_RENEW_MEMBERSHIP"] = "Obtained randomly by renewing your engineering membership."
+L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
 -- Default
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."

@@ -57,7 +57,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB,7,L["DAILY_FISHING_SHATT"],BZ["Shattrath"],0,0)
 	self:addLookupList(CustomDB,38,L["DAILY_COOKING_DAL"],BZ["Dalaran"],0,0)
 	-- Engineering Related
-	self:addLookupList(CustomDB,16,L["ENG_RENEW_MEMBERSHIP"],"N/A")
+	self:addLookupList(CustomDB,16,L["ENG_GNOMER"],BZ["Gnomeregan"],0,0)
 	self:addLookupList(CustomDB,17,L["ENG_FLOOR_ITEM_BRD"],BZ["Blackrock Depths"],0,0)
 	-- Default
 	self:addLookupList(CustomDB,8,L["DEFAULT_RECIPE"],"N/A")
