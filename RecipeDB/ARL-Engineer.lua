@@ -1631,10 +1631,10 @@ function addon:InitEngineering(RecipeDB)
 	-------------------------------------------------------------------------------------------
 	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
 	-------------------------------------------------------------------------------------------
-    -- 3.3.0 Items
+    -- 0.3.0 Items
 	local version = GetBuildInfo()
 
-	 if (version == "3.3.0") then
+	 if (version == "0.3.0") then
 	
 		 -- Iceblade Arrow -- 72953
 		 AddRecipe(72953,450,52021,4,2,450,450,450,460)

@@ -2296,10 +2296,10 @@ function addon:InitTailoring(RecipeDB)
 	-------------------------------------------------------------------------------------------
 	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
 	-------------------------------------------------------------------------------------------
-	-- 3.3.0 Items
+	-- 0.3.0 Items
 	local version = GetBuildInfo()
 
-	 if (version == "3.3.0") then
+	 if (version == "0.3.0") then
 	
 		 -- -- Leggings of Woven Death -- 70550
 		 AddRecipe(70550,450,49891,4,2,450,475,487,500)

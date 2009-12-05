@@ -2616,10 +2616,10 @@ function addon:InitBlacksmithing(RecipeDB)
    	-------------------------------------------------------------------------------------------
 	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
 	-------------------------------------------------------------------------------------------
-	-- 3.3.0 Items
+	-- 0.3.0 Items
 	local version = GetBuildInfo()
 
-	if (version == "3.3.0") then
+	if (version == "0.3.0") then
 	
 	 -- Puresteel Legplates -- 70562
 	 AddRecipe(70562,450,49902,4,2,450,475,487,500)
