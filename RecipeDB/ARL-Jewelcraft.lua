@@ -202,7 +202,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Golden Hare -- 26873
 	AddRecipe(26873, 200, 21756, 2, 1)
-	self:addTradeFlags(RecipeDB, 26873, 1, 2, 10, 37, 41, 61)
+	self:addTradeFlags(RecipeDB, 26873, 1, 2, 10, 37, 40, 61)
 	self:addTradeAcquire(RecipeDB, 26873, 7, 2)
 
 	-- Aquamarine Signet -- 26874
@@ -212,7 +212,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Black Pearl Panther -- 26875
 	AddRecipe(26875, 215, 21758, 1, 1)
-	self:addTradeFlags(RecipeDB, 26875, 1, 2, 4, 37, 41, 51, 61)
+	self:addTradeFlags(RecipeDB, 26875, 1, 2, 4, 37, 40, 51, 61)
 	self:addTradeAcquire(RecipeDB, 26875, 2, 989, 2, 4897)
 
 	-- Aquamarine Pendant of the Warrior -- 26876
@@ -232,12 +232,12 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Truesilver Crab -- 26881
 	AddRecipe(26881, 225, 21760, 1, 1)
-	self:addTradeFlags(RecipeDB, 26881, 1, 2, 4, 37, 41, 52, 61)
+	self:addTradeFlags(RecipeDB, 26881, 1, 2, 4, 37, 40, 52, 61)
 	self:addTradeAcquire(RecipeDB, 26881, 2, 1148, 2, 4897)
 
 	-- Figurine - Truesilver Boar -- 26882
 	AddRecipe(26882, 235, 21763, 2, 1)
-	self:addTradeFlags(RecipeDB, 26882, 1, 2, 10, 37, 41, 51, 61)
+	self:addTradeFlags(RecipeDB, 26882, 1, 2, 10, 37, 40, 51, 61)
 	self:addTradeAcquire(RecipeDB, 26882, 7, 2)
 
 	-- Ruby Pendant of Fire -- 26883
@@ -267,7 +267,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Ruby Serpent -- 26900
 	AddRecipe(26900, 260, 21769, 2, 1)
-	self:addTradeFlags(RecipeDB, 26900, 1, 2, 10, 37, 41, 53, 54, 61)
+	self:addTradeFlags(RecipeDB, 26900, 1, 2, 10, 37, 40, 53, 54, 61)
 	self:addTradeAcquire(RecipeDB, 26900, 7, 2)
 
 	-- Simple Opal Ring -- 26902
@@ -297,7 +297,7 @@ function addon:InitJewelcrafting(RecipeDB)
 
 	-- Figurine - Emerald Owl -- 26909
 	AddRecipe(26909, 285, 21777, 2, 1)
-	self:addTradeFlags(RecipeDB, 26909, 1, 2, 10, 37, 41, 53, 54, 61)
+	self:addTradeFlags(RecipeDB, 26909, 1, 2, 10, 37, 40, 53, 54, 61)
 	self:addTradeAcquire(RecipeDB, 26909, 7, 2)
 
 	-- Ring of Bitter Shadows -- 26910
