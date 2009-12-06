@@ -59,6 +59,8 @@ function addon:InitCustom(CustomDB)
 	-- Engineering Related
 	self:addLookupList(CustomDB,16,L["ENG_GNOMER"],BZ["Gnomeregan"],0,0)
 	self:addLookupList(CustomDB,17,L["ENG_FLOOR_ITEM_BRD"],BZ["Blackrock Depths"],0,0)
+	self:addLookupList(CustomDB,20,L["GOBLIN_ENG"],"N/A")
+	self:addLookupList(CustomDB,21,L["GNOMISH_ENG"],"N/A")
 	-- Default
 	self:addLookupList(CustomDB,8,L["DEFAULT_RECIPE"],"N/A")
 	-- Crafted by other professions
@@ -86,8 +88,6 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB,39,L["ULDUAR_RANDOM"],BZ["Ulduar"],0,0)
 	self:addLookupList(CustomDB,42,L["TOC25_RANDOM"],"N/A")
 
-	self:addLookupList(CustomDB,20,L["Custom20"],"N/A")
-	self:addLookupList(CustomDB,21,L["Custom21"],"N/A")
 	self:addLookupList(CustomDB,35,L["Custom35"],"N/A")
 	self:addLookupList(CustomDB,36,L["Custom36"],"N/A")
 	self:addLookupList(CustomDB,41,L["Custom41"],"N/A")

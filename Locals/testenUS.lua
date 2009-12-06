@@ -444,6 +444,8 @@ L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily ques
 -- Engineering Related
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
+L["GOBLIN_ENG"] = "You need to be a Goblin Engineer to obtain and use this item."
+L["GNOMISH_ENG"] = "You need to be a Gnomish Engineer to obtain and use this item." 
 -- Default
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."
 -- Crafted by other professions
@@ -471,8 +473,6 @@ L["TK_RANDOM"] = "Random drop from mobs in Tempest Keep: The Eye."
 L["ULDUAR_RANDOM"] = "Random drop off of Ulduar bosses."
 L["TOC25_RANDOM"] = "Random drop from the Trial of the Crusader, 25 man normal version."
 
-L["Custom20"] = "Goblin transport." -- Update
-L["Custom21"] = "Gnome transport." -- Update
 L["Custom35"] = "Drops from dragons in Ogri'la and Blade's Edge Mountains Summon Bosses"
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."

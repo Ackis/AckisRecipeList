@@ -878,9 +878,9 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,23129,3,8920)
 
 	-- Dimensional Ripper - Everlook -- 23486
-	AddRecipe(23486,260,18984,2,GAME_ORIG,260,285,295,305,20219)
+	AddRecipe(23486,260,18984,2,GAME_ORIG,260,285,295,305,20222)
 	self:addTradeFlags(RecipeDB,23486,1,2,3,36,41)
-	self:addTradeAcquire(RecipeDB,23486,8,21)
+	self:addTradeAcquire(RecipeDB,23486,8,20)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
 	AddRecipe(23489,260,18986,2,GAME_ORIG,260,285,295,305,20219)
