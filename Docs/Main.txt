@@ -16,7 +16,7 @@ Ackis Recipe List is an addon which will scan your trade skills and provide info
 Ackis Recipe List est un addon qui analyse vos métiers et fournit des informations sur la façon d'obtenir les recettes manquantes. Il fonctionne pour tous les métiers, y compris Runeforge.
 
 =====German (deDE)
-Zeigt eine Liste der Rezepte, die Ihr noch nicht mit eurem Beruf gelernt habt.  Funktioniert mit allen Berufen sowie den klassenspezifischen Berufen. (noch nicht vollständig übersetzt)
+Ackis Rezeptliste ist ein Add-on, das deine Berufe durchsucht und dir mitteilt, wie du fehlende Rezepte beschaffst. Es funktioniert mit allen Berufen inklusive des Runenschmiedens.
 
 =====Korean (koKR)
 의 제조법 리스트캐릭터가 배우지 못한 제조법을 표시합니다. 모든 전문기술 및 도적의 독과 사냥꾼의 야수 훈련도 포함합니다.
