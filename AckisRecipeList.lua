@@ -421,22 +421,6 @@ function addon:OnInitialize()
 		scan_button:ClearAllPoints()
 		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
 		scan_button:SetWidth(90)
-	else
-		scan_button:SetParent(TradeSkillFrame)
-		scan_button:ClearAllPoints()
-
-		local loc = addon.db.profile.scanbuttonlocation
-
-		if loc == "TR" then
-			scan_button:SetPoint("RIGHT", TradeSkillFrameCloseButton, "LEFT",4,0)
-		elseif loc == "TL" then
-			scan_button:SetPoint("LEFT", TradeSkillFramePortrait, "RIGHT",2,12)
-		elseif loc == "BR" then
-			scan_button:SetPoint("TOP", TradeSkillCancelButton, "BOTTOM",0,-5)
-		elseif loc == "BL" then
-			scan_button:SetPoint("TOP", TradeSkillCreateAllButton, "BOTTOM",0,-5)
-		end
-		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 	end
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
@@ -761,6 +745,26 @@ do
 
 				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
 			end
+		end
+		local scan_button = self.scan_button
+		local button_parent = scan_button:GetParent()
+
+		if not button_parent or button_parent == UIParent then
+			scan_button:SetParent(TradeSkillFrame)
+			scan_button:ClearAllPoints()
+
+			local loc = addon.db.profile.scanbuttonlocation
+
+			if loc == "TR" then
+				scan_button:SetPoint("RIGHT", TradeSkillFrameCloseButton, "LEFT",4,0)
+			elseif loc == "TL" then
+				scan_button:SetPoint("LEFT", TradeSkillFramePortrait, "RIGHT",2,12)
+			elseif loc == "BR" then
+				scan_button:SetPoint("TOP", TradeSkillCancelButton, "BOTTOM",0,-5)
+			elseif loc == "BL" then
+				scan_button:SetPoint("TOP", TradeSkillCreateAllButton, "BOTTOM",0,-5)
+			end
+			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		end
 		self.scan_button:Show()
 	end
