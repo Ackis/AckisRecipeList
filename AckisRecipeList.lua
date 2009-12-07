@@ -387,41 +387,11 @@ function addon:OnInitialize()
 	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
 
 	-------------------------------------------------------------------------------
-	-- Create the scan button, then set its parent and scripts.
+	-- Create the scan button
 	-------------------------------------------------------------------------------
 	local scan_button = CreateFrame("Button", nil, UIParent, "UIPanelButtonTemplate")
 	scan_button:SetHeight(20)
 
-	-- Add to Skillet interface
-	if Skillet and Skillet:IsActive() then
-		scan_button:SetParent(SkilletFrame)
-		Skillet:AddButtonToTradeskillWindow(scan_button)
-		scan_button:SetWidth(80)
-	elseif MRTUIUtils_RegisterWindowOnShow then
-		MRTUIUtils_RegisterWindowOnShow(function()
-							scan_button:SetParent(MRTSkillFrame)
-							scan_button:ClearAllPoints()
-							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
-							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
-							scan_button:Show()
-						end)
-  	elseif ATSWFrame then
-		scan_button:SetParent(ATSWFrame)
-		scan_button:ClearAllPoints()
-
-		if TradeJunkieMain and TJ_OpenButtonATSW then
-			scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
-		else
-			scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
-		end
-		scan_button:SetHeight(ATSWOptionsButton:GetHeight())
-		scan_button:SetWidth(ATSWOptionsButton:GetWidth())
-	elseif CauldronFrame then
-		scan_button:SetParent(CauldronFrame)
-		scan_button:ClearAllPoints()
-		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
-		scan_button:SetWidth(90)
-	end
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
@@ -467,14 +437,6 @@ function addon:OnInitialize()
 	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	scan_button:SetText(L["Scan"])
 
-	local buttonparent = scan_button:GetParent()
-	local framelevel = buttonparent:GetFrameLevel()
-	local framestrata = buttonparent:GetFrameStrata()
-
-	-- Set the frame level of the button to be 1 deeper than its parent
-	scan_button:SetFrameLevel(framelevel + 1)
-	scan_button:SetFrameStrata(framestrata)
-	scan_button:Enable()
 	self.scan_button = scan_button
 
 	-------------------------------------------------------------------------------
@@ -582,6 +544,50 @@ function addon:OnEnable()
 	if addon.db.profile.scanvendors then
 		self:RegisterEvent("MERCHANT_SHOW")
 	end
+
+	-------------------------------------------------------------------------------
+	-- Set the parent and scripts for addon.scan_button.
+	-------------------------------------------------------------------------------
+	local scan_button = self.scan_button
+
+	if Skillet and Skillet:IsActive() then
+		scan_button:SetParent(SkilletFrame)
+		Skillet:AddButtonToTradeskillWindow(scan_button)
+		scan_button:SetWidth(80)
+	elseif MRTUIUtils_RegisterWindowOnShow then
+		MRTUIUtils_RegisterWindowOnShow(function()
+							scan_button:SetParent(MRTSkillFrame)
+							scan_button:ClearAllPoints()
+							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
+							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+							scan_button:Show()
+						end)
+  	elseif ATSWFrame then
+		scan_button:SetParent(ATSWFrame)
+		scan_button:ClearAllPoints()
+
+		if TradeJunkieMain and TJ_OpenButtonATSW then
+			scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
+		else
+			scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
+		end
+		scan_button:SetHeight(ATSWOptionsButton:GetHeight())
+		scan_button:SetWidth(ATSWOptionsButton:GetWidth())
+	elseif CauldronFrame then
+		scan_button:SetParent(CauldronFrame)
+		scan_button:ClearAllPoints()
+		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
+		scan_button:SetWidth(90)
+	end
+
+	local buttonparent = scan_button:GetParent()
+	local framelevel = buttonparent:GetFrameLevel()
+	local framestrata = buttonparent:GetFrameStrata()
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	scan_button:SetFrameLevel(framelevel + 1)
+	scan_button:SetFrameStrata(framestrata)
+	scan_button:Enable()
 
 	-- Add an option so that ARL will work with Manufac
 	if Manufac then
