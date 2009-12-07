@@ -428,15 +428,15 @@ function addon:OnInitialize()
 		local loc = addon.db.profile.scanbuttonlocation
 
 		if loc == "TR" then
-			scan_button:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+			scan_button:SetPoint("RIGHT", TradeSkillFrameCloseButton, "LEFT",4,0)
 		elseif loc == "TL" then
-			scan_button:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
+			scan_button:SetPoint("LEFT", TradeSkillFramePortrait, "RIGHT",2,12)
 		elseif loc == "BR" then
-			scan_button:SetPoint("TOP",TradeSkillCancelButton,"BOTTOM",0,-5)
+			scan_button:SetPoint("TOP", TradeSkillCancelButton, "BOTTOM",0,-5)
 		elseif loc == "BL" then
-			scan_button:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
+			scan_button:SetPoint("TOP", TradeSkillCreateAllButton, "BOTTOM",0,-5)
 		end
-		scan_button:SetWidth(addon.scan_button:GetTextWidth() + 10)
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 	end
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
