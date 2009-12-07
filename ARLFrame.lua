@@ -2649,11 +2649,18 @@ MainPanel.close_button:SetScript("OnClick",
 -- Map waypoint code.
 -------------------------------------------------------------------------------
 do
+	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+
 	local function LoadZones(c, y, ...)
 		-- Fill up the list for normal lookup
-		for i = 1, select('#', ...),1 do
-			c[i] = select(i,...)
+		for i = 1, select('#', ...), 1 do
+			c[i] = select(i, ...)
+
+--			if c[i] == BZ["Isle of Quel'Danas"] then
+--				addon:Print("We have a match.")
+--			end
 		end
+
 		-- Reverse lookup to make work easier later on
 		for i in pairs(c) do
 			y[c[i]] = i
@@ -2664,14 +2671,19 @@ do
 	local C2 = {}
 	local C3 = {}
 	local C4 = {}
+
 	local c1 = {}
 	local c2 = {}
 	local c3 = {}
 	local c4 = {}
 
+--	addon:Print("Loading zones for continent 1")
 	LoadZones(C1, c1, GetMapZones(1))
+--	addon:Print("Loading zones for continent 2")
 	LoadZones(C2, c2, GetMapZones(2))
+--	addon:Print("Loading zones for continent 3")
 	LoadZones(C3, c3, GetMapZones(3))
+--	addon:Print("Loading zones for continent 4")
 	LoadZones(C4, c4, GetMapZones(4))
 
 	local iconlist = {}
@@ -2697,186 +2709,260 @@ do
 		local acquire_id = acquire_entry["ID"]
 		local display = false
 
-		if maptrainer then
-			if acquire_type == A_TRAINER then 
-				local trainer = addon.trainer_list[acquire_id]
+		if acquire_type == A_TRAINER and maptrainer then 
+			local trainer = addon.trainer_list[acquire_id]
 
-				display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[F_TRAINER] then
-				return true
-			end
-		elseif mapvendor then
-			if acquire_type == A_VENDOR then
-				local vendor = addon.vendor_list[acquire_id]
+			display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
+		elseif acquire_type == A_VENDOR and mapvendor then
+			local vendor = addon.vendor_list[acquire_id]
 
-				display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[F_VENDOR] then
-				return true
-			end
-		elseif (acquire_type == A_MOB and mapmob) or
-			(acquire_type == A_CUSTOM and (flags[F_INSTANCE] or flags[F_RAID] or flags[F_WORLD_DROP] or flags[F_MOB_DROP])) then
+			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
+		elseif acquire_type == A_REPUTATION and mapvendor then
+			local vendor = addon.vendor_list[acquire_entry["RepVendor"]]
+
+			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
+		elseif acquire_type == A_MOB and mapmob then
 			return true
-		elseif mapquest then
-			if acquire_type == A_QUEST then
-				local quest = addon.quest_list[acquire_id]
-				display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
-			elseif acquire_type == A_CUSTOM and flags[F_QUEST] then
+		elseif  acquire_type == A_QUEST and mapquest then
+			local quest = addon.quest_list[acquire_id]
+
+			display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
+		elseif acquire_type == A_CUSTOM then
+			if flags[F_TRAINER] and maptrainer then
+				return true
+			elseif flags[F_VENDOR] and mapvendor then
+				return true
+			elseif flags[F_QUEST] and mapquest then
+				return true
+			elseif flags[F_INSTANCE] or flags[F_RAID] or flags[F_WORLD_DROP] or flags[F_MOB_DROP] then
 				return true
 			end
 		end
 		return display
 	end
 
-	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-
 	local INSTANCE_LOCATIONS = {
 		[BZ["Ahn'kahet: The Old Kingdom"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Auchenai Crypts"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Azjol-Nerub"]] = {
 			["loc"] = c1[BZ["Dragonblight"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Blackrock Depths"]] = {
 			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Blackrock Spire"]] = {
 			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Blackwing Lair"]] = {
 			["loc"] = c1[BZ["Searing Gorge"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Dire Maul"]] = {
 			["loc"] = c1[BZ["Feralas"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Drak'Tharon Keep"]] = {
 			["loc"] = c1[BZ["Zul'Drak"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Gnomeregan"]] = {
 			["loc"] = c1[BZ["Dun Morogh"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Halls of Lightning"]] = {
 			["loc"] = c1[BZ["The Storm Peaks"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Halls of Stone"]] = {
 			["loc"] = c1[BZ["The Storm Peaks"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Karazhan"]] = {
 			["loc"] = c1[BZ["Deadwind Pass"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Magisters' Terrace"]] = {
-			["loc"] = c1[BZ["Isle of Quel'Danas"]],
-			["c"] = 3,
+			["loc"] = c2[BZ["Isle of Quel'Danas"]],
+			["c"] = 2,
+			["x"] = 61.20,
+			["y"] = 30.89,
 		},
 		[BZ["Mana-Tombs"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Oculus"]] = {
 			["loc"] = c1[BZ["Borean Tundra"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Old Hillsbrad Foothills"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Onyxia's Lair"]] = {
 			["loc"] = c1[BZ["Dustwallow Marsh"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Ruins of Ahn'Qiraj"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Scholomance"]] = {
 			["loc"] = c1[BZ["Western Plaguelands"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Sethekk Halls"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Shadow Labyrinth"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Stratholme"]] = {
 			["loc"] = c1[BZ["Eastern Plaguelands"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Temple of Ahn'Qiraj"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Arcatraz"]] = {
 			["loc"] = c1[BZ["Netherstorm"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Black Morass"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
 			["c"] = 1,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Botanica"]] = {
 			["loc"] = c1[BZ["Netherstorm"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Deadmines"]] = {
 			["loc"] = c1[BZ["Westfall"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Mechanar"]] = {
 			["loc"] = c1[BZ["Netherstorm"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Nexus"]] = {
 			["loc"] = c1[BZ["Borean Tundra"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Shattered Halls"]] = {
 			["loc"] = c1[BZ["Hellfire Peninsula"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Slave Pens"]] = {
 			["loc"] = c1[BZ["Zangarmarsh"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Steamvault"]] = {
 			["loc"] = c1[BZ["Zangarmarsh"]],
 			["c"] = 3,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Temple of Atal'Hakkar"]] = {
 			["loc"] = c1[BZ["Swamp of Sorrows"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["The Violet Hold"]] = {
 			["loc"] = c1[BZ["Dalaran"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Utgarde Keep"]] = {
 			["loc"] = c1[BZ["Howling Fjord"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Utgarde Pinnacle"]] = {
 			["loc"] = c1[BZ["Howling Fjord"]],
 			["c"] = 4,
+			["x"] = 0,
+			["y"] = 0,
 		},
 		[BZ["Zul'Gurub"]] = {
 			["loc"] = c1[BZ["Stranglethorn Vale"]],
 			["c"] = 2,
+			["x"] = 0,
+			["y"] = 0,
 		},
 	}
 	local maplist = {}
@@ -2889,14 +2975,12 @@ do
 		if not TomTom then
 			return
 		end
-
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
 
 		if not (worldmap or minimap) then
 			return
 		end
-
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
 		-- Get the proper icon to put on the mini-map
@@ -2906,7 +2990,6 @@ do
 		--				break
 		--			end
 		--		end
-
 		twipe(maplist)
 
 		local recipe_list = addon.recipe_list
@@ -2915,8 +2998,8 @@ do
 		if single_recipe then
 			-- loop through acquire methods, display each
 			for index, acquire in pairs(recipe_list[single_recipe]["Acquire"]) do
-				if CheckMapDisplay(v, recipe_list[single_recipe]["Flags"]) then
-					maplist[acquire["ID"]] = acquire["Type"]
+				if CheckMapDisplay(acquire, recipe_list[single_recipe]["Flags"]) then
+					maplist[acquire] = true
 				end
 			end
 		elseif addon.db.profile.autoscanmap then
@@ -2929,8 +3012,8 @@ do
 				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
 					-- loop through acquire methods, display each
 					for index, acquire in pairs(recipe_list[recipe_index]["Acquire"]) do
-						if CheckMapDisplay(v, recipe_list[recipe_index]["Flags"]) then
-							maplist[acquire["ID"]] = acquire["Type"]
+						if CheckMapDisplay(acquire, recipe_list[recipe_index]["Flags"]) then
+							maplist[acquire] = true
 						end
 					end
 				end
@@ -2953,21 +3036,25 @@ do
 		--		ARLMiniMap.icon:SetTexture(icontext)
 		--		ARLMiniMap.icon:SetAllPoints()
 
-		for k, j in pairs(maplist) do
+		for entry in pairs(maplist) do
 			local loc
 			local custom = false
+			local id_num = entry["ID"]
+			local acquire_type = entry["Type"]
 
 			-- Get the entries location
-			if maplist[k] == A_TRAINER then
-				loc = addon.trainer_list[k]
-			elseif maplist[k] == A_VENDOR then
-				loc = addon.vendor_list[k]
-			elseif maplist[k] == A_MOB then
-				loc = addon.mob_list[k]
-			elseif maplist[k] == A_QUEST then
-				loc = addon.quest_list[k]
-			elseif maplist[k] == A_CUSTOM then
-				loc = addon.custom_list[k]
+			if acquire_type == A_TRAINER then
+				loc = addon.trainer_list[id_num]
+			elseif acquire_type == A_VENDOR then
+				loc = addon.vendor_list[id_num]
+			elseif acquire_type == A_REPUTATION then
+				loc = addon.vendor_list[entry["RepVendor"]]
+			elseif acquire_type == A_MOB then
+				loc = addon.mob_list[id_num]
+			elseif acquire_type == A_QUEST then
+				loc = addon.quest_list[id_num]
+			elseif acquire_type == A_CUSTOM then
+				loc = addon.custom_list[id_num]
 				custom = true
 			end
 
@@ -2979,7 +3066,7 @@ do
 
 			if not loc then
 				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " - loc is nil.")
+				addon:Printf("DEBUG: No continent/zone map match for ID %d  - loc is nil.", id_num)
 				--@end-alpha@
 			elseif c1[location] then
 				continent = 1
@@ -2994,32 +3081,45 @@ do
 				continent = 4
 				zone = c4[location]
 			elseif INSTANCE_LOCATIONS[location] then
-				continent = INSTANCE_LOCATIONS[location]["c"]
-				zone = INSTANCE_LOCATIONS[location]["loc"]
+				local info = INSTANCE_LOCATIONS[location]
+
+				continent = info["c"]
+				x = info["x"]
+				y = info["y"]
+				zone = info["loc"]
 				name = name .. " (" .. location .. ")"
 			else
 				--@alpha@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. " Location: " .. location)
+				addon:Printf("DEBUG: No continent/zone map match for ID %d. Location: %s.", idnum, location)
 				--@end-alpha@
 			end
 
 			--@alpha@
 			if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
-				addon:Print("DEBUG: Invalid location coordinates for ID " .. k .. " Location: " .. location)
+				addon:Printf("DEBUG: Invalid location coordinates for ID %d. Location: %s.", idnum, location)
 			end
 			--@end-alpha@
 
 			if zone and continent then
 				--@alpha@
 				if x == 0 and y == 0 then
-					addon:Print("DEBUG: Location is 0,0 for ID " .. k .. " Location: " .. location)
+					addon:Printf("DEBUG: Location is \"0, 0\" for ID %d. Location: %s.", idnum, location)
 				end
 				--@end-alpha@
-				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, nil, false, minimap, worldmap)
+				local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
 
 				tinsert(iconlist, iconuid)
-			end
+			else
+				--@alpha@
+				if not zone then
+					self:Printf("No zone for ID %d. Location: %s.", id_num, location)
+				end
 
+				if not continent then
+					self:Printf("No continent for ID %d. Location: %s.", id_num, location)
+				end
+				--@end-alpha@
+			end
 		end
 	end
 end -- do block

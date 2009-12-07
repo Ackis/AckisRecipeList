@@ -1006,6 +1006,13 @@ do
 				VendorList[RepVendor]["SellList"] = VendorList[RepVendor]["SellList"] or {}
 				VendorList[RepVendor]["SellList"][SpellID] = true
 
+				location = VendorList[RepVendor]["Location"]
+
+				if not location_checklist[location] then
+					tinsert(location_list, location)
+					location_checklist[location] = true
+				end
+
 				--@alpha@
 				if not acquire_id then
 					self:Print("SpellID "..SpellID..": ReputationID is nil.")
