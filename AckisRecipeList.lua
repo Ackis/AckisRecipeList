@@ -390,11 +390,11 @@ function addon:OnInitialize()
 	-- Create the scan button, then set its parent and scripts.
 	-------------------------------------------------------------------------------
 	local scan_button = CreateFrame("Button", nil, UIParent, "UIPanelButtonTemplate")
+	scan_button:SetHeight(20)
 
 	-- Add to Skillet interface
 	if Skillet and Skillet:IsActive() then
 		scan_button:SetParent(SkilletFrame)
-		scan_button:Show()
 		Skillet:AddButtonToTradeskillWindow(scan_button)
 		scan_button:SetWidth(80)
 	elseif MRTUIUtils_RegisterWindowOnShow then
@@ -405,8 +405,39 @@ function addon:OnInitialize()
 							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 							scan_button:Show()
 						end)
-  	end
-	scan_button:SetHeight(20)
+  	elseif ATSWFrame then
+		scan_button:SetParent(ATSWFrame)
+		scan_button:ClearAllPoints()
+
+		if TradeJunkieMain and TJ_OpenButtonATSW then
+			scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
+		else
+			scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
+		end
+		scan_button:SetHeight(ATSWOptionsButton:GetHeight())
+		scan_button:SetWidth(ATSWOptionsButton:GetWidth())
+	elseif CauldronFrame then
+		scan_button:SetParent(CauldronFrame)
+		scan_button:ClearAllPoints()
+		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
+		scan_button:SetWidth(90)
+	else
+		scan_button:SetParent(TradeSkillFrame)
+		scan_button:ClearAllPoints()
+
+		local loc = addon.db.profile.scanbuttonlocation
+
+		if loc == "TR" then
+			scan_button:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
+		elseif loc == "TL" then
+			scan_button:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
+		elseif loc == "BR" then
+			scan_button:SetPoint("TOP",TradeSkillCancelButton,"BOTTOM",0,-5)
+		elseif loc == "BL" then
+			scan_button:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
+		end
+		scan_button:SetWidth(addon.scan_button:GetTextWidth() + 10)
+	end
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
@@ -714,10 +745,8 @@ do
 	local IsTradeSkillLinked = _G.IsTradeSkillLinked
 
 	function addon:TRADE_SKILL_SHOW()
-		local is_linked = IsTradeSkillLinked()
-
 		-- If this is our own skill, save it, if not don't save it
-		if not is_linked then
+		if not IsTradeSkillLinked() then
 			local tradelink = GetTradeSkillListLink()
 
 			if tradelink then
@@ -733,46 +762,7 @@ do
 				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
 			end
 		end
-
-		if Skillet then
-			return
-		end
-		local scan_button = self.scan_button
-
-		if ATSWFrame then
-			scan_button:SetParent(ATSWFrame)
-			scan_button:ClearAllPoints()
-
-			if TradeJunkieMain and TJ_OpenButtonATSW then
-				scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
-			else
-				scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
-			end
-			scan_button:SetHeight(ATSWOptionsButton:GetHeight())
-			scan_button:SetWidth(ATSWOptionsButton:GetWidth())
-		elseif CauldronFrame then
-			scan_button:SetParent(CauldronFrame)
-			scan_button:ClearAllPoints()
-			scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
-			scan_button:SetWidth(90)
-		else
-			scan_button:SetParent(TradeSkillFrame)
-			scan_button:ClearAllPoints()
-
-			local loc = addon.db.profile.scanbuttonlocation
-
-			if loc == "TR" then
-				scan_button:SetPoint("RIGHT",TradeSkillFrameCloseButton,"LEFT",4,0)
-			elseif loc == "TL" then
-				scan_button:SetPoint("LEFT",TradeSkillFramePortrait,"RIGHT",2,12)
-			elseif loc == "BR" then
-				scan_button:SetPoint("TOP",TradeSkillCancelButton,"BOTTOM",0,-5)
-			elseif loc == "BL" then
-				scan_button:SetPoint("TOP",TradeSkillCreateAllButton,"BOTTOM",0,-5)
-			end
-			scan_button:SetWidth(addon.scan_button:GetTextWidth() + 10)
-		end
-		scan_button:Show()
+		self.scan_button:Show()
 	end
 end
 

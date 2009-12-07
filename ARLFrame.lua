@@ -2656,7 +2656,7 @@ do
 		for i = 1, select('#', ...), 1 do
 			c[i] = select(i, ...)
 
---			if c[i] == BZ["Isle of Quel'Danas"] then
+--			if c[i] == BZ["The Storm Peaks"] then
 --				addon:Print("We have a match.")
 --			end
 		end
@@ -2743,10 +2743,10 @@ do
 
 	local INSTANCE_LOCATIONS = {
 		[BZ["Ahn'kahet: The Old Kingdom"]] = {
-			["loc"] = c1[BZ["Dragonblight"]],
+			["loc"] = c4[BZ["Dragonblight"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 28.49,
+			["y"] = 51.73,
 		},
 		[BZ["Auchenai Crypts"]] = {
 			["loc"] = c1[BZ["Terokkar Forest"]],
@@ -2755,10 +2755,10 @@ do
 			["y"] = 0,
 		},
 		[BZ["Azjol-Nerub"]] = {
-			["loc"] = c1[BZ["Dragonblight"]],
+			["loc"] = c4[BZ["Dragonblight"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 26.01,
+			["y"] = 50.83,
 		},
 		[BZ["Blackrock Depths"]] = {
 			["loc"] = c1[BZ["Searing Gorge"]],
@@ -2797,16 +2797,16 @@ do
 			["y"] = 0,
 		},
 		[BZ["Halls of Lightning"]] = {
-			["loc"] = c1[BZ["The Storm Peaks"]],
+			["loc"] = c4[BZ["The Storm Peaks"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 45.40,
+			["y"] = 21.37,
 		},
 		[BZ["Halls of Stone"]] = {
-			["loc"] = c1[BZ["The Storm Peaks"]],
+			["loc"] = c4[BZ["The Storm Peaks"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 39.49,
+			["y"] = 26.92,
 		},
 		[BZ["Karazhan"]] = {
 			["loc"] = c1[BZ["Deadwind Pass"]],
@@ -2827,10 +2827,10 @@ do
 			["y"] = 0,
 		},
 		[BZ["The Oculus"]] = {
-			["loc"] = c1[BZ["Borean Tundra"]],
+			["loc"] = c4[BZ["Borean Tundra"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 27.52,
+			["y"] = 26.71,
 		},
 		[BZ["Old Hillsbrad Foothills"]] = {
 			["loc"] = c1[BZ["Tanaris"]],
@@ -2911,10 +2911,10 @@ do
 			["y"] = 0,
 		},
 		[BZ["The Nexus"]] = {
-			["loc"] = c1[BZ["Borean Tundra"]],
+			["loc"] = c4[BZ["Borean Tundra"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 27.50,
+			["y"] = 25.97,
 		},
 		[BZ["The Shattered Halls"]] = {
 			["loc"] = c1[BZ["Hellfire Peninsula"]],
@@ -2941,22 +2941,22 @@ do
 			["y"] = 0,
 		},
 		[BZ["The Violet Hold"]] = {
-			["loc"] = c1[BZ["Dalaran"]],
+			["loc"] = c4[BZ["Dalaran"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 66.78,
+			["y"] = 68.19,
 		},
 		[BZ["Utgarde Keep"]] = {
-			["loc"] = c1[BZ["Howling Fjord"]],
+			["loc"] = c4[BZ["Howling Fjord"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 57.28,
+			["y"] = 46.73,
 		},
 		[BZ["Utgarde Pinnacle"]] = {
-			["loc"] = c1[BZ["Howling Fjord"]],
+			["loc"] = c4[BZ["Howling Fjord"]],
 			["c"] = 4,
-			["x"] = 0,
-			["y"] = 0,
+			["x"] = 57.26,
+			["y"] = 46.67,
 		},
 		[BZ["Zul'Gurub"]] = {
 			["loc"] = c1[BZ["Stranglethorn Vale"]],
