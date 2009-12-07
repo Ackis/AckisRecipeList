@@ -2575,33 +2575,35 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create MainPanel.progress_bar and set its scripts
 -------------------------------------------------------------------------------
+MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
+MainPanel.progress_bar:SetWidth(195)
+MainPanel.progress_bar:SetHeight(14)
+
+MainPanel.progress_bar:ClearAllPoints()
+MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
+
+MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+MainPanel.progress_bar:SetOrientation("HORIZONTAL")
+MainPanel.progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+
+MainPanel.progress_bar.text = MainPanel.progress_bar:CreateFontString(nil, "ARTWORK")
+MainPanel.progress_bar.text:SetWidth(195)
+MainPanel.progress_bar.text:SetHeight(14)
+MainPanel.progress_bar.text:SetFontObject("GameFontHighlightSmall")
+
+MainPanel.progress_bar.text:ClearAllPoints()
+MainPanel.progress_bar.text:SetPoint("CENTER", MainPanel.progress_bar, "CENTER", 0, 0)
+MainPanel.progress_bar.text:SetJustifyH("CENTER")
+
+-- Default values for the progressbar
 do
-	-- Default values for the progressbar
 	local pbMin = 0
 	local pbMax = 100
 	local pbCur = 50
 
-	MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
-	MainPanel.progress_bar:SetWidth(195)
-	MainPanel.progress_bar:SetHeight(14)
-
-	MainPanel.progress_bar:ClearAllPoints()
-	MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
-
-	MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
-	MainPanel.progress_bar:SetOrientation("HORIZONTAL")
-	MainPanel.progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
 	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
 	MainPanel.progress_bar:SetValue(pbCur)
 
-	MainPanel.progress_bar.text = MainPanel.progress_bar:CreateFontString(nil, "ARTWORK")
-	MainPanel.progress_bar.text:SetWidth(195)
-	MainPanel.progress_bar.text:SetHeight(14)
-	MainPanel.progress_bar.text:SetFontObject("GameFontHighlightSmall")
-
-	MainPanel.progress_bar.text:ClearAllPoints()
-	MainPanel.progress_bar.text:SetPoint("CENTER", MainPanel.progress_bar, "CENTER", 0, 0)
-	MainPanel.progress_bar.text:SetJustifyH("CENTER")
 	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
 end	-- do
 

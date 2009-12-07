@@ -515,7 +515,7 @@ function addon:OnInitialize()
 					       if not recipe["Known"] or shifted then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
-						       self:AddLine("Drops: "..hex..recipe["Name"].."|r")
+						       self:AddLine("Drops: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
 					       end
 				       end
 				       return
@@ -525,11 +525,13 @@ function addon:OnInitialize()
 			       if vendor and vendor["SellList"] then
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local recipe = RecipeList[spell_id]
+					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
+					       local has_skill = skill_level and skill_level >= recipe["Level"]
 
-					       if (not recipe["Known"] or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
-						       self:AddLine("Sells: "..hex..recipe["Name"].."|r")
+						       self:AddLine("Sells: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
 					       end
 				       end
 				       return
@@ -539,11 +541,13 @@ function addon:OnInitialize()
 			       if trainer and trainer["TrainList"] then
 				       for spell_id in pairs(trainer["TrainList"]) do
 					       local recipe = RecipeList[spell_id]
+					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
+					       local has_skill = skill_level and skill_level >= recipe["Level"]
 
-					       if (not recipe["Known"] or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
-						       self:AddLine("Trains: "..hex..recipe["Name"].."|r")
+						       self:AddLine("Trains: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
 					       end
 				       end
 				       return
@@ -1455,7 +1459,16 @@ do
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
-		Player["Profession"], Player["ProfessionLevel"] = GetTradeSkillLine()
+		local current_prof, prof_level = GetTradeSkillLine()
+
+		-- Set the current profession and its level, and update the cached data.
+		Player["Profession"] = current_prof
+		Player["ProfessionLevel"] = prof_level
+
+		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
+		if not IsTradeSkillLinked() and Player["Professions"][current_prof] then
+			Player["Professions"][current_prof] = prof_level
+		end
 
 		-- Get the current profession Specialty
 		local specialty = SpecialtyTable[Player["Profession"]]
