@@ -747,9 +747,9 @@ do
 			end
 		end
 		local scan_button = self.scan_button
-		local button_parent = scan_button:GetParent()
+		local scan_parent = self.scan_button:GetParent()
 
-		if not button_parent or button_parent == UIParent then
+		if not scan_parent or scan_parent == UIParent then
 			scan_button:SetParent(TradeSkillFrame)
 			scan_button:ClearAllPoints()
 
@@ -1456,7 +1456,7 @@ do
 
 		-- The scan button is re-parented to whichever interface it's anchored to, whether it's TradeSkillFrame or a replacement AddOn,
 		-- so we make sure its parent exists and is visible before proceeding.
-		if not scan_parent or not scan_parent:IsVisible() then
+		if not scan_parent or scan_parent == UIParent or not scan_parent:IsVisible() then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
