@@ -3,7 +3,9 @@
 *Fixed the Text Dump output to use correct csv syntax, therefore making .csv files show the output much cleaner now.
 *Much more optimizations to the ARL core.
 *Location sort now works as intended!
-*Vendor's tooltips now show you what that vendor sells in regards to a profession you have.
+*Vendor tooltips now tell you if the vendor sells a recipe you do not yet know, if you are of the appropriate skill level.
+*Trainer tooltips now tell you if the trainer teaches a recipe you do not yet know, if you are of the appropriate skill level.
+*Mob tooltips now tell you if the mob drops a recipe you do not yet know, if you are of the appropriate skill level.
 
 ===Version 2634
 *More optimizations to the Jewelcrafting, and Inscription databases.
