@@ -2604,7 +2604,7 @@ do
 	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
 	MainPanel.progress_bar:SetValue(pbCur)
 
-	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
 end	-- do
 
 function MainPanel.progress_bar:Update()
@@ -2628,7 +2628,7 @@ function MainPanel.progress_bar:Update()
 	self:SetValue(pbCur)
 
 	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.text:SetFormattedText("%d / %d - %d%%", pbCur, pbMax, floor(pbCur / pbMax * 100))
+		self.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
 	else
 		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
 	end
