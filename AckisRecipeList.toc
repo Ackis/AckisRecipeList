@@ -32,7 +32,7 @@
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/arl/#w_donations
 
-## Interface: 30200
+## Interface: 30300
 ## Version: 1.0 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
