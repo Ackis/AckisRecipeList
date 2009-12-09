@@ -397,5 +397,6 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,33680,L["Nemiha"],BZ["Shattrath City"],36.1,47.7,0)
 	self:addLookupList(VendorDB,34039,L["Lady Palanseer"],BZ["Orgrimmar"],37.0,64.9,2)
 	self:addLookupList(VendorDB,34079,L["Captain O'Neal"],BZ["Stormwind City"],75.7,66.6,1)
+	self:addLookupList(VendorDB,37687,L["Alchemist Finklestein"],BZ["Icecrown Citadel"],0,0,0)
 
 end

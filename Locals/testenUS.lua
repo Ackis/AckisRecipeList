@@ -499,6 +499,7 @@ L["Ainethil"] = true
 L["Akham"] = true
 L["Alanna Raveneye"] = true
 L["Alard Schmied"] = true
+L["Alchemist Finklestein"] = true
 L["Alchemist Gribble"] = true
 L["Alchemist Kanhu"] = true
 L["Alchemist Mallory"] = true
