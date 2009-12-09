@@ -15,7 +15,7 @@
 --------------------------------------------------------------------------------------------------------------------
 
 local MODNAME = "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -1550,10 +1550,15 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeFlags(RecipeDB,64579,1,2,6,11,36,41,66,67)
 	self:addTradeAcquire(RecipeDB,64579,8,39)
 
-	-- Abyssal Shatter -- 69412
+	-- Abyssal Shatter - 69412
 	AddRecipe(69412,445,49640,1,2,445,445,447,450)
 	self:addTradeFlags(RecipeDB,69412,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,69412,1,28693,1,26990,1,26906,1,26954,1,26980,1,33583)
+
+	-- Enchant Gloves - Angler - 71692
+	AddRecipe(71692, 375, 50406, R_UNCOMMON, GAME_WOTLK, 375, 385, 392, 400)
+	self:addTradeFlags(RecipeDB, 71692, F_ALLIANCE, F_HORDE, F_IBOP, F_RBOP, F_MOB_DROP)
+	--self:addTradeAcquire(RecipeDB, 71692, 
 
 	return num_recipes
 
