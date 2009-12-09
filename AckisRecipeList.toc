@@ -62,11 +62,11 @@ embeds.xml
 # Localization files
 local.xml
 
-AckisRecipeList.lua
-ARLConfig.lua
-ARLColour.lua
+ARL.lua
+Config.lua
+Colour.lua
 Frame.lua
-ARLDatamine.lua
+Datamine.lua
 Player.lua
 
 # Recipe database files
