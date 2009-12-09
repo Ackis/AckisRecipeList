@@ -1637,11 +1637,11 @@ function addon:InitEngineering(RecipeDB)
 	 if (version == "0.3.0") then
 	
 		 -- Iceblade Arrow -- 72953
-		 AddRecipe(72953,450,52021,4,2,450,450,450,460)
+		 AddRecipe(72953, 450, 52021, F_EPIC, GAME_WOTLK, 450, 450, 450, 460)
 		 self:addTradeFlags(RecipeDB,72953,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
 		 -- self:addTradeAcquire(RecipeDB,72953,A_REPUTATION,1156,2,)
 		 -- Shatter Rounds -- 72952
-		 AddRecipe(72952,450,52020,4,2,450,450,450,460)
+		 AddRecipe(72952, 450, 52020, F_EPIC, GAME_WOTLK, 450, 450, 450, 460)
 		 self:addTradeFlags(RecipeDB,72952,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
 		 -- self:addTradeAcquire(RecipeDB,72952,A_REPUTATION,1156,2,)
 
