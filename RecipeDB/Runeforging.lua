@@ -1,18 +1,20 @@
---------------------------------------------------------------------------------------------------------------------
--- ARL-Runeforge.lua
--- Runeforging data for all of Ackis Recipe List
---------------------------------------------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
--- File revision: @file-revision@ 
--- Project revision: @project-revision@
--- Project version: @project-version@
---------------------------------------------------------------------------------------------------------------------
--- Please see http://www.wowace.com/projects/arl/for more information.
---------------------------------------------------------------------------------------------------------------------
--- License:
--- Please see LICENSE.txt
--- This source code is released under All Rights Reserved.
---------------------------------------------------------------------------------------------------------------------
+--[[
+************************************************************************
+Runeforging.lua
+Runeforging data for all of Ackis Recipe List
+************************************************************************
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
+************************************************************************
+Please see http://www.wowace.com/projects/arl/for more information.
+************************************************************************
+License:
+	Please see LICENSE.txt
+This source code is released under All Rights Reserved.
+************************************************************************
+]]--
 
 local MODNAME = "Ackis Recipe List"
 local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)

@@ -1,36 +1,19 @@
 --[[
-
 ************************************************************************
-
-ARL-Mob.lua
-
-Monster data for all of Ackis Recipe List
-
+Mob.lua
+Mob data for all of Ackis Recipe List
 ************************************************************************
-
 File date: @file-date-iso@ 
 File revision: @file-revision@ 
 Project revision: @project-revision@
 Project version: @project-version@
-
 ************************************************************************
-
-Format:
-
-	self:addLookupList(MobDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-	the "Faction" parameter isn't used in this specific database
-	
-************************************************************************
-
 Please see http://www.wowace.com/projects/arl/for more information.
-
+************************************************************************
 License:
 	Please see LICENSE.txt
-
 This source code is released under All Rights Reserved.
-
 ************************************************************************
-
 ]]--
 
 local MODNAME		= "Ackis Recipe List"
