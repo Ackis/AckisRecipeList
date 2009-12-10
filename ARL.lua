@@ -100,7 +100,6 @@ addon.trainer_list	= TrainerList
 addon.seasonal_list	= SeasonalList
 addon.vendor_list	= VendorList
 
-
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 ------------------------------------------------------------------------------
@@ -1706,33 +1705,4 @@ function addon:ClearSavedSkills()
 		addon.db.profile.tradeskill = nil
 	end
 
-end
-
--------------------------------------------------------------------------------
--- API to interface with external AddOns.
--------------------------------------------------------------------------------
---- Initialize the recipe database with a specific profession
--- @name AckisRecipeList:AddRecipeData
--- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
--- @param profession Spell ID of the profession which you want to populate the database with.
--- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-function addon:AddRecipeData(profession)
-	return InitializeRecipe(profession)
-end
-
---- Initialize the recipe database
--- @name AckisRecipeList:InitRecipeData
--- @usage AckisRecipeList:InitRecipeData()
--- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
--- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
-function addon:InitRecipeData()
-	return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-end
-
---- Get recipe information from ARL
--- @name AckisRecipeList:GetRecipeData
--- @param spellID The spell ID of the recipe you want information about.
--- @return Table containing all spell ID information or nil if it's not found.
-function addon:GetRecipeData(spellID)
-	return RecipeList[spellID]
 end
