@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- ARLFrame.lua		Frame functions for all of AckisRecipeList
+-- Frame.lua			Frame functions for all of AckisRecipeList
 -------------------------------------------------------------------------------
 -- File date: @file-date-iso@
 -- File revision: @file-revision@

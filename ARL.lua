@@ -488,8 +488,9 @@ function addon:OnInitialize()
 			       if mob and mob["DropList"] then
 				       for spell_id in pairs(mob["DropList"]) do
 					       local recipe = RecipeList[spell_id]
+					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
 
-					       if not recipe["Known"] or shifted then
+					       if skill_level and not recipe["Known"] or shifted then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
 
 						       self:AddLine("Drops: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
