@@ -2413,6 +2413,21 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeFlags(RecipeDB,69385,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,69385,1,28702,1,26977,1,33603,1,26959,1,26916,1,26995)
 
+	-- Glyph of Quick Decay - 71102
+	AddRecipe(71102, 375, 50077, R_COMMON, GAME_WOTLK, 375, 380, 382, 385)
+	self:addTradeFlags(RecipeDB, 71102, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE, F_WARLOCK)
+	--self:addTradeAcquire(RecipeDB, 71102, 
+
+	-- Glyph of Rapid Rejuvination - 71015
+	AddRecipe(71015, 375, 50125, R_COMMON, GAME_WOTLK, 375, 380, 382, 385)
+	self:addTradeFlags(RecipeDB, 71015, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE, F_DRUID)
+	--self:addTradeAcquire(RecipeDB, 71015, 
+
+	-- Glyph of Eternal Water - 71101
+	AddRecipe(71101, 375, 50045, R_COMMON, GAME_WOTLK, 375, 380, 382, 385)
+	self:addTradeFlags(RecipeDB, 71101, F_ALLIANCE, F_HORDE, F_VENDOR, F_IBOE, F_RBOE, F_MAGE)
+	--self:addTradeAcquire(RecipeDB, 71101, 
+
 	return num_recipes
 
 end
