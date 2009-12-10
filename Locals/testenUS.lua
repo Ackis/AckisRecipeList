@@ -1477,3 +1477,4 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
+L["Indu'le Fisherman"] = true
