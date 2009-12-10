@@ -2822,57 +2822,46 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeFlags(RecipeDB,69388,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,69388,1,28700,1,26996,1,26911,1,26961,1,33581,1,26998)
 
-	-------------------------------------------------------------------------------------------
-	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
-	-------------------------------------------------------------------------------------------
-	-- 3.3.0 Items
-	local version = GetBuildInfo()
-	
-	if (version == "3.3.0") then
-
 	-- Legwraps of Unleashed Nature - 70554
 	 AddRecipe(70554, 450, 49898, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70554, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	-- self:addTradeAcquire(RecipeDB, 70554, A_REPUTATION, 1156, REVERED)
+	self:addTradeAcquire(RecipeDB, 70554, A_REPUTATION, 1156, REVERED, 37687)
 
 	-- Blessed Cenarion Boots - 70555
 	AddRecipe(70555, 450, 49894, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70555, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70555, A_REPUTATION, 1156, HONORED)
+	self:addTradeAcquire(RecipeDB, 70555, A_REPUTATION, 1156, HONORED, 37687)
 
 	-- Bladeborn Leggings - 70556
 	AddRecipe(70556, 450, 49899, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70556, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70556, A_REPUTATION, 1156, REVERED)
+	self:addTradeAcquire(RecipeDB, 70556, A_REPUTATION, 1156, REVERED, 37687)
 
 	-- Footpads of Impending Doom - 70557
 	AddRecipe(70557, 450, 49895, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70557, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70557, A_REPUTATION, 1156, HONORED)
+	self:addTradeAcquire(RecipeDB, 70557, A_REPUTATION, 1156, HONORED, 37687)
 
 	-- Lightning-infused Leggings - 70558
 	AddRecipe(70558, 450, 49900, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70558, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70558, A_REPUTATION, 1156, REVERED)
+	self:addTradeAcquire(RecipeDB, 70558, A_REPUTATION, 1156, REVERED, 37687)
 
 	-- Earthsoul Boots - 70559
 	AddRecipe(70559, 450, 49896, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70559, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70559, A_REPUTATION, 1156, HONORED)
+	self:addTradeAcquire(RecipeDB, 70559, A_REPUTATION, 1156, HONORED, 37687)
 
 	-- Draconic Bonesplinter Legguards - 70560
 	AddRecipe(70560, 450, 49901, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70560, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70560, A_REPUTATION, 1156, REVERED)
+	self:addTradeAcquire(RecipeDB, 70560, A_REPUTATION, 1156, REVERED, 37687)
 
-	-- Rock-steady Treads - 70561
+	-- Rock-Steady Treads - 70561
 	AddRecipe(70561, 450, 49897, R_EPIC, GAME_WOTLK)
 	self:addTradeFlags(RecipeDB, 70561, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	--self:addTradeAcquire(RecipeDB, 70561, A_REPUTATION, 1156, HONORED)
+	self:addTradeAcquire(RecipeDB, 70561, A_REPUTATION, 1156, HONORED, 37687)
  
-	end
-	------------------------------------------------------------------------------------------------------------------------------------
-	
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()

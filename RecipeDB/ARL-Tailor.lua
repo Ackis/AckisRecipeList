@@ -2293,34 +2293,26 @@ function addon:InitTailoring(RecipeDB)
 	,1,16729,1,3004,1,3484,1,3704,1,2627,1,33580,1,3363,1,1103,1,33613,1,33636,1,11052,1,18772,1,
 	2399,1,4576,1,17487,1,16640,1,16366,1,5153,1,4193,1,3523,1,33684,1,11557)
 
-	-------------------------------------------------------------------------------------------
-	--PATCH 3.3 ICECROWN CITADEL CRAFTED RECIPES-------------------
-	-------------------------------------------------------------------------------------------
-	-- 0.3.0 Items
-	local version = GetBuildInfo()
+	 -- Leggings of Woven Death -- 70550
+	 AddRecipe(70550,450,49891,4,2,450,475,487,500)
+	 self:addTradeFlags(RecipeDB,70550,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB,70550, A_REPUTATION, 1156, REVERED, 37687)
+	 
+	 -- Deathfrost Boots -- 70551
+	 AddRecipe(70551,450,49890,4,2,450,475,487,500)
+	 self:addTradeFlags(RecipeDB,70551,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB,70551, A_REPUTATION, 1156, HONORED, 37687)
+	 
+	 -- Lightweave Leggings -- 70552
+	 AddRecipe(70552,450,49892,4,2,450,475,487,500)
+	 self:addTradeFlags(RecipeDB,70552,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB,70552, A_REPUTATION, 1156, REVERED, 37687)
+	 
+	 -- Sandals of Consecration -- 70553
+	 AddRecipe(70553,450,49893,4,2,450,475,487,500)
+	 self:addTradeFlags(RecipeDB,70553,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB,70553, A_REPUTATION, 1156, HONORED, 37687)
 
-	 if (version == "0.3.0") then
-	
-		 -- -- Leggings of Woven Death -- 70550
-		 AddRecipe(70550,450,49891,4,2,450,475,487,500)
-		 self:addTradeFlags(RecipeDB,70550,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-		 -- self:addTradeAcquire(RecipeDB,70550,A_REPUTATION,1156,3,)
-		 -- -- Deathfrost Boots -- 70551
-		 AddRecipe(70551,450,49890,4,2,450,475,487,500)
-		 self:addTradeFlags(RecipeDB,70551,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-		 -- self:addTradeAcquire(RecipeDB,70551,A_REPUTATION,1156,2,)
-		 -- -- Lightweave Leggings -- 70552
-		 AddRecipe(70552,450,49892,4,2,450,475,487,500)
-		 self:addTradeFlags(RecipeDB,70552,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-		 -- self:addTradeAcquire(RecipeDB,70552,A_REPUTATION,1156,3,)
-		 -- -- Sandals of Consecration -- 70553
-		 AddRecipe(70553,450,49893,4,2,450,475,487,500)
-		 self:addTradeFlags(RecipeDB,70553,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-		 -- self:addTradeAcquire(RecipeDB,70553,A_REPUTATION,1156,2,)
-
-	   end
-	  
-	  
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
