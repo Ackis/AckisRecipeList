@@ -623,7 +623,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Alchemist's Stone -- 17632
 	AddRecipe(17632,350,13503,1,GAME_ORIG,350,365,372,380)
-	self:addTradeFlags(RecipeDB,17632, F_ALLIANCE, F_HORDE, F_QUEST, 37,41,53,54,61,111)
+	self:addTradeFlags(RecipeDB,17632, F_ALLIANCE, F_HORDE, F_VENDOR, 37,41,53,54, F_TRINKET, 111)
 	self:addTradeAcquire(RecipeDB,17632,6,935,3,21432)
 
 	-- Flask of Petrification -- 17634
@@ -633,12 +633,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of the Titans -- 17635
 	AddRecipe(17635,300,13510,2,1,300,315,322,330)
-	self:addTradeFlags(RecipeDB,17635, F_ALLIANCE, F_HORDE, F_QUEST, 5,F_IBOE, 41,111)
+	self:addTradeFlags(RecipeDB,17635, F_ALLIANCE, F_HORDE, F_VENDOR, 5,F_IBOE, 41,111, F_TANK)
 	self:addTradeAcquire(RecipeDB,17635,3,10363,6,935,4,21432)
 
 	-- Flask of Distilled Wisdom -- 17636
 	AddRecipe(17636,300,13511,2,1,300,315,322,330)
-	self:addTradeFlags(RecipeDB,17636, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 41,103)
+	self:addTradeFlags(RecipeDB,17636, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 41,103, F_CASTER, F_HEALER)
 	self:addTradeAcquire(RecipeDB,17636,6,942,4,17904)
 
 	-- Flask of Supreme Power -- 17637

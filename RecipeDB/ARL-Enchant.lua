@@ -730,8 +730,8 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,23804,6,59,3,12944)
 
 	-- Enchant Gloves - Threat -- 25072
-	AddRecipe(25072,300,nil,1,1,300,310,325,340)
-	self:addTradeFlags(RecipeDB,25072,1,2,4,6,11,36,40,111)
+	AddRecipe(25072, 300, nil, R_RARE, GAME_ORIG, 300, 310, 325, 340)
+	self:addTradeFlags(RecipeDB,25072,1,2,4,6,11,36,40,111, F_TANK)
 	self:addTradeAcquire(RecipeDB,25072,3,15275,6,935,4,21432)
 
 	-- Enchant Gloves - Shadow Power -- 25073
@@ -871,7 +871,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Ring - Healing Power -- 27926
 	AddRecipe(27926,370,nil,1,1,370,380,385,390)
-	self:addTradeFlags(RecipeDB,27926,1,2,4,36,41,53,54,62,111)
+	self:addTradeFlags(RecipeDB,27926,1,2,4,37,41,53,54,62,111)
 	self:addTradeAcquire(RecipeDB,27926,6,935,3,21432)
 
 	-- Enchant Ring - Stats -- 27927

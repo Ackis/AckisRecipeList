@@ -1719,7 +1719,7 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Drums of Battle -- 35543
 	AddRecipe(35543,365,29529,1,1,365,365,372,380)
-	self:addTradeFlags(RecipeDB,35543,1,2,4,36,41,111)
+	self:addTradeFlags(RecipeDB,35543,1,2,4,36,41,111, F_DPS)
 	self:addTradeAcquire(RecipeDB,35543,6,935,2,21432)
 
 	-- Drums of Speed -- 35544
