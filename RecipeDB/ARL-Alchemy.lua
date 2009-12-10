@@ -67,7 +67,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lion's Strength -- 2329
 	AddRecipe(2329,1,2454,1,GAME_ORIG,1,55,75,95)
-	self:addTradeFlags(RecipeDB,2329, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 41, 51)
+	self:addTradeFlags(RecipeDB,2329, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 41, F_DPS)
 	self:addTradeAcquire(RecipeDB,2329,8,8)
 
 	-- Minor Healing Potion -- 2330
@@ -87,7 +87,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Lesser Agility -- 2333
 	AddRecipe(2333,140,3390,2,GAME_ORIG,140,165,185,205)
-	self:addTradeFlags(RecipeDB,2333, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,2333, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,2333,7,2)
 
 	-- Elixir of Minor Fortitude -- 2334
@@ -129,7 +129,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Minor Magic Resistance Potion -- 3172
 	AddRecipe(3172,110,3384,1,GAME_ORIG,110,135,155,175)
 	self:addTradeFlags(RecipeDB,3172, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB,3172,7,1)
+	self:addTradeAcquire(RecipeDB, 3172, A_WORLD_DROP, R_COMMON)
 
 	-- Lesser Mana Potion -- 3173
 	AddRecipe(3173,120,3385,1,GAME_ORIG,120,145,165,185)
@@ -141,13 +141,13 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Potion of Curing -- 3174
 	AddRecipe(3174,120,3386,1,GAME_ORIG,120,145,165,185)
-	self:addTradeFlags(RecipeDB,3174, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB,3174,7,1)
+	self:addTradeFlags(RecipeDB, 3174, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
+	self:addTradeAcquire(RecipeDB, 3174, A_WORLD_DROP, R_COMMON)
 
 	-- Limited Invulnerability Potion -- 3175
 	AddRecipe(3175,250,3387,2,GAME_ORIG,250,275,295,315)
-	self:addTradeFlags(RecipeDB,3175, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
-	self:addTradeAcquire(RecipeDB,3175,7,2)
+	self:addTradeFlags(RecipeDB, 3175, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
+	self:addTradeAcquire(RecipeDB, 3175, A_WORLD_DROP, R_UNCOMMON)
 
 	-- Strong Troll's Blood Elixir -- 3176
 	AddRecipe(3176,125,3388,1,GAME_ORIG,125,150,170,190)
@@ -166,14 +166,14 @@ function addon:InitAlchemy(RecipeDB)
 	,16161)
 
 	-- Elixir of Ogre's Strength -- 3188
-	AddRecipe(3188,150,3391,1,GAME_ORIG,150,175,195,215)
-	self:addTradeFlags(RecipeDB,3188, F_ALLIANCE, F_HORDE, F_TRAINER, 10,F_IBOE, 40,51)
-	self:addTradeAcquire(RecipeDB,3188,7,1)
+	AddRecipe(3188, 150, 3391, R_COMMON, GAME_ORIG, 150, 175, 195, 215)
+	self:addTradeFlags(RecipeDB,3188, F_ALLIANCE, F_HORDE, F_TRAINER, F_WORLD_DROP, F_IBOE, F_RBOE, F_DPS)
+	self:addTradeAcquire(RecipeDB,3188, A_WORLD_DROP, R_COMMON)
 
 	-- Elixir of Minor Agility -- 3230
 	AddRecipe(3230,50,2457,2,GAME_ORIG,50,80,100,120)
-	self:addTradeFlags(RecipeDB,3230, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
-	self:addTradeAcquire(RecipeDB,3230,7,2)
+	self:addTradeFlags(RecipeDB,3230, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE, F_DPS)
+	self:addTradeAcquire(RecipeDB, 3230, A_WORLD_DROP, R_UNCOMMON)
 
 	-- Healing Potion -- 3447
 	AddRecipe(3447,110,929,1,GAME_ORIG,110,135,155,175)
@@ -192,7 +192,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Fortitude -- 3450
 	AddRecipe(3450,175,3825,1,GAME_ORIG,175,195,215,235)
-	self:addTradeFlags(RecipeDB,3450, F_ALLIANCE, F_HORDE, F_TRAINER, 10,F_IBOE, F_RBOE)
+	self:addTradeFlags(RecipeDB,3450, F_ALLIANCE, F_HORDE, F_TRAINER, F_WORLD_DROP,F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB,3450,7,1,1,1386,1,4160,1,4611,1,7948,1,16588,1,
 	18802,1,19052,1,16642,1,27029,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,
 	3964,1,2132,1,3184,1,33608,1,33674,1,2391,1,27023,1,4900,1,1215,1,5499,1,16161)
@@ -231,12 +231,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Rage Potion -- 6617
 	AddRecipe(6617,60,5631,1,GAME_ORIG,60,90,110,130)
-	self:addTradeFlags(RecipeDB,6617, F_ALLIANCE, F_HORDE, F_QUEST, F_DRUID,F_WARRIOR,F_IBOE, 40,51,52)
+	self:addTradeFlags(RecipeDB,6617, F_ALLIANCE, F_HORDE, F_QUEST, F_DRUID,F_WARRIOR,F_IBOE, F_RBOE,51,52)
 	self:addTradeAcquire(RecipeDB,6617,2,1669,2,1685,2,3335,2,3499)
 
 	-- Great Rage Potion -- 6618
 	AddRecipe(6618,175,5633,1,GAME_ORIG,175,195,215,235)
-	self:addTradeFlags(RecipeDB,6618, F_ALLIANCE, F_HORDE, F_QUEST, F_DRUID,F_WARRIOR,F_IBOE, 40,51,52)
+	self:addTradeFlags(RecipeDB,6618, F_ALLIANCE, F_HORDE, F_QUEST, F_DRUID,F_WARRIOR,F_IBOE, F_RBOE,51,52)
 	self:addTradeAcquire(RecipeDB,6618,2,3335,2,4226)
 
 	-- Elixir of Water Breathing -- 7179
@@ -318,7 +318,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Giant Growth -- 8240
 	AddRecipe(8240,90,6662,2,GAME_ORIG,90,120,140,160)
-	self:addTradeFlags(RecipeDB,8240, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,8240, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,8240,7,2)
 
 	-- Greater Mana Potion -- 11448
@@ -426,7 +426,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Giants -- 11472
 	AddRecipe(11472,245,9206,2,GAME_ORIG,245,260,280,300)
-	self:addTradeFlags(RecipeDB,11472, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,11472, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,11472,7,2)
 
 	-- Ghost Dye -- 11473
@@ -436,12 +436,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Shadow Power -- 11476
 	AddRecipe(11476,250,9264,2,GAME_ORIG,250,265,285,305)
-	self:addTradeFlags(RecipeDB,11476, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,11476, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,11476,2,1313,2,4610)
 
 	-- Elixir of Demonslaying -- 11477
 	AddRecipe(11477,250,9224,1,GAME_ORIG,250,265,285,305)
-	self:addTradeFlags(RecipeDB,11477, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,11477, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,11477,2,8177,2,8178)
 
 	-- Elixir of Detect Demon -- 11478
@@ -489,7 +489,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Mighty Rage Potion -- 17552
 	AddRecipe(17552,255,13442,2,GAME_ORIG,255,270,290,310)
-	self:addTradeFlags(RecipeDB,17552, F_ALLIANCE, F_HORDE, F_TRAINER, F_DRUID,F_WARRIOR,F_IBOE, 40,51,52)
+	self:addTradeFlags(RecipeDB,17552, F_ALLIANCE, F_HORDE, F_TRAINER, F_DRUID,F_WARRIOR,F_IBOE, F_RBOE,51,52)
 	self:addTradeAcquire(RecipeDB,17552,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -503,12 +503,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Superior Defense -- 17554
 	AddRecipe(17554,265,13445,1,GAME_ORIG,265,280,300,320)
-	self:addTradeFlags(RecipeDB,17554, F_ALLIANCE, F_HORDE, F_TRAINER, F_QUEST ,F_IBOE, 40,52)
+	self:addTradeFlags(RecipeDB,17554, F_ALLIANCE, F_HORDE, F_TRAINER, F_QUEST ,F_IBOE, F_RBOE,52)
 	self:addTradeAcquire(RecipeDB,17554,2,5178,2,3348)
 
 	-- Elixir of the Sages -- 17555
 	AddRecipe(17555,270,13447,2,GAME_ORIG,270,285,305,325)
-	self:addTradeFlags(RecipeDB,17555, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,17555, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,17555,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -522,7 +522,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Brute Force -- 17557
 	AddRecipe(17557,275,13453,2,GAME_ORIG,275,290,310,330)
-	self:addTradeFlags(RecipeDB,17557, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,17557, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,17557,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -574,7 +574,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of the Mongoose -- 17571
 	AddRecipe(17571,280,13452,2,GAME_ORIG,280,295,315,335)
-	self:addTradeFlags(RecipeDB,17571, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,17571, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,17571,3,6201,3,7106)
 
 	-- Purification Potion -- 17572
@@ -586,7 +586,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Greater Arcane Elixir -- 17573
 	AddRecipe(17573,285,13454,2,GAME_ORIG,285,300,320,340)
-	self:addTradeFlags(RecipeDB,17573, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,17573, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,17573,1,1386,1,7948,1,16588,1,18802,1,19052,1,
 	4611,1,4160,1,3603,1,16723,1,3347,1,3009,1,2837,1,5177,1,1470,1,3964,1,2132,1,3184
 	,1,33608,1,16642,1,33674,1,2391,1,27023,1,27029,1,4900,1,1215,1,5499,1,16161)
@@ -654,7 +654,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Frost Power -- 21923
 	AddRecipe(21923,190,17708,1,GAME_ORIG,190,210,230,250)
-	self:addTradeFlags(RecipeDB,21923,1,2,7,F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,21923,1,2,7,F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,21923,5,1)
 
 	-- Major Rejuvenation Potion -- 22732
@@ -705,7 +705,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Greater Firepower -- 26277
 	AddRecipe(26277,250,21546,2,GAME_ORIG,250,265,285,305)
-	self:addTradeFlags(RecipeDB,26277, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,26277, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,26277,3,5844,3,5846,3,8637)
 
 	-- Elixir of Camouflage -- 28543
@@ -732,12 +732,12 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Frost Power -- 28549
 	AddRecipe(28549,320,22827,1,1,320,335,342,350)
-	self:addTradeFlags(RecipeDB,28549, F_ALLIANCE, F_HORDE, F_TRAINER, 4,F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,28549, F_ALLIANCE, F_HORDE, F_TRAINER, 4,F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,28549,2,18005,2,18017)
 
 	-- Insane Strength Potion -- 28550
 	AddRecipe(28550,320,22828,2,1,320,335,342,350)
-	self:addTradeFlags(RecipeDB,28550, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,28550, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,28550,7,2)
 
 	-- Super Healing Potion -- 28551
@@ -773,7 +773,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Defense -- 28557
 	AddRecipe(28557,345,22834,1,1,345,360,367,375)
-	self:addTradeFlags(RecipeDB,28557, F_ALLIANCE, F_HORDE, F_TRAINER, 4,F_IBOE, 40,52)
+	self:addTradeFlags(RecipeDB,28557, F_ALLIANCE, F_HORDE, F_TRAINER, 4,F_IBOE, F_RBOE,52)
 	self:addTradeAcquire(RecipeDB,28557,2,18005,2,19837)
 
 	-- Elixir of Major Shadow Power -- 28558
@@ -789,7 +789,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Heroic Potion -- 28563
 	AddRecipe(28563,350,22837,2,1,350,365,372,380)
-	self:addTradeFlags(RecipeDB,28563, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,51)
+	self:addTradeFlags(RecipeDB,28563, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,51)
 	self:addTradeAcquire(RecipeDB,28563,7,2)
 
 	-- Haste Potion -- 28564 -- THERE'S 2 VERSIONS?
@@ -799,7 +799,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Destruction Potion -- 28565
 	AddRecipe(28565,350,22839,2,1,350,365,372,380)
-	self:addTradeFlags(RecipeDB,28565, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, 40,53,54)
+	self:addTradeFlags(RecipeDB,28565, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE,53,54)
 	self:addTradeAcquire(RecipeDB,28565,7,2)
 
 	-- Transmute: Primal Air to Fire -- 28566
@@ -1047,7 +1047,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Flask of Chromatic Wonder -- 42736
 	AddRecipe(42736,375,33208,2,1,375,390,397,405)
-	self:addTradeFlags(RecipeDB,42736, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 40,
+	self:addTradeFlags(RecipeDB,42736, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, F_RBOE,
 	114)
 	self:addTradeAcquire(RecipeDB,42736,6,967,2,18255)
 
