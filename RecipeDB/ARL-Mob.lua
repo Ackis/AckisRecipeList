@@ -83,7 +83,7 @@ function addon:InitMob(MobDB)
 	-- Deadwind Pass
 	self:addLookupList(MobDB,7372,L["Deadwind Warlock"],BZ["Deadwind Pass"],59.8,74.4)
 	-- Dragonblight
-	self:addLookupList(MobDB,27333,L["Indu'le Fisherman"],BZ["Dragonblight"],40.2,65.5)
+	self:addLookupList(MobDB,26343,L["Indu'le Fisherman"],BZ["Dragonblight"],40.2,65.5)
 	self:addLookupList(MobDB,27333,L["Onslaught Mason"],BZ["Dragonblight"],85.8,36.0)
 	-- Duskwood
 	self:addLookupList(MobDB,910,L["Defias Enchanter"],BZ["Duskwood"],49.5,75.6)
