@@ -1425,7 +1425,7 @@ end	-- do
 -------------------------------------------------------------------------------
 
 ---Determines which profession we are dealing with and loads up the recipe information for it.
-local function InitializeRecipe(profession)
+local function addon:InitializeRecipe(profession)
 	if not profession then
 		--@alpha@
 		addon:Print("nil profession passed to InitializeRecipe()")
@@ -1522,7 +1522,7 @@ do
 
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		Player.totalRecipes = InitializeRecipe(Player["Profession"])
+		Player.totalRecipes = addon:InitializeRecipe(Player["Profession"])
 
 		--- Set the known flag to false for every recipe in the database.
 		for SpellID in pairs(RecipeList) do
