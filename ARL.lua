@@ -1425,7 +1425,7 @@ end	-- do
 -------------------------------------------------------------------------------
 
 ---Determines which profession we are dealing with and loads up the recipe information for it.
-local function addon:InitializeRecipe(profession)
+function addon:InitializeRecipe(profession)
 	if not profession then
 		--@alpha@
 		addon:Print("nil profession passed to InitializeRecipe()")
