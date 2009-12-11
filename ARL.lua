@@ -536,6 +536,7 @@ end
 function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
+	self:RegisterEvent("TRADE_SKILL_UPDATE")
 
 	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
@@ -783,6 +784,33 @@ function addon:TRADE_SKILL_CLOSE()
 
 	if not Skillet then
 		addon.scan_button:Hide()
+	end
+end
+
+do
+	local last_update = 0
+	local updater = CreateFrame("Frame", nil, UIParent)
+
+	updater:Hide()
+	updater:SetScript("OnUpdate",
+			  function(self, elapsed)
+				  last_update = last_update + elapsed
+
+				  if last_update >= 0.5 then
+					  addon:Scan(false)
+					  self:Hide()
+				  end
+			  end)
+
+	function addon:TRADE_SKILL_UPDATE()
+		if not self.Frame:IsVisible() then
+			return
+		end
+
+		if not updater:IsVisible() then
+			last_update = 0
+			updater:Show()
+		end
 	end
 end
 
