@@ -1015,6 +1015,7 @@ L["Laird"] = true
 L["Lalla Brightweave"] = true
 L["Landraelanis"] = true
 L["Lanolis Dewdrop"] = true
+L["Larana Drome"] = true
 L["Lardan"] = true
 L["Lavinia Crowe"] = true
 L["Lebowski"] = true
