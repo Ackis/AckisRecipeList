@@ -58,6 +58,14 @@ local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126
 --------------------------------------------------------------------------------------------------------------------
 local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
 
+--------------------------------------------------------------------------------------------------------------------
+-- Reputation Levels
+--------------------------------------------------------------------------------------------------------------------
+local FRIENDLY = 1
+local HONORED = 2
+local REVERED = 3
+local EXALTED = 4
+
 
 local initialized = false
 local num_recipes = 0
