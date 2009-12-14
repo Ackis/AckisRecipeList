@@ -1230,9 +1230,8 @@ do
 		end
 	end
 
-	MainPanel.filter_reset:SetScript("OnClick",
-					 function()
-						 local filterdb = addon.db.profile.filters
+function addon.resetFilters() 
+		 local filterdb = addon.db.profile.filters
 
 						 -- Reset all filters to true
 						 recursiveReset(addon.db.profile.filters)
@@ -1253,7 +1252,9 @@ do
 							 MainPanel:HighlightCategory(nil)
 							 ReDisplay()
 						 end
-					 end)
+					 end
+
+	MainPanel.filter_reset:SetScript("OnClick", addon.resetFilters)
 end	-- do
 
 -------------------------------------------------------------------------------
