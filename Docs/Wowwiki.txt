@@ -30,7 +30,7 @@ Ackis의 제조법 리스트
 캐릭터가 배우지 못한 제조법을 표시합니다. 모든 전문기술 및 도적의 독과 사냥꾼의 야수 훈련도 포함합니다
 
 ===Spanish (esES)===
-Muestra una lista de recetas inexistentes para sus Habilidades de Comercio. Funciona con todas las habilidades comerciales, incluidas venenos y entrenamiento de bestias del cazador. 
+Ackis Recipe List es un addon que escanea tus habilidades comerciales y provee información de cómo obtener las recetas. Funciona para todas las habilidades comerciales, incluida Forja de Runas. 
 
 ===Simplified Chinese (zhCN)===
 全面详细的商业技能信息插件，包括毒药和宠物技能.

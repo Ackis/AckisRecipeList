@@ -369,7 +369,7 @@ local function giveDatamine()
 				},
 				scanprofessiontooltip = {
 					type = "input",
-					name = L["Scan Professions"],
+					name = L["Scan A Profession"],
 					desc = L["SCAN_PROF_DB_DESC"],
 					get = false,
 					set = function(info, v) addon:ScanProfession(v) end,
@@ -377,7 +377,7 @@ local function giveDatamine()
 				},
 				scanspellid = {
 					type = "input",
-					name = L["Scan Spell ID"],
+					name = L["Scan A Spell ID"],
 					desc = L["SCAN_SPELL_ID_DESC"],
 					get = false,
 					set = function(info, v) addon:TooltipScanRecipe(tonumber(v),false,false) end,
@@ -672,19 +672,19 @@ function addon:SetupOptions()
 	AceConfigReg:RegisterOptionsTable(MODNAME, fullOptions)
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
-	-- Add in the about panel to the Bliz options (but not the ace3 config)
+	-- Register the module options
+	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
+	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
+	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
+	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
+	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
+	
+	-- Add in the about panel to the Bliz options (not apart of the ace3 config)
 	if LibStub:GetLibrary("LibAboutPanel", true) then
 		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
 	else
 		self:Print("Lib AboutPanel not loaded.")
-	end
-
-	-- Fill up our modular options...
-	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
-	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
-	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
-	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
-	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
+	end	
 end
 
 -- Description: Function which extends our options table in a modular way
