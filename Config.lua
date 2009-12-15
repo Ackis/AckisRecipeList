@@ -367,13 +367,18 @@ local function giveDatamine()
 					desc	= L["SCAN_VENDOR_DESC"],
 					func	= function() addon:ScanVendor() end,
 				},
+				null1 = {
+					order	= 79,
+					type	= "description",
+					name	= "",
+				},
 				scanprofessiontooltip = {
 					type = "input",
 					name = L["Scan A Profession"],
 					desc = L["SCAN_PROF_DB_DESC"],
 					get = false,
 					set = function(info, v) addon:ScanProfession(v) end,
-					order = 79,
+					order = 80,
 				},
 				scanspellid = {
 					type = "input",
@@ -381,7 +386,12 @@ local function giveDatamine()
 					desc = L["SCAN_SPELL_ID_DESC"],
 					get = false,
 					set = function(info, v) addon:TooltipScanRecipe(tonumber(v),false,false) end,
-					order = 80,
+					order = 81,
+				},
+				null2 = {
+					order	= 82,
+					type	= "description",
+					name	= "",
 				},
 				scantrainers = {
 					order	= 90,
