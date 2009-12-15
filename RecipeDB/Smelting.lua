@@ -209,6 +209,11 @@ function addon:InitSmelting(RecipeDB)
 	AddRecipe(46353,375,35128,3,1,0,0,0,375)
 	self:addTradeFlags(RecipeDB,46353,1,2,6,36,41)
 	self:addTradeAcquire(RecipeDB,46353,8,24)
+	
+	-- Smelt Enchanted Thorium -- 70524
+	AddRecipe(70524,250,12655,1,2,250,250,255,260)
+	self:addTradeFlags(RecipeDB,70524,1,2,F_TRAINER,36,41)
+	self:addTradeAcquire(RecipeDB,70524,A_TRAINER,28698)
 
 	return num_recipes
 

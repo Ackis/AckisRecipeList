@@ -111,6 +111,11 @@ function addon:InitRuneforging(RecipeDB)
 	self:addTradeFlags(RecipeDB,62158, F_ALLIANCE, F_HORDE, F_TRAINER, F_DK, F_2H, F_RBOP, F_IBOP)
 	self:addTradeAcquire(RecipeDB,62158, A_TRAINER, 29194, A_TRAINER, 29196, A_TRAINER, 29195, A_TRAINER, 31084)
 
+	-- Rune of the Nerubian Carapace - 70164
+	AddRecipe(70164)
+	self:addTradeFlags(RecipeDB,70164, F_ALLIANCE, F_HORDE, F_TRAINER, F_DK, F_2H, F_RBOP, F_IBOP)
+	self:addTradeAcquire(RecipeDB,70164, A_TRAINER, 29194, A_TRAINER, 29196, A_TRAINER, 29195, A_TRAINER, 31084)
+	
 	return num_recipes
 
 end
