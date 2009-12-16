@@ -622,19 +622,19 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,20023,1,11073,1,19251,1,19252,1,33610,1,16633,1,11072,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,11074,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Boots - Spirit -- 20024
-	AddRecipe(20024,275,nil,1,0)
+	AddRecipe(20024,275,nil,1,0,275,295,315,335)
 	self:addTradeFlags(RecipeDB,20024,1,2,10,36,40,53,54)
-	self:addTradeAcquire(RecipeDB,20024,7,1,275,295,315,335)
+	self:addTradeAcquire(RecipeDB,20024,7,1)
 
 	-- Enchant Chest - Greater Stats -- 20025
-	AddRecipe(20025,300,nil,1,0)
+	AddRecipe(20025,300,nil,1,0,300,310,325,340)
 	self:addTradeFlags(RecipeDB,20025,1,2,10,36,40)
-	self:addTradeAcquire(RecipeDB,20025,7,1,300,310,325,340)
+	self:addTradeAcquire(RecipeDB,20025,7,1)
 
 	-- Enchant Chest - Major Health -- 20026
-	AddRecipe(20026,275,nil,1,0)
+	AddRecipe(20026,275,nil,1,0,275,295,315,335)
 	self:addTradeFlags(RecipeDB,20026,1,2,4,36,41)
-	self:addTradeAcquire(RecipeDB,20026,2,11189,275,295,315,335)
+	self:addTradeAcquire(RecipeDB,20026,2,11189)
 
 	-- Enchant Chest - Major Mana -- 20028
 	AddRecipe(20028,290,nil,1,GAME_ORIG,290,305,322,340)
