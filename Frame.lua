@@ -4222,6 +4222,7 @@ end
 	a new search occurred. Use this function to do all the dirty work
 
 	Upvalued at the top of the file.
+	
 ************************************************************************]]--
 function ReDisplay()
 	addon:UpdateFilters()
