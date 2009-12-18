@@ -1,25 +1,23 @@
---[[
-************************************************************************
-Frame.lua			Frame functions for all of AckisRecipeList
-************************************************************************
-File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
-Project version: @project-version@
-************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
-************************************************************************
-License:
-Please see LICENSE.txt
-This source code is released under All Rights Reserved.
-************************************************************************
-**AckisRecipeList** provides an interface for scanning professions for missing recipes.
-There are a set of functions which allow you make use of the ARL database outside of ARL.
-ARL supports all professions currently in World of Warcraft 3.3
-@class file
-@name Frame.lua
-************************************************************************
-]]--
+-------------------------------------------------------------------------------
+-- Frame.lua
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/arl/for more information.
+-------------------------------------------------------------------------------
+-- License:
+-- Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+-------------------------------------------------------------------------------
+-- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
+-- There are a set of functions which allow you make use of the ARL database outside of ARL.
+-- ARL supports all professions currently in World of Warcraft 3.3
+-- @class file
+-- @name Frame.lua
+-------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
@@ -44,10 +42,6 @@ local floor = math.floor
 
 local tonumber = _G.tonumber
 local tostring = _G.tostring
-
--------------------------------------------------------------------------------
--- Localized Blizzard API.
--------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -1076,14 +1070,15 @@ MainPanel.mode_button:SetScript("OnClick",
 				function(self, button, down)
 					-- Known professions should be in Player["Professions"]
 
-					--[[ This loop is gonna be weird. The reason is because we need to
-					ensure that we cycle through all the known professions, but also
-					that we do so in order. That means that if the currently displayed
-					profession is the last one in the list, we're actually going to
-					iterate completely once to get to the currently displayed profession
-					and then iterate again to make sure we display the next one in line.
-					Further, there is the nuance that the person may not know any
-					professions yet at all. User are so annoying.]]--
+
+					-- This loop is gonna be weird. The reason is because we need to
+					-- ensure that we cycle through all the known professions, but also
+					-- that we do so in order. That means that if the currently displayed
+					-- profession is the last one in the list, we're actually going to
+					-- iterate completely once to get to the currently displayed profession
+					-- and then iterate again to make sure we display the next one in line.
+					-- Further, there is the nuance that the person may not know any
+					-- professions yet at all. User are so annoying.
 					local startLoop = 0
 					local endLoop = 0
 					local displayProf = 0
@@ -1944,9 +1939,9 @@ do
 	-- Rep Filtering panel switcher
 	-------------------------------------------------------------------------------
 	local function RepFilterSwitch(whichrep)
-		--[[ 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
-			 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
-			 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King]]--
+		-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
+		-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
+		-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
 		local ShowPanel = false
 
 		if whichrep == 1 then
@@ -2338,10 +2333,10 @@ do
 		local recipe_id = self.entries[entry_index].recipe_id
 		local pad = "  "
 
-		--[[ entry_index is the position in self.entries that we want
-		 to expand. Since we are expanding the current entry, the return
-		 value should be the index of the next button after the expansion
-		 occurs]]--
+		-- entry_index is the position in self.entries that we want
+		-- to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion
+		-- occurs
 		entry_index = entry_index + 1
 
 		for index, acquire in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
@@ -2382,9 +2377,9 @@ do
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-				--[[ Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
-				 We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
-				 This allows us to select PVP only and to see just the PVP recipes]]--
+				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+				-- This allows us to select PVP only and to see just the PVP recipes
 			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 				local vendor = addon.vendor_list[acquire["ID"]]
 
@@ -2472,10 +2467,10 @@ do
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
-				--[[ Reputation Obtain
-				 Rep: ID, Faction
-				 RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				 RepVendor - VendorID]]--
+				-- Reputation Obtain
+				-- Rep: ID, Faction
+				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
+				-- RepVendor - VendorID
 				local rep_vendor = addon.vendor_list[acquire["RepVendor"]]
 
 				if CheckDisplayFaction(rep_vendor["Faction"]) then
@@ -2968,12 +2963,11 @@ do
 		},
 	}
 	local maplist = {}
-     --[[************************************************************************
-				 Description: Adds mini-map and world map icons with tomtom.
-				 Expected result: Icons are added to the world map and mini-map.
-				 Input: An optional recipe ID
-				 Output: Points are added to the maps
-		************************************************************************]]--
+
+	-- Adds mini-map and world map icons with tomtom.
+	-- Expected result: Icons are added to the world map and mini-map.
+	-- Input: An optional recipe ID
+	-- Output: Points are added to the maps
 	function addon:SetupMap(single_recipe)
 		if not TomTom then
 			return
@@ -3592,10 +3586,10 @@ function addon:InitializeFrame()
 					ReDisplay()
 				end
 			elseif clicked_line.is_header then
-				--[[Three possibilities here (all with no modifiers)
-					 1) We clicked on the recipe button on a closed recipe
-					 2) We clicked on the recipe button of an open recipe
-					 3) we clicked on the expanded text of an open recipe]]--
+				-- three possibilities here (all with no modifiers)
+				-- 1) We clicked on the recipe button on a closed recipe
+				-- 2) We clicked on the recipe button of an open recipe
+				-- 3) we clicked on the expanded text of an open recipe
 				if clicked_line.is_expanded then
 					traverseIndex = clickedIndex + 1
 
@@ -4216,14 +4210,13 @@ function addon:DisplayFrame()
 	ARL_SearchText:SetText(ARL_LastSearchedText  or L["SEARCH_BOX_DESC"])
 end
 
---[[************************************************************************
-	Under various conditions, the recipe list will have to be re-displayed.
-	This could happen because a filter changes, a new profession is chosen, or
-	a new search occurred. Use this function to do all the dirty work
-
-	Upvalued at the top of the file.
-	
-************************************************************************]]--
+--------------------------------------------------------------------------------
+--- Under various conditions, the recipe list will have to be re-displayed.
+--- This could happen because a filter changes, a new profession is chosen, or
+--- a new search occurred. Use this function to do all the dirty work
+---
+--- Upvalued at the top of the file.
+--------------------------------------------------------------------------------
 function ReDisplay()
 	addon:UpdateFilters()
 	Player:MarkExclusions()
@@ -4237,14 +4230,14 @@ function ReDisplay()
 	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 end
 
---[[************************************************************************
-	Creates a new frame with the contents of a text dump so you can copy and paste
-	Code borrowed from Antiarc (Chatter) with permission
-	@name AckisRecipeList:DisplayTextDump
-	@param RecipeDB The database (array) which you wish read data from.
-	@param profession Which profession are you displaying data for
-	@param text The text to be dumped
-************************************************************************]]--
+--------------------------------------------------------------------------------
+---- Creates a new frame with the contents of a text dump so you can copy and paste
+--- Code borrowed from Antiarc (Chatter) with permission
+--- @name AckisRecipeList:DisplayTextDump
+--- @param RecipeDB The database (array) which you wish read data from.
+--- @param profession Which profession are you displaying data for
+--- @param text The text to be dumped
+--------------------------------------------------------------------------------
 do
 	local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
 	copy_frame:SetBackdrop({
