@@ -503,7 +503,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local recipe = RecipeList[spell_id]
 					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
-					       local has_skill = skill_level and skill_level >= recipe["Level"]
+					       local has_skill = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
 
 					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
@@ -797,7 +797,7 @@ do
 				  last_update = last_update + elapsed
 
 				  if last_update >= 0.5 then
-					  addon:Scan(false)
+					  addon:Scan(false, true)
 					  self:Hide()
 				  end
 			  end)
@@ -1485,7 +1485,7 @@ do
 	-- @usage AckisRecipeList:Scan(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
-	function addon:Scan(textdump)
+	function addon:Scan(textdump, is_refresh)
 		local scan_parent = self.scan_button:GetParent()
 
 		-- The scan button is re-parented to whichever interface it's anchored to, whether it's TradeSkillFrame or a replacement AddOn,
@@ -1596,8 +1596,12 @@ do
 				end
 			end
 		end
-		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
+		Player.prev_count = Player.foundRecipes
 		Player.foundRecipes = recipes_found
+
+		if is_refresh and Player.prev_count == recipes_found then
+			return
+		end
 
 		self:UpdateFilters()
 		Player:MarkExclusions()
