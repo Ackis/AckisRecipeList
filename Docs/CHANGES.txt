@@ -1,11 +1,32 @@
 ==ARL Change Log
-===Version 2xxx
-*Fixed the Text Dump output to use correct csv syntax, therefore making .csv files show the output much cleaner now.
-*Much more optimizations to the ARL core.
+===Version 2770
+*Fixed a bug if you that was causing an error if you reset the filters through the interface options menu.
+*The crafted recipes from Icecrown Citadel will now show up in ARL.
+*Fixed bug that was preventing ARL to be localized in Russian.
+*Updated the Spanish translation of the ARL description.
+*Reorganized ARLs Interface Options.
+*Adde recipes that are new in patch 3.3.
+*Fixed a bug that was preventing you from getting a text dump for Enchanting.
+*esES translations were copied into esMX, TRANSLATORS: just put ur esES translations into esMX also please.
+*Fixed a bug with the tooltips.
+*Added a feature where if you have your tradeskillui and ARL open and you learn a recipe, it will be updated in your current ARL scan, no need to rescan what is already open.
+*Renamed a bunch of the addons files.
+
+===Version 2735
+*Added a decimal point to the progress bar percentage value to be more precise.
+*More optimizations to the ARL core.
+*Refined some data in the recipe databases.
+*Updated the French and German translations of the ARL description.
+*Tagged for 3.3 release.
+
+===Version 2696
+*Getting a text dump of your professions will now use the correct csv syntax.
+*Extensive optimizations to the ARL core.
 *Location sort now works as intended!
 *Vendor tooltips now tell you if the vendor sells a recipe you do not yet know, if you are of the appropriate skill level.
 *Trainer tooltips now tell you if the trainer teaches a recipe you do not yet know, if you are of the appropriate skill level.
 *Mob tooltips now tell you if the mob drops a recipe you do not yet know, if you are of the appropriate skill level.
+*Thanksgiving recipes now appear correctly for Horde characters.
 
 ===Version 2634
 *More optimizations to the Jewelcrafting, and Inscription databases.
