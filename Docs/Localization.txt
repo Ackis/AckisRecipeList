@@ -11,4 +11,4 @@ All localization entries must be added to the WoWAce localization application.  
 * group related elements together, either by their location in the GUI/config, or by purpose (Weapon categories, etc)
 
 ==Localization Contributors
-Please visit [[http://www.wowace.com/projects/arl/localization/translators|this]] page to see all the different localization contributors.
+Please visit [[http://www.wowace.com/addons/arl/localization/translators/|this]] page to see all the different localization contributors.
