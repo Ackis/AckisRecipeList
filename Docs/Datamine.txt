@@ -19,4 +19,4 @@ Does a comparison of the information in your internal ARL database, and those it
  
 ====Generate Complete Links====
 Generates a complete link for all tradeskills.  This has all known recipes in it and can be used for comparison purposes.
-<<code lua>>/script AckisRecipeList:GenerateLinks()<</code>
+<<code lua>>/script AckisRecipeList:GenerateLinks()<</code>>
