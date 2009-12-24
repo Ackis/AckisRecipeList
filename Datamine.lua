@@ -1,29 +1,20 @@
 --[[
-
 ************************************************************************
-
-ARLDatamine.lua
-
+Datamine.lua
 In-game datamining functions for ARL
-
+************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
-
 ************************************************************************
-
-Please see http://www.wowace.com/projects/arl/for more information.
-
+Please see http://www.wowace.com/addons/arl/ for more information.
+************************************************************************
 License:
 	Please see LICENSE.txt
-
 This source code is released under All Rights Reserved.
-
 ************************************************************************
-
 ]]--
-
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
