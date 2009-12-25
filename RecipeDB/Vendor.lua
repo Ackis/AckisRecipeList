@@ -8,6 +8,9 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
+Format:
+	self:addLookupList(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+************************************************************************	
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 License:

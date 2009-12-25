@@ -8,9 +8,6 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
-Format:
-
-************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 License:
