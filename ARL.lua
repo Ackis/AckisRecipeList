@@ -758,9 +758,6 @@ do
 
 		if not scan_parent or scan_parent == UIParent then
 			scan_button:SetParent(TradeSkillFrame)
-		end
-	
-		if scan_parent == TradeSkillFrame then
 			scan_button:ClearAllPoints()
 
 			local loc = addon.db.profile.scanbuttonlocation
