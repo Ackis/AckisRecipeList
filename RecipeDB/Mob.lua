@@ -9,14 +9,11 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-
 	self:addLookupList(MobDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 	the "Faction" parameter isn't used in this specific database
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
-License:
-	Please see LICENSE.txt
 This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--

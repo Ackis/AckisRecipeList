@@ -13,8 +13,6 @@ Format:
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
-License:
-	Please see LICENSE.txt
 This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--

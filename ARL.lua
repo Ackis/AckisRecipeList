@@ -1,26 +1,26 @@
--------------------------------------------------------------------------------
--- AckisRecipeList.lua
--------------------------------------------------------------------------------
--- File date: @file-date-iso@
--- File revision: @file-revision@
--- Project revision: @project-revision@
--- Project version: @project-version@
--------------------------------------------------------------------------------
--- Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
--------------------------------------------------------------------------------
--- Please see http://www.wowace.com/addons/arl/ for more information.
--------------------------------------------------------------------------------
--- License:
---	Please see LICENSE.txt
-
--- This source code is released under All Rights Reserved.
--------------------------------------------------------------------------------
---- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
--- There are a set of functions which allow you make use of the ARL database outside of ARL.
--- ARL supports all professions currently in World of Warcraft 3.2
--- @class file
--- @name AckisRecipeList.lua
--- @release 1.0
+--[[
+************************************************************************
+ARL.lua
+************************************************************************
+File date: @file-date-iso@
+File revision: @file-revision@
+Project revision: @project-revision@
+Project version: @project-version@
+************************************************************************
+Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
+************************************************************************
+Please see http://www.wowace.com/addons/arl/ for more information.
+************************************************************************
+This source code is released under All Rights Reserved.
+************************************************************************
+**AckisRecipeList** provides an interface for scanning professions for missing recipes.
+There are a set of functions which allow you make use of the ARL database outside of ARL.
+ARL supports all professions currently in World of Warcraft 3.3
+@class file
+@name ARL.lua
+@release 1.0
+************************************************************************
+]]--
 
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
