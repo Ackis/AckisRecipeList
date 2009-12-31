@@ -519,7 +519,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(trainer["TrainList"]) do
 					       local recipe = RecipeList[spell_id]
 					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
-					       local has_skill = skill_level and skill_level >= recipe["Level"]
+					       local has_skill = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
 
 					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
