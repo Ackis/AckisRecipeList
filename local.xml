@@ -3,19 +3,19 @@
 ..\FrameXML\UI.xsd">
 
 <!--@non-debug@
-<Include file="Locals\enUS.lua"/>
+<Include file="Locales\enUS.lua"/>
 @end-non-debug@-->
-<Include file="Locals\koKR.lua"/>
-<Include file="Locals\frFR.lua"/>
-<Include file="Locals\zhCN.lua"/>
-<Include file="Locals\zhTW.lua"/>
-<Include file="Locals\deDE.lua"/>
-<Include file="Locals\esES.lua"/>
-<Include file="Locals\esMX.lua"/>
-<Include file="Locals\ruRU.lua"/>
+<Include file="Locales\koKR.lua"/>
+<Include file="Locales\frFR.lua"/>
+<Include file="Locales\zhCN.lua"/>
+<Include file="Locales\zhTW.lua"/>
+<Include file="Locales\deDE.lua"/>
+<Include file="Locales\esES.lua"/>
+<Include file="Locales\esMX.lua"/>
+<Include file="Locales\ruRU.lua"/>
 
 <!--@debug@-->
-<Include file="Locals\testenUS.lua"/>
+<Include file="Locales\testenUS.lua"/>
 <!--@end-debug@-->
 
 </Ui>
