@@ -11,7 +11,7 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
-Please see http://www.wowace.com/projects/arl/for more information.
+Please see http://www.wowace.com/addons/arl/ for more information.
 These translations are released under the Public Domain.
 ************************************************************************
 ]]--
@@ -21,8 +21,6 @@ local MODNAME	= "Ackis Recipe List"
 local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
 
 if not L then return end
-
--- General strings
 
 -- Command line options
 L["Profile"]			= true
@@ -67,12 +65,12 @@ With the first type of filter, these match the proprieties of the recipe (ie: bi
 Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large.]]
 L["Reporting Bugs"]		= true
 L["REPORTING_BUGS_DESC"]	= [[When reporting a bug, please make sure you do the following:
-1) Download the latest version, available from http://www.wowace.com/projects/arl/files/
-2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/
+1) Download the latest version, available from http://www.wowace.com/addons/arl/files/
+2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/addons/arl/tickets/
 3) Disable addons such as Skillet or ATSW.
-4) Read the bug reporting documentation at http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/
+4) Read the bug reporting documentation at http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
-6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
+6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/addons/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
 When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
 L["Common Issues"]		= true
 L["COMMON_ISSUES_DESC"]		= [[Please refer to these common issues before submitting a bug report.
@@ -400,7 +398,7 @@ L["ALL_FILTERED"]	= "Although you have already scanned this profession, your fil
 L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
 L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
-L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
+L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/addons/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
 -- Error/warning Text
 L["MissingFromDB"] = [[": is missing from the database.

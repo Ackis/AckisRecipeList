@@ -20,12 +20,7 @@ This source code is released under All Rights Reserved.
 local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
---[[
-
-	Colour constants
-
-]]--
-
+--Colour constants
 local RED		= "ff0000"
 local ORANGE	= "ff7f00"
 local YELLOW	= "ffff00"
@@ -66,13 +61,9 @@ local NORMAL	= "ffd100"
 
 local HORDE		= RED
 local ALLIANCE	= "00ffff"
-
---[[
-
-	Text colourization functions
-
-]]--
-
+----------------------------------------------------------------------
+--Text colourization functions
+----------------------------------------------------------------------
 function addon:RGBtoHEX(r,g,b)
 	return string.format("%2x%2x%2x", r*255, g*255, b*255)
 end
@@ -307,4 +298,5 @@ function addon:hexcolor(colorstring)
 	else
 		return NORMAL
 	end
+----------------------------------------------------------------------
 end
