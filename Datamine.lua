@@ -1331,7 +1331,7 @@ function addon:GenerateLinks()
 		if (bitmap[tradelist[i]]) then
 			self:Print(tconcat(tradelink, ""))
 		else
-			self:Print("I don't have the bitmap for " .. tradeName .. " yet (Professions were updated in 3.2.  If you want to help,  talk to me on IRC.")
+			self:Print("There currently is not a generated tradeskill link for: " .. tradeName)
 		end
 		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
 	end
