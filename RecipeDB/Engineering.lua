@@ -672,12 +672,12 @@ function addon:InitEngineering(RecipeDB)
 	1,3494,1,3290,1,5518,1,26991,1,33611,1,33634,1,1676,1,25277,1,26907,1,11031,1,11025,1,26955,1,11037,1,17222)
 
 	-- Pet Bombling -- 15628
-	AddRecipe(15628,205,11825,2,GAME_ORIG,205,205,205,205,20222)
+	AddRecipe(15628,205,11825,2,GAME_ORIG,205,205,205,205)
 	self:addTradeFlags(RecipeDB,15628,1,2,5,37,41)
 	self:addTradeAcquire(RecipeDB,15628,8,16)
 
 	-- Lil' Smoky -- 15633
-	AddRecipe(15633,205,11826,2,GAME_ORIG,205,205,205,205,20219)
+	AddRecipe(15633,205,11826,2,GAME_ORIG,205,205,205,205)
 	self:addTradeFlags(RecipeDB,15633,1,2,5,37,41)
 	self:addTradeAcquire(RecipeDB,15633,8,16)
 
