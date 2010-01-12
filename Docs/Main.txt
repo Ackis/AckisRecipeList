@@ -1,12 +1,3 @@
-==Holiday Message
-I'd just like to extend my thanks to the numerous people that use this addon.  What started as a small project to help myself turned quickly into something quite a bit larger.
-
-Currently according to the project [[https://www.ohloh.net/p/ackisrecipelist/contributors | Ohloh.net page]] we have 4-5 active developers working on the project and 37 total people who have contributed to the project.  The project now has over 22,000 lines of code and would have cost around $300k US to develop.
-
-Some of you may have noticed that in my donation section, I mention pets and animal shelters as the first method of donation.  To date I don't think that anyone has gone out and done this instead of donating to the mod.  I'd encourage you to consider spending some time helping the our furry companions.  One method to do this is to fostering an animal over the holidays.  I know when I got my first cat after moving out from my parents, it filled my life up quite a bit.  [[http://www.petfinder.com/ | Pet Finder]] has a program going on where you can find a local shelter to help foster an animal over the holidays.  Please check out [[http://www.petfinder.com/foster-a-lonely-pet | Foster a Lonely Pet]] and consider sharing this holiday with a pet.
-
-Have a great holiday season, Merry Christmas to everyone and I hope the new year treats everyone well.
-
 ==What it does
 Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
 
