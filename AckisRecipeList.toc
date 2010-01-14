@@ -69,5 +69,5 @@ Frame.lua
 Datamine.lua
 Player.lua
 
-# Recipe database files
+# Database files
 database.xml
