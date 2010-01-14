@@ -889,7 +889,7 @@ MainPanel:EnableMouse(true)
 MainPanel:EnableKeyboard(true)
 MainPanel:SetMovable(true)
 MainPanel:SetClampedToScreen(true)
-MainPanel:Show()
+MainPanel:Hide()
 
 MainPanel.is_expanded = false
 

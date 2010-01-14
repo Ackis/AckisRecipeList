@@ -65,20 +65,6 @@ local function fullOptions()
 							type	= "description",
 							name	= _G.GAME_VERSION_LABEL .. ": " .. addon.version .. "\n",
 						},
-						run = {
-							order	= 12,
-							type	= "execute",
-							name	= L["Scan"],
-							desc	= L["SCAN_RECIPES_DESC"],
-							func	= function(info) addon:Scan(false) end,
-						},
-						textdump = {
-							order	= 13,
-							type	= "execute",
-							name	= L["Text Dump"],
-							desc	= L["TEXT_DUMP_DESC"],
-							func	= function(info) addon:Scan(true) end,
-						},
 						exclusionlist = {
 							order	= 14,
 							type	= "execute",
@@ -100,13 +86,6 @@ local function fullOptions()
 							desc	= L["RESET_DESC"],
 							func	= function(info) addon.resetFilters() end,
 						},
-						resetguiwindow = {
-							order	= 17,
-							type	= "execute",
-							name	= L["Reset Window Position"],
-							desc	= L["RESET_WINDOW_DESC"],
-							func	= function(info) ResetGUI() end,
-						},
 						spacer1 = {
 							order	= 19,
 							type	= "description",
@@ -127,24 +106,24 @@ local function fullOptions()
 							type	= "toggle",
 							name	= L["Include Filtered"],
 							desc	= L["FILTERCOUNT_DESC"],
-							get		= function() return addon.db.profile.includefiltered end,
-							set		= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
+							get	= function() return addon.db.profile.includefiltered end,
+							set	= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
 						},
 						includeexcluded = {
 							order	= 23,
 							type	= "toggle",
 							name	= L["Include Excluded"],
 							desc	= L["EXCLUDECOUNT_DESC"],
-							get		= function() return addon.db.profile.includeexcluded end,
-							set		= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
+							get	= function() return addon.db.profile.includeexcluded end,
+							set	= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
 						},
 						ignoreexclusionlist = {
 							order	= 24,
 							type	= "toggle",
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
-							get		= function() return addon.db.profile.ignoreexclusionlist end,
-							set		= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+							get	= function() return addon.db.profile.ignoreexclusionlist end,
+							set	= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
 						},
 						spacer2 = {
 							order	= 39,
@@ -192,24 +171,16 @@ local function fullOptions()
 		end
 
 	end
-
 	return options
-
 end
 
-local arlmap = nil
+local arlmap
 
 local function giveMap()
+	local has_tomtom = TomTom and true or false
 
-	local tomtomsupport = true
-
-	if ((TomTom) or ((TomTom) and (Carbonite))) then
-		tomtomsupport = false
-	end
-
-	if (not arlmap) then
-
-	arlmap = {
+	if not arlmap then
+		arlmap = {
 			order	= 1,
 			type	= "group",
 			name	= L["Map Options"],
@@ -225,88 +196,84 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Auto Scan Map"],
 					desc	= L["AUTOSCANMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.autoscanmap end,
-					set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.autoscanmap end,
+					set	= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
 				},
 				worldmap = {
 					order	= 3,
 					type	= "toggle",
 					name	= _G.WORLD_MAP,
 					desc	= L["WORLDMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.worldmap end,
-					set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.worldmap end,
+					set	= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
 				},
 				minimap = {
 					order	= 4,
 					type	= "toggle",
 					name	= L["Mini Map"],
 					desc	= L["MINIMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.minimap end,
-					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.minimap end,
+					set	= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 				},
 				maptrainer = {
 					order	= 5,
 					type	= "toggle",
 					name	= L["Trainer"],
 					desc	= L["MAP_TRAINER_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.maptrainer end,
-					set		= function() addon.db.profile.maptrainer = not addon.db.profile.maptrainer end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.maptrainer end,
+					set	= function() addon.db.profile.maptrainer = not addon.db.profile.maptrainer end,
 				},
 				mapvendor = {
 					order	= 6,
 					type	= "toggle",
 					name	= L["Vendor"],
 					desc	= L["MAP_VENDOR_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.mapvendor end,
-					set		= function() addon.db.profile.mapvendor = not addon.db.profile.mapvendor end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.mapvendor end,
+					set	= function() addon.db.profile.mapvendor = not addon.db.profile.mapvendor end,
 				},
 				mapmob = {
 					order	= 7,
 					type	= "toggle",
 					name	= L["Monster"],
 					desc	= L["MAP_MONSTER_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.mapmob end,
-					set		= function() addon.db.profile.mapmob = not addon.db.profile.mapmob end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.mapmob end,
+					set	= function() addon.db.profile.mapmob = not addon.db.profile.mapmob end,
 				},
 				mapquest = {
 					order	= 8,
 					type	= "toggle",
 					name	= L["Quest"],
 					desc	= L["MAP_QUEST_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.mapquest end,
-					set		= function() addon.db.profile.mapquest = not addon.db.profile.mapquest end,
+					disabled = not has_tomtom,
+					get	= function() return addon.db.profile.mapquest end,
+					set	= function() addon.db.profile.mapquest = not addon.db.profile.mapquest end,
 				},
 				clearmap = {
 					order	= 20,
 					type	= "execute",
 					name	= L["Clear Waypoints"],
-					disabled = tomtomsupport,
+					disabled = not has_tomtom,
 					desc	= L["CLEAR_WAYPOINTS_DESC"],
 					func	= function() addon:ClearMap() end,
 				},
 			},
 		}
-
 	end
 
 	return arlmap
-
 end
 
-local datamine = nil
+local datamine
 
 local function giveDatamine()
-
-	if (not datamine) then
-
-	datamine = {
+	if not datamine then
+		datamine = {
 			order	= 1,
 			type	= "group",
 			name	= L["Datamine Options"],
@@ -423,19 +390,14 @@ local function giveDatamine()
 				},
 			},
 		}
-
 	end
-
 	return datamine
-
 end
 
-local documentation = nil
+local documentation
 
 local function giveDocs()
-
-	if (not documentation) then
-
+	if not documentation then
 		documentation = {
 			order = 1,
 			type = "group",
@@ -514,14 +476,11 @@ local function giveDocs()
 				},
 			},
 		}
-
 	end
-
 	return documentation
-
 end
 
-local displayoptions = nil
+local displayoptions
 
 local function giveDisplay()
 	if not displayoptions then
@@ -541,8 +500,8 @@ local function giveDisplay()
 					type	= "select",
 					name	= L["Scan Button Position"],
 					desc	= L["SCANBUTTONPOSITION_DESC"],
-					get		= function() return addon.db.profile.scanbuttonlocation end,
-					set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
+					get	= function() return addon.db.profile.scanbuttonlocation end,
+					set	= function(info,name) addon.db.profile.scanbuttonlocation = name end,
 					values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
 				},
 				uiscale = {
@@ -550,15 +509,15 @@ local function giveDisplay()
 					type	= "range",
 					name	= _G.UI_SCALE,
 					desc	= L["UI_SCALE_DESC"],
-					min		= .5,
-					max		= 1.5,
+					min	= .5,
+					max	= 1.5,
 					step	= .05,
 					bigStep = .05,
-					get		= function() return addon.db.profile.frameopts.uiscale end,
-					set		= function(info, v)
-								  addon.db.profile.frameopts.uiscale = v
-								  addon.Frame:SetScale(v)
-							  end,
+					get	= function() return addon.db.profile.frameopts.uiscale end,
+					set	= function(info, v)
+							  addon.db.profile.frameopts.uiscale = v
+							  addon.Frame:SetScale(v)
+						  end,
 				},
 				fontsize = {
 					order	= 4,
@@ -569,24 +528,31 @@ local function giveDisplay()
 					max		= 20,
 					step	= 1,
 					bigStep = 1,
-					get		= function() return addon.db.profile.frameopts.fontsize end,
-					set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
+					get	= function() return addon.db.profile.frameopts.fontsize end,
+					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
 				closegui = {
 					order	= 5,
 					type	= "toggle",
 					name	= L["Close GUI"],
 					desc	= L["CLOSEGUI_DESC"],
-					get		= function() return addon.db.profile.closeguionskillclose end,
-					set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
+					get	= function() return addon.db.profile.closeguionskillclose end,
+					set	= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 				},
 				hidepopup = {
 					order	= 6,
 					type	= "toggle",
 					name	= L["Hide Pop-Up"],
 					desc	= L["HIDEPOPUP_DESC"],
-					get		= function() return addon.db.profile.hidepopup end,
-					set		= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
+					get	= function() return addon.db.profile.hidepopup end,
+					set	= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
+				},
+				resetguiwindow = {
+					order	= 7,
+					type	= "execute",
+					name	= L["Reset Window Position"],
+					desc	= L["RESET_WINDOW_DESC"],
+					func	= function(info) ResetGUI() end,
 				},
 				spacer1 = {
 					order	= 10,
@@ -608,16 +574,16 @@ local function giveDisplay()
 					type	= "range",
 					name	= L["Tooltip Scale"],
 					desc	= L["TOOLTIP_SCALE_DESC"],
-					min		= .5,
-					max		= 1.5,
+					min	= .5,
+					max	= 1.5,
 					step	= .05,
 					bigStep = .05,
-					get		= function()
-								  return addon.db.profile.frameopts.tooltipscale
-							  end,
-					set		= function(info, v)
-								  addon.db.profile.frameopts.tooltipscale = v
-							  end,
+					get	= function()
+							  return addon.db.profile.frameopts.tooltipscale
+						  end,
+					set	= function(info, v)
+							  addon.db.profile.frameopts.tooltipscale = v
+						  end,
 				},
 				acquiretooltiplocation = {
 					order	= 21,
