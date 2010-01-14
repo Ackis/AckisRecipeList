@@ -290,98 +290,109 @@ local function giveDatamine()
 					name	= L["DATAMINE_WARNING_DESC"] .. "\n",
 				},
 				generatelinks = {
-					order	= 73,
+					width	= "double",
+					order	= 10,
 					type	= "execute",
 					name	= L["Generate Tradeskill Links"],
 					desc	= L["GENERATE_LINKS_DESC"],
 					func	= function() addon:GenerateLinks() end,
 				},
 				scantrainerskills = {
-					order	= 75,
+					width	= "double",
+					order	= 20,
 					type	= "execute",
 					name	= L["Compare Trainer Skills"],
 					desc	= L["COMPARE_TRAINER_SKILL_DESC"],
 					func	= function() addon:ScanSkillLevelData() end,
 				},
 				scantraineracquire = {
-					order	= 76,
+					width	= "double",
+					order	= 30,
 					type	= "execute",
 					name	= L["Compare Trainer Acquire"],
 					desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
 					func	= function() addon:ScanTrainerData() end,
 				},
+				null = {
+					order	= 31,
+					type	= "description",
+					name	= "",
+				},
 				scanentiredatabase = {
-					order	= 77,
+					order	= 40,
 					type	= "execute",
 					name	= L["Scan Entire Database"],
 					desc	= L["SCAN_ENTIRE_DB_DESC"],
 					func	= function() addon:TooltipScanDatabase() end,
 				},
 				scanvendor = {
-					order	= 78,
+					order	= 50,
 					type	= "execute",
 					name	= L["Scan Vendor"],
 					desc	= L["SCAN_VENDOR_DESC"],
 					func	= function() addon:ScanVendor() end,
 				},
 				null1 = {
-					order	= 79,
+					order	= 51,
 					type	= "description",
 					name	= "",
 				},
 				scanprofessiontooltip = {
-					type = "input",
-					name = L["Scan A Profession"],
-					desc = L["SCAN_PROF_DB_DESC"],
-					get = false,
-					set = function(info, v) addon:ScanProfession(v) end,
-					order = 80,
+					order	= 60,
+					type	= "input",
+					name	= L["Scan A Profession"],
+					desc	= L["SCAN_PROF_DB_DESC"],
+					get	= false,
+					set	= function(info, v) addon:ScanProfession(v) end,
 				},
 				scanspellid = {
+					order = 70,
 					type = "input",
 					name = L["Scan A Spell ID"],
 					desc = L["SCAN_SPELL_ID_DESC"],
 					get = false,
 					set = function(info, v) addon:TooltipScanRecipe(tonumber(v),false,false) end,
-					order = 81,
 				},
 				null2 = {
-					order	= 82,
+					order	= 80,
 					type	= "description",
 					name	= "",
 				},
 				scantrainers = {
+					width	= "full",
 					order	= 90,
 					type	= "toggle",
 					name	= L["Auto Scan Trainers"],
 					desc	= L["AUTOSCAN_TRAINERS_DESC"],
-					get		= function() return addon.db.profile.scantrainers end,
-					set		= function()
-									if (addon.db.profile.scantrainers) then
-										addon:UnregisterEvent("TRAINER_SHOW")
-									else
-										addon:RegisterEvent("TRAINER_SHOW")
-									end
-									addon.db.profile.scantrainers = not addon.db.profile.scantrainers
-								end,
+					get	= function() return addon.db.profile.scantrainers end,
+					set	= function()
+							  if (addon.db.profile.scantrainers) then
+								  addon:UnregisterEvent("TRAINER_SHOW")
+							  else
+								  addon:RegisterEvent("TRAINER_SHOW")
+							  end
+							  addon.db.profile.scantrainers = not addon.db.profile.scantrainers
+						  end,
 				},
 				scanvendors = {
-					order	= 91,
+					width	= "full",
+					order	= 100,
 					type	= "toggle",
 					name	= L["Auto Scan Vendors"],
 					desc	= L["AUTOSCAN_VENDORS_DESC"],
-					get		= function() return addon.db.profile.scanvendors end,
-					set		= function()
-									if (addon.db.profile.scanvendors) then
-										addon:UnregisterEvent("MERCHANT_SHOW")
-									else
-										addon:RegisterEvent("MERCHANT_SHOW")
-									end
-									addon.db.profile.scanvendors = not addon.db.profile.scanvendors
-								end,
+					get	= function() return addon.db.profile.scanvendors end,
+					set	= function()
+							  if addon.db.profile.scanvendors then
+								  addon:UnregisterEvent("MERCHANT_SHOW")
+							  else
+								  addon:RegisterEvent("MERCHANT_SHOW")
+							  end
+							  addon.db.profile.scanvendors = not addon.db.profile.scanvendors
+						  end,
 				},
 				autoloaddb = {
-					order	= 100,
+					width	= "full",
+					order	= 110,
 					type	= "toggle",
 					name	= L["Auto Load Recipe Database"],
 					desc	= L["AUTOLOAD_DB_DESC"],
@@ -532,6 +543,7 @@ local function giveDisplay()
 					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
 				closegui = {
+					width	= "full",
 					order	= 5,
 					type	= "toggle",
 					name	= L["Close GUI"],
@@ -540,6 +552,7 @@ local function giveDisplay()
 					set	= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
 				},
 				hidepopup = {
+					width	= "full",
 					order	= 6,
 					type	= "toggle",
 					name	= L["Hide Pop-Up"],
@@ -548,6 +561,7 @@ local function giveDisplay()
 					set	= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
 				},
 				resetguiwindow = {
+					width	= "double",
 					order	= 7,
 					type	= "execute",
 					name	= L["Reset Window Position"],
