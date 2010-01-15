@@ -28,7 +28,7 @@
 ## Notes: Latest alpha version of Ackis Recipe List
 #@end-debug@
 
-## Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
+## Author: Ackis, Zhinjio, Jim-Bim, Torhal, Pompachomp
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/arl/#w_donations
 

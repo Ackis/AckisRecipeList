@@ -7,7 +7,7 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
-Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompy
+Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompachomp
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
