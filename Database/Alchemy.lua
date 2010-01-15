@@ -639,7 +639,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flask of Distilled Wisdom -- 17636
 	AddRecipe(17636,300,13511,2,1,300,315,322,330)
 	self:addTradeFlags(RecipeDB,17636, F_ALLIANCE, F_HORDE, F_QUEST, F_IBOE, 41,103, F_CASTER, F_HEALER)
-	self:addTradeAcquire(RecipeDB,17636,6,942,4,17904)
+	self:addTradeAcquire(RecipeDB,17636,6,942,4,17904,3,10813)
 
 	-- Flask of Supreme Power -- 17637
 	AddRecipe(17637,300,13512,2,1,300,315,322,330)
