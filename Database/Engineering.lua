@@ -414,7 +414,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8339,7,2)
 
 	-- Goblin Rocket Boots -- 8895
-	AddRecipe(8895,130,7189,1,GAME_ORIG,130,245,255,265,20222)
+	AddRecipe(8895,225,7189,1,GAME_ORIG,225,245,255,265,20222)
 	self:addTradeFlags(RecipeDB,8895,1,2,3,36,41,56)
 	self:addTradeAcquire(RecipeDB,8895,1,8126,1,29513)
 
