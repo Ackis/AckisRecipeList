@@ -9,7 +9,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-	self:addLookupList(QuestDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	AddQuest(QuestID, Zone, X, Y, Faction)
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
