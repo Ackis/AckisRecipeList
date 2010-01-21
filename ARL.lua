@@ -1109,6 +1109,15 @@ do
 			DB[ID]["Coordy"] = Coordy
 		end
 
+		if DB == QuestList then
+			GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
+			GameTooltip:SetHyperlink("quest:"..tostring(ID))
+
+			local quest_name = _G["GameTooltipTextLeft1"]:GetText()
+			GameTooltip:Hide()
+
+			DB[ID]["Name"] = quest_name and quest_name or "Missing name: Quest "..ID
+		end
 		--@alpha@
 		if not Loc then
 			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")

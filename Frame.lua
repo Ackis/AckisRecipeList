@@ -2333,10 +2333,8 @@ do
 		local recipe_id = self.entries[entry_index].recipe_id
 		local pad = "  "
 
-		-- entry_index is the position in self.entries that we want
-		-- to expand. Since we are expanding the current entry, the return
-		-- value should be the index of the next button after the expansion
-		-- occurs
+		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
 		for index, acquire in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
