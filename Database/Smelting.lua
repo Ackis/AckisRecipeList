@@ -132,7 +132,7 @@ function addon:InitSmelting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,14891,4,4083)
 
 	-- Smelt Thorium -- 16153
-	AddRecipe(16153,250,12359,1,0,0,250,270,290)
+	AddRecipe(16153,230,12359,1,0,230,250,270,290)
 	self:addTradeFlags(RecipeDB,16153,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,16153,1,1681,1,1701,1,3001,1,3137,1,3175,1,3357,1,3555,1,4254,1,4598,1,5392,
 	1,5513,1,6297,1,8128,1,16663,1,16752,1,17488,1,18747,1,18779,1,18804,1,26999,1,33617,1,28698,1,26962,1,26976,
