@@ -3255,7 +3255,7 @@ end
 local function SelectProfession(cell, arg, button)
 	local tskl_list = addon.db.global.tradeskill
 	click_info.modified = true
-	addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
+	addon:Print(click_info.name .. "(" .. click_info.realm .. "):" .. tskl_list[click_info.realm][click_info.name][arg])
 end
 
 -------------------------------------------------------------------------------
