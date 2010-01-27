@@ -1701,7 +1701,7 @@ MainPanel.filter_menu.item:Hide()
 -------------------------------------------------------------------------------
 -- Create the Armor toggle and CheckButtons for MainPanel.filter_menu.item
 -------------------------------------------------------------------------------
-MainPanel.filter_menu.item.armor_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR_COLON,
+MainPanel.filter_menu.item.armor_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR .. ":",
 							      "LEFT", L["ARMOR_TEXT_DESC"], 0)
 MainPanel.filter_menu.item.armor_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -4)
 MainPanel.filter_menu.item.armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
