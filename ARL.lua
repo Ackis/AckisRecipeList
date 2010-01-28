@@ -754,10 +754,11 @@ do
 			end
 		end
 		local scan_button = self.scan_button
-		local scan_parent = self.scan_button:GetParent()
+		local scan_parent = scan_button:GetParent()
 
 		if not scan_parent or scan_parent == UIParent then
 			scan_button:SetParent(TradeSkillFrame)
+			scan_parent = scan_button:GetParent()
 		end
 	
 		if scan_parent == TradeSkillFrame then
@@ -776,7 +777,7 @@ do
 			end
 			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		end
-		self.scan_button:Show()
+		scan_button:Show()
 	end
 end
 
