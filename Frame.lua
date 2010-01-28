@@ -3487,7 +3487,7 @@ function addon:InitializeFrame()
 					  ARL_SearchButton:Disable()
 
 					  -- Make sure to clear text for last search
-					  ARL_LastSearchedText = ""
+					  ARL_LastSearchedText = nil
 
 					  MainPanel.scroll_frame:Update(false, false)
 				  end)
@@ -3499,7 +3499,7 @@ function addon:InitializeFrame()
 					 local searchtext = ARL_SearchText:GetText()
 					 searchtext = searchtext:trim()
 
-					 if searchtext ~= "" and searchtext ~= L["SEARCH_BOX_DESC"] then
+					 if searchtext ~= nil and searchtext ~= L["SEARCH_BOX_DESC"] then
 						 ARL_LastSearchedText = searchtext
 
 						 SearchRecipes(searchtext)
