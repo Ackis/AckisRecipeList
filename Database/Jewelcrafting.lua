@@ -66,597 +66,597 @@ function addon:InitJewelcrafting(RecipeDB)
 	end
 
 	-- Delicate Copper Wire -- 25255
-	AddRecipe(25255, 1, 20816, 1, 1)
+	AddRecipe(25255, 1, 20816, 1, 1, 1, 20, 35, 50)
 	self:addTradeFlags(RecipeDB, 25255, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 25255, 8, 8)
 
 	-- Bronze Setting -- 25278
-	AddRecipe(25278, 50, 20817, 1, 1)
+	AddRecipe(25278, 50, 20817, 1, 1, 50, 70, 80, 90)
 	self:addTradeFlags(RecipeDB, 25278, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 25278, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Elegant Silver Ring -- 25280
-	AddRecipe(25280, 50, 20818, 1, 1)
+	AddRecipe(25280, 50, 20818, 1, 1, 50, 80, 95, 110)
 	self:addTradeFlags(RecipeDB, 25280, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25280, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Inlaid Malachite Ring -- 25283
-	AddRecipe(25283, 30, 20821, 1, 1)
+	AddRecipe(25283, 30, 20821, 1, 1, 30, 60, 75, 90)
 	self:addTradeFlags(RecipeDB, 25283, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 25283, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Simple Pearl Ring -- 25284
-	AddRecipe(25284, 60, 20820, 1, 1)
+	AddRecipe(25284, 60, 20820, 1, 1, 60, 90, 105, 120)
 	self:addTradeFlags(RecipeDB, 25284, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 25284, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Gloom Band -- 25287
-	AddRecipe(25287, 70, 20823, 1, 1)
+	AddRecipe(25287, 70, 20823, 1, 1, 70, 100, 115, 130)
 	self:addTradeFlags(RecipeDB, 25287, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25287, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Heavy Silver Ring -- 25305
-	AddRecipe(25305, 90, 20826, 1, 1)
+	AddRecipe(25305, 90, 20826, 1, 1, 90, 120, 135, 150)
 	self:addTradeFlags(RecipeDB, 25305, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 25305, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Ring of Silver Might -- 25317
-	AddRecipe(25317, 80, 20827, 1, 1)
+	AddRecipe(25317, 80, 20827, 1, 1, 80, 110, 125, 140)
 	self:addTradeFlags(RecipeDB, 25317, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 25317, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Ring of Twilight Shadows -- 25318
-	AddRecipe(25318, 100, 20828, 1, 1)
+	AddRecipe(25318, 100, 20828, 1, 1, 100, 130, 145, 160)
 	self:addTradeFlags(RecipeDB, 25318, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 25318, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26960, 1, 33680)
 
 	-- Heavy Golden Necklace of Battle -- 25320
-	AddRecipe(25320, 150, 20856, 1, 1)
+	AddRecipe(25320, 150, 20856, 1, 1, 150, 180, 195, 210)
 	self:addTradeFlags(RecipeDB, 25320, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 51, 63)
 	self:addTradeAcquire(RecipeDB, 25320, 2, 1286, 2, 3367, 2, 16624, 2, 17512)
 
 	-- Moonsoul Crown -- 25321
-	AddRecipe(25321, 120, 20832, 1, 1)
+	AddRecipe(25321, 120, 20832, 1, 1, 120, 150, 165, 180)
 	self:addTradeFlags(RecipeDB, 25321, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 56)
 	self:addTradeAcquire(RecipeDB, 25321, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Wicked Moonstone Ring -- 25323
-	AddRecipe(25323, 125, 20833, 1, 1)
+	AddRecipe(25323, 125, 20833, 1, 1, 125, 155, 170, 185)
 	self:addTradeFlags(RecipeDB, 25323, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25323, 2, 3499, 2, 3954)
 
 	-- Amulet of the Moon -- 25339
-	AddRecipe(25339, 110, 20830, 1, 1)
+	AddRecipe(25339, 110, 20830, 1, 1, 110, 140, 155, 170)
 	self:addTradeFlags(RecipeDB, 25339, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 25339, 2, 4229, 2, 4561, 2, 16624, 2, 17512)
 
 	-- Solid Bronze Ring -- 25490
-	AddRecipe(25490, 50, 20907, 1, 1)
+	AddRecipe(25490, 50, 20907, 1, 1,50, 80, 95, 110)
 	self:addTradeFlags(RecipeDB, 25490, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 25490, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Braided Copper Ring -- 25493
-	AddRecipe(25493, 1, 20906, 2, 1)
+	AddRecipe(25493, 1, 20906, 2, 1, 1, 30, 45, 60)
 	self:addTradeFlags(RecipeDB, 25493, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25493, 8, 8)
 
 	-- Barbaric Iron Collar -- 25498
-	AddRecipe(25498, 110, 20909, 1, 1)
+	AddRecipe(25498, 110, 20909, 1, 1, 110, 140, 155, 170)
 	self:addTradeFlags(RecipeDB, 25498, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 63)
 	self:addTradeAcquire(RecipeDB, 25498, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Pendant of the Agate Shield -- 25610
-	AddRecipe(25610, 120, 20950, 1, 1)
+	AddRecipe(25610, 120, 20950, 1, 1, 120, 150, 165, 180)
 	self:addTradeFlags(RecipeDB, 25610, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 52, 63)
 	self:addTradeAcquire(RecipeDB, 25610, 2, 1448, 2, 4877)
 
 	-- Heavy Iron Knuckles -- 25612
-	AddRecipe(25612, 125, 20954, 1, 1)
+	AddRecipe(25612, 125, 20954, 1, 1, 125, 155, 170, 185)
 	self:addTradeFlags(RecipeDB, 25612, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 51, 66, 79)
 	self:addTradeAcquire(RecipeDB, 25612, 2, 2381, 2, 2393)
 
 	-- Golden Dragon Ring -- 25613
-	AddRecipe(25613, 135, 20955, 1, 1)
+	AddRecipe(25613, 135, 20955, 1, 1, 135, 165, 180, 195)
 	self:addTradeFlags(RecipeDB, 25613, F_ALLIANCE, F_HORDE, 3, 36, 41, 52, 62)
 	self:addTradeAcquire(RecipeDB, 25613, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Mithril Filigree -- 25615
-	AddRecipe(25615, 150, 20963, 1, 1)
+	AddRecipe(25615, 150, 20963, 1, 1, 150, 170, 180, 190)
 	self:addTradeFlags(RecipeDB, 25615, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 25615, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Blazing Citrine Ring -- 25617
-	AddRecipe(25617, 150, 20958, 1, 1)
+	AddRecipe(25617, 150, 20958, 1, 1, 150, 180, 195, 210)
 	self:addTradeFlags(RecipeDB, 25617, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25617, 2, 2381, 2, 9636)
 
 	-- Jade Pendant of Blasting -- 25618
-	AddRecipe(25618, 160, 20966, 2, 1)
+	AddRecipe(25618, 160, 20966, 2, 1, 160, 190, 205, 220)
 	self:addTradeFlags(RecipeDB, 25618, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 25618, 7, 2)
 
 	-- The Jade Eye -- 25619
-	AddRecipe(25619, 170, 20959, 1, 1)
+	AddRecipe(25619, 170, 20959, 1, 1, 170, 200, 215, 230)
 	self:addTradeFlags(RecipeDB, 25619, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 52, 62)
 	self:addTradeAcquire(RecipeDB, 25619, 2, 4775, 2, 5163, 2, 16624, 2, 17512)
 
 	-- Engraved Truesilver Ring -- 25620
-	AddRecipe(25620, 170, 20960, 1, 1)
+	AddRecipe(25620, 170, 20960, 1, 1, 170, 200, 215, 230)
 	self:addTradeFlags(RecipeDB, 25620, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25620, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Citrine Ring of Rapid Healing -- 25621
-	AddRecipe(25621, 180, 20961, 1, 1)
+	AddRecipe(25621, 180, 20961, 1, 1, 180, 210, 225, 240)
 	self:addTradeFlags(RecipeDB, 25621, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 25621, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Citrine Pendant of Golden Healing -- 25622
-	AddRecipe(25622, 190, 20967, 2, 1)
+	AddRecipe(25622, 190, 20967, 2, 1, 190, 220, 235, 250)
 	self:addTradeFlags(RecipeDB, 25622, F_ALLIANCE, F_HORDE, 10, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 25622, 7, 2)
 
 	-- Figurine - Jade Owl -- 26872
-	AddRecipe(26872, 200, 21748, 1, 1)
+	AddRecipe(26872, 200, 21748, 1, 1, 200, 225, 240, 255)
 	self:addTradeFlags(RecipeDB, 26872, F_ALLIANCE, F_HORDE, 3, 37, 41, 53, 54, 61)
 	self:addTradeAcquire(RecipeDB, 26872, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Figurine - Golden Hare -- 26873
-	AddRecipe(26873, 200, 21756, 2, 1)
+	AddRecipe(26873, 200, 21756, 2, 1, 200, 225, 240, 255)
 	self:addTradeFlags(RecipeDB, 26873, F_ALLIANCE, F_HORDE, 10, 37, 40, 61)
 	self:addTradeAcquire(RecipeDB, 26873, 7, 2)
 
 	-- Aquamarine Signet -- 26874
-	AddRecipe(26874, 210, 20964, 1, 1)
+	AddRecipe(26874, 210, 20964, 1, 1, 210, 235, 250, 265)
 	self:addTradeFlags(RecipeDB, 26874, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 26874, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Figurine - Black Pearl Panther -- 26875
-	AddRecipe(26875, 215, 21758, 1, 1)
+	AddRecipe(26875, 215, 21758, 1, 1, 215, 240, 255, 270)
 	self:addTradeFlags(RecipeDB, 26875, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 40, 51, 61)
 	self:addTradeAcquire(RecipeDB, 26875, 2, 989, 2, 4897)
 
 	-- Aquamarine Pendant of the Warrior -- 26876
-	AddRecipe(26876, 220, 21755, 1, 1)
+	AddRecipe(26876, 220, 21755, 1, 1, 220, 245, 260, 275)
 	self:addTradeFlags(RecipeDB, 26876, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 63)
 	self:addTradeAcquire(RecipeDB, 26876, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Ruby Crown of Restoration -- 26878
-	AddRecipe(26878, 225, 20969, 1, 1)
+	AddRecipe(26878, 225, 20969, 1, 1, 225, 250, 265, 280)
 	self:addTradeFlags(RecipeDB, 26878, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 56)
 	self:addTradeAcquire(RecipeDB, 26878, 2, 2810, 2, 2821)
 
 	-- Thorium Setting -- 26880
-	AddRecipe(26880, 225, 21752, 1, 1)
+	AddRecipe(26880, 225, 21752, 1, 1, 225, 235, 245, 255)
 	self:addTradeFlags(RecipeDB, 26880, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 26880, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Figurine - Truesilver Crab -- 26881
-	AddRecipe(26881, 225, 21760, 1, 1)
+	AddRecipe(26881, 225, 21760, 1, 1, 225, 250, 265, 280)
 	self:addTradeFlags(RecipeDB, 26881, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 40, 52, 61)
 	self:addTradeAcquire(RecipeDB, 26881, 2, 1148, 2, 4897)
 
 	-- Figurine - Truesilver Boar -- 26882
-	AddRecipe(26882, 235, 21763, 2, 1)
+	AddRecipe(26882, 235, 21763, 2, 1, 235, 260, 275, 290)
 	self:addTradeFlags(RecipeDB, 26882, F_ALLIANCE, F_HORDE, 10, 37, 40, 51, 61)
 	self:addTradeAcquire(RecipeDB, 26882, 7, 2)
 
 	-- Ruby Pendant of Fire -- 26883
-	AddRecipe(26883, 235, 21764, 1, 1)
+	AddRecipe(26883, 235, 21764, 1, 1, 235, 260, 275, 290)
 	self:addTradeFlags(RecipeDB, 26883, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 26883, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Truesilver Healing Ring -- 26885
-	AddRecipe(26885, 240, 21765, 1, 1)
+	AddRecipe(26885, 240, 21765, 1, 1, 240, 265, 280, 295)
 	self:addTradeFlags(RecipeDB, 26885, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 26885, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- The Aquamarine Ward -- 26887
-	AddRecipe(26887, 245, 21754, 2, 1)
+	AddRecipe(26887, 245, 21754, 2, 1, 245, 270, 285, 300)
 	self:addTradeFlags(RecipeDB, 26887, F_ALLIANCE, F_HORDE, 10, 36, 40, 52, 62)
 	self:addTradeAcquire(RecipeDB, 26887, 7, 2)
 
 	-- Gem Studded Band -- 26896
-	AddRecipe(26896, 250, 21753, 2, 1)
+	AddRecipe(26896, 250, 21753, 2, 1, 250, 275, 290, 305)
 	self:addTradeFlags(RecipeDB, 26896, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 26896, 7, 2)
 
 	-- Opal Necklace of Impact -- 26897
-	AddRecipe(26897, 250, 21766, 1, 1)
+	AddRecipe(26897, 250, 21766, 1, 1, 250, 275, 290, 305)
 	self:addTradeFlags(RecipeDB, 26897, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 51, 63)
 	self:addTradeAcquire(RecipeDB, 26897, 2, 5163, 2, 8363, 2, 16624, 2, 17512)
 
 	-- Figurine - Ruby Serpent -- 26900
-	AddRecipe(26900, 260, 21769, 2, 1)
+	AddRecipe(26900, 260, 21769, 2, 1, 260, 280, 290, 300)
 	self:addTradeFlags(RecipeDB, 26900, F_ALLIANCE, F_HORDE, 10, 37, 40, 53, 54, 61)
 	self:addTradeAcquire(RecipeDB, 26900, 7, 2)
 
 	-- Simple Opal Ring -- 26902
-	AddRecipe(26902, 260, 21767, 1, 1)
+	AddRecipe(26902, 260, 21767, 1, 1, 260, 280, 290, 300)
 	self:addTradeFlags(RecipeDB, 26902, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 26902, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Sapphire Signet -- 26903
-	AddRecipe(26903, 275, 21768, 1, 1)
+	AddRecipe(26903, 275, 21768, 1, 1, 275, 285, 295, 305)
 	self:addTradeFlags(RecipeDB, 26903, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 26903, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Emerald Crown of Destruction -- 26906
-	AddRecipe(26906, 275, 21774, 1, 1)
+	AddRecipe(26906, 275, 21774, 1, 1, 275, 285, 295, 305)
 	self:addTradeFlags(RecipeDB, 26906, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 56)
 	self:addTradeAcquire(RecipeDB, 26906, 2, 15179)
 
 	-- Onslaught Ring -- 26907
-	AddRecipe(26907, 280, 21775, 1, 1)
+	AddRecipe(26907, 280, 21775, 1, 1, 280, 290, 300, 310)
 	self:addTradeFlags(RecipeDB, 26907, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 26907, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Sapphire Pendant of Winter Night -- 26908
-	AddRecipe(26908, 280, 21790, 1, 1)
+	AddRecipe(26908, 280, 21790, 1, 1, 280, 290, 300, 310)
 	self:addTradeFlags(RecipeDB, 26908, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 26908, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Figurine - Emerald Owl -- 26909
-	AddRecipe(26909, 285, 21777, 2, 1)
+	AddRecipe(26909, 285, 21777, 2, 1, 285, 295, 305, 315)
 	self:addTradeFlags(RecipeDB, 26909, F_ALLIANCE, F_HORDE, 10, 37, 40, 53, 54, 61)
 	self:addTradeAcquire(RecipeDB, 26909, 7, 2)
 
 	-- Ring of Bitter Shadows -- 26910
-	AddRecipe(26910, 285, 21778, 1, 1)
+	AddRecipe(26910, 285, 21778, 1, 1, 285, 295, 305, 315)
 	self:addTradeFlags(RecipeDB, 26910, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 26910, 2, 12941)
 
 	-- Living Emerald Pendant -- 26911
-	AddRecipe(26911, 290, 21791, 1, 1)
+	AddRecipe(26911, 290, 21791, 1, 1, 290, 300, 310, 320)
 	self:addTradeFlags(RecipeDB, 26911, F_ALLIANCE, F_HORDE, 3, 37, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 26911, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 15501, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Figurine - Black Diamond Crab -- 26912
-	AddRecipe(26912, 300, 21784, 2, 1)
+	AddRecipe(26912, 300, 21784, 2, 1, 300, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 26912, F_ALLIANCE, F_HORDE, 5, 11, 37, 41, 52, 61)
 	self:addTradeAcquire(RecipeDB, 26912, 3, 9736)
 
 	-- Figurine - Dark Iron Scorpid -- 26914
-	AddRecipe(26914, 300, 21789, 2, 1)
+	AddRecipe(26914, 300, 21789, 2, 1, 300, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 26914, F_ALLIANCE, F_HORDE, 5, 37, 41, 51, 61)
 	self:addTradeAcquire(RecipeDB, 26914, 3, 8983)
 
 	-- Necklace of the Diamond Tower -- 26915
-	AddRecipe(26915, 305, 21792, 1, 1)
+	AddRecipe(26915, 305, 21792, 1, 1, 305, 315, 325, 335)
 	self:addTradeFlags(RecipeDB, 26915, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 40, 52, 63)
 	self:addTradeAcquire(RecipeDB, 26915, 2, 11189)
 
 	-- Band of Natural Fire -- 26916
-	AddRecipe(26916, 310, 21779, 1, 1)
+	AddRecipe(26916, 310, 21779, 1, 1, 310, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 26916, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 26916, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Woven Copper Ring -- 26925
-	AddRecipe(26925, 1, 21931, 2, 1)
+	AddRecipe(26925, 1, 21931, 2, 1, 1, 30, 45, 60)
 	self:addTradeFlags(RecipeDB, 26925, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 26925, 8, 8)
 
 	-- Heavy Copper Ring -- 26926
-	AddRecipe(26926, 5, 21932, 1, 1)
+	AddRecipe(26926, 5, 21932, 1, 1, 5, 35, 50, 65)
 	self:addTradeFlags(RecipeDB, 26926, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 26926, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Thick Bronze Necklace -- 26927
-	AddRecipe(26927, 50, 21933, 1, 1)
+	AddRecipe(26927, 50, 21933, 1, 1, 50, 80, 95, 110)
 	self:addTradeFlags(RecipeDB, 26927, F_ALLIANCE, F_HORDE, 3, 36, 41, 63)
 	self:addTradeAcquire(RecipeDB, 26927, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Ornate Tigerseye Necklace -- 26928
-	AddRecipe(26928, 30, 21934, 1, 1)
+	AddRecipe(26928, 30, 21934, 1, 1, 30, 60, 75, 90)
 	self:addTradeFlags(RecipeDB, 26928, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 26928, 1, 15501, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 19775, 1, 19778, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Teardrop Blood Garnet -- 28903
-	AddRecipe(28903, 300, 23094, 1, 1)
+	AddRecipe(28903, 300, 23094, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28903, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 28903, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Bold Blood Garnet -- 28905
-	AddRecipe(28905, 305, 23095, 1, 1)
+	AddRecipe(28905, 305, 23095, 1, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28905, F_ALLIANCE, F_HORDE, 3, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 28905, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Runed Blood Garnet -- 28906
-	AddRecipe(28906, 315, 23096, 2, 1)
+	AddRecipe(28906, 315, 23096, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28906, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 53, 54, 110)
 	self:addTradeAcquire(RecipeDB, 28906, 6, 934, 1, 19331)
 
 	-- Delicate Blood Garnet -- 28907
-	AddRecipe(28907, 325, 23097, 2, 1)
+	AddRecipe(28907, 325, 23097, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28907, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 51, 105)
 	self:addTradeAcquire(RecipeDB, 28907, 6, 933, 2, 20242, 6, 933, 2, 23007)
 
 	-- Inscribed Flame Spessarite -- 28910
-	AddRecipe(28910, 300, 23098, 1, 1)
+	AddRecipe(28910, 300, 23098, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28910, F_ALLIANCE, F_HORDE, 3, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 28910, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Luminous Flame Spessarite -- 28912
-	AddRecipe(28912, 305, 23099, 2, 1)
+	AddRecipe(28912, 305, 23099, 2, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28912, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 53, 54, 105)
 	self:addTradeAcquire(RecipeDB, 28912, 6, 933, 1, 20242, 6, 933, 1, 23007)
 
 	-- Glinting Flame Spessarite -- 28914
-	AddRecipe(28914, 315, 23100, 1, 1)
+	AddRecipe(28914, 315, 23100, 1, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28914, F_ALLIANCE, F_HORDE, 3, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 28914, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Potent Flame Spessarite -- 28915
-	AddRecipe(28915, 325, 23101, 2, 1)
+	AddRecipe(28915, 325, 23101, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28915, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 53, 54, 107)
 	self:addTradeAcquire(RecipeDB, 28915, 6, 1011, 1, 21655)
 
 	-- Radiant Deep Peridot -- 28916
-	AddRecipe(28916, 300, 23103, 1, 1)
+	AddRecipe(28916, 300, 23103, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28916, F_ALLIANCE, F_HORDE, 3, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 28916, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Jagged Deep Peridot -- 28917
-	AddRecipe(28917, 305, 23104, 1, 1)
+	AddRecipe(28917, 305, 23104, 1, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28917, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 28917, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Enduring Deep Peridot -- 28918
-	AddRecipe(28918, 315, 23105, 2, 1)
+	AddRecipe(28918, 315, 23105, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28918, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 52, 104)
 	self:addTradeAcquire(RecipeDB, 28918, 6, 946, 1, 17657, 6, 947, 1, 17585)
 
 	-- Dazzling Deep Peridot -- 28924
-	AddRecipe(28924, 325, 23106, 2, 1)
+	AddRecipe(28924, 325, 23106, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28924, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 110)
 	self:addTradeAcquire(RecipeDB, 28924, 6, 934, 2, 19331)
 
 	-- Glowing Shadow Draenite -- 28925
-	AddRecipe(28925, 300, 23108, 1, 1)
+	AddRecipe(28925, 300, 23108, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28925, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 28925, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Royal Shadow Draenite -- 28927
-	AddRecipe(28927, 305, 23109, 2, 1)
+	AddRecipe(28927, 305, 23109, 2, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28927, F_ALLIANCE, F_VENDOR, 36, 41, 53, 54, 101)
 	self:addTradeAcquire(RecipeDB, 28927, 6, 932, 2, 19321)
 
 	-- Shifting Shadow Draenite -- 28933
-	AddRecipe(28933, 315, 23110, 2, 1)
+	AddRecipe(28933, 315, 23110, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28933, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 51, 105)
 	self:addTradeAcquire(RecipeDB, 28933, 6, 933, 1, 20242, 6, 933, 1, 23007)
 
 	-- Sovereign Shadow Draenite -- 28936
-	AddRecipe(28936, 325, 23111, 2, 1)
+	AddRecipe(28936, 325, 23111, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28936, F_ALLIANCE, F_HORDE, 3, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 28936, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Brilliant Golden Draenite -- 28938
-	AddRecipe(28938, 300, 23113, 1, 1)
+	AddRecipe(28938, 300, 23113, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28938, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 28938, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Gleaming Golden Draenite -- 28944
-	AddRecipe(28944, 305, 23114, 2, 1)
+	AddRecipe(28944, 305, 23114, 2, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28944, F_ALLIANCE, F_VENDOR, 36, 41, 101)
 	self:addTradeAcquire(RecipeDB, 28944, 6, 932, 1, 19321)
 
 	-- Thick Golden Draenite -- 28947
-	AddRecipe(28947, 315, 23115, 2, 1)
+	AddRecipe(28947, 315, 23115, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28947, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 52, 105)
 	self:addTradeAcquire(RecipeDB, 28947, 6, 933, 2, 20242, 6, 933, 2, 23007)
 
 	-- Rigid Golden Draenite -- 28948
-	AddRecipe(28948, 325, 23116, 2, 1)
+	AddRecipe(28948, 325, 23116, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28948, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 28948, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Solid Azure Moonstone -- 28950
-	AddRecipe(28950, 300, 23118, 1, 1)
+	AddRecipe(28950, 300, 23118, 1, 1, 300, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 28950, F_ALLIANCE, F_HORDE, 3, 36, 41)
 	self:addTradeAcquire(RecipeDB, 28950, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Sparkling Azure Moonstone -- 28953
-	AddRecipe(28953, 305, 23119, 2, 1)
+	AddRecipe(28953, 305, 23119, 2, 1, 305, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 28953, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 28953, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
 	-- Stormy Azure Moonstone -- 28955 
-	AddRecipe(28955, 315, 23120, 2, 1)
+	AddRecipe(28955, 315, 23120, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28955, F_ALLIANCE, F_HORDE, 10, 36, 40, 54)
 	self:addTradeAcquire(RecipeDB, 28955, 7, 2)
 
 	-- Lustrous Azure Moonstone -- 28957
-	AddRecipe(28957, 325, 23121, 2, 1)
+	AddRecipe(28957, 325, 23121, 2, 1, 325, 325, 340, 355)
 	self:addTradeFlags(RecipeDB, 28957, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 53, 54, 105)
 	self:addTradeAcquire(RecipeDB, 28957, 6, 933, 2, 20242, 6, 933, 2, 23007)
 
 	-- Fel Iron Blood Ring -- 31048
-	AddRecipe(31048, 310, 24074, 1, 1)
+	AddRecipe(31048, 310, 24074, 1, 1, 310, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 31048, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 62)
 	self:addTradeAcquire(RecipeDB, 31048, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Golden Draenite Ring -- 31049
-	AddRecipe(31049, 310, 24075, 1, 1)
+	AddRecipe(31049, 310, 24075, 1, 1, 310, 320, 335, 350)
 	self:addTradeFlags(RecipeDB, 31049, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31049, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Azure Moonstone Ring -- 31050
-	AddRecipe(31050, 320, 24076, 1, 1)
+	AddRecipe(31050, 320, 24076, 1, 1, 320, 330, 340, 350)
 	self:addTradeFlags(RecipeDB, 31050, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31050, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Thick Adamantite Necklace -- 31051
-	AddRecipe(31051, 335, 24077, 1, 1)
+	AddRecipe(31051, 335, 24077, 1, 1, 335, 345, 355, 365)
 	self:addTradeFlags(RecipeDB, 31051, F_ALLIANCE, F_HORDE, 3, 36, 41, 63)
 	self:addTradeAcquire(RecipeDB, 31051, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Heavy Adamantite Ring -- 31052
-	AddRecipe(31052, 335, 24078, 1, 1)
+	AddRecipe(31052, 335, 24078, 1, 1, 335, 345, 355, 365)
 	self:addTradeFlags(RecipeDB, 31052, F_ALLIANCE, F_HORDE, 3, 36, 41, 62)
 	self:addTradeAcquire(RecipeDB, 31052, 1, 18751, 1, 18774, 1, 19063, 1, 19539, 1, 28701, 1, 33590, 1, 26997, 1, 26982, 1, 33614, 1, 26915, 1, 26960, 1, 33680)
 
 	-- Khorium Band of Shadows -- 31053
-	AddRecipe(31053, 350, 24079, 3, 1)
+	AddRecipe(31053, 350, 24079, 3, 1, 350, 360, 370, 380)
 	self:addTradeFlags(RecipeDB, 31053, F_ALLIANCE, F_HORDE, 11, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31053, 3, 19826)
 
 	-- Khorium Band of Frost -- 31054
-	AddRecipe(31054, 355, 24080, 3, 1)
+	AddRecipe(31054, 355, 24080, 3, 1, 355, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 31054, F_ALLIANCE, F_HORDE, 5, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31054, 3, 17722)
 
 	-- Khorium Inferno Band -- 31055
-	AddRecipe(31055, 355, 24082, 3, 1)
+	AddRecipe(31055, 355, 24082, 3, 1, 355, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 31055, F_ALLIANCE, F_HORDE, 5, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31055, 3, 18472)
 
 	-- Khorium Band of Leaves -- 31056
-	AddRecipe(31056, 360, 24085, 3, 1)
+	AddRecipe(31056, 360, 24085, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31056, F_ALLIANCE, F_HORDE, 11, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31056, 3, 19984)
 
 	-- Arcane Khorium Band -- 31057
-	AddRecipe(31057, 365, 24086, 3, 1)
+	AddRecipe(31057, 365, 24086, 3, 1, 365, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31057, F_ALLIANCE, F_HORDE, 11, 36, 41, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31057, 3, 18866)
 
 	-- Heavy Felsteel Ring -- 31058
-	AddRecipe(31058, 345, 24087, 3, 1)
+	AddRecipe(31058, 345, 24087, 3, 1, 345, 355, 365, 375)
 	self:addTradeFlags(RecipeDB, 31058, F_ALLIANCE, F_HORDE, 10, 36, 40, 51, 62)
 	self:addTradeAcquire(RecipeDB, 31058, 7, 3)
 
 	-- Delicate Eternium Ring -- 31060
-	AddRecipe(31060, 355, 24088, 3, 1)
+	AddRecipe(31060, 355, 24088, 3, 1, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 31060, F_ALLIANCE, F_HORDE, 10, 36, 40, 52, 62)
 	self:addTradeAcquire(RecipeDB, 31060, 7, 3)
 
 	-- Blazing Eternium Band -- 31061
-	AddRecipe(31061, 365, 24089, 3, 1)
+	AddRecipe(31061, 365, 24089, 3, 1, 365, 375, 377, 380)
 	self:addTradeFlags(RecipeDB, 31061, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 62)
 	self:addTradeAcquire(RecipeDB, 31061, 7, 3)
 
 	-- Pendant of Frozen Flame -- 31062
-	AddRecipe(31062, 360, 24092, 3, 1)
+	AddRecipe(31062, 360, 24092, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31062, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 63, 106)
 	self:addTradeAcquire(RecipeDB, 31062, 6, 989, 3, 21643)
 
 	-- Pendant of Thawing -- 31063
-	AddRecipe(31063, 360, 24093, 3, 1)
+	AddRecipe(31063, 360, 24093, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31063, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 63, 107)
 	self:addTradeAcquire(RecipeDB, 31063, 6, 1011, 3, 21655)
 
 	-- Pendant of Withering -- 31064
-	AddRecipe(31064, 360, 24095, 3, 1)
+	AddRecipe(31064, 360, 24095, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31064, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 63, 110)
 	self:addTradeAcquire(RecipeDB, 31064, 6, 934, 3, 19331)
 
 	-- Pendant of Shadow's End -- 31065
-	AddRecipe(31065, 360, 24097, 3, 1)
+	AddRecipe(31065, 360, 24097, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31065, 1, F_VENDOR, 36, 41, 63, 101)
 	self:addTradeAcquire(RecipeDB, 31065, 6, 932, 3, 19321)
 
 	-- Pendant of the Null Rune -- 31066
-	AddRecipe(31066, 360, 24098, 3, 1)
+	AddRecipe(31066, 360, 24098, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31066, F_ALLIANCE, F_HORDE, F_VENDOR, 36, 41, 63, 105)
 	self:addTradeAcquire(RecipeDB, 31066, 6, 933, 3, 20242, 6, 933, 3, 23007)
 
 	-- Thick Felsteel Necklace -- 31067
-	AddRecipe(31067, 355, 24106, 3, 1)
+	AddRecipe(31067, 355, 24106, 3, 1, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 31067, F_ALLIANCE, F_HORDE, 10, 36, 40, 63)
 	self:addTradeAcquire(RecipeDB, 31067, 7, 3)
 
 	-- Living Ruby Pendant -- 31068
-	AddRecipe(31068, 355, 24110, 3, 1)
+	AddRecipe(31068, 355, 24110, 3, 1, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 31068, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 31068, 7, 3)
 
 	-- Braided Eternium Chain -- 31070
-	AddRecipe(31070, 360, 24114, 3, 1)
+	AddRecipe(31070, 360, 24114, 3, 1, 360, 370, 377, 385)
 	self:addTradeFlags(RecipeDB, 31070, F_ALLIANCE, F_HORDE, 10, 36, 40, 51, 63)
 	self:addTradeAcquire(RecipeDB, 31070, 7, 3)
 
 	-- Eye of the Night -- 31071 
-	AddRecipe(31071, 360, 24116, 3, 1)
+	AddRecipe(31071, 360, 24116, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31071, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 31071, 7, 3)
 
 	-- Embrace of the Dawn -- 31072
-	AddRecipe(31072, 365, 24117, 3, 1)
+	AddRecipe(31072, 365, 24117, 3, 1, 365, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31072, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 31072, 7, 3)
 
 	-- Chain of the Twilight Owl -- 31076
-	AddRecipe(31076, 365, 24121, 3, 1)
+	AddRecipe(31076, 365, 24121, 3, 1, 365, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31076, F_ALLIANCE, F_HORDE, 10, 36, 40, 52, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 31076, 7, 3)
 
 	-- Coronet of Verdant Flame -- 31077
-	AddRecipe(31077, 370, 24122, 4, 1)
+	AddRecipe(31077, 370, 24122, 4, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31077, F_ALLIANCE, F_HORDE, 5, 11, 36, 41, 56)
 	self:addTradeAcquire(RecipeDB, 31077, 3, 18422)
 
 	-- Circlet of Arcane Might -- 31078
-	AddRecipe(31078, 370, 24123, 4, 1)
+	AddRecipe(31078, 370, 24123, 4, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31078, F_ALLIANCE, F_HORDE, 5, 36, 41, 53, 54, 56)
 	self:addTradeAcquire(RecipeDB, 31078, 3, 18096)
 
 	-- Figurine - Felsteel Boar -- 31079
-	AddRecipe(31079, 370, 24124, 3, 1)
+	AddRecipe(31079, 370, 24124, 3, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31079, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 41, 51, 61, 107)
 	self:addTradeAcquire(RecipeDB, 31079, 6, 1011, 3, 21655)
 
 	-- Figurine - Dawnstone Crab -- 31080
-	AddRecipe(31080, 370, 24125, 3, 1)
+	AddRecipe(31080, 370, 24125, 3, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31080, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 41, 52, 61, 104)
 	self:addTradeAcquire(RecipeDB, 31080, 6, 946, 3, 17657, 6, 947, 3, 17585)
 
 	-- Figurine - Living Ruby Serpent -- 31081
-	AddRecipe(31081, 370, 24126, 3, 1)
+	AddRecipe(31081, 370, 24126, 3, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31081, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 41, 53, 54, 61, 106)
 	self:addTradeAcquire(RecipeDB, 31081, 6, 989, 3, 21643)
 
 	-- Figurine - Talasite Owl -- 31082
-	AddRecipe(31082, 370, 24127, 3, 1)
+	AddRecipe(31082, 370, 24127, 3, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31082, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 41, 53, 54, 61, 111)
 	self:addTradeAcquire(RecipeDB, 31082, 6, 935, 3, 21432)
 
 	-- Figurine - Nightseye Panther -- 31083
-	AddRecipe(31083, 370, 24128, 3, 1)
+	AddRecipe(31083, 370, 24128, 3, 1, 370, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 31083, F_ALLIANCE, F_HORDE, F_VENDOR, 37, 41, 51, 61, 103)
 	self:addTradeAcquire(RecipeDB, 31083, 6, 942, 3, 17904)
 
 	-- Bold Living Ruby -- 31084
-	AddRecipe(31084, 350, 24027, 3, 1)
+	AddRecipe(31084, 350, 24027, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31084, F_ALLIANCE, F_HORDE, 10, 36, 40, 51)
 	self:addTradeAcquire(RecipeDB, 31084, 7, 3)
 
 	-- Delicate Living Ruby -- 31085
-	AddRecipe(31085, 350, 24028, 3, 1)
+	AddRecipe(31085, 350, 24028, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31085, F_ALLIANCE, F_HORDE, 10, 36, 40, 51)
 	self:addTradeAcquire(RecipeDB, 31085, 7, 3)
 
 	-- Teardrop Living Ruby -- 31087
-	AddRecipe(31087, 350, 24029, 3, 1)
+	AddRecipe(31087, 350, 24029, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31087, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54)
 	self:addTradeAcquire(RecipeDB, 31087, 7, 3)
 
 	-- Runed Living Ruby -- 31088
-	AddRecipe(31088, 350, 24030, 3, 1)
+	AddRecipe(31088, 350, 24030, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31088, F_ALLIANCE, F_HORDE, 10, 11, 36, 40, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 31088, 3, 24664, 7, 3)
 
 	-- Bright Living Ruby -- 31089
-	AddRecipe(31089, 350, 24031, 3, 1)
+	AddRecipe(31089, 350, 24031, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31089, F_ALLIANCE, F_HORDE, 10, 11, 36, 40, 41, 51)
 	self:addTradeAcquire(RecipeDB, 31089, 3, 24664, 7, 3)
 
 	-- Subtle Living Ruby -- 31090
-	AddRecipe(31090, 350, 24032, 3, 1)
+	AddRecipe(31090, 350, 24032, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31090, F_ALLIANCE, F_HORDE, 10, 36, 40, 52)
 	self:addTradeAcquire(RecipeDB, 31090, 7, 3)
 
 	-- Flashing Living Ruby -- 31091
-	AddRecipe(31091, 350, 24036, 3, 1)
+	AddRecipe(31091, 350, 24036, 3, 1, 350, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 31091, F_ALLIANCE, F_HORDE, 10, 36, 40, 52)
 	self:addTradeAcquire(RecipeDB, 31091, 7, 3)
 
@@ -2471,367 +2471,367 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 63743, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 19778, 1, 15501, 1, 18751, 1, 33590, 1, 19775, 1, 33614, 1, 19063, 1, 19539, 1, 18774, 1, 33680)
 
 	-- Precise Cardinal Ruby -- 66450
-	AddRecipe(66450, 450, 40118, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66450, 450, 40118, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66450, F_ALLIANCE, F_HORDE, 4, 36, 41, 51, 52)
 	self:addTradeAcquire(RecipeDB, 66450, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Runed Cardinal Ruby -- 66446
-	AddRecipe(66446, 450, 40113, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66446, 450, 40113, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66446, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66446, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Bright Cardinal Ruby -- 66449
-	AddRecipe(66449, 450, 40114, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66449, 450, 40114, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66449, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66449, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Flashing Cardinal Ruby -- 66453
-	AddRecipe(66453, 450, 40116, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66453, 450, 40116, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66453, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66453, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Fractured Cardinal Ruby -- 66451
-	AddRecipe(66451, 450, 40117, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66451, 450, 40117, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66451, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66451, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Bold Cardinal Ruby -- 66447
-	AddRecipe(66447, 450, 40111, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66447, 450, 40111, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66447, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66447, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Delicate Cardinal Ruby -- 66448
-	AddRecipe(66448, 450, 40112, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66448, 450, 40112, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66448, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66448, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Subtle Cardinal Ruby -- 66452
-	AddRecipe(66452, 450, 40115, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66452, 450, 40115, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66452, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66452, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Sparkling Majestic Zircon -- 66498
-	AddRecipe(66498, 450, 40120, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66498, 450, 40120, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66498, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66498, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Lustrous Majestic Zircon -- 66500
-	AddRecipe(66500, 450, 40121, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66500, 450, 40121, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66500, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66500, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Stormy Majestic Zircon -- 66499
-	AddRecipe(66499, 450, 40122, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66499, 450, 40122, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66499, F_ALLIANCE, F_HORDE, 4, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 66499, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Solid Majestic Zircon -- 66497
-	AddRecipe(66497, 450, 40119, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66497, 450, 40119, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66497, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66497, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Brilliant King's Amber -- 66503
-	AddRecipe(66503, 450, 40123, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66503, 450, 40123, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66503, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66503, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Rigid King's Amber -- 66501
-	AddRecipe(66501, 450, 40125, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66501, 450, 40125, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66501, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66501, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Thick King's Amber -- 66504
-	AddRecipe(66504, 450, 40126, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66504, 450, 40126, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66504, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66504, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Mystic King's Amber -- 66505
-	AddRecipe(66505, 450, 40127, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66505, 450, 40127, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66505, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66505, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Smooth King's Amber -- 66502
-	AddRecipe(66502, 450, 40124, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66502, 450, 40124, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66502, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66502, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Quick King's Amber -- 66506
-	AddRecipe(66506, 450, 40128, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66506, 450, 40128, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66506, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66506, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Sovereign Dreadstone -- 66554
-	AddRecipe(66554, 450, 40129, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66554, 450, 40129, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66554, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66554, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Shifting Dreadstone -- 66557
-	AddRecipe(66557, 450, 40130, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66557, 450, 40130, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66557, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66557, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Glowing Dreadstone -- 66555
-	AddRecipe(66555, 450, 40132, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66555, 450, 40132, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66555, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66555, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Purified Dreadstone -- 66556
-	AddRecipe(66556, 450, 40133, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66556, 450, 40133, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66556, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66556, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Guardian's Dreadstone -- 66561
-	AddRecipe(66561, 450, 40141, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66561, 450, 40141, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66561, F_ALLIANCE, F_HORDE, 4, 36, 41, 51, 52)
 	self:addTradeAcquire(RecipeDB, 66561, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Puissant Dreadstone -- 66563
-	AddRecipe(66563, 450, 40140, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66563, 450, 40140, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66563, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66563, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Regal Dreadstone -- 66559
-	AddRecipe(66559, 450, 40138, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66559, 450, 40138, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66559, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66559, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Balanced Dreadstone -- 66553
-	AddRecipe(66553, 450, 40136, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66553, 450, 40136, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66553, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66553, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Infused Dreadstone -- 66564
-	AddRecipe(66564, 450, 40137, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66564, 450, 40137, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66564, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66564, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Royal Dreadstone -- 66558
-	AddRecipe(66558, 450, 40134, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66558, 450, 40134, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66558, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66558, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Tenuous Dreadstone -- 66565
-	AddRecipe(66565, 450, 40131, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66565, 450, 40131, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66565, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66565, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Mysterious Dreadstone -- 66562
-	AddRecipe(66562, 450, 40135, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66562, 450, 40135, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66562, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66562, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Defender's Dreadstone -- 66560
-	AddRecipe(66560, 450, 40139, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66560, 450, 40139, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66560, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66560, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Etched Ametrine -- 66572
-	AddRecipe(66572, 450, 40143, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66572, 450, 40143, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66572, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66572, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Champion's Ametrine -- 66579
-	AddRecipe(66579, 450, 40144, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66579, 450, 40144, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66579, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66579, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Fierce Ametrine -- 66583
-	AddRecipe(66583, 450, 40146, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66583, 450, 40146, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66583, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66583, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Deadly Ametrine -- 66568
-	AddRecipe(66568, 450, 40147, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66568, 450, 40147, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66568, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66568, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Luminous Ametrine -- 66566
-	AddRecipe(66566, 450, 40151, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66566, 450, 40151, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66566, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66566, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Reckless Ametrine -- 66574
-	AddRecipe(66574, 450, 40155, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66574, 450, 40155, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66574, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66574, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Wicked Ametrine -- 66577
-	AddRecipe(66577, 450, 40156, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66577, 450, 40156, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66577, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66577, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Empowered Ametrine -- 66580
-	AddRecipe(66580, 450, 40158, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66580, 450, 40158, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66580, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66580, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Glinting Ametrine -- 66575
-	AddRecipe(66575, 450, 40148, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66575, 450, 40148, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66575, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66575, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Deft Ametrine -- 66584
-	AddRecipe(66584, 450, 40150, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66584, 450, 40150, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66584, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66584, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Potent Ametrine -- 66569
-	AddRecipe(66569, 450, 40152, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66569, 450, 40152, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66569, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66569, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Durable Ametrine -- 66571
-	AddRecipe(66571, 450, 40154, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66571, 450, 40154, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66571, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66571, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Stark Ametrine -- 66587
-	AddRecipe(66587, 450, 40159, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66587, 450, 40159, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66587, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66587, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Stalwart Ametrine -- 66581
-	AddRecipe(66581, 450, 40160, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66581, 450, 40160, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66581, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66581, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Accurate Ametrine -- 66576
-	AddRecipe(66576, 450, 40162, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66576, 450, 40162, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66576, F_ALLIANCE, F_HORDE, 4, 36, 41, 51, 52)
 	self:addTradeAcquire(RecipeDB, 66576, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Resolute Ametrine -- 66586
-	AddRecipe(66586, 450, 40163, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66586, 450, 40163, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66586, F_ALLIANCE, F_HORDE, 4, 36, 41, 51, 52)
 	self:addTradeAcquire(RecipeDB, 66586, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Inscribed Ametrine -- 66567
-	AddRecipe(66567, 450, 40142, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66567, 450, 40142, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66567, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66567, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Resplendent Ametrine -- 66582
-	AddRecipe(66582, 450, 40145, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66582, 450, 40145, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66582, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66582, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Lucent Ametrine -- 66585
-	AddRecipe(66585, 450, 40149, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66585, 450, 40149, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66585, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66585, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Veiled Ametrine -- 66570
-	AddRecipe(66570, 450, 40153, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66570, 450, 40153, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66570, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66570, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Pristine Ametrine -- 66573
-	AddRecipe(66573, 450, 40157, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66573, 450, 40157, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66573, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 66573, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Glimmering Ametrine -- 66578
-	AddRecipe(66578, 450, 40161, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66578, 450, 40161, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66578, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66578, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Misty Eye of Zul -- 66435
-	AddRecipe(66435, 450, 40171, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66435, 450, 40171, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66435, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66435, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Shining Eye of Zul -- 66437
-	AddRecipe(66437, 450, 40172, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66437, 450, 40172, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66437, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66437, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Turbid Eye of Zul -- 66445
-	AddRecipe(66445, 450, 40173, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66445, 450, 40173, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66445, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66445, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Intricate Eye of Zul -- 66440
-	AddRecipe(66440, 450, 40174, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66440, 450, 40174, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66440, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66440, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Sundered Eye of Zul -- 66436
-	AddRecipe(66436, 450, 40176, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66436, 450, 40176, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66436, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66436, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Lambent Eye of Zul -- 66439
-	AddRecipe(66439, 450, 40177, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66439, 450, 40177, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66439, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66439, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Opaque Eye of Zul -- 66444
-	AddRecipe(66444, 450, 40178, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66444, 450, 40178, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66444, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66444, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Radiant Eye of Zul -- 66441
-	AddRecipe(66441, 450, 40180, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66441, 450, 40180, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66441, F_ALLIANCE, F_HORDE, 4, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 66441, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Tense Eye of Zul -- 66438
-	AddRecipe(66438, 450, 40181, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66438, 450, 40181, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66438, F_ALLIANCE, F_HORDE, 4, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 66438, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Shattered Eye of Zul -- 66443
-	AddRecipe(66443, 450, 40182, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66443, 450, 40182, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66443, F_ALLIANCE, F_HORDE, 4, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 66443, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Vivid Eye of Zul -- 66429
-	AddRecipe(66429, 450, 40166, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66429, 450, 40166, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66429, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66429, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Enduring Eye of Zul -- 66338
-	AddRecipe(66338, 450, 40167, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66338, 450, 40167, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66338, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 66338, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Steady Eye of Zul -- 66428
-	AddRecipe(66428, 450, 40168, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66428, 450, 40168, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66428, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66428, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Forceful Eye of Zul -- 66434
-	AddRecipe(66434, 450, 40169, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66434, 450, 40169, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66434, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66434, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Energized Eye of Zul -- 66442
-	AddRecipe(66442, 450, 40179, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66442, 450, 40179, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66442, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66442, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Timeless Eye of Zul -- 66432
-	AddRecipe(66432, 450, 40164, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66432, 450, 40164, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66432, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66432, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Dazzling Eye of Zul -- 66430
-	AddRecipe(66430, 450, 40175, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66430, 450, 40175, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66430, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66430, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Jagged Eye of Zul -- 66431
-	AddRecipe(66431, 450, 40165, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66431, 450, 40165, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66431, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 66431, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Seer's Eye of Zul -- 66433
-	AddRecipe(66433, 450, 40170, 2, 2, 450, 450, 450, 450)
+	AddRecipe(66433, 450, 40170, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 66433, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 66433, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
 	-- Nightmare Tear -- 68253
-	AddRecipe(68253, 450, 49110, 2, 2, 450, 450, 450, 450)
+	AddRecipe(68253, 450, 49110, 2, 2, 450, 450, 452, 465)
 	self:addTradeFlags(RecipeDB, 68253, F_ALLIANCE, F_HORDE, 4, 36, 41)
 	self:addTradeAcquire(RecipeDB, 68253, 2, 19065, 2, 33637, 2, 33680, 2, 28701)
 
