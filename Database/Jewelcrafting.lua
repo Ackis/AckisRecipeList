@@ -1231,7 +1231,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 43493, 2, 18821, 2, 18822)
 
 	-- Chaotic Skyfire Diamond -- 44794
-	AddRecipe(44794, 365, 34220, 3, 1, 420, 440, 450, 460)
+	AddRecipe(44794, 365, 34220, 3, 1, 365, 375, 377, 380)
 	self:addTradeFlags(RecipeDB, 44794, F_ALLIANCE, F_HORDE, 11, 36, 41)
 	self:addTradeAcquire(RecipeDB, 44794, 3, 19768)
 
@@ -1791,12 +1791,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53961, 2, 28721, 2, 33602)
 
 	-- Sovereign Twilight Opal -- 53962
-	AddRecipe(53962, 380, 40022, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53962, 390, 40022, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53962, F_ALLIANCE, F_HORDE, 10, 36, 40, 51)
 	self:addTradeAcquire(RecipeDB, 53962, 7, 3)
 
 	-- Tenuous Twilight Opal -- 53964
-	AddRecipe(53964, 380, 40024, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53964, 390, 40024, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53964, F_ALLIANCE, F_HORDE, 10, 36, 40, 51)
 	self:addTradeAcquire(RecipeDB, 53964, 7, 3)
 
@@ -1806,7 +1806,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53965, 6, 1098, 4, 32538)
 
 	-- Purified Twilight Opal -- 53966
-	AddRecipe(53966, 380, 40026, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53966, 390, 40026, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53966, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54)
 	self:addTradeAcquire(RecipeDB, 53966, 7, 3)
 
@@ -1856,12 +1856,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 53975, 7, 3)
 
 	-- Etched Monarch Topaz -- 53976
-	AddRecipe(53976, 380, 40038, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53976, 390, 40038, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53976, F_ALLIANCE, F_HORDE, 10, 36, 40, 51)
 	self:addTradeAcquire(RecipeDB, 53976, 7, 3)
 
 	-- Champion's Monarch Topaz -- 53977
-	AddRecipe(53977, 380, 40039, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53977, 390, 40039, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53977, F_ALLIANCE, F_HORDE, 10, 36, 40, 51, 52)
 	self:addTradeAcquire(RecipeDB, 53977, 7, 3)
 
@@ -1986,12 +1986,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 54002, 2, 28721, 2, 33602)
 
 	-- Misty Forest Emerald -- 54003
-	AddRecipe(54003, 380, 40095, 3, 2, 390, 410, 425, 440)
+	AddRecipe(54003, 390, 40095, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54003, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54)
 	self:addTradeAcquire(RecipeDB, 54003, 7, 3)
 
 	-- Shining Forest Emerald -- 54004
-	AddRecipe(54004, 380, 40099, 3, 2, 390, 410, 425, 440)
+	AddRecipe(54004, 390, 40099, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54004, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54)
 	self:addTradeAcquire(RecipeDB, 54004, 7, 3)
 
@@ -2056,7 +2056,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 54019, 3, 23954)
 
 	-- Resolute Monarch Topaz -- 54023
-	AddRecipe(54023, 380, 40059, 3, 2, 390, 410, 425, 440)
+	AddRecipe(54023, 390, 40059, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54023, F_ALLIANCE, F_HORDE, 10, 36, 40, 51, 52)
 	self:addTradeAcquire(RecipeDB, 54023, 7, 3)
 
@@ -2266,12 +2266,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 56194, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
 	-- Jade Dagger Pendant -- 56195
-	AddRecipe(56195, 380, 42338, 1, 2, 380, 400, 410, 420)
+	AddRecipe(56195, 390, 42338, 1, 2, 380, 400, 410, 420)
 	self:addTradeFlags(RecipeDB, 56195, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 63)
 	self:addTradeAcquire(RecipeDB, 56195, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
 	-- Blood Sun Necklace -- 56196
-	AddRecipe(56196, 380, 42339, 3, 2, 380, 400, 410, 420)
+	AddRecipe(56196, 390, 42339, 3, 2, 380, 400, 410, 420)
 	self:addTradeFlags(RecipeDB, 56196, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 56196, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
@@ -2431,12 +2431,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 62242, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
 	-- Shifting Twilight Opal -- 53963
-	AddRecipe(53963, 380, 40023, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53963, 390, 40023, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53963, F_ALLIANCE, F_HORDE, 4, 36, 41, 51)
 	self:addTradeAcquire(RecipeDB, 53963, 2, 28721, 2, 33602)
 
 	-- Subtle Scarlet Ruby -- 53948
-	AddRecipe(53948, 380, 40000, 3, 2, 390, 410, 425, 440)
+	AddRecipe(53948, 390, 40000, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53948, F_ALLIANCE, F_HORDE, 4, 36, 41, 52)
 	self:addTradeAcquire(RecipeDB, 53948, 2, 28721, 2, 33602)
 
