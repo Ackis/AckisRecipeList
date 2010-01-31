@@ -1,4 +1,12 @@
 ==ARL Change Log
+
+===Version 2818
+*Removed the "Scan" and "Text Dump" buttons from the config options since they were not actually usable
+*Improved the Text Dump display for all the recipes.
+*Fixed some incorrect data in the database and added missing data.
+*Scan button correctly shows now if you use the default tradeskillui
+
+
 ===Version 2770
 *Fixed a bug if you that was causing an error if you reset the filters through the interface options menu.
 *The crafted recipes from Icecrown Citadel will now show up in ARL.
