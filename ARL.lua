@@ -1731,10 +1731,6 @@ do
 		[78] = "Ammo",
 		[79] = "Fist",
 		[80] = "Gun",
-
-		--------------------------------------------------------------------------------------------------------------------
-		-- Reputation Filter flags
-		--------------------------------------------------------------------------------------------------------------------
 		[96] = "Argent Dawn",
 		[97] = "Cenarion Circle",
 		[98] = "Thorium Brotherhood",
@@ -1743,11 +1739,11 @@ do
 		[101] = "The Aldor",
 		[102] = "Ashtongue Deathsworn",
 		[103] = "Cenarion Expedition",
-		[104] = "Thrallmar/Kurenai",
+		[104] = "Thrallmar/Honor Hold",
 		[105] = "The Consortium",
 		[106] = "The Keepers of Time",
 		[107] = "Lower City",
-		[108] = "The Mag'har/",
+		[108] = "Mag'har/Kurenai",
 		[109] = "The Scales of the Sands",
 		[110] = "The Scryers",
 		[111] = "The Shatar",
@@ -1762,19 +1758,18 @@ do
 		[120] = "Kalu'ak",
 		[121] = "The Oracles",
 		[122] = "Wyrmrest Accord",
-		[123] = "g",
-		[124] = "gh",
-		[125] = "gggh",
-		[126] = "ggggg",
-		[127] = "fv",
+		[123] = "The Silver Covenant/The Sunreavers",
+		[124] = "Explorers' League/The Hand of Vengeance",
+		[125] = "Explorers' League/Valiance Expedition",
+		[126] = "The Frostborn/The Taunka",
+		[127] = "Alliance Vanguard/Horde Expedition",
 		[128] = "The Ashen Verdict",
 	}
 		 
 	function addon:GetTextDump(RecipeDB, profession)
 		twipe(text_table)
 
-		tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s.  ", profession))
-		tinsert(text_table, "Text output of all recipes and acquire information.  Output is in the form of comma separated values.\n")
+		tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
 		tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 
 		for SpellID in pairs(RecipeDB) do
