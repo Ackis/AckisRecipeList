@@ -529,7 +529,6 @@ do
 	end
 
 	local function SetSpellTooltip(owner, loc, link)
-		local anchor =
 		spell_tip:SetOwner(owner, "ANCHOR_NONE")
 		spell_tip:ClearAllPoints()
 
