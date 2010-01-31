@@ -60,20 +60,20 @@ local Player		= addon.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local SortedProfessions = {	-- To make tabbing between professions easier 
-	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1 
-	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2 
-	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3 
-	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4 
-	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5 
-	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6 
-	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7 
-	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8 
-	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9 
-	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10 
-	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11 
-	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12 
-} 
+local SortedProfessions = {	-- To make tabbing between professions easier
+	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1
+	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2
+	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3
+	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4
+	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5
+	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6
+	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7
+	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8
+	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9
+	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10
+	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11
+	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12
+}
 
 local CATEGORY_TEXT = {
 	["general"]	= _G.GENERAL,
@@ -529,7 +529,7 @@ do
 	end
 
 	local function SetSpellTooltip(owner, loc, link)
-		local anchor = 
+		local anchor =
 		spell_tip:SetOwner(owner, "ANCHOR_NONE")
 		spell_tip:ClearAllPoints()
 
@@ -652,7 +652,7 @@ do
 		elseif skill_level - recipe_level < 30 then
 			color_2 = addon:hexcolor("YELLOW")
 		elseif skill_level - recipe_level < 40 then
-			color_2 = addon:hexcolor("GREEN") 
+			color_2 = addon:hexcolor("GREEN")
 		else
 			color_2 = addon:hexcolor("MIDGREY")
 		end
@@ -1095,7 +1095,7 @@ MainPanel.mode_button:SetScript("OnClick",
 							endLoop = MainPanel.profession
 						end
 						local index = startLoop
-	
+
 						while index ~= endLoop do
 							if index > NUM_PROFESSIONS then
 								index = 1
@@ -1227,7 +1227,7 @@ do
 		end
 	end
 
-function addon.resetFilters() 
+function addon.resetFilters()
 		 local filterdb = addon.db.profile.filters
 
 						 -- Reset all filters to true
@@ -1332,7 +1332,7 @@ do
 		cButton:SetWidth(ExpTextureSize)
 		cButton:SetHeight(ExpTextureSize)
 		cButton:SetScript("OnClick",
-				  function(self, button, down) 
+				  function(self, button, down)
 					  ToggleFilterMenu(category)
 				  end)
 
@@ -1931,7 +1931,7 @@ do
 
 		-- And throw up a tooltip
 		SetTooltipScripts(cButton, tooltip_text)
-		
+
 		return cButton
 	end
 
@@ -2498,7 +2498,7 @@ do
 					t.recipe_id = recipe_id
 					t.is_expanded = true
 
-					t.text = pad .. pad .. faction_strings[acquire["RepLevel"]] .. nStr 
+					t.text = pad .. pad .. faction_strings[acquire["RepLevel"]] .. nStr
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2704,7 +2704,7 @@ do
 		local acquire_id = acquire_entry["ID"]
 		local display = false
 
-		if acquire_type == A_TRAINER and maptrainer then 
+		if acquire_type == A_TRAINER and maptrainer then
 			local trainer = addon.trainer_list[acquire_id]
 
 			display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
@@ -3019,7 +3019,7 @@ do
 		--		ARLWorldMap:ClearAllPoints()
 		--		ARLWorldMap:SetWidth(8)
 		--		ARLWorldMap:SetHeight(8)
-		--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
+		--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK")
 		--		ARLWorldMap.icon:SetTexture(icontext)
 		--		ARLWorldMap.icon:SetAllPoints()
 
@@ -3027,7 +3027,7 @@ do
 		--		ARLMiniMap:ClearAllPoints()
 		--		ARLMiniMap:SetWidth(8)
 		--		ARLMiniMap:SetHeight(8)
-		--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
+		--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK")
 		--		ARLMiniMap.icon:SetTexture(icontext)
 		--		ARLMiniMap.icon:SetAllPoints()
 
@@ -3240,7 +3240,7 @@ local function SelectName(cell, arg, button)
 		for name in pairs(tskl_list[click_info.realm]) do
 			found = true
 		end
-		if not found then 
+		if not found then
 			tskl_list[click_info.realm] = nil
 		end
 		local anchor = click_info.anchor

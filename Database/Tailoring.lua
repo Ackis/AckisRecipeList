@@ -3,8 +3,8 @@
 Tailoring.lua
 Tailoring data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -2316,17 +2316,17 @@ function addon:InitTailoring(RecipeDB)
 	 AddRecipe(70550,450,49891,4,2,450,475,487,500)
 	 self:addTradeFlags(RecipeDB,70550,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
 	 self:addTradeAcquire(RecipeDB, 70550, A_REPUTATION, 1156, REVERED, 37687)
-	 
+
 	 -- Deathfrost Boots -- 70551
 	 AddRecipe(70551,450,49890,4,2,450,475,487,500)
 	 self:addTradeFlags(RecipeDB,70551,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
 	 self:addTradeAcquire(RecipeDB, 70551, A_REPUTATION, 1156, HONORED, 37687)
-	 
+
 	 -- Lightweave Leggings -- 70552
 	 AddRecipe(70552,450,49892,4,2,450,475,487,500)
 	 self:addTradeFlags(RecipeDB,70552,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
 	 self:addTradeAcquire(RecipeDB, 70552, A_REPUTATION, 1156, REVERED, 37687)
-	 
+
 	 -- Sandals of Consecration -- 70553
 	 AddRecipe(70553,450,49893,4,2,450,475,487,500)
 	 self:addTradeFlags(RecipeDB,70553,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)

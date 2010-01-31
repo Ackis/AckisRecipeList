@@ -633,7 +633,7 @@ local function giveDisplay()
 							  addon.db.profile.spelltooltiplocation = name
 						  end,
 					values	= function()
-							  return { 
+							  return {
 								  Right = L["Right"],
 								  Left = L["Left"],
 								  Top = L["Top"],
@@ -658,13 +658,13 @@ function addon:SetupOptions()
 	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
 	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
-	
+
 	-- Add in the about panel to the Bliz options (not apart of the ace3 config)
 	if LibStub:GetLibrary("LibAboutPanel", true) then
 		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
 	else
 		self:Print("Lib AboutPanel not loaded.")
-	end	
+	end
 end
 
 -- Description: Function which extends our options table in a modular way

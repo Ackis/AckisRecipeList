@@ -3,8 +3,8 @@
 Jewelcrafting.lua
 Jewelcrafting data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -460,7 +460,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 28953, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 28953, 1, 26997, 1, 26960, 1, 26982, 1, 19063, 1, 19539, 1, 18751, 1, 26915, 1, 18774, 1, 28701, 1, 33590, 1, 33614, 1, 33680)
 
-	-- Stormy Azure Moonstone -- 28955 
+	-- Stormy Azure Moonstone -- 28955
 	AddRecipe(28955, 315, 23120, 2, 1, 315, 315, 335, 355)
 	self:addTradeFlags(RecipeDB, 28955, F_ALLIANCE, F_HORDE, 10, 36, 40, 54)
 	self:addTradeAcquire(RecipeDB, 28955, 7, 2)
@@ -575,7 +575,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 31070, F_ALLIANCE, F_HORDE, 10, 36, 40, 51, 63)
 	self:addTradeAcquire(RecipeDB, 31070, 7, 3)
 
-	-- Eye of the Night -- 31071 
+	-- Eye of the Night -- 31071
 	AddRecipe(31071, 360, 24116, 3, 1, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 31071, F_ALLIANCE, F_HORDE, 10, 36, 40, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 31071, 7, 3)
@@ -1135,7 +1135,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 39739, F_ALLIANCE, F_HORDE, 4, 36, 41, 52, 109, 112)
 	self:addTradeAcquire(RecipeDB, 39739, 6, 1077, 3, 25950, 6, 990, 3, 23437, 6, 1077, 3, 27666)
 
-	-- Radiant Seaspray Emerald -- 39740 
+	-- Radiant Seaspray Emerald -- 39740
 	AddRecipe(39740, 375, 32224, 1, 1, 375, 375, 380, 385)
 	self:addTradeFlags(RecipeDB, 39740, F_ALLIANCE, F_HORDE, 4, 36, 41, 54, 109, 112)
 	self:addTradeAcquire(RecipeDB, 39740, 6, 1077, 2, 25950, 6, 990, 2, 23437, 6, 1077, 2, 27666)
@@ -1450,7 +1450,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 53864, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 53864, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
-	-- Mysterious Shadow Crystal -- 53865 
+	-- Mysterious Shadow Crystal -- 53865
 	AddRecipe(53865, 350, 39945, 2, 2, 350, 375, 395, 415)
 	self:addTradeFlags(RecipeDB, 53865, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 53865, 2, 34079, 2, 34039)
@@ -1675,17 +1675,17 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 53930, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 53930, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
-	-- Radiant Dark Jade -- 53931 
+	-- Radiant Dark Jade -- 53931
 	AddRecipe(53931, 350, 39990, 2, 2, 350, 375, 395, 415)
 	self:addTradeFlags(RecipeDB, 53931, F_ALLIANCE, F_HORDE, 3, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 53931, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
-	-- Tense Dark Jade -- 53932 
+	-- Tense Dark Jade -- 53932
 	AddRecipe(53932, 350, 39991, 2, 2, 350, 375, 395, 415)
 	self:addTradeFlags(RecipeDB, 53932, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 53932, 2, 34079, 2, 34039)
 
-	-- Shattered Dark Jade -- 53933 
+	-- Shattered Dark Jade -- 53933
 	AddRecipe(53933, 350, 39992, 2, 2, 350, 375, 395, 415)
 	self:addTradeFlags(RecipeDB, 53933, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 53933, 2, 34079, 2, 34039)
@@ -1755,7 +1755,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 53954, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 53954, 2, 28721, 2, 33602)
 
-	-- Stormy Sky Sapphire -- 53955 
+	-- Stormy Sky Sapphire -- 53955
 	AddRecipe(53955, 390, 40011, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 53955, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 53955, 2, 30489, 2, 32294, 2, 32296)
@@ -2030,17 +2030,17 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 54011, F_ALLIANCE, F_HORDE, 4, 36, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 54011, 2, 28721, 2, 33602)
 
-	-- Radiant Forest Emerald -- 54012 
+	-- Radiant Forest Emerald -- 54012
 	AddRecipe(54012, 390, 40098, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54012, F_ALLIANCE, F_HORDE, 11, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 54012, 3, 29792, 3, 29793)
 
-	-- Tense Forest Emerald -- 54013 
+	-- Tense Forest Emerald -- 54013
 	AddRecipe(54013, 390, 40101, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54013, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 54013, 2, 30489, 2, 32294, 2, 32296)
 
-	-- Shattered Forest Emerald -- 54014 
+	-- Shattered Forest Emerald -- 54014
 	AddRecipe(54014, 390, 40106, 3, 2, 390, 410, 425, 440)
 	self:addTradeFlags(RecipeDB, 54014, F_ALLIANCE, F_HORDE, 4, 9, 36, 41, 54)
 	self:addTradeAcquire(RecipeDB, 54014, 2, 30489, 2, 32294, 2, 32296)
@@ -2245,7 +2245,7 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeFlags(RecipeDB, 56087, F_ALLIANCE, F_HORDE, 4, 37, 41, 53, 54)
 	self:addTradeAcquire(RecipeDB, 56087, 2, 28721, 2, 33602)
 
-	-- Stormy Dragon's Eye -- 56088 
+	-- Stormy Dragon's Eye -- 56088
 	AddRecipe(56088, 370, 42155, 3, 2, 370, 390, 415, 440)
 	self:addTradeFlags(RecipeDB, 56088, F_ALLIANCE, F_HORDE, 4, 37, 41, 54)
 	self:addTradeAcquire(RecipeDB, 56088, 2, 28721, 2, 33602)

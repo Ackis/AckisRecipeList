@@ -1,6 +1,7 @@
 ==ARL Change Log
 
 ===Version 2818
+*INSTALL A FRESH ACKISRECIPELIST DIRECTORY OF THIS VERSION IN YOUR ADDONS FOLDER.
 *Removed the "Scan" and "Text Dump" buttons from the config options since they were not actually usable
 *Improved the Text Dump display for all the recipes.
 *Fixed some incorrect data in the database and added missing data.

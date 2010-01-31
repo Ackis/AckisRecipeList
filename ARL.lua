@@ -670,7 +670,7 @@ function addon:OnEnable()
 			[GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
 			[GetSpellInfo(9787)] = 9787,	-- Weaponsmith
 		}
-		
+
 		local EngineeringSpec = {
 			[GetSpellInfo(20219)] = 20219, -- Gnomish
 			[GetSpellInfo(20222)] = 20222, -- Goblin
@@ -760,7 +760,7 @@ do
 			scan_button:SetParent(TradeSkillFrame)
 			scan_parent = scan_button:GetParent()
 		end
-	
+
 		if scan_parent == TradeSkillFrame then
 			scan_button:ClearAllPoints()
 
@@ -1590,7 +1590,7 @@ do
 					recipe["Known"] = true
 					recipes_found = recipes_found + 1
 				else
-					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
+					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))
 				end
 			end
 		end
@@ -1673,7 +1673,7 @@ do
 		[A_WORLD_DROP]	= "World Drop",
 		[A_CUSTOM]	= "Custom",
 	}
-	
+
 	local FILTER_NAMES = {
 		[1] = "Alliance",
 		[2]  = "Horde",
@@ -1765,7 +1765,7 @@ do
 		[127] = "Alliance Vanguard/Horde Expedition",
 		[128] = "The Ashen Verdict",
 	}
-		 
+
 	function addon:GetTextDump(RecipeDB, profession)
 		twipe(text_table)
 
