@@ -1673,7 +1673,103 @@ do
 		[A_WORLD_DROP]	= "World Drop",
 		[A_CUSTOM]	= "Custom",
 	}
+	
+	local FILTER_NAMES = {
+		[1] = "Alliance",
+		[2]  = "Horde",
+		[3] = "Trainer",
+		[4] = "Vendor",
+		[5] = "Instance",
+		[6] = "Raid",
+		[7] = "Seasonal",
+		[8] = "Quest",
+		[9] = "PVP",
+		[10] = "World Drop",
+		[11] = "Mob Drop",
+		[12] = "Discovery",
+		[21] = "Death Knight",
+		[22] = "Druid",
+		[23] = "Hunter",
+		[24] = "Mage",
+		[25] = "Paladin",
+		[26] = "Priest",
+		[27] = "Shaman",
+		[28] = "Rogue",
+		[29] = "Warlock",
+		[30] = "Warrior",
+		[36] = "Item BOE",
+		[37] = "Item BOP",
+		[38] = "Item BOA",
+		[40] = "Recipe BOE",
+		[41] = "Recipe BOP",
+		[42] = "Recipe BOA",
+		[51] = "DPS",
+		[52] = "TANK",
+		[53] = "HEALER",
+		[54] = "CASTER",
+		[56] = "CLOTH",
+		[57] = "LEATHER",
+		[58] = "MAIL",
+		[59] = "PLATE",
+		[60] = "CLOAK",
+		[61] = "TRINKET",
+		[62] = "RING",
+		[63] = "NECK",
+		[64] = "SHIELD",
+		[66] = "One-Hand",
+		[67] = "Two-Hand",
+		[68] = "Axe",
+		[69] = "Sword",
+		[70] = "Mace",
+		[71] = "Polearm",
+		[72] = "Dagger",
+		[73] = "Staff",
+		[74] = "Wand",
+		[75] = "Thrown",
+		[76] = "Bow",
+		[77] = "Crossbow",
+		[78] = "Ammo",
+		[79] = "Fist",
+		[80] = "Gun",
 
+		--------------------------------------------------------------------------------------------------------------------
+		-- Reputation Filter flags
+		--------------------------------------------------------------------------------------------------------------------
+		[96] = "Argent Dawn",
+		[97] = "Cenarion Circle",
+		[98] = "Thorium Brotherhood",
+		[99] = "Timbermaw Hold",
+		[100] = "Zandalar Tribe",
+		[101] = "The Aldor",
+		[102] = "Ashtongue Deathsworn",
+		[103] = "Cenarion Expedition",
+		[104] = "Thrallmar/Kurenai",
+		[105] = "The Consortium",
+		[106] = "The Keepers of Time",
+		[107] = "Lower City",
+		[108] = "The Mag'har/",
+		[109] = "The Scales of the Sands",
+		[110] = "The Scryers",
+		[111] = "The Shatar",
+		[112] = "The Shattered Sun Offensive",
+		[113] = "Sporeggar",
+		[114] = "Violet Eye",
+		[115] = "Argent Crusade",
+		[116] = "Frenzyheart Tribe",
+		[117] = "Knights of the Ebon Blade",
+		[118] = "Kirin Tor",
+		[119] = "Sons of Hodir",
+		[120] = "Kalu'ak",
+		[121] = "The Oracles",
+		[122] = "Wyrmrest Accord",
+		[123] = "g",
+		[124] = "gh",
+		[125] = "gggh",
+		[126] = "ggggg",
+		[127] = "fv",
+		[128] = "The Ashen Verdict",
+	}
+		 
 	function addon:GetTextDump(RecipeDB, profession)
 		twipe(text_table)
 
@@ -1703,7 +1799,7 @@ do
 						if prev then
 							tinsert(text_table, ",")
 						end
-						tinsert(text_table, i)
+						tinsert(text_table, FILTER_NAMES[i])
 						prev = true
 					end
 				end
