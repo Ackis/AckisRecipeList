@@ -1662,13 +1662,18 @@ do
 		local easy_level = spell_info.easy_level
 		local trivial_level = spell_info.trivial_level
 		local SkillLevel = spell_info.skill_level
-
+		
+		self:Print("optimal level is "..optimal_level.." AND skilllevel is "..SkillLevel)
+		
 		if not optimal_level then
 			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
 			if optimal_level > SkillLevel then
-				tinsert(output, "Skill Level Error (optimal_level > Skill): " .. tostring(spell_id) .. " " .. recipe_name)
+				tinsert(output, "Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
+			elseif optimal_level < SkillLevel then
+				self:Print("BINGO IT IS SAYING THAT optimal_level < SkillLevel .....")
+				tinsert(output, "Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 
 			-- Level info is messed up
