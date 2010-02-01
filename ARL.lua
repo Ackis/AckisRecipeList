@@ -80,25 +80,20 @@ local PROFESSION_INITS = {}	-- Professions initialization functions.
 ------------------------------------------------------------------------------
 -- Database tables
 ------------------------------------------------------------------------------
-local RecipeList = {}
-local CustomList = {}
-local MobList = {}
-local QuestList = {}
-local ReputationList = {}
-local TrainerList = {}
-local SeasonalList = {}
-local VendorList = {}
 local AllSpecialtiesTable = {}
 local SpecialtyTable
 
-addon.custom_list	= CustomList
-addon.mob_list		= MobList
-addon.quest_list	= QuestList
-addon.recipe_list	= RecipeList
-addon.reputation_list	= ReputationList
-addon.trainer_list	= TrainerList
-addon.seasonal_list	= SeasonalList
-addon.vendor_list	= VendorList
+-- Set up the private intra-file namespace.
+local private	= select(2, ...)
+
+private.custom_list	= {}
+private.mob_list	= {}
+private.quest_list	= {}
+private.recipe_list	= {}
+private.reputation_list	= {}
+private.trainer_list	= {}
+private.seasonal_list	= {}
+private.vendor_list	= {}
 
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
@@ -110,7 +105,7 @@ addon.vendor_list	= VendorList
 -- @field Class Player's class
 -- @field ["Reputation"] Listing of players reputation levels
 local Player = {}
-addon.Player = Player
+private.Player = Player
 
 -- Global Frame Variables
 addon.optionsFrame = {}
@@ -457,13 +452,13 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Initialize the databases
 	-------------------------------------------------------------------------------
-	self:InitCustom(CustomList)
-	self:InitMob(MobList)
-	self:InitQuest(QuestList)
-	self:InitReputation(ReputationList)
-	self:InitTrainer(TrainerList)
-	self:InitSeasons(SeasonalList)
-	self:InitVendor(VendorList)
+	self:InitCustom(private.custom_list)
+	self:InitMob(private.mob_list)
+	self:InitQuest(private.quest_list)
+	self:InitReputation(private.reputation_list)
+	self:InitTrainer(private.trainer_list)
+	self:InitSeasons(private.seasonal_list)
+	self:InitVendor(private.vendor_list)
 
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
@@ -481,12 +476,13 @@ function addon:OnInitialize()
 				       return
 			       end
 			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
-			       local mob = MobList[GUID]
+			       local mob = private.mob_list[GUID]
+			       local recipe_list = private.recipe_list
 			       local shifted = IsShiftKeyDown()
 
-			       if mob and mob["DropList"] then
-				       for spell_id in pairs(mob["DropList"]) do
-					       local recipe = RecipeList[spell_id]
+			       if mob and mob.drop_list then
+				       for spell_id in pairs(mob.drop_list) do
+					       local recipe = recipe_list[spell_id]
 					       local skill_level = Player["Professions"][GetSpellInfo(recipe.profession)]
 
 					       if skill_level and not recipe.is_known or shifted then
@@ -497,11 +493,11 @@ function addon:OnInitialize()
 				       end
 				       return
 			       end
-			       local vendor = VendorList[GUID]
+			       local vendor = private.vendor_list[GUID]
 
-			       if vendor and vendor["SellList"] then
-				       for spell_id in pairs(vendor["SellList"]) do
-					       local recipe = RecipeList[spell_id]
+			       if vendor and vendor.sells then
+				       for spell_id in pairs(vendor.sells) do
+					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player["Scanned"][recipe_prof]
 
@@ -518,11 +514,11 @@ function addon:OnInitialize()
 				       end
 				       return
 			       end
-			       local trainer = TrainerList[GUID]
+			       local trainer = private.trainer_list[GUID]
 
-			       if trainer and trainer["TrainList"] then
-				       for spell_id in pairs(trainer["TrainList"]) do
-					       local recipe = RecipeList[spell_id]
+			       if trainer and trainer.teaches then
+				       for spell_id in pairs(trainer.teaches) do
+					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player["Scanned"][recipe_prof]
 
@@ -960,7 +956,7 @@ do
 			--@end-alpha@
 
 			acquire[index] = {
-				["Type"] = acquire_type,
+				["type"] = acquire_type,
 				["ID"] = acquire_id
 			}
 			local location
@@ -968,73 +964,81 @@ do
 			if not acquire_type then
 				self:Print("SpellID: "..SpellID.." has no acquire type.")
 			elseif acquire_type == A_TRAINER then
+				local trainer_list = private.trainer_list
+
 				if not acquire_id then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": TrainerID is nil.")
 					--@end-alpha@
-				elseif not TrainerList[acquire_id] then
+				elseif not trainer_list[acquire_id] then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": TrainerID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = TrainerList[acquire_id]["Location"]
+					location = trainer_list[acquire_id]["Location"]
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
 						location_checklist[location] = true
 					end
-					TrainerList[acquire_id]["TrainList"] = TrainerList[acquire_id]["TrainList"] or {}
-					TrainerList[acquire_id]["TrainList"][SpellID] = true
+					trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
+					trainer_list[acquire_id].teaches[SpellID] = true
 				end
 			elseif acquire_type == A_VENDOR then
+				local vendor_list = private.vendor_list
+
 				if not acquire_id then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": VendorID is nil.")
 					--@end-alpha@
-				elseif not VendorList[acquire_id] then
+				elseif not vendor_list[acquire_id] then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": VendorID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = VendorList[acquire_id]["Location"]
+					location = vendor_list[acquire_id]["Location"]
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
 						location_checklist[location] = true
 					end
-					VendorList[acquire_id]["SellList"] = VendorList[acquire_id]["SellList"] or {}
-					VendorList[acquire_id]["SellList"][SpellID] = true
+					vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
+					vendor_list[acquire_id].sells[SpellID] = true
 				end
 			elseif acquire_type == A_MOB then
+				local mob_list = private.mob_list
+
 				if not acquire_id then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": MobID is nil.")
 					--@end-alpha@
-				elseif not MobList[acquire_id] then
+				elseif not mob_list[acquire_id] then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = MobList[acquire_id]["Location"]
+					location = mob_list[acquire_id]["Location"]
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
 						location_checklist[location] = true
 					end
-					MobList[acquire_id]["DropList"] = MobList[acquire_id]["DropList"] or {}
-					MobList[acquire_id]["DropList"][SpellID] = true
+					mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
+					mob_list[acquire_id].drop_list[SpellID] = true
 				end
 			elseif acquire_type == A_QUEST then
+				local quest_list = private.quest_list
+
 				if not acquire_id then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": QuestID is nil.")
 					--@end-alpha@
-				elseif not QuestList[acquire_id] then
+				elseif not quest_list[acquire_id] then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = QuestList[acquire_id]["Location"]
+					location = quest_list[acquire_id]["Location"]
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
@@ -1048,15 +1052,16 @@ do
 				end
 				--@end-alpha@
 			elseif acquire_type == A_REPUTATION then
-				local RepLevel, RepVendor = select(i, ...)
+				local vendor_list = private.vendor_list
+				local rep_level, rep_vendor = select(i, ...)
 				i = i + 2
 
-				acquire[index]["RepLevel"] = RepLevel
-				acquire[index]["RepVendor"] = RepVendor
-				VendorList[RepVendor]["SellList"] = VendorList[RepVendor]["SellList"] or {}
-				VendorList[RepVendor]["SellList"][SpellID] = true
+				acquire[index].rep_level = rep_level
+				acquire[index].rep_vendor = rep_vendor
+				vendor_list[rep_vendor].sells = vendor_list[rep_vendor].sells or {}
+				vendor_list[rep_vendor].sells[SpellID] = true
 
-				location = VendorList[RepVendor]["Location"]
+				location = vendor_list[rep_vendor]["Location"]
 
 				if not location_checklist[location] then
 					tinsert(location_list, location)
@@ -1066,14 +1071,14 @@ do
 				--@alpha@
 				if not acquire_id then
 					self:Print("SpellID "..SpellID..": ReputationID is nil.")
-				elseif not ReputationList[acquire_id] then
+				elseif not private.reputation_list[acquire_id] then
 					self:Print("SpellID "..SpellID..": ReputationID "..acquire_id.." does not exist in the database.")
 				end
 
-				if not RepVendor then
+				if not rep_vendor then
 					self:Print("SpellID "..SpellID..": Reputation VendorID is nil.")
-				elseif not VendorList[RepVendor] then
-					self:Print("SpellID "..SpellID..": Reputation VendorID "..RepVendor.." does not exist in the database.")
+				elseif not vendor_list[rep_vendor] then
+					self:Print("SpellID "..SpellID..": Reputation VendorID "..rep_vendor.." does not exist in the database.")
 				end
 				--@end-alpha@
 			elseif acquire_type == A_WORLD_DROP then
@@ -1128,7 +1133,7 @@ do
 			DB[ID]["Coordy"] = Coordy
 		end
 
-		if DB == QuestList then
+		if DB == private.quest_list then
 			GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
 			GameTooltip:SetHyperlink("quest:"..tostring(ID))
 
@@ -1417,8 +1422,9 @@ do
 		local recipes_known_filtered = 0
 		local can_display = false
 		local current_profession = Player["Profession"]
+		local recipe_list = private.recipe_list
 
-		for recipe_id, recipe in pairs(RecipeList) do
+		for recipe_id, recipe in pairs(recipe_list) do
 			if recipe.profession == current_profession then
 				local is_known = recipe.is_known
 
@@ -1441,7 +1447,7 @@ do
 			else
 				can_display = false
 			end
-			RecipeList[recipe_id]["Display"] = can_display
+			recipe_list[recipe_id]["Display"] = can_display
 		end
 		Player.recipes_total = recipes_total
 		Player.recipes_known = recipes_known
@@ -1466,7 +1472,7 @@ function addon:InitializeRecipe(profession)
 	local func = PROFESSION_INITS[profession]
 
 	if func then
-		return func(addon, RecipeList)
+		return func(addon, private.recipe_list)
 	else
 		addon:Print(L["UnknownTradeSkill"]:format(profession))
 		return 0
@@ -1557,8 +1563,10 @@ do
 		Player.totalRecipes = addon:InitializeRecipe(Player["Profession"])
 
 		--- Set the known flag to false for every recipe in the database.
-		for SpellID in pairs(RecipeList) do
-			RecipeList[SpellID].is_known = false
+		local recipe_list = private.recipe_list
+
+		for SpellID in pairs(recipe_list) do
+			recipe_list[SpellID].is_known = false
 		end
 
 		-------------------------------------------------------------------------------
@@ -1594,6 +1602,7 @@ do
 				end
 			end
 		end
+		local recipe_list = private.recipe_list
 		local recipes_found = 0
 
 		for i = 1, GetNumTradeSkills() do
@@ -1603,7 +1612,7 @@ do
 				-- Get the trade skill link for the specified recipe
 				local SpellLink = GetTradeSkillRecipeLink(i)
 				local SpellString = strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-				local recipe = RecipeList[tonumber(SpellString)]
+				local recipe = recipe_list[tonumber(SpellString)]
 
 				if recipe then
 					recipe.is_known = true
@@ -1639,7 +1648,7 @@ do
 		Player:MarkExclusions()
 
 		if textdump then
-			self:DisplayTextDump(RecipeList, Player["Profession"])
+			self:DisplayTextDump(recipe_list, Player["Profession"])
 		else
 			self:DisplayFrame()
 		end
@@ -1824,7 +1833,7 @@ do
 				twipe(acquire_list)
 
 				for i in pairs(acquire) do
-					local acquire_type = acquire[i]["Type"]
+					local acquire_type = acquire[i].type
 
 					acquire_list[ACQUIRE_NAMES[acquire_type]] = true
 				end

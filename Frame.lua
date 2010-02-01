@@ -48,14 +48,17 @@ local tostring = _G.tostring
 -------------------------------------------------------------------------------
 local LibStub = LibStub
 
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local QTip		= LibStub("LibQTip-1.0")
+local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local QTip	= LibStub("LibQTip-1.0")
 
-local Player		= addon.Player
+-- Set up the private intra-file namespace.
+local private	= select(2, ...)
+
+local Player	= private.Player
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -361,7 +364,7 @@ local SortRecipeList
 do
 	addon.sorted_recipes = {}
 
-	local recipe_list = addon.recipe_list
+	local recipe_list = private.recipe_list
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -396,15 +399,15 @@ do
 			return not not reca
 		end
 
-		if reca["Type"] ~= recb["Type"] then
-			return reca["Type"] < recb["Type"]
+		if reca.type ~= recb.type then
+			return reca.type < recb.type
 		end
 
-		if reca["Type"] == A_CUSTOM then
-			if reca["ID"] == recb["ID"] then
+		if reca.type == A_CUSTOM then
+			if reca.ID == recb.ID then
 				return recipe_list[a].name < recipe_list[b].name
 			else
-				return reca["ID"] < recb["ID"]
+				return reca.ID < recb.ID
 			end
 		else
 			return recipe_list[a].name < recipe_list[b].name
@@ -439,7 +442,7 @@ do
 		local sorted_recipes = addon.sorted_recipes
 		twipe(sorted_recipes)
 
-		for n, v in pairs(addon.recipe_list) do
+		for n, v in pairs(private.recipe_list) do
 			tinsert(sorted_recipes, n)
 		end
 		table.sort(sorted_recipes, sortFuncs[addon.db.profile.sorting])
@@ -588,7 +591,7 @@ do
 	function GenerateTooltipContent(owner, rIndex)
 		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local recipe_entry = addon.recipe_list[rIndex]
+		local recipe_entry = private.recipe_list[rIndex]
 		local spell_link = recipe_entry.spell_link
 		local MainPanel = addon.Frame
 
@@ -673,14 +676,14 @@ do
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
 		local playerFaction = Player["Faction"]
-		local rep_list = addon.reputation_list
+		local rep_list = private.reputation_list
 
 		for index, acquire in pairs(recipe_entry["Acquire"]) do
-			local acquire_type = acquire["Type"]
+			local acquire_type = acquire.type
 			local display_tip = false
 
 			if acquire_type == A_TRAINER then
-				local trainer = addon.trainer_list[acquire["ID"]]
+				local trainer = private.trainer_list[acquire.ID]
 
 				color_1 = addon:hexcolor("TRAINER")
 				display_tip, color_2 = GetTipFactionInfo(trainer["Faction"])
@@ -699,7 +702,7 @@ do
 					ttAdd(1, -2, true, trainer["Location"], color_1, coord_text, color_2)
 				end
 			elseif acquire_type == A_VENDOR then
-				local vendor = addon.vendor_list[acquire["ID"]]
+				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
 				color_1 = addon:hexcolor("VENDOR")
@@ -721,7 +724,7 @@ do
 					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 				end
 			elseif acquire_type == A_MOB then
-				local mob = addon.mob_list[acquire["ID"]]
+				local mob = private.mob_list[acquire.ID]
 				local coord_text = ""
 
 				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
@@ -737,7 +740,7 @@ do
 
 				ttAdd(1, -2, true, mob["Location"], color_1, coord_text, color_2)
 			elseif acquire_type == A_QUEST then
-				local quest = addon.quest_list[acquire["ID"]]
+				local quest = private.quest_list[acquire.ID]
 
 				if quest then
 					local faction
@@ -763,15 +766,15 @@ do
 				end
 			elseif acquire_type == A_SEASONAL then
 				color_1 = addon:hexcolor("SEASON")
-				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, addon.seasonal_list[acquire["ID"]]["Name"], color_1)
+				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[acquire.ID]["Name"], color_1)
 			elseif acquire_type == A_REPUTATION then
-				local repvendor = addon.vendor_list[acquire["RepVendor"]]
+				local repvendor = private.vendor_list[acquire.rep_vendor]
 				local coord_text = ""
 
 				if repvendor["Coordx"] ~= 0 and repvendor["Coordy"] ~= 0 then
 					coord_text = "(" .. repvendor["Coordx"] .. ", " .. repvendor["Coordy"] .. ")"
 				end
-				local repfac = rep_list[acquire["ID"]]
+				local repfac = rep_list[acquire.ID]
 				local repname = repfac["Name"]
 
 				color_1 = addon:hexcolor("REP")
@@ -779,7 +782,7 @@ do
 				ttAdd(0, -1, false, _G.REPUTATION, color_1, repname, color_2)
 
 				local rStr = ""
-				local rep_level = acquire["RepLevel"]
+				local rep_level = acquire.rep_level
 
 				if rep_level == 0 then
 					rStr = FACTION_NEUTRAL
@@ -808,7 +811,7 @@ do
 					ttAdd(2, -2, true, repvendor["Location"], color_1, coord_text, color_2)
 				end
 			elseif acquire_type == A_WORLD_DROP then
-				local acquire_id = acquire["ID"]
+				local acquire_id = acquire.ID
 
 				if acquire_id == 1 then
 					color_1 = addon:hexcolor("COMMON")
@@ -823,9 +826,9 @@ do
 				end
 				ttAdd(0, -1, false, L["World Drop"], color_1)
 			elseif acquire_type == A_CUSTOM then
-				ttAdd(0, -1, false, addon.custom_list[acquire["ID"]]["Name"], addon:hexcolor("NORMAL"))
+				ttAdd(0, -1, false, private.custom_list[acquire.ID]["Name"], addon:hexcolor("NORMAL"))
 			elseif acquire_type == A_PVP then
-				local vendor = addon.vendor_list[acquire["ID"]]
+				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
 				color_1 = addon:hexcolor("VENDOR")
@@ -2149,7 +2152,7 @@ do
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local sorted_recipes = addon.sorted_recipes
-		local recipe_list = addon.recipe_list
+		local recipe_list = private.recipe_list
 		local exclusions = addon.db.profile.exclusionlist
 		local sort_type = addon.db.profile.sorting
 		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
@@ -2336,15 +2339,15 @@ do
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
-		for index, acquire in pairs(addon.recipe_list[recipe_id]["Acquire"]) do
+		for index, acquire in pairs(private.recipe_list[recipe_id]["Acquire"]) do
 			-- Initialize the first line here, since every type below will have one.
-			local acquire_type = acquire["Type"]
+			local acquire_type = acquire.type
 			local t = AcquireTable()
 			t.recipe_id = recipe_id
 			t.is_expanded = true
 
 			if acquire_type == A_TRAINER and obtain_filters.trainer then
-				local trainer = addon.trainer_list[acquire["ID"]]
+				local trainer = private.trainer_list[acquire.ID]
 
 				if CheckDisplayFaction(trainer["Faction"]) then
 					local nStr = ""
@@ -2378,7 +2381,7 @@ do
 				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 				-- This allows us to select PVP only and to see just the PVP recipes
 			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				local vendor = addon.vendor_list[acquire["ID"]]
+				local vendor = private.vendor_list[acquire.ID]
 
 				if CheckDisplayFaction(vendor["Faction"]) then
 					local nStr = ""
@@ -2410,7 +2413,7 @@ do
 				end
 				-- Mobs can be in instances, raids, or specific mob related drops.
 			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				local mob = addon.mob_list[acquire["ID"]]
+				local mob = private.mob_list[acquire.ID]
 				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
 				tinsert(self.entries, entry_index, t)
@@ -2429,7 +2432,7 @@ do
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_QUEST and obtain_filters.quest then
-				local quest = addon.quest_list[acquire["ID"]]
+				local quest = private.quest_list[acquire.ID]
 
 				if CheckDisplayFaction(quest["Faction"]) then
 					local nStr = ""
@@ -2460,7 +2463,7 @@ do
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
-				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. addon.seasonal_list[acquire["ID"]]["Name"])
+				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. private.seasonal_list[acquire.ID]["Name"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -2468,10 +2471,10 @@ do
 				-- Rep: ID, Faction
 				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 				-- RepVendor - VendorID
-				local rep_vendor = addon.vendor_list[acquire["RepVendor"]]
+				local rep_vendor = private.vendor_list[acquire.rep_vendor]
 
 				if CheckDisplayFaction(rep_vendor["Faction"]) then
-					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. addon.reputation_list[acquire["ID"]]["Name"]
+					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. private.reputation_list[acquire.ID]["Name"]
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 
@@ -2497,7 +2500,7 @@ do
 					t.recipe_id = recipe_id
 					t.is_expanded = true
 
-					t.text = pad .. pad .. faction_strings[acquire["RepLevel"]] .. nStr
+					t.text = pad .. pad .. faction_strings[acquire.rep_level] .. nStr
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2516,15 +2519,15 @@ do
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A_WORLD_DROP and obtain_filters.worlddrop then
-				t.text = pad .. addon:RarityColor(acquire["ID"] + 1, L["World Drop"])
+				t.text = pad .. addon:RarityColor(acquire.ID + 1, L["World Drop"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_CUSTOM then
-				t.text = pad .. addon:Normal(addon.custom_list[acquire["ID"]]["Name"])
+				t.text = pad .. addon:Normal(private.custom_list[acquire.ID]["Name"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_PVP and obtain_filters.pvp then
-				local vendor = addon.vendor_list[acquire["ID"]]
+				local vendor = private.vendor_list[acquire.ID]
 
 				if CheckDisplayFaction(vendor["Faction"]) then
 					local coord_text = ""
@@ -2699,26 +2702,26 @@ do
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
 		local player_faction = Player["Faction"]
-		local acquire_type = acquire_entry["Type"]
-		local acquire_id = acquire_entry["ID"]
+		local acquire_type = acquire_entry.type
+		local acquire_id = acquire_entry.ID
 		local display = false
 
 		if acquire_type == A_TRAINER and maptrainer then
-			local trainer = addon.trainer_list[acquire_id]
+			local trainer = private.trainer_list[acquire_id]
 
 			display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
 		elseif acquire_type == A_VENDOR and mapvendor then
-			local vendor = addon.vendor_list[acquire_id]
+			local vendor = private.vendor_list[acquire_id]
 
 			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
 		elseif acquire_type == A_REPUTATION and mapvendor then
-			local vendor = addon.vendor_list[acquire_entry["RepVendor"]]
+			local vendor = private.vendor_list[acquire_entry.rep_vendor]
 
 			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
 		elseif acquire_type == A_MOB and mapmob then
 			return true
 		elseif  acquire_type == A_QUEST and mapquest then
-			local quest = addon.quest_list[acquire_id]
+			local quest = private.quest_list[acquire_id]
 
 			display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
 		elseif acquire_type == A_CUSTOM then
@@ -2986,7 +2989,7 @@ do
 		--		end
 		twipe(maplist)
 
-		local recipe_list = addon.recipe_list
+		local recipe_list = private.recipe_list
 
 		-- We're only getting a single recipe, not a bunch
 		if single_recipe then
@@ -3033,22 +3036,22 @@ do
 		for entry in pairs(maplist) do
 			local loc
 			local custom = false
-			local id_num = entry["ID"]
-			local acquire_type = entry["Type"]
+			local id_num = entry.ID
+			local acquire_type = entry.type
 
 			-- Get the entries location
 			if acquire_type == A_TRAINER then
-				loc = addon.trainer_list[id_num]
+				loc = private.trainer_list[id_num]
 			elseif acquire_type == A_VENDOR then
-				loc = addon.vendor_list[id_num]
+				loc = private.vendor_list[id_num]
 			elseif acquire_type == A_REPUTATION then
-				loc = addon.vendor_list[entry["RepVendor"]]
+				loc = private.vendor_list[entry.rep_vendor]
 			elseif acquire_type == A_MOB then
-				loc = addon.mob_list[id_num]
+				loc = private.mob_list[id_num]
 			elseif acquire_type == A_QUEST then
-				loc = addon.quest_list[id_num]
+				loc = private.quest_list[id_num]
 			elseif acquire_type == A_CUSTOM then
-				loc = addon.custom_list[id_num]
+				loc = private.custom_list[id_num]
 				custom = true
 			end
 
@@ -3419,7 +3422,7 @@ function addon:InitializeFrame()
 			end
 			pattern = pattern:lower()
 
-			local recipe_list = addon.recipe_list
+			local recipe_list = private.recipe_list
 
 			for index in pairs(recipe_list) do
 				local entry = recipe_list[index]
@@ -3466,7 +3469,7 @@ function addon:InitializeFrame()
 
 	ARL_ClearButton:SetScript("OnClick",
 				  function()
-					  local recipe_list = addon.recipe_list
+					  local recipe_list = private.recipe_list
 
 					  -- Reset the search flags
 					  for index in pairs(recipe_list) do
@@ -3562,7 +3565,7 @@ function addon:InitializeFrame()
 				if IsControlKeyDown() and IsShiftKeyDown() then
 					addon:SetupMap(clicked_line.recipe_id)
 				elseif IsShiftKeyDown() then
-					local itemID = addon.recipe_list[clicked_line.recipe_id].item_id
+					local itemID = private.recipe_list[clicked_line.recipe_id].item_id
 
 					if itemID then
 						local _, itemLink = GetItemInfo(itemID)
@@ -3576,7 +3579,7 @@ function addon:InitializeFrame()
 						addon:Print(L["NoItemLink"])
 					end
 				elseif IsControlKeyDown() then
-					ChatFrameEditBox:Insert(addon.recipe_list[clicked_line.recipe_id].spell_link)
+					ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
 				elseif IsAltKeyDown() then
 					-- Code needed here to insert this item into the "Ignore List"
 					addon:ToggleExcludeRecipe(clicked_line.recipe_id)

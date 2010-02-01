@@ -43,7 +43,9 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local Player		= addon.Player
+local private		= select(2, ...)
+
+local Player		= private.Player
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -63,7 +65,7 @@ local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 function Player:MarkExclusions()
 	local exclusion_list = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
-	local recipe_list = addon.recipe_list
+	local recipe_list = private.recipe_list
 	local profession = self["Profession"]
 	local known_count = 0
 	local unknown_count = 0
@@ -104,12 +106,12 @@ function Player:HasProperRepLevel(recipe_index)
 	local has_faction = true
 	local is_alliance = self["Faction"] == BFAC["Alliance"]
 	local player_rep = self["Reputation"]
-	local acquire_info = addon.recipe_list[recipe_index]["Acquire"]
-	local reputations = addon.reputation_list
+	local acquire_info = private.recipe_list[recipe_index]["Acquire"]
+	local reputations = private.reputation_list
 
 	for index in pairs(acquire_info) do
-		if acquire_info[index]["Type"] == A_REPUTATION then
-			local rep_id = acquire_info[index]["ID"]
+		if acquire_info[index].type == A_REPUTATION then
+			local rep_id = acquire_info[index].ID
 
 			if rep_id == REP_HONOR_HOLD or rep_id == REP_THRALLMAR then
 				rep_id = is_alliance and REP_HONOR_HOLD or REP_THRALLMAR
@@ -118,7 +120,7 @@ function Player:HasProperRepLevel(recipe_index)
 			end
 			local rep_name = reputations[rep_id]["Name"]
 
-			if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index]["RepLevel"] then
+			if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
 				has_faction = false
 			else
 				-- The player's faction level is high enough to learn the recipe. Set to true and break out.
