@@ -2241,7 +2241,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,59589,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Flying Carpet -- 60969
-	AddRecipe(60969,410,44554,3,2,410,420,425,430)
+	AddRecipe(60969,300,44554,3,2,300,340,345,350)
 	self:addTradeFlags(RecipeDB,60969,1,2,3,36,41)
 	self:addTradeAcquire(RecipeDB,60969,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
