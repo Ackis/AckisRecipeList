@@ -502,13 +502,18 @@ function addon:OnInitialize()
 			       if vendor and vendor["SellList"] then
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local recipe = RecipeList[spell_id]
-					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
-					       local has_skill = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
+					       local recipe_prof = GetSpellInfo(recipe["Profession"])
+					       local scanned = Player["Scanned"][recipe_prof]
 
-					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+					       if scanned then
+						       local skill_level = Player["Professions"][recipe_prof]
+						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
 
-						       self:AddLine("Sells: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+						       if ((not recipe["Known"] and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+							       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+
+							       self:AddLine("Sells: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+						       end
 					       end
 				       end
 				       return
@@ -518,13 +523,18 @@ function addon:OnInitialize()
 			       if trainer and trainer["TrainList"] then
 				       for spell_id in pairs(trainer["TrainList"]) do
 					       local recipe = RecipeList[spell_id]
-					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
-					       local has_skill = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
+					       local recipe_prof = GetSpellInfo(recipe["Profession"])
+					       local scanned = Player["Scanned"][recipe_prof]
 
-					       if ((not recipe["Known"] and has_skill) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+					       if scanned then
+						       local skill_level = Player["Professions"][recipe_prof]
+						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
 
-						       self:AddLine("Trains: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+						       if ((not recipe["Known"] and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+							       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+
+							       self:AddLine("Trains: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+						       end
 					       end
 				       end
 				       return
@@ -651,6 +661,16 @@ function addon:OnEnable()
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 		Player:SetProfessions()
+
+		-------------------------------------------------------------------------------
+		-- Set the scanned state for all professions to false.
+		-------------------------------------------------------------------------------
+		Player["Scanned"] = {}
+
+		for profession in pairs(Player["Professions"]) do
+			Player["Scanned"][profession] = false
+		end
+
 	end	-- do
 
 	-------------------------------------------------------------------------------
@@ -1512,6 +1532,7 @@ do
 		-- Set the current profession and its level, and update the cached data.
 		Player["Profession"] = current_prof
 		Player["ProfessionLevel"] = prof_level
+		Player["Scanned"][current_prof] = true
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		if not IsTradeSkillLinked() and Player["Professions"][current_prof] then
