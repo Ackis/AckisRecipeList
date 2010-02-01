@@ -1144,7 +1144,7 @@ do
 			DB[ID].name = quest_name or "Missing name: Quest "..ID
 		end
 		--@alpha@
-		if not Loc then
+		if not location then
 			self:Print("Spell ID: " .. ID .. " (" .. DB[ID].name .. ") has an unknown location.")
 		end
 		--@end-alpha@
