@@ -366,25 +366,25 @@ do
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
 
-		if reca["Level"] == recb["Level"] then
-			return reca["Name"] < recb["Name"]
+		if reca.skill_level == recb.skill_level then
+			return reca.name < recb.name
 		else
-			return reca["Level"] < recb["Level"]
+			return reca.skill_level < recb.skill_level
 		end
 	end
 
 	local function Sort_SkillDesc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
 
-		if reca["Level"] == recb["Level"] then
-			return reca["Name"] < recb["Name"]
+		if reca.skill_level == recb.skill_level then
+			return reca.name < recb.name
 		else
-			return recb["Level"] < reca["Level"]
+			return recb.skill_level < reca.skill_level
 		end
 	end
 
 	local function Sort_Name(a, b)
-		return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+		return recipe_list[a].name < recipe_list[b].name
 	end
 
 	-- Will only sort based off of the first acquire type
@@ -402,19 +402,19 @@ do
 
 		if reca["Type"] == A_CUSTOM then
 			if reca["ID"] == recb["ID"] then
-				return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+				return recipe_list[a].name < recipe_list[b].name
 			else
 				return reca["ID"] < recb["ID"]
 			end
 		else
-			return recipe_list[a]["Name"] < recipe_list[b]["Name"]
+			return recipe_list[a].name < recipe_list[b].name
 		end
 	end
 
 	local function Sort_Location(a, b)
 		-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-		local reca = recipe_list[a]["Locations"] or ""
-		local recb = recipe_list[b]["Locations"] or ""
+		local reca = recipe_list[a].locations or ""
+		local recb = recipe_list[b].locations or ""
 
 		reca = smatch(reca,"(%w+), ") or reca
 		recb = smatch(recb,"(%w+), ") or recb
@@ -589,7 +589,7 @@ do
 		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
 		local recipe_entry = addon.recipe_list[rIndex]
-		local spell_link = recipe_entry["RecipeLink"]
+		local spell_link = recipe_entry.spell_link
 		local MainPanel = addon.Frame
 
 		if acquire_tip_anchor == _G.OFF then
@@ -628,7 +628,7 @@ do
 		acquire_tip:Clear()
 		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry["Name"], "CENTER", 2)
+		acquire_tip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry.name, "CENTER", 2)
 
 		-- check if the recipe is excluded
 		local exclude = addon.db.profile.exclusionlist
@@ -640,7 +640,7 @@ do
 		-- Add in skill level requirement, colored correctly
 		local color_1 = addon:hexcolor("NORMAL")
 
-		local recipe_level = recipe_entry["Level"]
+		local recipe_level = recipe_entry.skill_level
 		local skill_level = Player["ProfessionLevel"]
 		local color_2
 
@@ -655,7 +655,7 @@ do
 		else
 			color_2 = addon:hexcolor("MIDGREY")
 		end
-		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry["Level"], color_2)
+		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry.skill_level, color_2)
 
 		-- Binding info
 		acquire_tip:AddSeparator()
@@ -2123,21 +2123,21 @@ do
 	-------------------------------------------------------------------------------
 	local function ColourSkillLevel(recipeEntry, hasFaction, recipe_text)
 		local skill_level = Player["ProfessionLevel"]
-		local recipe_level = recipeEntry["Level"]
-		local recipeOrange = recipeEntry["Orange"]
-		local recipeYellow = recipeEntry["Yellow"]
-		local recipeGreen = recipeEntry["Green"]
-		local recipeGrey = recipeEntry["Grey"]
+		local recipe_level = recipeEntry.skill_level
+		local optimal_level = recipeEntry.optimal_level
+		local medium_level = recipeEntry.medium_level
+		local easy_level = recipeEntry.easy_level
+		local trivial_level = recipeEntry.trivial_level
 
 		if recipe_level > skill_level or not hasFaction then
 			return addon:Red(recipe_text)
-		elseif skill_level >= recipeGrey then
+		elseif skill_level >= trivial_level then
 			return addon:MidGrey(recipe_text)
-		elseif skill_level >= recipeGreen then
+		elseif skill_level >= easy_level then
 			return addon:Green(recipe_text)
-		elseif skill_level >= recipeYellow then
+		elseif skill_level >= medium_level then
 			return addon:Yellow(recipe_text)
-		elseif skill_level >= recipeOrange then
+		elseif skill_level >= optimal_level then
 			return addon:Orange(recipe_text)
 		else
 			--@alpha@
@@ -2167,12 +2167,12 @@ do
 				local recipe_entry = recipe_list[recipe_index]
 
 				if recipe_entry["Display"] and recipe_entry["Search"] then
-					local recipe_string = recipe_entry["Name"]
+					local recipe_string = recipe_entry.name
 
 					if exclusions[recipe_index] then
 						recipe_string = "** " .. recipe_string .. " **"
 					end
-					local recipe_level = recipe_entry["Level"]
+					local recipe_level = recipe_entry.skill_level
 
 					recipe_string = skill_sort and ("[" .. recipe_level .. "] - " .. recipe_string) or (recipe_string .. " - [" .. recipe_level .. "]")
 
@@ -3405,12 +3405,12 @@ function addon:InitializeFrame()
 	local SearchRecipes
 	do
 		local search_params = {
-			["ItemID"]	= true,
-			["Name"]	= true,
-			["Locations"]	= true,
-			["Specialty"]	= true,
-			["Level"]	= true,
-			["Rarity"]	= true,
+			["item_id"]	= true,
+			["name"]	= true,
+			["locations"]	= true,
+			["specialty"]	= true,
+			["skill_level"]	= true,
+			["quality"]	= true,
 		}
 		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
 		function SearchRecipes(pattern)
@@ -3562,7 +3562,7 @@ function addon:InitializeFrame()
 				if IsControlKeyDown() and IsShiftKeyDown() then
 					addon:SetupMap(clicked_line.recipe_id)
 				elseif IsShiftKeyDown() then
-					local itemID = addon.recipe_list[clicked_line.recipe_id]["ItemID"]
+					local itemID = addon.recipe_list[clicked_line.recipe_id].item_id
 
 					if itemID then
 						local _, itemLink = GetItemInfo(itemID)
@@ -3576,7 +3576,7 @@ function addon:InitializeFrame()
 						addon:Print(L["NoItemLink"])
 					end
 				elseif IsControlKeyDown() then
-					ChatFrameEditBox:Insert(addon.recipe_list[clicked_line.recipe_id]["RecipeLink"])
+					ChatFrameEditBox:Insert(addon.recipe_list[clicked_line.recipe_id].spell_link)
 				elseif IsAltKeyDown() then
 					-- Code needed here to insert this item into the "Ignore List"
 					addon:ToggleExcludeRecipe(clicked_line.recipe_id)

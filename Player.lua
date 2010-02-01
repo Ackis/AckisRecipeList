@@ -78,9 +78,9 @@ function Player:MarkExclusions()
 				recipe["Display"] = false
 			end
 
-			local tmp_prof = GetSpellInfo(recipe["Profession"])
+			local tmp_prof = GetSpellInfo(recipe.profession)
 
-			if not recipe["Known"] and tmp_prof == profession then
+			if not recipe.is_known and tmp_prof == profession then
 				known_count = known_count + 1
 			elseif tmp_prof == profession then
 				unknown_count = unknown_count + 1

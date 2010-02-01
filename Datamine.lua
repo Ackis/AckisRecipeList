@@ -1065,8 +1065,8 @@ do
 		twipe(reverse_lookup)
 
 		for i in pairs(recipe_list) do
-			--if t[recipe_list[i]["Name"]] then addon:Print("Dupe: " .. i) end
-			reverse_lookup[recipe_list[i]["Name"]] = i
+			--if t[recipe_list[i].name] then addon:Print("Dupe: " .. i) end
+			reverse_lookup[recipe_list[i].name] = i
 		end
 
 		return reverse_lookup
@@ -1127,11 +1127,11 @@ do
 		twipe(output)
 
 		for i in pairs(recipe_list) do
-			local i_name = recipe_list[i]["Name"]
+			local i_name = recipe_list[i].name
 
-			if info[i_name] and info[i_name] ~= recipe_list[i]["Level"] then
+			if info[i_name] and info[i_name] ~= recipe_list[i].skill_level then
 				found = true
-				tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i]["Level"], info[i_name]))
+				tinsert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, info[i_name]))
 			end
 		end
 		tinsert(output, "Trainer Skill Level Scan Complete.")
@@ -1206,7 +1206,7 @@ do
 		local noteachflag = false
 
 		for i in pairs(recipe_list) do
-			local i_name = recipe_list[i]["Name"]
+			local i_name = recipe_list[i].name
 			local acquire = recipe_list[i]["Acquire"]
 			local flags = recipe_list[i]["Flags"]
 
@@ -1255,7 +1255,7 @@ do
 			tsort(teach)
 
 			for i in ipairs(teach) do
-				tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]]["Name"]))
+				tinsert(output, L["DATAMINER_TRAINER_TEACH"]:format(teach[i], recipe_list[teach[i]].name))
 			end
 		end
 
@@ -1264,7 +1264,7 @@ do
 			tsort(noteach)
 
 			for i in ipairs(noteach) do
-				tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]]["Name"]))
+				tinsert(output, L["DATAMINER_TRAINER_NOTTEACH"]:format(noteach[i], recipe_list[noteach[i]].name))
 			end
 		end
 		tinsert(output, "Trainer Acquire Scan Complete.")
@@ -1375,7 +1375,7 @@ do
 		twipe(recipe_list)
 
 		for i in pairs(master_list) do
-			local prof = strlower(master_list[i]["Profession"])
+			local prof = strlower(master_list[i].profession)
 
 			if prof and prof == prof_name then
 				recipe_list[i] = master_list[i]
@@ -1644,8 +1644,8 @@ do
 			self:Print(string.format("Spell ID %d does not exist in the database.", tonumber(spell_id)))
 			return
 		end
-		local recipe_name = spell_info["Name"]
-		local game_vers = spell_info["Game"]
+		local recipe_name = spell_info.name
+		local game_vers = spell_info.genesis
 
 		twipe(output)
 
@@ -1654,29 +1654,30 @@ do
 		elseif game_vers > 2 then
 			tinsert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
-		local Orange = spell_info["Orange"]
-		local Yellow = spell_info["Yellow"]
-		local Green = spell_info["Green"]
-		local Grey = spell_info["Grey"]
-		local SkillLevel = spell_info["Level"]
+		local optimal_level = spell_info.optimal_level
+		local medium_level = spell_info.medium_level
+		local easy_level = spell_info.easy_level
+		local trivial_level = spell_info.trivial_level
+		local SkillLevel = spell_info.skill_level
 
-		if not Orange then
+		if not optimal_level then
 			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
-			if Orange > SkillLevel then
-				tinsert(output, "Skill Level Error (Orange > Skill): " .. tostring(spell_id) .. " " .. recipe_name)
+			if optimal_level > SkillLevel then
+				tinsert(output, "Skill Level Error (optimal_level > Skill): " .. tostring(spell_id) .. " " .. recipe_name)
 			end
+
 			-- Level info is messed up
-			if Orange > Yellow or Orange > Green or Orange > Grey or Yellow > Green or Yellow > Grey or Green > Grey then
+			if optimal_level > medium_level or optimal_level > easy_level or optimal_level > trivial_level or medium_level > easy_level or medium_level > trivial_level or easy_level > trivial_level then
 				tinsert(output, "Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
-		local recipe_link = spell_info["RecipeLink"]
+		local recipe_link = spell_info.spell_link
 
 		if not recipe_link then
-			if spell_info["Profession"] ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
-				self:Print("Missing RecipeLink for ID " .. spell_id .. " - " .. recipe_name .. " (Normal for DK abilities.")
+			if spell_info.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
+				self:Print("Missing spell_link for ID " .. spell_id .. " - " .. recipe_name .. " (Normal for DK abilities.")
 			end
 			return
 		end
@@ -2321,15 +2322,15 @@ do
 		end
 
 		if (scan_data.specialty) then
-			if (not scan_data.recipe_list[spell_id]["Specialty"]) then
+			if (not scan_data.recipe_list[spell_id].specialty) then
 				addedtotable = true
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Missing Specialty: " .. scan_data.specialty)
-			elseif (scan_data.recipe_list[spell_id]["Specialty"] ~= scan_data.specialty) then
+			elseif (scan_data.recipe_list[spell_id].specialty ~= scan_data.specialty) then
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
 			end
-		elseif (scan_data.recipe_list[spell_id]["Specialty"]) then
+		elseif (scan_data.recipe_list[spell_id].specialty) then
 			addedtotable = true
-			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id]["Specialty"])
+			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id].specialty)
 		end
 
 		if (addedtotable) then

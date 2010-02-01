@@ -487,12 +487,12 @@ function addon:OnInitialize()
 			       if mob and mob["DropList"] then
 				       for spell_id in pairs(mob["DropList"]) do
 					       local recipe = RecipeList[spell_id]
-					       local skill_level = Player["Professions"][GetSpellInfo(recipe["Profession"])]
+					       local skill_level = Player["Professions"][GetSpellInfo(recipe.profession)]
 
-					       if skill_level and not recipe["Known"] or shifted then
-						       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+					       if skill_level and not recipe.is_known or shifted then
+						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
-						       self:AddLine("Drops: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+						       self:AddLine("Drops: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
 					       end
 				       end
 				       return
@@ -502,17 +502,17 @@ function addon:OnInitialize()
 			       if vendor and vendor["SellList"] then
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local recipe = RecipeList[spell_id]
-					       local recipe_prof = GetSpellInfo(recipe["Profession"])
+					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player["Scanned"][recipe_prof]
 
 					       if scanned then
 						       local skill_level = Player["Professions"][recipe_prof]
-						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
+						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-						       if ((not recipe["Known"] and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-							       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+							       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
-							       self:AddLine("Sells: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+							       self:AddLine("Sells: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
 						       end
 					       end
 				       end
@@ -523,17 +523,17 @@ function addon:OnInitialize()
 			       if trainer and trainer["TrainList"] then
 				       for spell_id in pairs(trainer["TrainList"]) do
 					       local recipe = RecipeList[spell_id]
-					       local recipe_prof = GetSpellInfo(recipe["Profession"])
+					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player["Scanned"][recipe_prof]
 
 					       if scanned then
 						       local skill_level = Player["Professions"][recipe_prof]
-						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe["Level"])
+						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-						       if ((not recipe["Known"] and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-							       local _, _, _, hex = GetItemQualityColor(recipe["Rarity"])
+						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+							       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
-							       self:AddLine("Trains: "..hex..recipe["Name"].."|r ("..recipe["Level"]..")")
+							       self:AddLine("Trains: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
 						       end
 					       end
 				       end
@@ -846,27 +846,26 @@ end
 --- Adds a tradeskill recipe into the specified recipe database.
 -- @name AckisRecipeList:addTradeSkill
 -- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259,0,1,55,75,95)
--- @param RecipeDB The database (array) which you wish to add data too.
--- @param SpellID The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe being added to the database.
--- @param SkillLevel The skill level at which the recipe may be learned.
--- @param ItemID The [[http://www.wowwiki.com/ItemLink | Item ID]] that is created by the recipe, or nil
--- @param Rarity The rarity of the recipe.
--- @param Profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
--- @param Specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
--- @param Game Game version recipe was found in, for example, Original, BC, or Wrath.
--- @param Orange Level at which recipe is considered orange.
--- @param Yellow Level at which recipe is considered yellow.
--- @param Green Level at which recipe is considered green.
--- @param Grey Level at which recipe is considered grey.
+-- @param RecipeDB The database table which you wish to add data too.
+-- @param spell_id The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe being added to the database.
+-- @param skill_level The skill level at which the recipe may be learned.
+-- @param item_id The [[http://www.wowwiki.com/ItemLink | Item ID]] that is created by the recipe, or nil
+-- @param quality The quality/rarity of the recipe.
+-- @param profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
+-- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
+-- @param genesis Game version recipe was found in, for example, Original, BC, or Wrath.
+-- @param optimal_level Level at which recipe is considered orange.
+-- @param medium_level Level at which recipe is considered yellow.
+-- @param easy_level Level at which recipe is considered green.
+-- @param trivial_level Level at which recipe is considered grey.
 -- @return None, array is passed as a reference.
-function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
-	local spellLink = GetSpellLink(SpellID)
-	local profession_id = GetSpellInfo(Profession)
-	local recipe_name = GetSpellInfo(SpellID)
+function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+	local profession_id = GetSpellInfo(profession)
+	local recipe_name = GetSpellInfo(spell_id)
 
-	if RecipeDB[SpellID] then
+	if RecipeDB[spell_id] then
 		--@alpha@
-		self:Print("Duplicate recipe: "..profession_id.." "..tostring(SpellID).." "..recipe_name)
+		self:Print("Duplicate recipe: "..profession_id.." "..tostring(spell_id).." "..recipe_name)
 		--@end-alpha@
 		return
 	end
@@ -875,35 +874,34 @@ function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Prof
 	-- Create a table inside the RecipeListing table which stores all information
 	-- about a recipe
 	-------------------------------------------------------------------------------
-	RecipeDB[SpellID] = {
-		["Level"] = SkillLevel,
-		["ItemID"] = ItemID,
-		["Rarity"] = Rarity,
-		["Profession"] = profession_id,
-		["Locations"] = nil,
-		["RecipeLink"] = spellLink,
-		["Name"] = recipe_name,
-		["Display"] = true,				-- Set to be displayed until the filtering occurs
-		["Search"] = true,				-- Set to be showing in the search results
-		["Flags"] = {},					-- Create the flag space in the RecipeDB
-		["Acquire"] = {},				-- Create the Acquire space in the RecipeDB
-		["Specialty"] = Specialty,			-- Assumption: there will only be 1 speciality for a trade skill
-		["Game"] = Game,
-		["Orange"] = Orange or SkillLevel,		-- If we don't have an orange value in the db, just assume the skill level
-		["Yellow"] = Yellow or SkillLevel + 10,		-- If we don't have a yellow value in the db, just assume the skill level
-		["Green"] = Green or SkillLevel + 15,		-- If we don't have a green value in the db, just assume the skill level
-		["Grey"] = Grey or SkillLevel + 20,		-- If we don't have a grey value in the db, just assume the skill level
+	local recipe = {
+		["skill_level"]		= skill_level,
+		["item_id"]		= item_id,
+		["quality"]		= quality,
+		["profession"]		= profession_id,
+		["spell_link"]		= GetSpellLink(spell_id),
+		["name"]		= recipe_name,
+		["Display"]		= true,				-- Set to be displayed until the filtering occurs
+		["Search"]		= true,				-- Set to be showing in the search results
+		["Flags"]		= {},				-- Create the flag space in the RecipeDB
+		["Acquire"]		= {},				-- Create the Acquire space in the RecipeDB
+		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
+		["genesis"]		= genesis,
+		["optimal_level"]	= optimal_level or skill_level,
+		["medium_level"]	= medium_level or skill_level + 10,
+		["easy_level"]		= easy_level or skill_level + 15,
+		["trivial_level"]	= trivial_level or skill_level + 20,
 	}
-	local recipe = RecipeDB[SpellID]
 
-	if not recipe["Name"] then
-		self:Print(strformat(L["SpellIDCache"], SpellID))
+	if not recipe.name then
+		self:Print(strformat(L["SpellIDCache"], spell_id))
 	end
 
 	-- Set all the flags to be false, will also set the padding spaces to false as well.
 	for i = 1, NUM_FILTER_FLAGS, 1 do
 		recipe["Flags"][i] = false
 	end
+	RecipeDB[spell_id] = recipe
 end
 
 --- Adds filtering flags to a specific tradeskill.
@@ -1090,7 +1088,7 @@ do
 		end
 		-- Populate the location field with all the data
 		table.sort(location_list, LocationSort)
-		DB[SpellID]["Locations"] = (#location_list == 0 and "" or tconcat(location_list, ", "))
+		DB[SpellID].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
@@ -1196,20 +1194,20 @@ do
 		end
 
 		-- Display all skill levels?
-		if not general_filters.skill and recipe["Level"] > Player["ProfessionLevel"] then
+		if not general_filters.skill and recipe.skill_level > Player["ProfessionLevel"] then
 			return false
 		end
 
 		-- Display all specialities?
 		if not general_filters.specialty then
-			local specialty = recipe["Specialty"]
+			local specialty = recipe.specialty
 
 			if specialty and specialty ~= Player["Specialty"] then
 				return false
 			end
 		end
 		local obtain_filters = filter_db.obtain
-		local game_version = recipe["Game"]
+		local game_version = recipe.genesis
 
 		-- Filter out game recipes
 		if not obtain_filters.originalwow and game_version == GAME_ORIG then
@@ -1421,8 +1419,8 @@ do
 		local current_profession = Player["Profession"]
 
 		for recipe_id, recipe in pairs(RecipeList) do
-			if recipe["Profession"] == current_profession then
-				local is_known = recipe["Known"]
+			if recipe.profession == current_profession then
+				local is_known = recipe.is_known
 
 				can_display = CanDisplayRecipe(recipe)
 				recipes_total = recipes_total + 1
@@ -1560,7 +1558,7 @@ do
 
 		--- Set the known flag to false for every recipe in the database.
 		for SpellID in pairs(RecipeList) do
-			RecipeList[SpellID]["Known"] = false
+			RecipeList[SpellID].is_known = false
 		end
 
 		-------------------------------------------------------------------------------
@@ -1608,7 +1606,7 @@ do
 				local recipe = RecipeList[tonumber(SpellString)]
 
 				if recipe then
-					recipe["Known"] = true
+					recipe.is_known = true
 					recipes_found = recipes_found + 1
 				else
 					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))
@@ -1794,15 +1792,15 @@ do
 		tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 
 		for SpellID in pairs(RecipeDB) do
-			local recipe_prof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
+			local recipe_prof = GetSpellInfo(RecipeDB[SpellID].profession)
 
 			if recipe_prof == profession then
 				-- Add Spell ID, Name and Skill Level to the list
 				tinsert(text_table, SpellID)
 				tinsert(text_table, ",")
-				tinsert(text_table, RecipeDB[SpellID]["Name"])
+				tinsert(text_table, RecipeDB[SpellID].name)
 				tinsert(text_table, ",")
-				tinsert(text_table, RecipeDB[SpellID]["Level"])
+				tinsert(text_table, RecipeDB[SpellID].skill_level)
 				tinsert(text_table, ",\"")
 
 				-- Add in all the filter flags
@@ -1842,7 +1840,7 @@ do
 					prev = true
 				end
 
-				if (RecipeDB[SpellID]["Known"]) then
+				if RecipeDB[SpellID].is_known then
 					tinsert(text_table, "\",true\n")
 				else
 					tinsert(text_table, "\",false\n")
