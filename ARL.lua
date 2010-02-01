@@ -390,7 +390,7 @@ function addon:OnInitialize()
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
 				      local cprof = GetTradeSkillLine()
-				      local current_prof = Player["Profession"]
+				      local current_prof = Player.current_prof
 
 				      if addon.Frame:IsVisible() then
 					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
@@ -483,7 +483,7 @@ function addon:OnInitialize()
 			       if mob and mob.drop_list then
 				       for spell_id in pairs(mob.drop_list) do
 					       local recipe = recipe_list[spell_id]
-					       local skill_level = Player["Professions"][GetSpellInfo(recipe.profession)]
+					       local skill_level = Player.professions[GetSpellInfo(recipe.profession)]
 
 					       if skill_level and not recipe.is_known or shifted then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
@@ -499,10 +499,10 @@ function addon:OnInitialize()
 				       for spell_id in pairs(vendor.sells) do
 					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
-					       local scanned = Player["Scanned"][recipe_prof]
+					       local scanned = Player.has_scanned[recipe_prof]
 
 					       if scanned then
-						       local skill_level = Player["Professions"][recipe_prof]
+						       local skill_level = Player.professions[recipe_prof]
 						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
 						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
@@ -520,10 +520,10 @@ function addon:OnInitialize()
 				       for spell_id in pairs(trainer.teaches) do
 					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
-					       local scanned = Player["Scanned"][recipe_prof]
+					       local scanned = Player.has_scanned[recipe_prof]
 
 					       if scanned then
-						       local skill_level = Player["Professions"][recipe_prof]
+						       local skill_level = Player.professions[recipe_prof]
 						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
 						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
@@ -630,7 +630,7 @@ function addon:OnEnable()
 	-- Initialize the player's data.
 	-------------------------------------------------------------------------------
 	do
-		Player["Faction"] = UnitFactionGroup("player")
+		Player.faction = UnitFactionGroup("player")
 		Player["Class"] = select(2, UnitClass("player"))
 
 		-------------------------------------------------------------------------------
@@ -642,7 +642,7 @@ function addon:OnEnable()
 		-------------------------------------------------------------------------------
 		-- Get the player's professions.
 		-------------------------------------------------------------------------------
-		Player["Professions"] = {
+		Player.professions = {
 			[GetSpellInfo(51304)] = false, -- Alchemy
 			[GetSpellInfo(51300)] = false, -- Blacksmithing
 			[GetSpellInfo(51296)] = false, -- Cooking
@@ -661,10 +661,10 @@ function addon:OnEnable()
 		-------------------------------------------------------------------------------
 		-- Set the scanned state for all professions to false.
 		-------------------------------------------------------------------------------
-		Player["Scanned"] = {}
+		Player.has_scanned = {}
 
-		for profession in pairs(Player["Professions"]) do
-			Player["Scanned"][profession] = false
+		for profession in pairs(Player.professions) do
+			Player.has_scanned[profession] = false
 		end
 
 	end	-- do
@@ -975,7 +975,7 @@ do
 					self:Print("SpellID "..SpellID..": TrainerID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = trainer_list[acquire_id]["Location"]
+					location = trainer_list[acquire_id].location
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
@@ -996,7 +996,7 @@ do
 					self:Print("SpellID "..SpellID..": VendorID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = vendor_list[acquire_id]["Location"]
+					location = vendor_list[acquire_id].location
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
@@ -1017,7 +1017,7 @@ do
 					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = mob_list[acquire_id]["Location"]
+					location = mob_list[acquire_id].location
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
@@ -1038,7 +1038,7 @@ do
 					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
-					location = quest_list[acquire_id]["Location"]
+					location = quest_list[acquire_id].location
 
 					if not location_checklist[location] then
 						tinsert(location_list, location)
@@ -1061,7 +1061,7 @@ do
 				vendor_list[rep_vendor].sells = vendor_list[rep_vendor].sells or {}
 				vendor_list[rep_vendor].sells[SpellID] = true
 
-				location = vendor_list[rep_vendor]["Location"]
+				location = vendor_list[rep_vendor].location
 
 				if not location_checklist[location] then
 					tinsert(location_list, location)
@@ -1102,11 +1102,11 @@ end	-- do block
 -- @usage AckisRecipeList:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 -- @param DB Database which the entry will be stored.
 -- @param ID Unique identified for the entry.
--- @param Name Name of the entry.
--- @param Loc Location of the entry in the world.
--- @param Coordx X coordinate of where the entry is found.
--- @param Coordy Y coordinate of where the entry is found.
--- @param Faction Faction identifier for the entry.
+-- @param name Name of the entry.
+-- @param location Location of the entry in the world.
+-- @param coord_x X coordinate of where the entry is found.
+-- @param coord_y Y coordinate of where the entry is found.
+-- @param faction Faction identifier for the entry.
 -- @return None, array is passed as a reference.
 --For individual database structures, see Documentation.lua
 do
@@ -1115,22 +1115,23 @@ do
 		[2]	= BFAC["Alliance"],
 		[3]	= BFAC["Horde"]
 	}
-	function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
+	function addon:addLookupList(DB, ID, name, location, coord_x, coord_y, faction)
 		if DB[ID] then
 			--@alpha@
-			self:Print("Duplicate lookup: "..tostring(ID).." "..Name)
+			self:Print("Duplicate lookup: "..tostring(ID).." "..name)
 			--@end-alpha@
 			return
 		end
 
 		DB[ID] = {
-			["Name"]	= Name,
-			["Location"]	= Loc or L["Unknown Zone"],
-			["Faction"]	= Faction and FACTION_NAMES[Faction + 1] or nil
+			["name"]	= name,
+			["location"]	= location or L["Unknown Zone"],
+			["faction"]	= faction and FACTION_NAMES[faction + 1] or nil
 		}
-		if Coordx and Coordy then
-			DB[ID]["Coordx"] = Coordx
-			DB[ID]["Coordy"] = Coordy
+
+		if coord_x and coord_y then
+			DB[ID]["coord_x"] = coord_x
+			DB[ID]["coord_y"] = coord_y
 		end
 
 		if DB == private.quest_list then
@@ -1140,11 +1141,11 @@ do
 			local quest_name = _G["GameTooltipTextLeft1"]:GetText()
 			GameTooltip:Hide()
 
-			DB[ID]["Name"] = quest_name and quest_name or "Missing name: Quest "..ID
+			DB[ID].name = quest_name or "Missing name: Quest "..ID
 		end
 		--@alpha@
 		if not Loc then
-			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
+			self:Print("Spell ID: " .. ID .. " (" .. DB[ID].name .. ") has an unknown location.")
 		end
 		--@end-alpha@
 	end
@@ -1421,7 +1422,7 @@ do
 		local recipes_total_filtered = 0
 		local recipes_known_filtered = 0
 		local can_display = false
-		local current_profession = Player["Profession"]
+		local current_profession = Player.current_prof
 		local recipe_list = private.recipe_list
 
 		for recipe_id, recipe in pairs(recipe_list) do
@@ -1534,17 +1535,17 @@ do
 		local current_prof, prof_level = GetTradeSkillLine()
 
 		-- Set the current profession and its level, and update the cached data.
-		Player["Profession"] = current_prof
+		Player.current_prof = current_prof
 		Player["ProfessionLevel"] = prof_level
-		Player["Scanned"][current_prof] = true
+		Player.has_scanned[current_prof] = true
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-		if not IsTradeSkillLinked() and Player["Professions"][current_prof] then
-			Player["Professions"][current_prof] = prof_level
+		if not IsTradeSkillLinked() and Player.professions[current_prof] then
+			Player.professions[current_prof] = prof_level
 		end
 
 		-- Get the current profession Specialty
-		local specialty = SpecialtyTable[Player["Profession"]]
+		local specialty = SpecialtyTable[Player.current_prof]
 
 		for index = 1, 25, 1 do
 			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
@@ -1560,7 +1561,7 @@ do
 
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		Player.totalRecipes = addon:InitializeRecipe(Player["Profession"])
+		Player.totalRecipes = addon:InitializeRecipe(Player.current_prof)
 
 		--- Set the known flag to false for every recipe in the database.
 		local recipe_list = private.recipe_list
@@ -1648,7 +1649,7 @@ do
 		Player:MarkExclusions()
 
 		if textdump then
-			self:DisplayTextDump(recipe_list, Player["Profession"])
+			self:DisplayTextDump(recipe_list, Player.current_prof)
 		else
 			self:DisplayFrame()
 		end

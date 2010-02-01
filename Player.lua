@@ -104,7 +104,7 @@ function Player:HasProperRepLevel(recipe_index)
 	local REP_KURENI	= 978
 
 	local has_faction = true
-	local is_alliance = self["Faction"] == BFAC["Alliance"]
+	local is_alliance = self.faction == BFAC["Alliance"]
 	local player_rep = self["Reputation"]
 	local acquire_info = private.recipe_list[recipe_index]["Acquire"]
 	local reputations = private.reputation_list
@@ -118,7 +118,7 @@ function Player:HasProperRepLevel(recipe_index)
 			elseif rep_id == REP_MAGHAR or rep_id == REP_KURENI then
 				rep_id = is_alliance and REP_KURENI or REP_MAGHAR
 			end
-			local rep_name = reputations[rep_id]["Name"]
+			local rep_name = reputations[rep_id].name
 
 			if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
 				has_faction = false
@@ -133,9 +133,9 @@ function Player:HasProperRepLevel(recipe_index)
 end
 
 function Player:IsCorrectFaction(recipe_flags)
-	if self["Faction"] == BFAC["Alliance"] and recipe_flags[F_HORDE] and not recipe_flags[F_ALLIANCE] then
+	if self.faction == BFAC["Alliance"] and recipe_flags[F_HORDE] and not recipe_flags[F_ALLIANCE] then
 		return false
-	elseif self["Faction"] == BFAC["Horde"] and recipe_flags[F_ALLIANCE] and not recipe_flags[F_HORDE] then
+	elseif self.faction == BFAC["Horde"] and recipe_flags[F_ALLIANCE] and not recipe_flags[F_HORDE] then
 		return false
 	end
 	return true
@@ -144,7 +144,7 @@ end
 -- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
 -- TODO: Make the AddOn actually detect when a profession is learned/unlearned, then call this function. -Torhal
 function Player:SetProfessions()
-	local profession_list = self["Professions"]
+	local profession_list = self.professions
 
 	for i in pairs(profession_list) do
 		profession_list[i] = false

@@ -569,7 +569,7 @@ do
 		if comp_faction == FACTION_HORDE then
 			color = addon:hexcolor("HORDE")
 
-			if Player["Faction"] == FACTION_HORDE then
+			if Player.faction == FACTION_HORDE then
 				display_tip = true
 			else
 				faction = FACTION_HORDE
@@ -577,7 +577,7 @@ do
 		elseif comp_faction == FACTION_ALLIANCE then
 			color = addon:hexcolor("ALLIANCE")
 
-			if Player["Faction"] == FACTION_ALLIANCE then
+			if Player.faction == FACTION_ALLIANCE then
 				display_tip = true
 			else
 				faction = FACTION_ALLIANCE
@@ -675,7 +675,7 @@ do
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
-		local playerFaction = Player["Faction"]
+		local playerFaction = Player.faction
 		local rep_list = private.reputation_list
 
 		for index, acquire in pairs(recipe_entry["Acquire"]) do
@@ -686,40 +686,40 @@ do
 				local trainer = private.trainer_list[acquire.ID]
 
 				color_1 = addon:hexcolor("TRAINER")
-				display_tip, color_2 = GetTipFactionInfo(trainer["Faction"])
+				display_tip, color_2 = GetTipFactionInfo(trainer.faction)
 
 				if display_tip then
 					local coord_text = ""
 
-					if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
-						coord_text = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
+					if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+						coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
 					end
-					ttAdd(0, -2, false, L["Trainer"], color_1, trainer["Name"], color_2)
+					ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
 
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
 
-					ttAdd(1, -2, true, trainer["Location"], color_1, coord_text, color_2)
+					ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
 				end
 			elseif acquire_type == A_VENDOR then
 				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
 				color_1 = addon:hexcolor("VENDOR")
-				display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
+				display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
 
 				if display_tip then
 					local coord_text = ""
 
-					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-						coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
 					end
-					ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
+					ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
 
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
 
-					ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
+					ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
 				elseif faction then
 					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 				end
@@ -727,18 +727,18 @@ do
 				local mob = private.mob_list[acquire.ID]
 				local coord_text = ""
 
-				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
-					coord_text = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+				if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+					coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
 				end
 				color_1 = addon:hexcolor("MOBDROP")
 				color_2 = addon:hexcolor("HORDE")
 
-				ttAdd(0, -1, false, L["Mob Drop"], color_1, mob["Name"], color_2)
+				ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
 
 				color_1 = addon:hexcolor("NORMAL")
 				color_2 = addon:hexcolor("HIGH")
 
-				ttAdd(1, -2, true, mob["Location"], color_1, coord_text, color_2)
+				ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
 			elseif acquire_type == A_QUEST then
 				local quest = private.quest_list[acquire.ID]
 
@@ -746,36 +746,36 @@ do
 					local faction
 
 					color_1 = addon:hexcolor("QUEST")
-					display_tip, color_2, faction = GetTipFactionInfo(quest["Faction"])
+					display_tip, color_2, faction = GetTipFactionInfo(quest.faction)
 
 					if display_tip then
 						local coord_text = ""
 
-						if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
-							coord_text = "(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")"
+						if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+							coord_text = "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")"
 						end
-						ttAdd(0, -1, false, L["Quest"], color_1, quest["Name"], color_2)
+						ttAdd(0, -1, false, L["Quest"], color_1, quest.name, color_2)
 
 						color_1 = addon:hexcolor("NORMAL")
 						color_2 = addon:hexcolor("HIGH")
 
-						ttAdd(1, -2, true, quest["Location"], color_1, coord_text, color_2)
+						ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
 					elseif faction then
 						ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
 					end
 				end
 			elseif acquire_type == A_SEASONAL then
 				color_1 = addon:hexcolor("SEASON")
-				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[acquire.ID]["Name"], color_1)
+				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[acquire.ID].name, color_1)
 			elseif acquire_type == A_REPUTATION then
 				local repvendor = private.vendor_list[acquire.rep_vendor]
 				local coord_text = ""
 
-				if repvendor["Coordx"] ~= 0 and repvendor["Coordy"] ~= 0 then
-					coord_text = "(" .. repvendor["Coordx"] .. ", " .. repvendor["Coordy"] .. ")"
+				if repvendor.coord_x ~= 0 and repvendor.coord_y ~= 0 then
+					coord_text = "(" .. repvendor.coord_x .. ", " .. repvendor.coord_y .. ")"
 				end
 				local repfac = rep_list[acquire.ID]
-				local repname = repfac["Name"]
+				local repname = repfac.name
 
 				color_1 = addon:hexcolor("REP")
 				color_2 = addon:hexcolor("NORMAL")
@@ -800,15 +800,15 @@ do
 					rStr = BFAC["Exalted"]
 					color_1 = addon:hexcolor("EXALTED")
 				end
-				display_tip, color_2 = GetTipFactionInfo(repvendor["Faction"])
+				display_tip, color_2 = GetTipFactionInfo(repvendor.faction)
 
 				if display_tip then
-					ttAdd(1, -2, false, rStr, color_1, repvendor["Name"], color_2)
+					ttAdd(1, -2, false, rStr, color_1, repvendor.name, color_2)
 
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
 
-					ttAdd(2, -2, true, repvendor["Location"], color_1, coord_text, color_2)
+					ttAdd(2, -2, true, repvendor.location, color_1, coord_text, color_2)
 				end
 			elseif acquire_type == A_WORLD_DROP then
 				local acquire_id = acquire.ID
@@ -826,26 +826,26 @@ do
 				end
 				ttAdd(0, -1, false, L["World Drop"], color_1)
 			elseif acquire_type == A_CUSTOM then
-				ttAdd(0, -1, false, private.custom_list[acquire.ID]["Name"], addon:hexcolor("NORMAL"))
+				ttAdd(0, -1, false, private.custom_list[acquire.ID].name, addon:hexcolor("NORMAL"))
 			elseif acquire_type == A_PVP then
 				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
 				color_1 = addon:hexcolor("VENDOR")
-				display_tip, color_2, faction = GetTipFactionInfo(vendor["Faction"])
+				display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
 
 				if display_tip then
 					local coord_text = ""
 
-					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-						coord_text = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
 					end
-					ttAdd(0, -1, false, L["Vendor"], color_1, vendor["Name"], color_2)
+					ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
 
 					color_1 = addon:hexcolor("NORMAL")
 					color_2 = addon:hexcolor("HIGH")
 
-					ttAdd(1, -2, true, vendor["Location"], color_1, coord_text, color_2)
+					ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
 				elseif faction then
 					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 				end
@@ -991,7 +991,7 @@ end
 
 function MainPanel:SetProfession()
 	for k, v in pairs(SortedProfessions) do
-		if v.name == Player["Profession"] then
+		if v.name == Player.current_prof then
 			self.profession = k
 			break
 		end
@@ -1046,9 +1046,9 @@ function MainPanel:UpdateTitle()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player["Profession"], active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
 	else
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player["Profession"])
+		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player.current_prof)
 	end
 end
 
@@ -1070,7 +1070,7 @@ MainPanel.mode_button._disabled = MainPanel.mode_button:CreateTexture(nil, "BACK
 -------------------------------------------------------------------------------
 MainPanel.mode_button:SetScript("OnClick",
 				function(self, button, down)
-					-- Known professions should be in Player["Professions"]
+					-- Known professions should be in Player.professions
 
 
 					-- This loop is gonna be weird. The reason is because we need to
@@ -1101,7 +1101,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index > NUM_PROFESSIONS then
 								index = 1
-							elseif Player["Professions"][SortedProfessions[index].name] then
+							elseif Player.professions[SortedProfessions[index].name] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -1123,7 +1123,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index < 1 then
 								index = NUM_PROFESSIONS
-							elseif Player["Professions"][SortedProfessions[index].name] then
+							elseif Player.professions[SortedProfessions[index].name] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -2327,7 +2327,7 @@ do
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
-		return (not faction or faction == BFAC[Player["Faction"]] or faction == FACTION_NEUTRAL)
+		return (not faction or faction == BFAC[Player.faction] or faction == FACTION_NEUTRAL)
 	end
 
 	function MainPanel.scroll_frame:ExpandEntry(entry_index)
@@ -2349,15 +2349,15 @@ do
 			if acquire_type == A_TRAINER and obtain_filters.trainer then
 				local trainer = private.trainer_list[acquire.ID]
 
-				if CheckDisplayFaction(trainer["Faction"]) then
+				if CheckDisplayFaction(trainer.faction) then
 					local nStr = ""
 
-					if trainer["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(trainer["Name"])
-					elseif trainer["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(trainer["Name"])
+					if trainer.faction == FACTION_HORDE then
+						nStr = addon:Horde(trainer.name)
+					elseif trainer.faction == FACTION_ALLIANCE then
+						nStr = addon:Alliance(trainer.name)
 					else
-						nStr = addon:Neutral(trainer["Name"])
+						nStr = addon:Neutral(trainer.name)
 					end
 					t.text = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
 
@@ -2366,13 +2366,13 @@ do
 
 					local coord_text = ""
 
-					if trainer["Coordx"] ~= 0 and trainer["Coordy"] ~= 0 then
-						coord_text = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
+					if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. trainer["Location"] .. " " .. coord_text
+					t.text = pad .. pad .. trainer.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2383,15 +2383,15 @@ do
 			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 				local vendor = private.vendor_list[acquire.ID]
 
-				if CheckDisplayFaction(vendor["Faction"]) then
+				if CheckDisplayFaction(vendor.faction) then
 					local nStr = ""
 
-					if vendor["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(vendor["Name"])
-					elseif vendor["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(vendor["Name"])
+					if vendor.faction == FACTION_HORDE then
+						nStr = addon:Horde(vendor.name)
+					elseif vendor.faction == FACTION_ALLIANCE then
+						nStr = addon:Alliance(vendor.name)
 					else
-						nStr = addon:Neutral(vendor["Name"])
+						nStr = addon:Neutral(vendor.name)
 					end
 					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
@@ -2400,13 +2400,13 @@ do
 
 					local coord_text = ""
 
-					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-						coord_text = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. vendor["Location"] .. " " .. coord_text
+					t.text = pad .. pad .. vendor.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2414,35 +2414,35 @@ do
 				-- Mobs can be in instances, raids, or specific mob related drops.
 			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
 				local mob = private.mob_list[acquire.ID]
-				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
+				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob.name)
 
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 
 				local coord_text = ""
 
-				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
-					coord_text = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+					coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
 				end
 				t = AcquireTable()
 				t.recipe_id = recipe_id
 				t.is_expanded = true
-				t.text = pad .. pad .. mob["Location"] .. " " .. coord_text
+				t.text = pad .. pad .. mob.location .. " " .. coord_text
 
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_QUEST and obtain_filters.quest then
 				local quest = private.quest_list[acquire.ID]
 
-				if CheckDisplayFaction(quest["Faction"]) then
+				if CheckDisplayFaction(quest.faction) then
 					local nStr = ""
 
-					if quest["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(quest["Name"])
-					elseif quest["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(quest["Name"])
+					if quest.faction == FACTION_HORDE then
+						nStr = addon:Horde(quest.name)
+					elseif quest.faction == FACTION_ALLIANCE then
+						nStr = addon:Alliance(quest.name)
 					else
-						nStr = addon:Neutral(quest["Name"])
+						nStr = addon:Neutral(quest.name)
 					end
 					t.text = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
 
@@ -2451,19 +2451,19 @@ do
 
 					local coord_text = ""
 
-					if quest["Coordx"] ~= 0 and quest["Coordy"] ~= 0 then
-						coord_text = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+					if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. quest["Location"] .. " " .. coord_text
+					t.text = pad .. pad .. quest.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
-				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. private.seasonal_list[acquire.ID]["Name"])
+				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. private.seasonal_list[acquire.ID].name)
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -2473,8 +2473,8 @@ do
 				-- RepVendor - VendorID
 				local rep_vendor = private.vendor_list[acquire.rep_vendor]
 
-				if CheckDisplayFaction(rep_vendor["Faction"]) then
-					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. private.reputation_list[acquire.ID]["Name"]
+				if CheckDisplayFaction(rep_vendor.faction) then
+					t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. private.reputation_list[acquire.ID].name
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 
@@ -2489,12 +2489,12 @@ do
 					end
 					local nStr = ""
 
-					if rep_vendor["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(rep_vendor["Name"])
-					elseif rep_vendor["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(rep_vendor["Name"])
+					if rep_vendor.faction == FACTION_HORDE then
+						nStr = addon:Horde(rep_vendor.name)
+					elseif rep_vendor.faction == FACTION_ALLIANCE then
+						nStr = addon:Alliance(rep_vendor.name)
 					else
-						nStr = addon:Neutral(rep_vendor["Name"])
+						nStr = addon:Neutral(rep_vendor.name)
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
@@ -2507,13 +2507,13 @@ do
 
 					local coord_text = ""
 
-					if rep_vendor["Coordx"] ~= 0 and rep_vendor["Coordy"] ~= 0 then
-						coord_text = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
+					if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. coord_text
+					t.text = pad .. pad .. pad .. rep_vendor.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2523,26 +2523,26 @@ do
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_CUSTOM then
-				t.text = pad .. addon:Normal(private.custom_list[acquire.ID]["Name"])
+				t.text = pad .. addon:Normal(private.custom_list[acquire.ID].name)
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A_PVP and obtain_filters.pvp then
 				local vendor = private.vendor_list[acquire.ID]
 
-				if CheckDisplayFaction(vendor["Faction"]) then
+				if CheckDisplayFaction(vendor.faction) then
 					local coord_text = ""
 
-					if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
-						coord_text = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 					end
 					local nStr = ""
 
-					if vendor["Faction"] == FACTION_HORDE then
-						nStr = addon:Horde(vendor["Name"])
-					elseif vendor["Faction"] == FACTION_ALLIANCE then
-						nStr = addon:Alliance(vendor["Name"])
+					if vendor.faction == FACTION_HORDE then
+						nStr = addon:Horde(vendor.name)
+					elseif vendor.faction == FACTION_ALLIANCE then
+						nStr = addon:Alliance(vendor.name)
 					else
-						nStr = addon:Neutral(vendor["Name"])
+						nStr = addon:Neutral(vendor.name)
 					end
 					t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
@@ -2552,7 +2552,7 @@ do
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. vendor["Location"] .. " " .. coord_text
+					t.text = pad .. pad .. vendor.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
@@ -2701,7 +2701,7 @@ do
 		local mapquest = addon.db.profile.mapquest
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
-		local player_faction = Player["Faction"]
+		local player_faction = Player.faction
 		local acquire_type = acquire_entry.type
 		local acquire_id = acquire_entry.ID
 		local display = false
@@ -2709,21 +2709,21 @@ do
 		if acquire_type == A_TRAINER and maptrainer then
 			local trainer = private.trainer_list[acquire_id]
 
-			display = (trainer["Faction"] == BFAC[player_faction] or trainer["Faction"] == FACTION_NEUTRAL)
+			display = (trainer.faction == BFAC[player_faction] or trainer.faction == FACTION_NEUTRAL)
 		elseif acquire_type == A_VENDOR and mapvendor then
 			local vendor = private.vendor_list[acquire_id]
 
-			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
+			display = (vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL)
 		elseif acquire_type == A_REPUTATION and mapvendor then
 			local vendor = private.vendor_list[acquire_entry.rep_vendor]
 
-			display = (vendor["Faction"] == BFAC[player_faction] or vendor["Faction"] == FACTION_NEUTRAL)
+			display = (vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL)
 		elseif acquire_type == A_MOB and mapmob then
 			return true
 		elseif  acquire_type == A_QUEST and mapquest then
 			local quest = private.quest_list[acquire_id]
 
-			display = (quest["Faction"] == BFAC[player_faction] or quest["Faction"] == FACTION_NEUTRAL)
+			display = (quest.faction == BFAC[player_faction] or quest.faction == FACTION_NEUTRAL)
 		elseif acquire_type == A_CUSTOM then
 			if flags[F_TRAINER] and maptrainer then
 				return true
@@ -2982,7 +2982,7 @@ do
 
 		-- Get the proper icon to put on the mini-map
 		--		for i, k in pairs(SortedProfessions) do
-		--			if (k["name"] == Player["Profession"]) then
+		--			if (k["name"] == Player.current_prof) then
 		--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
 		--				break
 		--			end
@@ -3055,10 +3055,10 @@ do
 				custom = true
 			end
 
-			local name = loc["Name"]
-			local x = loc["Coordx"]
-			local y = loc["Coordy"]
-			local location = loc["Location"]
+			local name = loc.name
+			local x = loc.coord_x
+			local y = loc.coord_y
+			local location = loc.location
 			local continent, zone
 
 			if not loc then
@@ -3080,10 +3080,10 @@ do
 			elseif INSTANCE_LOCATIONS[location] then
 				local info = INSTANCE_LOCATIONS[location]
 
-				continent = info["c"]
-				x = info["x"]
-				y = info["y"]
-				zone = info["loc"]
+				continent = info.c
+				x = info.x
+				y = info.y
+				zone = info.loc
 				name = name .. " (" .. location .. ")"
 			else
 				--@alpha@
@@ -3360,7 +3360,7 @@ function addon:InitializeFrame()
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
 	-------------------------------------------------------------------------------
-	local isAlliance = (Player["Faction"] == "Alliance")
+	local isAlliance = (Player.faction == "Alliance")
 
 	local HonorHold_Thrallmar_FactionText = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
 	local Kurenai_Maghar_FactionText = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
