@@ -2141,7 +2141,7 @@ function addon:InitTailoring(RecipeDB)
 	self:addTradeAcquire(RecipeDB,56021,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 
 	-- Light Blessed Mittens -- 56022
-	AddRecipe(56022,420,42095,1,2,420,403,440,450)
+	AddRecipe(56022,420,42095,1,2,420,430,440,450)
 	self:addTradeFlags(RecipeDB,56022,1,2,3,36,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,56022,1,26914,1,26964,1,26969,1,27001,1,28699,1,33580)
 

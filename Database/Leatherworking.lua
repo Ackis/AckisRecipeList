@@ -84,7 +84,7 @@ function addon:InitLeatherworking(RecipeDB)
 	end
 
 	-- Handstitched Leather Boots -- 2149
-	AddRecipe(2149,10,2302,1,GAME_ORIG,1,40,55,70)
+	AddRecipe(2149,1,2302,1,GAME_ORIG,1,40,55,70)
 	self:addTradeFlags(RecipeDB,2149,1,2,3,36,41,57)
 	self:addTradeAcquire(RecipeDB,2149,8,8)
 
@@ -394,7 +394,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,6705,3,2636,3,1561,2,4897)
 
 	-- Handstitched Leather Vest -- 7126
-	AddRecipe(7126,10,5957,1,GAME_ORIG,1,40,55,70)
+	AddRecipe(7126,1,5957,1,GAME_ORIG,1,40,55,70)
 	self:addTradeFlags(RecipeDB,7126,1,2,3,36,41,57)
 	self:addTradeAcquire(RecipeDB,7126,8,8)
 
@@ -462,12 +462,12 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,8322,4,1582)
 
 	-- Handstitched Leather Cloak -- 9058
-	AddRecipe(9058,10,7276,1,GAME_ORIG,1,40,55,70)
+	AddRecipe(9058,1,7276,1,GAME_ORIG,1,40,55,70)
 	self:addTradeFlags(RecipeDB,9058,1,2,3,36,41,60)
 	self:addTradeAcquire(RecipeDB,9058,8,8)
 
 	-- Handstitched Leather Bracers -- 9059
-	AddRecipe(9059,10,7277,1,GAME_ORIG,1,40,55,70)
+	AddRecipe(9059,1,7277,1,GAME_ORIG,1,40,55,70)
 	self:addTradeFlags(RecipeDB,9059,1,2,3,36,41,57)
 	self:addTradeAcquire(RecipeDB,9059,8,8)
 
@@ -1002,7 +1002,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,19080,6,576,1,11557)
 
 	-- Chimeric Vest -- 19081
-	AddRecipe(19081,290,15075,2,GAME_ORIG,280,300,310,320)
+	AddRecipe(19081,290,15075,2,GAME_ORIG,290,310,320,330)
 	self:addTradeFlags(RecipeDB,19081,1,2,10,36,40,57)
 	self:addTradeAcquire(RecipeDB,19081,7,2)
 
@@ -1873,7 +1873,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB,36074,1,7868,1,7869,1,29507)
 
 	-- Wildfeather Leggings -- 36075
-	AddRecipe(36075,260,29970,1,2108,10661,1,260,280,290,300)
+	AddRecipe(36075,260,29970,1,1,260,280,290,300,10661)
 	self:addTradeFlags(RecipeDB,36075,1,2,3,37,41,53,54,57)
 	self:addTradeAcquire(RecipeDB,36075,1,7870,1,7871,1,29509)
 

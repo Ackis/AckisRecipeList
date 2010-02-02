@@ -823,7 +823,7 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28569,6,942,3,17904)
 
 	-- Elixir of Major Mageblood -- 28570
-	AddRecipe(28570,355,22840,2,1,350,365,372,380)
+	AddRecipe(28570,355,22840,2,1,355,370,375,380)
 	self:addTradeFlags(RecipeDB,28570, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_IBOE, F_RBOE)
 	self:addTradeAcquire(RecipeDB,28570,7,2)
 
@@ -869,32 +869,32 @@ function addon:InitAlchemy(RecipeDB)
 	self:addTradeAcquire(RecipeDB,28579,3,17862)
 
 	-- Transmute: Primal Shadow to Water -- 28580
-	AddRecipe(28580,370,21885,2,1,350,365,372,380)
+	AddRecipe(28580,375,21885,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28580, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28580,8,3)
 
 	-- Transmute: Primal Water to Shadow -- 28581
-	AddRecipe(28581,370,22456,2,1,350,365,372,380)
+	AddRecipe(28581,375,22456,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28581, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28581,8,3)
 
 	-- Transmute: Primal Mana to Fire -- 28582
-	AddRecipe(28582,370,21884,2,1,350,365,372,380)
+	AddRecipe(28582,375,21884,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28582, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28582,8,3)
 
 	-- Transmute: Primal Fire to Mana -- 28583
-	AddRecipe(28583,370,22457,2,1,350,365,372,380)
+	AddRecipe(28583,375,22457,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28583, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28583,8,3)
 
 	-- Transmute: Primal Life to Earth -- 28584
-	AddRecipe(28584,370,22452,2,1,350,365,372,380)
+	AddRecipe(28584,375,22452,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28584, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28584,8,3)
 
 	-- Transmute: Primal Earth to Life -- 28585
-	AddRecipe(28585,370,21886,2,1,350,365,372,380)
+	AddRecipe(28585,375,21886,2,1,375,375,377,380)
 	self:addTradeFlags(RecipeDB,28585, F_ALLIANCE, F_HORDE, F_DISC, F_IBOE, F_RBOP)
 	self:addTradeAcquire(RecipeDB,28585,8,3)
 

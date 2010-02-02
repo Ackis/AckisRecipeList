@@ -377,7 +377,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,13695,1,11072,1,11073,1,11074,1,19251,1,19252,1,33610,1,16633,1,1317,1,3606,1,4213,1,16725,1,3345,1,3011,1,33676,1,18773,1,5695,1,4616,1,7949,1,5157,1,19540,1,18753,1,16160)
 
 	-- Enchant Gloves - Skinning -- 13698
-	AddRecipe(13698,200,nil,1,GAME_ORIG,195,215,235,255)
+	AddRecipe(13698,200,nil,1,GAME_ORIG,200,220,240,260)
 	self:addTradeFlags(RecipeDB,13698,1,2,11,36,40)
 	self:addTradeAcquire(RecipeDB,13698,3,2556,3,2557,3,2558,3,2606)
 
@@ -850,7 +850,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,27913,7,1)
 
 	-- Enchant Bracer - Fortitude -- 27914
-	AddRecipe(27914,350,nil,1,1,320,330,345,360)
+	AddRecipe(27914,350,nil,1,1,350,370,375,380)
 	self:addTradeFlags(RecipeDB,27914,1,2,5,36,40)
 	self:addTradeAcquire(RecipeDB,27914,3,17803)
 
@@ -1250,7 +1250,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB,44575,2,32514)
 
 	-- Enchant Weapon - Lifeward -- 44576
-	AddRecipe(44576,440,nil,3,2,425,435,445,455)
+	AddRecipe(44576,425,nil,3,2,425,435,445,455)
 	self:addTradeFlags(RecipeDB,44576,1,2,4,36,41,66,67)
 	self:addTradeAcquire(RecipeDB,44576,2,32514)
 

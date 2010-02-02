@@ -161,7 +161,7 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 3377, A_QUEST, 93, A_VENDOR, 340)
 
 	-- Big Bear Steak -- 3397
-	AddRecipe(3397, 110, 3726, R_COMMON, GAME_ORIG, 10, 150, 170, 190)
+	AddRecipe(3397, 110, 3726, R_COMMON, GAME_ORIG, 110, 150, 170, 190)
 	self:addTradeFlags(RecipeDB, 3397, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_IBOE, F_RBOE, F_HEALER, F_CASTER)
 	self:addTradeAcquire(RecipeDB, 3397, A_QUEST, 498, A_VENDOR, 3960, A_VENDOR, 12246)
 

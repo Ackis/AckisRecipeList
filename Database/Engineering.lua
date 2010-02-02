@@ -351,7 +351,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,3969,2,2687)
 
 	-- Gnomish Cloaking Device -- 3971
-	AddRecipe(3971,200,4397,1,GAME_ORIG,20,220,230,240)
+	AddRecipe(3971,200,4397,1,GAME_ORIG,200,220,230,240)
 	self:addTradeFlags(RecipeDB,3971,1,2,4,5,36,40,61)
 	self:addTradeAcquire(RecipeDB,3971,3,7800,2,6777)
 
@@ -978,7 +978,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,26443,5,2,2,15909)
 
 	-- Steam Tonk Controller -- 28327
-	AddRecipe(28327,275,22728,1,GAME_ORIG,325,325,330,335)
+	AddRecipe(28327,275,22728,1,GAME_ORIG,275,275,280,285)
 	self:addTradeFlags(RecipeDB,28327,1,2,4,8,36,41)
 	self:addTradeAcquire(RecipeDB,28327,4,9249,2,3413,2,5175)
 
@@ -1113,7 +1113,7 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB,30348,2,16657,2,16782,2,18484)
 	
 	-- Titanium Toolbox -- 30349
-	AddRecipe(30349,440,23775,3,2,405,425,435,440)
+	AddRecipe(30349,405,23775,3,2,405,425,432,440)
 	self:addTradeFlags(RecipeDB,30349,1,2,4,36,41)
 	self:addTradeAcquire(RecipeDB,30349,2,28722)
 
@@ -1609,7 +1609,7 @@ function addon:InitEngineering(RecipeDB)
 	1,5174,1,3290,1,5518,1,33611,1,33634,1,1676,1,8736,1,17637,1,17634,1,11031,1,11025,1,11037,1,17222)
 
 	-- Goblin Beam Welder -- 67326
-	AddRecipe(67326,450,47828,1,2,415,415,420,425)
+	AddRecipe(67326,410,47828,1,2,410,415,420,425)
 	self:addTradeFlags(RecipeDB,67326,1,2,3,37,41)
 	self:addTradeAcquire(RecipeDB,67326,1,25277,1,28697,1,26955,1,33586)
 	

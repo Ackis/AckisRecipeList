@@ -927,7 +927,7 @@ function addon:InitInscription(RecipeDB)
 	1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603,1,33615,1,33679)
 
 	-- Glyph of Fade -- 57184
-	AddRecipe(57184,105,42398,1,2,75,80,85,90)
+	AddRecipe(57184,105,42398,1,2,105,110,115,120)
 	self:addTradeFlags(RecipeDB,57184,1,2,3,F_PRIEST,36,41,53,54)
 	self:addTradeAcquire(RecipeDB,57184,1,26916,1,26959,1,26977,1,26995,1,28702,1,30706,
 	1,30709,1,30710,1,30711,1,30713,1,30715,1,30716,1,30717,1,30721,1,30722,1,33603,1,33615,1,33679)
@@ -1465,7 +1465,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB,57719,8,15)
 
 	-- Glyph of Aquatic Form -- 58286
-	AddRecipe(58286,95,43316,1,2,85,105,110,115)
+	AddRecipe(58286,75,43316,1,2,75,105,110,115)
 	self:addTradeFlags(RecipeDB,58286,1,2,12,F_DRUID,36,41)
 	self:addTradeAcquire(RecipeDB,58286,8,14)
 

@@ -1706,7 +1706,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,32656,2,19662)
 
 	-- Eternium Rod -- 32657
-	AddRecipe(32657,375,25845,1,1,360,365,370,375)
+	AddRecipe(32657,360,25845,1,1,360,365,370,375)
 	self:addTradeFlags(RecipeDB,32657,1,2,4,36,40)
 	self:addTradeAcquire(RecipeDB,32657,2,16583,2,19373)
 
@@ -1721,7 +1721,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,34530,1,5164,1,7230,1,11177,1,20125,1,29506)
 
 	-- Breastplate of Kings -- 34533
-	AddRecipe(34533,350,28483,1,2018,9788,1,350,360,370,380)
+	AddRecipe(34533,350,28483,1,1,350,360,370,380,9788)
 	self:addTradeFlags(RecipeDB,34533,1,2,3,37,41,51,59)
 	self:addTradeAcquire(RecipeDB,34533,1,5164,1,7230,1,11177,1,20125,1,29506)
 
@@ -2423,7 +2423,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,55375,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Tempered Titansteel Treads -- 55376
-	AddRecipe(55376,440,41392,4,2,450,450,460,470)
+	AddRecipe(55376,440,41392,4,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,55376,1,2,3,36,41,52,59)
 	self:addTradeAcquire(RecipeDB,55376,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
@@ -2483,7 +2483,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,56357,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Titansteel Shield Wall -- 56400
-	AddRecipe(56400,440,42508,4,2,450,450,460,470)
+	AddRecipe(56400,440,42508,4,2,440,450,460,470)
 	self:addTradeFlags(RecipeDB,56400,1,2,3,36,41,52,64,66)
 	self:addTradeAcquire(RecipeDB,56400,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
@@ -2553,7 +2553,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	self:addTradeAcquire(RecipeDB,59440,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 
 	-- Brilliant Saronite Helm -- 59441
-	AddRecipe(59441,415,43870,1,2,405,410,415,420)
+	AddRecipe(59441,415,43870,1,2,415,420,425,430)
 	self:addTradeFlags(RecipeDB,59441,1,2,3,36,41,53,54,59)
 	self:addTradeAcquire(RecipeDB,59441,1,26564,1,26904,1,26952,1,26981,1,26988,1,27034,1,28694,1,29924,1,33591)
 

@@ -2266,12 +2266,12 @@ function addon:InitJewelcrafting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 56194, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
 	-- Jade Dagger Pendant -- 56195
-	AddRecipe(56195, 390, 42338, 1, 2, 380, 400, 410, 420)
+	AddRecipe(56195, 380, 42338, 1, 2, 380, 400, 410, 420)
 	self:addTradeFlags(RecipeDB, 56195, F_ALLIANCE, F_HORDE, 3, 36, 41, 51, 63)
 	self:addTradeAcquire(RecipeDB, 56195, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
 	-- Blood Sun Necklace -- 56196
-	AddRecipe(56196, 390, 42339, 3, 2, 380, 400, 410, 420)
+	AddRecipe(56196, 380, 42339, 3, 2, 380, 400, 410, 420)
 	self:addTradeFlags(RecipeDB, 56196, F_ALLIANCE, F_HORDE, 3, 36, 41, 53, 54, 63)
 	self:addTradeAcquire(RecipeDB, 56196, 1, 26915, 1, 26960, 1, 26982, 1, 26997, 1, 28701, 1, 33590)
 
