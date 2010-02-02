@@ -1390,7 +1390,7 @@ do
 		for i in pairs(recipe_list) do
 			local ttscantext = addon:TooltipScanRecipe(i, false, true)
 
-			if (ttscantext) then
+			if ttscantext and ttscantext ~= "" then
 				tinsert(output, ttscantext)
 			end
 		end
@@ -1404,7 +1404,7 @@ do
 	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
 	function addon:ScanProfession(prof_name)
-		if (type(prof_name) == "number") then
+		if type(prof_name) == "number" then
 			prof_name = GetSpellInfo(prof_name)
 		end
 		
@@ -1657,27 +1657,24 @@ do
 		elseif game_vers > 2 then
 			tinsert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
-		local optimal_level = spell_info.optimal_level
-		local medium_level = spell_info.medium_level
-		local easy_level = spell_info.easy_level
-		local trivial_level = spell_info.trivial_level
+		local optimal = spell_info.optimal_level
+		local medium = spell_info.medium_level
+		local easy = spell_info.easy_level
+		local trivial = spell_info.trivial_level
 		local SkillLevel = spell_info.skill_level
 		
-		self:Print("optimal level is "..optimal_level.." AND skilllevel is "..SkillLevel)
-		
-		if not optimal_level then
+		if not optimal then
 			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
-			if optimal_level > SkillLevel then
+			if optimal > SkillLevel then
 				tinsert(output, "Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
-			elseif optimal_level < SkillLevel then
-				self:Print("BINGO IT IS SAYING THAT optimal_level < SkillLevel .....")
+			elseif optimal < SkillLevel then
 				tinsert(output, "Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 
 			-- Level info is messed up
-			if optimal_level > medium_level or optimal_level > easy_level or optimal_level > trivial_level or medium_level > easy_level or medium_level > trivial_level or easy_level > trivial_level then
+			if optimal > medium or optimal > easy or optimal > trivial or medium > easy or medium > trivial or easy > trivial then
 				tinsert(output, "Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
@@ -1704,60 +1701,27 @@ do
 		end
 		local reverse_lookup = CreateReverseLookup(recipe_list)
 
---		tinsert(output, "RECIPE SCAN")
-
---		for i = 1, ARLDatamineTT:NumLines(), 1 do
---			local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
---			local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
---			local text
- 
---			if text_r then
---				text = text_l .. "(Left) " .. text_r .. "(Right)"
---			else
---				text = text_l
---			end
-
---			tinsert(output, text)
---		end
 		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
 
 		local item_id = SPELL_ITEM[spell_id]
 
---		tinsert(output, "ITEM SCAN")
-		-- We have a reverse look-up for the item which creates the spell (aka the recipe itself)
 		if item_id then
 			if not DO_NOT_SCAN[item_id] then
 				local incache = GetItemInfo(item_id)
 
-			   if incache then 
-
-				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
-
---				for i = 1, ARLDatamineTT:NumLines(), 1 do
---					local text_l = _G["ARLDatamineTTTextLeft" .. i]:GetText()
---					local text_r = _G["ARLDatamineTTTextRight" .. i]:GetText()
---					local text
- 
---					if text_r then
---						text = text_l .. "(Left) " .. text_r .. "(Right)"
---					else
---						text = text_l
---					end
-
---					tinsert(output, text)
---				end
-				-- Scan the recipe item (aka pattern)
-				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
-			else
-				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
+				if incache then 
+					ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
+					self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
+				else
+					tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
+				end
 			end
-		end
 			-- We are dealing with a recipe that does not have an item to learn it from
 		else
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			local flags = spell_info["Flags"]
 
-			if (flags[4] or flags[5] or flags[6]) then
+			if flags[4] or flags[5] or flags[6] then
 				tinsert(output, "Spell/Item ID: " .. spell_id .. " does not exist in the SPELL_ITEM table.")
 			end
 		end
@@ -1766,10 +1730,9 @@ do
 		-- Add the flag scan to the table if it's not nil
 		local results = self:PrintScanResults()
 
-		if not results then
-			return
+		if results then
+			tinsert(output, results)
 		end
-		tinsert(output, results)
 
 		if is_largescan then
 			return tconcat(output, "\n")
@@ -2148,7 +2111,7 @@ do
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
 		local spell_id = scan_data.reverse_lookup[recipe_name]
 
-		if (not spell_id) then
+		if not spell_id then
 			self:Print("Recipe " .. recipe_name .. " has no reverse lookup")
 			return
 		end
@@ -2160,22 +2123,22 @@ do
 		twipe(output)
 
 		-- If we're a vendor scan,  do some extra checks
-		if (scan_data.is_vendor) then
+		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
-			if (not flags[4]) then
+			if not flags[4] then
 				tinsert(missing_flags, "4 (Vendor)")
 			end
 
 			-- Check to see if we're in a PVP zone
-			if (((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Halaa")) and (not flags[9])) then
+			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not flags[9] then
 				tinsert(missing_flags, "9 (PvP)")
-			elseif ((flags[9]) and not ((GetSubZoneText() == "Wintergrasp Fortress") or (GetSubZoneText() == "Halaa"))) then
+			elseif flags[9] and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
 				tinsert(extra_flags, "9 (PvP)")
 			end
 		end
 
 		-- -- If we've picked up at least one class flag
-		if (scan_data.found_class) then
+		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not flags[CLASS_TYPES[v]] then
 					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
@@ -2186,50 +2149,53 @@ do
 		end
 
 		-- BoP Item
-		if (scan_data.is_item) then
-			if (scan_data.bopitem) and (not flags[37]) then
+		if scan_data.is_item then
+			if scan_data.bopitem and not flags[37] then
 				tinsert(missing_flags, "37 (BoP Item)")
 				-- If it's a BoP item and flags BoE is set, mark it as extra
-				if (flags[36]) then
+				if flags[36] then
 					tinsert(extra_flags, "36 (BoE Item)")
 				end
+
 				-- If it's a BoP item and flags BoA is set, mark it as extra
-				if (flags[38]) then
+				if flags[38] then
 					tinsert(extra_flags, "38 (BoA Item)")
 				end
 				-- BoE Item, assuming it's not BoA
-			elseif (not flags[36]) and (not scan_data.bopitem) then
+			elseif not flags[36] and not scan_data.bopitem then
 				tinsert(missing_flags, "36 (BoE Item)")
 				-- If it's a BoE item and flags BoP is set, mark it as extra
-				if (flags[37]) then
+				if flags[37] then
 					tinsert(extra_flags, "37 (BoP Item)")
 				end
 				-- If it's a BoE item and flags BoA is set, mark it as extra
-				if (flags[38]) then
+				if flags[38] then
 					tinsert(extra_flags, "38 (BoA Item)")
 				end
 			end
 		else
 			-- BoP Recipe
-			if (scan_data.boprecipe) and (not flags[41]) then
+			if scan_data.boprecipe and not flags[41] then
 				tinsert(missing_flags, "41 (BoP Recipe)")
 				-- If it's a BoP recipe and flags BoE is set, mark it as extra
-				if (flags[40]) then
+				if flags[40] then
 					tinsert(extra_flags, "40 (BoE Recipe)")
 				end
 				-- If it's a BoP recipe and flags BoA is set, mark it as extra
-				if (flags[42]) then
+				if flags[42] then
 					tinsert(extra_flags, "42 (BoA Recipe)")
 				end
 				-- Not BoP recipe, assuming it's not BoA - trainer-taught recipes don't have bind information,  skip those.
-			elseif not flags[3] and (not flags[40]) and (not scan_data.boprecipe) then
+			elseif not flags[3] and not flags[40] and not scan_data.boprecipe then
 				tinsert(missing_flags, "40 (BoE Recipe)")
+
 				-- If it's a BoE recipe and flags BoP is set, mark it as extra
-				if (flags[41]) then
+				if flags[41] then
 					tinsert(extra_flags, "41 (BoP Recipe)")
 				end
+
 				-- If it's a BoE recipe and flags BoA is set, mark it as extra
-				if (flags[42]) then
+				if flags[42] then
 					tinsert(extra_flags, "42 (BoA Recipe)")
 				end
 			end
@@ -2279,7 +2245,7 @@ do
 			end
 
 			-- Add a string of the extra flag numbers
-			if (#extra_flags > 0) then
+			if #extra_flags > 0 then
 				tinsert(output, "Extra flags: " .. tconcat(extra_flags, ", "))
 			end
 
@@ -2298,50 +2264,50 @@ do
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
-		if (not flags[1]) and (not flags[2]) then
+		if not flags[1] and not flags[2] then
 			addedtotable = true
 			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
-		if ((not flags[3]) and (not flags[4]) and (not flags[5]) and (not flags[6]) and (not flags[7])
-		and (not flags[8]) and (not flags[9]) and (not flags[10]) and (not flags[11]) and (not flags[12])) then
+		if (not flags[3] and not flags[4] and not flags[5] and not flags[6] and not flags[7]
+		    and not flags[8] and not flags[9] and not flags[10] and not flags[11] and not flags[12]) then
 			addedtotable = true
 			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
-		if (not flags[40]) and (not flags[41]) and (not flags[42]) then
+		if not flags[40] and not flags[41] and not flags[42] then
 			addedtotable = true
 			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
-		if (not flags[36]) and (not flags[37]) and (not flags[38]) then
+		if not flags[36] and not flags[37] and not flags[38] then
 			addedtotable = true
 			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
-		if (not scan_data.tank) and (not scan_data.healer) and (not scan_data.caster) and (not scan_data.dps) and (not NO_PLAYER_FLAG[spell_id]) then
+		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_PLAYER_FLAG[spell_id] then
 			addedtotable = true
 			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spell_id .. ").")
 		end
 
-		if (scan_data.specialty) then
-			if (not scan_data.recipe_list[spell_id].specialty) then
+		if scan_data.specialty then
+			if not scan_data.recipe_list[spell_id].specialty then
 				addedtotable = true
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Missing Specialty: " .. scan_data.specialty)
-			elseif (scan_data.recipe_list[spell_id].specialty ~= scan_data.specialty) then
+			elseif scan_data.recipe_list[spell_id].specialty ~= scan_data.specialty then
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
 			end
-		elseif (scan_data.recipe_list[spell_id].specialty) then
+		elseif scan_data.recipe_list[spell_id].specialty then
 			addedtotable = true
 			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id].specialty)
 		end
 
-		if (addedtotable) then
+		if addedtotable then
 			return tconcat(output, "\n")
 		else
 			return nil
