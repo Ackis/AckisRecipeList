@@ -562,9 +562,9 @@ do
 	end
 
 	local function GetTipFactionInfo(comp_faction)
-		local display_tip = false
-		local color = addon:hexcolor("NEUTRAL")
-		local faction = FACTION_NEUTRAL
+		local display_tip
+		local color
+		local faction
 
 		if comp_faction == FACTION_HORDE then
 			color = addon:hexcolor("HORDE")
@@ -583,6 +583,8 @@ do
 				faction = FACTION_ALLIANCE
 			end
 		else
+			color = addon:hexcolor("NEUTRAL")
+			faction = FACTION_NEUTRAL
 			display_tip = true
 		end
 		return display_tip, color, faction
@@ -1000,24 +1002,19 @@ function MainPanel:SetProfession()
 end
 
 function MainPanel:SetPosition()
-	self:ClearAllPoints()
-
 	local opts = addon.db.profile.frameopts
 	local FixedOffsetX = opts.offsetx
 
-	if opts.anchorTo == "" then
-		-- no values yet, clamp to whatever frame is appropriate
+	self:ClearAllPoints()
+
+	if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
 		if ATSWFrame then
-			-- Anchor frame to ATSW
 			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
 		elseif CauldronFrame then
-			-- Anchor frame to Cauldron
 			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
 		elseif Skillet then
-			-- Anchor frame to Skillet
 			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
 		else
-			-- Anchor to default tradeskill frame
 			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
 		end
 	else
@@ -1035,21 +1032,21 @@ function MainPanel:SetPosition()
 end
 
 function MainPanel:UpdateTitle()
-	if self.is_expanded then
-		local total, active = 0, 0
-
-		for filter, info in pairs(FilterValueMap) do
-			if info.svroot then
-				if info.svroot[filter] == true then
-					active = active + 1
-				end
-				total = total + 1
-			end
-		end
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
-	else
+	if not self.is_expanded then
 		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player.current_prof)
+		return
 	end
+	local total, active = 0, 0
+
+	for filter, info in pairs(FilterValueMap) do
+		if info.svroot then
+			if info.svroot[filter] == true then
+				active = active + 1
+			end
+			total = total + 1
+		end
+	end
+	self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
 end
 
 -------------------------------------------------------------------------------
@@ -1229,30 +1226,29 @@ do
 		end
 	end
 
-function addon.resetFilters()
-		 local filterdb = addon.db.profile.filters
+	function addon.resetFilters()
+		local filterdb = addon.db.profile.filters
 
-						 -- Reset all filters to true
-						 recursiveReset(addon.db.profile.filters)
+		-- Reset all filters to true
+		recursiveReset(addon.db.profile.filters)
 
-						 -- Reset specific filters to false
-						 filterdb.general.specialty = false
-						 filterdb.general.known = false
+		-- Reset specific filters to false
+		filterdb.general.specialty = false
+		filterdb.general.known = false
 
-						 -- Reset all classes to false
-						 for class in pairs(filterdb.classes) do
-							 filterdb.classes[class] = false
-						 end
-						 -- Set your own class to true
-						 filterdb.classes[strlower(Player["Class"])] = true
+		-- Reset all classes to false
+		for class in pairs(filterdb.classes) do
+			filterdb.classes[class] = false
+		end
+		-- Set your own class to true
+		filterdb.classes[strlower(Player["Class"])] = true
 
-						 if MainPanel:IsVisible() then
-							 MainPanel:UpdateTitle()
-							 MainPanel:HighlightCategory(nil)
-							 ReDisplay()
-						 end
-					 end
-
+		if MainPanel:IsVisible() then
+			MainPanel:UpdateTitle()
+			MainPanel:HighlightCategory(nil)
+			ReDisplay()
+		end
+	end
 	MainPanel.filter_reset:SetScript("OnClick", addon.resetFilters)
 end	-- do
 
@@ -3039,7 +3035,7 @@ do
 			local id_num = entry.ID
 			local acquire_type = entry.type
 
-			-- Get the entries location
+			-- Get the location of the entry.
 			if acquire_type == A_TRAINER then
 				loc = private.trainer_list[id_num]
 			elseif acquire_type == A_VENDOR then
@@ -3125,7 +3121,7 @@ end -- do block
 local function toRGB(hex)
 	local r, g, b = hex:match("(..)(..)(..)")
 
-	return (tonumber(r, 16) / 256), (tonumber(g,16) / 256), (tonumber(b, 16) / 256)
+	return (tonumber(r, 16) / 256), (tonumber(g, 16) / 256), (tonumber(b, 16) / 256)
 end
 
 local function SetSortName()
@@ -3142,7 +3138,6 @@ local function SetSortName()
 	elseif sort_type == "Location" then
 		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
 	end
-
 end
 
 local function ARL_DD_Sort_OnClick(button, value)
