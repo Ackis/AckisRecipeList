@@ -1635,7 +1635,7 @@ function addon:InitEngineering(RecipeDB)
 	 
 	 -- Shatter Rounds -- 72952
 	 AddRecipe(72952, 450, 52020, F_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20222)
-	 self:addTradeFlags(RecipeDB,72952,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
+	 self:addTradeFlags(RecipeDB,72952, F_ALLIANCE, F_HORDE, F_VENDOR, F_AMMO, F_ASHEN_VERDICT)
 	 self:addTradeAcquire(RecipeDB, 72952, A_REPUTATION, 1156, HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
