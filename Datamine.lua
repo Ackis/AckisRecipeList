@@ -1529,7 +1529,7 @@ do
 					end
 				else
 					if acquire_type == ACQUIRE_FLAGS.REPUTATION then
-						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..acquire.rep_level..", "..acquire.rep_vendor
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
 					else
 						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
 					end
