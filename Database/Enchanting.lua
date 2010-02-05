@@ -14,36 +14,34 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
---------------------------------------------------------------------------------------------------------------------
+local private	= select(2, ...)
+
+-------------------------------------------------------------------------------
 -- Item "rarity"
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Origin
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Filter flags
---------------------------------------------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
-local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
-local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
-local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
-local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
+-------------------------------------------------------------------------------
+local F = private.filter_flags
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Acquire types
---------------------------------------------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
-
+-------------------------------------------------------------------------------
+local A = private.acquire_flags
 
 local initialized = false
 local num_recipes = 0
@@ -65,7 +63,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Health -- 7418
 	AddRecipe(7418, 1, nil, R_COMMON, GAME_ORIG, 1, 70, 90, 110)
 	self:addTradeFlags(RecipeDB, 7418, 1, 2, 3, 36, 41)
-	self:addTradeAcquire(RecipeDB, 7418, A_CUSTOM, 8)
+	self:addTradeAcquire(RecipeDB, 7418, A.CUSTOM, 8)
 
 	-- Enchant Chest - Minor Health -- 7420
 	AddRecipe(7420, 15, nil, R_COMMON, GAME_ORIG, 15, 70, 90, 110)
@@ -76,7 +74,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Runed Copper Rod -- 7421
 	AddRecipe(7421, 1, 6218, R_COMMON, GAME_ORIG, 1, 5, 7, 10)
 	self:addTradeFlags(RecipeDB, 7421, 1, 2, 3, 37, 41)
-	self:addTradeAcquire(RecipeDB, 7421, A_CUSTOM, 8)
+	self:addTradeAcquire(RecipeDB, 7421, A.CUSTOM, 8)
 
 	-- Enchant Chest - Minor Absorption -- 7426
 	AddRecipe(7426, 40, nil, R_COMMON, GAME_ORIG, 40, 90, 110, 130)
@@ -87,12 +85,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Deflection -- 7428
 	AddRecipe(7428, 1, nil, R_COMMON, GAME_ORIG, 1, 80, 100, 120)
 	self:addTradeFlags(RecipeDB, 7428, 1, 2, 3, 36, 41, 52)
-	self:addTradeAcquire(RecipeDB, 7428, A_CUSTOM, 8)
+	self:addTradeAcquire(RecipeDB, 7428, A.CUSTOM, 8)
 
 	-- Enchant Chest - Minor Mana -- 7443
 	AddRecipe(7443, 20, nil, R_COMMON, GAME_ORIG, 20, 80, 100, 120)
 	self:addTradeFlags(RecipeDB, 7443, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 7443, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 7443, A.WORLD_DROP, 1)
 
 	-- Enchant Cloak - Minor Resistance -- 7454
 	AddRecipe(7454, 45, nil, R_COMMON, GAME_ORIG, 45, 95, 115, 135)
@@ -121,7 +119,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Spirit -- 7766
 	AddRecipe(7766, 60, nil, R_COMMON, GAME_ORIG, 60, 105, 125, 145)
 	self:addTradeFlags(RecipeDB, 7766, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 7766, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 7766, A.WORLD_DROP, 1)
 
 	-- Enchant Cloak - Minor Protection -- 7771
 	AddRecipe(7771, 70, nil, R_COMMON, GAME_ORIG, 70, 110, 130, 150)
@@ -142,12 +140,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Minor Strength -- 7782
 	AddRecipe(7782, 80, nil, R_COMMON, GAME_ORIG, 80, 115, 135, 155)
 	self:addTradeFlags(RecipeDB, 7782, 1, 2, 10, 36, 40, 51)
-	self:addTradeAcquire(RecipeDB, 7782, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 7782, A.WORLD_DROP, 1)
 
 	-- Enchant Weapon - Minor Beastslayer -- 7786
 	AddRecipe(7786, 90, nil, R_COMMON, GAME_ORIG, 90, 120, 140, 160)
 	self:addTradeFlags(RecipeDB, 7786, 1, 2, 10, 36, 40, 66, 67)
-	self:addTradeAcquire(RecipeDB, 7786, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 7786, A.WORLD_DROP, 1)
 
 	-- Enchant Weapon - Minor Striking -- 7788
 	AddRecipe(7788, 90, nil, R_COMMON, GAME_ORIG, 90, 120, 140, 160)
@@ -172,7 +170,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Lesser Spirit -- 7859
 	AddRecipe(7859, 120, nil, R_COMMON, GAME_ORIG, 120, 145, 165, 185)
 	self:addTradeFlags(RecipeDB, 7859, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 7859, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 7859, A.WORLD_DROP, 1)
 
 	-- Enchant Cloak - Lesser Fire Resistance -- 7861
 	AddRecipe(7861, 125, nil, R_COMMON, GAME_ORIG, 125, 150, 170, 190)
@@ -197,7 +195,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant 2H Weapon - Lesser Spirit -- 13380
 	AddRecipe(13380, 110, nil, R_COMMON, GAME_ORIG, 110, 135, 155, 175)
 	self:addTradeFlags(RecipeDB, 13380, 1, 2, 10, 36, 40, 53, 54, 67)
-	self:addTradeAcquire(RecipeDB, 13380, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13380, A.WORLD_DROP, 1)
 
 	-- Enchant Cloak - Minor Agility -- 13419
 	AddRecipe(13419, 110, nil, R_COMMON, GAME_ORIG, 110, 135, 155, 175)
@@ -212,7 +210,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Lesser Protection -- 13464
 	AddRecipe(13464, 115, nil, R_COMMON, GAME_ORIG, 115, 140, 160, 180)
 	self:addTradeFlags(RecipeDB, 13464, 1, 2, 10, 36, 40, 64)
-	self:addTradeAcquire(RecipeDB, 13464, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13464, A.WORLD_DROP, 1)
 
 	-- Enchant Shield - Lesser Spirit -- 13485
 	AddRecipe(13485, 130, nil, R_COMMON, GAME_ORIG, 130, 155, 175, 195)
@@ -232,7 +230,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Lesser Shadow Resistance -- 13522
 	AddRecipe(13522, 135, nil, R_COMMON, GAME_ORIG, 135, 160, 180, 200)
 	self:addTradeFlags(RecipeDB, 13522, 1, 2, 10, 36, 40, 60)
-	self:addTradeAcquire(RecipeDB, 13522, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13522, A.WORLD_DROP, 1)
 
 	-- Enchant 2H Weapon - Lesser Impact -- 13529
 	AddRecipe(13529, 145, nil, R_COMMON, GAME_ORIG, 145, 170, 190, 210)
@@ -327,12 +325,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Lesser Beastslayer -- 13653
 	AddRecipe(13653, 175, nil, R_COMMON, GAME_ORIG, 175, 195, 215, 235)
 	self:addTradeFlags(RecipeDB, 13653, 1, 2, 10, 36, 40, 66, 67)
-	self:addTradeAcquire(RecipeDB, 13653, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13653, A.WORLD_DROP, 1)
 
 	-- Enchant Weapon - Lesser Elemental Slayer -- 13655
 	AddRecipe(13655, 175, nil, R_COMMON, GAME_ORIG, 175, 195, 215, 235)
 	self:addTradeFlags(RecipeDB, 13655, 1, 2, 10, 36, 40, 66, 67)
-	self:addTradeAcquire(RecipeDB, 13655, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13655, A.WORLD_DROP, 1)
 
 	-- Enchant Cloak - Fire Resistance -- 13657
 	AddRecipe(13657, 175, nil, R_COMMON, GAME_ORIG, 175, 195, 215, 235)
@@ -357,7 +355,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Lesser Spirit -- 13687
 	AddRecipe(13687, 190, nil, R_COMMON, GAME_ORIG, 190, 210, 230, 250)
 	self:addTradeFlags(RecipeDB, 13687, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 13687, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13687, A.WORLD_DROP, 1)
 
 	-- Enchant Shield - Lesser Block -- 13689
 	AddRecipe(13689, 195, nil, R_COMMON, GAME_ORIG, 195, 215, 235, 255)
@@ -407,7 +405,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Stamina -- 13817
 	AddRecipe(13817, 210, nil, R_COMMON, GAME_ORIG, 210, 230, 250, 270)
 	self:addTradeFlags(RecipeDB, 13817, 1, 2, 10, 36, 40, 64)
-	self:addTradeAcquire(RecipeDB, 13817, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13817, A.WORLD_DROP, 1)
 
 	-- Enchant Bracer - Intellect -- 13822
 	AddRecipe(13822, 210, nil, R_COMMON, GAME_ORIG, 210, 230, 250, 270)
@@ -427,7 +425,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Greater Spirit -- 13846
 	AddRecipe(13846, 220, nil, R_COMMON, GAME_ORIG, 220, 240, 260, 280)
 	self:addTradeFlags(RecipeDB, 13846, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 13846, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13846, A.WORLD_DROP, 1)
 
 	-- Enchant Chest - Superior Health -- 13858
 	AddRecipe(13858, 220, nil, R_COMMON, GAME_ORIG, 220, 240, 260, 280)
@@ -467,7 +465,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Demonslaying -- 13915
 	AddRecipe(13915, 230, nil, R_COMMON, GAME_ORIG, 230, 250, 270, 290)
 	self:addTradeFlags(RecipeDB, 13915, 1, 2, 10, 36, 40, 66, 67)
-	self:addTradeAcquire(RecipeDB, 13915, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13915, A.WORLD_DROP, 1)
 
 	-- Enchant Chest - Superior Mana -- 13917
 	AddRecipe(13917, 230, nil, R_COMMON, GAME_ORIG, 230, 250, 270, 290)
@@ -513,7 +511,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Greater Stamina -- 13945
 	AddRecipe(13945, 245, nil, R_COMMON, GAME_ORIG, 245, 265, 285, 305)
 	self:addTradeFlags(RecipeDB, 13945, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 13945, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 13945, A.WORLD_DROP, 1)
 
 	-- Enchant Gloves - Riding Skill -- 13947
 	AddRecipe(13947, 250, nil, R_COMMON, GAME_ORIG, 250, 270, 290, 310)
@@ -565,7 +563,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Superior Spirit -- 20009
 	AddRecipe(20009, 270, nil, R_COMMON, GAME_ORIG, 270, 290, 310, 330)
 	self:addTradeFlags(RecipeDB, 20009, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 20009, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20009, A.WORLD_DROP, 1)
 
 	-- Enchant Bracer - Superior Strength -- 20010
 	AddRecipe(20010, 295, nil, R_COMMON, GAME_ORIG, 295, 310, 325, 340)
@@ -575,7 +573,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Superior Stamina -- 20011
 	AddRecipe(20011, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 20011, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 20011, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20011, A.WORLD_DROP, 1)
 
 	-- Enchant Gloves - Greater Agility -- 20012
 	AddRecipe(20012, 270, nil, R_COMMON, GAME_ORIG, 270, 290, 310, 330)
@@ -610,7 +608,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Greater Stamina -- 20020
 	AddRecipe(20020, 260, nil, R_COMMON, GAME_ORIG, 260, 280, 300, 320)
 	self:addTradeFlags(RecipeDB, 20020, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 20020, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20020, A.WORLD_DROP, 1)
 
 	-- Enchant Boots - Greater Agility -- 20023
 	AddRecipe(20023, 295, nil, R_COMMON, GAME_ORIG, 295, 310, 325, 340)
@@ -620,12 +618,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Boots - Spirit -- 20024
 	AddRecipe(20024, 275, nil, R_COMMON, GAME_ORIG, 275, 295, 315, 335)
 	self:addTradeFlags(RecipeDB, 20024, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 20024, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20024, A.WORLD_DROP, 1)
 
 	-- Enchant Chest - Greater Stats -- 20025
 	AddRecipe(20025, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 20025, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 20025, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20025, A.WORLD_DROP, 1)
 
 	-- Enchant Chest - Major Health -- 20026
 	AddRecipe(20026, 275, nil, R_COMMON, GAME_ORIG, 275, 295, 315, 335)
@@ -729,7 +727,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Gloves - Threat -- 25072
 	AddRecipe(25072, 300, nil, R_RARE, GAME_ORIG, 300, 310, 325, 340)
-	self:addTradeFlags(RecipeDB, 25072, 1, 2, 4, 6, 11, 36, 40, 111, F_TANK)
+	self:addTradeFlags(RecipeDB, 25072, 1, 2, 4, 6, 11, 36, 40, 111, F.TANK)
 	self:addTradeAcquire(RecipeDB, 25072, 3, 15275, 6, 935, 4, 21432)
 
 	-- Enchant Gloves - Shadow Power -- 25073
@@ -845,7 +843,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Restore Mana Prime -- 27913
 	AddRecipe(27913, 335, nil, R_COMMON, GAME_TBC, 335, 345, 360, 375)
 	self:addTradeFlags(RecipeDB, 27913, 1, 2, 10, 36, 40, 53, 54)
-	self:addTradeAcquire(RecipeDB, 27913, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 27913, A.WORLD_DROP, 1)
 
 	-- Enchant Bracer - Fortitude -- 27914
 	AddRecipe(27914, 350, nil, R_COMMON, GAME_TBC, 350, 370, 375, 380)
@@ -890,12 +888,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Shield - Shield Block -- 27946
 	AddRecipe(27946, 340, nil, R_COMMON, GAME_TBC, 340, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 27946, 1, 2, 10, 36, 40, 52, 64)
-	self:addTradeAcquire(RecipeDB, 27946, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 27946, A.WORLD_DROP, 1)
 
 	-- Enchant Shield - Resistance -- 27947
 	AddRecipe(27947, 360, nil, R_COMMON, GAME_TBC)
 	self:addTradeFlags(RecipeDB, 27947, 1, 2, 10, 36, 40, 64)
-	self:addTradeAcquire(RecipeDB, 27947, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 27947, A.WORLD_DROP, 1)
 
 	-- Enchant Boots - Vitality -- 27948
 	AddRecipe(27948, 305, nil, R_COMMON, GAME_TBC, 305, 315, 330, 345)
@@ -940,7 +938,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Major Resistance -- 27962
 	AddRecipe(27962, 330, nil, R_COMMON, GAME_TBC, 330, 340, 355, 370)
 	self:addTradeFlags(RecipeDB, 27962, 1, 2, 10, 36, 40, 60)
-	self:addTradeAcquire(RecipeDB, 27962, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 27962, A.WORLD_DROP, 1)
 
 	-- Enchant Weapon - Major Striking -- 27967
 	AddRecipe(27967, 340, nil, R_COMMON, GAME_TBC, 340, 350, 365, 380)
@@ -960,7 +958,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Potency -- 27972
 	AddRecipe(27972, 350, nil, R_COMMON, GAME_TBC, 350, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 27972, 1, 2, 10, 36, 40, 51, 66, 67)
-	self:addTradeAcquire(RecipeDB, 27972, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 27972, A.WORLD_DROP, 1)
 
 	-- Enchant Weapon - Major Spellpower -- 27975
 	AddRecipe(27975, 350, nil, R_COMMON, GAME_TBC, 350, 370, 375, 380)
@@ -1050,7 +1048,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Major Resilience -- 33992
 	AddRecipe(33992, 345, nil, R_COMMON, GAME_TBC, 345, 355, 367, 380)
 	self:addTradeFlags(RecipeDB, 33992, 1, 2, 10, 36, 40)
-	self:addTradeAcquire(RecipeDB, 33992, A_WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 33992, A.WORLD_DROP, 1)
 
 	-- Enchant Gloves - Blasting -- 33993
 	AddRecipe(33993, 305, nil, R_COMMON, GAME_TBC, 305, 315, 330, 345)
@@ -1555,8 +1553,8 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Gloves - Angler - 71692
 	AddRecipe(71692, 375, nil, R_UNCOMMON, GAME_WOTLK, 375, 385, 392, 400)
-	self:addTradeFlags(RecipeDB, 71692, F_ALLIANCE, F_HORDE, F_IBOP, F_RBOP, F_MOB_DROP)
-	self:addTradeAcquire(RecipeDB, 71692, A_MOB, 26343)
+	self:addTradeFlags(RecipeDB, 71692, F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.MOB_DROP)
+	self:addTradeAcquire(RecipeDB, 71692, A.MOB, 26343)
 
 	return num_recipes
 

@@ -14,47 +14,34 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
---------------------------------------------------------------------------------------------------------------------
+local private	= select(2, ...)
+
+-------------------------------------------------------------------------------
 -- Item "rarity"
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Origin
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Filter flags
---------------------------------------------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
-local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
-local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
-local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
-local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
+-------------------------------------------------------------------------------
+local F = private.filter_flags
 
 -------------------------------------------------------------------------------
--- Reputation Filter flags
--------------------------------------------------------------------------------
-local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
-local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
-local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110, 111
-local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 112, 113, 114
-local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
-local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
-local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
-
---------------------------------------------------------------------------------------------------------------------
 -- Acquire types
---------------------------------------------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
+-------------------------------------------------------------------------------
+local A = private.acquire_flags
 
 --------------------------------------------------------------------------------------------------------------------
 -- Reputation Acquire Flags
@@ -73,11 +60,9 @@ local initialized = false
 local num_recipes = 0
 
 function addon:InitEngineering(RecipeDB)
-
-	if (initialized) then
+	if initialized then
 		return num_recipes
 	end
-
 	initialized = true
 
 	--------------------------------------------------------------------------------------------------------------------
@@ -662,7 +647,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- The Mortar: Reloaded -- 13240
 	AddRecipe(13240, 205, 10577, 1, GAME_ORIG, 205, 205, 205, 205, 20222)
-	self:addTradeFlags(RecipeDB, 13240, F_ALLIANCE, F_HORDE, 3, 36, 41, 61)
+	self:addTradeFlags(RecipeDB, 13240, F.ALLIANCE, F.HORDE, 3, 36, 41, 61)
 	self:addTradeAcquire(RecipeDB, 13240, 1, 8126, 1, 8738)
 
 	-- Mechanical Repair Kit -- 15255
@@ -1224,7 +1209,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Furious Gizmatic Goggles -- 40274
 	AddRecipe(40274, 350, 32461, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 40274, 1, 2, 3, F_PALADIN, F_WARRIOR, 37, 41, 51, 59)
+	self:addTradeFlags(RecipeDB, 40274, 1, 2, 3, F.PALADIN, F.WARRIOR, 37, 41, 51, 59)
 	self:addTradeAcquire(RecipeDB, 40274, 1, 17634, 1, 17637, 1, 18752, 1, 18775, 1, 19576, 1, 33586, 1, 28697, 1, 25277, 1, 26955)
 
 	-- Gyro-balanced Khorium Destroyer -- 41307
@@ -1234,43 +1219,43 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Justicebringer 2000 Specs -- 41311
 	AddRecipe(41311, 350, 32472, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41311, 1, 2, 3, F_PALADIN, 37, 41, 59)
+	self:addTradeFlags(RecipeDB, 41311, 1, 2, 3, F.PALADIN, 37, 41, 59)
 
 	-- Tankatronic Goggles -- 41312
 	AddRecipe(41312, 350, 32473, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41312, 1, 2, 3, F_PALADIN, F_WARRIOR, 37, 41, 52, 59)
+	self:addTradeFlags(RecipeDB, 41312, 1, 2, 3, F.PALADIN, F.WARRIOR, 37, 41, 52, 59)
 
 	-- Surestrike Goggles v2.0 -- 41314
 	AddRecipe(41314, 350, 32474, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41314, 1, 2, 3, F_HUNTER, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 41314, 1, 2, 3, F.HUNTER, F.SHAMAN, 37, 41, 58)
 
 	-- Gadgetstorm Goggles -- 41315
 	AddRecipe(41315, 350, 32476, 4, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41315, 1, 2, 3, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 41315, 1, 2, 3, F.SHAMAN, 37, 41, 58)
 
 	-- Living Replicator Specs -- 41316
 	AddRecipe(41316, 350, 32475, 4, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41316, 1, 2, 3, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 41316, 1, 2, 3, F.SHAMAN, 37, 41, 58)
 
 	-- Deathblow X11 Goggles -- 41317
 	AddRecipe(41317, 350, 32478, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41317, 1, 2, 3, F_DRUID, F_ROGUE, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 41317, 1, 2, 3, F.DRUID, F.ROGUE, 37, 41, 57)
 
 	-- Wonderheal XT40 Shades -- 41318
 	AddRecipe(41318, 350, 32479, 4, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41318, 1, 2, 3, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 41318, 1, 2, 3, F.DRUID, 37, 41, 57)
 
 	-- Magnified Moon Specs -- 41319
 	AddRecipe(41319, 350, 32480, 4, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41319, 1, 2, 3, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 41319, 1, 2, 3, F.DRUID, 37, 41, 57)
 
 	-- Destruction Holo-gogs -- 41320
 	AddRecipe(41320, 350, 32494, 1, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41320, 1, 2, 3, F_MAGE, F_PRIEST, F_WARLOCK, 37, 41, 56)
+	self:addTradeFlags(RecipeDB, 41320, 1, 2, 3, F.MAGE, F.PRIEST, F.WARLOCK, 37, 41, 56)
 
 	-- Powerheal 4000 Lens -- 41321
 	AddRecipe(41321, 350, 32495, 4, 1, 350, 370, 380, 390)
-	self:addTradeFlags(RecipeDB, 41321, 1, 2, 3, F_PRIEST, 37, 41, 56)
+	self:addTradeFlags(RecipeDB, 41321, 1, 2, 3, F.PRIEST, 37, 41, 56)
 
 	-- Level 70 Goggles
 	-- All are listed here because they all share the same trainers but can only be seen by specific classes
@@ -1307,57 +1292,57 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Wonderheal XT68 Shades -- 46106
 	AddRecipe(46106, 375, 35183, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46106, 1, 2, 6, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 46106, 1, 2, 6, F.DRUID, 37, 41, 57)
 	self:addTradeAcquire(RecipeDB, 46106, 8, 33)
 
 	-- Justicebringer 3000 Specs -- 46107
 	AddRecipe(46107, 375, 35185, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46107, 1, 2, 6, F_PALADIN, 37, 41, 59)
+	self:addTradeFlags(RecipeDB, 46107, 1, 2, 6, F.PALADIN, 37, 41, 59)
 	self:addTradeAcquire(RecipeDB, 46107, 8, 24)
 
 	-- Powerheal 9000 Lens -- 46108
 	AddRecipe(46108, 375, 35181, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46108, 1, 2, 6, F_PRIEST, 37, 41, 56)
+	self:addTradeFlags(RecipeDB, 46108, 1, 2, 6, F.PRIEST, 37, 41, 56)
 	self:addTradeAcquire(RecipeDB, 46108, 8, 24)
 
 	-- Hyper-Magnified Moon Specs -- 46109
 	AddRecipe(46109, 375, 35182, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46109, 1, 2, 6, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 46109, 1, 2, 6, F.DRUID, 37, 41, 57)
 	self:addTradeAcquire(RecipeDB, 46109, 8, 24)
 
 	-- Primal-Attuned Goggles -- 46110
 	AddRecipe(46110, 375, 35184, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46110, 1, 2, 6, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 46110, 1, 2, 6, F.SHAMAN, 37, 41, 58)
 	self:addTradeAcquire(RecipeDB, 46110, 8, 24)
 
 	-- Annihilator Holo-Gogs -- 46111
 	AddRecipe(46111, 375, 34847, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46111, 1, 2, 6, F_MAGE, F_PRIEST, F_WARLOCK, 37, 41, 56)
+	self:addTradeFlags(RecipeDB, 46111, 1, 2, 6, F.MAGE, F.PRIEST, F.WARLOCK, 37, 41, 56)
 	self:addTradeAcquire(RecipeDB, 46111, 8, 24)
 
 	-- Lightning Etched Specs -- 46112
 	AddRecipe(46112, 375, 34355, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46112, 1, 2, 6, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 46112, 1, 2, 6, F.SHAMAN, 37, 41, 58)
 	self:addTradeAcquire(RecipeDB, 46112, 8, 24)
 
 	-- Surestrike Goggles v3.0 -- 46113
 	AddRecipe(46113, 375, 34356, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46113, 1, 2, 6, F_HUNTER, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 46113, 1, 2, 6, F.HUNTER, F.SHAMAN, 37, 41, 58)
 	self:addTradeAcquire(RecipeDB, 46113, 8, 24)
 
 	-- Mayhem Projection Goggles -- 46114
 	AddRecipe(46114, 375, 34354, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46114, 1, 2, 6, F_DK, F_PALADIN, F_WARRIOR, 37, 41, 51, 59)
+	self:addTradeFlags(RecipeDB, 46114, 1, 2, 6, F.DK, F.PALADIN, F.WARRIOR, 37, 41, 51, 59)
 	self:addTradeAcquire(RecipeDB, 46114, 8, 24)
 
 	-- Hard Khorium Goggles -- 46115
 	AddRecipe(46115, 375, 34357, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46115, 1, 2, 6, F_PALADIN, F_WARRIOR, 37, 41, 52, 59)
+	self:addTradeFlags(RecipeDB, 46115, 1, 2, 6, F.PALADIN, F.WARRIOR, 37, 41, 52, 59)
 	self:addTradeAcquire(RecipeDB, 46115, 8, 24)
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	AddRecipe(46116, 375, 34353, 4, 1, 375, 390, 410, 430)
-	self:addTradeFlags(RecipeDB, 46116, 1, 2, 6, F_DRUID, F_ROGUE, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 46116, 1, 2, 6, F.DRUID, F.ROGUE, 37, 41, 57)
 	self:addTradeAcquire(RecipeDB, 46116, 8, 24)
 
 	-- Rocket Boots Xtreme Lite -- 46697
@@ -1517,27 +1502,27 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Armored Titanium Goggles -- 56480
 	AddRecipe(56480, 440, 42549, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56480, 1, 2, 3, F_DK, F_PALADIN, F_WARRIOR, 37, 41, 51, 52, 59)
+	self:addTradeFlags(RecipeDB, 56480, 1, 2, 3, F.DK, F.PALADIN, F.WARRIOR, 37, 41, 51, 52, 59)
 
 	-- Weakness Spectralizers -- 56481
 	AddRecipe(56481, 440, 42550, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56481, 1, 2, 3, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 56481, 1, 2, 3, F.DRUID, 37, 41, 57)
 
 	-- Charged Titanium Specs -- 56483
 	AddRecipe(56483, 440, 42552, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56483, 1, 2, 3, F_DK, F_PALADIN, F_WARRIOR, 37, 41, 51, 59)
+	self:addTradeFlags(RecipeDB, 56483, 1, 2, 3, F.DK, F.PALADIN, F.WARRIOR, 37, 41, 51, 59)
 
 	-- Visage Liquification Goggles -- 56484
 	AddRecipe(56484, 440, 42553, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56484, 1, 2, 3, F_MAGE, F_PRIEST, F_WARLOCK, 37, 41, 53, 54, 56)
+	self:addTradeFlags(RecipeDB, 56484, 1, 2, 3, F.MAGE, F.PRIEST, F.WARLOCK, 37, 41, 53, 54, 56)
 
 	-- Greensight Gogs -- 56486
 	AddRecipe(56486, 440, 42554, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56486, 1, 2, 3, F_DRUID, 37, 41, 57)
+	self:addTradeFlags(RecipeDB, 56486, 1, 2, 3, F.DRUID, 37, 41, 57)
 
 	-- Electroflux Sight Enhancers -- 56487
 	AddRecipe(56487, 440, 42555, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56487, 1, 2, 3, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 56487, 1, 2, 3, F.SHAMAN, 37, 41, 58)
 
 	-- Global Thermal Sapper Charge -- 56514
 	AddRecipe(56514, 425, 42641, 1, 2, 425, 425, 430, 435, 20222)
@@ -1546,7 +1531,7 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Truesight Ice Blinders -- 56574
 	AddRecipe(56574, 440, 42551, 1, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 56574, 1, 2, 3, F_HUNTER, F_SHAMAN, 37, 41, 58)
+	self:addTradeFlags(RecipeDB, 56574, 1, 2, 3, F.HUNTER, F.SHAMAN, 37, 41, 58)
 
 	-- Nesingwary 4000 -- 60874
 	AddRecipe(60874, 450, 44504, 4, 2, 450, 455, 460, 465)
@@ -1560,27 +1545,27 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Mechanized Snow Goggles (Cloth) -- 56465
 	AddRecipe(56465, 420, 41112, 3, 2, 420, 425, 432, 440)
-	self:addTradeFlags(RecipeDB, 56465, 1, 2, 3, F_MAGE, F_PRIEST, F_WARLOCK, 36, 41, 56)
+	self:addTradeFlags(RecipeDB, 56465, 1, 2, 3, F.MAGE, F.PRIEST, F.WARLOCK, 36, 41, 56)
 	self:addTradeAcquire(RecipeDB, 56465, 1, 25277, 1, 26907, 1, 26955, 1, 26991, 1, 28697, 1, 33586)
 
 	-- Mechanized Snow Goggles (Leather) -- 61481
 	AddRecipe(61481, 420, 44742, 3, 2, 420, 425, 432, 440)
-	self:addTradeFlags(RecipeDB, 61481, 1, 2, 3, F_DRUID, F_ROGUE, 36, 41, 57)
+	self:addTradeFlags(RecipeDB, 61481, 1, 2, 3, F.DRUID, F.ROGUE, 36, 41, 57)
 	self:addTradeAcquire(RecipeDB, 61481, 1, 25277, 1, 26907, 1, 26955, 1, 26991, 1, 28697, 1, 33586)
 
 	-- Mechanized Snow Goggles (Mail) -- 61482
 	AddRecipe(61482, 420, 44742, 3, 2, 420, 425, 432, 440)
-	self:addTradeFlags(RecipeDB, 61482, 1, 2, 3, F_HUNTER, F_SHAMAN, 36, 41, 58)
+	self:addTradeFlags(RecipeDB, 61482, 1, 2, 3, F.HUNTER, F.SHAMAN, 36, 41, 58)
 	self:addTradeAcquire(RecipeDB, 61482, 1, 25277, 1, 26907, 1, 26955, 1, 26991, 1, 28697, 1, 33586)	
 
 	-- Mechanized Snow Goggles (Plate) -- 61483
 	AddRecipe(61483, 420, 44742, 3, 2, 420, 425, 432, 440)
-	self:addTradeFlags(RecipeDB, 61483, 1, 2, 3, F_DK, F_PALADIN, F_WARRIOR, 36, 41, 59)
+	self:addTradeFlags(RecipeDB, 61483, 1, 2, 3, F.DK, F.PALADIN, F.WARRIOR, 36, 41, 59)
 	self:addTradeAcquire(RecipeDB, 61483, 1, 25277, 1, 26907, 1, 26955, 1, 26991, 1, 28697, 1, 33586)
 
 	-- Unbreakable Healing Amplifiers -- 62271
 	AddRecipe(62271, 440, 44949, 3, 2, 440, 450, 455, 460)
-	self:addTradeFlags(RecipeDB, 62271, 1, 2, 3, F_PALADIN, 37, 41, 53, 59)
+	self:addTradeFlags(RecipeDB, 62271, 1, 2, 3, F.PALADIN, 37, 41, 53, 59)
 	self:addTradeAcquire(RecipeDB, 62271, 1, 25277, 1, 26907, 1, 26955)
 
 	-- Level 80 Goggles
@@ -1629,14 +1614,14 @@ function addon:InitEngineering(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 67839, 1, 25277, 1, 28697, 1, 26955, 1, 33586)
 
 	 -- Iceblade Arrow -- 72953
-	 AddRecipe(72953, 450, 52021, F_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20219)
-	 self:addTradeFlags(RecipeDB, 72953, F_ALLIANCE, F_HORDE, F_VENDOR, F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 72953, A_REPUTATION, 1156, HONORED, 37687)
+	 AddRecipe(72953, 450, 52021, R_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20219)
+	 self:addTradeFlags(RecipeDB, 72953, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 72953, A.REPUTATION, 1156, HONORED, 37687)
 	 
 	 -- Shatter Rounds -- 72952
-	 AddRecipe(72952, 450, 52020, F_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20222)
-	 self:addTradeFlags(RecipeDB, 72952, F_ALLIANCE, F_HORDE, F_VENDOR, F_AMMO, F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 72952, A_REPUTATION, 1156, HONORED, 37687)
+	 AddRecipe(72952, 450, 52020, R_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20222)
+	 self:addTradeFlags(RecipeDB, 72952, F.ALLIANCE, F.HORDE, F.VENDOR, F.AMMO, F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 72952, A.REPUTATION, 1156, HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction

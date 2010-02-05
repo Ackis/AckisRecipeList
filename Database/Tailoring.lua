@@ -14,47 +14,34 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME = "Ackis Recipe List"
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
---------------------------------------------------------------------------------------------------------------------
+local private	= select(2, ...)
+
+-------------------------------------------------------------------------------
 -- Item "rarity"
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Origin
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Filter flags
---------------------------------------------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
-local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
-local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
-local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
-local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
-local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
+-------------------------------------------------------------------------------
+local F = private.filter_flags
 
 -------------------------------------------------------------------------------
--- Reputation Filter flags
--------------------------------------------------------------------------------
-local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
-local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
-local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110, 111
-local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 112, 113, 114
-local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
-local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
-local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
-
---------------------------------------------------------------------------------------------------------------------
 -- Acquire types
---------------------------------------------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
+-------------------------------------------------------------------------------
+local A = private.acquire_flags
 
 --------------------------------------------------------------------------------------------------------------------
 -- Reputation Levels
@@ -64,16 +51,13 @@ local HONORED = 2
 local REVERED = 3
 local EXALTED = 4
 
-
 local initialized = false
 local num_recipes = 0
 
 function addon:InitTailoring(RecipeDB)
-
 	if initialized then
 		return num_recipes
 	end
-
 	initialized = true
 
 	--------------------------------------------------------------------------------------------------------------------
@@ -1192,7 +1176,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Gloves of Spell Mastery -- 18454
 	AddRecipe(18454,300,14146,4,GAME_ORIG,300,315,330,345)
-	self:addTradeFlags(RecipeDB,18454,1,2,10,F_MAGE,F_PRIEST,F_WARLOCK,36,40,53,54,56)
+	self:addTradeFlags(RecipeDB,18454,1,2,10,F.MAGE,F.PRIEST,F.WARLOCK,36,40,53,54,56)
 	self:addTradeAcquire(RecipeDB,18454,7,2)
 
 	-- Bottomless Bag -- 18455
@@ -1202,7 +1186,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Truefaith Vestments -- 18456
 	AddRecipe(18456,300,14154,4,GAME_ORIG,300,315,330,345)
-	self:addTradeFlags(RecipeDB,18456,1,2,5,F_PRIEST,37,41,53,54,56)
+	self:addTradeFlags(RecipeDB,18456,1,2,5,F.PRIEST,37,41,53,54,56)
 	self:addTradeAcquire(RecipeDB,18456,3,10813)
 
 	-- Robe of the Archmage -- 18457
@@ -1232,7 +1216,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Flarecore Gloves -- 20849
 	AddRecipe(20849,300,16979,1,GAME_ORIG,300,315,330,345)
-	self:addTradeFlags(RecipeDB,20849,1,2,4,F_MAGE,F_PRIEST,F_WARLOCK,36,41,56,98)
+	self:addTradeFlags(RecipeDB,20849,1,2,4,F.MAGE,F.PRIEST,F.WARLOCK,36,41,56,98)
 	self:addTradeAcquire(RecipeDB,20849,6,59,1,12944)
 
 	-- Green Holiday Shirt -- 21945
@@ -1342,28 +1326,28 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Soul Pouch -- 26085
 	AddRecipe(26085,260,21340,1,GAME_ORIG,260,275,290,305)
-	self:addTradeFlags(RecipeDB,26085,1,2,4,F_WARLOCK,36,40)
+	self:addTradeFlags(RecipeDB,26085,1,2,4,F.WARLOCK,36,40)
 	self:addTradeAcquire(RecipeDB,26085,2,6568)
 
 	-- Felcloth Bag -- 26086
 	AddRecipe(26086,280,21341,3,GAME_ORIG,280,300,315,330)
-	self:addTradeFlags(RecipeDB,26086,1,2,5,F_WARLOCK,36,41)
+	self:addTradeFlags(RecipeDB,26086,1,2,5,F.WARLOCK,36,41)
 	self:addTradeAcquire(RecipeDB,26086,3,10503,8,30)
 
 	-- Core Felcloth Bag -- 26087
 	AddRecipe(26087,300,21342,3,GAME_ORIG,300,315,330,345)
-	self:addTradeFlags(RecipeDB,26087,1,2,6,11,F_WARLOCK,36,40)
+	self:addTradeFlags(RecipeDB,26087,1,2,6,11,F.WARLOCK,36,40)
 	self:addTradeAcquire(RecipeDB,26087,8,26)
 
 	-- Festival Dress -- 26403
 	AddRecipe(26403,250,21154,2,GAME_ORIG,250,265,280,295)
 	self:addTradeFlags(RecipeDB,26403,1,2,4,7,36,41,56)
-	self:addTradeAcquire(RecipeDB,26403,A_SEASONAL,2,2,15909)
+	self:addTradeAcquire(RecipeDB,26403,A.SEASONAL,2,2,15909)
 
 	-- Festive Red Pant Suit -- 26407
 	AddRecipe(26407,250,21542,2,GAME_ORIG,250,265,280,295)
 	self:addTradeFlags(RecipeDB,26407,1,2,4,7,36,41)
-	self:addTradeAcquire(RecipeDB,26407,A_SEASONAL,2,2,15909)
+	self:addTradeAcquire(RecipeDB,26407,A.SEASONAL,2,2,15909)
 
 	-- Bolt of Netherweave -- 26745
 	AddRecipe(26745,300,21840,1,1,300,305,315,325)
@@ -1434,7 +1418,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Ebon Shadowbag -- 26759
 	AddRecipe(26759,375,21872,3,1,375,385,390,395)
-	self:addTradeFlags(RecipeDB,26759,1,2,4,F_WARLOCK,36,41)
+	self:addTradeFlags(RecipeDB,26759,1,2,4,F.WARLOCK,36,41)
 	self:addTradeAcquire(RecipeDB,26759,2,22212,2,29510)
 
 	-- Primal Mooncloth Belt -- 26760
@@ -1833,12 +1817,12 @@ function addon:InitTailoring(RecipeDB)
 	-- Green Winter Clothes -- 44950
 	AddRecipe(44950,250,34087,2,1,250,250,250,250)
 	self:addTradeFlags(RecipeDB,44950,1,2,4,7,36,41,56)
-	self:addTradeAcquire(RecipeDB,44950,2,13420, A_SEASONAL, 1)
+	self:addTradeAcquire(RecipeDB,44950,2,13420, A.SEASONAL, 1)
 
 	-- Red Winter Clothes -- 44958
 	AddRecipe(44958,250,34085,2,1,250,250,250,250)
 	self:addTradeFlags(RecipeDB,44958,1,2,4,7,36,41,56)
-	self:addTradeAcquire(RecipeDB,44958,2,13433, A_SEASONAL, 1)
+	self:addTradeAcquire(RecipeDB,44958,2,13433, A.SEASONAL, 1)
 
 	-- Sunfire Handwraps -- 46128
 	AddRecipe(46128,365,34366,4,1,365,375,392,410)
@@ -2062,7 +2046,7 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Abyssal Bag -- 56004
 	AddRecipe(56004,435,41597,1,2,435,440,445,450)
-	self:addTradeFlags(RecipeDB,56004,1,2,4,F_WARLOCK,36,41,117)
+	self:addTradeFlags(RecipeDB,56004,1,2,4,F.WARLOCK,36,41,117)
 	self:addTradeAcquire(RecipeDB,56004,6,1098,3,32538)
 
 	-- Glacial Bag -- 56005
@@ -2314,23 +2298,23 @@ function addon:InitTailoring(RecipeDB)
 
 	 -- Leggings of Woven Death -- 70550
 	 AddRecipe(70550,450,49891,4,2,450,475,487,500)
-	 self:addTradeFlags(RecipeDB,70550,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 70550, A_REPUTATION, 1156, REVERED, 37687)
+	 self:addTradeFlags(RecipeDB,70550,F.ALLIANCE,F.HORDE,F.VENDOR,F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 70550, A.REPUTATION, 1156, REVERED, 37687)
 
 	 -- Deathfrost Boots -- 70551
 	 AddRecipe(70551,450,49890,4,2,450,475,487,500)
-	 self:addTradeFlags(RecipeDB,70551,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 70551, A_REPUTATION, 1156, HONORED, 37687)
+	 self:addTradeFlags(RecipeDB,70551,F.ALLIANCE,F.HORDE,F.VENDOR,F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 70551, A.REPUTATION, 1156, HONORED, 37687)
 
 	 -- Lightweave Leggings -- 70552
 	 AddRecipe(70552,450,49892,4,2,450,475,487,500)
-	 self:addTradeFlags(RecipeDB,70552,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 70552, A_REPUTATION, 1156, REVERED, 37687)
+	 self:addTradeFlags(RecipeDB,70552,F.ALLIANCE,F.HORDE,F.VENDOR,F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 70552, A.REPUTATION, 1156, REVERED, 37687)
 
 	 -- Sandals of Consecration -- 70553
 	 AddRecipe(70553,450,49893,4,2,450,475,487,500)
-	 self:addTradeFlags(RecipeDB,70553,F_ALLIANCE,F_HORDE,F_VENDOR,F_ASHEN_VERDICT)
-	 self:addTradeAcquire(RecipeDB, 70553, A_REPUTATION, 1156, HONORED, 37687)
+	 self:addTradeFlags(RecipeDB,70553,F.ALLIANCE,F.HORDE,F.VENDOR,F.ASHEN_VERDICT)
+	 self:addTradeAcquire(RecipeDB, 70553, A.REPUTATION, 1156, HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction

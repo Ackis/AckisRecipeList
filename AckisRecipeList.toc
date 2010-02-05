@@ -62,6 +62,7 @@ embeds.xml
 # Localization files
 local.xml
 
+Constants.lua
 ARL.lua
 Config.lua
 Colour.lua

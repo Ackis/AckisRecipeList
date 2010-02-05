@@ -1454,54 +1454,8 @@ do
 		["2"]	= "GAME_WOTLK",
 	}
 
-	local FILTER_STRINGS = {
-		[1]	= "F_ALLIANCE",		[2]	= "F_HORDE",		[3]	= "F_TRAINER",		[4]	= "F_VENDOR",
-		[5]	= "F_INSTANCE",		[6]	= "F_RAID",		[7]	= "F_SEASONAL",		[8]	= "F_QUEST",
-		[9]	= "F_PVP",		[10]	= "F_WORLD_DROP",	[11]	= "F_MOB_DROP",		[12]	= "F_DISC",
-		[13]	= "F_RESERVED_13",	[14]	= "F_RESERVED_14",	[15]	= "F_RESERVED_15",	[16]	= "F_RESERVED_16",
-		[17]	= "F_RESERVED_17",	[18]	= "F_RESERVED_18",	[19]	= "F_RESERVED_19",	[20]	= "F_RESERVED_20",
-		[21]	= "F_DK",		[22]	= "F_DRUID",		[23]	= "F_HUNTER",		[24]	= "F_MAGE",
-		[25]	= "F_PALADIN",		[26]	= "F_PRIEST",		[27]	= "F_SHAMAN",		[28]	= "F_ROGUE",
-		[29]	= "F_WARLOCK",		[30]	= "F_WARRIOR",		[31]	= "F_RESERVED_31",	[32]	= "F_RESERVED_32",
-		[33]	= "F_RESERVED_33",	[34]	= "F_RESERVED_34",	[35]	= "F_RESERVED_35",	[36]	= "F_IBOE",
-		[37]	= "F_IBOP",		[38]	= "F_IBOA",		[39]	= "F_RESERVED_39",	[40]	= "F_RBOE",
-		[41]	= "F_RBOP",		[42]	= "F_RBOA",		[43]	= "F_RESERVED_43",	[44]	= "F_RESERVED_44",
-		[45]	= "F_RESERVED_45",	[46]	= "F_RESERVED_46",	[47]	= "F_RESERVED_47",	[48]	= "F_RESERVED_48",
-		[49]	= "F_RESERVED_49",	[50]	= "F_RESERVED_50",	[51]	= "F_DPS",		[52]	= "F_TANK",
-		[53]	= "F_HEALER",		[54]	= "F_CASTER",		[55]	= "F_RESERVED_55",	[56]	= "F_CLOTH",
-		[57]	= "F_LEATHER",		[58]	= "F_MAIL",		[59]	= "F_PLATE",		[60]	= "F_CLOAK",
-		[61]	= "F_TRINKET",		[62]	= "F_RING",		[63]	= "F_NECK",		[64]	= "F_SHIELD",
-		[65]	= "F_RESERVED_65",	[66]	= "F_1H",		[67]	= "F_2H",		[68]	= "F_AXE",
-		[69]	= "F_SWORD",		[70]	= "F_MACE",		[71]	= "F_POLEARM",		[72]	= "F_DAGGER",
-		[73]	= "F_STAFF",		[74]	= "F_WAND",		[75]	= "F_THROWN",		[76]	= "F_BOW",
-		[77]	= "F_XBOW",		[78]	= "F_AMMO",		[79]	= "F_FIST",		[80]	= "F_GUN",
-		[81]	= "F_RESERVED_81",	[82]	= "F_RESERVED_82",	[83]	= "F_RESERVED_83",	[84]	= "F_RESERVED_84",
-		[85]	= "F_RESERVED_85",	[86]	= "F_RESERVED_86",	[87]	= "F_RESERVED_87",	[88]	= "F_RESERVED_88",
-		[89]	= "F_RESERVED_89",	[90]	= "F_RESERVED_90",	[91]	= "F_RESERVED_91",	[92]	= "F_RESERVED_92",
-		[93]	= "F_RESERVED_93",	[94]	= "F_RESERVED_94",	[95]	= "F_RESERVED_95",	[96]	= "F_ARGENTDAWN",
-		[97]	= "F_CENARION_CIRCLE",
-		[98]	= "F_THORIUM_BROTHERHOOD",
-		[99]	= "F_TIMBERMAW_HOLD",	[100]	= "F_ZANDALAR",		[101]	= "F_ALDOR",		[102]	= "F_ASHTONGUE",
-		[103]	= "F_CENARION_EXPEDITION",
-		[104]	= "F_HELLFIRE",		[105]	= "F_CONSORTIUM",	[106]	= "F_KOT",		[107]	= "F_LOWERCITY",
-		[108]	= "F_NAGRAND",		[109]	= "F_SCALE_SANDS",	[110]	= "F_SCRYER",		[111]	= "F_SHATAR",
-		[112]	= "F_SHATTEREDSUN",	[113]	= "F_SPOREGGAR",	[114]	= "F_VIOLETEYE",	[115]	= "F_ARGENTCRUSADE",
-		[116]	= "F_FRENZYHEART",	[117]	= "F_EBONBLADE",	[118]	= "F_KIRINTOR",		[119]	= "F_HODIR",
-		[120]	= "F_KALUAK",		[121]	= "F_ORACLES",		[122]	= "F_WYRMREST",		[123]	= "F_WRATHCOMMON1",
-		[124]	= "F_WRATHCOMMON2",	[125]	= "F_WRATHCOMMON3",	[126]	= "F_WRATHCOMMON4",	[127]	= "F_WRATHCOMMON5",
-		[128]	= "F_ASHEN_VERDICT",
-	}
-
-	local ACQUIRE_STRINGS = {
-		[1]	= "A_TRAINER",
-		[2]	= "A_VENDOR",
-		[3]	= "A_MOB",
-		[4]	= "A_QUEST",
-		[5]	= "A_SEASONAL",
-		[6]	= "A_REPUTATION",
-		[7]	= "A_WORLD_DROP",
-		[8]	= "A_CUSTOM",
-	}
+	local FILTER_STRINGS = private.filter_strings
+	local ACQUIRE_STRINGS = private.acquire_strings
 
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
@@ -1552,9 +1506,9 @@ do
 			for i = 1, NUM_FILTER_FLAGS, 1 do
 				if data.Flags[i] then
 					if not flag_string then
-						flag_string = FILTER_STRINGS[i]
+						flag_string = "F."..FILTER_STRINGS[i]
 					else
-						flag_string = flag_string..", "..FILTER_STRINGS[i]
+						flag_string = flag_string..", ".."F."..FILTER_STRINGS[i]
 					end
 				end
 			end
@@ -1564,9 +1518,9 @@ do
 
 			for index, acquire in ipairs(data.Acquire) do
 				if not flag_string then
-					flag_string = ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
 				else
-					flag_string = flag_string..", "..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
 				end
 			end
 			tinsert(output, string.format("self:addTradeAcquire(RecipeDB, %d, %s)", data.spell_id, flag_string))
