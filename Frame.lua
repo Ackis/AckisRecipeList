@@ -109,8 +109,9 @@ local FACTION_NEUTRAL		= BFAC["Neutral"]
 -------------------------------------------------------------------------------
 -- Acquire flag constants.
 -------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-
+--local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+local A_MAX = 9
+local A = private.acquire_flags
 -------------------------------------------------------------------------------
 -- Filter flag constants.
 -------------------------------------------------------------------------------
@@ -403,7 +404,7 @@ do
 			return reca.type < recb.type
 		end
 
-		if reca.type == A_CUSTOM then
+		if reca.type == A.CUSTOM then
 			if reca.ID == recb.ID then
 				return recipe_list[a].name < recipe_list[b].name
 			else
@@ -684,7 +685,7 @@ do
 			local acquire_type = acquire.type
 			local display_tip = false
 
-			if acquire_type == A_TRAINER then
+			if acquire_type == A.TRAINER then
 				local trainer = private.trainer_list[acquire.ID]
 
 				color_1 = addon:hexcolor("TRAINER")
@@ -703,7 +704,7 @@ do
 
 					ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
 				end
-			elseif acquire_type == A_VENDOR then
+			elseif acquire_type == A.VENDOR then
 				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
@@ -725,7 +726,7 @@ do
 				elseif faction then
 					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 				end
-			elseif acquire_type == A_MOB then
+			elseif acquire_type == A.MOB then
 				local mob = private.mob_list[acquire.ID]
 				local coord_text = ""
 
@@ -741,7 +742,7 @@ do
 				color_2 = addon:hexcolor("HIGH")
 
 				ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
-			elseif acquire_type == A_QUEST then
+			elseif acquire_type == A.QUEST then
 				local quest = private.quest_list[acquire.ID]
 
 				if quest then
@@ -766,10 +767,10 @@ do
 						ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
 					end
 				end
-			elseif acquire_type == A_SEASONAL then
+			elseif acquire_type == A.SEASONAL then
 				color_1 = addon:hexcolor("SEASON")
 				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[acquire.ID].name, color_1)
-			elseif acquire_type == A_REPUTATION then
+			elseif acquire_type == A.REPUTATION then
 				local repvendor = private.vendor_list[acquire.rep_vendor]
 				local coord_text = ""
 
@@ -812,7 +813,7 @@ do
 
 					ttAdd(2, -2, true, repvendor.location, color_1, coord_text, color_2)
 				end
-			elseif acquire_type == A_WORLD_DROP then
+			elseif acquire_type == A.WORLD_DROP then
 				local acquire_id = acquire.ID
 
 				if acquire_id == 1 then
@@ -827,9 +828,9 @@ do
 					color_1 = addon:hexcolor("NORMAL")
 				end
 				ttAdd(0, -1, false, L["World Drop"], color_1)
-			elseif acquire_type == A_CUSTOM then
+			elseif acquire_type == A.CUSTOM then
 				ttAdd(0, -1, false, private.custom_list[acquire.ID].name, addon:hexcolor("NORMAL"))
-			elseif acquire_type == A_PVP then
+			elseif acquire_type == A.PVP then
 				local vendor = private.vendor_list[acquire.ID]
 				local faction
 
@@ -2342,7 +2343,7 @@ do
 			t.recipe_id = recipe_id
 			t.is_expanded = true
 
-			if acquire_type == A_TRAINER and obtain_filters.trainer then
+			if acquire_type == A.TRAINER and obtain_filters.trainer then
 				local trainer = private.trainer_list[acquire.ID]
 
 				if CheckDisplayFaction(trainer.faction) then
@@ -2376,7 +2377,7 @@ do
 				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
 				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 				-- This allows us to select PVP only and to see just the PVP recipes
-			elseif acquire_type == A_VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
+			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 				local vendor = private.vendor_list[acquire.ID]
 
 				if CheckDisplayFaction(vendor.faction) then
@@ -2408,7 +2409,7 @@ do
 					entry_index = entry_index + 1
 				end
 				-- Mobs can be in instances, raids, or specific mob related drops.
-			elseif acquire_type == A_MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
+			elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
 				local mob = private.mob_list[acquire.ID]
 				t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob.name)
 
@@ -2427,7 +2428,7 @@ do
 
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
-			elseif acquire_type == A_QUEST and obtain_filters.quest then
+			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				local quest = private.quest_list[acquire.ID]
 
 				if CheckDisplayFaction(quest.faction) then
@@ -2458,11 +2459,11 @@ do
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-			elseif acquire_type == A_SEASONAL and obtain_filters.seasonal then
+			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
 				t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. private.seasonal_list[acquire.ID].name)
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
-			elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
+			elseif acquire_type == A.REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
 				-- Reputation Obtain
 				-- Rep: ID, Faction
 				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2514,15 +2515,15 @@ do
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-			elseif acquire_type == A_WORLD_DROP and obtain_filters.worlddrop then
+			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
 				t.text = pad .. addon:RarityColor(acquire.ID + 1, L["World Drop"])
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
-			elseif acquire_type == A_CUSTOM then
+			elseif acquire_type == A.CUSTOM then
 				t.text = pad .. addon:Normal(private.custom_list[acquire.ID].name)
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
-			elseif acquire_type == A_PVP and obtain_filters.pvp then
+			elseif acquire_type == A.PVP and obtain_filters.pvp then
 				local vendor = private.vendor_list[acquire.ID]
 
 				if CheckDisplayFaction(vendor.faction) then
@@ -2702,25 +2703,25 @@ do
 		local acquire_id = acquire_entry.ID
 		local display = false
 
-		if acquire_type == A_TRAINER and maptrainer then
+		if acquire_type == A.TRAINER and maptrainer then
 			local trainer = private.trainer_list[acquire_id]
 
 			display = (trainer.faction == BFAC[player_faction] or trainer.faction == FACTION_NEUTRAL)
-		elseif acquire_type == A_VENDOR and mapvendor then
+		elseif acquire_type == A.VENDOR and mapvendor then
 			local vendor = private.vendor_list[acquire_id]
 
 			display = (vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL)
-		elseif acquire_type == A_REPUTATION and mapvendor then
+		elseif acquire_type == A.REPUTATION and mapvendor then
 			local vendor = private.vendor_list[acquire_entry.rep_vendor]
 
 			display = (vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL)
-		elseif acquire_type == A_MOB and mapmob then
+		elseif acquire_type == A.MOB and mapmob then
 			return true
-		elseif  acquire_type == A_QUEST and mapquest then
+		elseif  acquire_type == A.QUEST and mapquest then
 			local quest = private.quest_list[acquire_id]
 
 			display = (quest.faction == BFAC[player_faction] or quest.faction == FACTION_NEUTRAL)
-		elseif acquire_type == A_CUSTOM then
+		elseif acquire_type == A.CUSTOM then
 			if flags[F_TRAINER] and maptrainer then
 				return true
 			elseif flags[F_VENDOR] and mapvendor then
@@ -3036,17 +3037,17 @@ do
 			local acquire_type = entry.type
 
 			-- Get the location of the entry.
-			if acquire_type == A_TRAINER then
+			if acquire_type == A.TRAINER then
 				loc = private.trainer_list[id_num]
-			elseif acquire_type == A_VENDOR then
+			elseif acquire_type == A.VENDOR then
 				loc = private.vendor_list[id_num]
-			elseif acquire_type == A_REPUTATION then
+			elseif acquire_type == A.REPUTATION then
 				loc = private.vendor_list[entry.rep_vendor]
-			elseif acquire_type == A_MOB then
+			elseif acquire_type == A.MOB then
 				loc = private.mob_list[id_num]
-			elseif acquire_type == A_QUEST then
+			elseif acquire_type == A.QUEST then
 				loc = private.quest_list[id_num]
-			elseif acquire_type == A_CUSTOM then
+			elseif acquire_type == A.CUSTOM then
 				loc = private.custom_list[id_num]
 				custom = true
 			end

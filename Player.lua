@@ -51,8 +51,9 @@ local Player		= private.Player
 -- Constants
 -------------------------------------------------------------------------------
 local F_ALLIANCE, F_HORDE = 1, 2
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-
+--local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+local A = private.acquire_flags
+local A_MAX = 9
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
@@ -110,7 +111,7 @@ function Player:HasProperRepLevel(recipe_index)
 	local reputations = private.reputation_list
 
 	for index in pairs(acquire_info) do
-		if acquire_info[index].type == A_REPUTATION then
+		if acquire_info[index].type == A.REPUTATION then
 			local rep_id = acquire_info[index].ID
 
 			if rep_id == REP_HONOR_HOLD or rep_id == REP_THRALLMAR then
