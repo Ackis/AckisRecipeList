@@ -1456,6 +1456,8 @@ do
 
 	local FILTER_STRINGS = private.filter_strings
 	local ACQUIRE_STRINGS = private.acquire_strings
+	local ACQUIRE_FLAGS = private.acquire_flags
+	local REP_LEVELS = private.rep_level_strings
 
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
@@ -1499,9 +1501,9 @@ do
 			local data = private.recipe_list[name]
 			local flag_string
 			tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
-			tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d)",
+			tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d, %s)",
 						      data.spell_id, data.skill_level, tostring(data.item_id), RARITY_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
-						      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level))
+						      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, tostring(data.specialty)))
 
 			for i = 1, NUM_FILTER_FLAGS, 1 do
 				if data.Flags[i] then
@@ -1517,10 +1519,20 @@ do
 			flag_string = nil
 
 			for index, acquire in ipairs(data.Acquire) do
+				local acquire_type = acquire.type
+
 				if not flag_string then
-					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					if acquire_type == ACQUIRE_FLAGS.REPUTATION then
+						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+					else
+						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					end
 				else
-					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					if acquire_type == ACQUIRE_FLAGS.REPUTATION then
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..acquire.rep_level..", "..acquire.rep_vendor
+					else
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+					end
 				end
 			end
 			tinsert(output, string.format("self:addTradeAcquire(RecipeDB, %d, %s)", data.spell_id, flag_string))

@@ -120,3 +120,10 @@ private.acquire_strings = {
 	[7]	= "WORLD_DROP",
 	[8]	= "CUSTOM",
 }
+
+private.rep_level_strings = {
+	[1]	= "FRIENDLY",
+	[2]	= "HONORED",
+	[3]	= "REVERED",
+	[4]	= "EXALTED",
+}
