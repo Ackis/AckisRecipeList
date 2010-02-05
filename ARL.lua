@@ -871,6 +871,7 @@ function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, 
 	-- about a recipe
 	-------------------------------------------------------------------------------
 	local recipe = {
+		["spell_id"]		= spell_id,
 		["skill_level"]		= skill_level,
 		["item_id"]		= item_id,
 		["quality"]		= quality,
