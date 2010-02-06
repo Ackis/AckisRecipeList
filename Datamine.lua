@@ -1475,6 +1475,64 @@ do
 		end
 		table.sort(sorted_recipes, Sort_AscID)
 	end
+	local NUM_FILTER_FLAGS = 128
+
+	local function RecipeDump(id, single)
+		local data = private.recipe_list[id or 1]
+
+		if single and not data then
+			addon:Print("Invalid recipe ID.")
+			return
+		end
+		local flag_string
+		local specialty = not data.specialty and "" or (", "..data.specialty)
+		tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
+		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
+					      data.spell_id, data.skill_level, tostring(data.item_id), RARITY_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
+					      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
+
+		for i = 1, NUM_FILTER_FLAGS, 1 do
+			if data.Flags[i] then
+				if not flag_string then
+					flag_string = "F."..FILTER_STRINGS[i]
+				else
+					flag_string = flag_string..", ".."F."..FILTER_STRINGS[i]
+				end
+			end
+		end
+		tinsert(output, string.format("self:addTradeFlags(RecipeDB, %d, %s)", data.spell_id, flag_string))
+
+		flag_string = nil
+
+		for index, acquire in ipairs(data.Acquire) do
+			local acquire_type = acquire.type
+
+			if acquire_type == ACQUIRE_TYPES.REPUTATION then
+				local faction_string = FACTION_NAMES[acquire.ID]
+
+				if not faction_string then
+					faction_string = acquire.ID
+					addon:Printf("Recipe %d (%s) - no string for faction %d", data.spell_id, data.name, acquire.ID)
+				else
+					faction_string = "FAC."..faction_string
+				end
+
+				if not flag_string then
+					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+				else
+					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+				end
+			else
+				if not flag_string then
+					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+				else
+					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+				end
+			end
+		end
+		tinsert(output, string.format("self:addTradeAcquire(RecipeDB, %d, %s)", data.spell_id, flag_string))
+		tinsert(output, "")
+	end
 
 	local function ProfessionDump(prof_name)
 		local master_list = LoadRecipe()
@@ -1493,62 +1551,17 @@ do
 			end
 		end
 		SortRecipeList()
-
-		local NUM_FILTER_FLAGS = 128
-
 		twipe(output)
 
-		for index, name in ipairs(addon.sorted_recipes) do
-			local data = private.recipe_list[name]
-			local flag_string
-			local specialty = not data.specialty and "" or (", "..data.specialty)
-			tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
-			tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-						      data.spell_id, data.skill_level, tostring(data.item_id), RARITY_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
-						      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
-
-			for i = 1, NUM_FILTER_FLAGS, 1 do
-				if data.Flags[i] then
-					if not flag_string then
-						flag_string = "F."..FILTER_STRINGS[i]
-					else
-						flag_string = flag_string..", ".."F."..FILTER_STRINGS[i]
-					end
-				end
-			end
-			tinsert(output, string.format("self:addTradeFlags(RecipeDB, %d, %s)", data.spell_id, flag_string))
-
-			flag_string = nil
-
-			for index, acquire in ipairs(data.Acquire) do
-				local acquire_type = acquire.type
-
-				if acquire_type == ACQUIRE_TYPES.REPUTATION then
-					local faction_string = FACTION_NAMES[acquire.ID]
-
-					if not faction_string then
-						faction_string = acquire.ID
-						addon:Printf("Recipe %d (%s) - no string for faction %d", data.spell_id, data.name, acquire.ID)
-					else
-						faction_string = "FAC."..faction_string
-					end
-
-					if not flag_string then
-						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
-					else
-						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
-					end
-				else
-					if not flag_string then
-						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
-					else
-						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
-					end
-				end
-			end
-			tinsert(output, string.format("self:addTradeAcquire(RecipeDB, %d, %s)", data.spell_id, flag_string))
-			tinsert(output, "")
+		for index, id in ipairs(addon.sorted_recipes) do
+			RecipeDump(id, false)
 		end
+		addon:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+	end
+
+	function addon:DumpRecipe(id_num)
+		twipe(output)
+		RecipeDump(id_num, true)
 		addon:DisplayTextDump(nil, nil, tconcat(output, "\n"))
 	end
 
