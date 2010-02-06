@@ -39,6 +39,8 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 local F		= private.filter_flags
 local A		= private.acquire_types
 local REP	= private.rep_levels
+local FAC	= private.faction_ids
+
 local FRIENDLY	= 1
 local HONORED	= 2
 local REVERED	= 3
