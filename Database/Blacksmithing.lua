@@ -1041,32 +1041,32 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Fiery Chain Girdle -- 20872
 	AddRecipe(20872, 295, 16989, R_RARE, GAME_ORIG, 295, 315, 325, 335)
 	self:addTradeFlags(RecipeDB, 20872, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20872, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 20872, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Fiery Chain Shoulders -- 20873
 	AddRecipe(20873, 300, 16988, R_RARE, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 20873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.MAIL, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20873, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 20873, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Bracers -- 20874
 	AddRecipe(20874, 295, 17014, R_RARE, GAME_ORIG, 295, 315, 325, 335)
 	self:addTradeFlags(RecipeDB, 20874, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20874, A.REPUTATION, 59, FRIENDLY, 12944)
+	self:addTradeAcquire(RecipeDB, 20874, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Dark Iron Leggings -- 20876
 	AddRecipe(20876, 300, 17013, R_RARE, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 20876, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20876, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 20876, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Reaver -- 20890
 	AddRecipe(20890, 300, 17015, R_RARE, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 20890, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20890, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 20890, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Destroyer -- 20897
 	AddRecipe(20897, 300, 17016, R_RARE, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 20897, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.AXE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20897, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 20897, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Sulfuron Hammer -- 21161
 	AddRecipe(21161, 300, 17193, R_EPIC, GAME_ORIG, 300, 325, 337, 350)
@@ -1086,92 +1086,92 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Heavy Timbermaw Belt -- 23628
 	AddRecipe(23628, 290, 19043, R_COMMON, GAME_ORIG, 290, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 23628, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 23628, A.REPUTATION, 576, HONORED, 11557)
+	self:addTradeAcquire(RecipeDB, 23628, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Heavy Timbermaw Boots -- 23629
 	AddRecipe(23629, 300, 19048, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23629, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 23629, A.REPUTATION, 576, REVERED, 11557)
+	self:addTradeAcquire(RecipeDB, 23629, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Girdle of the Dawn -- 23632
 	AddRecipe(23632, 290, 19051, R_COMMON, GAME_ORIG, 290, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 23632, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.PLATE, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23632, A.REPUTATION, 529, HONORED, 10856, A.REPUTATION, 529, HONORED, 10857, A.REPUTATION, 529, HONORED, 11536)
+	self:addTradeAcquire(RecipeDB, 23632, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 11536)
 
 	-- Gloves of the Dawn -- 23633
 	AddRecipe(23633, 300, 19057, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23633, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.PLATE, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23633, A.REPUTATION, 529, REVERED, 10856, A.REPUTATION, 529, REVERED, 10857, A.REPUTATION, 529, REVERED, 11536)
+	self:addTradeAcquire(RecipeDB, 23633, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 11536)
 
 	-- Dark Iron Helm -- 23636
 	AddRecipe(23636, 300, 19148, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23636, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23636, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 23636, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Dark Iron Gauntlets -- 23637
 	AddRecipe(23637, 300, 19164, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23637, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.PLATE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23637, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 23637, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Black Amnesty -- 23638
 	AddRecipe(23638, 300, 19166, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23638, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.DAGGER, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23638, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 23638, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Blackfury -- 23639
 	AddRecipe(23639, 300, 19167, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23639, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.POLEARM, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23639, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 23639, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Ebon Hand -- 23650
 	AddRecipe(23650, 300, 19170, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23650, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23650, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 23650, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Blackguard -- 23652
 	AddRecipe(23652, 300, 19168, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23652, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.SWORD, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23652, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 23652, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Nightfall -- 23653
 	AddRecipe(23653, 300, 19169, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 23653, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TWO_HAND, F.AXE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23653, A.REPUTATION, 59, EXALTED, 12944)
+	self:addTradeAcquire(RecipeDB, 23653, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Bloodsoul Breastplate -- 24136
 	AddRecipe(24136, 300, 19690, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24136, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24136, A.REPUTATION, 270, REVERED, 14921)
+	self:addTradeAcquire(RecipeDB, 24136, A.REPUTATION, FAC.ZANDALAR, REP.REVERED, 14921)
 
 	-- Bloodsoul Shoulders -- 24137
 	AddRecipe(24137, 300, 19691, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24137, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24137, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 24137, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Bloodsoul Gauntlets -- 24138
 	AddRecipe(24138, 300, 19692, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24138, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24138, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 24138, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Darksoul Breastplate -- 24139
 	AddRecipe(24139, 300, 19693, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24139, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24139, A.REPUTATION, 270, REVERED, 14921)
+	self:addTradeAcquire(RecipeDB, 24139, A.REPUTATION, FAC.ZANDALAR, REP.REVERED, 14921)
 
 	-- Darksoul Leggings -- 24140
 	AddRecipe(24140, 300, 19694, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24140, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24140, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 24140, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Darksoul Shoulders -- 24141
 	AddRecipe(24141, 300, 19695, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24141, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24141, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 24141, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Dark Iron Boots -- 24399
 	AddRecipe(24399, 300, 20039, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24399, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 24399, A.REPUTATION, 59, EXALTED, 12944)
+	self:addTradeAcquire(RecipeDB, 24399, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.EXALTED, 12944)
 
 	-- Darkrune Gauntlets -- 24912
 	AddRecipe(24912, 300, 20549, R_RARE, GAME_ORIG, 300, 320, 330, 340)
@@ -1191,12 +1191,12 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Heavy Obsidian Belt -- 27585
 	AddRecipe(27585, 300, 22197, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 27585, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.PLATE, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27585, A.REPUTATION, 609, FRIENDLY, 15176)
+	self:addTradeAcquire(RecipeDB, 27585, A.REPUTATION, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Jagged Obsidian Shield -- 27586
 	AddRecipe(27586, 300, 22198, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 27586, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27586, A.REPUTATION, 609, REVERED, 15471)
+	self:addTradeAcquire(RecipeDB, 27586, A.REPUTATION, FAC.CENARION_CIRCLE, REP.REVERED, 15471)
 
 	-- Thick Obsidian Breastplate -- 27587
 	AddRecipe(27587, 300, 22196, R_RARE, GAME_ORIG, 300, 320, 330, 340)
@@ -1206,7 +1206,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Light Obsidian Belt -- 27588
 	AddRecipe(27588, 300, 22195, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 27588, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27588, A.REPUTATION, 609, HONORED, 15176)
+	self:addTradeAcquire(RecipeDB, 27588, A.REPUTATION, FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Black Grasp of the Destroyer -- 27589
 	AddRecipe(27589, 300, 22194, R_RARE, GAME_ORIG, 300, 320, 330, 340)
@@ -1216,7 +1216,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Obsidian Mail Tunic -- 27590
 	AddRecipe(27590, 300, 22191, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 27590, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27590, A.REPUTATION, 609, EXALTED, 15471)
+	self:addTradeAcquire(RecipeDB, 27590, A.REPUTATION, FAC.CENARION_CIRCLE, REP.EXALTED, 15471)
 
 	-- Titanic Leggings -- 27829
 	AddRecipe(27829, 300, 22385, R_EPIC, GAME_ORIG, 300, 320, 330, 340)
@@ -1236,32 +1236,32 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Icebane Breastplate -- 28242
 	AddRecipe(28242, 300, 22669, R_EPIC, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28242, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:addTradeAcquire(RecipeDB, 28242, A.REPUTATION, 529, EXALTED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28242, A.REPUTATION, FAC.ARGENTDAWN, REP.EXALTED, 16365, A.CUSTOM, 41)
 
 	-- Icebane Gauntlets -- 28243
 	AddRecipe(28243, 300, 22670, R_EPIC, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28243, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:addTradeAcquire(RecipeDB, 28243, A.REPUTATION, 529, REVERED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28243, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 16365, A.CUSTOM, 41)
 
 	-- Icebane Bracers -- 28244
 	AddRecipe(28244, 300, 22671, R_EPIC, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28244, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:addTradeAcquire(RecipeDB, 28244, A.REPUTATION, 529, REVERED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28244, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 16365, A.CUSTOM, 41)
 
 	-- Ironvine Breastplate -- 28461
 	AddRecipe(28461, 300, 22762, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28461, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28461, A.REPUTATION, 609, REVERED, 15176)
+	self:addTradeAcquire(RecipeDB, 28461, A.REPUTATION, FAC.CENARION_CIRCLE, REP.REVERED, 15176)
 
 	-- Ironvine Gloves -- 28462
 	AddRecipe(28462, 300, 22763, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28462, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28462, A.REPUTATION, 609, HONORED, 15176)
+	self:addTradeAcquire(RecipeDB, 28462, A.REPUTATION, FAC.CENARION_CIRCLE, REP.HONORED, 15176)
 
 	-- Ironvine Belt -- 28463
 	AddRecipe(28463, 300, 22764, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 28463, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28463, A.REPUTATION, 609, FRIENDLY, 15176)
+	self:addTradeAcquire(RecipeDB, 28463, A.REPUTATION, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15176)
 
 	-- Fel Iron Plate Gloves -- 29545
 	AddRecipe(29545, 300, 23482, R_COMMON, GAME_TBC, 300, 310, 320, 330)
@@ -1361,42 +1361,42 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Enchanted Adamantite Belt -- 29608
 	AddRecipe(29608, 355, 23510, R_COMMON, GAME_TBC, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 29608, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 29608, A.REPUTATION, 934, FRIENDLY, 19331)
+	self:addTradeAcquire(RecipeDB, 29608, A.REPUTATION, FAC.SCRYER, REP.FRIENDLY, 19331)
 
 	-- Enchanted Adamantite Breastplate -- 29610
 	AddRecipe(29610, 360, 23509, R_COMMON, GAME_TBC, 360, 370, 380, 390)
 	self:addTradeFlags(RecipeDB, 29610, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 29610, A.REPUTATION, 934, REVERED, 19331)
+	self:addTradeAcquire(RecipeDB, 29610, A.REPUTATION, FAC.SCRYER, REP.REVERED, 19331)
 
 	-- Enchanted Adamantite Boots -- 29611
 	AddRecipe(29611, 355, 23511, R_COMMON, GAME_TBC, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 29611, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 29611, A.REPUTATION, 934, HONORED, 19331)
+	self:addTradeAcquire(RecipeDB, 29611, A.REPUTATION, FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Enchanted Adamantite Leggings -- 29613
 	AddRecipe(29613, 365, 23512, R_COMMON, GAME_TBC, 365, 375, 385, 395)
 	self:addTradeFlags(RecipeDB, 29613, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 29613, A.REPUTATION, 934, EXALTED, 19331)
+	self:addTradeAcquire(RecipeDB, 29613, A.REPUTATION, FAC.SCRYER, REP.EXALTED, 19331)
 
 	-- Flamebane Bracers -- 29614
 	AddRecipe(29614, 350, 23515, R_COMMON, GAME_TBC, 350, 360, 370, 380)
 	self:addTradeFlags(RecipeDB, 29614, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 29614, A.REPUTATION, 932, FRIENDLY, 19321)
+	self:addTradeAcquire(RecipeDB, 29614, A.REPUTATION, FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flamebane Helm -- 29615
 	AddRecipe(29615, 355, 23516, R_COMMON, GAME_TBC, 355, 365, 375, 385)
 	self:addTradeFlags(RecipeDB, 29615, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 29615, A.REPUTATION, 932, EXALTED, 19321)
+	self:addTradeAcquire(RecipeDB, 29615, A.REPUTATION, FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Flamebane Gloves -- 29616
 	AddRecipe(29616, 360, 23514, R_COMMON, GAME_TBC, 360, 370, 380, 390)
 	self:addTradeFlags(RecipeDB, 29616, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 29616, A.REPUTATION, 932, HONORED, 19321)
+	self:addTradeAcquire(RecipeDB, 29616, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flamebane Breastplate -- 29617
 	AddRecipe(29617, 365, 23513, R_COMMON, GAME_TBC, 365, 375, 385, 395)
 	self:addTradeFlags(RecipeDB, 29617, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 29617, A.REPUTATION, 932, REVERED, 19321)
+	self:addTradeAcquire(RecipeDB, 29617, A.REPUTATION, FAC.ALDOR, REP.REVERED, 19321)
 
 	-- Felsteel Gloves -- 29619
 	AddRecipe(29619, 360, 23517, R_RARE, GAME_TBC, 360, 370, 380, 390)
@@ -1466,12 +1466,12 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Adamantite Sharpening Stone -- 29656
 	AddRecipe(29656, 350, 23529, R_COMMON, GAME_TBC, 350, 350, 355, 360)
 	self:addTradeFlags(RecipeDB, 29656, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 29656, A.REPUTATION, 942, HONORED, 17904)
+	self:addTradeAcquire(RecipeDB, 29656, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Felsteel Shield Spike -- 29657
 	AddRecipe(29657, 360, 23530, R_COMMON, GAME_TBC, 360, 370, 380, 390)
 	self:addTradeFlags(RecipeDB, 29657, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 29657, A.REPUTATION, 946, EXALTED, 17657, A.REPUTATION, 947, EXALTED, 17585)
+	self:addTradeAcquire(RecipeDB, 29657, A.REPUTATION, FAC.HONOR_HOLD, REP.EXALTED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.EXALTED, 17585)
 
 	-- Felfury Gauntlets -- 29658
 	AddRecipe(29658, 365, 23531, R_EPIC, GAME_TBC, 365, 375, 385, 395)
@@ -1576,7 +1576,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Greater Rune of Warding -- 32285
 	AddRecipe(32285, 350, 25521, R_COMMON, GAME_TBC, 350, 350, 355, 360)
 	self:addTradeFlags(RecipeDB, 32285, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 32285, A.REPUTATION, 942, HONORED, 17904)
+	self:addTradeAcquire(RecipeDB, 32285, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Fel Iron Rod -- 32655
 	AddRecipe(32655, 300, 25843, R_COMMON, GAME_TBC, 300, 300, 305, 310)
@@ -1681,7 +1681,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Adamantite Weightstone -- 34608
 	AddRecipe(34608, 350, 28421, R_COMMON, GAME_TBC, 350, 350, 355, 360)
 	self:addTradeFlags(RecipeDB, 34608, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 34608, A.REPUTATION, 942, HONORED, 17904)
+	self:addTradeAcquire(RecipeDB, 34608, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Thick Bronze Darts -- 34979
 	AddRecipe(34979, 100, 29201, R_COMMON, GAME_TBC, 100, 130, 145, 160)
@@ -1831,52 +1831,52 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Wildguard Breastplate -- 38473
 	AddRecipe(38473, 375, 31364, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38473, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 38473, A.REPUTATION, 942, EXALTED, 17904)
+	self:addTradeAcquire(RecipeDB, 38473, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Wildguard Leggings -- 38475
 	AddRecipe(38475, 375, 31367, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38475, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 38475, A.REPUTATION, 942, REVERED, 17904)
+	self:addTradeAcquire(RecipeDB, 38475, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Wildguard Helm -- 38476
 	AddRecipe(38476, 375, 31368, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38476, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 38476, A.REPUTATION, 942, REVERED, 17904)
+	self:addTradeAcquire(RecipeDB, 38476, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Iceguard Breastplate -- 38477
 	AddRecipe(38477, 375, 31369, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38477, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.VIOLETEYE)
-	self:addTradeAcquire(RecipeDB, 38477, A.REPUTATION, 967, HONORED, 16388)
+	self:addTradeAcquire(RecipeDB, 38477, A.REPUTATION, FAC.VIOLETEYE, REP.HONORED, 16388)
 
 	-- Iceguard Leggings -- 38478
 	AddRecipe(38478, 375, 31370, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38478, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.VIOLETEYE)
-	self:addTradeAcquire(RecipeDB, 38478, A.REPUTATION, 967, REVERED, 16388)
+	self:addTradeAcquire(RecipeDB, 38478, A.REPUTATION, FAC.VIOLETEYE, REP.REVERED, 16388)
 
 	-- Iceguard Helm -- 38479
 	AddRecipe(38479, 375, 31371, R_EPIC, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 38479, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.VIOLETEYE)
-	self:addTradeAcquire(RecipeDB, 38479, A.REPUTATION, 967, HONORED, 16388)
+	self:addTradeAcquire(RecipeDB, 38479, A.REPUTATION, FAC.VIOLETEYE, REP.HONORED, 16388)
 
 	-- Shadesteel Sabots -- 40033
 	AddRecipe(40033, 375, 32402, R_COMMON, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 40033, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40033, A.REPUTATION, 1012, HONORED, 23159)
+	self:addTradeAcquire(RecipeDB, 40033, A.REPUTATION, FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Shadesteel Bracers -- 40034
 	AddRecipe(40034, 375, 32403, R_COMMON, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 40034, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40034, A.REPUTATION, 1012, FRIENDLY, 23159)
+	self:addTradeAcquire(RecipeDB, 40034, A.REPUTATION, FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Shadesteel Greaves -- 40035
 	AddRecipe(40035, 375, 32404, R_COMMON, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 40035, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40035, A.REPUTATION, 1012, HONORED, 23159)
+	self:addTradeAcquire(RecipeDB, 40035, A.REPUTATION, FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Shadesteel Girdle -- 40036
 	AddRecipe(40036, 375, 32401, R_COMMON, GAME_TBC, 375, 385, 395, 405)
 	self:addTradeFlags(RecipeDB, 40036, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.PLATE, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40036, A.REPUTATION, 1012, FRIENDLY, 23159)
+	self:addTradeAcquire(RecipeDB, 40036, A.REPUTATION, FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Swiftsteel Bracers -- 41132
 	AddRecipe(41132, 375, 32568, R_EPIC, GAME_TBC, 375, 385, 395, 405)
@@ -2456,7 +2456,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Titanium Plating -- 62202
 	AddRecipe(62202, 450, 44936, R_RARE, GAME_WOTLK, 450, 455, 460, 465)
 	self:addTradeFlags(RecipeDB, 62202, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
-	self:addTradeAcquire(RecipeDB, 62202, A.REPUTATION, 1052, EXALTED, 32565, A.REPUTATION, 1052, EXALTED, 32774, A.REPUTATION, 1037, EXALTED, 32564, A.REPUTATION, 1037, EXALTED, 32773)
+	self:addTradeAcquire(RecipeDB, 62202, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32774, A.REPUTATION, 1037, REP.EXALTED, 32564, A.REPUTATION, 1037, REP.EXALTED, 32773)
 
 	-- Titansteel Spellblade -- 63182
 	AddRecipe(63182, 440, 45085, R_EPIC, GAME_WOTLK, 440, 450, 460, 470)
@@ -2496,32 +2496,32 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Puresteel Legplates -- 70562
 	AddRecipe(70562, 450, 49902, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70562, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70562, A.REPUTATION, 1156, REVERED, 37687)
+	self:addTradeAcquire(RecipeDB, 70562, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Protectors of Life -- 70563
 	AddRecipe(70563, 450, 49905, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70563, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70563, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 70563, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Legplates of Painful Death -- 70565
 	AddRecipe(70565, 450, 49903, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70565, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70565, A.REPUTATION, 1156, REVERED, 37687)
+	self:addTradeAcquire(RecipeDB, 70565, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Hellfrozen Bonegrinders -- 70566
 	AddRecipe(70566, 450, 49906, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70566, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70566, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 70566, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Pillars of Might -- 70567
 	AddRecipe(70567, 450, 49904, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70567, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70567, A.REPUTATION, 1156, REVERED, 37687)
+	self:addTradeAcquire(RecipeDB, 70567, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Boots of Kingly Upheaval -- 70568
 	AddRecipe(70568, 450, 49907, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70568, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70568, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 70568, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
@@ -2562,35 +2562,35 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	elseif faction == BFAC["Horde"] then
 
-		-- Breastplate of the White Knight (Horde) -- 67130
+		-- Breastplate of the White Knight -- 67130
 		AddRecipe(67130, 450, 47592, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67130, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67130, A.CUSTOM, 42)
 
-		-- Saronite Swordbreakers (Horde) -- 67131
+		-- Saronite Swordbreakers -- 67131
 		AddRecipe(67131, 450, 47571, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67131, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67131, A.CUSTOM, 42)
 
-		-- Sunforged Bracers (Horde) -- 67135
-		AddRecipe(67135, 450, 47575, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
-		self:addTradeFlags(RecipeDB, 67135, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-		self:addTradeAcquire(RecipeDB, 67135, A.CUSTOM, 42)
-
-		-- Sunforged Breastplate (Horde) -- 67134
-		AddRecipe(67134, 450, 47594, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67134, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-		self:addTradeAcquire(RecipeDB, 67134, A.CUSTOM, 42)
-
-		-- Titanium Razorplate (Horde) -- 67132
+		-- Titanium Razorplate -- 67132
 		AddRecipe(67132, 450, 47590, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67132, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67132, A.CUSTOM, 42)
 
-		-- Titanium Spikeguards (Horde) -- 67133
+		-- Titanium Spikeguards -- 67133
 		AddRecipe(67133, 450, 47573, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67133, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67133, A.CUSTOM, 42)
+
+		-- Sunforged Breastplate -- 67134
+		AddRecipe(67134, 450, 47594, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67134, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67134, A.CUSTOM, 42)
+
+		-- Sunforged Bracers -- 67135
+		AddRecipe(67135, 450, 47575, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67135, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67135, A.CUSTOM, 42)
 
 	end
 

@@ -457,7 +457,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Air to Fire -- 17559
 	AddRecipe(17559, 275, 7078, R_UNCOMMON, GAME_ORIG, 275, 275, 282, 290)
 	self:addTradeFlags(RecipeDB, 17559, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 17559, A.REPUTATION, 529, HONORED, 10856, A.REPUTATION, 529, HONORED, 10857, A.REPUTATION, 529, HONORED, 11536)
+	self:addTradeAcquire(RecipeDB, 17559, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 11536)
 
 	-- Transmute: Fire to Earth -- 17560
 	AddRecipe(17560, 275, 7076, R_UNCOMMON, GAME_ORIG, 275, 275, 282, 290)
@@ -467,7 +467,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Earth to Water -- 17561
 	AddRecipe(17561, 275, 7080, R_UNCOMMON, GAME_ORIG, 275, 275, 282, 290)
 	self:addTradeFlags(RecipeDB, 17561, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 17561, A.REPUTATION, 576, FRIENDLY, 11557)
+	self:addTradeAcquire(RecipeDB, 17561, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Transmute: Water to Air -- 17562
 	AddRecipe(17562, 275, 7082, R_UNCOMMON, GAME_ORIG, 275, 275, 282, 290)
@@ -547,7 +547,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Alchemist's Stone -- 17632
 	AddRecipe(17632, 350, 13503, R_COMMON, GAME_ORIG, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 17632, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 17632, A.REPUTATION, 935, REVERED, 21432)
+	self:addTradeAcquire(RecipeDB, 17632, A.REPUTATION, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Potion of Petrification -- 17634
 	AddRecipe(17634, 300, 13506, R_UNCOMMON, GAME_ORIG, 300, 315, 322, 330)
@@ -557,22 +557,22 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flask of the Titans -- 17635
 	AddRecipe(17635, 300, 13510, R_UNCOMMON, GAME_TBC, 300, 315, 322, 330)
 	self:addTradeFlags(RecipeDB, 17635, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 17635, A.MOB, 10363, A.REPUTATION, 935, EXALTED, 21432)
+	self:addTradeAcquire(RecipeDB, 17635, A.MOB, 10363, A.REPUTATION, FAC.SHATAR, REP.EXALTED, 21432)
 
 	-- Flask of Distilled Wisdom -- 17636
 	AddRecipe(17636, 300, 13511, R_UNCOMMON, GAME_TBC, 300, 315, 322, 330)
 	self:addTradeFlags(RecipeDB, 17636, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 17636, A.REPUTATION, 942, EXALTED, 17904, A.MOB, 10813)
+	self:addTradeAcquire(RecipeDB, 17636, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904, A.MOB, 10813)
 
 	-- Flask of Supreme Power -- 17637
 	AddRecipe(17637, 300, 13512, R_UNCOMMON, GAME_TBC, 300, 315, 322, 330)
 	self:addTradeFlags(RecipeDB, 17637, F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
-	self:addTradeAcquire(RecipeDB, 17637, A.MOB, 10508, A.REPUTATION, 989, EXALTED, 21643)
+	self:addTradeAcquire(RecipeDB, 17637, A.MOB, 10508, A.REPUTATION, FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
 
 	-- Flask of Chromatic Resistance -- 17638
 	AddRecipe(17638, 300, 13513, R_UNCOMMON, GAME_TBC, 300, 315, 322, 330)
 	self:addTradeFlags(RecipeDB, 17638, F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOP, F.LOWERCITY)
-	self:addTradeAcquire(RecipeDB, 17638, A.MOB, 10339, A.REPUTATION, 1011, EXALTED, 21655)
+	self:addTradeAcquire(RecipeDB, 17638, A.MOB, 10339, A.REPUTATION, FAC.LOWERCITY, REP.EXALTED, 21655)
 
 	-- Elixir of Frost Power -- 21923
 	AddRecipe(21923, 190, 17708, R_COMMON, GAME_ORIG, 190, 210, 230, 250)
@@ -597,27 +597,27 @@ function addon:InitAlchemy(RecipeDB)
 	-- Mageblood Elixir -- 24365
 	AddRecipe(24365, 275, 20007, R_COMMON, GAME_ORIG, 275, 290, 310, 330)
 	self:addTradeFlags(RecipeDB, 24365, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24365, A.REPUTATION, 270, REVERED, 14921)
+	self:addTradeAcquire(RecipeDB, 24365, A.REPUTATION, FAC.ZANDALAR, REP.REVERED, 14921)
 
 	-- Greater Dreamless Sleep Potion -- 24366
 	AddRecipe(24366, 275, 20002, R_COMMON, GAME_ORIG, 275, 290, 310, 330)
 	self:addTradeFlags(RecipeDB, 24366, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24366, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 24366, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Living Action Potion -- 24367
 	AddRecipe(24367, 285, 20008, R_COMMON, GAME_ORIG, 285, 300, 320, 340)
 	self:addTradeFlags(RecipeDB, 24367, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24367, A.REPUTATION, 270, EXALTED, 14921)
+	self:addTradeAcquire(RecipeDB, 24367, A.REPUTATION, FAC.ZANDALAR, REP.EXALTED, 14921)
 
 	-- Mighty Troll's Blood Elixir -- 24368
 	AddRecipe(24368, 290, 20004, R_COMMON, GAME_ORIG, 290, 305, 325, 345)
 	self:addTradeFlags(RecipeDB, 24368, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24368, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 24368, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Transmute: Elemental Fire -- 25146
 	AddRecipe(25146, 300, 7068, R_COMMON, GAME_ORIG, 300, 301, 305, 310)
 	self:addTradeFlags(RecipeDB, 25146, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 25146, A.REPUTATION, 59, FRIENDLY, 12944)
+	self:addTradeAcquire(RecipeDB, 25146, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Elixir of Greater Firepower -- 26277
 	AddRecipe(26277, 250, 21546, R_UNCOMMON, GAME_ORIG, 250, 265, 285, 305)
@@ -667,12 +667,12 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Agility -- 28553
 	AddRecipe(28553, 330, 22831, R_COMMON, GAME_TBC, 330, 345, 352, 360)
 	self:addTradeFlags(RecipeDB, 28553, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 28553, A.REPUTATION, 946, HONORED, 17657, A.REPUTATION, 947, HONORED, 17585)
+	self:addTradeAcquire(RecipeDB, 28553, A.REPUTATION, FAC.HONOR_HOLD, REP.HONORED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.HONORED, 17585)
 
 	-- Shrouding Potion -- 28554
 	AddRecipe(28554, 335, 22871, R_UNCOMMON, GAME_TBC, 335, 350, 357, 365)
 	self:addTradeFlags(RecipeDB, 28554, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SPOREGGAR)
-	self:addTradeAcquire(RecipeDB, 28554, A.REPUTATION, 970, EXALTED, 18382)
+	self:addTradeAcquire(RecipeDB, 28554, A.REPUTATION, FAC.SPOREGGAR, REP.EXALTED, 18382)
 
 	-- Super Mana Potion -- 28555
 	AddRecipe(28555, 340, 22832, R_COMMON, GAME_TBC, 340, 355, 362, 370)
@@ -682,7 +682,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Firepower -- 28556
 	AddRecipe(28556, 345, 22833, R_UNCOMMON, GAME_TBC, 345, 360, 367, 375)
 	self:addTradeFlags(RecipeDB, 28556, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 28556, A.REPUTATION, 934, REVERED, 19331)
+	self:addTradeAcquire(RecipeDB, 28556, A.REPUTATION, FAC.SCRYER, REP.REVERED, 19331)
 
 	-- Elixir of Major Defense -- 28557
 	AddRecipe(28557, 345, 22834, R_COMMON, GAME_TBC, 345, 360, 367, 375)
@@ -692,7 +692,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Elixir of Major Shadow Power -- 28558
 	AddRecipe(28558, 350, 22835, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28558, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LOWERCITY)
-	self:addTradeAcquire(RecipeDB, 28558, A.REPUTATION, 1011, REVERED, 21655)
+	self:addTradeAcquire(RecipeDB, 28558, A.REPUTATION, FAC.LOWERCITY, REP.REVERED, 21655)
 
 	-- Major Dreamless Sleep Potion -- 28562
 	AddRecipe(28562, 350, 22836, R_COMMON, GAME_TBC, 350, 365, 372, 380)
@@ -717,22 +717,22 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Primal Air to Fire -- 28566
 	AddRecipe(28566, 350, 21884, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28566, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 28566, A.REPUTATION, 935, REVERED, 21432)
+	self:addTradeAcquire(RecipeDB, 28566, A.REPUTATION, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Transmute: Primal Earth to Water -- 28567
 	AddRecipe(28567, 350, 21885, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28567, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.SPOREGGAR)
-	self:addTradeAcquire(RecipeDB, 28567, A.REPUTATION, 970, REVERED, 18382)
+	self:addTradeAcquire(RecipeDB, 28567, A.REPUTATION, FAC.SPOREGGAR, REP.REVERED, 18382)
 
 	-- Transmute: Primal Fire to Earth -- 28568
 	AddRecipe(28568, 350, 22452, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28568, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 28568, A.REPUTATION, 978, REVERED, 20240)
+	self:addTradeAcquire(RecipeDB, 28568, A.REPUTATION, FAC.KURENI, REP.REVERED, 20240)
 
 	-- Transmute: Primal Water to Air -- 28569
 	AddRecipe(28569, 350, 22451, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28569, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 28569, A.REPUTATION, 942, REVERED, 17904)
+	self:addTradeAcquire(RecipeDB, 28569, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Elixir of Major Mageblood -- 28570
 	AddRecipe(28570, 355, 22840, R_UNCOMMON, GAME_TBC, 355, 370, 375, 380)
@@ -752,7 +752,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Major Nature Protection Potion -- 28573
 	AddRecipe(28573, 360, 22844, R_COMMON, GAME_TBC, 360, 375, 377, 380)
 	self:addTradeFlags(RecipeDB, 28573, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 28573, A.REPUTATION, 942, EXALTED, 17904)
+	self:addTradeAcquire(RecipeDB, 28573, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Major Arcane Protection Potion -- 28575
 	AddRecipe(28575, 360, 22845, R_UNCOMMON, GAME_TBC, 360, 375, 377, 380)
@@ -847,12 +847,12 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Earthstorm Diamond -- 32765
 	AddRecipe(32765, 350, 25867, R_COMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 32765, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 32765, A.REPUTATION, 942, HONORED, 17904)
+	self:addTradeAcquire(RecipeDB, 32765, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Transmute: Skyfire Diamond -- 32766
 	AddRecipe(32766, 350, 25868, R_COMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 32766, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 32766, A.REPUTATION, 946, HONORED, 17657, A.REPUTATION, 947, HONORED, 17585)
+	self:addTradeAcquire(RecipeDB, 32766, A.REPUTATION, FAC.HONOR_HOLD, REP.HONORED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.HONORED, 17585)
 
 	-- Volatile Healing Potion -- 33732
 	AddRecipe(33732, 300, 28100, R_COMMON, GAME_TBC, 300, 315, 322, 330)
@@ -907,7 +907,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Earthen Elixir -- 39637
 	AddRecipe(39637, 320, 32063, R_COMMON, GAME_TBC, 320, 335, 342, 350)
 	self:addTradeFlags(RecipeDB, 39637, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 39637, A.REPUTATION, 942, HONORED, 17904)
+	self:addTradeAcquire(RecipeDB, 39637, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Elixir of Draenic Wisdom -- 39638
 	AddRecipe(39638, 320, 32067, R_COMMON, GAME_TBC, 320, 335, 342, 350)
@@ -947,7 +947,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Flask of Chromatic Wonder -- 42736
 	AddRecipe(42736, 375, 33208, R_UNCOMMON, GAME_TBC, 375, 390, 397, 405)
 	self:addTradeFlags(RecipeDB, 42736, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.VIOLETEYE)
-	self:addTradeAcquire(RecipeDB, 42736, A.REPUTATION, 967, HONORED, 18255)
+	self:addTradeAcquire(RecipeDB, 42736, A.REPUTATION, FAC.VIOLETEYE, REP.HONORED, 18255)
 
 	-- Mad Alchemist's Potion -- 45061
 	AddRecipe(45061, 325, 34440, R_COMMON, GAME_TBC, 325, 335, 342, 350)
@@ -957,22 +957,22 @@ function addon:InitAlchemy(RecipeDB)
 	-- Guardian's Alchemist Stone -- 47046
 	AddRecipe(47046, 375, 35748, R_COMMON, GAME_TBC, 375, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 47046, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.RBOP, F.TANK, F.TRINKET, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 47046, A.REPUTATION, 1077, EXALTED, 25032)
+	self:addTradeAcquire(RecipeDB, 47046, A.REPUTATION, FAC.SHATTEREDSUN, REP.EXALTED, 25032)
 
 	-- Sorcerer's Alchemist Stone -- 47048
 	AddRecipe(47048, 375, 35749, R_COMMON, GAME_TBC, 375, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 47048, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 47048, A.REPUTATION, 1077, EXALTED, 25032)
+	self:addTradeAcquire(RecipeDB, 47048, A.REPUTATION, FAC.SHATTEREDSUN, REP.EXALTED, 25032)
 
 	-- Redeemer's Alchemist Stone -- 47049
 	AddRecipe(47049, 375, 35750, R_COMMON, GAME_TBC, 375, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 47049, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 47049, A.REPUTATION, 1077, EXALTED, 25032)
+	self:addTradeAcquire(RecipeDB, 47049, A.REPUTATION, FAC.SHATTEREDSUN, REP.EXALTED, 25032)
 
 	-- Assassin's Alchemist Stone -- 47050
 	AddRecipe(47050, 375, 35751, R_COMMON, GAME_TBC, 375, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 47050, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.RBOP, F.DPS, F.TRINKET, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 47050, A.REPUTATION, 1077, EXALTED, 25032)
+	self:addTradeAcquire(RecipeDB, 47050, A.REPUTATION, FAC.SHATTEREDSUN, REP.EXALTED, 25032)
 
 	-- Transmute: Eternal Life to Shadow -- 53771
 	AddRecipe(53771, 405, 35627, R_UNCOMMON, GAME_WOTLK, 405, 405, 415, 425)

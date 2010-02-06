@@ -991,12 +991,12 @@ function addon:InitTailoring(RecipeDB)
 	-- Flarecore Mantle -- 20848
 	AddRecipe(20848, 300, 16980, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 20848, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20848, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 20848, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Flarecore Gloves -- 20849
 	AddRecipe(20849, 300, 16979, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 20849, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOE, F.RBOP, F.CLOTH, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 20849, A.REPUTATION, 59, FRIENDLY, 12944)
+	self:addTradeAcquire(RecipeDB, 20849, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Green Holiday Shirt -- 21945
 	AddRecipe(21945, 190, 17723, R_COMMON, GAME_ORIG, 190, 200, 205, 210)
@@ -1046,47 +1046,47 @@ function addon:InitTailoring(RecipeDB)
 	-- Wisdom of the Timbermaw -- 23662
 	AddRecipe(23662, 290, 19047, R_COMMON, GAME_ORIG, 290, 305, 320, 335)
 	self:addTradeFlags(RecipeDB, 23662, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 23662, A.REPUTATION, 576, HONORED, 11557)
+	self:addTradeAcquire(RecipeDB, 23662, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Mantle of the Timbermaw -- 23663
 	AddRecipe(23663, 300, 19050, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 23663, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 23663, A.REPUTATION, 576, REVERED, 11557)
+	self:addTradeAcquire(RecipeDB, 23663, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Argent Boots -- 23664
 	AddRecipe(23664, 290, 19056, R_COMMON, GAME_ORIG, 290, 305, 320, 335)
 	self:addTradeFlags(RecipeDB, 23664, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23664, A.REPUTATION, 529, HONORED, 10856, A.REPUTATION, 529, HONORED, 10857, A.REPUTATION, 529, HONORED, 11536)
+	self:addTradeAcquire(RecipeDB, 23664, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 11536)
 
 	-- Argent Shoulders -- 23665
 	AddRecipe(23665, 300, 19059, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 23665, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23665, A.REPUTATION, 529, REVERED, 10856, A.REPUTATION, 529, REVERED, 10857, A.REPUTATION, 529, REVERED, 11536)
+	self:addTradeAcquire(RecipeDB, 23665, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 11536)
 
 	-- Flarecore Robe -- 23666
 	AddRecipe(23666, 300, 19156, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 23666, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23666, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 23666, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Flarecore Leggings -- 23667
 	AddRecipe(23667, 300, 19165, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 23667, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23667, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 23667, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Bloodvine Vest -- 24091
 	AddRecipe(24091, 300, 19682, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 24091, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24091, A.REPUTATION, 270, REVERED, 14921)
+	self:addTradeAcquire(RecipeDB, 24091, A.REPUTATION, FAC.ZANDALAR, REP.REVERED, 14921)
 
 	-- Bloodvine Leggings -- 24092
 	AddRecipe(24092, 300, 19683, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 24092, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24092, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 24092, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Bloodvine Boots -- 24093
 	AddRecipe(24093, 300, 19684, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 24093, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24093, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 24093, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Runed Stygian Leggings -- 24901
 	AddRecipe(24901, 300, 20538, R_RARE, GAME_ORIG, 300, 315, 330, 345)
@@ -1321,52 +1321,52 @@ function addon:InitTailoring(RecipeDB)
 	-- Cenarion Herb Bag -- 27724
 	AddRecipe(27724, 275, 22251, R_COMMON, GAME_ORIG, 275, 290, 305, 320)
 	self:addTradeFlags(RecipeDB, 27724, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27724, A.REPUTATION, 609, FRIENDLY, 15179)
+	self:addTradeAcquire(RecipeDB, 27724, A.REPUTATION, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Satchel of Cenarius -- 27725
 	AddRecipe(27725, 300, 22252, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 27725, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 27725, A.REPUTATION, 609, REVERED, 15179)
+	self:addTradeAcquire(RecipeDB, 27725, A.REPUTATION, FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Glacial Gloves -- 28205
 	AddRecipe(28205, 300, 22654, R_EPIC, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28205, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:addTradeAcquire(RecipeDB, 28205, A.REPUTATION, 529, REVERED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28205, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 16365, A.CUSTOM, 41)
 
 	-- Glacial Vest -- 28207
 	AddRecipe(28207, 300, 22652, R_EPIC, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28207, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:addTradeAcquire(RecipeDB, 28207, A.REPUTATION, 529, EXALTED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28207, A.REPUTATION, FAC.ARGENTDAWN, REP.EXALTED, 16365, A.CUSTOM, 41)
 
 	-- Glacial Cloak -- 28208
 	AddRecipe(28208, 300, 22658, R_EPIC, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28208, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.CLOAK)
-	self:addTradeAcquire(RecipeDB, 28208, A.REPUTATION, 529, HONORED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28208, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 16365, A.CUSTOM, 41)
 
 	-- Glacial Wrists -- 28209
 	AddRecipe(28209, 300, 22655, R_EPIC, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28209, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:addTradeAcquire(RecipeDB, 28209, A.REPUTATION, 529, REVERED, 16365, A.CUSTOM, 41)
+	self:addTradeAcquire(RecipeDB, 28209, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 16365, A.CUSTOM, 41)
 
 	-- Gaea's Embrace -- 28210
 	AddRecipe(28210, 300, 22660, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28210, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28210, A.REPUTATION, 609, REVERED, 15179)
+	self:addTradeAcquire(RecipeDB, 28210, A.REPUTATION, FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Sylvan Vest -- 28480
 	AddRecipe(28480, 300, 22756, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28480, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28480, A.REPUTATION, 609, REVERED, 15179)
+	self:addTradeAcquire(RecipeDB, 28480, A.REPUTATION, FAC.CENARION_CIRCLE, REP.REVERED, 15179)
 
 	-- Sylvan Crown -- 28481
 	AddRecipe(28481, 300, 22757, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28481, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28481, A.REPUTATION, 609, HONORED, 15179)
+	self:addTradeAcquire(RecipeDB, 28481, A.REPUTATION, FAC.CENARION_CIRCLE, REP.HONORED, 15179)
 
 	-- Sylvan Shoulders -- 28482
 	AddRecipe(28482, 300, 22758, R_COMMON, GAME_ORIG, 300, 315, 330, 345)
 	self:addTradeFlags(RecipeDB, 28482, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 28482, A.REPUTATION, 609, FRIENDLY, 15179)
+	self:addTradeAcquire(RecipeDB, 28482, A.REPUTATION, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15179)
 
 	-- Spellcloth -- 31373
 	AddRecipe(31373, 350, 24271, R_COMMON, GAME_TBC, 350, 350, 355, 360)
@@ -1376,22 +1376,22 @@ function addon:InitTailoring(RecipeDB)
 	-- Mystic Spellthread -- 31430
 	AddRecipe(31430, 335, 24273, R_COMMON, GAME_TBC, 335, 345, 350, 355)
 	self:addTradeFlags(RecipeDB, 31430, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 31430, A.REPUTATION, 934, HONORED, 19331)
+	self:addTradeAcquire(RecipeDB, 31430, A.REPUTATION, FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Silver Spellthread -- 31431
 	AddRecipe(31431, 335, 24275, R_COMMON, GAME_TBC, 335, 345, 350, 355)
 	self:addTradeFlags(RecipeDB, 31431, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 31431, A.REPUTATION, 932, HONORED, 19321)
+	self:addTradeAcquire(RecipeDB, 31431, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Runic Spellthread -- 31432
 	AddRecipe(31432, 375, 24274, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 31432, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
-	self:addTradeAcquire(RecipeDB, 31432, A.REPUTATION, 934, EXALTED, 19331)
+	self:addTradeAcquire(RecipeDB, 31432, A.REPUTATION, FAC.SCRYER, REP.EXALTED, 19331)
 
 	-- Golden Spellthread -- 31433
 	AddRecipe(31433, 375, 24276, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 31433, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 31433, A.REPUTATION, 932, EXALTED, 19321)
+	self:addTradeAcquire(RecipeDB, 31433, A.REPUTATION, FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Unyielding Bracers -- 31434
 	AddRecipe(31434, 350, 24249, R_RARE, GAME_TBC, 350, 360, 365, 370)
@@ -1486,7 +1486,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Bag of Jewels -- 31459
 	AddRecipe(31459, 340, 24270, R_COMMON, GAME_TBC, 340, 350, 355, 360)
 	self:addTradeFlags(RecipeDB, 31459, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
-	self:addTradeAcquire(RecipeDB, 31459, A.REPUTATION, 933, HONORED, 20242, A.REPUTATION, 933, HONORED, 23007)
+	self:addTradeAcquire(RecipeDB, 31459, A.REPUTATION, FAC.CONSORTIUM, REP.HONORED, 20242, A.REPUTATION, FAC.CONSORTIUM, REP.HONORED, 23007)
 
 	-- Netherweave Net -- 31460
 	AddRecipe(31460, 300, 24268, R_COMMON, GAME_TBC, 300, 300, 310, 320)
@@ -1521,47 +1521,47 @@ function addon:InitTailoring(RecipeDB)
 	-- Cloak of Arcane Evasion -- 37873
 	AddRecipe(37873, 350, 30831, R_COMMON, GAME_TBC, 350, 360, 365, 370)
 	self:addTradeFlags(RecipeDB, 37873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.LOWERCITY)
-	self:addTradeAcquire(RecipeDB, 37873, A.REPUTATION, 1011, HONORED, 21655)
+	self:addTradeAcquire(RecipeDB, 37873, A.REPUTATION, FAC.LOWERCITY, REP.HONORED, 21655)
 
 	-- Flameheart Bracers -- 37882
 	AddRecipe(37882, 350, 30837, R_COMMON, GAME_TBC, 350, 360, 365, 370)
 	self:addTradeFlags(RecipeDB, 37882, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 37882, A.REPUTATION, 932, FRIENDLY, 19321)
+	self:addTradeAcquire(RecipeDB, 37882, A.REPUTATION, FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flameheart Gloves -- 37883
 	AddRecipe(37883, 360, 30838, R_COMMON, GAME_TBC, 360, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 37883, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 37883, A.REPUTATION, 932, HONORED, 19321)
+	self:addTradeAcquire(RecipeDB, 37883, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flameheart Vest -- 37884
 	AddRecipe(37884, 370, 30839, R_COMMON, GAME_TBC, 370, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 37884, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
-	self:addTradeAcquire(RecipeDB, 37884, A.REPUTATION, 932, EXALTED, 19321)
+	self:addTradeAcquire(RecipeDB, 37884, A.REPUTATION, FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Soulguard Slippers -- 40020
 	AddRecipe(40020, 375, 32391, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 40020, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40020, A.REPUTATION, 1012, HONORED, 23159)
+	self:addTradeAcquire(RecipeDB, 40020, A.REPUTATION, FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Soulguard Bracers -- 40021
 	AddRecipe(40021, 375, 32392, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 40021, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40021, A.REPUTATION, 1012, FRIENDLY, 23159)
+	self:addTradeAcquire(RecipeDB, 40021, A.REPUTATION, FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Soulguard Leggings -- 40023
 	AddRecipe(40023, 375, 32389, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 40023, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40023, A.REPUTATION, 1012, HONORED, 23159)
+	self:addTradeAcquire(RecipeDB, 40023, A.REPUTATION, FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Soulguard Girdle -- 40024
 	AddRecipe(40024, 375, 32390, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 40024, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40024, A.REPUTATION, 1012, FRIENDLY, 23159)
+	self:addTradeAcquire(RecipeDB, 40024, A.REPUTATION, FAC.ASHTONGUE, REP.FRIENDLY, 23159)
 
 	-- Night's End -- 40060
 	AddRecipe(40060, 375, 32420, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 40060, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.ASHTONGUE)
-	self:addTradeAcquire(RecipeDB, 40060, A.REPUTATION, 1012, HONORED, 23159)
+	self:addTradeAcquire(RecipeDB, 40060, A.REPUTATION, FAC.ASHTONGUE, REP.HONORED, 23159)
 
 	-- Bracers of Nimble Thought -- 41205
 	AddRecipe(41205, 375, 32586, R_EPIC, GAME_TBC, 375, 385, 390, 395)
@@ -1621,7 +1621,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Mycah's Botanical Bag -- 50194
 	AddRecipe(50194, 375, 38225, R_COMMON, GAME_TBC, 375, 385, 390, 395)
 	self:addTradeFlags(RecipeDB, 50194, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SPOREGGAR)
-	self:addTradeAcquire(RecipeDB, 50194, A.REPUTATION, 970, REVERED, 18382)
+	self:addTradeAcquire(RecipeDB, 50194, A.REPUTATION, FAC.SPOREGGAR, REP.REVERED, 18382)
 
 	-- Haliscan Jacket -- 50644
 	AddRecipe(50644, 250, 38277, R_COMMON, GAME_TBC, 250, 265, 280, 295)
@@ -1821,17 +1821,17 @@ function addon:InitTailoring(RecipeDB)
 	-- Abyssal Bag -- 56004
 	AddRecipe(56004, 435, 41597, R_COMMON, GAME_WOTLK, 435, 440, 445, 450)
 	self:addTradeFlags(RecipeDB, 56004, F.ALLIANCE, F.HORDE, F.VENDOR, F.WARLOCK, F.IBOE, F.RBOP, F.EBONBLADE)
-	self:addTradeAcquire(RecipeDB, 56004, A.REPUTATION, 1098, REVERED, 32538)
+	self:addTradeAcquire(RecipeDB, 56004, A.REPUTATION, FAC.EBONBLADE, REP.REVERED, 32538)
 
 	-- Glacial Bag -- 56005
 	AddRecipe(56005, 445, 41600, R_COMMON, GAME_WOTLK, 445, 450, 455, 460)
 	self:addTradeFlags(RecipeDB, 56005, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HODIR)
-	self:addTradeAcquire(RecipeDB, 56005, A.REPUTATION, 1119, EXALTED, 32540)
+	self:addTradeAcquire(RecipeDB, 56005, A.REPUTATION, FAC.HODIR, REP.EXALTED, 32540)
 
 	-- Mysterious Bag -- 56006
 	AddRecipe(56006, 440, 41598, R_COMMON, GAME_WOTLK, 440, 445, 450, 455)
 	self:addTradeFlags(RecipeDB, 56006, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WYRMREST)
-	self:addTradeAcquire(RecipeDB, 56006, A.REPUTATION, 1091, REVERED, 32533)
+	self:addTradeAcquire(RecipeDB, 56006, A.REPUTATION, FAC.WYRMREST, REP.REVERED, 32533)
 
 	-- Frostweave Bag -- 56007
 	AddRecipe(56007, 410, 41599, R_UNCOMMON, GAME_WOTLK, 410, 430, 440, 450)
@@ -1846,7 +1846,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Brilliant Spellthread -- 56009
 	AddRecipe(56009, 430, 41602, R_COMMON, GAME_WOTLK, 430, 435, 440, 445)
 	self:addTradeFlags(RecipeDB, 56009, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTCRUSADE)
-	self:addTradeAcquire(RecipeDB, 56009, A.REPUTATION, 1106, EXALTED, 30431)
+	self:addTradeAcquire(RecipeDB, 56009, A.REPUTATION, FAC.ARGENTCRUSADE, REP.EXALTED, 30431)
 
 	-- Azure Spellthread -- 56010
 	AddRecipe(56010, 400, 41603, R_RARE, GAME_WOTLK, 400, 400, 405, 410)
@@ -1856,7 +1856,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Sapphire Spellthread -- 56011
 	AddRecipe(56011, 430, 41604, R_COMMON, GAME_WOTLK, 430, 435, 440, 445)
 	self:addTradeFlags(RecipeDB, 56011, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KIRINTOR)
-	self:addTradeAcquire(RecipeDB, 56011, A.REPUTATION, 1090, EXALTED, 32287)
+	self:addTradeAcquire(RecipeDB, 56011, A.REPUTATION, FAC.KIRINTOR, REP.EXALTED, 32287)
 
 	-- Cloak of the Moon -- 56014
 	AddRecipe(56014, 390, 41607, R_UNCOMMON, GAME_WOTLK, 390, 395, 400, 405)
@@ -2051,7 +2051,7 @@ function addon:InitTailoring(RecipeDB)
 	-- Emerald Bag -- 63924
 	AddRecipe(63924, 435, 45773, R_RARE, GAME_WOTLK, 435, 440, 445, 450)
 	self:addTradeFlags(RecipeDB, 63924, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.KALUAK)
-	self:addTradeAcquire(RecipeDB, 63924, A.REPUTATION, 1073, REVERED, 31916, A.REPUTATION, 1073, REVERED, 32763)
+	self:addTradeAcquire(RecipeDB, 63924, A.REPUTATION, FAC.KALUAK, REP.REVERED, 31916, A.REPUTATION, FAC.KALUAK, REP.REVERED, 32763)
 
 	-- Frostguard Drape -- 64729
 	AddRecipe(64729, 400, 45811, R_COMMON, GAME_WOTLK, 400, 405, 410, 415)
@@ -2066,22 +2066,22 @@ function addon:InitTailoring(RecipeDB)
 	-- Leggings of Woven Death -- 70550
 	AddRecipe(70550, 450, 49891, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70550, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70550, A.REPUTATION, 1156, REVERED, 37687)
+	self:addTradeAcquire(RecipeDB, 70550, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Deathfrost Boots -- 70551
 	AddRecipe(70551, 450, 49890, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70551, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70551, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 70551, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Lightweave Leggings -- 70552
 	AddRecipe(70552, 450, 49892, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70552, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70552, A.REPUTATION, 1156, REVERED, 37687)
+	self:addTradeAcquire(RecipeDB, 70552, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Sandals of Consecration -- 70553
 	AddRecipe(70553, 450, 49893, R_EPIC, GAME_WOTLK, 450, 475, 487, 500)
 	self:addTradeFlags(RecipeDB, 70553, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 70553, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 70553, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
@@ -2115,22 +2115,22 @@ function addon:InitTailoring(RecipeDB)
 		-- Royal Moonshroud Robe -- 67144
 		AddRecipe(67144, 450, 47606, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67144, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:addTradeAcquire(RecipeDB, 67144,  A.CUSTOM, 42)
+		self:addTradeAcquire(RecipeDB, 67144, A.CUSTOM, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67145
 		AddRecipe(67145, 450, 47586, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67145, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:addTradeAcquire(RecipeDB, 67145,  A.CUSTOM, 42)
+		self:addTradeAcquire(RecipeDB, 67145, A.CUSTOM, 42)
 
 		-- Merlin's Robe -- 67146
 		AddRecipe(67146, 450, 47604, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67146, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:addTradeAcquire(RecipeDB, 67146,  A.CUSTOM, 42)
+		self:addTradeAcquire(RecipeDB, 67146, A.CUSTOM, 42)
 
 		-- Royal Moonshroud Bracers -- 67147
 		AddRecipe(67147, 450, 47588, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67147, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:addTradeAcquire(RecipeDB, 67147,  A.CUSTOM, 42)
+		self:addTradeAcquire(RecipeDB, 67147, A.CUSTOM, 42)
 
 	end
 

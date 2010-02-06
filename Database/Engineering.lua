@@ -796,12 +796,12 @@ function addon:InitEngineering(RecipeDB)
 	-- Bloodvine Goggles -- 24356
 	AddRecipe(24356, 300, 19999, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24356, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 24356, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Bloodvine Lens -- 24357
 	AddRecipe(24357, 300, 19998, R_COMMON, GAME_ORIG, 300, 320, 330, 340)
 	self:addTradeFlags(RecipeDB, 24357, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LEATHER, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 24357, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 24357, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Tranquil Mechanical Yeti -- 26011
 	AddRecipe(26011, 250, 21277, R_COMMON, GAME_ORIG, 250, 320, 330, 340)
@@ -996,7 +996,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Green Smoke Flare -- 30344
 	AddRecipe(30344, 335, 23771, R_COMMON, GAME_TBC, 335, 335, 345, 355)
 	self:addTradeFlags(RecipeDB, 30344, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 30344, A.REPUTATION, 942, FRIENDLY, 17904)
+	self:addTradeAcquire(RecipeDB, 30344, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.FRIENDLY, 17904)
 
 	-- Fel Iron Shells -- 30346
 	AddRecipe(30346, 310, 23772, R_COMMON, GAME_TBC, 310, 310, 320, 330)
@@ -1021,7 +1021,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Elemental Seaforium Charge -- 30547
 	AddRecipe(30547, 350, 23819, R_COMMON, GAME_TBC, 350, 350, 355, 360)
 	self:addTradeFlags(RecipeDB, 30547, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM)
-	self:addTradeAcquire(RecipeDB, 30547, A.REPUTATION, 933, REVERED, 20242, A.REPUTATION, 933, REVERED, 23007)
+	self:addTradeAcquire(RecipeDB, 30547, A.REPUTATION, FAC.CONSORTIUM, REP.REVERED, 20242, A.REPUTATION, FAC.CONSORTIUM, REP.REVERED, 23007)
 
 	-- Zapthrottle Mote Extractor -- 30548
 	AddRecipe(30548, 305, 23821, R_COMMON, GAME_TBC, 305, 305, 315, 325)
@@ -1526,12 +1526,12 @@ function addon:InitEngineering(RecipeDB)
 	-- Shatter Rounds -- 72952
 	AddRecipe(72952, 450, 52020, R_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20222)
 	self:addTradeFlags(RecipeDB, 72952, F.ALLIANCE, F.HORDE, F.VENDOR, F.AMMO, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 72952, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 72952, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Iceblade Arrow -- 72953
 	AddRecipe(72953, 450, 52021, R_EPIC, GAME_WOTLK, 450, 450, 450, 460, 20219)
 	self:addTradeFlags(RecipeDB, 72953, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
-	self:addTradeAcquire(RecipeDB, 72953, A.REPUTATION, 1156, HONORED, 37687)
+	self:addTradeAcquire(RecipeDB, 72953, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction

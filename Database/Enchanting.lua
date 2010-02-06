@@ -694,37 +694,37 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Strength -- 23799
 	AddRecipe(23799, 290, nil, R_COMMON, GAME_ORIG, 290, 305, 322, 340)
 	self:addTradeFlags(RecipeDB, 23799, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23799, A.REPUTATION, 59, FRIENDLY, 12944)
+	self:addTradeAcquire(RecipeDB, 23799, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Enchant Weapon - Agility -- 23800
 	AddRecipe(23800, 290, nil, R_COMMON, GAME_ORIG, 290, 305, 322, 340)
 	self:addTradeFlags(RecipeDB, 23800, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 23800, A.REPUTATION, 576, HONORED, 11557)
+	self:addTradeAcquire(RecipeDB, 23800, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
 	AddRecipe(23801, 290, nil, R_COMMON, GAME_ORIG, 290, 305, 322, 340)
 	self:addTradeFlags(RecipeDB, 23801, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23801, A.REPUTATION, 529, HONORED, 10856, A.REPUTATION, 529, HONORED, 10857, A.REPUTATION, 529, HONORED, 11536)
+	self:addTradeAcquire(RecipeDB, 23801, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.HONORED, 11536)
 
 	-- Enchant Bracer - Healing Power -- 23802
 	AddRecipe(23802, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 23802, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ARGENTDAWN)
-	self:addTradeAcquire(RecipeDB, 23802, A.REPUTATION, 529, REVERED, 10856, A.REPUTATION, 529, REVERED, 10857, A.REPUTATION, 529, REVERED, 11536)
+	self:addTradeAcquire(RecipeDB, 23802, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10856, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 10857, A.REPUTATION, FAC.ARGENTDAWN, REP.REVERED, 11536)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
 	AddRecipe(23803, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 23803, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23803, A.REPUTATION, 59, HONORED, 12944)
+	self:addTradeAcquire(RecipeDB, 23803, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
 	AddRecipe(23804, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 23804, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
-	self:addTradeAcquire(RecipeDB, 23804, A.REPUTATION, 59, REVERED, 12944)
+	self:addTradeAcquire(RecipeDB, 23804, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Enchant Gloves - Threat -- 25072
 	AddRecipe(25072, 300, nil, R_RARE, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25072, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 25072, A.MOB, 15275, A.REPUTATION, 935, EXALTED, 21432)
+	self:addTradeAcquire(RecipeDB, 25072, A.MOB, 15275, A.REPUTATION, FAC.SHATAR, REP.EXALTED, 21432)
 
 	-- Enchant Gloves - Shadow Power -- 25073
 	AddRecipe(25073, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
@@ -749,32 +749,32 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Superior Agility -- 25080
 	AddRecipe(25080, 300, nil, R_COMMON, GAME_TBC, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25080, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.DPS, F.KOT)
-	self:addTradeAcquire(RecipeDB, 25080, A.CUSTOM, 22, A.REPUTATION, 989, EXALTED, 21643)
+	self:addTradeAcquire(RecipeDB, 25080, A.CUSTOM, 22, A.REPUTATION, FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
 	AddRecipe(25081, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 25081, A.REPUTATION, 609, FRIENDLY, 15419)
+	self:addTradeAcquire(RecipeDB, 25081, A.REPUTATION, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15419)
 
 	-- Enchant Cloak - Greater Nature Resistance -- 25082
 	AddRecipe(25082, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25082, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_CIRCLE)
-	self:addTradeAcquire(RecipeDB, 25082, A.REPUTATION, 609, HONORED, 15419)
+	self:addTradeAcquire(RecipeDB, 25082, A.REPUTATION, FAC.CENARION_CIRCLE, REP.HONORED, 15419)
 
 	-- Enchant Cloak - Stealth -- 25083
 	AddRecipe(25083, 300, nil, R_COMMON, GAME_TBC, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25083, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	self:addTradeAcquire(RecipeDB, 25083, A.CUSTOM, 22, A.REPUTATION, 942, EXALTED, 17904)
+	self:addTradeAcquire(RecipeDB, 25083, A.CUSTOM, 22, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Enchant Cloak - Subtlety -- 25084
 	AddRecipe(25084, 300, nil, R_COMMON, GAME_TBC, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25084, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CLOAK, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 25084, A.MOB, 15276, A.REPUTATION, 946, EXALTED, 17657, A.REPUTATION, 947, EXALTED, 17585)
+	self:addTradeAcquire(RecipeDB, 25084, A.MOB, 15276, A.REPUTATION, FAC.HONOR_HOLD, REP.EXALTED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.EXALTED, 17585)
 
 	-- Enchant Cloak - Dodge -- 25086
 	AddRecipe(25086, 300, nil, R_COMMON, GAME_TBC, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 25086, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.CLOAK, F.LOWERCITY)
-	self:addTradeAcquire(RecipeDB, 25086, A.CUSTOM, 22, A.REPUTATION, 1011, EXALTED, 21655)
+	self:addTradeAcquire(RecipeDB, 25086, A.CUSTOM, 22, A.REPUTATION, FAC.LOWERCITY, REP.EXALTED, 21655)
 
 	-- Minor Wizard Oil -- 25124
 	AddRecipe(25124, 45, 20744, R_COMMON, GAME_ORIG, 45, 55, 65, 75)
@@ -804,17 +804,17 @@ function addon:InitEnchanting(RecipeDB)
 	-- Brilliant Wizard Oil -- 25129
 	AddRecipe(25129, 300, 20749, R_COMMON, GAME_ORIG, 300, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 25129, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 25129, A.REPUTATION, 270, HONORED, 14921)
+	self:addTradeAcquire(RecipeDB, 25129, A.REPUTATION, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Brilliant Mana Oil -- 25130
 	AddRecipe(25130, 300, 20748, R_COMMON, GAME_ORIG, 300, 310, 320, 330)
 	self:addTradeFlags(RecipeDB, 25130, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
-	self:addTradeAcquire(RecipeDB, 25130, A.REPUTATION, 270, FRIENDLY, 14921)
+	self:addTradeAcquire(RecipeDB, 25130, A.REPUTATION, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	AddRecipe(27837, 290, nil, R_COMMON, GAME_ORIG, 290, 305, 322, 340)
 	self:addTradeFlags(RecipeDB, 27837, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.TIMBERMAW_HOLD)
-	self:addTradeAcquire(RecipeDB, 27837, A.REPUTATION, 576, FRIENDLY, 11557)
+	self:addTradeAcquire(RecipeDB, 27837, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Enchant Bracer - Brawn -- 27899
 	AddRecipe(27899, 305, nil, R_COMMON, GAME_TBC, 305, 315, 330, 345)
@@ -834,7 +834,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Bracer - Superior Healing -- 27911
 	AddRecipe(27911, 325, nil, R_COMMON, GAME_TBC, 325, 335, 350, 365)
 	self:addTradeFlags(RecipeDB, 27911, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 27911, A.REPUTATION, 946, FRIENDLY, 17657, A.REPUTATION, 947, FRIENDLY, 17585)
+	self:addTradeAcquire(RecipeDB, 27911, A.REPUTATION, FAC.HONOR_HOLD, REP.FRIENDLY, 17657, A.REPUTATION, FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
 	-- Enchant Bracer - Restore Mana Prime -- 27913
 	AddRecipe(27913, 335, nil, R_COMMON, GAME_TBC, 335, 345, 360, 375)
@@ -854,22 +854,22 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Ring - Striking -- 27920
 	AddRecipe(27920, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
 	self:addTradeFlags(RecipeDB, 27920, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.RING, F.CONSORTIUM)
-	self:addTradeAcquire(RecipeDB, 27920, A.REPUTATION, 933, REVERED, 17518)
+	self:addTradeAcquire(RecipeDB, 27920, A.REPUTATION, FAC.CONSORTIUM, REP.REVERED, 17518)
 
 	-- Enchant Ring - Spellpower -- 27924
 	AddRecipe(27924, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
 	self:addTradeFlags(RecipeDB, 27924, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING, F.KOT)
-	self:addTradeAcquire(RecipeDB, 27924, A.REPUTATION, 989, HONORED, 21643)
+	self:addTradeAcquire(RecipeDB, 27924, A.REPUTATION, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Ring - Healing Power -- 27926
 	AddRecipe(27926, 370, nil, R_COMMON, GAME_TBC, 370, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 27926, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.RING, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 27926, A.REPUTATION, 935, REVERED, 21432)
+	self:addTradeAcquire(RecipeDB, 27926, A.REPUTATION, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Enchant Ring - Stats -- 27927
 	AddRecipe(27927, 375, nil, R_COMMON, GAME_TBC, 375, 380, 385, 390)
 	self:addTradeFlags(RecipeDB, 27927, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.RING, F.LOWERCITY)
-	self:addTradeAcquire(RecipeDB, 27927, A.REPUTATION, 1011, HONORED, 21655)
+	self:addTradeAcquire(RecipeDB, 27927, A.REPUTATION, FAC.LOWERCITY, REP.HONORED, 21655)
 
 	-- Enchant Shield - Tough Shield -- 27944
 	AddRecipe(27944, 310, nil, R_COMMON, GAME_TBC, 310, 320, 335, 350)
@@ -924,7 +924,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Exceptional Stats -- 27960
 	AddRecipe(27960, 345, nil, R_COMMON, GAME_TBC, 345, 355, 367, 380)
 	self:addTradeFlags(RecipeDB, 27960, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HELLFIRE)
-	self:addTradeAcquire(RecipeDB, 27960, A.REPUTATION, 946, REVERED, 17657, A.REPUTATION, 947, REVERED, 17585)
+	self:addTradeAcquire(RecipeDB, 27960, A.REPUTATION, FAC.HONOR_HOLD, REP.REVERED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.REVERED, 17585)
 
 	-- Enchant Cloak - Major Armor -- 27961
 	AddRecipe(27961, 310, nil, R_COMMON, GAME_TBC, 310, 320, 335, 350)
@@ -939,7 +939,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Major Striking -- 27967
 	AddRecipe(27967, 340, nil, R_COMMON, GAME_TBC, 340, 350, 365, 380)
 	self:addTradeFlags(RecipeDB, 27967, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.CONSORTIUM)
-	self:addTradeAcquire(RecipeDB, 27967, A.REPUTATION, 933, HONORED, 20242, A.REPUTATION, 933, HONORED, 23007)
+	self:addTradeAcquire(RecipeDB, 27967, A.REPUTATION, FAC.CONSORTIUM, REP.HONORED, 20242, A.REPUTATION, FAC.CONSORTIUM, REP.HONORED, 23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968
 	AddRecipe(27968, 340, nil, R_COMMON, GAME_TBC, 340, 350, 365, 380)
@@ -1054,7 +1054,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Precise Strikes -- 33994
 	AddRecipe(33994, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
 	self:addTradeFlags(RecipeDB, 33994, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CENARION_EXPEDITION)
-	self:addTradeAcquire(RecipeDB, 33994, A.REPUTATION, 942, REVERED, 17904)
+	self:addTradeAcquire(RecipeDB, 33994, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Enchant Gloves - Major Strength -- 33995
 	AddRecipe(33995, 340, nil, R_COMMON, GAME_TBC, 340, 350, 365, 380)
@@ -1069,12 +1069,12 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Gloves - Major Spellpower -- 33997
 	AddRecipe(33997, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
 	self:addTradeFlags(RecipeDB, 33997, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.KOT)
-	self:addTradeAcquire(RecipeDB, 33997, A.REPUTATION, 989, HONORED, 21643)
+	self:addTradeAcquire(RecipeDB, 33997, A.REPUTATION, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Gloves - Major Healing -- 33999
 	AddRecipe(33999, 350, nil, R_COMMON, GAME_TBC, 350, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 33999, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 33999, A.REPUTATION, 935, HONORED, 21432)
+	self:addTradeAcquire(RecipeDB, 33999, A.REPUTATION, FAC.SHATAR, REP.HONORED, 21432)
 
 	-- Enchant Bracer - Major Intellect -- 34001
 	AddRecipe(34001, 305, nil, R_COMMON, GAME_TBC, 305, 315, 330, 345)
@@ -1089,7 +1089,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Cloak - Spell Penetration -- 34003
 	AddRecipe(34003, 325, nil, R_COMMON, GAME_TBC, 325, 335, 350, 365)
 	self:addTradeFlags(RecipeDB, 34003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CASTER, F.CLOAK, F.CONSORTIUM)
-	self:addTradeAcquire(RecipeDB, 34003, A.REPUTATION, 933, FRIENDLY, 20242, A.REPUTATION, 933, FRIENDLY, 23007)
+	self:addTradeAcquire(RecipeDB, 34003, A.REPUTATION, FAC.CONSORTIUM, REP.FRIENDLY, 20242, A.REPUTATION, FAC.CONSORTIUM, REP.FRIENDLY, 23007)
 
 	-- Enchant Cloak - Greater Agility -- 34004
 	AddRecipe(34004, 310, nil, R_COMMON, GAME_TBC, 310, 320, 335, 350)
@@ -1124,7 +1124,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Major Healing -- 34010
 	AddRecipe(34010, 350, nil, R_COMMON, GAME_TBC, 350, 370, 375, 380)
 	self:addTradeFlags(RecipeDB, 34010, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.SHATAR)
-	self:addTradeAcquire(RecipeDB, 34010, A.REPUTATION, 935, REVERED, 21432)
+	self:addTradeAcquire(RecipeDB, 34010, A.REPUTATION, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Nexus Transformation -- 42613
 	AddRecipe(42613, 300, 22448, R_COMMON, GAME_TBC, 300, 300, 300, 305)
@@ -1139,7 +1139,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Weapon - Greater Agility -- 42620
 	AddRecipe(42620, 350, nil, R_COMMON, GAME_TBC, 350, 360, 367, 375)
 	self:addTradeFlags(RecipeDB, 42620, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.VIOLETEYE)
-	self:addTradeAcquire(RecipeDB, 42620, A.REPUTATION, 967, EXALTED, 18255)
+	self:addTradeAcquire(RecipeDB, 42620, A.REPUTATION, FAC.VIOLETEYE, REP.EXALTED, 18255)
 
 	-- Enchant Weapon - Executioner -- 42974
 	AddRecipe(42974, 375, nil, R_COMMON, GAME_TBC, 375, 380, 385, 390)
@@ -1359,7 +1359,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Void Shatter -- 45765
 	AddRecipe(45765, 375, 22449, R_COMMON, GAME_TBC, 375, 375, 375, 375)
 	self:addTradeFlags(RecipeDB, 45765, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 45765, A.REPUTATION, 1077, HONORED, 25032)
+	self:addTradeAcquire(RecipeDB, 45765, A.REPUTATION, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Weapon - Deathfrost -- 46578
 	AddRecipe(46578, 350, nil, R_COMMON, GAME_TBC, 350, 350, 357, 365)
@@ -1369,7 +1369,7 @@ function addon:InitEnchanting(RecipeDB)
 	-- Enchant Chest - Defense -- 46594
 	AddRecipe(46594, 360, nil, R_COMMON, GAME_WOTLK, 360, 370, 385, 400)
 	self:addTradeFlags(RecipeDB, 46594, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.SHATTEREDSUN)
-	self:addTradeAcquire(RecipeDB, 46594, A.REPUTATION, 1077, HONORED, 25032)
+	self:addTradeAcquire(RecipeDB, 46594, A.REPUTATION, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
 	AddRecipe(47051, 375, nil, R_COMMON, GAME_WOTLK, 375, 380, 385, 390)
