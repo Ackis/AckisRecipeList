@@ -2540,16 +2540,6 @@ function addon:InitBlacksmithing(RecipeDB)
 		self:addTradeFlags(RecipeDB, 67092, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67092, A.CUSTOM, 42)
 
-		-- Sunforged Bracers (Ally) -- 67096
-		AddRecipe(67096, 450, 47574, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
-		self:addTradeFlags(RecipeDB, 67096, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
-		self:addTradeAcquire(RecipeDB, 67096, A.CUSTOM, 42)
-
-		-- Sunforged Breastplate (Ally) -- 67095
-		AddRecipe(67095, 450, 47593, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67095, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
-		self:addTradeAcquire(RecipeDB, 67095, A.CUSTOM, 42)
-
 		-- Titanium Razorplate (Ally) -- 67093
 		AddRecipe(67093, 450, 47589, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67093, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
@@ -2559,6 +2549,16 @@ function addon:InitBlacksmithing(RecipeDB)
 		AddRecipe(67094, 450, 47572, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
 		self:addTradeFlags(RecipeDB, 67094, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:addTradeAcquire(RecipeDB, 67094, A.CUSTOM, 42)
+
+		-- Sunforged Breastplate (Ally) -- 67095
+		AddRecipe(67095, 450, 47593, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67095, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67095, A.CUSTOM, 42)
+
+		-- Sunforged Bracers (Ally) -- 67096
+		AddRecipe(67096, 450, 47574, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67096, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67096, A.CUSTOM, 42)	
 
 	elseif faction == BFAC["Horde"] then
 

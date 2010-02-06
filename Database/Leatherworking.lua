@@ -2670,35 +2670,25 @@ function addon:InitLeatherworking(RecipeDB)
 
 	if faction == BFAC["Alliance"] then
 
+		-- Ensorcelled Nerubian Breastplate -- 67080
+		AddRecipe(67080, 450, 47597, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67080, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67080, A.CUSTOM, 42)
+
 		-- Black Chitin Bracers -- 67081
 		AddRecipe(67081, 450, 47579, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67081, F.ALLIANCE, F.RAID, F.MOB_DROP)
 		self:addTradeAcquire(RecipeDB, 67081, A.CUSTOM, 42)
-
-		-- Bracers of Swift Death -- 67087
-		AddRecipe(67087, 450, 47581, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67087, F.ALLIANCE, F.RAID, F.MOB_DROP)
-		self:addTradeAcquire(RecipeDB, 67087, A.CUSTOM, 42)
-
-		-- Crusader's Dragonscale Bracers -- 67083
-		AddRecipe(67083, 450, 47576, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67083, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-		self:addTradeAcquire(RecipeDB, 67083, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Breastplate -- 67082
 		AddRecipe(67082, 450, 47595, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
 		self:addTradeFlags(RecipeDB, 67082, F.ALLIANCE, F.RAID, F.MOB_DROP)
 		self:addTradeAcquire(RecipeDB, 67082, A.CUSTOM, 42)
 
-		-- Ensorcelled Nerubian Breastplate -- 67080
-		AddRecipe(67080, 450, 47597, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67080, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-		self:addTradeAcquire(RecipeDB, 67080, A.CUSTOM, 42)
-
-		-- Knightbane Carapace -- 67086
-		AddRecipe(67086, 450, 47599, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
-		self:addTradeFlags(RecipeDB, 67086, F.ALLIANCE, F.RAID, F.MOB_DROP)
-		self:addTradeAcquire(RecipeDB, 67086, A.CUSTOM, 42)
+		-- Crusader's Dragonscale Bracers -- 67083
+		AddRecipe(67083, 450, 47576, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67083, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67083, A.CUSTOM, 42)
 
 		-- Lunar Eclipse Chestguard -- 67084
 		AddRecipe(67084, 450, 47602, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
@@ -2710,6 +2700,16 @@ function addon:InitLeatherworking(RecipeDB)
 		self:addTradeFlags(RecipeDB, 67085, F.ALLIANCE, F.RAID, F.MOB_DROP)
 		self:addTradeAcquire(RecipeDB, 67085, A.CUSTOM, 42)
 
+		-- Knightbane Carapace -- 67086
+		AddRecipe(67086, 450, 47599, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67086, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67086, A.CUSTOM, 42)
+
+		-- Bracers of Swift Death -- 67087
+		AddRecipe(67087, 450, 47581, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67087, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67087, A.CUSTOM, 42)
+		
 	elseif faction == BFAC["Horde"] then
 
 		-- Ensorcelled Nerubian Breastplate -- 67136
