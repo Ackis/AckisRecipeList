@@ -41,11 +41,6 @@ local A		= private.acquire_types
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
 
-local FRIENDLY	= 1
-local HONORED	= 2
-local REVERED	= 3
-local EXALTED	= 4
-
 local initialized = false
 local num_recipes = 0
 
@@ -918,6 +913,16 @@ function addon:InitCooking(RecipeDB)
 		
 	elseif faction == BFAC["Horde"] then
 		
+		-- Candied Sweet Potatoes -- 66034
+		AddRecipe(66034, 270, 44839, R_COMMON, GAME_WOTLK, 270, 270, 282, 295)
+		self:addTradeFlags(RecipeDB, 66034,  F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
+		self:addTradeAcquire(RecipeDB, 66034, A.SEASONAL, 5)
+
+		-- Cranberry Chutney -- 66035
+		AddRecipe(66035, 210, 44840, R_COMMON, GAME_WOTLK, 210, 210, 222, 235)
+		self:addTradeFlags(RecipeDB, 66035, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+		self:addTradeAcquire(RecipeDB, 66035, A.SEASONAL, 5)
+
 		-- Pumpkin Pie -- 66036
 		AddRecipe(66036, 100, 44839, R_COMMON, GAME_WOTLK, 100, 150, 162, 175)
 		self:addTradeFlags(RecipeDB, 66036,  F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -928,21 +933,13 @@ function addon:InitCooking(RecipeDB)
 		self:addTradeFlags(RecipeDB, 66037,  F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
 		self:addTradeAcquire(RecipeDB, 66037, A.SEASONAL, 5)
 
-		-- Cranberry Chutney -- 66035
-		AddRecipe(66035, 210, 44840, R_COMMON, GAME_WOTLK, 210, 210, 222, 235)
-		self:addTradeFlags(RecipeDB, 66035, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:addTradeAcquire(RecipeDB, 66035, A.SEASONAL, 5)
-
 		-- Spice Bread Stuffing -- 66038
 		AddRecipe(66038, 90, 44837, R_COMMON, GAME_WOTLK, 90, 90, 102, 115)
 		self:addTradeFlags(RecipeDB, 66038, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
 		self:addTradeAcquire(RecipeDB, 66038, A.SEASONAL, 5)
-
-		-- Candied Sweet Potatoes -- 66034
-		AddRecipe(66034, 270, 44839, R_COMMON, GAME_WOTLK, 270, 270, 282, 295)
-		self:addTradeFlags(RecipeDB, 66034,  F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
-		self:addTradeAcquire(RecipeDB, 66034, A.SEASONAL, 5)
 	
 	end
+	
 	return num_recipes
+	
 end

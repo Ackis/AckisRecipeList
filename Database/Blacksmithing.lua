@@ -41,11 +41,6 @@ local A		= private.acquire_types
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
 
-local FRIENDLY	= 1
-local HONORED	= 2
-local REVERED	= 3
-local EXALTED	= 4
-
 local initialized = false
 local num_recipes = 0
 
@@ -2456,7 +2451,7 @@ function addon:InitBlacksmithing(RecipeDB)
 	-- Titanium Plating -- 62202
 	AddRecipe(62202, 450, 44936, R_RARE, GAME_WOTLK, 450, 455, 460, 465)
 	self:addTradeFlags(RecipeDB, 62202, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
-	self:addTradeAcquire(RecipeDB, 62202, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32774, A.REPUTATION, 1037, REP.EXALTED, 32564, A.REPUTATION, 1037, REP.EXALTED, 32773)
+	self:addTradeAcquire(RecipeDB, 62202, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, A.REPUTATION, FAC.HORDE_EXPEDITION, REP.EXALTED, 32774, A.REPUTATION, FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, A.REPUTATION, FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32773)
 
 	-- Titansteel Spellblade -- 63182
 	AddRecipe(63182, 440, 45085, R_EPIC, GAME_WOTLK, 440, 450, 460, 470)

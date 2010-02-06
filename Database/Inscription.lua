@@ -44,11 +44,6 @@ local A		= private.acquire_types
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
 
-local FRIENDLY	= 1
-local HONORED	= 2
-local REVERED	= 3
-local EXALTED	= 4
-
 local initialized = false
 local num_recipes = 0
 
