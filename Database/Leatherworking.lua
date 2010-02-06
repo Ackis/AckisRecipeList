@@ -2673,89 +2673,89 @@ function addon:InitLeatherworking(RecipeDB)
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
 
-	if (faction == BFAC["Alliance"]) then
+	if faction == BFAC["Alliance"] then
 
 		-- Black Chitin Bracers -- 67081
-		AddRecipe(67081,450,47579,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67081,1,6,11)
-		self:addTradeAcquire(RecipeDB,67081,8,42)
+		AddRecipe(67081, 450, 47579, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67081, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67081, A.CUSTOM, 42)
 
 		-- Bracers of Swift Death -- 67087
-		AddRecipe(67087,450,47581,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67087,1,6,11)
-		self:addTradeAcquire(RecipeDB,67087,8,42)
+		AddRecipe(67087, 450, 47581, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67087, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67087, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Bracers -- 67083
-		AddRecipe(67083,450,47576,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67083,1,6,11,36,40,51,58)
-		self:addTradeAcquire(RecipeDB,67083,8,42)
+		AddRecipe(67083, 450, 47576, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67083, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67083, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Breastplate -- 67082
-		AddRecipe(67082,450,47595,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67082,1,6,11)
-		self:addTradeAcquire(RecipeDB,67082,8,42)
+		AddRecipe(67082, 450, 47595, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67082, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67082, A.CUSTOM, 42)
 
 		-- Ensorcelled Nerubian Breastplate -- 67080
-		AddRecipe(67080,450,47597,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67080,1,6,11,36,40,53,54,58)
-		self:addTradeAcquire(RecipeDB,67080,8,42)
+		AddRecipe(67080, 450, 47597, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67080, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67080, A.CUSTOM, 42)
 
 		-- Knightbane Carapace -- 67086
-		AddRecipe(67086,450,47599,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67086,1,6,11)
-		self:addTradeAcquire(RecipeDB,67086,8,42)
+		AddRecipe(67086, 450, 47599, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67086, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67086, A.CUSTOM, 42)
 
 		-- Lunar Eclipse Chestguard -- 67084
-		AddRecipe(67084,450,47602,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67084,1,6,11)
-		self:addTradeAcquire(RecipeDB,67084,8,42)
+		AddRecipe(67084, 450, 47602, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67084, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67084, A.CUSTOM, 42)
 
 		-- Moonshadow Armguards -- 67085
-		AddRecipe(67085,450,47583,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67085,1,6,11)
-		self:addTradeAcquire(RecipeDB,67085,8,42)
+		AddRecipe(67085, 450, 47583, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67085, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:addTradeAcquire(RecipeDB, 67085, A.CUSTOM, 42)
 
-	elseif (faction == BFAC["Horde"]) then
+	elseif faction == BFAC["Horde"] then
 
 		-- Black Chitin Bracers -- 67137
-		AddRecipe(67137,450,47580,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67137,2,6,11,36,40,53,54,58)
-		self:addTradeAcquire(RecipeDB,67137,8,42)
+		AddRecipe(67137, 450, 47580, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67137, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67137, A.CUSTOM, 42)
 
 		-- Bracers of Swift Death -- 67139
-		AddRecipe(67139,450,47582,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67139,2,6,11,36,40,51,57)
-		self:addTradeAcquire(RecipeDB,67139,8,42)
+		AddRecipe(67139, 450, 47582, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67139, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+		self:addTradeAcquire(RecipeDB, 67139, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Bracers -- 67143
-		AddRecipe(67143,450,47577,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67143,2,6,11,36,40,51,58)
-		self:addTradeAcquire(RecipeDB,67143,8,42)
+		AddRecipe(67143, 450, 47577, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67143, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67143, A.CUSTOM, 42)
 		
 		-- Crusader's Dragonscale Breastplate -- 67138
-		AddRecipe(67138,450,47596,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67138,2,6,11,36,40,51,58)
-		self:addTradeAcquire(RecipeDB,67138,8,42)
+		AddRecipe(67138, 450, 47596, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67138, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67138, A.CUSTOM, 42)
 	
 		-- Ensorcelled Nerubian Breastplate -- 67136
-		AddRecipe(67136,450,47598,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67136,2,6,11,36,40,53,54,58)
-		self:addTradeAcquire(RecipeDB,67136,8,42)
+		AddRecipe(67136, 450, 47598, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67136, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:addTradeAcquire(RecipeDB, 67136, A.CUSTOM, 42)
 
 		-- Knightbane Carapace -- 67142
-		AddRecipe(67142,450,47600,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67142,2,6,11,36,40,51,57)
-		self:addTradeAcquire(RecipeDB,67142,8,42)
+		AddRecipe(67142, 450, 47600, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67142, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+		self:addTradeAcquire(RecipeDB, 67142, A.CUSTOM, 42)
 
 		-- Lunar Eclipse Chestguard -- 67140
-		AddRecipe(67140,450,47601,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67140,2,6,11,36,40,53,54,57)
-		self:addTradeAcquire(RecipeDB,67140,8,42)
+		AddRecipe(67140, 450, 47601, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67140, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+		self:addTradeAcquire(RecipeDB, 67140, A.CUSTOM, 42)
 
 		-- Moonshadow Armguards -- 67141
-		AddRecipe(67141,450,47584,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67141,2,6,11,36,40,53,54,57)
-		self:addTradeAcquire(RecipeDB,67141,8,42)
+		AddRecipe(67141, 450, 47584, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67141, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+		self:addTradeAcquire(RecipeDB, 67141, A.CUSTOM, 42)
 
 	end
 

@@ -1548,19 +1548,19 @@ function addon:InitEngineering(RecipeDB)
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _, faction = UnitFactionGroup("player")
 
-	if (faction == BFAC["Alliance"]) then
+	if faction == BFAC["Alliance"] then
 
 		-- Mekgineer's Chopper -- 60867
-		AddRecipe(60867, 450, 44413, 4, 2, 450, 480, 485, 490)
-		self:addTradeFlags(RecipeDB, 60867, 1, 4, 36, 41, 130)
-		self:addTradeAcquire(RecipeDB, 60867, 6, 1037, 4, 32564, 6, 1037, 4, 32773)
+		AddRecipe(60867, 450, 44413, R_EPIC, GAME_WOTLK, 450, 480, 485, 490)
+		self:addTradeFlags(RecipeDB, 60867, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
+		self:addTradeAcquire(RecipeDB, 60867, A.REPUTATION, 1037, EXALTED, 32564, A.REPUTATION, 1037, EXALTED, 32773)
 
-	elseif (faction == BFAC["Horde"]) then
+	elseif faction == BFAC["Horde"] then
 
 		-- Mechano-hog -- 60866
-		AddRecipe(60866, 450, 41508, 4, 2, 450, 480, 485, 490)
-		self:addTradeFlags(RecipeDB, 60866, 2, 4, 36, 41, 130)
-		self:addTradeAcquire(RecipeDB, 60866, 6, 1052, 4, 32565, 6, 1052, 4, 32774)
+		AddRecipe(60866, 450, 41508, R_EPIC, GAME_WOTLK, 450, 480, 485, 490)
+		self:addTradeFlags(RecipeDB, 60866, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
+		self:addTradeAcquire(RecipeDB, 60866, A.REPUTATION, 1052, EXALTED, 32565, A.REPUTATION, 1052, EXALTED, 32774)
 
 	end
 

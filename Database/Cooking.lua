@@ -894,7 +894,7 @@ function addon:InitCooking(RecipeDB)
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
 
-	if (faction == BFAC["Alliance"]) then
+	if faction == BFAC["Alliance"] then
 	
 		-- Pumpkin Pie -- 62044
 		AddRecipe(62044, 100, 44839, R_COMMON, GAME_WOTLK, 100, 150, 162, 175)
@@ -921,7 +921,7 @@ function addon:InitCooking(RecipeDB)
 		self:addTradeFlags(RecipeDB, 62051, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
 		self:addTradeAcquire(RecipeDB, 62051, A.SEASONAL, 5)
 		
-	elseif (faction == BFAC["Horde"]) then
+	elseif faction == BFAC["Horde"] then
 		
 		-- Pumpkin Pie -- 66036
 		AddRecipe(66036, 100, 44839, R_COMMON, GAME_WOTLK, 100, 150, 162, 175)

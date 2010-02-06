@@ -2533,69 +2533,69 @@ function addon:InitBlacksmithing(RecipeDB)
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
 
-	if (faction == BFAC["Alliance"]) then
+	if faction == BFAC["Alliance"] then
 
 		-- Breastplate of the White Knight (Ally) -- 67091
-		AddRecipe(67091,450,47591,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67091,1,6,11,36,40,52,59)
-		self:addTradeAcquire(RecipeDB,67091,8,42)
+		AddRecipe(67091, 450, 47591, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67091, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67091, A.CUSTOM, 42)
 
 		-- Saronite Swordbreakers (Ally) -- 67092
-		AddRecipe(67092,450,47570,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67092,1,6,11,36,40,52,59)
-		self:addTradeAcquire(RecipeDB,67092,8,42)
+		AddRecipe(67092, 450, 47570, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67092, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67092, A.CUSTOM, 42)
 
 		-- Sunforged Bracers (Ally) -- 67096
-		AddRecipe(67096,450,47574,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67096,1,6,11,36,40,53,59)
-		self:addTradeAcquire(RecipeDB,67096,8,42)
+		AddRecipe(67096, 450, 47574, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67096, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67096, A.CUSTOM, 42)
 
 		-- Sunforged Breastplate (Ally) -- 67095
-		AddRecipe(67095,450,47593,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67095,1,6,11,36,40,53,59)
-		self:addTradeAcquire(RecipeDB,67095,8,42)
+		AddRecipe(67095, 450, 47593, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67095, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67095, A.CUSTOM, 42)
 
 		-- Titanium Razorplate (Ally) -- 67093
-		AddRecipe(67093,450,47589,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67093,1,6,11,36,40,51,59)
-		self:addTradeAcquire(RecipeDB,67093,8,42)
+		AddRecipe(67093, 450, 47589, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67093, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67093, A.CUSTOM, 42)
 
 		-- Titanium Spikeguards (Ally) -- 67094
-		AddRecipe(67094,450,47572,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67094,1,6,11,36,40,51,59)
-		self:addTradeAcquire(RecipeDB,67094,8,42)
+		AddRecipe(67094, 450, 47572, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67094, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67094, A.CUSTOM, 42)
 
-	elseif (faction == BFAC["Horde"]) then
+	elseif faction == BFAC["Horde"] then
 
 		-- Breastplate of the White Knight (Horde) -- 67130
-		AddRecipe(67130,450,47592,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67130,2,6,11,36,40,52,59)
-		self:addTradeAcquire(RecipeDB,67130,8,42)
+		AddRecipe(67130, 450, 47592, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67130, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67130, A.CUSTOM, 42)
 
 		-- Saronite Swordbreakers (Horde) -- 67131
-		AddRecipe(67131,450,47571,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67131,2,6,11,36,40,52,59)
-		self:addTradeAcquire(RecipeDB,67131,8,42)
+		AddRecipe(67131, 450, 47571, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67131, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67131, A.CUSTOM, 42)
 
 		-- Sunforged Bracers (Horde) -- 67135
-		AddRecipe(67135,450,47575,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67135,2,6,11,36,40,53,54,59)
-		self:addTradeAcquire(RecipeDB,67135,8,42)
+		AddRecipe(67135, 450, 47575, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67135, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67135, A.CUSTOM, 42)
 
 		-- Sunforged Breastplate (Horde) -- 67134
-		AddRecipe(67134,450,47594,4,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67134,2,6,11,36,40,53,54,59)
-		self:addTradeAcquire(RecipeDB,67134,8,42)
+		AddRecipe(67134, 450, 47594, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67134, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67134, A.CUSTOM, 42)
 
 		-- Titanium Razorplate (Horde) -- 67132
-		AddRecipe(67132,450,47590,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67132,2,6,11,36,40,51,59)
-		self:addTradeAcquire(RecipeDB,67132,8,42)
+		AddRecipe(67132, 450, 47590, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67132, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67132, A.CUSTOM, 42)
 
 		-- Titanium Spikeguards (Horde) -- 67133
-		AddRecipe(67133,450,47573,4,2,450,455,465,475)
-		self:addTradeFlags(RecipeDB,67133,2,6,11,36,40,51,59)
-		self:addTradeAcquire(RecipeDB,67133,8,42)
+		AddRecipe(67133, 450, 47573, R_EPIC, GAME_WOTLK, 450, 455, 465, 475)
+		self:addTradeFlags(RecipeDB, 67133, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:addTradeAcquire(RecipeDB, 67133, A.CUSTOM, 42)
 
 	end
 

@@ -2093,49 +2093,49 @@ function addon:InitTailoring(RecipeDB)
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
 
-	if (faction == BFAC["Alliance"]) then
+	if faction == BFAC["Alliance"] then
 
 		-- Bejeweled Wizard's Bracers -- 67079
-		AddRecipe(67079,450,47585,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67079,1,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67079,8,42)
+		AddRecipe(67079, 450, 47585, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67079, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67079,  A.CUSTOM, 42)
 
 		-- Merlin's Robe -- 67066
-		AddRecipe(67066,450,47603,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67066,1,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67066,8,42)
+		AddRecipe(67066, 450, 47603, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67066, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67066,  A.CUSTOM, 42)
 
 		-- Royal Moonshroud Bracers -- 67065
-		AddRecipe(67065,450,47587,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67065,1,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67065,8,42)
+		AddRecipe(67065, 450, 47587, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67065, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67065,  A.CUSTOM, 42)
 
 		-- Royal Moonshroud Robe -- 67064
-		AddRecipe(67064,450,47605,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67064,1,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67064,8,42)
+		AddRecipe(67064, 450, 47605, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67064, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67064,  A.CUSTOM, 42)
 
-	elseif (faction == BFAC["Horde"]) then
+	elseif faction == BFAC["Horde"] then
 
 		-- Royal Moonshroud Robe -- 67144
-		AddRecipe(67144,450,47606,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67144,2,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67144,8,42)
+		AddRecipe(67144, 450, 47606, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67144, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67144,  A.CUSTOM, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67145
-		AddRecipe(67145,450,47586,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67145,2,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67145,8,42)
+		AddRecipe(67145, 450, 47586, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67145, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67145,  A.CUSTOM, 42)
 
 		-- Merlin's Robe -- 67146
-		AddRecipe(67146,450,47604,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67146,2,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67146,8,42)
+		AddRecipe(67146, 450, 47604, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67146, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67146,  A.CUSTOM, 42)
 
 		-- Royal Moonshroud Bracers -- 67147
-		AddRecipe(67147,450,47588,3,2,450,460,467,475)
-		self:addTradeFlags(RecipeDB,67147,2,6,11,36,40,53,54,56)
-		self:addTradeAcquire(RecipeDB,67147,8,42)
+		AddRecipe(67147, 450, 47588, R_EPIC, GAME_WOTLK, 450, 460, 467, 475)
+		self:addTradeFlags(RecipeDB, 67147, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:addTradeAcquire(RecipeDB, 67147,  A.CUSTOM, 42)
 
 	end
 
