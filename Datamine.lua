@@ -1456,8 +1456,9 @@ do
 
 	local FILTER_STRINGS = private.filter_strings
 	local ACQUIRE_STRINGS = private.acquire_strings
-	local ACQUIRE_FLAGS = private.acquire_flags
+	local ACQUIRE_TYPES = private.acquire_types
 	local REP_LEVELS = private.rep_level_strings
+	local FACTION_NAMES = private.faction_strings
 
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
@@ -1500,10 +1501,11 @@ do
 		for index, name in ipairs(addon.sorted_recipes) do
 			local data = private.recipe_list[name]
 			local flag_string
+			local specialty = not data.specialty and "" or (", "..data.specialty)
 			tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
-			tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d, %s)",
+			tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
 						      data.spell_id, data.skill_level, tostring(data.item_id), RARITY_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
-						      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, tostring(data.specialty)))
+						      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
 
 			for i = 1, NUM_FILTER_FLAGS, 1 do
 				if data.Flags[i] then
@@ -1521,15 +1523,24 @@ do
 			for index, acquire in ipairs(data.Acquire) do
 				local acquire_type = acquire.type
 
-				if not flag_string then
-					if acquire_type == ACQUIRE_FLAGS.REPUTATION then
-						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+				if acquire_type == ACQUIRE_TYPES.REPUTATION then
+					local faction_string = FACTION_NAMES[acquire.ID]
+
+					if not faction_string then
+						faction_string = acquire.ID
+						addon:Printf("Recipe %d (%s) - no string for faction %d", data.spell_id, data.name, acquire.ID)
 					else
-						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+						faction_string = "FAC."..faction_string
+					end
+
+					if not flag_string then
+						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+					else
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
 					end
 				else
-					if acquire_type == ACQUIRE_FLAGS.REPUTATION then
-						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID..", "..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+					if not flag_string then
+						flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
 					else
 						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
 					end

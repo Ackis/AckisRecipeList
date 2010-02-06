@@ -109,9 +109,9 @@ local FACTION_NEUTRAL		= BFAC["Neutral"]
 -------------------------------------------------------------------------------
 -- Acquire flag constants.
 -------------------------------------------------------------------------------
---local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+local A = private.acquire_types
 local A_MAX = 9
-local A = private.acquire_flags
+
 -------------------------------------------------------------------------------
 -- Filter flag constants.
 -------------------------------------------------------------------------------

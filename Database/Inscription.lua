@@ -37,14 +37,17 @@ local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 
 -------------------------------------------------------------------------------
--- Filter flags
+-- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local F		= private.filter_flags
+local A		= private.acquire_types
+local REP	= private.rep_levels
+local FAC	= private.faction_ids
 
--------------------------------------------------------------------------------
--- Acquire types
--------------------------------------------------------------------------------
-local A = private.acquire_flags
+local FRIENDLY	= 1
+local HONORED	= 2
+local REVERED	= 3
+local EXALTED	= 4
 
 local initialized = false
 local num_recipes = 0

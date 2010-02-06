@@ -95,6 +95,9 @@ private.trainer_list	= {}
 private.seasonal_list	= {}
 private.vendor_list	= {}
 
+-- Filter flags - defined in Constants.lua
+local F = private.filter_flags
+
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 ------------------------------------------------------------------------------
@@ -1156,8 +1159,6 @@ end	-- do
 -- Filter flag functions
 -------------------------------------------------------------------------------
 do
-	local F_ALLIANCE, F_HORDE = 1, 2
-
 	-------------------------------------------------------------------------------
 	-- Item "rarity"
 	-------------------------------------------------------------------------------
@@ -1167,12 +1168,11 @@ do
 	-- Its keys and values are populated the first time CanDisplayRecipe() is called.
 	local HardFilterFlags, SoftFilterFlags, RepFilterFlags
 
-	local F_DK, F_DRUID, F_HUNTER, F_MAGE, F_PALADIN, F_PRIEST, F_SHAMAN, F_ROGUE, F_WARLOCK, F_WARRIOR = 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
 	local ClassFilterFlags = {
-		["deathknight"]	= F_DK,		["druid"]	= F_DRUID,	["hunter"]	= F_HUNTER,
-		["mage"]	= F_MAGE,	["paladin"]	= F_PALADIN,	["priest"]	= F_PRIEST,
-		["shaman"]	= F_SHAMAN,	["rogue"]	= F_ROGUE,	["warlock"]	= F_WARLOCK,
-		["warrior"]	= F_WARRIOR,
+		["deathknight"]	= F.DK,		["druid"]	= F.DRUID,	["hunter"]	= F.HUNTER,
+		["mage"]	= F.MAGE,	["paladin"]	= F.PALADIN,	["priest"]	= F.PRIEST,
+		["shaman"]	= F.SHAMAN,	["rogue"]	= F.ROGUE,	["warlock"]	= F.WARLOCK,
+		["warrior"]	= F.WARRIOR,
 	}
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
@@ -1233,12 +1233,6 @@ do
 		-- Check the hard filter flags
 		-------------------------------------------------------------------------------
 		if not HardFilterFlags then
-			local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
-			local F_DPS, F_TANK, F_HEALER, F_CASTER = 51, 52, 53, 54
-			local F_CLOTH, F_LEATHER, F_MAIL, F_PLATE, F_CLOAK, F_TRINKET, F_RING, F_NECK, F_SHIELD = 56, 57, 58, 59, 60, 61, 62, 63, 64
-			local F_1H, F_2H, F_AXE, F_SWORD, F_MACE, F_POLEARM, F_DAGGER = 66, 67, 68, 69, 70, 71, 72
-			local F_STAFF, F_WAND, F_THROWN, F_BOW, F_XBOW, F_AMMO, F_FIST, F_GUN = 73, 74, 75, 76, 77, 78, 79, 80
-
 			local binding_filters	= filter_db.binding
 			local player_filters	= filter_db.player
 			local armor_filters	= filter_db.item.armor
@@ -1248,49 +1242,49 @@ do
 				------------------------------------------------------------------------------------------------
 				-- Binding flags.
 				------------------------------------------------------------------------------------------------
-				["itemboe"]	= { flag = F_IBOE,	sv_root = binding_filters },
-				["itembop"]	= { flag = F_IBOP,	sv_root = binding_filters },
-				["itemboa"]	= { flag = F_IBOA,	sv_root = binding_filters },
-				["recipeboe"]	= { flag = F_RBOE,	sv_root = binding_filters },
-				["recipebop"]	= { flag = F_RBOP,	sv_root = binding_filters },
-				["recipeboa"]	= { flag = F_RBOA,	sv_root = binding_filters },
+				["itemboe"]	= { flag = F.IBOE,	sv_root = binding_filters },
+				["itembop"]	= { flag = F.IBOP,	sv_root = binding_filters },
+				["itemboa"]	= { flag = F.IBOA,	sv_root = binding_filters },
+				["recipeboe"]	= { flag = F.RBOE,	sv_root = binding_filters },
+				["recipebop"]	= { flag = F.RBOP,	sv_root = binding_filters },
+				["recipeboa"]	= { flag = F.RBOA,	sv_root = binding_filters },
 				------------------------------------------------------------------------------------------------
 				-- Player Type flags.
 				------------------------------------------------------------------------------------------------
-				["melee"]	= { flag = F_DPS,	sv_root = player_filters },
-				["tank"]	= { flag = F_TANK,	sv_root = player_filters },
-				["healer"]	= { flag = F_HEALER,	sv_root = player_filters },
-				["caster"]	= { flag = F_CASTER,	sv_root = player_filters },
+				["melee"]	= { flag = F.DPS,	sv_root = player_filters },
+				["tank"]	= { flag = F.TANK,	sv_root = player_filters },
+				["healer"]	= { flag = F.HEALER,	sv_root = player_filters },
+				["caster"]	= { flag = F.CASTER,	sv_root = player_filters },
 				------------------------------------------------------------------------------------------------
 				-- Armor flags.
 				------------------------------------------------------------------------------------------------
-				["cloth"]	= { flag = F_CLOTH,	sv_root = armor_filters },
-				["leather"]	= { flag = F_LEATHER,	sv_root = armor_filters },
-				["mail"]	= { flag = F_MAIL,	sv_root = armor_filters },
-				["plate"]	= { flag = F_PLATE,	sv_root = armor_filters },
-				["trinket"]	= { flag = F_TRINKET,	sv_root = armor_filters },
-				["cloak"]	= { flag = F_CLOAK,	sv_root = armor_filters },
-				["ring"]	= { flag = F_RING,	sv_root = armor_filters },
-				["necklace"]	= { flag = F_NECK,	sv_root = armor_filters },
-				["shield"]	= { flag = F_SHIELD,	sv_root = armor_filters },
+				["cloth"]	= { flag = F.CLOTH,	sv_root = armor_filters },
+				["leather"]	= { flag = F.LEATHER,	sv_root = armor_filters },
+				["mail"]	= { flag = F.MAIL,	sv_root = armor_filters },
+				["plate"]	= { flag = F.PLATE,	sv_root = armor_filters },
+				["trinket"]	= { flag = F.TRINKET,	sv_root = armor_filters },
+				["cloak"]	= { flag = F.CLOAK,	sv_root = armor_filters },
+				["ring"]	= { flag = F.RING,	sv_root = armor_filters },
+				["necklace"]	= { flag = F.NECK,	sv_root = armor_filters },
+				["shield"]	= { flag = F.SHIELD,	sv_root = armor_filters },
 				------------------------------------------------------------------------------------------------
 				-- Weapon flags.
 				------------------------------------------------------------------------------------------------
-				["onehand"]	= { flag = F_1H,	sv_root = weapon_filters },
-				["twohand"]	= { flag = F_2H,	sv_root = weapon_filters },
-				["axe"]		= { flag = F_AXE,	sv_root = weapon_filters },
-				["sword"]	= { flag = F_SWORD,	sv_root = weapon_filters },
-				["mace"]	= { flag = F_MACE,	sv_root = weapon_filters },
-				["polearm"]	= { flag = F_POLEARM,	sv_root = weapon_filters },
-				["dagger"]	= { flag = F_DAGGER,	sv_root = weapon_filters },
-				["fist"]	= { flag = F_FIST,	sv_root = weapon_filters },
-				["gun"]		= { flag = F_GUN,	sv_root = weapon_filters },
-				["staff"]	= { flag = F_STAFF,	sv_root = weapon_filters },
-				["wand"]	= { flag = F_WAND,	sv_root = weapon_filters },
-				["thrown"]	= { flag = F_THROWN,	sv_root = weapon_filters },
-				["bow"]		= { flag = F_BOW,	sv_root = weapon_filters },
-				["crossbow"]	= { flag = F_XBOW,	sv_root = weapon_filters },
-				["ammo"]	= { flag = F_AMMO,	sv_root = weapon_filters },
+				["onehand"]	= { flag = F.ONE_HAND,	sv_root = weapon_filters },
+				["twohand"]	= { flag = F.TWO_HAND,	sv_root = weapon_filters },
+				["axe"]		= { flag = F.AXE,	sv_root = weapon_filters },
+				["sword"]	= { flag = F.SWORD,	sv_root = weapon_filters },
+				["mace"]	= { flag = F.MACE,	sv_root = weapon_filters },
+				["polearm"]	= { flag = F.POLEARM,	sv_root = weapon_filters },
+				["dagger"]	= { flag = F.DAGGER,	sv_root = weapon_filters },
+				["fist"]	= { flag = F.FIST,	sv_root = weapon_filters },
+				["gun"]		= { flag = F.GUN,	sv_root = weapon_filters },
+				["staff"]	= { flag = F.STAFF,	sv_root = weapon_filters },
+				["wand"]	= { flag = F.WAND,	sv_root = weapon_filters },
+				["thrown"]	= { flag = F.THROWN,	sv_root = weapon_filters },
+				["bow"]		= { flag = F.BOW,	sv_root = weapon_filters },
+				["crossbow"]	= { flag = F.XBOW,	sv_root = weapon_filters },
+				["ammo"]	= { flag = F.AMMO,	sv_root = weapon_filters },
 			}
 		end
 
@@ -1306,48 +1300,40 @@ do
 		if not RepFilterFlags then
 			local rep_filters = filter_db.rep
 
-			local F_ARGENTDAWN, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW_HOLD, F_ZANDALAR = 96, 97, 98, 99, 100
-			local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPEDITION, F_HELLFIRE, F_CONSORTIUM = 101, 102, 103, 104, 105
-			local F_KOT, F_LOWERCITY, F_NAGRAND, F_SCALE_SANDS, F_SCRYER, F_SHATAR = 106, 107, 108, 109, 110, 111
-			local F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLETEYE = 112, 113, 114
-			local F_ARGENTCRUSADE, F_FRENZYHEART, F_EBONBLADE, F_KIRINTOR, F_HODIR = 115, 116, 117, 118, 119
-			local F_KALUAK, F_ORACLES, F_WYRMREST, F_WRATHCOMMON1, F_WRATHCOMMON2 = 120, 121, 122, 123, 124
-			local F_WRATHCOMMON3, F_WRATHCOMMON4, F_WRATHCOMMON5, F_ASHEN_VERDICT = 125, 126, 127, 128
-
 			RepFilterFlags = {
-				[F_ARGENTDAWN]		= rep_filters.argentdawn,
-				[F_CENARION_CIRCLE]	= rep_filters.cenarioncircle,
-				[F_THORIUM_BROTHERHOOD]	= rep_filters.thoriumbrotherhood,
-				[F_TIMBERMAW_HOLD]	= rep_filters.timbermaw,
-				[F_ZANDALAR]		= rep_filters.zandalar,
-				[F_ALDOR]		= rep_filters.aldor,
-				[F_ASHTONGUE]		= rep_filters.ashtonguedeathsworn,
-				[F_CENARION_EXPEDITION]	= rep_filters.cenarionexpedition,
-				[F_HELLFIRE]		= rep_filters.hellfire,
-				[F_CONSORTIUM]		= rep_filters.consortium,
-				[F_KOT]			= rep_filters.keepersoftime,
-				[F_LOWERCITY]		= rep_filters.lowercity,
-				[F_NAGRAND]		= rep_filters.nagrand,
-				[F_SCALE_SANDS]		= rep_filters.scaleofthesands,
-				[F_SCRYER]		= rep_filters.scryer,
-				[F_SHATAR]		= rep_filters.shatar,
-				[F_SHATTEREDSUN]	= rep_filters.shatteredsun,
-				[F_SPOREGGAR]		= rep_filters.sporeggar,
-				[F_VIOLETEYE]		= rep_filters.violeteye,
-				[F_ARGENTCRUSADE]	= rep_filters.argentcrusade,
-				[F_FRENZYHEART]		= rep_filters.frenzyheart,
-				[F_EBONBLADE]		= rep_filters.ebonblade,
-				[F_KIRINTOR]		= rep_filters.kirintor,
-				[F_HODIR]		= rep_filters.sonsofhodir,
-				[F_KALUAK]		= rep_filters.kaluak,
-				[F_ORACLES]		= rep_filters.oracles,
-				[F_WYRMREST]		= rep_filters.wyrmrest,
-				[F_WRATHCOMMON1]	= rep_filters.wrathcommon1,
-				[F_WRATHCOMMON2]	= rep_filters.wrathcommon2,
-				[F_WRATHCOMMON3]	= rep_filters.wrathcommon3,
-				[F_WRATHCOMMON4]	= rep_filters.wrathcommon4,
-				[F_WRATHCOMMON5]	= rep_filters.wrathcommon5,
-				[F_ASHEN_VERDICT]	= rep_filters.ashenverdict,
+				[F.ARGENTDAWN]		= rep_filters.argentdawn,
+				[F.CENARION_CIRCLE]	= rep_filters.cenarioncircle,
+				[F.THORIUM_BROTHERHOOD]	= rep_filters.thoriumbrotherhood,
+				[F.TIMBERMAW_HOLD]	= rep_filters.timbermaw,
+				[F.ZANDALAR]		= rep_filters.zandalar,
+				[F.ALDOR]		= rep_filters.aldor,
+				[F.ASHTONGUE]		= rep_filters.ashtonguedeathsworn,
+				[F.CENARION_EXPEDITION]	= rep_filters.cenarionexpedition,
+				[F.HELLFIRE]		= rep_filters.hellfire,
+				[F.CONSORTIUM]		= rep_filters.consortium,
+				[F.KOT]			= rep_filters.keepersoftime,
+				[F.LOWERCITY]		= rep_filters.lowercity,
+				[F.NAGRAND]		= rep_filters.nagrand,
+				[F.SCALE_SANDS]		= rep_filters.scaleofthesands,
+				[F.SCRYER]		= rep_filters.scryer,
+				[F.SHATAR]		= rep_filters.shatar,
+				[F.SHATTEREDSUN]	= rep_filters.shatteredsun,
+				[F.SPOREGGAR]		= rep_filters.sporeggar,
+				[F.VIOLETEYE]		= rep_filters.violeteye,
+				[F.ARGENTCRUSADE]	= rep_filters.argentcrusade,
+				[F.FRENZYHEART]		= rep_filters.frenzyheart,
+				[F.EBONBLADE]		= rep_filters.ebonblade,
+				[F.KIRINTOR]		= rep_filters.kirintor,
+				[F.HODIR]		= rep_filters.sonsofhodir,
+				[F.KALUAK]		= rep_filters.kaluak,
+				[F.ORACLES]		= rep_filters.oracles,
+				[F.WYRMREST]		= rep_filters.wyrmrest,
+				[F.WRATHCOMMON1]	= rep_filters.wrathcommon1,
+				[F.WRATHCOMMON2]	= rep_filters.wrathcommon2,
+				[F.WRATHCOMMON3]	= rep_filters.wrathcommon3,
+				[F.WRATHCOMMON4]	= rep_filters.wrathcommon4,
+				[F.WRATHCOMMON5]	= rep_filters.wrathcommon5,
+				[F.ASHEN_VERDICT]	= rep_filters.ashenverdict,
 			}
 		end
 		local rep_display = true
@@ -1389,19 +1375,17 @@ do
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 		------------------------------------------------------------------------------------------------
 		if not SoftFilterFlags then
-			local F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID, F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-
 			SoftFilterFlags = {
-				["trainer"]	= { flag = F_TRAINER,		sv_root = obtain_filters },
-				["vendor"]	= { flag = F_VENDOR,		sv_root = obtain_filters },
-				["instance"]	= { flag = F_INSTANCE,		sv_root = obtain_filters },
-				["raid"]	= { flag = F_RAID,		sv_root = obtain_filters },
-				["seasonal"]	= { flag = F_SEASONAL,		sv_root = obtain_filters },
-				["quest"]	= { flag = F_QUEST,		sv_root = obtain_filters },
-				["pvp"]		= { flag = F_PVP,		sv_root = obtain_filters },
-				["worlddrop"]	= { flag = F_WORLD_DROP,	sv_root = obtain_filters },
-				["mobdrop"]	= { flag = F_MOB_DROP,		sv_root = obtain_filters },
-				["discovery"]	= { flag = F_DISC,		sv_root = obtain_filters },
+				["trainer"]	= { flag = F.TRAINER,		sv_root = obtain_filters },
+				["vendor"]	= { flag = F.VENDOR,		sv_root = obtain_filters },
+				["instance"]	= { flag = F.INSTANCE,		sv_root = obtain_filters },
+				["raid"]	= { flag = F.RAID,		sv_root = obtain_filters },
+				["seasonal"]	= { flag = F.SEASONAL,		sv_root = obtain_filters },
+				["quest"]	= { flag = F.QUEST,		sv_root = obtain_filters },
+				["pvp"]		= { flag = F.PVP,		sv_root = obtain_filters },
+				["worlddrop"]	= { flag = F.WORLD_DROP,	sv_root = obtain_filters },
+				["mobdrop"]	= { flag = F.MOB_DROP,		sv_root = obtain_filters },
+				["discovery"]	= { flag = F.DISC,		sv_root = obtain_filters },
 			}
 		end
 

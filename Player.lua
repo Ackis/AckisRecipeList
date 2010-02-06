@@ -50,10 +50,11 @@ local Player		= private.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE = 1, 2
---local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_PVP, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-local A = private.acquire_flags
+local A = private.acquire_types
+local F = private.filter_flags
+
 local A_MAX = 9
+
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
@@ -98,26 +99,21 @@ end
 -- Determines if the player has an appropiate level in any applicable faction
 -- to learn the recipe.
 function Player:HasProperRepLevel(recipe_index)
-	-- Reputation constants for special cases.
-	local REP_MAGHAR	= 941
-	local REP_HONOR_HOLD	= 946
-	local REP_THRALLMAR	= 947
-	local REP_KURENI	= 978
-
 	local has_faction = true
 	local is_alliance = self.faction == BFAC["Alliance"]
 	local player_rep = self["Reputation"]
 	local acquire_info = private.recipe_list[recipe_index]["Acquire"]
 	local reputations = private.reputation_list
+	local FAC = private.faction_ids
 
 	for index in pairs(acquire_info) do
 		if acquire_info[index].type == A.REPUTATION then
 			local rep_id = acquire_info[index].ID
 
-			if rep_id == REP_HONOR_HOLD or rep_id == REP_THRALLMAR then
-				rep_id = is_alliance and REP_HONOR_HOLD or REP_THRALLMAR
-			elseif rep_id == REP_MAGHAR or rep_id == REP_KURENI then
-				rep_id = is_alliance and REP_KURENI or REP_MAGHAR
+			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENI then
+				rep_id = is_alliance and FAC.KURENI or FAC.MAGHAR
 			end
 			local rep_name = reputations[rep_id].name
 
@@ -134,9 +130,9 @@ function Player:HasProperRepLevel(recipe_index)
 end
 
 function Player:IsCorrectFaction(recipe_flags)
-	if self.faction == BFAC["Alliance"] and recipe_flags[F_HORDE] and not recipe_flags[F_ALLIANCE] then
+	if self.faction == BFAC["Alliance"] and recipe_flags[F.HORDE] and not recipe_flags[F.ALLIANCE] then
 		return false
-	elseif self.faction == BFAC["Horde"] and recipe_flags[F_ALLIANCE] and not recipe_flags[F_HORDE] then
+	elseif self.faction == BFAC["Horde"] and recipe_flags[F.ALLIANCE] and not recipe_flags[F.HORDE] then
 		return false
 	end
 	return true

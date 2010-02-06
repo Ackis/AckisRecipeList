@@ -97,9 +97,9 @@ private.filter_strings = {
 }
 
 -------------------------------------------------------------------------------
--- Acquire flags.
+-- Acquire types.
 -------------------------------------------------------------------------------
-private.acquire_flags = {
+private.acquire_types = {
 	["TRAINER"]	= 1,
 	["VENDOR"]	= 2,
 	["MOB"]		= 3,
@@ -121,9 +121,74 @@ private.acquire_strings = {
 	[8]	= "CUSTOM",
 }
 
+-------------------------------------------------------------------------------
+-- Reputation levels.
+-------------------------------------------------------------------------------
+private.rep_levels = {
+	["FRIENDLY"]	= 1,
+	["HONORED"]	= 2,
+	["REVERED"]	= 3,
+	["EXALTED"]	= 4,
+}
+
 private.rep_level_strings = {
 	[1]	= "FRIENDLY",
 	[2]	= "HONORED",
 	[3]	= "REVERED",
 	[4]	= "EXALTED",
+}
+
+-------------------------------------------------------------------------------
+-- Factions.
+-------------------------------------------------------------------------------
+private.faction_ids = {
+	["THORIUM_BROTHERHOOD"]	= 59,
+	["ZANDALAR"]		= 270,
+	["ARGENTDAWN"]		= 529,
+	["TIMBERMAW_HOLD"]	= 576,
+	["WINTERSPRING"]	= 589,
+	["CENARION_CIRCLE"]	= 609,
+	["ALDOR"]		= 932,
+	["CONSORTIUM"]		= 933,
+	["SCRYER"]		= 934,
+	["MAGHAR"]		= 941,
+	["HONOR_HOLD"]		= 946,
+	["THRALLMAR"]		= 947,
+	["SPOREGGAR"]		= 970,
+	["KURENI"]		= 978,
+	["LOWERCITY"]		= 1011,
+	["ASHTONGUE"]		= 1012,
+	["KALUAK"]		= 1073,
+	["KIRINTOR"]		= 1090,
+	["WYRMREST"]		= 1091,
+	["EBONBLADE"]		= 1098,
+	["ARGENTCRUSADE"]	= 1106,
+	["HODIR"]		= 1119,
+	["ASHEN_VERDICT"]	= 1156,
+}
+
+private.faction_strings = {
+	[59]	= "THORIUM_BROTHERHOOD",
+	[270]	= "ZANDALAR",
+	[529]	= "ARGENTDAWN",
+	[576]	= "TIMBERMAW_HOLD",
+	[589]	= "WINTERSPRING",
+	[609]	= "CENARION_CIRCLE",
+	[932]	= "ALDOR",
+	[933]	= "CONSORTIUM",
+	[934]	= "SCRYER",
+	[941]	= "MAGHAR",
+	[946]	= "HONOR_HOLD",
+	[947]	= "THRALLMAR",
+	[970]	= "SPOREGGAR",
+	[978]	= "KURENI",
+	[1011]	= "LOWERCITY",
+	[1012]	= "ASHTONGUE",
+	[1073]	= "KALUAK",
+	[1090]	= "KIRINTOR",
+	[1091]	= "WYRMREST",
+	[1098]	= "EBONBLADE",
+	[1106]	= "ARGENTCRUSADE",
+	[1119]	= "HODIR",
+	[1156]	= "ASHEN_VERDICT",
 }
