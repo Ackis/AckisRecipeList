@@ -850,12 +850,12 @@ function addon:InitCooking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 58525, A.WORLD_DROP, 2)
 
 	-- Gigantic Feast -- 58527
-	AddRecipe(58527, 425, 43478, R_UNCOMMON, GAME_WOTLK, 425, 425, 450, 475)
+	AddRecipe(58527, 425, 43478, R_UNCOMMON, GAME_WOTLK, 425, 435, 455, 475)
 	self:addTradeFlags(RecipeDB, 58527, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 58527, A.VENDOR, 31031, A.VENDOR, 31032)
 
 	-- Small Feast -- 58528
-	AddRecipe(58528, 425, 43480, R_UNCOMMON, GAME_WOTLK, 425, 425, 450, 475)
+	AddRecipe(58528, 425, 43480, R_UNCOMMON, GAME_WOTLK, 425, 435, 455, 475)
 	self:addTradeFlags(RecipeDB, 58528, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 58528, A.VENDOR, 31031, A.VENDOR, 31032)
 
