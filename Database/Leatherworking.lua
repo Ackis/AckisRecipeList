@@ -2524,27 +2524,27 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60996, A.VENDOR, 32515)
 
 	-- Polar Cord -- 60997
-	AddRecipe(60997, 420, 43591, R_EPIC, GAME_WOTLK, 420, 425, 430, 435)
+	AddRecipe(60997, 420, 43591, R_EPIC, GAME_WOTLK, 420, 430, 440, 450)
 	self:addTradeFlags(RecipeDB, 60997, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LEATHER)
 	self:addTradeAcquire(RecipeDB, 60997, A.VENDOR, 32515)
 
 	-- Polar Boots -- 60998
-	AddRecipe(60998, 420, 43592, R_EPIC, GAME_WOTLK, 420, 425, 430, 435)
+	AddRecipe(60998, 420, 43592, R_EPIC, GAME_WOTLK, 420, 430, 440, 450)
 	self:addTradeFlags(RecipeDB, 60998, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LEATHER)
 	self:addTradeAcquire(RecipeDB, 60998, A.VENDOR, 32515)
 
 	-- Icy Scale Chestguard -- 60999
-	AddRecipe(60999, 425, 43593, R_EPIC, GAME_WOTLK, 425, 430, 435, 440)
+	AddRecipe(60999, 425, 43593, R_EPIC, GAME_WOTLK, 425, 435, 445, 455)
 	self:addTradeFlags(RecipeDB, 60999, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.MAIL)
 	self:addTradeAcquire(RecipeDB, 60999, A.VENDOR, 32515)
 
 	-- Icy Scale Belt -- 61000
-	AddRecipe(61000, 420, 43594, R_EPIC, GAME_WOTLK, 420, 425, 430, 435)
+	AddRecipe(61000, 420, 43594, R_EPIC, GAME_WOTLK, 420, 430, 440, 450)
 	self:addTradeFlags(RecipeDB, 61000, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.MAIL)
 	self:addTradeAcquire(RecipeDB, 61000, A.VENDOR, 32515)
 
 	-- Icy Scale Boots -- 61002
-	AddRecipe(61002, 420, 43595, R_EPIC, GAME_WOTLK, 420, 425, 430, 435)
+	AddRecipe(61002, 420, 43595, R_EPIC, GAME_WOTLK, 420, 430, 440, 450)
 	self:addTradeFlags(RecipeDB, 61002, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.MAIL)
 	self:addTradeAcquire(RecipeDB, 61002, A.VENDOR, 32515)
 
@@ -2559,7 +2559,7 @@ function addon:InitLeatherworking(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 62177, A.VENDOR, 32515)
 
 	-- Earthen Leg Armor -- 62448
-	AddRecipe(62448, 425, 44963, R_EPIC, GAME_WOTLK, 425, 430, 435, 440)
+	AddRecipe(62448, 425, 44963, R_EPIC, GAME_WOTLK, 425, 435, 440, 445)
 	self:addTradeFlags(RecipeDB, 62448, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 62448, A.TRAINER, 26911, A.TRAINER, 26961, A.TRAINER, 26996, A.TRAINER, 26998, A.TRAINER, 28700, A.TRAINER, 33581)
 
