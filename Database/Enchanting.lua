@@ -605,7 +605,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Boots - Greater Agility -- 20023
 	AddRecipe(20023, 295, nil, R_COMMON, GAME_ORIG, 295, 310, 325, 340)
-	self:addTradeFlags(RecipeDB, 20023, F.ALLIANCE, F.HORDE, F.TRAINER, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
+	self:addTradeFlags(RecipeDB, 20023, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
 	self:addTradeAcquire(RecipeDB, 20023, A.TRAINER, 11073, A.TRAINER, 19251, A.TRAINER, 19252, A.TRAINER, 33610, A.TRAINER, 16633, A.TRAINER, 11072, A.TRAINER, 1317, A.TRAINER, 3606, A.TRAINER, 4213, A.TRAINER, 16725, A.TRAINER, 3345, A.TRAINER, 3011, A.TRAINER, 11074, A.TRAINER, 33676, A.TRAINER, 18773, A.TRAINER, 5695, A.TRAINER, 4616, A.TRAINER, 7949, A.TRAINER, 5157, A.TRAINER, 19540, A.TRAINER, 18753, A.TRAINER, 16160)
 
 	-- Enchant Boots - Spirit -- 20024
@@ -675,7 +675,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Winter's Might -- 21931
 	AddRecipe(21931, 190, nil, R_COMMON, GAME_ORIG, 190, 210, 230, 250)
-	self:addTradeFlags(RecipeDB, 21931, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:addTradeFlags(RecipeDB, 21931, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 21931, A.SEASONAL, 1)
 
 	-- Enchant Weapon - Spellpower -- 22749
@@ -980,12 +980,12 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Weapon - Spellsurge -- 28003
 	AddRecipe(28003, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
-	self:addTradeFlags(RecipeDB, 28003, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:addTradeFlags(RecipeDB, 28003, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 28003, A.WORLD_DROP, 2)
 
 	-- Enchant Weapon - Battlemaster -- 28004
 	AddRecipe(28004, 360, nil, R_COMMON, GAME_TBC, 360, 370, 377, 385)
-	self:addTradeFlags(RecipeDB, 28004, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:addTradeFlags(RecipeDB, 28004, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 28004, A.WORLD_DROP, 2)
 
 	-- Superior Mana Oil -- 28016
