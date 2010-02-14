@@ -1499,7 +1499,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60767, A.VENDOR, 32514)
 
 	-- Enchant Bracers - Major Stamina -- 62256
-	AddRecipe(62256, 450, nil, R_UNCOMMON, GAME_WOTLK, 450, 460, 470, 480)
+	AddRecipe(62256, 450, nil, R_RARE, GAME_WOTLK, 450, 460, 470, 480)
 	self:addTradeFlags(RecipeDB, 62256, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 62256, A.VENDOR, 32514)
 
@@ -1519,12 +1519,12 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 63746, A.TRAINER, 1317, A.TRAINER, 3011, A.TRAINER, 3345, A.TRAINER, 3606, A.TRAINER, 4213, A.TRAINER, 4616, A.TRAINER, 5157, A.TRAINER, 5695, A.TRAINER, 11072, A.TRAINER, 11073, A.TRAINER, 11074, A.TRAINER, 16160, A.TRAINER, 16633, A.TRAINER, 16725, A.TRAINER, 19251, A.TRAINER, 19252, A.TRAINER, 33610, A.TRAINER, 33676, A.TRAINER, 18773, A.TRAINER, 7949, A.TRAINER, 19540, A.TRAINER, 18753)
 
 	-- Enchant Weapon - Blade Ward -- 64441
-	AddRecipe(64441, 450, nil, R_RARE, GAME_WOTLK, 450, 455, 460, 465)
+	AddRecipe(64441, 450, nil, R_EPIC, GAME_WOTLK, 450, 455, 460, 465)
 	self:addTradeFlags(RecipeDB, 64441, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 64441, A.CUSTOM, 39)
 
 	-- Enchant Weapon - Blood Draining -- 64579
-	AddRecipe(64579, 450, nil, R_RARE, GAME_WOTLK, 450, 455, 460, 465)
+	AddRecipe(64579, 450, nil, R_EPIC, GAME_WOTLK, 450, 455, 460, 465)
 	self:addTradeFlags(RecipeDB, 64579, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 64579, A.CUSTOM, 39)
 
