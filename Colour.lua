@@ -259,44 +259,53 @@ function addon:Normal(text)
 	return self:Colourize(NORMAL, text)
 end
 
--- used for tooltip rgb stuff
-function addon:hexcolor(colorstring)
-	if (colorstring == "NEUTRAL")			then return NEUTRAL
-	elseif (colorstring == "FRIENDLY")		then return FRIENDLY
-	elseif (colorstring == "HONORED")		then return HONORED
-	elseif (colorstring == "REVERED")		then return REVERED
-	elseif (colorstring == "EXALTED")		then return EXALTED
+-------------------------------------------------------------------------------
+-- Colorize a string based off of a name entry.
+-------------------------------------------------------------------------------
+do
+	local COLOR_NAMES = {
+		["NEUTRAL"]	= "|cff"..NEUTRAL,
+		["FRIENDLY"]	= "|cff"..FRIENDLY,
+		["HONORED"]	= "|cff"..HONORED,
+		["REVERED"]	= "|cff"..REVERED,
+		["EXALTED"]	= "|cff"..EXALTED,
 
-	elseif (colorstring == "TRAINER")		then return TRAINER
-	elseif (colorstring == "VENDOR")		then return VENDOR
-	elseif (colorstring == "QUEST")			then return QUEST
-	elseif (colorstring == "REP")			then return REP
-	elseif (colorstring == "SEASON")		then return SEASON
-	elseif (colorstring == "MOBDROP")		then return MOBDROP
+		["TRAINER"]	= "|cff"..TRAINER,
+		["VENDOR"]	= "|cff"..VENDOR,
+		["QUEST"]	= "|cff"..QUEST,
+		["REP"]		= "|cff"..REP,
+		["SEASON"]	= "|cff"..SEASON,
+		["MOBDROP"]	= "|cff"..MOBDROP,
 
-	elseif (colorstring == "POOR")			then return POOR
-	elseif (colorstring == "COMMON")		then return COMMON
-	elseif (colorstring == "UNCOMMON")		then return UNCOMMON
-	elseif (colorstring == "RARE")			then return RARE
-	elseif (colorstring == "EPIC")			then return EPIC
-	elseif (colorstring == "LEGENDARY")		then return LEGENDARY
-	elseif (colorstring == "ARTIFACT")		then return ARTIFACT
+		["POOR"]	= "|cff"..POOR,
+		["COMMON"]	= "|cff"..COMMON,
+		["UNCOMMON"]	= "|cff"..UNCOMMON,
+		["RARE"]	= "|cff"..RARE,
+		["EPIC"]	= "|cff"..EPIC,
+		["LEGENDARY"]	= "|cff"..LEGENDARY,
+		["ARTIFACT"]	= "|cff"..ARTIFACT,
 
-	elseif (colorstring == "HORDE")			then return HORDE
-	elseif (colorstring == "ALLIANCE")		then return ALLIANCE
+		["HORDE"]	= "|cff"..HORDE,
+		["ALLIANCE"]	= "|cff"..ALLIANCE,
 
-	elseif (colorstring == "BLACK")			then return BLACK
-	elseif (colorstring == "ORANGE")		then return ORANGE
-	elseif (colorstring == "GREEN")			then return GREEN
-	elseif (colorstring == "YELLOW")		then return YELLOW
-	elseif (colorstring == "GREY")			then return GREY
-	elseif (colorstring == "MIDGREY")		then return MIDGREY
-	elseif (colorstring == "RED")			then return RED
+		["BLACK"]	= "|cff"..BLACK,
+		["ORANGE"]	= "|cff"..ORANGE,
+		["GREEN"]	= "|cff"..GREEN,
+		["YELLOW"]	= "|cff"..YELLOW,
+		["GREY"]	= "|cff"..GREY,
+		["MIDGREY"]	= "|cff"..MIDGREY,
+		["RED"]		= "|cff"..RED,
 
-	elseif (colorstring == "HIGH")			then return HIGH
---	elseif (colorstring == "NORMAL")		then return NORMAL
-	else
-		return NORMAL
+		["HIGH"]	= "|cff"..HIGH,
+	}
+
+	function addon:hexcolor(colorstring)
+		local color = COLOR_NAMES[colorstring]
+
+		if not color then
+			return "|cff"..NORMAL
+		end
+
+		return color
 	end
-----------------------------------------------------------------------
-end
+end	-- do

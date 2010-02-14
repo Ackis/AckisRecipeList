@@ -521,14 +521,14 @@ do
 		if str2 then
 			local lineNum = acquire_tip:AddLine()
 
-			acquire_tip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
-			acquire_tip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
+			acquire_tip:SetCell(lineNum, 1, hexcolor1..leftStr.."|r")
+			acquire_tip:SetCell(lineNum, 2, hexcolor2..str2.."|r", "RIGHT")
 		else
 			-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
 			local width = math.ceil(fontSize * 37.5)
 			local lineNum = acquire_tip:AddLine()
 
-			acquire_tip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
+			acquire_tip:SetCell(lineNum, 1, hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 	end
 
@@ -634,7 +634,7 @@ do
 		acquire_tip:Clear()
 		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..recipe_entry.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, addon:hexcolor("HIGH")..recipe_entry.name, "CENTER", 2)
 
 		-- check if the recipe is excluded
 		local exclude = addon.db.profile.exclusionlist
@@ -816,17 +816,8 @@ do
 			elseif acquire_type == A.WORLD_DROP then
 				local acquire_id = acquire.ID
 
-				if acquire_id == 1 then
-					color_1 = addon:hexcolor("COMMON")
-				elseif acquire_id == 2 then
-					color_1 = addon:hexcolor("UNCOMMON")
-				elseif acquire_id == 3 then
-					color_1 = addon:hexcolor("RARE")
-				elseif acquire_id == 4 then
-					color_1 = addon:hexcolor("EPIC")
-				else
-					color_1 = addon:hexcolor("NORMAL")
-				end
+				color_1 = select(4, GetItemQualityColor(recipe_entry.quality))
+
 				ttAdd(0, -1, false, L["World Drop"], color_1)
 			elseif acquire_type == A.CUSTOM then
 				ttAdd(0, -1, false, private.custom_list[acquire.ID].name, addon:hexcolor("NORMAL"))
@@ -2520,7 +2511,9 @@ do
 					entry_index = entry_index + 1
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
-				t.text = pad .. addon:RarityColor(acquire.ID + 1, L["World Drop"])
+				local hex_color = select(4, GetItemQualityColor(private.recipe_list[recipe_id].quality))
+
+				t.text = pad..hex_color..L["World Drop"].."|r"
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
 			elseif acquire_type == A.CUSTOM then
