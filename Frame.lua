@@ -631,10 +631,12 @@ do
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 			TipTac:AddModifiedTip(acquire_tip, true)
 		end
+		local quality_color = select(4, GetItemQualityColor(recipe_entry.quality))
+
 		acquire_tip:Clear()
 		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, addon:hexcolor("HIGH")..recipe_entry.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, quality_color..recipe_entry.name, "CENTER", 2)
 
 		-- check if the recipe is excluded
 		local exclude = addon.db.profile.exclusionlist
@@ -816,7 +818,7 @@ do
 			elseif acquire_type == A.WORLD_DROP then
 				local acquire_id = acquire.ID
 
-				color_1 = select(4, GetItemQualityColor(recipe_entry.quality))
+				color_1 = quality_color
 
 				ttAdd(0, -1, false, L["World Drop"], color_1)
 			elseif acquire_type == A.CUSTOM then
