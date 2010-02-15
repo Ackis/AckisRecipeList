@@ -647,19 +647,26 @@ do
 
 		-- Add in skill level requirement, colored correctly
 		local color_1 = addon:hexcolor("NORMAL")
-
-		local recipe_level = recipe_entry.skill_level
-		local skill_level = Player["ProfessionLevel"]
 		local color_2
+
+		local skill_level = Player["ProfessionLevel"]
+		local recipe_level = recipe_entry.skill_level
+		local optimal_level = recipe_entry.optimal_level
+		local medium_level = recipe_entry.medium_level
+		local easy_level = recipe_entry.easy_level
+		local trivial_level = recipe_entry.trivial_level
+
 
 		if recipe_level > skill_level then
 			color_2 = addon:hexcolor("RED")
-		elseif skill_level - recipe_level < 20 then
-			color_2 = addon:hexcolor("ORANGE")
-		elseif skill_level - recipe_level < 30 then
-			color_2 = addon:hexcolor("YELLOW")
-		elseif skill_level - recipe_level < 40 then
+		elseif skill_level >= trivial_level then
+			color_2 = addon:hexcolor("MIDGREY")
+		elseif skill_level >= easy_level then
 			color_2 = addon:hexcolor("GREEN")
+		elseif skill_level >= medium_level then
+			color_2 = addon:hexcolor("YELLOW")
+		elseif skill_level >= optimal_level then
+			color_2 = addon:hexcolor("ORANGE")
 		else
 			color_2 = addon:hexcolor("MIDGREY")
 		end
