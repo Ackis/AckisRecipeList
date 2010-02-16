@@ -62,17 +62,17 @@ function addon:InitInscription(RecipeDB)
 	end
 
 	-- Scroll of Stamina -- 45382
-	AddRecipe(45382, 25, 1180, R_COMMON, GAME_WOTLK, 1, 35, 40, 45)
+	AddRecipe(45382, 1, 1180, R_COMMON, GAME_WOTLK, 1, 35, 40, 45)
 	self:addTradeFlags(RecipeDB, 45382, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 45382, A.CUSTOM, 8)
 
 	-- Scroll of Intellect -- 48114
-	AddRecipe(48114, 25, 955, R_COMMON, GAME_WOTLK, 25, 35, 40, 45)
+	AddRecipe(48114, 1, 955, R_COMMON, GAME_WOTLK, 1, 35, 40, 45)
 	self:addTradeFlags(RecipeDB, 48114, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 48114, A.CUSTOM, 8)
 
 	-- Scroll of Spirit -- 48116
-	AddRecipe(48116, 25, 1181, R_COMMON, GAME_WOTLK, 35, 35, 40, 45)
+	AddRecipe(48116, 1, 1181, R_COMMON, GAME_WOTLK, 1, 35, 40, 45)
 	self:addTradeFlags(RecipeDB, 48116, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:addTradeAcquire(RecipeDB, 48116, A.CUSTOM, 8)
 
@@ -432,7 +432,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 56990, A.CUSTOM, 14)
 
 	-- Glyph of Arcane Blast -- 56991
-	AddRecipe(56991, 315, 44955, R_COMMON, GAME_WOTLK, 310, 320, 325, 330)
+	AddRecipe(56991, 315, 44955, R_COMMON, GAME_WOTLK, 315, 320, 325, 330)
 	self:addTradeFlags(RecipeDB, 56991, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 56991, A.TRAINER, 26916, A.TRAINER, 26959, A.TRAINER, 26977, A.TRAINER, 26995, A.TRAINER, 28702, A.TRAINER, 33603, A.TRAINER, 33615, A.TRAINER, 30722, A.TRAINER, 30721, A.TRAINER, 33679)
 
