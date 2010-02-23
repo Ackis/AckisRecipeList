@@ -1284,7 +1284,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 44593, A.TRAINER, 26906, A.TRAINER, 26954, A.TRAINER, 26980, A.TRAINER, 26990, A.TRAINER, 28693, A.TRAINER, 33583)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
-	AddRecipe(44595, 430, nil, R_RARE, GAME_WOTLK, 430, 440, 450, 460)
+	AddRecipe(44595, 430, 44473, R_RARE, GAME_WOTLK, 430, 440, 450, 460)
 	self:addTradeFlags(RecipeDB, 44595, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 44595, A.VENDOR, 32514)
 
@@ -1494,12 +1494,12 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 60763, A.VENDOR, 32514)
 
 	-- Enchant Bracers - Superior Spellpower -- 60767
-	AddRecipe(60767, 440, nil, R_UNCOMMON, GAME_WOTLK, 440, 450, 460, 470)
+	AddRecipe(60767, 440, 44498, R_UNCOMMON, GAME_WOTLK, 440, 450, 460, 470)
 	self:addTradeFlags(RecipeDB, 60767, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:addTradeAcquire(RecipeDB, 60767, A.VENDOR, 32514)
 
 	-- Enchant Bracers - Major Stamina -- 62256
-	AddRecipe(62256, 450, nil, R_RARE, GAME_WOTLK, 450, 460, 470, 480)
+	AddRecipe(62256, 450, 44944, R_RARE, GAME_WOTLK, 450, 460, 470, 480)
 	self:addTradeFlags(RecipeDB, 62256, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 62256, A.VENDOR, 32514)
 

@@ -274,8 +274,8 @@ local SPELL_ITEM = {
 	[47899] = 44488, 	[47901] = 44491,	[59619] = 44496, 	[59621] = 44492,
 	[59625] = 44495, 	[60691] = 44483,	[60692] = 44489, 	[60707] = 44486,
  	[60714] = 44487, 	[60763] = 44490,	[60767] = 44498, 	[62256] = 44944,
-	[62257] = 44945, 	[62948] = 45059,	[64441] = 46027, 	[64579] = 46348, 
-
+	[62257] = 44945, 	[62948] = 45059,	[64441] = 46027, 	[64579] = 46348,
+	
 	-------------------------------------------------------------------------------
 	--Engineering
 	-------------------------------------------------------------------------------
@@ -1660,13 +1660,12 @@ do
 				if matchtext and RECIPE_NAMES[strlower(matchtext)] then
 					local recipename = gsub(name, "%a+\: ", "")	-- Get rid of the first part of the item
 					local spellid = reverse_lookup[recipename]	-- Find out what spell ID we're using
-
 					-- Do the scan if we have the spell ID
-					if (spellid) then
+					if spellid then
 						added = true
 						local ttscantext = addon:TooltipScanRecipe(spellid, true, true)
 
-						if (ttscantext) then
+						if ttscantext then
 							tinsert(output, ttscantext)
 						end
 						-- Ok now we know it's a vendor, lets check the database to see if the vendor is listed as an acquire method.
