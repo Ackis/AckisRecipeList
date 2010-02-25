@@ -1780,8 +1780,8 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Bracers of Renewed Life -- 41156
 	AddRecipe(41156, 375, 32582, R_EPIC, GAME_TBC, 375, 385, 395, 405)
-	self:addTradeFlags(RecipeDB, 41156, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:addTradeAcquire(RecipeDB, 41156, A.WORLD_DROP, 4)
+	self:addTradeFlags(RecipeDB, 41156, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+	self:addTradeAcquire(RecipeDB, 41156, A.CUSTOM, 34)
 
 	-- Shoulderpads of Renewed Life -- 41157
 	AddRecipe(41157, 375, 32583, R_EPIC, GAME_TBC, 375, 385, 395, 405)
@@ -1795,8 +1795,8 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Swiftstrike Shoulders -- 41160
 	AddRecipe(41160, 375, 32581, R_EPIC, GAME_TBC, 375, 385, 395, 405)
-	self:addTradeFlags(RecipeDB, 41160, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
-	self:addTradeAcquire(RecipeDB, 41160, A.WORLD_DROP, 4)
+	self:addTradeFlags(RecipeDB, 41160, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
+	self:addTradeAcquire(RecipeDB, 41160, A.CUSTOM, 34)
 
 	-- Bindings of Lightning Reflexes -- 41161
 	AddRecipe(41161, 375, 32574, R_EPIC, GAME_TBC, 375, 385, 395, 405)
@@ -1805,13 +1805,13 @@ function addon:InitLeatherworking(RecipeDB)
 
 	-- Shoulders of Lightning Reflexes -- 41162
 	AddRecipe(41162, 375, 32575, R_EPIC, GAME_TBC, 375, 385, 395, 405)
-	self:addTradeFlags(RecipeDB, 41162, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOE, F.DPS, F.MAIL)
-	self:addTradeAcquire(RecipeDB, 41162, A.WORLD_DROP, 4)
+	self:addTradeFlags(RecipeDB, 41162, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.MAIL)
+	self:addTradeAcquire(RecipeDB, 41162, A.CUSTOM, 34)
 
 	-- Living Earth Bindings -- 41163
 	AddRecipe(41163, 375, 32577, R_EPIC, GAME_TBC, 375, 385, 395, 405)
-	self:addTradeFlags(RecipeDB, 41163, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:addTradeAcquire(RecipeDB, 41163, A.WORLD_DROP, 4)
+	self:addTradeFlags(RecipeDB, 41163, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:addTradeAcquire(RecipeDB, 41163, A.CUSTOM, 34)
 
 	-- Living Earth Shoulders -- 41164
 	AddRecipe(41164, 375, 32579, R_EPIC, GAME_TBC, 375, 385, 395, 405)
