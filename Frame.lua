@@ -115,17 +115,15 @@ local A_MAX = 9
 -------------------------------------------------------------------------------
 -- Filter flag constants.
 -------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_TRAINER, F_VENDOR, F_INSTANCE, F_RAID = 1, 2, 3, 4, 5, 6
-local F_SEASONAL, F_QUEST, F_PVP, F_WORLD_DROP, F_MOB_DROP, F_DISC = 7, 8, 9, 10, 11, 12
-local F_IBOE, F_IBOP, F_IBOA, F_RBOE, F_RBOP, F_RBOA = 36, 37, 38, 40, 41, 42
+local F = private.filter_flags
 
 local BINDING_FLAGS = {
-	[F_IBOE] = L["BOEFilter"],
-	[F_IBOP] = L["BOPFilter"],
-	[F_IBOA] = L["BOAFilter"],
-	[F_RBOE] = L["RecipeBOEFilter"],
-	[F_RBOP] = L["RecipeBOPFilter"],
-	[F_RBOA] = L["RecipeBOAFilter"]
+	[F.IBOE] = L["BOEFilter"],
+	[F.IBOP] = L["BOPFilter"],
+	[F.IBOA] = L["BOAFilter"],
+	[F.RBOE] = L["RecipeBOEFilter"],
+	[F.RBOP] = L["RecipeBOPFilter"],
+	[F.RBOA] = L["RecipeBOAFilter"]
 }
 
 -------------------------------------------------------------------------------
@@ -2728,13 +2726,13 @@ do
 
 			display = (quest.faction == BFAC[player_faction] or quest.faction == FACTION_NEUTRAL)
 		elseif acquire_type == A.CUSTOM then
-			if flags[F_TRAINER] and maptrainer then
+			if flags[F.TRAINER] and maptrainer then
 				return true
-			elseif flags[F_VENDOR] and mapvendor then
+			elseif flags[F.VENDOR] and mapvendor then
 				return true
-			elseif flags[F_QUEST] and mapquest then
+			elseif flags[F.QUEST] and mapquest then
 				return true
-			elseif flags[F_INSTANCE] or flags[F_RAID] or flags[F_WORLD_DROP] or flags[F_MOB_DROP] then
+			elseif flags[F.INSTANCE] or flags[F.RAID] or flags[F.WORLD_DROP] or flags[F.MOB_DROP] then
 				return true
 			end
 		end
