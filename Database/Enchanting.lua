@@ -564,9 +564,9 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20010, A.MOB, 7372)
 
 	-- Enchant Bracer - Superior Stamina -- 20011
-	AddRecipe(20011, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
+	AddRecipe(20011, 300, nil, R_UNCOMMON, GAME_ORIG, 300, 310, 325, 340)
 	self:addTradeFlags(RecipeDB, 20011, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:addTradeAcquire(RecipeDB, 20011, A.WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20011, A.WORLD_DROP, 2)
 
 	-- Enchant Gloves - Greater Agility -- 20012
 	AddRecipe(20012, 270, nil, R_COMMON, GAME_ORIG, 270, 290, 310, 330)
@@ -609,9 +609,9 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20023, A.TRAINER, 11073, A.TRAINER, 19251, A.TRAINER, 19252, A.TRAINER, 33610, A.TRAINER, 16633, A.TRAINER, 11072, A.TRAINER, 1317, A.TRAINER, 3606, A.TRAINER, 4213, A.TRAINER, 16725, A.TRAINER, 3345, A.TRAINER, 3011, A.TRAINER, 11074, A.TRAINER, 33676, A.TRAINER, 18773, A.TRAINER, 5695, A.TRAINER, 4616, A.TRAINER, 7949, A.TRAINER, 5157, A.TRAINER, 19540, A.TRAINER, 18753, A.TRAINER, 16160)
 
 	-- Enchant Boots - Spirit -- 20024
-	AddRecipe(20024, 275, nil, R_COMMON, GAME_ORIG, 275, 295, 315, 335)
+	AddRecipe(20024, 275, nil, R_UNCOMMON, GAME_ORIG, 275, 295, 315, 335)
 	self:addTradeFlags(RecipeDB, 20024, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:addTradeAcquire(RecipeDB, 20024, A.WORLD_DROP, 1)
+	self:addTradeAcquire(RecipeDB, 20024, A.WORLD_DROP, 2)
 
 	-- Enchant Chest - Greater Stats -- 20025
 	AddRecipe(20025, 300, nil, R_COMMON, GAME_ORIG, 300, 310, 325, 340)
@@ -674,7 +674,7 @@ function addon:InitEnchanting(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 20051, A.VENDOR, 12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
-	AddRecipe(21931, 190, nil, R_COMMON, GAME_ORIG, 190, 210, 230, 250)
+	AddRecipe(21931, 190, nil, R_UNCOMMON, GAME_ORIG, 190, 210, 230, 250)
 	self:addTradeFlags(RecipeDB, 21931, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
 	self:addTradeAcquire(RecipeDB, 21931, A.SEASONAL, 1)
 
