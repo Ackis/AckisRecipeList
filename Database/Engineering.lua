@@ -1201,7 +1201,7 @@ function addon:InitEngineering(RecipeDB)
 	-- Wonderheal XT68 Shades -- 46106
 	AddRecipe(46106, 375, 35183, R_EPIC, GAME_TBC, 375, 390, 410, 430)
 	self:addTradeFlags(RecipeDB, 46106, F.ALLIANCE, F.HORDE, F.RAID, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
-	self:addTradeAcquire(RecipeDB, 46106, A.CUSTOM, 33)
+	self:addTradeAcquire(RecipeDB, 46106, A.CUSTOM, 24)
 
 	-- Justicebringer 3000 Specs -- 46107
 	AddRecipe(46107, 375, 35185, R_EPIC, GAME_TBC, 375, 390, 410, 430)
