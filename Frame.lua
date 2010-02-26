@@ -2217,9 +2217,10 @@ do
 		local num_entries = #self.entries
 		local display_lines = NUM_RECIPE_LINES
 
-		if num_entries < display_lines then
+		if num_entries == display_lines or num_entries < display_lines then
 			display_lines = num_entries / 2
 		end
+
 		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
 		addon:ClosePopups()
 
