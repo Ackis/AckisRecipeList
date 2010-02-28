@@ -1871,7 +1871,7 @@ do
 
 			if item_name then
 				if item_rarity ~= recipe.quality then
-					tinsert(output, "WRONG QUALITY: "..recipe.quality..". Should be "..item_rarity..".")
+					tinsert(output, item_name.. " has the WRONG QUALITY: "..recipe.quality..". Should be "..item_rarity..".")
 				end
 				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
