@@ -1802,14 +1802,14 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local spell_info = recipe_list[spell_id]
+		local recipe = recipe_list[spell_id]
 
-		if not spell_info then
+		if not recipe then
 			self:Print(string.format("Spell ID %d does not exist in the database.", tonumber(spell_id)))
 			return
 		end
-		local recipe_name = spell_info.name
-		local game_vers = spell_info.genesis
+		local recipe_name = recipe.name
+		local game_vers = recipe.genesis
 
 		twipe(output)
 
@@ -1818,11 +1818,11 @@ do
 		elseif game_vers > 2 then
 			tinsert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
-		local optimal = spell_info.optimal_level
-		local medium = spell_info.medium_level
-		local easy = spell_info.easy_level
-		local trivial = spell_info.trivial_level
-		local SkillLevel = spell_info.skill_level
+		local optimal = recipe.optimal_level
+		local medium = recipe.medium_level
+		local easy = recipe.easy_level
+		local trivial = recipe.trivial_level
+		local SkillLevel = recipe.skill_level
 		
 		if not optimal then
 			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
@@ -1839,10 +1839,10 @@ do
 				tinsert(output, "Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
-		local recipe_link = spell_info.spell_link
+		local recipe_link = recipe.spell_link
 
 		if not recipe_link then
-			if spell_info.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
+			if recipe.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
 				self:Print("Missing spell_link for ID " .. spell_id .. " - " .. recipe_name .. " (Normal for DK abilities.")
 			end
 			return
@@ -1866,21 +1866,22 @@ do
 
 		local item_id = SPELL_ITEM[spell_id]
 
-		if item_id then
-			if not DO_NOT_SCAN[item_id] then
-				local incache = GetItemInfo(item_id)
+		if item_id and not DO_NOT_SCAN[item_id] then
+			local item_name, item_link, item_rarity = GetItemInfo(item_id)
 
-				if incache then 
-					ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
-					self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
-				else
-					tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
+			if item_name then
+				if item_rarity ~= recipe.quality then
+					tinsert(output, "WRONG QUALITY: "..recipe.quality..". Should be "..item_rarity..".")
 				end
+				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
+				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
+			else
+				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
 			end
-			-- We are dealing with a recipe that does not have an item to learn it from
-		else
+		elseif not item_id then
+			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			local flags = spell_info["Flags"]
+			local flags = recipe["Flags"]
 
 			if flags[4] or flags[5] or flags[6] then
 				tinsert(output, "Spell/Item ID: " .. spell_id .. " does not exist in the SPELL_ITEM table.")
