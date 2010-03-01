@@ -1865,13 +1865,14 @@ do
 		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
 
 		local item_id = SPELL_ITEM[spell_id]
-
+		local QUALITY_STRINGS = private.item_quality_names
+	
 		if item_id and not DO_NOT_SCAN[item_id] then
 			local item_name, item_link, item_rarity = GetItemInfo(item_id)
 
 			if item_name then
 				if item_rarity ~= recipe.quality then
-					tinsert(output, item_name.. " has the WRONG QUALITY: "..recipe.quality..". Should be "..item_rarity..".")
+					tinsert(output, item_name.. " has the WRONG QUALITY: R_"..QUALITY_STRINGS[recipe.quality].." should be R_"..QUALITY_STRINGS[item_rarity]..".")
 				end
 				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
