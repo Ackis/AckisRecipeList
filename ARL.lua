@@ -63,7 +63,6 @@ _G.ARL = addon
 --@end-alpha@
 
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 ------------------------------------------------------------------------------
