@@ -65,6 +65,8 @@ _G.ARL = addon
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+
+local private	= select(2, ...)
 local A		= private.acquire_types
 --------------------------------------------------------------------------------------------------------------------
 -- Acquire types
