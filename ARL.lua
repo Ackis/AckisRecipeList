@@ -62,10 +62,10 @@ _G.AckisRecipeList = addon
 _G.ARL = addon
 --@end-alpha@
 
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-
+local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local A		= private.acquire_types
 --------------------------------------------------------------------------------------------------------------------
 -- Acquire types
 --------------------------------------------------------------------------------------------------------------------
@@ -967,7 +967,7 @@ do
 
 			if not acquire_type then
 				self:Print("SpellID: "..SpellID.." has no acquire type.")
-			elseif acquire_type == A_TRAINER then
+			elseif acquire_type == A.TRAINER then
 				local trainer_list = private.trainer_list
 
 				if not acquire_id then
@@ -988,7 +988,7 @@ do
 					trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
 					trainer_list[acquire_id].teaches[SpellID] = true
 				end
-			elseif acquire_type == A_VENDOR then
+			elseif acquire_type == A.VENDOR then
 				local vendor_list = private.vendor_list
 
 				if not acquire_id then
@@ -1009,7 +1009,7 @@ do
 					vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
 					vendor_list[acquire_id].sells[SpellID] = true
 				end
-			elseif acquire_type == A_MOB then
+			elseif acquire_type == A.MOB then
 				local mob_list = private.mob_list
 
 				if not acquire_id then
@@ -1030,7 +1030,7 @@ do
 					mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
 					mob_list[acquire_id].drop_list[SpellID] = true
 				end
-			elseif acquire_type == A_QUEST then
+			elseif acquire_type == A.QUEST then
 				local quest_list = private.quest_list
 
 				if not acquire_id then
@@ -1050,12 +1050,12 @@ do
 					end
 				end
 				--@alpha@
-			elseif acquire_type == A_SEASONAL then
+			elseif acquire_type == A.SEASONAL then
 				if not acquire_id then
 					self:Print("SpellID "..SpellID..": SeasonalID is nil.")
 				end
 				--@end-alpha@
-			elseif acquire_type == A_REPUTATION then
+			elseif acquire_type == A.REPUTATION then
 				local vendor_list = private.vendor_list
 				local rep_level, rep_vendor = select(i, ...)
 				i = i + 2
@@ -1085,7 +1085,7 @@ do
 					self:Print("SpellID "..SpellID..": Reputation VendorID "..rep_vendor.." does not exist in the database.")
 				end
 				--@end-alpha@
-			elseif acquire_type == A_WORLD_DROP then
+			elseif acquire_type == A.WORLD_DROP then
 				local location = L["World Drop"]
 
 				if not location_checklist[location] then
