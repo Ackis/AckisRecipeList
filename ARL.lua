@@ -66,13 +66,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local private	= select(2, ...)
-local A		= private.acquire_types
---------------------------------------------------------------------------------------------------------------------
--- Acquire types
---------------------------------------------------------------------------------------------------------------------
-local A_TRAINER, A_VENDOR, A_MOB, A_QUEST, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM = 1, 2, 3, 4, 5, 6, 7, 8
-
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
@@ -97,9 +90,9 @@ private.trainer_list	= {}
 private.seasonal_list	= {}
 private.vendor_list	= {}
 
--- Filter flags - defined in Constants.lua
+-- Filter flags and acquire types - defined in Constants.lua
 local F = private.filter_flags
-
+local A		= private.acquire_types
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 ------------------------------------------------------------------------------
@@ -1680,14 +1673,14 @@ do
 	local acquire_list = {}
 
 	local ACQUIRE_NAMES = {
-		[A_TRAINER]	= "Trainer",
-		[A_VENDOR]	= "Vendor",
-		[A_MOB]		= "Mob Drop",
-		[A_QUEST]	= "Quest",
-		[A_SEASONAL]	= "Seasonal",
-		[A_REPUTATION]	= "Reputation",
-		[A_WORLD_DROP]	= "World Drop",
-		[A_CUSTOM]	= "Custom",
+		[A.TRAINER]	= "Trainer",
+		[A.VENDOR]	= "Vendor",
+		[A.MOB]		= "Mob Drop",
+		[A.QUEST]	= "Quest",
+		[A.SEASONAL]	= "Seasonal",
+		[A.REPUTATION]	= "Reputation",
+		[A.WORLD_DROP]	= "World Drop",
+		[A.CUSTOM]	= "Custom",
 	}
 
 	local FILTER_NAMES = {
