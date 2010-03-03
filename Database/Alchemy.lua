@@ -722,7 +722,7 @@ function addon:InitAlchemy(RecipeDB)
 	-- Transmute: Primal Fire to Earth -- 28568
 	AddRecipe(28568, 350, 22452, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)
 	self:addTradeFlags(RecipeDB, 28568, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 28568, A.REPUTATION, FAC.KURENI, REP.REVERED, 20240)
+	self:addTradeAcquire(RecipeDB, 28568, A.REPUTATION, FAC.KURENAI, REP.REVERED, 20240)
 
 	-- Transmute: Primal Water to Air -- 28569
 	AddRecipe(28569, 350, 22451, R_UNCOMMON, GAME_TBC, 350, 365, 372, 380)

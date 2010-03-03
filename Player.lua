@@ -112,8 +112,8 @@ function Player:HasProperRepLevel(recipe_index)
 
 			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
 				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENI then
-				rep_id = is_alliance and FAC.KURENI or FAC.MAGHAR
+			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
 			end
 			local rep_name = reputations[rep_id].name
 

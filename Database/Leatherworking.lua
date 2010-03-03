@@ -1406,17 +1406,17 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Netherfury Belt -- 32501
 	AddRecipe(32501, 340, 25694, R_RARE, GAME_TBC, 340, 350, 360, 370)
 	self:addTradeFlags(RecipeDB, 32501, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 32501, A.REPUTATION, FAC.KURENI, REP.FRIENDLY, 20240)
+	self:addTradeAcquire(RecipeDB, 32501, A.REPUTATION, FAC.KURENAI, REP.FRIENDLY, 20240)
 
 	-- Netherfury Leggings -- 32502
 	AddRecipe(32502, 340, 25692, R_RARE, GAME_TBC, 340, 350, 360, 370)
 	self:addTradeFlags(RecipeDB, 32502, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 32502, A.REPUTATION, FAC.KURENI, REP.HONORED, 20240)
+	self:addTradeAcquire(RecipeDB, 32502, A.REPUTATION, FAC.KURENAI, REP.HONORED, 20240)
 
 	-- Netherfury Boots -- 32503
 	AddRecipe(32503, 350, 25693, R_RARE, GAME_TBC, 350, 360, 370, 380)
 	self:addTradeFlags(RecipeDB, 32503, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 32503, A.REPUTATION, FAC.KURENI, REP.REVERED, 20240)
+	self:addTradeAcquire(RecipeDB, 32503, A.REPUTATION, FAC.KURENAI, REP.REVERED, 20240)
 
 	-- Shadow Armor Kit -- 35520
 	AddRecipe(35520, 340, 29483, R_UNCOMMON, GAME_TBC, 340, 350, 355, 360)
@@ -1471,7 +1471,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Reinforced Mining Bag -- 35530
 	AddRecipe(35530, 325, 29540, R_COMMON, GAME_TBC, 325, 335, 340, 345)
 	self:addTradeFlags(RecipeDB, 35530, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 35530, A.REPUTATION, FAC.KURENI, REP.HONORED, 20240)
+	self:addTradeAcquire(RecipeDB, 35530, A.REPUTATION, FAC.KURENAI, REP.HONORED, 20240)
 
 	-- Flamescale Belt -- 35531
 	AddRecipe(35531, 350, 29494, R_COMMON, GAME_TBC, 350, 360, 370, 380)
@@ -1516,7 +1516,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Drums of Restoration -- 35539
 	AddRecipe(35539, 350, 29531, R_COMMON, GAME_TBC, 350, 350, 357, 365)
 	self:addTradeFlags(RecipeDB, 35539, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 35539, A.REPUTATION, FAC.KURENI, REP.HONORED, 20240)
+	self:addTradeAcquire(RecipeDB, 35539, A.REPUTATION, FAC.KURENAI, REP.HONORED, 20240)
 
 	-- Drums of War -- 35540
 	AddRecipe(35540, 340, 29528, R_COMMON, GAME_TBC, 340, 340, 347, 355)
@@ -1531,7 +1531,7 @@ function addon:InitLeatherworking(RecipeDB)
 	-- Drums of Speed -- 35544
 	AddRecipe(35544, 345, 29530, R_COMMON, GAME_TBC, 345, 345, 352, 360)
 	self:addTradeFlags(RecipeDB, 35544, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.NAGRAND)
-	self:addTradeAcquire(RecipeDB, 35544, A.REPUTATION, FAC.MAGHAR, REP.HONORED, 20241, A.REPUTATION, FAC.KURENI, REP.HONORED, 20240)
+	self:addTradeAcquire(RecipeDB, 35544, A.REPUTATION, FAC.MAGHAR, REP.HONORED, 20241, A.REPUTATION, FAC.KURENAI, REP.HONORED, 20240)
 
 	-- Cobrahide Leg Armor -- 35549
 	AddRecipe(35549, 335, 29533, R_COMMON, GAME_TBC, 335, 335, 345, 355)
