@@ -987,7 +987,7 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 57214, A.CUSTOM, 15)
 
 	-- Glyph of Death's Embrace -- 57215
-	AddRecipe(57215, 295, 43539, R_COMMON, GAME_WOTLK, 295, 305, 310, 315)
+	AddRecipe(57215, 300, 43539, R_COMMON, GAME_WOTLK, 300, 305, 310, 315)
 	self:addTradeFlags(RecipeDB, 57215, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 57215, A.CUSTOM, 14)
 
@@ -1052,17 +1052,17 @@ function addon:InitInscription(RecipeDB)
 	self:addTradeAcquire(RecipeDB, 57227, A.TRAINER, 26916, A.TRAINER, 26959, A.TRAINER, 26977, A.TRAINER, 26995, A.TRAINER, 28702, A.TRAINER, 30721, A.TRAINER, 30722, A.TRAINER, 33603, A.TRAINER, 33615, A.TRAINER, 33679)
 
 	-- Glyph of Raise Dead -- 57228
-	AddRecipe(57228, 295, 43673, R_COMMON, GAME_WOTLK, 295, 305, 310, 315)
+	AddRecipe(57228, 300, 43673, R_COMMON, GAME_WOTLK, 300, 305, 310, 315)
 	self:addTradeFlags(RecipeDB, 57228, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 57228, A.CUSTOM, 15)
 
 	-- Glyph of Corpse Explosion -- 57229
-	AddRecipe(57229, 295, 43671, R_COMMON, GAME_WOTLK, 295, 305, 310, 315)
+	AddRecipe(57229, 300, 43671, R_COMMON, GAME_WOTLK, 300, 305, 310, 315)
 	self:addTradeFlags(RecipeDB, 57229, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 57229, A.CUSTOM, 14)
 
 	-- Glyph of Pestilence -- 57230
-	AddRecipe(57230, 295, 43672, R_COMMON, GAME_WOTLK, 295, 305, 310, 315)
+	AddRecipe(57230, 300, 43672, R_COMMON, GAME_WOTLK, 300, 305, 310, 315)
 	self:addTradeFlags(RecipeDB, 57230, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:addTradeAcquire(RecipeDB, 57230, A.CUSTOM, 14)
 
