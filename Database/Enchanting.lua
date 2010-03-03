@@ -760,7 +760,7 @@ function addon:InitEnchanting(RecipeDB)
 
 	-- Enchant Cloak - Stealth -- 25083
 	AddRecipe(25083, 300, nil, R_RARE, GAME_TBC, 300, 310, 325, 340)
-	self:addTradeFlags(RecipeDB, 25083, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CLOAK)
+	self:addTradeFlags(RecipeDB, 25083, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_EXPEDITION)
 	self:addTradeAcquire(RecipeDB, 25083, A.CUSTOM, 22, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Enchant Cloak - Subtlety -- 25084
