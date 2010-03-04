@@ -90,7 +90,7 @@ private.seasonal_list	= {}
 private.vendor_list	= {}
 
 -- Filter flags and acquire types - defined in Constants.lua
-local F = private.filter_flags
+local F 	= private.filter_flags
 local A		= private.acquire_types
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
