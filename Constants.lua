@@ -44,6 +44,12 @@ private.item_quality_names = {
 	[6] = "ARTIFACT",
 }
 
+private.game_version_names = {
+	[1] = "ORIG",
+	[2] =  "TBC",
+	[3] = "WOTLK",
+}
+
 private.game_versions = {
 	["ORIG"] = 1,
 	[ "TBC"] = 2,
