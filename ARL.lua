@@ -1289,39 +1289,39 @@ do
 			local rep_filters = filter_db.rep
 
 			RepFilterFlags = {
-				[F.ARGENTDAWN]		= rep_filters.argentdawn,
-				[F.CENARION_CIRCLE]	= rep_filters.cenarioncircle,
-				[F.THORIUM_BROTHERHOOD]	= rep_filters.thoriumbrotherhood,
-				[F.TIMBERMAW_HOLD]	= rep_filters.timbermaw,
-				[F.ZANDALAR]		= rep_filters.zandalar,
-				[F.ALDOR]		= rep_filters.aldor,
-				[F.ASHTONGUE]		= rep_filters.ashtonguedeathsworn,
-				[F.CENARION_EXPEDITION]	= rep_filters.cenarionexpedition,
-				[F.HELLFIRE]		= rep_filters.hellfire,
-				[F.CONSORTIUM]		= rep_filters.consortium,
-				[F.KOT]			= rep_filters.keepersoftime,
-				[F.LOWERCITY]		= rep_filters.lowercity,
-				[F.NAGRAND]		= rep_filters.nagrand,
-				[F.SCALE_SANDS]		= rep_filters.scaleofthesands,
-				[F.SCRYER]		= rep_filters.scryer,
-				[F.SHATAR]		= rep_filters.shatar,
-				[F.SHATTEREDSUN]	= rep_filters.shatteredsun,
-				[F.SPOREGGAR]		= rep_filters.sporeggar,
-				[F.VIOLETEYE]		= rep_filters.violeteye,
-				[F.ARGENTCRUSADE]	= rep_filters.argentcrusade,
-				[F.FRENZYHEART]		= rep_filters.frenzyheart,
-				[F.EBONBLADE]		= rep_filters.ebonblade,
-				[F.KIRINTOR]		= rep_filters.kirintor,
-				[F.HODIR]		= rep_filters.sonsofhodir,
-				[F.KALUAK]		= rep_filters.kaluak,
-				[F.ORACLES]		= rep_filters.oracles,
-				[F.WYRMREST]		= rep_filters.wyrmrest,
-				[F.WRATHCOMMON1]	= rep_filters.wrathcommon1,
-				[F.WRATHCOMMON2]	= rep_filters.wrathcommon2,
-				[F.WRATHCOMMON3]	= rep_filters.wrathcommon3,
-				[F.WRATHCOMMON4]	= rep_filters.wrathcommon4,
-				[F.WRATHCOMMON5]	= rep_filters.wrathcommon5,
-				[F.ASHEN_VERDICT]	= rep_filters.ashenverdict,
+				[F.ARGENTDAWN]		= "argentdawn",
+				[F.CENARION_CIRCLE]	= "cenarioncircle",
+				[F.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
+				[F.TIMBERMAW_HOLD]	= "timbermaw",
+				[F.ZANDALAR]		= "zandalar",
+				[F.ALDOR]		= "aldor",
+				[F.ASHTONGUE]		= "ashtonguedeathsworn",
+				[F.CENARION_EXPEDITION]	= "cenarionexpedition",
+				[F.HELLFIRE]		= "hellfire",
+				[F.CONSORTIUM]		= "consortium",
+				[F.KOT]			= "keepersoftime",
+				[F.LOWERCITY]		= "lowercity",
+				[F.NAGRAND]		= "nagrand",
+				[F.SCALE_SANDS]		= "scaleofthesands",
+				[F.SCRYER]		= "scryer",
+				[F.SHATAR]		= "shatar",
+				[F.SHATTEREDSUN]	= "shatteredsun",
+				[F.SPOREGGAR]		= "sporeggar",
+				[F.VIOLETEYE]		= "violeteye",
+				[F.ARGENTCRUSADE]	= "argentcrusade",
+				[F.FRENZYHEART]		= "frenzyheart",
+				[F.EBONBLADE]		= "ebonblade",
+				[F.KIRINTOR]		= "kirintor",
+				[F.HODIR]		= "sonsofhodir",
+				[F.KALUAK]		= "kaluak",
+				[F.ORACLES]		= "oracles",
+				[F.WYRMREST]		= "wyrmrest",
+				[F.WRATHCOMMON1]	= "wrathcommon1",
+				[F.WRATHCOMMON2]	= "wrathcommon2",
+				[F.WRATHCOMMON3]	= "wrathcommon3",
+				[F.WRATHCOMMON4]	= "wrathcommon4",
+				[F.WRATHCOMMON5]	= "wrathcommon5",
+				[F.ASHEN_VERDICT]	= "ashenverdict",
 			}
 		end
 
@@ -1330,7 +1330,7 @@ do
 
 		for flag in pairs(RepFilterFlags) do
 			if recipe_flags[flag] then
-				if RepFilterFlags[flag] then
+				if rep_filters[RepFilterFlags[flag]] then
 					toggled_on = toggled_on + 1
 				else
 					toggled_off = toggled_off + 1
