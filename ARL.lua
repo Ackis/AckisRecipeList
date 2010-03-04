@@ -1703,7 +1703,7 @@ do
 
 	local FILTER_NAMES = {
 		[1] = "Alliance",
-		[2]  = "Horde",
+		[2] = "Horde",
 		[3] = "Trainer",
 		[4] = "Vendor",
 		[5] = "Instance",
@@ -1793,23 +1793,44 @@ do
 		[128] = "The Ashen Verdict",
 	}
 
+	---Dumps the recipe database in a format that is readable to humans.
 	function addon:GetTextDump(RecipeDB, profession)
 		twipe(text_table)
+		local output = "BBCode"
 
-		tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
-		tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+		if (not output) or (output == "Comma") then
+			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
+			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+		elseif (output == "BBCode") then
+			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n  ", profession))
+		end
 
 		for SpellID in pairs(RecipeDB) do
 			local recipe_prof = GetSpellInfo(RecipeDB[SpellID].profession)
 
 			if recipe_prof == profession then
-				-- Add Spell ID, Name and Skill Level to the list
-				tinsert(text_table, SpellID)
-				tinsert(text_table, ",")
-				tinsert(text_table, RecipeDB[SpellID].name)
-				tinsert(text_table, ",")
-				tinsert(text_table, RecipeDB[SpellID].skill_level)
-				tinsert(text_table, ",\"")
+
+				-- CSV
+				if (not output) or (output == "Comma") then
+					-- Add Spell ID, Name and Skill Level to the list
+					tinsert(text_table, SpellID)
+					tinsert(text_table, ",")
+					tinsert(text_table, RecipeDB[SpellID].name)
+					tinsert(text_table, ",")
+					tinsert(text_table, RecipeDB[SpellID].skill_level)
+					tinsert(text_table, ",\"")
+				-- BBCode
+				elseif (output == "BBCode") then
+					-- Make the entry red
+					if not RecipeDB[SpellID].is_known then
+						tinsert(text_table, "[color=red]")
+					end
+					tinsert(text_table, "[b]" .. SpellID .. "[\b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")")
+					-- Close Color tag
+					if not RecipeDB[SpellID].is_known then
+						tinsert(text_table, "[/color]")
+					end
+				end
 
 				-- Add in all the filter flags
 				local recipe_flags = RecipeDB[SpellID]["Flags"]
