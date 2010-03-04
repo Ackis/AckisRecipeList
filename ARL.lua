@@ -1828,25 +1828,35 @@ do
 					tinsert(text_table, "[b]" .. SpellID .. "[\b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")")
 					-- Close Color tag
 					if not RecipeDB[SpellID].is_known then
-						tinsert(text_table, "[/color]")
+						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
 					end
 				end
 
 				-- Add in all the filter flags
 				local recipe_flags = RecipeDB[SpellID]["Flags"]
-				local prev
+				local prev = false
 
 				-- Find out which flags are marked as "true"
 				for i = 1, NUM_FILTER_FLAGS, 1 do
 					if recipe_flags[i] then
-						if prev then
-							tinsert(text_table, ",")
+						-- CSV
+						if (not output) or (output == "Comma") then
+							if prev then
+								tinsert(text_table, ",")
+							end
+							tinsert(text_table, FILTER_NAMES[i])
+							prev = true
+						-- BBCode
+						elseif (output == "BBCode") then
+							tinsert(text_table, "[*] " .. i)
 						end
-						tinsert(text_table, FILTER_NAMES[i])
-						prev = true
 					end
 				end
-				tinsert(text_table, "\",\"")
+				if (not output) or (output == "Comma") then
+					tinsert(text_table, "\",\"")
+				elseif (output == "BBCode") then
+					tinsert(text_table, "[/list]\nAcquire Methods:\n[list]")
+				end
 
 				-- Find out which unique acquire methods we have
 				local acquire = RecipeDB[SpellID]["Acquire"]
@@ -1854,7 +1864,6 @@ do
 
 				for i in pairs(acquire) do
 					local acquire_type = acquire[i].type
-
 					acquire_list[ACQUIRE_NAMES[acquire_type]] = true
 				end
 
@@ -1862,17 +1871,24 @@ do
 				prev = false
 
 				for i in pairs(acquire_list) do
-					if prev then
-						tinsert(text_table, ",")
+					if (not output) or (output == "Comma") then
+						if prev then
+							tinsert(text_table, ",")
+						end
+						tinsert(text_table, i)
+						prev = true
+					elseif (output == "BBCode") then
+						tinsert(text_table, "[*] " .. i)
 					end
-					tinsert(text_table, i)
-					prev = true
 				end
-
-				if RecipeDB[SpellID].is_known then
-					tinsert(text_table, "\",true\n")
-				else
-					tinsert(text_table, "\",false\n")
+				if (not output) or (output == "Comma") then
+					if RecipeDB[SpellID].is_known then
+						tinsert(text_table, "\",true\n")
+					else
+						tinsert(text_table, "\",false\n")
+					end
+				elseif (output == "BBCode") then
+					tinsert(text_table, "\n[/list]")
 				end
 			end
 		end
