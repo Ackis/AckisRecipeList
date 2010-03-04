@@ -540,6 +540,8 @@ function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
+	-- http://wowprogramming.com/docs/events/UPDATE_FACTION
+	self:RegisterEvent("UPDATE_FACTION")	-- Addon responds to faction changes by the player
 
 	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
@@ -738,8 +740,14 @@ function addon:TRAINER_SHOW()
 	self:ScanTrainerData(true)
 end
 
+---Event used for datamining when a vendor is shown.
 function addon:MERCHANT_SHOW()
 	addon:ScanVendor()
+end
+
+---Event used to update the internal faction database when your faction changes.
+function addon:UPDATE_FACTION()
+	Player:SetReputationLevels()
 end
 
 do
