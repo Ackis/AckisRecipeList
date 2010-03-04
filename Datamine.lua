@@ -1480,7 +1480,7 @@ do
 		local specialty = not data.specialty and "" or (", "..data.specialty)
 		tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
 		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-					      data.spell_id, data.skill_level, tostring(data.item_id), QUAL_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
+					      data.spell_id, data.skill_level, tostring(data.item_id), "Q."..QUAL_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
 					      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
 
 		for i = 1, NUM_FILTER_FLAGS, 1 do
