@@ -134,7 +134,7 @@ end -- do
 
 if MissingLibraries() then
 	--@debug@
-	addon:Print("You are using an repository version of ARL.  As per WowAce standards, externals are not set up.  You will have to install all necessary libraries in order for the addon to function correctly.")
+	addon:Print("You are using a repository version of ARL.  As per WowAce standards, externals are not set up.  You will have to install all necessary libraries in order for the addon to function correctly.")
 	--@end-debug@
 	_G.AckisRecipeList = nil
 	return
