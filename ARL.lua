@@ -541,7 +541,7 @@ function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
 	-- http://wowprogramming.com/docs/events/UPDATE_FACTION
-	self:RegisterEvent("UPDATE_FACTION")	-- Addon responds to faction changes by the player
+	--self:RegisterEvent("UPDATE_FACTION")	-- Addon responds to faction changes by the player
 
 	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
