@@ -1825,10 +1825,12 @@ do
 					if not RecipeDB[SpellID].is_known then
 						tinsert(text_table, "[color=red]")
 					end
-					tinsert(text_table, "\n[b]" .. SpellID .. "[\\b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")\n")
+					tinsert(text_table, "\n[b]" .. SpellID .. "[/b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")\n")
 					-- Close Color tag
 					if not RecipeDB[SpellID].is_known then
 						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
+					elseif RecipeDB[SpellID].is_known then
+						tinsert(text_table, "\nRecipe Flags:\n[list]")
 					end
 				end
 
@@ -1848,7 +1850,7 @@ do
 							prev = true
 						-- BBCode
 						elseif (output == "BBCode") then
-							tinsert(text_table, "[*] " .. i)
+							tinsert(text_table, "[*]" .. FILTER_NAMES[i])
 						end
 					end
 				end
