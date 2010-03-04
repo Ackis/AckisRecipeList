@@ -1802,7 +1802,7 @@ do
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
 			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif (output == "BBCode") then
-			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n  ", profession))
+			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n", profession))
 		end
 
 		for SpellID in pairs(RecipeDB) do
@@ -1825,7 +1825,7 @@ do
 					if not RecipeDB[SpellID].is_known then
 						tinsert(text_table, "[color=red]")
 					end
-					tinsert(text_table, "[b]" .. SpellID .. "[\b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")")
+					tinsert(text_table, "\n[b]" .. SpellID .. "[\\b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")\n")
 					-- Close Color tag
 					if not RecipeDB[SpellID].is_known then
 						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
