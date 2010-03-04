@@ -1326,30 +1326,36 @@ do
 				[F.ASHEN_VERDICT]	= rep_filters.ashenverdict,
 			}
 		end
-		local rep_display = true
+
+		-- Now we check to see if _all_ of the pertinent reputation or class flags are toggled off. If even one is toggled on, we still show the recipe.
+		local toggled_off, toggled_on = 0, 0
 
 		for flag in pairs(RepFilterFlags) do
 			if recipe_flags[flag] then
-				rep_display = RepFilterFlags[flag] and true or false
+				if RepFilterFlags[flag] then
+					toggled_on = toggled_on + 1
+				else
+					toggled_off = toggled_off + 1
+				end
 			end
 		end
 
-		if not rep_display then
+		if toggled_off > 0 and toggled_on == 0 then
 			return false
 		end
 
 		-------------------------------------------------------------------------------
 		-- Check the class filter flags
 		-------------------------------------------------------------------------------
-		local toggled_off, toggled_on = 0, 0
 		local class_filters = filter_db.classes
 
-		-- Now we check to see if _all_ of the pertinent class flags are toggled off. If even one is toggled on, we still show the recipe.
+		toggled_off, toggled_on = 0, 0
+
 		for class, flag in pairs(ClassFilterFlags) do
 			if recipe_flags[flag] then
 				if class_filters[class] then
 					toggled_on = toggled_on + 1
-				elseif not class_filters[class] then
+				else
 					toggled_off = toggled_off + 1
 				end
 			end
