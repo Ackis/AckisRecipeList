@@ -1328,7 +1328,7 @@ do
 
 		for flag in pairs(RepFilterFlags) do
 			if recipe_flags[flag] then
-				if filters_db.rep[RepFilterFlags[flag]] then
+				if filter_db.rep[RepFilterFlags[flag]] then
 					toggled_on = toggled_on + 1
 				else
 					toggled_off = toggled_off + 1
