@@ -1286,8 +1286,6 @@ do
 		-- Check the reputation filter flags
 		-------------------------------------------------------------------------------
 		if not RepFilterFlags then
-			local rep_filters = filter_db.rep
-
 			RepFilterFlags = {
 				[F.ARGENTDAWN]		= "argentdawn",
 				[F.CENARION_CIRCLE]	= "cenarioncircle",
@@ -1330,7 +1328,7 @@ do
 
 		for flag in pairs(RepFilterFlags) do
 			if recipe_flags[flag] then
-				if rep_filters[RepFilterFlags[flag]] then
+				if filters_db.rep[RepFilterFlags[flag]] then
 					toggled_on = toggled_on + 1
 				else
 					toggled_off = toggled_off + 1
