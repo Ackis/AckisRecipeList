@@ -1153,10 +1153,6 @@ end	-- do
 -- Filter flag functions
 -------------------------------------------------------------------------------
 do
-	-------------------------------------------------------------------------------
-	-- Item "rarity"
-	-------------------------------------------------------------------------------
-	local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
 	-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
 	-- Its keys and values are populated the first time CanDisplayRecipe() is called.

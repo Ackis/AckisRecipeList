@@ -1439,15 +1439,6 @@ do
 		end
 	end
 
-	local RARITY_STRINGS = {
-		[1]	= "R_COMMON",
-		[2]	= "R_UNCOMMON",
-		[3]	= "R_RARE",
-		[4]	= "R_EPIC",
-		[5]	= "R_LEGENDARY",
-		[6]	= "R_ARTIFACT",
-	}
-
 	local VERSION_STRINGS = {
 		["0"]	= "GAME_ORIG",
 		["1"]	= "GAME_TBC",
@@ -1459,7 +1450,8 @@ do
 	local ACQUIRE_TYPES = private.acquire_types
 	local REP_LEVELS = private.rep_level_strings
 	local FACTION_NAMES = private.faction_strings
-
+	local QUAL_STRINGS = private.item_quality_names
+	
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
 
@@ -1488,7 +1480,7 @@ do
 		local specialty = not data.specialty and "" or (", "..data.specialty)
 		tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
 		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-					      data.spell_id, data.skill_level, tostring(data.item_id), RARITY_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
+					      data.spell_id, data.skill_level, tostring(data.item_id), QUAL_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
 					      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
 
 		for i = 1, NUM_FILTER_FLAGS, 1 do
@@ -1872,7 +1864,7 @@ do
 
 			if item_name then
 				if item_rarity ~= recipe.quality then
-					tinsert(output, item_name.. " has the WRONG QUALITY: R_"..QUALITY_STRINGS[recipe.quality].." should be R_"..QUALITY_STRINGS[item_rarity]..".")
+					tinsert(output, item_name.. " has the WRONG QUALITY: "..QUALITY_STRINGS[recipe.quality].." should be "..QUALITY_STRINGS[item_rarity]..".")
 				end
 				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)

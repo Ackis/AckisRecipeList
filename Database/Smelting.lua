@@ -24,11 +24,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
--- Item "rarity"
--------------------------------------------------------------------------------
-local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
-
--------------------------------------------------------------------------------
 -- Origin
 -------------------------------------------------------------------------------
 local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
@@ -38,6 +33,7 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 -------------------------------------------------------------------------------
 local F		= private.filter_flags
 local A		= private.acquire_types
+local Q      = private.item_qualities
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
 

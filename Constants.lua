@@ -36,12 +36,12 @@ private.item_qualities = {
 }
 
 private.item_quality_names = {
-	[1] = "COMMON",
-	[2] = "UNCOMMON",
-	[3] = "RARE",
-	[4] = "EPIC",
-	[5] = "LEGENDARY",
-	[6] = "ARTIFACT",
+	[1] = "Q.COMMON",
+	[2] = "Q.UNCOMMON",
+	[3] = "Q.RARE",
+	[4] = "Q.EPIC",
+	[5] = "Q.LEGENDARY",
+	[6] = "Q.ARTIFACT",
 }
 
 -------------------------------------------------------------------------------
