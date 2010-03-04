@@ -1167,10 +1167,8 @@ do
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
 	local function CanDisplayRecipe(recipe)
-		-------------------------------------------------------------------------------
-		-- Origin
-		-------------------------------------------------------------------------------
-		local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+		
+		local V  = private.game_versions
 
 		-- For flag info see comments at start of file in comments
 		local filter_db = addon.db.profile.filters
@@ -1207,15 +1205,15 @@ do
 		local game_version = recipe.genesis
 
 		-- Filter out game recipes
-		if not obtain_filters.originalwow and game_version == GAME_ORIG then
+		if not obtain_filters.originalwow and game_version == V.ORIG then
 			return false
 		end
 
-		if not obtain_filters.bc and game_version == GAME_TBC then
+		if not obtain_filters.bc and game_version == V.TBC then
 			return false
 		end
 
-		if not obtain_filters.wrath and game_version == GAME_WOTLK then
+		if not obtain_filters.wrath and game_version == V.WOTLK then
 			return false
 		end
 

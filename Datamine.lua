@@ -1439,18 +1439,13 @@ do
 		end
 	end
 
-	local VERSION_STRINGS = {
-		["0"]	= "GAME_ORIG",
-		["1"]	= "GAME_TBC",
-		["2"]	= "GAME_WOTLK",
-	}
-
 	local FILTER_STRINGS = private.filter_strings
 	local ACQUIRE_STRINGS = private.acquire_strings
 	local ACQUIRE_TYPES = private.acquire_types
 	local REP_LEVELS = private.rep_level_strings
 	local FACTION_NAMES = private.faction_strings
 	local QUAL_STRINGS = private.item_quality_names
+	local V = private.game_versions
 	
 	local function Sort_AscID(a, b)
 		local reca, recb = private.recipe_list[a], private.recipe_list[b]
@@ -1480,7 +1475,7 @@ do
 		local specialty = not data.specialty and "" or (", "..data.specialty)
 		tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
 		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-					      data.spell_id, data.skill_level, tostring(data.item_id), "Q."..QUAL_STRINGS[data.quality], VERSION_STRINGS[tostring(data.genesis)],
+					      data.spell_id, data.skill_level, tostring(data.item_id), QUAL_STRINGS[data.quality], "V."..V[data.genesis],
 					      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
 
 		for i = 1, NUM_FILTER_FLAGS, 1 do

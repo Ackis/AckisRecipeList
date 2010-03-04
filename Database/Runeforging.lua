@@ -24,11 +24,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
--- Origin
--------------------------------------------------------------------------------
-local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
-
--------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
 local F		= private.filter_flags
@@ -36,6 +31,7 @@ local A		= private.acquire_types
 local Q      = private.item_qualities
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
+local V     = private.game_versions
 
 local FRIENDLY	= 1
 local HONORED	= 2
@@ -56,7 +52,7 @@ function addon:InitRuneforging(RecipeDB)
 	--------------------------------------------------------------------------------------------------------------------
 	local function AddRecipe(SpellID)
 		num_recipes = num_recipes + 1
-		self:addTradeSkill(RecipeDB, SpellID, 1, nil, Q.COMMON, 53428, nil, GAME_WOTLK, 1, 1, 1, 1)
+		self:addTradeSkill(RecipeDB, SpellID, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
 	end
 
 	-- Rune of the Fallen Crusader - 53344

@@ -18,7 +18,7 @@ Please see this [http://www.wowace.com/projects/arl/pages/localization/ page] fo
 :''RecipeDB''
 ::All the recipe database files
 :'''Dataminer.lua'''
-::Dataminer which is used to compare the recipes in ARL and what is in game.
+::Dataminer which is used to compare the recipes in ARL and what is in game
 
 ===Graphical Interface===
 All the graphical interface functions are located in '''Frame.lua'''. This file contains all the functions needed for the GUI.  If you have enhancements, know how to fix an issue, etc please feel free to contribute.  Just leave a detailed commit note.  If it's a new feature please run it by me first before adding anything.
@@ -27,7 +27,7 @@ All the graphical interface functions are located in '''Frame.lua'''. This file 
 In the RecipeDB is a single file for each profession. Each recipe is inserted into the database via 3 functions. For example:
 
 	-- Elixir of Lion's Strength -- 2329
-	AddRecipe(2329,1,2454,1,GAME_ORIG,1,55,75,95)
+	AddRecipe(2329,1,2454,1,V.ORIG,1,55,75,95)
 	self:addTradeFlags(RecipeDB,2329, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 41, F_DPS)
 	self:addTradeAcquire(RecipeDB,2329,8,8)
 
