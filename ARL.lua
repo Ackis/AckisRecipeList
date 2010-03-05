@@ -92,6 +92,7 @@ private.vendor_list	= {}
 -- Filter flags and acquire types - defined in Constants.lua
 local F 	= private.filter_flags
 local A		= private.acquire_types
+
 ------------------------------------------------------------------------------
 -- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
 ------------------------------------------------------------------------------
@@ -1188,9 +1189,6 @@ do
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
 	local function CanDisplayRecipe(recipe)
-		
-		local V  = private.game_versions
-
 		-- For flag info see comments at start of file in comments
 		local filter_db = addon.db.profile.filters
 		local general_filters = filter_db.general
@@ -1224,6 +1222,7 @@ do
 		end
 		local obtain_filters = filter_db.obtain
 		local game_version = recipe.genesis
+		local V = private.game_versions
 
 		-- Filter out game recipes
 		if not obtain_filters.originalwow and game_version == V.ORIG then
@@ -1347,9 +1346,9 @@ do
 		-- Now we check to see if _all_ of the pertinent reputation or class flags are toggled off. If even one is toggled on, we still show the recipe.
 		local toggled_off, toggled_on = 0, 0
 
-		for flag in pairs(RepFilterFlags) do
+		for flag, name in pairs(RepFilterFlags) do
 			if recipe_flags[flag] then
-				if filter_db.rep[RepFilterFlags[flag]] then
+				if filter_db.rep[name] then
 					toggled_on = toggled_on + 1
 				else
 					toggled_off = toggled_off + 1
