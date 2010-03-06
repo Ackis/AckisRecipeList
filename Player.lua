@@ -24,7 +24,6 @@
 local _G = getfenv(0)
 
 local table = _G.table
-local twipe = table.wipe
 
 local pairs = _G.pairs
 
@@ -178,7 +177,7 @@ do
 	-- Determines if the player can learn a reputation recipe.
 	-- TODO: This is currently only used in addon:OnEnable(), which means that reputation gains are NOT tracked. This function should be used to do so. -Torhal
 	function Player:SetReputationLevels()
-		twipe(rep_list)
+		table.wipe(rep_list)
 
 		-- Number of factions before we expand
 		local num_factions = GetNumFactions()
