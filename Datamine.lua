@@ -1802,7 +1802,7 @@ do
 
 		if not game_vers then
 			tinsert(output, "No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
-		elseif game_vers > 3 then
+		elseif game_vers > private.game_versions.WOTLK then
 			tinsert(output, "Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
 		end
 		local optimal = recipe.optimal_level
