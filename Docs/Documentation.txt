@@ -27,9 +27,9 @@ All the graphical interface functions are located in '''Frame.lua'''. This file 
 In the RecipeDB is a single file for each profession. Each recipe is inserted into the database via 3 functions. For example:
 
 	-- Elixir of Lion's Strength -- 2329
-	AddRecipe(2329,1,2454,1,V.ORIG,1,55,75,95)
-	self:addTradeFlags(RecipeDB,2329, F_ALLIANCE, F_HORDE, F_TRAINER, F_IBOE, 41, F_DPS)
-	self:addTradeAcquire(RecipeDB,2329,8,8)
+	AddRecipe(2329, 1, 2454, Q.COMMON, V.ORIG, 1, 55, 75, 95)
+	self:addTradeFlags(RecipeDB, 2329, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:addTradeAcquire(RecipeDB, 2329, A.CUSTOM, 8)
 
 The first line is a human readable comment, which states the recipe name, with the [http://www.wowwiki.com/SpellLink spell ID] of the recipe.
 
@@ -269,9 +269,9 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :53428 Runeforging
 
 ==Game IDs==
-:0 - Original WoW
-:1 - Burning Crusade
-:2 - Wrath of the Lich King
+:1 - Original WoW
+:2 - Burning Crusade
+:3 - Wrath of the Lich King
 
 ==Table Structures==
 

@@ -1,5 +1,5 @@
 ==ARL In-game Documentation
-I developed some documentation which is in-game.  I am also providing it here.
+We have developed some In-game documentation.
 
 
 {{arl:25}}
@@ -73,11 +73,11 @@ When reporting a bug, please make sure you do the following:
 # Disable addons such as Skillet or ATSW.
 # Read the bug reporting documentation at [[http://www.wowace.com/projects/arl/pages/feedback/]]
 # If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
-# You have found a bug that no one has reported before.  Create a new ticket at [[http://www.wowace.com/projects/arl/tickets/]] with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
-When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.
+# You have found a bug that no one has reported before.  Create a new ticket at [[http://www.wowace.com/projects/arl/tickets/]] with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, we don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
+When posting a bug report, do NOT include all of the addons that any error catcher may list.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to an author via a PM.  Post them as a ticket which we can address and track easily.
 
 ===Common Issues
 Please refer to these common issues before submitting a bug report.
 # Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
-# Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glyphs are not usable by your class.
-# I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.
+# Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.
+# I don't want to see opposite faction recipes! Turn off the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.
