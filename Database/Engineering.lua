@@ -1512,12 +1512,12 @@ function addon:InitEngineering(RecipeDB)
 
 	-- Shatter Rounds -- 72952
 	AddRecipe(72952, 450, 52020, Q.EPIC, V.WOTLK, 450, 450, 450, 460, 20222)
-	self:addTradeFlags(RecipeDB, 72952, F.ALLIANCE, F.HORDE, F.VENDOR, F.AMMO, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 72952, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.AMMO, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 72952, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Iceblade Arrow -- 72953
 	AddRecipe(72953, 450, 52021, Q.EPIC, V.WOTLK, 450, 450, 450, 460, 20219)
-	self:addTradeFlags(RecipeDB, 72953, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 72953, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.AMMO, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 72953, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.

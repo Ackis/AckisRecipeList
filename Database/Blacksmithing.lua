@@ -2482,32 +2482,32 @@ function addon:InitBlacksmithing(RecipeDB)
 
 	-- Puresteel Legplates -- 70562
 	AddRecipe(70562, 450, 49902, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70562, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70562, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70562, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Protectors of Life -- 70563
 	AddRecipe(70563, 450, 49905, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70563, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70563, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70563, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Legplates of Painful Death -- 70565
 	AddRecipe(70565, 450, 49903, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70565, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70565, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70565, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Hellfrozen Bonegrinders -- 70566
 	AddRecipe(70566, 450, 49906, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70566, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70566, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70566, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Pillars of Might -- 70567
 	AddRecipe(70567, 450, 49904, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70567, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70567, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.TANK, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70567, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Boots of Kingly Upheaval -- 70568
 	AddRecipe(70568, 450, 49907, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70568, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70568, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.TANK, F.PLATE, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70568, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.

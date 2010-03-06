@@ -2052,22 +2052,22 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Leggings of Woven Death -- 70550
 	AddRecipe(70550, 450, 49891, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70550, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70550, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.CLOTH, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70550, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Deathfrost Boots -- 70551
 	AddRecipe(70551, 450, 49890, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70551, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70551, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.CLOTH, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70551, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Lightweave Leggings -- 70552
 	AddRecipe(70552, 450, 49892, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70552, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70552, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.CLOTH, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70552, A.REPUTATION, FAC.ASHEN_VERDICT, REP.REVERED, 37687)
 
 	-- Sandals of Consecration -- 70553
 	AddRecipe(70553, 450, 49893, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
-	self:addTradeFlags(RecipeDB, 70553, F.ALLIANCE, F.HORDE, F.VENDOR, F.ASHEN_VERDICT)
+	self:addTradeFlags(RecipeDB, 70553, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.CLOTH, F.ASHEN_VERDICT)
 	self:addTradeAcquire(RecipeDB, 70553, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
 
 	-- Some recipes are only availible to specific factions.
