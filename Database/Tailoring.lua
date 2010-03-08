@@ -1552,12 +1552,12 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Bracers of Nimble Thought -- 41205
 	AddRecipe(41205, 375, 32586, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:addTradeFlags(RecipeDB, 41205, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:addTradeAcquire(RecipeDB, 41205, A.CUSTOM, 27, A.CUSTOM, 34)
+	self:addTradeFlags(RecipeDB, 41205, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:addTradeAcquire(RecipeDB, 41205, A.CUSTOM, 34)
 
 	-- Mantle of Nimble Thought -- 41206
 	AddRecipe(41206, 375, 32587, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:addTradeFlags(RecipeDB, 41206, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:addTradeFlags(RecipeDB, 41206, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:addTradeAcquire(RecipeDB, 41206, A.CUSTOM, 27, A.CUSTOM, 34)
 
 	-- Swiftheal Wraps -- 41207
@@ -1567,8 +1567,8 @@ function addon:InitTailoring(RecipeDB)
 
 	-- Swiftheal Mantle -- 41208
 	AddRecipe(41208, 375, 32585, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:addTradeFlags(RecipeDB, 41208, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:addTradeAcquire(RecipeDB, 41208, A.WORLD_DROP, 4)
+	self:addTradeFlags(RecipeDB, 41208, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:addTradeAcquire(RecipeDB, 41208, A.CUSTOM, 34)
 
 	-- Green Winter Clothes -- 44950
 	AddRecipe(44950, 250, 34087, Q.UNCOMMON, V.TBC, 250, 250, 250, 250)
