@@ -76,6 +76,9 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB,35,L["Custom35"],"N/A")
 	self:addLookupList(CustomDB,36,L["Custom36"],"N/A")
 	self:addLookupList(CustomDB,41,L["Custom41"],"N/A")
+	self:addLookupList(CustomDB,44,L["Custom44"],"N/A")
+	self:addLookupList(CustomDB,45,L["Custom45"],"N/A")
+	
 --self:addLookupList(CustomDB,28,L["BT_HYJAL_RANDOM"],"N/A")
 --[[
 L["Custom20"] = "Goblin transport." -- Update
