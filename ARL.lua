@@ -1760,7 +1760,7 @@ do
 	end	-- do
 
 	---Dumps the recipe database in a format that is readable to humans.
-	function addon:GetTextDump(RecipeDB, profession)
+	function addon:GetTextDump(profession)
 		local output = "BBCode"
 		twipe(text_table)
 
@@ -1770,37 +1770,40 @@ do
 		elseif output == "BBCode" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n", profession))
 		end
+		local recipe_list = private.recipe_list
 
-		for SpellID in pairs(RecipeDB) do
-			local recipe_prof = GetSpellInfo(RecipeDB[SpellID].profession)
+		for recipe_id in pairs(recipe_list) do
+			local recipe = recipe_list[recipe_id]
+			local recipe_prof = GetSpellInfo(entry.profession)
 
 			if recipe_prof == profession then
 				-- CSV
 				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
-					tinsert(text_table, SpellID)
+					tinsert(text_table, recipe_id)
 					tinsert(text_table, ",")
-					tinsert(text_table, RecipeDB[SpellID].name)
+					tinsert(text_table, recipe.name)
 					tinsert(text_table, ",")
-					tinsert(text_table, RecipeDB[SpellID].skill_level)
+					tinsert(text_table, recipe.skill_level)
 					tinsert(text_table, ",\"")
 				-- BBCode
 				elseif output == "BBCode" then
 					-- Make the entry red
-					if not RecipeDB[SpellID].is_known then
+					if not recipe.is_known then
 						tinsert(text_table, "[color=red]")
 					end
-					tinsert(text_table, "\n[b]" .. SpellID .. "[/b] - " .. RecipeDB[SpellID].name .. " (" .. RecipeDB[SpellID].skill_level .. ")\n")
+					tinsert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
+
 					-- Close Color tag
-					if not RecipeDB[SpellID].is_known then
+					if not recipe.is_known then
 						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
-					elseif RecipeDB[SpellID].is_known then
+					elseif recipe.is_known then
 						tinsert(text_table, "\nRecipe Flags:\n[list]")
 					end
 				end
 
 				-- Add in all the filter flags
-				local recipe_flags = RecipeDB[SpellID]["Flags"]
+				local recipe_flags = recipe["Flags"]
 				local filter_names = GetFilterNames()
 				local prev = false
 
@@ -1828,7 +1831,7 @@ do
 				end
 
 				-- Find out which unique acquire methods we have
-				local acquire = RecipeDB[SpellID]["Acquire"]
+				local acquire = recipe["Acquire"]
 				twipe(acquire_list)
 
 				for i in pairs(acquire) do
@@ -1852,7 +1855,7 @@ do
 				end
 
 				if not output or output == "Comma" then
-					if RecipeDB[SpellID].is_known then
+					if recipe.is_known then
 						tinsert(text_table, "\",true\n")
 					else
 						tinsert(text_table, "\",false\n")
