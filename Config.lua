@@ -70,14 +70,24 @@ local function fullOptions()
 							type	= "execute",
 							name	= L["View Exclusion List"],
 							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
-							func	= function(info) addon:ViewExclusionList() end,
+							func	= function(info)
+									  local exclusion_list = addon.db.profile.exclusionlist
+
+									  for i in pairs(exclusion_list) do
+										  addon:Print(i .. ": " .. GetSpellInfo(i))
+									  end
+								  end,
 						},
 						clearexclusionlist = {
 							order	= 15,
 							type	= "execute",
 							name	= L["Clear Exclusion List"],
 							desc	= L["CLEAR_EXCLUSION_LIST_DESC"],
-							func	= function(info) addon:ClearExclusionList() end,
+							func	= function(info)
+									  local exclusion_list = addon.db.profile.exclusionlist
+
+									  exclusion_list = twipe(exclusion_list)
+								  end,
 						},
 						resetallfilters = {
 							order	= 16,

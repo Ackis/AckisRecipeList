@@ -1634,23 +1634,6 @@ do
 end
 
 -------------------------------------------------------------------------------
----Prints all the ID's in the exclusion list out into chat.
-function addon:ViewExclusionList()
-	local exclusion_list = addon.db.profile.exclusionlist
-
-	-- Parse all items in the exclusion list
-	for i in pairs(exclusion_list) do
-		self:Print(i .. ": " .. GetSpellInfo(i))
-	end
-end
-
-function addon:ClearExclusionList()
-	local exclusion_list = addon.db.profile.exclusionlist
-
-	exclusion_list = twipe(exclusion_list)
-end
-
--------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
 do
