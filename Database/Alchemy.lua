@@ -653,7 +653,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Elixir of Major Agility -- 28553
 	AddRecipe(28553, 330, 22831, Q.COMMON, V.TBC, 330, 345, 352, 360)
-	self:addTradeFlags(RecipeDB, 28553, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HELLFIRE)
+	self:addTradeFlags(RecipeDB, 28553, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HELLFIRE)
 	self:addTradeAcquire(RecipeDB, 28553, A.REPUTATION, FAC.HONOR_HOLD, REP.HONORED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.HONORED, 17585)
 
 	-- Shrouding Potion -- 28554
@@ -663,7 +663,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Super Mana Potion -- 28555
 	AddRecipe(28555, 340, 22832, Q.COMMON, V.TBC, 340, 355, 362, 370)
-	self:addTradeFlags(RecipeDB, 28555, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
+	self:addTradeFlags(RecipeDB, 28555, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:addTradeAcquire(RecipeDB, 28555, A.VENDOR, 18005, A.VENDOR, 19837)
 
 	-- Elixir of Major Firepower -- 28556
@@ -893,7 +893,7 @@ function addon:InitAlchemy(RecipeDB)
 
 	-- Earthen Elixir -- 39637
 	AddRecipe(39637, 320, 32063, Q.COMMON, V.TBC, 320, 335, 342, 350)
-	self:addTradeFlags(RecipeDB, 39637, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	self:addTradeFlags(RecipeDB, 39637, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
 	self:addTradeAcquire(RecipeDB, 39637, A.REPUTATION, FAC.CENARION_EXPEDITION, REP.HONORED, 17904)
 
 	-- Elixir of Draenic Wisdom -- 39638
