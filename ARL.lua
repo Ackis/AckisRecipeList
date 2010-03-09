@@ -541,8 +541,6 @@ function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
 	self:RegisterEvent("TRADE_SKILL_CLOSE")	-- Addon responds to tradeskill windows being closed.
 	self:RegisterEvent("TRADE_SKILL_UPDATE")
-	-- http://wowprogramming.com/docs/events/UPDATE_FACTION
-	--self:RegisterEvent("UPDATE_FACTION")	-- Addon responds to faction changes by the player
 
 	if addon.db.profile.scantrainers then
 		self:RegisterEvent("TRAINER_SHOW")
@@ -738,24 +736,6 @@ end
 ---Event used for datamining when a vendor is shown.
 function addon:MERCHANT_SHOW()
 	addon:ScanVendor()
-end
-
-do
-
-	-- We don't want to update the reputation with every kill, lets keep track of how many we've done
-	-- and only do it every 10th update.
-	local factionincrement = 0
-
-	---Event used to update the internal faction database when your faction changes.
-	function addon:UPDATE_FACTION()
-		-- Increment the faction counter
-		factionincrement = factionincrement + 1
-		-- Only update the rep levels on every 10th event firing.
-		if (factionincrement % 10) then
-			Player:SetReputationLevels()
-		end
-	end
-
 end
 
 do
