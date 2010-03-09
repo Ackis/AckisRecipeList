@@ -28,15 +28,10 @@ local private	= select(2, ...)
 -------------------------------------------------------------------------------
 local F		= private.filter_flags
 local A		= private.acquire_types
-local Q      = private.item_qualities
+local Q		= private.item_qualities
 local REP	= private.rep_levels
 local FAC	= private.faction_ids
-local V     = private.game_versions
-
-local FRIENDLY = 1
-local HONORED = 2
-local REVERED = 3
-local EXALTED = 4
+local V		= private.game_versions
 
 local initialized = false
 local num_recipes = 0
