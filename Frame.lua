@@ -2115,40 +2115,6 @@ do
 		spell_tip:Hide()
 	end
 
-	-------------------------------------------------------------------------------
-	-- Colours a skill level based on whether or not the player has a high enough
-	-- skill level or faction to learn it.
-	-------------------------------------------------------------------------------
-	local function ColourSkillLevel(recipeEntry, hasFaction, recipe_text)
-		local skill_level = Player["ProfessionLevel"]
-		local recipe_level = recipeEntry.skill_level
-		local optimal_level = recipeEntry.optimal_level
-		local medium_level = recipeEntry.medium_level
-		local easy_level = recipeEntry.easy_level
-		local trivial_level = recipeEntry.trivial_level
-
-		if hasFaction == false then
-			return addon:Red(string.format("[%s] %s", _G.REPUTATION, recipe_text))
-		end
-
-		if recipe_level > skill_level then
-			return addon:Red(recipe_text)
-		elseif skill_level >= trivial_level then
-			return addon:MidGrey(recipe_text)
-		elseif skill_level >= easy_level then
-			return addon:Green(recipe_text)
-		elseif skill_level >= medium_level then
-			return addon:Yellow(recipe_text)
-		elseif skill_level >= optimal_level then
-			return addon:Orange(recipe_text)
-		else
-			--@alpha@
-			addon:Print("DEBUG: ColourSkillLevel fallback: " .. recipe_text)
-			--@end-alpha@
-			return addon:MidGrey(recipe_text)
-		end
-	end
-
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local sorted_recipes = addon.sorted_recipes
 		local recipe_list = private.recipe_list
@@ -2169,17 +2135,41 @@ do
 				local recipe_entry = recipe_list[recipe_index]
 
 				if recipe_entry["Display"] and recipe_entry["Search"] then
-					local recipe_string = recipe_entry.name
+					local has_faction = Player:HasProperRepLevel(recipe_index)
+					local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
 
 					if exclusions[recipe_index] then
 						recipe_string = "** " .. recipe_string .. " **"
 					end
+					local skill_level = Player["ProfessionLevel"]
 					local recipe_level = recipe_entry.skill_level
+					local optimal_level = recipe_entry.optimal_level
+					local medium_level = recipe_entry.medium_level
+					local easy_level = recipe_entry.easy_level
+					local trivial_level = recipe_entry.trivial_level
 
 					recipe_string = skill_sort and ("[" .. recipe_level .. "] - " .. recipe_string) or (recipe_string .. " - [" .. recipe_level .. "]")
 
 					local t = AcquireTable()
-					t.text = ColourSkillLevel(recipe_entry, Player:HasProperRepLevel(recipe_index), recipe_string)
+
+					if not has_faction then
+						t.text = addon:Red(recipe_string)
+					elseif recipe_level > skill_level then
+						t.text = addon:Red(recipe_string)
+					elseif skill_level >= trivial_level then
+						t.text = addon:MidGrey(recipe_string)
+					elseif skill_level >= easy_level then
+						t.text = addon:Green(recipe_string)
+					elseif skill_level >= medium_level then
+						t.text = addon:Yellow(recipe_string)
+					elseif skill_level >= optimal_level then
+						t.text = addon:Orange(recipe_string)
+					else
+						--@alpha@
+						addon:Print("DEBUG: Skill level color fallback: " .. recipe_string)
+						--@end-alpha@
+						t.text = addon:MidGrey(recipe_string)
+					end
 
 					t.recipe_id = recipe_index
 					t.is_header = true
