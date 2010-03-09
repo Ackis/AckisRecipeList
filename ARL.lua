@@ -1864,15 +1864,4 @@ do
 		end
 		return tconcat(text_table, "")
 	end
-
-end
-
----Clears all saved tradeskills
-function addon:ClearSavedSkills()
-	twipe(addon.db.global.tradeskill)
-
-	if addon.db.profile.tradeskill then
-		addon.db.profile.tradeskill = nil
-	end
-
 end
