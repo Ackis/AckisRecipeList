@@ -1654,107 +1654,120 @@ do
 		[A.CUSTOM]	= _G.CUSTOM,
 	}
 
-	local FILTER_NAMES = {
-		[1] = "Alliance",
-		[2] = "Horde",
-		[3] = "Trainer",
-		[4] = "Vendor",
-		[5] = "Instance",
-		[6] = "Raid",
-		[7] = "Seasonal",
-		[8] = "Quest",
-		[9] = "PVP",
-		[10] = "World Drop",
-		[11] = "Mob Drop",
-		[12] = "Discovery",
-		[21] = "Death Knight",
-		[22] = "Druid",
-		[23] = "Hunter",
-		[24] = "Mage",
-		[25] = "Paladin",
-		[26] = "Priest",
-		[27] = "Shaman",
-		[28] = "Rogue",
-		[29] = "Warlock",
-		[30] = "Warrior",
-		[36] = "Item BOE",
-		[37] = "Item BOP",
-		[38] = "Item BOA",
-		[40] = "Recipe BOE",
-		[41] = "Recipe BOP",
-		[42] = "Recipe BOA",
-		[51] = "DPS",
-		[52] = "TANK",
-		[53] = "HEALER",
-		[54] = "CASTER",
-		[56] = "CLOTH",
-		[57] = "LEATHER",
-		[58] = "MAIL",
-		[59] = "PLATE",
-		[60] = "CLOAK",
-		[61] = "TRINKET",
-		[62] = "RING",
-		[63] = "NECK",
-		[64] = "SHIELD",
-		[66] = "One-Hand",
-		[67] = "Two-Hand",
-		[68] = "Axe",
-		[69] = "Sword",
-		[70] = "Mace",
-		[71] = "Polearm",
-		[72] = "Dagger",
-		[73] = "Staff",
-		[74] = "Wand",
-		[75] = "Thrown",
-		[76] = "Bow",
-		[77] = "Crossbow",
-		[78] = "Ammo",
-		[79] = "Fist",
-		[80] = "Gun",
-		[96] = "Argent Dawn",
-		[97] = "Cenarion Circle",
-		[98] = "Thorium Brotherhood",
-		[99] = "Timbermaw Hold",
-		[100] = "Zandalar Tribe",
-		[101] = "The Aldor",
-		[102] = "Ashtongue Deathsworn",
-		[103] = "Cenarion Expedition",
-		[104] = "Thrallmar/Honor Hold",
-		[105] = "The Consortium",
-		[106] = "The Keepers of Time",
-		[107] = "Lower City",
-		[108] = "Mag'har/Kurenai",
-		[109] = "The Scales of the Sands",
-		[110] = "The Scryers",
-		[111] = "The Shatar",
-		[112] = "The Shattered Sun Offensive",
-		[113] = "Sporeggar",
-		[114] = "Violet Eye",
-		[115] = "Argent Crusade",
-		[116] = "Frenzyheart Tribe",
-		[117] = "Knights of the Ebon Blade",
-		[118] = "Kirin Tor",
-		[119] = "Sons of Hodir",
-		[120] = "Kalu'ak",
-		[121] = "The Oracles",
-		[122] = "Wyrmrest Accord",
-		[123] = "The Silver Covenant/The Sunreavers",
-		[124] = "Explorers' League/The Hand of Vengeance",
-		[125] = "Explorers' League/Valiance Expedition",
-		[126] = "The Frostborn/The Taunka",
-		[127] = "Alliance Vanguard/Horde Expedition",
-		[128] = "The Ashen Verdict",
-	}
+	local GetFilterNames
+	do
+		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
+		local FILTER_NAMES
+
+		function GetFilterNames()
+			if not FILTER_NAMES then
+				local is_alliance = (Player.faction == "Alliance")
+
+				FILTER_NAMES = {
+					[1]	= BFAC["Alliance"],
+					[2]	= BFAC["Horde"],
+					[3]	= L["Trainer"],
+					[4]	= L["Vendor"],
+					[5]	= _G.INSTANCE,
+					[6]	= _G.RAID,
+					[7]	= _G.EVENTS_LABEL,
+					[8]	= L["Quest"],
+					[9]	= _G.PVP,
+					[10]	= L["World Drop"],
+					[11]	= L["Mob Drop"],
+					[12]	= L["Discovery"],
+					[21]	= LC["DEATHKNIGHT"],
+					[22]	= LC["DRUID"],
+					[23]	= LC["HUNTER"],
+					[24]	= LC["MAGE"],
+					[25]	= LC["PALADIN"],
+					[26]	= LC["PRIEST"],
+					[27]	= LC["SHAMAN"],
+					[28]	= LC["ROGUE"],
+					[29]	= LC["WARLOCK"],
+					[30]	= LC["WARRIOR"],
+					[36]	= L["BOEFilter"],
+					[37]	= L["BOPFilter"],
+					[38]	= L["BOAFilter"],
+					[40]	= L["RecipeBOEFilter"],
+					[41]	= L["RecipeBOPFilter"],
+					[42]	= L["RecipeBOAFilter"],
+					[51]	= _G.MELEE,
+					[52]	= _G.TANK,
+					[53]	= _G.HEALER,
+					[54]	= _G.DAMAGER,
+					[56]	= L["Cloth"],
+					[57]	= L["Leather"],
+					[58]	= L["Mail"],
+					[59]	= L["Plate"],
+					[60]	= L["Cloak"],
+					[61]	= L["Trinket"],
+					[62]	= L["Ring"],
+					[63]	= L["Necklace"],
+					[64]	= L["Shield"],
+					[66]	= L["One Hand"],
+					[67]	= L["Two Hand"],
+					[68]	= L["Axe"],
+					[69]	= L["Sword"],
+					[70]	= L["Mace"],
+					[71]	= L["Polearm"],
+					[72]	= L["Dagger"],
+					[73]	= L["Staff"],
+					[74]	= L["Wand"],
+					[75]	= L["Thrown"],
+					[76]	= L["Bow"],
+					[77]	= L["Crossbow"],
+					[78]	= L["Ammo"],
+					[79]	= L["Fist"],
+					[80]	= L["Gun"],
+					[96]	= BFAC["Argent Dawn"],
+					[97]	= BFAC["Cenarion Circle"],
+					[98]	= BFAC["Thorium Brotherhood"],
+					[99]	= BFAC["Timbermaw Hold"],
+					[100]	= BFAC["Zandalar Tribe"],
+					[101]	= BFAC["The Aldor"],
+					[102]	= BFAC["Ashtongue Deathsworn"],
+					[103]	= BFAC["Cenarion Expedition"],
+					[104]	= (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
+					[105]	= BFAC["The Consortium"],
+					[106]	= BFAC["Keepers of Time"],
+					[107]	= BFAC["Lower City"],
+					[108]	= (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
+					[109]	= BFAC["The Scale of the Sands"],
+					[110]	= BFAC["The Scryers"],
+					[111]	= BFAC["The Sha'tar"],
+					[112]	= BFAC["Shattered Sun Offensive"],
+					[113]	= BFAC["Sporeggar"],
+					[114]	= BFAC["Violet Eye"],
+					[115]	= BFAC["Argent Crusade"],
+					[116]	= BFAC["Frenzyheart Tribe"],
+					[117]	= BFAC["Knights of the Ebon Blade"],
+					[118]	= BFAC["Kirin Tor"],
+					[119]	= BFAC["The Sons of Hodir"],
+					[120]	= BFAC["The Kalu'ak"],
+					[121]	= BFAC["The Oracles"],
+					[122]	= BFAC["The Wyrmrest Accord"],
+					[123]	= (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
+					[124]	= (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
+					[125]	= (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
+					[126]	= (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
+					[127]	= (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
+					[128]	= BFAC["The Ashen Verdict"],
+				}
+			end
+			return FILTER_NAMES
+		end
+	end	-- do
 
 	---Dumps the recipe database in a format that is readable to humans.
 	function addon:GetTextDump(RecipeDB, profession)
-		twipe(text_table)
 		local output = "BBCode"
+		twipe(text_table)
 
-		if (not output) or (output == "Comma") then
+		if not output or output == "Comma" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
 			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
-		elseif (output == "BBCode") then
+		elseif output == "BBCode" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n", profession))
 		end
 
@@ -1762,9 +1775,8 @@ do
 			local recipe_prof = GetSpellInfo(RecipeDB[SpellID].profession)
 
 			if recipe_prof == profession then
-
 				-- CSV
-				if (not output) or (output == "Comma") then
+				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
 					tinsert(text_table, SpellID)
 					tinsert(text_table, ",")
@@ -1773,7 +1785,7 @@ do
 					tinsert(text_table, RecipeDB[SpellID].skill_level)
 					tinsert(text_table, ",\"")
 				-- BBCode
-				elseif (output == "BBCode") then
+				elseif output == "BBCode" then
 					-- Make the entry red
 					if not RecipeDB[SpellID].is_known then
 						tinsert(text_table, "[color=red]")
@@ -1789,27 +1801,29 @@ do
 
 				-- Add in all the filter flags
 				local recipe_flags = RecipeDB[SpellID]["Flags"]
+				local filter_names = GetFilterNames()
 				local prev = false
 
 				-- Find out which flags are marked as "true"
 				for i = 1, NUM_FILTER_FLAGS, 1 do
 					if recipe_flags[i] then
 						-- CSV
-						if (not output) or (output == "Comma") then
+						if not output or output == "Comma" then
 							if prev then
 								tinsert(text_table, ",")
 							end
-							tinsert(text_table, FILTER_NAMES[i])
+							tinsert(text_table, filter_names[i])
 							prev = true
 						-- BBCode
-						elseif (output == "BBCode") then
-							tinsert(text_table, "[*]" .. FILTER_NAMES[i])
+						elseif output == "BBCode" then
+							tinsert(text_table, "[*]" .. filter_names[i])
 						end
 					end
 				end
-				if (not output) or (output == "Comma") then
+
+				if not output or output == "Comma" then
 					tinsert(text_table, "\",\"")
-				elseif (output == "BBCode") then
+				elseif output == "BBCode" then
 					tinsert(text_table, "[/list]\nAcquire Methods:\n[list]")
 				end
 
@@ -1826,23 +1840,24 @@ do
 				prev = false
 
 				for i in pairs(acquire_list) do
-					if (not output) or (output == "Comma") then
+					if not output or output == "Comma" then
 						if prev then
 							tinsert(text_table, ",")
 						end
 						tinsert(text_table, i)
 						prev = true
-					elseif (output == "BBCode") then
+					elseif output == "BBCode" then
 						tinsert(text_table, "[*] " .. i)
 					end
 				end
-				if (not output) or (output == "Comma") then
+
+				if not output or output == "Comma" then
 					if RecipeDB[SpellID].is_known then
 						tinsert(text_table, "\",true\n")
 					else
 						tinsert(text_table, "\",false\n")
 					end
-				elseif (output == "BBCode") then
+				elseif output == "BBCode" then
 					tinsert(text_table, "\n[/list]")
 				end
 			end
