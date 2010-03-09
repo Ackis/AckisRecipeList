@@ -21,19 +21,19 @@ local MODNAME			= "Ackis Recipe List"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --Colour constants
-local RED		= "ff0000"
+local RED	= "ff0000"
 local ORANGE	= "ff7f00"
 local YELLOW	= "ffff00"
-local GREEN		= "00ff00"
-local WHITE		= "ffffff"
+local GREEN	= "00ff00"
+local WHITE	= "ffffff"
 local COPPER	= "eda55f"
 local SILVER	= "c7c7cf"
-local GOLD		= "ffd700"
+local GOLD	= "ffd700"
 local PURPLE	= "9980CC"
-local BLUE		= "0000ff"
-local CYAN		= "00ffff"
-local BLACK		= "000000"
-local GREY		= "666666"
+local BLUE	= "0000ff"
+local CYAN	= "00ffff"
+local BLACK	= "000000"
+local GREY	= "666666"
 local MIDGREY	= "858585"
 local NEUTRAL	= "bfbfbf"
 local FRIENDLY	= WHITE
@@ -43,23 +43,23 @@ local EXALTED	= "9933cc"
 
 local TRAINER	= "d9cb9e"
 local VENDOR	= "aad372"
-local QUEST		= "2359ff"
-local REP		= "ff7c0a"
+local QUEST	= "2359ff"
+local REP	= "ff7c0a"
 local SEASON	= "80590e"
 local MOBDROP	= "ffffc0"
 
-local POOR		= "919191"
+local POOR	= "919191"
 local COMMON	= WHITE
 local UNCOMMON	= "00A900"
-local RARE		= "0062C3"
-local EPIC		= "B343FF"
+local RARE	= "0062C3"
+local EPIC	= "B343FF"
 local LEGENDARY	= "FA9900"
 local ARTIFACT	= "e5cc80"
 
-local HIGH		= WHITE
+local HIGH	= WHITE
 local NORMAL	= "ffd100"
 
-local HORDE		= RED
+local HORDE	= RED
 local ALLIANCE	= "00ffff"
 ----------------------------------------------------------------------
 --Text colourization functions
