@@ -1322,7 +1322,7 @@ function addon:GenerateLinks()
 	bitmap[51309] = "YIEMCCgAicAjAGIAiQKAACBRxgBEAAAAAAAAA45BAqBQBAKAAAEAAAIICLHqiAuKAAAEABAAA"
 	--bitmap[51311] = string.rep("/", 83) -- JC 83
 	bitmap[51311] = "8fJRMqkmRwipmMHAQAACEAAQw/AgDkMJIAQgCA4AAwHMKFr/TCEx6tip+z7WyNsRWrnhm7wGPAAOgAUEALFAAWJWfqsBCAB"
-	--bitmap[45363] = string.rep("/", 74) -- Inscription (74)
+	bitmap[45363] = "g//f/6//793////3//3//f1//f//3///P//79//W/7v/////////////////f+XC0/DAAIoQQwA" --Inscription 82.7% 364/440 recipes
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
 	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
 	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting
