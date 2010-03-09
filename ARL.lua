@@ -1634,15 +1634,6 @@ do
 end
 
 -------------------------------------------------------------------------------
--- Recipe Exclusion Functions
--------------------------------------------------------------------------------
----Removes or adds a recipe to the exclusion list.
-function addon:ToggleExcludeRecipe(SpellID)
-	local exclusion_list = addon.db.profile.exclusionlist
-
-	exclusion_list[SpellID] = (not exclusion_list[SpellID] and true or nil)
-end
-
 ---Prints all the ID's in the exclusion list out into chat.
 function addon:ViewExclusionList()
 	local exclusion_list = addon.db.profile.exclusionlist

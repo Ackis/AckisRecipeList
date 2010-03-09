@@ -3601,8 +3601,10 @@ function addon:InitializeFrame()
 				elseif IsControlKeyDown() then
 					ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
 				elseif IsAltKeyDown() then
-					-- Code needed here to insert this item into the "Ignore List"
-					addon:ToggleExcludeRecipe(clicked_line.recipe_id)
+					local exclusion_list = addon.db.profile.exclusionlist
+					local recipe_id = clicked_line.recipe_id
+
+					exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
 					ReDisplay()
 				end
 			elseif clicked_line.is_header then
