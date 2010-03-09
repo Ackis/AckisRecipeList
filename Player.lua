@@ -119,7 +119,6 @@ function Player:HasProperRepLevel(recipe_index)
 			if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
 				has_faction = false
 			else
-				-- The player's faction level is high enough to learn the recipe. Set to true and break out.
 				has_faction = true
 				break
 			end
