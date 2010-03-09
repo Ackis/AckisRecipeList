@@ -1644,14 +1644,14 @@ do
 	local acquire_list = {}
 
 	local ACQUIRE_NAMES = {
-		[A.TRAINER]	= "Trainer",
-		[A.VENDOR]	= "Vendor",
-		[A.MOB]		= "Mob Drop",
-		[A.QUEST]	= "Quest",
-		[A.SEASONAL]	= "Seasonal",
-		[A.REPUTATION]	= "Reputation",
-		[A.WORLD_DROP]	= "World Drop",
-		[A.CUSTOM]	= "Custom",
+		[A.TRAINER]	= L["Trainer"],
+		[A.VENDOR]	= L["Vendor"],
+		[A.MOB]		= L["Mob Drop"],
+		[A.QUEST]	= L["Quest"],
+		[A.SEASONAL]	= _G.EVENTS_LABEL,
+		[A.REPUTATION]	= _G.REPUTATION,
+		[A.WORLD_DROP]	= L["World Drop"],
+		[A.CUSTOM]	= _G.CUSTOM,
 	}
 
 	local FILTER_NAMES = {
