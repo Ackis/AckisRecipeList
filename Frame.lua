@@ -2128,7 +2128,7 @@ do
 		local trivial_level = recipeEntry.trivial_level
 
 		if not hasFaction then
-			return addon:Red(recipe_text)
+			return addon:Rep(recipe_text)
 		end
 
 		if recipe_level > skill_level then
