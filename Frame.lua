@@ -2140,7 +2140,7 @@ do
 				local recipe_index = sorted_recipes[i]
 				local recipe_entry = recipe_list[recipe_index]
 
-				if recipe_entry["Display"] and recipe_entry["Search"] then
+				if recipe_entry.is_visible and recipe_entry["Search"] then
 					-- Determine if the player has an appropiate level in any applicable faction
 					-- to learn the recipe.
 					local acquire_info = recipe_entry["Acquire"]
@@ -3025,12 +3025,12 @@ do
 
 			-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 			for i = 1, #sorted_recipes do
-				local recipe_index = sorted_recipes[i]
+				local recipe_entry = recipe_list[sorted_recipes[i]]
 
-				if recipe_list[recipe_index]["Display"] and recipe_list[recipe_index]["Search"] then
+				if recipe_entry.is_visible and recipe_entry["Search"] then
 					-- loop through acquire methods, display each
-					for index, acquire in pairs(recipe_list[recipe_index]["Acquire"]) do
-						if CheckMapDisplay(acquire, recipe_list[recipe_index]["Flags"]) then
+					for index, acquire in pairs(recipe_entry["Acquire"]) do
+						if CheckMapDisplay(acquire, recipe_entry["Flags"]) then
 							maplist[acquire] = true
 						end
 					end

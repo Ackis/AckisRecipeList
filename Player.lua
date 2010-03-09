@@ -78,7 +78,7 @@ function Player:MarkExclusions()
 		-- check if the entry exists in DB first
 		if recipe then
 			if ignored then
-				recipe["Display"] = false
+				recipe.is_visible = false
 			end
 
 			local tmp_prof = GetSpellInfo(recipe.profession)

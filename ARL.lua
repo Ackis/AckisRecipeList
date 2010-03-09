@@ -871,7 +871,7 @@ function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, 
 		["profession"]		= profession_id,
 		["spell_link"]		= GetSpellLink(spell_id),
 		["name"]		= recipe_name,
-		["Display"]		= true,				-- Set to be displayed until the filtering occurs
+		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
 		["Search"]		= true,				-- Set to be showing in the search results
 		["Flags"]		= {},				-- Create the flag space in the RecipeDB
 		["Acquire"]		= {},				-- Create the Acquire space in the RecipeDB
@@ -1419,7 +1419,7 @@ do
 			else
 				can_display = false
 			end
-			recipe_list[recipe_id]["Display"] = can_display
+			recipe_list[recipe_id].is_visible = can_display
 		end
 		Player.recipes_total = recipes_total
 		Player.recipes_known = recipes_known
