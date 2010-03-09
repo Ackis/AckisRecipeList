@@ -1,4 +1,6 @@
 ==ARL Change Log
+=== Version
+*Recipes that involve reputation are now correctly colored
 
 ===Version 2818
 *INSTALL A FRESH ACKISRECIPELIST DIRECTORY OF THIS VERSION IN YOUR ADDONS FOLDER.
