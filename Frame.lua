@@ -2117,11 +2117,17 @@ do
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local sorted_recipes = addon.sorted_recipes
-		local recipe_list = private.recipe_list
 		local exclusions = addon.db.profile.exclusionlist
 		local sort_type = addon.db.profile.sorting
 		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 		local insert_index = 1
+
+		local recipe_list = private.recipe_list
+		local reputations = private.reputation_list
+		local FAC = private.faction_ids
+
+		local is_alliance = Player.faction == BFAC["Alliance"]
+		local player_rep = Player["Reputation"]
 
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
@@ -2135,7 +2141,30 @@ do
 				local recipe_entry = recipe_list[recipe_index]
 
 				if recipe_entry["Display"] and recipe_entry["Search"] then
-					local has_faction = Player:HasProperRepLevel(recipe_index)
+					-- Determine if the player has an appropiate level in any applicable faction
+					-- to learn the recipe.
+					local acquire_info = recipe_entry["Acquire"]
+					local has_faction = true
+
+					for index in pairs(acquire_info) do
+						if acquire_info[index].type == A.REPUTATION then
+							local rep_id = acquire_info[index].ID
+
+							if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+								rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+							elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+								rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+							end
+							local rep_name = reputations[rep_id].name
+
+							if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
+								has_faction = false
+							else
+								has_faction = true
+								break
+							end
+						end
+					end
 					local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
 
 					if exclusions[recipe_index] then

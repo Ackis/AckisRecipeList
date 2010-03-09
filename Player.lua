@@ -94,39 +94,6 @@ function Player:MarkExclusions()
 	self.excluded_recipes_unknown = unknown_count
 end
 
-
--- Determines if the player has an appropiate level in any applicable faction
--- to learn the recipe.
-function Player:HasProperRepLevel(recipe_index)
-	local has_faction = true
-	local is_alliance = self.faction == BFAC["Alliance"]
-	local player_rep = self["Reputation"]
-	local acquire_info = private.recipe_list[recipe_index]["Acquire"]
-	local reputations = private.reputation_list
-	local FAC = private.faction_ids
-
-	for index in pairs(acquire_info) do
-		if acquire_info[index].type == A.REPUTATION then
-			local rep_id = acquire_info[index].ID
-
-			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-			end
-			local rep_name = reputations[rep_id].name
-
-			if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
-				has_faction = false
-			else
-				has_faction = true
-				break
-			end
-		end
-	end
-	return has_faction
-end
-
 function Player:IsCorrectFaction(recipe_flags)
 	if self.faction == BFAC["Alliance"] and recipe_flags[F.HORDE] and not recipe_flags[F.ALLIANCE] then
 		return false
