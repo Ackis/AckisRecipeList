@@ -141,7 +141,6 @@ do
 	local rep_list = {}
 
 	-- Determines if the player can learn a reputation recipe.
-	-- TODO: This is currently only used in addon:OnEnable(), which means that reputation gains are NOT tracked. This function should be used to do so. -Torhal
 	function Player:SetReputationLevels()
 		table.wipe(rep_list)
 
