@@ -2140,7 +2140,7 @@ do
 				local recipe_index = sorted_recipes[i]
 				local recipe_entry = recipe_list[recipe_index]
 
-				if recipe_entry.is_visible and recipe_entry["Search"] then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					-- Determine if the player has an appropiate level in any applicable faction
 					-- to learn the recipe.
 					local acquire_info = recipe_entry["Acquire"]
@@ -3027,7 +3027,7 @@ do
 			for i = 1, #sorted_recipes do
 				local recipe_entry = recipe_list[sorted_recipes[i]]
 
-				if recipe_entry.is_visible and recipe_entry["Search"] then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					-- loop through acquire methods, display each
 					for index, acquire in pairs(recipe_entry["Acquire"]) do
 						if CheckMapDisplay(acquire, recipe_entry["Flags"]) then
@@ -3446,13 +3446,13 @@ function addon:InitializeFrame()
 
 			for index in pairs(recipe_list) do
 				local entry = recipe_list[index]
-				entry["Search"] = false
+				entry.is_relevant = false
 
 				for field in pairs(search_params) do
 					local str = entry[field] and tostring(entry[field]):lower() or nil
 
 					if str and str:find(pattern) then
-						entry["Search"] = true
+						entry.is_relevant = true
 						break
 					end
 				end
@@ -3493,7 +3493,7 @@ function addon:InitializeFrame()
 
 					  -- Reset the search flags
 					  for index in pairs(recipe_list) do
-						  recipe_list[index]["Search"] = true
+						  recipe_list[index].is_relevant = true
 					  end
 					  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
 

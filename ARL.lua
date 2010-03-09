@@ -871,8 +871,6 @@ function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, 
 		["profession"]		= profession_id,
 		["spell_link"]		= GetSpellLink(spell_id),
 		["name"]		= recipe_name,
-		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
-		["Search"]		= true,				-- Set to be showing in the search results
 		["Flags"]		= {},				-- Create the flag space in the RecipeDB
 		["Acquire"]		= {},				-- Create the Acquire space in the RecipeDB
 		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
@@ -881,6 +879,8 @@ function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, 
 		["medium_level"]	= medium_level or skill_level + 10,
 		["easy_level"]		= easy_level or skill_level + 15,
 		["trivial_level"]	= trivial_level or skill_level + 20,
+		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
+		["is_relevant"]		= true,				-- Set to be showing in the search results
 	}
 
 	if not recipe.name then
