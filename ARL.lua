@@ -634,12 +634,6 @@ function addon:OnEnable()
 		Player["Class"] = select(2, UnitClass("player"))
 
 		-------------------------------------------------------------------------------
-		-- Get the player's reputation levels.
-		-------------------------------------------------------------------------------
-		Player["Reputation"] = {}
-		Player:SetReputationLevels()
-
-		-------------------------------------------------------------------------------
 		-- Get the player's professions.
 		-------------------------------------------------------------------------------
 		Player.professions = {
@@ -1644,6 +1638,12 @@ do
 
 		self:UpdateFilters()
 		Player:MarkExclusions()
+
+		-------------------------------------------------------------------------------
+		-- Get the player's reputation levels.
+		-------------------------------------------------------------------------------
+		Player["Reputation"] = Player["Reputation"] or {}
+		Player:SetReputationLevels()
 
 		if textdump then
 			self:DisplayTextDump(recipe_list, Player.current_prof)
