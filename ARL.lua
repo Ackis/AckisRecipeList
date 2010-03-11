@@ -908,9 +908,8 @@ function addon:AddRecipeFlags(SpellID, ...)
 end
 
 --- Adds acquire methods to a specific tradeskill.
--- @name AckisRecipeList:addTradeAcquire
--- @usage AckisRecipeList:addTradeAcquire:(RecipeDB,2329,8,8)
--- @param RecipeDB The database (array) which you wish to add acquire methods too.
+-- @name AckisRecipeList:AddRecipeAcquire
+-- @usage AckisRecipeList:AddRecipeAcquire:(2329,8,8)
 -- @param SpellID The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe which acquire methods are being added to.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
@@ -923,11 +922,12 @@ do
 		return a < b
 	end
 
-	function addon:addTradeAcquire(DB, SpellID, ...)
+	function addon:AddRecipeAcquire(SpellID, ...)
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
 		local index = 1				-- Index for the number of Acquire entries we have
 		local i = 1				-- Index for which variables we're parsing through
-		local acquire = DB[SpellID]["Acquire"]
+		local recipe_list = private.recipe_list
+		local acquire = recipe_list[SpellID]["Acquire"]
 
 		twipe(location_list)
 		twipe(location_checklist)
@@ -938,7 +938,7 @@ do
 
 			--@alpha@
 			if acquire[index] then
-				self:Print("addTradeAcquire called more than once for SpellID "..SpellID)
+				self:Print("AddRecipeAcquire called more than once for SpellID "..SpellID)
 			end
 			--@end-alpha@
 
@@ -1080,7 +1080,7 @@ do
 		end
 		-- Populate the location field with all the data
 		table.sort(location_list, LocationSort)
-		DB[SpellID].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
+		recipe_list[SpellID].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
