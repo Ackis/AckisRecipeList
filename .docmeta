@@ -28,13 +28,13 @@
  output-page: "API/Localization"
 -
  type: luadoc
- input-file: AckisRecipeList.lua
+ input-file: ARL.lua
  output-page: "API"
 -
  type: luadoc
- input-file: ARLFrame.lua
+ input-file: Frame.lua
  output-page: "API/Frame"
 -
  type: luadoc
- input-file: ARLDatamine.lua
+ input-file: Datamine.lua
  output-page: "API/In-game Datamining"
