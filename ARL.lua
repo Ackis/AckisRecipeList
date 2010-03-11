@@ -1437,7 +1437,7 @@ function addon:InitializeRecipe(profession)
 	local func = PROFESSION_INITS[profession]
 
 	if func then
-		return func(addon, private.recipe_list)
+		return func(addon)
 	else
 		addon:Print(L["UnknownTradeSkill"]:format(profession))
 		return 0
