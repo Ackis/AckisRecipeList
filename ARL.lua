@@ -833,9 +833,8 @@ end
 -------------------------------------------------------------------------------
 
 --- Adds a tradeskill recipe into the specified recipe database.
--- @name AckisRecipeList:addTradeSkill
--- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259,0,1,55,75,95)
--- @param RecipeDB The database table which you wish to add data too.
+-- @name AckisRecipeList:AddRecipe
+-- @usage AckisRecipeList:AddRecipe(2329,1,2454,1,2259,0,1,55,75,95)
 -- @param spell_id The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe being added to the database.
 -- @param skill_level The skill level at which the recipe may be learned.
 -- @param item_id The [[http://www.wowwiki.com/ItemLink | Item ID]] that is created by the recipe, or nil
@@ -848,31 +847,26 @@ end
 -- @param easy_level Level at which recipe is considered green.
 -- @param trivial_level Level at which recipe is considered grey.
 -- @return None, array is passed as a reference.
-function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	local profession_id = GetSpellInfo(profession)
-	local recipe_name = GetSpellInfo(spell_id)
+function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+	local recipe_list = private.recipe_list
 
-	if RecipeDB[spell_id] then
+	if recipe_list[spell_id] then
 		--@alpha@
-		self:Print("Duplicate recipe: "..profession_id.." "..tostring(spell_id).." "..recipe_name)
+		self:Print("Duplicate recipe: "..recipe_list[spell_id].profession.." "..tostring(spell_id).." "..recipe_list[spell_id].name)
 		--@end-alpha@
 		return
 	end
 
-	-------------------------------------------------------------------------------
-	-- Create a table inside the RecipeListing table which stores all information
-	-- about a recipe
-	-------------------------------------------------------------------------------
 	local recipe = {
 		["spell_id"]		= spell_id,
 		["skill_level"]		= skill_level,
 		["item_id"]		= item_id,
 		["quality"]		= quality,
-		["profession"]		= profession_id,
+		["profession"]		= GetSpellInfo(profession),
 		["spell_link"]		= GetSpellLink(spell_id),
-		["name"]		= recipe_name,
-		["Flags"]		= {},				-- Create the flag space in the RecipeDB
-		["Acquire"]		= {},				-- Create the Acquire space in the RecipeDB
+		["name"]		= GetSpellInfo(spell_id),
+		["Flags"]		= {},				-- Create the flag space in the recipe_list
+		["Acquire"]		= {},				-- Create the Acquire space in the recipe_list
 		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
 		["genesis"]		= genesis,
 		["optimal_level"]	= optimal_level or skill_level,
@@ -891,7 +885,7 @@ function addon:addTradeSkill(RecipeDB, spell_id, skill_level, item_id, quality, 
 	for i = 1, NUM_FILTER_FLAGS, 1 do
 		recipe["Flags"][i] = false
 	end
-	RecipeDB[spell_id] = recipe
+	recipe_list[spell_id] = recipe
 end
 
 --- Adds filtering flags to a specific tradeskill.
