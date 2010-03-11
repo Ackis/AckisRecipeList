@@ -20,7 +20,7 @@ ARL supports all professions currently in World of Warcraft 3.3.2
 @name ARL.lua
 @release 1.0
 ************************************************************************
-]]--
+]]
 
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
