@@ -1567,7 +1567,6 @@ do
 				end
 			end
 		end
-		local recipe_list = private.recipe_list
 		local recipes_found = 0
 
 		for i = 1, GetNumTradeSkills() do
