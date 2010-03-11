@@ -9,7 +9,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-	self:addLookupList(TrainerDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	self:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************

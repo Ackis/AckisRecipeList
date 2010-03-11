@@ -15,7 +15,7 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 **AckisRecipeList** provides an interface for scanning professions for missing recipes.
 There are a set of functions which allow you make use of the ARL database outside of ARL.
-ARL supports all professions currently in World of Warcraft 3.3
+ARL supports all professions currently in World of Warcraft 3.3.2
 @class file
 @name ARL.lua
 @release 1.0
@@ -832,21 +832,21 @@ end
 -- Recipe DB Structures are defined in Documentation.lua
 -------------------------------------------------------------------------------
 
---- Adds a tradeskill recipe into the specified recipe database.
+--- Adds a tradeskill recipe into the specified recipe database
 -- @name AckisRecipeList:AddRecipe
--- @usage AckisRecipeList:AddRecipe(2329,1,2454,1,2259,0,1,55,75,95)
--- @param spell_id The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe being added to the database.
--- @param skill_level The skill level at which the recipe may be learned.
--- @param item_id The [[http://www.wowwiki.com/ItemLink | Item ID]] that is created by the recipe, or nil
--- @param quality The quality/rarity of the recipe.
--- @param profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
+-- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
+-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being added to the database
+-- @param skill_level The skill level at which the recipe can be initially learned
+-- @param item_id The [[http://www.wowwiki.com/ItemLink|Item ID]] that is created by the recipe, or nil
+-- @param quality The quality/rarity of the recipe
+-- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
 -- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
--- @param genesis Game version recipe was found in, for example, Original, BC, or Wrath.
--- @param optimal_level Level at which recipe is considered orange.
--- @param medium_level Level at which recipe is considered yellow.
--- @param easy_level Level at which recipe is considered green.
--- @param trivial_level Level at which recipe is considered grey.
--- @return None, array is passed as a reference.
+-- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, or WoTLK
+-- @param optimal_level Level at which recipe is considered orange
+-- @param medium_level Level at which recipe is considered yellow
+-- @param easy_level Level at which recipe is considered green
+-- @param trivial_level Level at which recipe is considered grey
+-- @return None, array is passed as a reference
 function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 	local recipe_list = private.recipe_list
 
@@ -890,9 +890,9 @@ end
 
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeFlags
--- @usage AckisRecipeList:AddRecipeFlags(2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
--- @param SpellID The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe which flags are being added to.
--- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
+-- @usage AckisRecipeList:AddRecipeFlags(28927, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
+-- @param SpellID The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which the filter flags are being added to
+-- @param ... A listing of filtering flags.  See [[API/database-documentation]] for a listing of filter flags
 -- @return None, array is passed as a reference.
 function addon:AddRecipeFlags(SpellID, ...)
 	-- flags are defined in Documentation.lua
@@ -909,9 +909,9 @@ end
 
 --- Adds acquire methods to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeAcquire
--- @usage AckisRecipeList:AddRecipeAcquire:(2329,8,8)
--- @param SpellID The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe which acquire methods are being added to.
--- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
+-- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
+-- @param SpellID The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+-- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
 -- @return None, array is passed as a reference.
 do
 	-- Tables for getting the locations
@@ -1086,15 +1086,15 @@ end	-- do block
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
 -- @name AckisRecipeList:addLookupList
--- @usage AckisRecipeList:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
--- @param DB Database which the entry will be stored.
--- @param ID Unique identified for the entry.
--- @param name Name of the entry.
--- @param location Location of the entry in the world.
--- @param coord_x X coordinate of where the entry is found.
--- @param coord_y Y coordinate of where the entry is found.
--- @param faction Faction identifier for the entry.
--- @return None, array is passed as a reference.
+-- @usage AckisRecipeList:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+-- @param DB Database which the entry will be stored
+-- @param ID Unique identified for the entry
+-- @param name Name of the entry
+-- @param location Location of the entry in the world
+-- @param coord_x X coordinate of where the entry is found
+-- @param coord_y Y coordinate of where the entry is found
+-- @param faction Faction identifier for the entry
+-- @return None, array is passed as a reference
 --For individual database structures, see Documentation.lua
 do
 	local FACTION_NAMES = {
@@ -1485,8 +1485,8 @@ do
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
-	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
-	-- @return A frame with either the text dump, or the ARL frame.
+	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
+	-- @return A frame with either the text dump, or the ARL frame
 	function addon:Scan(textdump, is_refresh)
 		local scan_parent = self.scan_button:GetParent()
 

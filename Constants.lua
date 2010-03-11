@@ -12,7 +12,7 @@
 -------------------------------------------------------------------------------
 -- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
 -- There are a set of functions which allow you make use of the ARL database outside of ARL.
--- ARL supports all professions currently in World of Warcraft 3.3
+-- ARL supports all professions currently in World of Warcraft 3.3.2
 -- @class file
 -- @name ARL.lua
 -- @release 1.0
