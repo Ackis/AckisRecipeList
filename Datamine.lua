@@ -1487,7 +1487,7 @@ do
 				end
 			end
 		end
-		tinsert(output, string.format("self:addTradeFlags(RecipeDB, %d, %s)", data.spell_id, flag_string))
+		tinsert(output, string.format("self:AddRecipeFlags(%d, %s)", data.spell_id, flag_string))
 
 		flag_string = nil
 
@@ -1517,7 +1517,7 @@ do
 				end
 			end
 		end
-		tinsert(output, string.format("self:addTradeAcquire(RecipeDB, %d, %s)", data.spell_id, flag_string))
+		tinsert(output, string.format("self:AddRecipeAcquire(%d, %s)", data.spell_id, flag_string))
 		tinsert(output, "")
 	end
 
