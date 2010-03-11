@@ -1,7 +1,6 @@
 '''Database and code documentation for Ackis Recipe List.'''
 
 ==Localization==
-
 Please see this [http://www.wowace.com/projects/arl/pages/localization/ page] for information on localization within the addon.
 
 ==File Breakdown==
