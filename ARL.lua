@@ -889,16 +889,15 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 end
 
 --- Adds filtering flags to a specific tradeskill.
--- @name AckisRecipeList:addTradeFlags
--- @usage AckisRecipeList:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
--- @param RecipeDB The database (array) which you wish to add flags too.
+-- @name AckisRecipeList:AddRecipeFlags
+-- @usage AckisRecipeList:AddRecipeFlags(2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
 -- @param SpellID The [[http://www.wowwiki.com/SpellLink | Spell ID]] of the recipe which flags are being added to.
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
-function addon:addTradeFlags(RecipeDB, SpellID, ...)
+function addon:AddRecipeFlags(SpellID, ...)
 	-- flags are defined in Documentation.lua
 	local numvars = select('#',...)
-	local flags = RecipeDB[SpellID]["Flags"]
+	local flags = private.recipe_list[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
 	for i = 1, numvars, 1 do
