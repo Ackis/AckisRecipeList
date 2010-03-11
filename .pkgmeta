@@ -22,7 +22,7 @@ ignore:
  - .docmeta
  - Docs
  - Dataminer
- - Locals/testenUS.lua
+ - Locales/testenUS.lua
 
 tools-used:
  - data-tools
