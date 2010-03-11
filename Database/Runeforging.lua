@@ -34,70 +34,69 @@ local V		= private.game_versions
 local initialized = false
 local num_recipes = 0
 
-function addon:InitRuneforging(RecipeDB)
+--------------------------------------------------------------------------------------------------------------------
+-- Counter and wrapper function
+--------------------------------------------------------------------------------------------------------------------
+local function AddRecipe(spell_id)
+	num_recipes = num_recipes + 1
+	self:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
+end
+
+function addon:InitRuneforging()
 	if initialized then
 		return num_recipes
 	end
 	initialized = true
 
-	--------------------------------------------------------------------------------------------------------------------
-	-- Counter and wrapper function
-	--------------------------------------------------------------------------------------------------------------------
-	local function AddRecipe(SpellID)
-		num_recipes = num_recipes + 1
-		self:addTradeSkill(RecipeDB, SpellID, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
-	end
-
 	-- Rune of the Fallen Crusader - 53344
 	AddRecipe(53344)
-	self:addTradeFlags(RecipeDB, 53344, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53344, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53344, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53344, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Swordshattering - 53323
 	AddRecipe(53323)
-	self:addTradeFlags(RecipeDB, 53323, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53323, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53323, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53323, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Swordbreaking - 54446
 	AddRecipe(54446)
-	self:addTradeFlags(RecipeDB, 54446, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 54446, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(54446, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(54446, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Spellshattering - 53342
 	AddRecipe(53342)
-	self:addTradeFlags(RecipeDB, 53342, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53342, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53342, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53342, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Spellbreaking - 54447
 	AddRecipe(54447)
-	self:addTradeFlags(RecipeDB, 54447, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 54447, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(54447, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(54447, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Razorice - 53343
 	AddRecipe(53343)
-	self:addTradeFlags(RecipeDB, 53343, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53343, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53343, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53343, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Lichbane - 53331
 	AddRecipe(53331)
-	self:addTradeFlags(RecipeDB, 53331, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53331, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53331, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53331, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of Cinderglacier - 53341
 	AddRecipe(53341)
-	self:addTradeFlags(RecipeDB, 53341, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 53341, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(53341, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(53341, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of the Stoneskin Gargoyle - 62158
 	AddRecipe(62158)
-	self:addTradeFlags(RecipeDB, 62158, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 62158, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
+	self:AddRecipeFlags(62158, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(62158, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
 	-- Rune of the Nerubian Carapace - 70164
 	AddRecipe(70164)
-	self:addTradeFlags(RecipeDB, 70164, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
-	self:addTradeAcquire(RecipeDB, 70164, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
-	
-	return num_recipes
+	self:AddRecipeFlags(70164, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.TWO_HAND, F.RBOP, F.IBOP)
+	self:AddRecipeAcquire(70164, A.TRAINER, 29194, A.TRAINER, 29196, A.TRAINER, 29195, A.TRAINER, 31084)
 
+	return num_recipes
 end
