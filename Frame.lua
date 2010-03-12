@@ -1001,8 +1001,6 @@ do
 				if v.name == Player.current_prof then
 					self.profession = k
 					break
-				else
-					addon:Printf("Skipping %s", Player.current_prof)
 				end
 			end
 		end
