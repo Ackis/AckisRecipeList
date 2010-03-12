@@ -29,12 +29,12 @@
 -
  type: luadoc
  input-file: ARL.lua
- output-page: "API"
+ output-page: API
 -
  type: luadoc
  input-file: Frame.lua
- output-page: "API/Frame"
+ output-page: API/Frame
 -
  type: luadoc
  input-file: Datamine.lua
- output-page: "API/In-game Datamining"
+ output-page: API/In-game Datamining
