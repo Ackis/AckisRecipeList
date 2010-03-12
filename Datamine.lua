@@ -1314,10 +1314,8 @@ function addon:GenerateLinks()
 	--bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW (87)
 	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+//////////////////HgAAw/P" -- Leatherworking
 	--bitmap[51302] = string.rep("/", 87)
-	--bitmap[51304] = "2//v//////f////3//v///////6//////////9////X" -- Alchemy (43)
-	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy
-	--bitmap[51304] = string.rep("/", 43) -- Alchemy (43)
-	--bitmap[51300] = string.rep("/", 85) -- Blacksmithing (85)
+	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy 100%
+	bitmap[51300] = "2//////P7fsW/f////v+x+/99zqcUIAg/HzD+5P1///H+CyxAC3PBB/jCNA8CAA////w/f8/////////LAAAw//H" -- Blacksmithing 70.5% recipes
 	--bitmap[51309] = string.rep("/", 71) -- Tailoring (71)
 	bitmap[51309] = "YIEMCCgAicAjAGIAiQKAACBRxgBEAAAAAAAAA45BAqBQBAKAAAEAAAIICLHqiAuKAAAEABAAA"
 	--bitmap[51311] = string.rep("/", 83) -- JC 83
