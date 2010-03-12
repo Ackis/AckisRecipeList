@@ -63,7 +63,7 @@ local Player	= private.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local SortedProfessions = {	-- To make tabbing between professions easier
+local SORTED_PROFESSIONS = {	-- To make tabbing between professions easier
 	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1
 	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2
 	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3
@@ -74,7 +74,7 @@ local SortedProfessions = {	-- To make tabbing between professions easier
 	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8
 	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9
 	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10
-	{ name = GetSpellInfo(32606),	texture = "smelting" },		-- 11
+	{ name = GetSpellInfo(2656),	texture = "smelting" },		-- 11
 	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12
 }
 
@@ -991,13 +991,13 @@ function MainPanel:ToggleState()
 end
 
 function MainPanel:SetProfession()
-	for k, v in pairs(SortedProfessions) do
+	for k, v in pairs(SORTED_PROFESSIONS) do
 		if v.name == Player.current_prof then
 			self.profession = k
 			break
 		end
 	end
-	self.mode_button:ChangeTexture(SortedProfessions[self.profession].texture)
+	self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 end
 
 function MainPanel:SetPosition()
@@ -1097,7 +1097,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index > NUM_PROFESSIONS then
 								index = 1
-							elseif Player.professions[SortedProfessions[index].name] then
+							elseif Player.professions[SORTED_PROFESSIONS[index].name] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -1119,7 +1119,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index < 1 then
 								index = NUM_PROFESSIONS
-							elseif Player.professions[SortedProfessions[index].name] then
+							elseif Player.professions[SORTED_PROFESSIONS[index].name] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -1130,7 +1130,7 @@ MainPanel.mode_button:SetScript("OnClick",
 					end
 					local is_shown = TradeSkillFrame:IsVisible()
 
-					CastSpellByName(SortedProfessions[MainPanel.profession].name)
+					CastSpellByName(SORTED_PROFESSIONS[MainPanel.profession].name)
 					addon:Scan()
 
 					if not is_shown then
@@ -3002,7 +3002,7 @@ do
 		local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
 		-- Get the proper icon to put on the mini-map
-		--		for i, k in pairs(SortedProfessions) do
+		--		for i, k in pairs(SORTED_PROFESSIONS) do
 		--			if (k["name"] == Player.current_prof) then
 		--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
 		--				break
