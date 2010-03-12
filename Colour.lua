@@ -14,7 +14,7 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]]--
+]]
 
 
 local MODNAME			= "Ackis Recipe List"
