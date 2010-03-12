@@ -635,18 +635,18 @@ function addon:OnEnable()
 		-- Get the player's professions.
 		-------------------------------------------------------------------------------
 		Player.professions = {
-			[GetSpellInfo(51304)] = false, -- Alchemy
-			[GetSpellInfo(51300)] = false, -- Blacksmithing
-			[GetSpellInfo(51296)] = false, -- Cooking
-			[GetSpellInfo(51313)] = false, -- Enchanting
-			[GetSpellInfo(51306)] = false, -- Engineering
-			[GetSpellInfo(45542)] = false, -- First Aid
-			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(32606)] = false, -- Mining
-			[GetSpellInfo(51309)] = false, -- Tailoring
-			[GetSpellInfo(51311)] = false, -- Jewelcrafting
-			[GetSpellInfo(45363)] = false, -- Inscription
-			[GetSpellInfo(53428)] = false, -- Runeforging
+			[GetSpellInfo(51304)]	= false, -- Alchemy
+			[GetSpellInfo(51300)]	= false, -- Blacksmithing
+			[GetSpellInfo(51296)]	= false, -- Cooking
+			[GetSpellInfo(51313)]	= false, -- Enchanting
+			[GetSpellInfo(51306)]	= false, -- Engineering
+			[GetSpellInfo(45542)]	= false, -- First Aid
+			[GetSpellInfo(51302)]	= false, -- Leatherworking
+			[GetSpellInfo(2656)]	= false, -- Smelting
+			[GetSpellInfo(51309)]	= false, -- Tailoring
+			[GetSpellInfo(51311)]	= false, -- Jewelcrafting
+			[GetSpellInfo(45363)]	= false, -- Inscription
+			[GetSpellInfo(53428)]	= false, -- Runeforging
 		}
 		Player:SetProfessions()
 
