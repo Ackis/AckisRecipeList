@@ -39,7 +39,7 @@ local num_recipes = 0
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id)
 	num_recipes = num_recipes + 1
-	self:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
+	addon:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
 end
 
 function addon:InitRuneforging()
