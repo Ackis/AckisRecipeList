@@ -111,8 +111,6 @@ function Player:SetProfessions()
 	for i in pairs(profession_list) do
 		profession_list[i] = false
 	end
-	local smelting_spell = GetSpellInfo(2656)
-	local mining_spell = GetSpellInfo(32606)
 
 	for index = 1, 25, 1 do
 		local spell_name = GetSpellName(index, BOOKTYPE_SPELL)
@@ -122,13 +120,8 @@ function Player:SetProfessions()
 		end
 
 		-- Check for false in the profession_list - a nil entry means we don't care about the spell.
-		if profession_list[spell_name] == false or spell_name == smelting_spell then
-			-- If the player has smelting, then mining is also known.
-			if spell_name == smelting_spell then
-				profession_list[mining_spell] = true
-			else
-				profession_list[spell_name] = true
-			end
+		if profession_list[spell_name] == false then
+			profession_list[spell_name] = true
 		end
 	end
 end
