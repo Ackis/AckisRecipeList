@@ -29,7 +29,7 @@
 -
  type: luadoc
  input-file: ARL.lua
- output-page: "test"
+ output-page: "API"
 -
  type: luadoc
  input-file: Frame.lua
