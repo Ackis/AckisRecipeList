@@ -990,14 +990,24 @@ function MainPanel:ToggleState()
 	self:UpdateTitle()
 end
 
-function MainPanel:SetProfession()
-	for k, v in pairs(SORTED_PROFESSIONS) do
-		if v.name == Player.current_prof then
-			self.profession = k
-			break
+do
+	local MINING_SPELL = GetSpellInfo(32606)
+
+	function MainPanel:SetProfession()
+		if Player.current_prof == MINING_SPELL then
+			self.profession = 11 -- Smelting
+		else		
+			for k, v in pairs(SORTED_PROFESSIONS) do
+				if v.name == Player.current_prof then
+					self.profession = k
+					break
+				else
+					addon:Printf("Skipping %s", Player.current_prof)
+				end
+			end
 		end
+		self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 	end
-	self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 end
 
 function MainPanel:SetPosition()
