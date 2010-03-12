@@ -1611,10 +1611,10 @@ local RECIPE_NAMES = {
 	["tailoring: "] = true, 
 }
 
---- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries.
+--- Scans the items on a vendor, determining which recipes are available if any and compares it with the database entries
 -- @name AckisRecipeList:ScanVendor
 -- @usage AckisRecipeList:ScanVendor()
--- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database.
+-- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database
 do
 	local output = {}
 
@@ -1716,12 +1716,12 @@ do
 		self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
 	end
 end	-- do
---- Parses a specific recipe in the database, and scanning its tooltip.
+--- Parses a specific recipe in the database, and scanning its tooltip
 -- @name AckisRecipeList:TooltipScanRecipe
--- @param spellid The [[[http://www.wowwiki.com/SpellLink | Spell ID]]] of the recipe being added to the database.
--- @param is_vendor Boolean to determine if we're viewing a vendor or not.
--- @param is_largescan Boolean to determine if we're doing a large scan.
--- @return Recipe has its tooltips scanned.
+-- @param spellid The [[[http://www.wowwiki.com/SpellLink|Spell ID]]] of the recipe being added to the database
+-- @param is_vendor Boolean to determine if we're viewing a vendor or not
+-- @param is_largescan Boolean to determine if we're doing a large scan
+-- @return Recipe has its tooltips scanned
 do
 
 	---------------------------------------------------------------------------------------------------------
@@ -2022,14 +2022,14 @@ do
 	-- Table to store scanned information. Wiped and re-used every scan.
 	local scan_data = {}
 
-	--- Parses the mining tooltip for certain keywords, comparing them with the database flags.
+	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
 	-- @name AckisRecipeList:ScanToolTip
 	-- @param name The name of the recipe
 	-- @param recipe_list Recipe database
 	-- @param reverse_lookup Reverse lookup database
-	-- @param is_vendor Boolean to indicate if we're scanning a vendor.
-	-- @param is_item Boolean to indicate if we're scanning an item tooltip.
-	-- @return Scans a tooltip, and outputs the missing or extra filter flags.
+	-- @param is_vendor Boolean to indicate if we're scanning a vendor
+	-- @param is_item Boolean to indicate if we're scanning an item tooltip
+	-- @return Scans a tooltip, and outputs the missing or extra filter flags
 	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
 		-- We only want to wipe the table if we're scanning a new entry (not an item associated with a spell ID)
 		if not is_item then
