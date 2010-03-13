@@ -1306,25 +1306,17 @@ function addon:GenerateLinks()
 	local encodedString = string.rep("/", encodingLength)
 ]]--
 	local bitmap = {}
-	bitmap[45542] = "8bffAA" -- First Aid (6)
-	--bitmap[51296] = "2/7///7///9////7//////////g+/B" -- Cooking (30)
-	bitmap[51296] = "2/7///7///9////7//////////gC8/B" -- Cooking
+	bitmap[45542] = "8bffAA" -- First Aid  100%   17/17 recipes
+	bitmap[51296] = "2/6///7///9f///7//////////g///B" -- Cooking  98.2%  166/169 recipes
 	--bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
 	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/Tol3B" -- Engineering
-	--bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+///////5///////PA/Eg//" -- LW (87)
-	bitmap[51302] = "e+//////////////v//P+f///3///7/9f9//////////f///////HQ5+////B4//+//////////////////HgAAw/P" -- Leatherworking
-	--bitmap[51302] = string.rep("/", 87)
-	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy 100%
-	bitmap[51300] = "2//////P7fsW/f////v+x+/99zqcUIAg/HzD+5P1///H+CyxAC3PBB/jCNA8CAA////w/f8/////////LAAAw//H" -- Blacksmithing 70.5% recipes
-	--bitmap[51309] = string.rep("/", 71) -- Tailoring (71)
-	bitmap[51309] = "YIEMCCgAicAjAGIAiQKAACBRxgBEAAAAAAAAA45BAqBQBAKAAAEAAAIICLHqiAuKAAAEABAAA"
-	--bitmap[51311] = string.rep("/", 83) -- JC 83
-	bitmap[51311] = "8fJRMqkmRwipmMHAQAACEAAQw/AgDkMJIAQgCA4AAwHMKFr/TCEx6tip+z7WyNsRWrnhm7wGPAAOgAUEALFAAWJWfqsBCAB"
-	bitmap[45363] = "g//f/6//793////3//3//f1//f//3///P//79//W/7v/////////////////f+XC0/DAAIoQQwA" --Inscription 82.7% 364/440 recipes
-	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAB" -- Enchanting
-	--bitmap[51313] = "4//////////7///////////w//++/9vn7///////3P/t/n//BAD" -- Enchanting (51)
-	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting
-	--bitmap[51313] = string.rep("/", 51) -- Enchanting (51)
+	bitmap[51302] = "e+//ff////d//u//v//n+vv7/+ujr7/9////bg/+////f344//dA4I8j/X//B4/vu5/////////////////nvA8/M8/D" -- Leatherworking  85.4%   451/528 recipes
+	bitmap[51304] = "2//v//////f////3//v///////5//////////9/////v" -- Alchemy 100%   251/251 recipes
+	bitmap[51300] = "2//////f7fM//f/f53/+//7///ze8c6q/f9///P2/////m4BAA2XIG+dFA8//PC////4//z//////////Pwvy//H" -- Blacksmithing 82.9%   413/498 recipes
+	bitmap[51309] = "4//+/+5a79rv7/vx2/65t3nZ3f33N33LJq/z54Hx//mK7w1GQgFA+AQ4/////7//7//9//2wD" -- Tailoring   74.3%   303/408 recipes
+	bitmap[51311] = "8//3////fzj//u//////v/7///9///33////////Pw////////////////////////3///////////////////////////D" -- Jewelcrafting  97.5%   540/554 recipes
+	bitmap[45363] = "g////7////3///////////////////////////////////////////////////fHM+3dqhGYa0f" --Inscription 92.5%    407/440 recipes
+	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting   94.3%    279/296 recipes
 
 	for i in pairs(tradelist) do
 
