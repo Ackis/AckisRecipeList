@@ -62,6 +62,11 @@ local GetMerchantItemInfo = GetMerchantItemInfo
 local GetSpellInfo = GetSpellInfo
 
 -------------------------------------------------------------------------------
+-- Constants
+-------------------------------------------------------------------------------
+local F = private.filter_flags
+
+-------------------------------------------------------------------------------
 -- Tradeskill professions
 -------------------------------------------------------------------------------
 local PROFESSIONS = {
@@ -1198,7 +1203,7 @@ do
 		SetTrainerServiceTypeFilter("unavailable", 1)
 		SetTrainerServiceTypeFilter("used", 1)
 
-		if (GetNumTrainerServices() == 0) then
+		if GetNumTrainerServices() == 0 then
 			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
 		twipe(info)
@@ -1229,28 +1234,28 @@ do
 
 				-- Parse acquire info
 				for j in pairs(acquire) do
-					if (acquire[j].type == 1) then
-						if (acquire[j].ID == targetID) then
+					if acquire[j].type == private.acqure_types.TRAINER then
+						if acquire[j].ID == targetID then
 							found = true
 						end
 					end
 				end
 
-				if (not found) then
+				if not found then
 					tinsert(teach, i)
 					teachflag = true
 
-					if (not flags[3]) then
+					if not flags[F.TRAINER] then
 						tinsert(output, ": Trainer flag needs to be set.")
 					end
 				end
 				-- Trainer does not teach this recipe
 			else
 				local found = false
-				-- Parse acquire info
+
 				for j in pairs(acquire) do
-					if (acquire[j].type == 1) then
-						if (acquire[j].ID == targetID) then
+					if acquire[j].type == private.acquire_types.TRAINER then
+						if acquire[j].ID == targetID then
 							found = true
 						end
 					end
@@ -1656,9 +1661,9 @@ do
 
 						for i in pairs(acquire) do
 							local atype = acquire[i].type
-							-- If the acquire type is a vendor
-							if (((atype == 2) and (acquire[i].ID == targetID))
-							    or ((atype == 6) and (acquire[i].rep_vendor == targetID))) then
+
+							if ((atype == private.acquire_types.VENDOR and acquire[i].ID == targetID)
+							    or (atype == private.acquire_types.REPUTATION and acquire[i].rep_vendor == targetID)) then
 								found = true
 							end
 						end
@@ -1866,7 +1871,7 @@ do
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			local flags = recipe["Flags"]
 
-			if flags[4] or flags[5] or flags[6] then
+			if flags[F.VENDOR] or flags[F.INSTANCE] or flags[F.RAID] then
 				tinsert(output, "Spell/Item ID: " .. spell_id .. " does not exist in the SPELL_ITEM table.")
 			end
 		end
@@ -2270,14 +2275,14 @@ do
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
-			if not flags[4] then
+			if not flags[F.VENDOR] then
 				tinsert(missing_flags, "4 (Vendor)")
 			end
 
 			-- Check to see if we're in a PVP zone
-			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not flags[9] then
+			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not flags[F.PVP] then
 				tinsert(missing_flags, "9 (PvP)")
-			elseif flags[9] and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
+			elseif flags[F.PVP] and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
 				tinsert(extra_flags, "9 (PvP)")
 			end
 		end
@@ -2295,52 +2300,52 @@ do
 
 		-- BoP Item
 		if scan_data.is_item then
-			if scan_data.bopitem and not flags[37] then
+			if scan_data.bopitem and not flags[F.IBOP] then
 				tinsert(missing_flags, "37 (BoP Item)")
 				-- If it's a BoP item and flags BoE is set, mark it as extra
-				if flags[36] then
+				if flags[F.IBOE] then
 					tinsert(extra_flags, "36 (BoE Item)")
 				end
 
 				-- If it's a BoP item and flags BoA is set, mark it as extra
-				if flags[38] then
+				if flags[F.IBOA] then
 					tinsert(extra_flags, "38 (BoA Item)")
 				end
 				-- BoE Item, assuming it's not BoA
-			elseif not flags[36] and not scan_data.bopitem then
+			elseif not flags[F.IBOE] and not scan_data.bopitem then
 				tinsert(missing_flags, "36 (BoE Item)")
 				-- If it's a BoE item and flags BoP is set, mark it as extra
-				if flags[37] then
+				if flags[F.IBOP] then
 					tinsert(extra_flags, "37 (BoP Item)")
 				end
 				-- If it's a BoE item and flags BoA is set, mark it as extra
-				if flags[38] then
+				if flags[F.IBOA] then
 					tinsert(extra_flags, "38 (BoA Item)")
 				end
 			end
 		else
 			-- BoP Recipe
-			if scan_data.boprecipe and not flags[41] then
+			if scan_data.boprecipe and not flags[F.RBOP] then
 				tinsert(missing_flags, "41 (BoP Recipe)")
 				-- If it's a BoP recipe and flags BoE is set, mark it as extra
-				if flags[40] then
+				if flags[F.RBOE] then
 					tinsert(extra_flags, "40 (BoE Recipe)")
 				end
 				-- If it's a BoP recipe and flags BoA is set, mark it as extra
-				if flags[42] then
+				if flags[F.RBOA] then
 					tinsert(extra_flags, "42 (BoA Recipe)")
 				end
 				-- Not BoP recipe, assuming it's not BoA - trainer-taught recipes don't have bind information,  skip those.
-			elseif not flags[3] and not flags[40] and not scan_data.boprecipe then
+			elseif not flags[F.TRAINER] and not flags[F.RBOE] and not scan_data.boprecipe then
 				tinsert(missing_flags, "40 (BoE Recipe)")
 
 				-- If it's a BoE recipe and flags BoP is set, mark it as extra
-				if flags[41] then
+				if flags[F.RBOP] then
 					tinsert(extra_flags, "41 (BoP Recipe)")
 				end
 
 				-- If it's a BoE recipe and flags BoA is set, mark it as extra
-				if flags[42] then
+				if flags[F.RBOA] then
 					tinsert(extra_flags, "42 (BoA Recipe)")
 				end
 			end
@@ -2370,7 +2375,7 @@ do
 			tinsert(missing_flags, repid)
 
 			for i, j in pairs(acquire) do
-				if acquire[j].type == 6 then
+				if acquire[j].type == private.acquire_types.REPUTATION then
 					local tmpacquire = acquire[j]
 
 					if tmpacquire.rep_level ~= scan_data.repidlevel then
@@ -2409,26 +2414,26 @@ do
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
-		if not flags[1] and not flags[2] then
+		if not flags[F.ALLIANCE] and not flags[F.HORDE] then
 			addedtotable = true
 			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
-		if (not flags[3] and not flags[4] and not flags[5] and not flags[6] and not flags[7]
-		    and not flags[8] and not flags[9] and not flags[10] and not flags[11] and not flags[12]) then
+		if (not flags[F.TRAINER] and not flags[F.VENDOR] and not flags[F.INSTANCE] and not flags[F.RAID] and not flags[F.SEASONAL]
+		    and not flags[F.QUEST] and not flags[F.PVP] and not flags[F.WORLD_DROP] and not flags[F.MOB_DROP] and not flags[F.DISC]) then
 			addedtotable = true
 			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
-		if not flags[40] and not flags[41] and not flags[42] then
+		if not flags[F.RBOE] and not flags[F.RBOP] and not flags[F.RBOA] then
 			addedtotable = true
 			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
-		if not flags[36] and not flags[37] and not flags[38] then
+		if not flags[F.IBOE] and not flags[F.IBOP] and not flags[F.IBOA] then
 			addedtotable = true
 			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
@@ -2457,7 +2462,5 @@ do
 		else
 			return nil
 		end
-
 	end
-
 end
