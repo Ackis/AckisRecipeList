@@ -3,14 +3,14 @@
 Vendor.lua
 Vendor data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
 	self:addLookupList(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-************************************************************************	
+************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
@@ -81,7 +81,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 2816, L["Androd Fadran"], BZ["Arathi Highlands"], 45.0, 46.9, 1)
 	self:addLookupList(DB, 2819, L["Tunkk"], BZ["Arathi Highlands"], 74.8, 34.5, 2)
 	self:addLookupList(DB, 2821, L["Keena"], BZ["Arathi Highlands"], 74.0, 32.7, 2)
-	self:addLookupList(DB, 2838, L["Crazk Sparks"], BZ["Stranglethorn Vale"], 28.3, 76.7, 0)	
+	self:addLookupList(DB, 2838, L["Crazk Sparks"], BZ["Stranglethorn Vale"], 28.3, 76.7, 0)
 	self:addLookupList(DB, 2843, L["Jutak"], BZ["Stranglethorn Vale"], 27.5, 77.5, 0)
 	self:addLookupList(DB, 2848, L["Glyx Brewright"], BZ["Stranglethorn Vale"], 28.1, 78.0, 0)
 	self:addLookupList(DB, 3005, L["Mahu"], BZ["Thunder Bluff"], 43.8, 44.6, 2)
@@ -240,7 +240,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 15293, L["Aendel Windspear"], BZ["Silithus"], 62.6, 49.8, 0)
 	self:addLookupList(DB, 15419, L["Kania"], BZ["Silithus"], 52.0, 39.6, 0)
 	self:addLookupList(DB, 15471, BB["Lieutenant General Andorov"], BZ["Ruins of Ahn'Qiraj"], 0, 0, 0)
-	self:addLookupList(DB, 15909, L["Fariel Starsong"], BZ["Moonglade"], 54.0, 35.4, 0)	
+	self:addLookupList(DB, 15909, L["Fariel Starsong"], BZ["Moonglade"], 54.0, 35.4, 0)
 	self:addLookupList(DB, 16224, L["Rathis Tomber"], BZ["Ghostlands"], 47.2, 28.7, 2)
 	self:addLookupList(DB, 16253, L["Master Chef Mouldier"], BZ["Ghostlands"], 48.3, 30.9, 2)
 	self:addLookupList(DB, 16262, L["Landraelanis"], BZ["Eversong Woods"], 49.0, 47.0, 2)

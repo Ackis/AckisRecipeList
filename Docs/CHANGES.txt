@@ -107,7 +107,7 @@
 *Completely revamped the look and behavior of the acquire tooltip. Now fixed width, and scales with font size.
 *Fixed a few nil references.
 *All tooltips now fully support TipTac skinning.
-*Recipes which are only obtainable from a quest available only to the opposing faction will now display this fact. 
+*Recipes which are only obtainable from a quest available only to the opposing faction will now display this fact.
 *Code optimization.
 *Lunar Festival Recipes updated
 *Added in tooltip scanning for the dataminer.

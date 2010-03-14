@@ -996,7 +996,7 @@ do
 	function MainPanel:SetProfession()
 		if Player.current_prof == MINING_SPELL then
 			self.profession = 11 -- Smelting
-		else		
+		else
 			for k, v in pairs(SORTED_PROFESSIONS) do
 				if v.name == Player.current_prof then
 					self.profession = k

@@ -3,8 +3,8 @@
 Blacksmithing.lua
 Blacksmithing data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -2545,7 +2545,7 @@ function addon:InitBlacksmithing()
 		-- Sunforged Bracers (Ally) -- 67096
 		AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67096, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
-		self:AddRecipeAcquire(67096, A.CUSTOM, 42)	
+		self:AddRecipeAcquire(67096, A.CUSTOM, 42)
 
 	elseif faction == BFAC["Horde"] then
 

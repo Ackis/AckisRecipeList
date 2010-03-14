@@ -3,8 +3,8 @@
 Mob.lua
 Mob data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -158,7 +158,7 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 23305, L["Crazed Murkblood Foreman"], BZ["Shadowmoon Valley"], 72.3, 90.0)
 	self:addLookupList(DB, 23324, L["Crazed Murkblood Miner"], BZ["Shadowmoon Valley"], 73.5, 88.5)
 	-- Sholazar Basin
-	self:addLookupList(DB, 28123, L["Venture Co. Excavator"], BZ["Sholazar Basin"], 35.8, 45.5)   
+	self:addLookupList(DB, 28123, L["Venture Co. Excavator"], BZ["Sholazar Basin"], 35.8, 45.5)
 	self:addLookupList(DB, 28379, L["Shattertusk Mammoth"], BZ["Sholazar Basin"], 53.5, 24.4)
 	-- Silithus
 	self:addLookupList(DB, 14454, BB["The Windreaver"], BZ["Silithus"], 27.0, 26.8)

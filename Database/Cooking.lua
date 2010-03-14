@@ -3,8 +3,8 @@
 Cooking.lua
 Cooking data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -876,7 +876,7 @@ function addon:InitCooking()
 	local _,faction = UnitFactionGroup("player")
 
 	if faction == BFAC["Alliance"] then
-	
+
 		-- Pumpkin Pie -- 62044
 		AddRecipe(62044, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
 		self:AddRecipeFlags(62044, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -901,9 +901,9 @@ function addon:InitCooking()
 		AddRecipe(62051, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
 		self:AddRecipeFlags(62051, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
 		self:AddRecipeAcquire(62051, A.SEASONAL, 5)
-		
+
 	elseif faction == BFAC["Horde"] then
-		
+
 		-- Candied Sweet Potatoes -- 66034
 		AddRecipe(66034, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
 		self:AddRecipeFlags(66034,  F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)

@@ -2094,7 +2094,7 @@ function addon:InitTailoring()
 		-- Bejeweled Wizard's Bracers -- 67079
 		AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67079, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67079,  A.CUSTOM, 42)	
+		self:AddRecipeAcquire(67079,  A.CUSTOM, 42)
 	elseif faction == BFAC["Horde"] then
 		-- Royal Moonshroud Robe -- 67144
 		AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475)

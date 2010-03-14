@@ -6,8 +6,8 @@ Manually add entries here and then proceed to update the localization
 application located here:
 	http://www.wowace.com/addons/arl/localization/
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -434,7 +434,7 @@ L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily ques
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
 L["GOBLIN_ENG"] = "You need to be a Goblin Engineer to obtain and use this item."
-L["GNOMISH_ENG"] = "You need to be a Gnomish Engineer to obtain and use this item." 
+L["GNOMISH_ENG"] = "You need to be a Gnomish Engineer to obtain and use this item."
 -- Default
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."
 -- Crafted by other professions

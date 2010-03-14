@@ -3,8 +3,8 @@
 Leatherworking.lua
 Leatherworking data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -2649,7 +2649,7 @@ function addon:InitLeatherworking()
 	AddRecipe(70561, 450, 49897, Q.EPIC, V.WOTLK, 450, 460, 465, 470)
 	self:AddRecipeFlags(70561, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.MAIL, F.ASHEN_VERDICT)
 	self:AddRecipeAcquire(70561, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
- 
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
@@ -2696,7 +2696,7 @@ function addon:InitLeatherworking()
 		AddRecipe(67087, 450, 47581, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67087, F.ALLIANCE, F.RAID, F.MOB_DROP)
 		self:AddRecipeAcquire(67087, A.CUSTOM, 42)
-		
+
 	elseif faction == BFAC["Horde"] then
 
 		-- Ensorcelled Nerubian Breastplate -- 67136

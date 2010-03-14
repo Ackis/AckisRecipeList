@@ -12,11 +12,11 @@ You may run the command with the <<code lua>>/script<</code>> command or use the
 ====Trainer Skill Levels====
 Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the skill levels between the two.
 <<code lua>>/script AckisRecipeList:ScanSkillLevelData()<</code>>
- 
+
 ====Trainer Recipes====
 Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.  Compares the acquire information of the ARL database with what is available on the trainer.
 <<code lua>>/script AckisRecipeList:ScanTrainerData()<</code>>
- 
+
 ====Generate Complete Links====
 Generates a complete link for all tradeskills.  This has all known recipes in it and can be used for comparison purposes.
 <<code lua>>/script AckisRecipeList:GenerateLinks()<</code>>

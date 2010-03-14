@@ -312,7 +312,7 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :::Faction			- Faction **
 
 ===Reputation DB===
- self:addLookupList(RepDB, 54, BFAC["Gnomeregan Exiles"]) -- Acquire Flag: 
+ self:addLookupList(RepDB, 54, BFAC["Gnomeregan Exiles"]) -- Acquire Flag:
 :ReputationList
 ::ID =
 :::Name			-- translated faction

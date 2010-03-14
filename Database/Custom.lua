@@ -3,8 +3,8 @@
 Custom.lua
 Custom acquire data for all of Ackis Recipe List
 ************************************************************************
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
@@ -78,7 +78,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 41, L["Custom41"], "N/A")
 	self:addLookupList(CustomDB, 44, L["Custom44"], "N/A")
 	self:addLookupList(CustomDB, 45, L["Custom45"], "N/A")
-	
+
 --self:addLookupList(CustomDB, 28, L["BT_HYJAL_RANDOM"], "N/A")
 --[[
 L["Custom20"] = "Goblin transport." -- Update
