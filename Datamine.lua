@@ -1236,7 +1236,7 @@ do
 
 				-- Parse acquire info
 				for j in pairs(acquire) do
-					if acquire[j].type == private.acqure_types.TRAINER then
+					if acquire[j].type == private.acquire_types.TRAINER then
 						if acquire[j].ID == targetID then
 							found = true
 						end
