@@ -1670,7 +1670,7 @@ do
 							end
 						end
 
-						if (not found) then
+						if not found then
 							tinsert(output, "Vendor ID missing from " .. spellid)
 						end
 					else
