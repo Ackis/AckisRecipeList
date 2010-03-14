@@ -1001,7 +1001,7 @@ function addon:InitEngineering()
 	self:AddRecipeAcquire(30348, A.VENDOR, 16657, A.VENDOR, 16782, A.VENDOR, 18484)
 
 	-- Titanium Toolbox -- 30349
-	AddRecipe(30349, 405, 23775, Q.RARE, V.WOTLK, 405, 425, 432, 440)
+	AddRecipe(30349, 405, 23775, Q.COMMON, V.WOTLK, 405, 425, 432, 440)
 	self:AddRecipeFlags(30349, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(30349, A.VENDOR, 28722)
 

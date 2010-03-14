@@ -756,7 +756,7 @@ function addon:InitCooking()
 	self:AddRecipeAcquire(57421, A.QUEST, 13087, A.QUEST, 13088, A.QUEST, 13089, A.QUEST, 13090)
 
 	-- Fish Feast -- 57423
-	AddRecipe(57423, 450, 43015, Q.COMMON, V.WOTLK, 450, 455, 460, 465)
+	AddRecipe(57423, 450, 43015, Q.UNCOMMON, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(57423, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(57423, A.VENDOR, 31031, A.VENDOR, 31032)
 
@@ -851,7 +851,7 @@ function addon:InitCooking()
 	self:AddRecipeAcquire(58528, A.VENDOR, 31031, A.VENDOR, 31032)
 
 	-- Worg Tartare -- 62350
-	AddRecipe(62350, 400, 44953, Q.COMMON, V.WOTLK, 400, 400, 420, 460)
+	AddRecipe(62350, 400, 44953, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(62350, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(62350, A.VENDOR, 31031, A.VENDOR, 31032)
 
