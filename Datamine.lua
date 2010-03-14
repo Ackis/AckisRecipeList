@@ -15,6 +15,22 @@ This source code is released under All Rights Reserved.
 ]]--
 
 -------------------------------------------------------------------------------
+-- Upvalues globals.
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+local table = _G.table
+local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
+
+local string = _G.string
+local strlower, strmatch = string.lower, string.match
+local gsub = string.gsub
+
+local tonumber, tostring = _G.tonumber, _G.tostring
+
+local ipairs, pairs = _G.ipairs, _G.pairs
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
 local MODNAME	= "Ackis Recipe List"
@@ -25,17 +41,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 -- Set up the private intra-file namespace.
 local private	= select(2, ...)
 
-
--------------------------------------------------------------------------------
--- Upvalues globals.
--------------------------------------------------------------------------------
-local table, string = table, string
-
-local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
-local strlower, strmatch = string.lower, string.match
-local gsub = string.gsub
-local tonumber, tostring = tonumber, tostring
-local ipairs, pairs = ipairs, pairs
 
 -------------------------------------------------------------------------------
 -- Upvalued Blizzard API.
