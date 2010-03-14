@@ -875,6 +875,7 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["trivial_level"]	= trivial_level or skill_level + 20,
 		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
 		["is_relevant"]		= true,				-- Set to be showing in the search results
+		["is_known"]		= false,			-- Initially not known - will determine in addon:Scan()
 	}
 
 	if not recipe.name then
@@ -1527,13 +1528,6 @@ do
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
 		Player.totalRecipes = addon:InitializeRecipe(Player.current_prof)
 
-		--- Set the known flag to false for every recipe in the database.
-		local recipe_list = private.recipe_list
-
-		for SpellID in pairs(recipe_list) do
-			recipe_list[SpellID].is_known = false
-		end
-
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
 		-------------------------------------------------------------------------------
@@ -1567,6 +1561,7 @@ do
 				end
 			end
 		end
+		local recipe_list = private.recipe_list
 		local recipes_found = 0
 
 		for i = 1, GetNumTradeSkills() do
