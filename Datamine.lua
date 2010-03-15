@@ -1676,7 +1676,7 @@ do
 					else
 						--@debug@
 						added = true
-						tinsert(output, "Spell ID not found for: " .. name)
+						tinsert(output, string.format("Spell ID not found for \"%s\" (%d).", name, spellid)
 						--@end-debug@
 					end
 				end
