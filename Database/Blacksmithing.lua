@@ -362,7 +362,7 @@ function addon:InitBlacksmithing()
 
 	-- Golden Scale Boots -- 3515
 	AddRecipe(3515, 200, 3847, Q.RARE, V.ORIG, 200, 210, 215, 220)
-	self:AddRecipeFlags(3515, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(3515, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(3515, A.WORLD_DROP, 2)
 
 	-- Pearl-handled Dagger -- 6517
@@ -392,7 +392,7 @@ function addon:InitBlacksmithing()
 
 	-- Steel Weapon Chain -- 7224
 	AddRecipe(7224, 190, 6041, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
-	self:AddRecipeFlags(7224, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(7224, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(7224, A.WORLD_DROP, 2)
 
 	-- Heavy Copper Maul -- 7408
@@ -822,7 +822,7 @@ function addon:InitBlacksmithing()
 
 	-- Radiant Circlet -- 16659
 	AddRecipe(16659, 295, 12417, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
-	self:AddRecipeFlags(16659, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(16659, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(16659, A.WORLD_DROP, 2)
 
 	-- Dawnbringer Shoulders -- 16660
