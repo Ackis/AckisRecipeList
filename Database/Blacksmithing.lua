@@ -1062,7 +1062,7 @@ function addon:InitBlacksmithing()
 
 	-- Edge of Winter -- 21913
 	AddRecipe(21913, 190, 17704, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
-	self:AddRecipeFlags(21913, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
+	self:AddRecipeFlags(21913, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	self:AddRecipeAcquire(21913, A.SEASONAL, 1)
 
 	-- Elemental Sharpening Stone -- 22757
@@ -1872,13 +1872,13 @@ function addon:InitBlacksmithing()
 
 	-- Swiftsteel Shoulders -- 41133
 	AddRecipe(41133, 375, 32570, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41133, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(41133, A.WORLD_DROP, 4)
+	self:AddRecipeFlags(41133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	self:AddRecipeAcquire(41133, A.CUSTOM, 34)
 
 	-- Dawnsteel Bracers -- 41134
 	AddRecipe(41134, 375, 32571, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41134, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(41134, A.WORLD_DROP, 4)
+	self:AddRecipeFlags(41134, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeAcquire(41134, A.CUSTOM, 34)
 
 	-- Dawnsteel Shoulders -- 41135
 	AddRecipe(41135, 375, 32573, Q.EPIC, V.TBC, 375, 385, 395, 405)
