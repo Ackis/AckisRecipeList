@@ -287,7 +287,7 @@ function addon:InitCooking()
 
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
-	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.INSTANCE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(13028, A.CUSTOM, 13)
 
 	-- Lean Wolf Steak -- 15853
