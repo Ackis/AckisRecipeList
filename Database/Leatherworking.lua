@@ -222,7 +222,7 @@ function addon:InitLeatherworking()
 
 	-- Guardian Belt -- 3775
 	AddRecipe(3775, 170, 4258, Q.RARE, V.ORIG, 170, 190, 200, 210)
-	self:AddRecipeFlags(3775, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+	self:AddRecipeFlags(3775, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeAcquire(3775, A.WORLD_DROP, 3)
 
 	-- Green Leather Bracers -- 3776
@@ -242,7 +242,7 @@ function addon:InitLeatherworking()
 
 	-- Barbaric Belt -- 3779
 	AddRecipe(3779, 200, 4264, Q.RARE, V.ORIG, 200, 220, 230, 240)
-	self:AddRecipeFlags(3779, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeFlags(3779, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	self:AddRecipeAcquire(3779, A.WORLD_DROP, 2)
 
 	-- Heavy Armor Kit -- 3780
@@ -487,7 +487,7 @@ function addon:InitLeatherworking()
 
 	-- Dusky Boots -- 9207
 	AddRecipe(9207, 200, 7390, Q.RARE, V.ORIG, 200, 220, 230, 240)
-	self:AddRecipeFlags(9207, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeFlags(9207, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	self:AddRecipeAcquire(9207, A.WORLD_DROP, 2)
 
 	-- Swift Boots -- 9208
@@ -507,7 +507,7 @@ function addon:InitLeatherworking()
 
 	-- Comfortable Leather Hat -- 10490
 	AddRecipe(10490, 200, 8174, Q.RARE, V.ORIG, 200, 220, 230, 240)
-	self:AddRecipeFlags(10490, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.LEATHER)
+	self:AddRecipeFlags(10490, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
 	self:AddRecipeAcquire(10490, A.WORLD_DROP, 2)
 
 	-- Nightscape Tunic -- 10499
@@ -782,7 +782,7 @@ function addon:InitLeatherworking()
 
 	-- Warbear Harness -- 19068
 	AddRecipe(19068, 275, 15064, Q.COMMON, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(19068, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(19068, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER, F.TIMBERMAW_HOLD)
 	self:AddRecipeAcquire(19068, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Heavy Scorpid Belt -- 19070
@@ -987,7 +987,7 @@ function addon:InitLeatherworking()
 
 	-- Gloves of the Greatfather -- 21943
 	AddRecipe(21943, 190, 17721, Q.UNCOMMON, V.ORIG, 190, 210, 220, 230)
-	self:AddRecipeFlags(21943, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+	self:AddRecipeFlags(21943, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeAcquire(21943, A.SEASONAL, 1)
 
 	-- Rugged Leather -- 22331
@@ -1572,17 +1572,17 @@ function addon:InitLeatherworking()
 
 	-- Windslayer Wraps -- 35563
 	AddRecipe(35563, 365, 29507, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35563, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeFlags(35563, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	self:AddRecipeAcquire(35563, A.WORLD_DROP, 4)
 
 	-- Living Dragonscale Helm -- 35564
 	AddRecipe(35564, 365, 29508, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35564, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeFlags(35564, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(35564, A.WORLD_DROP, 4)
 
 	-- Earthen Netherscale Boots -- 35567
 	AddRecipe(35567, 365, 29512, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35567, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(35567, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(35567, A.WORLD_DROP, 4)
 
 	-- Windstrike Gloves -- 35568
@@ -1602,7 +1602,7 @@ function addon:InitLeatherworking()
 
 	-- Thick Netherscale Breastplate -- 35574
 	AddRecipe(35574, 365, 29514, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35574, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(35574, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(35574, A.WORLD_DROP, 4)
 
 	-- Ebon Netherscale Breastplate -- 35575
