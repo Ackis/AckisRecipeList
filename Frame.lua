@@ -391,26 +391,26 @@ do
 
 	-- Will only sort based off of the first acquire type
 	local function Sort_Acquisition(a, b)
-		local reca = recipe_list[a]["Acquire"][1]
-		local recb = recipe_list[b]["Acquire"][1]
+--		local reca = recipe_list[a].acquire_data[1]
+--		local recb = recipe_list[b].acquire_data[1]
 
-		if not reca or not recb then
-			return not not reca
-		end
+--		if not reca or not recb then
+--			return not not reca
+--		end
 
-		if reca.type ~= recb.type then
-			return reca.type < recb.type
-		end
+--		if reca.type ~= recb.type then
+--			return reca.type < recb.type
+--		end
 
-		if reca.type == A.CUSTOM then
-			if reca.ID == recb.ID then
-				return recipe_list[a].name < recipe_list[b].name
-			else
-				return reca.ID < recb.ID
-			end
-		else
+--		if reca.type == A.CUSTOM then
+--			if reca.ID == recb.ID then
+--				return recipe_list[a].name < recipe_list[b].name
+--			else
+--				return reca.ID < recb.ID
+--			end
+--		else
 			return recipe_list[a].name < recipe_list[b].name
-		end
+--		end
 	end
 
 	local function Sort_Location(a, b)
