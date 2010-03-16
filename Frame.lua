@@ -2742,15 +2742,21 @@ do
 
 	end
 
-	local function CheckMapDisplay(acquire_entry, flags)
+	-- Used for maplist
+	local map_data = {}
+
+	local function GetMapDisplay(acquire_type, acquire_info, flags)
 		local maptrainer = addon.db.profile.maptrainer
 		local mapquest = addon.db.profile.mapquest
 		local mapvendor = addon.db.profile.mapvendor
 		local mapmob = addon.db.profile.mapmob
 		local player_faction = Player.faction
-		local acquire_type = acquire_entry.type
 		local acquire_id = acquire_entry.ID
-		local display = false
+
+		map_data[acquire_id] = map_data[acquire_id] or {}
+
+		local map_entry = map_data[acquire_id]
+		map_entry.type = -1
 
 		if acquire_type == A.TRAINER and maptrainer then
 			local trainer = private.trainer_list[acquire_id]
@@ -2781,7 +2787,7 @@ do
 				return true
 			end
 		end
-		return display
+		return ((map_data.type > -1) and (map_data.ID > -1))
 	end
 
 	local INSTANCE_LOCATIONS = {
@@ -3015,7 +3021,8 @@ do
 	-- Input: An optional recipe ID
 	-- Output: Points are added to the maps
 	function addon:SetupMap(single_recipe)
-		if not TomTom then
+		-- Need to re-write this for the new acquire format. -Torhal
+		if TomTom or not TomTom then
 			return
 		end
 		local worldmap = addon.db.profile.worldmap
@@ -3039,9 +3046,10 @@ do
 
 		-- We're only getting a single recipe, not a bunch
 		if single_recipe then
-			-- loop through acquire methods, display each
-			for index, acquire in pairs(recipe_list[single_recipe]["Acquire"]) do
-				if CheckMapDisplay(acquire, recipe_list[single_recipe]["Flags"]) then
+			local recipe = recipe_list[single_recipe]
+
+			for acquire_type, acquire_info in pairs(recipe.acquire_data) do
+				if GetMapDisplay(acquire_type, acquire_info, recipe["Flags"]) then
 					maplist[acquire] = true
 				end
 			end
@@ -3054,8 +3062,8 @@ do
 
 				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					-- loop through acquire methods, display each
-					for index, acquire in pairs(recipe_entry["Acquire"]) do
-						if CheckMapDisplay(acquire, recipe_entry["Flags"]) then
+					for acquire_type, acquire_info in pairs(recipe_entry.acquire_data) do
+						if GetMapDisplay(acquire, recipe_entry["Flags"]) then
 							maplist[acquire] = true
 						end
 					end
