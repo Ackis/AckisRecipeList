@@ -866,7 +866,7 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["spell_link"]		= GetSpellLink(spell_id),
 		["name"]		= GetSpellInfo(spell_id),
 		["Flags"]		= {},				-- Create the flag space in the recipe_list
-		["Acquire"]		= {},				-- Create the Acquire space in the recipe_list
+		["acquire_data"]	= {},
 		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
 		["genesis"]		= genesis,
 		["optimal_level"]	= optimal_level or skill_level,
