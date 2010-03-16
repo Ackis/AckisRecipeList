@@ -911,7 +911,7 @@ end
 --- Adds acquire methods to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeAcquire
 -- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
--- @param SpellID The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
 -- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
 -- @return None, array is passed as a reference.
 do
@@ -923,165 +923,133 @@ do
 		return a < b
 	end
 
-	function addon:AddRecipeAcquire(SpellID, ...)
+	function addon:AddRecipeAcquire(spell_id, ...)
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
-		local index = 1				-- Index for the number of Acquire entries we have
 		local i = 1				-- Index for which variables we're parsing through
 		local recipe_list = private.recipe_list
-		local acquire = recipe_list[SpellID]["Acquire"]
+		local acquire_data = recipe_list[spell_id].acquire_data
 
 		twipe(location_list)
 		twipe(location_checklist)
 
 		while i < numvars do
+			local location
 			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
 
-			--@alpha@
-			if acquire[index] then
-				self:Print("AddRecipeAcquire called more than once for SpellID "..SpellID)
-			end
-			--@end-alpha@
-
-			acquire[index] = {
-				["type"] = acquire_type,
-				["ID"] = acquire_id
-			}
-			local location
-
 			if not acquire_type then
-				self:Print("SpellID: "..SpellID.." has no acquire type.")
-			elseif acquire_type == A.TRAINER then
-				local trainer_list = private.trainer_list
-
-				if not acquire_id then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": TrainerID is nil.")
-					--@end-alpha@
-				elseif not trainer_list[acquire_id] then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": TrainerID "..acquire_id.." does not exist in the database.")
-					--@end-alpha@
-				else
-					location = trainer_list[acquire_id].location
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-					trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
-					trainer_list[acquire_id].teaches[SpellID] = true
-				end
-			elseif acquire_type == A.VENDOR then
-				local vendor_list = private.vendor_list
-
-				if not acquire_id then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": VendorID is nil.")
-					--@end-alpha@
-				elseif not vendor_list[acquire_id] then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": VendorID "..acquire_id.." does not exist in the database.")
-					--@end-alpha@
-				else
-					location = vendor_list[acquire_id].location
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-					vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
-					vendor_list[acquire_id].sells[SpellID] = true
-				end
-			elseif acquire_type == A.MOB then
-				local mob_list = private.mob_list
-
-				if not acquire_id then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": MobID is nil.")
-					--@end-alpha@
-				elseif not mob_list[acquire_id] then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
-					--@end-alpha@
-				else
-					location = mob_list[acquire_id].location
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-					mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
-					mob_list[acquire_id].drop_list[SpellID] = true
-				end
-			elseif acquire_type == A.QUEST then
-				local quest_list = private.quest_list
-
-				if not acquire_id then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": QuestID is nil.")
-					--@end-alpha@
-				elseif not quest_list[acquire_id] then
-					--@alpha@
-					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
-					--@end-alpha@
-				else
-					location = quest_list[acquire_id].location
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
 				--@alpha@
-			elseif acquire_type == A.SEASONAL then
-				if not acquire_id then
-					self:Print("SpellID "..SpellID..": SeasonalID is nil.")
-				end
+				self:Printf("Spell ID: %d has no acquire type.", spell_id)
 				--@end-alpha@
-			elseif acquire_type == A.REPUTATION then
-				local vendor_list = private.vendor_list
-				local rep_level, rep_vendor = select(i, ...)
-				i = i + 2
+			else
+				acquire_data[acquire_type] = acquire_data[acquire_type] or {}
 
-				acquire[index].rep_level = rep_level
-				acquire[index].rep_vendor = rep_vendor
-				vendor_list[rep_vendor].sells = vendor_list[rep_vendor].sells or {}
-				vendor_list[rep_vendor].sells[SpellID] = true
+				local acquire = acquire_data[acquire_type]
 
-				location = vendor_list[rep_vendor].location
-
-				if not location_checklist[location] then
-					tinsert(location_list, location)
-					location_checklist[location] = true
-				end
-
-				--@alpha@
 				if not acquire_id then
-					self:Print("SpellID "..SpellID..": ReputationID is nil.")
-				elseif not private.reputation_list[acquire_id] then
-					self:Print("SpellID "..SpellID..": ReputationID "..acquire_id.." does not exist in the database.")
-				end
+					--@alpha@
+					self:Printf("Spell ID %d: %s ID is nil.", spell_id, private.acquire_strings[acquire_type])
+					--@end-alpha@
+				else
+					acquire[acquire_id] = true
 
-				if not rep_vendor then
-					self:Print("SpellID "..SpellID..": Reputation VendorID is nil.")
-				elseif not vendor_list[rep_vendor] then
-					self:Print("SpellID "..SpellID..": Reputation VendorID "..rep_vendor.." does not exist in the database.")
-				end
-				--@end-alpha@
-			elseif acquire_type == A.WORLD_DROP then
-				local location = L["World Drop"]
+					if acquire_type == A.TRAINER then
+						local trainer_list = private.trainer_list
 
-				if not location_checklist[location] then
-					tinsert(location_list, location)
-					location_checklist[location] = true
-				end
+						if not trainer_list[acquire_id] then
+							--@alpha@
+							self:Print("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
+							--@end-alpha@
+						else
+							location = trainer_list[acquire_id].location
+
+							trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
+							trainer_list[acquire_id].teaches[spell_id] = true
+						end
+					elseif acquire_type == A.VENDOR then
+						local vendor_list = private.vendor_list
+					
+						if not vendor_list[acquire_id] then
+							--@alpha@
+							self:Print("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
+							--@end-alpha@
+						else
+							location = vendor_list[acquire_id].location
+						
+							vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
+							vendor_list[acquire_id].sells[spell_id] = true
+						end
+					elseif acquire_type == A.MOB then
+						local mob_list = private.mob_list
+
+						if not mob_list[acquire_id] then
+							--@alpha@
+							self:Print("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
+							--@end-alpha@
+						else
+							location = mob_list[acquire_id].location
+						
+							mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
+							mob_list[acquire_id].drop_list[spell_id] = true
+						end
+					elseif acquire_type == A.QUEST then
+						local quest_list = private.quest_list
+
+						if not quest_list[acquire_id] then
+							--@alpha@
+							self:Print("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
+							--@end-alpha@
+						else
+							location = quest_list[acquire_id].location
+						end
+						--@alpha@
+					elseif acquire_type == A.SEASONAL then
+						--@end-alpha@
+					elseif acquire_type == A.REPUTATION then
+						local vendor_list = private.vendor_list
+						local rep_level, rep_vendor = select(i, ...)
+						i = i + 2
+
+						if not private.reputation_list[acquire_id] then
+							--@alpha@
+							self:Print("Spell ID "..spell_id..": ReputationID "..acquire_id.." does not exist in the database.")
+							--@end-alpha@
+						else
+							if not rep_vendor then
+								--@alpha@
+								self:Print("Spell ID "..spell_id..": Reputation VendorID is nil.")
+								--@end-alpha@
+							elseif not vendor_list[rep_vendor] then
+								--@alpha@
+								self:Print("Spell ID "..spell_id..": Reputation VendorID "..rep_vendor.." does not exist in the database.")
+								--@end-alpha@
+							else
+								acquire[acquire_id] = {}
+
+								local rep_data = acquire[acquire_id][rep_level] or {}
+								rep_data[rep_vendor] = true
+
+								acquire[acquire_id][rep_level] = rep_data
+
+								location = vendor_list[rep_vendor].location
+
+								vendor_list[rep_vendor].sells = vendor_list[rep_vendor].sells or {}
+								vendor_list[rep_vendor].sells[spell_id] = true
+							end
+						end
+					elseif acquire_type == A.WORLD_DROP then
+						local location = L["World Drop"]
+					end
+				end	-- acquire_id
+			end	-- acquire_type
+
+			if location and not location_checklist[location] then
+				tinsert(location_list, location)
+				location_checklist[location] = true
 			end
-			index = index + 1
-		end
-		-- Populate the location field with all the data
+		end	-- while
 		table.sort(location_list, LocationSort)
-		recipe_list[SpellID].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
+		recipe_list[spell_id].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
@@ -1818,7 +1786,7 @@ do
 				end
 
 				-- Find out which unique acquire methods we have
-				local acquire = recipe["Acquire"]
+				local acquire = recipe["acquire_data"]
 				twipe(acquire_list)
 
 				for i in pairs(acquire) do
