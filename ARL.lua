@@ -892,13 +892,13 @@ end
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeFlags
 -- @usage AckisRecipeList:AddRecipeFlags(28927, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
--- @param SpellID The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which the filter flags are being added to
+-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which the filter flags are being added to
 -- @param ... A listing of filtering flags.  See [[API/database-documentation]] for a listing of filter flags
 -- @return None, array is passed as a reference.
-function addon:AddRecipeFlags(SpellID, ...)
+function addon:AddRecipeFlags(spell_id, ...)
 	-- flags are defined in Documentation.lua
 	local numvars = select('#',...)
-	local flags = private.recipe_list[SpellID]["Flags"]
+	local flags = private.recipe_list[spell_id]["Flags"]
 
 	-- Find out how many flags we're adding
 	for i = 1, numvars, 1 do
