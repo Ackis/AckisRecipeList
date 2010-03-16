@@ -2146,7 +2146,6 @@ do
 		local insert_index = 1
 
 		local recipe_list = private.recipe_list
-		local reputations = private.reputation_list
 		local FAC = private.faction_ids
 
 		local is_alliance = Player.faction == BFAC["Alliance"]
@@ -2166,25 +2165,27 @@ do
 				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					-- Determine if the player has an appropiate level in any applicable faction
 					-- to learn the recipe.
-					local acquire_info = recipe_entry["Acquire"]
+					local acquire_data = recipe_entry.acquire_data
 					local has_faction = true
 
-					for index in pairs(acquire_info) do
-						if acquire_info[index].type == A.REPUTATION then
-							local rep_id = acquire_info[index].ID
+					for acquire_type, acquire_info in pairs(acquire_data) do
+						if acquire_type == A.REPUTATION then
+							for rep_id, rep_info in pairs(acquire_info) do
+								for rep_level in pairs(rep_info) do
+									if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+										rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+									elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+										rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+									end
+									local rep_name = private.reputation_list[rep_id].name
 
-							if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-								rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-							elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-								rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-							end
-							local rep_name = reputations[rep_id].name
-
-							if not player_rep[rep_name] or player_rep[rep_name] < acquire_info[index].rep_level then
-								has_faction = false
-							else
-								has_faction = true
-								break
+									if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+										has_faction = false
+									else
+										has_faction = true
+										break
+									end
+								end
 							end
 						end
 					end
@@ -2226,7 +2227,8 @@ do
 					t.recipe_id = recipe_index
 					t.is_header = true
 
-					if expand_acquires and recipe_entry["Acquire"] then
+--					if expand_acquires and recipe_entry.acquire_data then
+					if expand_acquires then
 						-- we have acquire information for this. push the title entry into the strings
 						-- and start processing the acquires
 						t.is_expanded = true
@@ -2259,7 +2261,7 @@ do
 		local num_entries = #self.entries
 		local display_lines = NUM_RECIPE_LINES
 
-		if num_entries == display_lines or num_entries < display_lines then
+		if num_entries <= display_lines then
 			display_lines = num_entries / 2
 		end
 
