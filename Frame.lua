@@ -688,167 +688,182 @@ do
 		local playerFaction = Player.faction
 		local rep_list = private.reputation_list
 
-		for index, acquire in pairs(recipe_entry["Acquire"]) do
-			local acquire_type = acquire.type
+		for acquire_type, acquire_info in pairs(recipe_entry.acquire_data) do
 			local display_tip = false
 
 			if acquire_type == A.TRAINER then
-				local trainer = private.trainer_list[acquire.ID]
+				for id_num in pairs(acquire_info) do
+					local trainer = private.trainer_list[id_num]
 
-				color_1 = addon:hexcolor("TRAINER")
-				display_tip, color_2 = GetTipFactionInfo(trainer.faction)
-
-				if display_tip then
-					local coord_text = ""
-
-					if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-						coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
-					end
-					ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
-
-					color_1 = addon:hexcolor("NORMAL")
-					color_2 = addon:hexcolor("HIGH")
-
-					ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
-				end
-			elseif acquire_type == A.VENDOR then
-				local vendor = private.vendor_list[acquire.ID]
-				local faction
-
-				color_1 = addon:hexcolor("VENDOR")
-				display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
-
-				if display_tip then
-					local coord_text = ""
-
-					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-						coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
-					end
-					ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
-
-					color_1 = addon:hexcolor("NORMAL")
-					color_2 = addon:hexcolor("HIGH")
-
-					ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
-				elseif faction then
-					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
-				end
-			elseif acquire_type == A.MOB then
-				local mob = private.mob_list[acquire.ID]
-				local coord_text = ""
-
-				if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-					coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
-				end
-				color_1 = addon:hexcolor("MOBDROP")
-				color_2 = addon:hexcolor("HORDE")
-
-				ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
-
-				color_1 = addon:hexcolor("NORMAL")
-				color_2 = addon:hexcolor("HIGH")
-
-				ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
-			elseif acquire_type == A.QUEST then
-				local quest = private.quest_list[acquire.ID]
-
-				if quest then
-					local faction
-
-					color_1 = addon:hexcolor("QUEST")
-					display_tip, color_2, faction = GetTipFactionInfo(quest.faction)
+					color_1 = addon:hexcolor("TRAINER")
+					display_tip, color_2 = GetTipFactionInfo(trainer.faction)
 
 					if display_tip then
 						local coord_text = ""
 
-						if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-							coord_text = "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")"
+						if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+							coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
 						end
-						ttAdd(0, -1, false, L["Quest"], color_1, quest.name, color_2)
+						ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
 
 						color_1 = addon:hexcolor("NORMAL")
 						color_2 = addon:hexcolor("HIGH")
 
-						ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
+						ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
+					end
+				end
+			elseif acquire_type == A.VENDOR then
+				for id_num in pairs(acquire_info) do
+					local vendor = private.vendor_list[id_num]
+					local faction
+
+					color_1 = addon:hexcolor("VENDOR")
+					display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
+
+					if display_tip then
+						local coord_text = ""
+
+						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+							coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+						end
+						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
+
+						color_1 = addon:hexcolor("NORMAL")
+						color_2 = addon:hexcolor("HIGH")
+
+						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
 					elseif faction then
-						ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
+						ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+					end
+				end
+			elseif acquire_type == A.MOB then
+				for id_num in pairs(acquire_info) do
+					local mob = private.mob_list[id_num]
+					local coord_text = ""
+
+					if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+						coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
+					end
+					color_1 = addon:hexcolor("MOBDROP")
+					color_2 = addon:hexcolor("HORDE")
+
+					ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
+
+					color_1 = addon:hexcolor("NORMAL")
+					color_2 = addon:hexcolor("HIGH")
+
+					ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
+				end
+			elseif acquire_type == A.QUEST then
+				for id_num in pairs(acquire_info) do
+					local quest = private.quest_list[id_num]
+
+					if quest then
+						local faction
+
+						color_1 = addon:hexcolor("QUEST")
+						display_tip, color_2, faction = GetTipFactionInfo(quest.faction)
+
+						if display_tip then
+							local coord_text = ""
+
+							if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+								coord_text = "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")"
+							end
+							ttAdd(0, -1, false, L["Quest"], color_1, quest.name, color_2)
+
+							color_1 = addon:hexcolor("NORMAL")
+							color_2 = addon:hexcolor("HIGH")
+
+							ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
+						elseif faction then
+							ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
+						end
 					end
 				end
 			elseif acquire_type == A.SEASONAL then
-				color_1 = addon:hexcolor("SEASON")
-				ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[acquire.ID].name, color_1)
+				for id_num in pairs(acquire_info) do
+					color_1 = addon:hexcolor("SEASON")
+					ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[id_num].name, color_1)
+				end
 			elseif acquire_type == A.REPUTATION then
-				local repvendor = private.vendor_list[acquire.rep_vendor]
-				local coord_text = ""
+				for rep_id, rep_info in pairs(acquire_info) do
+					for rep_level, level_info in pairs(rep_info) do
+						for vendor_id in pairs(level_info) do
+							local rep_vendor = private.vendor_list[vendor_id]
+							local coord_text = ""
 
-				if repvendor.coord_x ~= 0 and repvendor.coord_y ~= 0 then
-					coord_text = "(" .. repvendor.coord_x .. ", " .. repvendor.coord_y .. ")"
-				end
-				local repfac = rep_list[acquire.ID]
-				local repname = repfac.name
+							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+								coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
+							end
+							color_1 = addon:hexcolor("REP")
+							color_2 = addon:hexcolor("NORMAL")
+							ttAdd(0, -1, false, _G.REPUTATION, color_1, rep_list[rep_id].name, color_2)
 
-				color_1 = addon:hexcolor("REP")
-				color_2 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, false, _G.REPUTATION, color_1, repname, color_2)
+							local rStr = ""
 
-				local rStr = ""
-				local rep_level = acquire.rep_level
+							if rep_level == 0 then
+								rStr = FACTION_NEUTRAL
+								color_1 = addon:hexcolor("NEUTRAL")
+							elseif rep_level == 1 then
+								rStr = BFAC["Friendly"]
+								color_1 = addon:hexcolor("FRIENDLY")
+							elseif rep_level == 2 then
+								rStr = BFAC["Honored"]
+								color_1 = addon:hexcolor("HONORED")
+							elseif rep_level == 3 then
+								rStr = BFAC["Revered"]
+								color_1 = addon:hexcolor("REVERED")
+							else
+								rStr = BFAC["Exalted"]
+								color_1 = addon:hexcolor("EXALTED")
+							end
+							display_tip, color_2 = GetTipFactionInfo(rep_vendor.faction)
 
-				if rep_level == 0 then
-					rStr = FACTION_NEUTRAL
-					color_1 = addon:hexcolor("NEUTRAL")
-				elseif rep_level == 1 then
-					rStr = BFAC["Friendly"]
-					color_1 = addon:hexcolor("FRIENDLY")
-				elseif rep_level == 2 then
-					rStr = BFAC["Honored"]
-					color_1 = addon:hexcolor("HONORED")
-				elseif rep_level == 3 then
-					rStr = BFAC["Revered"]
-					color_1 = addon:hexcolor("REVERED")
-				else
-					rStr = BFAC["Exalted"]
-					color_1 = addon:hexcolor("EXALTED")
-				end
-				display_tip, color_2 = GetTipFactionInfo(repvendor.faction)
+							if display_tip then
+								ttAdd(1, -2, false, rStr, color_1, rep_vendor.name, color_2)
 
-				if display_tip then
-					ttAdd(1, -2, false, rStr, color_1, repvendor.name, color_2)
+								color_1 = addon:hexcolor("NORMAL")
+								color_2 = addon:hexcolor("HIGH")
 
-					color_1 = addon:hexcolor("NORMAL")
-					color_2 = addon:hexcolor("HIGH")
-
-					ttAdd(2, -2, true, repvendor.location, color_1, coord_text, color_2)
+								ttAdd(2, -2, true, rep_vendor.location, color_1, coord_text, color_2)
+							end
+						end
+					end
 				end
 			elseif acquire_type == A.WORLD_DROP then
-				local acquire_id = acquire.ID
+				for id_num in pairs(acquire_info) do
+					color_1 = quality_color
 
-				color_1 = quality_color
-
-				ttAdd(0, -1, false, L["World Drop"], color_1)
+					ttAdd(0, -1, false, L["World Drop"], color_1)
+				end
 			elseif acquire_type == A.CUSTOM then
-				ttAdd(0, -1, false, private.custom_list[acquire.ID].name, addon:hexcolor("NORMAL"))
+				for id_num in pairs(acquire_info) do
+					ttAdd(0, -1, false, private.custom_list[id_num].name, addon:hexcolor("NORMAL"))
+				end
 			elseif acquire_type == A.PVP then
-				local vendor = private.vendor_list[acquire.ID]
-				local faction
+				for id_num in pairs(acquire_info) do
+					local vendor = private.vendor_list[id_num]
+					local faction
 
-				color_1 = addon:hexcolor("VENDOR")
-				display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
+					color_1 = addon:hexcolor("VENDOR")
+					display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
 
-				if display_tip then
-					local coord_text = ""
+					if display_tip then
+						local coord_text = ""
 
-					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-						coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+							coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+						end
+						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
+
+						color_1 = addon:hexcolor("NORMAL")
+						color_2 = addon:hexcolor("HIGH")
+
+						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
+					elseif faction then
+						ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 					end
-					ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
-
-					color_1 = addon:hexcolor("NORMAL")
-					color_2 = addon:hexcolor("HIGH")
-
-					ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
-				elseif faction then
-					ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
 				end
 				--@alpha@
 			else	-- Unhandled
