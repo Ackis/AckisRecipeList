@@ -689,10 +689,9 @@ do
 		local rep_list = private.reputation_list
 
 		for acquire_type, acquire_info in pairs(recipe_entry.acquire_data) do
-			local display_tip = false
-
 			if acquire_type == A.TRAINER then
 				for id_num in pairs(acquire_info) do
+					local display_tip = false
 					local trainer = private.trainer_list[id_num]
 
 					color_1 = addon:hexcolor("TRAINER")
@@ -715,6 +714,7 @@ do
 			elseif acquire_type == A.VENDOR then
 				for id_num in pairs(acquire_info) do
 					local vendor = private.vendor_list[id_num]
+					local display_tip = false
 					local faction
 
 					color_1 = addon:hexcolor("VENDOR")
@@ -759,6 +759,7 @@ do
 					local quest = private.quest_list[id_num]
 
 					if quest then
+						local display_tip = false
 						local faction
 
 						color_1 = addon:hexcolor("QUEST")
@@ -790,6 +791,7 @@ do
 				for rep_id, rep_info in pairs(acquire_info) do
 					for rep_level, level_info in pairs(rep_info) do
 						for vendor_id in pairs(level_info) do
+							local display_tip = false
 							local rep_vendor = private.vendor_list[vendor_id]
 							local coord_text = ""
 
@@ -843,6 +845,7 @@ do
 				end
 			elseif acquire_type == A.PVP then
 				for id_num in pairs(acquire_info) do
+					local display_tip = false
 					local vendor = private.vendor_list[id_num]
 					local faction
 
