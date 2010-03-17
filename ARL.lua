@@ -932,7 +932,7 @@ do
 		twipe(location_list)
 		twipe(location_checklist)
 
-		while i < numvars do
+		while i <= numvars do
 			local location
 			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
