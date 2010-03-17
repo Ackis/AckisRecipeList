@@ -793,41 +793,40 @@ do
 						for vendor_id in pairs(level_info) do
 							local display_tip = false
 							local rep_vendor = private.vendor_list[vendor_id]
-							local coord_text = ""
 
-							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-								coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
-							end
-							color_1 = addon:hexcolor("REP")
-							color_2 = addon:hexcolor("NORMAL")
-							ttAdd(0, -1, false, _G.REPUTATION, color_1, rep_list[rep_id].name, color_2)
-
-							local rStr = ""
-
-							if rep_level == 0 then
-								rStr = FACTION_NEUTRAL
-								color_1 = addon:hexcolor("NEUTRAL")
-							elseif rep_level == 1 then
-								rStr = BFAC["Friendly"]
-								color_1 = addon:hexcolor("FRIENDLY")
-							elseif rep_level == 2 then
-								rStr = BFAC["Honored"]
-								color_1 = addon:hexcolor("HONORED")
-							elseif rep_level == 3 then
-								rStr = BFAC["Revered"]
-								color_1 = addon:hexcolor("REVERED")
-							else
-								rStr = BFAC["Exalted"]
-								color_1 = addon:hexcolor("EXALTED")
-							end
 							display_tip, color_2 = GetTipFactionInfo(rep_vendor.faction)
 
 							if display_tip then
-								ttAdd(1, -2, false, rStr, color_1, rep_vendor.name, color_2)
+								ttAdd(0, -1, false, _G.REPUTATION, addon:hexcolor("REP"), rep_list[rep_id].name, addon:hexcolor("NORMAL"))
+
+								local rep_str = ""
+
+								if rep_level == 0 then
+									rep_str = FACTION_NEUTRAL
+									color_1 = addon:hexcolor("NEUTRAL")
+								elseif rep_level == 1 then
+									rep_str = BFAC["Friendly"]
+									color_1 = addon:hexcolor("FRIENDLY")
+								elseif rep_level == 2 then
+									rep_str = BFAC["Honored"]
+									color_1 = addon:hexcolor("HONORED")
+								elseif rep_level == 3 then
+									rep_str = BFAC["Revered"]
+									color_1 = addon:hexcolor("REVERED")
+								else
+									rep_str = BFAC["Exalted"]
+									color_1 = addon:hexcolor("EXALTED")
+								end
+								ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
 
 								color_1 = addon:hexcolor("NORMAL")
 								color_2 = addon:hexcolor("HIGH")
 
+								local coord_text = ""
+
+								if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+									coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
+								end
 								ttAdd(2, -2, true, rep_vendor.location, color_1, coord_text, color_2)
 							end
 						end
