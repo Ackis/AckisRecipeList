@@ -1645,20 +1645,21 @@ do
 			if name then
 				-- Lets scan recipes only on vendors
 				local matchtext = strmatch(name, "%a+: ")
+
 				-- Check to see if we're dealing with a recipe
 				if matchtext and RECIPE_NAMES[strlower(matchtext)] then
 					local recipename = gsub(name, "%a+\: ", "")	-- Get rid of the first part of the item
-					local spellid = reverse_lookup[recipename]	-- Find out what spell ID we're using
-					-- Do the scan if we have the spell ID
-					if spellid then
+					local spell_id = reverse_lookup[recipename]	-- Find out what spell ID we're using
+
+					if spell_id then
 						added = true
-						local ttscantext = addon:TooltipScanRecipe(spellid, true, true)
+						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
 
 						if ttscantext then
 							tinsert(output, ttscantext)
 						end
 						-- Ok now we know it's a vendor, lets check the database to see if the vendor is listed as an acquire method.
-						local acquire = recipe_list[spellid]["Acquire"]
+						local acquire = recipe_list[spell_id]["Acquire"]
 						local found = false
 
 						for i in pairs(acquire) do
@@ -1671,7 +1672,7 @@ do
 						end
 
 						if not found then
-							tinsert(output, "Vendor ID missing from " .. spellid)
+							tinsert(output, "Vendor ID missing from " .. spell_id)
 						end
 					else
 						--@debug@
@@ -1720,7 +1721,7 @@ do
 end	-- do
 --- Parses a specific recipe in the database, and scanning its tooltip
 -- @name AckisRecipeList:TooltipScanRecipe
--- @param spellid The [[[http://www.wowwiki.com/SpellLink|Spell ID]]] of the recipe being added to the database
+-- @param spell_id The [[[http://www.wowwiki.com/SpellLink|Spell ID]]] of the recipe being added to the database
 -- @param is_vendor Boolean to determine if we're viewing a vendor or not
 -- @param is_largescan Boolean to determine if we're doing a large scan
 -- @return Recipe has its tooltips scanned
