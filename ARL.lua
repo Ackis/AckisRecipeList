@@ -1051,6 +1051,53 @@ do
 		table.sort(location_list, LocationSort)
 		recipe_list[spell_id].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
+
+	function addon:AddRecipeTrainer(spell_id, ...)
+		local num_vars = select('#', ...)
+		local cur_var = 1
+
+		local recipe = private.recipe_list[spell_id]
+		local trainer_list = private.trainer_list
+
+		local acquire_data = recipe.acquire_data
+		acquire_data[A.TRAINER] = acquire_data[A.TRAINER] or {}
+
+		local acquire = acquire_data[A.TRAINER]
+
+		twipe(location_list)
+		twipe(location_checklist)
+
+		while cur_var <= num_vars do
+			local location
+			local trainer_id = select(cur_var, ...)
+			cur_var = cur_var + 1
+
+			acquire[trainer_id] = true
+
+			if not trainer_list[trainer_id] then
+				--@alpha@
+				self:Print("Spell ID "..spell_id..": TrainerID "..trainer_id.." does not exist in the database.")
+				--@end-alpha@
+			else
+				local trainer = trainer_list[trainer_id]
+				location = trainer.location
+
+				trainer.teaches = trainer.teaches or {}
+				trainer.teaches[spell_id] = true
+			end
+
+			if location and not location_checklist[location] then
+				tinsert(location_list, location)
+				location_checklist[location] = true
+			end
+		end
+		local locations = recipe_list[spell_id].locations
+		locations = locations or ""
+
+		table.sort(location_list, LocationSort)
+		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
+	end
+	end
 end	-- do block
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
