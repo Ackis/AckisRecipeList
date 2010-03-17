@@ -1097,6 +1097,65 @@ do
 		table.sort(location_list, LocationSort)
 		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
+
+	function addon:AddRecipeRepVendor(spell_id, faction_id, rep_level, ...)
+		local num_vars = select('#', ...)
+		local cur_var = 1
+
+		local recipe = private.recipe_list[spell_id]
+		local vendor_list = private.vendor_list
+
+		local acquire_data = recipe.acquire_data
+		acquire_data[A.REPUTATION] = acquire_data[A.REPUTATION] or {}
+
+		local acquire = acquire_data[A.REPUTATION]
+		acquire[faction_id] = acquire[faction_id] or {}
+
+		local faction = acquire[faction_id]
+		faction[rep_level] = faction[rep_level] or {}
+
+		twipe(location_list)
+		twipe(location_checklist)
+
+		while cur_var <= num_vars do
+			local location
+			local vendor_id = select(cur_var, ...)
+			cur_var = cur_var + 1
+
+			if not private.reputation_list[faction_id] then
+				--@alpha@
+				self:Printf("Spell ID %d: Faction ID %d does not exist in the database.", spell_id, faction_id)
+				--@end-alpha@
+			else
+				if not vendor_id then
+					--@alpha@
+					self:Print("Spell ID "..spell_id..": Reputation Vendor ID is nil.")
+					--@end-alpha@
+				elseif not vendor_list[vendor_id] then
+					--@alpha@
+					self:Print("Spell ID "..spell_id..": Reputation Vendor ID "..vendor_id.." does not exist in the database.")
+					--@end-alpha@
+				else
+					faction[rep_level][vendor_id] = true
+
+					local rep_vendor = vendor_list[vendor_id]
+					location = rep_vendor.location
+
+					rep_vendor.sells = rep_vendor.sells or {}
+					rep_vendor.sells[spell_id] = true
+				end
+			end
+
+			if location and not location_checklist[location] then
+				tinsert(location_list, location)
+				location_checklist[location] = true
+			end
+		end
+		local locations = recipe.locations
+		locations = locations or ""
+
+		table.sort(location_list, LocationSort)
+		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
