@@ -2165,26 +2165,24 @@ do
 				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					-- Determine if the player has an appropiate level in any applicable faction
 					-- to learn the recipe.
-					local acquire_data = recipe_entry.acquire_data
+					local rep_data = recipe_entry.acquire_data[A.REPUTATION]
 					local has_faction = true
 
-					for acquire_type, acquire_info in pairs(acquire_data) do
-						if acquire_type == A.REPUTATION then
-							for rep_id, rep_info in pairs(acquire_info) do
-								for rep_level in pairs(rep_info) do
-									if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-										rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-									elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-										rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-									end
-									local rep_name = private.reputation_list[rep_id].name
+					if rep_data then
+						for rep_id, rep_info in pairs(rep_data) do
+							for rep_level in pairs(rep_info) do
+								if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+									rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+								elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+									rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+								end
+								local rep_name = private.reputation_list[rep_id].name
 
-									if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
-										has_faction = false
-									else
-										has_faction = true
-										break
-									end
+								if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+									has_faction = false
+								else
+									has_faction = true
+									break
 								end
 							end
 						end
@@ -2227,7 +2225,6 @@ do
 					t.recipe_id = recipe_index
 					t.is_header = true
 
---					if expand_acquires and recipe_entry.acquire_data then
 					if expand_acquires then
 						-- we have acquire information for this. push the title entry into the strings
 						-- and start processing the acquires
