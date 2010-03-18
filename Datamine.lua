@@ -1662,16 +1662,26 @@ do
 						if ttscantext then
 							tinsert(output, ttscantext)
 						end
-						-- Ok now we know it's a vendor, lets check the database to see if the vendor is listed as an acquire method.
-						local acquire = recipe_list[spell_id]["Acquire"]
+
+						-- Check the database to see if the vendor is listed as an acquire method.
+						local acquire = recipe_list[spell_id]["acquire_data"]
+						local vendor_data = acquire[A.VENDOR]
+						local rep_data = acquire[A.REPUTATION]
 						local found = false
 
-						for i in pairs(acquire) do
-							local atype = acquire[i].type
-
-							if ((atype == private.acquire_types.VENDOR and acquire[i].ID == targetID)
-							    or (atype == private.acquire_types.REPUTATION and acquire[i].rep_vendor == targetID)) then
-								found = true
+						if vendor_data then
+							for id_num in pairs(vendor_data) do
+								if id_num == targetID then
+									found = true
+									break
+								end
+							end
+						elseif rep_data then
+							for id_num in pairs(rep_data) do
+								if id_num == targetID then
+									found = true
+									break
+								end
 							end
 						end
 
