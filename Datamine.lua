@@ -2283,9 +2283,10 @@ do
 			self:Print("Recipe " .. recipe_name .. " has no reverse lookup")
 			return
 		end
+		local recipe = scan_data.recipe_list[spell_id]
+		local flags = recipe["Flags"]
+		local acquire = recipe["acquire_data"]
 
-		local flags = scan_data.recipe_list[spell_id]["Flags"]
-		local acquire = scan_data.recipe_list[spell_id]["Acquire"]
 		twipe(missing_flags)
 		twipe(extra_flags)
 		twipe(output)
@@ -2392,12 +2393,14 @@ do
 		if repid and not flags[repid] then
 			tinsert(missing_flags, repid)
 
-			for i, j in pairs(acquire) do
-				if acquire[j].type == private.acquire_types.REPUTATION then
-					local tmpacquire = acquire[j]
+			local rep_data = acquire[A.REPUTATION]
 
-					if tmpacquire.rep_level ~= scan_data.repidlevel then
-						tinsert(output, "Rep level wrong. " .. recipe_name .. " (" .. spell_id .. ")")
+			if rep_data then
+				for rep_id, rep_info in pairs(acquire_info) do
+					for rep_level, level_info in pairs(rep_info) do
+						if rep_level ~= scan_data.repidlevel then
+							tinsert(output, "Rep level wrong. " .. recipe_name .. " (" .. spell_id .. ")")
+						end
 					end
 				end
 			end
