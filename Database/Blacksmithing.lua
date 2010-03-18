@@ -860,9 +860,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16667, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.PLATE)
 	self:AddRecipeAcquire(16667, A.QUEST, 5127)
 
-	-- Whitesoul Helm -- 16724
+	-- Whitesoul Helm -- 16724 SPECIAL WORLD DROP
 	AddRecipe(16724, 300, 12633, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16724, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(16724, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(16724, A.WORLD_DROP, 2)
 
 	-- Radiant Leggings -- 16725
@@ -1210,9 +1210,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(27829, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(27829, A.WORLD_DROP, 2)
 
-	-- Persuader -- 27830
+	-- Persuader -- 27830 SPECIAL WORLD DROP
 	AddRecipe(27830, 300, 22384, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(27830, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
+	self:AddRecipeFlags(27830, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	self:AddRecipeAcquire(27830, A.WORLD_DROP, 2)
 
 	-- Sageblade -- 27832 ---- SPECIAL WORLD DROP
@@ -1392,12 +1392,12 @@ function addon:InitBlacksmithing()
 
 	-- Felsteel Leggings -- 29620
 	AddRecipe(29620, 360, 23518, Q.RARE, V.TBC, 360, 370, 380, 390)
-	self:AddRecipeFlags(29620, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29620, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29620, A.MOB, 20900)
 
 	-- Felsteel Helm -- 29621
 	AddRecipe(29621, 365, 23519, Q.RARE, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29621, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29621, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29621, A.MOB, 18830)
 
 	-- Gauntlets of the Iron Tower -- 29622
@@ -1460,19 +1460,19 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29657, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.HELLFIRE)
 	self:AddRecipeAcquire(29657, A.REPUTATION, FAC.HONOR_HOLD, REP.EXALTED, 17657, A.REPUTATION, FAC.THRALLMAR, REP.EXALTED, 17585)
 
-	-- Felfury Gauntlets -- 29658
+	-- Felfury Gauntlets -- 29658 SPECIAL WORLD DROP
 	AddRecipe(29658, 365, 23531, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29658, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(29658, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(29658, A.WORLD_DROP, 2)
 
-	-- Steelgrip Gauntlets -- 29662
+	-- Steelgrip Gauntlets -- 29662  SPECIAL WORLD DROP
 	AddRecipe(29662, 365, 23533, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29662, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(29662, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(29662, A.WORLD_DROP, 4)
 
-	-- Storm Helm -- 29663
+	-- Storm Helm -- 29663 SPECIAL WORLD DROP
 	AddRecipe(29663, 365, 23534, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(29663, A.WORLD_DROP, 4)
 
 	-- Helm of the Stalwart Defender -- 29664
@@ -1480,9 +1480,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29664, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29664, A.WORLD_DROP, 4)
 
-	-- Oathkeeper's Helm -- 29668
+	-- Oathkeeper's Helm -- 29668 SPECIAL WORLD DROP
 	AddRecipe(29668, 365, 23536, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29668, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29668, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29668, A.WORLD_DROP, 4)
 
 	-- Black Felsteel Bracers -- 29669 -- SPECIAL WORLD DROP
@@ -1500,34 +1500,34 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29672, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(29672, A.WORLD_DROP, 4)
 
-	-- Felsteel Longblade -- 29692
+	-- Felsteel Longblade -- 29692 SPECIAL WORLD DROP
 	AddRecipe(29692, 365, 23540, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29692, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
+	self:AddRecipeFlags(29692, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeAcquire(29692, A.WORLD_DROP, 2)
 
-	-- Khorium Champion -- 29693
+	-- Khorium Champion -- 29693  SPECIAL WORLD DROP
 	AddRecipe(29693, 365, 23541, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29693, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
+	self:AddRecipeFlags(29693, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeAcquire(29693, A.WORLD_DROP, 4)
 
-	-- Fel Edged Battleaxe -- 29694
+	-- Fel Edged Battleaxe -- 29694 SPECIAL WORLD DROP
 	AddRecipe(29694, 365, 23542, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29694, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
+	self:AddRecipeFlags(29694, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	self:AddRecipeAcquire(29694, A.WORLD_DROP, 4)
 
-	-- Felsteel Reaper -- 29695
+	-- Felsteel Reaper -- 29695 SPECIAL WORLD DROP
 	AddRecipe(29695, 365, 23543, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29695, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
+	self:AddRecipeFlags(29695, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeAcquire(29695, A.WORLD_DROP, 4)
 
-	-- Runic Hammer -- 29696
+	-- Runic Hammer -- 29696 SPECIAL WORLD DROP
 	AddRecipe(29696, 365, 23544, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29696, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
+	self:AddRecipeFlags(29696, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
 	self:AddRecipeAcquire(29696, A.WORLD_DROP, 2)
 
-	-- Fel Hardened Maul -- 29697
+	-- Fel Hardened Maul -- 29697  SPECIAL WORLD DROP
 	AddRecipe(29697, 365, 23546, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29697, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
+	self:AddRecipeFlags(29697, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeAcquire(29697, A.WORLD_DROP, 4)
 
 	-- Eternium Runed Blade -- 29698 SPECIAL WORLD DROP
@@ -1540,9 +1540,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29699, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	self:AddRecipeAcquire(29699, A.WORLD_DROP, 2)
 
-	-- Hand of Eternity -- 29700
+	-- Hand of Eternity -- 29700 SPECIAL WORLD DROP
 	AddRecipe(29700, 365, 23556, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29700, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
+	self:AddRecipeFlags(29700, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
 	self:AddRecipeAcquire(29700, A.WORLD_DROP, 2)
 
 	-- Lesser Ward of Shielding -- 29728
