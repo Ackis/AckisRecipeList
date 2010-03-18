@@ -951,8 +951,6 @@ do
 					self:Printf("Spell ID %d: %s ID is nil.", spell_id, private.acquire_strings[acquire_type])
 					--@end-alpha@
 				else
-					acquire[acquire_id] = true
-
 					if acquire_type == A.TRAINER then
 						local trainer_list = private.trainer_list
 
@@ -961,6 +959,8 @@ do
 							self:Print("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							acquire[acquire_id] = true
+
 							location = trainer_list[acquire_id].location
 
 							trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
@@ -974,6 +974,7 @@ do
 							self:Print("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							acquire[acquire_id] = true
 							location = vendor_list[acquire_id].location
 						
 							vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
@@ -987,6 +988,7 @@ do
 							self:Print("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							acquire[acquire_id] = true
 							location = mob_list[acquire_id].location
 						
 							mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
@@ -1000,14 +1002,16 @@ do
 							self:Print("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							acquire[acquire_id] = true
 							location = quest_list[acquire_id].location
 						end
 						--@alpha@
 					elseif acquire_type == A.SEASONAL then
+						acquire[acquire_id] = true
 						--@end-alpha@
 					elseif acquire_type == A.REPUTATION then
 						local vendor_list = private.vendor_list
-						local rep_level, rep_vendor = select(i, ...)
+						local rep_level, vendor_id = select(i, ...)
 						i = i + 2
 
 						if not private.reputation_list[acquire_id] then
@@ -1015,30 +1019,34 @@ do
 							self:Print("Spell ID "..spell_id..": ReputationID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
-							if not rep_vendor then
+							if not vendor_id then
 								--@alpha@
-								self:Print("Spell ID "..spell_id..": Reputation VendorID is nil.")
+								self:Print("Spell ID "..spell_id..": Reputation Vendor ID is nil.")
 								--@end-alpha@
-							elseif not vendor_list[rep_vendor] then
+							elseif not vendor_list[vendor_id] then
 								--@alpha@
-								self:Print("Spell ID "..spell_id..": Reputation VendorID "..rep_vendor.." does not exist in the database.")
+								self:Print("Spell ID "..spell_id..": Reputation Vendor ID "..vendor_id.." does not exist in the database.")
 								--@end-alpha@
 							else
-								acquire[acquire_id] = {}
+								acquire[acquire_id] = acquire[acquire_id] or {}
 
-								local rep_data = acquire[acquire_id][rep_level] or {}
-								rep_data[rep_vendor] = true
+								local faction = acquire[acquire_id]
+								faction[rep_level] = faction[rep_level] or {}
+								faction[rep_level][vendor_id] = true
 
-								acquire[acquire_id][rep_level] = rep_data
+								local rep_vendor = vendor_list[vendor_id]
+								location = rep_vendor.location
 
-								location = vendor_list[rep_vendor].location
-
-								vendor_list[rep_vendor].sells = vendor_list[rep_vendor].sells or {}
-								vendor_list[rep_vendor].sells[spell_id] = true
+								rep_vendor.sells = rep_vendor.sells or {}
+								rep_vendor.sells[spell_id] = true
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
-						local location = L["World Drop"]
+						acquire[acquire_id] = true
+						location = L["World Drop"]
+					else
+						-- Handle CUSTOM, etc.
+						acquire[acquire_id] = true
 					end
 				end	-- acquire_id
 			end	-- acquire_type
