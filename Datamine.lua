@@ -1472,7 +1472,7 @@ do
 	local FUNCTION_FORMATS = {
 		[A.TRAINER]	= "self:AddRecipeTrainer(%d, %s)",
 		[A.VENDOR]	= "self:AddRecipeVendor(%d, %s)",
-		[A.QUEST]	= "self:AddRecipeQuest(%d, %s)",
+		[A.MOB]		= "self:AddRecipeMobDrop(%d, %s)",
 	}
 
 	local function RecipeDump(id, single)
@@ -1524,7 +1524,7 @@ do
 						tinsert(output, string.format("self:AddRecipeRepVendor(%d, %s, %s, %s)", recipe.spell_id, faction_string, rep_string, values))
 					end
 				end
-			elseif acquire_type == A.TRAINER or acquire_type == A.VENDOR then
+			elseif FUNCTION_FORMATS[acquire_type] then
 				local values
 
 				for id_num in pairs(acquire_info) do

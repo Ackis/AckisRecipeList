@@ -1060,38 +1060,36 @@ do
 		recipe_list[spell_id].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 
-	function addon:AddRecipeTrainer(spell_id, ...)
+	local function GenericAddRecipeAcquire(spell_id, acquire_type, type_string, unit_list, ...)
 		local num_vars = select('#', ...)
 		local cur_var = 1
-
 		local recipe = private.recipe_list[spell_id]
-		local trainer_list = private.trainer_list
 
 		local acquire_data = recipe.acquire_data
-		acquire_data[A.TRAINER] = acquire_data[A.TRAINER] or {}
+		acquire_data[acquire_type] = acquire_data[acquire_type] or {}
 
-		local acquire = acquire_data[A.TRAINER]
+		local acquire = acquire_data[acquire_type]
 
 		twipe(location_list)
 		twipe(location_checklist)
 
 		while cur_var <= num_vars do
 			local location
-			local trainer_id = select(cur_var, ...)
+			local id_num = select(cur_var, ...)
 			cur_var = cur_var + 1
 
-			acquire[trainer_id] = true
+			acquire[id_num] = true
 
-			if not trainer_list[trainer_id] then
+			if not unit_list[id_num] then
 				--@alpha@
-				self:Print("Spell ID "..spell_id..": TrainerID "..trainer_id.." does not exist in the database.")
+				self:Printf("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
 				--@end-alpha@
 			else
-				local trainer = trainer_list[trainer_id]
-				location = trainer.location
+				local unit = unit_list[id_num]
+				location = unit.location
 
-				trainer.teaches = trainer.teaches or {}
-				trainer.teaches[spell_id] = true
+				unit.item_list = unit.item_list or {}
+				unit.item_list[spell_id] = true
 			end
 
 			if location and not location_checklist[location] then
@@ -1104,54 +1102,21 @@ do
 
 		table.sort(location_list, LocationSort)
 		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
+	end
+
+	function addon:AddRecipeMobDrop(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.MOB, "Mob", private.mob_list, ...)
+	end
+
+	function addon:AddRecipeTrainer(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.TRAINER, "Trainer", private.trainer_list, ...)
 	end
 
 	function addon:AddRecipeVendor(spell_id, ...)
-		local num_vars = select('#', ...)
-		local cur_var = 1
-
-		local recipe = private.recipe_list[spell_id]
-		local vendor_list = private.vendor_list
-
-		local acquire_data = recipe.acquire_data
-		acquire_data[A.VENDOR] = acquire_data[A.VENDOR] or {}
-
-		local acquire = acquire_data[A.VENDOR]
-
-		twipe(location_list)
-		twipe(location_checklist)
-
-		while cur_var <= num_vars do
-			local location
-			local vendor_id = select(cur_var, ...)
-			cur_var = cur_var + 1
-
-			acquire[vendor_id] = true
-
-			if not vendor_list[vendor_id] then
-				--@alpha@
-				self:Print("Spell ID "..spell_id..": Vendor ID "..vendor_id.." does not exist in the database.")
-				--@end-alpha@
-			else
-				local vendor = vendor_list[vendor_id]
-				location = vendor.location
-
-				vendor.sells = vendor.sells or {}
-				vendor.sells[spell_id] = true
-			end
-
-			if location and not location_checklist[location] then
-				tinsert(location_list, location)
-				location_checklist[location] = true
-			end
-		end
-		local locations = recipe.locations
-		locations = locations or ""
-
-		table.sort(location_list, LocationSort)
-		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
+		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Vendor", private.vendor_list, ...)
 	end
 
+	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.
 	function addon:AddRecipeRepVendor(spell_id, faction_id, rep_level, ...)
 		local num_vars = select('#', ...)
 		local cur_var = 1
@@ -1195,8 +1160,8 @@ do
 					local rep_vendor = vendor_list[vendor_id]
 					location = rep_vendor.location
 
-					rep_vendor.sells = rep_vendor.sells or {}
-					rep_vendor.sells[spell_id] = true
+					rep_vendor.item_list = rep_vendor.item_list or {}
+					rep_vendor.item_list[spell_id] = true
 				end
 			end
 
