@@ -478,8 +478,8 @@ function addon:OnInitialize()
 			       local recipe_list = private.recipe_list
 			       local shifted = IsShiftKeyDown()
 
-			       if mob and mob.drop_list then
-				       for spell_id in pairs(mob.drop_list) do
+			       if mob and mob.item_list then
+				       for spell_id in pairs(mob.item_list) do
 					       local recipe = recipe_list[spell_id]
 					       local skill_level = Player.professions[GetSpellInfo(recipe.profession)]
 
@@ -493,8 +493,8 @@ function addon:OnInitialize()
 			       end
 			       local vendor = private.vendor_list[GUID]
 
-			       if vendor and vendor.sells then
-				       for spell_id in pairs(vendor.sells) do
+			       if vendor and vendor.item_list then
+				       for spell_id in pairs(vendor.item_list) do
 					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player.has_scanned[recipe_prof]
@@ -514,8 +514,8 @@ function addon:OnInitialize()
 			       end
 			       local trainer = private.trainer_list[GUID]
 
-			       if trainer and trainer.teaches then
-				       for spell_id in pairs(trainer.teaches) do
+			       if trainer and trainer.item_list then
+				       for spell_id in pairs(trainer.item_list) do
 					       local recipe = recipe_list[spell_id]
 					       local recipe_prof = GetSpellInfo(recipe.profession)
 					       local scanned = Player.has_scanned[recipe_prof]
@@ -963,8 +963,8 @@ do
 
 							location = trainer_list[acquire_id].location
 
-							trainer_list[acquire_id].teaches = trainer_list[acquire_id].teaches or {}
-							trainer_list[acquire_id].teaches[spell_id] = true
+							trainer_list[acquire_id].item_list = trainer_list[acquire_id].item_list or {}
+							trainer_list[acquire_id].item_list[spell_id] = true
 						end
 					elseif acquire_type == A.VENDOR then
 						local vendor_list = private.vendor_list
@@ -977,8 +977,8 @@ do
 							acquire[acquire_id] = true
 							location = vendor_list[acquire_id].location
 						
-							vendor_list[acquire_id].sells = vendor_list[acquire_id].sells or {}
-							vendor_list[acquire_id].sells[spell_id] = true
+							vendor_list[acquire_id].item_list = vendor_list[acquire_id].item_list or {}
+							vendor_list[acquire_id].item_list[spell_id] = true
 						end
 					elseif acquire_type == A.MOB then
 						local mob_list = private.mob_list
@@ -991,8 +991,8 @@ do
 							acquire[acquire_id] = true
 							location = mob_list[acquire_id].location
 						
-							mob_list[acquire_id].drop_list = mob_list[acquire_id].drop_list or {}
-							mob_list[acquire_id].drop_list[spell_id] = true
+							mob_list[acquire_id].item_list = mob_list[acquire_id].item_list or {}
+							mob_list[acquire_id].item_list[spell_id] = true
 						end
 					elseif acquire_type == A.QUEST then
 						local quest_list = private.quest_list
@@ -1037,8 +1037,8 @@ do
 								local rep_vendor = vendor_list[vendor_id]
 								location = rep_vendor.location
 
-								rep_vendor.sells = rep_vendor.sells or {}
-								rep_vendor.sells[spell_id] = true
+								rep_vendor.item_list = rep_vendor.item_list or {}
+								rep_vendor.item_list[spell_id] = true
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
