@@ -1447,7 +1447,6 @@ do
 
 	local FILTER_STRINGS = private.filter_strings
 	local ACQUIRE_STRINGS = private.acquire_strings
-	local ACQUIRE_TYPES = private.acquire_types
 	local REP_LEVELS = private.rep_level_strings
 	local FACTION_NAMES = private.faction_strings
 	local QUAL_STRINGS = private.item_quality_names
@@ -1470,22 +1469,28 @@ do
 	end
 	local NUM_FILTER_FLAGS = 128
 
-	local function RecipeDump(id, single)
-		local data = private.recipe_list[id or 1]
+	local FUNCTION_FORMATS = {
+		[A.TRAINER]	= "self:AddRecipeTrainer(%d, %s)",
+		[A.VENDOR]	= "self:AddRecipeVendor(%d, %s)",
+		[A.QUEST]	= "self:AddRecipeQuest(%d, %s)",
+	}
 
-		if single and not data then
+	local function RecipeDump(id, single)
+		local recipe = private.recipe_list[id or 1]
+
+		if single and not recipe then
 			addon:Print("Invalid recipe ID.")
 			return
 		end
 		local flag_string
-		local specialty = not data.specialty and "" or (", "..data.specialty)
-		tinsert(output, string.format("-- %s -- %d", data.name, data.spell_id))
+		local specialty = not recipe.specialty and "" or (", "..recipe.specialty)
+		tinsert(output, string.format("-- %s -- %d", recipe.name, recipe.spell_id))
 		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-					      data.spell_id, data.skill_level, tostring(data.item_id), "Q."..QUAL_STRINGS[data.quality], "V."..V[data.genesis],
-					      data.optimal_level, data.medium_level, data.easy_level, data.trivial_level, specialty))
+					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), "Q."..QUAL_STRINGS[recipe.quality], "V."..V[recipe.genesis],
+					      recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
 		for i = 1, NUM_FILTER_FLAGS, 1 do
-			if data.Flags[i] then
+			if recipe.Flags[i] then
 				if not flag_string then
 					flag_string = "F."..FILTER_STRINGS[i]
 				else
@@ -1493,37 +1498,54 @@ do
 				end
 			end
 		end
-		tinsert(output, string.format("self:AddRecipeFlags(%d, %s)", data.spell_id, flag_string))
+		tinsert(output, string.format("self:AddRecipeFlags(%d, %s)", recipe.spell_id, flag_string))
 
 		flag_string = nil
 
-		for index, acquire in ipairs(data.Acquire) do
-			local acquire_type = acquire.type
+		for acquire_type, acquire_info in pairs(recipe.acquire_data) do
+			if acquire_type == A.REPUTATION then
+				for rep_id, rep_info in pairs(acquire_info) do
+					local faction_string = FACTION_NAMES[rep_id]
 
-			if acquire_type == ACQUIRE_TYPES.REPUTATION then
-				local faction_string = FACTION_NAMES[acquire.ID]
+					if not faction_string then
+						faction_string = rep_id
+						addon:Printf("Recipe %d (%s) - no string for faction %d", recipe.spell_id, recipe.name, rep_id)
+					else
+						faction_string = "FAC."..faction_string
+					end
 
-				if not faction_string then
-					faction_string = acquire.ID
-					addon:Printf("Recipe %d (%s) - no string for faction %d", data.spell_id, data.name, acquire.ID)
-				else
-					faction_string = "FAC."..faction_string
+					for rep_level, level_info in pairs(rep_info) do
+						local rep_string = "REP."..REP_LEVELS[rep_level or 1]
+						local values
+
+						for vendor_id in pairs(level_info) do
+							values = values and (values..", "..vendor_id) or vendor_id
+						end
+						tinsert(output, string.format("self:AddRecipeRepVendor(%d, %s, %s, %s)", recipe.spell_id, faction_string, rep_string, values))
+						tinsert(output, "")
+					end
 				end
+			elseif acquire_type == A.TRAINER or acquire_type == A.VENDOR then
+				local values
 
-				if not flag_string then
-					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
-				else
-					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..faction_string..", ".."REP."..REP_LEVELS[acquire.rep_level or 1]..", "..acquire.rep_vendor
+				for id_num in pairs(acquire_info) do
+					values = values and (values..", "..id_num) or id_num
 				end
+				tinsert(output, string.format(FUNCTION_FORMATS[acquire_type], recipe.spell_id, values))
 			else
-				if not flag_string then
-					flag_string = "A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
-				else
-					flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire.type]..", "..acquire.ID
+				for id_num in pairs(acquire_info) do
+					if not flag_string then
+						flag_string = "A."..ACQUIRE_STRINGS[acquire_type]..", "..id_num
+					else
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire_type]..", "..id_num
+					end
 				end
 			end
 		end
-		tinsert(output, string.format("self:AddRecipeAcquire(%d, %s)", data.spell_id, flag_string))
+
+		if flag_string then
+			tinsert(output, string.format("self:AddRecipeAcquire(%d, %s)", recipe.spell_id, flag_string))
+		end
 		tinsert(output, "")
 	end
 
