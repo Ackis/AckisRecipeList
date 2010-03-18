@@ -1091,7 +1091,53 @@ do
 				location_checklist[location] = true
 			end
 		end
-		local locations = recipe_list[spell_id].locations
+		local locations = recipe.locations
+		locations = locations or ""
+
+		table.sort(location_list, LocationSort)
+		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
+	end
+
+	function addon:AddRecipeVendor(spell_id, ...)
+		local num_vars = select('#', ...)
+		local cur_var = 1
+
+		local recipe = private.recipe_list[spell_id]
+		local vendor_list = private.vendor_list
+
+		local acquire_data = recipe.acquire_data
+		acquire_data[A.VENDOR] = acquire_data[A.VENDOR] or {}
+
+		local acquire = acquire_data[A.VENDOR]
+
+		twipe(location_list)
+		twipe(location_checklist)
+
+		while cur_var <= num_vars do
+			local location
+			local vendor_id = select(cur_var, ...)
+			cur_var = cur_var + 1
+
+			acquire[vendor_id] = true
+
+			if not vendor_list[vendor_id] then
+				--@alpha@
+				self:Print("Spell ID "..spell_id..": Vendor ID "..vendor_id.." does not exist in the database.")
+				--@end-alpha@
+			else
+				local vendor = vendor_list[vendor_id]
+				location = vendor.location
+
+				vendor.sells = vendor.sells or {}
+				vendor.sells[spell_id] = true
+			end
+
+			if location and not location_checklist[location] then
+				tinsert(location_list, location)
+				location_checklist[location] = true
+			end
+		end
+		local locations = recipe.locations
 		locations = locations or ""
 
 		table.sort(location_list, LocationSort)
