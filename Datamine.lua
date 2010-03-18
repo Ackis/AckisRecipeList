@@ -65,6 +65,7 @@ local GetSpellInfo = GetSpellInfo
 -- Constants
 -------------------------------------------------------------------------------
 local F = private.filter_flags
+local A = private.acquire_types
 
 -------------------------------------------------------------------------------
 -- Tradeskill professions
