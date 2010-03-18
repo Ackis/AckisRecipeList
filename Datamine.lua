@@ -1522,7 +1522,6 @@ do
 							values = values and (values..", "..vendor_id) or vendor_id
 						end
 						tinsert(output, string.format("self:AddRecipeRepVendor(%d, %s, %s, %s)", recipe.spell_id, faction_string, rep_string, values))
-						tinsert(output, "")
 					end
 				end
 			elseif acquire_type == A.TRAINER or acquire_type == A.VENDOR then
