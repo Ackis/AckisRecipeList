@@ -1215,9 +1215,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(27830, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	self:AddRecipeAcquire(27830, A.WORLD_DROP, 2)
 
-	-- Sageblade -- 27832
+	-- Sageblade -- 27832 ---- SPECIAL WORLD DROP
 	AddRecipe(27832, 300, 22383, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(27832, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.CASTER, F.ONE_HAND, F.SWORD)
+	self:AddRecipeFlags(27832, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.ONE_HAND, F.SWORD)
 	self:AddRecipeAcquire(27832, A.WORLD_DROP, 2)
 
 	-- Icebane Breastplate -- 28242
@@ -1485,14 +1485,14 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29668, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29668, A.WORLD_DROP, 4)
 
-	-- Black Felsteel Bracers -- 29669
+	-- Black Felsteel Bracers -- 29669 -- SPECIAL WORLD DROP
 	AddRecipe(29669, 365, 23537, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29669, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(29669, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(29669, A.WORLD_DROP, 4)
 
-	-- Bracers of the Green Fortress -- 29671
+	-- Bracers of the Green Fortress -- 29671  SPECIAL WORLD DROP
 	AddRecipe(29671, 365, 23538, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29671, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29671, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29671, A.WORLD_DROP, 4)
 
 	-- Blessed Bracers -- 29672
@@ -1530,14 +1530,14 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29697, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeAcquire(29697, A.WORLD_DROP, 4)
 
-	-- Eternium Runed Blade -- 29698
+	-- Eternium Runed Blade -- 29698 SPECIAL WORLD DROP
 	AddRecipe(29698, 365, 23554, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29698, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
+	self:AddRecipeFlags(29698, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
 	self:AddRecipeAcquire(29698, A.WORLD_DROP, 4)
 
-	-- Dirge -- 29699
+	-- Dirge -- 29699  SPECIAL WORLD DROP
 	AddRecipe(29699, 365, 23555, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29699, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
+	self:AddRecipeFlags(29699, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	self:AddRecipeAcquire(29699, A.WORLD_DROP, 2)
 
 	-- Hand of Eternity -- 29700
