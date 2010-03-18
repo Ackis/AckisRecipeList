@@ -1227,19 +1227,21 @@ do
 		local noteachflag = false
 
 		for i in pairs(recipe_list) do
-			local i_name = recipe_list[i].name
-			local acquire = recipe_list[i]["Acquire"]
-			local flags = recipe_list[i]["Flags"]
+			local recipe = recipe_list[i]
+			local i_name = recipe.name
+			local acquire = recipe["acquire_data"]
+			local flags = recipe["Flags"]
 
-			-- If the trainer teaches this recipe
+			local train_data = acquire[A.TRAINER]
+
 			if info[i_name] then
 				local found = false
 
-				-- Parse acquire info
-				for j in pairs(acquire) do
-					if acquire[j].type == private.acquire_types.TRAINER then
-						if acquire[j].ID == targetID then
+				if train_data then
+					for id_num in pairs(train_data) do
+						if id_num == targetID then
 							found = true
+							break
 						end
 					end
 				end
@@ -1256,10 +1258,11 @@ do
 			else
 				local found = false
 
-				for j in pairs(acquire) do
-					if acquire[j].type == private.acquire_types.TRAINER then
-						if acquire[j].ID == targetID then
+				if train_data then
+					for id_num in pairs(train_data) do
+						if id_num == targetID then
 							found = true
+							break
 						end
 					end
 				end
