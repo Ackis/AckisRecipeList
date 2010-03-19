@@ -171,6 +171,40 @@ local function fullOptions()
 									  }
 								  end,
 						},
+						spacer3 = {
+							order	= 50,
+							type	= "description",
+							name	= "\n",
+						},
+						header4 = {
+							order	= 51,
+							type	= "header",
+							name	= L["Text Dump Options"],
+						},
+						text_dump_desc =	{
+							order	= 52,
+							type	= "description",
+							name	= L["TEXTDUMP_OPTIONS_DESC"] .. "\n",
+						},
+						textdump = {
+							order	= 53,
+							type	= "select",
+							name	= L["Text Dump"],
+							desc	= L["TEXT_DUMP_DESC"],
+							get	= function()
+									  return addon.db.profile.textdumpformat
+								  end,
+							set	= function(info, name)
+									  addon.db.profile.textdumpformat = name
+								  end,
+							values	= function()
+									  return {
+										  Name = _G.NAME,
+										  Comma = L["CSV"],
+										  BBCode = L["BBCode"],
+									  }
+								  end,
+						},
 					},
 				},
 			},

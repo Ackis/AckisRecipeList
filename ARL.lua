@@ -219,6 +219,11 @@ function addon:OnInitialize()
 			mapquest = true,
 
 			-------------------------------------------------------------------------------
+			-- Text Dump Options
+			-------------------------------------------------------------------------------
+			textdumpformat = "BBCode",
+
+			-------------------------------------------------------------------------------
 			-- Recipe Exclusion
 			-------------------------------------------------------------------------------
 			exclusionlist = {},
@@ -1841,7 +1846,7 @@ do
 
 	---Dumps the recipe database in a format that is readable to humans.
 	function addon:GetTextDump(profession)
-		local output = "BBCode"
+		local output = addon.db.profile.textdumpformat
 		twipe(text_table)
 
 		if not output or output == "Comma" then
