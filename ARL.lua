@@ -1859,7 +1859,7 @@ do
 
 		for recipe_id in pairs(recipe_list) do
 			local recipe = recipe_list[recipe_id]
-			local recipe_prof = GetSpellInfo(entry.profession)
+			local recipe_prof = GetSpellInfo(recipe.profession)
 
 			if recipe_prof == profession then
 				-- CSV
