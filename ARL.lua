@@ -1916,11 +1916,10 @@ do
 				end
 
 				-- Find out which unique acquire methods we have
-				local acquire = recipe["acquire_data"]
+				local acquire_data = recipe["acquire_data"]
 				twipe(acquire_list)
 
-				for i in pairs(acquire) do
-					local acquire_type = acquire[i].type
+				for acquire_type in pairs(acquire_data) do
 					acquire_list[ACQUIRE_NAMES[acquire_type]] = true
 				end
 
