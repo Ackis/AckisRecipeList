@@ -1862,10 +1862,6 @@ do
 			local recipe_prof = GetSpellInfo(recipe.profession)
 
 			if recipe_prof == profession then
-				--Name
-				if output == "Name" then
-					tinsert(text_table, recipe.name.."\n")
-				end
 				-- CSV
 				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
@@ -1889,6 +1885,9 @@ do
 					elseif recipe.is_known then
 						tinsert(text_table, "\nRecipe Flags:\n[list]")
 					end
+				--Name
+				elseif output == "Name" then
+					tinsert(text_table, recipe.name.."\n")
 				end
 
 				-- Add in all the filter flags
