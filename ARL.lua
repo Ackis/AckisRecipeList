@@ -1823,7 +1823,7 @@ do
 					[111]	= BFAC["The Sha'tar"],
 					[112]	= BFAC["Shattered Sun Offensive"],
 					[113]	= BFAC["Sporeggar"],
-					[114]	= BFAC["Violet Eye"],
+					[114]	= BFAC["The Violet Eye"],
 					[115]	= BFAC["Argent Crusade"],
 					[116]	= BFAC["Frenzyheart Tribe"],
 					[117]	= BFAC["Knights of the Ebon Blade"],
@@ -1862,6 +1862,10 @@ do
 			local recipe_prof = GetSpellInfo(recipe.profession)
 
 			if recipe_prof == profession then
+				--Name
+				if output == "Name" then
+					tinsert(text_table, recipe.name.."\n")
+				end
 				-- CSV
 				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
