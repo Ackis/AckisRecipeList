@@ -1761,6 +1761,11 @@ end	-- do
 -- @param is_vendor Boolean to determine if we're viewing a vendor or not
 -- @param is_largescan Boolean to determine if we're doing a large scan
 -- @return Recipe has its tooltips scanned
+
+
+-- Table to store scanned information. Wiped and re-used every scan.
+local scan_data = {}
+
 do
 
 	---------------------------------------------------------------------------------------------------------
@@ -1876,23 +1881,23 @@ do
 		end
 		ARLDatamineTT:SetOwner(WorldFrame, "ANCHOR_NONE")
 		GameTooltip_SetDefaultAnchor(ARLDatamineTT, UIParent)
-		ARLDatamineTT:SetHyperlink(recipe_link)	-- Link exists, so load the tooltip for scanning
 
-		-- Lets check to see if it's a recipe tooltip
+		ARLDatamineTT:SetHyperlink(recipe_link)
+
+		-- Check to see if this is a recipe tooltip.
 		local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
 		local match_text = strmatch(text, "%a+: ")
 
-		-- Check to see if we're dealing with a recipe
 		if not RECIPE_NAMES[match_text] then
 			ARLDatamineTT:Hide()
 			return
 		end
 		local reverse_lookup = CreateReverseLookup(recipe_list)
 
-		self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, false)
-
 		local item_id = SPELL_ITEM[spell_id]
 		local QUALITY_STRINGS = private.item_quality_names
+
+		wipe(scan_data)
 
 		if item_id and not DO_NOT_SCAN[item_id] then
 			local item_name, item_link, item_rarity = GetItemInfo(item_id)
@@ -1901,8 +1906,8 @@ do
 				if item_rarity ~= recipe.quality then
 					tinsert(output, item_name.. " has the WRONG QUALITY: "..QUALITY_STRINGS[recipe.quality].." should be "..QUALITY_STRINGS[item_rarity]..".")
 				end
-				ARLDatamineTT:SetHyperlink("item:" .. item_id .. ":0:0:0:0:0:0:0")
-				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor, true)
+				ARLDatamineTT:SetHyperlink(item_link)
+				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 			else
 				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
 			end
@@ -2059,27 +2064,18 @@ do
 		[23]	= "Ammo", 	[24]	= "Fist Weapon", 	[25]	= "Gun",
 	}
 
-	-- Table to store scanned information. Wiped and re-used every scan.
-	local scan_data = {}
-
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
 	-- @name AckisRecipeList:ScanToolTip
 	-- @param name The name of the recipe
 	-- @param recipe_list Recipe database
 	-- @param reverse_lookup Reverse lookup database
 	-- @param is_vendor Boolean to indicate if we're scanning a vendor
-	-- @param is_item Boolean to indicate if we're scanning an item tooltip
 	-- @return Scans a tooltip, and outputs the missing or extra filter flags
-	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor, is_item)
-		-- We only want to wipe the table if we're scanning a new entry (not an item associated with a spell ID)
-		if not is_item then
-			twipe(scan_data)
-		end
+	function addon:ScanToolTip(name, recipe_list, reverse_lookup, is_vendor)
 		scan_data.match_name = name
 		scan_data.recipe_list = recipe_list
 		scan_data.reverse_lookup = reverse_lookup
 		scan_data.is_vendor = is_vendor
-		scan_data.is_item = is_item
 
 		-- Parse all the lines of the tooltip
 		for i = 1, ARLDatamineTT:NumLines(), 1 do
@@ -2099,9 +2095,9 @@ do
 			-- The recipe binding is within the first few lines of the tooltip always
 			if strmatch(text, "binds when picked up") then
 				if (i < 3) then
-					scan_data.boprecipe = true
+					scan_data.recipe_bop = true
 				else
-					scan_data.bopitem = true
+					scan_data.item_bop = true
 				end
 			end
 
@@ -2297,12 +2293,16 @@ do
 	--- Prints out the results of the tooltip scan.
 	-- @name AckisRecipeList:PrintScanResults
 	function addon:PrintScanResults()
+		if not scan_data.match_name then
+			return
+		end
+
 		-- Parse the recipe database until we get a match on the name
 		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
 		local spell_id = scan_data.reverse_lookup[recipe_name]
 
 		if not spell_id then
-			self:Print("Recipe " .. recipe_name .. " has no reverse lookup")
+			self:Print(recipe_name .. " has no reverse lookup")
 			return
 		end
 		local recipe = scan_data.recipe_list[spell_id]
@@ -2340,55 +2340,53 @@ do
 		end
 
 		-- BoP Item
-		if scan_data.is_item then
-			if scan_data.bopitem and not flags[F.IBOP] then
-				tinsert(missing_flags, "37 (BoP Item)")
-				-- If it's a BoP item and flags BoE is set, mark it as extra
-				if flags[F.IBOE] then
-					tinsert(extra_flags, "36 (BoE Item)")
-				end
-
-				-- If it's a BoP item and flags BoA is set, mark it as extra
-				if flags[F.IBOA] then
-					tinsert(extra_flags, "38 (BoA Item)")
-				end
-				-- BoE Item, assuming it's not BoA
-			elseif not flags[F.IBOE] and not scan_data.bopitem then
-				tinsert(missing_flags, "36 (BoE Item)")
-				-- If it's a BoE item and flags BoP is set, mark it as extra
-				if flags[F.IBOP] then
-					tinsert(extra_flags, "37 (BoP Item)")
-				end
-				-- If it's a BoE item and flags BoA is set, mark it as extra
-				if flags[F.IBOA] then
-					tinsert(extra_flags, "38 (BoA Item)")
-				end
+		if scan_data.item_bop and not flags[F.IBOP] then
+			tinsert(missing_flags, "37 (BoP Item)")
+			-- If it's a BoP item and flags BoE is set, mark it as extra
+			if flags[F.IBOE] then
+				tinsert(extra_flags, "36 (BoE Item)")
 			end
-		else
-			-- BoP Recipe
-			if scan_data.boprecipe and not flags[F.RBOP] then
-				tinsert(missing_flags, "41 (BoP Recipe)")
-				-- If it's a BoP recipe and flags BoE is set, mark it as extra
-				if flags[F.RBOE] then
-					tinsert(extra_flags, "40 (BoE Recipe)")
-				end
-				-- If it's a BoP recipe and flags BoA is set, mark it as extra
-				if flags[F.RBOA] then
-					tinsert(extra_flags, "42 (BoA Recipe)")
-				end
-				-- Not BoP recipe, assuming it's not BoA - trainer-taught recipes don't have bind information,  skip those.
-			elseif not flags[F.TRAINER] and not flags[F.RBOE] and not scan_data.boprecipe then
-				tinsert(missing_flags, "40 (BoE Recipe)")
 
-				-- If it's a BoE recipe and flags BoP is set, mark it as extra
-				if flags[F.RBOP] then
-					tinsert(extra_flags, "41 (BoP Recipe)")
-				end
+			-- If it's a BoP item and flags BoA is set, mark it as extra
+			if flags[F.IBOA] then
+				tinsert(extra_flags, "38 (BoA Item)")
+			end
+			-- BoE Item, assuming it's not BoA
+		elseif not flags[F.IBOE] and not scan_data.item_bop then
+			tinsert(missing_flags, "36 (BoE Item)")
+			-- If it's a BoE item and flags BoP is set, mark it as extra
+			if flags[F.IBOP] then
+				tinsert(extra_flags, "37 (BoP Item)")
+			end
+			-- If it's a BoE item and flags BoA is set, mark it as extra
+			if flags[F.IBOA] then
+				tinsert(extra_flags, "38 (BoA Item)")
+			end
+		end
 
-				-- If it's a BoE recipe and flags BoA is set, mark it as extra
-				if flags[F.RBOA] then
-					tinsert(extra_flags, "42 (BoA Recipe)")
-				end
+		-- BoP Recipe
+		if scan_data.recipe_bop and not flags[F.RBOP] then
+			tinsert(missing_flags, "41 (BoP Recipe)")
+			-- If it's a BoP recipe and flags BoE is set, mark it as extra
+			if flags[F.RBOE] then
+				tinsert(extra_flags, "40 (BoE Recipe)")
+			end
+			-- If it's a BoP recipe and flags BoA is set, mark it as extra
+			if flags[F.RBOA] then
+				tinsert(extra_flags, "42 (BoA Recipe)")
+			end
+			-- Not BoP recipe, assuming it's not BoA - trainer-taught recipes don't have bind information,  skip those.
+		elseif not flags[F.TRAINER] and not flags[F.RBOE] and not scan_data.recipe_bop then
+			tinsert(missing_flags, "40 (BoE Recipe)")
+
+			-- If it's a BoE recipe and flags BoP is set, mark it as extra
+			if flags[F.RBOP] then
+				tinsert(extra_flags, "41 (BoP Recipe)")
+			end
+
+			-- If it's a BoE recipe and flags BoA is set, mark it as extra
+			if flags[F.RBOA] then
+				tinsert(extra_flags, "42 (BoA Recipe)")
 			end
 		end
 
@@ -2434,12 +2432,12 @@ do
 
 			-- Add a string of the missing flag numbers
 			if #missing_flags > 0 then
-				tinsert(output, "Missing flags: " .. tconcat(missing_flags, ", "))
+				tinsert(output, "    Missing flags: " .. tconcat(missing_flags, ", "))
 			end
 
 			-- Add a string of the extra flag numbers
 			if #extra_flags > 0 then
-				tinsert(output, "Extra flags: " .. tconcat(extra_flags, ", "))
+				tinsert(output, "    Extra flags: " .. tconcat(extra_flags, ", "))
 			end
 
 			local found_type = false
