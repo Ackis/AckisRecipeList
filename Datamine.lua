@@ -1677,8 +1677,9 @@ do
 					local spell_id = reverse_lookup[recipename]	-- Find out what spell ID we're using
 
 					if spell_id then
-						added = true
 						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
+
+						added = true
 
 						if ttscantext then
 							tinsert(output, ttscantext)
@@ -1848,15 +1849,15 @@ do
 		local medium = recipe.medium_level
 		local easy = recipe.easy_level
 		local trivial = recipe.trivial_level
-		local SkillLevel = recipe.skill_level
+		local skill_level = recipe.skill_level
 
 		if not optimal then
 			tinsert(output, "No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
 		else
 			-- Highest level is greater than the skill of the recipe
-			if optimal > SkillLevel then
+			if optimal > skill_level then
 				tinsert(output, "Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
-			elseif optimal < SkillLevel then
+			elseif optimal < skill_level then
 				tinsert(output, "Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 
@@ -1869,7 +1870,7 @@ do
 
 		if not recipe_link then
 			if recipe.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
-				self:Print("Missing spell_link for ID " .. spell_id .. " - " .. recipe_name .. " (Normal for DK abilities.")
+				self:Printf("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return
 		end
@@ -2409,7 +2410,7 @@ do
 
 		-- Reputations
 		local repid = scan_data.repid
-		local addedtotable = false
+		local found_problem = false
 
 		if repid and not flags[repid] then
 			tinsert(missing_flags, repid)
@@ -2428,7 +2429,7 @@ do
 		end
 
 		if #missing_flags > 0 or #extra_flags > 0 then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, recipe_name .. " (" .. spell_id .. ")")
 
 			-- Add a string of the missing flag numbers
@@ -2457,49 +2458,49 @@ do
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if not flags[F.ALLIANCE] and not flags[F.HORDE] then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
 		if (not flags[F.TRAINER] and not flags[F.VENDOR] and not flags[F.INSTANCE] and not flags[F.RAID] and not flags[F.SEASONAL]
 		    and not flags[F.QUEST] and not flags[F.PVP] and not flags[F.WORLD_DROP] and not flags[F.MOB_DROP] and not flags[F.DISC]) then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
 		if not flags[F.RBOE] and not flags[F.RBOP] and not flags[F.RBOA] then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
 		if not flags[F.IBOE] and not flags[F.IBOP] and not flags[F.IBOA] then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spell_id .. ")")
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
 		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_PLAYER_FLAG[spell_id] then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spell_id .. ").")
 		end
 
 		if scan_data.specialty then
 			if not scan_data.recipe_list[spell_id].specialty then
-				addedtotable = true
+				found_problem = true
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Missing Specialty: " .. scan_data.specialty)
 			elseif scan_data.recipe_list[spell_id].specialty ~= scan_data.specialty then
 				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
 			end
 		elseif scan_data.recipe_list[spell_id].specialty then
-			addedtotable = true
+			found_problem = true
 			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id].specialty)
 		end
 
-		if addedtotable then
+		if found_problem then
 			return tconcat(output, "\n")
 		else
 			return nil
