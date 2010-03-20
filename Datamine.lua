@@ -1046,26 +1046,9 @@ local NO_PLAYER_FLAG = {
 local function LoadRecipe()
 	local recipe_list = private.recipe_list
 
-	if not recipe_list then
-		if addon.db.profile.autoloaddb then
-			local dbloaded
-			dbloaded, recipe_list = addon:InitRecipeData()
-
-			if not dbloaded then return end
-
-			for idx, prof in pairs(PROFESSIONS) do
-				addon:InitializeRecipe(prof)
-			end
-		else
-			addon:Print(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-	else
-		-- Recipe DB exists, we just need to populate it now
-		if addon.db.profile.autoloaddb then
-			for idx, prof in pairs(PROFESSIONS) do
-				addon:InitializeRecipe(prof)
-			end
+	if addon.db.profile.autoloaddb then
+		for idx, prof in pairs(PROFESSIONS) do
+			addon:InitializeRecipe(prof)
 		end
 	end
 	return recipe_list
