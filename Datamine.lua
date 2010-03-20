@@ -90,7 +90,7 @@ local PROFESSIONS = {
 -- Table is Public Domain now
 -- Look up table of Spell IDs to the recipe which trains them.
 -------------------------------------------------------------------------------
-local SPELL_ITEM = {
+local SPELL_TO_RECIPE_MAP = {
 	-------------------------------------------------------------------------------
 	-- First Aid
 	-------------------------------------------------------------------------------
@@ -1877,7 +1877,7 @@ do
 		end
 		local reverse_lookup = GetReverseLookup(recipe_list)
 
-		local item_id = SPELL_ITEM[spell_id]
+		local item_id = SPELL_TO_RECIPE_MAP[spell_id]
 		local QUALITY_STRINGS = private.item_quality_names
 
 		wipe(scan_data)
@@ -1899,8 +1899,8 @@ do
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			local flags = recipe["Flags"]
 
+				tinsert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
 			if flags[F.VENDOR] or flags[F.INSTANCE] or flags[F.RAID] then
-				tinsert(output, "Spell/Item ID: " .. spell_id .. " does not exist in the SPELL_ITEM table.")
 			end
 		end
 		ARLDatamineTT:Hide()
