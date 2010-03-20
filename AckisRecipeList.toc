@@ -60,7 +60,7 @@ embeds.xml
 #@end-no-lib-strip@
 
 # Localization files
-local.xml
+locale.xml
 
 Constants.lua
 ARL.lua
