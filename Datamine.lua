@@ -589,6 +589,7 @@ local SPELL_TO_RECIPE_MAP = {
 	[67144] = 47636,	[67147] = 47637,
 }
 
+
 -------------------------------------------------------------------------------
 -- Look up table of spell IDs for recipes which do not have a player flag
 -- BASICALLY A TEMPORARY STORAGE FOR IDS, SO WE CAN SEE CLEANER SCANS AND WHAT NOT,
@@ -1892,15 +1893,19 @@ do
 				ARLDatamineTT:SetHyperlink(item_link)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 			else
-				tinsert(output, "Item ID: " .. item_id .. " not in cache.  If you have Querier use /iq " .. item_id)
+				local querier_string = _G.Querier and string.format(" To fix: /iq %d", item_id) or ""
+
+				tinsert(output, string.format("%s: %d", recipe.name, spell_id))
+				tinsert(output, string.format("    Recipe item not in cache.%s", querier_string))
 			end
 		elseif not item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
 			local flags = recipe["Flags"]
 
+			if not flags[F.RETIRED] and (flags[F.VENDOR] or flags[F.INSTANCE] or flags[F.RAID]) then
+				tinsert(output, string.format("%s: %d", recipe.name, spell_id))
 				tinsert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
-			if flags[F.VENDOR] or flags[F.INSTANCE] or flags[F.RAID] then
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -2235,6 +2240,9 @@ do
 		local flags = recipe["Flags"]
 		local acquire = recipe["acquire_data"]
 
+		local FS = private.filter_strings
+		local flag_format = "F.%s"
+
 		twipe(missing_flags)
 		twipe(extra_flags)
 		twipe(output)
@@ -2243,14 +2251,14 @@ do
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
 			if not flags[F.VENDOR] then
-				tinsert(missing_flags, "4 (Vendor)")
+				tinsert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
 			end
 
 			-- Check to see if we're in a PVP zone
 			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not flags[F.PVP] then
-				tinsert(missing_flags, "9 (PvP)")
+				tinsert(missing_flags, string.format(flag_format, FS[F.PVP]))
 			elseif flags[F.PVP] and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
-				tinsert(extra_flags, "9 (PvP)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.PVP]))
 			end
 		end
 
@@ -2258,77 +2266,71 @@ do
 		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
 				if scan_data[v] and not flags[CLASS_TYPES[v]] then
-					tinsert(missing_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+					tinsert(missing_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
 				elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
-					tinsert(extra_flags, tostring(CLASS_TYPES[v]).." ("..v..")")
+					tinsert(extra_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
 				end
 			end
 		end
 
-		-- BoP Item
 		if scan_data.item_bop and not flags[F.IBOP] then
-			tinsert(missing_flags, "37 (BoP Item)")
-			-- If it's a BoP item and flags BoE is set, mark it as extra
+			tinsert(missing_flags, string.format(flag_format, FS[F.IBOP]))
+
 			if flags[F.IBOE] then
-				tinsert(extra_flags, "36 (BoE Item)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.IBOE]))
 			end
 
-			-- If it's a BoP item and flags BoA is set, mark it as extra
 			if flags[F.IBOA] then
-				tinsert(extra_flags, "38 (BoA Item)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
-			-- BoE Item, assuming it's not BoA
 		elseif not flags[F.IBOE] and not scan_data.item_bop then
-			tinsert(missing_flags, "36 (BoE Item)")
-			-- If it's a BoE item and flags BoP is set, mark it as extra
+			tinsert(missing_flags, string.format(flag_format, FS[F.IBOE]))
+
 			if flags[F.IBOP] then
-				tinsert(extra_flags, "37 (BoP Item)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.IBOP]))
 			end
-			-- If it's a BoE item and flags BoA is set, mark it as extra
+
 			if flags[F.IBOA] then
-				tinsert(extra_flags, "38 (BoA Item)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
 		end
 
-		-- BoP Recipe
 		if scan_data.recipe_bop and not flags[F.RBOP] then
-			tinsert(missing_flags, "41 (BoP Recipe)")
-			-- If it's a BoP recipe and flags BoE is set, mark it as extra
+			tinsert(missing_flags, string.format(flag_format, FS[F.RBOP]))
+
 			if flags[F.RBOE] then
-				tinsert(extra_flags, "40 (BoE Recipe)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.RBOE]))
 			end
-			-- If it's a BoP recipe and flags BoA is set, mark it as extra
+
 			if flags[F.RBOA] then
-				tinsert(extra_flags, "42 (BoA Recipe)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
-			-- Not BoP recipe, assuming it's not BoA - trainer-taught recipes don't have bind information,  skip those.
+
 		elseif not flags[F.TRAINER] and not flags[F.RBOE] and not scan_data.recipe_bop then
-			tinsert(missing_flags, "40 (BoE Recipe)")
+			tinsert(missing_flags, string.format(flag_format, FS[F.RBOE]))
 
-			-- If it's a BoE recipe and flags BoP is set, mark it as extra
 			if flags[F.RBOP] then
-				tinsert(extra_flags, "41 (BoP Recipe)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.RBOP]))
 			end
 
-			-- If it's a BoE recipe and flags BoA is set, mark it as extra
 			if flags[F.RBOA] then
-				tinsert(extra_flags, "42 (BoA Recipe)")
+				tinsert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ROLE_TYPES) do
 			if scan_data[v] and not flags[ROLE_TYPES[v]] then
-				tinsert(missing_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
+				tinsert(missing_flags, string.format(flag_format, FS[ROLE_TYPES[v]]))
 			elseif not scan_data[v] and flags[ROLE_TYPES[v]] then
-				tinsert(extra_flags, tostring(ROLE_TYPES[v]).." ("..v..")")
+				tinsert(extra_flags, string.format(flag_format, FS[ROLE_TYPES[v]]))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ITEM_TYPES) do
 			if scan_data[v] and not flags[ITEM_TYPES[v]] then
-				tinsert(missing_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
+				tinsert(missing_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
 			elseif not scan_data[v] and flags[ITEM_TYPES[v]] then
-				tinsert(extra_flags, tostring(ITEM_TYPES[v]).." ("..v..")")
+				tinsert(extra_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
 			end
 		end
 
@@ -2345,7 +2347,7 @@ do
 				for rep_id, rep_info in pairs(acquire_info) do
 					for rep_level, level_info in pairs(rep_info) do
 						if rep_level ~= scan_data.repidlevel then
-							tinsert(output, "Rep level wrong. " .. recipe_name .. " (" .. spell_id .. ")")
+							tinsert(output, "    Wrong reputation level.")
 						end
 					end
 				end
@@ -2354,7 +2356,7 @@ do
 
 		if #missing_flags > 0 or #extra_flags > 0 then
 			found_problem = true
-			tinsert(output, recipe_name .. " (" .. spell_id .. ")")
+			tinsert(output, string.format("%s: %d", recipe_name, spell_id))
 
 			-- Add a string of the missing flag numbers
 			if #missing_flags > 0 then
@@ -2383,33 +2385,33 @@ do
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
 		if not flags[F.ALLIANCE] and not flags[F.HORDE] then
 			found_problem = true
-			tinsert(output, "Horde or alliance not selected. " .. recipe_name .. " (" .. spell_id .. ")")
+			tinsert(output, "    Horde or Alliance not selected.")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
 		if (not flags[F.TRAINER] and not flags[F.VENDOR] and not flags[F.INSTANCE] and not flags[F.RAID] and not flags[F.SEASONAL]
 		    and not flags[F.QUEST] and not flags[F.PVP] and not flags[F.WORLD_DROP] and not flags[F.MOB_DROP] and not flags[F.DISC]) then
 			found_problem = true
-			tinsert(output, "No obtain flag. " .. recipe_name .. " (" .. spell_id .. ")")
+			tinsert(output, "    No obtain flag.")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
 		if not flags[F.RBOE] and not flags[F.RBOP] and not flags[F.RBOA] then
 			found_problem = true
-			tinsert(output, "No recipe binding information. " .. recipe_name .. " (" .. spell_id .. ")")
+			tinsert(output, "    No recipe binding information.")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
 		if not flags[F.IBOE] and not flags[F.IBOP] and not flags[F.IBOA] then
 			found_problem = true
-			tinsert(output, "No item binding information. " .. recipe_name .. " (" .. spell_id .. ")")
+			tinsert(output, "    No item binding information.")
 		end
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
 		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_PLAYER_FLAG[spell_id] then
 			found_problem = true
-			tinsert(output, "No player role flag. " .. recipe_name .. " (" .. spell_id .. ").")
+			tinsert(output, "    No player role flag.")
 		end
 
 		if scan_data.specialty then
