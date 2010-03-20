@@ -1680,12 +1680,13 @@ do
 					local item_link = GetMerchantItemLink(i)
 					local item_id = ItemLinkToID(item_link)
 					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
+					
 					if spell_id then
 						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
 
 						added = true
 
-						if ttscantext then
+						if ttscantext and ttscantext ~= "" then
 							tinsert(output, ttscantext)
 						end
 
