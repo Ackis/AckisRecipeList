@@ -1058,11 +1058,11 @@ end
 -------------------------------------------------------------------------------
 -- Creates a reverse lookup for a recipe list
 -------------------------------------------------------------------------------
-local CreateReverseLookup
+local GetReverseLookup
 do
 	local reverse_lookup = {}
 
-	function CreateReverseLookup(recipe_list)
+	function GetReverseLookup(recipe_list)
 		if not recipe_list then
 			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
@@ -1639,7 +1639,7 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local reverse_lookup = CreateReverseLookup(recipe_list)
+		local reverse_lookup = GetReverseLookup(recipe_list)
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)		-- Get the NPC ID
 		local added = false
@@ -1875,7 +1875,7 @@ do
 			ARLDatamineTT:Hide()
 			return
 		end
-		local reverse_lookup = CreateReverseLookup(recipe_list)
+		local reverse_lookup = GetReverseLookup(recipe_list)
 
 		local item_id = SPELL_ITEM[spell_id]
 		local QUALITY_STRINGS = private.item_quality_names
