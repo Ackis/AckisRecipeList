@@ -15,7 +15,7 @@
 <Include file="Locales\ruRU.lua"/>
 
 <!--@debug@-->
-<Include file="Locales\testenUS.lua"/>
+<Include file="Locales\devel-enUS.lua"/>
 <!--@end-debug@-->
 
 </Ui>
