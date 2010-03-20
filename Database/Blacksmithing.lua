@@ -545,10 +545,10 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(9964, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(9964, A.WORLD_DROP, 2)
 
-	-- Mithril Scale Shoulders -- 9966
+	-- Mithril Scale Shoulders -- 9966 SPECIAL WORLD DROP
 	AddRecipe(9966, 235, 7932, Q.RARE, V.ORIG, 235, 255, 265, 275)
-	self:AddRecipeFlags(9966, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeAcquire(9966, A.WORLD_DROP, 3, A.CUSTOM, 33)
+	self:AddRecipeFlags(9966, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeAcquire(9966, A.WORLD_DROP, 3)
 
 	-- Heavy Mithril Boots -- 9968
 	AddRecipe(9968, 235, 7933, Q.COMMON, V.ORIG, 235, 255, 265, 275)
@@ -635,10 +635,10 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(10007, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeAcquire(10007, A.TRAINER, 7232, A.TRAINER, 11146, A.TRAINER, 11178, A.TRAINER, 20124, A.TRAINER, 29505)
 
-	-- Runed Mithril Hammer -- 10009
+	-- Runed Mithril Hammer -- 10009 SPECIAL WORLD DROP
 	AddRecipe(10009, 245, 7946, Q.RARE, V.ORIG, 245, 270, 282, 295)
-	self:AddRecipeFlags(10009, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
-	self:AddRecipeAcquire(10009, A.WORLD_DROP, 3, A.CUSTOM, 33)
+	self:AddRecipeFlags(10009, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
+	self:AddRecipeAcquire(10009, A.WORLD_DROP, 3)
 
 	-- Blight -- 10011
 	AddRecipe(10011, 250, 7959, Q.COMMON, V.ORIG, 250, 275, 287, 300)
@@ -750,10 +750,10 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16644, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(16644, A.WORLD_DROP, 2, A.TRAINER, 4258, A.TRAINER, 5511, A.TRAINER, 514, A.TRAINER, 1241, A.TRAINER, 16724, A.TRAINER, 3355, A.TRAINER, 2836, A.TRAINER, 2998, A.TRAINER, 3478, A.TRAINER, 3136, A.TRAINER, 4596, A.TRAINER, 3174, A.TRAINER, 33609, A.TRAINER, 33631, A.TRAINER, 16823, A.TRAINER, 15400, A.TRAINER, 33675, A.TRAINER, 17245, A.TRAINER, 6299, A.TRAINER, 3557)
 
-	-- Radiant Belt -- 16645
+	-- Radiant Belt -- 16645 SPECIAL WORLD DROP
 	AddRecipe(16645, 260, 12416, Q.UNCOMMON, V.ORIG, 260, 280, 290, 300)
-	self:AddRecipeFlags(16645, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.MAIL)
-	self:AddRecipeAcquire(16645, A.WORLD_DROP, 2, A.CUSTOM, 33)
+	self:AddRecipeFlags(16645, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
+	self:AddRecipeAcquire(16645, A.WORLD_DROP, 2)
 
 	-- Imperial Plate Shoulders -- 16646
 	AddRecipe(16646, 265, 12428, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
@@ -780,10 +780,10 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16650, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(16650, A.WORLD_DROP, 2)
 
-	-- Thorium Shield Spike -- 16651
+	-- Thorium Shield Spike -- 16651 SPECIAL WORLD DROP
 	AddRecipe(16651, 275, 12645, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(16651, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK)
-	self:AddRecipeAcquire(16651, A.WORLD_DROP, 2, A.CUSTOM, 33)
+	self:AddRecipeFlags(16651, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeAcquire(16651, A.WORLD_DROP, 2)
 
 	-- Thorium Boots -- 16652
 	AddRecipe(16652, 280, 12409, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
@@ -877,12 +877,12 @@ function addon:InitBlacksmithing()
 
 	-- Helm of the Great Chief -- 16728
 	AddRecipe(16728, 300, 12636, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16728, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeFlags(16728, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(16728, A.WORLD_DROP, 2)
 
 	-- Lionheart Helm -- 16729
 	AddRecipe(16729, 300, 12640, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16729, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(16729, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(16729, A.WORLD_DROP, 2)
 
 	-- Imperial Plate Leggings -- 16730
@@ -900,9 +900,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16732, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.PLATE)
 	self:AddRecipeAcquire(16732, A.MOB, 1885)
 
-	-- Stronghold Gauntlets -- 16741
+	-- Stronghold Gauntlets -- 16741 SPECIAL WORLD DROP
 	AddRecipe(16741, 300, 12639, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16741, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(16741, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(16741, A.WORLD_DROP, 2)
 
 	-- Enchanted Thorium Helm -- 16742
@@ -920,9 +920,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16745, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(16745, A.QUEST, 7649)
 
-	-- Invulnerable Mail -- 16746
+	-- Invulnerable Mail -- 16746 SPECIAL WORLD DROP
 	AddRecipe(16746, 300, 12641, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16746, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.MAIL)
+	self:AddRecipeFlags(16746, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.MAIL)
 	self:AddRecipeAcquire(16746, A.WORLD_DROP, 2)
 
 	-- Ornate Thorium Handaxe -- 16969
@@ -1205,9 +1205,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(27590, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.CENARION_CIRCLE)
 	self:AddRecipeAcquire(27590, A.REPUTATION, FAC.CENARION_CIRCLE, REP.EXALTED, 15471)
 
-	-- Titanic Leggings -- 27829
+	-- Titanic Leggings -- 27829 SPECIAL WORLD DROP
 	AddRecipe(27829, 300, 22385, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(27829, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(27829, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(27829, A.WORLD_DROP, 2)
 
 	-- Persuader -- 27830 SPECIAL WORLD DROP

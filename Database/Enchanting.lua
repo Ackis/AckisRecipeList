@@ -460,10 +460,10 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(13931, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
 	self:AddRecipeAcquire(13931, A.VENDOR, 989, A.VENDOR, 4229)
 
-	-- Enchant Shield - Frost Resistance -- 13933
+	-- Enchant Shield - Frost Resistance -- 13933 SPECIAL WORLD DROP
 	AddRecipe(13933, 235, nil, Q.COMMON, V.ORIG, 235, 255, 275, 295)
-	self:AddRecipeFlags(13933, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	self:AddRecipeAcquire(13933, A.WORLD_DROP, 2, A.CUSTOM, 33)
+	self:AddRecipeFlags(13933, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeAcquire(13933, A.WORLD_DROP, 2)
 
 	-- Enchant Boots - Agility -- 13935
 	AddRecipe(13935, 235, nil, Q.COMMON, V.ORIG, 235, 255, 275, 295)
