@@ -1661,7 +1661,6 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local reverse_lookup = GetReverseLookup(recipe_list)
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)		-- Get the NPC ID
 		local added = false
@@ -1678,9 +1677,9 @@ do
 
 				-- Check to see if we're dealing with a recipe
 				if matchtext and RECIPE_NAMES[strlower(matchtext)] then
-					local recipename = gsub(name, "%a+\: ", "")	-- Get rid of the first part of the item
-					local spell_id = reverse_lookup[recipename]	-- Find out what spell ID we're using
-
+					local item_link = GetMerchantItemLink(i)
+					local item_id = ItemLinkToID(item_link)
+					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
 					if spell_id then
 						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
 
