@@ -45,7 +45,6 @@ L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing recipes.
 Shift-click to generate a text dump.
 Alt-click to remove all waypoints from the mini-map and world map.]]
 L["Text Dump"]			= true
-L["TEXT_DUMP_DESC"]		= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
 L["Clear Exclusion List"]	= true
 L["Reset All Filters"]		= true
