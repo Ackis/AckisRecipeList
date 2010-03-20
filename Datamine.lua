@@ -1682,9 +1682,8 @@ do
 					if spell_id then
 						local ttscantext = addon:TooltipScanRecipe(spell_id, true, true)
 
-						added = true
-
 						if ttscantext and ttscantext ~= "" then
+							added = true
 							tinsert(output, ttscantext)
 						end
 
@@ -1711,6 +1710,7 @@ do
 						end
 
 						if not found then
+							added = true
 							tinsert(output, "Vendor ID missing from " .. spell_id)
 						end
 					else
