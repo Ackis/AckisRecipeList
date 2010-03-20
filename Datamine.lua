@@ -1363,6 +1363,22 @@ do
 	local recipe_list = {}
 	local output = {}
 
+	local function Sort_AscID(a, b)
+		local reca, recb = private.recipe_list[a], private.recipe_list[b]
+
+		return reca.spell_id < recb.spell_id
+	end
+
+	local function SortRecipeList()
+		local sorted_recipes = addon.sorted_recipes
+		twipe(sorted_recipes)
+
+		for n, v in pairs(recipe_list) do
+			tinsert(sorted_recipes, n)
+		end
+		table.sort(sorted_recipes, Sort_AscID)
+	end
+
 	local function ProfessionScan(prof_name)
 		local master_list = LoadRecipe()
 
@@ -1379,11 +1395,12 @@ do
 				recipe_list[i] = master_list[i]
 			end
 		end
+		SortRecipeList()
 		twipe(output)
 
 		-- Parse the entire recipe database
-		for i in pairs(recipe_list) do
-			local ttscantext = addon:TooltipScanRecipe(i, false, true)
+		for index, id in ipairs(addon.sorted_recipes) do
+			local ttscantext = addon:TooltipScanRecipe(id, false, true)
 
 			if ttscantext and ttscantext ~= "" then
 				tinsert(output, ttscantext)
@@ -1436,21 +1453,6 @@ do
 	local QUAL_STRINGS = private.item_quality_names
 	local V = private.game_version_names
 
-	local function Sort_AscID(a, b)
-		local reca, recb = private.recipe_list[a], private.recipe_list[b]
-
-		return reca.spell_id < recb.spell_id
-	end
-
-	local function SortRecipeList()
-		local sorted_recipes = addon.sorted_recipes
-		twipe(sorted_recipes)
-
-		for n, v in pairs(recipe_list) do
-			tinsert(sorted_recipes, n)
-		end
-		table.sort(sorted_recipes, Sort_AscID)
-	end
 	local NUM_FILTER_FLAGS = 128
 
 	local FUNCTION_FORMATS = {
@@ -1751,7 +1753,6 @@ end	-- do
 local scan_data = {}
 
 do
-
 	---------------------------------------------------------------------------------------------------------
 	----This table, DO_NOT_SCAN, contains itemid's that will not cache on the servers
 	---------------------------------------------------------------------------------------------------------
