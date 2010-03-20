@@ -2356,7 +2356,6 @@ do
 
 		if #missing_flags > 0 or #extra_flags > 0 then
 			found_problem = true
-			tinsert(output, string.format("%s: %d", recipe_name, spell_id))
 
 			-- Add a string of the missing flag numbers
 			if #missing_flags > 0 then
@@ -2427,9 +2426,10 @@ do
 		end
 
 		if found_problem then
+			tinsert(output, 1, string.format("%s: %d", recipe_name, spell_id))
 			return tconcat(output, "\n")
 		else
-			return nil
+			return
 		end
 	end
 end
