@@ -1899,17 +1899,15 @@ do
 		local reverse_lookup = GetReverseLookup(recipe_list)
 
 		local item_id = SPELL_TO_RECIPE_MAP[spell_id]
-		local QUALITY_STRINGS = private.item_quality_names
 
 		wipe(scan_data)
 
 		if item_id and not DO_NOT_SCAN[item_id] then
-			local item_name, item_link, item_rarity = GetItemInfo(item_id)
+			local item_name, item_link, item_quality = GetItemInfo(item_id)
 
 			if item_name then
-				if item_rarity ~= recipe.quality then
-					tinsert(output, item_name.. " has the WRONG QUALITY: "..QUALITY_STRINGS[recipe.quality].." should be "..QUALITY_STRINGS[item_rarity]..".")
-				end
+				scan_data.quality = item_quality
+
 				ARLDatamineTT:SetHyperlink(item_link)
 				self:ScanToolTip(recipe_name, recipe_list, reverse_lookup, is_vendor)
 			else
@@ -2434,17 +2432,23 @@ do
 		end
 
 		if scan_data.specialty then
-			if not scan_data.recipe_list[spell_id].specialty then
+			if not recipe.specialty then
 				found_problem = true
-				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Missing Specialty: " .. scan_data.specialty)
-			elseif scan_data.recipe_list[spell_id].specialty ~= scan_data.specialty then
-				tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Wrong Specialty, the correct one is: " .. scan_data.specialty)
+				tinsert(output, string.format("    Missing Specialty: %s", scan_data.specialty))
+			elseif recipe.specialty ~= scan_data.specialty then
+				tinsert(output, string.format("    Wrong Specialty: %s - should be %s ", recipe.specialty, scan_data.specialty))
 			end
-		elseif scan_data.recipe_list[spell_id].specialty then
+		elseif recipe.specialty then
 			found_problem = true
-			tinsert(output, "Recipe: " ..  recipe_name .. " (" .. spell_id .. ") Extra Specialty: " .. scan_data.recipe_list[spell_id].specialty)
+			tinsert(output, string.format("    Extra Specialty: %s", recipe.specialty))
 		end
 
+		if scan_data.quality ~= recipe.quality then
+			local QS = private.item_quality_names
+
+			found_problem = true
+			tinsert(output, string.format("    Wrong quality: Q.%s - should be Q.%s.", QS[recipe.quality], QS[scan_data.quality]))
+		end
 		if found_problem then
 			tinsert(output, 1, string.format("%s: %d", recipe_name, spell_id))
 			return tconcat(output, "\n")
