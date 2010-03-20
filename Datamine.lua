@@ -1051,6 +1051,18 @@ local NO_PLAYER_FLAG = {
 	---------------------------------------------------------------------------------------
 }
 
+local function ItemLinkToID(link)
+	if not link then
+		return
+	end
+	local _, _, id_num = string.find(link,"item:(%d+):")
+
+	if id_num then
+		return tonumber(id_num)
+	end
+end
+
+
 local function LoadRecipe()
 	local recipe_list = private.recipe_list
 
