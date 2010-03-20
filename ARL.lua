@@ -1524,8 +1524,6 @@ end	-- do
 -------------------------------------------------------------------------------
 -- ARL Logic Functions
 -------------------------------------------------------------------------------
-
----Determines which profession we are dealing with and loads up the recipe information for it.
 function addon:InitializeRecipe(profession)
 	if not profession then
 		--@alpha@
@@ -1543,7 +1541,7 @@ function addon:InitializeRecipe(profession)
 	end
 end
 
----Determines what to do when the slash command is called.
+-- Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
 
 	-- Open About panel if there's no parameters or if we do /arl about
