@@ -23,8 +23,6 @@ local table = _G.table
 local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
 
 local string = _G.string
-local strlower, strmatch = string.lower, string.match
-local gsub = string.gsub
 
 local tonumber, tostring = _G.tonumber, _G.tostring
 
@@ -1314,7 +1312,7 @@ function addon:GenerateLinks()
 	-- This code adopted from Gnomish Yellow Pages with permission
 
 	local guid = UnitGUID("player")
-	local playerGUID = gsub(guid, "0x0+", "")
+	local playerGUID = string.gsub(guid, "0x0+", "")
 
 	-- Listing of all tradeskill professions
 	local tradelist = {51304, 51300, 51313, 51306, 45363, 51311, 51302, 51309, 51296, 45542}
@@ -1356,7 +1354,7 @@ function addon:GenerateLinks()
 		else
 			self:Print("There currently is not a generated tradeskill link for: " .. tradeName)
 		end
-		-- /script DEFAULT_CHAT_FRAME:AddMessage(gsub(GetTradeSkillListLink(), "\124", "\124\124"))
+		-- /script DEFAULT_CHAT_FRAME:AddMessage(string.gsub(GetTradeSkillListLink(), "\124", "\124\124"))
 	end
 
 end
@@ -1366,18 +1364,18 @@ end
 -------------------------------------------------------------------------------
 do
 	local ORDERED_PROFESSIONS = {
-		strlower(PROFESSIONS.Alchemy), 		-- 1 Alchemy
-		strlower(PROFESSIONS.Blacksmithing), 	-- 2 Blacksmithing
-		strlower(PROFESSIONS.Cooking), 		-- 3 Cooking
-		strlower(PROFESSIONS.Enchanting), 	-- 4 Enchanting
-		strlower(PROFESSIONS.Engineering), 	-- 5 Engineering
-		strlower(PROFESSIONS.FirstAid), 	-- 6 First Aid
-		strlower(PROFESSIONS.Inscription), 	-- 7 Inscription
-		strlower(PROFESSIONS.Jewelcrafting), 	-- 8 Jewelcrafting
-		strlower(PROFESSIONS.Leatherworking), 	-- 9 Leatherworking
-		strlower(PROFESSIONS.Runeforging), 	-- 10 Runeforging
-		strlower(PROFESSIONS.Smelting), 	-- 11 Smelting
-		strlower(PROFESSIONS.Tailoring), 	-- 12 Tailoring
+		string.lower(PROFESSIONS.Alchemy), 		-- 1
+		string.lower(PROFESSIONS.Blacksmithing), 	-- 2
+		string.lower(PROFESSIONS.Cooking), 		-- 3
+		string.lower(PROFESSIONS.Enchanting),		-- 4
+		string.lower(PROFESSIONS.Engineering),		-- 5
+		string.lower(PROFESSIONS.FirstAid),		-- 6
+		string.lower(PROFESSIONS.Inscription),		-- 7
+		string.lower(PROFESSIONS.Jewelcrafting), 	-- 8
+		string.lower(PROFESSIONS.Leatherworking), 	-- 9
+		string.lower(PROFESSIONS.Runeforging),		-- 10
+		string.lower(PROFESSIONS.Smelting),		-- 11
+		string.lower(PROFESSIONS.Tailoring),		-- 12
 	}
 	local recipe_list = {}
 	local output = {}
@@ -1408,7 +1406,7 @@ do
 		twipe(recipe_list)
 
 		for i in pairs(master_list) do
-			local prof = strlower(master_list[i].profession)
+			local prof = string.lower(master_list[i].profession)
 
 			if prof and prof == prof_name then
 				recipe_list[i] = master_list[i]
@@ -1440,7 +1438,7 @@ do
 		end
 
 		local found = false
-		prof_name = strlower(prof_name)
+		prof_name = string.lower(prof_name)
 
 		local scan_all = prof_name == "all"
 
@@ -1563,7 +1561,7 @@ do
 		twipe(recipe_list)
 
 		for i in pairs(master_list) do
-			local prof = strlower(master_list[i].profession)
+			local prof = string.lower(master_list[i].profession)
 
 			if prof and prof == prof_name then
 				recipe_list[i] = master_list[i]
@@ -1590,7 +1588,7 @@ do
 		end
 
 		local found = false
-		prof_name = strlower(prof_name)
+		prof_name = string.lower(prof_name)
 
 		local scan_all = prof_name == "all"
 
@@ -1673,10 +1671,10 @@ do
 
 			if name then
 				-- Lets scan recipes only on vendors
-				local matchtext = strmatch(name, "%a+: ")
+				local matchtext = string.match(name, "%a+: ")
 
 				-- Check to see if we're dealing with a recipe
-				if matchtext and RECIPE_NAMES[strlower(matchtext)] then
+				if matchtext and RECIPE_NAMES[string.lower(matchtext)] then
 					local item_link = GetMerchantItemLink(i)
 					local item_id = ItemLinkToID(item_link)
 					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
@@ -1889,8 +1887,8 @@ do
 		ARLDatamineTT:SetHyperlink(recipe_link)
 
 		-- Check to see if this is a recipe tooltip.
-		local text = strlower(_G["ARLDatamineTTTextLeft1"]:GetText())
-		local match_text = strmatch(text, "%a+: ")
+		local text = string.lower(_G["ARLDatamineTTTextLeft1"]:GetText())
+		local match_text = string.match(text, "%a+: ")
 
 		if not RECIPE_NAMES[match_text] then
 			ARLDatamineTT:Hide()
@@ -2095,11 +2093,11 @@ do
 				text = text_l
 			end
 
-			local text = strlower(text)
+			local text = string.lower(text)
 
 			-- Check for recipe/item binding
 			-- The recipe binding is within the first few lines of the tooltip always
-			if strmatch(text, "binds when picked up") then
+			if string.match(text, "binds when picked up") then
 				if (i < 3) then
 					scan_data.recipe_bop = true
 				else
@@ -2113,7 +2111,7 @@ do
 			end
 
 			-- Recipe Reputations
-			local rep, replevel = strmatch(text_l, "Requires (.+) %- (.+)")
+			local rep, replevel = string.match(text_l, "Requires (.+) %- (.+)")
 
 			if rep and replevel and FACTION_TEXT[rep] then
 				scan_data.repid = FACTION_TEXT[rep]
@@ -2127,78 +2125,78 @@ do
 
 			if not scan_data.verifiedclass then
 				-- Certain stats can be considered for a specific role (aka spell hit == caster dps).
-				if strmatch(text, "strength") and not strmatch(text, "strength of the clefthoof") and not strmatch(text,  "set:") then
+				if string.match(text, "strength") and not string.match(text, "strength of the clefthoof") and not string.match(text,  "set:") then
 					scan_data.dps = true
-				elseif strmatch(text, "agility") then
+				elseif string.match(text, "agility") then
 					scan_data.dps = true
-				elseif strmatch(text, "spirit") then
+				elseif string.match(text, "spirit") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif strmatch(text, "spell power") then
+				elseif string.match(text, "spell power") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif strmatch(text, "spell crit") then
+				elseif string.match(text, "spell crit") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif strmatch(text, "spell hit") then
+				elseif string.match(text, "spell hit") then
 					scan_data.caster = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "spell penetration") then
+				elseif string.match(text, "spell penetration") then
 					scan_data.caster = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "mana per 5 sec.") or strmatch(text, "mana every 5 seconds") then
+				elseif string.match(text, "mana per 5 sec.") or string.match(text, "mana every 5 seconds") then
 					scan_data.caster = true
 					scan_data.healer = true
-				elseif strmatch(text, "attack power") then
+				elseif string.match(text, "attack power") then
 					scan_data.dps = true
-				elseif strmatch(text, "expertise") then
+				elseif string.match(text, "expertise") then
 					scan_data.dps = true
 					scan_data.tank = true
-				elseif strmatch(text, "melee crit") then
+				elseif string.match(text, "melee crit") then
 					scan_data.dps = true
-				elseif strmatch(text, "critical hit") then
+				elseif string.match(text, "critical hit") then
 					scan_data.dps = true
-				elseif strmatch(text, "weapon damage") then
+				elseif string.match(text, "weapon damage") then
 					scan_data.dps = true
-				elseif strmatch(text, "ranged crit") then
-					scan_data.dps = true
-					scan_data.verifiedclass = true
-				elseif strmatch(text, "melee haste") then
-					scan_data.dps = true
-				elseif strmatch(text, "ranged haste") then
+				elseif string.match(text, "ranged crit") then
 					scan_data.dps = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "melee hit") then
+				elseif string.match(text, "melee haste") then
 					scan_data.dps = true
-				elseif strmatch(text, "ranged hit") then
+				elseif string.match(text, "ranged haste") then
 					scan_data.dps = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "armor pen") then
+				elseif string.match(text, "melee hit") then
 					scan_data.dps = true
-				elseif strmatch(text, "feral attack power") then
+				elseif string.match(text, "ranged hit") then
+					scan_data.dps = true
+					scan_data.verifiedclass = true
+				elseif string.match(text, "armor pen") then
+					scan_data.dps = true
+				elseif string.match(text, "feral attack power") then
 					scan_data.tank = true
 					scan_data.dps = true
-				elseif strmatch(text, "defense") and not strmatch(text, "defenseless") then
+				elseif string.match(text, "defense") and not string.match(text, "defenseless") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "block") then
+				elseif string.match(text, "block") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "parry") then
+				elseif string.match(text, "parry") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
-				elseif strmatch(text, "dodge") and not strmatch(text,  "set:") then
+				elseif string.match(text, "dodge") and not string.match(text,  "set:") then
 					scan_data.tank = true
 					scan_data.verifiedclass = true
 				end
 			end
 
 			-- Classes
-			local class_type = strmatch(text_l, "Classes: (.+)")
+			local class_type = string.match(text_l, "Classes: (.+)")
 
 			if class_type then
 				for idx, class in ipairs(ORDERED_CLASS_TYPES) do
-					if strmatch(class_type, class) then
+					if string.match(class_type, class) then
 						scan_data[class] = true
 						scan_data.found_class = true
 					end
@@ -2219,7 +2217,7 @@ do
 			end
 
 			-- Enchantment voodoo
-			local ench_type, _ = strmatch(text_l, "Enchant (.+) %- (.+)")
+			local ench_type, _ = string.match(text_l, "Enchant (.+) %- (.+)")
 
 			if ench_type then
 				if ITEM_TYPES[ench_type] then
@@ -2247,7 +2245,7 @@ do
 		end
 
 		-- Parse the recipe database until we get a match on the name
-		local recipe_name = gsub(scan_data.match_name, "%a+%?: ", "")
+		local recipe_name = string.gsub(scan_data.match_name, "%a+%?: ", "")
 		local spell_id = scan_data.reverse_lookup[recipe_name]
 
 		if not spell_id then
