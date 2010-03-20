@@ -2378,7 +2378,7 @@ do
 			end
 
 			if not found_type then
-				tinsert(output, "Missing: item type flag")
+				tinsert(output, "    Missing: item type flag")
 			end
 		end
 
