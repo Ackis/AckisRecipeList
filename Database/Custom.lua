@@ -57,7 +57,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 30, L["SCHOLO_BOOK_SPAWN"], BZ["Scholomance"], 0, 0)
 	self:addLookupList(DB, 31, L["STRATH_BS_PLANS"], BZ["Stratholme"], 0, 0)
 	self:addLookupList(DB, 32, L["DM_TRIBUTE"], BZ["Dire Maul"], 59.04, 48.82)
-	self:addLookupList(DB, 33, L["WORLD_DRAGONS"], "N/A")
 	-- Quests
 	self:addLookupList(DB, 10, L["ONYXIA_HEAD_QUEST"], BZ["Onyxia's Lair"], 0, 0)
 	self:addLookupList(DB, 11, L["EDGE_OF_MADNESS"], BZ["Zul'Gurub"], 0, 0)

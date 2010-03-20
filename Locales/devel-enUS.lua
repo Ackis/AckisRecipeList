@@ -445,7 +445,6 @@ L["BRD_RANDOM_ROOM"] = "There is a chance that you will find it in 5 different r
 L["SCHOLO_BOOK_SPAWN"] = "After you kill Jandice Barov in Scholomance, a book spawns that let's you learn this recipe"
 L["STRATH_BS_PLANS"] = "Blacksmith plans in Stratholme" -- Update
 L["DM_TRIBUTE"] = "DM Tribute Run - Chest" -- Update
-L["WORLD_DRAGONS"] = "World Dragons" -- Update
 -- Quests
 L["ONYXIA_HEAD_QUEST"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
 L["EDGE_OF_MADNESS"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
@@ -1387,7 +1386,6 @@ L["Zurii"] = true
 
 L["Text Dump Options"] = true
 L["TEXTDUMP_OPTIONS_DESC"] = "Options to change the behaviour of the text dump."
-L["Text Dump"] = true
 L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."
 L["BBCode"] = true
 L["CSV"] = true
