@@ -589,6 +589,13 @@ local SPELL_TO_RECIPE_MAP = {
 	[67144] = 47636,	[67147] = 47637,
 }
 
+local RECIPE_TO_SPELL_MAP = {}
+
+do
+	for spell_id, recipe_id in pairs(SPELL_TO_RECIPE_MAP) do
+		RECIPE_TO_SPELL_MAP[recipe_id] = spell_id
+	end
+end
 
 -------------------------------------------------------------------------------
 -- Look up table of spell IDs for recipes which do not have a player flag
