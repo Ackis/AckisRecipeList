@@ -2203,22 +2203,37 @@ do
 			if sort_type == "Location" then
 				for index = 1, #sorted_locations do
 					local loc_name = sorted_locations[index]
-					local t = AcquireTable()
+					local show_loc = false
 
-					t.text = loc_name
-					t.location_id = loc_name
-					t.is_header = true
+					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+					for spell_id in pairs(private.location_list[loc_name].recipes) do
+						local recipe = private.recipe_list[spell_id]
 
-					if expand_acquires then
-						-- we have acquire information for this. push the title entry into the strings
-						-- and start processing the acquires
-						t.is_expanded = true
-						tinsert(self.entries, insert_index, t)
-						insert_index = self:ExpandEntry(insert_index)
-					else
-						t.is_expanded = false
-						tinsert(self.entries, insert_index, t)
-						insert_index = insert_index + 1
+						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
+							show_loc = true
+							break
+						end
+					end
+
+
+					if show_loc then
+						local t = AcquireTable()
+
+						t.text = loc_name
+						t.location_id = loc_name
+						t.is_header = true
+
+						if expand_acquires then
+							-- we have acquire information for this. push the title entry into the strings
+							-- and start processing the acquires
+							t.is_expanded = true
+							tinsert(self.entries, insert_index, t)
+							insert_index = self:ExpandEntry(insert_index)
+						else
+							t.is_expanded = false
+							tinsert(self.entries, insert_index, t)
+							insert_index = insert_index + 1
+						end
 					end
 				end
 			else
