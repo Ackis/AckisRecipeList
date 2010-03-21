@@ -414,21 +414,6 @@ do
 	end
 
 	local RECIPE_SORT_FUNCS = {
-	local function Sort_Location(a, b)
-		-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-		local reca = recipe_list[a].locations or ""
-		local recb = recipe_list[b].locations or ""
-
-		reca = smatch(reca,"(%w+), ") or reca
-		recb = smatch(recb,"(%w+), ") or recb
-
-		if reca == recb then
-			return Sort_Acquisition(a, b)
-		else
-			return reca < recb
-		end
-	end
-
 		["SkillAsc"]	= Sort_SkillAsc,
 		["SkillDesc"]	= Sort_SkillDesc,
 		["Name"]	= Sort_Name,
@@ -450,6 +435,14 @@ do
 		end
 		table.sort(sorted_recipes, sort_func)
 	end
+
+	local function Sort_Location(a, b)
+		local loc_a = location_list[a]
+		local loc_b = location_list[b]
+
+		return loc_a.name < loc_b.name
+	end
+
 end	-- do
 
 -------------------------------------------------------------------------------
