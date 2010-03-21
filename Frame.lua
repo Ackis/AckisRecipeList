@@ -2114,7 +2114,7 @@ MainPanel.scroll_frame:SetScript("OnVerticalScroll",
 
 MainPanel.scroll_frame.entries = {}
 MainPanel.scroll_frame.state_buttons = {}
-MainPanel.scroll_frame.recipe_buttons = {}
+MainPanel.scroll_frame.entry_buttons = {}
 
 do
 	local highlight = CreateFrame("Frame", nil, UIParent)
@@ -2254,7 +2254,7 @@ do
 
 		-- Reset the current buttons/lines
 		for i = 1, NUM_RECIPE_LINES do
-			local recipe = self.recipe_buttons[i]
+			local recipe = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
 			recipe.string_index = 0
@@ -2310,7 +2310,7 @@ do
 				else
 					cur_state:Hide()
 				end
-				local cur_recipe = self.recipe_buttons[button_index]
+				local cur_recipe = self.entry_buttons[button_index]
 
 				cur_recipe.string_index = string_index
 				cur_recipe:SetText(cur_entry.text)
