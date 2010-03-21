@@ -2155,90 +2155,32 @@ do
 	end
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
-		local sorted_recipes = addon.sorted_recipes
 		local exclusions = addon.db.profile.exclusionlist
-		local sort_type = addon.db.profile.sorting
-		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 		local insert_index = 1
 
 		local recipe_list = private.recipe_list
 		local FAC = private.faction_ids
 
-		local is_alliance = Player.faction == BFAC["Alliance"]
-		local player_rep = Player["Reputation"]
-
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
+			local sorted_recipes = addon.sorted_recipes
+			local sorted_locations = addon.sorted_locations
+
+			local sort_type = addon.db.profile.sorting
+			local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
+
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
 			end
 			twipe(self.entries)
 
-			for i = 1, #sorted_recipes do
-				local recipe_index = sorted_recipes[i]
-				local recipe_entry = recipe_list[recipe_index]
-
-				if recipe_entry.is_visible and recipe_entry.is_relevant then
-					-- Determine if the player has an appropiate level in any applicable faction
-					-- to learn the recipe.
-					local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-					local has_faction = true
-
-					if rep_data then
-						for rep_id, rep_info in pairs(rep_data) do
-							for rep_level in pairs(rep_info) do
-								if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-									rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-								elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-									rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-								end
-								local rep_name = private.reputation_list[rep_id].name
-
-								if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
-									has_faction = false
-								else
-									has_faction = true
-									break
-								end
-							end
-						end
-					end
-					local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
-
-					if exclusions[recipe_index] then
-						recipe_string = "** " .. recipe_string .. " **"
-					end
-					local skill_level = Player["ProfessionLevel"]
-					local recipe_level = recipe_entry.skill_level
-					local optimal_level = recipe_entry.optimal_level
-					local medium_level = recipe_entry.medium_level
-					local easy_level = recipe_entry.easy_level
-					local trivial_level = recipe_entry.trivial_level
-
-					recipe_string = skill_sort and ("[" .. recipe_level .. "] - " .. recipe_string) or (recipe_string .. " - [" .. recipe_level .. "]")
-
+			if sort_type == "Location" then
+				for index = 1, #sorted_locations do
+					local loc_name = sorted_locations[index]
 					local t = AcquireTable()
 
-					if not has_faction then
-						t.text = addon:Red(recipe_string)
-					elseif recipe_level > skill_level then
-						t.text = addon:Red(recipe_string)
-					elseif skill_level >= trivial_level then
-						t.text = addon:MidGrey(recipe_string)
-					elseif skill_level >= easy_level then
-						t.text = addon:Green(recipe_string)
-					elseif skill_level >= medium_level then
-						t.text = addon:Yellow(recipe_string)
-					elseif skill_level >= optimal_level then
-						t.text = addon:Orange(recipe_string)
-					else
-						--@alpha@
-						addon:Print("DEBUG: Skill level color fallback: " .. recipe_string)
-						--@end-alpha@
-						t.text = addon:MidGrey(recipe_string)
-					end
-
-					t.recipe_id = recipe_index
+					t.text = loc_name
+					t.location_id = loc_name
 					t.is_header = true
 
 					if expand_acquires then
@@ -2253,7 +2195,91 @@ do
 						insert_index = insert_index + 1
 					end
 				end
-			end
+			else
+				for i = 1, #sorted_recipes do
+					local recipe_index = sorted_recipes[i]
+					local recipe_entry = recipe_list[recipe_index]
+
+					if recipe_entry.is_visible and recipe_entry.is_relevant then
+						-- Determine if the player has an appropiate level in any applicable faction
+						-- to learn the recipe.
+						local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+						local has_faction = true
+
+						if rep_data then
+							local is_alliance = Player.faction == BFAC["Alliance"]
+							local player_rep = Player["Reputation"]
+
+							for rep_id, rep_info in pairs(rep_data) do
+								for rep_level in pairs(rep_info) do
+									if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+										rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+									elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+										rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+									end
+									local rep_name = private.reputation_list[rep_id].name
+
+									if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+										has_faction = false
+									else
+										has_faction = true
+										break
+									end
+								end
+							end
+						end
+						local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
+
+						if exclusions[recipe_index] then
+							recipe_string = "** " .. recipe_string .. " **"
+						end
+						local skill_level = Player["ProfessionLevel"]
+						local recipe_level = recipe_entry.skill_level
+						local optimal_level = recipe_entry.optimal_level
+						local medium_level = recipe_entry.medium_level
+						local easy_level = recipe_entry.easy_level
+						local trivial_level = recipe_entry.trivial_level
+
+						recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
+
+						local t = AcquireTable()
+
+						if not has_faction then
+							t.text = addon:Red(recipe_string)
+						elseif recipe_level > skill_level then
+							t.text = addon:Red(recipe_string)
+						elseif skill_level >= trivial_level then
+							t.text = addon:MidGrey(recipe_string)
+						elseif skill_level >= easy_level then
+							t.text = addon:Green(recipe_string)
+						elseif skill_level >= medium_level then
+							t.text = addon:Yellow(recipe_string)
+						elseif skill_level >= optimal_level then
+							t.text = addon:Orange(recipe_string)
+						else
+							--@alpha@
+							addon:Print("DEBUG: Skill level color fallback: " .. recipe_string)
+							--@end-alpha@
+							t.text = addon:MidGrey(recipe_string)
+						end
+
+						t.recipe_id = recipe_index
+						t.is_header = true
+
+						if expand_acquires then
+							-- we have acquire information for this. push the title entry into the strings
+							-- and start processing the acquires
+							t.is_expanded = true
+							tinsert(self.entries, insert_index, t)
+							insert_index = self:ExpandEntry(insert_index)
+						else
+							t.is_expanded = false
+							tinsert(self.entries, insert_index, t)
+							insert_index = insert_index + 1
+						end
+					end
+				end
+			end	-- Sort type.
 		end
 
 		-- Reset the current buttons/lines
@@ -2388,13 +2414,28 @@ do
 	end
 
 	function MainPanel.scroll_frame:ExpandEntry(entry_index)
-		local obtain_filters = addon.db.profile.filters.obtain
-		local recipe_id = self.entries[entry_index].recipe_id
+		local location_id = self.entries[entry_index].location_id
 		local pad = "  "
 
 		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
+
+		if location_id then
+			for spell_id in pairs(private.location_list[location_id].recipes) do
+				local t = AcquireTable()
+				t.text = string.format("%s%s", pad, private.recipe_list[spell_id].name)
+				t.is_expanded = true
+				t.recipe_id = spell_id
+				t.location_id = location_id
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			end
+			return entry_index
+		end
+		local recipe_id = self.entries[entry_index].recipe_id
+		local obtain_filters = addon.db.profile.filters.obtain
 
 		for acquire_type, acquire_info in pairs(private.recipe_list[recipe_id].acquire_data) do
 			if acquire_type == A.TRAINER and obtain_filters.trainer then
