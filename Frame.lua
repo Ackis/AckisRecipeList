@@ -360,10 +360,13 @@ end	-- do
 -- Sort functions
 -------------------------------------------------------------------------------
 local SortRecipeList
+local SortLocationList
 do
-	addon.sorted_recipes = {}
-
 	local recipe_list = private.recipe_list
+	local location_list = private.location_list
+
+	addon.sorted_recipes = {}
+	addon.sorted_locations = {}
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -443,6 +446,16 @@ do
 		return loc_a.name < loc_b.name
 	end
 
+	-- Sorts the location_list by name.
+	function SortLocationList()
+		local sorted_locations = addon.sorted_locations
+		twipe(sorted_locations)
+
+		for loc_name in pairs(private.location_list) do
+			tinsert(sorted_locations, loc_name)
+		end
+		table.sort(sorted_locations, Sort_Location)
+	end
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -3820,6 +3833,7 @@ function addon:DisplayFrame()
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	SortRecipeList()
+	SortLocationList()
 
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
@@ -3843,6 +3857,8 @@ function ReDisplay()
 	Player:MarkExclusions()
 
 	SortRecipeList()
+	SortLocationList()
+
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel.progress_bar:Update()
 
