@@ -1050,7 +1050,10 @@ do
 
 			if location then
 				location_list[location] = location_list[location] or {}
-				location_list[location][spell_id] = true
+				location_list[location].recipes = location_list[location].recipes or {}
+
+				location_list[location].name = location
+				location_list[location].recipes[spell_id] = true
 			end
 		end	-- while
 	end
@@ -1086,7 +1089,10 @@ do
 
 			if location then
 				location_list[location] = location_list[location] or {}
-				location_list[location][spell_id] = true
+				location_list[location].recipes = location_list[location].recipes or {}
+
+				location_list[location].name = location
+				location_list[location].recipes[spell_id] = true
 			end
 		end
 	end
@@ -1151,7 +1157,10 @@ do
 
 			if location then
 				location_list[location] = location_list[location] or {}
-				location_list[location][spell_id] = true
+				location_list[location].recipes = location_list[location].recipes or {}
+
+				location_list[location].name = location
+				location_list[location].recipes[spell_id] = true
 			end
 		end
 	end
