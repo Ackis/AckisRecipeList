@@ -3193,7 +3193,7 @@ function addon:InitializeFrame()
 			local traverseIndex = 0
 
 			-- First, check if this is a "modified" click, and react appropriately
-			if IsModifierKeyDown() then
+			if clicked_line.recipe_id and IsModifierKeyDown() then
 				if IsControlKeyDown() and IsShiftKeyDown() then
 					addon:SetupMap(clicked_line.recipe_id)
 				elseif IsShiftKeyDown() then
