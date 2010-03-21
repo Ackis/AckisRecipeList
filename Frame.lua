@@ -2253,7 +2253,7 @@ do
 						local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
 
 						if exclusions[recipe_index] then
-							recipe_string = "** " .. recipe_string .. " **"
+							recipe_string = string.format("** %s **", recipe_string)
 						end
 						local recipe_level = recipe_entry.skill_level
 
