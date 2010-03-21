@@ -1361,7 +1361,7 @@ function addon:InitEnchanting()
 	self:AddRecipeAcquire(46594, A.REPUTATION, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
-	AddRecipe(47051, 375, nil, Q.RARE, V.WOTLK, 375, 380, 385, 390)
+	AddRecipe(47051, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
 	self:AddRecipeFlags(47051, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
 	self:AddRecipeAcquire(47051, A.MOB, 24560)
 
