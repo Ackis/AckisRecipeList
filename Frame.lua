@@ -413,6 +413,7 @@ do
 --		end
 	end
 
+	local RECIPE_SORT_FUNCS = {
 	local function Sort_Location(a, b)
 		-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
 		local reca = recipe_list[a].locations or ""
@@ -428,23 +429,26 @@ do
 		end
 	end
 
-	local sortFuncs = {
 		["SkillAsc"]	= Sort_SkillAsc,
 		["SkillDesc"]	= Sort_SkillDesc,
 		["Name"]	= Sort_Name,
 		["Acquisition"]	= Sort_Acquisition,
-		["Location"]	= Sort_Location,
 	}
 
-	-- Sorts the recipe list according to configuration settings.
+	-- Sorts the recipe_list according to configuration settings.
 	function SortRecipeList()
+		local sort_func = RECIPE_SORT_FUNCS[addon.db.profile.sorting]
+
+		if not sort_func then
+			return
+		end
 		local sorted_recipes = addon.sorted_recipes
 		twipe(sorted_recipes)
 
 		for n, v in pairs(private.recipe_list) do
 			tinsert(sorted_recipes, n)
 		end
-		table.sort(sorted_recipes, sortFuncs[addon.db.profile.sorting])
+		table.sort(sorted_recipes, sort_func)
 	end
 end	-- do
 
