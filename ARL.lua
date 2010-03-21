@@ -88,6 +88,7 @@ private.reputation_list	= {}
 private.trainer_list	= {}
 private.seasonal_list	= {}
 private.vendor_list	= {}
+private.location_list	= {}
 
 -- Filter flags and acquire types - defined in Constants.lua
 local F 	= private.filter_flags
