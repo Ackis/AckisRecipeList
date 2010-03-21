@@ -2422,15 +2422,38 @@ do
 		entry_index = entry_index + 1
 
 		if location_id then
-			for spell_id in pairs(private.location_list[location_id].recipes) do
-				local t = AcquireTable()
-				t.text = string.format("%s%s", pad, private.recipe_list[spell_id].name)
-				t.is_expanded = true
-				t.recipe_id = spell_id
-				t.location_id = location_id
+			local exclusions = addon.db.profile.exclusionlist
 
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
+			for spell_id in pairs(private.location_list[location_id].recipes) do
+				local recipe_entry = private.recipe_list[spell_id]
+
+				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
+					local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+					local has_faction = true
+
+					if rep_data then
+						has_faction = Player:HasProperRepLevel(rep_data)
+					end
+					local recipe_string = has_faction and string.format("%s%s", pad, recipe_entry.name) or string.format("%s[%s] %s", pad, _G.REPUTATION, recipe_entry.name)
+
+					if exclusions[recipe_index] then
+						recipe_string = string.format("** %s **", recipe_string)
+					end
+					local recipe_level = recipe_entry.skill_level
+
+					recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
+
+					local t = AcquireTable()
+
+					t.text = PaintRecipeText(recipe_entry, has_faction, recipe_string)
+
+					t.is_expanded = true
+					t.recipe_id = spell_id
+					t.location_id = location_id
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
 			end
 			return entry_index
 		end
