@@ -600,9 +600,13 @@ do
 	end
 
 	function GenerateTooltipContent(owner, rIndex)
+		local recipe_entry = private.recipe_list[rIndex]
+
+		if not recipe_entry then
+			return
+		end
 		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local recipe_entry = private.recipe_list[rIndex]
 		local spell_link = recipe_entry.spell_link
 		local MainPanel = addon.Frame
 
