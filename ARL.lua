@@ -1002,10 +1002,6 @@ do
 							acquire[acquire_id] = true
 							location = quest_list[acquire_id].location
 						end
-						--@alpha@
-					elseif acquire_type == A.SEASONAL then
-						acquire[acquire_id] = true
-						--@end-alpha@
 					elseif acquire_type == A.REPUTATION then
 						local vendor_list = private.vendor_list
 						local rep_level, vendor_id = select(i, ...)
@@ -1041,9 +1037,16 @@ do
 					elseif acquire_type == A.WORLD_DROP then
 						acquire[acquire_id] = true
 						location = L["World Drop"]
-					else
-						-- Handle CUSTOM, etc.
+					elseif acquire_type == A.SEASONAL then
 						acquire[acquire_id] = true
+						location = GetCategoryInfo(155)
+					elseif acquire_type == A.CUSTOM then
+						acquire[acquire_id] = true
+						location = _G.MISCELLANEOUS
+					else
+						-- Unhandled acquire_type
+						acquire[acquire_id] = true
+						location = private.acquire_strings[acquire_type] or _G.UNKNOWN
 					end
 				end	-- acquire_id
 			end	-- acquire_type
