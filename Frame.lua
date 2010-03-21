@@ -2159,7 +2159,6 @@ do
 		local insert_index = 1
 
 		local recipe_list = private.recipe_list
-		local FAC = private.faction_ids
 
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
@@ -2201,32 +2200,11 @@ do
 					local recipe_entry = recipe_list[recipe_index]
 
 					if recipe_entry.is_visible and recipe_entry.is_relevant then
-						-- Determine if the player has an appropiate level in any applicable faction
-						-- to learn the recipe.
 						local rep_data = recipe_entry.acquire_data[A.REPUTATION]
 						local has_faction = true
 
 						if rep_data then
-							local is_alliance = Player.faction == BFAC["Alliance"]
-							local player_rep = Player["Reputation"]
-
-							for rep_id, rep_info in pairs(rep_data) do
-								for rep_level in pairs(rep_info) do
-									if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
-										rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-									elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-										rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
-									end
-									local rep_name = private.reputation_list[rep_id].name
-
-									if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
-										has_faction = false
-									else
-										has_faction = true
-										break
-									end
-								end
-							end
+							has_faction = Player:HasProperRepLevel(rep_data)
 						end
 						local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
 

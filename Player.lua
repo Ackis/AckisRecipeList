@@ -94,6 +94,31 @@ function Player:MarkExclusions()
 	self.excluded_recipes_unknown = unknown_count
 end
 
+function Player:HasProperRepLevel(rep_data)
+	local is_alliance = Player.faction == BFAC["Alliance"]
+	local player_rep = Player["Reputation"]
+	local FAC = private.faction_ids
+	local has_faction = true
+
+	for rep_id, rep_info in pairs(rep_data) do
+		for rep_level in pairs(rep_info) do
+			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
+				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
+			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
+				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+			end
+			local rep_name = private.reputation_list[rep_id].name
+
+			if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+				has_faction = false
+			else
+				has_faction = true
+				break
+			end
+		end
+	end
+end
+
 function Player:IsCorrectFaction(recipe_flags)
 	if self.faction == BFAC["Alliance"] and recipe_flags[F.HORDE] and not recipe_flags[F.ALLIANCE] then
 		return false
