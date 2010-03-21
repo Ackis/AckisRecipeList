@@ -921,22 +921,13 @@ end
 -- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
 -- @return None, array is passed as a reference.
 do
-	-- Tables for getting the locations
-	local location_list = {}
-	local location_checklist = {}
-
-	local function LocationSort(a, b)
-		return a < b
-	end
+	local location_list = private.location_list
 
 	function addon:AddRecipeAcquire(spell_id, ...)
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
 		local i = 1				-- Index for which variables we're parsing through
 		local recipe_list = private.recipe_list
 		local acquire_data = recipe_list[spell_id].acquire_data
-
-		twipe(location_list)
-		twipe(location_checklist)
 
 		while i <= numvars do
 			local location
@@ -1057,13 +1048,11 @@ do
 				end	-- acquire_id
 			end	-- acquire_type
 
-			if location and not location_checklist[location] then
-				tinsert(location_list, location)
-				location_checklist[location] = true
+			if location then
+				location_list[location] = location_list[location] or {}
+				location_list[location][spell_id] = true
 			end
 		end	-- while
-		table.sort(location_list, LocationSort)
-		recipe_list[spell_id].locations = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 
 	local function GenericAddRecipeAcquire(spell_id, acquire_type, type_string, unit_list, ...)
@@ -1075,9 +1064,6 @@ do
 		acquire_data[acquire_type] = acquire_data[acquire_type] or {}
 
 		local acquire = acquire_data[acquire_type]
-
-		twipe(location_list)
-		twipe(location_checklist)
 
 		while cur_var <= num_vars do
 			local location
@@ -1098,16 +1084,11 @@ do
 				unit.item_list[spell_id] = true
 			end
 
-			if location and not location_checklist[location] then
-				tinsert(location_list, location)
-				location_checklist[location] = true
+			if location then
+				location_list[location] = location_list[location] or {}
+				location_list[location][spell_id] = true
 			end
 		end
-		local locations = recipe.locations
-		locations = locations or ""
-
-		table.sort(location_list, LocationSort)
-		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 
 	function addon:AddRecipeMobDrop(spell_id, ...)
@@ -1139,9 +1120,6 @@ do
 		local faction = acquire[faction_id]
 		faction[rep_level] = faction[rep_level] or {}
 
-		twipe(location_list)
-		twipe(location_checklist)
-
 		while cur_var <= num_vars do
 			local location
 			local vendor_id = select(cur_var, ...)
@@ -1171,16 +1149,11 @@ do
 				end
 			end
 
-			if location and not location_checklist[location] then
-				tinsert(location_list, location)
-				location_checklist[location] = true
+			if location then
+				location_list[location] = location_list[location] or {}
+				location_list[location][spell_id] = true
 			end
 		end
-		local locations = recipe.locations
-		locations = locations or ""
-
-		table.sort(location_list, LocationSort)
-		locations = locations .. (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do block
 
