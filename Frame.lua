@@ -3182,7 +3182,7 @@ function addon:InitializeFrame()
 	-- Set the scripts for MainPanel.scroll_frame's buttons.
 	-------------------------------------------------------------------------------
 	do
-		local function RecipeItem_OnClick(self, button)
+		local function ListItem_OnClick(self, button)
 			local clickedIndex = self.string_index
 
 			-- Don't do anything if they've clicked on an empty button
@@ -3274,16 +3274,16 @@ function addon:InitializeFrame()
 
 			if i ~= 1 then
 				temp_state:SetPoint("TOPLEFT", MainPanel.scroll_frame.state_buttons[i - 1], "BOTTOMLEFT", 0, 3)
-				temp_recipe:SetPoint("TOPLEFT", MainPanel.scroll_frame.recipe_buttons[i - 1], "BOTTOMLEFT", 0, 3)
+				temp_recipe:SetPoint("TOPLEFT", MainPanel.scroll_frame.entry_buttons[i - 1], "BOTTOMLEFT", 0, 3)
 			else
 				temp_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
 				temp_recipe:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 37, -100)
 			end
-			temp_state:SetScript("OnClick", RecipeItem_OnClick)
-			temp_recipe:SetScript("OnClick", RecipeItem_OnClick)
+			temp_state:SetScript("OnClick", ListItem_OnClick)
+			temp_recipe:SetScript("OnClick", ListItem_OnClick)
 
 			MainPanel.scroll_frame.state_buttons[i] = temp_state
-			MainPanel.scroll_frame.recipe_buttons[i] = temp_recipe
+			MainPanel.scroll_frame.entry_buttons[i] = temp_recipe
 		end
 	end	-- do
 
