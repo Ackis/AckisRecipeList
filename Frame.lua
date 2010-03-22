@@ -2442,6 +2442,7 @@ do
 				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
 		end
+		MainPanel.progress_bar:Update()
 	end
 	local faction_strings
 
@@ -3947,7 +3948,6 @@ function addon:DisplayFrame()
 
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
-	MainPanel.progress_bar:Update()
 	MainPanel:Show()
 
 	-- Set the search text to the last searched text or the global default string for the search box
@@ -3967,7 +3967,6 @@ function ReDisplay()
 	Player:MarkExclusions()
 
 	MainPanel.scroll_frame:Update(false, false)
-	MainPanel.progress_bar:Update()
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
