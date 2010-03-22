@@ -95,6 +95,9 @@ function Player:MarkExclusions()
 end
 
 function Player:HasProperRepLevel(rep_data)
+	if not rep_data then
+		return true
+	end
 	local is_alliance = Player.faction == BFAC["Alliance"]
 	local player_rep = Player["Reputation"]
 	local FAC = private.faction_ids
@@ -109,7 +112,7 @@ function Player:HasProperRepLevel(rep_data)
 			end
 			local rep_name = private.reputation_list[rep_id].name
 
-			if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
+			if player_rep[rep_name] < rep_level then
 				has_faction = false
 			else
 				has_faction = true
@@ -117,6 +120,7 @@ function Player:HasProperRepLevel(rep_data)
 			end
 		end
 	end
+	return has_faction
 end
 
 function Player:IsCorrectFaction(recipe_flags)
