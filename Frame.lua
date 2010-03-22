@@ -2859,13 +2859,6 @@ MainPanel.close_button:SetScript("OnClick",
 					 MainPanel:Hide()
 				 end)
 
--- Description: Converting from hex to rgb (Thanks Maldivia)
-local function toRGB(hex)
-	local r, g, b = hex:match("(..)(..)(..)")
-
-	return (tonumber(r, 16) / 256), (tonumber(g, 16) / 256), (tonumber(b, 16) / 256)
-end
-
 local function SetSortName()
 	local sort_type = addon.db.profile.sorting
 
