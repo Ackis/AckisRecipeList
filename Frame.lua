@@ -3127,6 +3127,8 @@ function addon:InitializeFrame()
 	-------------------------------------------------------------------------------
 	local SearchRecipes
 	do
+		local acquire_names = private.acquire_names
+
 		local search_params = {
 			["item_id"]	= true,
 			["name"]	= true,
@@ -3147,6 +3149,13 @@ function addon:InitializeFrame()
 			for index in pairs(recipe_list) do
 				local entry = recipe_list[index]
 				entry.is_relevant = false
+
+				for acquire_type in pairs(acquire_names) do
+					if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
+						entry.is_relevant = true
+						break
+					end
+				end
 
 				for field in pairs(search_params) do
 					local str = entry[field] and tostring(entry[field]):lower() or nil
