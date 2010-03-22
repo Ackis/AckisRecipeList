@@ -2839,11 +2839,11 @@ function MainPanel.progress_bar:Update()
 	local settings = addon.db.profile
 
 	if settings.includefiltered then
-		pbCur = Player.recipes_known
+		pbCur = MainPanel.scroll_frame.recipes_displayed
 		pbMax = Player.recipes_total
 	else
 		-- We're removing filtered recipes from the final count
-		pbCur = Player.recipes_known_filtered
+		pbCur = MainPanel.scroll_frame.recipes_displayed
 		pbMax = Player.recipes_total_filtered
 	end
 
