@@ -2156,8 +2156,6 @@ do
 
 		if Player.current_prof == SPELL_ENCHANTING then
 			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
-		else
-			print(string.format("Current profession is %s.", Player.current_prof))
 		end
 		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
 
