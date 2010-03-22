@@ -1872,10 +1872,10 @@ do
 		twipe(text_table)
 
 		if not output or output == "Comma" then
-			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of Comma Separated Values.\n  ", profession))
+			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  ", UnitName("player"), profession))
 			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
-			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s, in the form of BBCode.\n", profession))
+			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n", UnitName("player"), profession))
 		end
 		local recipe_list = private.recipe_list
 
