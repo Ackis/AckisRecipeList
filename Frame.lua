@@ -643,7 +643,7 @@ do
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 			TipTac:AddModifiedTip(acquire_tip, true)
 		end
-		local quality_color = select(4, GetItemQualityColor(recipe_entry.quality))
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
 
 		acquire_tip:Clear()
 		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
