@@ -768,12 +768,12 @@ function addon:InitEngineering()
 	-- Dimensional Ripper - Everlook -- 23486
 	AddRecipe(23486, 260, 18984, Q.UNCOMMON, V.ORIG, 260, 285, 295, 305, 20222)
 	self:AddRecipeFlags(23486, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(23486, A.CUSTOM, 20)
+	self:AddRecipeAcquire(23486, A.TRAINER, 14742)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
 	AddRecipe(23489, 260, 18986, Q.UNCOMMON, V.ORIG, 260, 285, 295, 305, 20219)
 	self:AddRecipeFlags(23489, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(23489, A.CUSTOM, 20)
+	self:AddRecipeAcquire(23489, A.TRAINER, 14743)
 
 	-- Snake Burst Firework -- 23507
 	AddRecipe(23507, 250, 19026, Q.COMMON, V.ORIG, 250, 250, 260, 270)
@@ -1088,12 +1088,12 @@ function addon:InitEngineering()
 	-- Dimensional Ripper - Area 52 -- 36954
 	AddRecipe(36954, 350, 30542, Q.UNCOMMON, V.TBC, 350, 350, 360, 370, 20222)
 	self:AddRecipeFlags(36954, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(36954, A.CUSTOM, 20)
+	self:AddRecipeAcquire(36954, A.TRAINER, 21493)
 
 	-- Ultrasafe Transporter - Toshley's Station -- 36955
 	AddRecipe(36955, 350, 30544, Q.UNCOMMON, V.TBC, 350, 350, 360, 370, 20219)
 	self:AddRecipeFlags(36955, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(36955, A.CUSTOM, 21)
+	self:AddRecipeAcquire(36955, A.TRAINER, 21494)
 
 	-- Fused Wiring -- 39895
 	AddRecipe(39895, 275, 7191, Q.COMMON, V.TBC, 275, 275, 280, 285)
