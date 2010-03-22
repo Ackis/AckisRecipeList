@@ -593,7 +593,7 @@ do
 				faction = FACTION_ALLIANCE
 			end
 		else
-			color = addon:hexcolor("NEUTRAL")
+			color = "|cff"..private.reputation_colors["neutral"]
 			faction = FACTION_NEUTRAL
 			display_tip = true
 		end
@@ -803,6 +803,8 @@ do
 					ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[id_num].name, color_1)
 				end
 			elseif acquire_type == A.REPUTATION then
+				local rep_color = private.reputation_colors
+
 				for rep_id, rep_info in pairs(acquire_info) do
 					for rep_level, level_info in pairs(rep_info) do
 						for vendor_id in pairs(level_info) do
@@ -818,19 +820,19 @@ do
 
 								if rep_level == 0 then
 									rep_str = FACTION_NEUTRAL
-									color_1 = addon:hexcolor("NEUTRAL")
+									color_1 = "|cff"..rep_color["neutral"]
 								elseif rep_level == 1 then
 									rep_str = BFAC["Friendly"]
-									color_1 = addon:hexcolor("FRIENDLY")
+									color_1 = "|cff"..rep_color["friendly"]
 								elseif rep_level == 2 then
 									rep_str = BFAC["Honored"]
-									color_1 = addon:hexcolor("HONORED")
+									color_1 = "|cff"..rep_color["honored"]
 								elseif rep_level == 3 then
 									rep_str = BFAC["Revered"]
-									color_1 = addon:hexcolor("REVERED")
+									color_1 = "|cff"..rep_color["revered"]
 								else
 									rep_str = BFAC["Exalted"]
-									color_1 = addon:hexcolor("EXALTED")
+									color_1 = "|cff"..rep_color["exalted"]
 								end
 								ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
 
@@ -2499,6 +2501,7 @@ do
 		end
 		local recipe_id = self.entries[orig_index].recipe_id
 		local obtain_filters = addon.db.profile.filters.obtain
+		local rep_color = private.reputation_colors
 
 		for acquire_type, acquire_info in pairs(private.recipe_list[recipe_id].acquire_data) do
 			if acquire_type == A.TRAINER and obtain_filters.trainer then
@@ -2517,7 +2520,7 @@ do
 						elseif trainer.faction == FACTION_ALLIANCE then
 							nStr = addon:Alliance(trainer.name)
 						else
-							nStr = addon:Neutral(trainer.name)
+							nStr = SetTextColor(rep_color["neutral"], trainer.name)
 						end
 						t.text = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
 
@@ -2557,7 +2560,7 @@ do
 						elseif vendor.faction == FACTION_ALLIANCE then
 							nStr = addon:Alliance(vendor.name)
 						else
-							nStr = addon:Neutral(vendor.name)
+							nStr = SetTextColor(rep_color["neutral"], vendor.name)
 						end
 						t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
@@ -2620,7 +2623,7 @@ do
 						elseif quest.faction == FACTION_ALLIANCE then
 							nStr = addon:Alliance(quest.name)
 						else
-							nStr = addon:Neutral(quest.name)
+							nStr = SetTextColor(rep_color["neutral"], quest.name)
 						end
 						t.text = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
 
@@ -2658,11 +2661,11 @@ do
 				-- Rep_vendor - VendorID
 				if not faction_strings then
 					faction_strings = {
-						[0] = addon:Neutral(FACTION_NEUTRAL .. " : "),
-						[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
-						[2] = addon:Honored(BFAC["Honored"] .. " : "),
-						[3] = addon:Revered(BFAC["Revered"] .. " : "),
-						[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
+						[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
+						[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
+						[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
+						[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
+						[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
 					}
 				end
 
@@ -2687,7 +2690,7 @@ do
 								elseif rep_vendor.faction == FACTION_ALLIANCE then
 									nStr = addon:Alliance(rep_vendor.name)
 								else
-									nStr = addon:Neutral(rep_vendor.name)
+									nStr = SetTextColor(rep_color["neutral"], rep_vendor.name)
 								end
 								t = AcquireTable()
 								t.recipe_id = recipe_id
@@ -2757,7 +2760,7 @@ do
 						elseif vendor.faction == FACTION_ALLIANCE then
 							nStr = addon:Alliance(vendor.name)
 						else
-							nStr = addon:Neutral(vendor.name)
+							nStr = SetTextColor(rep_color["neutral"], vendor.name)
 						end
 						t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
