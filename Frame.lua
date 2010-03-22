@@ -2325,6 +2325,7 @@ do
 				end
 			end	-- Sort type.
 			self.recipes_displayed = recipes_displayed
+			MainPanel.progress_bar:Update()
 		end
 
 		-- Reset the current buttons/lines
@@ -2448,7 +2449,6 @@ do
 				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
 		end
-		MainPanel.progress_bar:Update()
 	end
 	local faction_strings
 
