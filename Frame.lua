@@ -2225,7 +2225,7 @@ do
 					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
+						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 						end
 					end
@@ -2260,7 +2260,7 @@ do
 					for spell_id in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
+						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 						end
 					end
@@ -2457,7 +2457,7 @@ do
 			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
@@ -2477,7 +2477,7 @@ do
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
