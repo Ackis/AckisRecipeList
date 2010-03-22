@@ -2199,9 +2199,12 @@ do
 		return recipe_string
 	end
 
+	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+	-- necessary to ensure each is counted only once.
+	local recipe_registry = {}
+
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local insert_index = 1
-
 		local recipe_list = private.recipe_list
 
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
@@ -2216,6 +2219,7 @@ do
 				ReleaseTable(self.entries[i])
 			end
 			twipe(self.entries)
+			twipe(recipe_registry)
 
 			if sort_type == "Acquisition" then
 				SortAcquireList()
@@ -2228,9 +2232,13 @@ do
 					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
+						if recipe.is_visible and recipe.is_relevant then
 							count = count + 1
-							recipes_displayed = recipes_displayed + 1
+
+							if not recipe_registry[recipe] then
+								recipe_registry[recipe] = true
+								recipes_displayed = recipes_displayed + 1
+							end
 						end
 					end
 
@@ -2266,9 +2274,13 @@ do
 					for spell_id in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
+						if recipe.is_visible and recipe.is_relevant then
 							count = count + 1
-							recipes_displayed = recipes_displayed + 1
+
+							if not recipe_registry[recipe] then
+								recipe_registry[recipe] = true
+								recipes_displayed = recipes_displayed + 1
+							end
 						end
 					end
 
@@ -2470,7 +2482,7 @@ do
 			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
@@ -2490,7 +2502,7 @@ do
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
