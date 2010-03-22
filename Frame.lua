@@ -2219,23 +2219,22 @@ do
 			if sort_type == "Acquisition" then
 				for index = 1, #sorted_acquires do
 					local acquire_type = sorted_acquires[index]
-					local show_acquire = false
+					local count = 0
 
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
 						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
-							show_acquire = true
-							break
+							count = count + 1
 						end
 					end
 
 
-					if show_acquire then
+					if count > 0 then
 						local t = AcquireTable()
 
-						t.text = private.acquire_names[acquire_type]
+						t.text = string.format("%s (%d)", private.acquire_names[acquire_type], count)
 						t.acquire_id = acquire_type
 						t.is_header = true
 
@@ -2255,22 +2254,21 @@ do
 			elseif sort_type == "Location" then
 				for index = 1, #sorted_locations do
 					local loc_name = sorted_locations[index]
-					local show_loc = false
+					local count = 0
 
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 					for spell_id in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
 						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
-							show_loc = true
-							break
+							count = count + 1
 						end
 					end
 
-					if show_loc then
+					if count > 0 then
 						local t = AcquireTable()
 
-						t.text = loc_name
+						t.text = string.format("%s (%d)", loc_name, count)
 						t.location_id = loc_name
 						t.is_header = true
 
