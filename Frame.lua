@@ -2153,33 +2153,53 @@ do
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 	end
+	local SKILL_LEVEL_FORMAT = "[%d]"
 
-	local function PaintRecipeText(recipe_entry, has_faction, recipe_string)
+	local function FormatRecipeText(recipe_entry)
+		local exclusions = addon.db.profile.exclusionlist
+		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+		local rep_text
+
+		if rep_data then
+			local has_faction = Player:HasProperRepLevel(rep_data)
+
+			if not has_faction then
+				rep_text = string.format(addon:Red("[%s]"), _G.REPUTATION)
+			end
+		end
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
+		local recipe_string = rep_text and string.format("%s %s%s|r", rep_text, quality_color, recipe_entry.name) or string.format("%s%s|r", quality_color, recipe_entry.name)
+
 		local skill_level = Player["ProfessionLevel"]
 		local recipe_level = recipe_entry.skill_level
-		local optimal_level = recipe_entry.optimal_level
-		local medium_level = recipe_entry.medium_level
-		local easy_level = recipe_entry.easy_level
-		local trivial_level = recipe_entry.trivial_level
+		
+		local level_text
 
-		if not has_faction then
-			return addon:Red(recipe_string)
-		elseif recipe_level > skill_level then
-			return addon:Red(recipe_string)
-		elseif skill_level >= trivial_level then
-			return addon:MidGrey(recipe_string)
-		elseif skill_level >= easy_level then
-			return addon:Green(recipe_string)
-		elseif skill_level >= medium_level then
-			return addon:Yellow(recipe_string)
-		elseif skill_level >= optimal_level then
-			return addon:Orange(recipe_string)
+		if recipe_level > skill_level then
+			level_text = string.format(addon:Red(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.trivial_level then
+			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.easy_level then
+			level_text = string.format(addon:Green(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.medium_level then
+			level_text = string.format(addon:Yellow(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.optimal_level then
+			level_text = string.format(addon:Orange(SKILL_LEVEL_FORMAT), recipe_level)
 		else
 			--@alpha@
-			addon:Print("DEBUG: Skill level color fallback: " .. recipe_string)
+			addon:Printf("DEBUG: Skill level color fallback: %s.", recipe_string)
 			--@end-alpha@
-			return addon:MidGrey(recipe_string)
+			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
 		end
+		local sort_type = addon.db.profile.sorting
+		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
+
+		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+
+		if exclusions[recipe_index] then
+			recipe_string = string.format("** %s **", recipe_string)
+		end
+		return recipe_string
 	end
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
@@ -2191,9 +2211,7 @@ do
 		if not refresh and not self.scrolling then
 			local sorted_recipes = addon.sorted_recipes
 			local sorted_locations = addon.sorted_locations
-
 			local sort_type = addon.db.profile.sorting
-			local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
@@ -2237,32 +2255,14 @@ do
 					end
 				end
 			else
-				local exclusions = addon.db.profile.exclusionlist
-
 				for i = 1, #sorted_recipes do
 					local recipe_index = sorted_recipes[i]
 					local recipe_entry = recipe_list[recipe_index]
 
 					if recipe_entry.is_visible and recipe_entry.is_relevant then
-						local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-						local has_faction = true
-
-						if rep_data then
-							has_faction = Player:HasProperRepLevel(rep_data)
-						end
-						local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
-
-						if exclusions[recipe_index] then
-							recipe_string = string.format("** %s **", recipe_string)
-						end
-						local recipe_level = recipe_entry.skill_level
-
-						recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
-
 						local t = AcquireTable()
 
-						t.text = PaintRecipeText(recipe_entry, has_faction, recipe_string)
-
+						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = recipe_index
 						t.is_header = true
 
@@ -2422,31 +2422,13 @@ do
 		entry_index = entry_index + 1
 
 		if location_id then
-			local exclusions = addon.db.profile.exclusionlist
-
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
 				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
-					local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-					local has_faction = true
-
-					if rep_data then
-						has_faction = Player:HasProperRepLevel(rep_data)
-					end
-					local recipe_string = has_faction and string.format("%s%s", pad, recipe_entry.name) or string.format("%s[%s] %s", pad, _G.REPUTATION, recipe_entry.name)
-
-					if exclusions[recipe_index] then
-						recipe_string = string.format("** %s **", recipe_string)
-					end
-					local recipe_level = recipe_entry.skill_level
-
-					recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
-
 					local t = AcquireTable()
 
-					t.text = PaintRecipeText(recipe_entry, has_faction, recipe_string)
-
+					t.text = FormatRecipeText(recipe_entry)
 					t.is_expanded = true
 					t.recipe_id = spell_id
 					t.location_id = location_id
