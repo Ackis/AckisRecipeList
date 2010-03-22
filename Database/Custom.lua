@@ -44,8 +44,6 @@ function addon:InitCustom(DB)
 	-- Engineering Related
 	self:addLookupList(DB, 16, L["ENG_GNOMER"], BZ["Gnomeregan"], 0, 0)
 	self:addLookupList(DB, 17, L["ENG_FLOOR_ITEM_BRD"], BZ["Blackrock Depths"], 0, 0)
-	self:addLookupList(DB, 20, L["GOBLIN_ENG"], "N/A")
-	self:addLookupList(DB, 21, L["GNOMISH_ENG"], "N/A")
 	-- Default
 	self:addLookupList(DB, 8, L["DEFAULT_RECIPE"], "N/A")
 	-- Crafted by other professions
@@ -80,8 +78,6 @@ function addon:InitCustom(DB)
 
 --self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"], "N/A")
 --[[
-L["Custom20"] = "Goblin transport." -- Update
-L["Custom21"] = "Gnome transport." -- Update
 L["Custom35"] = "Drops from dragons in Ogri'la and Blade's Edge Mountains Summon Bosses"
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
 L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
