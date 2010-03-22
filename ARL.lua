@@ -959,12 +959,16 @@ do
 							self:Print("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							local trainer = trainer_list[acquire_id]
+							local faction = trainer.faction
+
 							acquire[acquire_id] = true
 
-							location = trainer_list[acquire_id].location
-
-							trainer_list[acquire_id].item_list = trainer_list[acquire_id].item_list or {}
-							trainer_list[acquire_id].item_list[spell_id] = true
+							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								location = trainer.location
+							end
+							trainer.item_list = trainer.item_list or {}
+							trainer.item_list[spell_id] = true
 						end
 					elseif acquire_type == A.VENDOR then
 						local vendor_list = private.vendor_list
@@ -974,11 +978,16 @@ do
 							self:Print("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
-							acquire[acquire_id] = true
-							location = vendor_list[acquire_id].location
+							local vendor = vendor_list[acquire_id]
+							local faction = vendor.faction
 
-							vendor_list[acquire_id].item_list = vendor_list[acquire_id].item_list or {}
-							vendor_list[acquire_id].item_list[spell_id] = true
+							acquire[acquire_id] = true
+
+							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								location = vendor.location
+							end
+							vendor.item_list = vendor.item_list or {}
+							vendor.item_list[spell_id] = true
 						end
 					elseif acquire_type == A.MOB then
 						local mob_list = private.mob_list
@@ -988,9 +997,14 @@ do
 							self:Print("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
-							acquire[acquire_id] = true
-							location = mob_list[acquire_id].location
+							local mob = mob_list[acquire_id]
+							local faction = mob.faction
 
+							acquire[acquire_id] = true
+
+							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								location = mob.location
+							end
 							mob_list[acquire_id].item_list = mob_list[acquire_id].item_list or {}
 							mob_list[acquire_id].item_list[spell_id] = true
 						end
@@ -1002,8 +1016,14 @@ do
 							self:Print("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
 							--@end-alpha@
 						else
+							local quest = quest_list[acquire_id]
+							local faction = quest.faction
+
 							acquire[acquire_id] = true
-							location = quest_list[acquire_id].location
+
+							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								location = quest.location
+							end
 						end
 					elseif acquire_type == A.REPUTATION then
 						local vendor_list = private.vendor_list
@@ -1031,8 +1051,11 @@ do
 								faction[rep_level][vendor_id] = true
 
 								local rep_vendor = vendor_list[vendor_id]
-								location = rep_vendor.location
+								local rep_faction = rep_vendor.faction
 
+								if not rep_faction or rep_faction == BFAC[Player.faction] or rep_faction == BFAC["Neutral"] then
+									location = rep_vendor.location
+								end
 								rep_vendor.item_list = rep_vendor.item_list or {}
 								rep_vendor.item_list[spell_id] = true
 							end
@@ -1093,8 +1116,11 @@ do
 				--@end-alpha@
 			else
 				local unit = unit_list[id_num]
-				location = unit.location
+				local faction = unit.faction
 
+				if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+					location = unit.location
+				end
 				unit.item_list = unit.item_list or {}
 				unit.item_list[spell_id] = true
 			end
@@ -1165,8 +1191,11 @@ do
 					faction[rep_level][vendor_id] = true
 
 					local rep_vendor = vendor_list[vendor_id]
-					location = rep_vendor.location
+					local rep_faction = rep_vendor.faction
 
+					if not rep_faction or rep_faction == BFAC[Player.faction] or rep_faction == BFAC["Neutral"] then
+						location = rep_vendor.location
+					end
 					rep_vendor.item_list = rep_vendor.item_list or {}
 					rep_vendor.item_list[spell_id] = true
 				end
