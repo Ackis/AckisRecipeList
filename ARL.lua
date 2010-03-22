@@ -968,7 +968,7 @@ do
 						end
 					elseif acquire_type == A.VENDOR then
 						local vendor_list = private.vendor_list
-					
+
 						if not vendor_list[acquire_id] then
 							--@alpha@
 							self:Print("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
@@ -976,7 +976,7 @@ do
 						else
 							acquire[acquire_id] = true
 							location = vendor_list[acquire_id].location
-						
+
 							vendor_list[acquire_id].item_list = vendor_list[acquire_id].item_list or {}
 							vendor_list[acquire_id].item_list[spell_id] = true
 						end
@@ -990,7 +990,7 @@ do
 						else
 							acquire[acquire_id] = true
 							location = mob_list[acquire_id].location
-						
+
 							mob_list[acquire_id].item_list = mob_list[acquire_id].item_list or {}
 							mob_list[acquire_id].item_list[spell_id] = true
 						end
