@@ -260,3 +260,22 @@ private.faction_strings = {
 	[1119]	= "HODIR",
 	[1156]	= "ASHEN_VERDICT",
 }
+
+-------------------------------------------------------------------------------
+-- Colors.
+-------------------------------------------------------------------------------
+local function RGBtoHEX(r, g, b)
+	return string.format("%2x%2x%2x", r * 255, g * 255, b * 255)
+end
+
+local function GetColorsFromTable(dict)
+	return dict.r, dict.g, dict.b
+end
+
+private.reputation_colors = {
+	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["impossible"])),
+	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["verydifficult"])),
+	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["difficult"])),
+	["friendly"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["standard"])),
+	["neutral"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["trivial"])),
+}
