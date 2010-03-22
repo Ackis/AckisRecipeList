@@ -22,9 +22,11 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --Colour constants
 local RED	= "ff0000"
-local ORANGE	= "ff7f00"
+--local ORANGE	= "ff7f00"
+local ORANGE	= "ff8040"
 local YELLOW	= "ffff00"
-local GREEN	= "00ff00"
+--local GREEN	= "00ff00"
+local GREEN	= "40bf40"
 local WHITE	= "ffffff"
 local COPPER	= "eda55f"
 local SILVER	= "c7c7cf"
@@ -34,7 +36,8 @@ local BLUE	= "0000ff"
 local CYAN	= "00ffff"
 local BLACK	= "000000"
 local GREY	= "666666"
-local MIDGREY	= "858585"
+--local MIDGREY	= "858585"
+local MIDGREY	= "808080"
 local NEUTRAL	= "bfbfbf"
 local FRIENDLY	= WHITE
 local HONORED	= "00ff00"
