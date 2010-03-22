@@ -67,7 +67,7 @@ function Player:MarkExclusions()
 	local exclusion_list = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
 	local recipe_list = private.recipe_list
-	local profession = self["Profession"]
+	local profession = self.current_prof
 	local known_count = 0
 	local unknown_count = 0
 
