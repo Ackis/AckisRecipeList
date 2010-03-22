@@ -65,6 +65,8 @@ _G.ARL = addon
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
+local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(MODNAME)
+
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
@@ -143,8 +145,14 @@ if MissingLibraries() then
 	return
 end
 
-function addon:DEBUG(str, ...)
-	print(string.format(addon:Red("DEBUG: ") .. tostring(str), ...))
+function addon:Debug(...)
+	if debugger then
+		debugger:AddMessage(string.format(...))
+	else
+		--@alpha@
+		self:Printf(...)
+		--@end-alpha@
+	end
 end
 
 do

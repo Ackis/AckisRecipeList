@@ -2185,9 +2185,7 @@ do
 		elseif skill_level >= recipe_entry.optimal_level then
 			level_text = string.format(addon:Orange(SKILL_LEVEL_FORMAT), recipe_level)
 		else
-			--@alpha@
-			addon:Printf("DEBUG: Skill level color fallback: %s.", recipe_string)
-			--@end-alpha@
+			addon:Debug("Skill level color fallback: %s.", recipe_string)
 			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
 		end
 		local sort_type = addon.db.profile.sorting
@@ -2437,16 +2435,16 @@ do
 				StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
-				addon:Print("DEBUG: recipes_total check for 0")
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-				addon:Print("DEBUG: recipes_known: " .. Player.recipes_known)
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Print("DEBUG: recipes_total_filtered: " .. Player.recipes_total_filtered)
-				addon:Print("DEBUG: recipes_known_filtered: " .. Player.recipes_known_filtered)
-				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
+				addon:Debug("recipes_total check for 0")
+				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_total check for equal to recipes_total")
+				addon:Debug("recipes_known: " .. Player.recipes_known)
+				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_total_filtered - recipes_known_filtered = 0")
+				addon:Debug("recipes_total_filtered: " .. Player.recipes_total_filtered)
+				addon:Debug("recipes_known_filtered: " .. Player.recipes_known_filtered)
+				addon:Debug("excluded_recipes_unknown ~= 0")
+				addon:Debug("excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
 		end
 	end
