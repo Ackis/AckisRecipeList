@@ -2857,14 +2857,13 @@ function MainPanel.progress_bar:Update()
 	end
 
 	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbCur = pbCur - Player.excluded_recipes_unknown
 		pbMax = pbMax - Player.excluded_recipes_known
 	end
 	self:SetMinMaxValues(0, pbMax)
 	self:SetValue(pbCur)
 
 	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
+		self.text:SetFormattedText("%d / %d - %1.2f%%", pbCur, pbMax, pbCur / pbMax * 100)
 	else
 		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
 	end
