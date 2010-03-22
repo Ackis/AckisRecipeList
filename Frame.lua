@@ -403,11 +403,8 @@ do
 
 	-- Sorts the recipe_list according to configuration settings.
 	function SortRecipeList()
-		local sort_func = RECIPE_SORT_FUNCS[addon.db.profile.sorting]
+		local sort_func = RECIPE_SORT_FUNCS[addon.db.profile.sorting] or Sort_Name
 
-		if not sort_func then
-			return
-		end
 		local sorted_recipes = addon.sorted_recipes
 		twipe(sorted_recipes)
 
