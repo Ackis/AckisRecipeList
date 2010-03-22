@@ -890,7 +890,6 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["trivial_level"]	= trivial_level or skill_level + 20,
 		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
 		["is_relevant"]		= true,				-- Set to be showing in the search results
-		["is_known"]		= false,			-- Initially not known - will determine in addon:Scan()
 	}
 
 	if not recipe.name then
