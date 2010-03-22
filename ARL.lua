@@ -89,6 +89,7 @@ private.trainer_list	= {}
 private.seasonal_list	= {}
 private.vendor_list	= {}
 private.location_list	= {}
+private.acquire_list	= {}
 
 -- Filter flags and acquire types - defined in Constants.lua
 local F 	= private.filter_flags
@@ -922,6 +923,7 @@ end
 -- @return None, array is passed as a reference.
 do
 	local location_list = private.location_list
+	local acquire_list = private.acquire_list
 
 	function addon:AddRecipeAcquire(spell_id, ...)
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
@@ -931,6 +933,7 @@ do
 
 		while i <= numvars do
 			local location
+
 			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
 
@@ -1049,7 +1052,13 @@ do
 						location = private.acquire_strings[acquire_type] or _G.UNKNOWN
 					end
 				end	-- acquire_id
+				acquire_list[acquire_type] = acquire_list[acquire_type] or {}
+				acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
+
+				acquire_list[acquire_type].name = private.acquire_names[acquire_type]
+				acquire_list[acquire_type].recipes[spell_id] = true
 			end	-- acquire_type
+
 
 			if location then
 				location_list[location] = location_list[location] or {}
@@ -1089,6 +1098,11 @@ do
 				unit.item_list = unit.item_list or {}
 				unit.item_list[spell_id] = true
 			end
+			acquire_list[acquire_type] = acquire_list[acquire_type] or {}
+			acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
+
+			acquire_list[acquire_type].name = private.acquire_names[acquire_type]
+			acquire_list[acquire_type].recipes[spell_id] = true
 
 			if location then
 				location_list[location] = location_list[location] or {}
@@ -1157,6 +1171,11 @@ do
 					rep_vendor.item_list[spell_id] = true
 				end
 			end
+			acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
+			acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
+
+			acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
+			acquire_list[A.REPUTATION].recipes[spell_id] = true
 
 			if location then
 				location_list[location] = location_list[location] or {}
@@ -1711,17 +1730,7 @@ do
 	-------------------------------------------------------------------------------
 	local text_table = {}
 	local acquire_list = {}
-
-	local ACQUIRE_NAMES = {
-		[A.TRAINER]	= L["Trainer"],
-		[A.VENDOR]	= L["Vendor"],
-		[A.MOB]		= L["Mob Drop"],
-		[A.QUEST]	= L["Quest"],
-		[A.SEASONAL]	= _G.EVENTS_LABEL,
-		[A.REPUTATION]	= _G.REPUTATION,
-		[A.WORLD_DROP]	= L["World Drop"],
-		[A.CUSTOM]	= _G.CUSTOM,
-	}
+	local ACQUIRE_NAMES = private.acquire_names
 
 	local GetFilterNames
 	do

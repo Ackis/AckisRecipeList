@@ -361,12 +361,15 @@ end	-- do
 -------------------------------------------------------------------------------
 local SortRecipeList
 local SortLocationList
+local SortAcquireList
 do
 	local recipe_list = private.recipe_list
 	local location_list = private.location_list
+	local acquire_list = private.acquire_list
 
 	addon.sorted_recipes = {}
 	addon.sorted_locations = {}
+	addon.sorted_acquires = {}
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -392,35 +395,10 @@ do
 		return recipe_list[a].name < recipe_list[b].name
 	end
 
-	-- Will only sort based off of the first acquire type
-	local function Sort_Acquisition(a, b)
---		local reca = recipe_list[a].acquire_data[1]
---		local recb = recipe_list[b].acquire_data[1]
-
---		if not reca or not recb then
---			return not not reca
---		end
-
---		if reca.type ~= recb.type then
---			return reca.type < recb.type
---		end
-
---		if reca.type == A.CUSTOM then
---			if reca.ID == recb.ID then
---				return recipe_list[a].name < recipe_list[b].name
---			else
---				return reca.ID < recb.ID
---			end
---		else
-			return recipe_list[a].name < recipe_list[b].name
---		end
-	end
-
 	local RECIPE_SORT_FUNCS = {
 		["SkillAsc"]	= Sort_SkillAsc,
 		["SkillDesc"]	= Sort_SkillDesc,
 		["Name"]	= Sort_Name,
-		["Acquisition"]	= Sort_Acquisition,
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
@@ -456,6 +434,25 @@ do
 		end
 		table.sort(sorted_locations, Sort_Location)
 	end
+
+	local function Sort_Acquisition(a, b)
+		local acquire_a = acquire_list[a]
+		local acquire_b = acquire_list[b]
+
+		return acquire_a.name < acquire_b.name
+	end
+
+	-- Sorts the acquire_list by name.
+	function SortAcquireList()
+		local sorted_acquires = addon.sorted_acquires
+		twipe(sorted_acquires)
+
+		for acquire_name in pairs(private.acquire_list) do
+			tinsert(sorted_acquires, acquire_name)
+		end
+		table.sort(sorted_acquires, Sort_Acquisition)
+	end
+
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -643,7 +640,7 @@ do
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 			TipTac:AddModifiedTip(acquire_tip, true)
 		end
-		local quality_color = select(4, GetItemQualityColor(recipe_entry.quality))
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
 
 		acquire_tip:Clear()
 		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
@@ -2153,33 +2150,53 @@ do
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 	end
+	local SKILL_LEVEL_FORMAT = "[%d]"
 
-	local function PaintRecipeText(recipe_entry, has_faction, recipe_string)
+	local function FormatRecipeText(recipe_entry)
+		local exclusions = addon.db.profile.exclusionlist
+		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+		local rep_text
+
+		if rep_data then
+			local has_faction = Player:HasProperRepLevel(rep_data)
+
+			if not has_faction then
+				rep_text = string.format(addon:Red("[%s]"), _G.REPUTATION)
+			end
+		end
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
+		local recipe_string = rep_text and string.format("%s %s%s|r", rep_text, quality_color, recipe_entry.name) or string.format("%s%s|r", quality_color, recipe_entry.name)
+
 		local skill_level = Player["ProfessionLevel"]
 		local recipe_level = recipe_entry.skill_level
-		local optimal_level = recipe_entry.optimal_level
-		local medium_level = recipe_entry.medium_level
-		local easy_level = recipe_entry.easy_level
-		local trivial_level = recipe_entry.trivial_level
+		
+		local level_text
 
-		if not has_faction then
-			return addon:Red(recipe_string)
-		elseif recipe_level > skill_level then
-			return addon:Red(recipe_string)
-		elseif skill_level >= trivial_level then
-			return addon:MidGrey(recipe_string)
-		elseif skill_level >= easy_level then
-			return addon:Green(recipe_string)
-		elseif skill_level >= medium_level then
-			return addon:Yellow(recipe_string)
-		elseif skill_level >= optimal_level then
-			return addon:Orange(recipe_string)
+		if recipe_level > skill_level then
+			level_text = string.format(addon:Red(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.trivial_level then
+			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.easy_level then
+			level_text = string.format(addon:Green(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.medium_level then
+			level_text = string.format(addon:Yellow(SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.optimal_level then
+			level_text = string.format(addon:Orange(SKILL_LEVEL_FORMAT), recipe_level)
 		else
 			--@alpha@
-			addon:Print("DEBUG: Skill level color fallback: " .. recipe_string)
+			addon:Printf("DEBUG: Skill level color fallback: %s.", recipe_string)
 			--@end-alpha@
-			return addon:MidGrey(recipe_string)
+			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
 		end
+		local sort_type = addon.db.profile.sorting
+		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
+
+		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+
+		if exclusions[recipe_index] then
+			recipe_string = string.format("** %s **", recipe_string)
+		end
+		return recipe_string
 	end
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
@@ -2191,35 +2208,67 @@ do
 		if not refresh and not self.scrolling then
 			local sorted_recipes = addon.sorted_recipes
 			local sorted_locations = addon.sorted_locations
-
+			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
-			local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
 			end
 			twipe(self.entries)
 
-			if sort_type == "Location" then
+			if sort_type == "Acquisition" then
+				for index = 1, #sorted_acquires do
+					local acquire_type = sorted_acquires[index]
+					local count = 0
+
+					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
+						local recipe = private.recipe_list[spell_id]
+
+						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
+							count = count + 1
+						end
+					end
+
+
+					if count > 0 then
+						local t = AcquireTable()
+
+						t.text = string.format("%s (%d)", private.acquire_names[acquire_type], count)
+						t.acquire_id = acquire_type
+						t.is_header = true
+
+						if expand_acquires then
+							-- we have acquire information for this. push the title entry into the strings
+							-- and start processing the acquires
+							t.is_expanded = true
+							tinsert(self.entries, insert_index, t)
+							insert_index = self:ExpandEntry(insert_index)
+						else
+							t.is_expanded = false
+							tinsert(self.entries, insert_index, t)
+							insert_index = insert_index + 1
+						end
+					end
+				end
+			elseif sort_type == "Location" then
 				for index = 1, #sorted_locations do
 					local loc_name = sorted_locations[index]
-					local show_loc = false
+					local count = 0
 
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 					for spell_id in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
 						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
-							show_loc = true
-							break
+							count = count + 1
 						end
 					end
 
-
-					if show_loc then
+					if count > 0 then
 						local t = AcquireTable()
 
-						t.text = loc_name
+						t.text = string.format("%s (%d)", loc_name, count)
 						t.location_id = loc_name
 						t.is_header = true
 
@@ -2237,32 +2286,14 @@ do
 					end
 				end
 			else
-				local exclusions = addon.db.profile.exclusionlist
-
 				for i = 1, #sorted_recipes do
 					local recipe_index = sorted_recipes[i]
 					local recipe_entry = recipe_list[recipe_index]
 
 					if recipe_entry.is_visible and recipe_entry.is_relevant then
-						local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-						local has_faction = true
-
-						if rep_data then
-							has_faction = Player:HasProperRepLevel(rep_data)
-						end
-						local recipe_string = has_faction and recipe_entry.name or string.format("[%s] %s", _G.REPUTATION, recipe_entry.name)
-
-						if exclusions[recipe_index] then
-							recipe_string = string.format("** %s **", recipe_string)
-						end
-						local recipe_level = recipe_entry.skill_level
-
-						recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
-
 						local t = AcquireTable()
 
-						t.text = PaintRecipeText(recipe_entry, has_faction, recipe_string)
-
+						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = recipe_index
 						t.is_header = true
 
@@ -2414,39 +2445,42 @@ do
 	end
 
 	function MainPanel.scroll_frame:ExpandEntry(entry_index)
-		local location_id = self.entries[entry_index].location_id
 		local pad = "  "
+		local orig_index = entry_index
+		local acquire_id = self.entries[orig_index].acquire_id
 
 		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
-		if location_id then
-			local exclusions = addon.db.profile.exclusionlist
+		if acquire_id then
+			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
+				local recipe_entry = private.recipe_list[spell_id]
 
+				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
+					local t = AcquireTable()
+
+					t.text = FormatRecipeText(recipe_entry)
+					t.is_expanded = true
+					t.recipe_id = spell_id
+					t.acquire_id = acquire_id
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+			return entry_index
+		end
+		local location_id = self.entries[orig_index].location_id
+
+		if location_id then
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
 				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
-					local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-					local has_faction = true
-
-					if rep_data then
-						has_faction = Player:HasProperRepLevel(rep_data)
-					end
-					local recipe_string = has_faction and string.format("%s%s", pad, recipe_entry.name) or string.format("%s[%s] %s", pad, _G.REPUTATION, recipe_entry.name)
-
-					if exclusions[recipe_index] then
-						recipe_string = string.format("** %s **", recipe_string)
-					end
-					local recipe_level = recipe_entry.skill_level
-
-					recipe_string = skill_sort and string.format("[%d] - %s", recipe_level, recipe_string) or string.format("%s - [%d]", recipe_string, recipe_level)
-
 					local t = AcquireTable()
 
-					t.text = PaintRecipeText(recipe_entry, has_faction, recipe_string)
-
+					t.text = FormatRecipeText(recipe_entry)
 					t.is_expanded = true
 					t.recipe_id = spell_id
 					t.location_id = location_id
@@ -2457,7 +2491,7 @@ do
 			end
 			return entry_index
 		end
-		local recipe_id = self.entries[entry_index].recipe_id
+		local recipe_id = self.entries[orig_index].recipe_id
 		local obtain_filters = addon.db.profile.filters.obtain
 
 		for acquire_type, acquire_info in pairs(private.recipe_list[recipe_id].acquire_data) do
@@ -3900,8 +3934,9 @@ function addon:DisplayFrame()
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
-	SortRecipeList()
+	SortAcquireList()
 	SortLocationList()
+	SortRecipeList()
 
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
@@ -3924,8 +3959,9 @@ function ReDisplay()
 	addon:UpdateFilters()
 	Player:MarkExclusions()
 
-	SortRecipeList()
+	SortAcquireList()
 	SortLocationList()
+	SortRecipeList()
 
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel.progress_bar:Update()

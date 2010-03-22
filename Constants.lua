@@ -21,6 +21,10 @@
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
+local LibStub = LibStub
+
+local MODNAME	= "Ackis Recipe List"
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
@@ -152,6 +156,17 @@ private.acquire_strings = {
 	[6]	= "REPUTATION",
 	[7]	= "WORLD_DROP",
 	[8]	= "CUSTOM",
+}
+
+private.acquire_names = {
+	[1]	= L["Trainer"],
+	[2]	= L["Vendor"],
+	[3]	= L["Mob Drop"],
+	[4]	= L["Quest"],
+	[5]	= _G.EVENTS_LABEL,
+	[6]	= _G.REPUTATION,
+	[7]	= L["World Drop"],
+	[8]	= _G.MISCELLANEOUS,
 }
 
 -------------------------------------------------------------------------------
