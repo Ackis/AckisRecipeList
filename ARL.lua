@@ -1295,8 +1295,12 @@ do
 	}
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
+	-- For flag info see comments at start of file in comments
 	local function CanDisplayRecipe(recipe)
-		-- For flag info see comments at start of file in comments
+		if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
+			addon:Debug("Recipe \"%s\" has been excluded.", recipe.name)
+			return false
+		end
 		local filter_db = addon.db.profile.filters
 		local general_filters = filter_db.general
 		local recipe_flags = recipe["Flags"]
