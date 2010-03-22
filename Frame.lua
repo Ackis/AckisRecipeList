@@ -361,12 +361,15 @@ end	-- do
 -------------------------------------------------------------------------------
 local SortRecipeList
 local SortLocationList
+local SortAcquireList
 do
 	local recipe_list = private.recipe_list
 	local location_list = private.location_list
+	local acquire_list = private.acquire_list
 
 	addon.sorted_recipes = {}
 	addon.sorted_locations = {}
+	addon.sorted_acquires = {}
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -392,35 +395,10 @@ do
 		return recipe_list[a].name < recipe_list[b].name
 	end
 
-	-- Will only sort based off of the first acquire type
-	local function Sort_Acquisition(a, b)
---		local reca = recipe_list[a].acquire_data[1]
---		local recb = recipe_list[b].acquire_data[1]
-
---		if not reca or not recb then
---			return not not reca
---		end
-
---		if reca.type ~= recb.type then
---			return reca.type < recb.type
---		end
-
---		if reca.type == A.CUSTOM then
---			if reca.ID == recb.ID then
---				return recipe_list[a].name < recipe_list[b].name
---			else
---				return reca.ID < recb.ID
---			end
---		else
-			return recipe_list[a].name < recipe_list[b].name
---		end
-	end
-
 	local RECIPE_SORT_FUNCS = {
 		["SkillAsc"]	= Sort_SkillAsc,
 		["SkillDesc"]	= Sort_SkillDesc,
 		["Name"]	= Sort_Name,
-		["Acquisition"]	= Sort_Acquisition,
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
@@ -456,6 +434,25 @@ do
 		end
 		table.sort(sorted_locations, Sort_Location)
 	end
+
+	local function Sort_Acquisition(a, b)
+		local acquire_a = acquire_list[a]
+		local acquire_b = acquire_list[b]
+
+		return acquire_a.name < acquire_b.name
+	end
+
+	-- Sorts the acquire_list by name.
+	function SortAcquireList()
+		local sorted_acquires = addon.sorted_acquires
+		twipe(sorted_acquires)
+
+		for acquire_name in pairs(private.acquire_list) do
+			tinsert(sorted_acquires, acquire_name)
+		end
+		table.sort(sorted_acquires, Sort_Acquisition)
+	end
+
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -2211,6 +2208,7 @@ do
 		if not refresh and not self.scrolling then
 			local sorted_recipes = addon.sorted_recipes
 			local sorted_locations = addon.sorted_locations
+			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
 
 			for i = 1, #self.entries do
@@ -2218,7 +2216,43 @@ do
 			end
 			twipe(self.entries)
 
-			if sort_type == "Location" then
+			if sort_type == "Acquisition" then
+				for index = 1, #sorted_acquires do
+					local acquire_type = sorted_acquires[index]
+					local show_acquire = false
+
+					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
+						local recipe = private.recipe_list[spell_id]
+
+						if Player.professions[recipe.profession] and recipe.is_visible and recipe.is_relevant then
+							show_acquire = true
+							break
+						end
+					end
+
+
+					if show_acquire then
+						local t = AcquireTable()
+
+						t.text = private.acquire_names[acquire_type]
+						t.acquire_id = acquire_type
+						t.is_header = true
+
+						if expand_acquires then
+							-- we have acquire information for this. push the title entry into the strings
+							-- and start processing the acquires
+							t.is_expanded = true
+							tinsert(self.entries, insert_index, t)
+							insert_index = self:ExpandEntry(insert_index)
+						else
+							t.is_expanded = false
+							tinsert(self.entries, insert_index, t)
+							insert_index = insert_index + 1
+						end
+					end
+				end
+			elseif sort_type == "Location" then
 				for index = 1, #sorted_locations do
 					local loc_name = sorted_locations[index]
 					local show_loc = false
@@ -2232,7 +2266,6 @@ do
 							break
 						end
 					end
-
 
 					if show_loc then
 						local t = AcquireTable()
@@ -2414,12 +2447,33 @@ do
 	end
 
 	function MainPanel.scroll_frame:ExpandEntry(entry_index)
-		local location_id = self.entries[entry_index].location_id
 		local pad = "  "
+		local orig_index = entry_index
+		local acquire_id = self.entries[orig_index].acquire_id
 
 		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
+
+		if acquire_id then
+			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
+				local recipe_entry = private.recipe_list[spell_id]
+
+				if Player.professions[recipe_entry.profession] and recipe_entry.is_visible and recipe_entry.is_relevant then
+					local t = AcquireTable()
+
+					t.text = FormatRecipeText(recipe_entry)
+					t.is_expanded = true
+					t.recipe_id = spell_id
+					t.acquire_id = acquire_id
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+			return entry_index
+		end
+		local location_id = self.entries[orig_index].location_id
 
 		if location_id then
 			for spell_id in pairs(private.location_list[location_id].recipes) do
@@ -2439,7 +2493,7 @@ do
 			end
 			return entry_index
 		end
-		local recipe_id = self.entries[entry_index].recipe_id
+		local recipe_id = self.entries[orig_index].recipe_id
 		local obtain_filters = addon.db.profile.filters.obtain
 
 		for acquire_type, acquire_info in pairs(private.recipe_list[recipe_id].acquire_data) do
@@ -3882,8 +3936,9 @@ function addon:DisplayFrame()
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
-	SortRecipeList()
+	SortAcquireList()
 	SortLocationList()
+	SortRecipeList()
 
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
@@ -3906,8 +3961,9 @@ function ReDisplay()
 	addon:UpdateFilters()
 	Player:MarkExclusions()
 
-	SortRecipeList()
+	SortAcquireList()
 	SortLocationList()
+	SortRecipeList()
 
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel.progress_bar:Update()
