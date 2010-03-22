@@ -2148,10 +2148,18 @@ do
 		spell_tip:Hide()
 	end
 	local SKILL_LEVEL_FORMAT = "[%d]"
+	local SPELL_ENCHANTING = GetSpellInfo(51313)
 
 	local function FormatRecipeText(recipe_entry)
 		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
-		local recipe_string = string.format("%s%s|r", quality_color, recipe_entry.name)
+		local recipe_name = recipe_entry.name
+
+		if Player.current_prof == SPELL_ENCHANTING then
+			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
+		else
+			print(string.format("Current profession is %s.", Player.current_prof))
+		end
+		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
 
 		local skill_level = Player["ProfessionLevel"]
 		local recipe_level = recipe_entry.skill_level
