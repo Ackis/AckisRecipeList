@@ -2217,6 +2217,8 @@ do
 			twipe(self.entries)
 
 			if sort_type == "Acquisition" then
+				SortAcquireList()
+
 				for index = 1, #sorted_acquires do
 					local acquire_type = sorted_acquires[index]
 					local count = 0
@@ -2252,6 +2254,8 @@ do
 					end
 				end
 			elseif sort_type == "Location" then
+				SortLocationList()
+
 				for index = 1, #sorted_locations do
 					local loc_name = sorted_locations[index]
 					local count = 0
@@ -2286,6 +2290,8 @@ do
 					end
 				end
 			else
+				SortRecipeList()
+
 				for i = 1, #sorted_recipes do
 					local recipe_index = sorted_recipes[i]
 					local recipe_entry = recipe_list[recipe_index]
@@ -3934,10 +3940,6 @@ function addon:DisplayFrame()
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
-	SortAcquireList()
-	SortLocationList()
-	SortRecipeList()
-
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel.progress_bar:Update()
@@ -3945,7 +3947,7 @@ function addon:DisplayFrame()
 
 	-- Set the search text to the last searched text or the global default string for the search box
 	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
-	ARL_SearchText:SetText(ARL_LastSearchedText  or L["SEARCH_BOX_DESC"])
+	ARL_SearchText:SetText(ARL_LastSearchedText or L["SEARCH_BOX_DESC"])
 end
 
 --------------------------------------------------------------------------------
@@ -3958,10 +3960,6 @@ end
 function ReDisplay()
 	addon:UpdateFilters()
 	Player:MarkExclusions()
-
-	SortAcquireList()
-	SortLocationList()
-	SortRecipeList()
 
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel.progress_bar:Update()
