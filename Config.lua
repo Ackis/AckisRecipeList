@@ -136,7 +136,13 @@ local function fullOptions()
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
 							get	= function() return addon.db.profile.ignoreexclusionlist end,
-							set	= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+							set	= function()
+									  addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+
+									  if addon.Frame:IsVisible() then
+										  addon:Scan()
+									  end
+								  end,
 						},
 						spacer2 = {
 							order	= 39,
