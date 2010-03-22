@@ -2212,6 +2212,7 @@ do
 			local sorted_locations = addon.sorted_locations
 			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
+			local recipes_displayed = 0
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
@@ -2231,6 +2232,7 @@ do
 
 						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
+							recipes_displayed = recipes_displayed + 1
 						end
 					end
 
@@ -2268,6 +2270,7 @@ do
 
 						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
+							recipes_displayed = recipes_displayed + 1
 						end
 					end
 
@@ -2305,6 +2308,8 @@ do
 						t.recipe_id = recipe_index
 						t.is_header = true
 
+						recipes_displayed = recipes_displayed + 1
+
 						if expand_acquires then
 							-- we have acquire information for this. push the title entry into the strings
 							-- and start processing the acquires
@@ -2319,6 +2324,7 @@ do
 					end
 				end
 			end	-- Sort type.
+			self.recipes_displayed = recipes_displayed
 		end
 
 		-- Reset the current buttons/lines
