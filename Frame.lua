@@ -2195,7 +2195,7 @@ do
 
 		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
 
-		if addon.db.profile.exclusionlist[recipe_index] then
+		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
 			recipe_string = string.format("** %s **", recipe_string)
 		end
 		return recipe_string
