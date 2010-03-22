@@ -453,6 +453,13 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
+-- Common to the tooltip and MainPanel list entries.
+-------------------------------------------------------------------------------
+local function SetTextColor(color_code, text)
+	return string.format("|cff%s%s|r", color_code or "ffffff", text)
+end
+
+-------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
 local spell_tip = CreateFrame("GameTooltip", "arlSpellTooltip", UIParent, "GameTooltipTemplate")
