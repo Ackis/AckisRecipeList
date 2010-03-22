@@ -825,14 +825,14 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(16659, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(16659, A.WORLD_DROP, 2)
 
-	-- Dawnbringer Shoulders -- 16660
+	-- Dawnbringer Shoulders -- 16660 SPECIAL WORLD DROP
 	AddRecipe(16660, 290, 12625, Q.RARE, V.ORIG, 290, 310, 320, 330)
-	self:AddRecipeFlags(16660, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(16660, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(16660, A.WORLD_DROP, 2)
 
-	-- Storm Gauntlets -- 16661
+	-- Storm Gauntlets -- 16661 SPECIAL WORLD DROP
 	AddRecipe(16661, 295, 12632, Q.RARE, V.ORIG, 295, 315, 325, 335)
-	self:AddRecipeFlags(16661, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeFlags(16661, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(16661, A.WORLD_DROP, 2, A.VENDOR, 11278)
 
 	-- Thorium Leggings -- 16662
@@ -1400,9 +1400,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29621, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29621, A.MOB, 18830)
 
-	-- Gauntlets of the Iron Tower -- 29622
+	-- Gauntlets of the Iron Tower -- 29622 SPECIAL WORLD DROP
 	AddRecipe(29622, 365, 23532, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29622, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29622, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29622, A.WORLD_DROP, 4)
 
 	-- Khorium Belt -- 29628
@@ -1475,9 +1475,9 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(29663, A.WORLD_DROP, 4)
 
-	-- Helm of the Stalwart Defender -- 29664
+	-- Helm of the Stalwart Defender -- 29664 SPECIAL WORLD DROP
 	AddRecipe(29664, 365, 23535, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29664, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(29664, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(29664, A.WORLD_DROP, 4)
 
 	-- Oathkeeper's Helm -- 29668 SPECIAL WORLD DROP
