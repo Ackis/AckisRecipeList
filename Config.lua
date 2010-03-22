@@ -87,7 +87,10 @@ local function fullOptions()
 									  local exclusion_list = addon.db.profile.exclusionlist
 
 									  exclusion_list = table.wipe(exclusion_list)
-									  addon:Scan()
+
+									  if addon.Frame:IsVisible() then
+										  addon:Scan()
+									  end
 								  end,
 						},
 						resetallfilters = {
