@@ -2150,26 +2150,16 @@ do
 	local SKILL_LEVEL_FORMAT = "[%d]"
 
 	local function FormatRecipeText(recipe_entry)
-		local exclusions = addon.db.profile.exclusionlist
-		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-		local rep_text
-
-		if rep_data then
-			local has_faction = Player:HasProperRepLevel(rep_data)
-
-			if not has_faction then
-				rep_text = string.format(addon:Red("[%s]"), _G.REPUTATION)
-			end
-		end
 		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
-		local recipe_string = rep_text and string.format("%s %s%s|r", rep_text, quality_color, recipe_entry.name) or string.format("%s%s|r", quality_color, recipe_entry.name)
+		local recipe_string = string.format("%s%s|r", quality_color, recipe_entry.name)
 
 		local skill_level = Player["ProfessionLevel"]
 		local recipe_level = recipe_entry.skill_level
-		
+		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+		local has_faction = Player:HasProperRepLevel(rep_data)
 		local level_text
 
-		if recipe_level > skill_level then
+		if not has_faction or recipe_level > skill_level then
 			level_text = string.format(addon:Red(SKILL_LEVEL_FORMAT), recipe_level)
 		elseif skill_level >= recipe_entry.trivial_level then
 			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
@@ -2190,7 +2180,7 @@ do
 
 		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
 
-		if exclusions[recipe_index] then
+		if addon.db.profile.exclusionlist[recipe_index] then
 			recipe_string = string.format("** %s **", recipe_string)
 		end
 		return recipe_string
