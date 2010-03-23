@@ -678,7 +678,6 @@ do
 		local easy_level = recipe_entry.easy_level
 		local trivial_level = recipe_entry.trivial_level
 
-
 		if recipe_level > skill_level then
 			color_2 = addon:hexcolor("RED")
 		elseif skill_level >= trivial_level then
@@ -1207,6 +1206,255 @@ function MainPanel.mode_button:ChangeTexture(texture)
 	disabled:SetAllPoints(self)
 	self:SetDisabledTexture(disabled)
 end
+
+-------------------------------------------------------------------------------
+-- Create the sort-type DropDown.
+-------------------------------------------------------------------------------
+local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
+ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
+ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+
+local function SetSortName()
+	local sort_type = addon.db.profile.sorting
+
+	if sort_type == "Name" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
+	elseif sort_type == "SkillAsc" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
+	elseif sort_type == "SkillDesc" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
+	elseif sort_type == "Acquisition" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
+	elseif sort_type == "Location" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
+	end
+end
+
+local function ARL_DD_Sort_OnClick(button, value)
+	CloseDropDownMenus()
+	addon.db.profile.sorting = value
+	SetSortName()
+	ReDisplay()
+end
+
+local function ARL_DD_Sort_Initialize()
+	local info = UIDropDownMenu_CreateInfo()
+
+	local k = "Name"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "SkillAsc"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "SkillDesc"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "Acquisition"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "Location"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	SetSortName()
+end
+
+UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
+
+-------------------------------------------------------------------------------
+-- Create the expand button and set its scripts.
+-------------------------------------------------------------------------------
+local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
+					     L["EXPANDALL_DESC"], 1)
+ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
+
+ARL_ExpandButton:SetScript("OnClick",
+			   function(self, mouse_button, down)
+				   local expand_acquires = (self:GetText() == L["EXPANDALL"])
+
+				   if expand_acquires then
+					   self:SetText(L["CONTRACTALL"])
+					   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+				   else
+					   self:SetText(L["EXPANDALL"])
+					   SetTooltipScripts(self, L["EXPANDALL_DESC"])
+				   end
+				   MainPanel.scroll_frame:Update(expand_acquires, false)
+			   end)
+ARL_ExpandButton:SetText(L["EXPANDALL"])
+SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+-------------------------------------------------------------------------------
+-- The search button, clear button, and search entry box.
+-------------------------------------------------------------------------------
+local SearchRecipes
+do
+	local acquire_names = private.acquire_names
+
+	local search_params = {
+		["item_id"]	= true,
+		["name"]	= true,
+		["locations"]	= true,
+		["specialty"]	= true,
+		["skill_level"]	= true,
+		["quality"]	= true,
+	}
+	-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
+	function SearchRecipes(pattern)
+		if not pattern then
+			return
+		end
+		pattern = pattern:lower()
+
+		local recipe_list = private.recipe_list
+
+		for index in pairs(recipe_list) do
+			local entry = recipe_list[index]
+			entry.is_relevant = false
+
+			for acquire_type in pairs(acquire_names) do
+				if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
+					entry.is_relevant = true
+					break
+				end
+			end
+
+			for field in pairs(search_params) do
+				local str = entry[field] and tostring(entry[field]):lower() or nil
+
+				if str and str:find(pattern) then
+					entry.is_relevant = true
+					break
+				end
+			end
+		end
+	end
+end	-- do
+
+local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
+					     L["SEARCH_DESC"], 1)
+ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
+
+ARL_SearchButton:Disable()
+ARL_SearchButton:SetScript("OnClick",
+			   function(this)
+				   local searchtext = ARL_SearchText:GetText()
+				   searchtext = searchtext:trim()
+
+				   if searchtext ~= "" then
+					   ARL_LastSearchedText = searchtext
+
+					   SearchRecipes(searchtext)
+					   MainPanel.scroll_frame:Update(false, false)
+
+					   ARL_ExpandButton:SetText(L["EXPANDALL"])
+					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+					   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					   ARL_SearchButton:Disable()
+				   end
+			   end)
+
+local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
+
+ARL_ClearButton:SetScript("OnClick",
+			  function()
+				  local recipe_list = private.recipe_list
+
+				  -- Reset the search flags
+				  for index in pairs(recipe_list) do
+					  recipe_list[index].is_relevant = true
+				  end
+				  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+
+				  -- Make sure our expand all button is set to expandall
+				  ARL_ExpandButton:SetText(L["EXPANDALL"])
+				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+				  -- Make sure to clear the focus of the searchbox
+				  ARL_SearchText:ClearFocus()
+
+				  -- Disable the search button since we're not searching for anything now
+				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+				  ARL_SearchButton:Disable()
+
+				  -- Make sure to clear text for last search
+				  ARL_LastSearchedText = nil
+
+				  MainPanel.scroll_frame:Update(false, false)
+			  end)
+
+ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
+ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+ARL_SearchText:SetScript("OnEnterPressed",
+			 function(this)
+				 local searchtext = ARL_SearchText:GetText()
+				 searchtext = searchtext:trim()
+
+				 if searchtext ~= nil and searchtext ~= L["SEARCH_BOX_DESC"] then
+					 ARL_LastSearchedText = searchtext
+
+					 SearchRecipes(searchtext)
+					 MainPanel.scroll_frame:Update(false, false)
+
+					 ARL_ExpandButton:SetText(L["EXPANDALL"])
+					 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+					 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					 ARL_SearchButton:Disable()
+				 end
+			 end)
+ARL_SearchText:SetScript("OnEditFocusGained",
+			 function(this)
+				 if this:GetText() == L["SEARCH_BOX_DESC"] then
+					 this:SetText("")
+				 end
+			 end)
+ARL_SearchText:SetScript("OnEditFocusLost",
+			 function(this)
+				 if this:GetText() == "" then
+					 this:SetText(L["SEARCH_BOX_DESC"])
+				 end
+			 end)
+ARL_SearchText:SetScript("OnTextChanged",
+			 function(this)
+				 local text = this:GetText()
+
+				 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= ARL_LastSearchedText then
+					 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
+					 ARL_SearchButton:Enable()
+				 else
+					 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					 ARL_SearchButton:Disable()
+				 end
+			 end)
+ARL_SearchText:EnableMouse(true)
+ARL_SearchText:SetAutoFocus(false)
+ARL_SearchText:SetFontObject(ChatFontNormal)
+ARL_SearchText:SetWidth(130)
+ARL_SearchText:SetHeight(12)
+ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
+ARL_SearchText:Show()
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
@@ -2863,70 +3111,6 @@ MainPanel.close_button:SetScript("OnClick",
 					 MainPanel:Hide()
 				 end)
 
-local function SetSortName()
-	local sort_type = addon.db.profile.sorting
-
-	if sort_type == "Name" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
-	elseif sort_type == "SkillAsc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
-	elseif sort_type == "SkillDesc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
-	elseif sort_type == "Acquisition" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
-	elseif sort_type == "Location" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
-	end
-end
-
-local function ARL_DD_Sort_OnClick(button, value)
-	CloseDropDownMenus()
-	addon.db.profile.sorting = value
-	SetSortName()
-	ReDisplay()
-end
-
-local function ARL_DD_Sort_Initialize()
-	local info = UIDropDownMenu_CreateInfo()
-
-	local k = "Name"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "SkillAsc"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "SkillDesc"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "Acquisition"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "Location"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	SetSortName()
-end
-
 -------------------------------------------------------------------------------
 -- Data used in GenerateClickableTT() and its support functions.
 -------------------------------------------------------------------------------
@@ -3104,190 +3288,8 @@ function addon:InitializeFrame()
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
-	-------------------------------------------------------------------------------
-	-- Create the sort-type DropDown.
-	-------------------------------------------------------------------------------
-	local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
-	ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
-	ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+	-- Has to be done here because db doesn't exist yet if executed in the main file body.
 	SetSortName()
-	UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
-
-	-------------------------------------------------------------------------------
-	-- Create the expand button and set its scripts.
-	-------------------------------------------------------------------------------
-	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
-						     L["EXPANDALL_DESC"], 1)
-	ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
-
-	ARL_ExpandButton:SetScript("OnClick",
-				   function(self, mouse_button, down)
-					   local expand_acquires = (self:GetText() == L["EXPANDALL"])
-
-					   if expand_acquires then
-						   self:SetText(L["CONTRACTALL"])
-						   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-					   else
-						   self:SetText(L["EXPANDALL"])
-						   SetTooltipScripts(self, L["EXPANDALL_DESC"])
-					   end
-					   MainPanel.scroll_frame:Update(expand_acquires, false)
-				   end)
-	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-	-------------------------------------------------------------------------------
-	-- The search button, clear button, and search entry box.
-	-------------------------------------------------------------------------------
-	local SearchRecipes
-	do
-		local acquire_names = private.acquire_names
-
-		local search_params = {
-			["item_id"]	= true,
-			["name"]	= true,
-			["locations"]	= true,
-			["specialty"]	= true,
-			["skill_level"]	= true,
-			["quality"]	= true,
-		}
-		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
-		function SearchRecipes(pattern)
-			if not pattern then
-				return
-			end
-			pattern = pattern:lower()
-
-			local recipe_list = private.recipe_list
-
-			for index in pairs(recipe_list) do
-				local entry = recipe_list[index]
-				entry.is_relevant = false
-
-				for acquire_type in pairs(acquire_names) do
-					if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
-						entry.is_relevant = true
-						break
-					end
-				end
-
-				for field in pairs(search_params) do
-					local str = entry[field] and tostring(entry[field]):lower() or nil
-
-					if str and str:find(pattern) then
-						entry.is_relevant = true
-						break
-					end
-				end
-			end
-		end
-	end	-- do
-
-	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
-						     L["SEARCH_DESC"], 1)
-	ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
-
-	ARL_SearchButton:Disable()
-	ARL_SearchButton:SetScript("OnClick",
-				   function(this)
-					   local searchtext = ARL_SearchText:GetText()
-					   searchtext = searchtext:trim()
-
-					   if searchtext ~= "" then
-						   ARL_LastSearchedText = searchtext
-
-						   SearchRecipes(searchtext)
-						   MainPanel.scroll_frame:Update(false, false)
-
-						   ARL_ExpandButton:SetText(L["EXPANDALL"])
-						   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						   ARL_SearchButton:Disable()
-					   end
-				   end)
-
-	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-	ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
-
-	ARL_ClearButton:SetScript("OnClick",
-				  function()
-					  local recipe_list = private.recipe_list
-
-					  -- Reset the search flags
-					  for index in pairs(recipe_list) do
-						  recipe_list[index].is_relevant = true
-					  end
-					  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-
-					  -- Make sure our expand all button is set to expandall
-					  ARL_ExpandButton:SetText(L["EXPANDALL"])
-					  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-					  -- Make sure to clear the focus of the searchbox
-					  ARL_SearchText:ClearFocus()
-
-					  -- Disable the search button since we're not searching for anything now
-					  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-					  ARL_SearchButton:Disable()
-
-					  -- Make sure to clear text for last search
-					  ARL_LastSearchedText = nil
-
-					  MainPanel.scroll_frame:Update(false, false)
-				  end)
-
-	ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
-	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-	ARL_SearchText:SetScript("OnEnterPressed",
-				 function(this)
-					 local searchtext = ARL_SearchText:GetText()
-					 searchtext = searchtext:trim()
-
-					 if searchtext ~= nil and searchtext ~= L["SEARCH_BOX_DESC"] then
-						 ARL_LastSearchedText = searchtext
-
-						 SearchRecipes(searchtext)
-						 MainPanel.scroll_frame:Update(false, false)
-
-						 ARL_ExpandButton:SetText(L["EXPANDALL"])
-						 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						 ARL_SearchButton:Disable()
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnEditFocusGained",
-				 function(this)
-					 if this:GetText() == L["SEARCH_BOX_DESC"] then
-						 this:SetText("")
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnEditFocusLost",
-				 function(this)
-					 if this:GetText() == "" then
-						 this:SetText(L["SEARCH_BOX_DESC"])
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnTextChanged",
-				 function(this)
-					 local text = this:GetText()
-
-					 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= ARL_LastSearchedText then
-						 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
-						 ARL_SearchButton:Enable()
-					 else
-						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						 ARL_SearchButton:Disable()
-					 end
-				 end)
-	ARL_SearchText:EnableMouse(true)
-	ARL_SearchText:SetAutoFocus(false)
-	ARL_SearchText:SetFontObject(ChatFontNormal)
-	ARL_SearchText:SetWidth(130)
-	ARL_SearchText:SetHeight(12)
-	ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
-	ARL_SearchText:Show()
 
 	-------------------------------------------------------------------------------
 	-- Set the scripts for MainPanel.scroll_frame's buttons.
