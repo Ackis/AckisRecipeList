@@ -1235,16 +1235,14 @@ do
 	}
 	function addon:addLookupList(DB, ID, name, location, coord_x, coord_y, faction)
 		if DB[ID] then
-			--@alpha@
-			self:Print("Duplicate lookup: "..tostring(ID).." "..name)
-			--@end-alpha@
+			self:Debug("Duplicate lookup: %d - %s.", ID, name)
 			return
 		end
 
 		DB[ID] = {
 			["name"]	= name,
-			["location"]	= location or L["Unknown Zone"],
-			["faction"]	= faction and FACTION_NAMES[faction + 1] or nil
+			["location"]	= location,
+			["faction"]	= faction and FACTION_NAMES[faction + 1] or FACTION_NAMES[1]
 		}
 
 		if coord_x and coord_y then
@@ -1261,9 +1259,14 @@ do
 
 			DB[ID].name = quest_name or "Missing name: Quest "..ID
 		end
+
 		--@alpha@
-		if not location then
-			self:Print("Spell ID: " .. ID .. " (" .. DB[ID].name .. ") has an unknown location.")
+		if not location and DB ~= private.custom_list then
+			self:Debug("Lookup ID: %d (%s) has an unknown location.", ID, DB[ID].name or _G.UNKNOWN)
+		end
+
+		if faction and DB == private.mob_list then
+			self:Debug("Mob %d (%s) has been assigned to faction %s.", ID, name, DB[ID].faction)
 		end
 		--@end-alpha@
 	end
