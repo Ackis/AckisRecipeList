@@ -2334,8 +2334,21 @@ do
 					end
 				end
 			end	-- Sort type.
-			self.recipes_displayed = recipes_displayed
-			MainPanel.progress_bar:Update()
+			local profile = addon.db.profile
+			local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
+			local progress_bar = MainPanel.progress_bar
+
+			if not profile.includeexcluded and not profile.ignoreexclusionlist then
+				max_value = max_value - Player.excluded_recipes_known
+			end
+			progress_bar:SetMinMaxValues(0, max_value)
+			progress_bar:SetValue(recipe_count)
+
+			if (floor(recipe_count / max_value * 100) < 101) and recipe_count >= 0 and max_value >= 0 then
+				progress_bar.text:SetFormattedText("%d / %d - %1.2f%%", recipe_count, max_value, recipe_count / max_value * 100)
+			else
+				progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+			end
 		end
 
 		-- Reset the current buttons/lines
@@ -2843,31 +2856,6 @@ do
 
 	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
 end	-- do
-
-function MainPanel.progress_bar:Update()
-	local pbCur, pbMax
-	local settings = addon.db.profile
-
-	pbCur = MainPanel.scroll_frame.recipes_displayed
-
-	if settings.includefiltered then
-		pbMax = Player.recipes_total
-	else
-		pbMax = Player.recipes_total_filtered
-	end
-
-	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbMax = pbMax - Player.excluded_recipes_known
-	end
-	self:SetMinMaxValues(0, pbMax)
-	self:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.text:SetFormattedText("%d / %d - %1.2f%%", pbCur, pbMax, pbCur / pbMax * 100)
-	else
-		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-	end
-end
 
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
