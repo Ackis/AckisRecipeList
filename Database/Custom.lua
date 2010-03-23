@@ -25,17 +25,17 @@ local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 function addon:InitCustom(DB)
 
 	-- Alchemy Discoveries
-	self:addLookupList(DB, 1, L["DISCOVERY_ALCH_ELIXIRFLASK"], "N/A")
-	self:addLookupList(DB, 2, L["DISCOVERY_ALCH_POTION"], "N/A")
-	self:addLookupList(DB, 3, L["DISCOVERY_ALCH_XMUTE"], "N/A")
-	self:addLookupList(DB, 4, L["DISCOVERY_ALCH_PROT"], "N/A")
-	self:addLookupList(DB, 12, L["DISCOVERY_ALCH_WRATH"], "N/A")
-	self:addLookupList(DB, 18, L["DISCOVERY_ALCH_NORTHREND_RESEARCH"], "N/A")
-	self:addLookupList(DB, 19, L["DISCOVERY_ALCH_NORTHREND_XMUTE"], "N/A")
+	self:addLookupList(DB, 1, L["DISCOVERY_ALCH_ELIXIRFLASK"])
+	self:addLookupList(DB, 2, L["DISCOVERY_ALCH_POTION"])
+	self:addLookupList(DB, 3, L["DISCOVERY_ALCH_XMUTE"])
+	self:addLookupList(DB, 4, L["DISCOVERY_ALCH_PROT"])
+	self:addLookupList(DB, 12, L["DISCOVERY_ALCH_WRATH"])
+	self:addLookupList(DB, 18, L["DISCOVERY_ALCH_NORTHREND_RESEARCH"])
+	self:addLookupList(DB, 19, L["DISCOVERY_ALCH_NORTHREND_XMUTE"])
 	-- Inscription Discoveries
-	self:addLookupList(DB, 14, L["DISCOVERY_INSC_MINOR"], "N/A")
-	self:addLookupList(DB, 15, L["DISCOVERY_INSC_NORTHREND"], "N/A")
-	self:addLookupList(DB, 40, L["DISCOVERY_INSC_BOOK"], "N/A")
+	self:addLookupList(DB, 14, L["DISCOVERY_INSC_MINOR"])
+	self:addLookupList(DB, 15, L["DISCOVERY_INSC_NORTHREND"])
+	self:addLookupList(DB, 40, L["DISCOVERY_INSC_BOOK"])
 	-- Cooking/Fishing Daily Quests
 	self:addLookupList(DB, 5, L["DAILY_COOKING_MEAT"], BZ["Shattrath"], 0, 0)
 	self:addLookupList(DB, 6, L["DAILY_COOKING_FISH"], BZ["Shattrath"], 0, 0)
@@ -45,9 +45,9 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 16, L["ENG_GNOMER"], BZ["Gnomeregan"], 0, 0)
 	self:addLookupList(DB, 17, L["ENG_FLOOR_ITEM_BRD"], BZ["Blackrock Depths"], 0, 0)
 	-- Default
-	self:addLookupList(DB, 8, L["DEFAULT_RECIPE"], "N/A")
+	self:addLookupList(DB, 8, L["DEFAULT_RECIPE"])
 	-- Crafted by other professions
-	self:addLookupList(DB, 9, L["CRAFTED_ENGINEERS"], "N/A")
+	self:addLookupList(DB, 9, L["CRAFTED_ENGINEERS"])
 	-- Instances
 	self:addLookupList(DB, 13, L["HENRY_STERN_RFD"], BZ["Razorfen Downs"], 0, 0)
 	self:addLookupList(DB, 23, L["DM_CACHE"], BZ["Dire Maul"], 59.04, 48.82)
@@ -68,15 +68,15 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 37, L["SSC_RANDOM"], BZ["Serpentshrine Cavern"], 0, 0)
 	self:addLookupList(DB, 43, L["TK_RANDOM"], BZ["The Eye"], 0, 0)
 	self:addLookupList(DB, 39, L["ULDUAR_RANDOM"], BZ["Ulduar"], 0, 0)
-	self:addLookupList(DB, 42, L["TOC25_RANDOM"], "N/A")
+	self:addLookupList(DB, 42, L["TOC25_RANDOM"])
 
-	self:addLookupList(DB, 35, L["Custom35"], "N/A")
-	self:addLookupList(DB, 36, L["Custom36"], "N/A")
-	self:addLookupList(DB, 41, L["Custom41"], "N/A")
-	self:addLookupList(DB, 44, L["Custom44"], "N/A")
-	self:addLookupList(DB, 45, L["Custom45"], "N/A")
+	self:addLookupList(DB, 35, L["Custom35"])
+	self:addLookupList(DB, 36, L["Custom36"])
+	self:addLookupList(DB, 41, L["Custom41"])
+	self:addLookupList(DB, 44, L["Custom44"])
+	self:addLookupList(DB, 45, L["Custom45"])
 
---self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"], "N/A")
+--self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"])
 --[[
 L["Custom35"] = "Drops from dragons in Ogri'la and Blade's Edge Mountains Summon Bosses"
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
