@@ -1048,7 +1048,7 @@ do
 		end
 
 		if self.profession ~= prev_profession then
-			self.prev_profession = prev_profession
+			self.prev_profession = self.profession
 		end
 		self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 	end
@@ -3954,18 +3954,16 @@ function addon:DisplayFrame()
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
-	MainPanel:UpdateTitle()
-	MainPanel.scroll_frame:Update(false, false)
-	MainPanel:Show()
-
-	-- Set the search text to the last searched text or the global default string for the search box
-	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
 	local editbox = MainPanel.search_editbox
 
 	if MainPanel.profession ~= MainPanel.prev_profession then
 		editbox.prev_search = nil
 	end
 	editbox:SetText(editbox.prev_search or L["SEARCH_BOX_DESC"])
+
+	MainPanel:UpdateTitle()
+	MainPanel.scroll_frame:Update(false, false)
+	MainPanel:Show()
 end
 
 --------------------------------------------------------------------------------
