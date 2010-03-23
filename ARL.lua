@@ -939,7 +939,7 @@ do
 		local acquire_data = recipe_list[spell_id].acquire_data
 
 		while i <= numvars do
-			local location
+			local location, affiliation
 
 			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
@@ -967,13 +967,12 @@ do
 							--@end-alpha@
 						else
 							local trainer = trainer_list[acquire_id]
-							local faction = trainer.faction
 
 							acquire[acquire_id] = true
 
-							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-								location = trainer.location
-							end
+							affiliation = trainer.faction
+							location = trainer.location
+
 							trainer.item_list = trainer.item_list or {}
 							trainer.item_list[spell_id] = true
 						end
@@ -986,13 +985,12 @@ do
 							--@end-alpha@
 						else
 							local vendor = vendor_list[acquire_id]
-							local faction = vendor.faction
 
 							acquire[acquire_id] = true
 
-							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-								location = vendor.location
-							end
+							affiliation = vendor.faction
+							location = vendor.location
+
 							vendor.item_list = vendor.item_list or {}
 							vendor.item_list[spell_id] = true
 						end
@@ -1005,13 +1003,12 @@ do
 							--@end-alpha@
 						else
 							local mob = mob_list[acquire_id]
-							local faction = mob.faction
 
 							acquire[acquire_id] = true
 
-							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-								location = mob.location
-							end
+							affiliation = mob.faction
+							location = mob.location
+
 							mob_list[acquire_id].item_list = mob_list[acquire_id].item_list or {}
 							mob_list[acquire_id].item_list[spell_id] = true
 						end
@@ -1024,13 +1021,11 @@ do
 							--@end-alpha@
 						else
 							local quest = quest_list[acquire_id]
-							local faction = quest.faction
 
 							acquire[acquire_id] = true
 
-							if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-								location = quest.location
-							end
+							affiliation = quest.faction
+							location = quest.location
 						end
 					elseif acquire_type == A.REPUTATION then
 						local vendor_list = private.vendor_list
@@ -1058,11 +1053,10 @@ do
 								faction[rep_level][vendor_id] = true
 
 								local rep_vendor = vendor_list[vendor_id]
-								local rep_faction = rep_vendor.faction
 
-								if not rep_faction or rep_faction == BFAC[Player.faction] or rep_faction == BFAC["Neutral"] then
-									location = rep_vendor.location
-								end
+								affiliation = rep_vendor.faction
+								location = rep_vendor.location
+
 								rep_vendor.item_list = rep_vendor.item_list or {}
 								rep_vendor.item_list[spell_id] = true
 							end
@@ -1086,16 +1080,15 @@ do
 				acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
 
 				acquire_list[acquire_type].name = private.acquire_names[acquire_type]
-				acquire_list[acquire_type].recipes[spell_id] = true
+				acquire_list[acquire_type].recipes[spell_id] = affiliation or true
 			end	-- acquire_type
-
 
 			if location then
 				location_list[location] = location_list[location] or {}
 				location_list[location].recipes = location_list[location].recipes or {}
 
 				location_list[location].name = location
-				location_list[location].recipes[spell_id] = true
+				location_list[location].recipes[spell_id] = affiliation or true
 			end
 		end	-- while
 	end
@@ -1111,7 +1104,7 @@ do
 		local acquire = acquire_data[acquire_type]
 
 		while cur_var <= num_vars do
-			local location
+			local location, affiliation
 			local id_num = select(cur_var, ...)
 			cur_var = cur_var + 1
 
@@ -1123,11 +1116,10 @@ do
 				--@end-alpha@
 			else
 				local unit = unit_list[id_num]
-				local faction = unit.faction
 
-				if not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-					location = unit.location
-				end
+				affiliation = unit.faction
+				location = unit.location
+
 				unit.item_list = unit.item_list or {}
 				unit.item_list[spell_id] = true
 			end
@@ -1135,14 +1127,14 @@ do
 			acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
 
 			acquire_list[acquire_type].name = private.acquire_names[acquire_type]
-			acquire_list[acquire_type].recipes[spell_id] = true
+			acquire_list[acquire_type].recipes[spell_id] = affiliation or true
 
 			if location then
 				location_list[location] = location_list[location] or {}
 				location_list[location].recipes = location_list[location].recipes or {}
 
 				location_list[location].name = location
-				location_list[location].recipes[spell_id] = true
+				location_list[location].recipes[spell_id] = affiliation or true
 			end
 		end
 	end
@@ -1177,7 +1169,7 @@ do
 		faction[rep_level] = faction[rep_level] or {}
 
 		while cur_var <= num_vars do
-			local location
+			local location, affiliation
 			local vendor_id = select(cur_var, ...)
 			cur_var = cur_var + 1
 
@@ -1198,11 +1190,10 @@ do
 					faction[rep_level][vendor_id] = true
 
 					local rep_vendor = vendor_list[vendor_id]
-					local rep_faction = rep_vendor.faction
 
-					if not rep_faction or rep_faction == BFAC[Player.faction] or rep_faction == BFAC["Neutral"] then
-						location = rep_vendor.location
-					end
+					affiliation = rep_vendor.faction
+					location = rep_vendor.location
+
 					rep_vendor.item_list = rep_vendor.item_list or {}
 					rep_vendor.item_list[spell_id] = true
 				end
@@ -1211,14 +1202,14 @@ do
 			acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
 
 			acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
-			acquire_list[A.REPUTATION].recipes[spell_id] = true
+			acquire_list[A.REPUTATION].recipes[spell_id] = affiliation or true
 
 			if location then
 				location_list[location] = location_list[location] or {}
 				location_list[location].recipes = location_list[location].recipes or {}
 
 				location_list[location].name = location
-				location_list[location].recipes[spell_id] = true
+				location_list[location].recipes[spell_id] = affiliation or true
 			end
 		end
 	end

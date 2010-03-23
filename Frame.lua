@@ -2550,10 +2550,16 @@ do
 					local count = 0
 
 					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
+					for spell_id, faction in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
+						local has_faction = false
 
-						if recipe.is_visible and recipe.is_relevant then
+						if type(faction) == "bool"
+						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+							has_faction = true
+						end
+
+						if has_faction and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 
 							if not recipe_registry[recipe] then
@@ -2581,10 +2587,16 @@ do
 					local count = 0
 
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-					for spell_id in pairs(private.location_list[loc_name].recipes) do
+					for spell_id, faction in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
+						local has_faction = false
 
-						if recipe.is_visible and recipe.is_relevant then
+						if type(faction) == "bool"
+						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+							has_faction = true
+						end
+
+						if has_faction and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 
 							if not recipe_registry[recipe] then
