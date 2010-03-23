@@ -2203,6 +2203,23 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
+	function MainPanel.scroll_frame:InsertEntry(entry, entry_index, expand_acquires)
+		local insert_index = entry_index
+
+		-- If we have acquire information for this entry, push the data table into the list
+		-- and start processing the acquires.
+		if expand_acquires then
+			entry.is_expanded = true
+			tinsert(self.entries, insert_index, entry)
+			insert_index = self:ExpandEntry(insert_index)
+		else
+			entry.is_expanded = false
+			tinsert(self.entries, insert_index, entry)
+			insert_index = insert_index + 1
+		end
+		return insert_index
+	end
+
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local insert_index = 1
 		local recipe_list = private.recipe_list
@@ -2242,7 +2259,6 @@ do
 						end
 					end
 
-
 					if count > 0 then
 						local t = AcquireTable()
 
@@ -2250,17 +2266,7 @@ do
 						t.acquire_id = acquire_type
 						t.is_header = true
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			elseif sort_type == "Location" then
@@ -2291,17 +2297,7 @@ do
 						t.location_id = loc_name
 						t.is_header = true
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			else
@@ -2320,17 +2316,7 @@ do
 
 						recipe_count = recipe_count + 1
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			end	-- Sort type.
