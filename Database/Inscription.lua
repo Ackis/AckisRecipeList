@@ -2240,17 +2240,17 @@ function addon:InitInscription()
 
 	-- Glyph of Rapid Rejuvenation -- 71015
 	AddRecipe(71015, 375, 50125, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
-	self:AddRecipeFlags(71015, F.ALLIANCE, F.HORDE, F.VENDOR, F.DRUID, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(71015, F.ALLIANCE, F.HORDE, F.VENDOR, F.DRUID, F.IBOE, F.RBOE, F.HEALER)
 	self:AddRecipeAcquire(71015, A.VENDOR, 28723)
 
 	-- Glyph of Eternal Water -- 71101
 	AddRecipe(71101, 375, 50045, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
-	self:AddRecipeFlags(71101, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(71101, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.IBOE, F.RBOE, F.CASTER)
 	self:AddRecipeAcquire(71101, A.VENDOR, 28723)
 
 	-- Glyph of Quick Decay -- 71102
 	AddRecipe(71102, 375, 50077, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
-	self:AddRecipeFlags(71102, F.ALLIANCE, F.HORDE, F.VENDOR, F.WARLOCK, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(71102, F.ALLIANCE, F.HORDE, F.VENDOR, F.WARLOCK, F.IBOE, F.RBOE, F.CASTER)
 	self:AddRecipeAcquire(71102, A.VENDOR, 28723)
 
 	return num_recipes
