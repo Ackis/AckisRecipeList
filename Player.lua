@@ -67,25 +67,17 @@ function Player:MarkExclusions()
 	local exclusion_list = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
 	local recipe_list = private.recipe_list
-	local profession = self["Profession"]
+	local profession = self.current_prof
 	local known_count = 0
 	local unknown_count = 0
 
-	for i in pairs(exclusion_list) do
-		local recipe = recipe_list[i]
+	for spell_id in pairs(exclusion_list) do
+		local recipe = recipe_list[spell_id]
 
-		-- We may have an item in the exclusion list that has not been scanned yet
-		-- check if the entry exists in DB first
 		if recipe then
-			if ignored then
-				recipe.is_visible = false
-			end
-
-			local tmp_prof = GetSpellInfo(recipe.profession)
-
-			if not recipe.is_known and tmp_prof == profession then
+			if recipe.is_known and recipe.profession == profession then
 				known_count = known_count + 1
-			elseif tmp_prof == profession then
+			elseif recipe_profession == profession then
 				unknown_count = unknown_count + 1
 			end
 		end

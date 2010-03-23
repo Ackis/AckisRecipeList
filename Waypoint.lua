@@ -500,21 +500,19 @@ function addon:SetupMap(single_recipe)
 			zone = info.loc
 			name = name .. " (" .. location .. ")"
 		else
-			--@alpha@
-			addon:Printf("DEBUG: No continent/zone map match for ID %d. Location: %s.", spell_id, location)
-			--@end-alpha@
+			addon:Debug("No continent/zone map match for ID %d. Location: %s.", spell_id, location)
 		end
 
 		--@alpha@
 		if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
-			addon:Printf("DEBUG: Invalid location coordinates for ID %d. Location: %s.", spell_id, location)
+			addon:Debug("Invalid location coordinates for ID %d. Location: %s.", spell_id, location)
 		end
 		--@end-alpha@
 
 		if zone and continent then
 			--@alpha@
 			if x == 0 and y == 0 then
-				addon:Printf("DEBUG: Location is \"0, 0\" for ID %d. Location: %s.", spell_id, location)
+				addon:Debug("Location is \"0, 0\" for ID %d. Location: %s.", spell_id, location)
 			end
 			--@end-alpha@
 			local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)

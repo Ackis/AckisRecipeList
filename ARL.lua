@@ -65,6 +65,8 @@ _G.ARL = addon
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
+local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(MODNAME)
+
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
@@ -143,8 +145,14 @@ if MissingLibraries() then
 	return
 end
 
-function addon:DEBUG(str, ...)
-	print(string.format(addon:Red("DEBUG: ") .. tostring(str), ...))
+function addon:Debug(...)
+	if debugger then
+		debugger:AddMessage(string.format(...))
+	else
+		--@alpha@
+		self:Printf(...)
+		--@end-alpha@
+	end
 end
 
 do
@@ -882,7 +890,6 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["trivial_level"]	= trivial_level or skill_level + 20,
 		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
 		["is_relevant"]		= true,				-- Set to be showing in the search results
-		["is_known"]		= false,			-- Initially not known - will determine in addon:Scan()
 	}
 
 	if not recipe.name then
@@ -1068,7 +1075,7 @@ do
 						location = GetCategoryInfo(155)
 					elseif acquire_type == A.CUSTOM then
 						acquire[acquire_id] = true
-						location = _G.MISCELLANEOUS
+						location = private.custom_list[acquire_id].location or _G.MISCELLANEOUS
 					else
 						-- Unhandled acquire_type
 						acquire[acquire_id] = true
@@ -1288,8 +1295,12 @@ do
 	}
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
+	-- For flag info see comments at start of file in comments
 	local function CanDisplayRecipe(recipe)
-		-- For flag info see comments at start of file in comments
+		if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
+			addon:Debug("Recipe \"%s\" has been excluded.", recipe.name)
+			return false
+		end
 		local filter_db = addon.db.profile.filters
 		local general_filters = filter_db.general
 		local recipe_flags = recipe["Flags"]

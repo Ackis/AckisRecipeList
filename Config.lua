@@ -86,7 +86,11 @@ local function fullOptions()
 							func	= function(info)
 									  local exclusion_list = addon.db.profile.exclusionlist
 
-									  exclusion_list = twipe(exclusion_list)
+									  exclusion_list = table.wipe(exclusion_list)
+
+									  if addon.Frame:IsVisible() then
+										  addon:Scan()
+									  end
 								  end,
 						},
 						resetallfilters = {
@@ -94,7 +98,9 @@ local function fullOptions()
 							type	= "execute",
 							name	= L["Reset All Filters"],
 							desc	= L["RESET_DESC"],
-							func	= function(info) addon.resetFilters() end,
+							func	= function(info)
+									  addon.resetFilters()
+								  end,
 						},
 						spacer1 = {
 							order	= 19,
@@ -133,7 +139,13 @@ local function fullOptions()
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],
 							get	= function() return addon.db.profile.ignoreexclusionlist end,
-							set	= function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist end,
+							set	= function()
+									  addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+
+									  if addon.Frame:IsVisible() then
+										  addon:Scan()
+									  end
+								  end,
 						},
 						spacer2 = {
 							order	= 39,

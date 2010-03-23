@@ -44,6 +44,13 @@ local tonumber = _G.tonumber
 local tostring = _G.tostring
 
 -------------------------------------------------------------------------------
+-- Localized Blizzard API.
+-------------------------------------------------------------------------------
+local GetItemQualityColor = _G.GetItemQualityColor
+
+-- GLOBALS: CreateFrame, GameTooltip, UIParent
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
 local LibStub = LibStub
@@ -180,8 +187,6 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 -------------------------------------------------------------------------------
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
-local ARL_SearchText, ARL_LastSearchedText
-
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
@@ -224,6 +229,8 @@ end
 -------------------------------------------------------------------------------
 local SetTooltipScripts
 do
+	local HIGHLIGHT_FONT_COLOR = _G.HIGHLIGHT_FONT_COLOR
+
 	local function Show_Tooltip(frame, motion)
 		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
 		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
@@ -556,8 +563,8 @@ do
 		end
 
 		-- Add TipTac Support
-		if TipTac and TipTac.AddModifiedTip and not spell_tip.tiptac then
-			TipTac:AddModifiedTip(spell_tip)
+		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
+			_G.TipTac:AddModifiedTip(spell_tip)
 			spell_tip.tiptac = true
 		end
 
@@ -640,9 +647,9 @@ do
 			acquire_tip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 		end
 
-		if TipTac and TipTac.AddModifiedTip then
+		if _G.TipTac and _G.TipTac.AddModifiedTip then
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-			TipTac:AddModifiedTip(acquire_tip, true)
+			_G.TipTac:AddModifiedTip(acquire_tip, true)
 		end
 		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
 
@@ -668,7 +675,6 @@ do
 		local medium_level = recipe_entry.medium_level
 		local easy_level = recipe_entry.easy_level
 		local trivial_level = recipe_entry.trivial_level
-
 
 		if recipe_level > skill_level then
 			color_2 = addon:hexcolor("RED")
@@ -899,7 +905,7 @@ do
 		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
 		ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
 
-		if TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+		if _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 			ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
 		end
 		acquire_tip:Show()
@@ -1028,6 +1034,8 @@ do
 	local MINING_SPELL = GetSpellInfo(32606)
 
 	function MainPanel:SetProfession()
+		local prev_profession = self.profession
+
 		if Player.current_prof == MINING_SPELL then
 			self.profession = 11 -- Smelting
 		else
@@ -1037,6 +1045,10 @@ do
 					break
 				end
 			end
+		end
+
+		if self.profession ~= prev_profession then
+			self.prev_profession = self.profession
 		end
 		self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 	end
@@ -1049,14 +1061,14 @@ function MainPanel:SetPosition()
 	self:ClearAllPoints()
 
 	if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
-		if ATSWFrame then
-			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif CauldronFrame then
-			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif Skillet then
-			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		if _G.ATSWFrame then
+			self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
+		elseif _G.CauldronFrame then
+			self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
+		elseif _G.Skillet then
+			self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
 		else
-			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+			self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
 		end
 	else
 		if self.is_expanded then
@@ -1198,6 +1210,292 @@ function MainPanel.mode_button:ChangeTexture(texture)
 	disabled:SetAllPoints(self)
 	self:SetDisabledTexture(disabled)
 end
+
+-------------------------------------------------------------------------------
+-- Create the DropDown for sorting types.
+-------------------------------------------------------------------------------
+local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
+ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
+ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+
+local function SetSortName()
+	local sort_type = addon.db.profile.sorting
+
+	if sort_type == "Name" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
+	elseif sort_type == "SkillAsc" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
+	elseif sort_type == "SkillDesc" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
+	elseif sort_type == "Acquisition" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
+	elseif sort_type == "Location" then
+		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
+	end
+end
+
+local function ARL_DD_Sort_OnClick(button, value)
+	CloseDropDownMenus()
+	addon.db.profile.sorting = value
+	SetSortName()
+	ReDisplay()
+end
+
+local function ARL_DD_Sort_Initialize()
+	local info = UIDropDownMenu_CreateInfo()
+
+	local k = "Name"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "SkillAsc"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "SkillDesc"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "Acquisition"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	k = "Location"
+	info.text = k
+	info.arg1 = info.text
+	info.func = ARL_DD_Sort_OnClick
+	info.checked = (addon.db.profile.sorting == k)
+	UIDropDownMenu_AddButton(info)
+
+	SetSortName()
+end
+
+UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
+
+-------------------------------------------------------------------------------
+-- Create the expand button and set its scripts.
+-------------------------------------------------------------------------------
+local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
+					     L["EXPANDALL_DESC"], 1)
+ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
+
+ARL_ExpandButton:SetScript("OnClick",
+			   function(self, mouse_button, down)
+				   local expand_acquires = (self:GetText() == L["EXPANDALL"])
+
+				   if expand_acquires then
+					   self:SetText(L["CONTRACTALL"])
+					   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+				   else
+					   self:SetText(L["EXPANDALL"])
+					   SetTooltipScripts(self, L["EXPANDALL_DESC"])
+				   end
+				   MainPanel.scroll_frame:Update(expand_acquires, false)
+			   end)
+ARL_ExpandButton:SetText(L["EXPANDALL"])
+SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+-------------------------------------------------------------------------------
+-- The search button, clear button, and search entry box.
+-------------------------------------------------------------------------------
+local SearchRecipes
+do
+	local acquire_names = private.acquire_names
+
+	local search_params = {
+		["item_id"]	= true,
+		["name"]	= true,
+		["locations"]	= true,
+		["specialty"]	= true,
+		["skill_level"]	= true,
+		["quality"]	= true,
+	}
+	-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
+	function SearchRecipes(pattern)
+		if not pattern then
+			return
+		end
+		pattern = pattern:lower()
+
+		local recipe_list = private.recipe_list
+
+		for index in pairs(recipe_list) do
+			local entry = recipe_list[index]
+			entry.is_relevant = false
+
+			for acquire_type in pairs(acquire_names) do
+				if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
+					entry.is_relevant = true
+					break
+				end
+			end
+
+			for field in pairs(search_params) do
+				local str = entry[field] and tostring(entry[field]):lower() or nil
+
+				if str and str:find(pattern) then
+					entry.is_relevant = true
+					break
+				end
+			end
+		end
+	end
+end	-- do
+
+local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
+					     L["SEARCH_DESC"], 1)
+ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
+
+ARL_SearchButton:Disable()
+ARL_SearchButton:SetScript("OnClick",
+			   function(this)
+				   local searchtext = MainPanel.search_editbox:GetText()
+				   searchtext = searchtext:trim()
+
+				   if searchtext ~= "" then
+					   MainPanel.search_editbox.prev_search = searchtext
+
+					   SearchRecipes(searchtext)
+					   MainPanel.scroll_frame:Update(false, false)
+
+					   ARL_ExpandButton:SetText(L["EXPANDALL"])
+					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+					   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					   ARL_SearchButton:Disable()
+				   end
+			   end)
+
+local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
+
+ARL_ClearButton:SetScript("OnClick",
+			  function()
+				  local recipe_list = private.recipe_list
+
+				  -- Reset the search flags
+				  for index in pairs(recipe_list) do
+					  recipe_list[index].is_relevant = true
+				  end
+				  MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
+
+				  -- Make sure our expand all button is set to expandall
+				  ARL_ExpandButton:SetText(L["EXPANDALL"])
+				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+				  -- Make sure to clear the focus of the searchbox
+				  MainPanel.search_editbox:ClearFocus()
+
+				  -- Disable the search button since we're not searching for anything now
+				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+				  ARL_SearchButton:Disable()
+
+				  -- Make sure to clear text for last search
+				  MainPanel.search_editbox.prev_search = nil
+
+				  MainPanel.scroll_frame:Update(false, false)
+			  end)
+
+MainPanel.search_editbox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
+MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
+MainPanel.search_editbox:SetHistoryLines(10)
+
+MainPanel.search_editbox:SetScript("OnEnterPressed",
+				   function(self)
+					   local searchtext = self:GetText()
+					   searchtext = searchtext:trim()
+
+					   if searchtext and searchtext ~= L["SEARCH_BOX_DESC"] then
+						   self.prev_search = searchtext
+
+						   self:AddHistoryLine(searchtext)
+						   SearchRecipes(searchtext)
+						   MainPanel.scroll_frame:Update(false, false)
+
+						   ARL_ExpandButton:SetText(L["EXPANDALL"])
+						   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						   ARL_SearchButton:Disable()
+					   end
+				   end)
+
+MainPanel.search_editbox:SetScript("OnEditFocusGained",
+			 function(self)
+				 if self:GetText() == L["SEARCH_BOX_DESC"] then
+					 self:SetText("")
+				 end
+			 end)
+
+MainPanel.search_editbox:SetScript("OnEditFocusLost",
+			 function(self)
+				 local text = self:GetText()
+
+				 if text == "" then
+					 self:SetText(L["SEARCH_BOX_DESC"])
+					 return
+					 self:AddHistoryLine(text)
+				 end
+			 end)
+
+
+MainPanel.search_editbox:SetScript("OnTextSet",
+				   function(self)
+					   local text = self:GetText()
+
+					   if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
+						   ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
+						   ARL_SearchButton:Enable()
+					   else
+						   local recipe_list = private.recipe_list
+
+						   for spell_id in pairs(recipe_list) do
+							   local recipe = recipe_list[spell_id]
+
+							   recipe.is_relevant = true
+						   end
+						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						   ARL_SearchButton:Disable()
+					   end
+				   end)
+
+MainPanel.search_editbox:SetScript("OnTextChanged",
+			 function(self, is_typed)
+				 if not is_typed then
+					 return
+				 end
+				 local text = self:GetText()
+
+				 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
+					 SearchRecipes(text)
+					 MainPanel.scroll_frame:Update(false, false)
+					 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
+					 ARL_SearchButton:Enable()
+				 else
+					 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					 ARL_SearchButton:Disable()
+				 end
+			 end)
+
+MainPanel.search_editbox:EnableMouse(true)
+MainPanel.search_editbox:SetAutoFocus(false)
+MainPanel.search_editbox:SetFontObject(ChatFontNormal)
+MainPanel.search_editbox:SetWidth(130)
+MainPanel.search_editbox:SetHeight(12)
+MainPanel.search_editbox:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
+MainPanel.search_editbox:Show()
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
@@ -2115,7 +2413,7 @@ MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
 MainPanel.scroll_frame:SetScript("OnVerticalScroll",
 				 function(self, arg1)
 					 self.scrolling = true
-					 FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+					 _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
 					 self.scrolling = nil
 				 end)
 
@@ -2185,9 +2483,7 @@ do
 		elseif skill_level >= recipe_entry.optimal_level then
 			level_text = string.format(addon:Orange(SKILL_LEVEL_FORMAT), recipe_level)
 		else
-			--@alpha@
-			addon:Printf("DEBUG: Skill level color fallback: %s.", recipe_string)
-			--@end-alpha@
+			addon:Debug("Skill level color fallback: %s.", recipe_string)
 			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
 		end
 		local sort_type = addon.db.profile.sorting
@@ -2195,15 +2491,35 @@ do
 
 		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
 
-		if addon.db.profile.exclusionlist[recipe_index] then
+		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
 			recipe_string = string.format("** %s **", recipe_string)
 		end
 		return recipe_string
 	end
 
+	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+	-- necessary to ensure each is counted only once.
+	local recipe_registry = {}
+
+	function MainPanel.scroll_frame:InsertEntry(entry, entry_index, expand_acquires)
+		local insert_index = entry_index
+
+		-- If we have acquire information for this entry, push the data table into the list
+		-- and start processing the acquires.
+		if expand_acquires then
+			entry.is_expanded = true
+			tinsert(self.entries, insert_index, entry)
+			insert_index = self:ExpandEntry(insert_index)
+		else
+			entry.is_expanded = false
+			tinsert(self.entries, insert_index, entry)
+			insert_index = insert_index + 1
+		end
+		return insert_index
+	end
+
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
 		local insert_index = 1
-
 		local recipe_list = private.recipe_list
 
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
@@ -2212,12 +2528,13 @@ do
 			local sorted_locations = addon.sorted_locations
 			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
-			local recipes_displayed = 0
+			local recipe_count = 0
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
 			end
 			twipe(self.entries)
+			twipe(recipe_registry)
 
 			if sort_type == "Acquisition" then
 				SortAcquireList()
@@ -2226,16 +2543,19 @@ do
 					local acquire_type = sorted_acquires[index]
 					local count = 0
 
-					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
+						if recipe.is_visible and recipe.is_relevant then
 							count = count + 1
-							recipes_displayed = recipes_displayed + 1
+
+							if not recipe_registry[recipe] then
+								recipe_registry[recipe] = true
+								recipe_count = recipe_count + 1
+							end
 						end
 					end
-
 
 					if count > 0 then
 						local t = AcquireTable()
@@ -2244,17 +2564,7 @@ do
 						t.acquire_id = acquire_type
 						t.is_header = true
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			elseif sort_type == "Location" then
@@ -2268,9 +2578,13 @@ do
 					for spell_id in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
-						if recipe.profession == Player.current_prof and recipe.is_visible and recipe.is_relevant then
+						if recipe.is_visible and recipe.is_relevant then
 							count = count + 1
-							recipes_displayed = recipes_displayed + 1
+
+							if not recipe_registry[recipe] then
+								recipe_registry[recipe] = true
+								recipe_count = recipe_count + 1
+							end
 						end
 					end
 
@@ -2281,17 +2595,7 @@ do
 						t.location_id = loc_name
 						t.is_header = true
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			else
@@ -2308,23 +2612,27 @@ do
 						t.recipe_id = recipe_index
 						t.is_header = true
 
-						recipes_displayed = recipes_displayed + 1
+						recipe_count = recipe_count + 1
 
-						if expand_acquires then
-							-- we have acquire information for this. push the title entry into the strings
-							-- and start processing the acquires
-							t.is_expanded = true
-							tinsert(self.entries, insert_index, t)
-							insert_index = self:ExpandEntry(insert_index)
-						else
-							t.is_expanded = false
-							tinsert(self.entries, insert_index, t)
-							insert_index = insert_index + 1
-						end
+						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			end	-- Sort type.
-			self.recipes_displayed = recipes_displayed
+			local profile = addon.db.profile
+			local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
+			local progress_bar = MainPanel.progress_bar
+
+			if not profile.includeexcluded and not profile.ignoreexclusionlist then
+				max_value = max_value - Player.excluded_recipes_known
+			end
+			progress_bar:SetMinMaxValues(0, max_value)
+			progress_bar:SetValue(recipe_count)
+
+			if (floor(recipe_count / max_value * 100) < 101) and recipe_count >= 0 and max_value >= 0 then
+				progress_bar.text:SetFormattedText("%d / %d - %1.2f%%", recipe_count, max_value, recipe_count / max_value * 100)
+			else
+				progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+			end
 		end
 
 		-- Reset the current buttons/lines
@@ -2349,7 +2657,7 @@ do
 			display_lines = num_entries / 2
 		end
 
-		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
+		_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
 		addon:ClosePopups()
 
 		if num_entries > 0 then
@@ -2358,7 +2666,7 @@ do
 
 			-- Populate the buttons with new values
 			local button_index = 1
-			local string_index = button_index + FauxScrollFrame_GetOffset(self)
+			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local stayInLoop = true
 
 			while stayInLoop do
@@ -2432,23 +2740,22 @@ do
 				if showpopup then
 					StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
-			elseif ARL_SearchText:GetText() ~= "" then
+			elseif MainPanel.search_editbox:GetText() ~= "" then
 				StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
-				addon:Print("DEBUG: recipes_total check for 0")
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-				addon:Print("DEBUG: recipes_known: " .. Player.recipes_known)
-				addon:Print("DEBUG: recipes_total: " .. Player.recipes_total)
-				addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Print("DEBUG: recipes_total_filtered: " .. Player.recipes_total_filtered)
-				addon:Print("DEBUG: recipes_known_filtered: " .. Player.recipes_known_filtered)
-				addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-				addon:Print("DEBUG: excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
+				addon:Debug("recipes_total check for 0")
+				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_total check for equal to recipes_total")
+				addon:Debug("recipes_known: " .. Player.recipes_known)
+				addon:Debug("recipes_total: " .. Player.recipes_total)
+				addon:Debug("recipes_total_filtered - recipes_known_filtered = 0")
+				addon:Debug("recipes_total_filtered: " .. Player.recipes_total_filtered)
+				addon:Debug("recipes_known_filtered: " .. Player.recipes_known_filtered)
+				addon:Debug("excluded_recipes_unknown ~= 0")
+				addon:Debug("excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
 		end
-		MainPanel.progress_bar:Update()
 	end
 	local faction_strings
 
@@ -2472,7 +2779,7 @@ do
 			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
@@ -2492,7 +2799,7 @@ do
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
 
-				if recipe_entry.profession == Player.current_prof and recipe_entry.is_visible and recipe_entry.is_relevant then
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
@@ -2824,42 +3131,15 @@ MainPanel.progress_bar.text:SetJustifyH("CENTER")
 
 -- Default values for the progressbar
 do
-	local pbMin = 0
-	local pbMax = 100
-	local pbCur = 50
+	local min_value = 0
+	local max_value = 100
+	local value = 50
 
-	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
-	MainPanel.progress_bar:SetValue(pbCur)
+	MainPanel.progress_bar:SetMinMaxValues(min_value, max_value)
+	MainPanel.progress_bar:SetValue(value)
 
-	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
+	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
 end	-- do
-
-function MainPanel.progress_bar:Update()
-	local pbCur, pbMax
-	local settings = addon.db.profile
-
-	if settings.includefiltered then
-		pbCur = MainPanel.scroll_frame.recipes_displayed
-		pbMax = Player.recipes_total
-	else
-		-- We're removing filtered recipes from the final count
-		pbCur = MainPanel.scroll_frame.recipes_displayed
-		pbMax = Player.recipes_total_filtered
-	end
-
-	if not settings.includeexcluded and not settings.ignoreexclusionlist then
-		pbCur = pbCur - Player.excluded_recipes_unknown
-		pbMax = pbMax - Player.excluded_recipes_known
-	end
-	self:SetMinMaxValues(0, pbMax)
-	self:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and pbCur >= 0 and pbMax >= 0 then
-		self.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
-	else
-		self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-	end
-end
 
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
@@ -2871,70 +3151,6 @@ MainPanel.close_button:SetScript("OnClick",
 				 function(self, button, down)
 					 MainPanel:Hide()
 				 end)
-
-local function SetSortName()
-	local sort_type = addon.db.profile.sorting
-
-	if sort_type == "Name" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
-	elseif sort_type == "SkillAsc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
-	elseif sort_type == "SkillDesc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
-	elseif sort_type == "Acquisition" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
-	elseif sort_type == "Location" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
-	end
-end
-
-local function ARL_DD_Sort_OnClick(button, value)
-	CloseDropDownMenus()
-	addon.db.profile.sorting = value
-	SetSortName()
-	ReDisplay()
-end
-
-local function ARL_DD_Sort_Initialize()
-	local info = UIDropDownMenu_CreateInfo()
-
-	local k = "Name"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "SkillAsc"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "SkillDesc"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "Acquisition"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	k = "Location"
-	info.text = k
-	info.arg1 = info.text
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
-
-	SetSortName()
-end
 
 -------------------------------------------------------------------------------
 -- Data used in GenerateClickableTT() and its support functions.
@@ -2976,7 +3192,7 @@ local function SelectName(cell, arg, button)
 	click_info.name = arg
 
 	-- Wipe tradeskill information for the selected toon. -Torhal
-	if IsAltKeyDown() and button == "LeftButton" then
+	if _G.IsAltKeyDown() and button == "LeftButton" then
 		local tskl_list = addon.db.global.tradeskill
 		tskl_list[click_info.realm][click_info.name] = nil
 
@@ -3010,7 +3226,7 @@ function GenerateClickableTT(anchor)
 	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
 	local y, x
-	local prealm = GetRealmName()
+	local prealm = _G.GetRealmName()
 	local target_realm = prealm
 
 	if click_info.change_realm then
@@ -3024,11 +3240,11 @@ function GenerateClickableTT(anchor)
 		local header = nil
 
 		for realm in pairs(tskl_list) do
-			if target_realm and (realm ~= target_realm) then
+			if target_realm and realm ~= target_realm then
 				other_realms = true
 			end
 
-			if not target_realm and (realm ~= prealm) then
+			if not target_realm and realm ~= prealm then
 				if not header then
 					tip:AddHeader(L["Other Realms"])
 					tip:AddSeparator()
@@ -3044,7 +3260,7 @@ function GenerateClickableTT(anchor)
 				tip:AddSeparator()
 
 				for name in pairs(tskl_list[click_info.realm]) do
-					if name ~= UnitName("player") then
+					if name ~= _G.UnitName("player") then
 						y, x = tip:AddLine()
 						tip:SetCell(y, x, name)
 						tip:SetCellScript(y, x, "OnMouseUp", SelectName, name)
@@ -3113,190 +3329,8 @@ function addon:InitializeFrame()
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
-	-------------------------------------------------------------------------------
-	-- Create the sort-type DropDown.
-	-------------------------------------------------------------------------------
-	local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
-	ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
-	ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+	-- Has to be done here because db doesn't exist yet if executed in the main file body.
 	SetSortName()
-	UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
-
-	-------------------------------------------------------------------------------
-	-- Create the expand button and set its scripts.
-	-------------------------------------------------------------------------------
-	local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
-						     L["EXPANDALL_DESC"], 1)
-	ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
-
-	ARL_ExpandButton:SetScript("OnClick",
-				   function(self, mouse_button, down)
-					   local expand_acquires = (self:GetText() == L["EXPANDALL"])
-
-					   if expand_acquires then
-						   self:SetText(L["CONTRACTALL"])
-						   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-					   else
-						   self:SetText(L["EXPANDALL"])
-						   SetTooltipScripts(self, L["EXPANDALL_DESC"])
-					   end
-					   MainPanel.scroll_frame:Update(expand_acquires, false)
-				   end)
-	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-	-------------------------------------------------------------------------------
-	-- The search button, clear button, and search entry box.
-	-------------------------------------------------------------------------------
-	local SearchRecipes
-	do
-		local acquire_names = private.acquire_names
-
-		local search_params = {
-			["item_id"]	= true,
-			["name"]	= true,
-			["locations"]	= true,
-			["specialty"]	= true,
-			["skill_level"]	= true,
-			["quality"]	= true,
-		}
-		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
-		function SearchRecipes(pattern)
-			if not pattern then
-				return
-			end
-			pattern = pattern:lower()
-
-			local recipe_list = private.recipe_list
-
-			for index in pairs(recipe_list) do
-				local entry = recipe_list[index]
-				entry.is_relevant = false
-
-				for acquire_type in pairs(acquire_names) do
-					if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
-						entry.is_relevant = true
-						break
-					end
-				end
-
-				for field in pairs(search_params) do
-					local str = entry[field] and tostring(entry[field]):lower() or nil
-
-					if str and str:find(pattern) then
-						entry.is_relevant = true
-						break
-					end
-				end
-			end
-		end
-	end	-- do
-
-	local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
-						     L["SEARCH_DESC"], 1)
-	ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
-
-	ARL_SearchButton:Disable()
-	ARL_SearchButton:SetScript("OnClick",
-				   function(this)
-					   local searchtext = ARL_SearchText:GetText()
-					   searchtext = searchtext:trim()
-
-					   if searchtext ~= "" then
-						   ARL_LastSearchedText = searchtext
-
-						   SearchRecipes(searchtext)
-						   MainPanel.scroll_frame:Update(false, false)
-
-						   ARL_ExpandButton:SetText(L["EXPANDALL"])
-						   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						   ARL_SearchButton:Disable()
-					   end
-				   end)
-
-	local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-	ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
-
-	ARL_ClearButton:SetScript("OnClick",
-				  function()
-					  local recipe_list = private.recipe_list
-
-					  -- Reset the search flags
-					  for index in pairs(recipe_list) do
-						  recipe_list[index].is_relevant = true
-					  end
-					  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-
-					  -- Make sure our expand all button is set to expandall
-					  ARL_ExpandButton:SetText(L["EXPANDALL"])
-					  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-					  -- Make sure to clear the focus of the searchbox
-					  ARL_SearchText:ClearFocus()
-
-					  -- Disable the search button since we're not searching for anything now
-					  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-					  ARL_SearchButton:Disable()
-
-					  -- Make sure to clear text for last search
-					  ARL_LastSearchedText = nil
-
-					  MainPanel.scroll_frame:Update(false, false)
-				  end)
-
-	ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
-	ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-	ARL_SearchText:SetScript("OnEnterPressed",
-				 function(this)
-					 local searchtext = ARL_SearchText:GetText()
-					 searchtext = searchtext:trim()
-
-					 if searchtext ~= nil and searchtext ~= L["SEARCH_BOX_DESC"] then
-						 ARL_LastSearchedText = searchtext
-
-						 SearchRecipes(searchtext)
-						 MainPanel.scroll_frame:Update(false, false)
-
-						 ARL_ExpandButton:SetText(L["EXPANDALL"])
-						 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						 ARL_SearchButton:Disable()
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnEditFocusGained",
-				 function(this)
-					 if this:GetText() == L["SEARCH_BOX_DESC"] then
-						 this:SetText("")
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnEditFocusLost",
-				 function(this)
-					 if this:GetText() == "" then
-						 this:SetText(L["SEARCH_BOX_DESC"])
-					 end
-				 end)
-	ARL_SearchText:SetScript("OnTextChanged",
-				 function(this)
-					 local text = this:GetText()
-
-					 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= ARL_LastSearchedText then
-						 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
-						 ARL_SearchButton:Enable()
-					 else
-						 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						 ARL_SearchButton:Disable()
-					 end
-				 end)
-	ARL_SearchText:EnableMouse(true)
-	ARL_SearchText:SetAutoFocus(false)
-	ARL_SearchText:SetFontObject(ChatFontNormal)
-	ARL_SearchText:SetWidth(130)
-	ARL_SearchText:SetHeight(12)
-	ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
-	ARL_SearchText:Show()
 
 	-------------------------------------------------------------------------------
 	-- Set the scripts for MainPanel.scroll_frame's buttons.
@@ -3313,14 +3347,14 @@ function addon:InitializeFrame()
 			local traverseIndex = 0
 
 			-- First, check if this is a "modified" click, and react appropriately
-			if clicked_line.recipe_id and IsModifierKeyDown() then
-				if IsControlKeyDown() and IsShiftKeyDown() then
+			if clicked_line.recipe_id and _G.IsModifierKeyDown() then
+				if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
 					addon:SetupMap(clicked_line.recipe_id)
-				elseif IsShiftKeyDown() then
+				elseif _G.IsShiftKeyDown() then
 					local itemID = private.recipe_list[clicked_line.recipe_id].item_id
 
 					if itemID then
-						local _, itemLink = GetItemInfo(itemID)
+						local _, itemLink = _G.GetItemInfo(itemID)
 
 						if itemLink then
 							ChatFrameEditBox:Insert(itemLink)
@@ -3330,9 +3364,9 @@ function addon:InitializeFrame()
 					else
 						addon:Print(L["NoItemLink"])
 					end
-				elseif IsControlKeyDown() then
+				elseif _G.IsControlKeyDown() then
 					ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
-				elseif IsAltKeyDown() then
+				elseif _G.IsAltKeyDown() then
 					local exclusion_list = addon.db.profile.exclusionlist
 					local recipe_id = clicked_line.recipe_id
 
@@ -3797,8 +3831,8 @@ function addon:InitializeFrame()
 						 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
 						 twipe(click_info)
 
-						 if TipTac and TipTac.AddModifiedTip then
-							 TipTac:AddModifiedTip(clicktip, true)
+						 if _G.TipTac and _G.TipTac.AddModifiedTip then
+							 _G.TipTac:AddModifiedTip(clicktip, true)
 						 end
 						 GenerateClickableTT(this)
 					 end
@@ -3952,13 +3986,16 @@ function addon:DisplayFrame()
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
+	local editbox = MainPanel.search_editbox
+
+	if MainPanel.profession ~= MainPanel.prev_profession then
+		editbox.prev_search = nil
+	end
+	editbox:SetText(editbox.prev_search or L["SEARCH_BOX_DESC"])
+
 	MainPanel:UpdateTitle()
 	MainPanel.scroll_frame:Update(false, false)
 	MainPanel:Show()
-
-	-- Set the search text to the last searched text or the global default string for the search box
-	-- We should think about either preserving the search everytime arl is open or we clear it completely  - pompachomp
-	ARL_SearchText:SetText(ARL_LastSearchedText or L["SEARCH_BOX_DESC"])
 end
 
 --------------------------------------------------------------------------------
