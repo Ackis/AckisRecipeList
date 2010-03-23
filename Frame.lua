@@ -187,8 +187,6 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 -------------------------------------------------------------------------------
 local FilterValueMap		-- Assigned in addon:InitializeFrame()
 
-local ARL_SearchText, ARL_LastSearchedText
-
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
@@ -1214,7 +1212,7 @@ function MainPanel.mode_button:ChangeTexture(texture)
 end
 
 -------------------------------------------------------------------------------
--- Create the sort-type DropDown.
+-- Create the DropDown for sorting types.
 -------------------------------------------------------------------------------
 local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
 ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
@@ -1363,11 +1361,11 @@ ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
 ARL_SearchButton:Disable()
 ARL_SearchButton:SetScript("OnClick",
 			   function(this)
-				   local searchtext = ARL_SearchText:GetText()
+				   local searchtext = MainPanel.search_editbox:GetText()
 				   searchtext = searchtext:trim()
 
 				   if searchtext ~= "" then
-					   ARL_LastSearchedText = searchtext
+					   MainPanel.search_editbox.prev_search = searchtext
 
 					   SearchRecipes(searchtext)
 					   MainPanel.scroll_frame:Update(false, false)
@@ -1391,62 +1389,66 @@ ARL_ClearButton:SetScript("OnClick",
 				  for index in pairs(recipe_list) do
 					  recipe_list[index].is_relevant = true
 				  end
-				  ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
+				  MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
 
 				  -- Make sure our expand all button is set to expandall
 				  ARL_ExpandButton:SetText(L["EXPANDALL"])
 				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 
 				  -- Make sure to clear the focus of the searchbox
-				  ARL_SearchText:ClearFocus()
+				  MainPanel.search_editbox:ClearFocus()
 
 				  -- Disable the search button since we're not searching for anything now
 				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 				  ARL_SearchButton:Disable()
 
 				  -- Make sure to clear text for last search
-				  ARL_LastSearchedText = nil
+				  MainPanel.search_editbox.prev_search = nil
 
 				  MainPanel.scroll_frame:Update(false, false)
 			  end)
 
-ARL_SearchText = CreateFrame("EditBox", "ARL_SearchText", MainPanel, "InputBoxTemplate")
-ARL_SearchText:SetText(L["SEARCH_BOX_DESC"])
-ARL_SearchText:SetScript("OnEnterPressed",
-			 function(this)
-				 local searchtext = ARL_SearchText:GetText()
-				 searchtext = searchtext:trim()
+MainPanel.search_editbox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
+MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
 
-				 if searchtext ~= nil and searchtext ~= L["SEARCH_BOX_DESC"] then
-					 ARL_LastSearchedText = searchtext
+local function EditBox_OnEnterPressed(self)
+	local searchtext = self:GetText()
+	searchtext = searchtext:trim()
 
-					 SearchRecipes(searchtext)
-					 MainPanel.scroll_frame:Update(false, false)
+	if searchtext and searchtext ~= L["SEARCH_BOX_DESC"] then
+		self.prev_search = searchtext
 
-					 ARL_ExpandButton:SetText(L["EXPANDALL"])
-					 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+		SearchRecipes(searchtext)
+		MainPanel.scroll_frame:Update(false, false)
 
-					 ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-					 ARL_SearchButton:Disable()
+		ARL_ExpandButton:SetText(L["EXPANDALL"])
+		SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+		ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+		ARL_SearchButton:Disable()
+	end
+end
+MainPanel.search_editbox:SetScript("OnEnterPressed", EditBox_OnEnterPressed)
+
+MainPanel.search_editbox:SetScript("OnEditFocusGained",
+			 function(self)
+				 if self:GetText() == L["SEARCH_BOX_DESC"] then
+					 self:SetText("")
 				 end
 			 end)
-ARL_SearchText:SetScript("OnEditFocusGained",
-			 function(this)
-				 if this:GetText() == L["SEARCH_BOX_DESC"] then
-					 this:SetText("")
-				 end
-			 end)
-ARL_SearchText:SetScript("OnEditFocusLost",
+
+MainPanel.search_editbox:SetScript("OnEditFocusLost",
 			 function(this)
 				 if this:GetText() == "" then
 					 this:SetText(L["SEARCH_BOX_DESC"])
 				 end
 			 end)
-ARL_SearchText:SetScript("OnTextChanged",
-			 function(this)
-				 local text = this:GetText()
 
-				 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= ARL_LastSearchedText then
+MainPanel.search_editbox:SetScript("OnTextChanged",
+			 function(self)
+				 local text = self:GetText()
+
+				 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
 					 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
 					 ARL_SearchButton:Enable()
 				 else
@@ -1454,13 +1456,14 @@ ARL_SearchText:SetScript("OnTextChanged",
 					 ARL_SearchButton:Disable()
 				 end
 			 end)
-ARL_SearchText:EnableMouse(true)
-ARL_SearchText:SetAutoFocus(false)
-ARL_SearchText:SetFontObject(ChatFontNormal)
-ARL_SearchText:SetWidth(130)
-ARL_SearchText:SetHeight(12)
-ARL_SearchText:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
-ARL_SearchText:Show()
+
+MainPanel.search_editbox:EnableMouse(true)
+MainPanel.search_editbox:SetAutoFocus(false)
+MainPanel.search_editbox:SetFontObject(ChatFontNormal)
+MainPanel.search_editbox:SetWidth(130)
+MainPanel.search_editbox:SetHeight(12)
+MainPanel.search_editbox:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
+MainPanel.search_editbox:Show()
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
@@ -2705,7 +2708,7 @@ do
 				if showpopup then
 					StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
-			elseif ARL_SearchText:GetText() ~= "" then
+			elseif MainPanel.search_editbox:GetText() ~= "" then
 				StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
