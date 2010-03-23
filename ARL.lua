@@ -1075,7 +1075,7 @@ do
 						location = GetCategoryInfo(155)
 					elseif acquire_type == A.CUSTOM then
 						acquire[acquire_id] = true
-						location = _G.MISCELLANEOUS
+						location = private.custom_list[acquire_id].location or _G.MISCELLANEOUS
 					else
 						-- Unhandled acquire_type
 						acquire[acquire_id] = true
