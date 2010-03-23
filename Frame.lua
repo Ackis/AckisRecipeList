@@ -48,7 +48,7 @@ local tostring = _G.tostring
 -------------------------------------------------------------------------------
 local GetItemQualityColor = _G.GetItemQualityColor
 
--- GLOBALS: CreateFrame, GameTooltip
+-- GLOBALS: CreateFrame, GameTooltip, UIParent
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -1061,14 +1061,14 @@ function MainPanel:SetPosition()
 	self:ClearAllPoints()
 
 	if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
-		if ATSWFrame then
-			self:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif CauldronFrame then
-			self:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif Skillet then
-			self:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
+		if _G.ATSWFrame then
+			self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
+		elseif _G.CauldronFrame then
+			self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
+		elseif _G.Skillet then
+			self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
 		else
-			self:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
+			self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
 		end
 	else
 		if self.is_expanded then
@@ -3194,7 +3194,7 @@ function GenerateClickableTT(anchor)
 	local tskl_list = addon.db.global.tradeskill
 	local tip = clicktip
 	local y, x
-	local prealm = GetRealmName()
+	local prealm = _G.GetRealmName()
 	local target_realm = prealm
 
 	if click_info.change_realm then
@@ -3208,11 +3208,11 @@ function GenerateClickableTT(anchor)
 		local header = nil
 
 		for realm in pairs(tskl_list) do
-			if target_realm and (realm ~= target_realm) then
+			if target_realm and realm ~= target_realm then
 				other_realms = true
 			end
 
-			if not target_realm and (realm ~= prealm) then
+			if not target_realm and realm ~= prealm then
 				if not header then
 					tip:AddHeader(L["Other Realms"])
 					tip:AddSeparator()
@@ -3228,7 +3228,7 @@ function GenerateClickableTT(anchor)
 				tip:AddSeparator()
 
 				for name in pairs(tskl_list[click_info.realm]) do
-					if name ~= UnitName("player") then
+					if name ~= _G.UnitName("player") then
 						y, x = tip:AddLine()
 						tip:SetCell(y, x, name)
 						tip:SetCellScript(y, x, "OnMouseUp", SelectName, name)
