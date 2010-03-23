@@ -2554,7 +2554,7 @@ do
 						local recipe = private.recipe_list[spell_id]
 						local has_faction = false
 
-						if type(faction) == "bool"
+						if type(faction) == "boolean"
 						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
 							has_faction = true
 						end
@@ -2591,7 +2591,7 @@ do
 						local recipe = private.recipe_list[spell_id]
 						local has_faction = false
 
-						if type(faction) == "bool"
+						if type(faction) == "boolean"
 						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
 							has_faction = true
 						end
