@@ -1369,6 +1369,8 @@ ARL_SearchButton:SetScript("OnClick",
 				   if searchtext ~= "" then
 					   MainPanel.search_editbox.prev_search = searchtext
 
+					   MainPanel.search_editbox:HighlightText()
+					   MainPanel.search_editbox:AddHistoryLine(searchtext)
 					   SearchRecipes(searchtext)
 					   MainPanel.scroll_frame:Update(false, false)
 
