@@ -600,7 +600,7 @@ end
 -- BASICALLY A TEMPORARY STORAGE FOR IDS, SO WE CAN SEE CLEANER SCANS AND WHAT NOT,
 -- WE'LL GO BACK HERE LATER DOWN THE ROAD.
 -------------------------------------------------------------------------------
-local NO_PLAYER_FLAG = {
+local NO_ROLE_FLAG = {
 
 	--------------------------------------------------------------------------------------------
 	-----ASSORTED CRAP
@@ -2425,7 +2425,7 @@ do
 
 		-- We need to code this better.  Some items (aka bags) won't have a role at all.
 		-- Check for player role flags
-		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_PLAYER_FLAG[spell_id] then
+		if not scan_data.tank and not scan_data.healer and not scan_data.caster and not scan_data.dps and not NO_ROLE_FLAG[spell_id] then
 			found_problem = true
 			tinsert(output, "    No player role flag.")
 		end
