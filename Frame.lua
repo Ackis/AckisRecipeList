@@ -899,7 +899,7 @@ do
 		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
 		ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
 
-		if TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+		if _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 			ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
 		end
 		acquire_tip:Show()
@@ -2213,7 +2213,7 @@ do
 			local sorted_locations = addon.sorted_locations
 			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
-			local recipes_displayed = 0
+			local recipe_count = 0
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
@@ -2228,7 +2228,7 @@ do
 					local acquire_type = sorted_acquires[index]
 					local count = 0
 
-					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 					for spell_id in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
 
@@ -2237,7 +2237,7 @@ do
 
 							if not recipe_registry[recipe] then
 								recipe_registry[recipe] = true
-								recipes_displayed = recipes_displayed + 1
+								recipe_count = recipe_count + 1
 							end
 						end
 					end
@@ -2279,7 +2279,7 @@ do
 
 							if not recipe_registry[recipe] then
 								recipe_registry[recipe] = true
-								recipes_displayed = recipes_displayed + 1
+								recipe_count = recipe_count + 1
 							end
 						end
 					end
@@ -2318,7 +2318,7 @@ do
 						t.recipe_id = recipe_index
 						t.is_header = true
 
-						recipes_displayed = recipes_displayed + 1
+						recipe_count = recipe_count + 1
 
 						if expand_acquires then
 							-- we have acquire information for this. push the title entry into the strings
@@ -2834,14 +2834,14 @@ MainPanel.progress_bar.text:SetJustifyH("CENTER")
 
 -- Default values for the progressbar
 do
-	local pbMin = 0
-	local pbMax = 100
-	local pbCur = 50
+	local min_value = 0
+	local max_value = 100
+	local value = 50
 
-	MainPanel.progress_bar:SetMinMaxValues(pbMin, pbMax)
-	MainPanel.progress_bar:SetValue(pbCur)
+	MainPanel.progress_bar:SetMinMaxValues(min_value, max_value)
+	MainPanel.progress_bar:SetValue(value)
 
-	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
+	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
 end	-- do
 
 function MainPanel.progress_bar:Update()
