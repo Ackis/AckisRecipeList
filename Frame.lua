@@ -1449,8 +1449,8 @@ MainPanel.search_editbox:SetScript("OnEditFocusLost",
 				 if text == "" then
 					 self:SetText(L["SEARCH_BOX_DESC"])
 					 return
-					 self:AddHistoryLine(text)
 				 end
+				 self:AddHistoryLine(text)
 			 end)
 
 
