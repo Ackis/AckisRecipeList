@@ -667,7 +667,7 @@ function addon:InitCooking()
 
 	-- Mighty Rhino Dogs -- 45559
 	AddRecipe(45559, 400, 34758, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45559, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(45559, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(45559, A.VENDOR, 31031, A.VENDOR, 31032)
 
 	-- Smoked Rockfin -- 45560
@@ -762,12 +762,12 @@ function addon:InitCooking()
 
 	-- Spicy Fried Herring -- 57433
 	AddRecipe(57433, 400, 42993, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57433, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(57433, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(57433, A.VENDOR, 31031, A.VENDOR, 31032)
 
 	-- Rhinolicious Wormsteak -- 57434
 	AddRecipe(57434, 400, 42994, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57434, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeFlags(57434, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeAcquire(57434, A.VENDOR, 31031, A.VENDOR, 31032)
 
 	-- Critter Bites -- 57435
