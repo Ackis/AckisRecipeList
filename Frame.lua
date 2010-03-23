@@ -1422,6 +1422,7 @@ MainPanel.search_editbox:SetScript("OnEnterPressed",
 					   if searchtext and searchtext ~= L["SEARCH_BOX_DESC"] then
 						   self.prev_search = searchtext
 
+						   self:HighlightText()
 						   self:AddHistoryLine(searchtext)
 						   SearchRecipes(searchtext)
 						   MainPanel.scroll_frame:Update(false, false)
@@ -1437,7 +1438,7 @@ MainPanel.search_editbox:SetScript("OnEnterPressed",
 MainPanel.search_editbox:SetScript("OnEditFocusGained",
 			 function(self)
 				 if self:GetText() == L["SEARCH_BOX_DESC"] then
-					 self:SetText("")
+					 self:HighlightText()
 				 end
 			 end)
 
@@ -1458,6 +1459,7 @@ MainPanel.search_editbox:SetScript("OnTextSet",
 					   local text = self:GetText()
 
 					   if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
+						   self:HighlightText()
 						   ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
 						   ARL_SearchButton:Enable()
 					   else
