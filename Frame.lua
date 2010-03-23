@@ -44,6 +44,13 @@ local tonumber = _G.tonumber
 local tostring = _G.tostring
 
 -------------------------------------------------------------------------------
+-- Localized Blizzard API.
+-------------------------------------------------------------------------------
+local GetItemQualityColor = _G.GetItemQualityColor
+
+-- GLOBALS: CreateFrame, GameTooltip
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
 local LibStub = LibStub
@@ -224,6 +231,8 @@ end
 -------------------------------------------------------------------------------
 local SetTooltipScripts
 do
+	local HIGHLIGHT_FONT_COLOR = _G.HIGHLIGHT_FONT_COLOR
+
 	local function Show_Tooltip(frame, motion)
 		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
 		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
@@ -556,8 +565,8 @@ do
 		end
 
 		-- Add TipTac Support
-		if TipTac and TipTac.AddModifiedTip and not spell_tip.tiptac then
-			TipTac:AddModifiedTip(spell_tip)
+		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
+			_G.TipTac:AddModifiedTip(spell_tip)
 			spell_tip.tiptac = true
 		end
 
@@ -640,9 +649,9 @@ do
 			acquire_tip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 		end
 
-		if TipTac and TipTac.AddModifiedTip then
+		if _G.TipTac and _G.TipTac.AddModifiedTip then
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-			TipTac:AddModifiedTip(acquire_tip, true)
+			_G.TipTac:AddModifiedTip(acquire_tip, true)
 		end
 		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
 
@@ -2115,7 +2124,7 @@ MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
 MainPanel.scroll_frame:SetScript("OnVerticalScroll",
 				 function(self, arg1)
 					 self.scrolling = true
-					 FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+					 _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
 					 self.scrolling = nil
 				 end)
 
@@ -2359,7 +2368,7 @@ do
 			display_lines = num_entries / 2
 		end
 
-		FauxScrollFrame_Update(self, num_entries, display_lines, 16)
+		_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
 		addon:ClosePopups()
 
 		if num_entries > 0 then
@@ -2368,7 +2377,7 @@ do
 
 			-- Populate the buttons with new values
 			local button_index = 1
-			local string_index = button_index + FauxScrollFrame_GetOffset(self)
+			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local stayInLoop = true
 
 			while stayInLoop do
@@ -2958,7 +2967,7 @@ local function SelectName(cell, arg, button)
 	click_info.name = arg
 
 	-- Wipe tradeskill information for the selected toon. -Torhal
-	if IsAltKeyDown() and button == "LeftButton" then
+	if _G.IsAltKeyDown() and button == "LeftButton" then
 		local tskl_list = addon.db.global.tradeskill
 		tskl_list[click_info.realm][click_info.name] = nil
 
@@ -3295,14 +3304,14 @@ function addon:InitializeFrame()
 			local traverseIndex = 0
 
 			-- First, check if this is a "modified" click, and react appropriately
-			if clicked_line.recipe_id and IsModifierKeyDown() then
-				if IsControlKeyDown() and IsShiftKeyDown() then
+			if clicked_line.recipe_id and _G.IsModifierKeyDown() then
+				if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
 					addon:SetupMap(clicked_line.recipe_id)
-				elseif IsShiftKeyDown() then
+				elseif _G.IsShiftKeyDown() then
 					local itemID = private.recipe_list[clicked_line.recipe_id].item_id
 
 					if itemID then
-						local _, itemLink = GetItemInfo(itemID)
+						local _, itemLink = _G.GetItemInfo(itemID)
 
 						if itemLink then
 							ChatFrameEditBox:Insert(itemLink)
@@ -3312,9 +3321,9 @@ function addon:InitializeFrame()
 					else
 						addon:Print(L["NoItemLink"])
 					end
-				elseif IsControlKeyDown() then
+				elseif _G.IsControlKeyDown() then
 					ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
-				elseif IsAltKeyDown() then
+				elseif _G.IsAltKeyDown() then
 					local exclusion_list = addon.db.profile.exclusionlist
 					local recipe_id = clicked_line.recipe_id
 
@@ -3779,8 +3788,8 @@ function addon:InitializeFrame()
 						 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
 						 twipe(click_info)
 
-						 if TipTac and TipTac.AddModifiedTip then
-							 TipTac:AddModifiedTip(clicktip, true)
+						 if _G.TipTac and _G.TipTac.AddModifiedTip then
+							 _G.TipTac:AddModifiedTip(clicktip, true)
 						 end
 						 GenerateClickableTT(this)
 					 end
