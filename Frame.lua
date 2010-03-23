@@ -1036,6 +1036,8 @@ do
 	local MINING_SPELL = GetSpellInfo(32606)
 
 	function MainPanel:SetProfession()
+		local prev_profession = self.profession
+
 		if Player.current_prof == MINING_SPELL then
 			self.profession = 11 -- Smelting
 		else
@@ -1045,6 +1047,10 @@ do
 					break
 				end
 			end
+		end
+
+		if self.profession ~= prev_profession then
+			self.prev_profession = prev_profession
 		end
 		self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 	end
