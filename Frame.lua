@@ -1336,7 +1336,9 @@ do
 			entry.is_relevant = false
 
 			for acquire_type in pairs(acquire_names) do
-				if pattern == string.lower(acquire_names[acquire_type]) and entry.acquire_data[acquire_type] then
+				local str = acquire_names[acquire_type]:lower()
+
+				if str and str:find(pattern) and entry.acquire_data[acquire_type] then
 					entry.is_relevant = true
 					break
 				end
