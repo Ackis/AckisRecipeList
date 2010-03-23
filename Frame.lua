@@ -2655,13 +2655,13 @@ do
 
 		-- Reset the current buttons/lines
 		for i = 1, NUM_RECIPE_LINES do
-			local recipe = self.entry_buttons[i]
+			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
-			recipe.string_index = 0
-			recipe:SetText("")
-			recipe:SetScript("OnEnter", nil)
-			recipe:SetScript("OnLeave", nil)
+			entry.string_index = 0
+			entry:SetText("")
+			entry:SetScript("OnEnter", nil)
+			entry:SetScript("OnLeave", nil)
 
 			state.string_index = 0
 			state:Hide()
@@ -2679,14 +2679,14 @@ do
 		addon:ClosePopups()
 
 		if num_entries > 0 then
-			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-			ARL_ExpandButton:Enable()
-
-			-- Populate the buttons with new values
 			local button_index = 1
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local stayInLoop = true
 
+			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+			ARL_ExpandButton:Enable()
+
+			-- Populate the buttons with new values
 			while stayInLoop do
 				local cur_state = self.state_buttons[button_index]
 				local cur_entry = self.entries[string_index]
@@ -2711,12 +2711,12 @@ do
 				else
 					cur_state:Hide()
 				end
-				local cur_recipe = self.entry_buttons[button_index]
+				local cur_button = self.entry_buttons[button_index]
 
-				cur_recipe.string_index = string_index
-				cur_recipe:SetText(cur_entry.text)
-				cur_recipe:SetScript("OnEnter", Bar_OnEnter)
-				cur_recipe:SetScript("OnLeave", Bar_OnLeave)
+				cur_button.string_index = string_index
+				cur_button:SetText(cur_entry.text)
+				cur_button:SetScript("OnEnter", Bar_OnEnter)
+				cur_button:SetScript("OnLeave", Bar_OnLeave)
 
 				button_index = button_index + 1
 				string_index = string_index + 1
@@ -3399,11 +3399,14 @@ function addon:InitializeFrame()
 				if clicked_line.is_expanded then
 					traverseIndex = clickedIndex + 1
 
-					-- get rid of our expanded lines
-					while (MainPanel.scroll_frame.entries[traverseIndex] and not MainPanel.scroll_frame.entries[traverseIndex].is_header) do
-						ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
+					local entry = MainPanel.scroll_frame.entries[traverseIndex]
 
-						if not MainPanel.scroll_frame.entries[traverseIndex] then
+					-- get rid of our expanded lines
+					while (entry and not entry.is_header) do
+						ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
+						entry = MainPanel.scroll_frame.entries[traverseIndex]
+
+						if not entry then
 							break
 						end
 					end
@@ -3413,8 +3416,7 @@ function addon:InitializeFrame()
 					clicked_line.is_expanded = true
 				end
 			else
-				-- this inherently implies that we're on an expanded recipe
-				-- first, back up in the list of buttons until we find our recipe line
+				-- This is an expanded entry. Back up in the list of buttons until we find its header line.
 				local entries = MainPanel.scroll_frame.entries
 
 				traverseIndex = clickedIndex - 1
