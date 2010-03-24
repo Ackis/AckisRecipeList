@@ -2995,7 +2995,7 @@ do
 
 							t.recipe_id = recipe_id
 							t.is_expanded = true
-							t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Rep(L[_G.REPUTATION])..":",
+							t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Rep(_G.REPUTATION)..":",
 									       private.reputation_list[rep_id].name)
 
 							tinsert(self.entries, entry_index, t)
