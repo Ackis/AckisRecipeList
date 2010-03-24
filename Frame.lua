@@ -2525,16 +2525,16 @@ do
 	end
 
 	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
-		local insert_index = 1
-		local recipe_list = private.recipe_list
-
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
+			local recipe_list = private.recipe_list
 			local sorted_recipes = addon.sorted_recipes
 			local sorted_locations = addon.sorted_locations
 			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
+
 			local recipe_count = 0
+			local insert_index = 1
 
 			for i = 1, #self.entries do
 				ReleaseTable(self.entries[i])
@@ -2667,22 +2667,22 @@ do
 			state:Hide()
 			state:SetScript("OnEnter", nil)
 			state:SetScript("OnLeave", nil)
+
+
 		end
 		local num_entries = #self.entries
-		local display_lines = NUM_RECIPE_LINES
-
-		if num_entries <= display_lines then
-			display_lines = num_entries / 2
-		end
-
-		_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
-		addon:ClosePopups()
 
 		if num_entries > 0 then
 			local button_index = 1
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local stayInLoop = true
+			local display_lines = NUM_RECIPE_LINES
 
+			if num_entries <= display_lines then
+				display_lines = num_entries / 2
+			end
+			_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
+			addon:ClosePopups()
 			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
 			ARL_ExpandButton:Enable()
 
