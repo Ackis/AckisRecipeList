@@ -142,7 +142,7 @@ function addon:InitEngineering()
 
 	-- Lovingly Crafted Boomstick -- 3939
 	AddRecipe(3939, 120, 4372, Q.COMMON, V.ORIG, 120, 145, 157, 170)
-	self:AddRecipeFlags(3939, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.GUN)
+	self:AddRecipeFlags(3939, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.GUN)
 	self:AddRecipeAcquire(3939, A.VENDOR, 2682, A.VENDOR, 6730)
 
 	-- Shadow Goggles -- 3940
@@ -217,7 +217,7 @@ function addon:InitEngineering()
 
 	-- Ice Deflector -- 3957
 	AddRecipe(3957, 155, 4386, Q.COMMON, V.ORIG, 155, 175, 185, 195)
-	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(3957, A.VENDOR, 2684)
 
 	-- Iron Strut -- 3958
@@ -467,7 +467,7 @@ function addon:InitEngineering()
 
 	-- Mithril Mechanical Dragonling -- 12624
 	AddRecipe(12624, 250, 10576, Q.COMMON, V.ORIG, 250, 270, 280, 290)
-	self:AddRecipeFlags(12624, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TRINKET)
+	self:AddRecipeFlags(12624, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TRINKET)
 	self:AddRecipeAcquire(12624, A.VENDOR, 2688)
 
 	-- Goblin Rocket Fuel Recipe -- 12715
@@ -707,7 +707,7 @@ function addon:InitEngineering()
 
 	-- Green Firework -- 23068
 	AddRecipe(23068, 150, 9313, Q.COMMON, V.ORIG, 150, 150, 162, 175)
-	self:AddRecipeFlags(23068, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(23068, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(23068, A.VENDOR, 2838, A.VENDOR, 3495)
 
 	-- EZ-Thro Dynamite II -- 23069
@@ -1002,7 +1002,7 @@ function addon:InitEngineering()
 
 	-- Titanium Toolbox -- 30349
 	AddRecipe(30349, 405, 23775, Q.COMMON, V.WOTLK, 405, 425, 432, 440)
-	self:AddRecipeFlags(30349, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(30349, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(30349, A.VENDOR, 28722)
 
 	-- Elemental Seaforium Charge -- 30547

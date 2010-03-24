@@ -512,7 +512,7 @@ function addon:InitJewelcrafting()
 
 	-- Delicate Eternium Ring -- 31060
 	AddRecipe(31060, 355, 24088, Q.RARE, V.TBC, 355, 365, 375, 385)
-	self:AddRecipeFlags(31060, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.RING)
+	self:AddRecipeFlags(31060, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.DPS, F.RING)
 	self:AddRecipeAcquire(31060, A.WORLD_DROP, 3)
 
 	-- Blazing Eternium Band -- 31061
@@ -2082,7 +2082,7 @@ function addon:InitJewelcrafting()
 
 	-- Destructive Skyflare Diamond -- 55390
 	AddRecipe(55390, 420, 41307, Q.RARE, V.WOTLK, 420, 440, 450, 460)
-	self:AddRecipeFlags(55390, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(55390, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(55390, A.WORLD_DROP, 3)
 
 	-- Ember Skyflare Diamond -- 55392
@@ -2382,7 +2382,7 @@ function addon:InitJewelcrafting()
 
 	-- Ring of Earthen Might -- 58147
 	AddRecipe(58147, 420, 43250, Q.RARE, V.WOTLK, 420, 440, 450, 460)
-	self:AddRecipeFlags(58147, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.RING)
+	self:AddRecipeFlags(58147, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.DPS, F.RING)
 	self:AddRecipeAcquire(58147, A.VENDOR, 28721, A.VENDOR, 33602)
 
 	-- Ring of Scarlet Shadows -- 58148

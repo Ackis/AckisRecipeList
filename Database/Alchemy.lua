@@ -152,7 +152,7 @@ function addon:InitAlchemy()
 
 	-- Shadow Oil -- 3449
 	AddRecipe(3449, 165, 3824, Q.COMMON, V.WOTLK, 165, 190, 210, 230)
-	self:AddRecipeFlags(3449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(3449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(3449, A.VENDOR, 2481, A.VENDOR, 4878)
 
 	-- Elixir of Fortitude -- 3450
@@ -232,7 +232,7 @@ function addon:InitAlchemy()
 
 	-- Fire Protection Potion -- 7257
 	AddRecipe(7257, 165, 6049, Q.COMMON, V.ORIG, 165, 210, 230, 250)
-	self:AddRecipeFlags(7257, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(7257, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(7257, A.VENDOR, 4083, A.VENDOR, 2380)
 
 	-- Frost Protection Potion -- 7258
@@ -317,7 +317,7 @@ function addon:InitAlchemy()
 
 	-- Philosopher's Stone -- 11459
 	AddRecipe(11459, 225, 9149, Q.COMMON, V.ORIG, 225, 240, 260, 280)
-	self:AddRecipeFlags(11459, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
+	self:AddRecipeFlags(11459, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.TRINKET)
 	self:AddRecipeAcquire(11459, A.VENDOR, 5594)
 
 	-- Elixir of Detect Undead -- 11460
@@ -582,7 +582,7 @@ function addon:InitAlchemy()
 
 	-- Mageblood Elixir -- 24365
 	AddRecipe(24365, 275, 20007, Q.COMMON, V.ORIG, 275, 290, 310, 330)
-	self:AddRecipeFlags(24365, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ZANDALAR)
+	self:AddRecipeFlags(24365, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
 	self:AddRecipeAcquire(24365, A.REPUTATION, FAC.ZANDALAR, REP.REVERED, 14921)
 
 	-- Greater Dreamless Sleep Potion -- 24366
@@ -722,7 +722,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Major Mageblood -- 28570
 	AddRecipe(28570, 355, 22840, Q.UNCOMMON, V.TBC, 355, 370, 375, 380)
-	self:AddRecipeFlags(28570, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(28570, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(28570, A.WORLD_DROP, 2)
 
 	-- Major Fire Protection Potion -- 28571

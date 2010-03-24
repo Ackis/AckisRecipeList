@@ -577,7 +577,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Superior Defense -- 20015
 	AddRecipe(20015, 285, nil, Q.COMMON, V.ORIG, 285, 300, 317, 335)
-	self:AddRecipeFlags(20015, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
+	self:AddRecipeFlags(20015, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
 	self:AddRecipeAcquire(20015, A.VENDOR, 12022)
 
 	-- Enchant Shield - Vitality -- 20016
@@ -612,7 +612,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Chest - Major Health -- 20026
 	AddRecipe(20026, 275, nil, Q.COMMON, V.ORIG, 275, 295, 315, 335)
-	self:AddRecipeFlags(20026, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(20026, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(20026, A.VENDOR, 11189)
 
 	-- Enchant Chest - Major Mana -- 20028
@@ -662,7 +662,7 @@ function addon:InitEnchanting()
 
 	-- Runed Arcanite Rod -- 20051
 	AddRecipe(20051, 290, 16207, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	self:AddRecipeFlags(20051, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeFlags(20051, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
 	self:AddRecipeAcquire(20051, A.VENDOR, 12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
@@ -682,12 +682,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Strength -- 23799
 	AddRecipe(23799, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	self:AddRecipeFlags(23799, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeFlags(23799, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
 	self:AddRecipeAcquire(23799, A.REPUTATION, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Enchant Weapon - Agility -- 23800
 	AddRecipe(23800, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	self:AddRecipeFlags(23800, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(23800, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TIMBERMAW_HOLD)
 	self:AddRecipeAcquire(23800, A.REPUTATION, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
