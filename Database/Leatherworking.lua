@@ -2659,84 +2659,84 @@ function addon:InitLeatherworking()
 
 		-- Ensorcelled Nerubian Breastplate -- 67080
 		AddRecipe(67080, 450, 47597, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67080, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:AddRecipeFlags(67080, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 		self:AddRecipeAcquire(67080, A.CUSTOM, 42)
 
 		-- Black Chitin Bracers -- 67081
 		AddRecipe(67081, 450, 47579, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67081, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67081, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67081, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Breastplate -- 67082
 		AddRecipe(67082, 450, 47595, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67082, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67082, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67082, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Bracers -- 67083
 		AddRecipe(67083, 450, 47576, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67083, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:AddRecipeFlags(67083, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 		self:AddRecipeAcquire(67083, A.CUSTOM, 42)
 
 		-- Lunar Eclipse Chestguard -- 67084
 		AddRecipe(67084, 450, 47602, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67084, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67084, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67084, A.CUSTOM, 42)
 
 		-- Moonshadow Armguards -- 67085
 		AddRecipe(67085, 450, 47583, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67085, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67085, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67085, A.CUSTOM, 42)
 
 		-- Knightbane Carapace -- 67086
 		AddRecipe(67086, 450, 47599, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67086, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67086, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67086, A.CUSTOM, 42)
 
 		-- Bracers of Swift Death -- 67087
 		AddRecipe(67087, 450, 47581, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67087, F.ALLIANCE, F.RAID, F.MOB_DROP)
+		self:AddRecipeFlags(67087, F.ALLIANCE, F.RAID)
 		self:AddRecipeAcquire(67087, A.CUSTOM, 42)
 
 	elseif faction == BFAC["Horde"] then
 
 		-- Ensorcelled Nerubian Breastplate -- 67136
 		AddRecipe(67136, 450, 47598, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67136, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:AddRecipeFlags(67136, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 		self:AddRecipeAcquire(67136, A.CUSTOM, 42)
 
 		-- Black Chitin Bracers -- 67137
 		AddRecipe(67137, 450, 47580, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67137, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+		self:AddRecipeFlags(67137, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 		self:AddRecipeAcquire(67137, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Breastplate -- 67138
 		AddRecipe(67138, 450, 47596, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67138, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:AddRecipeFlags(67138, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 		self:AddRecipeAcquire(67138, A.CUSTOM, 42)
 
 		-- Bracers of Swift Death -- 67139
 		AddRecipe(67139, 450, 47582, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67139, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+		self:AddRecipeFlags(67139, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 		self:AddRecipeAcquire(67139, A.CUSTOM, 42)
 
 		-- Lunar Eclipse Robes -- 67140
 		AddRecipe(67140, 450, 47601, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67140, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+		self:AddRecipeFlags(67140, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 		self:AddRecipeAcquire(67140, A.CUSTOM, 42)
 
 		-- Moonshadow Armguards -- 67141
 		AddRecipe(67141, 450, 47584, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67141, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+		self:AddRecipeFlags(67141, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 		self:AddRecipeAcquire(67141, A.CUSTOM, 42)
 
 		-- Knightbane Carapace -- 67142
 		AddRecipe(67142, 450, 47600, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67142, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+		self:AddRecipeFlags(67142, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 		self:AddRecipeAcquire(67142, A.CUSTOM, 42)
 
 		-- Crusader's Dragonscale Bracers -- 67143
 		AddRecipe(67143, 450, 47577, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67143, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+		self:AddRecipeFlags(67143, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 		self:AddRecipeAcquire(67143, A.CUSTOM, 42)
 	end
 	return num_recipes

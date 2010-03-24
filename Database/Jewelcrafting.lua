@@ -1247,7 +1247,7 @@ function addon:InitJewelcrafting()
 
 	-- Hard Khorium Choker -- 46127
 	AddRecipe(46127, 365, 34358, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46127, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP, F.RBOP, F.DPS, F.NECK)
+	self:AddRecipeFlags(46127, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.NECK)
 	self:AddRecipeAcquire(46127, A.CUSTOM, 24)
 
 	-- Quick Dawnstone -- 46403

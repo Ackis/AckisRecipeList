@@ -1512,12 +1512,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Blade Ward -- 64441
 	AddRecipe(64441, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(64441, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(64441, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeAcquire(64441, A.CUSTOM, 39)
 
 	-- Enchant Weapon - Blood Draining -- 64579
 	AddRecipe(64579, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(64579, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(64579, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeAcquire(64579, A.CUSTOM, 39)
 
 	-- Abyssal Shatter -- 69412

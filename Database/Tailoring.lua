@@ -1102,7 +1102,7 @@ function addon:InitTailoring()
 
 	-- Core Felcloth Bag -- 26087
 	AddRecipe(26087, 300, 21342, Q.RARE, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(26087, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.WARLOCK, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(26087, F.ALLIANCE, F.HORDE, F.RAID, F.WARLOCK, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(26087, A.CUSTOM, 26)
 
 	-- Festival Dress -- 26403
@@ -2012,22 +2012,22 @@ function addon:InitTailoring()
 
 	-- Sash of Ancient Power -- 63203
 	AddRecipe(63203, 450, 45102, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(63203, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(63203, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(63203, A.CUSTOM, 39)
 
 	-- Spellslinger's Slippers -- 63204
 	AddRecipe(63204, 450, 45566, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(63204, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(63204, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(63204, A.CUSTOM, 39)
 
 	-- Cord of the White Dawn -- 63205
 	AddRecipe(63205, 450, 45104, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(63205, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(63205, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(63205, A.CUSTOM, 39)
 
 	-- Savior's Slippers -- 63206
 	AddRecipe(63206, 450, 45567, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(63206, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(63206, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(63206, A.CUSTOM, 39)
 
 	-- Spidersilk Drape -- 63742
@@ -2083,42 +2083,42 @@ function addon:InitTailoring()
 	if faction == BFAC["Alliance"] then
 		-- Royal Moonshroud Robe -- 67064
 		AddRecipe(67064, 450, 47605, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67064, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67064, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67064, A.CUSTOM, 42)
 
 		-- Royal Moonshroud Bracers -- 67065
 		AddRecipe(67065, 450, 47587, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67065, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67065, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67065,  A.CUSTOM, 42)
 
 		-- Merlin's Robe -- 67066
 		AddRecipe(67066, 450, 47603, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67066, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67066, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67066,  A.CUSTOM, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67079
 		AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67079, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67079, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67079,  A.CUSTOM, 42)
 	elseif faction == BFAC["Horde"] then
 		-- Royal Moonshroud Robe -- 67144
 		AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67144, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67144, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67144, A.CUSTOM, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67145
 		AddRecipe(67145, 450, 47586, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67145, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67145, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67145, A.CUSTOM, 42)
 
 		-- Merlin's Robe -- 67146
 		AddRecipe(67146, 450, 47604, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67146, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67146, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67146, A.CUSTOM, 42)
 
 		-- Royal Moonshroud Bracers -- 67147
 		AddRecipe(67147, 450, 47588, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67147, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+		self:AddRecipeFlags(67147, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 		self:AddRecipeAcquire(67147, A.CUSTOM, 42)
 	end
 	return num_recipes
