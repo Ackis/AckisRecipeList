@@ -3440,24 +3440,26 @@ function addon:InitializeFrame()
 		end
 
 		for i = 1, NUM_RECIPE_LINES do
-			local temp_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
-							       "", "LEFT", "", 2)
+			local cur_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
+							      "", "LEFT", "", 2)
 
-			local temp_recipe = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
-								"Blort", "LEFT", "", 0)
+			local cur_entry = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
+							      "Blort", "LEFT", "", 0)
 
 			if i ~= 1 then
-				temp_state:SetPoint("TOPLEFT", MainPanel.scroll_frame.state_buttons[i - 1], "BOTTOMLEFT", 0, 3)
-				temp_recipe:SetPoint("TOPLEFT", MainPanel.scroll_frame.entry_buttons[i - 1], "BOTTOMLEFT", 0, 3)
-			else
-				temp_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
-				temp_recipe:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 37, -100)
-			end
-			temp_state:SetScript("OnClick", ListItem_OnClick)
-			temp_recipe:SetScript("OnClick", ListItem_OnClick)
+				local prev_state = MainPanel.scroll_frame.state_buttons[i - 1]
 
-			MainPanel.scroll_frame.state_buttons[i] = temp_state
-			MainPanel.scroll_frame.entry_buttons[i] = temp_recipe
+				cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
+				cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+			else
+				cur_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+				cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+			end
+			cur_state:SetScript("OnClick", ListItem_OnClick)
+			cur_entry:SetScript("OnClick", ListItem_OnClick)
+
+			MainPanel.scroll_frame.state_buttons[i] = cur_state
+			MainPanel.scroll_frame.entry_buttons[i] = cur_entry
 		end
 	end	-- do
 
