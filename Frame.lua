@@ -3423,7 +3423,7 @@ function addon:InitializeFrame()
 					exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
 					ReDisplay()
 				end
-			elseif clicked_line.is_header then
+			elseif clicked_line.is_header or clicked_line.is_subheader then
 				-- three possibilities here (all with no modifiers)
 				-- 1) We clicked on the recipe button on a closed recipe
 				-- 2) We clicked on the recipe button of an open recipe
@@ -3431,10 +3431,11 @@ function addon:InitializeFrame()
 				if clicked_line.is_expanded then
 					traverseIndex = clickedIndex + 1
 
+					local check_type = clicked_line.is_header and "is_header" or "is_subheader"
 					local entry = MainPanel.scroll_frame.entries[traverseIndex]
 
 					-- get rid of our expanded lines
-					while (entry and not entry.is_header) do
+					while (entry and not entry[check_type]) do
 						ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
 						entry = MainPanel.scroll_frame.entries[traverseIndex]
 
@@ -3453,7 +3454,7 @@ function addon:InitializeFrame()
 
 				traverseIndex = clickedIndex - 1
 
-				while entries[traverseIndex] and not entries[traverseIndex].is_header do
+				while entries[traverseIndex] and not entries[traverseIndex].is_header and not entries[traverseIndex].is_subheader do
 					traverseIndex = traverseIndex - 1
 				end
 				entries[traverseIndex].is_expanded = false
