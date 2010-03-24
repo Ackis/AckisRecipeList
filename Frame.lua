@@ -2576,6 +2576,7 @@ do
 						t.acquire_id = acquire_type
 						t.is_header = true
 
+
 						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
@@ -2701,8 +2702,30 @@ do
 			while stayInLoop do
 				local cur_state = self.state_buttons[button_index]
 				local cur_entry = self.entries[string_index]
+				local prev_state = self.state_buttons[button_index - 1]
+				local prev_entry = self.entries[string_index - 1]
 
-				if cur_entry.is_header then
+				if cur_entry.is_header or cur_entry.is_subheader then
+					cur_state:ClearAllPoints()
+
+					if cur_entry.is_header then
+						if not prev_state then
+							cur_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+						else
+							if prev_entry.is_subheader then
+								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", -15, 3)
+							else
+								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
+							end
+						end
+					else
+						-- This is a subheader, and its index will never be 1.
+						if prev_entry.is_header then
+							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 15, 3)
+						else
+							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
+						end
+					end
 					cur_state:Show()
 
 					if cur_entry.is_expanded then
