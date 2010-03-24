@@ -2668,7 +2668,18 @@ do
 			state:SetScript("OnEnter", nil)
 			state:SetScript("OnLeave", nil)
 
+			state:ClearAllPoints()
+			entry:ClearAllPoints()
 
+			if i ~= 1 then
+				local prev_state = self.state_buttons[i - 1]
+
+				state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
+				entry:SetPoint("TOPLEFT", state, "TOPRIGHT", -3, 0)
+			else
+				state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+				entry:SetPoint("TOPLEFT", state, "TOPRIGHT", -3, 0)
+			end
 		end
 		local num_entries = #self.entries
 
@@ -3446,15 +3457,6 @@ function addon:InitializeFrame()
 			local cur_entry = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
 							      "Blort", "LEFT", "", 0)
 
-			if i ~= 1 then
-				local prev_state = MainPanel.scroll_frame.state_buttons[i - 1]
-
-				cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
-				cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
-			else
-				cur_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
-				cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
-			end
 			cur_state:SetScript("OnClick", ListItem_OnClick)
 			cur_entry:SetScript("OnClick", ListItem_OnClick)
 
