@@ -2427,6 +2427,111 @@ MainPanel.scroll_frame.entries = {}
 MainPanel.scroll_frame.state_buttons = {}
 MainPanel.scroll_frame.entry_buttons = {}
 
+-------------------------------------------------------------------------------
+-- Set the scripts for MainPanel.scroll_frame's buttons.
+-------------------------------------------------------------------------------
+do
+	local function ListItem_OnClick(self, button)
+		local clickedIndex = self.string_index
+
+		-- Don't do anything if they've clicked on an empty button
+		if not clickedIndex or clickedIndex == 0 then
+			return
+		end
+		local clicked_line = MainPanel.scroll_frame.entries[clickedIndex]
+		local traverseIndex = 0
+
+		-- First, check if this is a "modified" click, and react appropriately
+		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
+			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
+				addon:SetupMap(clicked_line.recipe_id)
+			elseif _G.IsShiftKeyDown() then
+				local itemID = private.recipe_list[clicked_line.recipe_id].item_id
+
+				if itemID then
+					local _, itemLink = _G.GetItemInfo(itemID)
+
+					if itemLink then
+						ChatFrameEditBox:Insert(itemLink)
+					else
+						addon:Print(L["NoItemLink"])
+					end
+				else
+					addon:Print(L["NoItemLink"])
+				end
+			elseif _G.IsControlKeyDown() then
+				ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
+			elseif _G.IsAltKeyDown() then
+				local exclusion_list = addon.db.profile.exclusionlist
+				local recipe_id = clicked_line.recipe_id
+
+				exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
+				ReDisplay()
+			end
+		elseif clicked_line.is_header or clicked_line.is_subheader then
+			-- three possibilities here (all with no modifiers)
+			-- 1) We clicked on the recipe button on a closed recipe
+			-- 2) We clicked on the recipe button of an open recipe
+			-- 3) we clicked on the expanded text of an open recipe
+			if clicked_line.is_expanded then
+				traverseIndex = clickedIndex + 1
+
+				local check_type = clicked_line.is_header and "is_header" or "is_subheader"
+				local entry = MainPanel.scroll_frame.entries[traverseIndex]
+
+				-- get rid of our expanded lines
+				while (entry and not entry[check_type]) do
+					ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
+					entry = MainPanel.scroll_frame.entries[traverseIndex]
+
+					if not entry then
+						break
+					end
+				end
+				clicked_line.is_expanded = false
+			else
+				MainPanel.scroll_frame:ExpandEntry(clickedIndex)
+				clicked_line.is_expanded = true
+			end
+		else
+			-- This is an expanded entry. Back up in the list of buttons until we find its header line.
+			local entries = MainPanel.scroll_frame.entries
+
+			traverseIndex = clickedIndex - 1
+
+			while entries[traverseIndex] and not entries[traverseIndex].is_header and not entries[traverseIndex].is_subheader do
+				traverseIndex = traverseIndex - 1
+			end
+			entries[traverseIndex].is_expanded = false
+			traverseIndex = traverseIndex + 1
+
+			-- now remove the expanded lines until we get to a recipe again
+			while entries[traverseIndex] and not entries[traverseIndex].is_header do
+				ReleaseTable(tremove(entries, traverseIndex))
+
+				if not entries[traverseIndex] then
+					break
+				end
+			end
+		end
+		MainPanel.scroll_frame:Update(false, true)
+	end
+
+	for i = 1, NUM_RECIPE_LINES do
+		local cur_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
+						      "", "LEFT", "", 2)
+
+		local cur_entry = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
+						      "Blort", "LEFT", "", 0)
+
+		cur_state:SetScript("OnClick", ListItem_OnClick)
+		cur_entry:SetScript("OnClick", ListItem_OnClick)
+
+		MainPanel.scroll_frame.state_buttons[i] = cur_state
+		MainPanel.scroll_frame.entry_buttons[i] = cur_entry
+	end
+end	-- do
+
 do
 	local highlight = CreateFrame("Frame", nil, UIParent)
 	highlight:SetFrameStrata("TOOLTIP")
@@ -3404,111 +3509,6 @@ function addon:InitializeFrame()
 
 	-- Has to be done here because db doesn't exist yet if executed in the main file body.
 	SetSortName()
-
-	-------------------------------------------------------------------------------
-	-- Set the scripts for MainPanel.scroll_frame's buttons.
-	-------------------------------------------------------------------------------
-	do
-		local function ListItem_OnClick(self, button)
-			local clickedIndex = self.string_index
-
-			-- Don't do anything if they've clicked on an empty button
-			if not clickedIndex or clickedIndex == 0 then
-				return
-			end
-			local clicked_line = MainPanel.scroll_frame.entries[clickedIndex]
-			local traverseIndex = 0
-
-			-- First, check if this is a "modified" click, and react appropriately
-			if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-				if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
-					addon:SetupMap(clicked_line.recipe_id)
-				elseif _G.IsShiftKeyDown() then
-					local itemID = private.recipe_list[clicked_line.recipe_id].item_id
-
-					if itemID then
-						local _, itemLink = _G.GetItemInfo(itemID)
-
-						if itemLink then
-							ChatFrameEditBox:Insert(itemLink)
-						else
-							addon:Print(L["NoItemLink"])
-						end
-					else
-						addon:Print(L["NoItemLink"])
-					end
-				elseif _G.IsControlKeyDown() then
-					ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
-				elseif _G.IsAltKeyDown() then
-					local exclusion_list = addon.db.profile.exclusionlist
-					local recipe_id = clicked_line.recipe_id
-
-					exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
-					ReDisplay()
-				end
-			elseif clicked_line.is_header or clicked_line.is_subheader then
-				-- three possibilities here (all with no modifiers)
-				-- 1) We clicked on the recipe button on a closed recipe
-				-- 2) We clicked on the recipe button of an open recipe
-				-- 3) we clicked on the expanded text of an open recipe
-				if clicked_line.is_expanded then
-					traverseIndex = clickedIndex + 1
-
-					local check_type = clicked_line.is_header and "is_header" or "is_subheader"
-					local entry = MainPanel.scroll_frame.entries[traverseIndex]
-
-					-- get rid of our expanded lines
-					while (entry and not entry[check_type]) do
-						ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
-						entry = MainPanel.scroll_frame.entries[traverseIndex]
-
-						if not entry then
-							break
-						end
-					end
-					clicked_line.is_expanded = false
-				else
-					MainPanel.scroll_frame:ExpandEntry(clickedIndex)
-					clicked_line.is_expanded = true
-				end
-			else
-				-- This is an expanded entry. Back up in the list of buttons until we find its header line.
-				local entries = MainPanel.scroll_frame.entries
-
-				traverseIndex = clickedIndex - 1
-
-				while entries[traverseIndex] and not entries[traverseIndex].is_header and not entries[traverseIndex].is_subheader do
-					traverseIndex = traverseIndex - 1
-				end
-				entries[traverseIndex].is_expanded = false
-				traverseIndex = traverseIndex + 1
-
-				-- now remove the expanded lines until we get to a recipe again
-				while entries[traverseIndex] and not entries[traverseIndex].is_header do
-					ReleaseTable(tremove(entries, traverseIndex))
-
-					if not entries[traverseIndex] then
-						break
-					end
-				end
-			end
-			MainPanel.scroll_frame:Update(false, true)
-		end
-
-		for i = 1, NUM_RECIPE_LINES do
-			local cur_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
-							      "", "LEFT", "", 2)
-
-			local cur_entry = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
-							      "Blort", "LEFT", "", 0)
-
-			cur_state:SetScript("OnClick", ListItem_OnClick)
-			cur_entry:SetScript("OnClick", ListItem_OnClick)
-
-			MainPanel.scroll_frame.state_buttons[i] = cur_state
-			MainPanel.scroll_frame.entry_buttons[i] = cur_entry
-		end
-	end	-- do
 
 	-------------------------------------------------------------------------------
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
