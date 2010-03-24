@@ -788,6 +788,7 @@ L["Frostbrood Spawn"] = true
 L["Frostfeather Screecher"] = true
 L["Frostfeather Witch"] = true
 L["Frostmaul Giant"] = true
+L["Frozo the Renowned"] = true
 L["Fyldan"] = true
 L["Gagsprocket"] = true
 L["Gambarinka"] = true
