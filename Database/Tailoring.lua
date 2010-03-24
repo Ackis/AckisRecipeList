@@ -2069,6 +2069,11 @@ function addon:InitTailoring()
 	AddRecipe(70553, 450, 49893, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
 	self:AddRecipeFlags(70553, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE, F.HEALER, F.CASTER, F.CLOTH, F.ASHEN_VERDICT)
 	self:AddRecipeAcquire(70553, A.REPUTATION, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
+	
+	-- Frosty Flying Carpet 75597
+	AddRecipe(75597, 450, 54797, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
+	self:AddRecipeFlags(75597, F.ALLIANCE, F.HORDE, F.VENDOR, F.RBOP, F.IBOE)
+	self:AddRecipeAcquire(75597, A.VENDOR, 40160)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
