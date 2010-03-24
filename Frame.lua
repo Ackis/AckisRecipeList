@@ -2795,341 +2795,362 @@ do
 		return (not faction or faction == BFAC[Player.faction] or faction == FACTION_NEUTRAL)
 	end
 
-	function MainPanel.scroll_frame:ExpandEntry(entry_index)
-		local pad = "  "
-		local orig_index = entry_index
-		local acquire_id = self.entries[orig_index].acquire_id
-
-		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
-		-- value should be the index of the next button after the expansion occurs
-		entry_index = entry_index + 1
-
-		if acquire_id then
-			for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
-				local recipe_entry = private.recipe_list[spell_id]
-
-				if recipe_entry.is_visible and recipe_entry.is_relevant then
-					local t = AcquireTable()
-
-					t.text = FormatRecipeText(recipe_entry)
-					t.is_expanded = true
-					t.recipe_id = spell_id
-					t.acquire_id = acquire_id
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-			end
-			return entry_index
-		end
-		local location_id = self.entries[orig_index].location_id
-
-		if location_id then
-			for spell_id in pairs(private.location_list[location_id].recipes) do
-				local recipe_entry = private.recipe_list[spell_id]
-
-				if recipe_entry.is_visible and recipe_entry.is_relevant then
-					local t = AcquireTable()
-
-					t.text = FormatRecipeText(recipe_entry)
-					t.is_expanded = true
-					t.recipe_id = spell_id
-					t.location_id = location_id
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-			end
-			return entry_index
-		end
-		local recipe_id = self.entries[orig_index].recipe_id
+	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, acquire_type, acquire_data, recipe_id, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 		local rep_color = private.reputation_colors
+		local padding = "  "
 
-		for acquire_type, acquire_info in pairs(private.recipe_list[recipe_id].acquire_data) do
-			if acquire_type == A.TRAINER and obtain_filters.trainer then
-				for id_num in pairs(acquire_info) do
-					local trainer = private.trainer_list[id_num]
+		if acquire_type == A.TRAINER and obtain_filters.trainer then
+			for id_num in pairs(acquire_data) do
+				local trainer = private.trainer_list[id_num]
 
-					if CheckDisplayFaction(trainer.faction) then
-						local t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-
-						local nStr = ""
-
-						if trainer.faction == FACTION_HORDE then
-							nStr = addon:Horde(trainer.name)
-						elseif trainer.faction == FACTION_ALLIANCE then
-							nStr = addon:Alliance(trainer.name)
-						else
-							nStr = SetTextColor(rep_color["neutral"], trainer.name)
-						end
-						t.text = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-
-						local coord_text = ""
-
-						if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-							coord_text = addon:Coords("(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
-						end
-						t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-						t.text = pad .. pad .. trainer.location .. " " .. coord_text
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-					end
-				end
-				-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
-				-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
-				-- This allows us to select PVP only and to see just the PVP recipes
-			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				for id_num in pairs(acquire_info) do
-					local vendor = private.vendor_list[id_num]
-
-					if CheckDisplayFaction(vendor.faction) then
-						local t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-
-						local nStr = ""
-
-						if vendor.faction == FACTION_HORDE then
-							nStr = addon:Horde(vendor.name)
-						elseif vendor.faction == FACTION_ALLIANCE then
-							nStr = addon:Alliance(vendor.name)
-						else
-							nStr = SetTextColor(rep_color["neutral"], vendor.name)
-						end
-						t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-
-						local coord_text = ""
-
-						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-							coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
-						end
-						t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-						t.text = pad .. pad .. vendor.location .. " " .. coord_text
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-					end
-				end
-				-- Mobs can be in instances, raids, or specific mob related drops.
-			elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				for id_num in pairs(acquire_info) do
+				if CheckDisplayFaction(trainer.faction) then
 					local t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
 
-					local mob = private.mob_list[id_num]
-					t.text = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob.name)
+					local name = trainer.name
+
+					if trainer.faction == FACTION_HORDE then
+						name = addon:Horde(name)
+					elseif trainer.faction == FACTION_ALLIANCE then
+						name = addon:Alliance(name)
+					else
+						name = SetTextColor(rep_color["neutral"], name)
+					end
+					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Trainer(L["Trainer"])..":", name)
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 
 					local coord_text = ""
 
-					if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-						coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
+					if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
 					end
 					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
-					t.text = pad .. pad .. mob.location .. " " .. coord_text
+					t.text = padding .. padding .. trainer.location .. " " .. coord_text
 
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-			elseif acquire_type == A.QUEST and obtain_filters.quest then
-				for id_num in pairs(acquire_info) do
-					local quest = private.quest_list[id_num]
+			end
+		elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
+			-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+			-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+			-- This allows us to select PVP only and to see just the PVP recipes
+			for id_num in pairs(acquire_data) do
+				local vendor = private.vendor_list[id_num]
 
-					if CheckDisplayFaction(quest.faction) then
-						local t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-
-						local nStr = ""
-
-						if quest.faction == FACTION_HORDE then
-							nStr = addon:Horde(quest.name)
-						elseif quest.faction == FACTION_ALLIANCE then
-							nStr = addon:Alliance(quest.name)
-						else
-							nStr = SetTextColor(rep_color["neutral"], quest.name)
-						end
-						t.text = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-
-						local coord_text = ""
-
-						if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-							coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
-						end
-						t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-						t.text = pad .. pad .. quest.location .. " " .. coord_text
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-					end
-				end
-			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-				for id_num in pairs(acquire_info) do
+				if CheckDisplayFaction(vendor.faction) then
 					local t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
 
-					t.text = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. private.seasonal_list[id_num].name)
+					local name = vendor.name
+
+					if vendor.faction == FACTION_HORDE then
+						name = addon:Horde(name)
+					elseif vendor.faction == FACTION_ALLIANCE then
+						name = addon:Alliance(name)
+					else
+						name = SetTextColor(rep_color["neutral"], name)
+					end
+					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
+
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
-				end
-			elseif acquire_type == A.REPUTATION then
-				-- Reputation Obtain
-				-- Rep: ID, Faction
-				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				-- Rep_vendor - VendorID
-				if not faction_strings then
-					faction_strings = {
-						[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
-						[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
-						[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
-						[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
-						[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
-					}
-				end
 
-				for rep_id, rep_info in pairs(acquire_info) do
-					for rep_level, level_info in pairs(rep_info) do
-						for vendor_id in pairs(level_info) do
-							local rep_vendor = private.vendor_list[vendor_id]
+					local coord_text = ""
 
-							if CheckDisplayFaction(rep_vendor.faction) then
-								local t = AcquireTable()
-								t.recipe_id = recipe_id
-								t.is_expanded = true
-
-								t.text = pad .. addon:Rep(_G.REPUTATION .. " : ") .. private.reputation_list[rep_id].name
-								tinsert(self.entries, entry_index, t)
-								entry_index = entry_index + 1
-
-								local nStr = ""
-
-								if rep_vendor.faction == FACTION_HORDE then
-									nStr = addon:Horde(rep_vendor.name)
-								elseif rep_vendor.faction == FACTION_ALLIANCE then
-									nStr = addon:Alliance(rep_vendor.name)
-								else
-									nStr = SetTextColor(rep_color["neutral"], rep_vendor.name)
-								end
-								t = AcquireTable()
-								t.recipe_id = recipe_id
-								t.is_expanded = true
-
-								t.text = pad .. pad .. faction_strings[rep_level] .. nStr
-
-								tinsert(self.entries, entry_index, t)
-								entry_index = entry_index + 1
-
-								local coord_text = ""
-
-								if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-									coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
-								end
-								t = AcquireTable()
-								t.recipe_id = recipe_id
-								t.is_expanded = true
-								t.text = pad .. pad .. pad .. rep_vendor.location .. " " .. coord_text
-
-								tinsert(self.entries, entry_index, t)
-								entry_index = entry_index + 1
-							end
-						end
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 					end
-				end
-			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
-				for id_num in pairs(acquire_info) do
-					local t = AcquireTable()
+					t = AcquireTable()
 					t.recipe_id = recipe_id
 					t.is_expanded = true
+					t.text = padding .. padding .. vendor.location .. " " .. coord_text
 
-					local hex_color = select(4, GetItemQualityColor(private.recipe_list[recipe_id].quality))
-
-					t.text = pad..hex_color..L["World Drop"].."|r"
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-			elseif acquire_type == A.CUSTOM then
-				for id_num in pairs(acquire_info) do
-					local t = AcquireTable()
-					t.recipe_id = recipe_id
-					t.is_expanded = true
-
-					t.text = pad .. addon:Normal(private.custom_list[id_num].name)
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
-				end
-			elseif acquire_type == A.PVP and obtain_filters.pvp then
-				for id_num in pairs(acquire_info) do
-					local vendor = private.vendor_list[id_num]
-
-					if CheckDisplayFaction(vendor.faction) then
-						local t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-
-						local coord_text = ""
-
-						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-							coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
-						end
-						local nStr = ""
-
-						if vendor.faction == FACTION_HORDE then
-							nStr = addon:Horde(vendor.name)
-						elseif vendor.faction == FACTION_ALLIANCE then
-							nStr = addon:Alliance(vendor.name)
-						else
-							nStr = SetTextColor(rep_color["neutral"], vendor.name)
-						end
-						t.text = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-
-						t = AcquireTable()
-						t.recipe_id = recipe_id
-						t.is_expanded = true
-						t.text = pad .. pad .. vendor.location .. " " .. coord_text
-
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
-					end
-				end
-				--@alpha@
-			elseif acquire_type > A_MAX then
+			end
+		elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
+			-- Mobs can be in instances, raids, or specific mob related drops.
+			for id_num in pairs(acquire_data) do
 				local t = AcquireTable()
 				t.recipe_id = recipe_id
 				t.is_expanded = true
 
-				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
+				local mob = private.mob_list[id_num]
+				t.text = string.format("%s%s %s", padding, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name))
+
 				tinsert(self.entries, entry_index, t)
 				entry_index = entry_index + 1
-				--@end-alpha@
+
+				local coord_text = ""
+
+				if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+					coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
+				end
+				t = AcquireTable()
+				t.recipe_id = recipe_id
+				t.is_expanded = true
+				t.text = padding .. padding .. mob.location .. " " .. coord_text
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
 			end
+		elseif acquire_type == A.QUEST and obtain_filters.quest then
+			for id_num in pairs(acquire_data) do
+				local quest = private.quest_list[id_num]
+
+				if CheckDisplayFaction(quest.faction) then
+					local t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+
+					local name = quest.name
+
+					if quest.faction == FACTION_HORDE then
+						name = addon:Horde(name)
+					elseif quest.faction == FACTION_ALLIANCE then
+						name = addon:Alliance(name)
+					else
+						name = SetTextColor(rep_color["neutral"], name)
+					end
+					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Quest(L["Quest"])..":", name)
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					local coord_text = ""
+
+					if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
+					end
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = padding .. padding .. quest.location .. " " .. coord_text
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+		elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
+			for id_num in pairs(acquire_data) do
+				local t = AcquireTable()
+
+				t.recipe_id = recipe_id
+				t.is_expanded = true
+				t.text = string.format("%s%s %s", padding, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			end
+		elseif acquire_type == A.REPUTATION then
+			if not faction_strings then
+				faction_strings = {
+					[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
+					[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
+					[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
+					[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
+					[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
+				}
+			end
+
+			for rep_id, rep_info in pairs(acquire_data) do
+				for rep_level, level_info in pairs(rep_info) do
+					for vendor_id in pairs(level_info) do
+						local rep_vendor = private.vendor_list[vendor_id]
+
+						if CheckDisplayFaction(rep_vendor.faction) then
+							local t = AcquireTable()
+
+							t.recipe_id = recipe_id
+							t.is_expanded = true
+							t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Rep(L[_G.REPUTATION])..":",
+									       private.reputation_list[rep_id].name)
+
+							tinsert(self.entries, entry_index, t)
+							entry_index = entry_index + 1
+
+							local name = ""
+
+							if rep_vendor.faction == FACTION_HORDE then
+								name = addon:Horde(rep_vendor.name)
+							elseif rep_vendor.faction == FACTION_ALLIANCE then
+								name = addon:Alliance(rep_vendor.name)
+							else
+								name = SetTextColor(rep_color["neutral"], rep_vendor.name)
+							end
+							t = AcquireTable()
+							t.recipe_id = recipe_id
+							t.is_expanded = true
+
+							t.text = padding .. padding .. faction_strings[rep_level] .. name
+
+							tinsert(self.entries, entry_index, t)
+							entry_index = entry_index + 1
+
+							local coord_text = ""
+
+							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+								coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
+							end
+							t = AcquireTable()
+							t.recipe_id = recipe_id
+							t.is_expanded = true
+							t.text = padding .. padding .. padding .. rep_vendor.location .. " " .. coord_text
+
+							tinsert(self.entries, entry_index, t)
+							entry_index = entry_index + 1
+						end
+					end
+				end
+			end
+		elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
+			if not hide_type then
+				for id_num in pairs(acquire_data) do
+					local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
+					local t = AcquireTable()
+
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = padding..hex_color..L["World Drop"].."|r"
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+		elseif acquire_type == A.CUSTOM then
+			if not hide_type then
+				for id_num in pairs(acquire_data) do
+					local t = AcquireTable()
+
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = padding .. addon:Normal(private.custom_list[id_num].name)
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+		elseif acquire_type == A.PVP and obtain_filters.pvp then
+			for id_num in pairs(acquire_data) do
+				local vendor = private.vendor_list[id_num]
+
+				if CheckDisplayFaction(vendor.faction) then
+					local t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+
+					local coord_text = ""
+
+					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
+					end
+					local name = ""
+
+					if vendor.faction == FACTION_HORDE then
+						name = addon:Horde(vendor.name)
+					elseif vendor.faction == FACTION_ALLIANCE then
+						name = addon:Alliance(vendor.name)
+					else
+						name = SetTextColor(rep_color["neutral"], vendor.name)
+					end
+					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+
+					t = AcquireTable()
+					t.recipe_id = recipe_id
+					t.is_expanded = true
+					t.text = padding .. padding .. vendor.location .. " " .. coord_text
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			end
+			--@alpha@
+		elseif acquire_type > A_MAX then
+			local t = AcquireTable()
+			t.recipe_id = recipe_id
+			t.is_expanded = true
+
+			t.text = "Unhandled Acquire Case - Type: " .. acquire_type
+			tinsert(self.entries, entry_index, t)
+			entry_index = entry_index + 1
+			--@end-alpha@
+		end
+		return entry_index
+	end
+
+	function MainPanel.scroll_frame:ExpandEntry(entry_index)
+		local orig_index = entry_index
+		local list_entry = self.entries[orig_index]
+
+		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- value should be the index of the next button after the expansion occurs
+		entry_index = entry_index + 1
+
+		if list_entry.acquire_id then
+			local acquire_id = list_entry.acquire_id
+
+			if list_entry.is_header then
+				for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
+					local recipe_entry = private.recipe_list[spell_id]
+					local t = AcquireTable()
+
+					t.text = FormatRecipeText(recipe_entry)
+
+					if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
+						t.is_expanded = true
+					else
+						t.is_expanded = false
+						t.is_subheader = true
+					end
+					t.recipe_id = spell_id
+					t.acquire_id = acquire_id
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
+			elseif list_entry.is_subheader then
+				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
+					if acquire_type == acquire_id then
+						entry_index = self:ExpandAcquireData(entry_index, acquire_type, acquire_data, list_entry.recipe_id, true)
+					end
+				end
+			end
+			return entry_index
+		end
+
+		if list_entry.location_id then
+			local location_id = list_entry.location_id
+
+			for spell_id in pairs(private.location_list[location_id].recipes) do
+				local recipe_entry = private.recipe_list[spell_id]
+				local t = AcquireTable()
+
+				t.text = FormatRecipeText(recipe_entry)
+				t.is_expanded = true
+				t.recipe_id = spell_id
+				t.location_id = location_id
+
+				tinsert(self.entries, entry_index, t)
+				entry_index = entry_index + 1
+			end
+			return entry_index
+		end
+		local recipe_id = self.entries[orig_index].recipe_id
+
+		for acquire_type, acquire_data in pairs(private.recipe_list[recipe_id].acquire_data) do
+			entry_index = self:ExpandAcquireData(entry_index, acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index
 	end
