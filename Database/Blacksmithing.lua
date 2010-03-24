@@ -2452,32 +2452,32 @@ function addon:InitBlacksmithing()
 
 	-- Belt of the Titans -- 63187
 	AddRecipe(63187, 450, 45088, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63187, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(63187, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(63187, A.CUSTOM, 39)
 
 	-- Battlelord's Plate Boots -- 63188
 	AddRecipe(63188, 450, 45089, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63188, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(63188, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(63188, A.CUSTOM, 39)
 
 	-- Plate Girdle of Righteousness -- 63189
 	AddRecipe(63189, 450, 45090, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63189, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(63189, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(63189, A.CUSTOM, 39)
 
 	-- Treads of Destiny -- 63190
 	AddRecipe(63190, 450, 45091, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63190, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(63190, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(63190, A.CUSTOM, 39)
 
 	-- Indestructible Plate Girdle -- 63191
 	AddRecipe(63191, 450, 45092, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63191, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(63191, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(63191, A.CUSTOM, 39)
 
 	-- Spiked Deathdealers -- 63192
 	AddRecipe(63192, 450, 45093, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63192, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+	self:AddRecipeFlags(63192, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(63192, A.CUSTOM, 39)
 
 	-- Puresteel Legplates -- 70562
@@ -2519,64 +2519,64 @@ function addon:InitBlacksmithing()
 
 		-- Breastplate of the White Knight (Ally) -- 67091
 		AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67091, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:AddRecipeFlags(67091, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:AddRecipeAcquire(67091, A.CUSTOM, 42)
 
 		-- Saronite Swordbreakers (Ally) -- 67092
 		AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67092, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:AddRecipeFlags(67092, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:AddRecipeAcquire(67092, A.CUSTOM, 42)
 
 		-- Titanium Razorplate (Ally) -- 67093
 		AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67093, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:AddRecipeFlags(67093, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:AddRecipeAcquire(67093, A.CUSTOM, 42)
 
 		-- Titanium Spikeguards (Ally) -- 67094
 		AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67094, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:AddRecipeFlags(67094, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:AddRecipeAcquire(67094, A.CUSTOM, 42)
 
 		-- Sunforged Breastplate (Ally) -- 67095
 		AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67095, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:AddRecipeFlags(67095, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 		self:AddRecipeAcquire(67095, A.CUSTOM, 42)
 
 		-- Sunforged Bracers (Ally) -- 67096
 		AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67096, F.ALLIANCE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
+		self:AddRecipeFlags(67096, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 		self:AddRecipeAcquire(67096, A.CUSTOM, 42)
 
 	elseif faction == BFAC["Horde"] then
 
 		-- Breastplate of the White Knight -- 67130
 		AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67130, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:AddRecipeFlags(67130, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:AddRecipeAcquire(67130, A.CUSTOM, 42)
 
 		-- Saronite Swordbreakers -- 67131
 		AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67131, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
+		self:AddRecipeFlags(67131, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 		self:AddRecipeAcquire(67131, A.CUSTOM, 42)
 
 		-- Titanium Razorplate -- 67132
 		AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67132, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:AddRecipeFlags(67132, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:AddRecipeAcquire(67132, A.CUSTOM, 42)
 
 		-- Titanium Spikeguards -- 67133
 		AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67133, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+		self:AddRecipeFlags(67133, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 		self:AddRecipeAcquire(67133, A.CUSTOM, 42)
 
 		-- Sunforged Breastplate -- 67134
 		AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
-		self:AddRecipeFlags(67134, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:AddRecipeFlags(67134, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 		self:AddRecipeAcquire(67134, A.CUSTOM, 42)
 
 		-- Sunforged Bracers -- 67135
 		AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-		self:AddRecipeFlags(67135, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+		self:AddRecipeFlags(67135, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 		self:AddRecipeAcquire(67135, A.CUSTOM, 42)
 	end
 	return num_recipes
