@@ -1227,7 +1227,7 @@ function addon:InitJewelcrafting()
 
 	-- Ring of Flowing Life -- 46123
 	AddRecipe(46123, 365, 34363, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46123, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.RING)
+	self:AddRecipeFlags(46123, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
 	self:AddRecipeAcquire(46123, A.CUSTOM, 24)
 
 	-- Hard Khorium Band -- 46124

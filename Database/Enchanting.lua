@@ -1131,8 +1131,8 @@ function addon:InitEnchanting()
 	self:AddRecipeAcquire(42620, A.REPUTATION, FAC.VIOLETEYE, REP.EXALTED, 18255)
 
 	-- Enchant Weapon - Executioner -- 42974
-	AddRecipe(42974, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	self:AddRecipeFlags(42974, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	AddRecipe(42974, 375, 33307, Q.RARE, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(42974, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeAcquire(42974, A.CUSTOM, 29)
 
 	-- Enchant Shield - Resilience -- 44383
@@ -1351,8 +1351,8 @@ function addon:InitEnchanting()
 	self:AddRecipeAcquire(45765, A.REPUTATION, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Weapon - Deathfrost -- 46578
-	AddRecipe(46578, 350, nil, Q.RARE, V.TBC, 350, 350, 357, 365)
-	self:AddRecipeFlags(46578, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	AddRecipe(46578, 350, 35498, Q.RARE, V.TBC, 350, 350, 357, 365)
+	self:AddRecipeFlags(46578, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeAcquire(46578, A.SEASONAL, 4)
 
 	-- Enchant Chest - Defense -- 46594
