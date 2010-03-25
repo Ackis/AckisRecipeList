@@ -2933,6 +2933,18 @@ do
 	end
 
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_type)
+		local orig_index = entry_index - 1
+		local orig_entry = self.entries[orig_index]
+		local parent_entry
+
+		if orig_entry.type == "header" or orig_entry.type == "subheader" then
+			parent_entry = orig_entry
+		elseif orig_entry.type == "subentry" or orig_entry.type == "entry" then
+			parent_entry = orig_entry.parent
+		else
+			addon:Debug("Unmatched type %s for parent.", orig_entry.type)
+		end
+
 		local obtain_filters = addon.db.profile.filters.obtain
 		local rep_color = private.reputation_colors
 		local padding = "    "
@@ -2957,7 +2969,7 @@ do
 					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Trainer(L["Trainer"])..":", name)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 					local coord_text = ""
 
@@ -2969,7 +2981,7 @@ do
 					t.text = string.format("%s%s%s %s", padding, padding, trainer.location, coord_text)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 		elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
@@ -2995,7 +3007,7 @@ do
 					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 					local coord_text = ""
 
@@ -3007,7 +3019,7 @@ do
 					t.text = padding .. padding .. vendor.location .. " " .. coord_text
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 		elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
@@ -3020,7 +3032,7 @@ do
 				t.text = string.format("%s%s %s", padding, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name))
 				t.recipe_id = recipe_id
 
-				entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 				local coord_text = ""
 
@@ -3032,7 +3044,7 @@ do
 				t.text = padding .. padding .. mob.location .. " " .. coord_text
 				t.recipe_id = recipe_id
 
-				entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 			end
 		elseif acquire_type == A.QUEST and obtain_filters.quest then
 			for id_num in pairs(acquire_data) do
@@ -3054,7 +3066,7 @@ do
 					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Quest(L["Quest"])..":", name)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 					local coord_text = ""
 
@@ -3066,7 +3078,7 @@ do
 					t.text = padding .. padding .. quest.location .. " " .. coord_text
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 		elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
@@ -3076,7 +3088,7 @@ do
 				t.text = string.format("%s%s %s", padding, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
 				t.recipe_id = recipe_id
 
-				entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 			end
 		elseif acquire_type == A.REPUTATION then
 			if not faction_strings then
@@ -3101,7 +3113,7 @@ do
 									       private.reputation_list[rep_id].name)
 							t.recipe_id = recipe_id
 
-							entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 							local name = ""
 
@@ -3117,7 +3129,7 @@ do
 							t.text = padding .. padding .. faction_strings[rep_level] .. name
 							t.recipe_id = recipe_id
 
-							entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 							local coord_text = ""
 
@@ -3128,7 +3140,7 @@ do
 							t.text = padding .. padding .. padding .. rep_vendor.location .. " " .. coord_text
 							t.recipe_id = recipe_id
 
-							entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 						end
 					end
 				end
@@ -3142,7 +3154,7 @@ do
 					t.text = padding..hex_color..L["World Drop"].."|r"
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 		elseif acquire_type == A.CUSTOM then
@@ -3153,7 +3165,7 @@ do
 					t.text = padding .. addon:Normal(private.custom_list[id_num].name)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 		elseif acquire_type == A.PVP and obtain_filters.pvp then
@@ -3181,14 +3193,14 @@ do
 					t.text = string.format("%s%s %s", padding, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 					t = AcquireTable()
 
 					t.text = padding .. padding .. vendor.location .. " " .. coord_text
 					t.recipe_id = recipe_id
 
-					entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				end
 			end
 			--@alpha@
@@ -3198,7 +3210,7 @@ do
 			t.text = "Unhandled Acquire Case - Type: " .. acquire_type
 			t.recipe_id = recipe_id
 
-			entry_index = self:InsertEntry(t, entry_index, entry_type, true)
+			entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 			--@end-alpha@
 		end
 		return entry_index
