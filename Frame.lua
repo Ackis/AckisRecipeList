@@ -2424,6 +2424,7 @@ MainPanel.scroll_frame:SetScript("OnVerticalScroll",
 				 end)
 
 MainPanel.scroll_frame.entries = {}
+MainPanel.scroll_frame.button_containers = {}
 MainPanel.scroll_frame.state_buttons = {}
 MainPanel.scroll_frame.entry_buttons = {}
 
@@ -2530,15 +2531,31 @@ do
 	end
 
 	for i = 1, NUM_RECIPE_LINES do
-		local cur_state = GenericCreateButton("ARL_StateButton" .. i, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall",
-						      "", "LEFT", "", 2)
+		local cur_container = CreateFrame("Frame", nil, MainPanel.scroll_frame)
 
-		local cur_entry = GenericCreateButton("ARL_RecipeButton" .. i, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall",
-						      "Blort", "LEFT", "", 0)
+		cur_container:SetHeight(16)
+		cur_container:SetWidth(224)
+
+		local cur_state = GenericCreateButton(nil, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "LEFT", "", 2)
+		local cur_entry = GenericCreateButton(nil, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+
+		if i == 1 then
+			cur_container:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
+			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+		else
+			local prev_container = MainPanel.scroll_frame.button_containers[i - 1]
+
+			cur_container:SetPoint("TOPLEFT", prev_container, "BOTTOMLEFT", 0, 3)
+			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
+			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
+		end
+		cur_state.container = cur_container
 
 		cur_state:SetScript("OnClick", ListItem_OnClick)
 		cur_entry:SetScript("OnClick", ListItem_OnClick)
 
+		MainPanel.scroll_frame.button_containers[i] = cur_container
 		MainPanel.scroll_frame.state_buttons[i] = cur_state
 		MainPanel.scroll_frame.entry_buttons[i] = cur_entry
 	end
