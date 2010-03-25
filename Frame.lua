@@ -2468,7 +2468,7 @@ do
 				exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
 				ReDisplay()
 			end
-		elseif clicked_line.is_header or clicked_line.is_subheader then
+		elseif clicked_line.type == "header" or clicked_line.type == "subheader" then
 			-- three possibilities here (all with no modifiers)
 			-- 1) We clicked on the recipe button on a closed recipe
 			-- 2) We clicked on the recipe button of an open recipe
@@ -2476,11 +2476,11 @@ do
 			if clicked_line.is_expanded then
 				traverseIndex = clickedIndex + 1
 
-				local check_type = clicked_line.is_header and "is_header" or "is_subheader"
+				local check_type = clicked_line.type
 				local entry = MainPanel.scroll_frame.entries[traverseIndex]
 
 				-- get rid of our expanded lines
-				while (entry and not entry[check_type]) do
+				while (entry and entry.type ~= check_type) do
 					ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
 					entry = MainPanel.scroll_frame.entries[traverseIndex]
 
@@ -2499,14 +2499,14 @@ do
 
 			traverseIndex = clickedIndex - 1
 
-			while entries[traverseIndex] and not entries[traverseIndex].is_header and not entries[traverseIndex].is_subheader do
+			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
 				traverseIndex = traverseIndex - 1
 			end
 			entries[traverseIndex].is_expanded = false
 			traverseIndex = traverseIndex + 1
 
-			-- now remove the expanded lines until we get to a recipe again
-			while entries[traverseIndex] and not entries[traverseIndex].is_header do
+			-- Remove the expanded lines until we get to a header/subheader.
+			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
 				ReleaseTable(tremove(entries, traverseIndex))
 
 				if not entries[traverseIndex] then
@@ -2679,7 +2679,7 @@ do
 
 						t.text = string.format("%s (%d)", private.acquire_names[acquire_type], count)
 						t.acquire_id = acquire_type
-						t.is_header = true
+						t.type = "header"
 
 
 						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
@@ -2717,7 +2717,7 @@ do
 
 						t.text = string.format("%s (%d)", loc_name, count)
 						t.location_id = loc_name
-						t.is_header = true
+						t.type = "header"
 
 						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
@@ -2734,7 +2734,7 @@ do
 
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = recipe_index
-						t.is_header = true
+						t.type = "header"
 
 						recipe_count = recipe_count + 1
 
@@ -2810,14 +2810,14 @@ do
 				local prev_state = self.state_buttons[button_index - 1]
 				local prev_entry = self.entries[string_index - 1]
 
-				if cur_entry.is_header or cur_entry.is_subheader then
+				if cur_entry.type == "header" or cur_entry.type == "subheader" then
 					cur_state:ClearAllPoints()
 
-					if cur_entry.is_header then
+					if cur_entry.type == "header" then
 						if not prev_state then
 							cur_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
 						else
-							if prev_entry.is_subheader then
+							if prev_entry.type == "subheader" then
 								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", -15, 3)
 							else
 								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
@@ -2825,7 +2825,7 @@ do
 						end
 					else
 						-- This is a subheader, and its index will never be 1.
-						if prev_entry.is_header then
+						if prev_entry.type == "header" then
 							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 15, 3)
 						else
 							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
@@ -3229,7 +3229,7 @@ do
 		if list_entry.acquire_id then
 			local acquire_id = list_entry.acquire_id
 
-			if list_entry.is_header then
+			if list_entry.type == "header" then
 				for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local t = AcquireTable()
@@ -3240,7 +3240,7 @@ do
 						t.is_expanded = true
 					else
 						t.is_expanded = false
-						t.is_subheader = true
+						t.type = "subheader"
 					end
 					t.recipe_id = spell_id
 					t.acquire_id = acquire_id
@@ -3248,7 +3248,7 @@ do
 					tinsert(self.entries, entry_index, t)
 					entry_index = entry_index + 1
 				end
-			elseif list_entry.is_subheader then
+			elseif list_entry.type == "subheader" then
 				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
 						entry_index = self:ExpandAcquireData(entry_index, acquire_type, acquire_data, list_entry.recipe_id, true)
