@@ -217,11 +217,11 @@ end	-- do block
 -- Close all possible pop-up windows
 -------------------------------------------------------------------------------
 function addon:ClosePopups()
-	StaticPopup_Hide("ARL_NOTSCANNED")
-	StaticPopup_Hide("ARL_ALLFILTERED")
-	StaticPopup_Hide("ARL_ALLKNOWN")
-	StaticPopup_Hide("ARL_ALLEXCLUDED")
-	StaticPopup_Hide("ARL_SEARCHFILTERED")
+	_G.StaticPopup_Hide("ARL_NOTSCANNED")
+	_G.StaticPopup_Hide("ARL_ALLFILTERED")
+	_G.StaticPopup_Hide("ARL_ALLKNOWN")
+	_G.StaticPopup_Hide("ARL_ALLEXCLUDED")
+	_G.StaticPopup_Hide("ARL_SEARCHFILTERED")
 end
 
 -------------------------------------------------------------------------------
@@ -1242,47 +1242,47 @@ local function ARL_DD_Sort_OnClick(button, value)
 end
 
 local function ARL_DD_Sort_Initialize()
-	local info = UIDropDownMenu_CreateInfo()
+	local info = _G.UIDropDownMenu_CreateInfo()
 
 	local k = "Name"
 	info.text = k
 	info.arg1 = info.text
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
+	_G.UIDropDownMenu_AddButton(info)
 
 	k = "SkillAsc"
 	info.text = k
 	info.arg1 = info.text
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
+	_G.UIDropDownMenu_AddButton(info)
 
 	k = "SkillDesc"
 	info.text = k
 	info.arg1 = info.text
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
+	_G.UIDropDownMenu_AddButton(info)
 
 	k = "Acquisition"
 	info.text = k
 	info.arg1 = info.text
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
+	_G.UIDropDownMenu_AddButton(info)
 
 	k = "Location"
 	info.text = k
 	info.arg1 = info.text
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
-	UIDropDownMenu_AddButton(info)
+	_G.UIDropDownMenu_AddButton(info)
 
 	SetSortName()
 end
 
-UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
+_G.UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 
 -------------------------------------------------------------------------------
 -- Create the expand button and set its scripts.
@@ -2458,7 +2458,7 @@ do
 					local _, itemLink = _G.GetItemInfo(itemID)
 
 					if itemLink then
-						ChatFrameEditBox:Insert(itemLink)
+						_G.ChatFrameEditBox:Insert(itemLink)
 					else
 						addon:Print(L["NoItemLink"])
 					end
@@ -2466,7 +2466,7 @@ do
 					addon:Print(L["NoItemLink"])
 				end
 			elseif _G.IsControlKeyDown() then
-				ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
+				_G.ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 				local recipe_id = clicked_line.recipe_id
@@ -2884,22 +2884,22 @@ do
 
 			if Player.recipes_total == 0 then
 				if showpopup then
-					StaticPopup_Show("ARL_NOTSCANNED")
+					_G.StaticPopup_Show("ARL_NOTSCANNED")
 				end
 			elseif Player.recipes_known == Player.recipes_total then
 				if showpopup then
-					StaticPopup_Show("ARL_ALLKNOWN")
+					_G.StaticPopup_Show("ARL_ALLKNOWN")
 				end
 			elseif (Player.recipes_total_filtered - Player.recipes_known_filtered) == 0 then
 				if showpopup then
-					StaticPopup_Show("ARL_ALLFILTERED")
+					_G.StaticPopup_Show("ARL_ALLFILTERED")
 				end
 			elseif Player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
-					StaticPopup_Show("ARL_ALLEXCLUDED")
+					_G.StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
 			elseif MainPanel.search_editbox:GetText() ~= "" then
-				StaticPopup_Show("ARL_SEARCHFILTERED")
+				_G.StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
 				addon:Debug("recipes_total check for 0")
