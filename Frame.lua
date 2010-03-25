@@ -2928,7 +2928,7 @@ do
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 		local rep_color = private.reputation_colors
-		local padding = "  "
+		local padding = "    "
 
 		if acquire_type == A.TRAINER and obtain_filters.trainer then
 			for id_num in pairs(acquire_data) do
@@ -3215,15 +3215,17 @@ do
 					if recipe_entry.is_visible and recipe_entry.is_relevant then
 						local t = AcquireTable()
 						local expand = false
+						local type = "subheader"
 
 						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
 							expand = true
+							type = "entry"
 						end
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, entry_index, expand and "entry" or "subheader", expand)
+						entry_index = self:InsertEntry(t, entry_index, type, expand)
 					end
 				end
 			elseif list_entry.type == "subheader" then
