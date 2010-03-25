@@ -2614,17 +2614,24 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
-	function MainPanel.scroll_frame:InsertEntry(entry, entry_index, expand_acquires)
+	function MainPanel.scroll_frame:InsertEntry(entry, entry_index, entry_type, entry_expanded, expand_acquires)
 		local insert_index = entry_index
+
+		entry.type = entry_type
 
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
 		if expand_acquires then
 			entry.is_expanded = true
 			tinsert(self.entries, insert_index, entry)
-			insert_index = self:ExpandEntry(insert_index)
+
+			if entry_type == "header" or entry_type == "subheader" then
+				insert_index = self:ExpandEntry(insert_index)
+			else
+				insert_index = insert_index + 1
+			end
 		else
-			entry.is_expanded = false
+			entry.is_expanded = entry_expanded
 			tinsert(self.entries, insert_index, entry)
 			insert_index = insert_index + 1
 		end
