@@ -3250,7 +3250,7 @@ do
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, entry_index, type, expand)
+						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand)
 					end
 				end
 			elseif list_entry.type == "subheader" then
@@ -3266,17 +3266,38 @@ do
 		if list_entry.location_id then
 			local location_id = list_entry.location_id
 
-			for spell_id in pairs(private.location_list[location_id].recipes) do
-				local recipe_entry = private.recipe_list[spell_id]
+			if list_entry.type == "header" then
+				for spell_id, faction in pairs(private.location_list[location_id].recipes) do
+					local recipe_entry = private.recipe_list[spell_id]
+					local has_faction = false
 
-				if recipe_entry.is_visible and recipe_entry.is_relevant then
-					local t = AcquireTable()
+					if type(faction) == "boolean"
+						or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+						has_faction = true
+					end
 
-					t.text = FormatRecipeText(recipe_entry)
-					t.recipe_id = spell_id
-					t.location_id = location_id
+					if has_faction and recipe_entry.is_visible and recipe_entry.is_relevant then
+						local t = AcquireTable()
+						local expand = false
+						local type = "subheader"
 
-					entry_index = self:InsertEntry(t, entry_index, "entry", true)
+						t.text = FormatRecipeText(recipe_entry)
+						t.recipe_id = spell_id
+						t.location_id = location_id
+
+						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand)
+					end
+				end
+			elseif list_entry.type == "subheader" then
+				local recipe_entry = private.recipe_list[list_entry.recipe_id]
+
+				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
+					local hide_type = false
+
+					if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
+						hide_type = true
+					end
+					entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, hide_type)
 				end
 			end
 			return entry_index
