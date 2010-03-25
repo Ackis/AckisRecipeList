@@ -2503,18 +2503,17 @@ do
 		else
 			-- This is an expanded entry. Back up in the list of buttons until we find its header line.
 			local entries = MainPanel.scroll_frame.entries
-			local check_type = clicked_line.type == "entry" and "header" or "subheader"
 
 			traverseIndex = clickedIndex - 1
 
-			while entries[traverseIndex] and entries[traverseIndex].type ~= check_type do
+			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
 				traverseIndex = traverseIndex - 1
 			end
 			entries[traverseIndex].is_expanded = false
 			traverseIndex = traverseIndex + 1
 
 			-- Remove the expanded lines until we get to a header/subheader.
-			while entries[traverseIndex] and entries[traverseIndex].type ~= check_type do
+			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
 				ReleaseTable(table.remove(entries, traverseIndex))
 
 				if not entries[traverseIndex] then
