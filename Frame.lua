@@ -2630,8 +2630,6 @@ do
 		if not refresh and not self.scrolling then
 			local recipe_list = private.recipe_list
 			local sorted_recipes = addon.sorted_recipes
-			local sorted_locations = addon.sorted_locations
-			local sorted_acquires = addon.sorted_acquires
 			local sort_type = addon.db.profile.sorting
 
 			local recipe_count = 0
@@ -2644,6 +2642,9 @@ do
 			twipe(recipe_registry)
 
 			if sort_type == "Acquisition" then
+				local sorted_acquires = addon.sorted_acquires
+				local current_prof = Player.current_prof
+
 				SortAcquireList()
 
 				for index = 1, #sorted_acquires do
@@ -2653,19 +2654,22 @@ do
 					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 					for spell_id, faction in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
-						local has_faction = false
 
-						if type(faction) == "boolean"
-						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-							has_faction = true
-						end
+						if recipe.profession == current_prof then
+							local has_faction = false
 
-						if has_faction and recipe.is_visible and recipe.is_relevant then
-							count = count + 1
+							if type(faction) == "boolean"
+								or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								has_faction = true
+							end
 
-							if not recipe_registry[recipe] then
-								recipe_registry[recipe] = true
-								recipe_count = recipe_count + 1
+							if has_faction and recipe.is_visible and recipe.is_relevant then
+								count = count + 1
+
+								if not recipe_registry[recipe] then
+									recipe_registry[recipe] = true
+									recipe_count = recipe_count + 1
+								end
 							end
 						end
 					end
@@ -2677,11 +2681,13 @@ do
 						t.acquire_id = acquire_type
 						t.type = "header"
 
-
 						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
 					end
 				end
 			elseif sort_type == "Location" then
+				local sorted_locations = addon.sorted_locations
+				local current_prof = Player.current_prof
+
 				SortLocationList()
 
 				for index = 1, #sorted_locations do
@@ -2691,19 +2697,22 @@ do
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 					for spell_id, faction in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
-						local has_faction = false
 
-						if type(faction) == "boolean"
-						   or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-							has_faction = true
-						end
+						if recipe.profession == current_prof then
+							local has_faction = false
 
-						if has_faction and recipe.is_visible and recipe.is_relevant then
-							count = count + 1
+							if type(faction) == "boolean"
+								or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+								has_faction = true
+							end
 
-							if not recipe_registry[recipe] then
-								recipe_registry[recipe] = true
-								recipe_count = recipe_count + 1
+							if has_faction and recipe.is_visible and recipe.is_relevant then
+								count = count + 1
+
+								if not recipe_registry[recipe] then
+									recipe_registry[recipe] = true
+									recipe_count = recipe_count + 1
+								end
 							end
 						end
 					end
