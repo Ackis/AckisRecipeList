@@ -2487,7 +2487,11 @@ do
 				local entry = MainPanel.scroll_frame.entries[traverseIndex]
 
 				-- get rid of our expanded lines
-				while (entry and entry.type ~= check_type) do
+				while entry and entry.type ~= check_type do
+					-- Headers are never removed.
+					if entry.type == "header" then
+						break
+					end
 					ReleaseTable(table.remove(MainPanel.scroll_frame.entries, traverseIndex))
 					entry = MainPanel.scroll_frame.entries[traverseIndex]
 
