@@ -3284,6 +3284,10 @@ do
 						local expand = false
 						local type = "subheader"
 
+						if location_id == L["World Drop"] then
+							expand = true
+							type = "entry"
+						end
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.location_id = location_id
@@ -3295,12 +3299,7 @@ do
 				local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
-					local hide_type = false
-
-					if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
-						hide_type = true
-					end
-					entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, hide_type)
+					entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, false)
 				end
 			end
 			return entry_index
