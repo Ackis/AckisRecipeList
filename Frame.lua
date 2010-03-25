@@ -2691,9 +2691,8 @@ do
 
 						t.text = string.format("%s (%d)", private.acquire_names[acquire_type], count)
 						t.acquire_id = acquire_type
-						t.type = "header"
 
-						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
+						insert_index = self:InsertEntry(t, insert_index, "header", expand_acquires, expand_acquires)
 					end
 				end
 			elseif sort_type == "Location" then
@@ -2731,9 +2730,8 @@ do
 
 						t.text = string.format("%s (%d)", loc_name, count)
 						t.location_id = loc_name
-						t.type = "header"
 
-						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
+						insert_index = self:InsertEntry(t, insert_index, "header", expand_acquires, expand_acquires)
 					end
 				end
 			else
@@ -2748,11 +2746,10 @@ do
 
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = recipe_index
-						t.type = "header"
 
 						recipe_count = recipe_count + 1
 
-						insert_index = self:InsertEntry(t, insert_index, expand_acquires)
+						insert_index = self:InsertEntry(t, insert_index, "header", expand_acquires, expand_acquires)
 					end
 				end
 			end	-- Sort type.
