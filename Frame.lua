@@ -2427,10 +2427,16 @@ MainPanel.scroll_frame.entries = {}
 MainPanel.scroll_frame.state_buttons = {}
 MainPanel.scroll_frame.entry_buttons = {}
 
--------------------------------------------------------------------------------
--- Set the scripts for MainPanel.scroll_frame's buttons.
--------------------------------------------------------------------------------
 do
+	local highlight = CreateFrame("Frame", nil, UIParent)
+	highlight:SetFrameStrata("TOOLTIP")
+	highlight:Hide()
+
+	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
+	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight._texture:SetBlendMode("ADD")
+	highlight._texture:SetAllPoints(highlight)
+
 	local function ListItem_OnClick(self, button)
 		local clickedIndex = self.string_index
 
@@ -2530,17 +2536,6 @@ do
 		MainPanel.scroll_frame.state_buttons[i] = cur_state
 		MainPanel.scroll_frame.entry_buttons[i] = cur_entry
 	end
-end	-- do
-
-do
-	local highlight = CreateFrame("Frame", nil, UIParent)
-	highlight:SetFrameStrata("TOOLTIP")
-	highlight:Hide()
-
-	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
-	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-	highlight._texture:SetBlendMode("ADD")
-	highlight._texture:SetAllPoints(highlight)
 
 	local function Button_OnEnter(self)
 		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
@@ -2565,6 +2560,7 @@ do
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 	end
+
 	local SKILL_LEVEL_FORMAT = "[%d]"
 	local SPELL_ENCHANTING = GetSpellInfo(51313)
 
