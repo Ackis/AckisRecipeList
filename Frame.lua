@@ -3282,7 +3282,7 @@ do
 			elseif list_entry.type == "subheader" then
 				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
-						entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, true)
+						entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, false, true)
 					end
 				end
 			end
@@ -3322,7 +3322,14 @@ do
 				local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
-					entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, false)
+					for id_num in pairs(acquire_data) do
+
+						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
+							entry_index = ExpandTrainerData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
+							entry_index = ExpandVendorData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+						end
+					end
 				end
 			end
 			return entry_index
