@@ -2641,6 +2641,8 @@ do
 			twipe(self.entries)
 			twipe(recipe_registry)
 
+			SetSortName()
+
 			if sort_type == "Acquisition" then
 				local sorted_acquires = addon.sorted_acquires
 				local current_prof = Player.current_prof
@@ -3506,8 +3508,6 @@ function addon:InitializeFrame()
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
-	-- Has to be done here because db doesn't exist yet if executed in the main file body.
-	SetSortName()
 
 	-------------------------------------------------------------------------------
 	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
