@@ -2803,17 +2803,6 @@ do
 			state:SetScript("OnLeave", nil)
 
 			state:ClearAllPoints()
-			entry:ClearAllPoints()
-
-			if i ~= 1 then
-				local prev_state = self.state_buttons[i - 1]
-
-				state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
-				entry:SetPoint("TOPLEFT", state, "TOPRIGHT", -3, 0)
-			else
-				state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
-				entry:SetPoint("TOPLEFT", state, "TOPRIGHT", -3, 0)
-			end
 		end
 		local num_entries = #self.entries
 
@@ -2835,30 +2824,8 @@ do
 			while stayInLoop do
 				local cur_state = self.state_buttons[button_index]
 				local cur_entry = self.entries[string_index]
-				local prev_state = self.state_buttons[button_index - 1]
-				local prev_entry = self.entries[string_index - 1]
 
 				if cur_entry.type == "header" or cur_entry.type == "subheader" then
-					cur_state:ClearAllPoints()
-
-					if cur_entry.type == "header" then
-						if not prev_state then
-							cur_state:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
-						else
-							if prev_entry.type == "subheader" then
-								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", -15, 3)
-							else
-								cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
-							end
-						end
-					else
-						-- This is a subheader, and its index will never be 1.
-						if prev_entry.type == "header" then
-							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 15, 3)
-						else
-							cur_state:SetPoint("TOPLEFT", prev_state, "BOTTOMLEFT", 0, 3)
-						end
-					end
 					cur_state:Show()
 
 					if cur_entry.is_expanded then
@@ -2877,6 +2844,13 @@ do
 					cur_state:SetScript("OnLeave", Button_OnLeave)
 				else
 					cur_state:Hide()
+				end
+				local cur_container = cur_state.container
+
+				if cur_entry.type == "header" or cur_entry.type == "entry" then
+					cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
+				elseif cur_entry.type == "subheader" or cur_entry.type == "subentry" then
+					cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
 				end
 				local cur_button = self.entry_buttons[button_index]
 
