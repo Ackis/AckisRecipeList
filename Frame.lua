@@ -3223,26 +3223,22 @@ do
 
 					if recipe_entry.is_visible and recipe_entry.is_relevant then
 						local t = AcquireTable()
-
-						t.text = FormatRecipeText(recipe_entry)
+						local expand = false
 
 						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
-							t.is_expanded = true
-						else
-							t.is_expanded = false
-							t.type = "subheader"
+							expand = true
 						end
+						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						tinsert(self.entries, entry_index, t)
-						entry_index = entry_index + 1
+						entry_index = self:InsertEntry(t, entry_index, expand and "entry" or "subheader", expand)
 					end
 				end
 			elseif list_entry.type == "subheader" then
 				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
-						entry_index = self:ExpandAcquireData(entry_index, acquire_type, acquire_data, list_entry.recipe_id, true)
+						entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, true)
 					end
 				end
 			end
@@ -3259,12 +3255,10 @@ do
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe_entry)
-					t.is_expanded = true
 					t.recipe_id = spell_id
 					t.location_id = location_id
 
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
+					entry_index = self:InsertEntry(t, entry_index, "entry", true)
 				end
 			end
 			return entry_index
@@ -3272,7 +3266,7 @@ do
 		local recipe_id = self.entries[orig_index].recipe_id
 
 		for acquire_type, acquire_data in pairs(private.recipe_list[recipe_id].acquire_data) do
-			entry_index = self:ExpandAcquireData(entry_index, acquire_type, acquire_data, recipe_id)
+			entry_index = self:ExpandAcquireData(entry_index, "entry", acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index
 	end
