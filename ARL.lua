@@ -1549,7 +1549,7 @@ do
 			else
 				can_display = false
 			end
-			recipe.is_visible = can_display
+			recipe.is_visible = can_display or nil
 		end
 		Player.recipes_total = recipes_total
 		Player.recipes_known = recipes_known
