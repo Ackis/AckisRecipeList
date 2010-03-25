@@ -3233,21 +3233,24 @@ do
 			if list_entry.type == "header" then
 				for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
-					local t = AcquireTable()
 
-					t.text = FormatRecipeText(recipe_entry)
+					if recipe_entry.is_visible and recipe_entry.is_relevant then
+						local t = AcquireTable()
 
-					if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
-						t.is_expanded = true
-					else
-						t.is_expanded = false
-						t.type = "subheader"
+						t.text = FormatRecipeText(recipe_entry)
+
+						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
+							t.is_expanded = true
+						else
+							t.is_expanded = false
+							t.type = "subheader"
+						end
+						t.recipe_id = spell_id
+						t.acquire_id = acquire_id
+
+						tinsert(self.entries, entry_index, t)
+						entry_index = entry_index + 1
 					end
-					t.recipe_id = spell_id
-					t.acquire_id = acquire_id
-
-					tinsert(self.entries, entry_index, t)
-					entry_index = entry_index + 1
 				end
 			elseif list_entry.type == "subheader" then
 				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
@@ -3264,15 +3267,18 @@ do
 
 			for spell_id in pairs(private.location_list[location_id].recipes) do
 				local recipe_entry = private.recipe_list[spell_id]
-				local t = AcquireTable()
 
-				t.text = FormatRecipeText(recipe_entry)
-				t.is_expanded = true
-				t.recipe_id = spell_id
-				t.location_id = location_id
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
+					local t = AcquireTable()
 
-				tinsert(self.entries, entry_index, t)
-				entry_index = entry_index + 1
+					t.text = FormatRecipeText(recipe_entry)
+					t.is_expanded = true
+					t.recipe_id = spell_id
+					t.location_id = location_id
+
+					tinsert(self.entries, entry_index, t)
+					entry_index = entry_index + 1
+				end
 			end
 			return entry_index
 		end
