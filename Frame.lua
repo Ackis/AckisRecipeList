@@ -34,7 +34,7 @@ local type = _G.type
 
 local table = _G.table
 local twipe = table.wipe
-local tinsert, tremove = table.insert, table.remove
+
 local ipairs, pairs = _G.ipairs, _G.pairs
 
 local math = _G.math
@@ -201,7 +201,7 @@ do
 
 	-- Returns a table
 	function AcquireTable()
-		local tbl = tremove(table_cache) or {}
+		local tbl = table.remove(table_cache) or {}
 		return tbl
 	end
 
@@ -209,7 +209,7 @@ do
 	function ReleaseTable(tbl)
 		if not tbl then return end
 		twipe(tbl)
-		tinsert(table_cache, tbl)
+		table.insert(table_cache, tbl)
 	end
 end	-- do block
 
@@ -416,7 +416,7 @@ do
 		twipe(sorted_recipes)
 
 		for n, v in pairs(private.recipe_list) do
-			tinsert(sorted_recipes, n)
+			table.insert(sorted_recipes, n)
 		end
 		table.sort(sorted_recipes, sort_func)
 	end
@@ -434,7 +434,7 @@ do
 		twipe(sorted_locations)
 
 		for loc_name in pairs(private.location_list) do
-			tinsert(sorted_locations, loc_name)
+			table.insert(sorted_locations, loc_name)
 		end
 		table.sort(sorted_locations, Sort_Location)
 	end
@@ -452,7 +452,7 @@ do
 		twipe(sorted_acquires)
 
 		for acquire_name in pairs(private.acquire_list) do
-			tinsert(sorted_acquires, acquire_name)
+			table.insert(sorted_acquires, acquire_name)
 		end
 		table.sort(sorted_acquires, Sort_Acquisition)
 	end
@@ -937,7 +937,7 @@ MainPanel:Hide()
 MainPanel.is_expanded = false
 
 -- Let the user banish the MainPanel with the ESC key.
-tinsert(UISpecialFrames, "ARL_MainPanel")
+table.insert(UISpecialFrames, "ARL_MainPanel")
 
 addon.Frame = MainPanel
 
@@ -2488,7 +2488,7 @@ do
 
 				-- get rid of our expanded lines
 				while (entry and entry.type ~= check_type) do
-					ReleaseTable(tremove(MainPanel.scroll_frame.entries, traverseIndex))
+					ReleaseTable(table.remove(MainPanel.scroll_frame.entries, traverseIndex))
 					entry = MainPanel.scroll_frame.entries[traverseIndex]
 
 					if not entry then
@@ -2640,7 +2640,7 @@ do
 		-- and start processing the acquires.
 		if expand_acquires then
 			entry.is_expanded = true
-			tinsert(self.entries, insert_index, entry)
+			table.insert(self.entries, insert_index, entry)
 
 			if entry_type == "header" or entry_type == "subheader" then
 				insert_index = self:ExpandEntry(insert_index)
@@ -2649,7 +2649,7 @@ do
 			end
 		else
 			entry.is_expanded = entry_expanded
-			tinsert(self.entries, insert_index, entry)
+			table.insert(self.entries, insert_index, entry)
 			insert_index = insert_index + 1
 		end
 		return insert_index
@@ -4091,7 +4091,7 @@ do
 	copy_frame:SetPoint("CENTER", UIParent, "CENTER")
 	copy_frame:SetFrameStrata("DIALOG")
 
-	tinsert(UISpecialFrames, "ARLCopyFrame")
+	table.insert(UISpecialFrames, "ARLCopyFrame")
 
 	local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
 	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
