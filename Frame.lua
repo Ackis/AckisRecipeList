@@ -3206,10 +3206,16 @@ do
 			local acquire_id = list_entry.acquire_id
 
 			if list_entry.type == "header" then
-				for spell_id in pairs(private.acquire_list[acquire_id].recipes) do
+				for spell_id, faction in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
+					local has_faction = false
 
-					if recipe_entry.is_visible and recipe_entry.is_relevant then
+					if type(faction) == "boolean"
+						or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
+						has_faction = true
+					end
+
+					if has_faction and recipe_entry.is_visible and recipe_entry.is_relevant then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
