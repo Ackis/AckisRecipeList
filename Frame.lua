@@ -2631,10 +2631,20 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
-	function MainPanel.scroll_frame:InsertEntry(entry, entry_index, entry_type, entry_expanded, expand_acquires)
+	function MainPanel.scroll_frame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_acquires)
 		local insert_index = entry_index
 
 		entry.type = entry_type
+
+		if parent_entry then
+			entry.parent = parent_entry
+			parent_entry.children = parent_entry.children or {}
+
+			table.insert(parent_entry.children, entry)
+
+		elseif entry.type ~= "header" then
+			addon:Debug("Non-header entry without a parent: %s - %s", entry.type, entry.text)
+		end
 
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
