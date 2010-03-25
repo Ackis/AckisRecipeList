@@ -2520,6 +2520,12 @@ do
 				end
 			end
 		end
+		highlight:Hide()
+		highlight:ClearAllPoints()
+		highlight:SetParent(nil)
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
+
 		MainPanel.scroll_frame:Update(false, true)
 	end
 
