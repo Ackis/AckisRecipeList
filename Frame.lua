@@ -2809,19 +2809,20 @@ do
 		if num_entries > 0 then
 			local button_index = 1
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
-			local stayInLoop = true
 			local display_lines = NUM_RECIPE_LINES
 
 			if num_entries <= display_lines then
 				display_lines = num_entries / 2
 			end
 			_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
+
 			addon:ClosePopups()
+
 			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
 			ARL_ExpandButton:Enable()
 
 			-- Populate the buttons with new values
-			while stayInLoop do
+			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
 				local cur_state = self.state_buttons[button_index]
 				local cur_entry = self.entries[string_index]
 
@@ -2861,10 +2862,6 @@ do
 
 				button_index = button_index + 1
 				string_index = string_index + 1
-
-				if button_index > NUM_RECIPE_LINES or string_index > num_entries then
-					stayInLoop = false
-				end
 			end
 		else
 			-- disable expand button, it's useless here and would spam the same error again
