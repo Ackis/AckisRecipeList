@@ -888,7 +888,6 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["medium_level"]	= medium_level or skill_level + 10,
 		["easy_level"]		= easy_level or skill_level + 15,
 		["trivial_level"]	= trivial_level or skill_level + 20,
-		["is_visible"]		= true,				-- Set to be displayed until the filtering occurs
 		["is_relevant"]		= true,				-- Set to be showing in the search results
 	}
 
@@ -1550,7 +1549,7 @@ do
 			else
 				can_display = false
 			end
-			recipe_list[recipe_id].is_visible = can_display
+			recipe.is_visible = can_display
 		end
 		Player.recipes_total = recipes_total
 		Player.recipes_known = recipes_known
