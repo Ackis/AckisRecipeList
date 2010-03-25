@@ -2516,13 +2516,12 @@ do
 			entries[traverseIndex].is_expanded = false
 			traverseIndex = traverseIndex + 1
 
-			-- Remove the expanded lines until we get to a header/subheader.
-			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
-				ReleaseTable(table.remove(entries, traverseIndex))
+			local children = clicked_line.parent.children
 
-				if not entries[traverseIndex] then
-					break
-				end
+			-- Remove the expanded lines.
+			while #children > 0 do
+				table.remove(children)
+				ReleaseTable(table.remove(MainPanel.scroll_frame.entries, traverseIndex))
 			end
 		end
 		highlight:Hide()
