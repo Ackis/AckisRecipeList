@@ -865,31 +865,6 @@ do
 				for id_num in pairs(acquire_info) do
 					ttAdd(0, -1, false, private.custom_list[id_num].name, addon:hexcolor("NORMAL"))
 				end
-			elseif acquire_type == A.PVP then
-				for id_num in pairs(acquire_info) do
-					local display_tip = false
-					local vendor = private.vendor_list[id_num]
-					local faction
-
-					color_1 = addon:hexcolor("VENDOR")
-					display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
-
-					if display_tip then
-						local coord_text = ""
-
-						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-							coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
-						end
-						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
-
-						color_1 = addon:hexcolor("NORMAL")
-						color_2 = addon:hexcolor("HIGH")
-
-						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
-					elseif faction then
-						ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
-					end
-				end
 				--@alpha@
 			else	-- Unhandled
 				ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
@@ -3188,33 +3163,6 @@ do
 					local t = AcquireTable()
 
 					t.text = PADDING .. addon:Normal(private.custom_list[id_num].name)
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-				end
-			end
-		elseif acquire_type == A.PVP and obtain_filters.pvp then
-			for id_num in pairs(acquire_data) do
-				local vendor = private.vendor_list[id_num]
-
-				if CanDisplayFaction(vendor.faction) then
-					local coord_text = ""
-
-					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
-					end
-					local name = ColorNameByFaction(vendor.name, vendor.faction)
-
-					local t = AcquireTable()
-
-					t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-
-					t = AcquireTable()
-
-					t.text = PADDING .. PADDING .. vendor.location .. " " .. coord_text
 					t.recipe_id = recipe_id
 
 					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
