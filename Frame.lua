@@ -95,7 +95,6 @@ local CATEGORY_TEXT = {
 	["misc"]	= _G.MISCELLANEOUS
 }
 
-local NUM_RECIPE_LINES		= 24			-- Number of visible lines in the scrollframe.
 local SEASONAL_CATEGORY		= GetCategoryInfo(155)	-- Localized string - "World Events"
 
 local MAINPANEL_NORMAL_WIDTH	= 293
@@ -2391,6 +2390,9 @@ MainPanel.scroll_frame.state_buttons = {}
 MainPanel.scroll_frame.entry_buttons = {}
 
 do
+	-- Number of visible lines in the scrollframe.
+	local NUM_RECIPE_LINES = 24
+
 	local highlight = CreateFrame("Frame", nil, UIParent)
 	highlight:SetFrameStrata("TOOLTIP")
 	highlight:Hide()
