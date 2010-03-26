@@ -273,9 +273,12 @@ local function GetColorsFromTable(dict)
 end
 
 private.reputation_colors = {
-	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["impossible"])),
-	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["verydifficult"])),
-	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["difficult"])),
-	["friendly"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["standard"])),
-	["neutral"]	= RGBtoHEX(GetColorsFromTable(_G.QuestDifficultyColors["trivial"])),
+	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[8])),
+	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[7])),
+	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[6])),
+	["friendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[5])),
+	["neutral"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[4])),
+	["unfriendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[3])),
+	["hostile"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[2])),
+	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
 }
