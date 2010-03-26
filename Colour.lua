@@ -21,9 +21,6 @@ local MODNAME			= "Ackis Recipe List"
 local addon			= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --Colour constants
-local YELLOW	= "ffff00"
-local WHITE	= "ffffff"
-
 local GREY	= "666666"
 
 local TRAINER	= "d9cb9e"
@@ -33,7 +30,6 @@ local REP	= "ff7c0a"
 local SEASON	= "80590e"
 local MOBDROP	= "ffffc0"
 
-local HIGH	= WHITE
 local NORMAL	= "ffd100"
 
 ----------------------------------------------------------------------
@@ -45,53 +41,9 @@ function addon:Colourize(hexColour, text)
 	return "|cff" .. tostring(hexColour or 'ffffff') .. tostring(text) .. "|r"
 end
 
-function addon:Coords(text)
-	return self:Colourize(WHITE, text)
-end
-
-function addon:Trainer(text)
-	return self:Colourize(TRAINER, text)
-end
-
-function addon:Vendor(text)
-	return self:Colourize(VENDOR, text)
-end
-
-function addon:Quest(text)
-	return self:Colourize(QUEST, text)
-end
-
-function addon:Rep(text)
-	return self:Colourize(REP, text)
-end
-
-function addon:Season(text)
-	return self:Colourize(SEASON, text)
-end
-
-function addon:MobDrop(text)
-	return self:Colourize(MOBDROP, text)
-end
-
-
--- Converts text to Yellow
-function addon:Yellow(text)
-	return self:Colourize(YELLOW, text)
-end
-
--- Converts text to White
-function addon:White(text)
-	return self:Colourize(WHITE, text)
-end
-
 -- Converts text to Grey
 function addon:Grey(text)
 	return self:Colourize(GREY, text)
-end
-
--- Standard bliz yellowish sort of thing
-function addon:Normal(text)
-	return self:Colourize(NORMAL, text)
 end
 
 -------------------------------------------------------------------------------
@@ -106,7 +58,6 @@ do
 		["SEASON"]	= SEASON,
 		["MOBDROP"]	= MOBDROP,
 
-		["YELLOW"]	= YELLOW,
 		["GREY"]	= GREY,
 		["RED"]		= RED,
 
