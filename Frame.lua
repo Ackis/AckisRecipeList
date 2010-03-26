@@ -3223,14 +3223,16 @@ do
 		return entry_index
 	end
 
+	-- This function is called when an un-expanded entry in the list has been clicked.
 	function MainPanel.scroll_frame:ExpandEntry(entry_index)
 		local orig_index = entry_index
 		local list_entry = self.entries[orig_index]
 
-		-- entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
+		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
+		-- This entry was generated using sorting based on Location.
 		if list_entry.acquire_id then
 			local acquire_id = list_entry.acquire_id
 
@@ -3270,6 +3272,7 @@ do
 			return entry_index
 		end
 
+		-- This entry was generated using sorting based on Acquisition.
 		if list_entry.location_id then
 			local location_id = list_entry.location_id
 
@@ -3317,6 +3320,8 @@ do
 			end
 			return entry_index
 		end
+
+		-- Normal entry - expand all acquire types.
 		local recipe_id = self.entries[orig_index].recipe_id
 
 		for acquire_type, acquire_data in pairs(private.recipe_list[recipe_id].acquire_data) do
