@@ -583,13 +583,13 @@ do
 		local color
 
 		if comp_faction == FACTION_NEUTRAL then
-			color = "|cff"..private.reputation_colors["neutral"]
+			color = private.reputation_colors["neutral"]
 			display_tip = true
 		elseif comp_faction == BFAC[Player.faction] then
-			color = "|cff"..private.reputation_colors["exalted"]
+			color = private.reputation_colors["exalted"]
 			display_tip = true
 		else
-			color = "|cff"..private.reputation_colors["hated"]
+			color = private.reputation_colors["hated"]
 			display_tip = true
 		end
 		return display_tip, color
@@ -654,7 +654,7 @@ do
 		end
 
 		-- Add in skill level requirement, colored correctly
-		local color_1 = addon:hexcolor("NORMAL")
+		local color_1 = BASIC_COLORS["normal"]
 		local color_2
 
 		local skill_level = Player["ProfessionLevel"]
@@ -666,23 +666,23 @@ do
 		local difficulty = private.difficulty_colors
 
 		if recipe_level > skill_level then
-			color_2 = "|cff"..difficulty["impossible"]
+			color_2 = difficulty["impossible"]
 		elseif skill_level >= trivial_level then
-			color_2 = "|cff"..difficulty["trivial"]
+			color_2 = difficulty["trivial"]
 		elseif skill_level >= easy_level then
-			color_2 = "|cff"..difficulty["easy"]
+			color_2 = difficulty["easy"]
 		elseif skill_level >= medium_level then
-			color_2 = "|cff"..difficulty["medium"]
+			color_2 = difficulty["medium"]
 		elseif skill_level >= optimal_level then
-			color_2 = "|cff"..difficulty["optimal"]
+			color_2 = difficulty["optimal"]
 		else
-			color_2 = "|cff"..difficulty["trivial"]
+			color_2 = difficulty["trivial"]
 		end
 		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry.skill_level, color_2)
 
 		-- Binding info
 		acquire_tip:AddSeparator()
-		color_1 = addon:hexcolor("NORMAL")
+		color_1 = BASIC_COLORS["normal"]
 
 		local recipe_flags = recipe_entry["Flags"]
 
@@ -693,7 +693,7 @@ do
 		end
 		acquire_tip:AddSeparator()
 
-		ttAdd(0, -1, false, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
 		local playerFaction = Player.faction
 		local rep_list = private.reputation_list
@@ -704,7 +704,7 @@ do
 					local display_tip = false
 					local trainer = private.trainer_list[id_num]
 
-					color_1 = addon:hexcolor("TRAINER")
+					color_1 = CATEGORY_COLORS["trainer"]
 					display_tip, color_2 = GetTipFactionInfo(trainer.faction)
 
 					if display_tip then
@@ -715,8 +715,8 @@ do
 						end
 						ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
 
-						color_1 = addon:hexcolor("NORMAL")
-						color_2 = addon:hexcolor("HIGH")
+						color_1 = BASIC_COLORS["normal"]
+						color_2 = BASIC_COLORS["white"]
 
 						ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
 					end
@@ -726,7 +726,7 @@ do
 					local vendor = private.vendor_list[id_num]
 					local display_tip = false
 
-					color_1 = addon:hexcolor("VENDOR")
+					color_1 = CATEGORY_COLORS["vendor"]
 					display_tip, color_2 = GetTipFactionInfo(vendor.faction)
 
 					if display_tip then
@@ -737,8 +737,8 @@ do
 						end
 						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
 
-						color_1 = addon:hexcolor("NORMAL")
-						color_2 = addon:hexcolor("HIGH")
+						color_1 = BASIC_COLORS["normal"]
+						color_2 = BASIC_COLORS["white"]
 
 						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
 					else
@@ -753,13 +753,13 @@ do
 					if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 						coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
 					end
-					color_1 = addon:hexcolor("MOBDROP")
-					color_2 = "|cff"..private.reputation_colors["hostile"]
+					color_1 = CATEGORY_COLORS["mobdrop"]
+					color_2 = private.reputation_colors["hostile"]
 
 					ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
 
-					color_1 = addon:hexcolor("NORMAL")
-					color_2 = addon:hexcolor("HIGH")
+					color_1 = BASIC_COLORS["normal"]
+					color_2 = BASIC_COLORS["white"]
 
 					ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
 				end
@@ -770,7 +770,7 @@ do
 					if quest then
 						local display_tip = false
 
-						color_1 = addon:hexcolor("QUEST")
+						color_1 = CATEGORY_COLORS["quest"]
 						display_tip, color_2 = GetTipFactionInfo(quest.faction)
 
 						if display_tip then
@@ -781,8 +781,8 @@ do
 							end
 							ttAdd(0, -1, false, L["Quest"], color_1, quest.name, color_2)
 
-							color_1 = addon:hexcolor("NORMAL")
-							color_2 = addon:hexcolor("HIGH")
+							color_1 = BASIC_COLORS["normal"]
+							color_2 = BASIC_COLORS["white"]
 
 							ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
 						else
@@ -792,7 +792,7 @@ do
 				end
 			elseif acquire_type == A.SEASONAL then
 				for id_num in pairs(acquire_info) do
-					color_1 = addon:hexcolor("SEASON")
+					color_1 = CATEGORY_COLORS["seasonal"]
 					ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[id_num].name, color_1)
 				end
 			elseif acquire_type == A.REPUTATION then
@@ -807,30 +807,30 @@ do
 							display_tip, color_2 = GetTipFactionInfo(rep_vendor.faction)
 
 							if display_tip then
-								ttAdd(0, -1, false, _G.REPUTATION, addon:hexcolor("REP"), rep_list[rep_id].name, addon:hexcolor("NORMAL"))
+								ttAdd(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], rep_list[rep_id].name, CATEGORY_COLORS["repname"])
 
 								local rep_str = ""
 
 								if rep_level == 0 then
 									rep_str = FACTION_NEUTRAL
-									color_1 = "|cff"..rep_color["neutral"]
+									color_1 = rep_color["neutral"]
 								elseif rep_level == 1 then
 									rep_str = BFAC["Friendly"]
-									color_1 = "|cff"..rep_color["friendly"]
+									color_1 = rep_color["friendly"]
 								elseif rep_level == 2 then
 									rep_str = BFAC["Honored"]
-									color_1 = "|cff"..rep_color["honored"]
+									color_1 = rep_color["honored"]
 								elseif rep_level == 3 then
 									rep_str = BFAC["Revered"]
-									color_1 = "|cff"..rep_color["revered"]
+									color_1 = rep_color["revered"]
 								else
 									rep_str = BFAC["Exalted"]
-									color_1 = "|cff"..rep_color["exalted"]
+									color_1 = rep_color["exalted"]
 								end
 								ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
 
-								color_1 = addon:hexcolor("NORMAL")
-								color_2 = addon:hexcolor("HIGH")
+								color_1 = CATEGORY_COLORS["location"]
+								color_2 = CATEGORY_COLORS["coords"]
 
 								local coord_text = ""
 
@@ -844,24 +844,24 @@ do
 				end
 			elseif acquire_type == A.WORLD_DROP then
 				for id_num in pairs(acquire_info) do
-					color_1 = quality_color
+					color_1 = string.gsub(quality_color, "|cff", "")
 
 					ttAdd(0, -1, false, L["World Drop"], color_1)
 				end
 			elseif acquire_type == A.CUSTOM then
 				for id_num in pairs(acquire_info) do
-					ttAdd(0, -1, false, private.custom_list[id_num].name, addon:hexcolor("NORMAL"))
+					ttAdd(0, -1, false, private.custom_list[id_num].name, BASIC_COLORS["normal"])
 				end
 				--@alpha@
 			else	-- Unhandled
-				ttAdd(0, -1, 0, L["Unhandled Recipe"], addon:hexcolor("NORMAL"))
+				ttAdd(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
 				--@end-alpha@
 			end
 		end
 		acquire_tip:AddSeparator()
 		acquire_tip:AddSeparator()
 
-		color_1 = addon:hexcolor("NORMAL")
+		color_1 = BASIC_COLORS["normal"]
 
 		ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
 		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
