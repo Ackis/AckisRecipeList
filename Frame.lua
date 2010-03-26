@@ -714,11 +714,7 @@ do
 							coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
 						end
 						ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
-
-						color_1 = BASIC_COLORS["normal"]
-						color_2 = BASIC_COLORS["white"]
-
-						ttAdd(1, -2, true, trainer.location, color_1, coord_text, color_2)
+						ttAdd(1, -2, true, trainer.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 					end
 				end
 			elseif acquire_type == A.VENDOR then
@@ -736,11 +732,7 @@ do
 							coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
 						end
 						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
-
-						color_1 = BASIC_COLORS["normal"]
-						color_2 = BASIC_COLORS["white"]
-
-						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
+						ttAdd(1, -2, true, vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 					else
 						ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], color_1)
 					end
@@ -753,15 +745,8 @@ do
 					if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 						coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
 					end
-					color_1 = CATEGORY_COLORS["mobdrop"]
-					color_2 = private.reputation_colors["hostile"]
-
-					ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
-
-					color_1 = BASIC_COLORS["normal"]
-					color_2 = BASIC_COLORS["white"]
-
-					ttAdd(1, -2, true, mob.location, color_1, coord_text, color_2)
+					ttAdd(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
+					ttAdd(1, -2, true, mob.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 				end
 			elseif acquire_type == A.QUEST then
 				for id_num in pairs(acquire_info) do
@@ -781,10 +766,7 @@ do
 							end
 							ttAdd(0, -1, false, L["Quest"], color_1, quest.name, color_2)
 
-							color_1 = BASIC_COLORS["normal"]
-							color_2 = BASIC_COLORS["white"]
-
-							ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
+							ttAdd(1, -2, true, quest.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 						else
 							ttAdd(0, -1, false, quest.faction.." "..L["Quest"], color_1)
 						end
@@ -829,15 +811,12 @@ do
 								end
 								ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
 
-								color_1 = CATEGORY_COLORS["location"]
-								color_2 = CATEGORY_COLORS["coords"]
-
 								local coord_text = ""
 
 								if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
 									coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
 								end
-								ttAdd(2, -2, true, rep_vendor.location, color_1, coord_text, color_2)
+								ttAdd(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 							end
 						end
 					end
@@ -850,7 +829,7 @@ do
 				end
 			elseif acquire_type == A.CUSTOM then
 				for id_num in pairs(acquire_info) do
-					ttAdd(0, -1, false, private.custom_list[id_num].name, BASIC_COLORS["normal"])
+					ttAdd(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 				end
 				--@alpha@
 			else	-- Unhandled
@@ -861,7 +840,8 @@ do
 		acquire_tip:AddSeparator()
 		acquire_tip:AddSeparator()
 
-		color_1 = BASIC_COLORS["normal"]
+--		color_1 = BASIC_COLORS["normal"]
+		color_1 = "c9c781"
 
 		ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
 		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
@@ -2982,7 +2962,7 @@ do
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or trainer.location, coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3015,7 +2995,7 @@ do
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or vendor.location, coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3042,7 +3022,7 @@ do
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or mob.location, coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3063,7 +3043,7 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Quest(L["Quest"])..":", name)
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3072,7 +3052,7 @@ do
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or quest.location, coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3110,8 +3090,8 @@ do
 		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Rep(_G.REPUTATION)..":",
-				       private.reputation_list[rep_id].name)
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION)..":",
+				       SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3132,7 +3112,7 @@ do
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or rep_vendor.location, coord_text)
+		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3153,7 +3133,7 @@ do
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local t = AcquireTable()
 
-		t.text = PADDING .. addon:Normal(private.custom_list[id_num].name)
+		t.text = PADDING .. addon:Normal(SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name))
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
