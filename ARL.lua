@@ -1711,7 +1711,7 @@ do
 					recipe.is_known = true
 					recipes_found = recipes_found + 1
 				else
-					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))
+					self:Debug(tradeName .. " " .. SpellString .. self:White(L["MissingFromDB"]))
 				end
 			end
 		end
