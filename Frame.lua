@@ -111,6 +111,9 @@ local FACTION_HORDE		= BFAC["Horde"]
 local FACTION_ALLIANCE		= BFAC["Alliance"]
 local FACTION_NEUTRAL		= BFAC["Neutral"]
 
+local CATEGORY_COLORS		= private.category_colors
+local BASIC_COLORS		= private.basic_colors
+
 -------------------------------------------------------------------------------
 -- Acquire flag constants.
 -------------------------------------------------------------------------------
