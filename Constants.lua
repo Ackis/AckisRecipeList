@@ -306,7 +306,7 @@ private.category_colors = {
 	["mobdrop"]	= "ffffc0",
 	["quest"]	= "2359ff",
 	["reputation"]	= "d9ab6a",
-	["season"]	= "80590e",
+	["seasonal"]	= "80590e",
 	["trainer"]	= "d9cb9e",
 	["vendor"]	= "aad372",
 
