@@ -3071,11 +3071,60 @@ do
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
+	local function ExpandReputationData(entry_index, entry_type, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
+		local rep_vendor = private.vendor_list[vendor_id]
+
+		if not CanDisplayFaction(rep_vendor.faction) then
+			return entry_index
+		end
+
+		if not faction_strings then
+			local rep_color = private.reputation_colors
+
+			faction_strings = {
+				[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
+				[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
+				[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
+				[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
+				[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
+			}
+		end
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Rep(_G.REPUTATION)..":",
+				       private.reputation_list[rep_id].name)
+		t.recipe_id = recipe_id
+
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+
+		t = AcquireTable()
+		t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
+		t.recipe_id = recipe_id
+
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+
+		local coord_text = ""
+
+		if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+			coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
+		end
+
+		if coord_text == "" and hide_location then
+			return entry_index
+		end
+		t = AcquireTable()
+		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or rep_vendor.location, coord_text)
+		t.recipe_id = recipe_id
+
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+	end
+
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 
 		local obtain_filters = addon.db.profile.filters.obtain
-		local rep_color = private.reputation_colors
 
 		if acquire_type == A.TRAINER and obtain_filters.trainer then
 			for id_num in pairs(acquire_data) do
@@ -3099,49 +3148,10 @@ do
 				entry_index = ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.REPUTATION then
-			if not faction_strings then
-				faction_strings = {
-					[0] = SetTextColor(rep_color["neutral"], FACTION_NEUTRAL .. " : "),
-					[1] = SetTextColor(rep_color["friendly"], BFAC["Friendly"] .. " : "),
-					[2] = SetTextColor(rep_color["honored"], BFAC["Honored"] .. " : "),
-					[3] = SetTextColor(rep_color["revered"], BFAC["Revered"] .. " : "),
-					[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
-				}
-			end
-
 			for rep_id, rep_info in pairs(acquire_data) do
 				for rep_level, level_info in pairs(rep_info) do
 					for vendor_id in pairs(level_info) do
-						local rep_vendor = private.vendor_list[vendor_id]
-
-						if CanDisplayFaction(rep_vendor.faction) then
-							local t = AcquireTable()
-
-							t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Rep(_G.REPUTATION)..":",
-									       private.reputation_list[rep_id].name)
-							t.recipe_id = recipe_id
-
-							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-
-							local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
-
-							t = AcquireTable()
-							t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
-							t.recipe_id = recipe_id
-
-							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-
-							local coord_text = ""
-
-							if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-								coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
-							end
-							t = AcquireTable()
-							t.text = PADDING .. PADDING .. PADDING .. rep_vendor.location .. " " .. coord_text
-							t.recipe_id = recipe_id
-
-							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-						end
+						entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
 					end
 				end
 			end
@@ -3278,6 +3288,14 @@ do
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as "World Events".
 							entry_index = ExpandSeasonalData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
+						elseif acquire_type == A.REPUTATION then
+							for rep_level, level_info in pairs(info) do
+								for vendor_id in pairs(level_info) do
+									if private.vendor_list[vendor_id].location == location_id then
+										entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, id_num, rep_level, recipe_id, true)
+									end
+								end
+							end
 						end
 					end
 				end
