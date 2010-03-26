@@ -3301,6 +3301,7 @@ do
 						local expand = false
 						local type = "subheader"
 
+						-- Add World Drop entries as normal entries - expanding them would only show "World Drop", which we already know.
 						if location_id == L["World Drop"] then
 							expand = true
 							type = "entry"
@@ -3316,14 +3317,19 @@ do
 				local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
-					for id_num in pairs(acquire_data) do
-
+					for id_num, info in pairs(acquire_data) do
+						-- Only expand an acquisition entry if it is from this location.
 						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
 							entry_index = ExpandTrainerData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						elseif acquire_type == A.MOB and private.mob_list[id_num].location == location_id then
 							entry_index = ExpandMobData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
+							entry_index = ExpandQuestData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
+							-- Hide the acquire type for this - it will already show up in the location list as "World Events".
+							entry_index = ExpandSeasonalData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
 						end
 					end
 				end
