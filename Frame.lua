@@ -663,19 +663,20 @@ do
 		local medium_level = recipe_entry.medium_level
 		local easy_level = recipe_entry.easy_level
 		local trivial_level = recipe_entry.trivial_level
+		local difficulty = private.difficulty_colors
 
 		if recipe_level > skill_level then
-			color_2 = addon:hexcolor("RED")
+			color_2 = "|cff"..difficulty["impossible"]
 		elseif skill_level >= trivial_level then
-			color_2 = addon:hexcolor("MIDGREY")
+			color_2 = "|cff"..difficulty["trivial"]
 		elseif skill_level >= easy_level then
-			color_2 = addon:hexcolor("GREEN")
+			color_2 = "|cff"..difficulty["easy"]
 		elseif skill_level >= medium_level then
-			color_2 = addon:hexcolor("YELLOW")
+			color_2 = "|cff"..difficulty["medium"]
 		elseif skill_level >= optimal_level then
-			color_2 = addon:hexcolor("ORANGE")
+			color_2 = "|cff"..difficulty["optimal"]
 		else
-			color_2 = addon:hexcolor("MIDGREY")
+			color_2 = "|cff"..difficulty["trivial"]
 		end
 		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe_entry.skill_level, color_2)
 
