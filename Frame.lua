@@ -581,30 +581,18 @@ do
 	local function GetTipFactionInfo(comp_faction)
 		local display_tip
 		local color
-		local faction
 
-		if comp_faction == FACTION_HORDE then
-			color = addon:hexcolor("HORDE")
-
-			if Player.faction == FACTION_HORDE then
-				display_tip = true
-			else
-				faction = FACTION_HORDE
-			end
-		elseif comp_faction == FACTION_ALLIANCE then
-			color = addon:hexcolor("ALLIANCE")
-
-			if Player.faction == FACTION_ALLIANCE then
-				display_tip = true
-			else
-				faction = FACTION_ALLIANCE
-			end
-		else
+		if comp_faction == FACTION_NEUTRAL then
 			color = "|cff"..private.reputation_colors["neutral"]
-			faction = FACTION_NEUTRAL
+			display_tip = true
+		elseif comp_faction == BFAC[Player.faction] then
+			color = "|cff"..private.reputation_colors["exalted"]
+			display_tip = true
+		else
+			color = "|cff"..private.reputation_colors["hated"]
 			display_tip = true
 		end
-		return display_tip, color, faction
+		return display_tip, color
 	end
 
 	function GenerateTooltipContent(owner, rIndex)
@@ -736,10 +724,9 @@ do
 				for id_num in pairs(acquire_info) do
 					local vendor = private.vendor_list[id_num]
 					local display_tip = false
-					local faction
 
 					color_1 = addon:hexcolor("VENDOR")
-					display_tip, color_2, faction = GetTipFactionInfo(vendor.faction)
+					display_tip, color_2 = GetTipFactionInfo(vendor.faction)
 
 					if display_tip then
 						local coord_text = ""
@@ -753,8 +740,8 @@ do
 						color_2 = addon:hexcolor("HIGH")
 
 						ttAdd(1, -2, true, vendor.location, color_1, coord_text, color_2)
-					elseif faction then
-						ttAdd(0, -1, false, faction.." "..L["Vendor"], color_1)
+					else
+						ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], color_1)
 					end
 				end
 			elseif acquire_type == A.MOB then
@@ -781,10 +768,9 @@ do
 
 					if quest then
 						local display_tip = false
-						local faction
 
 						color_1 = addon:hexcolor("QUEST")
-						display_tip, color_2, faction = GetTipFactionInfo(quest.faction)
+						display_tip, color_2 = GetTipFactionInfo(quest.faction)
 
 						if display_tip then
 							local coord_text = ""
@@ -798,8 +784,8 @@ do
 							color_2 = addon:hexcolor("HIGH")
 
 							ttAdd(1, -2, true, quest.location, color_1, coord_text, color_2)
-						elseif faction then
-							ttAdd(0, -1, false, faction.." "..L["Quest"], color_1)
+						else
+							ttAdd(0, -1, false, quest.faction.." "..L["Quest"], color_1)
 						end
 					end
 				end
