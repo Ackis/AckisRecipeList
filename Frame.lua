@@ -2602,7 +2602,7 @@ do
 			level_text = string.format(SetTextColor(difficulty["optimal"], SKILL_LEVEL_FORMAT), recipe_level)
 		else
 			addon:Debug("Skill level color fallback: %s.", recipe_string)
-			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
 		end
 		local sort_type = addon.db.profile.sorting
 		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
