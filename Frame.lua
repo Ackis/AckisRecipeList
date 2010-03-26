@@ -3034,6 +3034,33 @@ do
 		return entry_index
 	end
 
+	local function ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local mob = private.mob_list[id_num]
+
+		local coord_text = ""
+
+		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+			coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
+		end
+
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name), hide_location and coord_text or "")
+		t.recipe_id = recipe_id
+
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+
+		if not hide_location then
+			t = AcquireTable()
+			t.text = PADDING .. PADDING .. mob.location .. " " .. coord_text
+			t.recipe_id = recipe_id
+
+			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		end
+		return entry_index
+	end
+
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 
@@ -3042,35 +3069,16 @@ do
 
 		if acquire_type == A.TRAINER and obtain_filters.trainer then
 			for id_num in pairs(acquire_data) do
-				entry_index = ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_type)
+				entry_index = ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 			for id_num in pairs(acquire_data) do
-				entry_index = ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_type)
+				entry_index = ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
 			-- Mobs can be in instances, raids, or specific mob related drops.
 			for id_num in pairs(acquire_data) do
-				local mob = private.mob_list[id_num]
-
-				local t = AcquireTable()
-
-				t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name))
-				t.recipe_id = recipe_id
-
-				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-
-				local coord_text = ""
-
-				if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-					coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
-				end
-
-				t = AcquireTable()
-				t.text = PADDING .. PADDING .. mob.location .. " " .. coord_text
-				t.recipe_id = recipe_id
-
-				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+				entry_index = ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.QUEST and obtain_filters.quest then
 			for id_num in pairs(acquire_data) do
@@ -3328,6 +3336,8 @@ do
 							entry_index = ExpandTrainerData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+						elseif acquire_type == A.MOB and private.mob_list[id_num].location == location_id then
+							entry_index = ExpandMobData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						end
 					end
 				end
