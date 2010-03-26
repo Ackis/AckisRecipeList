@@ -2973,12 +2973,14 @@ do
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
+		if coord_text == "" and hide_location then
+			return entry_index
+		end
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or trainer.location, coord_text)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		return entry_index
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
@@ -3004,12 +3006,14 @@ do
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
+		if coord_text == "" and hide_location then
+			return entry_index
+		end
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or vendor.location, coord_text)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		return entry_index
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
@@ -3029,12 +3033,14 @@ do
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
+		if coord_text == "" and hide_location then
+			return entry_index
+		end
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or mob.location, coord_text)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		return entry_index
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3057,12 +3063,14 @@ do
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
+		if coord_text == "" and hide_location then
+			return entry_index
+		end
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or quest.location, coord_text)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		return entry_index
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
