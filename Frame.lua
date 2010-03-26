@@ -3291,8 +3291,8 @@ do
 						local expand = false
 						local type = "subheader"
 
-						-- Add World Drop entries as normal entries - expanding them would only show "World Drop", which we already know.
-						if location_id == L["World Drop"] then
+						-- Add World Drop and Custom entries as normal entries.
+						if location_id == _G.MISCELLANEOUS or location_id == L["World Drop"] then
 							expand = true
 							type = "entry"
 						end
@@ -3306,6 +3306,7 @@ do
 			elseif list_entry.type == "subheader" then
 				local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
+				-- World Drops and Custom entries are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
 					for id_num, info in pairs(acquire_data) do
 						-- Only expand an acquisition entry if it is from this location.
