@@ -265,7 +265,7 @@ private.faction_strings = {
 -- Colors.
 -------------------------------------------------------------------------------
 local function RGBtoHEX(r, g, b)
-	return string.format("%2x%2x%2x", r * 255, g * 255, b * 255)
+	return string.format("%02x%02x%02x", r * 255, g * 255, b * 255)
 end
 
 local function GetColorsFromTable(dict)
@@ -283,10 +283,36 @@ private.reputation_colors = {
 	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
 }
 
+-- Recipe difficulty colors.
 private.difficulty_colors = {
 	["trivial"]	= "808080",
 	["easy"]	= "40bf40",
 	["medium"]	= "ffff00",
 	["optimal"]	= "ff8040",
 	["impossible"]	= "ff0000",
+}
+
+private.basic_colors = {
+	["grey"]	= "666666",
+	["white"]	= "ffffff",
+	["yellow"]	= "ffff00",
+	["normal"]	= "ffd100",
+}
+
+-- Colors used in tooltips and the recipe list.
+private.category_colors = {
+	-- Acquire type colors
+	["custom"]	= "ffcc99",
+	["mobdrop"]	= "ffffc0",
+	["quest"]	= "2359ff",
+	["reputation"]	= "d9ab6a",
+	["season"]	= "80590e",
+	["trainer"]	= "d9cb9e",
+	["vendor"]	= "aad372",
+
+	-- Miscellaneous
+	["coords"]	= "d4c8b8",
+	["location"]	= "ffecc1",
+	["repname"]	= "6a9ad9",
+
 }
