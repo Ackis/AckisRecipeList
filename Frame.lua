@@ -840,7 +840,7 @@ do
 		acquire_tip:AddSeparator()
 		acquire_tip:AddSeparator()
 
---		color_1 = BASIC_COLORS["normal"]
+		-- Give the tooltip hint a unique color.
 		color_1 = "c9c781"
 
 		ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
@@ -937,10 +937,10 @@ function MainPanel:HighlightCategory(target)
 		local toggle = "menu_toggle_" .. category
 
 		if target == category then
-			self[toggle].text:SetText(addon:White(CATEGORY_TEXT[category]))
+			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["white"], CATEGORY_TEXT[category]))
 		elseif category ~= 0 and category ~= "texture" then
 			self[toggle]:SetChecked(false)
-			self[toggle].text:SetText(addon:Yellow(CATEGORY_TEXT[category]))
+			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
 		end
 	end
 end
@@ -1028,7 +1028,7 @@ end
 
 function MainPanel:UpdateTitle()
 	if not self.is_expanded then
-		self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s"), addon.version, Player.current_prof)
+		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (v.%s) - %s"), addon.version, Player.current_prof)
 		return
 	end
 	local total, active = 0, 0
@@ -1041,7 +1041,7 @@ function MainPanel:UpdateTitle()
 			total = total + 1
 		end
 	end
-	self.title_bar:SetFormattedText(addon:Normal("ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
+	self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
 end
 
 -------------------------------------------------------------------------------
@@ -1584,7 +1584,7 @@ do
 			end
 			ChangeFilters = true
 		else
-			MainPanel[toggle].text:SetText(addon:Yellow(CATEGORY_TEXT[panel]))
+			MainPanel[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[panel]))
 			ChangeFilters = false
 		end
 
@@ -1653,7 +1653,7 @@ do
 
 		-- Create the text object to go along with it
 		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
-		cbText:SetText(addon:Yellow(CATEGORY_TEXT[category]))
+		cbText:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
 		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
 		cbText:SetHeight(14)
 		cbText:SetWidth(100)
@@ -2103,7 +2103,7 @@ MainPanel.filter_menu.item.fist.text:SetText(L["Fist"])
 
 MainPanel.filter_menu.item.staff = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
 InitializeCheckButton(MainPanel.filter_menu.item.staff, MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1, 0)
-MainPanel.filter_menu.item.staff.text:SetText(addon:Grey(L["Staff"]))
+MainPanel.filter_menu.item.staff.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Staff"]))
 MainPanel.filter_menu.item.staff:Disable()
 
 MainPanel.filter_menu.item.wand = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
@@ -2116,12 +2116,12 @@ MainPanel.filter_menu.item.thrown.text:SetText(L["Thrown"])
 
 MainPanel.filter_menu.item.bow = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
 InitializeCheckButton(MainPanel.filter_menu.item.bow, MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2, 0)
-MainPanel.filter_menu.item.bow.text:SetText(addon:Grey(L["Bow"]))
+MainPanel.filter_menu.item.bow.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Bow"]))
 MainPanel.filter_menu.item.bow:Disable()
 
 MainPanel.filter_menu.item.crossbow = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
 InitializeCheckButton(MainPanel.filter_menu.item.crossbow, MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1, 0)
-MainPanel.filter_menu.item.crossbow.text:SetText(addon:Grey(L["Crossbow"]))
+MainPanel.filter_menu.item.crossbow.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]))
 MainPanel.filter_menu.item.crossbow:Disable()
 
 MainPanel.filter_menu.item.ammo = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
@@ -2949,11 +2949,11 @@ do
 		local coord_text = ""
 
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-			coord_text = addon:Coords("(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")")
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Trainer(L["Trainer"])..":", name)
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -2982,11 +2982,11 @@ do
 		local coord_text = ""
 
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-			coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3009,11 +3009,11 @@ do
 		local coord_text = ""
 
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-			coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3039,7 +3039,7 @@ do
 		local coord_text = ""
 
 		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-			coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
 		end
 		local t = AcquireTable()
 
@@ -3105,7 +3105,7 @@ do
 		local coord_text = ""
 
 		if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-			coord_text = addon:Coords("(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
+			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")")
 		end
 
 		if coord_text == "" and hide_location then
@@ -3133,7 +3133,7 @@ do
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local t = AcquireTable()
 
-		t.text = PADDING .. addon:Normal(SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name))
+		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
 		t.recipe_id = recipe_id
 
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -3804,7 +3804,7 @@ function addon:InitializeFrame()
 	InitializeCheckButton(ARL_WrathCommon5CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), "wrathcommon5", 4, 1, 0)
 	ARL_WrathCommon5CBText:SetText(Explorer_Hand_FactionText)
 	ARL_WrathCommon5CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon5CBText:SetText(addon:Grey(Explorer_Hand_FactionText))
+	ARL_WrathCommon5CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Explorer_Hand_FactionText))
 	ARL_WrathCommon5CB:Disable()
 
 	local ARL_RepFrenzyheartCB = CreateFrame("CheckButton", "ARL_RepFrenzyheartCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
@@ -3836,7 +3836,7 @@ function addon:InitializeFrame()
 	InitializeCheckButton(ARL_WrathCommon2CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], SilverCov_Sunreaver_FactionText), "wrathcommon2", 10, 1, 0)
 	ARL_WrathCommon2CBText:SetText(SilverCov_Sunreaver_FactionText)
 	ARL_WrathCommon2CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon2CBText:SetText(addon:Grey(SilverCov_Sunreaver_FactionText))
+	ARL_WrathCommon2CBText:SetText(SetTextColor(BASIC_COLORS["grey"], SilverCov_Sunreaver_FactionText))
 	ARL_WrathCommon2CB:Disable()
 
 	local ARL_RepSonsOfHodirCB = CreateFrame("CheckButton", "ARL_RepSonsOfHodirCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
@@ -3848,14 +3848,14 @@ function addon:InitializeFrame()
 	InitializeCheckButton(ARL_WrathCommon4CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), "wrathcommon4", 12, 1, 0)
 	ARL_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
 	ARL_WrathCommon4CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon4CBText:SetText(addon:Grey(Frostborn_Taunka_FactionText))
+	ARL_WrathCommon4CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Frostborn_Taunka_FactionText))
 	ARL_WrathCommon4CB:Disable()
 
 	local ARL_WrathCommon3CB = CreateFrame("CheckButton", "ARL_WrathCommon3CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon3CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), "wrathcommon3", 13, 1, 0)
 	ARL_WrathCommon3CBText:SetText(Valiance_Warsong_FactionText)
 	ARL_WrathCommon3CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon3CBText:SetText(addon:Grey(Valiance_Warsong_FactionText))
+	ARL_WrathCommon3CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Valiance_Warsong_FactionText))
 	ARL_WrathCommon3CB:Disable()
 
 	local ARL_RepWyrmrestCB = CreateFrame("CheckButton", "ARL_RepWyrmrestCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
