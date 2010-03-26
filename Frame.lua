@@ -3143,6 +3143,27 @@ do
 		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
+	local function ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s%s|r", PADDING, hex_color, L["World Drop"])
+		t.recipe_id = recipe_id
+
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+	end
+
+	local function ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local t = AcquireTable()
+
+		t.text = PADDING .. addon:Normal(private.custom_list[id_num].name)
+		t.recipe_id = recipe_id
+
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+	end
+
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 
@@ -3180,24 +3201,13 @@ do
 		elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
 			if not hide_type then
 				for id_num in pairs(acquire_data) do
-					local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
-					local t = AcquireTable()
-
-					t.text = PADDING..hex_color..L["World Drop"].."|r"
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+					entry_index = ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 				end
 			end
 		elseif acquire_type == A.CUSTOM then
 			if not hide_type then
 				for id_num in pairs(acquire_data) do
-					local t = AcquireTable()
-
-					t.text = PADDING .. addon:Normal(private.custom_list[id_num].name)
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+					entry_index = ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 				end
 			end
 			--@alpha@
