@@ -2525,7 +2525,7 @@ do
 			local button_index = 1
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(MainPanel.scroll_frame)
 
-			while button_index <= NUM_RECIPE_LINES do
+			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
 				local cur_state = MainPanel.scroll_frame.state_buttons[button_index]
 				local cur_button = MainPanel.scroll_frame.entry_buttons[button_index]
 
@@ -2537,6 +2537,7 @@ do
 					break
 				end
 				button_index = button_index + 1
+				string_index = string_index + 1
 			end
 		end
 	end
