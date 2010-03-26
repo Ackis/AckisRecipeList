@@ -304,14 +304,14 @@ private.category_colors = {
 	-- Acquire type colors
 	["custom"]	= "ffcc99",
 	["mobdrop"]	= "ffffc0",
-	["quest"]	= "2359ff",
+	["quest"]	= "73b7ff",
 	["reputation"]	= "d9ab6a",
 	["seasonal"]	= "80590e",
-	["trainer"]	= "d9cb9e",
+	["trainer"]	= "9cbf60",
 	["vendor"]	= "aad372",
 
 	-- Miscellaneous
-	["coords"]	= "d4c8b8",
+	["coords"]	= "d1ce6f",
 	["location"]	= "ffecc1",
 	["repname"]	= "6a9ad9",
 
