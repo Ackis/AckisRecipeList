@@ -2587,17 +2587,18 @@ do
 		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
 		local has_faction = Player:HasProperRepLevel(rep_data)
 		local level_text
+		local difficulty = private.difficulty_colors
 
 		if not has_faction or recipe_level > skill_level then
-			level_text = string.format(addon:Red(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["impossible"], SKILL_LEVEL_FORMAT), recipe_level)
 		elseif skill_level >= recipe_entry.trivial_level then
-			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
 		elseif skill_level >= recipe_entry.easy_level then
-			level_text = string.format(addon:Green(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["easy"], SKILL_LEVEL_FORMAT), recipe_level)
 		elseif skill_level >= recipe_entry.medium_level then
-			level_text = string.format(addon:Yellow(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["medium"], SKILL_LEVEL_FORMAT), recipe_level)
 		elseif skill_level >= recipe_entry.optimal_level then
-			level_text = string.format(addon:Orange(SKILL_LEVEL_FORMAT), recipe_level)
+			level_text = string.format(SetTextColor(difficulty["optimal"], SKILL_LEVEL_FORMAT), recipe_level)
 		else
 			addon:Debug("Skill level color fallback: %s.", recipe_string)
 			level_text = string.format(addon:MidGrey(SKILL_LEVEL_FORMAT), recipe_level)
