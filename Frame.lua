@@ -2954,12 +2954,12 @@ do
 
 	-- Changes the color of "name" based on faction type.
 	local function ColorNameByFaction(name, faction)
-		if faction == FACTION_HORDE then
-			name = addon:Horde(name)
-		elseif faction == FACTION_ALLIANCE then
-			name = addon:Alliance(name)
-		else
+		if faction == FACTION_NEUTRAL then
 			name = SetTextColor(private.reputation_colors["neutral"], name)
+		elseif faction == BFAC[Player.faction] then
+			name = SetTextColor(private.reputation_colors["exalted"], name)
+		else
+			name = SetTextColor(private.reputation_colors["hated"], name)
 		end
 		return name
 	end
