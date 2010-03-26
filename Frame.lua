@@ -753,7 +753,7 @@ do
 						coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
 					end
 					color_1 = addon:hexcolor("MOBDROP")
-					color_2 = addon:hexcolor("HORDE")
+					color_2 = "|cff"..private.reputation_colors["hostile"]
 
 					ttAdd(0, -1, false, L["Mob Drop"], color_1, mob.name, color_2)
 
