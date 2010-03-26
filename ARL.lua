@@ -489,64 +489,29 @@ function addon:OnInitialize()
 				       return
 			       end
 			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
-			       local mob = private.mob_list[GUID]
+			       local unit = private.mob_list[GUID] or private.vendor_list[GUID] or private.trainer_list[GUID]
+
+			       if not unit or not unit.item_list then
+				       return
+			       end
 			       local recipe_list = private.recipe_list
 			       local shifted = IsShiftKeyDown()
 
-			       if mob and mob.item_list then
-				       for spell_id in pairs(mob.item_list) do
-					       local recipe = recipe_list[spell_id]
-					       local skill_level = Player.professions[GetSpellInfo(recipe.profession)]
+			       for spell_id in pairs(unit.item_list) do
+				       local recipe = recipe_list[spell_id]
+				       local recipe_prof = GetSpellInfo(recipe.profession)
+				       local scanned = Player.has_scanned[recipe_prof]
 
-					       if skill_level and not recipe.is_known or shifted then
+				       if scanned then
+					       local skill_level = Player.professions[recipe_prof]
+					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
+
+					       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
-						       self:AddLine("Drops: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
+						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
 					       end
 				       end
-				       return
-			       end
-			       local vendor = private.vendor_list[GUID]
-
-			       if vendor and vendor.item_list then
-				       for spell_id in pairs(vendor.item_list) do
-					       local recipe = recipe_list[spell_id]
-					       local recipe_prof = GetSpellInfo(recipe.profession)
-					       local scanned = Player.has_scanned[recipe_prof]
-
-					       if scanned then
-						       local skill_level = Player.professions[recipe_prof]
-						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
-
-						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-							       local _, _, _, hex = GetItemQualityColor(recipe.quality)
-
-							       self:AddLine("Sells: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
-						       end
-					       end
-				       end
-				       return
-			       end
-			       local trainer = private.trainer_list[GUID]
-
-			       if trainer and trainer.item_list then
-				       for spell_id in pairs(trainer.item_list) do
-					       local recipe = recipe_list[spell_id]
-					       local recipe_prof = GetSpellInfo(recipe.profession)
-					       local scanned = Player.has_scanned[recipe_prof]
-
-					       if scanned then
-						       local skill_level = Player.professions[recipe_prof]
-						       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
-
-						       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
-							       local _, _, _, hex = GetItemQualityColor(recipe.quality)
-
-							       self:AddLine("Trains: "..hex..recipe.name.."|r ("..recipe.skill_level..")")
-						       end
-					       end
-				       end
-				       return
 			       end
 		       end)
 end
