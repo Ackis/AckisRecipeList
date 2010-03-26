@@ -2413,6 +2413,30 @@ do
 	highlight._texture:SetBlendMode("ADD")
 	highlight._texture:SetAllPoints(highlight)
 
+	local function Button_OnEnter(self)
+		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+	end
+
+	local function Button_OnLeave()
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
+	end
+
+	local function Bar_OnEnter(self)
+		highlight:SetParent(self)
+		highlight:SetAllPoints(self)
+		highlight:Show()
+		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+	end
+
+	local function Bar_OnLeave()
+		highlight:Hide()
+		highlight:ClearAllPoints()
+		highlight:SetParent(nil)
+		QTip:Release(acquire_tip)
+		spell_tip:Hide()
+	end
+
 	local function ListItem_OnClick(self, button)
 		local clickedIndex = self.string_index
 
@@ -2536,30 +2560,6 @@ do
 		MainPanel.scroll_frame.button_containers[i] = cur_container
 		MainPanel.scroll_frame.state_buttons[i] = cur_state
 		MainPanel.scroll_frame.entry_buttons[i] = cur_entry
-	end
-
-	local function Button_OnEnter(self)
-		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
-	end
-
-	local function Button_OnLeave()
-		QTip:Release(acquire_tip)
-		spell_tip:Hide()
-	end
-
-	local function Bar_OnEnter(self)
-		highlight:SetParent(self)
-		highlight:SetAllPoints(self)
-		highlight:Show()
-		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
-	end
-
-	local function Bar_OnLeave()
-		highlight:Hide()
-		highlight:ClearAllPoints()
-		highlight:SetParent(nil)
-		QTip:Release(acquire_tip)
-		spell_tip:Hide()
 	end
 
 	local SKILL_LEVEL_FORMAT = "[%d]"
