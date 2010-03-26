@@ -3013,7 +3013,6 @@ do
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
 			coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 		end
-
 		local t = AcquireTable()
 
 		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:Vendor(L["Vendor"])..":", name, hide_location and coord_text or "")
@@ -3032,15 +3031,14 @@ do
 	end
 
 	local function ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local mob = private.mob_list[id_num]
 
+		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local coord_text = ""
 
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 			coord_text = addon:Coords("(" .. mob.coord_x .. ", " .. mob.coord_y .. ")")
 		end
-
 		local t = AcquireTable()
 
 		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name), hide_location and coord_text or "")
@@ -3056,6 +3054,46 @@ do
 			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 		end
 		return entry_index
+	end
+
+	local function ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+		local quest = private.quest_list[id_num]
+
+		if not CanDisplayFaction(quest.faction) then
+			return entry_index
+		end
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local name = ColorNameByFaction(quest.name, quest.faction)
+		local coord_text = ""
+
+		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
+			coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
+		end
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:Quest(L["Quest"])..":", name, hide_location and coord_text or "")
+		t.recipe_id = recipe_id
+
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+
+		if not hide_location then
+			t = AcquireTable()
+			t.text = PADDING .. PADDING .. quest.location .. " " .. coord_text
+			t.recipe_id = recipe_id
+
+			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		end
+		return entry_index
+	end
+
+	local function ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
+		t.recipe_id = recipe_id
+
+		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
@@ -3079,39 +3117,11 @@ do
 			end
 		elseif acquire_type == A.QUEST and obtain_filters.quest then
 			for id_num in pairs(acquire_data) do
-				local quest = private.quest_list[id_num]
-
-				if CanDisplayFaction(quest.faction) then
-					local name = ColorNameByFaction(quest.name, quest.faction)
-
-					local t = AcquireTable()
-
-					t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Quest(L["Quest"])..":", name)
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-
-					local coord_text = ""
-
-					if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
-						coord_text = addon:Coords("(" .. quest.coord_x .. ", " .. quest.coord_y .. ")")
-					end
-
-					t = AcquireTable()
-					t.text = PADDING .. PADDING .. quest.location .. " " .. coord_text
-					t.recipe_id = recipe_id
-
-					entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-				end
+				entry_index = ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
 			for id_num in pairs(acquire_data) do
-				local t = AcquireTable()
-
-				t.text = string.format("%s%s %s", PADDING, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
-				t.recipe_id = recipe_id
-
-				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+				entry_index = ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			end
 		elseif acquire_type == A.REPUTATION then
 			if not faction_strings then
