@@ -95,7 +95,6 @@ local CATEGORY_TEXT = {
 	["misc"]	= _G.MISCELLANEOUS
 }
 
-local NUM_PROFESSIONS		= 12
 local NUM_RECIPE_LINES		= 24			-- Number of visible lines in the scrollframe.
 local SEASONAL_CATEGORY		= GetCategoryInfo(155)	-- Localized string - "World Events"
 
@@ -1095,6 +1094,8 @@ MainPanel.mode_button:SetScript("OnClick",
 					local startLoop = 0
 					local endLoop = 0
 					local displayProf = 0
+
+					local NUM_PROFESSIONS = 12
 
 					-- ok, so first off, if we've never done this before, there is no "current"
 					-- and a single iteration will do nicely, thank you
