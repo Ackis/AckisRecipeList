@@ -225,6 +225,13 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
+-- Common to many functions throughout the file.
+-------------------------------------------------------------------------------
+local function SetTextColor(color_code, text)
+	return string.format("|cff%s%s|r", color_code or "ffffff", text)
+end
+
+-------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
 local SetTooltipScripts
@@ -458,13 +465,6 @@ do
 	end
 
 end	-- do
-
--------------------------------------------------------------------------------
--- Common to the tooltip and MainPanel list entries.
--------------------------------------------------------------------------------
-local function SetTextColor(color_code, text)
-	return string.format("|cff%s%s|r", color_code or "ffffff", text)
-end
 
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
