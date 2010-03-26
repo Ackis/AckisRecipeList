@@ -282,3 +282,11 @@ private.reputation_colors = {
 	["hostile"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[2])),
 	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
 }
+
+private.difficulty_colors = {
+	["trivial"]	= "808080",
+	["easy"]	= "40bf40",
+	["medium"]	= "ffff00",
+	["optimal"]	= "ff8040",
+	["impossible"]	= "ff0000",
+}
