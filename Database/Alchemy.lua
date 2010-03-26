@@ -757,8 +757,8 @@ function addon:InitAlchemy()
 
 	-- Elixir of Empowerment -- 28578
 	AddRecipe(28578, 365, 22848, Q.UNCOMMON, V.TBC, 365, 375, 377, 380)
-	self:AddRecipeFlags(28578, F.ALLIANCE, F.HORDE, F.TRAINER, F.MOB_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28578, A.MOB, 24664)
+	self:AddRecipeFlags(28578, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(28578, A.MOB, 24664, A.WORLD_DROP, 2)
 
 	-- Ironshield Potion -- 28579
 	AddRecipe(28579, 365, 22849, Q.UNCOMMON, V.TBC, 365, 375, 377, 380)
