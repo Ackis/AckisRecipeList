@@ -2931,7 +2931,7 @@ do
 	-------------------------------------------------------------------------------
 	local faction_strings
 
-	local function CheckDisplayFaction(faction)
+	local function CanDisplayFaction(faction)
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
@@ -2970,7 +2970,7 @@ do
 	local function ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
 		
-		if not CheckDisplayFaction(trainer.faction) then
+		if not CanDisplayFaction(trainer.faction) then
 			return entry_index
 		end
 		local parent_entry = GetParentEntry(entry_index, entry_type)
@@ -3003,7 +3003,7 @@ do
 	local function ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 		local vendor = private.vendor_list[id_num]
 
-		if not CheckDisplayFaction(vendor.faction) then
+		if not CanDisplayFaction(vendor.faction) then
 			return entry_index
 		end
 		local parent_entry = GetParentEntry(entry_index, entry_type)
@@ -3081,7 +3081,7 @@ do
 			for id_num in pairs(acquire_data) do
 				local quest = private.quest_list[id_num]
 
-				if CheckDisplayFaction(quest.faction) then
+				if CanDisplayFaction(quest.faction) then
 					local name = ColorNameByFaction(quest.name, quest.faction)
 
 					local t = AcquireTable()
@@ -3129,7 +3129,7 @@ do
 					for vendor_id in pairs(level_info) do
 						local rep_vendor = private.vendor_list[vendor_id]
 
-						if CheckDisplayFaction(rep_vendor.faction) then
+						if CanDisplayFaction(rep_vendor.faction) then
 							local t = AcquireTable()
 
 							t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Rep(_G.REPUTATION)..":",
@@ -3187,7 +3187,7 @@ do
 			for id_num in pairs(acquire_data) do
 				local vendor = private.vendor_list[id_num]
 
-				if CheckDisplayFaction(vendor.faction) then
+				if CanDisplayFaction(vendor.faction) then
 					local coord_text = ""
 
 					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
