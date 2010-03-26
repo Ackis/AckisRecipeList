@@ -3035,7 +3035,7 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name))
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
