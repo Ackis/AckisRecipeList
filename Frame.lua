@@ -2926,6 +2926,9 @@ do
 			end
 		end
 	end
+	-------------------------------------------------------------------------------
+	-- Functions and data pertaining to individual list entries.
+	-------------------------------------------------------------------------------
 	local faction_strings
 
 	local function CheckDisplayFaction(faction)
@@ -2952,6 +2955,18 @@ do
 	-- Padding for list entries/subentries
 	local PADDING = "    "
 
+	-- Changes the color of "name" based on faction type.
+	local function ColorNameByFaction(name, faction)
+		if faction == FACTION_HORDE then
+			name = addon:Horde(name)
+		elseif faction == FACTION_ALLIANCE then
+			name = addon:Alliance(name)
+		else
+			name = SetTextColor(private.reputation_colors["neutral"], name)
+		end
+		return name
+	end
+
 	local function ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
 		
@@ -2959,16 +2974,7 @@ do
 			return entry_index
 		end
 		local parent_entry = GetParentEntry(entry_index, entry_type)
-		local name = trainer.name
-
-		if trainer.faction == FACTION_HORDE then
-			name = addon:Horde(name)
-		elseif trainer.faction == FACTION_ALLIANCE then
-			name = addon:Alliance(name)
-		else
-			name = SetTextColor(private.reputation_colors["neutral"], name)
-		end
-
+		local name = ColorNameByFaction(trainer.name, trainer.faction)
 		local coord_text = ""
 
 		if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
@@ -2995,22 +3001,13 @@ do
 	-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 	-- This allows us to select PVP only and to see just the PVP recipes
 	local function ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local vendor = private.vendor_list[id_num]
 
 		if not CheckDisplayFaction(vendor.faction) then
 			return entry_index
 		end
-		local name = vendor.name
-
-		if vendor.faction == FACTION_HORDE then
-			name = addon:Horde(name)
-		elseif vendor.faction == FACTION_ALLIANCE then
-			name = addon:Alliance(name)
-		else
-			name = SetTextColor(private.reputation_colors["neutral"], name)
-		end
-
+		local parent_entry = GetParentEntry(entry_index, entry_type)
+		local name = ColorNameByFaction(vendor.name, vendor.faction)
 		local coord_text = ""
 
 		if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
@@ -3085,15 +3082,7 @@ do
 				local quest = private.quest_list[id_num]
 
 				if CheckDisplayFaction(quest.faction) then
-					local name = quest.name
-
-					if quest.faction == FACTION_HORDE then
-						name = addon:Horde(name)
-					elseif quest.faction == FACTION_ALLIANCE then
-						name = addon:Alliance(name)
-					else
-						name = SetTextColor(rep_color["neutral"], name)
-					end
+					local name = ColorNameByFaction(quest.name, quest.faction)
 
 					local t = AcquireTable()
 
@@ -3149,15 +3138,7 @@ do
 
 							entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
-							local name = ""
-
-							if rep_vendor.faction == FACTION_HORDE then
-								name = addon:Horde(rep_vendor.name)
-							elseif rep_vendor.faction == FACTION_ALLIANCE then
-								name = addon:Alliance(rep_vendor.name)
-							else
-								name = SetTextColor(rep_color["neutral"], rep_vendor.name)
-							end
+							local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 
 							t = AcquireTable()
 							t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
@@ -3212,15 +3193,7 @@ do
 					if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
 						coord_text = addon:Coords("(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 					end
-					local name = ""
-
-					if vendor.faction == FACTION_HORDE then
-						name = addon:Horde(vendor.name)
-					elseif vendor.faction == FACTION_ALLIANCE then
-						name = addon:Alliance(vendor.name)
-					else
-						name = SetTextColor(rep_color["neutral"], vendor.name)
-					end
+					local name = ColorNameByFaction(vendor.name, vendor.faction)
 
 					local t = AcquireTable()
 
