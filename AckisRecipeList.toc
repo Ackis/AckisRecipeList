@@ -65,7 +65,6 @@ locale.xml
 Constants.lua
 ARL.lua
 Config.lua
-Colour.lua
 Waypoint.lua
 Frame.lua
 Datamine.lua
