@@ -650,7 +650,7 @@ do
 		local exclude = addon.db.profile.exclusionlist
 
 		if exclude[rIndex] then
-			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], addon:hexcolor("RED"))
+			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "|cffff0000")
 		end
 
 		-- Add in skill level requirement, colored correctly
