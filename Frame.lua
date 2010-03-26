@@ -3027,6 +3027,7 @@ do
 		return entry_index
 	end
 
+	-- Mobs can be in instances, raids, or specific mob related drops.
 	local function ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 		local mob = private.mob_list[id_num]
 
@@ -3169,57 +3170,42 @@ do
 
 		local obtain_filters = addon.db.profile.filters.obtain
 
-		if acquire_type == A.TRAINER and obtain_filters.trainer then
-			for id_num in pairs(acquire_data) do
+		for id_num, info in pairs(acquire_data) do
+			if acquire_type == A.TRAINER and obtain_filters.trainer then
 				entry_index = ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			end
-		elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-			for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 				entry_index = ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			end
-		elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-			-- Mobs can be in instances, raids, or specific mob related drops.
-			for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
 				entry_index = ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			end
-		elseif acquire_type == A.QUEST and obtain_filters.quest then
-			for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				entry_index = ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			end
-		elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-			for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
 				entry_index = ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			end
-		elseif acquire_type == A.REPUTATION then
-			for rep_id, rep_info in pairs(acquire_data) do
-				for rep_level, level_info in pairs(rep_info) do
+			elseif acquire_type == A.REPUTATION then
+				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
-						entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
+						entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, id_num, rep_level, recipe_id, hide_location, hide_type)
 					end
 				end
-			end
-		elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
-			if not hide_type then
-				for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
+				if not hide_type then
 					entry_index = ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 				end
-			end
-		elseif acquire_type == A.CUSTOM then
-			if not hide_type then
-				for id_num in pairs(acquire_data) do
+			elseif acquire_type == A.CUSTOM then
+				if not hide_type then
 					entry_index = ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 				end
+				--@alpha@
+			elseif acquire_type > A_MAX then
+				local t = AcquireTable()
+
+				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
+				t.recipe_id = recipe_id
+
+				entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+				--@end-alpha@
 			end
-			--@alpha@
-		elseif acquire_type > A_MAX then
-			local t = AcquireTable()
-
-			t.text = "Unhandled Acquire Case - Type: " .. acquire_type
-			t.recipe_id = recipe_id
-
-			entry_index = self:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-			--@end-alpha@
-		end
+		end	-- for
 		return entry_index
 	end
 
