@@ -541,10 +541,10 @@ do
 		if str2 then
 			width = width / 2
 
-			acquire_tip:SetCell(line, 1, hexcolor1..leftStr.."|r", "LEFT", nil, nil, 0, 0, width, width)
-			acquire_tip:SetCell(line, 2, hexcolor2..str2.."|r", "RIGHT", nil, nil, 0, 0, width, width)
+			acquire_tip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", nil, nil, 0, 0, width, width)
+			acquire_tip:SetCell(line, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT", nil, nil, 0, 0, width, width)
 		else
-			acquire_tip:SetCell(line, 1, hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
+			acquire_tip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 	end
 
