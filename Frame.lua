@@ -3266,7 +3266,7 @@ do
 						local expand = false
 						local type = "subheader"
 
-						-- Add World Drop and Custom entries as normal entries.
+						-- Add World Drop and Custom entries with no location as normal entries.
 						if location_id == _G.MISCELLANEOUS or location_id == L["World Drop"] then
 							expand = true
 							type = "entry"
@@ -3281,7 +3281,7 @@ do
 			elseif list_entry.type == "subheader" then
 				local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
-				-- World Drops and Custom entries are not handled here because they are of type "entry".
+				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
 					for id_num, info in pairs(acquire_data) do
 						-- Only expand an acquisition entry if it is from this location.
@@ -3296,11 +3296,13 @@ do
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as "World Events".
 							entry_index = ExpandSeasonalData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
+						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
+							entry_index = ExpandCustomData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
 									if private.vendor_list[vendor_id].location == location_id then
-										entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, id_num, rep_level, recipe_id, true)
+										entry_index =  ExpandReputationData(entry_index, "subentry", vendor_id, id_num, rep_level, list_entry.recipe_id, true)
 									end
 								end
 							end
