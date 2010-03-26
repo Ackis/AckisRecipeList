@@ -530,21 +530,20 @@ do
 		local leftStr = str1
 
 		while loopPad > 0 do
-			leftStr = "  " .. leftStr
+			leftStr = "    " .. leftStr
 			loopPad = loopPad - 1
 		end
+		-- Set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
+		local width = math.ceil(fontSize * 37.5)
+		local line = acquire_tip:AddLine()
 
 		if str2 then
-			local lineNum = acquire_tip:AddLine()
+			width = width / 2
 
-			acquire_tip:SetCell(lineNum, 1, hexcolor1..leftStr.."|r")
-			acquire_tip:SetCell(lineNum, 2, hexcolor2..str2.."|r", "RIGHT")
+			acquire_tip:SetCell(line, 1, hexcolor1..leftStr.."|r", "LEFT", nil, nil, 0, 0, width, width)
+			acquire_tip:SetCell(line, 2, hexcolor2..str2.."|r", "RIGHT", nil, nil, 0, 0, width, width)
 		else
-			-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
-			local width = math.ceil(fontSize * 37.5)
-			local lineNum = acquire_tip:AddLine()
-
-			acquire_tip:SetCell(lineNum, 1, hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
+			acquire_tip:SetCell(line, 1, hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 	end
 
