@@ -2979,18 +2979,16 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:Trainer(L["Trainer"])..":", name, hide_location and coord_text or "")
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Trainer(L["Trainer"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
-		if not hide_location then
-			t = AcquireTable()
-			t.text = string.format("%s%s%s %s", PADDING, PADDING, trainer.location, coord_text)
-			t.recipe_id = recipe_id
+		t = AcquireTable()
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or trainer.location, coord_text)
+		t.recipe_id = recipe_id
 
-			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		end
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 		return entry_index
 	end
 
@@ -3012,18 +3010,16 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:Vendor(L["Vendor"])..":", name, hide_location and coord_text or "")
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Vendor(L["Vendor"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
-		if not hide_location then
-			t = AcquireTable()
-			t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or vendor.location, coord_text)
-			t.recipe_id = recipe_id
+		t = AcquireTable()
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or vendor.location, coord_text)
+		t.recipe_id = recipe_id
 
-			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		end
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 		return entry_index
 	end
 
@@ -3039,18 +3035,16 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name), hide_location and coord_text or "")
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:MobDrop(L["Mob Drop"])..":", addon:Red(mob.name))
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
-		if not hide_location then
-			t = AcquireTable()
-			t.text = PADDING .. PADDING .. mob.location .. " " .. coord_text
-			t.recipe_id = recipe_id
+		t = AcquireTable()
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or mob.location, coord_text)
+		t.recipe_id = recipe_id
 
-			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		end
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 		return entry_index
 	end
 
@@ -3069,18 +3063,16 @@ do
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s %s", PADDING, hide_type and "" or addon:Quest(L["Quest"])..":", name, hide_location and coord_text or "")
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or addon:Quest(L["Quest"])..":", name)
 		t.recipe_id = recipe_id
 
 		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
-		if not hide_location then
-			t = AcquireTable()
-			t.text = PADDING .. PADDING .. quest.location .. " " .. coord_text
-			t.recipe_id = recipe_id
+		t = AcquireTable()
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or quest.location, coord_text)
+		t.recipe_id = recipe_id
 
-			entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
-		end
+		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 		return entry_index
 	end
 
