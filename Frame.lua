@@ -2596,6 +2596,18 @@ do
 		return recipe_string
 	end
 
+	-- Used for the value portion of location_list or acquire_list entries.
+	function HasCredentials(affiliation)
+		local is_good = (affiliation == "world_drop" or type(affiliation) == "boolean") and true or false
+
+		if not is_good then
+			if addon.db.profile.filters.general.faction or affiliation == BFAC[Player.faction] or affiliation == BFAC["Neutral"] then
+				is_good = true
+			end
+		end
+		return is_good
+	end
+
 	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
@@ -2663,16 +2675,11 @@ do
 					local count = 0
 
 					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-					for spell_id, faction in pairs(private.acquire_list[acquire_type].recipes) do
+					for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 						local recipe = private.recipe_list[spell_id]
-						local has_faction = false
+						local can_display = HasCredentials(affiliation)
 
-						if type(faction) == "boolean"
-							or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-							has_faction = true
-						end
-
-						if has_faction and recipe.is_visible and recipe.is_relevant then
+						if can_display and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 
 							if not recipe_registry[recipe] then
@@ -2705,16 +2712,11 @@ do
 					local count = 0
 
 					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-					for spell_id, faction in pairs(private.location_list[loc_name].recipes) do
+					for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 						local recipe = private.recipe_list[spell_id]
-						local has_faction = false
+						local can_display = HasCredentials(affiliation)
 
-						if type(faction) == "boolean"
-							or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-							has_faction = true
-						end
-
-						if has_faction and recipe.is_visible and recipe.is_relevant then
+						if can_display and recipe.is_visible and recipe.is_relevant then
 							count = count + 1
 
 							if not recipe_registry[recipe] then
@@ -3217,16 +3219,11 @@ do
 			local acquire_id = list_entry.acquire_id
 
 			if list_entry.type == "header" then
-				for spell_id, faction in pairs(private.acquire_list[acquire_id].recipes) do
+				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
-					local has_faction = false
+					local can_display = HasCredentials(affiliation)
 
-					if type(faction) == "boolean"
-						or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-						has_faction = true
-					end
-
-					if has_faction and recipe_entry.is_visible and recipe_entry.is_relevant then
+					if can_display and recipe_entry.is_visible and recipe_entry.is_relevant then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3257,23 +3254,25 @@ do
 			local location_id = list_entry.location_id
 
 			if list_entry.type == "header" then
-				for spell_id, faction in pairs(private.location_list[location_id].recipes) do
+				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
-					local has_faction = false
+					local can_display = HasCredentials(affiliation)
 
-					if type(faction) == "boolean"
-						or addon.db.profile.filters.general.faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"] then
-						has_faction = true
-					end
-
-					if has_faction and recipe_entry.is_visible and recipe_entry.is_relevant then
+					if can_display and recipe_entry.is_visible and recipe_entry.is_relevant then
+						local expand = false
+						local type = "subheader"
 						local t = AcquireTable()
-
+ 
+						-- Add World Drop entries as normal entries.
+						if affiliation == "world_drop" then
+							expand = true
+							type = "entry"
+						end
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
-						t.location_id = location_id
+						t.location_id = location_text
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, "subheader", false, expand_all)
+						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand, expand_all)
 					end
 				end
 			elseif list_entry.type == "subheader" then
