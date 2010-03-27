@@ -56,6 +56,11 @@ L["MAINFILTER_OPTIONS_DESC"]	= "Allows you to specify how ARL handles different 
 L["DISPLAY_OPTIONS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
 L["ARL_DOC_DESC"]		= "Documentation for Ackis Recipe List"
+L["Text Dump Options"] = true
+L["TEXTDUMP_OPTIONS_DESC"] = "Options to change the behaviour of the text dump."
+L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."
+L["CSV"] = true
+L["BBCode"] = true
 
 -- UI Documentation
 L["Using Filters"]		= true
@@ -425,9 +430,9 @@ L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting minor inscription r
 L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend inscription research."
 L["DISCOVERY_INSC_BOOK"] = "Discovered randomly by reading the Book of Glyph Mastery."
 -- Cooking/Fishing Daily Quests
-L["DAILY_COOKING_MEAT"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the meat crate."
-L["DAILY_COOKING_FISH"] = "Randomly obtained by completing the cooking daily quest in Shattrath and selecting the fish barrel."
-L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing the fishing daily quest in Shattrath."
+L["DAILY_COOKING_MEAT"] = "Choose Crate of Meat when completing any of these quests."
+L["DAILY_COOKING_FISH"] = "Choose Barrel of Fish when completing any of these quests."
+L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of theses quests."
 L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
 -- Engineering Related
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
@@ -1385,10 +1390,3 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
-
-
-L["Text Dump Options"] = true
-L["TEXTDUMP_OPTIONS_DESC"] = "Options to change the behaviour of the text dump."
-L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."
-L["BBCode"] = true
-L["CSV"] = true
