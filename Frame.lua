@@ -3061,7 +3061,8 @@ do
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], SEASONAL_CATEGORY)..":",
+				       SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
