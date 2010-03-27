@@ -449,7 +449,7 @@ function addon:InitCooking()
 
 	-- Runn Tum Tuber Surprise -- 22761
 	AddRecipe(22761, 275, 18254, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(22761, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(22761, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(22761, 14354)
 
 	-- Heavy Crocolisk Stew -- 24418
@@ -608,32 +608,32 @@ function addon:InitCooking()
 	-- Skullfish Soup -- 43707
 	AddRecipe(43707, 325, 33825, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
 	self:AddRecipeFlags(43707, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(43707, A.CUSTOM, 6)
+	self:AddRecipeAcquire(43707, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 6)
 
 	-- Stormchops -- 43758
 	AddRecipe(43758, 300, 33866, Q.RARE, V.TBC, 300, 320, 330, 340)
 	self:AddRecipeFlags(43758, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(43758, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
+	self:AddRecipeAcquire(43758, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
 
 	-- Broiled Bloodfin -- 43761
 	AddRecipe(43761, 300, 33867, Q.UNCOMMON, V.TBC, 300, 320, 330, 340)
 	self:AddRecipeFlags(43761, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(43761, A.CUSTOM, 6)
+	self:AddRecipeAcquire(43761, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 6)
 
 	-- Spicy Hot Talbuk -- 43765
 	AddRecipe(43765, 325, 33872, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
 	self:AddRecipeFlags(43765, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(43765, A.CUSTOM, 5)
+	self:AddRecipeAcquire(43765, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 5)
 
 	-- Kibler's Bits -- 43772
 	AddRecipe(43772, 300, 33874, Q.UNCOMMON, V.TBC, 300, 345, 355, 365)
 	self:AddRecipeFlags(43772, F.ALLIANCE, F.HORDE, F.QUEST, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(43772, A.CUSTOM, 5)
+	self:AddRecipeAcquire(43772, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 5, A.CUSTOM, 6)
 
 	-- Delicious Chocolate Cake -- 43779
 	AddRecipe(43779, 1, 33924, Q.RARE, V.TBC, 1, 50, 62, 75)
 	self:AddRecipeFlags(43779, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(43779, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
+	self:AddRecipeAcquire(43779, A.QUEST, 11377, A.QUEST, 11379, A.QUEST, 11380, A.QUEST, 11381, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
 
 	-- Hot Apple Cider -- 45022
 	AddRecipe(45022, 325, 34411, Q.COMMON, V.WOTLK, 325, 325, 325, 325)
@@ -759,7 +759,7 @@ function addon:InitCooking()
 	-- Captain Rumsey's Lager -- 45695
 	AddRecipe(45695, 100, 34832, Q.UNCOMMON, V.WOTLK, 100, 100, 105, 110)
 	self:AddRecipeFlags(45695, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(45695, A.CUSTOM, 7)
+	self:AddRecipeAcquire(45695, A.QUEST, 11666, A.QUEST, 11667, A.QUEST, 11668, A.QUEST, 11669, A.CUSTOM, 7)
 
 	-- Charred Bear Kabobs -- 46684
 	AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
