@@ -596,8 +596,11 @@ do
 		return display_tip, color
 	end
 
-	function GenerateTooltipContent(owner, rIndex)
-		local recipe_entry = private.recipe_list[rIndex]
+	function GenerateTooltipContent(owner, list_entry)
+		if not list_entry then
+			return
+		end
+		local recipe_entry = private.recipe_list[list_entry.recipe_id]
 
 		if not recipe_entry then
 			return
@@ -650,7 +653,7 @@ do
 		-- check if the recipe is excluded
 		local exclude = addon.db.profile.exclusionlist
 
-		if exclude[rIndex] then
+		if exclude[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "|cffff0000")
 		end
 
@@ -2404,7 +2407,7 @@ do
 	highlight._texture:SetAllPoints(highlight)
 
 	local function Button_OnEnter(self)
-		GenerateTooltipContent(self, ListFrame.entries[self.string_index].recipe_id)
+		GenerateTooltipContent(self, ListFrame.entries[self.string_index])
 	end
 
 	local function Button_OnLeave()
@@ -2416,7 +2419,7 @@ do
 		highlight:SetParent(self)
 		highlight:SetAllPoints(self)
 		highlight:Show()
-		GenerateTooltipContent(self, ListFrame.entries[self.string_index].recipe_id)
+		GenerateTooltipContent(self, ListFrame.entries[self.string_index])
 	end
 
 	local function Bar_OnLeave()
