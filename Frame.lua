@@ -1166,15 +1166,15 @@ local function SetSortName()
 	local sort_type = addon.db.profile.sorting
 
 	if sort_type == "Name" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. _G.NAME)
+		ARL_DD_SortText:SetText(_G.NAME)
 	elseif sort_type == "SkillAsc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
+		ARL_DD_SortText:SetText(L["Skill (Asc)"])
 	elseif sort_type == "SkillDesc" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
+		ARL_DD_SortText:SetText(L["Skill (Desc)"])
 	elseif sort_type == "Acquisition" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
+		ARL_DD_SortText:SetText(L["Acquisition"])
 	elseif sort_type == "Location" then
-		ARL_DD_SortText:SetText(L["Sort"] .. ": " .. L["Location"])
+		ARL_DD_SortText:SetText(L["Location"])
 	end
 end
 
