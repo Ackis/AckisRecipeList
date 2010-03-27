@@ -303,12 +303,12 @@ private.basic_colors = {
 private.category_colors = {
 	-- Acquire type colors
 	["custom"]	= "73b7ff",
-	["mobdrop"]	= "ffffc0",
+	["mobdrop"]	= "962626",
 	["quest"]	= "dbdb2c",
 
-	["reputation"]	= "d9ab6a",
+	["reputation"]	= "855a99",
 	["seasonal"]	= "80590e",
-	["trainer"]	= "9cbf60",
+	["trainer"]	= "c98e26",
 	["vendor"]	= "aad372",
 
 	-- Miscellaneous
