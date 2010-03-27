@@ -738,7 +738,7 @@ do
 						ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], color_1)
 					end
 				end
-			elseif acquire_type == A.MOB then
+			elseif acquire_type == A.MOB_DROP then
 				for id_num in pairs(acquire_info) do
 					local mob = private.mob_list[id_num]
 					local coord_text = ""
@@ -3170,7 +3170,7 @@ do
 				entry_index = ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
 				entry_index = ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-			elseif acquire_type == A.MOB and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
+			elseif acquire_type == A.MOB_DROP and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
 				entry_index = ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				entry_index = ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3286,7 +3286,7 @@ do
 							entry_index = ExpandTrainerData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
-						elseif acquire_type == A.MOB and private.mob_list[id_num].location == location_id then
+						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
 							entry_index = ExpandMobData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
 						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
 							entry_index = ExpandQuestData(entry_index, "subentry", id_num, list_entry.recipe_id, true)

@@ -1476,7 +1476,7 @@ do
 	local FUNCTION_FORMATS = {
 		[A.TRAINER]	= "self:AddRecipeTrainer(%d, %s)",
 		[A.VENDOR]	= "self:AddRecipeVendor(%d, %s)",
-		[A.MOB]		= "self:AddRecipeMobDrop(%d, %s)",
+		[A.MOB_DROP]	= "self:AddRecipeMobDrop(%d, %s)",
 	}
 
 	local function RecipeDump(id, single)
@@ -2249,7 +2249,7 @@ do
 	local output = {}
 
 	local ACQUIRE_TO_FILTER_MAP = {
-		[A.MOB]		= F.MOB_DROP,
+		[A.MOB_DROP]	= F.MOB_DROP,
 		[A.QUEST]	= F.QUEST,
 		[A.SEASONAL]	= F.SEASONAL,
 		[A.WORLD_DROP]	= F.WORLD_DROP,

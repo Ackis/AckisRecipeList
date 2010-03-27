@@ -951,7 +951,7 @@ do
 							vendor.item_list = vendor.item_list or {}
 							vendor.item_list[spell_id] = true
 						end
-					elseif acquire_type == A.MOB then
+					elseif acquire_type == A.MOB_DROP then
 						local mob_list = private.mob_list
 
 						if not mob_list[acquire_id] then
@@ -1092,7 +1092,7 @@ do
 	end
 
 	function addon:AddRecipeMobDrop(spell_id, ...)
-		GenericAddRecipeAcquire(spell_id, A.MOB, "Mob", private.mob_list, ...)
+		GenericAddRecipeAcquire(spell_id, A.MOB_DROP, "Mob", private.mob_list, ...)
 	end
 
 	function addon:AddRecipeTrainer(spell_id, ...)

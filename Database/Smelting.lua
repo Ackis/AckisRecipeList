@@ -124,7 +124,7 @@ function addon:InitSmelting()
 	-- Smelt Elementium -- 22967
 	AddRecipe(22967, 300, 17771, 5, 0, 300, 350, 362, 375)
 	self:AddRecipeFlags(22967, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(22967, A.MOB, 14401)
+	self:AddRecipeAcquire(22967, A.MOB_DROP, 14401)
 
 	-- Smelt Fel Iron -- 29356
 	AddRecipe(29356, 275, 23445, 1, 1, 275, 275, 300, 325)

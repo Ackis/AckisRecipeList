@@ -346,7 +346,7 @@ local function GetWaypoint(acquire_type, id_num, flags)
 		if vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL then
 			waypoint = vendor
 		end
-	elseif acquire_type == A.MOB and mapmob then
+	elseif acquire_type == A.MOB_DROP and mapmob then
 		waypoint = private.mob_list[id_num]
 	elseif  acquire_type == A.QUEST and mapquest then
 		local quest = private.quest_list[id_num]
