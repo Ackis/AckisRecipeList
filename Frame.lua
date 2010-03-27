@@ -2356,21 +2356,24 @@ MainPanel.filter_menu.rep.LK:Hide()
 -------------------------------------------------------------------------------
 -- Create MainPanel.scrollframe and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.scroll_frame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
-MainPanel.scroll_frame:SetHeight(322)
-MainPanel.scroll_frame:SetWidth(243)
-MainPanel.scroll_frame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
-MainPanel.scroll_frame:SetScript("OnVerticalScroll",
-				 function(self, arg1)
-					 self.scrolling = true
-					 _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
-					 self.scrolling = nil
-				 end)
+local ListFrame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
 
-MainPanel.scroll_frame.entries = {}
-MainPanel.scroll_frame.button_containers = {}
-MainPanel.scroll_frame.state_buttons = {}
-MainPanel.scroll_frame.entry_buttons = {}
+MainPanel.scroll_frame = ListFrame
+
+ListFrame:SetHeight(322)
+ListFrame:SetWidth(243)
+ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
+ListFrame:SetScript("OnVerticalScroll",
+		    function(self, arg1)
+			    self.scrolling = true
+			    _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+			    self.scrolling = nil
+		    end)
+
+ListFrame.entries = {}
+ListFrame.button_containers = {}
+ListFrame.state_buttons = {}
+ListFrame.entry_buttons = {}
 
 do
 	-- Number of visible lines in the scrollframe.
@@ -2386,7 +2389,7 @@ do
 	highlight._texture:SetAllPoints(highlight)
 
 	local function Button_OnEnter(self)
-		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+		GenerateTooltipContent(self, ListFrame.entries[self.string_index].recipe_id)
 	end
 
 	local function Button_OnLeave()
@@ -2398,7 +2401,7 @@ do
 		highlight:SetParent(self)
 		highlight:SetAllPoints(self)
 		highlight:Show()
-		GenerateTooltipContent(self, MainPanel.scroll_frame.entries[self.string_index].recipe_id)
+		GenerateTooltipContent(self, ListFrame.entries[self.string_index].recipe_id)
 	end
 
 	local function Bar_OnLeave()
@@ -2416,7 +2419,7 @@ do
 		if not clickedIndex or clickedIndex == 0 then
 			return
 		end
-		local clicked_line = MainPanel.scroll_frame.entries[clickedIndex]
+		local clicked_line = ListFrame.entries[clickedIndex]
 		local traverseIndex = 0
 
 		-- First, check if this is a "modified" click, and react appropriately
@@ -2455,7 +2458,7 @@ do
 				traverseIndex = clickedIndex + 1
 
 				local check_type = clicked_line.type
-				local entry = MainPanel.scroll_frame.entries[traverseIndex]
+				local entry = ListFrame.entries[traverseIndex]
 
 				-- get rid of our expanded lines
 				while entry and entry.type ~= check_type do
@@ -2463,8 +2466,8 @@ do
 					if entry.type == "header" then
 						break
 					end
-					ReleaseTable(table.remove(MainPanel.scroll_frame.entries, traverseIndex))
-					entry = MainPanel.scroll_frame.entries[traverseIndex]
+					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
+					entry = ListFrame.entries[traverseIndex]
 
 					if not entry then
 						break
@@ -2472,12 +2475,12 @@ do
 				end
 				clicked_line.is_expanded = false
 			else
-				MainPanel.scroll_frame:ExpandEntry(clickedIndex)
+				ListFrame:ExpandEntry(clickedIndex)
 				clicked_line.is_expanded = true
 			end
 		else
 			-- This is an expanded entry. Back up in the list of buttons until we find its header line.
-			local entries = MainPanel.scroll_frame.entries
+			local entries = ListFrame.entries
 
 			traverseIndex = clickedIndex - 1
 
@@ -2492,7 +2495,7 @@ do
 			-- Remove the expanded lines.
 			while #children > 0 do
 				table.remove(children)
-				ReleaseTable(table.remove(MainPanel.scroll_frame.entries, traverseIndex))
+				ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
 			end
 		end
 		highlight:Hide()
@@ -2501,24 +2504,24 @@ do
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 
-		MainPanel.scroll_frame:Update(false, true)
+		ListFrame:Update(false, true)
 	end
 
 	for i = 1, NUM_RECIPE_LINES do
-		local cur_container = CreateFrame("Frame", nil, MainPanel.scroll_frame)
+		local cur_container = CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
 		cur_container:SetWidth(224)
 
-		local cur_state = GenericCreateButton(nil, MainPanel.scroll_frame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "LEFT", "", 2)
-		local cur_entry = GenericCreateButton(nil, MainPanel.scroll_frame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "LEFT", "", 2)
+		local cur_entry = GenericCreateButton(nil, ListFrame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 		if i == 1 then
 			cur_container:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
 			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
 			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
 		else
-			local prev_container = MainPanel.scroll_frame.button_containers[i - 1]
+			local prev_container = ListFrame.button_containers[i - 1]
 
 			cur_container:SetPoint("TOPLEFT", prev_container, "BOTTOMLEFT", 0, 3)
 			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
@@ -2529,9 +2532,9 @@ do
 		cur_state:SetScript("OnClick", ListItem_OnClick)
 		cur_entry:SetScript("OnClick", ListItem_OnClick)
 
-		MainPanel.scroll_frame.button_containers[i] = cur_container
-		MainPanel.scroll_frame.state_buttons[i] = cur_state
-		MainPanel.scroll_frame.entry_buttons[i] = cur_entry
+		ListFrame.button_containers[i] = cur_container
+		ListFrame.state_buttons[i] = cur_state
+		ListFrame.entry_buttons[i] = cur_entry
 	end
 
 	local SKILL_LEVEL_FORMAT = "[%d]"
@@ -2582,7 +2585,7 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
-	function MainPanel.scroll_frame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_acquires)
+	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_acquires)
 		local insert_index = entry_index
 
 		entry.type = entry_type
@@ -2616,7 +2619,7 @@ do
 		return insert_index
 	end
 
-	function MainPanel.scroll_frame:Update(expand_acquires, refresh)
+	function ListFrame:Update(expand_acquires, refresh)
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
 			local recipe_list = private.recipe_list
@@ -2825,7 +2828,7 @@ do
 				string_index = string_index + 1
 			end
 			button_index = 1
-			string_index = button_index + _G.FauxScrollFrame_GetOffset(MainPanel.scroll_frame)
+			string_index = button_index + _G.FauxScrollFrame_GetOffset(ListFrame)
 
 			-- This function could possibly have been called from a mouse click or by scrolling.
 			-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
@@ -2907,7 +2910,7 @@ do
 
 	local function GetParentEntry(entry_index, entry_type)
 		local orig_index = entry_index - 1
-		local orig_entry = MainPanel.scroll_frame.entries[orig_index]
+		local orig_entry = ListFrame.entries[orig_index]
 		local parent_entry
 
 		if orig_entry.type == "header" or orig_entry.type == "subheader" then
@@ -2952,7 +2955,7 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"])..":", name)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
@@ -2961,7 +2964,7 @@ do
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
@@ -2985,7 +2988,7 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
@@ -2994,7 +2997,7 @@ do
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
@@ -3012,7 +3015,7 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
@@ -3021,7 +3024,7 @@ do
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3042,7 +3045,7 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"])..":", name)
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		if coord_text == "" and hide_location then
 			return entry_index
@@ -3051,7 +3054,7 @@ do
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3061,7 +3064,7 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SEASONAL_CATEGORY..":", private.seasonal_list[id_num].name)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandReputationData(entry_index, entry_type, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
@@ -3090,13 +3093,13 @@ do
 				       SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		t = AcquireTable()
 		t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
 		t.recipe_id = recipe_id
 
-		entry_index = MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		local coord_text = ""
 
@@ -3111,7 +3114,7 @@ do
 		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3122,7 +3125,7 @@ do
 		t.text = string.format("%s%s%s|r", PADDING, hex_color, L["World Drop"])
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
 	local function ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
@@ -3132,10 +3135,10 @@ do
 		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
 		t.recipe_id = recipe_id
 
-		return MainPanel.scroll_frame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	function MainPanel.scroll_frame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
+	function ListFrame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 
 		local obtain_filters = addon.db.profile.filters.obtain
@@ -3180,7 +3183,7 @@ do
 	end
 
 	-- This function is called when an un-expanded entry in the list has been clicked.
-	function MainPanel.scroll_frame:ExpandEntry(entry_index)
+	function ListFrame:ExpandEntry(entry_index)
 		local orig_index = entry_index
 		local list_entry = self.entries[orig_index]
 
@@ -3188,7 +3191,7 @@ do
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
-		-- This entry was generated using sorting based on Location.
+		-- This entry was generated using sorting based on Acquisition.
 		if list_entry.acquire_id then
 			local acquire_id = list_entry.acquire_id
 
@@ -3228,7 +3231,7 @@ do
 			return entry_index
 		end
 
-		-- This entry was generated using sorting based on Acquisition.
+		-- This entry was generated using sorting based on Location.
 		if list_entry.location_id then
 			local location_id = list_entry.location_id
 
@@ -4081,7 +4084,7 @@ function addon:DisplayFrame()
 	editbox:SetText(editbox.prev_search or L["SEARCH_BOX_DESC"])
 
 	MainPanel:UpdateTitle()
-	MainPanel.scroll_frame:Update(false, false)
+	ListFrame:Update(false, false)
 	MainPanel:Show()
 end
 
@@ -4096,7 +4099,7 @@ function ReDisplay()
 	addon:UpdateFilters()
 	Player:MarkExclusions()
 
-	MainPanel.scroll_frame:Update(false, false)
+	ListFrame:Update(false, false)
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
