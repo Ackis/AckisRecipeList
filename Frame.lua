@@ -2502,29 +2502,6 @@ do
 		spell_tip:Hide()
 
 		MainPanel.scroll_frame:Update(false, true)
-
-		-- Since the list changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
-		local num_entries = #MainPanel.scroll_frame.entries
-
-		if num_entries > 0 then
-			local button_index = 1
-			local string_index = button_index + _G.FauxScrollFrame_GetOffset(MainPanel.scroll_frame)
-
-			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
-				local cur_state = MainPanel.scroll_frame.state_buttons[button_index]
-				local cur_button = MainPanel.scroll_frame.entry_buttons[button_index]
-
-				if cur_state:IsMouseOver() then
-					Button_OnEnter(cur_state)
-					break
-				elseif cur_button:IsMouseOver() then
-					Bar_OnEnter(cur_button)
-					break
-				end
-				button_index = button_index + 1
-				string_index = string_index + 1
-			end
-		end
 	end
 
 	for i = 1, NUM_RECIPE_LINES do
@@ -2844,6 +2821,25 @@ do
 				cur_button:SetScript("OnEnter", Bar_OnEnter)
 				cur_button:SetScript("OnLeave", Bar_OnLeave)
 
+				button_index = button_index + 1
+				string_index = string_index + 1
+			end
+			button_index = 1
+			string_index = button_index + _G.FauxScrollFrame_GetOffset(MainPanel.scroll_frame)
+
+			-- This function could possibly have been called from a mouse click or by scrolling.
+			-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
+			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
+				local cur_state = self.state_buttons[button_index]
+				local cur_button = self.entry_buttons[button_index]
+
+				if cur_state:IsMouseOver() then
+					Button_OnEnter(cur_state)
+					break
+				elseif cur_button:IsMouseOver() then
+					Bar_OnEnter(cur_button)
+					break
+				end
 				button_index = button_index + 1
 				string_index = string_index + 1
 			end
