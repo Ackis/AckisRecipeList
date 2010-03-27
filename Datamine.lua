@@ -1538,9 +1538,9 @@ do
 			else
 				for id_num in pairs(acquire_info) do
 					if not flag_string then
-						flag_string = "A."..ACQUIRE_STRINGS[acquire_type]..", "..id_num
+						flag_string = "A."..ACQUIRE_STRINGS[acquire_type]..", "..(type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
 					else
-						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire_type]..", "..id_num
+						flag_string = flag_string..", ".."A."..ACQUIRE_STRINGS[acquire_type]..", "..(type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
 					end
 				end
 			end
