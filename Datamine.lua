@@ -2248,6 +2248,14 @@ do
 	local extra_flags = {}
 	local output = {}
 
+	local ACQUIRE_TO_FILTER_MAP = {
+		[A.MOB]		= F.MOB_DROP,
+		[A.QUEST]	= F.QUEST,
+		[A.SEASONAL]	= F.SEASONAL,
+		[A.WORLD_DROP]	= F.WORLD_DROP,
+	}
+	local FILTER_TO_ACQUIRE_MAP
+
 	--- Prints out the results of the tooltip scan.
 	-- @name AckisRecipeList:PrintScanResults
 	function addon:PrintScanResults()
@@ -2265,7 +2273,7 @@ do
 		end
 		local recipe = scan_data.recipe_list[spell_id]
 		local flags = recipe["Flags"]
-		local acquire = recipe["acquire_data"]
+		local acquire_data = recipe["acquire_data"]
 
 		local FS = private.filter_strings
 		local flag_format = "F.%s"
@@ -2368,7 +2376,7 @@ do
 		if repid and not flags[repid] then
 			tinsert(missing_flags, repid)
 
-			local rep_data = acquire[A.REPUTATION]
+			local rep_data = acquire_data[A.REPUTATION]
 
 			if rep_data then
 				for rep_id, rep_info in pairs(acquire_info) do
@@ -2378,6 +2386,47 @@ do
 						end
 					end
 				end
+			end
+		end
+
+		-- Make sure the recipe's filter flags match with its acquire types.
+		if not FILTER_TO_ACQUIRE_MAP then
+			FILTER_TO_ACQUIRE_MAP = {}
+
+			for k, v in pairs(ACQUIRE_TO_FILTER_MAP) do
+				FILTER_TO_ACQUIRE_MAP[v] = k
+			end
+		end
+
+		for acquire_type in pairs(acquire_data) do
+			local flag = ACQUIRE_TO_FILTER_MAP[acquire_type]
+
+			if flag and not flags[flag] then
+				tinsert(missing_flags, string.format(flag_format, FS[flag]))
+			end
+		end
+
+		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not flags[F.VENDOR] then
+			tinsert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
+		end
+
+		if flags[F.VENDOR] and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
+			tinsert(extra_flags, string.format(flag_format, FS[F.VENDOR]))
+		end
+
+		if acquire_data[A.TRAINER] and not flags[A.TRAINER] then
+			tinsert(missing_flags, string.format(flag_format, FS[F.TRAINER]))
+		end
+
+		if flags[F.TRAINER] and not acquire_data[A.TRAINER] then
+			if not acquire_data[A.CUSTOM] then
+				tinsert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
+			end
+		end
+
+		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
+			if flags[flag] and not acquire_data[acquire_type] then
+				tinsert(extra_flags, string.format(flag_format, FS[flag]))
 			end
 		end
 
@@ -2393,7 +2442,6 @@ do
 			if #extra_flags > 0 then
 				tinsert(output, "    Extra flags: " .. tconcat(extra_flags, ", "))
 			end
-
 			local found_type = false
 
 			for k, v in ipairs(ORDERED_ITEM_TYPES) do

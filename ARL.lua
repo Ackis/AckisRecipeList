@@ -1240,7 +1240,6 @@ end	-- do
 -- Filter flag functions
 -------------------------------------------------------------------------------
 do
-
 	-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
 	-- Its keys and values are populated the first time CanDisplayRecipe() is called.
 	local HardFilterFlags, SoftFilterFlags, RepFilterFlags
