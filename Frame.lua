@@ -3247,19 +3247,12 @@ do
 
 					if has_faction and recipe_entry.is_visible and recipe_entry.is_relevant then
 						local t = AcquireTable()
-						local expand = false
-						local type = "subheader"
 
-						-- Add World Drop and Custom entries with no location as normal entries.
-						if location_id == _G.MISCELLANEOUS or location_id == L["World Drop"] then
-							expand = true
-							type = "entry"
-						end
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand)
+						entry_index = self:InsertEntry(t, list_entry, entry_index, "subheader", false)
 					end
 				end
 			elseif list_entry.type == "subheader" then

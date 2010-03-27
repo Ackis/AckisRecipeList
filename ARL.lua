@@ -1027,13 +1027,11 @@ do
 						end
 					elseif acquire_type == A.WORLD_DROP then
 						acquire[acquire_id] = true
-						location = L["World Drop"]
 					elseif acquire_type == A.SEASONAL then
 						acquire[acquire_id] = true
-						location = GetCategoryInfo(155)
 					elseif acquire_type == A.CUSTOM then
 						acquire[acquire_id] = true
-						location = private.custom_list[acquire_id].location or _G.MISCELLANEOUS
+						location = private.custom_list[acquire_id].location
 					else
 						-- Unhandled acquire_type
 						acquire[acquire_id] = true
