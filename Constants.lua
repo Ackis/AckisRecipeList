@@ -302,9 +302,10 @@ private.basic_colors = {
 -- Colors used in tooltips and the recipe list.
 private.category_colors = {
 	-- Acquire type colors
-	["custom"]	= "ffcc99",
+	["custom"]	= "73b7ff",
 	["mobdrop"]	= "ffffc0",
-	["quest"]	= "73b7ff",
+	["quest"]	= "dbdb2c",
+
 	["reputation"]	= "d9ab6a",
 	["seasonal"]	= "80590e",
 	["trainer"]	= "9cbf60",
