@@ -910,26 +910,20 @@ do
 			i = i + 2
 
 			if not acquire_type then
-				--@alpha@
-				self:Printf("Spell ID: %d has no acquire type.", spell_id)
-				--@end-alpha@
+				self:Debug("Spell ID: %d has no acquire type.", spell_id)
 			else
 				acquire_data[acquire_type] = acquire_data[acquire_type] or {}
 
 				local acquire = acquire_data[acquire_type]
 
 				if not acquire_id then
-					--@alpha@
-					self:Printf("Spell ID %d: %s ID is nil.", spell_id, private.acquire_strings[acquire_type])
-					--@end-alpha@
+					self:Debug("Spell ID %d: %s ID is nil.", spell_id, private.acquire_strings[acquire_type])
 				else
 					if acquire_type == A.TRAINER then
 						local trainer_list = private.trainer_list
 
 						if not trainer_list[acquire_id] then
-							--@alpha@
-							self:Print("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
-							--@end-alpha@
+							self:Debug("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
 						else
 							local trainer = trainer_list[acquire_id]
 
@@ -945,9 +939,7 @@ do
 						local vendor_list = private.vendor_list
 
 						if not vendor_list[acquire_id] then
-							--@alpha@
-							self:Print("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
-							--@end-alpha@
+							self:Debug("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
 						else
 							local vendor = vendor_list[acquire_id]
 
@@ -963,9 +955,7 @@ do
 						local mob_list = private.mob_list
 
 						if not mob_list[acquire_id] then
-							--@alpha@
-							self:Print("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
-							--@end-alpha@
+							self:Debug("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
 						else
 							local mob = mob_list[acquire_id]
 
@@ -981,9 +971,7 @@ do
 						local quest_list = private.quest_list
 
 						if not quest_list[acquire_id] then
-							--@alpha@
-							self:Print("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
-							--@end-alpha@
+							self:Debug("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
 						else
 							local quest = quest_list[acquire_id]
 
@@ -998,18 +986,12 @@ do
 						i = i + 2
 
 						if not private.reputation_list[acquire_id] then
-							--@alpha@
-							self:Print("Spell ID "..spell_id..": ReputationID "..acquire_id.." does not exist in the database.")
-							--@end-alpha@
+							self:Debug("Spell ID "..spell_id..": ReputationID "..acquire_id.." does not exist in the database.")
 						else
 							if not vendor_id then
-								--@alpha@
-								self:Print("Spell ID "..spell_id..": Reputation Vendor ID is nil.")
-								--@end-alpha@
+								self:Debug("Spell ID "..spell_id..": Reputation Vendor ID is nil.")
 							elseif not vendor_list[vendor_id] then
-								--@alpha@
-								self:Print("Spell ID "..spell_id..": Reputation Vendor ID "..vendor_id.." does not exist in the database.")
-								--@end-alpha@
+								self:Debug("Spell ID "..spell_id..": Reputation Vendor ID "..vendor_id.." does not exist in the database.")
 							else
 								acquire[acquire_id] = acquire[acquire_id] or {}
 
