@@ -73,7 +73,7 @@ function addon:InitAlchemy()
 	-- Elixir of Lesser Agility -- 2333
 	AddRecipe(2333, 140, 3390, Q.UNCOMMON, V.ORIG, 140, 165, 185, 205)
 	self:AddRecipeFlags(2333, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(2333, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(2333, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of Minor Fortitude -- 2334
 	AddRecipe(2334, 50, 2458, Q.COMMON, V.ORIG, 50, 80, 100, 120)
@@ -83,7 +83,7 @@ function addon:InitAlchemy()
 	-- Swiftness Potion -- 2335
 	AddRecipe(2335, 60, 2459, Q.UNCOMMON, V.ORIG, 60, 90, 110, 130)
 	self:AddRecipeFlags(2335, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(2335, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(2335, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Lesser Healing Potion -- 2337
 	AddRecipe(2337, 55, 858, Q.COMMON, V.ORIG, 55, 85, 105, 125)
@@ -103,7 +103,7 @@ function addon:InitAlchemy()
 	-- Minor Magic Resistance Potion -- 3172
 	AddRecipe(3172, 110, 3384, Q.COMMON, V.ORIG, 110, 135, 155, 175)
 	self:AddRecipeFlags(3172, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3172, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3172, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Lesser Mana Potion -- 3173
 	AddRecipe(3173, 120, 3385, Q.COMMON, V.ORIG, 120, 145, 165, 185)
@@ -113,12 +113,12 @@ function addon:InitAlchemy()
 	-- Potion of Curing -- 3174
 	AddRecipe(3174, 120, 3386, Q.COMMON, V.ORIG, 120, 145, 165, 185)
 	self:AddRecipeFlags(3174, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3174, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3174, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Limited Invulnerability Potion -- 3175
 	AddRecipe(3175, 250, 3387, Q.UNCOMMON, V.ORIG, 250, 275, 295, 315)
 	self:AddRecipeFlags(3175, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3175, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(3175, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Strong Troll's Blood Elixir -- 3176
 	AddRecipe(3176, 125, 3388, Q.COMMON, V.ORIG, 125, 150, 170, 190)
@@ -133,12 +133,12 @@ function addon:InitAlchemy()
 	-- Elixir of Ogre's Strength -- 3188
 	AddRecipe(3188, 150, 3391, Q.COMMON, V.ORIG, 150, 175, 195, 215)
 	self:AddRecipeFlags(3188, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(3188, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3188, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of Minor Agility -- 3230
 	AddRecipe(3230, 50, 2457, Q.UNCOMMON, V.ORIG, 50, 80, 100, 120)
 	self:AddRecipeFlags(3230, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(3230, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3230, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Healing Potion -- 3447
 	AddRecipe(3447, 110, 929, Q.COMMON, V.ORIG, 110, 135, 155, 175)
@@ -159,12 +159,12 @@ function addon:InitAlchemy()
 	AddRecipe(3450, 175, 3825, Q.COMMON, V.ORIG, 175, 195, 215, 235)
 	self:AddRecipeFlags(3450, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeTrainer(3450, 1386, 2837, 4900, 16642, 3184, 2132, 27029, 3347, 16723, 3603, 1215, 18802, 4611, 5499, 5177, 19052, 16588, 7948, 1470, 3964, 16161, 27023, 3009, 2391, 33674, 33608, 4160)
-	self:AddRecipeAcquire(3450, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3450, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Major Troll's Blood Elixir -- 3451
 	AddRecipe(3451, 180, 3826, Q.UNCOMMON, V.ORIG, 180, 200, 220, 240)
 	self:AddRecipeFlags(3451, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3451, A.WORLD_DROP, 1)
+	self:AddRecipeAcquire(3451, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Mana Potion -- 3452
 	AddRecipe(3452, 160, 3827, Q.COMMON, V.ORIG, 160, 180, 200, 220)
@@ -174,7 +174,7 @@ function addon:InitAlchemy()
 	-- Elixir of Detect Lesser Invisibility -- 3453
 	AddRecipe(3453, 195, 3828, Q.UNCOMMON, V.ORIG, 195, 215, 235, 255)
 	self:AddRecipeFlags(3453, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3453, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(3453, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Frost Oil -- 3454
 	AddRecipe(3454, 200, 3829, Q.UNCOMMON, V.ORIG, 200, 220, 240, 260)
@@ -269,7 +269,7 @@ function addon:InitAlchemy()
 	-- Elixir of Giant Growth -- 8240
 	AddRecipe(8240, 90, 6662, Q.UNCOMMON, V.ORIG, 90, 120, 140, 160)
 	self:AddRecipeFlags(8240, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(8240, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(8240, A.WORLD_DROP, "The Barrens")
 
 	-- Greater Mana Potion -- 11448
 	AddRecipe(11448, 205, 6149, Q.COMMON, V.ORIG, 205, 220, 240, 260)
@@ -299,7 +299,7 @@ function addon:InitAlchemy()
 	-- Magic Resistance Potion -- 11453
 	AddRecipe(11453, 210, 9036, Q.UNCOMMON, V.ORIG, 210, 225, 245, 265)
 	self:AddRecipeFlags(11453, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(11453, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(11453, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Goblin Rocket Fuel -- 11456
 	AddRecipe(11456, 210, 9061, Q.COMMON, V.ORIG, 210, 225, 245, 265)
@@ -314,7 +314,7 @@ function addon:InitAlchemy()
 	-- Wildvine Potion -- 11458
 	AddRecipe(11458, 225, 9144, Q.UNCOMMON, V.ORIG, 225, 240, 260, 280)
 	self:AddRecipeFlags(11458, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(11458, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(11458, A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Philosopher's Stone -- 11459
 	AddRecipe(11459, 225, 9149, Q.COMMON, V.ORIG, 225, 240, 260, 280)
@@ -334,7 +334,7 @@ function addon:InitAlchemy()
 	-- Invisibility Potion -- 11464
 	AddRecipe(11464, 235, 9172, Q.UNCOMMON, V.ORIG, 235, 250, 270, 290)
 	self:AddRecipeFlags(11464, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(11464, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(11464, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of Greater Intellect -- 11465
 	AddRecipe(11465, 235, 9179, Q.COMMON, V.ORIG, 235, 250, 270, 290)
@@ -354,12 +354,12 @@ function addon:InitAlchemy()
 	-- Elixir of Dream Vision -- 11468
 	AddRecipe(11468, 240, 9197, Q.UNCOMMON, V.ORIG, 240, 255, 275, 295)
 	self:AddRecipeFlags(11468, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(11468, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(11468, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of Giants -- 11472
 	AddRecipe(11472, 245, 9206, Q.UNCOMMON, V.ORIG, 245, 260, 280, 300)
 	self:AddRecipeFlags(11472, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(11472, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(11472, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Ghost Dye -- 11473
 	AddRecipe(11473, 245, 9210, Q.COMMON, V.ORIG, 245, 260, 280, 300)
@@ -464,27 +464,27 @@ function addon:InitAlchemy()
 	-- Transmute: Undeath to Water -- 17563
 	AddRecipe(17563, 275, 7080, Q.UNCOMMON, V.ORIG, 275, 275, 282, 290)
 	self:AddRecipeFlags(17563, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17563, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17563, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Transmute: Water to Undeath -- 17564
 	AddRecipe(17564, 275, 12808, Q.UNCOMMON, V.ORIG, 275, 275, 282, 290)
 	self:AddRecipeFlags(17564, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17564, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17564, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Transmute: Life to Earth -- 17565
 	AddRecipe(17565, 275, 7076, Q.UNCOMMON, V.ORIG, 275, 275, 282, 290)
 	self:AddRecipeFlags(17565, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17565, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17565, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Transmute: Earth to Life -- 17566
 	AddRecipe(17566, 275, 12803, Q.UNCOMMON, V.ORIG, 275, 275, 282, 290)
 	self:AddRecipeFlags(17566, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17566, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17566, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Greater Stoneshield Potion -- 17570
 	AddRecipe(17570, 280, 13455, Q.UNCOMMON, V.ORIG, 280, 295, 315, 335)
 	self:AddRecipeFlags(17570, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17570, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17570, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of the Mongoose -- 17571
 	AddRecipe(17571, 280, 13452, Q.UNCOMMON, V.ORIG, 280, 295, 315, 335)
@@ -540,7 +540,7 @@ function addon:InitAlchemy()
 	-- Potion of Petrification -- 17634
 	AddRecipe(17634, 300, 13506, Q.UNCOMMON, V.ORIG, 300, 315, 322, 330)
 	self:AddRecipeFlags(17634, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17634, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(17634, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Flask of the Titans -- 17635
 	AddRecipe(17635, 300, 13510, Q.UNCOMMON, V.TBC, 300, 315, 322, 330)
@@ -644,7 +644,7 @@ function addon:InitAlchemy()
 	-- Insane Strength Potion -- 28550
 	AddRecipe(28550, 320, 22828, Q.UNCOMMON, V.TBC, 320, 335, 342, 350)
 	self:AddRecipeFlags(28550, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(28550, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28550, A.WORLD_DROP, "Outland")
 
 	-- Super Healing Potion -- 28551
 	AddRecipe(28551, 325, 22829, Q.COMMON, V.TBC, 325, 340, 347, 355)
@@ -654,7 +654,7 @@ function addon:InitAlchemy()
 	-- Elixir of the Searching Eye -- 28552
 	AddRecipe(28552, 325, 22830, Q.UNCOMMON, V.TBC, 325, 340, 347, 355)
 	self:AddRecipeFlags(28552, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(28552, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28552, A.WORLD_DROP, "Outland")
 
 	-- Elixir of Major Agility -- 28553
 	AddRecipe(28553, 330, 22831, Q.COMMON, V.TBC, 330, 345, 352, 360)
@@ -695,7 +695,7 @@ function addon:InitAlchemy()
 	-- Heroic Potion -- 28563
 	AddRecipe(28563, 350, 22837, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(28563, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeAcquire(28563, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28563, A.WORLD_DROP, "Outland")
 
 	-- Haste Potion -- 28564
 	AddRecipe(28564, 350, 22838, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
@@ -705,7 +705,7 @@ function addon:InitAlchemy()
 	-- Destruction Potion -- 28565
 	AddRecipe(28565, 350, 22839, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(28565, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(28565, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28565, A.WORLD_DROP, "Outland")
 
 	-- Transmute: Primal Air to Fire -- 28566
 	AddRecipe(28566, 350, 21884, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
@@ -730,7 +730,7 @@ function addon:InitAlchemy()
 	-- Elixir of Major Mageblood -- 28570
 	AddRecipe(28570, 355, 22840, Q.UNCOMMON, V.TBC, 355, 370, 375, 380)
 	self:AddRecipeFlags(28570, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(28570, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28570, A.WORLD_DROP, "Outland")
 
 	-- Major Fire Protection Potion -- 28571
 	AddRecipe(28571, 360, 22841, Q.UNCOMMON, V.TBC, 360, 375, 377, 380)
@@ -766,7 +766,7 @@ function addon:InitAlchemy()
 	AddRecipe(28578, 365, 22848, Q.UNCOMMON, V.TBC, 365, 375, 377, 380)
 	self:AddRecipeFlags(28578, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(28578, 24664)
-	self:AddRecipeAcquire(28578, A.WORLD_DROP, 2)
+	self:AddRecipeAcquire(28578, A.WORLD_DROP, "Outland")
 
 	-- Ironshield Potion -- 28579
 	AddRecipe(28579, 365, 22849, Q.UNCOMMON, V.TBC, 365, 375, 377, 380)
