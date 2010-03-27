@@ -1014,6 +1014,8 @@ do
 
 						if location then
 							affiliation = "world_drop"
+						else
+							addon:Debug("WORLD_DROP with no location: %d %s", spell_id, recipe_list[spell_id].name)
 						end
 					elseif acquire_type == A.SEASONAL then
 						acquire[acquire_id] = true
