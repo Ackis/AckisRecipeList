@@ -1237,16 +1237,26 @@ ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
 
 ARL_ExpandButton:SetScript("OnClick",
 			   function(self, mouse_button, down)
-				   local expand_acquires = (self:GetText() == L["EXPANDALL"])
+				   local expand_entries = (self:GetText() == L["EXPANDALL"])
 
-				   if expand_acquires then
+				   if expand_entries then
 					   self:SetText(L["CONTRACTALL"])
 					   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 				   else
 					   self:SetText(L["EXPANDALL"])
 					   SetTooltipScripts(self, L["EXPANDALL_DESC"])
 				   end
-				   MainPanel.scroll_frame:Update(expand_acquires, false)
+				   local expand_mode
+
+				   if expand_entries then
+					   if _G.IsShiftKeyDown() then
+						   expand_mode = "deep"
+					   else
+						   expand_mode = "normal"
+					   end
+				   end
+				   -- If expand_mode is nil, that means expand nothing.
+				   MainPanel.scroll_frame:Update(expand_mode, false)
 			   end)
 ARL_ExpandButton:SetText(L["EXPANDALL"])
 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
@@ -2412,7 +2422,7 @@ do
 		spell_tip:Hide()
 	end
 
-	local function ListItem_OnClick(self, button)
+	local function ListItem_OnClick(self, button, down)
 		local clickedIndex = self.string_index
 
 		-- Don't do anything if they've clicked on an empty button
@@ -2585,7 +2595,7 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
-	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_acquires)
+	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
 		local insert_index = entry_index
 
 		entry.type = entry_type
@@ -2602,12 +2612,12 @@ do
 
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
-		if expand_acquires then
+		if expand_mode then
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
 			if entry_type == "header" or entry_type == "subheader" then
-				insert_index = self:ExpandEntry(insert_index)
+				insert_index = self:ExpandEntry(insert_index, expand_mode)
 			else
 				insert_index = insert_index + 1
 			end
@@ -2619,7 +2629,7 @@ do
 		return insert_index
 	end
 
-	function ListFrame:Update(expand_acquires, refresh)
+	function ListFrame:Update(expand_mode, refresh)
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
 			local recipe_list = private.recipe_list
@@ -2676,7 +2686,7 @@ do
 						t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
 						t.acquire_id = acquire_type
 
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_acquires, expand_acquires)
+						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
 					end
 				end
 			elseif sort_type == "Location" then
@@ -2715,7 +2725,7 @@ do
 						t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
 						t.location_id = loc_name
 
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_acquires, expand_acquires)
+						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
 					end
 				end
 			else
@@ -2733,10 +2743,11 @@ do
 
 						recipe_count = recipe_count + 1
 
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_acquires, expand_acquires)
+						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
 					end
 				end
 			end	-- Sort type.
+
 			local profile = addon.db.profile
 			local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
 			local progress_bar = MainPanel.progress_bar
@@ -3187,9 +3198,10 @@ do
 	end
 
 	-- This function is called when an un-expanded entry in the list has been clicked.
-	function ListFrame:ExpandEntry(entry_index)
+	function ListFrame:ExpandEntry(entry_index, expand_mode)
 		local orig_index = entry_index
 		local list_entry = self.entries[orig_index]
+		local expand_all = expand_mode == "deep"
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -3222,7 +3234,7 @@ do
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand)
+						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand, expand_all)
 					end
 				end
 			elseif list_entry.type == "subheader" then
@@ -3256,7 +3268,7 @@ do
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, "subheader", false)
+						entry_index = self:InsertEntry(t, list_entry, entry_index, "subheader", false, expand_all)
 					end
 				end
 			elseif list_entry.type == "subheader" then
