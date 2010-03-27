@@ -591,7 +591,7 @@ do
 			display_tip = true
 		else
 			color = private.reputation_colors["hated"]
-			display_tip = true
+			display_tip = addon.db.profile.filters.general.faction
 		end
 		return display_tip, color
 	end
