@@ -64,6 +64,7 @@ _G.ARL = addon
 
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(MODNAME)
 
@@ -1027,6 +1028,11 @@ do
 						end
 					elseif acquire_type == A.WORLD_DROP then
 						acquire[acquire_id] = true
+						location = type(acquire_id) == "string" and BZ[acquire_id] or nil
+
+						if location then
+							affiliation = "world_drop"
+						end
 					elseif acquire_type == A.SEASONAL then
 						acquire[acquire_id] = true
 					elseif acquire_type == A.CUSTOM then
