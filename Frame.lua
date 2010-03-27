@@ -2670,7 +2670,10 @@ do
 					if count > 0 then
 						local t = AcquireTable()
 
-						t.text = string.format("%s (%d)", private.acquire_names[acquire_type], count)
+						local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
+						local color_code = private.category_colors[acquire_str] or "ffffff"
+
+						t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
 						t.acquire_id = acquire_type
 
 						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_acquires, expand_acquires)
@@ -2709,7 +2712,7 @@ do
 					if count > 0 then
 						local t = AcquireTable()
 
-						t.text = string.format("%s (%d)", loc_name, count)
+						t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
 						t.location_id = loc_name
 
 						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_acquires, expand_acquires)
