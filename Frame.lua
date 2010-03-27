@@ -711,7 +711,7 @@ do
 				for id_num in pairs(acquire_info) do
 					local trainer = private.trainer_list[id_num]
 
-					if location_id and trainer.location == location_id then
+					if not location_id or trainer.location == location_id then
 						local display_tip = false
 
 						color_1 = CATEGORY_COLORS["trainer"]
