@@ -302,7 +302,7 @@ function addon:InitJewelcrafting()
 
 	-- Figurine - Dark Iron Scorpid -- 26914
 	AddRecipe(26914, 300, 21789, Q.UNCOMMON, V.TBC, 300, 310, 320, 330)
-	self:AddRecipeFlags(26914, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP, F.DPS, F.TRINKET)
+	self:AddRecipeFlags(26914, F.ALLIANCE, F.HORDE, F.INSTANCE,F.MOB_DROP, F.IBOP, F.RBOP, F.DPS, F.TRINKET)
 	self:AddRecipeMobDrop(26914, 8983)
 
 	-- Necklace of the Diamond Tower -- 26915
@@ -488,12 +488,12 @@ function addon:InitJewelcrafting()
 
 	-- Khorium Band of Frost -- 31054
 	AddRecipe(31054, 355, 24080, Q.RARE, V.TBC, 355, 365, 372, 380)
-	self:AddRecipeFlags(31054, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
+	self:AddRecipeFlags(31054, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
 	self:AddRecipeMobDrop(31054, 17722)
 
 	-- Khorium Inferno Band -- 31055
 	AddRecipe(31055, 355, 24082, Q.RARE, V.TBC, 355, 365, 372, 380)
-	self:AddRecipeFlags(31055, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
+	self:AddRecipeFlags(31055, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
 	self:AddRecipeMobDrop(31055, 18472)
 
 	-- Khorium Band of Leaves -- 31056
@@ -583,7 +583,7 @@ function addon:InitJewelcrafting()
 
 	-- Circlet of Arcane Might -- 31078
 	AddRecipe(31078, 370, 24123, Q.EPIC, V.TBC, 370, 375, 380, 385)
-	self:AddRecipeFlags(31078, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(31078, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31078, 18096)
 
 	-- Figurine - Felsteel Boar -- 31079

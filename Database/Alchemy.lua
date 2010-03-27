@@ -132,7 +132,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Ogre's Strength -- 3188
 	AddRecipe(3188, 150, 3391, Q.COMMON, V.ORIG, 150, 175, 195, 215)
-	self:AddRecipeFlags(3188, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeFlags(3188, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
 	self:AddRecipeAcquire(3188, A.WORLD_DROP, "Kalimdor", A.WORLD_DROP, "Eastern Kingdoms")
 
 	-- Elixir of Minor Agility -- 3230
@@ -423,7 +423,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Superior Defense -- 17554
 	AddRecipe(17554, 265, 13445, Q.COMMON, V.ORIG, 265, 280, 300, 320)
-	self:AddRecipeFlags(17554, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeFlags(17554, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
 	self:AddRecipeVendor(17554, 5178, 3348)
 
 	-- Elixir of the Sages -- 17555
@@ -503,7 +503,7 @@ function addon:InitAlchemy()
 
 	-- Greater Fire Protection Potion -- 17574
 	AddRecipe(17574, 290, 13457, Q.UNCOMMON, V.ORIG, 290, 305, 325, 345)
-	self:AddRecipeFlags(17574, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(17574, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(17574, 9262, 9264)
 
 	-- Greater Frost Protection Potion -- 17575
@@ -528,7 +528,7 @@ function addon:InitAlchemy()
 
 	-- Major Mana Potion -- 17580
 	AddRecipe(17580, 295, 13444, Q.UNCOMMON, V.ORIG, 295, 310, 330, 350)
-	self:AddRecipeFlags(17580, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(17580, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(17580, 1853)
 	self:AddRecipeVendor(17580, 11278)
 
@@ -544,25 +544,25 @@ function addon:InitAlchemy()
 
 	-- Flask of the Titans -- 17635
 	AddRecipe(17635, 300, 13510, Q.UNCOMMON, V.TBC, 300, 315, 322, 330)
-	self:AddRecipeFlags(17635, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
+	self:AddRecipeFlags(17635, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
 	self:AddRecipeMobDrop(17635, 10363)
 	self:AddRecipeRepVendor(17635, FAC.SHATAR, REP.EXALTED, 21432)
 
 	-- Flask of Distilled Wisdom -- 17636
 	AddRecipe(17636, 300, 13511, Q.UNCOMMON, V.TBC, 300, 315, 322, 330)
-	self:AddRecipeFlags(17636, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
+	self:AddRecipeFlags(17636, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CENARION_EXPEDITION)
 	self:AddRecipeRepVendor(17636, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 	self:AddRecipeMobDrop(17636, 10813)
 
 	-- Flask of Supreme Power -- 17637
 	AddRecipe(17637, 300, 13512, Q.UNCOMMON, V.TBC, 300, 315, 322, 330)
-	self:AddRecipeFlags(17637, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
+	self:AddRecipeFlags(17637, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
 	self:AddRecipeMobDrop(17637, 10508)
 	self:AddRecipeRepVendor(17637, FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
 
 	-- Flask of Chromatic Resistance -- 17638
 	AddRecipe(17638, 300, 13513, Q.UNCOMMON, V.TBC, 300, 315, 322, 330)
-	self:AddRecipeFlags(17638, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOP, F.LOWERCITY)
+	self:AddRecipeFlags(17638, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.LOWERCITY)
 	self:AddRecipeMobDrop(17638, 10339)
 	self:AddRecipeRepVendor(17638, FAC.LOWERCITY, REP.EXALTED, 21655)
 
@@ -618,7 +618,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Camouflage -- 28543
 	AddRecipe(28543, 305, 22823, Q.COMMON, V.TBC, 305, 320, 327, 335)
-	self:AddRecipeFlags(28543, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(28543, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(28543, 16588, 18802, 16641, 16705)
 
 	-- Elixir of Major Strength -- 28544
@@ -638,7 +638,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Major Frost Power -- 28549
 	AddRecipe(28549, 320, 22827, Q.COMMON, V.TBC, 320, 335, 342, 350)
-	self:AddRecipeFlags(28549, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(28549, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(28549, 18005, 18017)
 
 	-- Insane Strength Potion -- 28550
@@ -674,12 +674,12 @@ function addon:InitAlchemy()
 
 	-- Elixir of Major Firepower -- 28556
 	AddRecipe(28556, 345, 22833, Q.UNCOMMON, V.TBC, 345, 360, 367, 375)
-	self:AddRecipeFlags(28556, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
+	self:AddRecipeFlags(28556, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
 	self:AddRecipeRepVendor(28556, FAC.SCRYER, REP.REVERED, 19331)
 
 	-- Elixir of Major Defense -- 28557
 	AddRecipe(28557, 345, 22834, Q.COMMON, V.TBC, 345, 360, 367, 375)
-	self:AddRecipeFlags(28557, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeFlags(28557, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
 	self:AddRecipeVendor(28557, 18005, 19837)
 
 	-- Elixir of Major Shadow Power -- 28558
@@ -734,7 +734,7 @@ function addon:InitAlchemy()
 
 	-- Major Fire Protection Potion -- 28571
 	AddRecipe(28571, 360, 22841, Q.UNCOMMON, V.TBC, 360, 375, 377, 380)
-	self:AddRecipeFlags(28571, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(28571, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(28571, 19168, 19221)
 
 	-- Major Frost Protection Potion -- 28572
@@ -770,7 +770,7 @@ function addon:InitAlchemy()
 
 	-- Ironshield Potion -- 28579
 	AddRecipe(28579, 365, 22849, Q.UNCOMMON, V.TBC, 365, 375, 377, 380)
-	self:AddRecipeFlags(28579, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(28579, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(28579, 17862)
 
 	-- Transmute: Primal Shadow to Water -- 28580
