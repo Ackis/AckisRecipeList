@@ -59,6 +59,7 @@ local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
 
@@ -825,7 +826,11 @@ do
 				for id_num in pairs(acquire_info) do
 					color_1 = string.gsub(quality_color, "|cff", "")
 
-					ttAdd(0, -1, false, L["World Drop"], color_1)
+					if type(id_num) == "string" then
+						ttAdd(0, -1, false, L["World Drop"], color_1, BZ[id_num], CATEGORY_COLORS["location"])
+					else
+						ttAdd(0, -1, false, L["World Drop"], color_1)
+					end
 				end
 			elseif acquire_type == A.CUSTOM then
 				for id_num in pairs(acquire_info) do
