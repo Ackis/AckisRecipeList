@@ -701,62 +701,75 @@ do
 
 		local playerFaction = Player.faction
 		local rep_list = private.reputation_list
+		local acquire_id = list_entry.acquire_id
+		local location_id = list_entry.location_id
 
 		for acquire_type, acquire_info in pairs(recipe_entry.acquire_data) do
-			if acquire_type == A.TRAINER then
+			local can_display = (not acquire_id or acquire_type == acquire_id)
+
+			if can_display and acquire_type == A.TRAINER then
 				for id_num in pairs(acquire_info) do
-					local display_tip = false
 					local trainer = private.trainer_list[id_num]
 
-					color_1 = CATEGORY_COLORS["trainer"]
-					display_tip, color_2 = GetTipFactionInfo(trainer.faction)
+					if location_id and trainer.location == location_id then
+						local display_tip = false
 
-					if display_tip then
-						local coord_text = ""
+						color_1 = CATEGORY_COLORS["trainer"]
+						display_tip, color_2 = GetTipFactionInfo(trainer.faction)
 
-						if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-							coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
+						if display_tip then
+							local coord_text = ""
+
+							if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+								coord_text = "(" .. trainer.coord_x .. ", " .. trainer.coord_y .. ")"
+							end
+							ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
+							ttAdd(1, -2, true, trainer.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 						end
-						ttAdd(0, -2, false, L["Trainer"], color_1, trainer.name, color_2)
-						ttAdd(1, -2, true, trainer.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 					end
 				end
-			elseif acquire_type == A.VENDOR then
+			elseif can_display and acquire_type == A.VENDOR then
 				for id_num in pairs(acquire_info) do
 					local vendor = private.vendor_list[id_num]
-					local display_tip = false
 
-					color_1 = CATEGORY_COLORS["vendor"]
-					display_tip, color_2 = GetTipFactionInfo(vendor.faction)
+					if not location_id or vendor.location == location_id then
+						local display_tip = false
 
-					if display_tip then
-						local coord_text = ""
+						color_1 = CATEGORY_COLORS["vendor"]
+						display_tip, color_2 = GetTipFactionInfo(vendor.faction)
 
-						if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
-							coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+						if display_tip then
+							local coord_text = ""
+
+							if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
+								coord_text = "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")"
+							end
+							ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
+							ttAdd(1, -2, true, vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
+						else
+							ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], color_1)
 						end
-						ttAdd(0, -1, false, L["Vendor"], color_1, vendor.name, color_2)
-						ttAdd(1, -2, true, vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
-					else
-						ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], color_1)
 					end
 				end
-			elseif acquire_type == A.MOB_DROP then
+			elseif can_display and acquire_type == A.MOB_DROP then
 				for id_num in pairs(acquire_info) do
 					local mob = private.mob_list[id_num]
-					local coord_text = ""
 
-					if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
-						coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
+					if not location_id or mob.location == location_id then
+						local coord_text = ""
+
+						if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
+							coord_text = "(" .. mob.coord_x .. ", " .. mob.coord_y .. ")"
+						end
+						ttAdd(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
+						ttAdd(1, -2, true, mob.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 					end
-					ttAdd(0, -1, false, L["Mob Drop"], CATEGORY_COLORS["mobdrop"], mob.name, private.reputation_colors["hostile"])
-					ttAdd(1, -2, true, mob.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 				end
-			elseif acquire_type == A.QUEST then
+			elseif can_display and acquire_type == A.QUEST then
 				for id_num in pairs(acquire_info) do
 					local quest = private.quest_list[id_num]
 
-					if quest then
+					if not location_id or quest.location == location_id then
 						local display_tip = false
 
 						color_1 = CATEGORY_COLORS["quest"]
@@ -776,71 +789,78 @@ do
 						end
 					end
 				end
-			elseif acquire_type == A.SEASONAL then
+			elseif can_display and acquire_type == A.SEASONAL then
 				for id_num in pairs(acquire_info) do
 					color_1 = CATEGORY_COLORS["seasonal"]
 					ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[id_num].name, color_1)
 				end
-			elseif acquire_type == A.REPUTATION then
+			elseif can_display and acquire_type == A.REPUTATION then
 				local rep_color = private.reputation_colors
 
 				for rep_id, rep_info in pairs(acquire_info) do
 					for rep_level, level_info in pairs(rep_info) do
 						for vendor_id in pairs(level_info) do
-							local display_tip = false
 							local rep_vendor = private.vendor_list[vendor_id]
 
-							display_tip, color_2 = GetTipFactionInfo(rep_vendor.faction)
+							if not location_id or rep_vendor.location == location_id then
+								local display_tip = false
+								display_tip, color_2 = GetTipFactionInfo(rep_vendor.faction)
 
-							if display_tip then
-								ttAdd(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], rep_list[rep_id].name, CATEGORY_COLORS["repname"])
+								if display_tip then
+									ttAdd(0, -1, false, _G.REPUTATION, CATEGORY_COLORS["reputation"], rep_list[rep_id].name, CATEGORY_COLORS["repname"])
 
-								local rep_str = ""
+									local rep_str = ""
 
-								if rep_level == 0 then
-									rep_str = FACTION_NEUTRAL
-									color_1 = rep_color["neutral"]
-								elseif rep_level == 1 then
-									rep_str = BFAC["Friendly"]
-									color_1 = rep_color["friendly"]
-								elseif rep_level == 2 then
-									rep_str = BFAC["Honored"]
-									color_1 = rep_color["honored"]
-								elseif rep_level == 3 then
-									rep_str = BFAC["Revered"]
-									color_1 = rep_color["revered"]
-								else
-									rep_str = BFAC["Exalted"]
-									color_1 = rep_color["exalted"]
+									if rep_level == 0 then
+										rep_str = FACTION_NEUTRAL
+										color_1 = rep_color["neutral"]
+									elseif rep_level == 1 then
+										rep_str = BFAC["Friendly"]
+										color_1 = rep_color["friendly"]
+									elseif rep_level == 2 then
+										rep_str = BFAC["Honored"]
+										color_1 = rep_color["honored"]
+									elseif rep_level == 3 then
+										rep_str = BFAC["Revered"]
+										color_1 = rep_color["revered"]
+									else
+										rep_str = BFAC["Exalted"]
+										color_1 = rep_color["exalted"]
+									end
+									ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
+
+									local coord_text = ""
+
+									if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
+										coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
+									end
+									ttAdd(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 								end
-								ttAdd(1, -2, false, rep_str, color_1, rep_vendor.name, color_2)
-
-								local coord_text = ""
-
-								if rep_vendor.coord_x ~= 0 and rep_vendor.coord_y ~= 0 then
-									coord_text = "(" .. rep_vendor.coord_x .. ", " .. rep_vendor.coord_y .. ")"
-								end
-								ttAdd(2, -2, true, rep_vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 							end
 						end
 					end
 				end
-			elseif acquire_type == A.WORLD_DROP then
+			elseif can_display and acquire_type == A.WORLD_DROP then
 				for id_num in pairs(acquire_info) do
-					color_1 = string.gsub(quality_color, "|cff", "")
+					local drop_location = BZ[id_num]
 
-					if type(id_num) == "string" then
-						ttAdd(0, -1, false, L["World Drop"], color_1, BZ[id_num], CATEGORY_COLORS["location"])
-					else
-						ttAdd(0, -1, false, L["World Drop"], color_1)
+					if not location_id or drop_location == location_id then
+						color_1 = string.gsub(quality_color, "|cff", "")
+
+						if type(id_num) == "string" then
+							ttAdd(0, -1, false, L["World Drop"], color_1, drop_location, CATEGORY_COLORS["location"])
+						else
+							ttAdd(0, -1, false, L["World Drop"], color_1)
+						end
 					end
 				end
-			elseif acquire_type == A.CUSTOM then
+			elseif can_display and acquire_type == A.CUSTOM then
 				for id_num in pairs(acquire_info) do
 					ttAdd(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 				end
 				--@alpha@
-			else	-- Unhandled
+			elseif can_display then
+				-- Unhandled
 				ttAdd(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
 				--@end-alpha@
 			end
@@ -3273,7 +3293,7 @@ do
 						end
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
-						t.location_id = location_text
+						t.location_id = location_id
 
 						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand, expand_all)
 					end
