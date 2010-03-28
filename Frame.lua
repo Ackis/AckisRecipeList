@@ -1855,7 +1855,11 @@ MainPanel.filter_menu.general.known.text:SetText(L["Show Known"])
 
 MainPanel.filter_menu.general.unknown = CreateFrame("CheckButton", nil, MainPanel.filter_menu.general)
 InitializeCheckButton(MainPanel.filter_menu.general.unknown, MainPanel.filter_menu.general, L["UNKNOWN_DESC"], "unknown", 3, 1, 0)
-MainPanel.filter_menu.general.unknown.text:SetText(L["Show Unknown"])
+MainPanel.filter_menu.general.unknown.text:SetText(_G.UNKNOWN)
+
+MainPanel.filter_menu.general.retired = CreateFrame("CheckButton", nil, MainPanel.filter_menu.general)
+InitializeCheckButton(MainPanel.filter_menu.general.retired, MainPanel.filter_menu.general, L["RETIRED_DESC"], "retired", 3, 2, 0)
+MainPanel.filter_menu.general.retired.text:SetText(L["Retired"])
 
 -------------------------------------------------------------------------------
 -- Create the Class toggle and CheckButtons for MainPanel.filter_menu.general
@@ -3996,6 +4000,7 @@ function addon:InitializeFrame()
 		["faction"]		= { cb = filter_menu.general.faction,			svroot = filterdb.general },
 		["known"]		= { cb = filter_menu.general.known,			svroot = filterdb.general },
 		["unknown"]		= { cb = filter_menu.general.unknown,			svroot = filterdb.general },
+		["retired"]		= { cb = filter_menu.general.retired,			svroot = filterdb.general },
 		------------------------------------------------------------------------------------------------
 		-- Classes
 		------------------------------------------------------------------------------------------------
