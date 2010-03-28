@@ -1072,7 +1072,6 @@ do
 
 					if location then
 						affiliation = "world_drop"
-						addon:Debug("GenericAddRecipeAcquire(): location set as \"%s\".", location)
 					else
 						addon:Debug("WORLD_DROP with no location: %d %s", spell_id, private.recipe_list[spell_id].name)
 					end
@@ -1116,6 +1115,10 @@ do
 
 	function addon:AddRecipeWorldDrop(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.WORLD_DROP, nil, nil, ...)
+	end
+
+	function addon:AddRecipeQuest(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.QUEST, "Quest", private.quest_list, ...)
 	end
 
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.

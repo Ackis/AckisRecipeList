@@ -1478,6 +1478,7 @@ do
 		[A.VENDOR]	= "self:AddRecipeVendor(%d, %s)",
 		[A.MOB_DROP]	= "self:AddRecipeMobDrop(%d, %s)",
 		[A.WORLD_DROP]	= "self:AddRecipeWorldDrop(%d, %s)",
+		[A.QUEST]	= "self:AddRecipeQuest(%d, %s)",
 	}
 
 	local function RecipeDump(id, single)
