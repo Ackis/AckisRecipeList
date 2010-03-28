@@ -1733,7 +1733,7 @@ MainPanel.menu_toggle_item:SetPoint("TOPLEFT", MainPanel.menu_toggle_binding, "B
 MainPanel.menu_toggle_player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
 MainPanel.menu_toggle_player:SetPoint("TOPLEFT", MainPanel.menu_toggle_item, "BOTTOMLEFT", -0, -8)
 
-MainPanel.menu_toggle_rep = CreateFilterMenuButton("INV_Scroll_05", "rep")
+MainPanel.menu_toggle_rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
 MainPanel.menu_toggle_rep:SetPoint("TOPLEFT", MainPanel.menu_toggle_player, "BOTTOMLEFT", -0, -8)
 
 MainPanel.menu_toggle_misc = CreateFilterMenuButton("Trade_Engineering", "misc")
