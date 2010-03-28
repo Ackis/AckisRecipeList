@@ -3237,9 +3237,16 @@ do
 	local function ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
+		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
+
+		if drop_location then
+			drop_location = string.format(": %s", SetTextColor(CATEGORY_COLORS["location"], drop_location))
+		else
+			drop_location = ""
+		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s%s|r", PADDING, hex_color, L["World Drop"])
+		t.text = string.format("%s%s%s|r%s", PADDING, hex_color, L["World Drop"], drop_location)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
