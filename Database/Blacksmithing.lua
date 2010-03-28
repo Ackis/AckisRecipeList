@@ -781,29 +781,29 @@ function addon:InitBlacksmithing()
 	-- Wildthorn Mail -- 16650
 	AddRecipe(16650, 270, 12624, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
 	self:AddRecipeFlags(16650, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeWorldDrop(16650, 2)
+	self:AddRecipeWorldDrop(16650, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Shield Spike -- 16651
 	AddRecipe(16651, 275, 12645, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
 	self:AddRecipeFlags(16651, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK)
-	self:AddRecipeWorldDrop(16651, 2)
+	self:AddRecipeWorldDrop(16651, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Boots -- 16652
 	AddRecipe(16652, 280, 12409, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(16652, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16652, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16652, 2)
+	self:AddRecipeWorldDrop(16652, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Helm -- 16653
 	AddRecipe(16653, 280, 12410, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(16653, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16653, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16653, 2)
+	self:AddRecipeWorldDrop(16653, "Kalimdor", "Eastern Kingdoms")
 
 	-- Radiant Gloves -- 16654
 	AddRecipe(16654, 285, 12418, Q.UNCOMMON, V.ORIG, 285, 305, 315, 325)
 	self:AddRecipeFlags(16654, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(16654, 2)
+	self:AddRecipeWorldDrop(16654, "Kalimdor", "Eastern Kingdoms")
 
 	-- Fiery Plate Gauntlets -- 16655
 	AddRecipe(16655, 290, 12631, Q.RARE, V.ORIG, 290, 310, 320, 330)
@@ -813,7 +813,7 @@ function addon:InitBlacksmithing()
 	-- Radiant Boots -- 16656
 	AddRecipe(16656, 290, 12419, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
 	self:AddRecipeFlags(16656, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(16656, 2)
+	self:AddRecipeWorldDrop(16656, "Kalimdor", "Eastern Kingdoms")
 
 	-- Imperial Plate Boots -- 16657
 	AddRecipe(16657, 295, 12426, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
@@ -828,24 +828,24 @@ function addon:InitBlacksmithing()
 	-- Radiant Circlet -- 16659
 	AddRecipe(16659, 295, 12417, Q.UNCOMMON, V.ORIG, 295, 315, 325, 335)
 	self:AddRecipeFlags(16659, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(16659, 2)
+	self:AddRecipeWorldDrop(16659, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dawnbringer Shoulders -- 16660
 	AddRecipe(16660, 290, 12625, Q.RARE, V.ORIG, 290, 310, 320, 330)
 	self:AddRecipeFlags(16660, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeWorldDrop(16660, 2)
+	self:AddRecipeWorldDrop(16660, "Kalimdor", "Eastern Kingdoms")
 
 	-- Storm Gauntlets -- 16661
 	AddRecipe(16661, 295, 12632, Q.RARE, V.ORIG, 295, 315, 325, 335)
 	self:AddRecipeFlags(16661, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(16661, 11278)
-	self:AddRecipeWorldDrop(16661, 2)
+	self:AddRecipeWorldDrop(16661, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Leggings -- 16662
 	AddRecipe(16662, 300, 12414, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16662, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16662, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16662, 2)
+	self:AddRecipeWorldDrop(16662, "Kalimdor", "Eastern Kingdoms")
 
 	-- Imperial Plate Chest -- 16663
 	AddRecipe(16663, 300, 12422, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
@@ -870,12 +870,12 @@ function addon:InitBlacksmithing()
 	-- Whitesoul Helm -- 16724
 	AddRecipe(16724, 300, 12633, Q.RARE, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16724, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeWorldDrop(16724, 2)
+	self:AddRecipeWorldDrop(16724, "Kalimdor", "Eastern Kingdoms")
 
 	-- Radiant Leggings -- 16725
 	AddRecipe(16725, 300, 12420, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16725, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(16725, 2)
+	self:AddRecipeWorldDrop(16725, "Kalimdor", "Eastern Kingdoms")
 
 	-- Runic Plate Helm -- 16726
 	AddRecipe(16726, 300, 12612, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
@@ -885,12 +885,12 @@ function addon:InitBlacksmithing()
 	-- Helm of the Great Chief -- 16728
 	AddRecipe(16728, 300, 12636, Q.RARE, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16728, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeWorldDrop(16728, 2)
+	self:AddRecipeWorldDrop(16728, "Kalimdor", "Eastern Kingdoms")
 
 	-- Lionheart Helm -- 16729
 	AddRecipe(16729, 300, 12640, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16729, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeWorldDrop(16729, 2)
+	self:AddRecipeWorldDrop(16729, "Kalimdor", "Eastern Kingdoms")
 
 	-- Imperial Plate Leggings -- 16730
 	AddRecipe(16730, 300, 12429, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
@@ -910,7 +910,7 @@ function addon:InitBlacksmithing()
 	-- Stronghold Gauntlets -- 16741
 	AddRecipe(16741, 300, 12639, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16741, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeWorldDrop(16741, 2)
+	self:AddRecipeWorldDrop(16741, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchanted Thorium Helm -- 16742
 	AddRecipe(16742, 300, 12620, Q.RARE, V.ORIG, 300, 320, 330, 340)
@@ -930,7 +930,7 @@ function addon:InitBlacksmithing()
 	-- Invulnerable Mail -- 16746
 	AddRecipe(16746, 300, 12641, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16746, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.MAIL)
-	self:AddRecipeWorldDrop(16746, 2)
+	self:AddRecipeWorldDrop(16746, "Kalimdor", "Eastern Kingdoms")
 
 	-- Ornate Thorium Handaxe -- 16969
 	AddRecipe(16969, 275, 12773, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
@@ -1217,17 +1217,17 @@ function addon:InitBlacksmithing()
 	-- Titanic Leggings -- 27829
 	AddRecipe(27829, 300, 22385, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(27829, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeWorldDrop(27829, 2)
+	self:AddRecipeWorldDrop(27829, "Kalimdor", "Eastern Kingdoms")
 
 	-- Persuader -- 27830
 	AddRecipe(27830, 300, 22384, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(27830, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(27830, 2)
+	self:AddRecipeWorldDrop(27830, "Kalimdor", "Eastern Kingdoms")
 
 	-- Sageblade -- 27832
 	AddRecipe(27832, 300, 22383, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(27832, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.ONE_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(27832, 2)
+	self:AddRecipeWorldDrop(27832, "Kalimdor", "Eastern Kingdoms")
 
 	-- Icebane Breastplate -- 28242
 	AddRecipe(28242, 300, 22669, Q.EPIC, V.ORIG, 300, 320, 330, 340)
@@ -1415,7 +1415,7 @@ function addon:InitBlacksmithing()
 	-- Gauntlets of the Iron Tower -- 29622
 	AddRecipe(29622, 365, 23532, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29622, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeWorldDrop(29622, 4)
+	self:AddRecipeWorldDrop(29622, "Outland")
 
 	-- Khorium Belt -- 29628
 	AddRecipe(29628, 360, 23524, Q.RARE, V.TBC, 360, 370, 380, 390)
@@ -1476,87 +1476,87 @@ function addon:InitBlacksmithing()
 	-- Felfury Gauntlets -- 29658
 	AddRecipe(29658, 365, 23531, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29658, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(29658, 2)
+	self:AddRecipeWorldDrop(29658, "Outland")
 
 	-- Steelgrip Gauntlets -- 29662
 	AddRecipe(29662, 365, 23533, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29662, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeWorldDrop(29662, 4)
+	self:AddRecipeWorldDrop(29662, "Outland")
 
 	-- Storm Helm -- 29663
 	AddRecipe(29663, 365, 23534, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(29663, 4)
+	self:AddRecipeWorldDrop(29663, "Outland")
 
 	-- Helm of the Stalwart Defender -- 29664
 	AddRecipe(29664, 365, 23535, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29664, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeWorldDrop(29664, 4)
+	self:AddRecipeWorldDrop(29664, "Outland")
 
 	-- Oathkeeper's Helm -- 29668
 	AddRecipe(29668, 365, 23536, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29668, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeWorldDrop(29668, 4)
+	self:AddRecipeWorldDrop(29668, "Outland")
 
 	-- Black Felsteel Bracers -- 29669
 	AddRecipe(29669, 365, 23537, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29669, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeWorldDrop(29669, 4)
+	self:AddRecipeWorldDrop(29669, "Outland")
 
 	-- Bracers of the Green Fortress -- 29671
 	AddRecipe(29671, 365, 23538, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29671, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeWorldDrop(29671, 4)
+	self:AddRecipeWorldDrop(29671, "Outland")
 
 	-- Blessed Bracers -- 29672
 	AddRecipe(29672, 365, 23539, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29672, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeWorldDrop(29672, 4)
+	self:AddRecipeWorldDrop(29672, "Outland")
 
 	-- Felsteel Longblade -- 29692
 	AddRecipe(29692, 365, 23540, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29692, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(29692, 2)
+	self:AddRecipeWorldDrop(29692, "Outland")
 
 	-- Khorium Champion -- 29693
 	AddRecipe(29693, 365, 23541, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29693, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(29693, 4)
+	self:AddRecipeWorldDrop(29693, "Outland")
 
 	-- Fel Edged Battleaxe -- 29694
 	AddRecipe(29694, 365, 23542, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29694, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
-	self:AddRecipeWorldDrop(29694, 4)
+	self:AddRecipeWorldDrop(29694, "Outland")
 
 	-- Felsteel Reaper -- 29695
 	AddRecipe(29695, 365, 23543, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29695, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
-	self:AddRecipeWorldDrop(29695, 4)
+	self:AddRecipeWorldDrop(29695, "Outland")
 
 	-- Runic Hammer -- 29696
 	AddRecipe(29696, 365, 23544, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29696, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(29696, 2)
+	self:AddRecipeWorldDrop(29696, "Outland")
 
 	-- Fel Hardened Maul -- 29697
 	AddRecipe(29697, 365, 23546, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29697, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
-	self:AddRecipeWorldDrop(29697, 4)
+	self:AddRecipeWorldDrop(29697, "Outland")
 
 	-- Eternium Runed Blade -- 29698
 	AddRecipe(29698, 365, 23554, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29698, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
-	self:AddRecipeWorldDrop(29698, 4)
+	self:AddRecipeWorldDrop(29698, "Outland")
 
 	-- Dirge -- 29699
 	AddRecipe(29699, 365, 23555, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29699, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
-	self:AddRecipeWorldDrop(29699, 2)
+	self:AddRecipeWorldDrop(29699, "Outland")
 
 	-- Hand of Eternity -- 29700
 	AddRecipe(29700, 365, 23556, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(29700, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(29700, 2)
+	self:AddRecipeWorldDrop(29700, "Outland")
 
 	-- Lesser Ward of Shielding -- 29728
 	AddRecipe(29728, 340, 23575, Q.COMMON, V.TBC, 340, 340, 345, 350)
@@ -1916,7 +1916,7 @@ function addon:InitBlacksmithing()
 	-- Hammer of Righteous Might -- 43846
 	AddRecipe(43846, 365, 32854, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(43846, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND, F.MACE)
-	self:AddRecipeWorldDrop(43846, 4)
+	self:AddRecipeWorldDrop(43846, "Outland")
 
 	-- Sunblessed Gauntlets -- 46140
 	AddRecipe(46140, 365, 34380, Q.EPIC, V.TBC, 365, 375, 392, 410)
