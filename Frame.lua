@@ -478,7 +478,7 @@ local acquire_tip
 local narrowFont
 local normalFont
 
-local GenerateTooltipContent
+local ListItem_ShowTooltip
 do
 	-- Fallback in case the user doesn't have LSM-3.0 installed
 	if not LibStub:GetLibrary("LibSharedMedia-3.0", true) then
@@ -736,7 +736,7 @@ do
 	-------------------------------------------------------------------------------
 	-- Main tooltip-generating function.
 	-------------------------------------------------------------------------------
-	function GenerateTooltipContent(owner, list_entry)
+	function ListItem_ShowTooltip(owner, list_entry)
 		if not list_entry then
 			return
 		end
@@ -2439,7 +2439,7 @@ do
 	highlight._texture:SetAllPoints(highlight)
 
 	local function Button_OnEnter(self)
-		GenerateTooltipContent(self, ListFrame.entries[self.string_index])
+		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
 	end
 
 	local function Button_OnLeave()
@@ -2451,7 +2451,7 @@ do
 		highlight:SetParent(self)
 		highlight:SetAllPoints(self)
 		highlight:Show()
-		GenerateTooltipContent(self, ListFrame.entries[self.string_index])
+		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
 	end
 
 	local function Bar_OnLeave()
