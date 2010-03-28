@@ -1702,7 +1702,7 @@ do
 		cButton:SetCheckedTexture(checkedTexture)
 
 		-- Create the text object to go along with it
-		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
+		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlightSmallRight")
 		cbText:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
 		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
 		cbText:SetHeight(14)
