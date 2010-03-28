@@ -1062,18 +1062,29 @@ do
 
 			acquire[id_num] = true
 
-			if not unit_list[id_num] then
+			if unit_list and not unit_list[id_num] then
 				--@alpha@
 				self:Printf("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
 				--@end-alpha@
 			else
-				local unit = unit_list[id_num]
+				if not unit_list then
+					location = type(id_num) == "string" and BZ[id_num] or nil
 
-				affiliation = unit.faction
-				location = unit.location
+					if location then
+						affiliation = "world_drop"
+						addon:Debug("GenericAddRecipeAcquire(): location set as \"%s\".", location)
+					else
+						addon:Debug("WORLD_DROP with no location: %d %s", spell_id, private.recipe_list[spell_id].name)
+					end
+				else
+					local unit = unit_list[id_num]
 
-				unit.item_list = unit.item_list or {}
-				unit.item_list[spell_id] = true
+					affiliation = unit.faction
+					location = unit.location
+
+					unit.item_list = unit.item_list or {}
+					unit.item_list[spell_id] = true
+				end
 			end
 			acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 			acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
@@ -1101,6 +1112,10 @@ do
 
 	function addon:AddRecipeVendor(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Vendor", private.vendor_list, ...)
+	end
+
+	function addon:AddRecipeWorldDrop(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.WORLD_DROP, nil, nil, ...)
 	end
 
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.

@@ -1477,6 +1477,7 @@ do
 		[A.TRAINER]	= "self:AddRecipeTrainer(%d, %s)",
 		[A.VENDOR]	= "self:AddRecipeVendor(%d, %s)",
 		[A.MOB_DROP]	= "self:AddRecipeMobDrop(%d, %s)",
+		[A.WORLD_DROP]	= "self:AddRecipeWorldDrop(%d, %s)",
 	}
 
 	local function RecipeDump(id, single)
@@ -1532,7 +1533,8 @@ do
 				local values
 
 				for id_num in pairs(acquire_info) do
-					values = values and (values..", "..id_num) or id_num
+					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
+					values = values and (values..", "..saved_id) or saved_id
 				end
 				tinsert(output, string.format(FUNCTION_FORMATS[acquire_type], recipe.spell_id, values))
 			else
