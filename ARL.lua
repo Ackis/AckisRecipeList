@@ -395,7 +395,7 @@ function addon:OnInitialize()
 		return
 	end
 	local version = GetAddOnMetadata("AckisRecipeList", "Version")
-	version = string.gsub(version, "@project.revision@", "SVN")
+	version = string.gsub(version, "@project.revision@", "Devel")
 	self.version = version
 
 	self:SetupOptions()
