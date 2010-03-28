@@ -91,7 +91,7 @@ function addon:InitCooking()
 	AddRecipe(2545, 85, 2682, Q.COMMON, V.ORIG, 85, 125, 145, 165)
 	self:AddRecipeFlags(2545, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(2545, 340)
-	self:AddRecipeWorldDrop(2545, 1)
+	self:AddRecipeWorldDrop(2545, "Darkshore", "Westfall")
 
 	-- Dry Pork Ribs -- 2546
 	AddRecipe(2546, 80, 2687, Q.COMMON, V.ORIG, 80, 120, 140, 160)
@@ -108,7 +108,7 @@ function addon:InitCooking()
 	AddRecipe(2548, 110, 2685, Q.COMMON, V.ORIG, 110, 130, 150, 170)
 	self:AddRecipeFlags(2548, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(2548, 340)
-	self:AddRecipeWorldDrop(2548, 1)
+	self:AddRecipeWorldDrop(2548, "Loch Modan", "Redridge Mountains")
 
 	-- Seasoned Wolf Kabob -- 2549
 	AddRecipe(2549, 100, 1017, Q.COMMON, V.ORIG, 100, 140, 160, 180)
@@ -287,7 +287,7 @@ function addon:InitCooking()
 	-- Savory Deviate Delight -- 8238
 	AddRecipe(8238, 85, 6657, Q.UNCOMMON, V.ORIG, 85, 125, 145, 165)
 	self:AddRecipeFlags(8238, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(8238, 2)
+	self:AddRecipeWorldDrop(8238, "The Barrens")
 
 	-- Herb Baked Egg -- 8604
 	AddRecipe(8604, 1, 6888, Q.COMMON, V.ORIG, 1, 45, 65, 85)
@@ -857,22 +857,22 @@ function addon:InitCooking()
 	-- Tasty Cupcake -- 58512
 	AddRecipe(58512, 350, 43490, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
 	self:AddRecipeFlags(58512, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58512, 2)
+	self:AddRecipeWorldDrop(58512, "Northrend")
 
 	-- Last Week's Mammoth -- 58521
 	AddRecipe(58521, 350, 43488, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
 	self:AddRecipeFlags(58521, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58521, 2)
+	self:AddRecipeWorldDrop(58521, "Northrend")
 
 	-- Bad Clams -- 58523
 	AddRecipe(58523, 350, 43491, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
 	self:AddRecipeFlags(58523, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58523, 2)
+	self:AddRecipeWorldDrop(58523, "Northrend")
 
 	-- Haunted Herring -- 58525
 	AddRecipe(58525, 350, 43492, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
 	self:AddRecipeFlags(58525, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58525, 2)
+	self:AddRecipeWorldDrop(58525, "Northrend")
 
 	-- Gigantic Feast -- 58527
 	AddRecipe(58527, 425, 43478, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
