@@ -231,10 +231,11 @@ Right-click here to select your own class.]]
 L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["SKILL_DESC"]				= "Include all recipes in the scan, regardless of your current skill level."
-L["Show Known"]				= true
+L["Show Known"]				= "Known"
 L["KNOWN_DESC"]				= "Include all known recipes in the scan."
-L["Show Unknown"]			= true
 L["UNKNOWN_DESC"]			= "Include all unknown recipes in the scan."
+L["RETIRED_DESC"]			= "Include recipes which can no longer be acquired."
+L["Retired"]				= true
 
 -- Obtain Filter UI Elements and their associated descriptions
 L["INSTANCE_DESC"]			= "Recipes obtained from (5 man) instances should be included in the scan."

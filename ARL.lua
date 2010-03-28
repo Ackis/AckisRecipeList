@@ -252,6 +252,7 @@ function addon:OnInitialize()
 					skill = true,
 					known = false,
 					unknown = true,
+					retired = false,
 				},
 				-------------------------------------------------------------------------------
 				-- Obtain Filters
@@ -1293,6 +1294,11 @@ do
 			if specialty and specialty ~= Player["Specialty"] then
 				return false
 			end
+		end
+
+		-- Display retired recipes?
+		if not general_filters.retired and recipe_flags[F.RETIRED] then
+			return false
 		end
 		local obtain_filters = filter_db.obtain
 		local game_version = recipe.genesis
