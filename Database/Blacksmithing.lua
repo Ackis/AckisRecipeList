@@ -88,7 +88,7 @@ function addon:InitBlacksmithing()
 	-- Runed Copper Breastplate -- 2667
 	AddRecipe(2667, 80, 2864, Q.UNCOMMON, V.ORIG, 80, 120, 140, 160)
 	self:AddRecipeFlags(2667, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(2667, 2)
+	self:AddRecipeWorldDrop(2667, "Kalimdor", "Eastern Kingdoms")
 
 	-- Rough Bronze Leggings -- 2668
 	AddRecipe(2668, 105, 2865, Q.COMMON, V.ORIG, 105, 145, 160, 175)
@@ -108,7 +108,7 @@ function addon:InitBlacksmithing()
 	-- Silvered Bronze Breastplate -- 2673
 	AddRecipe(2673, 130, 2869, Q.UNCOMMON, V.ORIG, 130, 160, 175, 190)
 	self:AddRecipeFlags(2673, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(2673, 2)
+	self:AddRecipeWorldDrop(2673, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Sharpening Stone -- 2674
 	AddRecipe(2674, 125, 2871, Q.COMMON, V.ORIG, 125, 125, 132, 140)
@@ -183,7 +183,7 @@ function addon:InitBlacksmithing()
 	-- Deadly Bronze Poniard -- 3295
 	AddRecipe(3295, 125, 3490, Q.UNCOMMON, V.ORIG, 125, 155, 170, 195)
 	self:AddRecipeFlags(3295, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
-	self:AddRecipeWorldDrop(3295, 2)
+	self:AddRecipeWorldDrop(3295, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Bronze Mace -- 3296
 	AddRecipe(3296, 130, 3491, Q.COMMON, V.ORIG, 130, 160, 175, 190)
@@ -193,7 +193,7 @@ function addon:InitBlacksmithing()
 	-- Mighty Iron Hammer -- 3297
 	AddRecipe(3297, 145, 3492, Q.UNCOMMON, V.ORIG, 145, 175, 190, 205)
 	self:AddRecipeFlags(3297, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(3297, 2)
+	self:AddRecipeWorldDrop(3297, "Kalimdor", "Eastern Kingdoms")
 
 	-- Copper Chain Boots -- 3319
 	AddRecipe(3319, 20, 3469, Q.COMMON, V.ORIG, 20, 60, 80, 100)
@@ -208,7 +208,7 @@ function addon:InitBlacksmithing()
 	-- Copper Chain Vest -- 3321
 	AddRecipe(3321, 35, 3471, Q.UNCOMMON, V.ORIG, 35, 75, 95, 115)
 	self:AddRecipeFlags(3321, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3321, 2)
+	self:AddRecipeWorldDrop(3321, "Kalimdor", "Eastern Kingdoms")
 
 	-- Runed Copper Gauntlets -- 3323
 	AddRecipe(3323, 40, 3472, Q.COMMON, V.ORIG, 40, 80, 100, 120)
@@ -223,7 +223,7 @@ function addon:InitBlacksmithing()
 	-- Gemmed Copper Gauntlets -- 3325
 	AddRecipe(3325, 60, 3474, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
 	self:AddRecipeFlags(3325, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
-	self:AddRecipeWorldDrop(3325, 2)
+	self:AddRecipeWorldDrop(3325, "Kalimdor", "Eastern Kingdoms")
 
 	-- Coarse Grinding Stone -- 3326
 	AddRecipe(3326, 75, 3478, Q.COMMON, V.ORIG, 75, 75, 87, 100)
@@ -238,7 +238,7 @@ function addon:InitBlacksmithing()
 	-- Silvered Bronze Shoulders -- 3330
 	AddRecipe(3330, 125, 3481, Q.UNCOMMON, V.ORIG, 125, 155, 170, 185)
 	self:AddRecipeFlags(3330, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3330, 2)
+	self:AddRecipeWorldDrop(3330, "Kalimdor", "Eastern Kingdoms")
 
 	-- Silvered Bronze Boots -- 3331
 	AddRecipe(3331, 130, 3482, Q.COMMON, V.ORIG, 130, 160, 175, 190)
@@ -253,12 +253,12 @@ function addon:InitBlacksmithing()
 	-- Green Iron Boots -- 3334
 	AddRecipe(3334, 145, 3484, Q.UNCOMMON, V.ORIG, 145, 175, 190, 205)
 	self:AddRecipeFlags(3334, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3334, 2)
+	self:AddRecipeWorldDrop(3334, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Iron Gauntlets -- 3336
 	AddRecipe(3336, 150, 3485, Q.UNCOMMON, V.ORIG, 150, 180, 195, 210)
 	self:AddRecipeFlags(3336, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3336, 2)
+	self:AddRecipeWorldDrop(3336, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Grinding Stone -- 3337
 	AddRecipe(3337, 125, 3486, Q.COMMON, V.ORIG, 125, 125, 137, 150)
@@ -278,7 +278,7 @@ function addon:InitBlacksmithing()
 	-- Jade Serpentblade -- 3493
 	AddRecipe(3493, 175, 3850, Q.UNCOMMON, V.ORIG, 175, 200, 212, 225)
 	self:AddRecipeFlags(3493, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(3493, 2)
+	self:AddRecipeWorldDrop(3493, "Kalimdor", "Eastern Kingdoms")
 
 	-- Solid Iron Maul -- 3494
 	AddRecipe(3494, 155, 3851, Q.COMMON, V.ORIG, 155, 180, 192, 205)
@@ -288,7 +288,7 @@ function addon:InitBlacksmithing()
 	-- Golden Iron Destroyer -- 3495
 	AddRecipe(3495, 170, 3852, Q.UNCOMMON, V.ORIG, 170, 195, 207, 220)
 	self:AddRecipeFlags(3495, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
-	self:AddRecipeWorldDrop(3495, 2)
+	self:AddRecipeWorldDrop(3495, "Kalimdor", "Eastern Kingdoms")
 
 	-- Moonsteel Broadsword -- 3496
 	AddRecipe(3496, 180, 3853, Q.COMMON, V.ORIG, 180, 205, 217, 230)
@@ -298,7 +298,7 @@ function addon:InitBlacksmithing()
 	-- Frost Tiger Blade -- 3497
 	AddRecipe(3497, 200, 3854, Q.UNCOMMON, V.ORIG, 200, 210, 215, 220)
 	self:AddRecipeFlags(3497, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(3497, 2)
+	self:AddRecipeWorldDrop(3497, "Kalimdor", "Eastern Kingdoms")
 
 	-- Massive Iron Axe -- 3498
 	AddRecipe(3498, 185, 3855, Q.COMMON, V.ORIG, 185, 210, 222, 235)
@@ -308,7 +308,7 @@ function addon:InitBlacksmithing()
 	-- Shadow Crescent Axe -- 3500
 	AddRecipe(3500, 200, 3856, Q.UNCOMMON, V.ORIG, 200, 225, 237, 250)
 	self:AddRecipeFlags(3500, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
-	self:AddRecipeWorldDrop(3500, 2)
+	self:AddRecipeWorldDrop(3500, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Iron Bracers -- 3501
 	AddRecipe(3501, 165, 3835, Q.COMMON, V.ORIG, 165, 190, 202, 215)
@@ -328,12 +328,12 @@ function addon:InitBlacksmithing()
 	-- Green Iron Shoulders -- 3504
 	AddRecipe(3504, 160, 3840, Q.UNCOMMON, V.ORIG, 160, 185, 197, 210)
 	self:AddRecipeFlags(3504, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3504, 2)
+	self:AddRecipeWorldDrop(3504, "Kalimdor", "Eastern Kingdoms")
 
 	-- Golden Scale Shoulders -- 3505
 	AddRecipe(3505, 175, 3841, Q.RARE, V.ORIG, 175, 200, 212, 225)
 	self:AddRecipeFlags(3505, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3505, 3)
+	self:AddRecipeWorldDrop(3505, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Iron Leggings -- 3506
 	AddRecipe(3506, 155, 3842, Q.COMMON, V.ORIG, 155, 180, 192, 205)
@@ -343,7 +343,7 @@ function addon:InitBlacksmithing()
 	-- Golden Scale Leggings -- 3507
 	AddRecipe(3507, 170, 3843, Q.UNCOMMON, V.ORIG, 170, 195, 207, 220)
 	self:AddRecipeFlags(3507, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3507, 2)
+	self:AddRecipeWorldDrop(3507, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Iron Hauberk -- 3508
 	AddRecipe(3508, 180, 3844, Q.COMMON, V.ORIG, 180, 205, 217, 230)
@@ -353,17 +353,17 @@ function addon:InitBlacksmithing()
 	-- Golden Scale Cuirass -- 3511
 	AddRecipe(3511, 195, 3845, Q.UNCOMMON, V.ORIG, 195, 220, 232, 245)
 	self:AddRecipeFlags(3511, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3511, 2)
+	self:AddRecipeWorldDrop(3511, "Kalimdor", "Eastern Kingdoms")
 
 	-- Polished Steel Boots -- 3513
 	AddRecipe(3513, 185, 3846, Q.UNCOMMON, V.ORIG, 185, 210, 222, 235)
 	self:AddRecipeFlags(3513, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
-	self:AddRecipeWorldDrop(3513, 2)
+	self:AddRecipeWorldDrop(3513, "Kalimdor", "Eastern Kingdoms")
 
 	-- Golden Scale Boots -- 3515
 	AddRecipe(3515, 200, 3847, Q.RARE, V.ORIG, 200, 210, 215, 220)
 	self:AddRecipeFlags(3515, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(3515, 2)
+	self:AddRecipeWorldDrop(3515, "Kalimdor", "Eastern Kingdoms")
 
 	-- Pearl-handled Dagger -- 6517
 	AddRecipe(6517, 110, 5540, Q.COMMON, V.ORIG, 110, 140, 155, 170)
@@ -373,17 +373,17 @@ function addon:InitBlacksmithing()
 	-- Iridescent Hammer -- 6518
 	AddRecipe(6518, 140, 5541, Q.UNCOMMON, V.ORIG, 140, 170, 185, 200)
 	self:AddRecipeFlags(6518, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(6518, 2)
+	self:AddRecipeWorldDrop(6518, "Kalimdor", "Eastern Kingdoms")
 
 	-- Iron Shield Spike -- 7221
 	AddRecipe(7221, 150, 6042, Q.UNCOMMON, V.ORIG, 150, 180, 195, 210)
 	self:AddRecipeFlags(7221, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	self:AddRecipeWorldDrop(7221, 2)
+	self:AddRecipeWorldDrop(7221, "Kalimdor", "Eastern Kingdoms")
 
 	-- Iron Counterweight -- 7222
 	AddRecipe(7222, 165, 6043, Q.UNCOMMON, V.ORIG, 165, 190, 202, 215)
 	self:AddRecipeFlags(7222, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.AXE)
-	self:AddRecipeWorldDrop(7222, 2)
+	self:AddRecipeWorldDrop(7222, "Kalimdor", "Eastern Kingdoms")
 
 	-- Golden Scale Bracers -- 7223
 	AddRecipe(7223, 185, 6040, Q.COMMON, V.ORIG, 185, 210, 222, 235)
@@ -393,7 +393,7 @@ function addon:InitBlacksmithing()
 	-- Steel Weapon Chain -- 7224
 	AddRecipe(7224, 190, 6041, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
 	self:AddRecipeFlags(7224, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(7224, 2)
+	self:AddRecipeWorldDrop(7224, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Copper Maul -- 7408
 	AddRecipe(7408, 65, 6214, Q.COMMON, V.ORIG, 65, 105, 125, 145)
@@ -488,7 +488,7 @@ function addon:InitBlacksmithing()
 	-- Heavy Mithril Pants -- 9933
 	AddRecipe(9933, 210, 7921, Q.UNCOMMON, V.ORIG, 210, 230, 240, 250)
 	self:AddRecipeFlags(9933, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.PLATE)
-	self:AddRecipeWorldDrop(9933, 2)
+	self:AddRecipeWorldDrop(9933, "Kalimdor", "Eastern Kingdoms")
 
 	-- Steel Plate Helm -- 9935
 	AddRecipe(9935, 215, 7922, Q.COMMON, V.ORIG, 215, 235, 245, 255)
@@ -503,7 +503,7 @@ function addon:InitBlacksmithing()
 	-- Mithril Shield Spike -- 9939
 	AddRecipe(9939, 215, 7967, Q.RARE, V.ORIG, 215, 235, 245, 255)
 	self:AddRecipeFlags(9939, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	self:AddRecipeWorldDrop(9939, 3)
+	self:AddRecipeWorldDrop(9939, "Kalimdor", "Eastern Kingdoms")
 
 	-- Ornate Mithril Pants -- 9945
 	AddRecipe(9945, 220, 7926, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
@@ -543,12 +543,12 @@ function addon:InitBlacksmithing()
 	-- Mithril Spurs -- 9964
 	AddRecipe(9964, 235, 7969, Q.UNCOMMON, V.ORIG, 235, 255, 265, 275)
 	self:AddRecipeFlags(9964, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(9964, 2)
+	self:AddRecipeWorldDrop(9964, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mithril Scale Shoulders -- 9966
 	AddRecipe(9966, 235, 7932, Q.RARE, V.ORIG, 235, 255, 265, 275)
 	self:AddRecipeFlags(9966, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(9966, 3)
+	self:AddRecipeWorldDrop(9966, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Mithril Boots -- 9968
 	AddRecipe(9968, 235, 7933, Q.COMMON, V.ORIG, 235, 255, 265, 275)
@@ -558,7 +558,7 @@ function addon:InitBlacksmithing()
 	-- Heavy Mithril Helm -- 9970
 	AddRecipe(9970, 245, 7934, Q.UNCOMMON, V.ORIG, 245, 255, 265, 275)
 	self:AddRecipeFlags(9970, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeWorldDrop(9970, 2)
+	self:AddRecipeWorldDrop(9970, "Kalimdor", "Eastern Kingdoms")
 
 	-- Ornate Mithril Breastplate -- 9972
 	AddRecipe(9972, 260, 7935, Q.UNCOMMON, V.ORIG, 260, 260, 270, 280)
@@ -608,12 +608,12 @@ function addon:InitBlacksmithing()
 	-- Blue Glittering Axe -- 9995
 	AddRecipe(9995, 220, 7942, Q.UNCOMMON, V.ORIG, 220, 245, 257, 270)
 	self:AddRecipeFlags(9995, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.AXE)
-	self:AddRecipeWorldDrop(9995, 2)
+	self:AddRecipeWorldDrop(9995, "Kalimdor", "Eastern Kingdoms")
 
 	-- Wicked Mithril Blade -- 9997
 	AddRecipe(9997, 225, 7943, Q.UNCOMMON, V.ORIG, 225, 250, 262, 275)
 	self:AddRecipeFlags(9997, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(9997, 2)
+	self:AddRecipeWorldDrop(9997, "Kalimdor", "Eastern Kingdoms")
 
 	-- Big Black Mace -- 10001
 	AddRecipe(10001, 230, 7945, Q.COMMON, V.ORIG, 230, 255, 267, 280)
@@ -628,7 +628,7 @@ function addon:InitBlacksmithing()
 	-- Dazzling Mithril Rapier -- 10005
 	AddRecipe(10005, 240, 7944, Q.UNCOMMON, V.ORIG, 240, 265, 277, 290)
 	self:AddRecipeFlags(10005, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeWorldDrop(10005, 2)
+	self:AddRecipeWorldDrop(10005, "Kalimdor", "Eastern Kingdoms")
 
 	-- Phantom Blade -- 10007
 	AddRecipe(10007, 245, 7961, Q.COMMON, V.ORIG, 245, 270, 282, 295)
@@ -638,7 +638,7 @@ function addon:InitBlacksmithing()
 	-- Runed Mithril Hammer -- 10009
 	AddRecipe(10009, 245, 7946, Q.RARE, V.ORIG, 245, 270, 282, 295)
 	self:AddRecipeFlags(10009, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.MACE)
-	self:AddRecipeWorldDrop(10009, 3)
+	self:AddRecipeWorldDrop(10009, "Kalimdor", "Eastern Kingdoms")
 
 	-- Blight -- 10011
 	AddRecipe(10011, 250, 7959, Q.COMMON, V.ORIG, 250, 275, 287, 300)
@@ -668,7 +668,7 @@ function addon:InitBlacksmithing()
 	-- Silvered Bronze Leggings -- 12259
 	AddRecipe(12259, 155, 10423, Q.UNCOMMON, V.ORIG, 155, 180, 192, 205)
 	self:AddRecipeFlags(12259, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(12259, 2)
+	self:AddRecipeWorldDrop(12259, "Kalimdor", "Eastern Kingdoms")
 
 	-- Rough Copper Vest -- 12260
 	AddRecipe(12260, 1, 10421, Q.COMMON, V.ORIG, 1, 15, 35, 55)
@@ -718,7 +718,7 @@ function addon:InitBlacksmithing()
 	-- Searing Golden Blade -- 15973
 	AddRecipe(15973, 190, 12260, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
 	self:AddRecipeFlags(15973, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.DAGGER)
-	self:AddRecipeWorldDrop(15973, 2)
+	self:AddRecipeWorldDrop(15973, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dense Grinding Stone -- 16639
 	AddRecipe(16639, 250, 12644, Q.COMMON, V.ORIG, 250, 255, 257, 260)
@@ -739,24 +739,24 @@ function addon:InitBlacksmithing()
 	AddRecipe(16642, 250, 12405, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)
 	self:AddRecipeFlags(16642, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16642, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16642, 2)
+	self:AddRecipeWorldDrop(16642, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Belt -- 16643
 	AddRecipe(16643, 250, 12406, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)
 	self:AddRecipeFlags(16643, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16643, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16643, 2)
+	self:AddRecipeWorldDrop(16643, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Bracers -- 16644
 	AddRecipe(16644, 255, 12408, Q.UNCOMMON, V.ORIG, 255, 275, 285, 295)
 	self:AddRecipeFlags(16644, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16644, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
-	self:AddRecipeWorldDrop(16644, 2)
+	self:AddRecipeWorldDrop(16644, "Kalimdor", "Eastern Kingdoms")
 
 	-- Radiant Belt -- 16645
 	AddRecipe(16645, 260, 12416, Q.UNCOMMON, V.ORIG, 260, 280, 290, 300)
 	self:AddRecipeFlags(16645, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
-	self:AddRecipeWorldDrop(16645, 2)
+	self:AddRecipeWorldDrop(16645, "Kalimdor", "Eastern Kingdoms")
 
 	-- Imperial Plate Shoulders -- 16646
 	AddRecipe(16646, 265, 12428, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
@@ -771,7 +771,7 @@ function addon:InitBlacksmithing()
 	-- Radiant Breastplate -- 16648
 	AddRecipe(16648, 270, 12415, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
 	self:AddRecipeFlags(16648, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.MAIL)
-	self:AddRecipeWorldDrop(16648, 2)
+	self:AddRecipeWorldDrop(16648, "Kalimdor", "Eastern Kingdoms")
 
 	-- Imperial Plate Bracers -- 16649
 	AddRecipe(16649, 270, 12425, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
