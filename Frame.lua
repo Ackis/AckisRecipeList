@@ -718,10 +718,10 @@ do
 		end
 	end
 
-	local function Tooltip_AddWorldDrop(id_num, location)
+	local function Tooltip_AddWorldDrop(id_num, location, quality_color)
 		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
 
-		if location and drop_location ~= location_id then
+		if location and drop_location ~= location then
 			return
 		end
 		local type_color = string.gsub(quality_color, "|cff", "")
@@ -865,7 +865,7 @@ do
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
-						Tooltip_AddWorldDrop(id_num, location)
+						Tooltip_AddWorldDrop(id_num, location, quality_color)
 					elseif acquire_type == A.CUSTOM then
 						ttAdd(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 						--@alpha@
