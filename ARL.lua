@@ -306,6 +306,15 @@ function addon:OnInitialize()
 					},
 				},
 				-------------------------------------------------------------------------------
+				-- Quality Filters
+				-------------------------------------------------------------------------------
+				quality = {
+					common = true,
+					uncommon = true,
+					rare = true,
+					epic = true,
+				},
+				-------------------------------------------------------------------------------
 				-- Binding Filters
 				-------------------------------------------------------------------------------
 				binding = {
@@ -1314,6 +1323,26 @@ do
 		end
 
 		if not obtain_filters.wrath and game_version == V.WOTLK then
+			return false
+		end
+		local quality_filters = filter_db.quality
+		local recipe_quality = recipe.quality
+		local Q = private.item_qualities
+
+		-- Filter out certain recipe quality types.
+		if not quality_filters.common and recipe_quality == Q.COMMON then
+			return false
+		end
+
+		if not quality_filters.uncommon and recipe_quality == Q.UNCOMMON then
+			return false
+		end
+
+		if not quality_filters.rare and recipe_quality == Q.RARE then
+			return false
+		end
+
+		if not quality_filters.epic and recipe_quality == Q.EPIC then
 			return false
 		end
 

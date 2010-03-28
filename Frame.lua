@@ -91,6 +91,7 @@ local CATEGORY_TEXT = {
 	["obtain"]	= L["Obtain"],
 	["binding"]	= L["Binding"],
 	["item"]	= L["Item"],
+	["quality"]	= _G.QUALITY,
 	["player"]	= _G.ROLE,
 	["rep"]		= _G.REPUTATION,
 	["misc"]	= _G.MISCELLANEOUS
@@ -1601,6 +1602,7 @@ do
 		["obtain"]	= L["FILTERING_OBTAIN_DESC"],
 		["binding"]	= L["FILTERING_BINDING_DESC"],
 		["item"]	= L["FILTERING_ITEM_DESC"],
+		["quality"]	= L["FILTERING_QUALITY_DESC"],
 		["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
 		["rep"]		= L["FILTERING_REP_DESC"],
 		["misc"]	= L["FILTERING_MISC_DESC"]
@@ -1647,7 +1649,7 @@ do
 				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
 				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
 				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			elseif panel == "player" or panel == "rep" then
+			elseif panel == "player" or panel == "rep" or panel == "quality" then
 				MainPanel.filter_menu.texture:ClearAllPoints()
 				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
 				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
@@ -1662,12 +1664,12 @@ do
 		end
 	end
 
-	function CreateFilterMenuButton(bTex, category)
-		local ExpTextureSize = 34
+	function CreateFilterMenuButton(button_texture, category)
+		local button_size = 30
 		local cButton = CreateFrame("CheckButton", nil, MainPanel)
 
-		cButton:SetWidth(ExpTextureSize)
-		cButton:SetHeight(ExpTextureSize)
+		cButton:SetWidth(button_size)
+		cButton:SetHeight(button_size)
 		cButton:SetScript("OnClick",
 				  function(self, button, down)
 					  ToggleFilterMenu(category)
@@ -1675,13 +1677,13 @@ do
 
 		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
 		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
-		bgTex:SetHeight(ExpTextureSize + 6)
-		bgTex:SetWidth(ExpTextureSize + 4)
+		bgTex:SetHeight(button_size + 6)
+		bgTex:SetWidth(button_size + 4)
 		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
 		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
 
 		local iconTex = cButton:CreateTexture(nil, "BORDER")
-		iconTex:SetTexture('Interface/Icons/' .. bTex)
+		iconTex:SetTexture('Interface/Icons/' .. button_texture)
 		iconTex:SetAllPoints(cButton)
 
 		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
@@ -1719,7 +1721,7 @@ do
 end	-- do
 
 MainPanel.menu_toggle_general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
-MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -7, -23)
+MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -9, -18)
 
 MainPanel.menu_toggle_obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
 MainPanel.menu_toggle_obtain:SetPoint("TOPLEFT", MainPanel.menu_toggle_general, "BOTTOMLEFT", 0, -8)
@@ -1730,8 +1732,11 @@ MainPanel.menu_toggle_binding:SetPoint("TOPLEFT", MainPanel.menu_toggle_obtain, 
 MainPanel.menu_toggle_item = CreateFilterMenuButton("INV_Misc_EngGizmos_19", "item")
 MainPanel.menu_toggle_item:SetPoint("TOPLEFT", MainPanel.menu_toggle_binding, "BOTTOMLEFT", -0, -8)
 
+MainPanel.menu_toggle_quality = CreateFilterMenuButton("INV_Enchant_VoidCrystal", "quality")
+MainPanel.menu_toggle_quality:SetPoint("TOPLEFT", MainPanel.menu_toggle_item, "BOTTOMLEFT", -0, -8)
+
 MainPanel.menu_toggle_player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
-MainPanel.menu_toggle_player:SetPoint("TOPLEFT", MainPanel.menu_toggle_item, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_player:SetPoint("TOPLEFT", MainPanel.menu_toggle_quality, "BOTTOMLEFT", -0, -8)
 
 MainPanel.menu_toggle_rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
 MainPanel.menu_toggle_rep:SetPoint("TOPLEFT", MainPanel.menu_toggle_player, "BOTTOMLEFT", -0, -8)
@@ -2185,6 +2190,37 @@ MainPanel.filter_menu.item.ammo.text:SetText(L["Ammo"])
 MainPanel.filter_menu.item.gun = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
 InitializeCheckButton(MainPanel.filter_menu.item.gun, MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1, 0)
 MainPanel.filter_menu.item.gun.text:SetText(L["Gun"])
+
+-------------------------------------------------------------------------------
+-- Create MainPanel.filter_menu.quality, and set its scripts.
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.quality = CreateFrame("Frame", nil, MainPanel.filter_menu)
+MainPanel.filter_menu.quality:SetWidth(FILTERMENU_SMALL)
+MainPanel.filter_menu.quality:SetHeight(280)
+MainPanel.filter_menu.quality:EnableMouse(true)
+MainPanel.filter_menu.quality:EnableKeyboard(true)
+MainPanel.filter_menu.quality:SetMovable(false)
+MainPanel.filter_menu.quality:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
+MainPanel.filter_menu.quality:Hide()
+
+-------------------------------------------------------------------------------
+-- Create the CheckButtons for MainPanel.filter_menu.quality
+-------------------------------------------------------------------------------
+MainPanel.filter_menu.quality.common = CreateFrame("CheckButton", nil, MainPanel.filter_menu.quality)
+InitializeCheckButton(MainPanel.filter_menu.quality.common, MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY1_DESC), "common", 1, 1, 0)
+MainPanel.filter_menu.quality.common.text:SetText(_G.ITEM_QUALITY1_DESC)
+
+MainPanel.filter_menu.quality.uncommon = CreateFrame("CheckButton", nil, MainPanel.filter_menu.quality)
+InitializeCheckButton(MainPanel.filter_menu.quality.uncommon, MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY2_DESC), "uncommon", 2, 1, 0)
+MainPanel.filter_menu.quality.uncommon.text:SetText(_G.ITEM_QUALITY2_DESC)
+
+MainPanel.filter_menu.quality.rare = CreateFrame("CheckButton", nil, MainPanel.filter_menu.quality)
+InitializeCheckButton(MainPanel.filter_menu.quality.rare, MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY3_DESC), "rare", 3, 1, 0)
+MainPanel.filter_menu.quality.rare.text:SetText(_G.ITEM_QUALITY3_DESC)
+
+MainPanel.filter_menu.quality.epic = CreateFrame("CheckButton", nil, MainPanel.filter_menu.quality)
+InitializeCheckButton(MainPanel.filter_menu.quality.epic, MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY4_DESC), "epic", 4, 1, 0)
+MainPanel.filter_menu.quality.epic.text:SetText(_G.ITEM_QUALITY4_DESC)
 
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_menu.player, and set its scripts.
@@ -4067,6 +4103,13 @@ function addon:InitializeFrame()
 		["crossbow"]		= { cb = filter_menu.item.crossbow,			svroot = nil },
 		["ammo"]		= { cb = filter_menu.item.ammo,				svroot = filterdb.item.weapon },
 		["gun"]			= { cb = filter_menu.item.gun,				svroot = filterdb.item.weapon },
+		------------------------------------------------------------------------------------------------
+		-- Quality Options
+		------------------------------------------------------------------------------------------------
+		["common"]		= { cb = filter_menu.quality.common,			svroot = filterdb.quality },
+		["uncommon"]		= { cb = filter_menu.quality.uncommon,			svroot = filterdb.quality },
+		["rare"]		= { cb = filter_menu.quality.rare,			svroot = filterdb.quality },
+		["epic"]		= { cb = filter_menu.quality.epic,			svroot = filterdb.quality },
 		------------------------------------------------------------------------------------------------
 		-- Role Options
 		------------------------------------------------------------------------------------------------

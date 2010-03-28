@@ -325,6 +325,10 @@ L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan
 L["Gun"]					= true
 L["GUN_DESC"]				= "Recipes that make guns should be included in the scan."
 
+-- Item Quality Filtering UI Elements and their associated descriptions
+L["FILTERING_QUALITY_DESC"]		= "Configuration for which recipe quality types are included in the scan."
+L["QUALITY_GENERAL_DESC"]		= "Include %s quality recipe items in the scan."
+
 -- Player Type Filtering UI Elements and their associated descriptions
 L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
 L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
