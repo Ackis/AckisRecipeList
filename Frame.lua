@@ -1387,7 +1387,7 @@ ARL_ClearButton:SetScript("OnClick",
 				  for index in pairs(recipe_list) do
 					  recipe_list[index].is_relevant = true
 				  end
-				  MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
+				  MainPanel.search_editbox:SetText(_G.SEARCH)
 
 				  -- Make sure our expand all button is set to expandall
 				  ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -1407,7 +1407,7 @@ ARL_ClearButton:SetScript("OnClick",
 			  end)
 
 MainPanel.search_editbox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
-MainPanel.search_editbox:SetText(L["SEARCH_BOX_DESC"])
+MainPanel.search_editbox:SetText(_G.SEARCH)
 MainPanel.search_editbox:SetHistoryLines(10)
 
 MainPanel.search_editbox:SetScript("OnEnterPressed",
@@ -1415,7 +1415,7 @@ MainPanel.search_editbox:SetScript("OnEnterPressed",
 					   local searchtext = self:GetText()
 					   searchtext = searchtext:trim()
 
-					   if searchtext and searchtext ~= L["SEARCH_BOX_DESC"] then
+					   if searchtext and searchtext ~= _G.SEARCH then
 						   self.prev_search = searchtext
 
 						   self:HighlightText()
@@ -1433,7 +1433,7 @@ MainPanel.search_editbox:SetScript("OnEnterPressed",
 
 MainPanel.search_editbox:SetScript("OnEditFocusGained",
 			 function(self)
-				 if self:GetText() == L["SEARCH_BOX_DESC"] then
+				 if self:GetText() == _G.SEARCH then
 					 self:HighlightText()
 				 end
 			 end)
@@ -1443,7 +1443,7 @@ MainPanel.search_editbox:SetScript("OnEditFocusLost",
 				 local text = self:GetText()
 
 				 if text == "" then
-					 self:SetText(L["SEARCH_BOX_DESC"])
+					 self:SetText(_G.SEARCH)
 					 return
 				 end
 				 self:AddHistoryLine(text)
@@ -1454,7 +1454,7 @@ MainPanel.search_editbox:SetScript("OnTextSet",
 				   function(self)
 					   local text = self:GetText()
 
-					   if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
+					   if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
 						   self:HighlightText()
 						   ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
 						   ARL_SearchButton:Enable()
@@ -1478,7 +1478,7 @@ MainPanel.search_editbox:SetScript("OnTextChanged",
 				 end
 				 local text = self:GetText()
 
-				 if text ~= "" and text ~= L["SEARCH_BOX_DESC"] and text ~= self.prev_search then
+				 if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
 					 SearchRecipes(text)
 					 MainPanel.scroll_frame:Update(false, false)
 					 ARL_SearchButton:SetNormalFontObject("GameFontNormalSmall")
@@ -4134,7 +4134,7 @@ function addon:DisplayFrame()
 	if MainPanel.profession ~= MainPanel.prev_profession then
 		editbox.prev_search = nil
 	end
-	editbox:SetText(editbox.prev_search or L["SEARCH_BOX_DESC"])
+	editbox:SetText(editbox.prev_search or _G.SEARCH)
 
 	MainPanel:UpdateTitle()
 	ListFrame:Update(false, false)
