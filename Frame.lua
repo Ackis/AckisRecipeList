@@ -1308,14 +1308,13 @@ SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 local SearchRecipes
 do
 	local acquire_names = private.acquire_names
+	local location_list = private.location_list
 
 	local search_params = {
 		["item_id"]	= true,
 		["name"]	= true,
-		["locations"]	= true,
 		["specialty"]	= true,
 		["skill_level"]	= true,
-		["quality"]	= true,
 	}
 	-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
 	function SearchRecipes(pattern)
@@ -1328,7 +1327,28 @@ do
 
 		for index in pairs(recipe_list) do
 			local entry = recipe_list[index]
+
 			entry.is_relevant = false
+
+			for location_name in pairs(location_list) do
+				local breakout = false
+
+				for spell_id in pairs(location_list[location_name].recipes) do
+					if spell_id == entry.spell_id then
+						local str = location_name:lower()
+
+						if str and str:find(pattern) then
+							entry.is_relevant = true
+							breakout = true
+							break
+						end
+					end
+				end
+
+				if breakout then
+					break
+				end
+			end
 
 			for acquire_type in pairs(acquire_names) do
 				local str = acquire_names[acquire_type]:lower()
