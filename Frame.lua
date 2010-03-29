@@ -2908,10 +2908,14 @@ do
 		if num_entries > 0 then
 			local button_index = 1
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
-			local display_lines = NUM_RECIPE_LINES
+			local scroll_bar = _G[self:GetName().."ScrollBar"]
 
 			if num_entries > NUM_RECIPE_LINES then
+				scroll_bar:Show()
 				_G.FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
+			else
+				scroll_bar:SetValue(0)
+				scroll_bar:Hide()
 			end
 			addon:ClosePopups()
 
