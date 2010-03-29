@@ -2999,6 +2999,7 @@ do
 				addon.db.profile.addonversion = addon.version
 				showpopup = true
 			end
+			local editbox_text = MainPanel.search_editbox:GetText()
 
 			if Player.recipes_total == 0 then
 				if showpopup then
@@ -3016,7 +3017,7 @@ do
 				if showpopup then
 					_G.StaticPopup_Show("ARL_ALLEXCLUDED")
 				end
-			elseif MainPanel.search_editbox:GetText() ~= "" then
+			elseif editbox_text ~= "" and editbox_text ~= _G.SEARCH then
 				_G.StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
