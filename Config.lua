@@ -92,6 +92,12 @@ local function fullOptions()
 										  addon:Scan()
 									  end
 								  end,
+							disabled = function(info)
+									   for spell_id in pairs(addon.db.profile.exclusionlist) do
+										   return false
+									   end
+									   return true
+								   end,
 						},
 						resetallfilters = {
 							order	= 16,
