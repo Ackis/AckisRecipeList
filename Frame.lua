@@ -2488,12 +2488,6 @@ MainPanel.scroll_frame = ListFrame
 ListFrame:SetHeight(322)
 ListFrame:SetWidth(243)
 ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
-ListFrame:SetScript("OnVerticalScroll",
-		    function(self, arg1)
-			    self.scrolling = true
-			    _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
-			    self.scrolling = nil
-		    end)
 
 ListFrame.entries = {}
 ListFrame.button_containers = {}
@@ -2512,6 +2506,16 @@ do
 	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
 	highlight._texture:SetBlendMode("ADD")
 	highlight._texture:SetAllPoints(highlight)
+
+	ListFrame:SetScript("OnVerticalScroll",
+			    function(self, arg1)
+				    if #self.entries <= NUM_RECIPE_LINES then
+					    return
+				    end
+				    self.scrolling = true
+				    _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
+				    self.scrolling = nil
+			    end)
 
 	local function Button_OnEnter(self)
 		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
@@ -2906,11 +2910,9 @@ do
 			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local display_lines = NUM_RECIPE_LINES
 
-			if num_entries <= display_lines then
-				display_lines = num_entries / 2
+			if num_entries > NUM_RECIPE_LINES then
+				_G.FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
 			end
-			_G.FauxScrollFrame_Update(self, num_entries, display_lines, 16)
-
 			addon:ClosePopups()
 
 			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
