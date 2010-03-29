@@ -1219,6 +1219,21 @@ local function SetSortName()
 	end
 end
 
+local function TranslateSortName(sort_type)
+	if sort_type == "Name" then
+		return _G.NAME
+	elseif sort_type == "SkillAsc" then
+		return L["Skill (Asc)"]
+	elseif sort_type == "SkillDesc" then
+		return L["Skill (Desc)"]
+	elseif sort_type == "Acquisition" then
+		return L["Acquisition"]
+	elseif sort_type == "Location" then
+		return L["Location"]
+	end
+	return _G.UNKNOWN
+end
+
 local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
@@ -1230,36 +1245,36 @@ local function ARL_DD_Sort_Initialize()
 	local info = _G.UIDropDownMenu_CreateInfo()
 
 	local k = "Name"
-	info.text = k
-	info.arg1 = info.text
+	info.text = TranslateSortName(k)
+	info.arg1 = k
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
 	_G.UIDropDownMenu_AddButton(info)
 
 	k = "SkillAsc"
-	info.text = k
-	info.arg1 = info.text
+	info.text = TranslateSortName(k)
+	info.arg1 = k
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
 	_G.UIDropDownMenu_AddButton(info)
 
 	k = "SkillDesc"
-	info.text = k
-	info.arg1 = info.text
+	info.text = TranslateSortName(k)
+	info.arg1 = k
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
 	_G.UIDropDownMenu_AddButton(info)
 
 	k = "Acquisition"
-	info.text = k
-	info.arg1 = info.text
+	info.text = TranslateSortName(k)
+	info.arg1 = k
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
 	_G.UIDropDownMenu_AddButton(info)
 
 	k = "Location"
-	info.text = k
-	info.arg1 = info.text
+	info.text = TranslateSortName(k)
+	info.arg1 = k
 	info.func = ARL_DD_Sort_OnClick
 	info.checked = (addon.db.profile.sorting == k)
 	_G.UIDropDownMenu_AddButton(info)
