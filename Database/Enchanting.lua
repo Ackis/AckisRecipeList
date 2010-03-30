@@ -438,7 +438,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Fiery Weapon -- 13898
 	AddRecipe(13898, 265, nil, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
-	self:AddRecipeFlags(13898, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(13898, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(13898, 9024)
 
 	-- Enchant Shield - Greater Spirit -- 13905
@@ -628,17 +628,17 @@ function addon:InitEnchanting()
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
 	AddRecipe(20030, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
-	self:AddRecipeFlags(20030, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeFlags(20030, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND)
 	self:AddRecipeMobDrop(20030, 10317)
 
 	-- Enchant Weapon - Superior Striking -- 20031
 	AddRecipe(20031, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(20031, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(20031, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(20031, 9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
 	AddRecipe(20032, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(20032, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(20032, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(20032, 10499)
 
 	-- Enchant Weapon - Unholy Weapon -- 20033
@@ -653,12 +653,12 @@ function addon:InitEnchanting()
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
 	AddRecipe(20035, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(20035, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
+	self:AddRecipeFlags(20035, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
 	self:AddRecipeMobDrop(20035, 10469)
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
 	AddRecipe(20036, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(20036, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeFlags(20036, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND)
 	self:AddRecipeMobDrop(20036, 10422)
 
 	-- Runed Arcanite Rod -- 20051
@@ -693,12 +693,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
 	AddRecipe(23801, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	self:AddRecipeFlags(23801, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	self:AddRecipeFlags(23801, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
 	self:AddRecipeRepVendor(23801, FAC.ARGENTDAWN, REP.HONORED, 10856, 11536, 10857)
 
 	-- Enchant Bracer - Healing Power -- 23802
 	AddRecipe(23802, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(23802, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	self:AddRecipeFlags(23802, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
 	self:AddRecipeRepVendor(23802, FAC.ARGENTDAWN, REP.REVERED, 10856, 11536, 10857)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
@@ -713,28 +713,28 @@ function addon:InitEnchanting()
 
 	-- Enchant Gloves - Threat -- 25072
 	AddRecipe(25072, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25072, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK, F.SHATAR)
+	self:AddRecipeFlags(25072, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
 	self:AddRecipeMobDrop(25072, 15275)
 	self:AddRecipeRepVendor(25072, FAC.SHATAR, REP.EXALTED, 21432)
 
 	-- Enchant Gloves - Shadow Power -- 25073
 	AddRecipe(25073, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25073, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(25073, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(25073, A.CUSTOM, 22)
 
 	-- Enchant Gloves - Frost Power -- 25074
 	AddRecipe(25074, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25074, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(25074, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(25074, A.CUSTOM, 22)
 
 	-- Enchant Gloves - Fire Power -- 25078
 	AddRecipe(25078, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25078, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(25078, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(25078, A.CUSTOM, 22)
 
 	-- Enchant Gloves - Healing Power -- 25079
 	AddRecipe(25079, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25079, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(25079, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(25079, A.CUSTOM, 22)
 
 	-- Enchant Gloves - Superior Agility -- 25080
@@ -745,12 +745,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
 	AddRecipe(25081, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_CIRCLE)
+	self:AddRecipeFlags(25081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.CENARION_CIRCLE)
 	self:AddRecipeRepVendor(25081, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15419)
 
 	-- Enchant Cloak - Greater Nature Resistance -- 25082
 	AddRecipe(25082, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(25082, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_CIRCLE)
+	self:AddRecipeFlags(25082, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.CENARION_CIRCLE)
 	self:AddRecipeRepVendor(25082, FAC.CENARION_CIRCLE, REP.HONORED, 15419)
 
 	-- Enchant Cloak - Stealth -- 25083
@@ -761,14 +761,14 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Subtlety -- 25084
 	AddRecipe(25084, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	self:AddRecipeFlags(25084, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CLOAK, F.HELLFIRE)
+	self:AddRecipeFlags(25084, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK, F.HELLFIRE)
 	self:AddRecipeMobDrop(25084, 15276)
 	self:AddRecipeRepVendor(25084, FAC.HONOR_HOLD, REP.EXALTED, 17657)
 	self:AddRecipeRepVendor(25084, FAC.THRALLMAR, REP.EXALTED, 17585)
 
 	-- Enchant Cloak - Dodge -- 25086
 	AddRecipe(25086, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	self:AddRecipeFlags(25086, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.TANK, F.CLOAK, F.LOWERCITY)
+	self:AddRecipeFlags(25086, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.CLOAK, F.LOWERCITY)
 	self:AddRecipeRepVendor(25086, FAC.LOWERCITY, REP.EXALTED, 21655)
 	self:AddRecipeAcquire(25086, A.CUSTOM, 22)
 
@@ -809,7 +809,7 @@ function addon:InitEnchanting()
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	AddRecipe(27837, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	self:AddRecipeFlags(27837, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(27837, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.TIMBERMAW_HOLD)
 	self:AddRecipeRepVendor(27837, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Enchant Bracer - Brawn -- 27899
@@ -824,12 +824,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Bracer - Major Defense -- 27906
 	AddRecipe(27906, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
-	self:AddRecipeFlags(27906, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeFlags(27906, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeMobDrop(27906, 22822, 23008)
 
 	-- Enchant Bracer - Superior Healing -- 27911
 	AddRecipe(27911, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
-	self:AddRecipeFlags(27911, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.HELLFIRE)
+	self:AddRecipeFlags(27911, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.HELLFIRE)
 	self:AddRecipeRepVendor(27911, FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
 	self:AddRecipeRepVendor(27911, FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
@@ -840,12 +840,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Bracer - Fortitude -- 27914
 	AddRecipe(27914, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(27914, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(27914, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(27914, 17803)
 
 	-- Enchant Bracer - Spellpower -- 27917
 	AddRecipe(27917, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 385, 400)
-	self:AddRecipeFlags(27917, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(27917, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeMobDrop(27917, 19952)
 
 	-- Enchant Ring - Striking -- 27920
@@ -860,7 +860,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Ring - Healing Power -- 27926
 	AddRecipe(27926, 370, nil, Q.COMMON, V.TBC, 370, 380, 385, 390)
-	self:AddRecipeFlags(27926, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.RING, F.SHATAR)
+	self:AddRecipeFlags(27926, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING, F.SHATAR)
 	self:AddRecipeRepVendor(27926, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Enchant Ring - Stats -- 27927
@@ -889,23 +889,23 @@ function addon:InitEnchanting()
 	self:AddRecipeWorldDrop(27947, 2)
 
 	-- Enchant Boots - Vitality -- 27948
-	AddRecipe(27948, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
+	AddRecipe(27948, 305, nil, Q.UNCOMMON, V.TBC, 305, 315, 330, 345)
 	self:AddRecipeFlags(27948, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeMobDrop(27948, 24664)
 
 	-- Enchant Boots - Fortitude -- 27950
-	AddRecipe(27950, 320, nil, Q.COMMON, V.TBC, 320, 330, 345, 360)
-	self:AddRecipeFlags(27950, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
+	AddRecipe(27950, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
+	self:AddRecipeFlags(27950, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(27950, 18317)
 
 	-- Enchant Boots - Dexterity -- 27951
 	AddRecipe(27951, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	self:AddRecipeFlags(27951, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeFlags(27951, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeMobDrop(27951, 18521)
 
 	-- Enchant Boots - Surefooted -- 27954
-	AddRecipe(27954, 370, nil, Q.COMMON, V.TBC, 370, 380, 385, 390)
-	self:AddRecipeFlags(27954, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.CASTER)
+	AddRecipe(27954, 370, nil, Q.UNCOMMON, V.TBC, 370, 380, 385, 390)
+	self:AddRecipeFlags(27954, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.CASTER)
 	self:AddRecipeMobDrop(27954, 16472)
 
 	-- Enchant Chest - Exceptional Health -- 27957
@@ -920,7 +920,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	AddRecipe(27960, 345, nil, Q.COMMON, V.TBC, 345, 355, 367, 380)
-	self:AddRecipeFlags(27960, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HELLFIRE)
+	self:AddRecipeFlags(27960, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HELLFIRE)
 	self:AddRecipeRepVendor(27960, FAC.HONOR_HOLD, REP.REVERED, 17657)
 	self:AddRecipeRepVendor(27960, FAC.THRALLMAR, REP.REVERED, 17585)
 
@@ -936,17 +936,17 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Major Striking -- 27967
 	AddRecipe(27967, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
-	self:AddRecipeFlags(27967, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.CONSORTIUM)
+	self:AddRecipeFlags(27967, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.CONSORTIUM)
 	self:AddRecipeRepVendor(27967, FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968
 	AddRecipe(27968, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	self:AddRecipeFlags(27968, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27968, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(27968, 20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971
 	AddRecipe(27971, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(27971, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND)
+	self:AddRecipeFlags(27971, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
 	self:AddRecipeMobDrop(27971, 17465)
 
 	-- Enchant Weapon - Potency -- 27972
@@ -956,32 +956,32 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Major Spellpower -- 27975
 	AddRecipe(27975, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(27975, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27975, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(27975, 22242)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
 	AddRecipe(27977, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	self:AddRecipeFlags(27977, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND)
+	self:AddRecipeFlags(27977, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
 	self:AddRecipeMobDrop(27977, 20880)
 
 	-- Enchant Weapon - Sunfire -- 27981
 	AddRecipe(27981, 375, nil, Q.RARE, V.TBC, 375, 375, 375, 390)
-	self:AddRecipeFlags(27981, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27981, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(27981, 16524)
 
 	-- Enchant Weapon - Soulfrost -- 27982
 	AddRecipe(27982, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	self:AddRecipeFlags(27982, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27982, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(27982, 15688)
 
 	-- Enchant Weapon - Mongoose -- 27984
 	AddRecipe(27984, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	self:AddRecipeFlags(27984, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27984, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeMobDrop(27984, 15687)
 
 	-- Enchant Weapon - Spellsurge -- 28003
 	AddRecipe(28003, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	self:AddRecipeFlags(28003, F.ALLIANCE, F.HORDE, F.INSTANCE, F.RAID, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(28003, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeWorldDrop(28003, 2)
 
 	-- Enchant Weapon - Battlemaster -- 28004
@@ -1021,7 +1021,7 @@ function addon:InitEnchanting()
 
 	-- Runed Adamantite Rod -- 32665
 	AddRecipe(32665, 350, 22462, Q.COMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(32665, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeFlags(32665, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
 	self:AddRecipeVendor(32665, 18960, 19004)
 
 	-- Runed Eternium Rod -- 32667
@@ -1052,7 +1052,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Gloves - Precise Strikes -- 33994
 	AddRecipe(33994, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	self:AddRecipeFlags(33994, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CENARION_EXPEDITION)
+	self:AddRecipeFlags(33994, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
 	self:AddRecipeRepVendor(33994, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Enchant Gloves - Major Strength -- 33995
@@ -1067,12 +1067,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Gloves - Major Spellpower -- 33997
 	AddRecipe(33997, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	self:AddRecipeFlags(33997, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.KOT)
+	self:AddRecipeFlags(33997, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
 	self:AddRecipeRepVendor(33997, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Gloves - Major Healing -- 33999
 	AddRecipe(33999, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(33999, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHATAR)
+	self:AddRecipeFlags(33999, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR)
 	self:AddRecipeRepVendor(33999, FAC.SHATAR, REP.HONORED, 21432)
 
 	-- Enchant Bracer - Major Intellect -- 34001
@@ -1087,7 +1087,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Spell Penetration -- 34003
 	AddRecipe(34003, 325, nil, Q.UNCOMMON, V.TBC, 325, 335, 350, 365)
-	self:AddRecipeFlags(34003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CASTER, F.CLOAK, F.CONSORTIUM)
+	self:AddRecipeFlags(34003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CASTER, F.CLOAK, F.CONSORTIUM)
 	self:AddRecipeRepVendor(34003, FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Enchant Cloak - Greater Agility -- 34004
@@ -1097,12 +1097,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Greater Arcane Resistance -- 34005
 	AddRecipe(34005, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(34005, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeFlags(34005, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
 	self:AddRecipeMobDrop(34005, 19796)
 
 	-- Enchant Cloak - Greater Shadow Resistance -- 34006
 	AddRecipe(34006, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(34006, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeFlags(34006, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
 	self:AddRecipeMobDrop(34006, 18870)
 
 	-- Enchant Boots - Cat's Swiftness -- 34007
@@ -1122,7 +1122,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Major Healing -- 34010
 	AddRecipe(34010, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(34010, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.SHATAR)
+	self:AddRecipeFlags(34010, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.SHATAR)
 	self:AddRecipeRepVendor(34010, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Nexus Transformation -- 42613
@@ -1137,7 +1137,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Greater Agility -- 42620
 	AddRecipe(42620, 350, nil, Q.COMMON, V.TBC, 350, 360, 367, 375)
-	self:AddRecipeFlags(42620, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.VIOLETEYE)
+	self:AddRecipeFlags(42620, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.VIOLETEYE)
 	self:AddRecipeRepVendor(42620, FAC.VIOLETEYE, REP.EXALTED, 18255)
 
 	-- Enchant Weapon - Executioner -- 42974
@@ -1212,7 +1212,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Icebreaker -- 44524
 	AddRecipe(44524, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
-	self:AddRecipeFlags(44524, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(44524, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeVendor(44524, 32514)
 
 	-- Enchant Boots - Greater Fortitude -- 44528
@@ -1237,7 +1237,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Bracers - Greater Assault -- 44575
 	AddRecipe(44575, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
-	self:AddRecipeFlags(44575, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeFlags(44575, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeVendor(44575, 32514)
 
 	-- Enchant Weapon - Lifeward -- 44576
@@ -1272,7 +1272,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Titanweave -- 44591
 	AddRecipe(44591, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
-	self:AddRecipeFlags(44591, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	self:AddRecipeFlags(44591, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
 	self:AddRecipeVendor(44591, 32514)
 
 	-- Enchant Gloves - Exceptional Spellpower -- 44592
@@ -1307,7 +1307,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Giant Slayer -- 44621
 	AddRecipe(44621, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
-	self:AddRecipeFlags(44621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(44621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeVendor(44621, 32514)
 
 	-- Enchant Chest - Super Stats -- 44623
@@ -1332,7 +1332,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Shadow Armor -- 44631
 	AddRecipe(44631, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	self:AddRecipeFlags(44631, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeFlags(44631, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
 	self:AddRecipeVendor(44631, 32514)
 
 	-- Enchant Weapon - Exceptional Agility -- 44633
@@ -1367,12 +1367,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Chest - Defense -- 46594
 	AddRecipe(46594, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 385, 400)
-	self:AddRecipeFlags(46594, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.SHATTEREDSUN)
+	self:AddRecipeFlags(46594, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(46594, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
 	AddRecipe(47051, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	self:AddRecipeFlags(47051, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	self:AddRecipeFlags(47051, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
 	self:AddRecipeMobDrop(47051, 24560)
 
 	-- Enchant Cloak - Mighty Armor -- 47672
@@ -1407,12 +1407,12 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Accuracy -- 59619
 	AddRecipe(59619, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
-	self:AddRecipeFlags(59619, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(59619, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeVendor(59619, 32514)
 
 	-- Enchant Weapon - Berserking -- 59621
 	AddRecipe(59621, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
-	self:AddRecipeFlags(59621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(59621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
 	self:AddRecipeVendor(59621, 32514)
 
 	-- Enchant Weapon - Black Magic -- 59625
