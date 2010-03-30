@@ -29,18 +29,6 @@ local tonumber, tostring = _G.tonumber, _G.tostring
 local ipairs, pairs = _G.ipairs, _G.pairs
 
 -------------------------------------------------------------------------------
--- AddOn namespace.
--------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
--- Set up the private intra-file namespace.
-local private	= select(2, ...)
-
-
--------------------------------------------------------------------------------
 -- Upvalued Blizzard API.
 -------------------------------------------------------------------------------
 local UnitName = UnitName
@@ -58,6 +46,17 @@ local GetMerchantNumItems = GetMerchantNumItems
 local GetMerchantItemLink = GetMerchantItemLink
 local GetMerchantItemInfo = GetMerchantItemInfo
 local GetSpellInfo = GetSpellInfo
+
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+
+-- Set up the private intra-file namespace.
+local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Constants
