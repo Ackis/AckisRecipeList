@@ -2894,104 +2894,7 @@ do
 
 		local num_entries = #self.entries
 
-		if num_entries > 0 then
-			local scroll_bar = _G[self:GetName().."ScrollBar"]
-
-			if num_entries > NUM_RECIPE_LINES then
-				scroll_bar:Show()
-				_G.FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
-			else
-				scroll_bar:SetValue(0)
-				scroll_bar:Hide()
-			end
-			addon:ClosePopups()
-
-			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-			ARL_ExpandButton:Enable()
-
-			-- Reset the current buttons/lines
-			for i = 1, NUM_RECIPE_LINES do
-				local entry = self.entry_buttons[i]
-				local state = self.state_buttons[i]
-
-				entry.string_index = 0
-				entry:SetText("")
-				entry:SetScript("OnEnter", nil)
-				entry:SetScript("OnLeave", nil)
-
-				state.string_index = 0
-				state:Hide()
-				state:SetScript("OnEnter", nil)
-				state:SetScript("OnLeave", nil)
-
-				state:ClearAllPoints()
-			end
-
-			local button_index = 1
-			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
-
-			-- Populate the buttons with new values
-			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
-				local cur_state = self.state_buttons[button_index]
-				local cur_entry = self.entries[string_index]
-
-				if cur_entry.type == "header" or cur_entry.type == "subheader" then
-					cur_state:Show()
-
-					if cur_entry.is_expanded then
-						cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-						cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
-					else
-						cur_state:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-						cur_state:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-						cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-						cur_state:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-					end
-					cur_state.string_index = string_index
-					cur_state:SetScript("OnEnter", Button_OnEnter)
-					cur_state:SetScript("OnLeave", Button_OnLeave)
-				else
-					cur_state:Hide()
-				end
-				local cur_container = cur_state.container
-
-				if cur_entry.type == "header" or cur_entry.type == "entry" then
-					cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
-				elseif cur_entry.type == "subheader" or cur_entry.type == "subentry" then
-					cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
-				end
-				local cur_button = self.entry_buttons[button_index]
-
-				cur_button.string_index = string_index
-				cur_button:SetText(cur_entry.text)
-				cur_button:SetScript("OnEnter", Bar_OnEnter)
-				cur_button:SetScript("OnLeave", Bar_OnLeave)
-
-				button_index = button_index + 1
-				string_index = string_index + 1
-			end
-			button_index = 1
-			string_index = button_index + _G.FauxScrollFrame_GetOffset(ListFrame)
-
-			-- This function could possibly have been called from a mouse click or by scrolling.
-			-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
-			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
-				local cur_state = self.state_buttons[button_index]
-				local cur_button = self.entry_buttons[button_index]
-
-				if cur_state:IsMouseOver() then
-					Button_OnEnter(cur_state)
-					break
-				elseif cur_button:IsMouseOver() then
-					Bar_OnEnter(cur_button)
-					break
-				end
-				button_index = button_index + 1
-				string_index = string_index + 1
-			end
-		else
+		if num_entries == 0 then
 			-- disable expand button, it's useless here and would spam the same error again
 			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
 			ARL_ExpandButton:Disable()
@@ -3040,6 +2943,105 @@ do
 				addon:Debug("excluded_recipes_unknown ~= 0")
 				addon:Debug("excluded_recipes_unknown: " .. Player.excluded_recipes_unknown)
 			end
+			return
+		end
+
+		local scroll_bar = _G[self:GetName().."ScrollBar"]
+
+		if num_entries > NUM_RECIPE_LINES then
+			scroll_bar:Show()
+			_G.FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
+		else
+			scroll_bar:SetValue(0)
+			scroll_bar:Hide()
+		end
+		addon:ClosePopups()
+
+		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+		ARL_ExpandButton:Enable()
+
+		-- Reset the current buttons/lines
+		for i = 1, NUM_RECIPE_LINES do
+			local entry = self.entry_buttons[i]
+			local state = self.state_buttons[i]
+
+			entry.string_index = 0
+			entry:SetText("")
+			entry:SetScript("OnEnter", nil)
+			entry:SetScript("OnLeave", nil)
+
+			state.string_index = 0
+			state:Hide()
+			state:SetScript("OnEnter", nil)
+			state:SetScript("OnLeave", nil)
+
+			state:ClearAllPoints()
+		end
+
+		local button_index = 1
+		local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
+
+		-- Populate the buttons with new values
+		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
+			local cur_state = self.state_buttons[button_index]
+			local cur_entry = self.entries[string_index]
+
+			if cur_entry.type == "header" or cur_entry.type == "subheader" then
+				cur_state:Show()
+
+				if cur_entry.is_expanded then
+					cur_state:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+					cur_state:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+					cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+					cur_state:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+				else
+					cur_state:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+					cur_state:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+					cur_state:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+					cur_state:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+				end
+				cur_state.string_index = string_index
+				cur_state:SetScript("OnEnter", Button_OnEnter)
+				cur_state:SetScript("OnLeave", Button_OnLeave)
+			else
+				cur_state:Hide()
+			end
+			local cur_container = cur_state.container
+
+			if cur_entry.type == "header" or cur_entry.type == "entry" then
+				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
+			elseif cur_entry.type == "subheader" or cur_entry.type == "subentry" then
+				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
+			end
+
+			local cur_button = self.entry_buttons[button_index]
+
+			cur_button.string_index = string_index
+			cur_button:SetText(cur_entry.text)
+			cur_button:SetScript("OnEnter", Bar_OnEnter)
+			cur_button:SetScript("OnLeave", Bar_OnLeave)
+
+			button_index = button_index + 1
+			string_index = string_index + 1
+		end
+		button_index = 1
+		string_index = button_index + _G.FauxScrollFrame_GetOffset(ListFrame)
+
+		-- This function could possibly have been called from a mouse click or by scrolling.
+		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
+		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
+			local cur_state = self.state_buttons[button_index]
+			local cur_button = self.entry_buttons[button_index]
+
+			if cur_state:IsMouseOver() then
+				Button_OnEnter(cur_state)
+				break
+			elseif cur_button:IsMouseOver() then
+				Bar_OnEnter(cur_button)
+				break
+			end
+			button_index = button_index + 1
+			string_index = string_index + 1
 		end
 	end
 	-------------------------------------------------------------------------------
