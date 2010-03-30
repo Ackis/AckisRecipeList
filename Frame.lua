@@ -2720,10 +2720,6 @@ do
 		return is_good
 	end
 
-	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
-	-- necessary to ensure each is counted only once.
-	local recipe_registry = {}
-
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
 		local insert_index = entry_index
 
@@ -2757,6 +2753,10 @@ do
 		end
 		return insert_index
 	end
+
+	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+	-- necessary to ensure each is counted only once.
+	local recipe_registry = {}
 
 	function ListFrame:Initialize(expand_mode)
 		local recipe_list = private.recipe_list
