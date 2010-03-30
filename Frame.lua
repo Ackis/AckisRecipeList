@@ -1014,12 +1014,11 @@ function MainPanel:ToggleState()
 end
 
 do
-	local MINING_SPELL = GetSpellInfo(32606)
 
 	function MainPanel:SetProfession()
 		local prev_profession = self.profession
 
-		if Player.current_prof == MINING_SPELL then
+	if Player.current_prof == private.mining_name then
 			self.profession = 11 -- Smelting
 		else
 			for k, v in pairs(SORTED_PROFESSIONS) do

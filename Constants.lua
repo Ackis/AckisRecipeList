@@ -29,6 +29,7 @@ local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Profession data.
+-------------------------------------------------------------------------------
 private.professions = {
 	["Alchemy"]		= GetSpellInfo(51304),
 	["Blacksmithing"]	= GetSpellInfo(51300),
@@ -43,6 +44,8 @@ private.professions = {
 	["Smelting"]		= GetSpellInfo(2656),
 	["Tailoring"]		= GetSpellInfo(51309),
 }
+
+private.mining_name		= GetSpellInfo(32606)
 
 private.ordered_professions = {
 	private.professions.Alchemy, 		-- 1
