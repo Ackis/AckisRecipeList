@@ -2758,134 +2758,138 @@ do
 		return insert_index
 	end
 
+	function ListFrame:Initialize(expand_mode)
+		local recipe_list = private.recipe_list
+		local sorted_recipes = addon.sorted_recipes
+		local sort_type = addon.db.profile.sorting
+
+		local recipe_count = 0
+		local insert_index = 1
+
+		for i = 1, #self.entries do
+			ReleaseTable(self.entries[i])
+		end
+		twipe(self.entries)
+		twipe(recipe_registry)
+
+		SetSortName()
+
+		if sort_type == "Acquisition" then
+			local sorted_acquires = addon.sorted_acquires
+			local current_prof = Player.current_prof
+
+			SortAcquireList()
+
+			for index = 1, #sorted_acquires do
+				local acquire_type = sorted_acquires[index]
+				local count = 0
+
+				-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
+				for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
+					local recipe = private.recipe_list[spell_id]
+					local can_display = HasCredentials(affiliation)
+
+					if can_display and recipe.is_visible and recipe.is_relevant then
+						count = count + 1
+
+						if not recipe_registry[recipe] then
+							recipe_registry[recipe] = true
+							recipe_count = recipe_count + 1
+						end
+					end
+				end
+
+				if count > 0 then
+					local t = AcquireTable()
+
+					local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
+					local color_code = private.category_colors[acquire_str] or "ffffff"
+
+					t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
+					t.acquire_id = acquire_type
+
+					insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				end
+			end
+		elseif sort_type == "Location" then
+			local sorted_locations = addon.sorted_locations
+			local current_prof = Player.current_prof
+
+			SortLocationList()
+
+			for index = 1, #sorted_locations do
+				local loc_name = sorted_locations[index]
+				local count = 0
+
+				-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+				for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
+					local recipe = private.recipe_list[spell_id]
+					local can_display = HasCredentials(affiliation)
+
+					if can_display and recipe.is_visible and recipe.is_relevant then
+						count = count + 1
+
+						if not recipe_registry[recipe] then
+							recipe_registry[recipe] = true
+							recipe_count = recipe_count + 1
+						end
+					end
+				end
+
+				if count > 0 then
+					local t = AcquireTable()
+
+					t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
+					t.location_id = loc_name
+
+					insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				end
+			end
+		else
+			SortRecipeList()
+
+			for i = 1, #sorted_recipes do
+				local recipe_index = sorted_recipes[i]
+				local recipe_entry = recipe_list[recipe_index]
+
+				if recipe_entry.is_visible and recipe_entry.is_relevant then
+					local t = AcquireTable()
+
+					t.text = FormatRecipeText(recipe_entry)
+					t.recipe_id = recipe_index
+
+					recipe_count = recipe_count + 1
+
+					insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				end
+			end
+		end	-- Sort type.
+
+		local profile = addon.db.profile
+		local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
+		local cur_value = Player.recipes_known
+		local progress_bar = MainPanel.progress_bar
+
+		if not profile.includeexcluded and not profile.ignoreexclusionlist then
+			max_value = max_value - Player.excluded_recipes_known
+		end
+		progress_bar:SetMinMaxValues(0, max_value)
+		progress_bar:SetValue(cur_value)
+
+		local percentage = cur_value / max_value * 100
+
+		if (floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
+			local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
+			progress_bar.text:SetFormattedText("%d / %d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
+		else
+			progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+		end
+	end
+
 	function ListFrame:Update(expand_mode, refresh)
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
-			local recipe_list = private.recipe_list
-			local sorted_recipes = addon.sorted_recipes
-			local sort_type = addon.db.profile.sorting
-
-			local recipe_count = 0
-			local insert_index = 1
-
-			for i = 1, #self.entries do
-				ReleaseTable(self.entries[i])
-			end
-			twipe(self.entries)
-			twipe(recipe_registry)
-
-			SetSortName()
-
-			if sort_type == "Acquisition" then
-				local sorted_acquires = addon.sorted_acquires
-				local current_prof = Player.current_prof
-
-				SortAcquireList()
-
-				for index = 1, #sorted_acquires do
-					local acquire_type = sorted_acquires[index]
-					local count = 0
-
-					-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-					for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
-						local recipe = private.recipe_list[spell_id]
-						local can_display = HasCredentials(affiliation)
-
-						if can_display and recipe.is_visible and recipe.is_relevant then
-							count = count + 1
-
-							if not recipe_registry[recipe] then
-								recipe_registry[recipe] = true
-								recipe_count = recipe_count + 1
-							end
-						end
-					end
-
-					if count > 0 then
-						local t = AcquireTable()
-
-						local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
-						local color_code = private.category_colors[acquire_str] or "ffffff"
-
-						t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
-						t.acquire_id = acquire_type
-
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-					end
-				end
-			elseif sort_type == "Location" then
-				local sorted_locations = addon.sorted_locations
-				local current_prof = Player.current_prof
-
-				SortLocationList()
-
-				for index = 1, #sorted_locations do
-					local loc_name = sorted_locations[index]
-					local count = 0
-
-					-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-					for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-						local recipe = private.recipe_list[spell_id]
-						local can_display = HasCredentials(affiliation)
-
-						if can_display and recipe.is_visible and recipe.is_relevant then
-							count = count + 1
-
-							if not recipe_registry[recipe] then
-								recipe_registry[recipe] = true
-								recipe_count = recipe_count + 1
-							end
-						end
-					end
-
-					if count > 0 then
-						local t = AcquireTable()
-
-						t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
-						t.location_id = loc_name
-
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-					end
-				end
-			else
-				SortRecipeList()
-
-				for i = 1, #sorted_recipes do
-					local recipe_index = sorted_recipes[i]
-					local recipe_entry = recipe_list[recipe_index]
-
-					if recipe_entry.is_visible and recipe_entry.is_relevant then
-						local t = AcquireTable()
-
-						t.text = FormatRecipeText(recipe_entry)
-						t.recipe_id = recipe_index
-
-						recipe_count = recipe_count + 1
-
-						insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-					end
-				end
-			end	-- Sort type.
-
-			local profile = addon.db.profile
-			local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
-			local cur_value = Player.recipes_known
-			local progress_bar = MainPanel.progress_bar
-
-			if not profile.includeexcluded and not profile.ignoreexclusionlist then
-				max_value = max_value - Player.excluded_recipes_known
-			end
-			progress_bar:SetMinMaxValues(0, max_value)
-			progress_bar:SetValue(cur_value)
-
-			local percentage = cur_value / max_value * 100
-
-			if (floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
-				local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
-				progress_bar.text:SetFormattedText("%d / %d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
-			else
-				progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
-			end
+			self:Initialize(expand_mode)
 		end
 
 		-- Reset the current buttons/lines
