@@ -1416,7 +1416,7 @@ do
 
 		if not scan_all then
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name then
+				if prof_name == name:lower() then
 					found = true
 					break
 				end
@@ -1430,7 +1430,7 @@ do
 			ProfessionScan(prof_name)
 		else
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionScan(name)
+				ProfessionScan(name:lower())
 			end
 		end
 	end
@@ -1569,7 +1569,7 @@ do
 
 		if not scan_all then
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				if prof_name == name then
+				if prof_name == name:lower() then
 					found = true
 					break
 				end
@@ -1582,7 +1582,7 @@ do
 			ProfessionDump(prof_name)
 		else
 			for idx, name in ipairs(ORDERED_PROFESSIONS) do
-				ProfessionDump(name)
+				ProfessionDump(name:lower())
 			end
 		end
 	end
