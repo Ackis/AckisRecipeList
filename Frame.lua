@@ -1601,18 +1601,19 @@ do
 	function addon.resetFilters()
 		local filterdb = addon.db.profile.filters
 
-		-- Reset all filters to true
+		-- Reset all filters to true.
 		recursiveReset(addon.db.profile.filters)
 
-		-- Reset specific filters to false
+		-- Reset specific filters to false.
 		filterdb.general.specialty = false
 		filterdb.general.known = false
+		filterdb.general.retired = false
 
-		-- Reset all classes to false
+		-- Reset all classes to false.
 		for class in pairs(filterdb.classes) do
 			filterdb.classes[class] = false
 		end
-		-- Set your own class to true
+		-- Set your own class to true.
 		filterdb.classes[strlower(Player["Class"])] = true
 
 		if MainPanel:IsVisible() then
