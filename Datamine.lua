@@ -2493,7 +2493,7 @@ do
 			tinsert(output, string.format("    Wrong quality: Q.%s - should be Q.%s.", QS[recipe.quality], QS[scan_data.quality]))
 		end
 		if found_problem then
-			tinsert(output, 1, string.format("%s: [url=http://www.wowhead.com/?spell=%d]%d[/url]", recipe_name, spell_id, spell_id))
+			tinsert(output, 1, string.format("%s: [[http://www.wowhead.com/?spell=%d|%d]]", recipe_name, spell_id, spell_id))
 			return tconcat(output, "\n")
 		else
 			return
