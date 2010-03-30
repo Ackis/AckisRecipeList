@@ -2892,28 +2892,9 @@ do
 			self:Initialize(expand_mode)
 		end
 
-		-- Reset the current buttons/lines
-		for i = 1, NUM_RECIPE_LINES do
-			local entry = self.entry_buttons[i]
-			local state = self.state_buttons[i]
-
-			entry.string_index = 0
-			entry:SetText("")
-			entry:SetScript("OnEnter", nil)
-			entry:SetScript("OnLeave", nil)
-
-			state.string_index = 0
-			state:Hide()
-			state:SetScript("OnEnter", nil)
-			state:SetScript("OnLeave", nil)
-
-			state:ClearAllPoints()
-		end
 		local num_entries = #self.entries
 
 		if num_entries > 0 then
-			local button_index = 1
-			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 			local scroll_bar = _G[self:GetName().."ScrollBar"]
 
 			if num_entries > NUM_RECIPE_LINES then
@@ -2927,6 +2908,27 @@ do
 
 			ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
 			ARL_ExpandButton:Enable()
+
+			-- Reset the current buttons/lines
+			for i = 1, NUM_RECIPE_LINES do
+				local entry = self.entry_buttons[i]
+				local state = self.state_buttons[i]
+
+				entry.string_index = 0
+				entry:SetText("")
+				entry:SetScript("OnEnter", nil)
+				entry:SetScript("OnLeave", nil)
+
+				state.string_index = 0
+				state:Hide()
+				state:SetScript("OnEnter", nil)
+				state:SetScript("OnLeave", nil)
+
+				state:ClearAllPoints()
+			end
+
+			local button_index = 1
+			local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
 
 			-- Populate the buttons with new values
 			while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
