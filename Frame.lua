@@ -71,19 +71,22 @@ local Player	= private.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local SORTED_PROFESSIONS = {	-- To make tabbing between professions easier
-	{ name = GetSpellInfo(51304),	texture = "alchemy" },		-- 1
-	{ name = GetSpellInfo(51300),	texture = "blacksmith" },	-- 2
-	{ name = GetSpellInfo(51296),	texture = "cooking" },		-- 3
-	{ name = GetSpellInfo(51313),	texture = "enchant" },		-- 4
-	{ name = GetSpellInfo(51306),	texture = "engineer" },		-- 5
-	{ name = GetSpellInfo(45542),	texture = "firstaid" },		-- 6
-	{ name = GetSpellInfo(45363),	texture = "inscribe" },		-- 7
-	{ name = GetSpellInfo(51311),	texture = "jewel" },		-- 8
-	{ name = GetSpellInfo(51302),	texture = "leather" },		-- 9
-	{ name = GetSpellInfo(53428),	texture = "runeforge" },	-- 10
-	{ name = GetSpellInfo(2656),	texture = "smelting" },		-- 11
-	{ name = GetSpellInfo(51309),	texture = "tailor" },		-- 12
+local ORDERED_PROFESSIONS = private.ordered_professions
+
+-- To make tabbing between professions easier
+local PROFESSION_TEXTURES = {
+	"alchemy",	-- 1
+	"blacksmith",	-- 2
+	"cooking",	-- 3
+	"enchant",	-- 4
+	"engineer",	-- 5
+	"firstaid",	-- 6
+	"inscribe",	-- 7
+	"jewel",	-- 8
+	"leather",	-- 9
+	"runeforge",	-- 10
+	"smelting",	-- 11
+	"tailor",	-- 12
 }
 
 local CATEGORY_TEXT = {
@@ -1011,27 +1014,24 @@ function MainPanel:ToggleState()
 	self:UpdateTitle()
 end
 
-do
-
-	function MainPanel:SetProfession()
-		local prev_profession = self.profession
+function MainPanel:SetProfession()
+	local prev_profession = self.profession
 
 	if Player.current_prof == private.mining_name then
-			self.profession = 11 -- Smelting
-		else
-			for k, v in pairs(SORTED_PROFESSIONS) do
-				if v.name == Player.current_prof then
-					self.profession = k
-					break
-				end
+		self.profession = 11 -- Smelting
+	else
+		for index, name in ipairs(ORDERED_PROFESSIONS) do
+			if name == Player.current_prof then
+				self.profession = index
+				break
 			end
 		end
-
-		if self.profession ~= prev_profession then
-			self.prev_profession = self.profession
-		end
-		self.mode_button:ChangeTexture(SORTED_PROFESSIONS[self.profession].texture)
 	end
+
+	if self.profession ~= prev_profession then
+		self.prev_profession = self.profession
+	end
+	self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
 end
 
 function MainPanel:SetPosition()
@@ -1133,7 +1133,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index > NUM_PROFESSIONS then
 								index = 1
-							elseif Player.professions[SORTED_PROFESSIONS[index].name] then
+							elseif Player.professions[ORDERED_PROFESSIONS[index]] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -1155,7 +1155,7 @@ MainPanel.mode_button:SetScript("OnClick",
 						while index ~= endLoop do
 							if index < 1 then
 								index = NUM_PROFESSIONS
-							elseif Player.professions[SORTED_PROFESSIONS[index].name] then
+							elseif Player.professions[ORDERED_PROFESSIONS[index]] then
 								displayProf = index
 								MainPanel.profession = index
 								break
@@ -1166,7 +1166,7 @@ MainPanel.mode_button:SetScript("OnClick",
 					end
 					local is_shown = TradeSkillFrame:IsVisible()
 
-					CastSpellByName(SORTED_PROFESSIONS[MainPanel.profession].name)
+					CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
 					addon:Scan()
 
 					if not is_shown then
