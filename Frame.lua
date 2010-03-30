@@ -2877,9 +2877,11 @@ do
 			progress_bar:SetMinMaxValues(0, max_value)
 			progress_bar:SetValue(cur_value)
 
-			if (floor(recipe_count / max_value * 100) < 101) and recipe_count >= 0 and max_value >= 0 then
+			local percentage = cur_value / max_value * 100
+
+			if (floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
 				local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
-				progress_bar.text:SetFormattedText("%d / %d - %1.2f%% - (%s)", cur_value, max_value, recipe_count / max_value * 100, results)
+				progress_bar.text:SetFormattedText("%d / %d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
 			else
 				progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
 			end
