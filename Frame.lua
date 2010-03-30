@@ -2479,7 +2479,7 @@ MainPanel.filter_menu.rep.LK:Hide()
 -------------------------------------------------------------------------------
 -- Create MainPanel.scrollframe and set its scripts.
 -------------------------------------------------------------------------------
-local ListFrame = CreateFrame("ScrollFrame", "ARL_MainPanelScrollFrame", MainPanel, "FauxScrollFrameTemplate")
+local ListFrame = CreateFrame("Frame", "ARL_MainPanelScrollFrame", MainPanel)
 
 MainPanel.scroll_frame = ListFrame
 
@@ -2487,14 +2487,76 @@ ListFrame:SetHeight(322)
 ListFrame:SetWidth(243)
 ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
 
+ListFrame:EnableMouse(true)
+ListFrame:EnableMouseWheel(true)
+
 ListFrame.entries = {}
 ListFrame.button_containers = {}
 ListFrame.state_buttons = {}
 ListFrame.entry_buttons = {}
 
+-------------------------------------------------------------------------------
+-- Create ListFrame.scroll_bar, and set its scripts.
+-------------------------------------------------------------------------------
+local ScrollBar = CreateFrame("Slider", nil, ListFrame)
+
+ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 2, -14)
+ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 2, 16)
+ScrollBar:SetWidth(24)
+
+ScrollBar:EnableMouseWheel(true)
+ScrollBar:SetOrientation("VERTICAL")
+
+ScrollBar:SetBackdrop({
+			      bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
+			      edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
+			      tile = true,
+			      tileSize = 8,
+			      edgeSize = 8,
+			      insets = {
+				      left = 3,
+				      right = 3,
+				      top = 3,
+				      bottom = 3
+			      }
+		      })
+ScrollBar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+ScrollBar:SetMinMaxValues(0, 1)
+ScrollBar:SetValueStep(1)
+
+-- This can be called either from ListFrame's OnMouseWheel script, manually
+-- sliding the thumb, or from clicking the up/down buttons.
+ScrollBar:SetScript("OnValueChanged",
+		    function(self, value, ...)
+			    ListFrame:Update(nil, true)
+		    end)
+
+ListFrame.scroll_bar = ScrollBar
+
+-------------------------------------------------------------------------------
+-- Create ListFrame.button_up, then set its scripts and textures.
+-- Parented to ScrollBar so it hides simultaneously.
+-------------------------------------------------------------------------------
+local ScrollUpButton = CreateFrame("Button", nil, ScrollBar, "UIPanelScrollUpButtonTemplate")
+
+ScrollUpButton:SetHeight(18)
+ScrollUpButton:SetWidth(20)
+ScrollUpButton:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 4, 1)
+
+-------------------------------------------------------------------------------
+-- Create ListFrame.button_down, then set its scripts and textures.
+-- Parented to ScrollBar so it hides simultaneously.
+-------------------------------------------------------------------------------
+local ScrollDownButton = CreateFrame("Button", nil, ScrollBar,"UIPanelScrollDownButtonTemplate")
+
+ScrollDownButton:SetHeight(18)
+ScrollDownButton:SetWidth(20)
+ScrollDownButton:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 4, -1)
+
 do
 	-- Number of visible lines in the scrollframe.
 	local NUM_RECIPE_LINES = 24
+	local SCROLL_DEPTH = 5
 
 	local highlight = CreateFrame("Frame", nil, UIParent)
 	highlight:SetFrameStrata("TOOLTIP")
@@ -2505,14 +2567,48 @@ do
 	highlight._texture:SetBlendMode("ADD")
 	highlight._texture:SetAllPoints(highlight)
 
-	ListFrame:SetScript("OnVerticalScroll",
-			    function(self, arg1)
-				    if #self.entries <= NUM_RECIPE_LINES then
-					    return
-				    end
-				    self.scrolling = true
-				    _G.FauxScrollFrame_OnVerticalScroll(self, arg1, 16, self.Update)
-				    self.scrolling = nil
+	local function ScrollBar_Scroll(delta)
+		local cur_val = ScrollBar:GetValue()
+		local min_val, max_val = ScrollBar:GetMinMaxValues()
+
+		if delta < 0 and cur_val < max_val then
+			cur_val = math.min(max_val, cur_val + SCROLL_DEPTH)
+			ScrollBar:SetValue(cur_val)
+		elseif delta > 0 and cur_val > min_val then
+			cur_val = math.max(min_val, cur_val - SCROLL_DEPTH)
+			ScrollBar:SetValue(cur_val)
+		end
+
+		if cur_val == min_val then
+			ScrollUpButton:Disable()
+			ScrollDownButton:Enable()
+		elseif cur_val == max_val then
+			ScrollUpButton:Enable()
+			ScrollDownButton:Disable()
+		else
+			ScrollUpButton:Enable()
+			ScrollDownButton:Enable()
+		end
+	end
+	
+	ScrollUpButton:SetScript("OnClick",
+				 function(self, button, down)
+					 ScrollBar_Scroll(1)
+				 end)
+
+	ScrollDownButton:SetScript("OnClick",
+				 function(self, button, down)
+					 ScrollBar_Scroll(-1)
+				 end)
+
+	ScrollBar:SetScript("OnMouseWheel",
+			    function(self, delta)
+				    ScrollBar_Scroll(delta)
+			    end)
+
+	ListFrame:SetScript("OnMouseWheel",
+			    function(self, delta)
+				    ScrollBar_Scroll(delta)
 			    end)
 
 	local function Button_OnEnter(self)
@@ -2865,6 +2961,10 @@ do
 			end
 		end	-- Sort type.
 
+		-- The list always starts at the top.
+		ScrollUpButton:Disable()
+		self.scroll_bar:SetValue(0)
+
 		local profile = addon.db.profile
 		local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
 		local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
@@ -2945,20 +3045,16 @@ do
 			end
 			return
 		end
-
-		local scroll_bar = _G[self:GetName().."ScrollBar"]
-
-		if num_entries > NUM_RECIPE_LINES then
-			scroll_bar:Show()
-			_G.FauxScrollFrame_Update(self, num_entries, NUM_RECIPE_LINES, 16)
-		else
-			scroll_bar:SetValue(0)
-			scroll_bar:Hide()
-		end
 		addon:ClosePopups()
 
 		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
 		ARL_ExpandButton:Enable()
+
+		if num_entries <= NUM_RECIPE_LINES then
+			self.scroll_bar:Hide()
+		else
+			self.scroll_bar:Show()
+		end
 
 		-- Reset the current buttons/lines
 		for i = 1, NUM_RECIPE_LINES do
@@ -2979,7 +3075,9 @@ do
 		end
 
 		local button_index = 1
-		local string_index = button_index + _G.FauxScrollFrame_GetOffset(self)
+		local string_index = button_index + self.scroll_bar:GetValue()
+
+		self.scroll_bar:SetMinMaxValues(0, math.max(0, #self.entries - NUM_RECIPE_LINES))
 
 		-- Populate the buttons with new values
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
@@ -3025,7 +3123,7 @@ do
 			string_index = string_index + 1
 		end
 		button_index = 1
-		string_index = button_index + _G.FauxScrollFrame_GetOffset(ListFrame)
+		string_index = button_index + self.scroll_bar:GetValue()
 
 		-- This function could possibly have been called from a mouse click or by scrolling.
 		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
