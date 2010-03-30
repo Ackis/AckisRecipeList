@@ -77,6 +77,12 @@ local function fullOptions()
 										  addon:Print(i .. ": " .. GetSpellInfo(i))
 									  end
 								  end,
+							disabled = function(info)
+									   for spell_id in pairs(addon.db.profile.exclusionlist) do
+										   return false
+									   end
+									   return true
+								   end,
 						},
 						clearexclusionlist = {
 							order	= 15,
@@ -138,6 +144,12 @@ local function fullOptions()
 							desc	= L["EXCLUDECOUNT_DESC"],
 							get	= function() return addon.db.profile.includeexcluded end,
 							set	= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
+							disabled = function(info)
+									   for spell_id in pairs(addon.db.profile.exclusionlist) do
+										   return false
+									   end
+									   return true
+								   end,
 						},
 						ignoreexclusionlist = {
 							order	= 24,
@@ -152,6 +164,12 @@ local function fullOptions()
 										  addon:Scan()
 									  end
 								  end,
+							disabled = function(info)
+									   for spell_id in pairs(addon.db.profile.exclusionlist) do
+										   return false
+									   end
+									   return true
+								   end,
 						},
 						spacer2 = {
 							order	= 39,
