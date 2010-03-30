@@ -97,8 +97,6 @@ local CATEGORY_TEXT = {
 	["misc"]	= _G.MISCELLANEOUS
 }
 
-local SEASONAL_CATEGORY		= GetCategoryInfo(155)	-- Localized string - "World Events"
-
 local MAINPANEL_NORMAL_WIDTH	= 293
 local MAINPANEL_EXPANDED_WIDTH	= 444
 
@@ -858,7 +856,7 @@ do
 						Tooltip_AddQuest(id_num, location)
 					elseif acquire_type == A.SEASONAL then
 						color_1 = CATEGORY_COLORS["seasonal"]
-						ttAdd(0, -1, 0, SEASONAL_CATEGORY, color_1, private.seasonal_list[id_num].name, color_1)
+						ttAdd(0, -1, 0, private.acquire_names[A.SEASONAL], color_1, private.seasonal_list[id_num].name, color_1)
 					elseif acquire_type == A.REPUTATION then
 						for rep_level, level_info in pairs(info) do
 							for vendor_id in pairs(level_info) do
@@ -1997,7 +1995,7 @@ MainPanel.filter_menu.obtain.quest.text:SetText(L["Quest"])
 
 MainPanel.filter_menu.obtain.seasonal = CreateFrame("CheckButton", nil, MainPanel.filter_menu.obtain)
 InitializeCheckButton(MainPanel.filter_menu.obtain.seasonal, MainPanel.filter_menu.obtain, L["SEASONAL_DESC"], "seasonal", 2, 2, 0)
-MainPanel.filter_menu.obtain.seasonal.text:SetText(SEASONAL_CATEGORY)
+MainPanel.filter_menu.obtain.seasonal.text:SetText(private.acquire_names[A.SEASONAL])
 
 MainPanel.filter_menu.obtain.trainer = CreateFrame("CheckButton", nil, MainPanel.filter_menu.obtain)
 InitializeCheckButton(MainPanel.filter_menu.obtain.trainer, MainPanel.filter_menu.obtain, L["TRAINER_DESC"], "trainer", 3, 1, 0)
@@ -2880,7 +2878,7 @@ do
 			progress_bar:SetValue(cur_value)
 
 			if (floor(recipe_count / max_value * 100) < 101) and recipe_count >= 0 and max_value >= 0 then
-				local results = string.format(SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
+				local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
 				progress_bar.text:SetFormattedText("%d / %d - %1.2f%% - (%s)", cur_value, max_value, recipe_count / max_value * 100, results)
 			else
 				progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
@@ -3200,7 +3198,7 @@ do
 		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], SEASONAL_CATEGORY)..":",
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL])..":",
 				       SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
 		t.recipe_id = recipe_id
 
