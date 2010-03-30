@@ -3056,20 +3056,6 @@ do
 		return (not faction or faction == BFAC[Player.faction] or faction == FACTION_NEUTRAL)
 	end
 
-	local function GetParentEntry(entry_index, entry_type)
-		local orig_index = entry_index - 1
-		local orig_entry = ListFrame.entries[orig_index]
-		local parent_entry
-
-		if orig_entry.type == "header" or orig_entry.type == "subheader" then
-			parent_entry = orig_entry
-		elseif orig_entry.type == "subentry" or orig_entry.type == "entry" then
-			parent_entry = orig_entry.parent
-		else
-			addon:Debug("Unmatched type %s for parent.", orig_entry.type)
-		end
-		return parent_entry
-	end
 	-- Padding for list entries/subentries
 	local PADDING = "    "
 
@@ -3085,13 +3071,13 @@ do
 		return name
 	end
 
-	local function ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
 		
 		if not CanDisplayFaction(trainer.faction) then
 			return entry_index
 		end
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+
 		local name = ColorNameByFaction(trainer.name, trainer.faction)
 		local coord_text = ""
 
@@ -3118,13 +3104,13 @@ do
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
 	-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 	-- This allows us to select PVP only and to see just the PVP recipes
-	local function ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandVendorData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local vendor = private.vendor_list[id_num]
 
 		if not CanDisplayFaction(vendor.faction) then
 			return entry_index
 		end
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+
 		local name = ColorNameByFaction(vendor.name, vendor.faction)
 		local coord_text = ""
 
@@ -3149,10 +3135,8 @@ do
 	end
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
-	local function ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local mob = private.mob_list[id_num]
-
-		local parent_entry = GetParentEntry(entry_index, entry_type)
 		local coord_text = ""
 
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
@@ -3175,13 +3159,13 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local quest = private.quest_list[id_num]
 
 		if not CanDisplayFaction(quest.faction) then
 			return entry_index
 		end
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+
 		local name = ColorNameByFaction(quest.name, quest.faction)
 		local coord_text = ""
 
@@ -3205,8 +3189,7 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local t = AcquireTable()
 
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL])..":",
@@ -3216,7 +3199,7 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandReputationData(entry_index, entry_type, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
+	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
 		local rep_vendor = private.vendor_list[vendor_id]
 
 		if not CanDisplayFaction(rep_vendor.faction) then
@@ -3234,7 +3217,7 @@ do
 				[4] = SetTextColor(rep_color["exalted"], BFAC["Exalted"] .. " : ")
 			}
 		end
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+
 		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		local t = AcquireTable()
 
@@ -3266,8 +3249,8 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+
 		local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
 		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
 
@@ -3284,8 +3267,7 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
+	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local t = AcquireTable()
 
 		t.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
@@ -3294,35 +3276,33 @@ do
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
-	function ListFrame:ExpandAcquireData(entry_index, entry_type, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
-		local parent_entry = GetParentEntry(entry_index, entry_type)
-
+	function ListFrame:ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 
 		for id_num, info in pairs(acquire_data) do
 			if acquire_type == A.TRAINER and obtain_filters.trainer then
-				entry_index = ExpandTrainerData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+				entry_index = ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				entry_index = ExpandVendorData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+				entry_index = ExpandVendorData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.MOB_DROP and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				entry_index = ExpandMobData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+				entry_index = ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
-				entry_index = ExpandQuestData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+				entry_index = ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-				entry_index = ExpandSeasonalData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+				entry_index = ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
-						entry_index =  ExpandReputationData(entry_index, entry_type, vendor_id, id_num, rep_level, recipe_id, hide_location, hide_type)
+						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num, rep_level, recipe_id, hide_location, hide_type)
 					end
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
 				if not hide_type then
-					entry_index = ExpandWorldDropData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+					entry_index = ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 				end
 			elseif acquire_type == A.CUSTOM then
 				if not hide_type then
-					entry_index = ExpandCustomData(entry_index, entry_type, id_num, recipe_id, hide_location, hide_type)
+					entry_index = ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 				end
 				--@alpha@
 			elseif acquire_type > A_MAX then
@@ -3341,7 +3321,7 @@ do
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry_index, expand_mode)
 		local orig_index = entry_index
-		local list_entry = self.entries[orig_index]
+		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
@@ -3349,10 +3329,10 @@ do
 		entry_index = entry_index + 1
 
 		-- This entry was generated using sorting based on Acquisition.
-		if list_entry.acquire_id then
-			local acquire_id = list_entry.acquire_id
+		if current_entry.acquire_id then
+			local acquire_id = current_entry.acquire_id
 
-			if list_entry.type == "header" then
+			if current_entry.type == "header" then
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
@@ -3370,13 +3350,13 @@ do
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand, expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand, expand_all)
 					end
 				end
-			elseif list_entry.type == "subheader" then
-				for acquire_type, acquire_data in pairs(private.recipe_list[list_entry.recipe_id].acquire_data) do
+			elseif current_entry.type == "subheader" then
+				for acquire_type, acquire_data in pairs(private.recipe_list[current_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
-						entry_index = self:ExpandAcquireData(entry_index, "subentry", acquire_type, acquire_data, list_entry.recipe_id, false, true)
+						entry_index = self:ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data, current_entry.recipe_id, false, true)
 					end
 				end
 			end
@@ -3384,10 +3364,10 @@ do
 		end
 
 		-- This entry was generated using sorting based on Location.
-		if list_entry.location_id then
-			local location_id = list_entry.location_id
+		if current_entry.location_id then
+			local location_id = current_entry.location_id
 
-			if list_entry.type == "header" then
+			if current_entry.type == "header" then
 				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
@@ -3406,34 +3386,41 @@ do
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, list_entry, entry_index, type, expand, expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand, expand_all)
 					end
 				end
-			elseif list_entry.type == "subheader" then
-				local recipe_entry = private.recipe_list[list_entry.recipe_id]
+			elseif current_entry.type == "subheader" then
+				local recipe_entry = private.recipe_list[current_entry.recipe_id]
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
 					for id_num, info in pairs(acquire_data) do
 						-- Only expand an acquisition entry if it is from this location.
 						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
-							entry_index = ExpandTrainerData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+							entry_index = ExpandTrainerData(entry_index, "subentry", current_entry,
+											id_num, current_entry.recipe_id, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
-							entry_index = ExpandVendorData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+							entry_index = ExpandVendorData(entry_index, "subentry", current_entry,
+										       id_num, current_entry.recipe_id, true)
 						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
-							entry_index = ExpandMobData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+							entry_index = ExpandMobData(entry_index, "subentry", current_entry,
+										    id_num, current_entry.recipe_id, true)
 						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
-							entry_index = ExpandQuestData(entry_index, "subentry", id_num, list_entry.recipe_id, true)
+							entry_index = ExpandQuestData(entry_index, "subentry", current_entry,
+										      id_num, current_entry.recipe_id, true)
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as "World Events".
-							entry_index = ExpandSeasonalData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
+							entry_index = ExpandSeasonalData(entry_index, "subentry", current_entry,
+											 id_num, current_entry.recipe_id, true, true)
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
-							entry_index = ExpandCustomData(entry_index, "subentry", id_num, list_entry.recipe_id, true, true)
+							entry_index = ExpandCustomData(entry_index, "subentry", current_entry,
+										       id_num, current_entry.recipe_id, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
 									if private.vendor_list[vendor_id].location == location_id then
-										entry_index =  ExpandReputationData(entry_index, "subentry", vendor_id, id_num, rep_level, list_entry.recipe_id, true)
+										entry_index =  ExpandReputationData(entry_index, "subentry", current_entry,
+														    vendor_id, id_num, rep_level, current_entry.recipe_id, true)
 									end
 								end
 							end
@@ -3448,7 +3435,8 @@ do
 		local recipe_id = self.entries[orig_index].recipe_id
 
 		for acquire_type, acquire_data in pairs(private.recipe_list[recipe_id].acquire_data) do
-			entry_index = self:ExpandAcquireData(entry_index, "entry", acquire_type, acquire_data, recipe_id)
+			entry_index = self:ExpandAcquireData(entry_index, "entry", current_entry,
+							     acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index
 	end
