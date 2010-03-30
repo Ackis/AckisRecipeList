@@ -1377,6 +1377,10 @@ do
 		end
 		twipe(recipe_list)
 
+		if prof_name == private.professions["Smelting"]:lower() then
+			prof_name = private.mining_name:lower()
+		end
+
 		for i in pairs(master_list) do
 			local prof = string.lower(master_list[i].profession)
 
@@ -1394,6 +1398,10 @@ do
 			if ttscantext and ttscantext ~= "" then
 				tinsert(output, ttscantext)
 			end
+		end
+
+		if #output == 0 then
+			addon:Debug("ProfessionScan(): output is empty.")
 		end
 		addon:DisplayTextDump(nil, nil, tconcat(output, "\n"))
 		ARLDatamineTT:Hide()
@@ -1439,7 +1447,7 @@ do
 	local ACQUIRE_STRINGS = private.acquire_strings
 	local REP_LEVELS = private.rep_level_strings
 	local FACTION_NAMES = private.faction_strings
-	local QUAL_STRINGS = private.item_quality_names
+	local Q = private.item_quality_names
 	local V = private.game_version_names
 
 	local NUM_FILTER_FLAGS = 128
@@ -1461,9 +1469,10 @@ do
 		end
 		local flag_string
 		local specialty = not recipe.specialty and "" or (", "..recipe.specialty)
+
 		tinsert(output, string.format("-- %s -- %d", recipe.name, recipe.spell_id))
-		tinsert(output, string.format("AddRecipe(%d, %d, %s, %s, %s, %d, %d, %d, %d%s)",
-					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), "Q."..QUAL_STRINGS[recipe.quality], "V."..V[recipe.genesis],
+		tinsert(output, string.format("AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)",
+					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[recipe.genesis],
 					      recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
 		for i = 1, NUM_FILTER_FLAGS, 1 do
@@ -1535,6 +1544,9 @@ do
 		end
 		twipe(recipe_list)
 
+		if prof_name == private.professions["Smelting"]:lower() then
+			prof_name = private.mining_name:lower()
+		end
 		for i in pairs(master_list) do
 			local prof = string.lower(master_list[i].profession)
 
@@ -1824,7 +1836,7 @@ do
 		local recipe = recipe_list[spell_id]
 
 		if not recipe then
-			self:Print(string.format("Spell ID %d does not exist in the database.", tonumber(spell_id)))
+			self:Debug("Spell ID %d does not exist in the database.", tonumber(spell_id))
 			return
 		end
 		local recipe_name = recipe.name
@@ -1875,7 +1887,7 @@ do
 		local text = string.lower(_G["ARLDatamineTTTextLeft1"]:GetText())
 		local match_text = string.match(text, "%a+: ")
 
-		if not RECIPE_TYPES[match_text] then
+		if not RECIPE_TYPES[match_text] and not (string.find(text, "smelt") or string.find(text, "sunder") or string.find(text, "shatter")) then
 			ARLDatamineTT:Hide()
 			return
 		end
