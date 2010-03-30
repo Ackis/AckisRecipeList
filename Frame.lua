@@ -2867,7 +2867,7 @@ do
 
 		local profile = addon.db.profile
 		local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
-		local cur_value = Player.recipes_known
+		local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
 		local progress_bar = MainPanel.progress_bar
 
 		if not profile.includeexcluded and not profile.ignoreexclusionlist then
