@@ -219,7 +219,8 @@ L["ORIGINAL_WOW_DESC"] = "Recipes available with the original game."
 L["BC_WOW_DESC"] = "Recipes available with The Burning Crusade."
 L["LK_WOW_DESC"] = "Recipes available with Wrath of the Lich King."
 L["Alt-Tradeskills"] = true
-L["ALT_TRADESKILL_DESC"] = "This will display a list of alts which have had trade skills scanned.  Clicking on the alt's name will output the tradeskill to chat."
+L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had trade skills scanned.
+Clicking on the alt's name will output the tradeskill to chat.]]
 L["Other Realms"] = true
 
 -- General Filter UI Elements and their associated descriptions
