@@ -4307,9 +4307,13 @@ do
 	copy_frame:Hide()
 
 	function addon:DisplayTextDump(RecipeDB, profession, text)
-		edit_box:SetText((not RecipeDB and not profession) and text or self:GetTextDump(profession))
-		edit_box:HighlightText(0)
-		edit_box:SetCursorPosition(1)
-		copy_frame:Show()
+		local text = (not RecipeDB and not profession) and text or self:GetTextDump(profession)
+
+		if text ~= "" then
+			edit_box:SetText(text)
+			edit_box:HighlightText(0)
+			edit_box:SetCursorPosition(1)
+			copy_frame:Show()
+		end
 	end
 end	-- do
