@@ -1588,7 +1588,7 @@ do
 	end
 end	-- do
 
-local RECIPE_NAMES = {
+local RECIPE_TYPES = {
 	-- JC
 	["design: "] = true,
 	-- LW or Tailoring
@@ -1649,7 +1649,7 @@ do
 				local matchtext = string.match(name, "%a+: ")
 
 				-- Check to see if we're dealing with a recipe
-				if matchtext and RECIPE_NAMES[string.lower(matchtext)] then
+				if matchtext and RECIPE_TYPES[string.lower(matchtext)] then
 					local item_link = GetMerchantItemLink(i)
 					local item_id = ItemLinkToID(item_link)
 					local spell_id = RECIPE_TO_SPELL_MAP[item_id]
@@ -1875,7 +1875,7 @@ do
 		local text = string.lower(_G["ARLDatamineTTTextLeft1"]:GetText())
 		local match_text = string.match(text, "%a+: ")
 
-		if not RECIPE_NAMES[match_text] then
+		if not RECIPE_TYPES[match_text] then
 			ARLDatamineTT:Hide()
 			return
 		end
