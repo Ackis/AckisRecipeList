@@ -227,7 +227,7 @@ function addon:InitEngineering()
 
 	-- Discombobulator Ray -- 3959
 	AddRecipe(3959, 160, 4388, Q.UNCOMMON, V.ORIG, 160, 180, 190, 200)
-	self:AddRecipeFlags(3959, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(3959, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(3959, 7800)
 
 	-- Portable Bronze Mortar -- 3960
@@ -277,7 +277,7 @@ function addon:InitEngineering()
 
 	-- Gnomish Cloaking Device -- 3971
 	AddRecipe(3971, 200, 4397, Q.COMMON, V.ORIG, 200, 220, 230, 240)
-	self:AddRecipeFlags(3971, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
+	self:AddRecipeFlags(3971, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TRINKET)
 	self:AddRecipeMobDrop(3971, 7800)
 	self:AddRecipeVendor(3971, 6777)
 
@@ -318,7 +318,7 @@ function addon:InitEngineering()
 
 	-- Flash Bomb -- 8243
 	AddRecipe(8243, 185, 4852, Q.UNCOMMON, V.ORIG, 185, 185, 205, 225)
-	self:AddRecipeFlags(8243, F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(8243, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.QUEST, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(8243, 7800)
 	self:AddRecipeQuest(8243, 1559)
 
@@ -339,7 +339,7 @@ function addon:InitEngineering()
 
 	-- Gnomish Universal Remote -- 9269
 	AddRecipe(9269, 125, 7506, Q.COMMON, V.ORIG, 125, 150, 162, 175)
-	self:AddRecipeFlags(9269, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
+	self:AddRecipeFlags(9269, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TRINKET)
 	self:AddRecipeMobDrop(9269, 7800)
 	self:AddRecipeVendor(9269, 5175, 6730)
 
@@ -350,7 +350,7 @@ function addon:InitEngineering()
 
 	-- Goblin Jumper Cables -- 9273
 	AddRecipe(9273, 165, 7148, Q.COMMON, V.ORIG, 165, 165, 180, 200)
-	self:AddRecipeFlags(9273, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(9273, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(9273, 7800)
 	self:AddRecipeVendor(9273, 4086, 3134, 3537)
 
@@ -576,12 +576,12 @@ function addon:InitEngineering()
 
 	-- Pet Bombling -- 15628
 	AddRecipe(15628, 205, 11825, Q.UNCOMMON, V.ORIG, 205, 205, 205, 205)
-	self:AddRecipeFlags(15628, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP)
+	self:AddRecipeFlags(15628, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(15628, A.CUSTOM, 16)
 
 	-- Lil' Smoky -- 15633
 	AddRecipe(15633, 205, 11826, Q.UNCOMMON, V.ORIG, 205, 205, 205, 205)
-	self:AddRecipeFlags(15633, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP)
+	self:AddRecipeFlags(15633, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(15633, A.CUSTOM, 16)
 
 	-- Salt Shaker -- 19567
@@ -626,7 +626,7 @@ function addon:InitEngineering()
 
 	-- Dark Iron Rifle -- 19796
 	AddRecipe(19796, 275, 16004, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(19796, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.GUN)
+	self:AddRecipeFlags(19796, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.GUN)
 	self:AddRecipeMobDrop(19796, 8897)
 
 	-- Dark Iron Bomb -- 19799
@@ -651,7 +651,7 @@ function addon:InitEngineering()
 
 	-- Voice Amplification Modulator -- 19819
 	AddRecipe(19819, 290, 16009, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
-	self:AddRecipeFlags(19819, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.NECK)
+	self:AddRecipeFlags(19819, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.NECK)
 	self:AddRecipeMobDrop(19819, 10426)
 
 	-- Master Engineer's Goggles -- 19825
@@ -736,7 +736,7 @@ function addon:InitEngineering()
 
 	-- Goblin Jumper Cables XL -- 23078
 	AddRecipe(23078, 265, 18587, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305, 20222)
-	self:AddRecipeFlags(23078, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(23078, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(23078, 9499)
 
 	-- Major Recombobulator -- 23079
@@ -751,12 +751,12 @@ function addon:InitEngineering()
 
 	-- Hyper-Radiant Flame Reflector -- 23081
 	AddRecipe(23081, 290, 18638, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
-	self:AddRecipeFlags(23081, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
+	self:AddRecipeFlags(23081, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TRINKET)
 	self:AddRecipeMobDrop(23081, 10264)
 
 	-- Ultra-Flash Shadow Reflector -- 23082
 	AddRecipe(23082, 300, 18639, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(23082, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
+	self:AddRecipeFlags(23082, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TRINKET)
 	self:AddRecipeMobDrop(23082, 10426)
 
 	-- Gnomish Alarm-o-Bot -- 23096
@@ -786,7 +786,7 @@ function addon:InitEngineering()
 
 	-- Bloodvine Goggles -- 24356
 	AddRecipe(24356, 300, 19999, Q.COMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ZANDALAR)
+	self:AddRecipeFlags(24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
 	self:AddRecipeRepVendor(24356, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Bloodvine Lens -- 24357
@@ -1046,7 +1046,7 @@ function addon:InitEngineering()
 
 	-- Rocket Boots Xtreme -- 30556
 	AddRecipe(30556, 355, 23824, Q.RARE, V.TBC, 355, 365, 375, 385)
-	self:AddRecipeFlags(30556, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
+	self:AddRecipeFlags(30556, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeMobDrop(30556, 17796)
 
 	-- The Bigger One -- 30558
@@ -1266,7 +1266,7 @@ function addon:InitEngineering()
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	AddRecipe(46697, 355, 35581, Q.RARE, V.TBC, 355, 365, 375, 385)
-	self:AddRecipeFlags(46697, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(46697, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(46697, 19219)
 
 	-- Volatile Blasting Trigger -- 53281
