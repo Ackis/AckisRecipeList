@@ -312,7 +312,7 @@ function addon:InitTailoring()
 
 	-- Black Swashbuckler's Shirt -- 3873
 	AddRecipe(3873, 200, 4336, Q.COMMON, V.ORIG, 200, 210, 215, 220)
-	self:AddRecipeFlags(3873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(3873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(3873, 2663)
 
 	-- Brown Linen Pants -- 3914
@@ -489,12 +489,12 @@ function addon:InitTailoring()
 
 	-- Azure Silk Cloak -- 8786
 	AddRecipe(8786, 175, 7053, Q.COMMON, V.ORIG, 175, 195, 210, 225)
-	self:AddRecipeFlags(8786, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
+	self:AddRecipeFlags(8786, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
 	self:AddRecipeVendor(8786, 6574, 6576)
 
 	-- Crimson Silk Cloak -- 8789
 	AddRecipe(8789, 180, 7056, Q.COMMON, V.ORIG, 180, 200, 215, 230)
-	self:AddRecipeFlags(8789, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeFlags(8789, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK)
 	self:AddRecipeVendor(8789, 2670)
 
 	-- Crimson Silk Vest -- 8791
@@ -684,7 +684,7 @@ function addon:InitTailoring()
 
 	-- Admiral's Hat -- 12081
 	AddRecipe(12081, 240, 10030, Q.COMMON, V.ORIG, 240, 255, 270, 285)
-	self:AddRecipeFlags(12081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH)
+	self:AddRecipeFlags(12081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
 	self:AddRecipeVendor(12081, 2672)
 
 	-- Shadoweave Boots -- 12082
@@ -754,7 +754,7 @@ function addon:InitTailoring()
 
 	-- Runecloth Bag -- 18405
 	AddRecipe(18405, 260, 14046, Q.COMMON, V.ORIG, 260, 275, 290, 305)
-	self:AddRecipeFlags(18405, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(18405, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(18405, 11189)
 
 	-- Runecloth Robe -- 18406
@@ -826,7 +826,7 @@ function addon:InitTailoring()
 
 	-- Felcloth Pants -- 18419
 	AddRecipe(18419, 275, 14107, Q.COMMON, V.ORIG, 275, 290, 305, 320)
-	self:AddRecipeFlags(18419, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(18419, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(18419, 12022)
 
 	-- Brightcloth Cloak -- 18420
@@ -961,17 +961,17 @@ function addon:InitTailoring()
 
 	-- Truefaith Vestments -- 18456
 	AddRecipe(18456, 300, 14154, Q.EPIC, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(18456, F.ALLIANCE, F.HORDE, F.INSTANCE, F.PRIEST, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(18456, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.PRIEST, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(18456, 10813)
 
 	-- Robe of the Archmage -- 18457
 	AddRecipe(18457, 300, 14152, Q.EPIC, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(18457, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(18457, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(18457, 9264)
 
 	-- Robe of the Void -- 18458
 	AddRecipe(18458, 300, 14153, Q.EPIC, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(18458, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(18458, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(18458, 1853)
 
 	-- Mooncloth -- 18560
@@ -1001,7 +1001,7 @@ function addon:InitTailoring()
 
 	-- Flarecore Wraps -- 22759
 	AddRecipe(22759, 300, 18263, Q.RARE, V.ORIG, 300, 320, 335, 350)
-	self:AddRecipeFlags(22759, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(22759, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(22759, A.CUSTOM, 26)
 
 	-- Gordok Ogre Suit -- 22813
@@ -1041,12 +1041,12 @@ function addon:InitTailoring()
 
 	-- Wisdom of the Timbermaw -- 23662
 	AddRecipe(23662, 290, 19047, Q.COMMON, V.ORIG, 290, 305, 320, 335)
-	self:AddRecipeFlags(23662, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(23662, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.TIMBERMAW_HOLD)
 	self:AddRecipeRepVendor(23662, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Mantle of the Timbermaw -- 23663
 	AddRecipe(23663, 300, 19050, Q.COMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(23663, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(23663, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.TIMBERMAW_HOLD)
 	self:AddRecipeRepVendor(23663, FAC.TIMBERMAW_HOLD, REP.REVERED, 11557)
 
 	-- Argent Boots -- 23664
@@ -1086,7 +1086,7 @@ function addon:InitTailoring()
 
 	-- Runed Stygian Leggings -- 24901
 	AddRecipe(24901, 300, 20538, Q.RARE, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(24901, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(24901, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeQuest(24901, 8323)
 
 	-- Runed Stygian Belt -- 24902
@@ -1096,7 +1096,7 @@ function addon:InitTailoring()
 
 	-- Runed Stygian Boots -- 24903
 	AddRecipe(24903, 300, 20537, Q.RARE, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(24903, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(24903, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeQuest(24903, 8323)
 
 	-- Soul Pouch -- 26085
@@ -1281,27 +1281,27 @@ function addon:InitTailoring()
 
 	-- Soulcloth Shoulders -- 26780
 	AddRecipe(26780, 365, 21864, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(26780, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(26780, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(26780, 16406)
 
 	-- Soulcloth Vest -- 26781
 	AddRecipe(26781, 375, 21865, Q.EPIC, V.TBC, 375, 380, 382, 385)
-	self:AddRecipeFlags(26781, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(26781, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(26781, 16408)
 
 	-- Arcanoweave Bracers -- 26782
 	AddRecipe(26782, 350, 21866, Q.UNCOMMON, V.TBC, 350, 360, 365, 370)
-	self:AddRecipeFlags(26782, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.CLOTH)
+	self:AddRecipeFlags(26782, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeMobDrop(26782, 20869)
 
 	-- Arcanoweave Boots -- 26783
 	AddRecipe(26783, 360, 21867, Q.UNCOMMON, V.TBC, 360, 370, 375, 380)
-	self:AddRecipeFlags(26783, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.CLOTH)
+	self:AddRecipeFlags(26783, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeMobDrop(26783, 19168)
 
 	-- Arcanoweave Robe -- 26784
 	AddRecipe(26784, 370, 21868, Q.UNCOMMON, V.TBC, 370, 380, 385, 390)
-	self:AddRecipeFlags(26784, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.CLOTH)
+	self:AddRecipeFlags(26784, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(26784, 19220)
 
 	-- Enchanted Mageweave Pouch -- 27658
@@ -1316,7 +1316,7 @@ function addon:InitTailoring()
 
 	-- Big Bag of Enchantment -- 27660
 	AddRecipe(27660, 300, 22249, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(27660, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(27660, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(27660, 11487)
 
 	-- Cenarion Herb Bag -- 27724
@@ -1460,7 +1460,7 @@ function addon:InitTailoring()
 
 	-- Whitemend Pants -- 31451
 	AddRecipe(31451, 375, 24261, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(31451, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(31451, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31451, 20885)
 
 	-- Spellstrike Pants -- 31452
@@ -1470,17 +1470,17 @@ function addon:InitTailoring()
 
 	-- Battlecast Pants -- 31453
 	AddRecipe(31453, 375, 24263, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(31453, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(31453, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31453, 17978)
 
 	-- Whitemend Hood -- 31454
 	AddRecipe(31454, 375, 24264, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(31454, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(31454, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31454, 17977)
 
 	-- Spellstrike Hood -- 31455
 	AddRecipe(31455, 375, 24266, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(31455, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(31455, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31455, 16807)
 
 	-- Battlecast Hood -- 31456
@@ -1500,12 +1500,12 @@ function addon:InitTailoring()
 
 	-- Belt of Blasting -- 36315
 	AddRecipe(36315, 375, 30038, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(36315, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(36315, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(36315, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Belt of the Long Road -- 36316
 	AddRecipe(36316, 375, 30036, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(36316, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(36316, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(36316, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Boots of Blasting -- 36317
@@ -1580,7 +1580,7 @@ function addon:InitTailoring()
 
 	-- Swiftheal Wraps -- 41207
 	AddRecipe(41207, 375, 32584, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(41207, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(41207, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(41207, A.CUSTOM, 27, A.CUSTOM, 34)
 
 	-- Swiftheal Mantle -- 41208
@@ -1617,7 +1617,7 @@ function addon:InitTailoring()
 
 	-- Robe of Eternal Light -- 46131
 	AddRecipe(46131, 365, 34365, Q.EPIC, V.TBC, 365, 375, 392, 410)
-	self:AddRecipeFlags(46131, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(46131, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(46131, A.CUSTOM, 24)
 
 	-- Dress Shoes -- 49677
