@@ -1574,6 +1574,9 @@ function addon:InitializeRecipe(profession)
 		--@end-alpha@
 		return
 	end
+	if profession == private.professions["Smelting"] then
+		profession = private.mining_name
+	end
 	local func = PROFESSION_INITS[profession]
 
 	if func then
