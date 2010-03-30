@@ -28,6 +28,38 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
+-- Profession data.
+private.professions = {
+	["Alchemy"]		= GetSpellInfo(51304),
+	["Blacksmithing"]	= GetSpellInfo(51300),
+	["Cooking"]		= GetSpellInfo(51296),
+	["Enchanting"]		= GetSpellInfo(51313),
+	["Engineering"]		= GetSpellInfo(51306),
+	["FirstAid"]		= GetSpellInfo(45542),
+	["Inscription"]		= GetSpellInfo(45363),
+	["Jewelcrafting"]	= GetSpellInfo(51311),
+	["Leatherworking"]	= GetSpellInfo(51302),
+	["Runeforging"]		= GetSpellInfo(53428),
+	["Smelting"]		= GetSpellInfo(2656),
+	["Tailoring"]		= GetSpellInfo(51309),
+}
+
+private.ordered_professions = {
+	private.professions.Alchemy, 		-- 1
+	private.professions.Blacksmithing, 	-- 2
+	private.professions.Cooking, 		-- 3
+	private.professions.Enchanting,		-- 4
+	private.professions.Engineering,	-- 5
+	private.professions.FirstAid,		-- 6
+	private.professions.Inscription,	-- 7
+	private.professions.Jewelcrafting, 	-- 8
+	private.professions.Leatherworking, 	-- 9
+	private.professions.Runeforging,	-- 10
+	private.professions.Smelting,		-- 11
+	private.professions.Tailoring,		-- 12
+}
+
+-------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
 private.item_qualities = {
@@ -48,6 +80,9 @@ private.item_quality_names = {
 	[6] = "ARTIFACT",
 }
 
+-------------------------------------------------------------------------------
+-- Game/expansion versions.
+-------------------------------------------------------------------------------
 private.game_versions = {
 	["ORIG"]	= 1,
 	["TBC"]		= 2,
@@ -139,7 +174,7 @@ private.filter_strings = {
 private.acquire_types = {
 	["TRAINER"]	= 1,
 	["VENDOR"]	= 2,
-	["MOB_DROP"]		= 3,
+	["MOB_DROP"]	= 3,
 	["QUEST"]	= 4,
 	["SEASONAL"]	= 5,
 	["REPUTATION"]	= 6,

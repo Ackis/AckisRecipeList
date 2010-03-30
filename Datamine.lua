@@ -64,23 +64,7 @@ local private	= select(2, ...)
 local F = private.filter_flags
 local A = private.acquire_types
 
--------------------------------------------------------------------------------
--- Tradeskill professions
--------------------------------------------------------------------------------
-local PROFESSIONS = {
-	["Alchemy"]		= GetSpellInfo(51304),
-	["Blacksmithing"]	= GetSpellInfo(51300),
-	["Cooking"]		= GetSpellInfo(51296),
-	["Enchanting"]		= GetSpellInfo(51313),
-	["Engineering"]		= GetSpellInfo(51306),
-	["FirstAid"]		= GetSpellInfo(45542),
-	["Inscription"]		= GetSpellInfo(45363),
-	["Jewelcrafting"]	= GetSpellInfo(51311),
-	["Leatherworking"]	= GetSpellInfo(51302),
-	["Runeforging"]		= GetSpellInfo(53428),
-	["Smelting"]		= GetSpellInfo(32606),
-	["Tailoring"]		= GetSpellInfo(51309),
-}
+local PROFESSIONS = private.professions
 
 -------------------------------------------------------------------------------
 -- Mined via Data-tools
@@ -1363,20 +1347,8 @@ end
 --- Scans the items in the specified profession
 -------------------------------------------------------------------------------
 do
-	local ORDERED_PROFESSIONS = {
-		string.lower(PROFESSIONS.Alchemy), 		-- 1
-		string.lower(PROFESSIONS.Blacksmithing), 	-- 2
-		string.lower(PROFESSIONS.Cooking), 		-- 3
-		string.lower(PROFESSIONS.Enchanting),		-- 4
-		string.lower(PROFESSIONS.Engineering),		-- 5
-		string.lower(PROFESSIONS.FirstAid),		-- 6
-		string.lower(PROFESSIONS.Inscription),		-- 7
-		string.lower(PROFESSIONS.Jewelcrafting), 	-- 8
-		string.lower(PROFESSIONS.Leatherworking), 	-- 9
-		string.lower(PROFESSIONS.Runeforging),		-- 10
-		string.lower(PROFESSIONS.Smelting),		-- 11
-		string.lower(PROFESSIONS.Tailoring),		-- 12
-	}
+	local ORDERED_PROFESSIONS = private.ordered_professions
+
 	local recipe_list = {}
 	local output = {}
 
