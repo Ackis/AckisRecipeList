@@ -2646,6 +2646,9 @@ do
 		local clicked_line = ListFrame.entries[clickedIndex]
 		local traverseIndex = 0
 
+		if not clicked_line then
+			return
+		end
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
