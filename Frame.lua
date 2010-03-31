@@ -2524,13 +2524,6 @@ ScrollBar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
 ScrollBar:SetMinMaxValues(0, 1)
 ScrollBar:SetValueStep(1)
 
--- This can be called either from ListFrame's OnMouseWheel script, manually
--- sliding the thumb, or from clicking the up/down buttons.
-ScrollBar:SetScript("OnValueChanged",
-		    function(self, value, ...)
-			    ListFrame:Update(nil, true)
-		    end)
-
 ListFrame.scroll_bar = ScrollBar
 
 -------------------------------------------------------------------------------
@@ -2578,17 +2571,6 @@ do
 			cur_val = math.max(min_val, cur_val - SCROLL_DEPTH)
 			ScrollBar:SetValue(cur_val)
 		end
-
-		if cur_val == min_val then
-			ScrollUpButton:Disable()
-			ScrollDownButton:Enable()
-		elseif cur_val == max_val then
-			ScrollUpButton:Enable()
-			ScrollDownButton:Disable()
-		else
-			ScrollUpButton:Enable()
-			ScrollDownButton:Enable()
-		end
 	end
 	
 	ScrollUpButton:SetScript("OnClick",
@@ -2609,6 +2591,25 @@ do
 	ListFrame:SetScript("OnMouseWheel",
 			    function(self, delta)
 				    ScrollBar_Scroll(delta)
+			    end)
+
+	-- This can be called either from ListFrame's OnMouseWheel script, manually
+	-- sliding the thumb, or from clicking the up/down buttons.
+	ScrollBar:SetScript("OnValueChanged",
+			    function(self, value, ...)
+				    local min_val, max_val = self:GetMinMaxValues()
+
+				    if value == min_val then
+					    ScrollUpButton:Disable()
+					    ScrollDownButton:Enable()
+				    elseif value == max_val then
+					    ScrollUpButton:Enable()
+					    ScrollDownButton:Disable()
+				    else
+					    ScrollUpButton:Enable()
+					    ScrollDownButton:Enable()
+				    end
+				    ListFrame:Update(nil, true)
 			    end)
 
 	local function Button_OnEnter(self)
