@@ -870,11 +870,6 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 	if not recipe.name then
 		self:Print(strformat(L["SpellIDCache"], spell_id))
 	end
-
-	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	for i = 1, NUM_FILTER_FLAGS, 1 do
-		recipe["Flags"][i] = false
-	end
 	recipe_list[spell_id] = recipe
 end
 
