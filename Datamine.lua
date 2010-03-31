@@ -1649,9 +1649,10 @@ do
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)		-- Get the NPC ID
 		local added = false
-
+		
 		twipe(output)
-
+		
+		tinsert(output, "Vendor Name: "..targetname.." NPC ID: "..targetID)
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
 			local name, _, _, _, numAvailable = GetMerchantItemInfo(i)
@@ -1698,7 +1699,7 @@ do
 
 						if not found then
 							added = true
-							tinsert(output, "Vendor ID missing from " .. spell_id)
+							tinsert(output, string.format("Vendor ID missing from \"%s\" %d.", recipe_list[spell_id].name, spell_id))
 						end
 					else
 						--@debug@
