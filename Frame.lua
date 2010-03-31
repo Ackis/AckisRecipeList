@@ -3007,14 +3007,15 @@ do
 	end
 
 	function ListFrame:Update(expand_mode, refresh)
-		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
-		if not refresh and not self.scrolling then
+		if not refresh then
 			self:Initialize(expand_mode)
 		end
 
 		local num_entries = #self.entries
 
 		if num_entries == 0 then
+			self:ClearLines()
+
 			-- disable expand button, it's useless here and would spam the same error again
 			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
 			ARL_ExpandButton:Disable()
