@@ -2986,6 +2986,26 @@ do
 		end
 	end
 
+	-- Reset the current buttons/lines
+	function ListFrame:ClearLines()
+		for i = 1, NUM_RECIPE_LINES do
+			local entry = self.entry_buttons[i]
+			local state = self.state_buttons[i]
+
+			entry.string_index = 0
+			entry:SetText("")
+			entry:SetScript("OnEnter", nil)
+			entry:SetScript("OnLeave", nil)
+
+			state.string_index = 0
+			state:Hide()
+			state:SetScript("OnEnter", nil)
+			state:SetScript("OnLeave", nil)
+
+			state:ClearAllPoints()
+		end
+	end
+
 	function ListFrame:Update(expand_mode, refresh)
 		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
 		if not refresh and not self.scrolling then
@@ -3054,25 +3074,9 @@ do
 			self.scroll_bar:Hide()
 		else
 			self.scroll_bar:Show()
+
 		end
-
-		-- Reset the current buttons/lines
-		for i = 1, NUM_RECIPE_LINES do
-			local entry = self.entry_buttons[i]
-			local state = self.state_buttons[i]
-
-			entry.string_index = 0
-			entry:SetText("")
-			entry:SetScript("OnEnter", nil)
-			entry:SetScript("OnLeave", nil)
-
-			state.string_index = 0
-			state:Hide()
-			state:SetScript("OnEnter", nil)
-			state:SetScript("OnLeave", nil)
-
-			state:ClearAllPoints()
-		end
+		self:ClearLines()
 
 		local button_index = 1
 		local string_index = button_index + self.scroll_bar:GetValue()
