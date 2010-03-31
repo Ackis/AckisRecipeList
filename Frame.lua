@@ -3066,6 +3066,8 @@ do
 			end
 			return
 		end
+		local offset = 0
+
 		addon:ClosePopups()
 
 		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
@@ -3074,15 +3076,15 @@ do
 		if num_entries <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
 		else
-			self.scroll_bar:Show()
+			offset = self.scroll_bar:GetValue()
 
+			self.scroll_bar:SetMinMaxValues(0, math.max(0, num_entries - NUM_RECIPE_LINES))
+			self.scroll_bar:Show()
 		end
 		self:ClearLines()
 
 		local button_index = 1
-		local string_index = button_index + self.scroll_bar:GetValue()
-
-		self.scroll_bar:SetMinMaxValues(0, math.max(0, #self.entries - NUM_RECIPE_LINES))
+		local string_index = button_index + offset
 
 		-- Populate the buttons with new values
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
@@ -3128,7 +3130,7 @@ do
 			string_index = string_index + 1
 		end
 		button_index = 1
-		string_index = button_index + self.scroll_bar:GetValue()
+		string_index = button_index + offset
 
 		-- This function could possibly have been called from a mouse click or by scrolling.
 		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
