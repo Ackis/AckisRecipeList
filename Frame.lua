@@ -2524,13 +2524,6 @@ ScrollBar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
 ScrollBar:SetMinMaxValues(0, 1)
 ScrollBar:SetValueStep(1)
 
--- This can be called either from ListFrame's OnMouseWheel script, manually
--- sliding the thumb, or from clicking the up/down buttons.
-ScrollBar:SetScript("OnValueChanged",
-		    function(self, value, ...)
-			    ListFrame:Update(nil, true)
-		    end)
-
 ListFrame.scroll_bar = ScrollBar
 
 -------------------------------------------------------------------------------
@@ -2578,17 +2571,6 @@ do
 			cur_val = math.max(min_val, cur_val - SCROLL_DEPTH)
 			ScrollBar:SetValue(cur_val)
 		end
-
-		if cur_val == min_val then
-			ScrollUpButton:Disable()
-			ScrollDownButton:Enable()
-		elseif cur_val == max_val then
-			ScrollUpButton:Enable()
-			ScrollDownButton:Disable()
-		else
-			ScrollUpButton:Enable()
-			ScrollDownButton:Enable()
-		end
 	end
 	
 	ScrollUpButton:SetScript("OnClick",
@@ -2609,6 +2591,25 @@ do
 	ListFrame:SetScript("OnMouseWheel",
 			    function(self, delta)
 				    ScrollBar_Scroll(delta)
+			    end)
+
+	-- This can be called either from ListFrame's OnMouseWheel script, manually
+	-- sliding the thumb, or from clicking the up/down buttons.
+	ScrollBar:SetScript("OnValueChanged",
+			    function(self, value, ...)
+				    local min_val, max_val = self:GetMinMaxValues()
+
+				    if value == min_val then
+					    ScrollUpButton:Disable()
+					    ScrollDownButton:Enable()
+				    elseif value == max_val then
+					    ScrollUpButton:Enable()
+					    ScrollDownButton:Disable()
+				    else
+					    ScrollUpButton:Enable()
+					    ScrollDownButton:Enable()
+				    end
+				    ListFrame:Update(nil, true)
 			    end)
 
 	local function Button_OnEnter(self)
@@ -2645,6 +2646,9 @@ do
 		local clicked_line = ListFrame.entries[clickedIndex]
 		local traverseIndex = 0
 
+		if not clicked_line then
+			return
+		end
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
@@ -2986,15 +2990,36 @@ do
 		end
 	end
 
+	-- Reset the current buttons/lines
+	function ListFrame:ClearLines()
+		for i = 1, NUM_RECIPE_LINES do
+			local entry = self.entry_buttons[i]
+			local state = self.state_buttons[i]
+
+			entry.string_index = 0
+			entry:SetText("")
+			entry:SetScript("OnEnter", nil)
+			entry:SetScript("OnLeave", nil)
+
+			state.string_index = 0
+			state:Hide()
+			state:SetScript("OnEnter", nil)
+			state:SetScript("OnLeave", nil)
+
+			state:ClearAllPoints()
+		end
+	end
+
 	function ListFrame:Update(expand_mode, refresh)
-		-- If not refreshing an existing list and not scrolling up/down, wipe and re-initialize the entries.
-		if not refresh and not self.scrolling then
+		if not refresh then
 			self:Initialize(expand_mode)
 		end
 
 		local num_entries = #self.entries
 
 		if num_entries == 0 then
+			self:ClearLines()
+
 			-- disable expand button, it's useless here and would spam the same error again
 			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
 			ARL_ExpandButton:Disable()
@@ -3045,6 +3070,8 @@ do
 			end
 			return
 		end
+		local offset = 0
+
 		addon:ClosePopups()
 
 		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
@@ -3053,31 +3080,15 @@ do
 		if num_entries <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
 		else
+			offset = self.scroll_bar:GetValue()
+
+			self.scroll_bar:SetMinMaxValues(0, math.max(0, num_entries - NUM_RECIPE_LINES))
 			self.scroll_bar:Show()
 		end
-
-		-- Reset the current buttons/lines
-		for i = 1, NUM_RECIPE_LINES do
-			local entry = self.entry_buttons[i]
-			local state = self.state_buttons[i]
-
-			entry.string_index = 0
-			entry:SetText("")
-			entry:SetScript("OnEnter", nil)
-			entry:SetScript("OnLeave", nil)
-
-			state.string_index = 0
-			state:Hide()
-			state:SetScript("OnEnter", nil)
-			state:SetScript("OnLeave", nil)
-
-			state:ClearAllPoints()
-		end
+		self:ClearLines()
 
 		local button_index = 1
-		local string_index = button_index + self.scroll_bar:GetValue()
-
-		self.scroll_bar:SetMinMaxValues(0, math.max(0, #self.entries - NUM_RECIPE_LINES))
+		local string_index = button_index + offset
 
 		-- Populate the buttons with new values
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
@@ -3123,7 +3134,7 @@ do
 			string_index = string_index + 1
 		end
 		button_index = 1
-		string_index = button_index + self.scroll_bar:GetValue()
+		string_index = button_index + offset
 
 		-- This function could possibly have been called from a mouse click or by scrolling.
 		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
