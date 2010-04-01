@@ -25,6 +25,8 @@ local _G = getfenv(0)
 
 local table = _G.table
 
+local bit = _G.bit
+
 local pairs = _G.pairs
 
 -------------------------------------------------------------------------------
@@ -115,10 +117,13 @@ function Player:HasProperRepLevel(rep_data)
 	return has_faction
 end
 
-function Player:IsCorrectFaction(recipe_flags)
-	if self.faction == BFAC["Alliance"] and recipe_flags[F.HORDE] and not recipe_flags[F.ALLIANCE] then
+function Player:IsCorrectFaction(recipe)
+	local flags = recipe.flags.common1
+	local C1 = private.common_flags_word1
+
+	if self.faction == BFAC["Alliance"] and bit.band(flags, C1.HORDE) == C1.HORDE and bit.band(flags, C1.ALLIANCE) ~= C1.ALLIANCE then
 		return false
-	elseif self.faction == BFAC["Horde"] and recipe_flags[F.ALLIANCE] and not recipe_flags[F.HORDE] then
+	elseif self.faction == BFAC["Horde"] and bit.band(flags, C1.ALLIANCE) == C1.ALLIANCE and bit.band(flags, C1.HORDE) ~= C1.HORDE then
 		return false
 	end
 	return true
