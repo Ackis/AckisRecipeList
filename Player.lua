@@ -72,12 +72,14 @@ function Player:MarkExclusions()
 	local profession = self.current_prof
 	local known_count = 0
 	local unknown_count = 0
+	local SF = private.recipe_state_flags
 
 	for spell_id in pairs(exclusion_list) do
 		local recipe = recipe_list[spell_id]
+		local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
 
 		if recipe then
-			if recipe.is_known and recipe.profession == profession then
+			if is_known and recipe.profession == profession then
 				known_count = known_count + 1
 			elseif recipe_profession == profession then
 				unknown_count = unknown_count + 1

@@ -517,8 +517,10 @@ function addon:OnInitialize()
 				       if scanned then
 					       local skill_level = Player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
+					       local SF = private.recipe_state_flags
+					       local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
 
-					       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
+					       if ((not is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
 						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
@@ -865,8 +867,12 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["medium_level"]	= medium_level or skill_level + 10,
 		["easy_level"]		= easy_level or skill_level + 15,
 		["trivial_level"]	= trivial_level or skill_level + 20,
-		["is_relevant"]		= true,				-- Set to be showing in the search results
+		["state"]		= 0,				-- State flags.
 	}
+	local SF = private.recipe_state_flags
+
+	-- Set the "relevant" flag for searches, until I peer at the search logic to make this unnecessary.
+	recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
 
 	if not recipe.name then
 		self:Print(strformat(L["SpellIDCache"], spell_id))
@@ -1573,10 +1579,11 @@ do
 		local can_display = false
 		local current_profession = Player.current_prof
 		local recipe_list = private.recipe_list
+		local SF = private.recipe_state_flags
 
 		for recipe_id, recipe in pairs(recipe_list) do
 			if recipe.profession == current_profession then
-				local is_known = recipe.is_known
+				local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
 
 				can_display = CanDisplayRecipe(recipe)
 				recipes_total = recipes_total + 1
@@ -1597,7 +1604,11 @@ do
 			else
 				can_display = false
 			end
-			recipe.is_visible = can_display or nil
+			local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+
+			if (can_display and not is_visible) or (not can_display and is_visible) then
+				recipe.state = bit.bxor(recipe.state, SF.VISIBLE)
+			end
 		end
 		Player.recipes_total = recipes_total
 		Player.recipes_known = recipes_known
@@ -1748,6 +1759,7 @@ do
 		end
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
+		local SF = private.recipe_state_flags
 
 		for i = 1, GetNumTradeSkills() do
 			local tradeName, tradeType = GetTradeSkillInfo(i)
@@ -1759,7 +1771,11 @@ do
 				local recipe = recipe_list[tonumber(SpellString)]
 
 				if recipe then
-					recipe.is_known = true
+					local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
+
+					if not is_known then
+						recipe.state = bit.bxor(recipe.state, SF.KNOWN)
+					end
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
@@ -1934,10 +1950,12 @@ do
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n", UnitName("player"), profession))
 		end
 		local recipe_list = private.recipe_list
+		local SF = private.recipe_state_flags
 
 		for recipe_id in pairs(recipe_list) do
 			local recipe = recipe_list[recipe_id]
 			local recipe_prof = GetSpellInfo(recipe.profession)
+			local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
 
 			if recipe_prof == profession then
 				-- CSV
@@ -1952,15 +1970,15 @@ do
 				-- BBCode
 				elseif output == "BBCode" then
 					-- Make the entry red
-					if not recipe.is_known then
+					if not is_known then
 						tinsert(text_table, "[color=red]")
 					end
 					tinsert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
 
 					-- Close Color tag
-					if not recipe.is_known then
+					if not is_known then
 						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
-					elseif recipe.is_known then
+					elseif is_known then
 						tinsert(text_table, "\nRecipe Flags:\n[list]")
 					end
 				--Name
@@ -2022,7 +2040,7 @@ do
 				end
 
 				if not output or output == "Comma" then
-					if recipe.is_known then
+					if is_known then
 						tinsert(text_table, "\",true\n")
 					else
 						tinsert(text_table, "\",false\n")
@@ -2031,7 +2049,7 @@ do
 					tinsert(text_table, "\n[/list]")
 				end
 			end
-		end
+		end	-- for
 		return tconcat(text_table, "")
 	end
 end

@@ -117,6 +117,8 @@ local FACTION_NEUTRAL		= BFAC["Neutral"]
 local CATEGORY_COLORS		= private.category_colors
 local BASIC_COLORS		= private.basic_colors
 
+local SF = private.recipe_state_flags
+
 -------------------------------------------------------------------------------
 -- Acquire flag constants.
 -------------------------------------------------------------------------------
@@ -1333,12 +1335,10 @@ do
 		end
 		pattern = pattern:lower()
 
-		local recipe_list = private.recipe_list
-
-		for index in pairs(recipe_list) do
-			local entry = recipe_list[index]
-
-			entry.is_relevant = false
+		for index, entry in pairs(private.recipe_list) do
+			if bit.band(entry.state, SF.RELEVANT) == SF.RELEVANT then
+				entry.state = bit.bxor(entry.state, SF.RELEVANT)
+			end
 
 			for location_name in pairs(location_list) do
 				local breakout = false
@@ -1348,7 +1348,7 @@ do
 						local str = location_name:lower()
 
 						if str and str:find(pattern) then
-							entry.is_relevant = true
+							entry.state = bit.bxor(entry.state, SF.RELEVANT)
 							breakout = true
 							break
 						end
@@ -1364,7 +1364,7 @@ do
 				local str = acquire_names[acquire_type]:lower()
 
 				if str and str:find(pattern) and entry.acquire_data[acquire_type] then
-					entry.is_relevant = true
+					entry.state = bit.bxor(entry.state, SF.RELEVANT)
 					break
 				end
 			end
@@ -1373,7 +1373,7 @@ do
 				local str = entry[field] and tostring(entry[field]):lower() or nil
 
 				if str and str:find(pattern) then
-					entry.is_relevant = true
+					entry.state = bit.bxor(entry.state, SF.RELEVANT)
 					break
 				end
 			end
@@ -1416,7 +1416,11 @@ ARL_ClearButton:SetScript("OnClick",
 
 				  -- Reset the search flags
 				  for index in pairs(recipe_list) do
-					  recipe_list[index].is_relevant = true
+					  local recipe = recipe_list[index]
+
+					  if bit.band(recipe.state, SF.RELEVANT) ~= SF.RELEVANT then
+						  recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
+					  end
 				  end
 				  MainPanel.search_editbox:SetText(_G.SEARCH)
 
@@ -1495,7 +1499,9 @@ MainPanel.search_editbox:SetScript("OnTextSet",
 						   for spell_id in pairs(recipe_list) do
 							   local recipe = recipe_list[spell_id]
 
-							   recipe.is_relevant = true
+							   if bit.band(recipe.state, SF.RELEVANT) ~= SF.RELEVANT then
+								   recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
+							   end
 						   end
 						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						   ARL_SearchButton:Disable()
@@ -2886,8 +2892,10 @@ do
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
+					local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+					local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and recipe.is_visible and recipe.is_relevant then
+					if can_display and is_visible and is_relevant then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2923,8 +2931,10 @@ do
 				for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
+					local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+					local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and recipe.is_visible and recipe.is_relevant then
+					if can_display and is_visible and is_relevant then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2948,12 +2958,14 @@ do
 
 			for i = 1, #sorted_recipes do
 				local recipe_index = sorted_recipes[i]
-				local recipe_entry = recipe_list[recipe_index]
+				local recipe = recipe_list[recipe_index]
+				local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+				local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-				if recipe_entry.is_visible and recipe_entry.is_relevant then
+				if is_visible and is_relevant then
 					local t = AcquireTable()
 
-					t.text = FormatRecipeText(recipe_entry)
+					t.text = FormatRecipeText(recipe)
 					t.recipe_id = recipe_index
 
 					recipe_count = recipe_count + 1
@@ -3443,8 +3455,10 @@ do
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
+					local is_visible = (bit.band(recipe_entry.state, SF.VISIBLE) == SF.VISIBLE)
+					local is_relevant = (bit.band(recipe_entry.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and recipe_entry.is_visible and recipe_entry.is_relevant then
+					if can_display and is_visible and is_relevant then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3478,8 +3492,10 @@ do
 				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
+					local is_visible = (bit.band(recipe_entry.state, SF.VISIBLE) == SF.VISIBLE)
+					local is_relevant = (bit.band(recipe_entry.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and recipe_entry.is_visible and recipe_entry.is_relevant then
+					if can_display and is_visible and is_relevant then
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()

@@ -433,12 +433,15 @@ function addon:SetupMap(single_recipe)
 		end
 	elseif addon.db.profile.autoscanmap then
 		local sorted_recipes = addon.sorted_recipes
+		local SF = private.recipe_state_flags
 
 		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 		for i = 1, #sorted_recipes do
 			local recipe = recipe_list[sorted_recipes[i]]
+			local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+			local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-			if recipe.is_visible and recipe.is_relevant then
+			if is_visible and is_relevant then
 				for acquire_type, acquire_info in pairs(recipe.acquire_data) do
 					for id_num, id_info in pairs(acquire_info) do
 						if acquire_type == A.REPUTATION then
