@@ -1969,7 +1969,6 @@ do
 				end
 
 				-- Add in all the filter flags
-				local recipe_flags = recipe["Flags"]
 				local filter_names = GetFilterNames()
 				local prev = false
 

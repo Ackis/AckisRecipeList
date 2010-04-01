@@ -829,8 +829,6 @@ do
 		acquire_tip:AddSeparator()
 		color_1 = BASIC_COLORS["normal"]
 
-		local recipe_flags = recipe["Flags"]
-
 		for flag, label in pairs(BINDING_FLAGS) do
 			if bit.band(recipe.flags.common1, flag) == flag then
 				ttAdd(0, -1, true, label, color_1)
