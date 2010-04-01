@@ -319,7 +319,7 @@ function addon:ClearMap()
 	end
 end
 
-local function GetWaypoint(acquire_type, id_num, flags)
+local function GetWaypoint(acquire_type, id_num, recipe)
 	local maptrainer = addon.db.profile.maptrainer
 	local mapquest = addon.db.profile.mapquest
 	local mapvendor = addon.db.profile.mapvendor
@@ -355,14 +355,22 @@ local function GetWaypoint(acquire_type, id_num, flags)
 			waypoint = quest
 		end
 	elseif acquire_type == A.CUSTOM then
-		if flags[F.TRAINER] and maptrainer then
-			waypoint = private.custom_list[id_num]
-		elseif flags[F.VENDOR] and mapvendor then
+		local bitfield = recipe.flags.common1
+		local COMMON1 = private.common_flags_word1
 
+		if bit.band(bitfield, COMMON1.TRAINER) == COMMON1.TRAINER and maptrainer then
 			waypoint = private.custom_list[id_num]
-		elseif flags[F.QUEST] and mapquest then
+		elseif bit.band(bitfield, COMMON1.VENDOR) == COMMON1.VENDOR and mapvendor then
 			waypoint = private.custom_list[id_num]
-		elseif flags[F.INSTANCE] or flags[F.RAID] or flags[F.WORLD_DROP] or flags[F.MOB_DROP] then
+		elseif bit.band(bitfield, COMMON1.QUEST) == COMMON1.QUEST and mapquest then
+			waypoint = private.custom_list[id_num]
+		elseif bit.band(bitfield, COMMON1.INSTANCE) == COMMON1.INSTANCE then
+			waypoint = private.custom_list[id_num]
+		elseif bit.band(bitfield, COMMON1.RAID) == COMMON1.RAID then
+			waypoint = private.custom_list[id_num]
+		elseif bit.band(bitfield, COMMON1.WORLD_DROP) == COMMON1.WORLD_DROP then
+			waypoint = private.custom_list[id_num]
+		elseif bit.band(bitfield, COMMON1.MOB_DROP) == COMMON1.MOB_DROP then
 			waypoint = private.custom_list[id_num]
 		end
 	end
@@ -407,7 +415,7 @@ function addon:SetupMap(single_recipe)
 				if acquire_type == A.REPUTATION then
 					for rep_level, level_info in pairs(id_info) do
 						for vendor_id in pairs(level_info) do
-							local waypoint = GetWaypoint(acquire_type, vendor_id, recipe["Flags"])
+							local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
 							if waypoint then
 								maplist[waypoint] = single_recipe
@@ -415,7 +423,7 @@ function addon:SetupMap(single_recipe)
 						end
 					end
 				else
-					local waypoint = GetWaypoint(acquire_type, id_num, recipe["Flags"])
+					local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
 					if waypoint then
 						maplist[waypoint] = single_recipe
@@ -436,7 +444,7 @@ function addon:SetupMap(single_recipe)
 						if acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(id_info) do
 								for vendor_id in pairs(level_info) do
-									local waypoint = GetWaypoint(acquire_type, vendor_id, recipe["Flags"])
+									local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
 									if waypoint then
 										maplist[waypoint] = sorted_recipes[i]
@@ -444,7 +452,7 @@ function addon:SetupMap(single_recipe)
 								end
 							end
 						else
-							local waypoint = GetWaypoint(acquire_type, id_num, recipe["Flags"])
+							local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
 							if waypoint then
 								maplist[waypoint] = sorted_recipes[i]
