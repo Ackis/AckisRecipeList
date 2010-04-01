@@ -517,7 +517,7 @@ function addon:OnInitialize()
 					       local skill_level = Player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-					       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe["Flags"]) then
+					       if ((not recipe.is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
 						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
@@ -856,7 +856,7 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		["profession"]		= GetSpellInfo(profession),
 		["spell_link"]		= GetSpellLink(spell_id),
 		["name"]		= GetSpellInfo(spell_id),
-		["Flags"]		= {},				-- Create the flag space in the recipe_list
+		["flags"]		= {},
 		["acquire_data"]	= {},
 		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
 		["genesis"]		= genesis,
@@ -1257,15 +1257,27 @@ end	-- do
 -- Filter flag functions
 -------------------------------------------------------------------------------
 do
+	local COMMON1 = private.common_flags_word1
+	local CLASS1 = private.class_flags_word1
+	local REP1 = private.rep_flags_word1
+	local REP2 = private.rep_flags_word2
+	local ITEM1 = private.item_flags_word1
+
 	-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
 	-- Its keys and values are populated the first time CanDisplayRecipe() is called.
-	local HardFilterFlags, SoftFilterFlags, RepFilterFlags
+	local HardFilterFlags, SoftFilterFlags, RepFilterFlags, RepFilterFlags2
 
 	local ClassFilterFlags = {
-		["deathknight"]	= F.DK,		["druid"]	= F.DRUID,	["hunter"]	= F.HUNTER,
-		["mage"]	= F.MAGE,	["paladin"]	= F.PALADIN,	["priest"]	= F.PRIEST,
-		["shaman"]	= F.SHAMAN,	["rogue"]	= F.ROGUE,	["warlock"]	= F.WARLOCK,
-		["warrior"]	= F.WARRIOR,
+		["deathknight"]	= CLASS1.DK,
+		["druid"]	= CLASS1.DRUID,
+		["hunter"]	= CLASS1.HUNTER,
+		["mage"]	= CLASS1.MAGE,
+		["paladin"]	= CLASS1.PALADIN,
+		["priest"]	= CLASS1.PRIEST,
+		["shaman"]	= CLASS1.SHAMAN,
+		["rogue"]	= CLASS1.ROGUE,
+		["warlock"]	= CLASS1.WARLOCK,
+		["warrior"]	= CLASS1.WARRIOR,
 	}
 
 	---Scans a specific recipe to determine if it is to be displayed or not.
@@ -1277,7 +1289,6 @@ do
 		end
 		local filter_db = addon.db.profile.filters
 		local general_filters = filter_db.general
-		local recipe_flags = recipe["Flags"]
 
 		-- See Documentation file for logic explanation
 		-------------------------------------------------------------------------------
@@ -1288,7 +1299,7 @@ do
 		-------------------------------------------------------------------------------
 
 		-- Display both horde and alliance factions?
-		if not general_filters.faction and not Player:IsCorrectFaction(recipe_flags) then
+		if not general_filters.faction and not Player:IsCorrectFaction(recipe) then
 			return false
 		end
 
@@ -1307,7 +1318,7 @@ do
 		end
 
 		-- Display retired recipes?
-		if not general_filters.retired and recipe_flags[F.RETIRED] then
+		if not general_filters.retired and bit.band(recipe.flags.common1, COMMON1.RETIRED) == COMMON1.RETIRED then
 			return false
 		end
 		local obtain_filters = filter_db.obtain
@@ -1360,54 +1371,56 @@ do
 				------------------------------------------------------------------------------------------------
 				-- Binding flags.
 				------------------------------------------------------------------------------------------------
-				["itemboe"]	= { flag = F.IBOE,	sv_root = binding_filters },
-				["itembop"]	= { flag = F.IBOP,	sv_root = binding_filters },
-				["itemboa"]	= { flag = F.IBOA,	sv_root = binding_filters },
-				["recipeboe"]	= { flag = F.RBOE,	sv_root = binding_filters },
-				["recipebop"]	= { flag = F.RBOP,	sv_root = binding_filters },
-				["recipeboa"]	= { flag = F.RBOA,	sv_root = binding_filters },
+				["itemboe"]	= { flag = COMMON1.IBOE,	index = 1,	sv_root = binding_filters },
+				["itembop"]	= { flag = COMMON1.IBOP,	index = 1,	sv_root = binding_filters },
+				["itemboa"]	= { flag = COMMON1.IBOA,	index = 1,	sv_root = binding_filters },
+				["recipeboe"]	= { flag = COMMON1.RBOE,	index = 1,	sv_root = binding_filters },
+				["recipebop"]	= { flag = COMMON1.RBOP,	index = 1,	sv_root = binding_filters },
+				["recipeboa"]	= { flag = COMMON1.RBOA,	index = 1,	sv_root = binding_filters },
 				------------------------------------------------------------------------------------------------
 				-- Player Type flags.
 				------------------------------------------------------------------------------------------------
-				["melee"]	= { flag = F.DPS,	sv_root = player_filters },
-				["tank"]	= { flag = F.TANK,	sv_root = player_filters },
-				["healer"]	= { flag = F.HEALER,	sv_root = player_filters },
-				["caster"]	= { flag = F.CASTER,	sv_root = player_filters },
+				["melee"]	= { flag = COMMON1.DPS,		index = 1,	sv_root = player_filters },
+				["tank"]	= { flag = COMMON1.TANK,	index = 1,	sv_root = player_filters },
+				["healer"]	= { flag = COMMON1.HEALER,	index = 1,	sv_root = player_filters },
+				["caster"]	= { flag = COMMON1.CASTER,	index = 1,	sv_root = player_filters },
 				------------------------------------------------------------------------------------------------
 				-- Armor flags.
 				------------------------------------------------------------------------------------------------
-				["cloth"]	= { flag = F.CLOTH,	sv_root = armor_filters },
-				["leather"]	= { flag = F.LEATHER,	sv_root = armor_filters },
-				["mail"]	= { flag = F.MAIL,	sv_root = armor_filters },
-				["plate"]	= { flag = F.PLATE,	sv_root = armor_filters },
-				["trinket"]	= { flag = F.TRINKET,	sv_root = armor_filters },
-				["cloak"]	= { flag = F.CLOAK,	sv_root = armor_filters },
-				["ring"]	= { flag = F.RING,	sv_root = armor_filters },
-				["necklace"]	= { flag = F.NECK,	sv_root = armor_filters },
-				["shield"]	= { flag = F.SHIELD,	sv_root = armor_filters },
+				["cloth"]	= { flag = ITEM1.CLOTH,		index = 5,	sv_root = armor_filters },
+				["leather"]	= { flag = ITEM1.LEATHER,	index = 5,	sv_root = armor_filters },
+				["mail"]	= { flag = ITEM1.MAIL,		index = 5,	sv_root = armor_filters },
+				["plate"]	= { flag = ITEM1.PLATE,		index = 5,	sv_root = armor_filters },
+				["trinket"]	= { flag = ITEM1.TRINKET,	index = 5,	sv_root = armor_filters },
+				["cloak"]	= { flag = ITEM1.CLOAK,		index = 5,	sv_root = armor_filters },
+				["ring"]	= { flag = ITEM1.RING,		index = 5,	sv_root = armor_filters },
+				["necklace"]	= { flag = ITEM1.NECK,		index = 5,	sv_root = armor_filters },
+				["shield"]	= { flag = ITEM1.SHIELD,	index = 5,	sv_root = armor_filters },
 				------------------------------------------------------------------------------------------------
 				-- Weapon flags.
 				------------------------------------------------------------------------------------------------
-				["onehand"]	= { flag = F.ONE_HAND,	sv_root = weapon_filters },
-				["twohand"]	= { flag = F.TWO_HAND,	sv_root = weapon_filters },
-				["axe"]		= { flag = F.AXE,	sv_root = weapon_filters },
-				["sword"]	= { flag = F.SWORD,	sv_root = weapon_filters },
-				["mace"]	= { flag = F.MACE,	sv_root = weapon_filters },
-				["polearm"]	= { flag = F.POLEARM,	sv_root = weapon_filters },
-				["dagger"]	= { flag = F.DAGGER,	sv_root = weapon_filters },
-				["fist"]	= { flag = F.FIST,	sv_root = weapon_filters },
-				["gun"]		= { flag = F.GUN,	sv_root = weapon_filters },
-				["staff"]	= { flag = F.STAFF,	sv_root = weapon_filters },
-				["wand"]	= { flag = F.WAND,	sv_root = weapon_filters },
-				["thrown"]	= { flag = F.THROWN,	sv_root = weapon_filters },
-				["bow"]		= { flag = F.BOW,	sv_root = weapon_filters },
-				["crossbow"]	= { flag = F.XBOW,	sv_root = weapon_filters },
-				["ammo"]	= { flag = F.AMMO,	sv_root = weapon_filters },
+				["onehand"]	= { flag = ITEM1.ONE_HAND,	index = 5,	sv_root = weapon_filters },
+				["twohand"]	= { flag = ITEM1.TWO_HAND,	index = 5,	sv_root = weapon_filters },
+				["axe"]		= { flag = ITEM1.AXE,		index = 5,	sv_root = weapon_filters },
+				["sword"]	= { flag = ITEM1.SWORD,		index = 5,	sv_root = weapon_filters },
+				["mace"]	= { flag = ITEM1.MACE,		index = 5,	sv_root = weapon_filters },
+				["polearm"]	= { flag = ITEM1.POLEARM,	index = 5,	sv_root = weapon_filters },
+				["dagger"]	= { flag = ITEM1.DAGGER,	index = 5,	sv_root = weapon_filters },
+				["fist"]	= { flag = ITEM1.FIST,		index = 5,	sv_root = weapon_filters },
+				["gun"]		= { flag = ITEM1.GUN,		index = 5,	sv_root = weapon_filters },
+				["staff"]	= { flag = ITEM1.STAFF,		index = 5,	sv_root = weapon_filters },
+				["wand"]	= { flag = ITEM1.WAND,		index = 5,	sv_root = weapon_filters },
+				["thrown"]	= { flag = ITEM1.THROWN,	index = 5,	sv_root = weapon_filters },
+				["bow"]		= { flag = ITEM1.BOW,		index = 5,	sv_root = weapon_filters },
+				["crossbow"]	= { flag = ITEM1.XBOW,		index = 5,	sv_root = weapon_filters },
+				["ammo"]	= { flag = ITEM1.AMMO,		index = 5,	sv_root = weapon_filters },
 			}
 		end
 
 		for filter, data in pairs(HardFilterFlags) do
-			if recipe_flags[data.flag] and not data.sv_root[filter] then
+			local bitfield = recipe.flags[private.flag_members[data.index]]
+
+			if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
 				return false
 			end
 		end
@@ -1417,47 +1430,71 @@ do
 		-------------------------------------------------------------------------------
 		if not RepFilterFlags then
 			RepFilterFlags = {
-				[F.ARGENTDAWN]		= "argentdawn",
-				[F.CENARION_CIRCLE]	= "cenarioncircle",
-				[F.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
-				[F.TIMBERMAW_HOLD]	= "timbermaw",
-				[F.ZANDALAR]		= "zandalar",
-				[F.ALDOR]		= "aldor",
-				[F.ASHTONGUE]		= "ashtonguedeathsworn",
-				[F.CENARION_EXPEDITION]	= "cenarionexpedition",
-				[F.HELLFIRE]		= "hellfire",
-				[F.CONSORTIUM]		= "consortium",
-				[F.KOT]			= "keepersoftime",
-				[F.LOWERCITY]		= "lowercity",
-				[F.NAGRAND]		= "nagrand",
-				[F.SCALE_SANDS]		= "scaleofthesands",
-				[F.SCRYER]		= "scryer",
-				[F.SHATAR]		= "shatar",
-				[F.SHATTEREDSUN]	= "shatteredsun",
-				[F.SPOREGGAR]		= "sporeggar",
-				[F.VIOLETEYE]		= "violeteye",
-				[F.ARGENTCRUSADE]	= "argentcrusade",
-				[F.FRENZYHEART]		= "frenzyheart",
-				[F.EBONBLADE]		= "ebonblade",
-				[F.KIRINTOR]		= "kirintor",
-				[F.HODIR]		= "sonsofhodir",
-				[F.KALUAK]		= "kaluak",
-				[F.ORACLES]		= "oracles",
-				[F.WYRMREST]		= "wyrmrest",
-				[F.WRATHCOMMON1]	= "wrathcommon1",
-				[F.WRATHCOMMON2]	= "wrathcommon2",
-				[F.WRATHCOMMON3]	= "wrathcommon3",
-				[F.WRATHCOMMON4]	= "wrathcommon4",
-				[F.WRATHCOMMON5]	= "wrathcommon5",
-				[F.ASHEN_VERDICT]	= "ashenverdict",
+				[REP1.ARGENTDAWN]		= "argentdawn",
+				[REP1.CENARION_CIRCLE]		= "cenarioncircle",
+				[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
+				[REP1.TIMBERMAW_HOLD]		= "timbermaw",
+				[REP1.ZANDALAR]			= "zandalar",
+				[REP1.ALDOR]			= "aldor",
+				[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
+				[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
+				[REP1.HELLFIRE]			= "hellfire",
+				[REP1.CONSORTIUM]		= "consortium",
+				[REP1.KOT]			= "keepersoftime",
+				[REP1.LOWERCITY]		= "lowercity",
+				[REP1.NAGRAND]			= "nagrand",
+				[REP1.SCALE_SANDS]		= "scaleofthesands",
+				[REP1.SCRYER]			= "scryer",
+				[REP1.SHATAR]			= "shatar",
+				[REP1.SHATTEREDSUN]		= "shatteredsun",
+				[REP1.SPOREGGAR]		= "sporeggar",
+				[REP1.VIOLETEYE]		= "violeteye",
+				[REP1.ARGENTCRUSADE]		= "argentcrusade",
+				[REP1.FRENZYHEART]		= "frenzyheart",
+				[REP1.EBONBLADE]		= "ebonblade",
+				[REP1.KIRINTOR]			= "kirintor",
+				[REP1.HODIR]			= "sonsofhodir",
+				[REP1.KALUAK]			= "kaluak",
+				[REP1.ORACLES]			= "oracles",
+				[REP1.WYRMREST]			= "wyrmrest",
+				[REP1.WRATHCOMMON1]		= "wrathcommon1",
+				[REP1.WRATHCOMMON2]		= "wrathcommon2",
+				[REP1.WRATHCOMMON3]		= "wrathcommon3",
+				[REP1.WRATHCOMMON4]		= "wrathcommon4",
+				[REP1.WRATHCOMMON5]		= "wrathcommon5",
 			}
 		end
 
+		if not RepFilterFlags2 then
+			RepFilterFlags2 = {
+				[REP2.ASHEN_VERDICT]	= "ashenverdict",
+			}
+		end
 		-- Now we check to see if _all_ of the pertinent reputation or class flags are toggled off. If even one is toggled on, we still show the recipe.
 		local toggled_off, toggled_on = 0, 0
 
 		for flag, name in pairs(RepFilterFlags) do
-			if recipe_flags[flag] then
+			local bitfield = recipe.flags.reputation1
+
+			if bitfield and bit.band(bitfield, flag) == flag then
+				if filter_db.rep[name] then
+					toggled_on = toggled_on + 1
+				else
+					toggled_off = toggled_off + 1
+				end
+			end
+		end
+
+		if toggled_off > 0 and toggled_on == 0 then
+			return false
+		end
+
+		toggled_off, toggled_on = 0, 0
+
+		for flag, name in pairs(RepFilterFlags2) do
+			local bitfield = recipe.flags.reputation2
+
+			if bitfield and bit.band(bitfield, flag) == flag then
 				if filter_db.rep[name] then
 					toggled_on = toggled_on + 1
 				else
@@ -1478,7 +1515,9 @@ do
 		toggled_off, toggled_on = 0, 0
 
 		for class, flag in pairs(ClassFilterFlags) do
-			if recipe_flags[flag] then
+			local bitfield = recipe.flags.class1
+
+			if bitfield and bit.band(bitfield, flag) == flag then
 				if class_filters[class] then
 					toggled_on = toggled_on + 1
 				else
@@ -1498,21 +1537,23 @@ do
 		------------------------------------------------------------------------------------------------
 		if not SoftFilterFlags then
 			SoftFilterFlags = {
-				["trainer"]	= { flag = F.TRAINER,		sv_root = obtain_filters },
-				["vendor"]	= { flag = F.VENDOR,		sv_root = obtain_filters },
-				["instance"]	= { flag = F.INSTANCE,		sv_root = obtain_filters },
-				["raid"]	= { flag = F.RAID,		sv_root = obtain_filters },
-				["seasonal"]	= { flag = F.SEASONAL,		sv_root = obtain_filters },
-				["quest"]	= { flag = F.QUEST,		sv_root = obtain_filters },
-				["pvp"]		= { flag = F.PVP,		sv_root = obtain_filters },
-				["worlddrop"]	= { flag = F.WORLD_DROP,	sv_root = obtain_filters },
-				["mobdrop"]	= { flag = F.MOB_DROP,		sv_root = obtain_filters },
-				["discovery"]	= { flag = F.DISC,		sv_root = obtain_filters },
+				["trainer"]	= { flag = COMMON1.TRAINER,	index = 1,	sv_root = obtain_filters },
+				["vendor"]	= { flag = COMMON1.VENDOR,	index = 1,	sv_root = obtain_filters },
+				["instance"]	= { flag = COMMON1.INSTANCE,	index = 1,	sv_root = obtain_filters },
+				["raid"]	= { flag = COMMON1.RAID,	index = 1,	sv_root = obtain_filters },
+				["seasonal"]	= { flag = COMMON1.SEASONAL,	index = 1,	sv_root = obtain_filters },
+				["quest"]	= { flag = COMMON1.QUEST,	index = 1,	sv_root = obtain_filters },
+				["pvp"]		= { flag = COMMON1.PVP,		index = 1,	sv_root = obtain_filters },
+				["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	index = 1,	sv_root = obtain_filters },
+				["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
+				["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
 			}
 		end
 
 		for filter, data in pairs(SoftFilterFlags) do
-			if recipe_flags[data.flag] and data.sv_root[filter] then
+			local bitfield = recipe.flags[private.flag_members[data.index]]
+
+			if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
 				return true
 			end
 		end
