@@ -880,15 +880,31 @@ end
 -- @param ... A listing of filtering flags.  See [[API/database-documentation]] for a listing of filter flags
 -- @return None, array is passed as a reference.
 function addon:AddRecipeFlags(spell_id, ...)
-	-- flags are defined in Documentation.lua
-	local numvars = select('#',...)
-	local flags = private.recipe_list[spell_id]["Flags"]
+	local num_flags = select('#',...)
+	local recipe = private.recipe_list[spell_id]
 
-	-- Find out how many flags we're adding
-	for i = 1, numvars, 1 do
-		-- Get the value of the current flag
-		local flag = select(i, ...)
-		flags[flag] = true
+	for index = 1, num_flags, 1 do
+		local flag = select(index, ...)
+		local flag_name = private.filter_strings[flag]
+
+		local bitfield
+		local member_name
+
+		for table_index, bits in ipairs(private.bit_flags) do
+			if bits[flag_name] then
+				bitfield = bits
+				member_name = private.flag_members[table_index]
+			end
+		end
+
+		if not bitfield or not member_name then
+			return
+		end
+
+		if not recipe.flags[member_name] then
+			recipe.flags[member_name] = 0
+		end
+		recipe.flags[member_name] = bit.bxor(recipe.flags[member_name], bitfield[flag_name])
 	end
 end
 
