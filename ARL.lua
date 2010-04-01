@@ -1837,6 +1837,7 @@ do
 					[10]	= L["World Drop"],
 					[11]	= L["Mob Drop"],
 					[12]	= L["Discovery"],
+					[13]	= L["Retired"],
 					[21]	= LC["DEATHKNIGHT"],
 					[22]	= LC["DRUID"],
 					[23]	= LC["HUNTER"],
