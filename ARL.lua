@@ -38,6 +38,8 @@ local twipe = table.wipe
 local tconcat = table.concat
 local tinsert = table.insert
 
+local bit = _G.bit
+
 local string = _G.string
 local strformat = string.format
 local strfind = string.find
@@ -71,7 +73,6 @@ local debugger	= _G.tekDebug and _G.tekDebug:GetFrame(MODNAME)
 ------------------------------------------------------------------------------
 -- Constants.
 ------------------------------------------------------------------------------
-local NUM_FILTER_FLAGS = 128
 local PROFESSION_INITS = {}	-- Professions initialization functions.
 
 ------------------------------------------------------------------------------
@@ -1972,19 +1973,22 @@ do
 				local filter_names = GetFilterNames()
 				local prev = false
 
-				-- Find out which flags are marked as "true"
-				for i = 1, NUM_FILTER_FLAGS, 1 do
-					if recipe_flags[i] then
-						-- CSV
-						if not output or output == "Comma" then
-							if prev then
-								tinsert(text_table, ",")
+				-- Find out which flags are set
+				for table_index, bits in ipairs(private.bit_flags) do
+					for flag_name, flag in pairs(bits) do
+						local bitfield = recipe.flags[private.flag_members[table_index]]
+
+						if bitfield and bit.band(bitfield, flag) == flag then
+							if not output or output == "Comma" then
+								if prev then
+									tinsert(text_table, ",")
+								end
+								tinsert(text_table, filter_names[private.filter_flags[flag_name]])
+								prev = true
+								-- BBCode
+							elseif output == "BBCode" then
+								tinsert(text_table, "[*]" .. filter_names[private.filter_flags[flag_name]])
 							end
-							tinsert(text_table, filter_names[i])
-							prev = true
-						-- BBCode
-						elseif output == "BBCode" then
-							tinsert(text_table, "[*]" .. filter_names[i])
 						end
 					end
 				end
