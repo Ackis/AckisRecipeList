@@ -17,14 +17,42 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
 local MODNAME	= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
+-- Set up the private intra-file namespace.
+local private	= select(2, ...)
+
+------------------------------------------------------------------------------
+-- Constants.
+------------------------------------------------------------------------------
 local NEUTRAL	= 0
 local ALLIANCE	= 1
 local HORDE	= 2
+
+------------------------------------------------------------------------------
+-- Memoizing table for quest names.
+------------------------------------------------------------------------------
+private.quest_names = setmetatable({}, {
+	__index = function(t, id_num)
+			  GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
+			  GameTooltip:SetHyperlink("quest:"..tostring(id_num))
+
+			  local quest_name = _G["GameTooltipTextLeft1"]:GetText()
+			  GameTooltip:Hide()
+
+			  if not quest_name then
+				  return _G.UNKNOWN
+			  end
+			  t[id_num] = quest_name
+			  return quest_name
+		  end,
+})
 
 function addon:InitQuest(DB)
 	local function AddQuest(QuestID, Zone, X, Y, Faction)

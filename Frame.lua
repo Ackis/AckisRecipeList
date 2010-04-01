@@ -672,7 +672,7 @@ do
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
 				coord_text = "(" .. quest.coord_x .. ", " .. quest.coord_y .. ")"
 			end
-			ttAdd(0, -1, false, L["Quest"], type_color, quest.name, name_color)
+			ttAdd(0, -1, false, L["Quest"], type_color, private.quest_names[id_num], name_color)
 			ttAdd(1, -2, true, quest.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
 		else
 			ttAdd(0, -1, false, quest.faction.." "..L["Quest"], type_color)
@@ -3275,7 +3275,7 @@ do
 			return entry_index
 		end
 
-		local name = ColorNameByFaction(quest.name, quest.faction)
+		local name = ColorNameByFaction(private.quest_names[id_num], quest.faction)
 		local coord_text = ""
 
 		if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
