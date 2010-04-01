@@ -126,15 +126,15 @@ local A_MAX = 9
 -------------------------------------------------------------------------------
 -- Filter flag constants.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
+local COMMON1 = private.common_flags_word1
 
 local BINDING_FLAGS = {
-	[F.IBOE] = L["BOEFilter"],
-	[F.IBOP] = L["BOPFilter"],
-	[F.IBOA] = L["BOAFilter"],
-	[F.RBOE] = L["RecipeBOEFilter"],
-	[F.RBOP] = L["RecipeBOPFilter"],
-	[F.RBOA] = L["RecipeBOAFilter"]
+	[COMMON1.IBOE] = L["BOEFilter"],
+	[COMMON1.IBOP] = L["BOPFilter"],
+	[COMMON1.IBOA] = L["BOAFilter"],
+	[COMMON1.RBOE] = L["RecipeBOEFilter"],
+	[COMMON1.RBOP] = L["RecipeBOPFilter"],
+	[COMMON1.RBOA] = L["RecipeBOAFilter"]
 }
 
 -------------------------------------------------------------------------------
@@ -832,7 +832,7 @@ do
 		local recipe_flags = recipe["Flags"]
 
 		for flag, label in pairs(BINDING_FLAGS) do
-			if recipe_flags[flag] then
+			if bit.band(recipe.flags.common1, flag) == flag then
 				ttAdd(0, -1, true, label, color_1)
 			end
 		end
