@@ -21,7 +21,7 @@ ignore:
  - .pkgmeta
  - .docmeta
  - Docs
- - Dataminer
+ - Tools
  - Locales/testenUS.lua
 
 tools-used:
