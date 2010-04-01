@@ -302,6 +302,15 @@ private.bit_flags = {
 	private.item_flags_word1,
 }
 
+-- Member names within a recipe's flags table.
+private.flag_members = {
+	"common1",
+	"class1",
+	"reputation1",
+	"reputation2",
+	"item1",
+}
+
 -------------------------------------------------------------------------------
 -- Acquire types.
 -------------------------------------------------------------------------------
