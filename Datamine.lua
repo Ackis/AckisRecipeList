@@ -1215,7 +1215,6 @@ do
 			local recipe = recipe_list[i]
 			local i_name = recipe.name
 			local acquire = recipe["acquire_data"]
-			local flags = recipe["Flags"]
 
 			local train_data = acquire[A.TRAINER]
 
@@ -1235,7 +1234,7 @@ do
 					tinsert(teach, i)
 					teachflag = true
 
-					if not flags[F.TRAINER] then
+					if not recipe:IsFlagged("common1", "TRAINER") then
 						tinsert(output, ": Trainer flag needs to be set.")
 					end
 				end
@@ -1475,12 +1474,16 @@ do
 					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[recipe.genesis],
 					      recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
-		for i = 1, NUM_FILTER_FLAGS, 1 do
-			if recipe.Flags[i] then
-				if not flag_string then
-					flag_string = "F."..FILTER_STRINGS[i]
-				else
-					flag_string = flag_string..", ".."F."..FILTER_STRINGS[i]
+		for table_index, bits in ipairs(private.bit_flags) do
+			for flag_name, flag in pairs(bits) do
+				local bitfield = recipe.flags[private.flag_members[table_index]]
+
+				if bitfield and bit.band(bitfield, flag) == flag then
+					if not flag_string then
+						flag_string = "F."..FILTER_STRINGS[private.filter_flags[flag_name]]
+					else
+						flag_string = flag_string..", ".."F."..FILTER_STRINGS[private.filter_flags[flag_name]]
+					end
 				end
 			end
 		end
@@ -1915,11 +1918,10 @@ do
 		elseif not item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			local flags = recipe["Flags"]
-
-			if not flags[F.RETIRED] and (flags[F.VENDOR] or flags[F.INSTANCE] or flags[F.RAID]) then
-				tinsert(output, string.format("%s: %d", recipe.name, spell_id))
-				tinsert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
+			if not recipe:IsFlagged("common1", "RETIRED")
+				and (recipe:IsFlagged("common1", "VENDOR") or recipe:IsFlagged("common1", "INSTANCE") or recipe:IsFlagged("common1", "RAID")) then
+					tinsert(output, string.format("%s: %d", recipe.name, spell_id))
+					tinsert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -2022,12 +2024,12 @@ do
 
 	local ROLE_TYPES = {
 		["dps"]		= 51, 	["tank"]	= 52, 	["healer"]	= 53,
-		["caster"]	= 54, 	["RESERVED1"]	= 55,
+		["caster"]	= 54,
 	}
 
 	local ORDERED_ROLE_TYPES = {
 		[1]	= "dps", 	[2]	= "tank", 	[3]	= "healer",
-		[4]	= "caster", 	[5]	= "RESERVED1",
+		[4]	= "caster",
 	}
 
 	local ENCHANT_TO_ITEM = {
@@ -2041,7 +2043,6 @@ do
 		["Cloth"]	= 56, 	["Leather"]	= 57, 	["Mail"]	= 58,
 		["Plate"]	= 59, 	["Back"]	= 60, 	["Trinket"]	= 61,
 		["Finger"]	= 62, 	["Neck"]	= 63, 	["Shield"]	= 64,
-		["RESERVED2"]	= 65,
 
 		-- Weapon types
 		["One-Hand"]	= 66, 	["Two-Hand"]	= 67, 	["Axe"]		= 68,
@@ -2056,7 +2057,6 @@ do
 		[1]	= "Cloth", 	[2]	= "Leather", 	[3]	= "Mail",
 		[4]	= "Plate", 	[5]	= "Back", 	[6]	= "Trinket",
 		[7]	= "Finger", 	[8]	= "Neck", 	[9]	= "Shield",
-		[10]	= "RESERVED2",
 
 		-- Weapon types
 		[11]	= "One-Hand", 	[12]	= "Two-Hand", 	[13]	= "Axe",
@@ -2259,7 +2259,6 @@ do
 			return
 		end
 		local recipe = scan_data.recipe_list[spell_id]
-		local flags = recipe["Flags"]
 		local acquire_data = recipe["acquire_data"]
 
 		local FS = private.filter_strings
@@ -2272,14 +2271,14 @@ do
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
-			if not flags[F.VENDOR] then
+			if not recipe:IsFlagged("common1", "VENDOR") then
 				tinsert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
 			end
 
 			-- Check to see if we're in a PVP zone
-			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not flags[F.PVP] then
+			if (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") and not recipe:IsFlagged("common1", "PVP") then
 				tinsert(missing_flags, string.format(flag_format, FS[F.PVP]))
-			elseif flags[F.PVP] and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
+			elseif recipe:IsFlagged("common1", "PVP") and not (GetSubZoneText() == "Wintergrasp Fortress" or GetSubZoneText() == "Halaa") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.PVP]))
 			end
 		end
@@ -2287,71 +2286,79 @@ do
 		-- -- If we've picked up at least one class flag
 		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if scan_data[v] and not flags[CLASS_TYPES[v]] then
+				if scan_data[v] and not recipe:IsFlagged("class1", FS[CLASS_TYPES[v]]) then
 					tinsert(missing_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
-				elseif not scan_data[v] and flags[CLASS_TYPES[v]] then
+				elseif not scan_data[v] and recipe:IsFlagged("class1", FS[CLASS_TYPES[v]]) then
 					tinsert(extra_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
 				end
 			end
 		end
 
-		if scan_data.item_bop and not flags[F.IBOP] then
+		if scan_data.item_bop and not recipe:IsFlagged("common1", "IBOP") then
 			tinsert(missing_flags, string.format(flag_format, FS[F.IBOP]))
 
-			if flags[F.IBOE] then
+			if recipe:IsFlagged("common1", "IBOE") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.IBOE]))
 			end
 
-			if flags[F.IBOA] then
+			if recipe:IsFlagged("common1", "IBOA") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
-		elseif not flags[F.IBOE] and not scan_data.item_bop then
+		elseif not recipe:IsFlagged("common1", "IBOE") and not scan_data.item_bop then
 			tinsert(missing_flags, string.format(flag_format, FS[F.IBOE]))
 
-			if flags[F.IBOP] then
+			if recipe:IsFlagged("common1", "IBOP") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.IBOP]))
 			end
 
-			if flags[F.IBOA] then
+			if recipe:IsFlagged("common1", "IBOA") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
 		end
 
-		if scan_data.recipe_bop and not flags[F.RBOP] then
+		if scan_data.recipe_bop and not recipe:IsFlagged("common1", "RBOP") then
 			tinsert(missing_flags, string.format(flag_format, FS[F.RBOP]))
 
-			if flags[F.RBOE] then
+			if recipe:IsFlagged("common1", "RBOE") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.RBOE]))
 			end
 
-			if flags[F.RBOA] then
+			if recipe:IsFlagged("common1", "RBOA") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
 
-		elseif not flags[F.TRAINER] and not flags[F.RBOE] and not scan_data.recipe_bop then
+		elseif not recipe:IsFlagged("common1", "TRAINER") and not recipe:IsFlagged("common1", "RBOE") and not scan_data.recipe_bop then
 			tinsert(missing_flags, string.format(flag_format, FS[F.RBOE]))
 
-			if flags[F.RBOP] then
+			if recipe:IsFlagged("common1", "RBOP") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.RBOP]))
 			end
 
-			if flags[F.RBOA] then
+			if recipe:IsFlagged("common1", "RBOA") then
 				tinsert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ROLE_TYPES) do
-			if scan_data[v] and not flags[ROLE_TYPES[v]] then
-				tinsert(missing_flags, string.format(flag_format, FS[ROLE_TYPES[v]]))
-			elseif not scan_data[v] and flags[ROLE_TYPES[v]] then
-				tinsert(extra_flags, string.format(flag_format, FS[ROLE_TYPES[v]]))
+			local role_string = FS[ROLE_TYPES[v]]
+
+			if not role_string then
+				addon:Debug("No role_string: k is %s, v is %s", tostring(k), tostring(v))
+			else
+				addon:Debug("Role string is %s", role_string)
+			end
+
+			if scan_data[v] and not recipe:IsFlagged("common1", role_string) then
+				tinsert(missing_flags, string.format(flag_format, role_string))
+			elseif not scan_data[v] and recipe:IsFlagged("common1", role_string) then
+				tinsert(extra_flags, string.format(flag_format, role_string))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ITEM_TYPES) do
-			if scan_data[v] and not flags[ITEM_TYPES[v]] then
+			if scan_data[v] and not recipe:IsFlagged("item1", FS[ITEM_TYPES[v]]) then
 				tinsert(missing_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
-			elseif not scan_data[v] and flags[ITEM_TYPES[v]] then
+			elseif not scan_data[v] and recipe:IsFlagged("item1", FS[ITEM_TYPES[v]]) then
 				tinsert(extra_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
 			end
 		end
@@ -2360,7 +2367,7 @@ do
 		local repid = scan_data.repid
 		local found_problem = false
 
-		if repid and not flags[repid] then
+		if repid and not recipe:IsFlagged("reputation1", FS[repid]) and not recipe:IsFlagged("reputation2", FS[repid]) then
 			tinsert(missing_flags, repid)
 
 			local rep_data = acquire_data[A.REPUTATION]
@@ -2388,31 +2395,31 @@ do
 		for acquire_type in pairs(acquire_data) do
 			local flag = ACQUIRE_TO_FILTER_MAP[acquire_type]
 
-			if flag and not flags[flag] then
+			if flag and not recipe:IsFlagged("common1", FS[flag]) then
 				tinsert(missing_flags, string.format(flag_format, FS[flag]))
 			end
 		end
 
-		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not flags[F.VENDOR] then
+		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:IsFlagged("common1", "VENDOR") then
 			tinsert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
 		end
 
-		if flags[F.VENDOR] and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
+		if recipe:IsFlagged("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
 			tinsert(extra_flags, string.format(flag_format, FS[F.VENDOR]))
 		end
 
-		if acquire_data[A.TRAINER] and not flags[A.TRAINER] then
+		if acquire_data[A.TRAINER] and not recipe:IsFlagged("common1", "TRAINER") then
 			tinsert(missing_flags, string.format(flag_format, FS[F.TRAINER]))
 		end
 
-		if flags[F.TRAINER] and not acquire_data[A.TRAINER] then
+		if recipe:IsFlagged("common1", "TRAINER") and not acquire_data[A.TRAINER] then
 			if not acquire_data[A.CUSTOM] then
 				tinsert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
 			end
 		end
 
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if flags[flag] and not acquire_data[acquire_type] then
+			if recipe:IsFlagged("common1", FS[flag]) and not acquire_data[acquire_type] then
 				tinsert(extra_flags, string.format(flag_format, FS[flag]))
 			end
 		end
@@ -2444,26 +2451,27 @@ do
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
-		if not flags[F.ALLIANCE] and not flags[F.HORDE] then
+		if not recipe:IsFlagged("common1", "ALLIANCE") and not recipe:IsFlagged("common1", "HORDE") then
 			found_problem = true
 			tinsert(output, "    Horde or Alliance not selected.")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
-		if (not flags[F.TRAINER] and not flags[F.VENDOR] and not flags[F.INSTANCE] and not flags[F.RAID] and not flags[F.SEASONAL]
-		    and not flags[F.QUEST] and not flags[F.PVP] and not flags[F.WORLD_DROP] and not flags[F.MOB_DROP] and not flags[F.DISC]) then
+		if (not recipe:IsFlagged("common1", "TRAINER") and not recipe:IsFlagged("common1", "VENDOR") and not recipe:IsFlagged("common1", "INSTANCE") and not recipe:IsFlagged("common1", "RAID")
+		    and not recipe:IsFlagged("common1", "SEASONAL") and not recipe:IsFlagged("common1", "QUEST") and not recipe:IsFlagged("common1", "PVP") and not recipe:IsFlagged("common1", "WORLD_DROP")
+		    and not recipe:IsFlagged("common1", "MOB_DROP") and not recipe:IsFlagged("common1", "DISC")) then
 			found_problem = true
 			tinsert(output, "    No obtain flag.")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
-		if not flags[F.RBOE] and not flags[F.RBOP] and not flags[F.RBOA] then
+		if not recipe:IsFlagged("common1", "RBOE") and not recipe:IsFlagged("common1", "RBOP") and not recipe:IsFlagged("common1", "RBOA") then
 			found_problem = true
 			tinsert(output, "    No recipe binding information.")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
-		if not flags[F.IBOE] and not flags[F.IBOP] and not flags[F.IBOA] then
+		if not recipe:IsFlagged("common1", "IBOE") and not recipe:IsFlagged("common1", "IBOP") and not recipe:IsFlagged("common1", "IBOA") then
 			found_problem = true
 			tinsert(output, "    No item binding information.")
 		end
