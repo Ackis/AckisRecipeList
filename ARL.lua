@@ -869,7 +869,7 @@ do
 	}
 
 	local function Recipe_IsFlagged(self, field_name, flag_name)
-		local bitfield = self[field_name]
+		local bitfield = self.flags[field_name]
 		local bitset = BITFIELD_MAP[field_name]
 		local value = bitset[flag_name]
 
