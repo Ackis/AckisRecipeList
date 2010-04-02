@@ -355,23 +355,17 @@ local function GetWaypoint(acquire_type, id_num, recipe)
 			waypoint = quest
 		end
 	elseif acquire_type == A.CUSTOM then
-		local bitfield = recipe.flags.common1
-		local COMMON1 = private.common_flags_word1
-
-		if bit.band(bitfield, COMMON1.TRAINER) == COMMON1.TRAINER and maptrainer then
+		if recipe:IsFlagged("common1", "TRAINER") and maptrainer then
 			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.VENDOR) == COMMON1.VENDOR and mapvendor then
+		elseif recipe:IsFlagged("common1", "VENDOR") and mapvendor then
 			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.QUEST) == COMMON1.QUEST and mapquest then
+		elseif recipe:IsFlagged("common1", "QUEST") and mapquest then
 			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.INSTANCE) == COMMON1.INSTANCE then
-			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.RAID) == COMMON1.RAID then
-			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.WORLD_DROP) == COMMON1.WORLD_DROP then
-			waypoint = private.custom_list[id_num]
-		elseif bit.band(bitfield, COMMON1.MOB_DROP) == COMMON1.MOB_DROP then
-			waypoint = private.custom_list[id_num]
+		elseif recipe:IsFlagged("common1", "INSTANCE") or
+			recipe:IsFlagged("common1", "RAID") or
+			recipe:IsFlagged("common1", "WORLD_DROP") or
+			recipe:IsFlagged("common1", "MOB_DROP") then
+				waypoint = private.custom_list[id_num]
 		end
 	end
 	return waypoint
@@ -438,10 +432,8 @@ function addon:SetupMap(single_recipe)
 		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 		for i = 1, #sorted_recipes do
 			local recipe = recipe_list[sorted_recipes[i]]
-			local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
-			local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-			if is_visible and is_relevant then
+			if recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
 				for acquire_type, acquire_info in pairs(recipe.acquire_data) do
 					for id_num, id_info in pairs(acquire_info) do
 						if acquire_type == A.REPUTATION then

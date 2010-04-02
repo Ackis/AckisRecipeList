@@ -1336,9 +1336,7 @@ do
 		pattern = pattern:lower()
 
 		for index, entry in pairs(private.recipe_list) do
-			if bit.band(entry.state, SF.RELEVANT) == SF.RELEVANT then
-				entry.state = bit.bxor(entry.state, SF.RELEVANT)
-			end
+			entry:RemoveState("RELEVANT")
 
 			for location_name in pairs(location_list) do
 				local breakout = false
@@ -1416,11 +1414,7 @@ ARL_ClearButton:SetScript("OnClick",
 
 				  -- Reset the search flags
 				  for index in pairs(recipe_list) do
-					  local recipe = recipe_list[index]
-
-					  if bit.band(recipe.state, SF.RELEVANT) ~= SF.RELEVANT then
-						  recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
-					  end
+					  recipe_list[index]:AddState("RELEVANT")
 				  end
 				  MainPanel.search_editbox:SetText(_G.SEARCH)
 
@@ -1497,11 +1491,7 @@ MainPanel.search_editbox:SetScript("OnTextSet",
 						   local recipe_list = private.recipe_list
 
 						   for spell_id in pairs(recipe_list) do
-							   local recipe = recipe_list[spell_id]
-
-							   if bit.band(recipe.state, SF.RELEVANT) ~= SF.RELEVANT then
-								   recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
-							   end
+							   recipe_list[spell_id]:AddState("RELEVANT")
 						   end
 						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						   ARL_SearchButton:Disable()
@@ -2892,10 +2882,8 @@ do
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
-					local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
-					local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and is_visible and is_relevant then
+					if can_display and recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2931,10 +2919,8 @@ do
 				for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
-					local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
-					local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and is_visible and is_relevant then
+					if can_display and recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2959,10 +2945,8 @@ do
 			for i = 1, #sorted_recipes do
 				local recipe_index = sorted_recipes[i]
 				local recipe = recipe_list[recipe_index]
-				local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
-				local is_relevant = (bit.band(recipe.state, SF.RELEVANT) == SF.RELEVANT)
 
-				if is_visible and is_relevant then
+				if recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe)
@@ -3455,10 +3439,8 @@ do
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
-					local is_visible = (bit.band(recipe_entry.state, SF.VISIBLE) == SF.VISIBLE)
-					local is_relevant = (bit.band(recipe_entry.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and is_visible and is_relevant then
+					if can_display and recipe_entry:HasState("VISIBLE") and recipe_entry:HasState("RELEVANT") then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3492,10 +3474,8 @@ do
 				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
-					local is_visible = (bit.band(recipe_entry.state, SF.VISIBLE) == SF.VISIBLE)
-					local is_relevant = (bit.band(recipe_entry.state, SF.RELEVANT) == SF.RELEVANT)
 
-					if can_display and is_visible and is_relevant then
+					if can_display and recipe_entry:HasState("VISIBLE") and recipe_entry:HasState("RELEVANT") then
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()

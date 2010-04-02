@@ -517,10 +517,8 @@ function addon:OnInitialize()
 				       if scanned then
 					       local skill_level = Player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
-					       local SF = private.recipe_state_flags
-					       local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
 
-					       if ((not is_known and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
+					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
 						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
@@ -826,59 +824,116 @@ end
 -- Recipe DB Structures are defined in Documentation.lua
 -------------------------------------------------------------------------------
 
---- Adds a tradeskill recipe into the specified recipe database
--- @name AckisRecipeList:AddRecipe
--- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
--- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being added to the database
--- @param skill_level The skill level at which the recipe can be initially learned
--- @param item_id The [[http://www.wowwiki.com/ItemLink|Item ID]] that is created by the recipe, or nil
--- @param quality The quality/rarity of the recipe
--- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
--- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
--- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, or WoTLK
--- @param optimal_level Level at which recipe is considered orange
--- @param medium_level Level at which recipe is considered yellow
--- @param easy_level Level at which recipe is considered green
--- @param trivial_level Level at which recipe is considered grey
--- @return None, array is passed as a reference
-function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	local recipe_list = private.recipe_list
-
-	if recipe_list[spell_id] then
-		--@alpha@
-		self:Print("Duplicate recipe: "..recipe_list[spell_id].profession.." "..tostring(spell_id).." "..recipe_list[spell_id].name)
-		--@end-alpha@
-		return
-	end
-
-	local recipe = {
-		["spell_id"]		= spell_id,
-		["skill_level"]		= skill_level,
-		["item_id"]		= item_id,
-		["quality"]		= quality,
-		["profession"]		= GetSpellInfo(profession),
-		["spell_link"]		= GetSpellLink(spell_id),
-		["name"]		= GetSpellInfo(spell_id),
-		["flags"]		= {},
-		["acquire_data"]	= {},
-		["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
-		["genesis"]		= genesis,
-		["optimal_level"]	= optimal_level or skill_level,
-		["medium_level"]	= medium_level or skill_level + 10,
-		["easy_level"]		= easy_level or skill_level + 15,
-		["trivial_level"]	= trivial_level or skill_level + 20,
-		["state"]		= 0,				-- State flags.
-	}
+do
 	local SF = private.recipe_state_flags
-
-	-- Set the "relevant" flag for searches, until I peer at the search logic to make this unnecessary.
-	recipe.state = bit.bxor(recipe.state, SF.RELEVANT)
-
-	if not recipe.name then
-		self:Print(strformat(L["SpellIDCache"], spell_id))
+	
+	-------------------------------------------------------------------------------
+	-- Recipe member functions for bit flags.
+	-------------------------------------------------------------------------------
+	local function Recipe_HasState(self, state_name)
+		return self.state and (bit.band(self.state, SF[state_name]) == SF[state_name]) or false
 	end
-	recipe_list[spell_id] = recipe
-end
+
+	local function Recipe_AddState(self, state_name)
+		if not self.state then
+			self.state = 0
+		end
+
+		if bit.band(self.state, SF[state_name]) == SF[state_name] then
+			return
+		end
+		self.state = bit.bxor(self.state, SF[state_name])
+	end
+
+	local function Recipe_RemoveState(self, state_name)
+		if not self.state then
+			return
+		end
+
+		if bit.band(self.state, SF[state_name]) ~= SF[state_name] then
+			return
+		end
+		self.state = bit.bxor(self.state, SF[state_name])
+
+		if self.state == 0 then
+			self.state = nil
+		end
+	end
+
+	local BITFIELD_MAP = {
+		["common1"]	= private.common_flags_word1,
+		["class1"]	= private.class_flags_word1,
+		["reputation1"]	= private.rep_flags_word1,
+		["reputation2"]	= private.rep_flags_word2,
+		["item1"]	= private.item_flags_word1,
+	}
+
+	local function Recipe_IsFlagged(self, field_name, flag_name)
+		local bitfield = self[field_name]
+		local bitset = BITFIELD_MAP[field_name]
+		local value = bitset[flag_name]
+
+		return bitfield and (bit.band(bitfield, value) == value) or false
+	end
+
+	--- Adds a tradeskill recipe into the specified recipe database
+	-- @name AckisRecipeList:AddRecipe
+	-- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
+	-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being added to the database
+	-- @param skill_level The skill level at which the recipe can be initially learned
+	-- @param item_id The [[http://www.wowwiki.com/ItemLink|Item ID]] that is created by the recipe, or nil
+	-- @param quality The quality/rarity of the recipe
+	-- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
+	-- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
+	-- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, or WoTLK
+	-- @param optimal_level Level at which recipe is considered orange
+	-- @param medium_level Level at which recipe is considered yellow
+	-- @param easy_level Level at which recipe is considered green
+	-- @param trivial_level Level at which recipe is considered grey
+	-- @return None, array is passed as a reference
+	function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+		local recipe_list = private.recipe_list
+
+		if recipe_list[spell_id] then
+			--@alpha@
+			self:Print("Duplicate recipe: "..recipe_list[spell_id].profession.." "..tostring(spell_id).." "..recipe_list[spell_id].name)
+			--@end-alpha@
+			return
+		end
+
+		local recipe = {
+			["spell_id"]		= spell_id,
+			["skill_level"]		= skill_level,
+			["item_id"]		= item_id,
+			["quality"]		= quality,
+			["profession"]		= GetSpellInfo(profession),
+			["spell_link"]		= GetSpellLink(spell_id),
+			["name"]		= GetSpellInfo(spell_id),
+			["flags"]		= {},
+			["acquire_data"]	= {},
+			["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
+			["genesis"]		= genesis,
+			["optimal_level"]	= optimal_level or skill_level,
+			["medium_level"]	= medium_level or skill_level + 10,
+			["easy_level"]		= easy_level or skill_level + 15,
+			["trivial_level"]	= trivial_level or skill_level + 20,
+
+			-- Function members
+			["HasState"]		= Recipe_HasState,
+			["AddState"]		= Recipe_AddState,
+			["RemoveState"]		= Recipe_RemoveState,
+			["IsFlagged"]		= Recipe_IsFlagged,
+		}
+
+		-- Set the "relevant" flag for searches, until I peer at the search logic to make this unnecessary.
+		recipe:AddState("RELEVANT")
+
+		if not recipe.name then
+			self:Print(strformat(L["SpellIDCache"], spell_id))
+		end
+		recipe_list[spell_id] = recipe
+	end
+end	-- do
 
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeFlags
@@ -1583,7 +1638,7 @@ do
 
 		for recipe_id, recipe in pairs(recipe_list) do
 			if recipe.profession == current_profession then
-				local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
+				local is_known = recipe:HasState("KNOWN")
 
 				can_display = CanDisplayRecipe(recipe)
 				recipes_total = recipes_total + 1
@@ -1604,7 +1659,7 @@ do
 			else
 				can_display = false
 			end
-			local is_visible = (bit.band(recipe.state, SF.VISIBLE) == SF.VISIBLE)
+			local is_visible = recipe:HasState("VISIBLE")
 
 			if (can_display and not is_visible) or (not can_display and is_visible) then
 				recipe.state = bit.bxor(recipe.state, SF.VISIBLE)
@@ -1771,11 +1826,7 @@ do
 				local recipe = recipe_list[tonumber(SpellString)]
 
 				if recipe then
-					local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
-
-					if not is_known then
-						recipe.state = bit.bxor(recipe.state, SF.KNOWN)
-					end
+					recipe:AddState("KNOWN")
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
@@ -1955,7 +2006,7 @@ do
 		for recipe_id in pairs(recipe_list) do
 			local recipe = recipe_list[recipe_id]
 			local recipe_prof = GetSpellInfo(recipe.profession)
-			local is_known = (bit.band(recipe.state, SF.KNOWN) == SF.KNOWN)
+			local is_known = recipe:HasState("KNOWN")
 
 			if recipe_prof == profession then
 				-- CSV
