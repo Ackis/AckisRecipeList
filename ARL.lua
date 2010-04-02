@@ -151,9 +151,9 @@ function addon:Debug(...)
 	if debugger then
 		debugger:AddMessage(string.format(...))
 	else
-		--@alpha@
+		--@debug@
 		self:Printf(...)
-		--@end-alpha@
+		--@end-debug@
 	end
 end
 
