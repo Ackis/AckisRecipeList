@@ -2848,6 +2848,16 @@ do
 		return insert_index
 	end
 
+	-- If there is text in the search box, return the recipe's RELEVANT state.
+	local function RecipeMatchesSearch(recipe)
+		local editbox_text = MainPanel.search_editbox:GetText()
+
+		if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
+			return recipe:HasState("RELEVANT")
+		end
+		return true
+	end
+
 	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
@@ -2883,7 +2893,7 @@ do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
+					if can_display and recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2920,7 +2930,7 @@ do
 					local recipe = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
+					if can_display and recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2946,7 +2956,7 @@ do
 				local recipe_index = sorted_recipes[i]
 				local recipe = recipe_list[recipe_index]
 
-				if recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
+				if recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
 					local t = AcquireTable()
 
 					t.text = FormatRecipeText(recipe)
@@ -3440,7 +3450,7 @@ do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe_entry:HasState("VISIBLE") and recipe_entry:HasState("RELEVANT") then
+					if can_display and recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3475,7 +3485,7 @@ do
 					local recipe_entry = private.recipe_list[spell_id]
 					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe_entry:HasState("VISIBLE") and recipe_entry:HasState("RELEVANT") then
+					if can_display and recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()
