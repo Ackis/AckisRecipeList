@@ -1414,7 +1414,7 @@ ARL_ClearButton:SetScript("OnClick",
 
 				  -- Reset the search flags
 				  for index in pairs(recipe_list) do
-					  recipe_list[index]:AddState("RELEVANT")
+					  recipe_list[index]:RemoveState("RELEVANT")
 				  end
 				  MainPanel.search_editbox:SetText(_G.SEARCH)
 
@@ -1491,7 +1491,7 @@ MainPanel.search_editbox:SetScript("OnTextSet",
 						   local recipe_list = private.recipe_list
 
 						   for spell_id in pairs(recipe_list) do
-							   recipe_list[spell_id]:AddState("RELEVANT")
+							   recipe_list[spell_id]:RemoveState("RELEVANT")
 						   end
 						   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 						   ARL_SearchButton:Disable()
