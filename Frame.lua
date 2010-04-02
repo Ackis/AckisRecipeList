@@ -941,6 +941,10 @@ MainPanel.title_bar:SetJustifyH("CENTER")
 -------------------------------------------------------------------------------
 MainPanel:SetScript("OnHide",
 		    function(self)
+			    for spell_id, recipe in pairs(private.recipe_list) do
+				    recipe:RemoveState("RELEVANT")
+				    recipe:RemoveState("VISIBLE")
+			    end
 			    addon:ClosePopups()
 		    end)
 
