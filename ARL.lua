@@ -925,9 +925,6 @@ do
 			["IsFlagged"]		= Recipe_IsFlagged,
 		}
 
-		-- Set the "relevant" flag for searches, until I peer at the search logic to make this unnecessary.
-		recipe:AddState("RELEVANT")
-
 		if not recipe.name then
 			self:Print(strformat(L["SpellIDCache"], spell_id))
 		end
