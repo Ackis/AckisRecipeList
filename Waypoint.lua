@@ -428,12 +428,17 @@ function addon:SetupMap(single_recipe)
 	elseif addon.db.profile.autoscanmap then
 		local sorted_recipes = addon.sorted_recipes
 		local SF = private.recipe_state_flags
-
+		local editbox_text = addon.Frame.search_editbox:GetText()
 		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 		for i = 1, #sorted_recipes do
 			local recipe = recipe_list[sorted_recipes[i]]
+			local matches_search = true
 
-			if recipe:HasState("VISIBLE") and recipe:HasState("RELEVANT") then
+			if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
+				matches_search = recipe:HasState("RELEVANT")
+			end
+
+			if recipe:HasState("VISIBLE") and matches_search then
 				for acquire_type, acquire_info in pairs(recipe.acquire_data) do
 					for id_num, id_info in pairs(acquire_info) do
 						if acquire_type == A.REPUTATION then
