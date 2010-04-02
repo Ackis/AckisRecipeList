@@ -1342,45 +1342,55 @@ do
 		for index, entry in pairs(private.recipe_list) do
 			entry:RemoveState("RELEVANT")
 
-			for location_name in pairs(location_list) do
-				local breakout = false
+			if entry.profession == Player.current_prof then
+				local found = false
 
-				for spell_id in pairs(location_list[location_name].recipes) do
-					if spell_id == entry.spell_id then
-						local str = location_name:lower()
+				for field in pairs(search_params) do
+					local str = entry[field] and tostring(entry[field]):lower() or nil
 
-						if str and str:find(pattern) then
+					if str and str:find(pattern) then
+						entry:AddState("RELEVANT")
+						found = true
+						break
+					end
+				end
+
+				if not found then
+					for acquire_type in pairs(acquire_names) do
+						local str = acquire_names[acquire_type]:lower()
+
+						if str and str:find(pattern) and entry.acquire_data[acquire_type] then
 							entry:AddState("RELEVANT")
-							breakout = true
+							found = true
 							break
 						end
 					end
 				end
 
-				if breakout then
-					break
+				if not found then
+					for location_name in pairs(location_list) do
+						local breakout = false
+
+						for spell_id in pairs(location_list[location_name].recipes) do
+							if spell_id == entry.spell_id then
+								local str = location_name:lower()
+
+								if str and str:find(pattern) then
+									entry:AddState("RELEVANT")
+									breakout = true
+									break
+								end
+							end
+						end
+
+						if breakout then
+							break
+						end
+					end
 				end
 			end
-
-			for acquire_type in pairs(acquire_names) do
-				local str = acquire_names[acquire_type]:lower()
-
-				if str and str:find(pattern) and entry.acquire_data[acquire_type] then
-					entry:AddState("RELEVANT")
-					break
-				end
-			end
-
-			for field in pairs(search_params) do
-				local str = entry[field] and tostring(entry[field]):lower() or nil
-
-				if str and str:find(pattern) then
-					entry:AddState("RELEVANT")
-					break
-				end
-			end
-		end
-	end
+		end	-- if entry.profession
+	end	-- for
 end	-- do
 
 local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
