@@ -1637,6 +1637,8 @@ do
 		local SF = private.recipe_state_flags
 
 		for recipe_id, recipe in pairs(recipe_list) do
+			recipe:RemoveState("VISIBLE")
+
 			if recipe.profession == current_profession then
 				local is_known = recipe:HasState("KNOWN")
 
@@ -1659,10 +1661,9 @@ do
 			else
 				can_display = false
 			end
-			local is_visible = recipe:HasState("VISIBLE")
 
-			if (can_display and not is_visible) or (not can_display and is_visible) then
-				recipe.state = bit.bxor(recipe.state, SF.VISIBLE)
+			if can_display then
+				recipe:AddState("VISIBLE")
 			end
 		end
 		Player.recipes_total = recipes_total
