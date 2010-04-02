@@ -1346,7 +1346,7 @@ do
 						local str = location_name:lower()
 
 						if str and str:find(pattern) then
-							entry.state = bit.bxor(entry.state, SF.RELEVANT)
+							entry:AddState("RELEVANT")
 							breakout = true
 							break
 						end
@@ -1362,7 +1362,7 @@ do
 				local str = acquire_names[acquire_type]:lower()
 
 				if str and str:find(pattern) and entry.acquire_data[acquire_type] then
-					entry.state = bit.bxor(entry.state, SF.RELEVANT)
+					entry:AddState("RELEVANT")
 					break
 				end
 			end
@@ -1371,7 +1371,7 @@ do
 				local str = entry[field] and tostring(entry[field]):lower() or nil
 
 				if str and str:find(pattern) then
-					entry.state = bit.bxor(entry.state, SF.RELEVANT)
+					entry:AddState("RELEVANT")
 					break
 				end
 			end
