@@ -2342,12 +2342,6 @@ do
 		for k, v in ipairs(ORDERED_ROLE_TYPES) do
 			local role_string = FS[ROLE_TYPES[v]]
 
-			if not role_string then
-				addon:Debug("No role_string: k is %s, v is %s", tostring(k), tostring(v))
-			else
-				addon:Debug("Role string is %s", role_string)
-			end
-
 			if scan_data[v] and not recipe:IsFlagged("common1", role_string) then
 				tinsert(missing_flags, string.format(flag_format, role_string))
 			elseif not scan_data[v] and recipe:IsFlagged("common1", role_string) then
