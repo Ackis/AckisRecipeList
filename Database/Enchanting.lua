@@ -78,7 +78,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Minor Mana -- 7443
 	AddRecipe(7443, 20, nil, Q.UNCOMMON, V.ORIG, 20, 80, 100, 120)
 	self:AddRecipeFlags(7443, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(7443, 2)
+	self:AddRecipeWorldDrop(7443, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Resistance -- 7454
 	AddRecipe(7454, 45, nil, Q.COMMON, V.ORIG, 45, 95, 115, 135)
@@ -103,7 +103,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Minor Spirit -- 7766
 	AddRecipe(7766, 60, nil, Q.UNCOMMON, V.ORIG, 60, 105, 125, 145)
 	self:AddRecipeFlags(7766, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(7766, 2)
+	self:AddRecipeWorldDrop(7766, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Protection -- 7771
 	AddRecipe(7771, 70, nil, Q.COMMON, V.ORIG, 70, 110, 130, 150)
@@ -123,12 +123,12 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Minor Strength -- 7782
 	AddRecipe(7782, 80, nil, Q.UNCOMMON, V.ORIG, 80, 115, 135, 155)
 	self:AddRecipeFlags(7782, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeWorldDrop(7782, 2)
+	self:AddRecipeWorldDrop(7782, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Minor Beastslayer -- 7786
 	AddRecipe(7786, 90, nil, Q.UNCOMMON, V.ORIG, 90, 120, 140, 160)
 	self:AddRecipeFlags(7786, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(7786, 2)
+	self:AddRecipeWorldDrop(7786, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Minor Striking -- 7788
 	AddRecipe(7788, 90, nil, Q.COMMON, V.ORIG, 90, 120, 140, 160)
@@ -153,7 +153,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Lesser Spirit -- 7859
 	AddRecipe(7859, 120, nil, Q.UNCOMMON, V.ORIG, 120, 145, 165, 185)
 	self:AddRecipeFlags(7859, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(7859, 2)
+	self:AddRecipeWorldDrop(7859, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Lesser Fire Resistance -- 7861
 	AddRecipe(7861, 125, nil, Q.COMMON, V.ORIG, 125, 150, 170, 190)
