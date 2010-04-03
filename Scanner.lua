@@ -1,7 +1,7 @@
 --[[
 ************************************************************************
-Datamine.lua
-In-game datamining functions for ARL
+Scanner.lua
+In-game tooltip-scanner for datamining.
 ************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@

@@ -67,7 +67,7 @@ ARL.lua
 Config.lua
 Waypoint.lua
 Frame.lua
-Datamine.lua
+Scanner.lua
 Player.lua
 
 # Database files
