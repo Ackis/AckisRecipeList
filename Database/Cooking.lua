@@ -680,27 +680,27 @@ function addon:InitCooking()
 	-- Mega Mammoth Meal -- 45555
 	AddRecipe(45555, 400, 34754, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45555, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(45555, 31031, 31032)
+	self:AddRecipeVendor(45555, 31031, 31032, 33595)
 
 	-- Tender Shoveltusk Steak -- 45556
 	AddRecipe(45556, 400, 34755, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45556, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45556, 31031, 31032)
+	self:AddRecipeVendor(45556, 31031, 31032, 33595)
 
 	-- Spiced Worm Burger -- 45557
 	AddRecipe(45557, 400, 34756, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45557, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45557, 31031, 31032)
+	self:AddRecipeVendor(45557, 31031, 31032, 33595)
 
 	-- Very Burnt Worg -- 45558
 	AddRecipe(45558, 400, 34757, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45558, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45558, 31031, 31032)
+	self:AddRecipeVendor(45558, 31031, 31032, 33595)
 
 	-- Mighty Rhino Dogs -- 45559
 	AddRecipe(45559, 400, 34758, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45559, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45559, 31031, 31032)
+	self:AddRecipeVendor(45559, 31031, 31032, 33595)
 
 	-- Smoked Rockfin -- 45560
 	AddRecipe(45560, 350, 34759, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
@@ -740,12 +740,12 @@ function addon:InitCooking()
 	-- Poached Northern Sculpin -- 45567
 	AddRecipe(45567, 400, 34766, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45567, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(45567, 31031, 31032)
+	self:AddRecipeVendor(45567, 31031, 31032, 33595)
 
 	-- Firecracker Salmon -- 45568
 	AddRecipe(45568, 400, 34767, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45568, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45568, 31031, 31032)
+	self:AddRecipeVendor(45568, 31031, 31032, 33595)
 
 	-- Baked Manta Ray -- 45569
 	AddRecipe(45569, 350, 42942, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
@@ -760,7 +760,7 @@ function addon:InitCooking()
 	-- Spicy Blue Nettlefish -- 45571
 	AddRecipe(45571, 400, 34768, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45571, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45571, 31031, 31032)
+	self:AddRecipeVendor(45571, 31031, 31032, 33595)
 
 	-- Captain Rumsey's Lager -- 45695
 	AddRecipe(45695, 100, 34832, Q.UNCOMMON, V.WOTLK, 100, 100, 105, 110)
@@ -792,7 +792,7 @@ function addon:InitCooking()
 	-- Fish Feast -- 57423
 	AddRecipe(57423, 450, 43015, Q.UNCOMMON, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(57423, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57423, 31031, 31032)
+	self:AddRecipeVendor(57423, 31031, 31032, 33595)
 
 	-- Spicy Fried Herring -- 57433
 	AddRecipe(57433, 400, 42993, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
@@ -802,52 +802,52 @@ function addon:InitCooking()
 	-- Rhinolicious Wormsteak -- 57434
 	AddRecipe(57434, 400, 42994, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57434, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	self:AddRecipeVendor(57434, 31031, 31032)
+	self:AddRecipeVendor(57434, 31031, 31032, 33595)
 
 	-- Critter Bites -- 57435
 	AddRecipe(57435, 400, 43004, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57435, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57435, 31031, 31032)
+	self:AddRecipeVendor(57435, 31031, 31032, 33595)
 
 	-- Hearty Rhino -- 57436
 	AddRecipe(57436, 400, 42995, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57436, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57436, 31031, 31032)
+	self:AddRecipeVendor(57436, 31031, 31032, 33595)
 
 	-- Snapper Extreme -- 57437
 	AddRecipe(57437, 400, 42996, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57437, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57437, 31031, 31032)
+	self:AddRecipeVendor(57437, 31031, 31032, 33595)
 
 	-- Blackened Worg Steak -- 57438
 	AddRecipe(57438, 400, 42997, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57438, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57438, 31031, 31032)
+	self:AddRecipeVendor(57438, 31031, 31032, 33595)
 
 	-- Cuttlesteak -- 57439
 	AddRecipe(57439, 400, 42998, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57439, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57439, 31031, 31032)
+	self:AddRecipeVendor(57439, 31031, 31032, 33595)
 
 	-- Spiced Mammoth Treats -- 57440
 	AddRecipe(57440, 400, 43005, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57440, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57440, 31031, 31032)
+	self:AddRecipeVendor(57440, 31031, 31032, 33595)
 
 	-- Blackened Dragonfin -- 57441
 	AddRecipe(57441, 400, 42999, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57441, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57441, 31031, 31032)
+	self:AddRecipeVendor(57441, 31031, 31032, 33595)
 
 	-- Dragonfin Filet -- 57442
 	AddRecipe(57442, 400, 43000, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57442, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57442, 31031, 31032)
+	self:AddRecipeVendor(57442, 31031, 31032, 33595)
 
 	-- Tracker Snacks -- 57443
 	AddRecipe(57443, 400, 43001, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57443, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57443, 31031, 31032)
+	self:AddRecipeVendor(57443, 31031, 31032, 33595)
 
 	-- Dalaran Clam Chowder -- 58065
 	AddRecipe(58065, 350, 43268, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
@@ -877,17 +877,17 @@ function addon:InitCooking()
 	-- Gigantic Feast -- 58527
 	AddRecipe(58527, 425, 43478, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
 	self:AddRecipeFlags(58527, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(58527, 31031, 31032)
+	self:AddRecipeVendor(58527, 31031, 31032, 33595)
 
 	-- Small Feast -- 58528
 	AddRecipe(58528, 425, 43480, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
 	self:AddRecipeFlags(58528, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(58528, 31031, 31032)
+	self:AddRecipeVendor(58528, 31031, 31032, 33595)
 
 	-- Worg Tartare -- 62350
 	AddRecipe(62350, 400, 44953, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(62350, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(62350, 31031, 31032)
+	self:AddRecipeVendor(62350, 31031, 31032, 33595)
 
 	-- Clamlette Magnifique -- 64054
 	AddRecipe(64054, 250, 33004, Q.COMMON, V.WOTLK, 250, 250, 275, 300)
