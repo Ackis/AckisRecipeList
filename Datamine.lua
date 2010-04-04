@@ -1652,9 +1652,9 @@ do
 		local targetname = UnitName("target")		-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)		-- Get the NPC ID
 		local added = false
-		
+
 		twipe(output)
-		
+
 		tinsert(output, "Vendor Name: "..targetname.." NPC ID: "..targetID)
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
@@ -1810,7 +1810,7 @@ do
 		-------------------------------------------------------------------------------
 		[32441] = true,   [32443] = true,  [12687] = true, [12714] = true,  [12688 ] = true,
 		[35211] = true,  [35209] = true, [35210] = true,    [12706] = true,  [7982] = true,
-		[12718] = true,		[23621] = true,	[35208] = true,	[12716] = true,	[23632] = true,	
+		[12718] = true,		[23621] = true,	[35208] = true,	[12716] = true,	[23632] = true,
 		[23633] = true,	[30324] = true,	[23637] = true,	[31393] = true,[22221] = true,
 		[12690] = true,	[31394] = true,[31395] = true,[23630] = true,[23629] = true,[7978] = true,
 		[41120] = true,	[12717] = true,[22219] = true,[23627] = true,
@@ -1821,7 +1821,7 @@ do
 		[35196] = true,    [21734] = true,  [18292] = true,  [21727] = true,  [21735] = true,  [16053] = true,  [21729] = true,
 		[16047] = true,[21730] = true,[21731] = true,[21732] = true,[4411] = true,   [21733] = true,  [21728] = true,
 		[35186] = true,	[18655] = true,
-		
+
 		-------------------------------------------------------------------------------
 		--Enchanting
 		-------------------------------------------------------------------------------

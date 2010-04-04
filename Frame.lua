@@ -2595,7 +2595,7 @@ do
 			ScrollBar:SetValue(cur_val)
 		end
 	end
-	
+
 	ScrollUpButton:SetScript("OnClick",
 				 function(self, button, down)
 					 ScrollBar_Scroll(1)
@@ -3215,7 +3215,7 @@ do
 
 	local function ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
-		
+
 		if not CanDisplayFaction(trainer.faction) then
 			return entry_index
 		end
@@ -3518,7 +3518,7 @@ do
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()
- 
+
 						-- Add World Drop entries as normal entries.
 						if affiliation == "world_drop" then
 							expand = true
