@@ -755,7 +755,7 @@ function addon:InitCooking()
 	-- Imperial Manta Steak -- 45570
 	AddRecipe(45570, 400, 34769, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(45570, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45570, 31031, 31032)
+	self:AddRecipeVendor(45570, 31031, 31032, 33595)
 
 	-- Spicy Blue Nettlefish -- 45571
 	AddRecipe(45571, 400, 34768, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
@@ -797,7 +797,7 @@ function addon:InitCooking()
 	-- Spicy Fried Herring -- 57433
 	AddRecipe(57433, 400, 42993, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	self:AddRecipeFlags(57433, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57433, 31031, 31032)
+	self:AddRecipeVendor(57433, 31031, 31032, 33595)
 
 	-- Rhinolicious Wormsteak -- 57434
 	AddRecipe(57434, 400, 42994, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
