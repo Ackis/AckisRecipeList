@@ -1034,6 +1034,7 @@ L["Mazk Snipeshot"] = true
 L["Me'lynn"] = true
 L["Meilosh"] = true
 L["Melaris"] = true
+L["Mera Mistrunner"] = true
 L["Miall"] = true
 L["Miao'zan"] = true
 L["Micha Yance"] = true
