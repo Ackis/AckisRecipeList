@@ -938,7 +938,7 @@ function addon:InitLeatherworking()
 
 	-- Volcanic Shoulders -- 19101
 	AddRecipe(19101, 300, 15055, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(19101, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.LEATHER)
+	self:AddRecipeFlags(19101, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.LEATHER)
 	self:AddRecipeMobDrop(19101, 9260)
 
 	-- Runic Leather Armor -- 19102
