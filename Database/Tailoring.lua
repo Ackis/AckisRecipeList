@@ -1510,12 +1510,12 @@ function addon:InitTailoring()
 
 	-- Boots of Blasting -- 36317
 	AddRecipe(36317, 375, 30037, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(36317, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(36317, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(36317, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Boots of the Long Road -- 36318
 	AddRecipe(36318, 375, 30035, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(36318, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(36318, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(36318, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Shadowcloth -- 36686

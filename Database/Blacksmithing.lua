@@ -282,7 +282,7 @@ function addon:InitBlacksmithing()
 
 	-- Solid Iron Maul -- 3494
 	AddRecipe(3494, 155, 3851, Q.COMMON, V.ORIG, 155, 180, 192, 205)
-	self:AddRecipeFlags(3494, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TWO_HAND, F.MACE)
+	self:AddRecipeFlags(3494, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.MACE)
 	self:AddRecipeVendor(3494, 9179, 8878, 1471)
 
 	-- Golden Iron Destroyer -- 3495
@@ -292,7 +292,7 @@ function addon:InitBlacksmithing()
 
 	-- Moonsteel Broadsword -- 3496
 	AddRecipe(3496, 180, 3853, Q.COMMON, V.ORIG, 180, 205, 217, 230)
-	self:AddRecipeFlags(3496, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
+	self:AddRecipeFlags(3496, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.SWORD)
 	self:AddRecipeVendor(3496, 2482)
 
 	-- Frost Tiger Blade -- 3497
@@ -322,7 +322,7 @@ function addon:InitBlacksmithing()
 
 	-- Golden Scale Coif -- 3503
 	AddRecipe(3503, 190, 3837, Q.COMMON, V.ORIG, 190, 215, 227, 240)
-	self:AddRecipeFlags(3503, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(3503, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeVendor(3503, 5411)
 
 	-- Green Iron Shoulders -- 3504
@@ -697,7 +697,7 @@ function addon:InitBlacksmithing()
 
 	-- Dark Iron Sunderer -- 15294
 	AddRecipe(15294, 275, 11607, Q.RARE, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(15294, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TWO_HAND, F.AXE)
+	self:AddRecipeFlags(15294, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.AXE)
 	self:AddRecipeMobDrop(15294, 9554, 10043)
 
 	-- Dark Iron Shoulders -- 15295
@@ -707,7 +707,7 @@ function addon:InitBlacksmithing()
 
 	-- Dark Iron Plate -- 15296
 	AddRecipe(15296, 285, 11604, Q.RARE, V.ORIG, 285, 305, 315, 325)
-	self:AddRecipeFlags(15296, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP, F.PLATE)
+	self:AddRecipeFlags(15296, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOE, F.PLATE)
 	self:AddRecipeMobDrop(15296, 9543)
 
 	-- Glinting Steel Dagger -- 15972
@@ -971,22 +971,22 @@ function addon:InitBlacksmithing()
 
 	-- Corruption -- 16985
 	AddRecipe(16985, 290, 12782, Q.COMMON, V.ORIG, 290, 315, 327, 340)
-	self:AddRecipeFlags(16985, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TWO_HAND, F.SWORD)
+	self:AddRecipeFlags(16985, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.TWO_HAND, F.SWORD)
 	self:AddRecipeAcquire(16985, A.CUSTOM, 31)
 
 	-- Hammer of the Titans -- 16988
 	AddRecipe(16988, 300, 12796, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16988, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
+	self:AddRecipeFlags(16988, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeMobDrop(16988, 10438)
 
 	-- Arcanite Champion -- 16990
 	AddRecipe(16990, 300, 12790, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16990, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
+	self:AddRecipeFlags(16990, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeMobDrop(16990, 10899)
 
 	-- Annihilator -- 16991
 	AddRecipe(16991, 300, 12798, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16991, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
+	self:AddRecipeFlags(16991, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
 	self:AddRecipeMobDrop(16991, 9736)
 
 	-- Frostguard -- 16992
@@ -996,17 +996,17 @@ function addon:InitBlacksmithing()
 
 	-- Masterwork Stormhammer -- 16993
 	AddRecipe(16993, 300, 12794, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16993, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
+	self:AddRecipeFlags(16993, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
 	self:AddRecipeMobDrop(16993, 10899)
 
 	-- Arcanite Reaper -- 16994
 	AddRecipe(16994, 300, 12784, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16994, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
+	self:AddRecipeFlags(16994, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeMobDrop(16994, 9596)
 
 	-- Heartseeker -- 16995
 	AddRecipe(16995, 300, 12783, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(16995, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
+	self:AddRecipeFlags(16995, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.DAGGER)
 	self:AddRecipeMobDrop(16995, 10997)
 
 	-- Silver Skeleton Key -- 19666
@@ -1141,12 +1141,12 @@ function addon:InitBlacksmithing()
 
 	-- Bloodsoul Shoulders -- 24137
 	AddRecipe(24137, 300, 19691, Q.COMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(24137, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ZANDALAR)
+	self:AddRecipeFlags(24137, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.ZANDALAR)
 	self:AddRecipeRepVendor(24137, FAC.ZANDALAR, REP.HONORED, 14921)
 
 	-- Bloodsoul Gauntlets -- 24138
 	AddRecipe(24138, 300, 19692, Q.COMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(24138, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ZANDALAR)
+	self:AddRecipeFlags(24138, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.ZANDALAR)
 	self:AddRecipeRepVendor(24138, FAC.ZANDALAR, REP.FRIENDLY, 14921)
 
 	-- Darksoul Breastplate -- 24139
@@ -1206,7 +1206,7 @@ function addon:InitBlacksmithing()
 
 	-- Black Grasp of the Destroyer -- 27589
 	AddRecipe(27589, 300, 22194, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(27589, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(27589, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeMobDrop(27589, 15340)
 
 	-- Obsidian Mail Tunic -- 27590
@@ -1226,7 +1226,7 @@ function addon:InitBlacksmithing()
 
 	-- Sageblade -- 27832
 	AddRecipe(27832, 300, 22383, Q.EPIC, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(27832, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.ONE_HAND, F.SWORD)
+	self:AddRecipeFlags(27832, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.HEALER, F.ONE_HAND, F.SWORD)
 	self:AddRecipeWorldDrop(27832, "Kalimdor", "Eastern Kingdoms")
 
 	-- Icebane Breastplate -- 28242
@@ -1449,12 +1449,12 @@ function addon:InitBlacksmithing()
 
 	-- Swiftsteel Gloves -- 29648
 	AddRecipe(29648, 370, 23526, Q.RARE, V.TBC, 370, 380, 390, 400)
-	self:AddRecipeFlags(29648, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(29648, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeMobDrop(29648, 18314)
 
 	-- Earthpeace Breastplate -- 29649
 	AddRecipe(29649, 370, 23527, Q.RARE, V.TBC, 370, 380, 390, 400)
-	self:AddRecipeFlags(29649, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeFlags(29649, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeMobDrop(29649, 17975)
 
 	-- Fel Sharpening Stone -- 29654
@@ -1485,7 +1485,7 @@ function addon:InitBlacksmithing()
 
 	-- Storm Helm -- 29663
 	AddRecipe(29663, 365, 23534, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(29663, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeWorldDrop(29663, "Outland")
 
 	-- Helm of the Stalwart Defender -- 29664
@@ -1820,7 +1820,7 @@ function addon:InitBlacksmithing()
 
 	-- Boots of the Protector -- 36391
 	AddRecipe(36391, 375, 30033, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(36391, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeFlags(36391, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.TANK, F.PLATE)
 	self:AddRecipeAcquire(36391, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Red Havoc Boots -- 36392
@@ -1880,22 +1880,22 @@ function addon:InitBlacksmithing()
 
 	-- Swiftsteel Bracers -- 41132
 	AddRecipe(41132, 375, 32568, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41132, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
+	self:AddRecipeFlags(41132, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(41132, A.CUSTOM, 27, A.CUSTOM, 34)
 
 	-- Swiftsteel Shoulders -- 41133
 	AddRecipe(41133, 375, 32570, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	self:AddRecipeFlags(41133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(41133, A.CUSTOM, 34)
 
 	-- Dawnsteel Bracers -- 41134
 	AddRecipe(41134, 375, 32571, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41134, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(41134, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(41134, A.CUSTOM, 34)
 
 	-- Dawnsteel Shoulders -- 41135
 	AddRecipe(41135, 375, 32573, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(41135, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
+	self:AddRecipeFlags(41135, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	self:AddRecipeAcquire(41135, A.CUSTOM, 27, A.CUSTOM, 34)
 
 	-- Ragesteel Shoulders -- 42662
