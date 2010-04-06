@@ -218,6 +218,7 @@ function addon:OnInitialize()
 			scanbuttonlocation = "TR",
 			spelltooltiplocation = "Right",
 			acquiretooltiplocation = "Right",
+			recipes_in_tooltips = true,
 			hidepopup = false,
 			minimap = true,
 			worldmap = true,
@@ -490,6 +491,9 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
         GameTooltip:HookScript("OnTooltipSetUnit",
 		       function(self)
+			       if not addon.db.profile.recipes_in_tooltips then
+				       return
+			       end
 			       local name, unit = self:GetUnit()
 
 			       if not unit then

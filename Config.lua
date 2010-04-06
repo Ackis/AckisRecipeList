@@ -710,6 +710,19 @@ local function giveDisplay()
 							  }
 						  end,
 				},
+				unit_tooltip = {
+					order	= 23,
+					type	= "toggle",
+					width	= "full",
+					name	= L["Recipes In Tooltips"],
+					desc	= L["UNIT_TOOLTIPS_DESC"],
+					get	= function()
+							  return addon.db.profile.recipes_in_tooltips
+						  end,
+					set	= function()
+							  addon.db.profile.recipes_in_tooltips = not addon.db.profile.recipes_in_tooltips
+						  end,
+				},
 			},
 		}
 	end
