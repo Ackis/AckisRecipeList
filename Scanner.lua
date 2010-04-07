@@ -2127,7 +2127,7 @@ do
 					scan_data.dps = true
 				elseif string.match(text, "agility") then
 					scan_data.dps = true
-				elseif string.match(text, "spirit") then
+				elseif string.match(text, "spirit") or string.match(text, "intellect") then
 					scan_data.caster = true
 					scan_data.healer = true
 				elseif string.match(text, "spell power") then
