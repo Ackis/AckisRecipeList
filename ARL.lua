@@ -915,7 +915,7 @@ do
 			["flags"]		= {},
 			["acquire_data"]	= {},
 			["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
-			["genesis"]		= genesis,
+			["genesis"]		= private.game_version_names[genesis],
 			["optimal_level"]	= optimal_level or skill_level,
 			["medium_level"]	= medium_level or skill_level + 10,
 			["easy_level"]		= easy_level or skill_level + 15,
@@ -1384,7 +1384,7 @@ do
 			return false
 		end
 		local obtain_filters = filter_db.obtain
-		local game_version = recipe.genesis
+		local game_version = private.game_versions[recipe.genesis]
 		local V = private.game_versions
 
 		-- Filter out game recipes

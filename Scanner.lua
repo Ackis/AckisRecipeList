@@ -1449,10 +1449,11 @@ do
 		end
 		local flag_string
 		local specialty = not recipe.specialty and "" or (", "..recipe.specialty)
+		local genesis = private.game_versions[recipe.genesis]
 
 		tinsert(output, string.format("-- %s -- %d", recipe.name, recipe.spell_id))
 		tinsert(output, string.format("AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)",
-					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[recipe.genesis],
+					      recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
 					      recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
 		for table_index, bits in ipairs(private.bit_flags) do
@@ -1832,7 +1833,7 @@ do
 			return
 		end
 		local recipe_name = recipe.name
-		local game_vers = recipe.genesis
+		local game_vers = private.game_versions[recipe.genesis]
 
 		twipe(output)
 
