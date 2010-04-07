@@ -533,7 +533,7 @@ function addon:InitAlchemy()
 	self:AddRecipeVendor(17580, 11278)
 
 	-- Alchemist's Stone -- 17632
-	AddRecipe(17632, 350, 13503, Q.COMMON, V.ORIG, 350, 365, 372, 380)
+	AddRecipe(17632, 350, 13503, Q.COMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(17632, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET, F.SHATAR)
 	self:AddRecipeRepVendor(17632, FAC.SHATAR, REP.REVERED, 21432)
 
@@ -865,7 +865,7 @@ function addon:InitAlchemy()
 	self:AddRecipeTrainer(33738, 18802, 19052, 33674, 27023, 33608, 16588, 27029)
 
 	-- Adept's Elixir -- 33740
-	AddRecipe(33740, 300, 28103, Q.COMMON, V.ORIG, 300, 315, 322, 330)
+	AddRecipe(33740, 300, 28103, Q.COMMON, V.TBC, 300, 315, 322, 330)
 	self:AddRecipeFlags(33740, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(33740, 18802, 19052, 33674, 27023, 33608, 16588, 27029)
 
