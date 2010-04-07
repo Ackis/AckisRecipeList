@@ -151,7 +151,7 @@ function addon:InitAlchemy()
 	self:AddRecipeTrainer(3448, 1386, 2837, 4900, 16642, 3184, 2132, 27029, 3347, 16723, 3603, 4160, 1215, 4611, 33608, 5177, 19052, 16588, 5499, 1470, 3964, 16161, 33674, 3009, 27023, 2391, 7948, 18802)
 
 	-- Shadow Oil -- 3449
-	AddRecipe(3449, 165, 3824, Q.COMMON, V.WOTLK, 165, 190, 210, 230)
+	AddRecipe(3449, 165, 3824, Q.COMMON, V.ORIG, 165, 190, 210, 230)
 	self:AddRecipeFlags(3449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(3449, 2481, 4878)
 
@@ -202,7 +202,7 @@ function addon:InitAlchemy()
 	self:AddRecipeVendor(6618, 3335, 4226)
 
 	-- Free Action Potion -- 6624
-	AddRecipe(6624, 150, 5634, Q.COMMON, V.WOTLK, 150, 175, 195, 215)
+	AddRecipe(6624, 150, 5634, Q.COMMON, V.ORIG, 150, 175, 195, 215)
 	self:AddRecipeFlags(6624, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(6624, 5178, 4226, 3348)
 
