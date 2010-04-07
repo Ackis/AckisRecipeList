@@ -2244,9 +2244,9 @@ function addon:InitInscription()
 	self:AddRecipeVendor(71015, 28723)
 
 	-- Glyph of Eternal Water -- 71101
-	AddRecipe(71101, 375, 50045, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
+	AddRecipe(71101, 250, 50045, Q.COMMON, V.WOTLK, 250, 255, 260, 265)
 	self:AddRecipeFlags(71101, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.IBOE, F.RBOE, F.CASTER)
-	self:AddRecipeVendor(71101, 28723)
+	self:AddRecipeVendor(71101, 28723, 30734, 30735)
 
 	-- Glyph of Quick Decay -- 71102
 	AddRecipe(71102, 375, 50077, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
