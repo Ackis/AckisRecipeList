@@ -752,7 +752,7 @@ do
 		end
 		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local spell_link = recipe.spell_link
+		local spell_link = GetSpellLink(recipe.spell_id)
 		local MainPanel = addon.Frame
 
 		if acquire_tip_anchor == _G.OFF then
@@ -2691,7 +2691,7 @@ do
 					addon:Print(L["NoItemLink"])
 				end
 			elseif _G.IsControlKeyDown() then
-				_G.ChatFrameEditBox:Insert(private.recipe_list[clicked_line.recipe_id].spell_link)
+				_G.ChatFrameEditBox:Insert(GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 				local recipe_id = clicked_line.recipe_id

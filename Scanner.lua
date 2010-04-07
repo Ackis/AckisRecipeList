@@ -1862,7 +1862,7 @@ do
 				tinsert(output, "Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
 			end
 		end
-		local recipe_link = recipe.spell_link
+		local recipe_link = GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
 			if recipe.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.

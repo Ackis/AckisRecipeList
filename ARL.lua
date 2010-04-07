@@ -911,7 +911,6 @@ do
 			["item_id"]		= item_id,
 			["quality"]		= quality,
 			["profession"]		= GetSpellInfo(profession),
-			["spell_link"]		= GetSpellLink(spell_id),
 			["name"]		= GetSpellInfo(spell_id),
 			["flags"]		= {},
 			["acquire_data"]	= {},
