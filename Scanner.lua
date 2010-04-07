@@ -1679,7 +1679,7 @@ do
 						end
 
 						-- Check the database to see if the vendor is listed as an acquire method.
-						local acquire = recipe_list[spell_id]["acquire_data"]
+						local acquire = recipe_list[spell_id].acquire_data
 						local vendor_data = acquire[A.VENDOR]
 						local rep_data = acquire[A.REPUTATION]
 						local found = false
@@ -1692,10 +1692,17 @@ do
 								end
 							end
 						elseif rep_data then
-							for id_num in pairs(rep_data) do
-								if id_num == targetID then
-									found = true
+							for id_num, info in pairs(rep_data) do
+								if found then
 									break
+								end
+
+								for rep_level, level_info in pairs(info) do
+									for vendor_id in pairs(level_info) do
+										if vendor_id == targetID then
+											found = true
+										end
+									end
 								end
 							end
 						end
