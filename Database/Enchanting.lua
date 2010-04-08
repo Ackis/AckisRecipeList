@@ -178,13 +178,13 @@ function addon:InitEnchanting()
 	-- Enchant 2H Weapon - Lesser Spirit -- 13380
 	AddRecipe(13380, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
 	self:AddRecipeFlags(13380, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
-	self:AddRecipeWorldDrop(13380, 2)
+	self:AddRecipeWorldDrop(13380, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Agility -- 13419
 	AddRecipe(13419, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
 	self:AddRecipeFlags(13419, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
 	self:AddRecipeVendor(13419, 3954, 12043)
-	self:AddRecipeWorldDrop(13419, 2)
+	self:AddRecipeWorldDrop(13419, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Lesser Protection -- 13421
 	AddRecipe(13421, 115, nil, Q.COMMON, V.ORIG, 115, 140, 160, 180)
@@ -194,7 +194,7 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Lesser Protection -- 13464
 	AddRecipe(13464, 115, nil, Q.UNCOMMON, V.ORIG, 115, 140, 160, 180)
 	self:AddRecipeFlags(13464, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	self:AddRecipeWorldDrop(13464, 2)
+	self:AddRecipeWorldDrop(13464, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Shield - Lesser Spirit -- 13485
 	AddRecipe(13485, 130, nil, Q.COMMON, V.ORIG, 130, 155, 175, 195)
@@ -214,7 +214,7 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Lesser Shadow Resistance -- 13522
 	AddRecipe(13522, 135, nil, Q.UNCOMMON, V.ORIG, 135, 160, 180, 200)
 	self:AddRecipeFlags(13522, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	self:AddRecipeWorldDrop(13522, 2)
+	self:AddRecipeWorldDrop(13522, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant 2H Weapon - Lesser Impact -- 13529
 	AddRecipe(13529, 145, nil, Q.COMMON, V.ORIG, 145, 170, 190, 210)
@@ -309,12 +309,12 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Lesser Beastslayer -- 13653
 	AddRecipe(13653, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
 	self:AddRecipeFlags(13653, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(13653, 2)
+	self:AddRecipeWorldDrop(13653, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Lesser Elemental Slayer -- 13655
 	AddRecipe(13655, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
 	self:AddRecipeFlags(13655, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(13655, 2)
+	self:AddRecipeWorldDrop(13655, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Fire Resistance -- 13657
 	AddRecipe(13657, 175, nil, Q.COMMON, V.ORIG, 175, 195, 215, 235)
@@ -339,12 +339,12 @@ function addon:InitEnchanting()
 	-- Enchant Boots - Lesser Spirit -- 13687
 	AddRecipe(13687, 190, nil, Q.UNCOMMON, V.ORIG, 190, 210, 230, 250)
 	self:AddRecipeFlags(13687, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(13687, 2)
+	self:AddRecipeWorldDrop(13687, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Shield - Lesser Block -- 13689
 	AddRecipe(13689, 195, nil, Q.UNCOMMON, V.ORIG, 195, 215, 235, 255)
 	self:AddRecipeFlags(13689, F.ALLIANCE, F.HORDE, F.INSTANCE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	self:AddRecipeWorldDrop(13689, 2)
+	self:AddRecipeWorldDrop(13689, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Striking -- 13693
 	AddRecipe(13693, 195, nil, Q.COMMON, V.ORIG, 195, 215, 235, 255)
@@ -389,7 +389,7 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Stamina -- 13817
 	AddRecipe(13817, 210, nil, Q.UNCOMMON, V.ORIG, 210, 230, 250, 270)
 	self:AddRecipeFlags(13817, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	self:AddRecipeWorldDrop(13817, 2)
+	self:AddRecipeWorldDrop(13817, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Intellect -- 13822
 	AddRecipe(13822, 210, nil, Q.COMMON, V.ORIG, 210, 230, 250, 270)
@@ -409,7 +409,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Greater Spirit -- 13846
 	AddRecipe(13846, 220, nil, Q.UNCOMMON, V.ORIG, 220, 240, 260, 280)
 	self:AddRecipeFlags(13846, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(13846, 2)
+	self:AddRecipeWorldDrop(13846, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Superior Health -- 13858
 	AddRecipe(13858, 220, nil, Q.COMMON, V.ORIG, 220, 240, 260, 280)
@@ -449,7 +449,7 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Demonslaying -- 13915
 	AddRecipe(13915, 230, nil, Q.UNCOMMON, V.ORIG, 230, 250, 270, 290)
 	self:AddRecipeFlags(13915, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(13915, 2)
+	self:AddRecipeWorldDrop(13915, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Superior Mana -- 13917
 	AddRecipe(13917, 230, nil, Q.COMMON, V.ORIG, 230, 250, 270, 290)
@@ -464,7 +464,7 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Frost Resistance -- 13933
 	AddRecipe(13933, 235, nil, Q.UNCOMMON, V.ORIG, 235, 255, 275, 295)
 	self:AddRecipeFlags(13933, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	self:AddRecipeWorldDrop(13933, 2)
+	self:AddRecipeWorldDrop(13933, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Boots - Agility -- 13935
 	AddRecipe(13935, 235, nil, Q.COMMON, V.ORIG, 235, 255, 275, 295)
@@ -494,12 +494,12 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Greater Stamina -- 13945
 	AddRecipe(13945, 245, nil, Q.UNCOMMON, V.ORIG, 245, 265, 285, 305)
 	self:AddRecipeFlags(13945, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(13945, 2)
+	self:AddRecipeWorldDrop(13945, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Riding Skill -- 13947
 	AddRecipe(13947, 250, nil, Q.UNCOMMON, V.ORIG, 250, 270, 290, 310)
 	self:AddRecipeFlags(13947, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(13947, 2)
+	self:AddRecipeWorldDrop(13947, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Minor Haste -- 13948
 	AddRecipe(13948, 250, nil, Q.COMMON, V.ORIG, 250, 270, 290, 310)
@@ -549,7 +549,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Superior Spirit -- 20009
 	AddRecipe(20009, 270, nil, Q.UNCOMMON, V.ORIG, 270, 290, 310, 330)
 	self:AddRecipeFlags(20009, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(20009, 2)
+	self:AddRecipeWorldDrop(20009, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Superior Strength -- 20010
 	AddRecipe(20010, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
@@ -559,7 +559,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Superior Stamina -- 20011
 	AddRecipe(20011, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
 	self:AddRecipeFlags(20011, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(20011, 2)
+	self:AddRecipeWorldDrop(20011, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Greater Agility -- 20012
 	AddRecipe(20012, 270, nil, Q.UNCOMMON, V.ORIG, 270, 290, 310, 330)
@@ -594,7 +594,7 @@ function addon:InitEnchanting()
 	-- Enchant Boots - Greater Stamina -- 20020
 	AddRecipe(20020, 260, nil, Q.UNCOMMON, V.ORIG, 260, 280, 300, 320)
 	self:AddRecipeFlags(20020, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(20020, 2)
+	self:AddRecipeWorldDrop(20020, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Boots - Greater Agility -- 20023
 	AddRecipe(20023, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
@@ -604,12 +604,12 @@ function addon:InitEnchanting()
 	-- Enchant Boots - Spirit -- 20024
 	AddRecipe(20024, 275, nil, Q.UNCOMMON, V.ORIG, 275, 295, 315, 335)
 	self:AddRecipeFlags(20024, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(20024, 2)
+	self:AddRecipeWorldDrop(20024, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Greater Stats -- 20025
 	AddRecipe(20025, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
 	self:AddRecipeFlags(20025, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(20025, 2)
+	self:AddRecipeWorldDrop(20025, "Ruins of Ahn'Qiraj", "Outland")
 
 	-- Enchant Chest - Major Health -- 20026
 	AddRecipe(20026, 275, nil, Q.COMMON, V.ORIG, 275, 295, 315, 335)
@@ -836,7 +836,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Restore Mana Prime -- 27913
 	AddRecipe(27913, 335, nil, Q.UNCOMMON, V.TBC, 335, 345, 360, 375)
 	self:AddRecipeFlags(27913, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeWorldDrop(27913, 2)
+	self:AddRecipeWorldDrop(27913, "Outland")
 
 	-- Enchant Bracer - Fortitude -- 27914
 	AddRecipe(27914, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
@@ -881,12 +881,12 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Shield Block -- 27946
 	AddRecipe(27946, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
 	self:AddRecipeFlags(27946, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	self:AddRecipeWorldDrop(27946, 2)
+	self:AddRecipeWorldDrop(27946, "Outland")
 
 	-- Enchant Shield - Resistance -- 27947
 	AddRecipe(27947, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 375, 380)
 	self:AddRecipeFlags(27947, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	self:AddRecipeWorldDrop(27947, 2)
+	self:AddRecipeWorldDrop(27947, "Outland")
 
 	-- Enchant Boots - Vitality -- 27948
 	AddRecipe(27948, 305, nil, Q.UNCOMMON, V.TBC, 305, 315, 330, 345)
@@ -932,7 +932,7 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Major Resistance -- 27962
 	AddRecipe(27962, 330, nil, Q.UNCOMMON, V.TBC, 330, 340, 355, 370)
 	self:AddRecipeFlags(27962, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	self:AddRecipeWorldDrop(27962, 2)
+	self:AddRecipeWorldDrop(27962, "Outland")
 
 	-- Enchant Weapon - Major Striking -- 27967
 	AddRecipe(27967, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
@@ -952,7 +952,7 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Potency -- 27972
 	AddRecipe(27972, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
 	self:AddRecipeFlags(27972, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(27972, 2)
+	self:AddRecipeWorldDrop(27972, "Outland")
 
 	-- Enchant Weapon - Major Spellpower -- 27975
 	AddRecipe(27975, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
@@ -982,12 +982,12 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Spellsurge -- 28003
 	AddRecipe(28003, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
 	self:AddRecipeFlags(28003, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(28003, 2)
+	self:AddRecipeWorldDrop(28003, "Outland")
 
 	-- Enchant Weapon - Battlemaster -- 28004
 	AddRecipe(28004, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
 	self:AddRecipeFlags(28004, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeWorldDrop(28004, 2)
+	self:AddRecipeWorldDrop(28004, "Outland")
 
 	-- Superior Mana Oil -- 28016
 	AddRecipe(28016, 310, 22521, Q.COMMON, V.TBC, 310, 310, 320, 330)
@@ -1043,7 +1043,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Major Resilience -- 33992
 	AddRecipe(33992, 345, nil, Q.UNCOMMON, V.TBC, 345, 355, 367, 380)
 	self:AddRecipeFlags(33992, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(33992, 2)
+	self:AddRecipeWorldDrop(33992, "Outland")
 
 	-- Enchant Gloves - Blasting -- 33993
 	AddRecipe(33993, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
