@@ -722,18 +722,23 @@ do
 		end
 	end
 
-	local function Tooltip_AddWorldDrop(id_num, location, quality_color)
+	local function Tooltip_AddWorldDrop(recipe_id, id_num, location, quality_color)
 		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
 
 		if location and drop_location ~= location then
 			return
 		end
+		local _, _, _, item_level = GetItemInfo(private.spell_to_recipe_map[recipe_id])
 		local type_color = string.gsub(quality_color, "|cff", "")
 
 		if type(id_num) == "string" then
-			ttAdd(0, -1, false, L["World Drop"], type_color, drop_location, CATEGORY_COLORS["location"])
+			local location_text = item_level and string.format("%s (%d - %d)", drop_location, item_level - 5, item_level + 5) or drop_location
+
+			ttAdd(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
 		else
-			ttAdd(0, -1, false, L["World Drop"], type_color)
+			local location_text = item_level and string.format("%s (%d - %d)", _G.UNKNOWN, item_level - 5, item_level + 5) or _G.UNKNOWN
+
+			ttAdd(0, -1, false, L["World Drop"], type_color, location_text, CATEGORY_COLORS["location"])
 		end
 	end
 
@@ -867,7 +872,7 @@ do
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
-						Tooltip_AddWorldDrop(id_num, location, quality_color)
+						Tooltip_AddWorldDrop(recipe_id, id_num, location, quality_color)
 					elseif acquire_type == A.CUSTOM then
 						ttAdd(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 						--@alpha@
