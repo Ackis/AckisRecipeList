@@ -299,6 +299,7 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Lesser Deflection -- 13646
 	AddRecipe(13646, 170, nil, Q.UNCOMMON, V.ORIG, 170, 190, 210, 230)
 	self:AddRecipeFlags(13646, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeAcquire(13646, A.CUSTOM, 46)
 	self:AddRecipeVendor(13646, 2381, 2821)
 
 	-- Enchant Bracer - Stamina -- 13648

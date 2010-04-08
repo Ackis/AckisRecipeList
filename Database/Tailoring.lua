@@ -263,6 +263,7 @@ function addon:InitTailoring()
 	-- Icy Cloak -- 3862
 	AddRecipe(3862, 200, 4327, Q.COMMON, V.ORIG, 200, 220, 235, 250)
 	self:AddRecipeFlags(3862, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
+	self:AddRecipeAcquire(3862, A.CUSTOM, 46)
 	self:AddRecipeVendor(3862, 2381)
 
 	-- Spider Belt -- 3863
@@ -392,6 +393,7 @@ function addon:InitTailoring()
 	-- Blue Overalls -- 7639
 	AddRecipe(7639, 100, 6263, Q.COMMON, V.ORIG, 100, 125, 142, 160)
 	self:AddRecipeFlags(7639, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(7639, A.CUSTOM, 46)
 	self:AddRecipeVendor(7639, 5944, 843, 2394, 1347, 3364)
 
 	-- Greater Adept's Robe -- 7643

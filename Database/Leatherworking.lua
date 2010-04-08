@@ -300,6 +300,7 @@ function addon:InitLeatherworking()
 	-- Thick Murloc Armor -- 6704
 	AddRecipe(6704, 170, 5782, Q.UNCOMMON, V.ORIG, 170, 190, 200, 210)
 	self:AddRecipeFlags(6704, F.ALLIANCE, F.HORDE, F.VENDOR, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(6704, A.CUSTOM, 46)
 	self:AddRecipeMobDrop(6704, 938, 1160)
 	self:AddRecipeVendor(6704, 2381, 2393)
 
