@@ -341,6 +341,7 @@ function addon:InitTailoring()
 	self:AddRecipeFlags(6688, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(6688, 450, 2264)
 	self:AddRecipeVendor(6688, 3683, 1474, 5944, 3364, 3537, 777, 3005, 1454, 3485, 4577, 4189)
+	self:AddRecipeAcquire(6688, A.CUSTOM, 46)
 
 	-- Lesser Wizard's Robe -- 6690
 	AddRecipe(6690, 135, 5766, Q.COMMON, V.ORIG, 135, 155, 170, 185)
@@ -381,6 +382,7 @@ function addon:InitTailoring()
 	AddRecipe(7630, 55, 6240, Q.COMMON, V.ORIG, 55, 80, 97, 115)
 	self:AddRecipeFlags(7630, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(7630, 3364, 4189, 3485, 3522, 66)
+	self:AddRecipeAcquire(7630, A.CUSTOM, 46)
 
 	-- Blue Linen Robe -- 7633
 	AddRecipe(7633, 70, 6242, Q.COMMON, V.ORIG, 70, 95, 112, 130)
@@ -606,6 +608,7 @@ function addon:InitTailoring()
 	AddRecipe(12064, 220, 10052, Q.COMMON, V.ORIG, 220, 225, 230, 235)
 	self:AddRecipeFlags(12064, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(12064, 3005, 4168)
+	self:AddRecipeAcquire(12064, A.CUSTOM, 46)
 
 	-- Mageweave Bag -- 12065
 	AddRecipe(12065, 225, 10050, Q.COMMON, V.ORIG, 225, 240, 255, 270)
@@ -656,6 +659,7 @@ function addon:InitTailoring()
 	AddRecipe(12075, 230, 10054, Q.COMMON, V.ORIG, 230, 235, 240, 245)
 	self:AddRecipeFlags(12075, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(12075, 3364, 8681)
+	self:AddRecipeAcquire(12075, A.CUSTOM, 46)
 
 	-- Shadoweave Shoulders -- 12076
 	AddRecipe(12076, 235, 10028, Q.COMMON, V.ORIG, 235, 250, 265, 280)
@@ -681,6 +685,7 @@ function addon:InitTailoring()
 	AddRecipe(12080, 235, 10055, Q.COMMON, V.ORIG, 235, 240, 245, 250)
 	self:AddRecipeFlags(12080, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(12080, 3364, 8681)
+	self:AddRecipeAcquire(12080, A.CUSTOM, 46)
 
 	-- Admiral's Hat -- 12081
 	AddRecipe(12081, 240, 10030, Q.COMMON, V.ORIG, 240, 255, 270, 285)
@@ -721,6 +726,7 @@ function addon:InitTailoring()
 	AddRecipe(12091, 250, 10040, Q.COMMON, V.ORIG, 250, 255, 260, 265)
 	self:AddRecipeFlags(12091, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
 	self:AddRecipeVendor(12091, 1347, 3005)
+	self:AddRecipeAcquire(12091, A.CUSTOM, 46)
 
 	-- Dreamweave Circlet -- 12092
 	AddRecipe(12092, 250, 10041, Q.COMMON, V.ORIG, 250, 265, 280, 295)
@@ -1268,11 +1274,13 @@ function addon:InitTailoring()
 	AddRecipe(26777, 360, 21861, Q.COMMON, V.TBC, 360, 370, 375, 380)
 	self:AddRecipeFlags(26777, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26777, 19521)
+	self:AddRecipeAcquire(26777, A.CUSTOM, 46)
 
 	-- Imbued Netherweave Tunic -- 26778
 	AddRecipe(26778, 360, 21862, Q.COMMON, V.TBC, 360, 370, 375, 380)
 	self:AddRecipeFlags(26778, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26778, 19521)
+	self:AddRecipeAcquire(26778, A.CUSTOM, 46)
 
 	-- Soulcloth Gloves -- 26779
 	AddRecipe(26779, 355, 21863, Q.COMMON, V.TBC, 355, 365, 370, 375)

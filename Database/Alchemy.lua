@@ -154,6 +154,7 @@ function addon:InitAlchemy()
 	AddRecipe(3449, 165, 3824, Q.COMMON, V.ORIG, 165, 190, 210, 230)
 	self:AddRecipeFlags(3449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(3449, 2481, 4878)
+	self:AddRecipeAcquire(3449, A.CUSTOM, 46)
 
 	-- Elixir of Fortitude -- 3450
 	AddRecipe(3450, 175, 3825, Q.COMMON, V.ORIG, 175, 195, 215, 235)
@@ -205,6 +206,7 @@ function addon:InitAlchemy()
 	AddRecipe(6624, 150, 5634, Q.COMMON, V.ORIG, 150, 175, 195, 215)
 	self:AddRecipeFlags(6624, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeVendor(6624, 5178, 4226, 3348)
+	self:AddRecipeAcquire(6624, A.CUSTOM, 46)
 
 	-- Elixir of Water Breathing -- 7179
 	AddRecipe(7179, 90, 5996, Q.COMMON, V.ORIG, 90, 120, 140, 160)
