@@ -475,10 +475,9 @@ L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Upd
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 L["Custom44"] = "You can train this recipe if you have earned the \"Loremaster of Northrend\" achievement"
 L["Custom45"] = "You can train this recipe if you have earned the \"Northrend Dungeonmaster\" achievement"
+L["LIMITED_SUPPLY"] = "Limited stock from the vendor"
 
 -- Monster/Quest/Trainer/Vendor strings:
-
--- Do not translate anything below this line without talking to Ackis first please.
 
 L["\"Cookie\" McWeaksauce"] = true
 L["Aaron Hollman"] = true
