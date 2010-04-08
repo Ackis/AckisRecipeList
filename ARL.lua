@@ -1201,6 +1201,10 @@ do
 		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Vendor", private.vendor_list, ...)
 	end
 
+	function addon:AddRecipeLimitedVendor(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Limited Vendor", private.vendor_list, ...)
+	end
+
 	function addon:AddRecipeWorldDrop(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.WORLD_DROP, nil, nil, ...)
 	end
