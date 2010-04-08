@@ -728,7 +728,12 @@ do
 		if location and drop_location ~= location then
 			return
 		end
-		local _, _, _, item_level = GetItemInfo(private.spell_to_recipe_map[recipe_id])
+		local item_id = private.spell_to_recipe_map[recipe_id]
+		local _, item_level
+
+		if item_id then
+			_, _, _, item_level = GetItemInfo(item_id)
+		end
 		local type_color = string.gsub(quality_color, "|cff", "")
 
 		if type(id_num) == "string" then
