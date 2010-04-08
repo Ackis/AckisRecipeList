@@ -1143,12 +1143,17 @@ do
 			local id_num = select(cur_var, ...)
 			cur_var = cur_var + 1
 
+			-- A quantity of true means unlimited - normal vendor item.
+			local quantity = true
+
+			if type_string == "Limited Vendor" then
+				quantity = select(cur_var, ...)
+				cur_var = cur_var + 1
+			end
 			acquire[id_num] = true
 
 			if unit_list and not unit_list[id_num] then
-				--@alpha@
-				self:Printf("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
-				--@end-alpha@
+				addon:Debug("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
 			else
 				if not unit_list then
 					location = type(id_num) == "string" and BZ[id_num] or nil
@@ -1165,7 +1170,7 @@ do
 					location = unit.location
 
 					unit.item_list = unit.item_list or {}
-					unit.item_list[spell_id] = true
+					unit.item_list[spell_id] = quantity
 				end
 			end
 			acquire_list[acquire_type] = acquire_list[acquire_type] or {}
