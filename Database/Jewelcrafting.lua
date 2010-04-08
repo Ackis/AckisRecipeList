@@ -393,7 +393,7 @@ function addon:InitJewelcrafting()
 
 	-- Dazzling Deep Peridot -- 28924
 	AddRecipe(28924, 325, 23106, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
-	self:AddRecipeFlags(28924, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SCRYER)
+	self:AddRecipeFlags(28924, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCRYER)
 	self:AddRecipeRepVendor(28924, FAC.SCRYER, REP.HONORED, 19331)
 
 	-- Glowing Shadow Draenite -- 28925
@@ -578,7 +578,7 @@ function addon:InitJewelcrafting()
 
 	-- Coronet of Verdant Flame -- 31077
 	AddRecipe(31077, 370, 24122, Q.EPIC, V.TBC, 370, 375, 380, 385)
-	self:AddRecipeFlags(31077, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOTH)
+	self:AddRecipeFlags(31077, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeMobDrop(31077, 18422)
 
 	-- Circlet of Arcane Might -- 31078
@@ -667,7 +667,7 @@ function addon:InitJewelcrafting()
 
 	-- Brilliant Dawnstone -- 31096
 	AddRecipe(31096, 350, 24047, Q.RARE, V.TBC, 350, 350, 365, 380)
-	self:AddRecipeFlags(31096, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(31096, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeWorldDrop(31096, 3)
 
 	-- Smooth Dawnstone -- 31097
@@ -1039,7 +1039,7 @@ function addon:InitJewelcrafting()
 
 	-- Brilliant Lionseye -- 39719
 	AddRecipe(39719, 375, 32204, Q.COMMON, V.TBC, 375, 375, 380, 385)
-	self:AddRecipeFlags(39719, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SCALE_SANDS, F.SHATTEREDSUN)
+	self:AddRecipeFlags(39719, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SCALE_SANDS, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39719, FAC.SHATTEREDSUN, REP.FRIENDLY, 25950, 27666)
 	self:AddRecipeRepVendor(39719, FAC.SCALE_OF_SANDS, REP.FRIENDLY, 23437)
 
@@ -1991,7 +1991,7 @@ function addon:InitJewelcrafting()
 
 	-- Timeless Forest Emerald -- 53995
 	AddRecipe(53995, 390, 40085, Q.RARE, V.WOTLK, 390, 410, 425, 440)
-	self:AddRecipeFlags(53995, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(53995, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeMobDrop(53995, 26632)
 
 	-- Jagged Forest Emerald -- 53996
@@ -2151,7 +2151,7 @@ function addon:InitJewelcrafting()
 
 	-- Insightful Earthsiege Diamond -- 55396
 	AddRecipe(55396, 420, 41401, Q.RARE, V.WOTLK, 420, 440, 450, 460)
-	self:AddRecipeFlags(55396, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(55396, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(55396, 28721, 33602)
 
 	-- Bracing Earthsiege Diamond -- 55397
@@ -2236,7 +2236,7 @@ function addon:InitJewelcrafting()
 
 	-- Brilliant Dragon's Eye -- 56074
 	AddRecipe(56074, 370, 42148, Q.RARE, V.WOTLK, 370, 390, 415, 440)
-	self:AddRecipeFlags(56074, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeFlags(56074, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(56074, 28721, 33602)
 
 	-- Fractured Dragon's Eye -- 56076
@@ -2526,7 +2526,7 @@ function addon:InitJewelcrafting()
 
 	-- Timeless Eye of Zul -- 66432
 	AddRecipe(66432, 450, 40164, Q.RARE, V.WOTLK, 450, 450, 452, 465)
-	self:AddRecipeFlags(66432, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(66432, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(66432, 33637, 33680, 28701, 19065)
 
 	-- Seer's Eye of Zul -- 66433
@@ -2666,7 +2666,7 @@ function addon:InitJewelcrafting()
 
 	-- Brilliant King's Amber -- 66503
 	AddRecipe(66503, 450, 40123, Q.RARE, V.WOTLK, 450, 450, 452, 465)
-	self:AddRecipeFlags(66503, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(66503, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(66503, 33637, 33680, 28701, 19065)
 
 	-- Thick King's Amber -- 66504

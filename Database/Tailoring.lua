@@ -67,7 +67,7 @@ function addon:InitTailoring()
 
 	-- Red Linen Robe -- 2389
 	AddRecipe(2389, 40, 2572, Q.UNCOMMON, V.ORIG, 40, 65, 82, 100)
-	self:AddRecipeFlags(2389, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(2389, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(2389, 2)
 
 	-- Red Linen Shirt -- 2392
@@ -117,7 +117,7 @@ function addon:InitTailoring()
 
 	-- Gray Woolen Robe -- 2403
 	AddRecipe(2403, 105, 2585, Q.UNCOMMON, V.ORIG, 105, 130, 147, 165)
-	self:AddRecipeFlags(2403, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(2403, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(2403, 2)
 
 	-- Gray Woolen Shirt -- 2406
@@ -267,7 +267,7 @@ function addon:InitTailoring()
 
 	-- Spider Belt -- 3863
 	AddRecipe(3863, 180, 4328, Q.UNCOMMON, V.ORIG, 180, 200, 215, 230)
-	self:AddRecipeFlags(3863, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(3863, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(3863, 2)
 
 	-- Star Belt -- 3864
@@ -484,7 +484,7 @@ function addon:InitTailoring()
 
 	-- Green Silk Armor -- 8784
 	AddRecipe(8784, 165, 7065, Q.UNCOMMON, V.ORIG, 165, 185, 200, 215)
-	self:AddRecipeFlags(8784, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(8784, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(8784, 2)
 
 	-- Azure Silk Cloak -- 8786
@@ -584,7 +584,7 @@ function addon:InitTailoring()
 
 	-- Red Mageweave Vest -- 12056
 	AddRecipe(12056, 215, 10007, Q.UNCOMMON, V.ORIG, 215, 230, 245, 260)
-	self:AddRecipeFlags(12056, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(12056, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(12056, 2)
 
 	-- White Bandit Mask -- 12059
@@ -669,7 +669,7 @@ function addon:InitTailoring()
 
 	-- Red Mageweave Shoulders -- 12078
 	AddRecipe(12078, 235, 10029, Q.UNCOMMON, V.ORIG, 235, 250, 265, 280)
-	self:AddRecipeFlags(12078, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(12078, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(12078, 2)
 
 	-- Red Mageweave Bag -- 12079
@@ -694,7 +694,7 @@ function addon:InitTailoring()
 
 	-- Red Mageweave Headband -- 12084
 	AddRecipe(12084, 240, 10033, Q.UNCOMMON, V.ORIG, 240, 255, 270, 285)
-	self:AddRecipeFlags(12084, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(12084, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(12084, 2)
 
 	-- Tuxedo Shirt -- 12085
@@ -991,7 +991,7 @@ function addon:InitTailoring()
 
 	-- Flarecore Gloves -- 20849
 	AddRecipe(20849, 300, 16979, Q.COMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(20849, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOE, F.RBOP, F.CLOTH, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeFlags(20849, F.ALLIANCE, F.HORDE, F.VENDOR, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.THORIUM_BROTHERHOOD)
 	self:AddRecipeRepVendor(20849, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Green Holiday Shirt -- 21945
@@ -1011,7 +1011,7 @@ function addon:InitTailoring()
 
 	-- Belt of the Archmage -- 22866
 	AddRecipe(22866, 300, 18405, Q.EPIC, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(22866, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(22866, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(22866, A.CUSTOM, 23)
 
 	-- Felcloth Gloves -- 22867
@@ -1530,17 +1530,17 @@ function addon:InitTailoring()
 
 	-- Flameheart Bracers -- 37882
 	AddRecipe(37882, 350, 30837, Q.COMMON, V.TBC, 350, 360, 365, 370)
-	self:AddRecipeFlags(37882, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
+	self:AddRecipeFlags(37882, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ALDOR)
 	self:AddRecipeRepVendor(37882, FAC.ALDOR, REP.FRIENDLY, 19321)
 
 	-- Flameheart Gloves -- 37883
 	AddRecipe(37883, 360, 30838, Q.COMMON, V.TBC, 360, 370, 375, 380)
-	self:AddRecipeFlags(37883, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
+	self:AddRecipeFlags(37883, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ALDOR)
 	self:AddRecipeRepVendor(37883, FAC.ALDOR, REP.HONORED, 19321)
 
 	-- Flameheart Vest -- 37884
 	AddRecipe(37884, 370, 30839, Q.COMMON, V.TBC, 370, 380, 385, 390)
-	self:AddRecipeFlags(37884, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.CLOTH, F.ALDOR)
+	self:AddRecipeFlags(37884, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ALDOR)
 	self:AddRecipeRepVendor(37884, FAC.ALDOR, REP.EXALTED, 19321)
 
 	-- Soulguard Slippers -- 40020

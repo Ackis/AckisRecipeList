@@ -137,7 +137,7 @@ function addon:InitEnchanting()
 
 	-- Enchant 2H Weapon - Lesser Intellect -- 7793
 	AddRecipe(7793, 100, nil, Q.COMMON, V.ORIG, 100, 130, 150, 170)
-	self:AddRecipeFlags(7793, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeFlags(7793, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
 	self:AddRecipeVendor(7793, 3012, 5158, 3346, 5758)
 
 	-- Runed Silver Rod -- 7795
@@ -658,7 +658,7 @@ function addon:InitEnchanting()
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
 	AddRecipe(20036, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(20036, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeFlags(20036, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
 	self:AddRecipeMobDrop(20036, 10422)
 
 	-- Runed Arcanite Rod -- 20051
@@ -708,7 +708,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
 	AddRecipe(23804, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	self:AddRecipeFlags(23804, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeFlags(23804, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.HEALER, F.CASTER, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
 	self:AddRecipeRepVendor(23804, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Enchant Gloves - Threat -- 25072
@@ -875,7 +875,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Shield - Intellect -- 27945
 	AddRecipe(27945, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
-	self:AddRecipeFlags(27945, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeFlags(27945, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
 	self:AddRecipeVendor(27945, 18664)
 
 	-- Enchant Shield - Shield Block -- 27946
@@ -941,7 +941,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Weapon - Major Intellect -- 27968
 	AddRecipe(27968, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	self:AddRecipeFlags(27968, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeFlags(27968, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.HEALER, F.CASTER)
 	self:AddRecipeMobDrop(27968, 20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971

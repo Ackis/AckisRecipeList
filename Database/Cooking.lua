@@ -449,7 +449,7 @@ function addon:InitCooking()
 
 	-- Runn Tum Tuber Surprise -- 22761
 	AddRecipe(22761, 275, 18254, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(22761, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(22761, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeMobDrop(22761, 14354)
 
 	-- Heavy Crocolisk Stew -- 24418

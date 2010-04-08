@@ -772,7 +772,7 @@ function addon:InitLeatherworking()
 
 	-- Runic Leather Bracers -- 19065
 	AddRecipe(19065, 275, 15092, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(19065, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.LEATHER)
+	self:AddRecipeFlags(19065, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(19065, 1385, 3703, 16688, 5784, 3967, 19187, 11097, 18754, 11098, 33635, 18771, 1632, 4212, 3365, 3605, 3549, 5127, 33612, 17442, 5564, 3007, 8153, 16728, 21087, 33681, 4588)
 
 	-- Frostsaber Boots -- 19066
@@ -882,7 +882,7 @@ function addon:InitLeatherworking()
 
 	-- Heavy Scorpid Helm -- 19088
 	AddRecipe(19088, 295, 15080, Q.COMMON, V.ORIG, 295, 315, 325, 335)
-	self:AddRecipeFlags(19088, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(19088, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeVendor(19088, 12956)
 
 	-- Blue Dragonscale Shoulders -- 19089
@@ -943,7 +943,7 @@ function addon:InitLeatherworking()
 
 	-- Runic Leather Armor -- 19102
 	AddRecipe(19102, 300, 15090, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(19102, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.LEATHER)
+	self:AddRecipeFlags(19102, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(19102, 1385, 3703, 16688, 5784, 3365, 3967, 19187, 11097, 18754, 1632, 3605, 11098, 4588, 4212, 8153, 18771, 16728, 5127, 33612, 17442, 3549, 3007, 33635, 16278, 21087, 33681, 5564)
 
 	-- Runic Leather Shoulders -- 19103
@@ -1018,7 +1018,7 @@ function addon:InitLeatherworking()
 
 	-- Girdle of Insight -- 22921
 	AddRecipe(22921, 300, 18504, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(22921, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.LEATHER)
+	self:AddRecipeFlags(22921, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeAcquire(22921, A.CUSTOM, 23)
 
 	-- Mongoose Boots -- 22922
@@ -1058,7 +1058,7 @@ function addon:InitLeatherworking()
 
 	-- Might of the Timbermaw -- 23703
 	AddRecipe(23703, 290, 19044, Q.COMMON, V.ORIG, 290, 310, 320, 330)
-	self:AddRecipeFlags(23703, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.LEATHER, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(23703, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.LEATHER, F.TIMBERMAW_HOLD)
 	self:AddRecipeRepVendor(23703, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Timbermaw Brawlers -- 23704
@@ -1354,7 +1354,7 @@ function addon:InitLeatherworking()
 
 	-- Stylin' Crimson Hat -- 32488
 	AddRecipe(32488, 350, 25683, Q.RARE, V.TBC, 350, 360, 370, 380)
-	self:AddRecipeFlags(32488, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(32488, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeMobDrop(32488, 18322)
 
 	-- Stylin' Jungle Hat -- 32489
@@ -1394,19 +1394,19 @@ function addon:InitLeatherworking()
 
 	-- Felstalker Belt -- 32498
 	AddRecipe(32498, 350, 25695, Q.RARE, V.TBC, 350, 360, 370, 380)
-	self:AddRecipeFlags(32498, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.HELLFIRE)
+	self:AddRecipeFlags(32498, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.HELLFIRE)
 	self:AddRecipeRepVendor(32498, FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
 	self:AddRecipeRepVendor(32498, FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
 	-- Felstalker Bracer -- 32499
 	AddRecipe(32499, 360, 25697, Q.RARE, V.TBC, 360, 370, 380, 390)
-	self:AddRecipeFlags(32499, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.HELLFIRE)
+	self:AddRecipeFlags(32499, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.HELLFIRE)
 	self:AddRecipeRepVendor(32499, FAC.HONOR_HOLD, REP.HONORED, 17657)
 	self:AddRecipeRepVendor(32499, FAC.THRALLMAR, REP.HONORED, 17585)
 
 	-- Felstalker Breastplate -- 32500
 	AddRecipe(32500, 360, 25696, Q.RARE, V.TBC, 360, 370, 380, 390)
-	self:AddRecipeFlags(32500, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.HELLFIRE)
+	self:AddRecipeFlags(32500, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL, F.HELLFIRE)
 	self:AddRecipeRepVendor(32500, FAC.HONOR_HOLD, REP.HONORED, 17657)
 	self:AddRecipeRepVendor(32500, FAC.THRALLMAR, REP.HONORED, 17585)
 
@@ -1601,7 +1601,7 @@ function addon:InitLeatherworking()
 
 	-- Earthen Netherscale Boots -- 35567
 	AddRecipe(35567, 365, 29512, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35567, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(35567, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeWorldDrop(35567, 4)
 
 	-- Windstrike Gloves -- 35568
@@ -1616,12 +1616,12 @@ function addon:InitLeatherworking()
 
 	-- Netherdrake Gloves -- 35573
 	AddRecipe(35573, 365, 29511, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35573, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(35573, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeMobDrop(35573, 24664)
 
 	-- Thick Netherscale Breastplate -- 35574
 	AddRecipe(35574, 365, 29514, Q.EPIC, V.TBC, 365, 375, 385, 395)
-	self:AddRecipeFlags(35574, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(35574, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeWorldDrop(35574, 4)
 
 	-- Ebon Netherscale Breastplate -- 35575
@@ -1726,7 +1726,7 @@ function addon:InitLeatherworking()
 
 	-- Belt of the Black Eagle -- 36352
 	AddRecipe(36352, 375, 30046, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(36352, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(36352, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(36352, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Monsoon Belt -- 36353
@@ -1736,7 +1736,7 @@ function addon:InitLeatherworking()
 
 	-- Boots of Natural Grace -- 36355
 	AddRecipe(36355, 375, 30041, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(36355, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeFlags(36355, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeAcquire(36355, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Boots of Utter Darkness -- 36357
@@ -1746,7 +1746,7 @@ function addon:InitLeatherworking()
 
 	-- Boots of the Crimson Hawk -- 36358
 	AddRecipe(36358, 375, 30045, Q.EPIC, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(36358, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(36358, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(36358, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Hurricane Boots -- 36359
@@ -2413,42 +2413,42 @@ function addon:InitLeatherworking()
 
 	-- Swiftarrow Helm -- 60728
 	AddRecipe(60728, 420, 43447, Q.RARE, V.WOTLK, 420, 425, 430, 435)
-	self:AddRecipeFlags(60728, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60728, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60728, 32515)
 
 	-- Swiftarrow Shoulderguards -- 60729
 	AddRecipe(60729, 420, 43449, Q.RARE, V.WOTLK, 420, 425, 430, 435)
-	self:AddRecipeFlags(60729, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60729, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60729, 32515)
 
 	-- Swiftarrow Hauberk -- 60730
 	AddRecipe(60730, 420, 43445, Q.RARE, V.WOTLK, 420, 425, 430, 435)
-	self:AddRecipeFlags(60730, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60730, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60730, 32515)
 
 	-- Swiftarrow Bracers -- 60731
 	AddRecipe(60731, 420, 43444, Q.RARE, V.WOTLK, 420, 425, 430, 435)
-	self:AddRecipeFlags(60731, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60731, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60731, 32515)
 
 	-- Swiftarrow Gauntlets -- 60732
 	AddRecipe(60732, 425, 43446, Q.RARE, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(60732, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60732, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60732, 32515)
 
 	-- Swiftarrow Belt -- 60734
 	AddRecipe(60734, 425, 43442, Q.RARE, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(60734, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60734, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60734, 32515)
 
 	-- Swiftarrow Leggings -- 60735
 	AddRecipe(60735, 425, 43448, Q.RARE, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(60735, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60735, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60735, 32515)
 
 	-- Swiftarrow Boots -- 60737
 	AddRecipe(60737, 425, 43443, Q.RARE, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(60737, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60737, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60737, 32515)
 
 	-- Stormhide Crown -- 60743
@@ -2493,12 +2493,12 @@ function addon:InitLeatherworking()
 
 	-- Giantmaim Legguards -- 60754
 	AddRecipe(60754, 440, 43458, Q.EPIC, V.WOTLK, 440, 450, 455, 460)
-	self:AddRecipeFlags(60754, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60754, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60754, 32515)
 
 	-- Giantmaim Bracers -- 60755
 	AddRecipe(60755, 440, 43459, Q.EPIC, V.WOTLK, 440, 450, 455, 460)
-	self:AddRecipeFlags(60755, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeFlags(60755, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeVendor(60755, 32515)
 
 	-- Revenant's Breastplate -- 60756
@@ -2578,7 +2578,7 @@ function addon:InitLeatherworking()
 
 	-- Belt of Dragons -- 63194
 	AddRecipe(63194, 450, 45553, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
-	self:AddRecipeFlags(63194, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(63194, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeAcquire(63194, A.CUSTOM, 39)
 
 	-- Boots of Living Scale -- 63195

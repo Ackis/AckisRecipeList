@@ -257,7 +257,7 @@ function addon:InitEngineering()
 
 	-- Craftsman's Monocle -- 3966
 	AddRecipe(3966, 185, 4393, Q.RARE, V.ORIG, 185, 205, 215, 225)
-	self:AddRecipeFlags(3966, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeFlags(3966, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeWorldDrop(3966, 3)
 
 	-- Big Iron Bomb -- 3967

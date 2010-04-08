@@ -1041,7 +1041,7 @@ function addon:InitBlacksmithing()
 
 	-- Fiery Chain Shoulders -- 20873
 	AddRecipe(20873, 300, 16988, Q.RARE, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(20873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.MAIL, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeFlags(20873, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL, F.THORIUM_BROTHERHOOD)
 	self:AddRecipeRepVendor(20873, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Dark Iron Bracers -- 20874
