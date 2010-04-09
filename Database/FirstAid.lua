@@ -88,7 +88,7 @@ function addon:InitFirstAid()
 	-- Strong Anti-Venom -- 7935
 	AddRecipe(7935, 130, 6453, Q.UNCOMMON, V.ORIG, 130, 130, 165, 200)
 	self:AddRecipeFlags(7935, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(7935, 2)
+	self:AddRecipeWorldDrop(7935, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mageweave Bandage -- 10840
 	AddRecipe(10840, 210, 8544, Q.COMMON, V.ORIG, 210, 210, 240, 270)
@@ -133,7 +133,7 @@ function addon:InitFirstAid()
 	-- Heavy Frostweave Bandage -- 45546
 	AddRecipe(45546, 400, 34722, Q.UNCOMMON, V.WOTLK, 400, 400, 430, 470)
 	self:AddRecipeFlags(45546, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(45546, 2)
+	self:AddRecipeWorldDrop(45546, "Northrend")
 
 	return num_recipes
 end
