@@ -161,7 +161,8 @@ function addon:InitCooking()
 	-- Big Bear Steak -- 3397
 	AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
 	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3397, 3960, 12246)
+	self:AddRecipeVendor(3397, 3960)
+	self:AddRecipeLimitedVendor(3397, 12246, 1)
 	self:AddRecipeQuest(3397, 498)
 
 	-- Hot Lion Chops -- 3398
@@ -184,7 +185,8 @@ function addon:InitCooking()
 	AddRecipe(4094, 175, 4457, Q.COMMON, V.ORIG, 175, 215, 235, 255)
 	self:AddRecipeFlags(4094, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(4094, 2818)
-	self:AddRecipeVendor(4094, 2814, 12246)
+	self:AddRecipeVendor(4094, 2814)
+	self:AddRecipeLimitedVendor(4094, 12246, 1)
 	self:AddRecipeQuest(4094, 703)
 
 	-- Kaldorei Spider Kabob -- 6412
@@ -313,7 +315,7 @@ function addon:InitCooking()
 	-- Lean Wolf Steak -- 15853
 	AddRecipe(15853, 125, 12209, Q.COMMON, V.ORIG, 125, 165, 185, 205)
 	self:AddRecipeFlags(15853, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15853, 12246)
+	self:AddRecipeLimitedVendor(15853, 12246, 1)
 
 	-- Roast Raptor -- 15855
 	AddRecipe(15855, 175, 12210, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -323,7 +325,8 @@ function addon:InitCooking()
 	-- Hot Wolf Ribs -- 15856
 	AddRecipe(15856, 175, 13851, Q.COMMON, V.ORIG, 175, 215, 235, 255)
 	self:AddRecipeFlags(15856, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15856, 8145, 12246, 7947)
+	self:AddRecipeVendor(15856, 8145, 7947)
+	self:AddRecipeLimitedVendor(15856, 12246, 1)
 
 	-- Jungle Stew -- 15861
 	AddRecipe(15861, 175, 12212, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -338,12 +341,14 @@ function addon:InitCooking()
 	-- Mystery Stew -- 15865
 	AddRecipe(15865, 175, 12214, Q.COMMON, V.ORIG, 175, 215, 235, 255)
 	self:AddRecipeFlags(15865, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15865, 4897, 8150, 12246)
+	self:AddRecipeVendor(15865, 4897, 8150)
+	self:AddRecipeLimitedVendor(15865, 12246, 1)
 
 	-- Dragonbreath Chili -- 15906
 	AddRecipe(15906, 200, 12217, Q.COMMON, V.ORIG, 200, 225, 237, 250)
 	self:AddRecipeFlags(15906, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(15906, 4897, 12246, 4879)
+	self:AddRecipeVendor(15906, 4897, 4879)
+	self:AddRecipeLimitedVendor(15906, 12246, 1)
 
 	-- Heavy Kodo Stew -- 15910
 	AddRecipe(15910, 200, 12215, Q.COMMON, V.ORIG, 200, 225, 237, 250)
