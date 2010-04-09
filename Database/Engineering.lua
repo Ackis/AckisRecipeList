@@ -218,8 +218,7 @@ function addon:InitEngineering()
 	-- Ice Deflector -- 3957
 	AddRecipe(3957, 155, 4386, Q.COMMON, V.ORIG, 155, 175, 185, 195)
 	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3957, A.CUSTOM, 46)
-	self:AddRecipeVendor(3957, 2684)
+	self:AddRecipeLimitedVendor(3957, 2684, 1)
 
 	-- Iron Strut -- 3958
 	AddRecipe(3958, 160, 4387, Q.COMMON, V.ORIG, 160, 160, 170, 180)
@@ -279,9 +278,8 @@ function addon:InitEngineering()
 	-- Gnomish Cloaking Device -- 3971
 	AddRecipe(3971, 200, 4397, Q.COMMON, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(3971, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TRINKET)
-	self:AddRecipeAcquire(3971, A.CUSTOM, 46)
 	self:AddRecipeMobDrop(3971, 7800)
-	self:AddRecipeVendor(3971, 6777)
+	self:AddRecipeLimitedVendor(3971, 6777, 1)
 
 	-- Large Seaforium Charge -- 3972
 	AddRecipe(3972, 200, 4398, Q.UNCOMMON, V.ORIG, 200, 200, 220, 240)

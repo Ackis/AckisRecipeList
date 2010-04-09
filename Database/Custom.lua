@@ -68,7 +68,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 43, L["TK_RANDOM"], BZ["The Eye"], 0, 0)
 	self:addLookupList(DB, 44, L["Custom44"])
 	self:addLookupList(DB, 45, L["Custom45"])
-	self:addLookupList(DB, 46, L["LIMITED_SUPPLY"])
 
 --self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"])
 --[[
