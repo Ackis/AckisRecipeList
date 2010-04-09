@@ -120,12 +120,12 @@ function Player:HasProperRepLevel(rep_data)
 end
 
 function Player:IsCorrectFaction(recipe)
-	local flags = recipe.flags.common1
-	local C1 = private.common_flags_word1
+	local flagged_horde = recipe:IsFlagged("common1", "HORDE")
+	local flagged_alliance = recipe:IsFlagged("common1", "ALLIANCE")
 
-	if self.faction == BFAC["Alliance"] and bit.band(flags, C1.HORDE) == C1.HORDE and bit.band(flags, C1.ALLIANCE) ~= C1.ALLIANCE then
+	if self.faction == BFAC["Alliance"] and flagged_horde and not flagged_alliance then
 		return false
-	elseif self.faction == BFAC["Horde"] and bit.band(flags, C1.ALLIANCE) == C1.ALLIANCE and bit.band(flags, C1.HORDE) ~= C1.HORDE then
+	elseif self.faction == BFAC["Horde"] and flagged_alliance and not flagged_horde then
 		return false
 	end
 	return true
