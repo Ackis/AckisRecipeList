@@ -827,6 +827,7 @@ L["Glutinous Ooze"] = true
 L["Glyx Brewright"] = true
 L["Gnaz Blunderflame"] = true
 L["Godan"] = true
+L["Ghok'kah"] = true
 L["Goli Krumn"] = true
 L["Gordunni Back-Breaker"] = true
 L["Gordunni Elementalist"] = true
