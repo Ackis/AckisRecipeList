@@ -476,17 +476,6 @@ function addon:OnInitialize()
 	PROFESSION_INITS[GetSpellInfo(53428)] = addon.InitRuneforging
 
 	-------------------------------------------------------------------------------
-	-- Initialize the databases
-	-------------------------------------------------------------------------------
-	self:InitCustom(private.custom_list)
-	self:InitMob(private.mob_list)
-	self:InitQuest(private.quest_list)
-	self:InitReputation(private.reputation_list)
-	self:InitTrainer(private.trainer_list)
-	self:InitSeasons(private.seasonal_list)
-	self:InitVendor(private.vendor_list)
-
-	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
         GameTooltip:HookScript("OnTooltipSetUnit",
@@ -1741,6 +1730,16 @@ end
 -- Recipe Scanning Functions
 -------------------------------------------------------------------------------
 do
+	function addon:InitializeLookups()
+		self:InitCustom(private.custom_list)
+		self:InitMob(private.mob_list)
+		self:InitQuest(private.quest_list)
+		self:InitReputation(private.reputation_list)
+		self:InitTrainer(private.trainer_list)
+		self:InitSeasons(private.seasonal_list)
+		self:InitVendor(private.vendor_list)
+	end
+
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
@@ -1785,6 +1784,10 @@ do
 			end
 		end
 
+		if self.InitializeLookups then
+			self:InitializeLookups()
+			self.InitializeLookups = nil
+		end
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
 		Player.totalRecipes = addon:InitializeRecipe(Player.current_prof)
