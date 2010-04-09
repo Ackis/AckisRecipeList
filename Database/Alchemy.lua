@@ -179,7 +179,7 @@ function addon:InitAlchemy()
 	-- Frost Oil -- 3454
 	AddRecipe(3454, 200, 3829, Q.UNCOMMON, V.ORIG, 200, 220, 240, 260)
 	self:AddRecipeFlags(3454, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(3454, 2480)
+	self:AddRecipeLimitedVendor(3454, 2480, 1)
 
 	-- Discolored Healing Potion -- 4508
 	AddRecipe(4508, 50, 4596, Q.UNCOMMON, V.ORIG, 50, 80, 100, 120)
@@ -224,27 +224,27 @@ function addon:InitAlchemy()
 	-- Holy Protection Potion -- 7255
 	AddRecipe(7255, 100, 6051, Q.COMMON, V.ORIG, 100, 130, 150, 170)
 	self:AddRecipeFlags(7255, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7255, 1685, 3134, 3490)
+	self:AddRecipeLimitedVendor(7255, 1685, 1, 3134, 1, 3490, 1)
 
 	-- Shadow Protection Potion -- 7256
 	AddRecipe(7256, 135, 6048, Q.COMMON, V.ORIG, 135, 160, 180, 200)
 	self:AddRecipeFlags(7256, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7256, 2393, 3956)
+	self:AddRecipeLimitedVendor(7256, 2393, 1, 3956, 1)
 
 	-- Fire Protection Potion -- 7257
 	AddRecipe(7257, 165, 6049, Q.COMMON, V.ORIG, 165, 210, 230, 250)
 	self:AddRecipeFlags(7257, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7257, 4083, 2380)
+	self:AddRecipeLimitedVendor(7257, 4083, 1, 2380, 1)
 
 	-- Frost Protection Potion -- 7258
 	AddRecipe(7258, 190, 6050, Q.COMMON, V.ORIG, 190, 205, 225, 245)
 	self:AddRecipeFlags(7258, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7258, 2812, 2848)
+	self:AddRecipeLimitedVendor(7258, 2812, 1, 2848, 1)
 
 	-- Nature Protection Potion -- 7259
 	AddRecipe(7259, 190, 6052, Q.COMMON, V.ORIG, 190, 210, 230, 250)
 	self:AddRecipeFlags(7259, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7259, 8157, 8158, 2848, 5594)
+	self:AddRecipeLimitedVendor(7259, 8157, 1, 8158, 1, 2848, 1, 5594, 1)
 
 	-- Blackmouth Oil -- 7836
 	AddRecipe(7836, 80, 6370, Q.COMMON, V.ORIG, 80, 80, 90, 100)
@@ -364,17 +364,17 @@ function addon:InitAlchemy()
 	-- Ghost Dye -- 11473
 	AddRecipe(11473, 245, 9210, Q.COMMON, V.ORIG, 245, 260, 280, 300)
 	self:AddRecipeFlags(11473, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(11473, 8157, 8158)
+	self:AddRecipeLimitedVendor(11473, 8157, 1, 8158, 1)
 
 	-- Elixir of Shadow Power -- 11476
 	AddRecipe(11476, 250, 9264, Q.UNCOMMON, V.ORIG, 250, 265, 285, 305)
 	self:AddRecipeFlags(11476, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(11476, 1313, 4610)
+	self:AddRecipeLimitedVendor(11476, 1313, 1, 4610, 1)
 
 	-- Elixir of Demonslaying -- 11477
 	AddRecipe(11477, 250, 9224, Q.COMMON, V.ORIG, 250, 265, 285, 305)
 	self:AddRecipeFlags(11477, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(11477, 8177, 8178)
+	self:AddRecipeLimitedVendor(11477, 8177, 1, 8178, 1)
 
 	-- Elixir of Detect Demon -- 11478
 	AddRecipe(11478, 250, 9233, Q.COMMON, V.ORIG, 250, 265, 285, 305)
@@ -389,7 +389,7 @@ function addon:InitAlchemy()
 	-- Transmute: Mithril to Truesilver -- 11480
 	AddRecipe(11480, 225, 6037, Q.COMMON, V.ORIG, 225, 240, 260, 280)
 	self:AddRecipeFlags(11480, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(11480, 5594)
+	self:AddRecipeLimitedVendor(11480, 5594, 1)
 
 	-- Catseye Elixir -- 12609
 	AddRecipe(12609, 200, 10592, Q.COMMON, V.ORIG, 200, 220, 240, 260)
@@ -424,7 +424,7 @@ function addon:InitAlchemy()
 	-- Elixir of Superior Defense -- 17554
 	AddRecipe(17554, 265, 13445, Q.COMMON, V.ORIG, 265, 280, 300, 320)
 	self:AddRecipeFlags(17554, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
-	self:AddRecipeVendor(17554, 5178, 3348)
+	self:AddRecipeLimitedVendor(17554, 5178, 1, 3348, 1)
 
 	-- Elixir of the Sages -- 17555
 	AddRecipe(17555, 270, 13447, Q.UNCOMMON, V.ORIG, 270, 285, 305, 325)
@@ -619,7 +619,7 @@ function addon:InitAlchemy()
 	-- Elixir of Camouflage -- 28543
 	AddRecipe(28543, 305, 22823, Q.COMMON, V.TBC, 305, 320, 327, 335)
 	self:AddRecipeFlags(28543, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(28543, 18802, 16705, 16641, 16588)
+	self:AddRecipeLimitedVendor(28543, 18802, 1, 16705, 1, 16641, 1, 16588, 1)
 
 	-- Elixir of Major Strength -- 28544
 	AddRecipe(28544, 305, 22824, Q.COMMON, V.TBC, 305, 320, 327, 335)
@@ -634,12 +634,12 @@ function addon:InitAlchemy()
 	-- Sneaking Potion -- 28546
 	AddRecipe(28546, 315, 22826, Q.COMMON, V.TBC, 315, 330, 337, 345)
 	self:AddRecipeFlags(28546, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(28546, 18017, 19042)
+	self:AddRecipeLimitedVendor(28546, 18017, 1, 19042, 1)
 
 	-- Elixir of Major Frost Power -- 28549
 	AddRecipe(28549, 320, 22827, Q.COMMON, V.TBC, 320, 335, 342, 350)
 	self:AddRecipeFlags(28549, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(28549, 18005, 18017)
+	self:AddRecipeLimitedVendor(28549, 18005, 1, 18017, 1)
 
 	-- Insane Strength Potion -- 28550
 	AddRecipe(28550, 320, 22828, Q.UNCOMMON, V.TBC, 320, 335, 342, 350)
@@ -670,7 +670,7 @@ function addon:InitAlchemy()
 	-- Super Mana Potion -- 28555
 	AddRecipe(28555, 340, 22832, Q.COMMON, V.TBC, 340, 355, 362, 370)
 	self:AddRecipeFlags(28555, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(28555, 18005, 19837)
+	self:AddRecipeLimitedVendor(28555, 18005, 1, 19837, 1)
 
 	-- Elixir of Major Firepower -- 28556
 	AddRecipe(28556, 345, 22833, Q.UNCOMMON, V.TBC, 345, 360, 367, 375)
@@ -680,7 +680,7 @@ function addon:InitAlchemy()
 	-- Elixir of Major Defense -- 28557
 	AddRecipe(28557, 345, 22834, Q.COMMON, V.TBC, 345, 360, 367, 375)
 	self:AddRecipeFlags(28557, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
-	self:AddRecipeVendor(28557, 18005, 19837)
+	self:AddRecipeLimitedVendor(28557, 18005, 1, 19837, 1)
 
 	-- Elixir of Major Shadow Power -- 28558
 	AddRecipe(28558, 350, 22835, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
@@ -690,7 +690,7 @@ function addon:InitAlchemy()
 	-- Major Dreamless Sleep Potion -- 28562
 	AddRecipe(28562, 350, 22836, Q.COMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(28562, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(28562, 19042, 19837)
+	self:AddRecipeLimitedVendor(28562, 19042, 1, 19837, 1)
 
 	-- Heroic Potion -- 28563
 	AddRecipe(28563, 350, 22837, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
@@ -836,7 +836,7 @@ function addon:InitAlchemy()
 	-- Transmute: Primal Might -- 29688
 	AddRecipe(29688, 350, 23571, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(29688, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(29688, 16705, 16641, 19074)
+	self:AddRecipeLimitedVendor(29688, 16705, 1, 16641, 1, 19074, 1)
 
 	-- Transmute: Earthstorm Diamond -- 32765
 	AddRecipe(32765, 350, 25867, Q.COMMON, V.TBC, 350, 365, 372, 380)
