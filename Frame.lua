@@ -622,7 +622,7 @@ do
 		end
 	end
 
-	local function Tooltip_AddVendor(id_num, location)
+	local function Tooltip_AddVendor(recipe_id, id_num, location)
 		local vendor = private.vendor_list[id_num]
 
 		if location and vendor.location ~= location then
@@ -639,6 +639,12 @@ do
 			end
 			ttAdd(0, -1, false, L["Vendor"], type_color, vendor.name, name_color)
 			ttAdd(1, -2, true, vendor.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
+
+			local quantity = vendor.item_list[recipe_id]
+
+			if type(quantity) == "number" then
+				ttAdd(2, -2, true, L["LIMITED_SUPPLY"], type_color, string.format("(%d)", quantity), BASIC_COLORS["white"])
+			end
 		else
 			ttAdd(0, -1, false, vendor.faction.." "..L["Vendor"], type_color)
 		end
@@ -862,7 +868,7 @@ do
 					if acquire_type == A.TRAINER then
 						Tooltip_AddTrainer(id_num, location)
 					elseif acquire_type == A.VENDOR then
-						Tooltip_AddVendor(id_num, location)
+						Tooltip_AddVendor(recipe_id, id_num, location)
 					elseif acquire_type == A.MOB_DROP then
 						Tooltip_AddMobDrop(id_num, location)
 					elseif acquire_type == A.QUEST then
@@ -3270,8 +3276,11 @@ do
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], "(" .. vendor.coord_x .. ", " .. vendor.coord_y .. ")")
 		end
 		local t = AcquireTable()
+		local quantity = vendor.item_list[recipe_id]
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name)
+		t.text = string.format("%s%s %s%s", PADDING,
+				       hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name,
+				       type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], string.format(" (%d)", quantity)) or "")
 		t.recipe_id = recipe_id
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
