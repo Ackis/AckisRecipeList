@@ -76,10 +76,9 @@ function Player:MarkExclusions()
 
 	for spell_id in pairs(exclusion_list) do
 		local recipe = recipe_list[spell_id]
-		local is_known = recipe:HasState("KNOWN")
 
 		if recipe then
-			if is_known and recipe.profession == profession then
+			if recipe:HasState("KNOWN") and recipe.profession == profession then
 				known_count = known_count + 1
 			elseif recipe_profession == profession then
 				unknown_count = unknown_count + 1
