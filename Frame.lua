@@ -2750,20 +2750,23 @@ do
 
 			traverseIndex = clickedIndex - 1
 
-			while entries[traverseIndex] and entries[traverseIndex].type ~= "header" and entries[traverseIndex].type ~= "subheader" do
+			while entries[traverseIndex] and entries[traverseIndex] ~= clicked_line.parent do
 				traverseIndex = traverseIndex - 1
 			end
 			entries[traverseIndex].is_expanded = false
-			traverseIndex = traverseIndex + 1
 
-			local children = clicked_line.parent.children
+			local children = entries[traverseIndex].children
 
 			-- Remove the expanded lines.
 			if children then
+				traverseIndex = traverseIndex + 1
+
 				while #children > 0 do
 					table.remove(children)
 					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
 				end
+			else
+				addon:Debug("Error: clicked_line's parent has no children.")
 			end
 		end
 		highlight:Hide()
