@@ -1,16 +1,43 @@
 ==ARL Change Log
 === Version 1.1.0 Beta 1
-*Recipes that involve reputation are now correctly colored
-*Location and Acquisition sorts now function correctly
-*You can now filter by the quality of the recipe
-*Changed some of the filter icons
-*Search now returns results as you type
-*Tons of work on making the database more accurate
-*Significantly reduced the memory usage of ARL
-*In the list, the entries are colored with respect to their quality
-*In the dropdown of the sort list, they are now properly localized
-*Fixed an issue where if you have mining and you cycle through your professions using the icon on the top left of the ARL windows, it would act strange
-*World Drop recipes will now show you exactly what zone/continent they drop from
+
+==== Changes to the recipe list panel:
+*The behavior of Location sorting has been fundamentally changed. The list will now contain location names which can be expanded to show all recipes which can be obtained in that location.
+*The behavior of Acquisition sorting has been fundamentally changed. The list will now contain the names of acquire types such as "World Drop", "Trainer", and "Vendor", which can be expanded to show all recipes which can be obtained in that manner.
+*Recipe sorting types in the dropdown selector are now localized.
+*Typing in the search entry box will now yield results immediately.
+*The search entry box now has a ten-line history buffer. To store a line in the history, press the enter key of click the Search button. To recall a line, use the up or down arrow keys while the cursor is in the entry box.
+*Added support for searching by location name and by acquire type.
+*The status bar at the bottom of the list panel will now show the number of list entries in parenthesis. 
+*World Drop recipes now show which continent or zone they may be found in as well as a level range for the mobs which drop them.
+*List entries are now colored according to their quality, instead of by skill level. Skill levels are still colored as before.
+*All obtain types (Trainer, Vendor, Reputation, etc.) have new color schemes.
+*Faction vendors are now colored by their reaction type: Red for opposing faction, green for same faction, and yellow for neutral vendors.
+*It is now possible to scroll with the mouse wheel while the mouse pointer is over the scrollbar.
+
+==== Changes to recipe filters:
+*A new filter category has been added which allows selective filtering based on the quality of the recipe item.
+*The icons for the Reputation and Obtain filter categories have been changed.
+*Reputation filters now behave identically to Class filters - every flag must be toggled off for the recipe to not show in the list.
+*The General filter category now has a "Retired" checkbox which allows for filtering recipes which have been removed from the game.
+
+==== Miscellaneous changes:
+*The Display configuration section now has a toggle for showing unknown recipes in the tooltip for trainers, vendors, and mobs.
+*The textdump facility now has support for BBCode output.
+*An enormous amount of effort was put into making the database much more accurate in all areas.
+*ARL's memory footprint has been reduced by roughly 40%.
+
+==== Bug Fixes.
+*The skill level of recipes which involve reputation are now correctly colored as red.
+*Changes to a character's reputation levels will now be correctly reflected in the list.
+*Using the icon at the top left of the list panel to cycle through your known professions will no longer cause an error when attempting to load Smelting.
+*Zone name truncation in recipe tooltips is no longer an issue.
+*The list panel will no longer be empty when a small amount of results should be shown.
+*Scrolling up or down in the list will now correctly generate a new tooltip as the mouse pointer passes over entries.
+*If there are no excluded recipes, the "View Exclusion List" and "Clear Exclusion List" buttons will now be disabled.
+*Switching professions will now clear the search box.
+*Closing an expanded entry will no longer leave a stuck highlight and tooltip when the mouse pointer is no longer over a list entry.
+*It is no longer possible to scroll in the list panel if the number of entries fits on one page.
 
 ===Version 2818
 *INSTALL A FRESH ACKISRECIPELIST DIRECTORY OF THIS VERSION IN YOUR ADDONS FOLDER.
