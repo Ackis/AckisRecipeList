@@ -1,6 +1,8 @@
 ==ARL Change Log
 === Version 1.1.0 Beta 1
 
+NOTE: Make sure you install a fresh ARL directory to the AddOns folder
+
 ==== Changes to the recipe list panel:
 *The behavior of Location sorting has been fundamentally changed. The list will now contain location names which can be expanded to show all recipes which can be obtained in that location.
 *The behavior of Acquisition sorting has been fundamentally changed. The list will now contain the names of acquire types such as "World Drop", "Trainer", and "Vendor", which can be expanded to show all recipes which can be obtained in that manner.
@@ -8,7 +10,7 @@
 *Typing in the search entry box will now yield results immediately.
 *The search entry box now has a ten-line history buffer. To store a line in the history, press the enter key of click the Search button. To recall a line, use the up or down arrow keys while the cursor is in the entry box.
 *Added support for searching by location name and by acquire type.
-*The status bar at the bottom of the list panel will now show the number of list entries in parenthesis. 
+*The status bar at the bottom of the list panel will now show the number of list entries in parenthesis.
 *World Drop recipes now show which continent or zone they may be found in as well as a level range for the mobs which drop them.
 *List entries are now colored according to their quality, instead of by skill level. Skill levels are still colored as before.
 *All obtain types (Trainer, Vendor, Reputation, etc.) have new color schemes.
@@ -23,7 +25,7 @@
 
 ==== Miscellaneous changes:
 *The Display configuration section now has a toggle for showing unknown recipes in the tooltip for trainers, vendors, and mobs.
-*The textdump facility now has support for BBCode output.
+*The textdump facility now has a cleaner CSV output and added support for BBCode output and Name output.
 *An enormous amount of effort was put into making the database much more accurate in all areas.
 *ARL's memory footprint has been reduced by roughly 40%.
 
