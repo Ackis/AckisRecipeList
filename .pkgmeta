@@ -2,9 +2,9 @@
 
 license-output: LICENSE.txt
 
-#manual-changelog:
-# filename: Docs/CHANGES.txt
-# markup-type: creole
+manual-changelog:
+ filename: Docs/CHANGES.txt
+ markup-type: creole
 
 enable-nolib-creation: yes
 

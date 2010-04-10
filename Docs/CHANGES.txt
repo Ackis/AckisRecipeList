@@ -1,7 +1,7 @@
 ==ARL Change Log
-=== Version 1.1.0 Beta 1
+NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-NOTE: Make sure you install a fresh ARL directory to the AddOns folder
+=== Version 1.1.0 Beta 1
 
 ==== Changes to the recipe list panel:
 *The behavior of Location sorting has been fundamentally changed. The list will now contain location names which can be expanded to show all recipes which can be obtained in that location.
@@ -41,15 +41,14 @@ NOTE: Make sure you install a fresh ARL directory to the AddOns folder
 *Closing an expanded entry will no longer leave a stuck highlight and tooltip when the mouse pointer is no longer over a list entry.
 *It is no longer possible to scroll in the list panel if the number of entries fits on one page.
 
-===Version 2818
+=== Version 1.0-r2818
 *INSTALL A FRESH ACKISRECIPELIST DIRECTORY OF THIS VERSION IN YOUR ADDONS FOLDER.
 *Removed the "Scan" and "Text Dump" buttons from the config options since they were not actually usable
 *Improved the Text Dump display for all the recipes.
 *Fixed some incorrect data in the database and added missing data.
 *Scan button correctly shows now if you use the default tradeskillui
 
-
-===Version 2770
+=== Version 1.0-r2770
 *Fixed a bug if you that was causing an error if you reset the filters through the interface options menu.
 *The crafted recipes from Icecrown Citadel will now show up in ARL.
 *Fixed bug that was preventing ARL to be localized in Russian.
@@ -62,14 +61,14 @@ NOTE: Make sure you install a fresh ARL directory to the AddOns folder
 *Added a feature where if you have your tradeskillui and ARL open and you learn a recipe, it will be updated in your current ARL scan, no need to rescan what is already open.
 *Renamed a bunch of the addons files.
 
-===Version 2735
+=== Version 1.0-r2735
 *Added a decimal point to the progress bar percentage value to be more precise.
 *More optimizations to the ARL core.
 *Refined some data in the recipe databases.
 *Updated the French and German translations of the ARL description.
 *Tagged for 3.3 release.
 
-===Version 2696
+=== Version 1.0-r2696
 *Getting a text dump of your professions will now use the correct csv syntax.
 *Extensive optimizations to the ARL core.
 *Location sort now works as intended!
@@ -78,16 +77,16 @@ NOTE: Make sure you install a fresh ARL directory to the AddOns folder
 *Mob tooltips now tell you if the mob drops a recipe you do not yet know, if you are of the appropriate skill level.
 *Thanksgiving recipes now appear correctly for Horde characters.
 
-===Version 2634
+=== Version 1.0-r2634
 *More optimizations to the Jewelcrafting, and Inscription databases.
 *Fixed an old bug which prevented you from customizing which items appear when you link things via TomTom.
 *Removed LibBetterBlizzOptions.  This is not longer needed as the complex filters have all been removed from the interface options and are only availible via the GUI.
 
-===Version 2576
+=== Version 1.0-r2576
 *Major issue with class filtering fixed.
 *Fixed class scanning in the dataminer.
 
-===Version 2570
+=== Version 1.0-r2570
 *New recipes added.
 *Fixed an issue with Trial of the Crusader cross-faction recipes not appearing correctly.
 *Updated the database to make code more readable and remove redundancy.  Should make database updates a lot easier for people.
@@ -97,18 +96,18 @@ NOTE: Make sure you install a fresh ARL directory to the AddOns folder
 *Memory optimizations.
 *Trainer updates (names fixed, locations more accurate, and erroneous trainers removed).
 
-===Version 2500
+=== Version 1.0-r2500
 *Fixed the addon title in the ToC.
 *Fixed the tooltip flickering issue.
 *Updated many flags for different recipes, this will make the filtering a lot more accurate.
 *Refined the dataminer which will make flag updating easier.
 
-===Version 2462
+=== Version 1.0-r2462
 *All trainer data has been added to the recipe databases
 *optimizations made to the ARL core
 *Database flags for Leatherworking are much more accurate, so using the filters for Leatherworking will make more sense, more work to come on the db flags for the other professions.
 
-===3.2 Release
+===3.2 Release Version 1.0
 *Updated recipes for 3.2
 *Trainer updates.  All LW and Tailoring trainers have been updated.
 *Recipes now have flags to determine which expansion they come from.
