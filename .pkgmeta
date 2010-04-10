@@ -28,6 +28,7 @@ tools-used:
  - data-tools
  - dlcount
  - querier
+ - findglobals
 
 externals:
  libs/LibStub:
