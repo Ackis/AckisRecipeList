@@ -2759,9 +2759,11 @@ do
 			local children = clicked_line.parent.children
 
 			-- Remove the expanded lines.
-			while #children > 0 do
-				table.remove(children)
-				ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
+			if children then
+				while #children > 0 do
+					table.remove(children)
+					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
+				end
 			end
 		end
 		highlight:Hide()
