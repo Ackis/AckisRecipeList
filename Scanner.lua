@@ -546,6 +546,12 @@ local function LoadRecipe()
 	local recipe_list = private.recipe_list
 
 	if addon.db.profile.autoloaddb then
+		-- Make sure the lookup lists are loaded as well, since they are no longer automatically loaded in addon:OnEnable().
+		if addon.InitializeLookups then
+			addon:InitializeLookups()
+			addon.InitializeLookups = nil
+		end
+
 		for idx, prof in pairs(PROFESSIONS) do
 			addon:InitializeRecipe(prof)
 		end
