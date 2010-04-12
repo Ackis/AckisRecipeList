@@ -770,12 +770,12 @@ function addon:InitEngineering()
 	self:AddRecipeMobDrop(23129, 8920)
 
 	-- Dimensional Ripper - Everlook -- 23486
-	AddRecipe(23486, 260, 18984, Q.UNCOMMON, V.ORIG, 260, 285, 295, 305, 20222)
+	AddRecipe(23486, 260, 18984, Q.COMMON, V.ORIG, 260, 285, 295, 305, 20222)
 	self:AddRecipeFlags(23486, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(23486, 14742)
 
 	-- Ultrasafe Transporter - Gadgetzan -- 23489
-	AddRecipe(23489, 260, 18986, Q.UNCOMMON, V.ORIG, 260, 285, 295, 305, 20219)
+	AddRecipe(23489, 260, 18986, Q.COMMON, V.ORIG, 260, 285, 295, 305, 20219)
 	self:AddRecipeFlags(23489, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(23489, 14743)
 
@@ -1105,12 +1105,12 @@ function addon:InitEngineering()
 	self:AddRecipeWorldDrop(32814, 2)
 
 	-- Dimensional Ripper - Area 52 -- 36954
-	AddRecipe(36954, 350, 30542, Q.UNCOMMON, V.TBC, 350, 350, 360, 370, 20222)
+	AddRecipe(36954, 350, 30542, Q.COMMON, V.TBC, 350, 350, 360, 370, 20222)
 	self:AddRecipeFlags(36954, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(36954, 21493)
 
 	-- Ultrasafe Transporter - Toshley's Station -- 36955
-	AddRecipe(36955, 350, 30544, Q.UNCOMMON, V.TBC, 350, 350, 360, 370, 20219)
+	AddRecipe(36955, 350, 30544, Q.COMMON, V.TBC, 350, 350, 360, 370, 20219)
 	self:AddRecipeFlags(36955, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(36955, 21494)
 
@@ -1155,12 +1155,12 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(41314, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
 	-- Gadgetstorm Goggles -- 41315
-	AddRecipe(41315, 350, 32476, Q.EPIC, V.TBC, 350, 370, 380, 390)
+	AddRecipe(41315, 350, 32476, Q.COMMON, V.TBC, 350, 370, 380, 390)
 	self:AddRecipeFlags(41315, F.ALLIANCE, F.HORDE, F.TRAINER, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
 	self:AddRecipeTrainer(41315, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
 	-- Living Replicator Specs -- 41316
-	AddRecipe(41316, 350, 32475, Q.EPIC, V.TBC, 350, 370, 380, 390)
+	AddRecipe(41316, 350, 32475, Q.COMMON, V.TBC, 350, 370, 380, 390)
 	self:AddRecipeFlags(41316, F.ALLIANCE, F.HORDE, F.TRAINER, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
 	self:AddRecipeTrainer(41316, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
@@ -1170,12 +1170,12 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(41317, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
 	-- Wonderheal XT40 Shades -- 41318
-	AddRecipe(41318, 350, 32479, Q.EPIC, V.TBC, 350, 370, 380, 390)
+	AddRecipe(41318, 350, 32479, Q.COMMON, V.TBC, 350, 370, 380, 390)
 	self:AddRecipeFlags(41318, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
 	self:AddRecipeTrainer(41318, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
 	-- Magnified Moon Specs -- 41319
-	AddRecipe(41319, 350, 32480, Q.EPIC, V.TBC, 350, 370, 380, 390)
+	AddRecipe(41319, 350, 32480, Q.COMMON, V.TBC, 350, 370, 380, 390)
 	self:AddRecipeFlags(41319, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
 	self:AddRecipeTrainer(41319, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
@@ -1185,7 +1185,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(41320, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
 	-- Powerheal 4000 Lens -- 41321
-	AddRecipe(41321, 350, 32495, Q.EPIC, V.TBC, 350, 370, 380, 390)
+	AddRecipe(41321, 350, 32495, Q.COMMON, V.TBC, 350, 370, 380, 390)
 	self:AddRecipeFlags(41321, F.ALLIANCE, F.HORDE, F.TRAINER, F.PRIEST, F.IBOP, F.RBOP, F.CLOTH)
 	self:AddRecipeTrainer(41321, 18775, 26955, 33586, 17637, 19576, 26907, 17634, 25277, 28697, 26991, 18752)
 
@@ -1195,12 +1195,12 @@ function addon:InitEngineering()
 	self:AddRecipeMobDrop(43676, 19707)
 
 	-- Flying Machine -- 44155
-	AddRecipe(44155, 300, 34060, Q.RARE, V.TBC, 300, 330, 340, 350)
+	AddRecipe(44155, 300, 34060, Q.COMMON, V.TBC, 300, 330, 340, 350)
 	self:AddRecipeFlags(44155, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(44155, 25277, 28697, 33586, 25099, 26955, 24868)
 
 	-- Turbo-Charged Flying Machine -- 44157
-	AddRecipe(44157, 375, 34061, Q.EPIC, V.TBC, 375, 385, 390, 395)
+	AddRecipe(44157, 375, 34061, Q.COMMON, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(44157, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(44157, 24868, 25099)
 
@@ -1275,7 +1275,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(53281, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Mark "S" Boomstick -- 54353
-	AddRecipe(54353, 400, 39688, Q.RARE, V.WOTLK, 400, 405, 410, 415)
+	AddRecipe(54353, 400, 39688, Q.COMMON, V.WOTLK, 400, 405, 410, 415)
 	self:AddRecipeFlags(54353, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.GUN)
 	self:AddRecipeTrainer(54353, 26907, 25277, 26991, 28697, 26955, 33586)
 
@@ -1350,17 +1350,17 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(56464, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Mechanized Snow Goggles -- 56465
-	AddRecipe(56465, 420, 41112, Q.RARE, V.WOTLK, 420, 425, 432, 440)
+	AddRecipe(56465, 420, 41112, Q.COMMON, V.WOTLK, 420, 425, 432, 440)
 	self:AddRecipeFlags(56465, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeTrainer(56465, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Sonic Booster -- 56466
-	AddRecipe(56466, 420, 40767, Q.RARE, V.WOTLK, 420, 435, 440, 445)
+	AddRecipe(56466, 420, 40767, Q.COMMON, V.WOTLK, 420, 435, 440, 445)
 	self:AddRecipeFlags(56466, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TRINKET)
 	self:AddRecipeTrainer(56466, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Noise Machine -- 56467
-	AddRecipe(56467, 420, 40865, Q.RARE, V.WOTLK, 420, 435, 440, 445)
+	AddRecipe(56467, 420, 40865, Q.COMMON, V.WOTLK, 420, 435, 440, 445)
 	self:AddRecipeFlags(56467, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
 	self:AddRecipeTrainer(56467, 26907, 25277, 26991, 28697, 26955, 33586)
 
@@ -1370,12 +1370,12 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(56468, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Gnomish Lightning Generator -- 56469
-	AddRecipe(56469, 425, 41121, Q.RARE, V.WOTLK, 425, 430, 435, 440)
+	AddRecipe(56469, 425, 41121, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
 	self:AddRecipeFlags(56469, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TRINKET)
 	self:AddRecipeTrainer(56469, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Sun Scope -- 56470
-	AddRecipe(56470, 425, 41146, Q.RARE, V.WOTLK, 425, 430, 432, 435)
+	AddRecipe(56470, 425, 41146, Q.COMMON, V.WOTLK, 425, 430, 432, 435)
 	self:AddRecipeFlags(56470, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(56470, 26907, 25277, 26991, 28697, 26955, 33586)
 
@@ -1390,7 +1390,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(56472, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Gnomish X-Ray Specs -- 56473
-	AddRecipe(56473, 425, 40895, Q.RARE, V.WOTLK, 425, 430, 435, 440, 20219)
+	AddRecipe(56473, 425, 40895, Q.COMMON, V.WOTLK, 425, 430, 435, 440, 20219)
 	self:AddRecipeFlags(56473, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(56473, 26907, 26955, 29514)
 
@@ -1415,42 +1415,42 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(56477, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Heartseeker Scope -- 56478
-	AddRecipe(56478, 430, 41167, Q.RARE, V.WOTLK, 430, 435, 445, 455)
+	AddRecipe(56478, 430, 41167, Q.COMMON, V.WOTLK, 430, 435, 445, 455)
 	self:AddRecipeFlags(56478, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(56478, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Armor Plated Combat Shotgun -- 56479
-	AddRecipe(56479, 450, 41168, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
+	AddRecipe(56479, 450, 41168, Q.COMMON, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(56479, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.GUN)
 	self:AddRecipeTrainer(56479, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Armored Titanium Goggles -- 56480
-	AddRecipe(56480, 440, 42549, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56480, 440, 42549, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56480, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.PALADIN, F.WARRIOR, F.IBOP, F.RBOP, F.DPS, F.TANK, F.PLATE)
 	self:AddRecipeTrainer(56480, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Weakness Spectralizers -- 56481
-	AddRecipe(56481, 440, 42550, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56481, 440, 42550, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56481, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
 	self:AddRecipeTrainer(56481, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Charged Titanium Specs -- 56483
-	AddRecipe(56483, 440, 42552, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56483, 440, 42552, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56483, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.PALADIN, F.WARRIOR, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(56483, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Visage Liquification Goggles -- 56484
-	AddRecipe(56484, 440, 42553, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56484, 440, 42553, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56484, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(56484, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Greensight Gogs -- 56486
-	AddRecipe(56486, 440, 42554, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56486, 440, 42554, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56486, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
 	self:AddRecipeTrainer(56486, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Electroflux Sight Enhancers -- 56487
-	AddRecipe(56487, 440, 42555, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(56487, 440, 42555, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(56487, F.ALLIANCE, F.HORDE, F.TRAINER, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
 	self:AddRecipeTrainer(56487, 26907, 25277, 26991, 28697, 26955, 33586)
 
@@ -1465,7 +1465,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(56574, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Nesingwary 4000 -- 60874
-	AddRecipe(60874, 450, 44504, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
+	AddRecipe(60874, 450, 44504, Q.COMMON, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(60874, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.GUN)
 	self:AddRecipeTrainer(60874, 26907, 25277, 26991, 28697, 26955, 33586)
 
@@ -1475,22 +1475,22 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(61471, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Mechanized Snow Goggles -- 61481
-	AddRecipe(61481, 420, 44742, Q.RARE, V.WOTLK, 420, 425, 432, 440)
+	AddRecipe(61481, 420, 44742, Q.COMMON, V.WOTLK, 420, 425, 432, 440)
 	self:AddRecipeFlags(61481, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.ROGUE, F.IBOE, F.RBOP, F.LEATHER)
 	self:AddRecipeTrainer(61481, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Mechanized Snow Goggles -- 61482
-	AddRecipe(61482, 420, 44742, Q.RARE, V.WOTLK, 420, 425, 432, 440)
+	AddRecipe(61482, 420, 44742, Q.COMMON, V.WOTLK, 420, 425, 432, 440)
 	self:AddRecipeFlags(61482, F.ALLIANCE, F.HORDE, F.TRAINER, F.HUNTER, F.SHAMAN, F.IBOE, F.RBOP, F.MAIL)
 	self:AddRecipeTrainer(61482, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Mechanized Snow Goggles -- 61483
-	AddRecipe(61483, 420, 44742, Q.RARE, V.WOTLK, 420, 425, 432, 440)
+	AddRecipe(61483, 420, 44742, Q.COMMON, V.WOTLK, 420, 425, 432, 440)
 	self:AddRecipeFlags(61483, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.PALADIN, F.WARRIOR, F.IBOE, F.RBOP, F.PLATE)
 	self:AddRecipeTrainer(61483, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Unbreakable Healing Amplifiers -- 62271
-	AddRecipe(62271, 440, 44949, Q.RARE, V.WOTLK, 440, 450, 455, 460)
+	AddRecipe(62271, 440, 44949, Q.COMMON, V.WOTLK, 440, 450, 455, 460)
 	self:AddRecipeFlags(62271, F.ALLIANCE, F.HORDE, F.TRAINER, F.PALADIN, F.IBOP, F.RBOP, F.HEALER, F.PLATE)
 	self:AddRecipeTrainer(62271, 25277, 26907, 26955)
 
