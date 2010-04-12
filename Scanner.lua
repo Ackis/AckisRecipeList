@@ -1981,7 +1981,7 @@ do
 			tinsert(output, string.format("    Extra Specialty: %s", recipe.specialty))
 		end
 
-		if recipe:IsFlagged("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
+		if recipe:IsFlagged("common1", "TRAINER") and not SPELL_TO_RECIPE_MAP[recipe.spell_id] and recipe.quality ~= private.item_qualities["COMMON"] then
 			local QS = private.item_quality_names
 
 			found_problem = true
