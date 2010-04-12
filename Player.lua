@@ -107,7 +107,7 @@ function Player:HasProperRepLevel(rep_data)
 			end
 			local rep_name = private.reputation_list[rep_id].name
 
-			if player_rep[rep_name] and player_rep[rep_name] < rep_level then
+			if not player_rep[rep_name] or player_rep[rep_name] < rep_level then
 				has_faction = false
 			else
 				has_faction = true
