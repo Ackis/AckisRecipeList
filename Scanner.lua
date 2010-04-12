@@ -793,7 +793,7 @@ function addon:GenerateLinks()
 	bitmap[51300] = "2//////f7fM//f/f53/+//7///ze8c6q/f9///P2/////m4BAA2XIG+dFA8//PC////4//z//////////Pwvy//H" -- Blacksmithing 82.9%   413/498 recipes
 	bitmap[51309] = "4//+/+5a79rv7/vx2/65t3nZ3f33N33LJq/z54Hx//mK7w1GQgFA+AQ4/////7//7//9//2wD" -- Tailoring   74.3%   303/408 recipes
 	bitmap[51311] = "8//3////fzj//u//////v/7///9///33////////Pw////////////////////////3///////////////////////////D" -- Jewelcrafting  97.5%   540/554 recipes
-	bitmap[45363] = "g////7////3///////////////////////////////////////////////////fHM+3dqhGYa0f" --Inscription 92.5%    407/440 recipes
+	bitmap[45363] = "g////7////3///////////////////////////////////////////////////f///////////f" --Inscription 99.77%    439/440 recipes
 	bitmap[51313] = "4//////////7///////////w//+//9/n7///////3f//////ZsD" -- Enchanting   94.3%    279/296 recipes
 
 	for i in pairs(tradelist) do
