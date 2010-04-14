@@ -526,7 +526,7 @@ function addon:InitTailoring()
 	-- Crimson Silk Robe -- 8802
 	AddRecipe(8802, 205, 7063, Q.COMMON, V.ORIG, 205, 220, 235, 250)
 	self:AddRecipeFlags(8802, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(8802, 6568)
+	self:AddRecipeLimitedVendor(8802, 6568, 1)
 
 	-- Crimson Silk Gloves -- 8804
 	AddRecipe(8804, 210, 7064, Q.COMMON, V.ORIG, 210, 225, 240, 255)
@@ -686,7 +686,7 @@ function addon:InitTailoring()
 	-- Admiral's Hat -- 12081
 	AddRecipe(12081, 240, 10030, Q.COMMON, V.ORIG, 240, 255, 270, 285)
 	self:AddRecipeFlags(12081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeVendor(12081, 2672)
+	self:AddRecipeLimitedVendor(12081, 2672, 1)
 
 	-- Shadoweave Boots -- 12082
 	AddRecipe(12082, 240, 10031, Q.COMMON, V.ORIG, 240, 255, 270, 285)
