@@ -714,9 +714,7 @@ do
 		local teachflag = false
 		local noteachflag = false
 
-		for i in pairs(recipe_list) do
-			local recipe = recipe_list[i]
-			local i_name = recipe.name
+		for spell_id, recipe in pairs(recipe_list) do
 			local train_data = recipe.acquire_data[A.TRAINER]
 			local found = false
 
@@ -729,16 +727,20 @@ do
 				end
 			end
 
-			if info[i_name] and not found then
-				tinsert(teach, i)
-				teachflag = true
+			if info[recipe.name] then
+				if not found then
+					tinsert(teach, spell_id)
+					teachflag = true
 
-				if not recipe:IsFlagged("common1", "TRAINER") then
-					tinsert(output, ": Trainer flag needs to be set.")
+					if not recipe:IsFlagged("common1", "TRAINER") then
+						tinsert(output, ": Trainer flag needs to be set.")
+					end
 				end
-			elseif found then
-				noteachflag = true
-				tinsert(noteach, i)
+			else
+				if found then
+					noteachflag = true
+					tinsert(noteach, spell_id)
+				end
 			end
 		end
 
