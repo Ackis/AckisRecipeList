@@ -1412,10 +1412,16 @@ do
 		elseif not item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			if not recipe:IsFlagged("common1", "RETIRED")
-				and (recipe:IsFlagged("common1", "VENDOR") or recipe:IsFlagged("common1", "INSTANCE") or recipe:IsFlagged("common1", "RAID")) then
+			if not recipe:IsFlagged("common1", "RETIRED") then
+				if (recipe:IsFlagged("common1", "VENDOR") or recipe:IsFlagged("common1", "INSTANCE") or recipe:IsFlagged("common1", "RAID")) then
 					tinsert(output, string.format("%s: %d", recipe.name, spell_id))
 					tinsert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
+				elseif recipe:IsFlagged("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
+					local QS = private.item_quality_names
+ 
+					tinsert(output, string.format("%s: %d", recipe.name, spell_id))
+					tinsert(output, string.format("    Wrong quality: Q.%s - should be Q.COMMON.", QS[recipe.quality]))
+				end
 			end
 		end
 		ARLDatamineTT:Hide()
@@ -1983,12 +1989,7 @@ do
 			tinsert(output, string.format("    Extra Specialty: %s", recipe.specialty))
 		end
 
-		if recipe:IsFlagged("common1", "TRAINER") and not SPELL_TO_RECIPE_MAP[recipe.spell_id] and recipe.quality ~= private.item_qualities["COMMON"] then
-			local QS = private.item_quality_names
-
-			found_problem = true
-			tinsert(output, string.format("    Wrong quality: Q.%s - should be Q.COMMON.", QS[recipe.quality]))
-		elseif scan_data.quality ~= recipe.quality then
+		if scan_data.quality ~= recipe.quality then
 			local QS = private.item_quality_names
 
 			found_problem = true
