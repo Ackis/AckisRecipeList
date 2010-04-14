@@ -108,7 +108,7 @@ function addon:InitJewelcrafting()
 	-- Wicked Moonstone Ring -- 25323
 	AddRecipe(25323, 125, 20833, Q.COMMON, V.TBC, 125, 155, 170, 185)
 	self:AddRecipeFlags(25323, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.RING)
-	self:AddRecipeVendor(25323, 3499, 3954)
+	self:AddRecipeLimitedVendor(25323, 3499, 1, 3954, 1)
 
 	-- Amulet of the Moon -- 25339
 	AddRecipe(25339, 110, 20830, Q.COMMON, V.TBC, 110, 140, 155, 170)

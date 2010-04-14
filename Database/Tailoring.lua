@@ -223,7 +223,7 @@ function addon:InitTailoring()
 	-- Azure Silk Gloves -- 3854
 	AddRecipe(3854, 145, 4319, Q.COMMON, V.ORIG, 145, 165, 180, 195)
 	self:AddRecipeFlags(3854, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(3854, 2679, 9636)
+	self:AddRecipeLimitedVendor(3854, 2679, 1, 9636, 1)
 
 	-- Spidersilk Boots -- 3855
 	AddRecipe(3855, 125, 4320, Q.COMMON, V.ORIG, 125, 150, 167, 185)
@@ -238,7 +238,7 @@ function addon:InitTailoring()
 	-- Enchanter's Cowl -- 3857
 	AddRecipe(3857, 165, 4322, Q.COMMON, V.ORIG, 165, 185, 200, 215)
 	self:AddRecipeFlags(3857, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(3857, 2670)
+	self:AddRecipeLimitedVendor(3857, 2670, 1)
 
 	-- Shadow Hood -- 3858
 	AddRecipe(3858, 170, 4323, Q.UNCOMMON, V.ORIG, 170, 190, 205, 220)
@@ -298,7 +298,7 @@ function addon:InitTailoring()
 	-- Dark Silk Shirt -- 3870
 	AddRecipe(3870, 155, 4333, Q.COMMON, V.ORIG, 155, 165, 170, 175)
 	self:AddRecipeFlags(3870, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(3870, 2394, 2669)
+	self:AddRecipeLimitedVendor(3870, 2394, 1, 2669, 1)
 
 	-- Formal White Shirt -- 3871
 	AddRecipe(3871, 170, 4334, Q.COMMON, V.ORIG, 170, 180, 185, 190)
@@ -334,7 +334,7 @@ function addon:InitTailoring()
 	AddRecipe(6686, 70, 5762, Q.COMMON, V.ORIG, 70, 95, 112, 130)
 	self:AddRecipeFlags(6686, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(6686, 3531, 3530, 590)
-	self:AddRecipeVendor(6686, 16224, 843, 3005, 4189, 3556)
+	self:AddRecipeLimitedVendor(6686, 16224, 1, 843, 1, 3005, 1, 4189, 1, 3556, 1)
 
 	-- Red Woolen Bag -- 6688
 	AddRecipe(6688, 115, 5763, Q.COMMON, V.ORIG, 115, 140, 157, 175)
@@ -386,7 +386,7 @@ function addon:InitTailoring()
 	-- Blue Linen Robe -- 7633
 	AddRecipe(7633, 70, 6242, Q.COMMON, V.ORIG, 70, 95, 112, 130)
 	self:AddRecipeFlags(7633, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(7633, 4168, 3499, 3556, 3485, 1250)
+	self:AddRecipeLimitedVendor(7633, 4168, 1, 3499, 1, 3556, 1, 3485, 1, 1250, 1)
 
 	-- Blue Overalls -- 7639
 	AddRecipe(7639, 100, 6263, Q.COMMON, V.ORIG, 100, 125, 142, 160)
@@ -396,7 +396,7 @@ function addon:InitTailoring()
 	-- Greater Adept's Robe -- 7643
 	AddRecipe(7643, 115, 6264, Q.COMMON, V.ORIG, 115, 140, 157, 175)
 	self:AddRecipeFlags(7643, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(7643, 1474, 3499, 1454, 2669, 4577, 4168)
+	self:AddRecipeLimitedVendor(7643, 1474, 1, 3499, 1, 1454, 1, 2669, 1, 4577, 1, 4168, 1)
 
 	-- Stylish Blue Shirt -- 7892
 	AddRecipe(7892, 120, 6384, Q.UNCOMMON, V.ORIG, 120, 145, 162, 180)
@@ -491,12 +491,12 @@ function addon:InitTailoring()
 	-- Azure Silk Cloak -- 8786
 	AddRecipe(8786, 175, 7053, Q.COMMON, V.ORIG, 175, 195, 210, 225)
 	self:AddRecipeFlags(8786, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeVendor(8786, 6574, 6576)
+	self:AddRecipeLimitedVendor(8786, 6574, 1, 6576, 1)
 
 	-- Crimson Silk Cloak -- 8789
 	AddRecipe(8789, 180, 7056, Q.COMMON, V.ORIG, 180, 200, 215, 230)
 	self:AddRecipeFlags(8789, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOAK)
-	self:AddRecipeVendor(8789, 2670)
+	self:AddRecipeLimitedVendor(8789, 2670, 1)
 
 	-- Crimson Silk Vest -- 8791
 	AddRecipe(8791, 185, 7058, Q.COMMON, V.ORIG, 185, 205, 215, 225)
@@ -828,7 +828,7 @@ function addon:InitTailoring()
 	-- Felcloth Pants -- 18419
 	AddRecipe(18419, 275, 14107, Q.COMMON, V.ORIG, 275, 290, 305, 320)
 	self:AddRecipeFlags(18419, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(18419, 12022)
+	self:AddRecipeLimitedVendor(18419, 12022, 1)
 
 	-- Brightcloth Cloak -- 18420
 	AddRecipe(18420, 275, 14103, Q.UNCOMMON, V.ORIG, 275, 290, 305, 320)
@@ -1151,7 +1151,7 @@ function addon:InitTailoring()
 	-- Bolt of Soulcloth -- 26750
 	AddRecipe(26750, 345, 21844, Q.COMMON, V.TBC, 345, 345, 350, 355)
 	self:AddRecipeFlags(26750, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeVendor(26750, 19015, 16638, 19017, 16767)
+	self:AddRecipeLimitedVendor(26750, 19015, 1, 16638, 1, 19017, 1, 16767, 1)
 
 	-- Primal Mooncloth -- 26751
 	AddRecipe(26751, 350, 21845, Q.COMMON, V.TBC, 350, 350, 355, 360)
