@@ -4362,10 +4362,12 @@ end
 -------------------------------------------------------------------------------
 -- Displays the main recipe frame.
 -------------------------------------------------------------------------------
-function addon:DisplayFrame()
+function addon:DisplayFrame(is_linked)
 	MainPanel:SetPosition()
 	MainPanel:SetProfession()
 	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
+
+	MainPanel.is_linked = is_linked
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
@@ -4389,7 +4391,7 @@ end
 --- Upvalued at the top of the file.
 --------------------------------------------------------------------------------
 function ReDisplay()
-	addon:UpdateFilters()
+	addon:UpdateFilters(MainPanel.is_linked)
 	Player:MarkExclusions()
 
 	ListFrame:Update(false, false)
