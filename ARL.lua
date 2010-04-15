@@ -1762,11 +1762,11 @@ do
 		-- Set the current profession and its level, and update the cached data.
 		Player.current_prof = current_prof
 		Player["ProfessionLevel"] = prof_level
-		Player.has_scanned[current_prof] = true
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		if not IsTradeSkillLinked() and Player.professions[current_prof] then
 			Player.professions[current_prof] = prof_level
+			Player.has_scanned[current_prof] = true
 		end
 
 		-- Get the current profession Specialty
