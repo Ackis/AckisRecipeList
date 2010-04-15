@@ -2854,14 +2854,7 @@ do
 
 	-- Used for the value portion of location_list or acquire_list entries.
 	function HasCredentials(affiliation)
-		local is_good = (affiliation == "world_drop" or type(affiliation) == "boolean") and true or false
-
-		if not is_good then
-			if addon.db.profile.filters.general.faction or affiliation == BFAC[Player.faction] or affiliation == BFAC["Neutral"] then
-				is_good = true
-			end
-		end
-		return is_good
+		return (affiliation == "world_drop" or type(affiliation) == "boolean")
 	end
 
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
