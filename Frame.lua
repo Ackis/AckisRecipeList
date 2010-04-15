@@ -2852,11 +2852,6 @@ do
 		return recipe_string
 	end
 
-	-- Used for the value portion of location_list or acquire_list entries.
-	function HasCredentials(affiliation)
-		return (affiliation == "world_drop" or type(affiliation) == "boolean")
-	end
-
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
 		local insert_index = entry_index
 
@@ -2934,9 +2929,8 @@ do
 				-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 					local recipe = private.recipe_list[spell_id]
-					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
+					if recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -2971,9 +2965,8 @@ do
 				-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 				for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 					local recipe = private.recipe_list[spell_id]
-					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
+					if recipe:HasState("VISIBLE") and RecipeMatchesSearch(recipe) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
@@ -3494,9 +3487,8 @@ do
 			if current_entry.type == "header" then
 				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
-					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3529,9 +3521,8 @@ do
 			if current_entry.type == "header" then
 				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
 					local recipe_entry = private.recipe_list[spell_id]
-					local can_display = HasCredentials(affiliation)
 
-					if can_display and recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()
