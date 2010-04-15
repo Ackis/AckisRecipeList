@@ -1623,7 +1623,7 @@ do
 	end
 
 	---Scans the recipe listing and updates the filters according to user preferences
-	function addon:UpdateFilters()
+	function addon:UpdateFilters(is_linked)
 		local general_filters = addon.db.profile.filters.general
 		local recipes_total = 0
 		local recipes_known = 0
@@ -1638,7 +1638,13 @@ do
 			recipe:RemoveState("VISIBLE")
 
 			if recipe.profession == current_profession then
-				local is_known = recipe:HasState("KNOWN")
+				local is_known
+
+				if is_linked then
+					is_known = recipe:HasState("LINKED")
+				else 
+					is_known = recipe:HasState("KNOWN")
+				end
 
 				can_display = CanDisplayRecipe(recipe)
 				recipes_total = recipes_total + 1
@@ -1764,7 +1770,9 @@ do
 		Player["ProfessionLevel"] = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-		if not IsTradeSkillLinked() and Player.professions[current_prof] then
+		local is_linked = IsTradeSkillLinked()
+
+		if not is_linked and Player.professions[current_prof] then
 			Player.professions[current_prof] = prof_level
 			Player.has_scanned[current_prof] = true
 		end
@@ -1839,7 +1847,12 @@ do
 				local recipe = recipe_list[tonumber(SpellString)]
 
 				if recipe then
-					recipe:AddState("KNOWN")
+					if not is_linked then
+						recipe:AddState("KNOWN")
+						recipe:RemoveState("LINKED")
+					else
+						recipe:AddState("LINKED")
+					end
 					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
@@ -1868,7 +1881,7 @@ do
 			return
 		end
 
-		self:UpdateFilters()
+		self:UpdateFilters(is_linked)
 		Player:MarkExclusions()
 
 		-------------------------------------------------------------------------------
