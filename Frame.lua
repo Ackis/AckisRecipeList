@@ -2745,28 +2745,55 @@ do
 				clicked_line.is_expanded = true
 			end
 		else
-			-- This is an expanded entry. Back up in the list of buttons until we find its header line.
+			-- This is an expanded entry. Remove all of its parent's children from the list.
 			local entries = ListFrame.entries
+			local parent = clicked_line.parent
+			local parent_index
 
-			traverseIndex = clickedIndex - 1
-
-			while entries[traverseIndex] and entries[traverseIndex] ~= clicked_line.parent do
-				traverseIndex = traverseIndex - 1
+			for index = 1, #entries do
+				if entries[index] == parent then
+					parent_index = index
+					break
+				end
 			end
-			entries[traverseIndex].is_expanded = false
 
-			local children = entries[traverseIndex].children
+			if parent then
+				addon:Debug("clicked_line (%s): %s - parent (%s): %s", clicked_line.text, clicked_line.type, parent.text, parent.type)
 
-			-- Remove the expanded lines.
-			if children then
-				traverseIndex = traverseIndex + 1
+				if not parent_index then
+					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
+					return
+				end
+				local children = parent.children
 
-				while #children > 0 do
-					table.remove(children)
-					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
+				entries[parent_index].is_expanded = false
+
+				-- Remove the expanded lines.
+				if children then
+					local child_index = parent_index + 1
+					local num_children = #children
+
+					addon:Debug("Begin: num_children is %d", num_children)
+
+					while #children > 0 and child_index <= #entries do
+						local child = table.remove(children)
+
+						num_children = num_children - 1
+						addon:Debug("Update: num_children is %d", num_children)
+
+						if entries[child_index].parent == parent then
+							ReleaseTable(table.remove(entries, child_index))
+						else
+							local ref = entries[child_index]
+							addon:Debug("list entry (%s): incorrect parent (%s)", ref.text or "nil", ref.parent and ref.parent.text or "nil")
+						end
+					end
+					wipe(children)
+				else
+					addon:Debug("clicked_line (%s): parent (%s) has no children.", clicked_line.text, clicked_line.parent and clicked_line.parent.text or "nil")
 				end
 			else
-				addon:Debug("Error: clicked_line's parent has no children.")
+				addon:Debug("Error: clicked_line has no parent.")
 			end
 		end
 		highlight:Hide()
