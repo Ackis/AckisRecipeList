@@ -197,7 +197,6 @@ local FilterValueMap		-- Assigned in addon:InitializeFrame()
 -- Upvalues
 -------------------------------------------------------------------------------
 local ListFrame
-local ReDisplay
 
 -------------------------------------------------------------------------------
 -- Table cache mechanism
@@ -1256,7 +1255,7 @@ local function ARL_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
 	SetSortName()
-	ReDisplay()
+	ListFrame:Update(nil, false)
 end
 
 local function ARL_DD_Sort_Initialize()
@@ -1659,7 +1658,7 @@ do
 		if MainPanel:IsVisible() then
 			MainPanel:UpdateTitle()
 			MainPanel:HighlightCategory(nil)
-			ReDisplay()
+			ListFrame:Update(nil, false)
 		end
 	end
 	MainPanel.filter_reset:SetScript("OnClick", addon.resetFilters)
@@ -1887,13 +1886,13 @@ do
 					  function()
 						  FilterValueMap[scriptVal].svroot[scriptVal] = FilterValueMap[scriptVal].cb:GetChecked() and true or false
 						  MainPanel:UpdateTitle()
-						  ReDisplay()
+						  ListFrame:Update(nil, false)
 					  end)
 		else
 			cButton:SetScript("OnClick",
 					  function()
 						  addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
-						  ReDisplay()
+						  ListFrame:Update(nil, false)
 					  end)
 		end
 		SetTooltipScripts(cButton, ttText, 1)
@@ -1964,7 +1963,7 @@ MainPanel.filter_menu.general.class_toggle:SetScript("OnClick",
 								     general[class]:SetChecked(true)
 							     end
 							     MainPanel:UpdateTitle()
-							     ReDisplay()
+							     ListFrame:Update(nil, false)
 						     end)
 
 MainPanel.filter_menu.general.deathknight = CreateFrame("CheckButton", nil, MainPanel.filter_menu.general)
@@ -2136,7 +2135,7 @@ MainPanel.filter_menu.item.armor_toggle:SetScript("OnClick",
 								  items[armor]:SetChecked(toggle)
 							  end
 							  MainPanel:UpdateTitle()
-							  ReDisplay()
+							  ListFrame:Update(nil, false)
 						  end)
 
 MainPanel.filter_menu.item.cloth = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
@@ -2198,7 +2197,7 @@ MainPanel.filter_menu.item.weapon_toggle:SetScript("OnClick",
 								   end
 							   end
 							   MainPanel:UpdateTitle()
-							   ReDisplay()
+							   ListFrame:Update(nil, false)
 						   end)
 
 MainPanel.filter_menu.item.onehand = CreateFrame("CheckButton", nil, MainPanel.filter_menu.item)
@@ -2714,7 +2713,7 @@ do
 				local recipe_id = clicked_line.recipe_id
 
 				exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
-				ReDisplay()
+				ListFrame:Update(nil, false)
 			end
 		elseif clicked_line.type == "header" or clicked_line.type == "subheader" then
 			-- three possibilities here (all with no modifiers)
@@ -2776,7 +2775,7 @@ do
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 
-		ListFrame:Update(false, true)
+		ListFrame:Update(nil, true)
 	end
 
 	for i = 1, NUM_RECIPE_LINES do
@@ -3054,6 +3053,15 @@ do
 	function ListFrame:Update(expand_mode, refresh)
 		if not refresh then
 			self:Initialize(expand_mode)
+
+			-- Not refreshing and not expanding: Fresh display, so update everything first.
+			if not expand_mode then
+				addon:UpdateFilters(MainPanel.is_linked)
+				Player:MarkExclusions()
+
+				ARL_ExpandButton:SetText(L["EXPANDALL"])
+				SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+			end
 		end
 
 		local num_entries = #self.entries
@@ -3857,7 +3865,7 @@ function addon:InitializeFrame()
 					   -- Reset our title
 					   MainPanel:UpdateTitle()
 					   -- Use new filters
-					   ReDisplay()
+					   ListFrame:Update(nil, false)
 				   end)
 
 	local ARL_RepArgentDawnCB = CreateFrame("CheckButton", "ARL_RepArgentDawnCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
@@ -3948,7 +3956,7 @@ function addon:InitializeFrame()
 					   -- Reset our title
 					   MainPanel:UpdateTitle()
 					   -- Use new filters
-					   ReDisplay()
+					   ListFrame:Update(nil, false)
 				   end)
 
 	local ARL_RepAldorCB = CreateFrame("CheckButton", "ARL_RepAldorCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
@@ -4069,10 +4077,9 @@ function addon:InitializeFrame()
 					   ARL_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
 					   ARL_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
 					   ARL_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
-					   -- Reset our title
+
 					   MainPanel:UpdateTitle()
-					   -- Use new filters
-					   ReDisplay()
+					   ListFrame:Update(nil, false)
 				   end)
 
 	local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
@@ -4378,28 +4385,10 @@ function MainPanel:Display(is_linked)
 		editbox.prev_search = nil
 	end
 	editbox:SetText(editbox.prev_search or _G.SEARCH)
-	ListFrame:Update(false, false)
+	ListFrame:Update(nil, false)
 
 	self:UpdateTitle()
 	self:Show()
-end
-
---------------------------------------------------------------------------------
---- Under various conditions, the recipe list will have to be re-displayed.
---- This could happen because a filter changes, a new profession is chosen, or
---- a new search occurred. Use this function to do all the dirty work
----
---- Upvalued at the top of the file.
---------------------------------------------------------------------------------
-function ReDisplay()
-	addon:UpdateFilters(MainPanel.is_linked)
-	Player:MarkExclusions()
-
-	ListFrame:Update(false, false)
-
-	-- Make sure our expand all button is set to expandall
-	ARL_ExpandButton:SetText(L["EXPANDALL"])
-	SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
 end
 
 --------------------------------------------------------------------------------
