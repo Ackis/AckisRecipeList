@@ -1880,10 +1880,6 @@ do
 		if is_refresh and Player.prev_count == recipes_found then
 			return
 		end
-
-		self:UpdateFilters(is_linked)
-		Player:MarkExclusions()
-
 		-------------------------------------------------------------------------------
 		-- Get the player's reputation levels.
 		-------------------------------------------------------------------------------
