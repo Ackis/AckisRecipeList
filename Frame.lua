@@ -2916,6 +2916,12 @@ do
 
 		SetSortName()
 
+		addon:UpdateFilters(MainPanel.is_linked)
+		Player:MarkExclusions()
+
+		ARL_ExpandButton:SetText(L["EXPANDALL"])
+		SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
 		if sort_type == "Acquisition" then
 			local sorted_acquires = addon.sorted_acquires
 			local current_prof = Player.current_prof
@@ -3053,15 +3059,6 @@ do
 	function ListFrame:Update(expand_mode, refresh)
 		if not refresh then
 			self:Initialize(expand_mode)
-
-			-- Not refreshing and not expanding: Fresh display, so update everything first.
-			if not expand_mode then
-				addon:UpdateFilters(MainPanel.is_linked)
-				Player:MarkExclusions()
-
-				ARL_ExpandButton:SetText(L["EXPANDALL"])
-				SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-			end
 		end
 
 		local num_entries = #self.entries
