@@ -196,6 +196,7 @@ local FilterValueMap		-- Assigned in addon:InitializeFrame()
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
+local ListFrame
 local ReDisplay
 
 -------------------------------------------------------------------------------
@@ -1329,7 +1330,7 @@ ARL_ExpandButton:SetScript("OnClick",
 					   end
 				   end
 				   -- If expand_mode is nil, that means expand nothing.
-				   MainPanel.scroll_frame:Update(expand_mode, false)
+				   ListFrame:Update(expand_mode, false)
 			   end)
 ARL_ExpandButton:SetText(L["EXPANDALL"])
 SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
@@ -1425,7 +1426,7 @@ ARL_SearchButton:SetScript("OnClick",
 					   MainPanel.search_editbox:HighlightText()
 					   MainPanel.search_editbox:AddHistoryLine(searchtext)
 					   SearchRecipes(searchtext)
-					   MainPanel.scroll_frame:Update(false, false)
+					   ListFrame:Update(false, false)
 
 					   ARL_ExpandButton:SetText(L["EXPANDALL"])
 					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
@@ -1457,7 +1458,7 @@ ARL_ClearButton:SetScript("OnClick",
 				  MainPanel.search_editbox:SetText(_G.SEARCH)
 				  MainPanel.search_editbox:ClearFocus()
 				  MainPanel.search_editbox.prev_search = nil
-				  MainPanel.scroll_frame:Update(false, false)
+				  ListFrame:Update(false, false)
 			  end)
 
 local SearchBox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
@@ -1475,7 +1476,7 @@ SearchBox:SetScript("OnEnterPressed",
 				    self:HighlightText()
 				    self:AddHistoryLine(searchtext)
 				    SearchRecipes(searchtext)
-				    MainPanel.scroll_frame:Update(false, false)
+				    ListFrame:Update(false, false)
 
 				    ARL_ExpandButton:SetText(L["EXPANDALL"])
 				    SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
@@ -1536,7 +1537,7 @@ do
 					  last_update = 0
 
 					  SearchRecipes(SearchBox:GetText())
-					  MainPanel.scroll_frame:Update(false, false)
+					  ListFrame:Update(false, false)
 					  self:Hide()
 				  end
 			  end)
@@ -2516,9 +2517,9 @@ MainPanel.filter_menu.rep.LK:Hide()
 
 
 -------------------------------------------------------------------------------
--- Create MainPanel.scrollframe and set its scripts.
+-- Create the ListFrame and set its scripts.
 -------------------------------------------------------------------------------
-local ListFrame = CreateFrame("Frame", "ARL_MainPanelScrollFrame", MainPanel)
+ListFrame = CreateFrame("Frame", "ARL_MainPanelScrollFrame", MainPanel)
 
 MainPanel.scroll_frame = ListFrame
 
