@@ -1893,7 +1893,7 @@ do
 		if textdump then
 			self:DisplayTextDump(recipe_list, Player.current_prof)
 		else
-			self:DisplayFrame(is_linked)
+			self.Frame:Display(is_linked)
 		end
 	end
 end

@@ -4362,25 +4362,25 @@ end
 -------------------------------------------------------------------------------
 -- Displays the main recipe frame.
 -------------------------------------------------------------------------------
-function addon:DisplayFrame(is_linked)
-	MainPanel:SetPosition()
-	MainPanel:SetProfession()
-	MainPanel:SetScale(addon.db.profile.frameopts.uiscale)
+function MainPanel:Display(is_linked)
+	self:SetPosition()
+	self:SetProfession()
+	self:SetScale(addon.db.profile.frameopts.uiscale)
 
-	MainPanel.is_linked = is_linked
+	self.is_linked = is_linked
 
 	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	local editbox = SearchBox
 
-	if MainPanel.profession ~= MainPanel.prev_profession then
+	if self.profession ~= self.prev_profession then
 		editbox.prev_search = nil
 	end
 	editbox:SetText(editbox.prev_search or _G.SEARCH)
-
-	MainPanel:UpdateTitle()
 	ListFrame:Update(false, false)
-	MainPanel:Show()
+
+	self:UpdateTitle()
+	self:Show()
 end
 
 --------------------------------------------------------------------------------
