@@ -2745,52 +2745,30 @@ do
 				clicked_line.is_expanded = true
 			end
 		else
-			-- This is an expanded entry. Remove all of its parent's children from the list.
-			local entries = ListFrame.entries
+			-- clicked_line is an expanded entry - find the index for its parent, and remove all of the parent's child entries.
 			local parent = clicked_line.parent
-			local parent_index
-
-			for index = 1, #entries do
-				if entries[index] == parent then
-					parent_index = index
-					break
-				end
-			end
 
 			if parent then
-				addon:Debug("clicked_line (%s): %s - parent (%s): %s", clicked_line.text, clicked_line.type, parent.text, parent.type)
+				local parent_index
+				local entries = ListFrame.entries
+
+				for index = 1, #entries do
+					if entries[index] == parent then
+						parent_index = index
+						break
+					end
+				end
 
 				if not parent_index then
 					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
 					return
 				end
-				local children = parent.children
+				parent.is_expanded = false
 
-				entries[parent_index].is_expanded = false
+				local child_index = parent_index + 1
 
-				-- Remove the expanded lines.
-				if children then
-					local child_index = parent_index + 1
-					local num_children = #children
-
-					addon:Debug("Begin: num_children is %d", num_children)
-
-					while #children > 0 and child_index <= #entries do
-						local child = table.remove(children)
-
-						num_children = num_children - 1
-						addon:Debug("Update: num_children is %d", num_children)
-
-						if entries[child_index].parent == parent then
-							ReleaseTable(table.remove(entries, child_index))
-						else
-							local ref = entries[child_index]
-							addon:Debug("list entry (%s): incorrect parent (%s)", ref.text or "nil", ref.parent and ref.parent.text or "nil")
-						end
-					end
-					wipe(children)
-				else
-					addon:Debug("clicked_line (%s): parent (%s) has no children.", clicked_line.text, clicked_line.parent and clicked_line.parent.text or "nil")
+				while entries[child_index] and entries[child_index].parent == parent do
+					ReleaseTable(table.remove(entries, child_index))
 				end
 			else
 				addon:Debug("Error: clicked_line has no parent.")
@@ -2880,19 +2858,18 @@ do
 	end
 
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
-		local insert_index = entry_index
-
 		entry.type = entry_type
 
 		if parent_entry then
-			entry.parent = parent_entry
-			parent_entry.children = parent_entry.children or {}
-
-			table.insert(parent_entry.children, entry)
-
+			if parent_entry ~= entry then
+				entry.parent = parent_entry
+			else
+				addon:Debug("Attempting to parent an entry to itself.")
+			end
 		elseif entry.type ~= "header" then
 			addon:Debug("Non-header entry without a parent: %s - %s", entry.type, entry.text)
 		end
+		local insert_index = entry_index
 
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
