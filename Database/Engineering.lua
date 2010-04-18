@@ -93,7 +93,7 @@ function addon:InitEngineering()
 	-- Mechanical Squirrel Box -- 3928
 	AddRecipe(3928, 75, 4401, Q.UNCOMMON, V.ORIG, 75, 105, 120, 135)
 	self:AddRecipeFlags(3928, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3928, 2)
+	self:AddRecipeWorldDrop(3928, "Kalimdor", "Eastern Kingdoms")
 
 	-- Coarse Blasting Powder -- 3929
 	AddRecipe(3929, 75, 4364, Q.COMMON, V.ORIG, 75, 85, 90, 95)
@@ -118,7 +118,7 @@ function addon:InitEngineering()
 	-- Small Seaforium Charge -- 3933
 	AddRecipe(3933, 100, 4367, Q.UNCOMMON, V.ORIG, 100, 130, 145, 160)
 	self:AddRecipeFlags(3933, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3933, 2)
+	self:AddRecipeWorldDrop(3933, "Kalimdor", "Eastern Kingdoms")
 
 	-- Flying Tiger Goggles -- 3934
 	AddRecipe(3934, 100, 4368, Q.COMMON, V.ORIG, 100, 130, 145, 160)
@@ -148,7 +148,7 @@ function addon:InitEngineering()
 	-- Shadow Goggles -- 3940
 	AddRecipe(3940, 120, 4373, Q.UNCOMMON, V.ORIG, 120, 145, 157, 170)
 	self:AddRecipeFlags(3940, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3940, 2)
+	self:AddRecipeWorldDrop(3940, "Kalimdor", "Eastern Kingdoms")
 
 	-- Small Bronze Bomb -- 3941
 	AddRecipe(3941, 120, 4374, Q.COMMON, V.ORIG, 120, 120, 145, 170)
@@ -203,7 +203,7 @@ function addon:InitEngineering()
 	-- Moonsight Rifle -- 3954
 	AddRecipe(3954, 145, 4383, Q.UNCOMMON, V.ORIG, 145, 170, 182, 195)
 	self:AddRecipeFlags(3954, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.GUN)
-	self:AddRecipeWorldDrop(3954, 2)
+	self:AddRecipeWorldDrop(3954, "Kalimdor", "Eastern Kingdoms")
 
 	-- Explosive Sheep -- 3955
 	AddRecipe(3955, 150, 4384, Q.COMMON, V.ORIG, 150, 175, 187, 200)
@@ -233,7 +233,7 @@ function addon:InitEngineering()
 	-- Portable Bronze Mortar -- 3960
 	AddRecipe(3960, 165, 4403, Q.UNCOMMON, V.ORIG, 165, 185, 195, 210)
 	self:AddRecipeFlags(3960, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3960, 2)
+	self:AddRecipeWorldDrop(3960, "Kalimdor", "Eastern Kingdoms")
 
 	-- Gyrochronatom -- 3961
 	AddRecipe(3961, 170, 4389, Q.COMMON, V.ORIG, 170, 170, 190, 210)
@@ -258,7 +258,7 @@ function addon:InitEngineering()
 	-- Craftsman's Monocle -- 3966
 	AddRecipe(3966, 185, 4393, Q.RARE, V.ORIG, 185, 205, 215, 225)
 	self:AddRecipeFlags(3966, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3966, 3)
+	self:AddRecipeWorldDrop(3966, "Kalimdor", "Eastern Kingdoms")
 
 	-- Big Iron Bomb -- 3967
 	AddRecipe(3967, 190, 4394, Q.COMMON, V.ORIG, 190, 190, 210, 230)
@@ -268,7 +268,7 @@ function addon:InitEngineering()
 	-- Goblin Land Mine -- 3968
 	AddRecipe(3968, 195, 4395, Q.UNCOMMON, V.ORIG, 195, 215, 225, 235)
 	self:AddRecipeFlags(3968, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3968, 2)
+	self:AddRecipeWorldDrop(3968, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mechanical Dragonling -- 3969
 	AddRecipe(3969, 200, 4396, Q.COMMON, V.ORIG, 200, 220, 230, 240)
@@ -284,7 +284,7 @@ function addon:InitEngineering()
 	-- Large Seaforium Charge -- 3972
 	AddRecipe(3972, 200, 4398, Q.UNCOMMON, V.ORIG, 200, 200, 220, 240)
 	self:AddRecipeFlags(3972, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3972, 2)
+	self:AddRecipeWorldDrop(3972, "Kalimdor", "Eastern Kingdoms")
 
 	-- Silver Contact -- 3973
 	AddRecipe(3973, 90, 4404, Q.COMMON, V.ORIG, 90, 110, 125, 140)
@@ -330,7 +330,7 @@ function addon:InitEngineering()
 	-- EZ-Thro Dynamite -- 8339
 	AddRecipe(8339, 100, 6714, Q.UNCOMMON, V.ORIG, 100, 115, 122, 130)
 	self:AddRecipeFlags(8339, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(8339, 2)
+	self:AddRecipeWorldDrop(8339, "Kalimdor", "Eastern Kingdoms")
 
 	-- Goblin Rocket Boots -- 8895
 	AddRecipe(8895, 225, 7189, Q.COMMON, V.ORIG, 225, 245, 255, 265, 20222)
@@ -372,7 +372,7 @@ function addon:InitEngineering()
 	-- Bright-Eye Goggles -- 12587
 	AddRecipe(12587, 175, 10499, Q.UNCOMMON, V.ORIG, 175, 195, 205, 215)
 	self:AddRecipeFlags(12587, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12587, 2)
+	self:AddRecipeWorldDrop(12587, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mithril Tube -- 12589
 	AddRecipe(12589, 195, 10559, Q.COMMON, V.ORIG, 195, 195, 215, 235)
@@ -422,12 +422,12 @@ function addon:InitEngineering()
 	-- Catseye Ultra Goggles -- 12607
 	AddRecipe(12607, 220, 10501, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
 	self:AddRecipeFlags(12607, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeWorldDrop(12607, 2)
+	self:AddRecipeWorldDrop(12607, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mithril Heavy-bore Rifle -- 12614
 	AddRecipe(12614, 220, 10510, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
 	self:AddRecipeFlags(12614, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.GUN)
-	self:AddRecipeWorldDrop(12614, 2)
+	self:AddRecipeWorldDrop(12614, "Kalimdor", "Eastern Kingdoms")
 
 	-- Spellpower Goggles Xtreme -- 12615
 	AddRecipe(12615, 225, 10502, Q.RARE, V.ORIG, 225, 245, 255, 265)
@@ -437,7 +437,7 @@ function addon:InitEngineering()
 	-- Parachute Cloak -- 12616
 	AddRecipe(12616, 225, 10518, Q.UNCOMMON, V.ORIG, 225, 245, 255, 265)
 	self:AddRecipeFlags(12616, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	self:AddRecipeWorldDrop(12616, 2)
+	self:AddRecipeWorldDrop(12616, "Kalimdor", "Eastern Kingdoms")
 
 	-- Deepdive Helmet -- 12617
 	AddRecipe(12617, 230, 10506, Q.COMMON, V.ORIG, 230, 250, 260, 270)
@@ -457,7 +457,7 @@ function addon:InitEngineering()
 	-- Sniper Scope -- 12620
 	AddRecipe(12620, 240, 10548, Q.RARE, V.ORIG, 240, 260, 270, 280)
 	self:AddRecipeFlags(12620, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(12620, 3)
+	self:AddRecipeWorldDrop(12620, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mithril Gyro-Shot -- 12621
 	AddRecipe(12621, 245, 10513, Q.COMMON, V.ORIG, 245, 245, 265, 285)
@@ -612,7 +612,7 @@ function addon:InitEngineering()
 	-- Lifelike Mechanical Toad -- 19793
 	AddRecipe(19793, 265, 15996, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
 	self:AddRecipeFlags(19793, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(19793, 2)
+	self:AddRecipeWorldDrop(19793, "Kalimdor", "Eastern Kingdoms")
 
 	-- Spellpower Goggles Xtreme Plus -- 19794
 	AddRecipe(19794, 270, 15999, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
@@ -667,7 +667,7 @@ function addon:InitEngineering()
 	-- Arcane Bomb -- 19831
 	AddRecipe(19831, 300, 16040, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(19831, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(19831, 2)
+	self:AddRecipeWorldDrop(19831, "Kalimdor", "Eastern Kingdoms")
 
 	-- Flawless Arcanite Rifle -- 19833
 	AddRecipe(19833, 300, 16007, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
@@ -952,7 +952,7 @@ function addon:InitEngineering()
 	-- Ornate Khorium Rifle -- 30315
 	AddRecipe(30315, 375, 23748, Q.RARE, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(30315, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.GUN)
-	self:AddRecipeWorldDrop(30315, 3)
+	self:AddRecipeWorldDrop(30315, "Outland")
 
 	-- Cogspinner Goggles -- 30316
 	AddRecipe(30316, 340, 23758, Q.COMMON, V.TBC, 340, 350, 360, 370)
@@ -962,7 +962,7 @@ function addon:InitEngineering()
 	-- Power Amplification Goggles -- 30317
 	AddRecipe(30317, 340, 23761, Q.RARE, V.TBC, 340, 350, 360, 370)
 	self:AddRecipeFlags(30317, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(30317, 3)
+	self:AddRecipeWorldDrop(30317, "Outland")
 
 	-- Ultra-Spectropic Detection Goggles -- 30318
 	AddRecipe(30318, 350, 23762, Q.COMMON, V.TBC, 350, 360, 370, 380)
@@ -992,7 +992,7 @@ function addon:InitEngineering()
 	-- Crashin' Thrashin' Robot -- 30337
 	AddRecipe(30337, 325, 23767, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
 	self:AddRecipeFlags(30337, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(30337, 2)
+	self:AddRecipeWorldDrop(30337, "Outland")
 
 	-- White Smoke Flare -- 30341
 	AddRecipe(30341, 335, 23768, Q.COMMON, V.TBC, 335, 335, 345, 355)
@@ -1102,7 +1102,7 @@ function addon:InitEngineering()
 	-- Purple Smoke Flare -- 32814
 	AddRecipe(32814, 335, 25886, Q.UNCOMMON, V.TBC, 335, 335, 345, 355)
 	self:AddRecipeFlags(32814, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(32814, 2)
+	self:AddRecipeWorldDrop(32814, "Outland")
 
 	-- Dimensional Ripper - Area 52 -- 36954
 	AddRecipe(36954, 350, 30542, Q.COMMON, V.TBC, 350, 350, 360, 370, 20222)
@@ -1527,7 +1527,7 @@ function addon:InitEngineering()
 	-- Jeeves -- 68067
 	AddRecipe(68067, 450, 49050, Q.RARE, V.WOTLK, 450, 480, 485, 490)
 	self:AddRecipeFlags(68067, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP)
-	self:AddRecipeWorldDrop(68067, 2)
+	self:AddRecipeWorldDrop(68067, "Northrend")
 
 	-- Shatter Rounds -- 72952
 	AddRecipe(72952, 450, 52020, Q.EPIC, V.WOTLK, 450, 450, 450, 460, 20222)
