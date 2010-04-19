@@ -923,38 +923,177 @@ end	-- do
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
 local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
-MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
-MainPanel:SetHeight(447)
-MainPanel:SetFrameStrata("DIALOG")
-MainPanel:SetHitRectInsets(5, 5, 5, 5)
 
-MainPanel:EnableMouse(true)
-MainPanel:EnableKeyboard(true)
-MainPanel:SetMovable(true)
-MainPanel:SetClampedToScreen(true)
-MainPanel:Hide()
+-- For initial tab setting.
+local TranslateSortName
 
-MainPanel.is_expanded = false
+do
+	MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
+	MainPanel:SetHeight(447)
+	MainPanel:SetHitRectInsets(5, 5, 5, 5)
 
--- Let the user banish the MainPanel with the ESC key.
-table.insert(UISpecialFrames, "ARL_MainPanel")
+	MainPanel:EnableMouse(true)
+	MainPanel:EnableKeyboard(true)
+	MainPanel:SetMovable(true)
+	MainPanel:SetClampedToScreen(true)
 
-addon.Frame = MainPanel
+	MainPanel.is_expanded = false
 
-MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
-MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-MainPanel.backdrop:SetAllPoints(MainPanel)
-MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+	-- Let the user banish the MainPanel with the ESC key.
+	table.insert(UISpecialFrames, "ARL_MainPanel")
 
-MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
-MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
-MainPanel.title_bar:ClearAllPoints()
-MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-MainPanel.title_bar:SetJustifyH("CENTER")
+	addon.Frame = MainPanel
 
+	MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
+	MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+	MainPanel.backdrop:SetAllPoints(MainPanel)
+	MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+
+	MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+	MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
+	MainPanel.title_bar:ClearAllPoints()
+	MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+	MainPanel.title_bar:SetJustifyH("CENTER")
+
+	-------------------------------------------------------------------------------
+	-- Tabs
+	-------------------------------------------------------------------------------
+	local function Tab_Enable(self)
+		self:SetFrameStrata("MEDIUM")
+		self.left:ClearAllPoints()
+		self.left:SetPoint("BOTTOMLEFT")
+		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
+		self.middle:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
+		self.right:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
+		self:Disable()
+	end
+
+	function Tab_Disable(self)
+		self:SetFrameStrata("LOW")
+		self.left:ClearAllPoints()
+		self.left:SetPoint("TOPLEFT")
+		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
+		self.middle:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
+		self.right:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
+		self:Enable()
+	end
+
+	local function Tab_SetText(self, ...)
+		local text = self.Real_SetText(self, ...)
+		self:SetWidth(40 + self:GetFontString():GetStringWidth())
+
+		return ...
+	end
+
+	local function Tab_OnClick(self, button, down)
+		local id_num = self:GetID()
+
+		for index in ipairs(MainPanel.tabs) do
+			local tab = MainPanel.tabs[index]
+
+			if index == id_num then
+				self:ToFront()
+			else
+				tab:ToBack()
+			end
+			addon.db.profile.sorting = self:GetText()
+			ListFrame:Update(nil, false)
+			PlaySound("igCharacterInfoTab")
+		end
+	end
+
+	local function CreateTab(id_num, text, ...)
+		local tab = CreateFrame("Button", nil, MainPanel)
+
+		tab:SetID(id_num)
+		tab:SetHeight(32)
+		tab:SetPoint(...)
+		tab:SetFrameLevel(tab:GetFrameLevel() + 4)
+
+		tab.left = tab:CreateTexture(nil, "BORDER")
+		tab.left:SetWidth(20)
+		tab.left:SetHeight(32)
+		tab.left:SetTexCoord(0, 0.15625, 0, 1)
+
+		tab.right = tab:CreateTexture(nil, "BORDER")
+		tab.right:SetWidth(20)
+		tab.right:SetHeight(32)
+		tab.right:SetPoint("TOP", tab.left)
+		tab.right:SetPoint("RIGHT", tab)
+		tab.right:SetTexCoord(0.84375, 1, 0, 1)
+
+		tab.middle = tab:CreateTexture(nil, "BORDER")
+		tab.middle:SetHeight(32)
+		tab.middle:SetPoint("LEFT", tab.left, "RIGHT")
+		tab.middle:SetPoint("RIGHT", tab.right, "LEFT")
+		tab.middle:SetTexCoord(0.15625, 0.84375, 0, 1)
+
+		tab:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight", "ADD")
+
+		local tab_highlight = tab:GetHighlightTexture()
+		tab_highlight:ClearAllPoints()
+		tab_highlight:SetPoint("TOPLEFT", tab, "TOPLEFT", 8, 1)
+		tab_highlight:SetPoint("BOTTOMRIGHT", tab, "BOTTOMRIGHT", -8, 1)
+
+		tab:SetDisabledFontObject(GameFontHighlightSmall)
+		tab:SetHighlightFontObject(GameFontHighlightSmall)
+		tab:SetNormalFontObject(GameFontNormalSmall)
+		tab.Real_SetText = tab.SetText
+
+		tab.SetText = Tab_SetText
+		tab:SetText(text)
+
+		tab.ToFront = Tab_Enable
+		tab.ToBack = Tab_Disable
+
+		tab:ToBack()
+
+		tab:SetScript("OnClick", Tab_OnClick)
+		return tab
+	end
+
+	local AcquireTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
+	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquireTab, "RIGHT", -14, 0)
+	local NameTab = CreateTab(3, _G.NAME, "LEFT", LocationTab, "RIGHT", -14, 0)
+	local SkillTab = CreateTab(4, _G.SKILL, "LEFT", NameTab, "RIGHT", -14, 0)
+
+	MainPanel.tabs = {
+		AcquireTab,
+		LocationTab,
+		NameTab,
+		SkillTab,
+	}
+	MainPanel:Hide()
+end
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
 -------------------------------------------------------------------------------
+-- Set the current view mode tab to be the last one actually selected - default to Name if no match.
+MainPanel:SetScript("OnShow",
+		    function(self)
+			    local sort_type = addon.db.profile.sorting
+			    local tab_match = TranslateSortName(sort_type)
+			    local found = false
+
+			    for index in ipairs(self.tabs) do
+				    local tab = self.tabs[index]
+				    local tab_text = tab:GetText()
+
+				    if tab_match == tab_text then
+					    local on_click = tab:GetScript("OnClick")
+
+					    on_click(tab)
+					    found = true
+					    break
+				    end
+			    end
+
+			    -- Default to the name tab.
+			    if not found then
+				    on_click(self.tabs[3])
+			    end
+		    end)
+
 MainPanel:SetScript("OnHide",
 		    function(self)
 			    for spell_id, recipe in pairs(private.recipe_list) do
@@ -1236,7 +1375,8 @@ local function SetSortName()
 	end
 end
 
-local function TranslateSortName(sort_type)
+-- Upvalued above for use in selecting the appropriate view tab.
+function TranslateSortName(sort_type)
 	if sort_type == "Name" then
 		return _G.NAME
 	elseif sort_type == "SkillAsc" then
