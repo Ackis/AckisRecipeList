@@ -1614,6 +1614,17 @@ ARL_ClearButton:SetScript("OnClick",
 			  end)
 
 local SearchBox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
+
+SearchBox:EnableMouse(true)
+SearchBox:SetAutoFocus(false)
+SearchBox:SetFontObject(ChatFontNormal)
+SearchBox:SetWidth(110)
+SearchBox:SetHeight(12)
+SearchBox:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
+SearchBox:Show()
+
+MainPanel.search_editbox = SearchBox
+
 SearchBox:SetText(_G.SEARCH)
 SearchBox:SetHistoryLines(10)
 
@@ -1711,16 +1722,6 @@ do
 				    end
 			    end)
 end	-- do
-
-SearchBox:EnableMouse(true)
-SearchBox:SetAutoFocus(false)
-SearchBox:SetFontObject(ChatFontNormal)
-SearchBox:SetWidth(130)
-SearchBox:SetHeight(12)
-SearchBox:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
-SearchBox:Show()
-
-MainPanel.search_editbox = SearchBox
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
