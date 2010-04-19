@@ -944,7 +944,7 @@ do
 
 	addon.Frame = MainPanel
 
-	MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
+	MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "BACKGROUND")
 	MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
 	MainPanel.backdrop:SetAllPoints(MainPanel)
 	MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
