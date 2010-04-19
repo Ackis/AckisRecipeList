@@ -1633,20 +1633,28 @@ SearchBox:SetScript("OnEnterPressed",
 			    local searchtext = self:GetText()
 			    searchtext = searchtext:trim()
 
-			    if searchtext and searchtext ~= _G.SEARCH then
-				    self.prev_search = searchtext
-
-				    self:HighlightText()
-				    self:AddHistoryLine(searchtext)
-				    SearchRecipes(searchtext)
+			    if not searchtext or searchtext == "" then
+				    self:SetText(_G.SEARCH)
 				    ListFrame:Update(false, false)
-
-				    ARL_ExpandButton:SetText(L["EXPANDALL"])
-				    SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-				    ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-				    ARL_SearchButton:Disable()
+				    return
 			    end
+
+			    if searchtext == _G.SEARCH then
+				    self:HighlightText()
+				    return
+			    end
+			    self.prev_search = searchtext
+
+			    self:HighlightText()
+			    self:AddHistoryLine(searchtext)
+			    SearchRecipes(searchtext)
+			    ListFrame:Update(false, false)
+
+			    ARL_ExpandButton:SetText(L["EXPANDALL"])
+			    SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+			    ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+			    ARL_SearchButton:Disable()
 		    end)
 
 SearchBox:SetScript("OnEditFocusGained",
