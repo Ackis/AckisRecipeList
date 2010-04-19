@@ -1090,7 +1090,10 @@ MainPanel:SetScript("OnShow",
 
 			    -- Default to the name tab.
 			    if not found then
-				    on_click(self.tabs[3])
+				    local tab = self.tabs[3]
+				    local on_click = tab:GetScript("OnClick")
+
+				    on_click(tab)
 			    end
 		    end)
 
