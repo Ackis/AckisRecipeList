@@ -1353,10 +1353,23 @@ function MainPanel.mode_button:ChangeTexture(texture)
 end
 
 -------------------------------------------------------------------------------
+-- Widget Container frames.
+-------------------------------------------------------------------------------
+local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
+WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
+WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -39)
+WidgetContainer:SetHeight(30)
+
+local WidgetContainer2 = CreateFrame("Frame", nil, MainPanel)
+WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
+WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -70)
+WidgetContainer2:SetHeight(30)
+
+-------------------------------------------------------------------------------
 -- Create the DropDown for sorting types.
 -------------------------------------------------------------------------------
 local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
-ARL_DD_Sort:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
+ARL_DD_Sort:SetPoint("TOPLEFT", WidgetContainer, "TOPLEFT", 0, 0)
 ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
 
 local function SetSortName()
@@ -1446,7 +1459,7 @@ _G.UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 -------------------------------------------------------------------------------
 local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
 					     L["EXPANDALL_DESC"], 1)
-ARL_ExpandButton:SetPoint("TOPRIGHT", ARL_DD_Sort, "BOTTOMLEFT", -2, 0)
+ARL_ExpandButton:SetPoint("TOPLEFT", WidgetContainer2, "TOPLEFT", 0, 0)
 
 ARL_ExpandButton:SetScript("OnClick",
 			   function(self, mouse_button, down)
