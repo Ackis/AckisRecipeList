@@ -1565,65 +1565,22 @@ do
 	end	-- for
 end	-- do
 
-local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
-					     L["SEARCH_DESC"], 1)
-ARL_SearchButton:SetPoint("TOPLEFT", ARL_DD_Sort, "BOTTOMRIGHT", 1, 4)
-
-ARL_SearchButton:Disable()
-ARL_SearchButton:SetScript("OnClick",
-			   function(this)
-				   local searchtext = MainPanel.search_editbox:GetText()
-				   searchtext = searchtext:trim()
-
-				   if searchtext ~= "" then
-					   MainPanel.search_editbox.prev_search = searchtext
-
-					   MainPanel.search_editbox:HighlightText()
-					   MainPanel.search_editbox:AddHistoryLine(searchtext)
-					   SearchRecipes(searchtext)
-					   ListFrame:Update(false, false)
-
-					   ARL_ExpandButton:SetText(L["EXPANDALL"])
-					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-					   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-					   ARL_SearchButton:Disable()
-				   end
-			   end)
-
-local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-ARL_ClearButton:SetPoint("RIGHT", ARL_SearchButton, "LEFT", 4, -1)
-
-ARL_ClearButton:SetScript("OnClick",
-			  function()
-				  local recipe_list = private.recipe_list
-
-				  -- Reset the search flags
-				  for index in pairs(recipe_list) do
-					  recipe_list[index]:RemoveState("RELEVANT")
-				  end
-				  -- Make sure our expand all button is set to expandall
-				  ARL_ExpandButton:SetText(L["EXPANDALL"])
-				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
-
-				  -- Disable the search button since we're not searching for anything now
-				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-				  ARL_SearchButton:Disable()
-
-				  MainPanel.search_editbox:SetText(_G.SEARCH)
-				  MainPanel.search_editbox:ClearFocus()
-				  MainPanel.search_editbox.prev_search = nil
-				  ListFrame:Update(false, false)
-			  end)
+-------------------------------------------------------------------------------
+-- Container frame for search widgets - keeps them all grouped for easier movement.
+-------------------------------------------------------------------------------
+local SearchContainer = CreateFrame("Frame", nil, MainPanel)
+SearchContainer:SetPoint("LEFT", ARL_ExpandButton, "RIGHT", 10, 0)
+SearchContainer:SetPoint("RIGHT", WidgetContainer2, "RIGHT", 0, 0)
+SearchContainer:SetHeight(30)
 
 local SearchBox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
 
 SearchBox:EnableMouse(true)
 SearchBox:SetAutoFocus(false)
-SearchBox:SetFontObject(ChatFontNormal)
+SearchBox:SetFontObject(ChatFontSmall)
 SearchBox:SetWidth(110)
 SearchBox:SetHeight(12)
-SearchBox:SetPoint("RIGHT", ARL_ClearButton, "LEFT", 3, -1)
+SearchBox:SetPoint("LEFT", SearchContainer, "LEFT", 0, 0)
 SearchBox:Show()
 
 MainPanel.search_editbox = SearchBox
@@ -1733,6 +1690,57 @@ do
 				    end
 			    end)
 end	-- do
+
+local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+ARL_ClearButton:SetPoint("LEFT", SearchBox, "RIGHT", 0, 0)
+
+ARL_ClearButton:SetScript("OnClick",
+			  function()
+				  local recipe_list = private.recipe_list
+
+				  -- Reset the search flags
+				  for index in pairs(recipe_list) do
+					  recipe_list[index]:RemoveState("RELEVANT")
+				  end
+				  -- Make sure our expand all button is set to expandall
+				  ARL_ExpandButton:SetText(L["EXPANDALL"])
+				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+				  -- Disable the search button since we're not searching for anything now
+				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+				  ARL_SearchButton:Disable()
+
+				  MainPanel.search_editbox:SetText(_G.SEARCH)
+				  MainPanel.search_editbox:ClearFocus()
+				  MainPanel.search_editbox.prev_search = nil
+				  ListFrame:Update(false, false)
+			  end)
+
+local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
+					     L["SEARCH_DESC"], 1)
+ARL_SearchButton:SetPoint("LEFT", ARL_ClearButton, "RIGHT", 5, 0)
+
+ARL_SearchButton:Disable()
+ARL_SearchButton:SetScript("OnClick",
+			   function(this)
+				   local searchtext = MainPanel.search_editbox:GetText()
+				   searchtext = searchtext:trim()
+
+				   if searchtext ~= "" then
+					   MainPanel.search_editbox.prev_search = searchtext
+
+					   MainPanel.search_editbox:HighlightText()
+					   MainPanel.search_editbox:AddHistoryLine(searchtext)
+					   SearchRecipes(searchtext)
+					   ListFrame:Update(false, false)
+
+					   ARL_ExpandButton:SetText(L["EXPANDALL"])
+					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+
+					   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+					   ARL_SearchButton:Disable()
+				   end
+			   end)
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
