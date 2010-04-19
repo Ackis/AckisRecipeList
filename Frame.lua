@@ -1460,9 +1460,33 @@ _G.UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 -------------------------------------------------------------------------------
 -- Create the expand button and set its scripts.
 -------------------------------------------------------------------------------
+local ExpandButtonFrame = CreateFrame("Frame", nil, MainPanel)
+ExpandButtonFrame:SetWidth(50)
+ExpandButtonFrame:SetHeight(28)
+ExpandButtonFrame:SetPoint("LEFT", WidgetContainer2, "LEFT", 2, 0)
+
+ExpandButtonFrame.left = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.left:SetWidth(8)
+ExpandButtonFrame.left:SetHeight(30)
+ExpandButtonFrame.left:SetPoint("TOPLEFT", ExpandButtonFrame, 0, 4)
+ExpandButtonFrame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
+
+ExpandButtonFrame.right = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.right:SetWidth(8)
+ExpandButtonFrame.right:SetHeight(30)
+ExpandButtonFrame.right:SetPoint("TOPRIGHT", ExpandButtonFrame, 0, 4)
+ExpandButtonFrame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
+
+ExpandButtonFrame.middle = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.middle:SetHeight(30)
+ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
+ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
+ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
+
+
 local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
-					     L["EXPANDALL_DESC"], 1)
-ARL_ExpandButton:SetPoint("TOPLEFT", WidgetContainer2, "TOPLEFT", 0, 0)
+ 					     L["EXPANDALL_DESC"], 1)
+ARL_ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
 
 ARL_ExpandButton:SetScript("OnClick",
 			   function(self, mouse_button, down)
@@ -1569,7 +1593,7 @@ end	-- do
 -- Container frame for search widgets - keeps them all grouped for easier movement.
 -------------------------------------------------------------------------------
 local SearchContainer = CreateFrame("Frame", nil, MainPanel)
-SearchContainer:SetPoint("LEFT", ARL_ExpandButton, "RIGHT", 10, 0)
+SearchContainer:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", 10, 2)
 SearchContainer:SetPoint("RIGHT", WidgetContainer2, "RIGHT", 0, 0)
 SearchContainer:SetHeight(30)
 
@@ -1692,7 +1716,7 @@ do
 end	-- do
 
 local ARL_ClearButton = GenericCreateButton("ARL_ClearButton", MainPanel, 28, 28, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-ARL_ClearButton:SetPoint("LEFT", SearchBox, "RIGHT", 0, 0)
+ARL_ClearButton:SetPoint("LEFT", SearchBox, "RIGHT", -5, 0)
 
 ARL_ClearButton:SetScript("OnClick",
 			  function()
@@ -1718,7 +1742,7 @@ ARL_ClearButton:SetScript("OnClick",
 
 local ARL_SearchButton = GenericCreateButton("ARL_SearchButton", MainPanel, 25, 74, "GameFontDisableSmall", "GameFontHighlightSmall", _G.SEARCH, "CENTER",
 					     L["SEARCH_DESC"], 1)
-ARL_SearchButton:SetPoint("LEFT", ARL_ClearButton, "RIGHT", 5, 0)
+ARL_SearchButton:SetPoint("LEFT", ARL_ClearButton, "RIGHT", 2, 0)
 
 ARL_SearchButton:Disable()
 ARL_SearchButton:SetScript("OnClick",
