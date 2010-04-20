@@ -1483,36 +1483,64 @@ ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
 ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
 ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
 
+local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
 
-local ARL_ExpandButton = GenericCreateButton("ARL_ExpandButton", MainPanel, 21, 40, "GameFontNormalSmall", "GameFontHighlightSmall", L["EXPANDALL"], "CENTER",
- 					     L["EXPANDALL_DESC"], 1)
-ARL_ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
+MainPanel.expand_all_button = ExpandButton
 
-ARL_ExpandButton:SetScript("OnClick",
-			   function(self, mouse_button, down)
-				   local expand_entries = (self:GetText() == L["EXPANDALL"])
+ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
 
-				   if expand_entries then
-					   self:SetText(L["CONTRACTALL"])
-					   SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-				   else
-					   self:SetText(L["EXPANDALL"])
-					   SetTooltipScripts(self, L["EXPANDALL_DESC"])
-				   end
-				   local expand_mode
+ExpandButton.text:ClearAllPoints()
+ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
 
-				   if expand_entries then
-					   if _G.IsShiftKeyDown() then
-						   expand_mode = "deep"
-					   else
-						   expand_mode = "normal"
-					   end
-				   end
-				   -- If expand_mode is nil, that means expand nothing.
-				   ListFrame:Update(expand_mode, false)
-			   end)
-ARL_ExpandButton:SetText(L["EXPANDALL"])
-SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+ExpandButton:SetScript("OnClick",
+		       function(self, mouse_button, down)
+			       local expanded = self.is_expanded
+			       local expand_mode
+
+			       if not expanded then
+				       if _G.IsShiftKeyDown() then
+					       expand_mode = "deep"
+				       else
+					       expand_mode = "normal"
+				       end
+			       end
+			       -- ListFrame:Update() must be called before the button can be expanded or contracted, since
+			       -- the button is contracted from there.
+			       -- If expand_mode is nil, that means expand nothing.
+			       ListFrame:Update(expand_mode, false)
+
+			       if expanded then
+				       addon:Debug("Contracting")
+				       self:Contract()
+			       else
+				       addon:Debug("Expanding")
+				       self:Expand()
+			       end
+		       end)
+
+function ExpandButton:Expand()
+	self.is_expanded = true
+
+	self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
+	self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
+	self:SetHighlightTexture("Interface\\BUTTONS\\UI-PlusButton-Hilight")
+	self:SetDisabledTexture("Interface\\BUTTONS\\UI-MinusButton-Disabled")
+
+	SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+end
+
+function ExpandButton:Contract()
+	self.is_expanded = nil
+
+	addon:Debug("ExpandButton:Contract")
+
+	self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+	self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	self:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+
+	SetTooltipScripts(self, L["EXPANDALL_DESC"])
+end
 
 -------------------------------------------------------------------------------
 -- The search button, clear button, and search entry box.
@@ -1634,8 +1662,7 @@ SearchBox:SetScript("OnEnterPressed",
 			    SearchRecipes(searchtext)
 			    ListFrame:Update(false, false)
 
-			    ARL_ExpandButton:SetText(L["EXPANDALL"])
-			    SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+			    ExpandButton:Contract()
 
 			    ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 			    ARL_SearchButton:Disable()
@@ -1726,9 +1753,7 @@ ARL_ClearButton:SetScript("OnClick",
 				  for index in pairs(recipe_list) do
 					  recipe_list[index]:RemoveState("RELEVANT")
 				  end
-				  -- Make sure our expand all button is set to expandall
-				  ARL_ExpandButton:SetText(L["EXPANDALL"])
-				  SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+				  ExpandButton:Contract()
 
 				  -- Disable the search button since we're not searching for anything now
 				  ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
@@ -1758,8 +1783,7 @@ ARL_SearchButton:SetScript("OnClick",
 					   SearchRecipes(searchtext)
 					   ListFrame:Update(false, false)
 
-					   ARL_ExpandButton:SetText(L["EXPANDALL"])
-					   SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+					   ExpandButton:Contract()
 
 					   ARL_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 					   ARL_SearchButton:Disable()
@@ -3120,8 +3144,7 @@ do
 		addon:UpdateFilters(MainPanel.is_linked)
 		Player:MarkExclusions()
 
-		ARL_ExpandButton:SetText(L["EXPANDALL"])
-		SetTooltipScripts(ARL_ExpandButton, L["EXPANDALL_DESC"])
+		ExpandButton:Contract()
 
 		if sort_type == "Acquisition" then
 			local sorted_acquires = addon.sorted_acquires
@@ -3268,8 +3291,8 @@ do
 			self:ClearLines()
 
 			-- disable expand button, it's useless here and would spam the same error again
-			ARL_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
-			ARL_ExpandButton:Disable()
+			ExpandButton:SetNormalFontObject("GameFontDisableSmall")
+			ExpandButton:Disable()
 
 			local showpopup = false
 
@@ -3321,8 +3344,8 @@ do
 
 		addon:ClosePopups()
 
-		ARL_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-		ARL_ExpandButton:Enable()
+		ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+		ExpandButton:Enable()
 
 		if num_entries <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
