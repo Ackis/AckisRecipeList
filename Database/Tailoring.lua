@@ -262,7 +262,7 @@ function addon:InitTailoring()
 
 	-- Icy Cloak -- 3862
 	AddRecipe(3862, 200, 4327, Q.COMMON, V.ORIG, 200, 220, 235, 250)
-	self:AddRecipeFlags(3862, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
+	self:AddRecipeFlags(3862, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
 	self:AddRecipeLimitedVendor(3862, 2381, 1, 6567, 1)
 
 	-- Spider Belt -- 3863
@@ -293,7 +293,7 @@ function addon:InitTailoring()
 	-- Bright Yellow Shirt -- 3869
 	AddRecipe(3869, 135, 4332, Q.COMMON, V.ORIG, 135, 145, 150, 155)
 	self:AddRecipeFlags(3869, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(3869, 2668)
+	self:AddRecipeLimitedVendor(3869, 2668, 1)
 
 	-- Dark Silk Shirt -- 3870
 	AddRecipe(3870, 155, 4333, Q.COMMON, V.ORIG, 155, 165, 170, 175)
@@ -395,7 +395,7 @@ function addon:InitTailoring()
 
 	-- Greater Adept's Robe -- 7643
 	AddRecipe(7643, 115, 6264, Q.COMMON, V.ORIG, 115, 140, 157, 175)
-	self:AddRecipeFlags(7643, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(7643, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeLimitedVendor(7643, 1474, 1, 3499, 1, 1454, 1, 2669, 1, 4577, 1, 4168, 1)
 
 	-- Stylish Blue Shirt -- 7892
@@ -1038,7 +1038,7 @@ function addon:InitTailoring()
 	-- Mooncloth Robe -- 22902
 	AddRecipe(22902, 300, 18486, Q.COMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22902, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(22902, 14371)
+	self:AddRecipeLimitedVendor(22902, 14371, 1)
 
 	-- Wisdom of the Timbermaw -- 23662
 	AddRecipe(23662, 290, 19047, Q.COMMON, V.ORIG, 290, 305, 320, 335)
@@ -1258,7 +1258,7 @@ function addon:InitTailoring()
 	-- Imbued Netherweave Pants -- 26775
 	AddRecipe(26775, 340, 21859, Q.COMMON, V.TBC, 340, 350, 355, 360)
 	self:AddRecipeFlags(26775, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(26775, 18011, 19722)
+	self:AddRecipeLimitedVendor(26775, 18011, 1, 19722, 1)
 
 	-- Imbued Netherweave Boots -- 26776
 	AddRecipe(26776, 350, 21860, Q.COMMON, V.TBC, 350, 360, 365, 370)
@@ -1278,7 +1278,7 @@ function addon:InitTailoring()
 	-- Soulcloth Gloves -- 26779
 	AddRecipe(26779, 355, 21863, Q.COMMON, V.TBC, 355, 365, 370, 375)
 	self:AddRecipeFlags(26779, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(26779, 19015, 19017)
+	self:AddRecipeLimitedVendor(26779, 19015, 1, 19017, 1)
 
 	-- Soulcloth Shoulders -- 26780
 	AddRecipe(26780, 365, 21864, Q.EPIC, V.TBC, 365, 375, 380, 385)
