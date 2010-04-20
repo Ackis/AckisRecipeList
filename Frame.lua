@@ -1368,29 +1368,6 @@ WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
 WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -70)
 WidgetContainer2:SetHeight(30)
 
--------------------------------------------------------------------------------
--- Create the DropDown for sorting types.
--------------------------------------------------------------------------------
-local ARL_DD_Sort = CreateFrame("Frame", "ARL_DD_Sort", MainPanel, "UIDropDownMenuTemplate")
-ARL_DD_Sort:SetPoint("TOPLEFT", WidgetContainer, "TOPLEFT", 0, 0)
-ARL_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
-
-local function SetSortName()
-	local sort_type = addon.db.profile.sorting
-
-	if sort_type == "Name" then
-		ARL_DD_SortText:SetText(_G.NAME)
-	elseif sort_type == "SkillAsc" then
-		ARL_DD_SortText:SetText(L["Skill (Asc)"])
-	elseif sort_type == "SkillDesc" then
-		ARL_DD_SortText:SetText(L["Skill (Desc)"])
-	elseif sort_type == "Acquisition" then
-		ARL_DD_SortText:SetText(L["Acquisition"])
-	elseif sort_type == "Location" then
-		ARL_DD_SortText:SetText(L["Location"])
-	end
-end
-
 -- Upvalued above for use in selecting the appropriate view tab.
 function TranslateSortName(sort_type)
 	if sort_type == "Name" then
@@ -1406,56 +1383,6 @@ function TranslateSortName(sort_type)
 	end
 	return _G.UNKNOWN
 end
-
-local function ARL_DD_Sort_OnClick(button, value)
-	CloseDropDownMenus()
-	addon.db.profile.sorting = value
-	SetSortName()
-	ListFrame:Update(nil, false)
-end
-
-local function ARL_DD_Sort_Initialize()
-	local info = _G.UIDropDownMenu_CreateInfo()
-
-	local k = "Name"
-	info.text = TranslateSortName(k)
-	info.arg1 = k
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	_G.UIDropDownMenu_AddButton(info)
-
-	k = "SkillAsc"
-	info.text = TranslateSortName(k)
-	info.arg1 = k
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	_G.UIDropDownMenu_AddButton(info)
-
-	k = "SkillDesc"
-	info.text = TranslateSortName(k)
-	info.arg1 = k
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	_G.UIDropDownMenu_AddButton(info)
-
-	k = "Acquisition"
-	info.text = TranslateSortName(k)
-	info.arg1 = k
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	_G.UIDropDownMenu_AddButton(info)
-
-	k = "Location"
-	info.text = TranslateSortName(k)
-	info.arg1 = k
-	info.func = ARL_DD_Sort_OnClick
-	info.checked = (addon.db.profile.sorting == k)
-	_G.UIDropDownMenu_AddButton(info)
-
-	SetSortName()
-end
-
-_G.UIDropDownMenu_SetWidth(ARL_DD_Sort, 105)
 
 -------------------------------------------------------------------------------
 -- Create the expand button and set its scripts.
@@ -1623,7 +1550,7 @@ SearchBox:SetAutoFocus(false)
 SearchBox:SetFontObject(ChatFontSmall)
 SearchBox:SetWidth(110)
 SearchBox:SetHeight(12)
-SearchBox:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", 10, 2)
+SearchBox:SetPoint("LEFT", WidgetContainer, "LEFT", 0, 0)
 SearchBox:Show()
 
 MainPanel.search_editbox = SearchBox
@@ -3078,8 +3005,6 @@ do
 		end
 		twipe(self.entries)
 		twipe(recipe_registry)
-
-		SetSortName()
 
 		addon:UpdateFilters(MainPanel.is_linked)
 		Player:MarkExclusions()
@@ -4537,8 +4462,6 @@ function MainPanel:Display(is_linked)
 	self:SetScale(addon.db.profile.frameopts.uiscale)
 
 	self.is_linked = is_linked
-
-	ARL_DD_Sort.initialize = ARL_DD_Sort_Initialize				-- Initialize dropdown
 
 	local editbox = SearchBox
 
