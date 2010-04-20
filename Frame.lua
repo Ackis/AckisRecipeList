@@ -1672,7 +1672,8 @@ MainPanel.xclose_button:SetScript("OnClick",
 -- Create MainPanel.filter_toggle, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 74, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
+-- MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
+MainPanel.filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", 0, 0)
 
 MainPanel.filter_toggle:SetScript("OnClick",
 			   function(self, button, down)
@@ -1710,7 +1711,7 @@ MainPanel.filter_toggle:SetScript("OnClick",
 -------------------------------------------------------------------------------
 MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 25, 74, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
 					     L["RESET_DESC"], 1)
-MainPanel.filter_reset:SetPoint("TOPRIGHT", MainPanel.filter_toggle, "BOTTOMRIGHT", 0, -2)
+MainPanel.filter_reset:SetPoint("TOPRIGHT", WidgetContainer2, "TOPRIGHT", 0, 2)
 MainPanel.filter_reset:Hide()
 
 do
