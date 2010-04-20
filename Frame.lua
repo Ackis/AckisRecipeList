@@ -1359,7 +1359,7 @@ end
 -- Widget Container frames.
 -------------------------------------------------------------------------------
 local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
-WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 55, -39)
+WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
 WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -39)
 WidgetContainer:SetHeight(30)
 
