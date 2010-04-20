@@ -1360,12 +1360,12 @@ end
 -------------------------------------------------------------------------------
 local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
 WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
-WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -39)
+WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -39)
 WidgetContainer:SetHeight(30)
 
 local WidgetContainer2 = CreateFrame("Frame", nil, MainPanel)
 WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
-WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -15, -70)
+WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -70)
 WidgetContainer2:SetHeight(30)
 
 -- Upvalued above for use in selecting the appropriate view tab.
