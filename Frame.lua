@@ -1089,13 +1089,14 @@ end
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
 -------------------------------------------------------------------------------
--- Set the current view mode tab to be the last one actually selected.
 MainPanel:SetScript("OnShow",
 		    function(self)
 			    local current_tab = self.tabs[addon.db.profile.current_tab]
 			    local on_click = current_tab:GetScript("OnClick")
 
 			    on_click(current_tab)
+
+			    self.sort_button:SetTextures()
 		    end)
 
 MainPanel:SetScript("OnHide",
@@ -1450,8 +1451,41 @@ function ExpandButton:Contract()
 	SetTooltipScripts(self, L["EXPANDALL_DESC"])
 end
 
+local SortToggle = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
+
+MainPanel.sort_button = SortToggle
+
+SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", 5, 0)
+
+SortToggle:SetScript("OnClick",
+		     function(self, button, down)
+			     local sort_type = addon.db.profile.sorting
+
+			     addon.db.profile.sorting = (sort_type == "Ascending" and "Descending" or "Ascending")
+
+			     self:SetTextures()
+			     ListFrame:Update(nil, false)
+		     end)
+
+function SortToggle:SetTextures()
+	local sort_type = addon.db.profile.sorting
+
+	if sort_type == "Ascending" then
+		self:SetNormalTexture("Interface\\BUTTONS\\Arrow-Down-Up")
+		self:SetPushedTexture("Interface\\BUTTONS\\Arrow-Down-Down")
+		self:SetHighlightTexture("Interface\\BUTTONS\\GLOWSTAR")
+		self:SetDisabledTexture("Interface\\BUTTONS\\Arrow-Down-Disabled")
+	else
+		self:SetNormalTexture("Interface\\BUTTONS\\Arrow-Up-Up")
+		self:SetPushedTexture("Interface\\BUTTONS\\Arrow-Up-Down")
+		self:SetHighlightTexture("Interface\\BUTTONS\\GLOWSTAR")
+		self:SetDisabledTexture("Interface\\BUTTONS\\Arrow-Up-Disabled")
+	end
+end
+
+
 -------------------------------------------------------------------------------
--- The search button, clear button, and search entry box.
+-- The search entry box and associated methods.
 -------------------------------------------------------------------------------
 local SearchRecipes
 do
