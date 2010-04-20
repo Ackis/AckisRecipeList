@@ -207,6 +207,7 @@ function addon:OnInitialize()
 			-- Sorting Options
 			-------------------------------------------------------------------------------
 			sorting = "Ascending",
+			current_tab = 3,		-- Name tab
 
 			-------------------------------------------------------------------------------
 			-- Display Options
