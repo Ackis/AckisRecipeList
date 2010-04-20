@@ -1867,7 +1867,7 @@ do
 end	-- do
 
 MainPanel.menu_toggle_general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
-MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -9, -18)
+MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -25, -18)
 
 MainPanel.menu_toggle_obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
 MainPanel.menu_toggle_obtain:SetPoint("TOPLEFT", MainPanel.menu_toggle_general, "BOTTOMLEFT", 0, -8)
