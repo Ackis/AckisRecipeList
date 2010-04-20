@@ -4297,7 +4297,7 @@ function addon:InitializeFrame()
 	ARL_MiscAltText:SetWidth(95)
 	ARL_MiscAltText:SetJustifyH("LEFT")
 
-	local ARL_MiscAltBtn = CreateFrame("Button", "ARL_IgnoreCB", MainPanel.filter_menu.misc)
+	local ARL_MiscAltBtn = CreateFrame("Button", "ARL_MiscAltBtn", MainPanel.filter_menu.misc)
 	ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
 	ARL_MiscAltBtn:SetHeight(22)
 	ARL_MiscAltBtn:SetWidth(22)
