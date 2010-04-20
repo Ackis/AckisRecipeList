@@ -119,6 +119,20 @@ local BASIC_COLORS		= private.basic_colors
 
 local SF = private.recipe_state_flags
 
+local VIEW_TABS = {
+	["Acquisition"] = 1,
+	["Location"]	= 2,
+	["Name"]	= 3,
+	["Skill"]	= 4,
+}
+
+local TAB_NAMES = {
+	"Acquisition",
+	"Location",
+	"Name",
+	"Skill",
+}
+
 -------------------------------------------------------------------------------
 -- Acquire flag constants.
 -------------------------------------------------------------------------------
@@ -411,19 +425,26 @@ do
 		end
 	end
 
-	local function Sort_Name(a, b)
+	local function Sort_NameAsc(a, b)
 		return recipe_list[a].name < recipe_list[b].name
 	end
 
+	local function Sort_NameDesc(a, b)
+		return recipe_list[a].name > recipe_list[b].name
+	end
+
 	local RECIPE_SORT_FUNCS = {
-		["SkillAsc"]	= Sort_SkillAsc,
-		["SkillDesc"]	= Sort_SkillDesc,
-		["Name"]	= Sort_Name,
+		["SkillAscending"]	= Sort_SkillAsc,
+		["SkillDescending"]	= Sort_SkillDesc,
+		["NameAscending"]	= Sort_NameAsc,
+		["NameDescending"]	= Sort_NameDesc,
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
 	function SortRecipeList()
-		local sort_func = RECIPE_SORT_FUNCS[addon.db.profile.sorting] or Sort_Name
+		local current_tab = addon.db.profile.current_tab
+		local sort_type = addon.db.profile.sorting
+		local sort_func = RECIPE_SORT_FUNCS[TAB_NAMES[current_tab]..sort_type] or Sort_NameAsc
 
 		local sorted_recipes = addon.sorted_recipes
 		twipe(sorted_recipes)
@@ -996,7 +1017,7 @@ do
 			else
 				tab:ToBack()
 			end
-			addon.db.profile.sorting = self:GetText()
+			addon.db.profile.current_tab = id_num
 			ListFrame:Update(nil, false)
 			PlaySound("igCharacterInfoTab")
 		end
@@ -1068,33 +1089,13 @@ end
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
 -------------------------------------------------------------------------------
--- Set the current view mode tab to be the last one actually selected - default to Name if no match.
+-- Set the current view mode tab to be the last one actually selected.
 MainPanel:SetScript("OnShow",
 		    function(self)
-			    local sort_type = addon.db.profile.sorting
-			    local tab_match = TranslateSortName(sort_type)
-			    local found = false
+			    local current_tab = self.tabs[addon.db.profile.current_tab]
+			    local on_click = current_tab:GetScript("OnClick")
 
-			    for index in ipairs(self.tabs) do
-				    local tab = self.tabs[index]
-				    local tab_text = tab:GetText()
-
-				    if tab_match == tab_text then
-					    local on_click = tab:GetScript("OnClick")
-
-					    on_click(tab)
-					    found = true
-					    break
-				    end
-			    end
-
-			    -- Default to the name tab.
-			    if not found then
-				    local tab = self.tabs[3]
-				    local on_click = tab:GetScript("OnClick")
-
-				    on_click(tab)
-			    end
+			    on_click(current_tab)
 		    end)
 
 MainPanel:SetScript("OnHide",
@@ -2919,10 +2920,10 @@ do
 			addon:Debug("Skill level color fallback: %s.", recipe_string)
 			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
 		end
-		local sort_type = addon.db.profile.sorting
-		local skill_sort = (sort_type == "SkillAsc" or sort_type == "SkillDesc")
+		local current_tab = addon.db.profile.current_tab
+		local skill_view = (current_tab == VIEW_TABS["Skill"])
 
-		recipe_string = skill_sort and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
 
 		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
 			recipe_string = string.format("** %s **", recipe_string)
@@ -2981,6 +2982,7 @@ do
 		local recipe_list = private.recipe_list
 		local sorted_recipes = addon.sorted_recipes
 		local sort_type = addon.db.profile.sorting
+		local current_tab = addon.db.profile.current_tab
 
 		local recipe_count = 0
 		local insert_index = 1
@@ -2996,7 +2998,7 @@ do
 
 		ExpandButton:Contract()
 
-		if sort_type == "Acquisition" then
+		if current_tab == VIEW_TABS["Acquisition"] then
 			local sorted_acquires = addon.sorted_acquires
 			local current_prof = Player.current_prof
 
@@ -3032,7 +3034,7 @@ do
 					insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
 				end
 			end
-		elseif sort_type == "Location" then
+		elseif current_tab == VIEW_TABS["Location"] then
 			local sorted_locations = addon.sorted_locations
 			local current_prof = Player.current_prof
 
