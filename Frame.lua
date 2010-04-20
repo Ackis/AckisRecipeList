@@ -1677,6 +1677,37 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
+-- "Display Exclusions" checkbox.
+-------------------------------------------------------------------------------
+local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -5, -5)
+ExcludeToggle:SetHeight(16)
+ExcludeToggle:SetWidth(16)
+
+ExcludeToggle.text = ExcludeToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+ExcludeToggle.text:SetPoint("LEFT", ExcludeToggle, "RIGHT", 0, 0)
+
+ExcludeToggle:SetScript("OnClick",
+			function(self, button, down)
+				addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+				ListFrame:Update(nil, false)
+			end)
+
+ExcludeToggle:SetScript("OnShow",
+			function(self)
+				self:SetChecked(addon.db.profile.ignoreexclusionlist)
+			end)
+
+ExcludeToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+ExcludeToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+ExcludeToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+ExcludeToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+ExcludeToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+
+ExcludeToggle.text:SetText(L["Display Exclusions"])
+SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
+
+-------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.xclose_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
@@ -1691,7 +1722,6 @@ MainPanel.xclose_button:SetScript("OnClick",
 -- Create MainPanel.filter_toggle, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 74, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
--- MainPanel.filter_toggle:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -8, -40)
 MainPanel.filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", 0, 0)
 
 MainPanel.filter_toggle:SetScript("OnClick",

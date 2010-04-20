@@ -347,7 +347,8 @@ L["FILTER_OPEN_DESC"]		= "Open filter option panel."
 L["FILTER_CLOSE"]			= "<<< Filter"
 L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
 L["EXPANDALL"]				= "+ All"
-L["EXPANDALL_DESC"]			= "Expand all recipes listed below. Hold the Shift key to expand sub-entries."
+L["EXPANDALL_DESC"]			= [[Expand all recipes listed below.
+Hold the Shift key to expand sub-entries.]]
 L["CONTRACTALL"]			= "- All"
 L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
 L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
