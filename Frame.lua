@@ -1567,9 +1567,9 @@ local SearchBox = CreateFrame("EditBox", nil, MainPanel, "InputBoxTemplate")
 SearchBox:EnableMouse(true)
 SearchBox:SetAutoFocus(false)
 SearchBox:SetFontObject(ChatFontSmall)
-SearchBox:SetWidth(110)
+SearchBox:SetWidth(130)
 SearchBox:SetHeight(12)
-SearchBox:SetPoint("LEFT", WidgetContainer, "LEFT", 0, 0)
+SearchBox:SetPoint("TOPLEFT", WidgetContainer, "TOPLEFT", 0, 0)
 SearchBox:Show()
 
 MainPanel.search_editbox = SearchBox
