@@ -1368,22 +1368,6 @@ WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
 WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -70)
 WidgetContainer2:SetHeight(30)
 
--- Upvalued above for use in selecting the appropriate view tab.
-function TranslateSortName(sort_type)
-	if sort_type == "Name" then
-		return _G.NAME
-	elseif sort_type == "SkillAsc" then
-		return L["Skill (Asc)"]
-	elseif sort_type == "SkillDesc" then
-		return L["Skill (Desc)"]
-	elseif sort_type == "Acquisition" then
-		return L["Acquisition"]
-	elseif sort_type == "Location" then
-		return L["Location"]
-	end
-	return _G.UNKNOWN
-end
-
 -------------------------------------------------------------------------------
 -- Create the expand button and set its scripts.
 -------------------------------------------------------------------------------
