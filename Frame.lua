@@ -123,14 +123,12 @@ local VIEW_TABS = {
 	["Acquisition"] = 1,
 	["Location"]	= 2,
 	["Name"]	= 3,
-	["Skill"]	= 4,
 }
 
 local TAB_NAMES = {
 	"Acquisition",
 	"Location",
 	"Name",
-	"Skill",
 }
 
 -------------------------------------------------------------------------------
@@ -1076,13 +1074,11 @@ do
 	local AcquireTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
 	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquireTab, "RIGHT", -14, 0)
 	local NameTab = CreateTab(3, _G.NAME, "LEFT", LocationTab, "RIGHT", -14, 0)
-	local SkillTab = CreateTab(4, _G.SKILL, "LEFT", NameTab, "RIGHT", -14, 0)
 
 	MainPanel.tabs = {
 		AcquireTab,
 		LocationTab,
 		NameTab,
-		SkillTab,
 	}
 	MainPanel:Hide()
 end
@@ -2984,8 +2980,7 @@ do
 			addon:Debug("Skill level color fallback: %s.", recipe_string)
 			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
 		end
-		local current_tab = addon.db.profile.current_tab
-		local skill_view = (current_tab == VIEW_TABS["Skill"])
+		local skill_view = addon.db.profile.skill_view
 
 		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
 

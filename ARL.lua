@@ -208,6 +208,7 @@ function addon:OnInitialize()
 			-------------------------------------------------------------------------------
 			sorting = "Ascending",
 			current_tab = 3,		-- Name tab
+			skill_view = false,		-- Sort the recipes by skill level instead of name?
 
 			-------------------------------------------------------------------------------
 			-- Display Options
