@@ -3718,7 +3718,7 @@ do
 						local t = AcquireTable()
 
 						-- Add World Drop entries as normal entries.
-						if affiliation == "world_drop" then
+						if recipe_list[spell_id] == "world_drop" then
 							expand = true
 							type = "entry"
 						end
