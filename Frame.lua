@@ -1447,39 +1447,6 @@ function ExpandButton:Contract()
 	SetTooltipScripts(self, L["EXPANDALL_DESC"])
 end
 
-local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
-
-MainPanel.sort_button = SortToggle
-
-SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", -2, -2)
-
-SortToggle:SetScript("OnClick",
-		     function(self, button, down)
-			     local sort_type = addon.db.profile.sorting
-
-			     addon.db.profile.sorting = (sort_type == "Ascending" and "Descending" or "Ascending")
-
-			     self:SetTextures()
-			     ListFrame:Update(nil, false)
-		     end)
-
-function SortToggle:SetTextures()
-	local sort_type = addon.db.profile.sorting
-
-	if sort_type == "Ascending" then
-		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Up")
-		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Down")
-		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
-		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Disabled")
-	else
-		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Up")
-		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Down")
-		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
-		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Disabled")
-	end
-end
-
-
 -------------------------------------------------------------------------------
 -- The search entry box and associated methods.
 -------------------------------------------------------------------------------
@@ -2667,6 +2634,42 @@ ListFrame.entries = {}
 ListFrame.button_containers = {}
 ListFrame.state_buttons = {}
 ListFrame.entry_buttons = {}
+
+-------------------------------------------------------------------------------
+-- Sort-mode toggle button.
+-------------------------------------------------------------------------------
+local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
+
+MainPanel.sort_button = SortToggle
+
+-- SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", -2, -2)
+SortToggle:SetPoint("BOTTOMRIGHT", ListFrame, "TOPRIGHT", 3, 0)
+
+SortToggle:SetScript("OnClick",
+		     function(self, button, down)
+			     local sort_type = addon.db.profile.sorting
+
+			     addon.db.profile.sorting = (sort_type == "Ascending" and "Descending" or "Ascending")
+
+			     self:SetTextures()
+			     ListFrame:Update(nil, false)
+		     end)
+
+function SortToggle:SetTextures()
+	local sort_type = addon.db.profile.sorting
+
+	if sort_type == "Ascending" then
+		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Up")
+		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Down")
+		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
+		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Disabled")
+	else
+		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Up")
+		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Down")
+		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
+		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Disabled")
+	end
+end
 
 -------------------------------------------------------------------------------
 -- Create ListFrame.scroll_bar, and set its scripts.
