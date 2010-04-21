@@ -9,7 +9,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-	self:addLookupList(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	self:addLookupList(DB, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
@@ -17,7 +17,7 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME		= "Ackis Recipe List"
+local MODNAME	= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
@@ -162,7 +162,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 5748, L["Killian Sanatha"], BZ["Silverpine Forest"], 33.0, 17.8, 2)
 	self:addLookupList(DB, 5757, L["Lilly"], BZ["Silverpine Forest"], 43.1, 50.8, 2)
 	self:addLookupList(DB, 5758, L["Leo Sarn"], BZ["Silverpine Forest"], 53.9, 82.3, 2)
-	self:addLookupList(DB, 5783, L["Kalldan Felmoon"], BZ["The Barrens"], 46.2, 36.5, 0) ----confirm
+	self:addLookupList(DB, 5783, L["Kalldan Felmoon"], BZ["The Barrens"], 46.2, 36.5, 0)
 	self:addLookupList(DB, 5940, L["Harn Longcast"], BZ["Mulgore"], 47.5, 55.1, 2)
 	self:addLookupList(DB, 5942, L["Zansoa"], BZ["Durotar"], 56.1, 73.4, 2)
 	self:addLookupList(DB, 5944, L["Yonada"], BZ["The Barrens"], 45.0, 59.3, 2)

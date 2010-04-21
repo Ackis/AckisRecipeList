@@ -9,7 +9,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-	self:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	self:addLookupList(DB, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
@@ -17,7 +17,7 @@ This source code is released under All Rights Reserved.
 ************************************************************************
 ]]--
 
-local MODNAME		= "Ackis Recipe List"
+local MODNAME	= "Ackis Recipe List"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
@@ -33,7 +33,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 1355, L["Cook Ghilm"], BZ["Dun Morogh"], 68.4, 54.5, 1)
 	self:addLookupList(DB, 1382, L["Mudduk"], BZ["Stranglethorn Vale"], 31.4, 28.0, 2)
 	self:addLookupList(DB, 1385, L["Brawn"], BZ["Stranglethorn Vale"], 31.7, 28.8, 2)
-	self:addLookupList(DB, 1386, L["Rogvar"], BZ["Swamp of Sorrows"], 48.4, 55.7, 2) ---confirm
+	self:addLookupList(DB, 1386, L["Rogvar"], BZ["Swamp of Sorrows"], 48.4, 55.7, 2)
 	self:addLookupList(DB, 1430, L["Tomas"], BZ["Elwynn Forest"], 44.3, 66.0, 1)  ---confirm
 	self:addLookupList(DB, 1470, L["Ghak Healtouch"], BZ["Loch Modan"], 37.0, 49.2, 1)
 	self:addLookupList(DB, 1632, L["Adele Fielder"], BZ["Elwynn Forest"], 46.4, 62.1, 1)
@@ -128,7 +128,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 5564, L["Simon Tanner"], BZ["Stormwind City"], 71.8, 62.9, 1)
 	self:addLookupList(DB, 5695, L["Vance Undergloom"], BZ["Tirisfal Glades"], 61.7, 51.6, 2)
 	self:addLookupList(DB, 5759, L["Nurse Neela"], BZ["Tirisfal Glades"], 61.8, 52.8, 2)
-	self:addLookupList(DB, 5784, L["Waldor"], BZ["Arathi Highlands"], 32.6, 28.5, 0) --- confirm
+	self:addLookupList(DB, 5784, L["Waldor"], BZ["Wailing Caverns"], 32.6, 28.5, 0)
 	self:addLookupList(DB, 5939, L["Vira Younghoof"], BZ["Mulgore"], 46.8, 60.8, 2)
 	self:addLookupList(DB, 5943, L["Rawrk"], BZ["Durotar"], 54.1, 42.0, 2)
 	self:addLookupList(DB, 6094, L["Byancie"], BZ["Teldrassil"], 55.3, 56.8, 1)
@@ -169,8 +169,8 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 11177, L["Okothos Ironrager"], BZ["Orgrimmar"], 79.8, 23.8, 2)
 	self:addLookupList(DB, 11178, L["Borgosh Corebender"], BZ["Orgrimmar"], 79.7, 23.7, 2)
 	self:addLookupList(DB, 11557, L["Meilosh"], BZ["Felwood"], 65.7, 2.9, 2)
-	self:addLookupList(DB, 12920, L["Doctor Gregory Victor"], BZ["Arathi Highlands"], 73.4, 36.8, 2) -----IS HE REAALLY THERE TEACHING?
-	self:addLookupList(DB, 12939, L["Doctor Gustaf VanHowzen"], BZ["Dustwallow Marsh"], 68.18, 47.94, 1)  -----IS HE REAALLY THERE TEACHING?
+	self:addLookupList(DB, 12920, L["Doctor Gregory Victor"], BZ["Arathi Highlands"], 73.4, 36.8, 2)
+	self:addLookupList(DB, 12939, L["Doctor Gustaf VanHowzen"], BZ["Dustwallow Marsh"], 68.18, 47.94, 1)
 	self:addLookupList(DB, 14742, L["Zap Farflinger"], BZ["Winterspring"], 61.2, 37.6, 0)
 	self:addLookupList(DB, 14743, L["Jhordy Lapforge"], BZ["Tanaris"], 52.3, 26.9, 0)
 	self:addLookupList(DB, 15400, L["Arathel Sunforge"], BZ["Eversong Woods"], 59.6, 62.6, 2)
