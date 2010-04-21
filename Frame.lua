@@ -259,7 +259,7 @@ do
 	local HIGHLIGHT_FONT_COLOR = _G.HIGHLIGHT_FONT_COLOR
 
 	local function Show_Tooltip(frame, motion)
-		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
+		GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
 		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 		GameTooltip:Show()
 	end
