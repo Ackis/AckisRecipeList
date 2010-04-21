@@ -1643,7 +1643,7 @@ end	-- do
 -- "Display Exclusions" checkbox.
 -------------------------------------------------------------------------------
 local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -5, -5)
+ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -5, -10)
 ExcludeToggle:SetHeight(16)
 ExcludeToggle:SetWidth(16)
 
@@ -1669,6 +1669,38 @@ ExcludeToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 
 ExcludeToggle.text:SetText(L["Display Exclusions"])
 SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
+
+-------------------------------------------------------------------------------
+-- "Skill Level" checkbox.
+-------------------------------------------------------------------------------
+local SkillToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+SkillToggle:SetPoint("TOPLEFT", ExcludeToggle, "BOTTOMLEFT", 0, 0)
+SkillToggle:SetHeight(16)
+SkillToggle:SetWidth(16)
+
+
+SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
+
+SkillToggle:SetScript("OnClick",
+		      function(self, button, down)
+			      addon.db.profile.skill_view = not addon.db.profile.skill_view
+			      ListFrame:Update(nil, false)
+		      end)
+
+SkillToggle:SetScript("OnShow",
+		      function(self)
+			      self:SetChecked(addon.db.profile.skill_view)
+		      end)
+
+SkillToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+SkillToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+SkillToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+SkillToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+SkillToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+
+SkillToggle.text:SetText(_G.SKILL_LEVEL)
+SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 
 -------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.

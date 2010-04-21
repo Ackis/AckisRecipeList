@@ -182,6 +182,7 @@ L["MAP_TRAINER_DESC"]		= "Display trainers on the map."
 L["MAP_VENDOR_DESC"]		= "Display vendors on the map."
 L["MAP_MONSTER_DESC"]		= "Display monsters on the map."
 L["MAP_QUEST_DESC"]		= "Display quests on the map."
+L["SKILL_TOGGLE_DESC"]		= "Displays recipes according to their skill level rather than by name."
 
 -- Filter Config Options
 L["Filtering Options"]		= true
