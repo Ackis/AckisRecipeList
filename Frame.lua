@@ -1451,11 +1451,11 @@ function ExpandButton:Contract()
 	SetTooltipScripts(self, L["EXPANDALL_DESC"])
 end
 
-local SortToggle = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
+local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
 
 MainPanel.sort_button = SortToggle
 
-SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", 5, 0)
+SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", -2, -2)
 
 SortToggle:SetScript("OnClick",
 		     function(self, button, down)
@@ -1471,15 +1471,15 @@ function SortToggle:SetTextures()
 	local sort_type = addon.db.profile.sorting
 
 	if sort_type == "Ascending" then
-		self:SetNormalTexture("Interface\\BUTTONS\\Arrow-Down-Up")
-		self:SetPushedTexture("Interface\\BUTTONS\\Arrow-Down-Down")
-		self:SetHighlightTexture("Interface\\BUTTONS\\GLOWSTAR")
-		self:SetDisabledTexture("Interface\\BUTTONS\\Arrow-Down-Disabled")
+		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Up")
+		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Down")
+		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
+		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Disabled")
 	else
-		self:SetNormalTexture("Interface\\BUTTONS\\Arrow-Up-Up")
-		self:SetPushedTexture("Interface\\BUTTONS\\Arrow-Up-Down")
-		self:SetHighlightTexture("Interface\\BUTTONS\\GLOWSTAR")
-		self:SetDisabledTexture("Interface\\BUTTONS\\Arrow-Up-Disabled")
+		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Up")
+		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Down")
+		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
+		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Disabled")
 	end
 end
 
