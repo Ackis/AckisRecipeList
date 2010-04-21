@@ -439,15 +439,15 @@ do
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
-	function SortRecipeList()
-		local current_tab = addon.db.profile.current_tab
+	function SortRecipeList(recipe_list, sorted_recipes)
 		local sort_type = addon.db.profile.sorting
-		local sort_func = RECIPE_SORT_FUNCS[TAB_NAMES[current_tab]..sort_type] or Sort_NameAsc
+		local skill_view = addon.db.profile.skill_view
 
-		local sorted_recipes = addon.sorted_recipes
+		local sort_func = RECIPE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
+
 		twipe(sorted_recipes)
 
-		for n, v in pairs(private.recipe_list) do
+		for n, v in pairs(recipe_list) do
 			table.insert(sorted_recipes, n)
 		end
 		table.sort(sorted_recipes, sort_func)
@@ -3039,7 +3039,6 @@ do
 
 	function ListFrame:Initialize(expand_mode)
 		local recipe_list = private.recipe_list
-		local sorted_recipes = addon.sorted_recipes
 		local sort_type = addon.db.profile.sorting
 		local current_tab = addon.db.profile.current_tab
 
@@ -3127,7 +3126,9 @@ do
 				end
 			end
 		else
-			SortRecipeList()
+			local sorted_recipes = addon.sorted_recipes
+
+			SortRecipeList(private.recipe_list, sorted_recipes)
 
 			for i = 1, #sorted_recipes do
 				local recipe_index = sorted_recipes[i]
@@ -3627,7 +3628,13 @@ do
 			local acquire_id = current_entry.acquire_id
 
 			if current_entry.type == "header" then
-				for spell_id, affiliation in pairs(private.acquire_list[acquire_id].recipes) do
+				local recipe_list = private.acquire_list[acquire_id].recipes
+				local sorted_recipes = addon.sorted_recipes
+
+				SortRecipeList(recipe_list, sorted_recipes)
+
+				for index = 1, #sorted_recipes do
+					local spell_id = sorted_recipes[index]
 					local recipe_entry = private.recipe_list[spell_id]
 
 					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
@@ -3661,7 +3668,13 @@ do
 			local location_id = current_entry.location_id
 
 			if current_entry.type == "header" then
-				for spell_id, affiliation in pairs(private.location_list[location_id].recipes) do
+				local recipe_list = private.location_list[location_id].recipes
+				local sorted_recipes = addon.sorted_recipes
+
+				SortRecipeList(recipe_list, sorted_recipes)
+
+				for index = 1, #sorted_recipes do
+					local spell_id = sorted_recipes[index]
 					local recipe_entry = private.recipe_list[spell_id]
 
 					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
