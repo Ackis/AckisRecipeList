@@ -3209,6 +3209,7 @@ do
 			-- disable expand button, it's useless here and would spam the same error again
 			ExpandButton:SetNormalFontObject("GameFontDisableSmall")
 			ExpandButton:Disable()
+			self.scroll_bar:Hide()
 
 			local showpopup = false
 
