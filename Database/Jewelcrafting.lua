@@ -208,7 +208,7 @@ function addon:InitJewelcrafting()
 	-- Ruby Crown of Restoration -- 26878
 	AddRecipe(26878, 225, 20969, Q.COMMON, V.TBC, 225, 250, 265, 280)
 	self:AddRecipeFlags(26878, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(26878, 2810, 2821)
+	self:AddRecipeLimitedVendor(26878, 2810, 1, 2821, 1)
 
 	-- Thorium Setting -- 26880
 	AddRecipe(26880, 225, 21752, Q.COMMON, V.TBC, 225, 235, 245, 255)
