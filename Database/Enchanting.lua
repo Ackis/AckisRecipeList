@@ -609,7 +609,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Greater Stats -- 20025
 	AddRecipe(20025, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
 	self:AddRecipeFlags(20025, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(20025, "Ruins of Ahn'Qiraj", "Outland")
+	self:AddRecipeWorldDrop(20025, "Outland")
 
 	-- Enchant Chest - Major Health -- 20026
 	AddRecipe(20026, 275, nil, Q.COMMON, V.ORIG, 275, 295, 315, 335)
