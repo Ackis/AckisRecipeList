@@ -68,7 +68,7 @@ function addon:InitLeatherworking()
 	-- Fine Leather Boots -- 2158
 	AddRecipe(2158, 90, 2307, Q.UNCOMMON, V.ORIG, 90, 120, 135, 150)
 	self:AddRecipeFlags(2158, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(2158, 2)
+	self:AddRecipeWorldDrop(2158, "Kalimdor", "Eastern Kingdoms")
 
 	-- Fine Leather Cloak -- 2159
 	AddRecipe(2159, 85, 2308, Q.COMMON, V.ORIG, 85, 105, 120, 135)
@@ -93,12 +93,12 @@ function addon:InitLeatherworking()
 	-- White Leather Jerkin -- 2163
 	AddRecipe(2163, 60, 2311, Q.UNCOMMON, V.ORIG, 60, 90, 105, 120)
 	self:AddRecipeFlags(2163, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(2163, 2)
+	self:AddRecipeWorldDrop(2163, "Kalimdor", "Eastern Kingdoms")
 
 	-- Fine Leather Gloves -- 2164
 	AddRecipe(2164, 75, 2312, Q.UNCOMMON, V.ORIG, 75, 105, 120, 135)
 	self:AddRecipeFlags(2164, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(2164, 2)
+	self:AddRecipeWorldDrop(2164, "Kalimdor", "Eastern Kingdoms")
 
 	-- Medium Armor Kit -- 2165
 	AddRecipe(2165, 100, 2313, Q.COMMON, V.ORIG, 100, 115, 122, 130)
@@ -123,7 +123,7 @@ function addon:InitLeatherworking()
 	-- Dark Leather Tunic -- 2169
 	AddRecipe(2169, 100, 2317, Q.UNCOMMON, V.ORIG, 100, 125, 137, 150)
 	self:AddRecipeFlags(2169, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(2169, 2)
+	self:AddRecipeWorldDrop(2169, "Kalimdor", "Eastern Kingdoms")
 
 	-- Light Leather -- 2881
 	AddRecipe(2881, 1, 2318, Q.COMMON, V.ORIG, 1, 20, 30, 40)
@@ -158,7 +158,7 @@ function addon:InitLeatherworking()
 	-- Hillman's Leather Vest -- 3762
 	AddRecipe(3762, 100, 4244, Q.UNCOMMON, V.ORIG, 100, 125, 137, 150)
 	self:AddRecipeFlags(3762, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(3762, 2)
+	self:AddRecipeWorldDrop(3762, "Kalimdor", "Eastern Kingdoms")
 
 	-- Fine Leather Belt -- 3763
 	AddRecipe(3763, 80, 4246, Q.COMMON, V.ORIG, 80, 110, 125, 140)
@@ -173,7 +173,7 @@ function addon:InitLeatherworking()
 	-- Dark Leather Gloves -- 3765
 	AddRecipe(3765, 120, 4248, Q.UNCOMMON, V.ORIG, 120, 155, 167, 180)
 	self:AddRecipeFlags(3765, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(3765, 2)
+	self:AddRecipeWorldDrop(3765, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dark Leather Belt -- 3766
 	AddRecipe(3766, 125, 4249, Q.COMMON, V.ORIG, 125, 150, 162, 175)
@@ -183,7 +183,7 @@ function addon:InitLeatherworking()
 	-- Hillman's Belt -- 3767
 	AddRecipe(3767, 120, 4250, Q.UNCOMMON, V.ORIG, 120, 145, 157, 170)
 	self:AddRecipeFlags(3767, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(3767, 2)
+	self:AddRecipeWorldDrop(3767, "Kalimdor", "Eastern Kingdoms")
 
 	-- Hillman's Shoulders -- 3768
 	AddRecipe(3768, 130, 4251, Q.COMMON, V.ORIG, 130, 155, 167, 180)
@@ -193,7 +193,7 @@ function addon:InitLeatherworking()
 	-- Dark Leather Shoulders -- 3769
 	AddRecipe(3769, 140, 4252, Q.UNCOMMON, V.ORIG, 140, 165, 177, 190)
 	self:AddRecipeFlags(3769, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(3769, 2)
+	self:AddRecipeWorldDrop(3769, "Kalimdor", "Eastern Kingdoms")
 
 	-- Toughened Leather Gloves -- 3770
 	AddRecipe(3770, 135, 4253, Q.COMMON, V.ORIG, 135, 160, 172, 185)
