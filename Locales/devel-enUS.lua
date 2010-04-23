@@ -233,7 +233,7 @@ L["CLASS_DESC"]				= "Include this class in the scan.  This will filter on two f
 L["CLASS_TEXT_DESC"]		= [[Left-click here to select all classes.
 Right-click here to select your own class.]]
 L["Specialties"]			= true
-L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
+L["SPECIALTY_DESC"]			= "Include recipes for un-trained specializations."
 L["SKILL_DESC"]				= "Include all recipes in the scan, regardless of your current skill level."
 L["Show Known"]				= "Known"
 L["KNOWN_DESC"]				= "Include all known recipes in the scan."
