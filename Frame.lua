@@ -942,6 +942,7 @@ end	-- do
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
 local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+local AcquireTab, LocationTab, RecipesTab
 
 -- For initial tab setting.
 local TranslateSortName
@@ -1070,15 +1071,14 @@ do
 		tab:SetScript("OnClick", Tab_OnClick)
 		return tab
 	end
-
-	local AcquireTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
-	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquireTab, "RIGHT", -14, 0)
-	local NameTab = CreateTab(3, _G.NAME, "LEFT", LocationTab, "RIGHT", -14, 0)
+	AcquireTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
+	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquireTab, "RIGHT", -14, 0)
+	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	MainPanel.tabs = {
 		AcquireTab,
 		LocationTab,
-		NameTab,
+		RecipesTab,
 	}
 	MainPanel:Hide()
 end
