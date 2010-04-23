@@ -221,6 +221,7 @@ function addon:OnInitialize()
 			spelltooltiplocation = "Right",
 			acquiretooltiplocation = "Right",
 			recipes_in_tooltips = true,
+			hide_tooltip_hint = false,
 			hidepopup = false,
 			minimap = true,
 			worldmap = true,

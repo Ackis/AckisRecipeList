@@ -923,18 +923,21 @@ do
 				end	-- for id_num
 			end	-- if can_display
 		end	-- for acquire_type
-		acquire_tip:AddSeparator()
-		acquire_tip:AddSeparator()
 
-		-- Give the tooltip hint a unique color.
-		color_1 = "c9c781"
+		if not addon.db.profile.hide_tooltip_hint then
+			-- Give the tooltip hint a unique color.
+			color_1 = "c9c781"
 
-		ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
-		ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
-		ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
+			acquire_tip:AddSeparator()
+			acquire_tip:AddSeparator()
 
-		if _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
-			ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
+			ttAdd(0, -1, 0, L["ALT_CLICK"], color_1)
+			ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
+			ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
+
+			if _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
+			end
 		end
 		acquire_tip:Show()
 
@@ -1090,7 +1093,8 @@ do
 		RecipesTab,
 	}
 	MainPanel:Hide()
-end
+end	-- do-block
+
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
 -------------------------------------------------------------------------------

@@ -723,6 +723,19 @@ local function giveDisplay()
 							  addon.db.profile.recipes_in_tooltips = not addon.db.profile.recipes_in_tooltips
 						  end,
 				},
+				tooltip_hint = {
+					order	= 24,
+					type	= "toggle",
+					width	= "full",
+					name	= L["TOOLTIP_HINT"],
+					desc	= L["TOOLTIP_HINT_DESC"],
+					get	= function()
+							  return addon.db.profile.hide_tooltip_hint
+						  end,
+					set	= function(info, value)
+							  addon.db.profile.hide_tooltip_hint = value
+						  end,
+				},
 			},
 		}
 	end

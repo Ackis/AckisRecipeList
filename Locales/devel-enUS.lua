@@ -148,8 +148,12 @@ L["Tooltip (Recipe) Position"]	= true
 L["SPELLTOOLTIPPOSITION_DESC"]	= "Changes the location of the tooltip containing the recipe information."
 L["Tooltip (Acquire) Position"]	= true
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
+
 L["Recipes In Tooltips"]	= true
 L["UNIT_TOOLTIPS_DESC"]		= "Toggles whether or not to display unknown recipes in the tooltips of the vendors, trainers, or mobs which carry them."
+L["TOOLTIP_HINT"]		= "Hide Hint Text"
+L["TOOLTIP_HINT_DESC"]		= "Hides the hint text at the bottom of the tooltip."
+
 L["FONT_SIZE_DESC"]		= "Changes the size of the fonts for ARL."
 L["Sorting"]			= true
 L["Sort"]			= true
