@@ -1084,7 +1084,7 @@ do
 		return tab
 	end
 	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
-	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquireTab, "RIGHT", -14, 0)
+	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	MainPanel.tabs = {
