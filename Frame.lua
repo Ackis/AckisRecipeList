@@ -873,6 +873,15 @@ do
 		end
 		acquire_tip:AddSeparator()
 
+		if recipe.specialty then
+			local spec = recipe.specialty
+			local spec_name = GetSpellInfo(spec)
+			local known = (spec == Player["Specialty"])
+
+			ttAdd(0, -1, false, string.format(_G.ITEM_REQ_SKILL, spec_name), known and BASIC_COLORS["white"] or difficulty["impossible"])
+			acquire_tip:AddSeparator()
+		end
+
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
 		local playerFaction = Player.faction
