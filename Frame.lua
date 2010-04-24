@@ -1241,7 +1241,7 @@ end
 
 function MainPanel:UpdateTitle()
 	if not self.is_expanded then
-		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (v.%s) - %s"), addon.version, Player.current_prof)
+		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, Player.current_prof)
 		return
 	end
 	local total, active = 0, 0
@@ -1254,7 +1254,7 @@ function MainPanel:UpdateTitle()
 			total = total + 1
 		end
 	end
-	self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (v.%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
+	self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
 end
 
 -------------------------------------------------------------------------------
