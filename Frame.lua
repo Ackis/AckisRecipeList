@@ -962,6 +962,8 @@ local TranslateSortName
 do
 	MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
 	MainPanel:SetHeight(447)
+	MainPanel:SetFrameStrata("MEDIUM")
+	MainPanel:SetToplevel(true)
 	MainPanel:SetHitRectInsets(5, 5, 5, 5)
 
 	MainPanel:EnableMouse(true)
