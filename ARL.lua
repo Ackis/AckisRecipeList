@@ -523,48 +523,6 @@ function addon:OnInitialize()
 		       end)
 end
 
--------------------------------------------------------------------------------
--- Secure button and highlight for LibQTip-scanning interface.
--------------------------------------------------------------------------------
-local highlight = CreateFrame("Frame", nil, UIParent)
-highlight:SetFrameStrata("TOOLTIP")
-highlight:Hide()
-
-highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
-highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-highlight._texture:SetBlendMode("ADD")
-highlight._texture:SetAllPoints(highlight)
-
-local secure_button = CreateFrame("Button", nil, UIParent, "SecureActionButtonTemplate")
-secure_button:SetAttribute("type", "macro")
-secure_button:Hide()
-
-local function secure_button_OnEnter(cell, profession)
-	highlight:SetParent(secure_button)
-	highlight:SetAllPoints(secure_button)
-	highlight:Show()
-
-	secure_button:SetParent(cell)
-	secure_button:SetPoint("TOPLEFT", cell, "TOPLEFT")
-	secure_button:SetPoint("BOTTOMRIGHT", cell, "BOTTOMRIGHT")
-	secure_button:SetAttribute("macrotext", string.format("/cast %s\n/ARL scan", profession))
-	secure_button:Show()
-end
-
-local function secure_button_OnLeave(cell, arg, motion)
-	addon:Debug("secure_button_OnLeave: arg is %s, motion is %s", tostring(arg), tostring(motion))
-	if not motion then
-		return
-	end
-	secure_button:ClearAllPoints()
-	secure_button:SetParent(nil)
-	secure_button:Hide()
-
-	highlight:Hide()
-	highlight:ClearAllPoints()
-	highlight:SetParent(nil)
-end
-
 ---Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
 	self:RegisterEvent("TRADE_SKILL_SHOW")	-- Make addon respond to the tradeskill windows being shown
@@ -740,55 +698,6 @@ function addon:OnEnable()
 		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
 		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
 	end	-- do
-
-	-- Set up the LDB feed.
-	local LDB = LibStub("LibDataBroker-1.1")
-	local LQT = LibStub("LibQTip-1.0")
-
-	local data_obj = {
-		type	= "data source",
-		label	= MODNAME,
-		text	= " ",
-		icon	= "Interface\\Icons\\INV_Misc_Note_05",
-		OnEnter	= function(display, motion)
-				  local tooltip = LQT:Acquire(addon, 2, "CENTER", "LEFT")
-				  tooltip:EnableMouse(true)
-
-				  tooltip:Clear()
-				  tooltip:SmartAnchorTo(display)
-				  tooltip:SetAutoHideDelay(0.25, display)
-
-				  -- Clear the secure_button and highlight in case they were left over from the previous tooltip
-				  secure_button_OnLeave(nil, nil, true)
-
-				  local line, column = tooltip:AddHeader()
-
-				  tooltip:SetCell(line, 1, _G.TRADE_SKILLS, "CENTER", 2)
-				  tooltip:AddSeparator()
-
-				  for profession in pairs(Player.professions) do
-					  if Player.professions[profession] then
-						  addon:Debug("Found %s", tostring(profession))
-
-						  local icon = select(3, GetSpellInfo(profession))
-
-						  line, column = tooltip:AddLine()
-						  tooltip:SetCell(line, 1, "|T"..icon..":20:20|t", "CENTER", 1)
-						  tooltip:SetCell(line, 2, profession, "LEFT", 1)
-						  tooltip:SetLineScript(line, "OnEnter", secure_button_OnEnter, profession)
-						  tooltip:SetLineScript(line, "OnLeave", secure_button_OnLeave)
-					  end
-				  end
-
-				  tooltip:Show()
-			  end,
-		-- OnLeave is an empty function because some LDB displays refuse to display a plugin that has an OnEnter but no OnLeave.
-		OnLeave	= function()
-			  end,
-		OnClick = function(display, button)
-			  end,
-	}
-	private.data_obj = LDB:NewDataObject(MODNAME, data_obj)
 end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
