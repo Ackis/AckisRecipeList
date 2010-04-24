@@ -3,8 +3,8 @@
 -- Player functions and data for AckisRecipeList.
 -------------------------------------------------------------------------------
 -- File date: @file-date-iso@
--- File revision: @file-revision@
--- Project revision: @project-revision@
+-- File hash: @file-abbreviated-hash@
+-- Project hash: @project-abbreviated-hash@
 -- Project version: @project-version@
 -------------------------------------------------------------------------------
 -- Please see http://www.wowace.com/addons/arl/ for more information.
