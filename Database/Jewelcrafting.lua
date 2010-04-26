@@ -98,7 +98,7 @@ function addon:InitJewelcrafting()
 	-- Heavy Golden Necklace of Battle -- 25320
 	AddRecipe(25320, 150, 20856, Q.COMMON, V.TBC, 150, 180, 195, 210)
 	self:AddRecipeFlags(25320, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.NECK)
-	self:AddRecipeVendor(25320, 17512, 16624, 3367, 1286)
+	self:AddRecipeLimitedVendor(25320, 17512, 1, 16624, 1, 3367, 1, 1286, 1)
 
 	-- Moonsoul Crown -- 25321
 	AddRecipe(25321, 120, 20832, Q.COMMON, V.TBC, 120, 150, 165, 180)
@@ -113,7 +113,7 @@ function addon:InitJewelcrafting()
 	-- Amulet of the Moon -- 25339
 	AddRecipe(25339, 110, 20830, Q.COMMON, V.TBC, 110, 140, 155, 170)
 	self:AddRecipeFlags(25339, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.NECK)
-	self:AddRecipeVendor(25339, 16624, 4561, 4229, 17512)
+	self:AddRecipeLimitedVendor(25339, 16624, 1, 4561, 1, 4229, 1, 17512, 1)
 
 	-- Solid Bronze Ring -- 25490
 	AddRecipe(25490, 50, 20907, Q.COMMON, V.TBC, 50, 80, 95, 110)
@@ -121,7 +121,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeTrainer(25490, 15501, 33614, 28701, 18774, 26997, 19775, 19778, 26982, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
 	-- Braided Copper Ring -- 25493
-	AddRecipe(25493, 1, 20906, Q.UNCOMMON, V.TBC, 1, 30, 45, 60)
+	AddRecipe(25493, 1, 20906, Q.COMMON, V.TBC, 1, 30, 45, 60)
 	self:AddRecipeFlags(25493, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
 	self:AddRecipeAcquire(25493, A.CUSTOM, 8)
 
@@ -163,7 +163,7 @@ function addon:InitJewelcrafting()
 	-- The Jade Eye -- 25619
 	AddRecipe(25619, 170, 20959, Q.COMMON, V.TBC, 170, 200, 215, 230)
 	self:AddRecipeFlags(25619, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.RING)
-	self:AddRecipeVendor(25619, 17512, 16624, 4775, 5163)
+	self:AddRecipeLimitedVendor(25619, 17512, 1, 16624, 1, 4775, 1, 5163, 1)
 
 	-- Engraved Truesilver Ring -- 25620
 	AddRecipe(25620, 170, 20960, Q.COMMON, V.TBC, 170, 200, 215, 230)
@@ -218,7 +218,7 @@ function addon:InitJewelcrafting()
 	-- Figurine - Truesilver Crab -- 26881
 	AddRecipe(26881, 225, 21760, Q.COMMON, V.TBC, 225, 250, 265, 280)
 	self:AddRecipeFlags(26881, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE, F.TANK, F.TRINKET)
-	self:AddRecipeVendor(26881, 1148, 4897)
+	self:AddRecipeLimitedVendor(26881, 1148, 1, 4897, 1)
 
 	-- Figurine - Truesilver Boar -- 26882
 	AddRecipe(26882, 235, 21763, Q.UNCOMMON, V.TBC, 235, 260, 275, 290)
@@ -248,7 +248,7 @@ function addon:InitJewelcrafting()
 	-- Opal Necklace of Impact -- 26897
 	AddRecipe(26897, 250, 21766, Q.COMMON, V.TBC, 250, 275, 290, 305)
 	self:AddRecipeFlags(26897, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.NECK)
-	self:AddRecipeVendor(26897, 17512, 5163, 16624, 8363)
+	self:AddRecipeLimitedVendor(26897, 17512, 1, 5163, 1, 16624, 1, 8363, 1)
 
 	-- Figurine - Ruby Serpent -- 26900
 	AddRecipe(26900, 260, 21769, Q.UNCOMMON, V.TBC, 260, 280, 290, 300)
@@ -268,7 +268,7 @@ function addon:InitJewelcrafting()
 	-- Emerald Crown of Destruction -- 26906
 	AddRecipe(26906, 275, 21774, Q.COMMON, V.TBC, 275, 285, 295, 305)
 	self:AddRecipeFlags(26906, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeVendor(26906, 15179)
+	self:AddRecipeLimitedVendor(26906, 15179, 1)
 
 	-- Onslaught Ring -- 26907
 	AddRecipe(26907, 280, 21775, Q.COMMON, V.TBC, 280, 290, 300, 310)
@@ -316,7 +316,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeTrainer(26916, 33614, 26997, 28701, 18774, 26982, 18751, 26960, 19539, 19063, 26915, 33680, 33590)
 
 	-- Woven Copper Ring -- 26925
-	AddRecipe(26925, 1, 21931, Q.UNCOMMON, V.TBC, 1, 30, 45, 60)
+	AddRecipe(26925, 1, 21931, Q.COMMON, V.TBC, 1, 30, 45, 60)
 	self:AddRecipeFlags(26925, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
 	self:AddRecipeAcquire(26925, A.CUSTOM, 8)
 
@@ -1370,7 +1370,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(47056, FAC.SCALE_OF_SANDS, REP.HONORED, 23437)
 
 	-- Brilliant Glass -- 47280
-	AddRecipe(47280, 350, 35945, Q.RARE, V.TBC, 350, 350, 365, 380)
+	AddRecipe(47280, 350, 35945, Q.COMMON, V.TBC, 350, 350, 365, 380)
 	self:AddRecipeFlags(47280, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(47280, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
@@ -1385,62 +1385,62 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53830, 28721, 33602)
 
 	-- Bold Bloodstone -- 53831
-	AddRecipe(53831, 350, 39900, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53831, 350, 39900, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53831, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53831, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Delicate Bloodstone -- 53832
-	AddRecipe(53832, 350, 39905, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53832, 350, 39905, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53832, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53832, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Runed Bloodstone -- 53834
-	AddRecipe(53834, 350, 39911, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53834, 350, 39911, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53834, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53834, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Bright Bloodstone -- 53835
-	AddRecipe(53835, 350, 39906, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53835, 350, 39906, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53835, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53835, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Subtle Bloodstone -- 53843
-	AddRecipe(53843, 360, 39907, Q.UNCOMMON, V.WOTLK, 360, 375, 395, 415)
+	AddRecipe(53843, 360, 39907, Q.COMMON, V.WOTLK, 360, 375, 395, 415)
 	self:AddRecipeFlags(53843, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53843, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Flashing Bloodstone -- 53844
-	AddRecipe(53844, 350, 39908, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53844, 350, 39908, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53844, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53844, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Fractured Bloodstone -- 53845
-	AddRecipe(53845, 350, 39909, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53845, 350, 39909, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53845, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53845, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Brilliant Sun Crystal -- 53852
-	AddRecipe(53852, 350, 39912, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53852, 350, 39912, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53852, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53852, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Smooth Sun Crystal -- 53853
-	AddRecipe(53853, 350, 39914, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53853, 350, 39914, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53853, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53853, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Rigid Sun Crystal -- 53854
-	AddRecipe(53854, 350, 39915, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53854, 350, 39915, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53854, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53854, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Thick Sun Crystal -- 53855
-	AddRecipe(53855, 350, 39916, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53855, 350, 39916, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53855, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53855, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Quick Sun Crystal -- 53856
-	AddRecipe(53856, 350, 39918, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53856, 350, 39918, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53856, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53856, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1450,32 +1450,32 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53857, 34079, 34039)
 
 	-- Sovereign Shadow Crystal -- 53859
-	AddRecipe(53859, 350, 39934, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53859, 350, 39934, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53859, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53859, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Shifting Shadow Crystal -- 53860
-	AddRecipe(53860, 350, 39935, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53860, 350, 39935, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53860, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53860, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Tenuous Shadow Crystal -- 53861
-	AddRecipe(53861, 350, 39942, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53861, 350, 39942, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53861, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53861, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Glowing Shadow Crystal -- 53862
-	AddRecipe(53862, 350, 39936, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53862, 350, 39936, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53862, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53862, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Purified Shadow Crystal -- 53863
-	AddRecipe(53863, 350, 39941, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53863, 350, 39941, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53863, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53863, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Royal Shadow Crystal -- 53864
-	AddRecipe(53864, 350, 39943, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53864, 350, 39943, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53864, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53864, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1485,17 +1485,17 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53865, 34079, 34039)
 
 	-- Balanced Shadow Crystal -- 53866
-	AddRecipe(53866, 350, 39937, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53866, 350, 39937, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53866, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53866, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Infused Shadow Crystal -- 53867
-	AddRecipe(53867, 350, 39944, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53867, 350, 39944, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53867, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53867, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Regal Shadow Crystal -- 53868
-	AddRecipe(53868, 360, 39938, Q.UNCOMMON, V.WOTLK, 360, 375, 395, 415)
+	AddRecipe(53868, 360, 39938, Q.COMMON, V.WOTLK, 360, 375, 395, 415)
 	self:AddRecipeFlags(53868, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53868, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1505,27 +1505,27 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53869, FAC.KALUAK, REP.HONORED, 31916, 32763)
 
 	-- Puissant Shadow Crystal -- 53870
-	AddRecipe(53870, 350, 39933, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53870, 350, 39933, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53870, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53870, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Guardian's Shadow Crystal -- 53871
-	AddRecipe(53871, 350, 39940, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53871, 350, 39940, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53871, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeTrainer(53871, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Inscribed Huge Citrine -- 53872
-	AddRecipe(53872, 350, 39947, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53872, 350, 39947, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53872, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53872, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Etched Huge Citrine -- 53873
-	AddRecipe(53873, 350, 39948, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53873, 350, 39948, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53873, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53873, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Champion's Huge Citrine -- 53874
-	AddRecipe(53874, 350, 39949, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53874, 350, 39949, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53874, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeTrainer(53874, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1535,7 +1535,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53875, 34079, 34039)
 
 	-- Fierce Huge Citrine -- 53876
-	AddRecipe(53876, 350, 39951, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53876, 350, 39951, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53876, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53876, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1545,7 +1545,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53877, FAC.EBONBLADE, REP.FRIENDLY, 32538)
 
 	-- Glinting Huge Citrine -- 53878
-	AddRecipe(53878, 350, 39953, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53878, 350, 39953, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53878, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53878, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1555,22 +1555,22 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53879, 34079, 34039)
 
 	-- Deft Huge Citrine -- 53880
-	AddRecipe(53880, 350, 39955, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53880, 350, 39955, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53880, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53880, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Luminous Huge Citrine -- 53881
-	AddRecipe(53881, 350, 39946, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53881, 350, 39946, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53881, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53881, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Potent Huge Citrine -- 53882
-	AddRecipe(53882, 350, 39956, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53882, 350, 39956, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53882, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53882, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Veiled Huge Citrine -- 53883
-	AddRecipe(53883, 350, 39957, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53883, 350, 39957, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53883, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53883, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1585,12 +1585,12 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53885, FAC.FRENZYHEART, REP.FRIENDLY, 31911)
 
 	-- Wicked Huge Citrine -- 53886
-	AddRecipe(53886, 350, 39960, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53886, 350, 39960, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53886, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53886, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Pristine Huge Citrine -- 53887
-	AddRecipe(53887, 350, 39961, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53887, 350, 39961, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53887, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53887, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1600,37 +1600,37 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53888, 34079, 34039)
 
 	-- Stark Huge Citrine -- 53889
-	AddRecipe(53889, 350, 39963, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53889, 350, 39963, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53889, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53889, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Stalwart Huge Citrine -- 53890
-	AddRecipe(53890, 350, 39964, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53890, 350, 39964, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53890, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53890, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Glimmering Huge Citrine -- 53891
-	AddRecipe(53891, 360, 39965, Q.UNCOMMON, V.WOTLK, 360, 375, 395, 415)
+	AddRecipe(53891, 360, 39965, Q.COMMON, V.WOTLK, 360, 375, 395, 415)
 	self:AddRecipeFlags(53891, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53891, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Accurate Huge Citrine -- 53892
-	AddRecipe(53892, 350, 39966, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53892, 350, 39966, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53892, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeTrainer(53892, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Resolute Huge Citrine -- 53893
-	AddRecipe(53893, 350, 39967, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53893, 350, 39967, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53893, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeTrainer(53893, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Timeless Dark Jade -- 53894
-	AddRecipe(53894, 350, 39968, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53894, 350, 39968, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53894, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53894, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Jagged Dark Jade -- 53916
-	AddRecipe(53916, 350, 39974, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53916, 350, 39974, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53916, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53916, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1640,7 +1640,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53917, FAC.ORACLES, REP.FRIENDLY, 31910)
 
 	-- Enduring Dark Jade -- 53918
-	AddRecipe(53918, 350, 39976, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53918, 350, 39976, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53918, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeTrainer(53918, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1650,7 +1650,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53919, 34079, 34039)
 
 	-- Forceful Dark Jade -- 53920
-	AddRecipe(53920, 350, 39978, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53920, 350, 39978, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53920, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53920, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1660,12 +1660,12 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53921, FAC.KALUAK, REP.FRIENDLY, 31916, 32763)
 
 	-- Misty Dark Jade -- 53922
-	AddRecipe(53922, 350, 39980, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53922, 350, 39980, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53922, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53922, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Shining Dark Jade -- 53923
-	AddRecipe(53923, 350, 39981, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53923, 350, 39981, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53923, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53923, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1675,22 +1675,22 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53924, 34079, 34039)
 
 	-- Intricate Dark Jade -- 53925
-	AddRecipe(53925, 350, 39983, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53925, 350, 39983, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53925, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53925, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Dazzling Dark Jade -- 53926
-	AddRecipe(53926, 350, 39984, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53926, 350, 39984, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53926, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53926, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Sundered Dark Jade -- 53927
-	AddRecipe(53927, 350, 39985, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53927, 350, 39985, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53927, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53927, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Lambent Dark Jade -- 53928
-	AddRecipe(53928, 350, 39986, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53928, 350, 39986, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53928, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53928, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1700,12 +1700,12 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53929, 34079, 34039)
 
 	-- Energized Dark Jade -- 53930
-	AddRecipe(53930, 350, 39989, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53930, 350, 39989, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53930, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53930, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Radiant Dark Jade -- 53931
-	AddRecipe(53931, 350, 39990, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53931, 350, 39990, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53931, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER)
 	self:AddRecipeTrainer(53931, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1720,17 +1720,17 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53933, 34079, 34039)
 
 	-- Solid Chalcedony -- 53934
-	AddRecipe(53934, 350, 39919, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53934, 350, 39919, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53934, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53934, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Sparkling Chalcedony -- 53940
-	AddRecipe(53940, 350, 39920, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53940, 350, 39920, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53940, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53940, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Lustrous Chalcedony -- 53941
-	AddRecipe(53941, 350, 39927, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(53941, 350, 39927, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(53941, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53941, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1750,7 +1750,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53946, FAC.KIRINTOR, REP.EXALTED, 32287)
 
 	-- Bright Scarlet Ruby -- 53947
-	AddRecipe(53947, 390, 39999, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(53947, 390, 39999, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53947, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53947, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1780,7 +1780,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53952, 28721, 33602)
 
 	-- Sparkling Sky Sapphire -- 53953
-	AddRecipe(53953, 390, 40009, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(53953, 390, 40009, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53953, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(53953, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1795,7 +1795,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53955, 32296, 32294, 30489)
 
 	-- Brilliant Autumn's Glow -- 53956
-	AddRecipe(53956, 390, 40012, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(53956, 390, 40012, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53956, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(53956, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1860,7 +1860,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(53968, 32296, 32294, 30489)
 
 	-- Balanced Twilight Opal -- 53969
-	AddRecipe(53969, 390, 40029, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(53969, 390, 40029, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53969, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53969, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -1960,7 +1960,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(53988, FAC.EBONBLADE, REP.REVERED, 32538)
 
 	-- Pristine Monarch Topaz -- 53989
-	AddRecipe(53989, 390, 40053, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(53989, 390, 40053, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53989, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(53989, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2045,7 +2045,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(54006, 28721, 33602)
 
 	-- Dazzling Forest Emerald -- 54007
-	AddRecipe(54007, 390, 40094, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(54007, 390, 40094, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(54007, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(54007, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2085,7 +2085,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(54014, 32296, 32294, 30489)
 
 	-- Precise Bloodstone -- 54017
-	AddRecipe(54017, 350, 39910, Q.UNCOMMON, V.WOTLK, 350, 375, 395, 415)
+	AddRecipe(54017, 350, 39910, Q.COMMON, V.WOTLK, 350, 375, 395, 415)
 	self:AddRecipeFlags(54017, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
 	self:AddRecipeTrainer(54017, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2105,7 +2105,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(55384, 28721, 33602)
 
 	-- Tireless Skyflare Diamond -- 55386
-	AddRecipe(55386, 420, 41375, Q.RARE, V.WOTLK, 420, 440, 450, 460)
+	AddRecipe(55386, 420, 41375, Q.COMMON, V.WOTLK, 420, 440, 450, 460)
 	self:AddRecipeFlags(55386, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(55386, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2140,7 +2140,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(55393, 32296, 32294, 30489)
 
 	-- Swift Skyflare Diamond -- 55394
-	AddRecipe(55394, 420, 41339, Q.RARE, V.WOTLK, 420, 440, 450, 460)
+	AddRecipe(55394, 420, 41339, Q.COMMON, V.WOTLK, 420, 440, 450, 460)
 	self:AddRecipeFlags(55394, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(55394, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2165,7 +2165,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeMobDrop(55398, 28923)
 
 	-- Powerful Earthsiege Diamond -- 55399
-	AddRecipe(55399, 420, 41397, Q.RARE, V.WOTLK, 420, 440, 450, 460)
+	AddRecipe(55399, 420, 41397, Q.COMMON, V.WOTLK, 420, 440, 450, 460)
 	self:AddRecipeFlags(55399, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(55399, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2180,7 +2180,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeMobDrop(55401, 26861)
 
 	-- Persistent Earthsiege Diamond -- 55402
-	AddRecipe(55402, 420, 41381, Q.RARE, V.WOTLK, 420, 440, 450, 460)
+	AddRecipe(55402, 420, 41381, Q.COMMON, V.WOTLK, 420, 440, 450, 460)
 	self:AddRecipeFlags(55402, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(55402, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2310,42 +2310,42 @@ function addon:InitJewelcrafting()
 	self:AddRecipeTrainer(56195, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Blood Sun Necklace -- 56196
-	AddRecipe(56196, 380, 42339, Q.RARE, V.WOTLK, 380, 400, 410, 420)
+	AddRecipe(56196, 380, 42339, Q.COMMON, V.WOTLK, 380, 400, 410, 420)
 	self:AddRecipeFlags(56196, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.NECK)
 	self:AddRecipeTrainer(56196, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Dream Signet -- 56197
-	AddRecipe(56197, 420, 42340, Q.RARE, V.WOTLK, 420, 440, 450, 460)
+	AddRecipe(56197, 420, 42340, Q.COMMON, V.WOTLK, 420, 440, 450, 460)
 	self:AddRecipeFlags(56197, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
 	self:AddRecipeTrainer(56197, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Ruby Hare -- 56199
-	AddRecipe(56199, 400, 42341, Q.RARE, V.WOTLK, 400, 430, 440, 450)
+	AddRecipe(56199, 400, 42341, Q.COMMON, V.WOTLK, 400, 430, 440, 450)
 	self:AddRecipeFlags(56199, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TRINKET)
 	self:AddRecipeTrainer(56199, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Twilight Serpent -- 56201
-	AddRecipe(56201, 400, 42395, Q.RARE, V.WOTLK, 400, 430, 440, 450)
+	AddRecipe(56201, 400, 42395, Q.COMMON, V.WOTLK, 400, 430, 440, 450)
 	self:AddRecipeFlags(56201, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
 	self:AddRecipeTrainer(56201, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Sapphire Owl -- 56202
-	AddRecipe(56202, 400, 42413, Q.RARE, V.WOTLK, 400, 430, 440, 450)
+	AddRecipe(56202, 400, 42413, Q.COMMON, V.WOTLK, 400, 430, 440, 450)
 	self:AddRecipeFlags(56202, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
 	self:AddRecipeTrainer(56202, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Emerald Boar -- 56203
-	AddRecipe(56203, 400, 42418, Q.RARE, V.WOTLK, 400, 430, 440, 450)
+	AddRecipe(56203, 400, 42418, Q.COMMON, V.WOTLK, 400, 430, 440, 450)
 	self:AddRecipeFlags(56203, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TRINKET)
 	self:AddRecipeTrainer(56203, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Dark Jade Focusing Lens -- 56205
-	AddRecipe(56205, 350, 41367, Q.UNCOMMON, V.WOTLK, 350, 360, 370, 380)
+	AddRecipe(56205, 350, 41367, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
 	self:AddRecipeFlags(56205, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(56205, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Shadow Crystal Focusing Lens -- 56206
-	AddRecipe(56206, 360, 42420, Q.UNCOMMON, V.WOTLK, 360, 370, 380, 390)
+	AddRecipe(56206, 360, 42420, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
 	self:AddRecipeFlags(56206, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(56206, 26915, 28701, 33590, 26960, 26982, 26997)
 
@@ -2390,7 +2390,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeTrainer(56530, 26915, 28701, 33590, 26960, 26982, 26997)
 
 	-- Enchanted Tear -- 56531
-	AddRecipe(56531, 390, 42702, Q.RARE, V.WOTLK, 390, 410, 425, 440)
+	AddRecipe(56531, 390, 42702, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(56531, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(56531, 26915, 28701, 33590, 26960, 26982, 26997)
 
