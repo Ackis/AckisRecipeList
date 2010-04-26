@@ -68,7 +68,7 @@ function addon:InitTailoring()
 	-- Red Linen Robe -- 2389
 	AddRecipe(2389, 40, 2572, Q.UNCOMMON, V.ORIG, 40, 65, 82, 100)
 	self:AddRecipeFlags(2389, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(2389, 2)
+	self:AddRecipeWorldDrop(2389, "Kalimdor", "Eastern Kingdoms")
 
 	-- Red Linen Shirt -- 2392
 	AddRecipe(2392, 40, 2575, Q.COMMON, V.ORIG, 40, 65, 82, 100)
@@ -118,7 +118,7 @@ function addon:InitTailoring()
 	-- Gray Woolen Robe -- 2403
 	AddRecipe(2403, 105, 2585, Q.UNCOMMON, V.ORIG, 105, 130, 147, 165)
 	self:AddRecipeFlags(2403, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(2403, 2)
+	self:AddRecipeWorldDrop(2403, "Kalimdor", "Eastern Kingdoms")
 
 	-- Gray Woolen Shirt -- 2406
 	AddRecipe(2406, 100, 2587, Q.COMMON, V.ORIG, 100, 110, 120, 130)
@@ -148,7 +148,7 @@ function addon:InitTailoring()
 	-- Green Woolen Bag -- 3758
 	AddRecipe(3758, 95, 4241, Q.UNCOMMON, V.ORIG, 95, 120, 137, 155)
 	self:AddRecipeFlags(3758, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3758, 2)
+	self:AddRecipeWorldDrop(3758, "Kalimdor", "Eastern Kingdoms")
 
 	-- Small Silk Pack -- 3813
 	AddRecipe(3813, 150, 4245, Q.COMMON, V.ORIG, 150, 170, 185, 200)
@@ -183,7 +183,7 @@ function addon:InitTailoring()
 	-- Heavy Woolen Cloak -- 3844
 	AddRecipe(3844, 100, 4311, Q.UNCOMMON, V.ORIG, 100, 125, 142, 160)
 	self:AddRecipeFlags(3844, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(3844, 2)
+	self:AddRecipeWorldDrop(3844, "Kalimdor", "Eastern Kingdoms")
 
 	-- Soft-soled Linen Boots -- 3845
 	AddRecipe(3845, 80, 4312, Q.COMMON, V.ORIG, 80, 105, 122, 140)
@@ -193,7 +193,7 @@ function addon:InitTailoring()
 	-- Red Woolen Boots -- 3847
 	AddRecipe(3847, 95, 4313, Q.UNCOMMON, V.ORIG, 95, 120, 137, 155)
 	self:AddRecipeFlags(3847, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3847, 2)
+	self:AddRecipeWorldDrop(3847, "Kalimdor", "Eastern Kingdoms")
 
 	-- Double-stitched Woolen Shoulders -- 3848
 	AddRecipe(3848, 110, 4314, Q.COMMON, V.ORIG, 110, 135, 152, 170)
@@ -203,7 +203,7 @@ function addon:InitTailoring()
 	-- Reinforced Woolen Shoulders -- 3849
 	AddRecipe(3849, 120, 4315, Q.UNCOMMON, V.ORIG, 120, 145, 162, 180)
 	self:AddRecipeFlags(3849, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3849, 2)
+	self:AddRecipeWorldDrop(3849, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Woolen Pants -- 3850
 	AddRecipe(3850, 110, 4316, Q.COMMON, V.ORIG, 110, 135, 152, 170)
@@ -213,7 +213,7 @@ function addon:InitTailoring()
 	-- Phoenix Pants -- 3851
 	AddRecipe(3851, 125, 4317, Q.UNCOMMON, V.ORIG, 125, 150, 167, 185)
 	self:AddRecipeFlags(3851, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3851, 2)
+	self:AddRecipeWorldDrop(3851, "Kalimdor", "Eastern Kingdoms")
 
 	-- Gloves of Meditation -- 3852
 	AddRecipe(3852, 130, 4318, Q.COMMON, V.ORIG, 130, 150, 165, 180)
@@ -233,7 +233,7 @@ function addon:InitTailoring()
 	-- Spider Silk Slippers -- 3856
 	AddRecipe(3856, 140, 4321, Q.UNCOMMON, V.ORIG, 140, 160, 175, 190)
 	self:AddRecipeFlags(3856, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3856, 2)
+	self:AddRecipeWorldDrop(3856, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchanter's Cowl -- 3857
 	AddRecipe(3857, 165, 4322, Q.COMMON, V.ORIG, 165, 185, 200, 215)
@@ -243,7 +243,7 @@ function addon:InitTailoring()
 	-- Shadow Hood -- 3858
 	AddRecipe(3858, 170, 4323, Q.UNCOMMON, V.ORIG, 170, 190, 205, 220)
 	self:AddRecipeFlags(3858, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3858, 2)
+	self:AddRecipeWorldDrop(3858, "Kalimdor", "Eastern Kingdoms")
 
 	-- Azure Silk Vest -- 3859
 	AddRecipe(3859, 150, 4324, Q.COMMON, V.ORIG, 150, 170, 185, 200)
@@ -253,7 +253,7 @@ function addon:InitTailoring()
 	-- Boots of the Enchanter -- 3860
 	AddRecipe(3860, 175, 4325, Q.UNCOMMON, V.ORIG, 175, 195, 210, 225)
 	self:AddRecipeFlags(3860, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3860, 2)
+	self:AddRecipeWorldDrop(3860, "Kalimdor", "Eastern Kingdoms")
 
 	-- Long Silken Cloak -- 3861
 	AddRecipe(3861, 185, 4326, Q.COMMON, V.ORIG, 185, 205, 220, 235)
@@ -268,12 +268,12 @@ function addon:InitTailoring()
 	-- Spider Belt -- 3863
 	AddRecipe(3863, 180, 4328, Q.UNCOMMON, V.ORIG, 180, 200, 215, 230)
 	self:AddRecipeFlags(3863, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3863, 2)
+	self:AddRecipeWorldDrop(3863, "Kalimdor", "Eastern Kingdoms")
 
 	-- Star Belt -- 3864
 	AddRecipe(3864, 200, 4329, Q.UNCOMMON, V.ORIG, 200, 220, 235, 250)
 	self:AddRecipeFlags(3864, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3864, 2)
+	self:AddRecipeWorldDrop(3864, "Kalimdor", "Eastern Kingdoms")
 
 	-- Bolt of Mageweave -- 3865
 	AddRecipe(3865, 175, 4339, Q.COMMON, V.ORIG, 175, 180, 182, 185)
@@ -288,7 +288,7 @@ function addon:InitTailoring()
 	-- Phoenix Gloves -- 3868
 	AddRecipe(3868, 125, 4331, Q.UNCOMMON, V.ORIG, 125, 150, 167, 185)
 	self:AddRecipeFlags(3868, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(3868, 2)
+	self:AddRecipeWorldDrop(3868, "Kalimdor", "Eastern Kingdoms")
 
 	-- Bright Yellow Shirt -- 3869
 	AddRecipe(3869, 135, 4332, Q.COMMON, V.ORIG, 135, 145, 150, 155)
@@ -308,7 +308,7 @@ function addon:InitTailoring()
 	-- Rich Purple Silk Shirt -- 3872
 	AddRecipe(3872, 185, 4335, Q.RARE, V.ORIG, 185, 195, 200, 205)
 	self:AddRecipeFlags(3872, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(3872, 2)
+	self:AddRecipeWorldDrop(3872, "Kalimdor", "Eastern Kingdoms")
 
 	-- Black Swashbuckler's Shirt -- 3873
 	AddRecipe(3873, 200, 4336, Q.COMMON, V.ORIG, 200, 210, 215, 220)
@@ -355,7 +355,7 @@ function addon:InitTailoring()
 	-- Green Silk Pack -- 6693
 	AddRecipe(6693, 175, 5764, Q.UNCOMMON, V.ORIG, 175, 195, 210, 225)
 	self:AddRecipeFlags(6693, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(6693, 2)
+	self:AddRecipeWorldDrop(6693, "Kalimdor", "Eastern Kingdoms")
 
 	-- Black Silk Pack -- 6695
 	AddRecipe(6695, 185, 5765, Q.UNCOMMON, V.ORIG, 185, 205, 220, 235)
@@ -375,7 +375,7 @@ function addon:InitTailoring()
 	-- Red Linen Vest -- 7629
 	AddRecipe(7629, 55, 6239, Q.UNCOMMON, V.ORIG, 55, 80, 97, 115)
 	self:AddRecipeFlags(7629, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(7629, 2)
+	self:AddRecipeWorldDrop(7629, "Kalimdor", "Eastern Kingdoms")
 
 	-- Blue Linen Vest -- 7630
 	AddRecipe(7630, 55, 6240, Q.COMMON, V.ORIG, 55, 80, 97, 115)
@@ -401,12 +401,12 @@ function addon:InitTailoring()
 	-- Stylish Blue Shirt -- 7892
 	AddRecipe(7892, 120, 6384, Q.UNCOMMON, V.ORIG, 120, 145, 162, 180)
 	self:AddRecipeFlags(7892, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(7892, 2)
+	self:AddRecipeWorldDrop(7892, "Kalimdor", "Eastern Kingdoms")
 
 	-- Stylish Green Shirt -- 7893
 	AddRecipe(7893, 120, 6385, Q.UNCOMMON, V.ORIG, 120, 145, 162, 180)
 	self:AddRecipeFlags(7893, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(7893, 2)
+	self:AddRecipeWorldDrop(7893, "Kalimdor", "Eastern Kingdoms")
 
 	-- Simple Dress -- 8465
 	AddRecipe(8465, 40, 6786, Q.COMMON, V.ORIG, 40, 65, 82, 100)
@@ -476,17 +476,17 @@ function addon:InitTailoring()
 	-- Hands of Darkness -- 8780
 	AddRecipe(8780, 145, 7047, Q.UNCOMMON, V.ORIG, 145, 165, 180, 195)
 	self:AddRecipeFlags(8780, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8780, 2)
+	self:AddRecipeWorldDrop(8780, "Kalimdor", "Eastern Kingdoms")
 
 	-- Truefaith Gloves -- 8782
 	AddRecipe(8782, 150, 7049, Q.UNCOMMON, V.ORIG, 150, 170, 185, 200)
 	self:AddRecipeFlags(8782, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8782, 2)
+	self:AddRecipeWorldDrop(8782, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Silk Armor -- 8784
 	AddRecipe(8784, 165, 7065, Q.UNCOMMON, V.ORIG, 165, 185, 200, 215)
 	self:AddRecipeFlags(8784, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8784, 2)
+	self:AddRecipeWorldDrop(8784, "Kalimdor", "Eastern Kingdoms")
 
 	-- Azure Silk Cloak -- 8786
 	AddRecipe(8786, 175, 7053, Q.COMMON, V.ORIG, 175, 195, 210, 225)
@@ -506,17 +506,17 @@ function addon:InitTailoring()
 	-- Crimson Silk Shoulders -- 8793
 	AddRecipe(8793, 190, 7059, Q.UNCOMMON, V.ORIG, 190, 210, 225, 240)
 	self:AddRecipeFlags(8793, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8793, 2)
+	self:AddRecipeWorldDrop(8793, "Kalimdor", "Eastern Kingdoms")
 
 	-- Azure Shoulders -- 8795
 	AddRecipe(8795, 190, 7060, Q.UNCOMMON, V.ORIG, 190, 210, 225, 240)
 	self:AddRecipeFlags(8795, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8795, 2)
+	self:AddRecipeWorldDrop(8795, "Kalimdor", "Eastern Kingdoms")
 
 	-- Earthen Silk Belt -- 8797
 	AddRecipe(8797, 195, 7061, Q.UNCOMMON, V.ORIG, 195, 215, 230, 245)
 	self:AddRecipeFlags(8797, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(8797, 2)
+	self:AddRecipeWorldDrop(8797, "Kalimdor", "Eastern Kingdoms")
 
 	-- Crimson Silk Pantaloons -- 8799
 	AddRecipe(8799, 195, 7062, Q.COMMON, V.ORIG, 195, 215, 225, 235)
@@ -551,7 +551,7 @@ function addon:InitTailoring()
 	-- Colorful Kilt -- 12047
 	AddRecipe(12047, 120, 10048, Q.UNCOMMON, V.ORIG, 120, 145, 162, 180)
 	self:AddRecipeFlags(12047, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12047, 2)
+	self:AddRecipeWorldDrop(12047, "Kalimdor", "Eastern Kingdoms")
 
 	-- Black Mageweave Vest -- 12048
 	AddRecipe(12048, 205, 9998, Q.COMMON, V.ORIG, 205, 220, 235, 250)
@@ -586,17 +586,17 @@ function addon:InitTailoring()
 	-- Red Mageweave Vest -- 12056
 	AddRecipe(12056, 215, 10007, Q.UNCOMMON, V.ORIG, 215, 230, 245, 260)
 	self:AddRecipeFlags(12056, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12056, 2)
+	self:AddRecipeWorldDrop(12056, "Kalimdor", "Eastern Kingdoms")
 
 	-- White Bandit Mask -- 12059
 	AddRecipe(12059, 215, 10008, Q.UNCOMMON, V.ORIG, 215, 220, 225, 230)
 	self:AddRecipeFlags(12059, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12059, 2)
+	self:AddRecipeWorldDrop(12059, "Kalimdor", "Eastern Kingdoms")
 
 	-- Red Mageweave Pants -- 12060
 	AddRecipe(12060, 215, 10009, Q.UNCOMMON, V.ORIG, 215, 230, 245, 260)
 	self:AddRecipeFlags(12060, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12060, 2)
+	self:AddRecipeWorldDrop(12060, "Kalimdor", "Eastern Kingdoms")
 
 	-- Orange Mageweave Shirt -- 12061
 	AddRecipe(12061, 215, 10056, Q.COMMON, V.ORIG, 215, 220, 225, 230)
@@ -616,7 +616,7 @@ function addon:InitTailoring()
 	-- Red Mageweave Gloves -- 12066
 	AddRecipe(12066, 225, 10018, Q.UNCOMMON, V.ORIG, 225, 240, 255, 270)
 	self:AddRecipeFlags(12066, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12066, 2)
+	self:AddRecipeWorldDrop(12066, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dreamweave Gloves -- 12067
 	AddRecipe(12067, 225, 10019, Q.COMMON, V.ORIG, 225, 240, 255, 270)
@@ -671,7 +671,7 @@ function addon:InitTailoring()
 	-- Red Mageweave Shoulders -- 12078
 	AddRecipe(12078, 235, 10029, Q.UNCOMMON, V.ORIG, 235, 250, 265, 280)
 	self:AddRecipeFlags(12078, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12078, 2)
+	self:AddRecipeWorldDrop(12078, "Kalimdor", "Eastern Kingdoms")
 
 	-- Red Mageweave Bag -- 12079
 	AddRecipe(12079, 235, 10051, Q.COMMON, V.ORIG, 235, 250, 265, 280)
@@ -696,7 +696,7 @@ function addon:InitTailoring()
 	-- Red Mageweave Headband -- 12084
 	AddRecipe(12084, 240, 10033, Q.UNCOMMON, V.ORIG, 240, 255, 270, 285)
 	self:AddRecipeFlags(12084, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(12084, 2)
+	self:AddRecipeWorldDrop(12084, "Kalimdor", "Eastern Kingdoms")
 
 	-- Tuxedo Shirt -- 12085
 	AddRecipe(12085, 240, 10034, Q.COMMON, V.ORIG, 240, 245, 250, 255)
@@ -751,7 +751,7 @@ function addon:InitTailoring()
 	-- Frostweave Robe -- 18404
 	AddRecipe(18404, 255, 13868, Q.UNCOMMON, V.ORIG, 255, 270, 285, 300)
 	self:AddRecipeFlags(18404, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18404, 2)
+	self:AddRecipeWorldDrop(18404, "Kalimdor", "Eastern Kingdoms")
 
 	-- Runecloth Bag -- 18405
 	AddRecipe(18405, 260, 14046, Q.COMMON, V.ORIG, 260, 275, 290, 305)
@@ -854,7 +854,7 @@ function addon:InitTailoring()
 	AddRecipe(18424, 280, 13871, Q.UNCOMMON, V.ORIG, 280, 295, 310, 325)
 	self:AddRecipeFlags(18424, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(18424, 16640, 33684, 26964, 3523, 2399, 3484, 16366, 3004, 3704, 1103, 11052, 5153, 33580, 27001, 33636, 4576, 18772, 16729, 1346, 4193, 2627, 11557, 33613, 17487, 3363, 26914, 4159, 18749, 26969, 28699)
-	self:AddRecipeWorldDrop(18424, 2)
+	self:AddRecipeWorldDrop(18424, "Kalimdor", "Eastern Kingdoms")
 
 	-- Cindercloth Pants -- 18434
 	AddRecipe(18434, 280, 14045, Q.UNCOMMON, V.ORIG, 280, 295, 310, 325)
@@ -875,7 +875,7 @@ function addon:InitTailoring()
 	AddRecipe(18438, 285, 13865, Q.UNCOMMON, V.ORIG, 285, 300, 315, 330)
 	self:AddRecipeFlags(18438, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(18438, 16640, 33684, 26964, 3523, 2399, 3484, 16366, 3004, 3704, 1103, 11052, 5153, 33580, 27001, 33636, 4576, 18772, 16729, 1346, 4193, 2627, 11557, 33613, 17487, 3363, 26914, 4159, 18749, 26969, 28699)
-	self:AddRecipeWorldDrop(18438, 2)
+	self:AddRecipeWorldDrop(18438, "Kalimdor", "Eastern Kingdoms")
 
 	-- Brightcloth Pants -- 18439
 	AddRecipe(18439, 290, 14104, Q.UNCOMMON, V.ORIG, 290, 305, 320, 335)
@@ -885,7 +885,7 @@ function addon:InitTailoring()
 	-- Mooncloth Leggings -- 18440
 	AddRecipe(18440, 290, 14137, Q.RARE, V.ORIG, 290, 305, 320, 335)
 	self:AddRecipeFlags(18440, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18440, 2)
+	self:AddRecipeWorldDrop(18440, "Kalimdor", "Eastern Kingdoms")
 
 	-- Ghostweave Pants -- 18441
 	AddRecipe(18441, 290, 14144, Q.UNCOMMON, V.ORIG, 290, 305, 320, 335)
@@ -905,7 +905,7 @@ function addon:InitTailoring()
 	-- Mooncloth Bag -- 18445
 	AddRecipe(18445, 300, 14155, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18445, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(18445, 2)
+	self:AddRecipeWorldDrop(18445, "Kalimdor", "Eastern Kingdoms")
 
 	-- Wizardweave Robe -- 18446
 	AddRecipe(18446, 300, 14128, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
@@ -915,18 +915,18 @@ function addon:InitTailoring()
 	-- Mooncloth Vest -- 18447
 	AddRecipe(18447, 300, 14138, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18447, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18447, 2)
+	self:AddRecipeWorldDrop(18447, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mooncloth Shoulders -- 18448
 	AddRecipe(18448, 300, 14139, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18448, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18448, 2)
+	self:AddRecipeWorldDrop(18448, "Kalimdor", "Eastern Kingdoms")
 
 	-- Runecloth Shoulders -- 18449
 	AddRecipe(18449, 300, 13867, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18449, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(18449, 16640, 33684, 26964, 3523, 2399, 3484, 16366, 3004, 3704, 1103, 11052, 5153, 33580, 27001, 33636, 4576, 18772, 16729, 1346, 4193, 2627, 11557, 33613, 17487, 3363, 26914, 4159, 18749, 26969, 28699)
-	self:AddRecipeWorldDrop(18449, 2)
+	self:AddRecipeWorldDrop(18449, "Kalimdor", "Eastern Kingdoms")
 
 	-- Wizardweave Turban -- 18450
 	AddRecipe(18450, 300, 14130, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
@@ -937,28 +937,28 @@ function addon:InitTailoring()
 	AddRecipe(18451, 300, 14106, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18451, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(18451, 16640, 33684, 26964, 3523, 2399, 3484, 16366, 3004, 3704, 1103, 11052, 5153, 33580, 27001, 33636, 4576, 18772, 16729, 1346, 4193, 2627, 11557, 33613, 17487, 3363, 26914, 4159, 18749, 26969, 28699)
-	self:AddRecipeWorldDrop(18451, 2)
+	self:AddRecipeWorldDrop(18451, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mooncloth Circlet -- 18452
 	AddRecipe(18452, 300, 14140, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18452, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18452, 2)
+	self:AddRecipeWorldDrop(18452, "Kalimdor", "Eastern Kingdoms")
 
 	-- Felcloth Shoulders -- 18453
 	AddRecipe(18453, 300, 14112, Q.UNCOMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18453, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(18453, 16640, 33684, 26964, 3523, 2399, 3484, 16366, 3004, 3704, 1103, 11052, 5153, 33580, 27001, 33636, 4576, 18772, 16729, 1346, 4193, 2627, 11557, 33613, 17487, 3363, 26914, 4159, 18749, 26969, 28699)
-	self:AddRecipeWorldDrop(18453, 2)
+	self:AddRecipeWorldDrop(18453, "Kalimdor", "Eastern Kingdoms")
 
 	-- Gloves of Spell Mastery -- 18454
 	AddRecipe(18454, 300, 14146, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18454, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(18454, 2)
+	self:AddRecipeWorldDrop(18454, "Kalimdor", "Eastern Kingdoms")
 
 	-- Bottomless Bag -- 18455
 	AddRecipe(18455, 300, 14156, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(18455, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(18455, 2)
+	self:AddRecipeWorldDrop(18455, "Kalimdor", "Eastern Kingdoms")
 
 	-- Truefaith Vestments -- 18456
 	AddRecipe(18456, 300, 14154, Q.EPIC, V.ORIG, 300, 315, 330, 345)
@@ -1407,27 +1407,27 @@ function addon:InitTailoring()
 	-- Bracers of Havok -- 31435
 	AddRecipe(31435, 350, 24250, Q.RARE, V.TBC, 350, 360, 365, 370)
 	self:AddRecipeFlags(31435, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(31435, 3)
+	self:AddRecipeWorldDrop(31435, "Outland")
 
 	-- Blackstrike Bracers -- 31437
 	AddRecipe(31437, 350, 24251, Q.RARE, V.TBC, 350, 360, 365, 370)
 	self:AddRecipeFlags(31437, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(31437, 3)
+	self:AddRecipeWorldDrop(31437, "Outland")
 
 	-- Cloak of the Black Void -- 31438
 	AddRecipe(31438, 350, 24252, Q.RARE, V.TBC, 350, 360, 365, 370)
 	self:AddRecipeFlags(31438, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(31438, 3)
+	self:AddRecipeWorldDrop(31438, "Outland")
 
 	-- Cloak of Eternity -- 31440
 	AddRecipe(31440, 350, 24253, Q.RARE, V.TBC, 350, 360, 365, 370)
 	self:AddRecipeFlags(31440, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	self:AddRecipeWorldDrop(31440, 3)
+	self:AddRecipeWorldDrop(31440, "Outland")
 
 	-- White Remedy Cape -- 31441
 	AddRecipe(31441, 350, 24254, Q.RARE, V.TBC, 350, 360, 365, 370)
 	self:AddRecipeFlags(31441, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(31441, 3)
+	self:AddRecipeWorldDrop(31441, "Outland")
 
 	-- Unyielding Girdle -- 31442
 	AddRecipe(31442, 365, 24255, Q.EPIC, V.TBC, 365, 375, 380, 385)
@@ -1437,27 +1437,27 @@ function addon:InitTailoring()
 	-- Girdle of Ruination -- 31443
 	AddRecipe(31443, 365, 24256, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(31443, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(31443, 4)
+	self:AddRecipeWorldDrop(31443, "Outland")
 
 	-- Black Belt of Knowledge -- 31444
 	AddRecipe(31444, 365, 24257, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(31444, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeWorldDrop(31444, 4)
+	self:AddRecipeWorldDrop(31444, "Outland")
 
 	-- Resolute Cape -- 31448
 	AddRecipe(31448, 365, 24258, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(31448, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	self:AddRecipeWorldDrop(31448, 4)
+	self:AddRecipeWorldDrop(31448, "Outland")
 
 	-- Vengeance Wrap -- 31449
 	AddRecipe(31449, 365, 24259, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(31449, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	self:AddRecipeWorldDrop(31449, 4)
+	self:AddRecipeWorldDrop(31449, "Outland")
 
 	-- Manaweave Cloak -- 31450
 	AddRecipe(31450, 365, 24260, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(31450, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(31450, 4)
+	self:AddRecipeWorldDrop(31450, "Outland")
 
 	-- Whitemend Pants -- 31451
 	AddRecipe(31451, 375, 24261, Q.EPIC, V.TBC, 375, 385, 390, 395)
@@ -1774,12 +1774,12 @@ function addon:InitTailoring()
 	-- Red Lumberjack Shirt -- 55993
 	AddRecipe(55993, 400, 41248, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55993, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55993, 2)
+	self:AddRecipeWorldDrop(55993, "Northrend")
 
 	-- Blue Lumberjack Shirt -- 55994
 	AddRecipe(55994, 400, 41249, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55994, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55994, 2)
+	self:AddRecipeWorldDrop(55994, "Northrend")
 
 	-- Yellow Lumberjack Shirt -- 55995
 	AddRecipe(55995, 400, 41251, Q.COMMON, V.WOTLK, 400, 400, 405, 410)
@@ -1789,22 +1789,22 @@ function addon:InitTailoring()
 	-- Green Lumberjack Shirt -- 55996
 	AddRecipe(55996, 400, 41250, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55996, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55996, 2)
+	self:AddRecipeWorldDrop(55996, "Northrend")
 
 	-- Red Workman's Shirt -- 55997
 	AddRecipe(55997, 400, 41252, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55997, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55997, 2)
+	self:AddRecipeWorldDrop(55997, "Northrend")
 
 	-- Blue Workman's Shirt -- 55998
 	AddRecipe(55998, 400, 41253, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55998, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55998, 2)
+	self:AddRecipeWorldDrop(55998, "Northrend")
 
 	-- Rustic Workman's Shirt -- 55999
 	AddRecipe(55999, 400, 41254, Q.UNCOMMON, V.WOTLK, 400, 400, 405, 410)
 	self:AddRecipeFlags(55999, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(55999, 2)
+	self:AddRecipeWorldDrop(55999, "Northrend")
 
 	-- Green Workman's Shirt -- 56000
 	AddRecipe(56000, 400, 41255, Q.COMMON, V.WOTLK, 400, 400, 405, 410)
