@@ -2784,6 +2784,9 @@ do
 	highlight._texture:SetAllPoints(highlight)
 
 	local function ScrollBar_Scroll(delta)
+		if not ScrollBar:IsShown() then
+			return
+		end
 		local cur_val = ScrollBar:GetValue()
 		local min_val, max_val = ScrollBar:GetMinMaxValues()
 
