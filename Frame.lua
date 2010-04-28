@@ -993,7 +993,6 @@ do
 	-- Tabs
 	-------------------------------------------------------------------------------
 	local function Tab_Enable(self)
-		self:SetFrameStrata("MEDIUM")
 		self.left:ClearAllPoints()
 		self.left:SetPoint("BOTTOMLEFT")
 		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
@@ -1003,7 +1002,6 @@ do
 	end
 
 	function Tab_Disable(self)
-		self:SetFrameStrata("LOW")
 		self.left:ClearAllPoints()
 		self.left:SetPoint("TOPLEFT")
 		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
