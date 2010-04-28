@@ -1968,6 +1968,7 @@ MainPanel.menu_toggle_misc:SetPoint("TOPLEFT", MainPanel.menu_toggle_rep, "BOTTO
 MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
 MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
 MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
+MainPanel.filter_menu:SetFrameStrata("MEDIUM")
 MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
 MainPanel.filter_menu:EnableMouse(true)
 MainPanel.filter_menu:EnableKeyboard(true)
