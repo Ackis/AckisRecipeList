@@ -1161,6 +1161,8 @@ function MainPanel:HighlightCategory(target)
 end
 
 function MainPanel:ToggleState()
+	local x, y = self:GetLeft(), self:GetBottom()
+
 	if self.is_expanded then
 		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
 
@@ -1179,8 +1181,6 @@ function MainPanel:ToggleState()
 		self.progress_bar:SetWidth(345)
 	end
 	self.is_expanded = not self.is_expanded
-
-	local x, y = self:GetLeft(), self:GetBottom()
 
 	self:ClearAllPoints()
 	self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
