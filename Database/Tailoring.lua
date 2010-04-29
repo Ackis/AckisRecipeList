@@ -880,7 +880,7 @@ function addon:InitTailoring()
 	-- Brightcloth Pants -- 18439
 	AddRecipe(18439, 290, 14104, Q.UNCOMMON, V.ORIG, 290, 305, 320, 335)
 	self:AddRecipeFlags(18439, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeWorldDrop(18439, 2)
+	self:AddRecipeWorldDrop(18439, "Kalimdor", "Eastern Kingdoms")
 
 	-- Mooncloth Leggings -- 18440
 	AddRecipe(18440, 290, 14137, Q.RARE, V.ORIG, 290, 305, 320, 335)

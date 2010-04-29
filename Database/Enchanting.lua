@@ -739,7 +739,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Gloves - Superior Agility -- 25080
 	AddRecipe(25080, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	self:AddRecipeFlags(25080, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.DPS, F.KOT)
+	self:AddRecipeFlags(25080, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.KOT)
 	self:AddRecipeRepVendor(25080, FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
 	self:AddRecipeAcquire(25080, A.CUSTOM, 22)
 
