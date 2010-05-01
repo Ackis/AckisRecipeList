@@ -118,7 +118,7 @@ function Player:HasProperRepLevel(rep_data)
 	return has_faction
 end
 
-function Player:IsCorrectFaction(recipe)
+function Player:HasRecipeFaction(recipe)
 	local flagged_horde = recipe:IsFlagged("common1", "HORDE")
 	local flagged_alliance = recipe:IsFlagged("common1", "ALLIANCE")
 

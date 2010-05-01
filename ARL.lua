@@ -513,7 +513,7 @@ function addon:OnInitialize()
 					       local skill_level = Player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and Player:IsCorrectFaction(recipe) then
+					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and Player:HasRecipeFaction(recipe) then
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
 						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
@@ -1346,7 +1346,6 @@ do
 	-- For flag info see comments at start of file in comments
 	local function CanDisplayRecipe(recipe)
 		if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
-			addon:Debug("Recipe \"%s\" has been excluded.", recipe.name)
 			return false
 		end
 		local filter_db = addon.db.profile.filters
@@ -1361,7 +1360,7 @@ do
 		-------------------------------------------------------------------------------
 
 		-- Display both horde and alliance factions?
-		if not general_filters.faction and not Player:IsCorrectFaction(recipe) then
+		if not general_filters.faction and not Player:HasRecipeFaction(recipe) then
 			return false
 		end
 
