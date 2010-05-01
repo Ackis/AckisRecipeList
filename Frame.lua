@@ -322,7 +322,9 @@ do
 		button:SetWidth(bWidth)
 		button:SetHeight(bHeight)
 
-		if noTextures == 1 then
+		if noTextures == 0 then
+			button:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+		elseif noTextures == 1 then
 			local left = button:CreateTexture(nil, "BACKGROUND")
 			button.left = left
 			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
@@ -2773,15 +2775,6 @@ do
 	local NUM_RECIPE_LINES = 24
 	local SCROLL_DEPTH = 5
 
-	local highlight = CreateFrame("Frame", nil, UIParent)
-	highlight:SetFrameStrata("TOOLTIP")
-	highlight:Hide()
-
-	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
-	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-	highlight._texture:SetBlendMode("ADD")
-	highlight._texture:SetAllPoints(highlight)
-
 	local function ScrollBar_Scroll(delta)
 		if not ScrollBar:IsShown() then
 			return
@@ -2847,16 +2840,10 @@ do
 	end
 
 	local function Bar_OnEnter(self)
-		highlight:SetParent(self)
-		highlight:SetAllPoints(self)
-		highlight:Show()
 		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
 	end
 
 	local function Bar_OnLeave()
-		highlight:Hide()
-		highlight:ClearAllPoints()
-		highlight:SetParent(nil)
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 	end
@@ -2960,9 +2947,6 @@ do
 				addon:Debug("Error: clicked_line has no parent.")
 			end
 		end
-		highlight:Hide()
-		highlight:ClearAllPoints()
-		highlight:SetParent(nil)
 		QTip:Release(acquire_tip)
 		spell_tip:Hide()
 
@@ -3372,7 +3356,7 @@ do
 		string_index = button_index + offset
 
 		-- This function could possibly have been called from a mouse click or by scrolling.
-		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - the highlight texture and tooltip should be generated for it.
+		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - a tooltip should be generated for it.
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
 			local cur_state = self.state_buttons[button_index]
 			local cur_button = self.entry_buttons[button_index]
