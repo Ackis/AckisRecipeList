@@ -1840,12 +1840,12 @@ function addon:InitLeatherworking()
 	self:AddRecipeRepVendor(42731, FAC.VIOLETEYE, REP.REVERED, 18255)
 
 	-- Knothide Ammo Pouch -- 44343
-	AddRecipe(44343, 315, 34099, Q.UNCOMMON, V.TBC, 315, 325, 335, 345)
+	AddRecipe(44343, 315, 34099, Q.COMMON, V.TBC, 315, 325, 335, 345)
 	self:AddRecipeFlags(44343, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.AMMO)
 	self:AddRecipeTrainer(44343, 33612, 19187, 18754, 33681, 21087, 18771, 33635)
 
 	-- Knothide Quiver -- 44344
-	AddRecipe(44344, 315, 34100, Q.UNCOMMON, V.TBC, 315, 325, 335, 345)
+	AddRecipe(44344, 315, 34100, Q.COMMON, V.TBC, 315, 325, 335, 345)
 	self:AddRecipeFlags(44344, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(44344, 33612, 19187, 18754, 33681, 21087, 18771, 33635)
 
@@ -1861,7 +1861,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeRepVendor(44768, FAC.HONOR_HOLD, REP.REVERED, 17657)
 
 	-- Glove Reinforcements -- 44770
-	AddRecipe(44770, 350, 34207, Q.UNCOMMON, V.TBC, 350, 355, 360, 365)
+	AddRecipe(44770, 350, 34207, Q.COMMON, V.TBC, 350, 355, 360, 365)
 	self:AddRecipeFlags(44770, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(44770, 33612, 19187, 18754, 33681, 21087, 18771, 33635)
 
@@ -1877,7 +1877,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(44970, 33612, 19187, 18754, 33681, 21087, 18771, 33635)
 
 	-- Leatherworker's Satchel -- 45100
-	AddRecipe(45100, 300, 34482, Q.UNCOMMON, V.TBC, 300, 310, 320, 330)
+	AddRecipe(45100, 300, 34482, Q.COMMON, V.TBC, 300, 310, 320, 330)
 	self:AddRecipeFlags(45100, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(45100, 33612, 19187, 18754, 33681, 21087, 18771, 33635)
 
@@ -1962,32 +1962,32 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(50943, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Chestpiece -- 50944
-	AddRecipe(50944, 370, 38400, Q.UNCOMMON, V.WOTLK, 370, 385, 395, 405)
+	AddRecipe(50944, 370, 38400, Q.COMMON, V.WOTLK, 370, 385, 395, 405)
 	self:AddRecipeFlags(50944, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50944, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Leggings -- 50945
-	AddRecipe(50945, 375, 38401, Q.UNCOMMON, V.WOTLK, 375, 390, 400, 410)
+	AddRecipe(50945, 375, 38401, Q.COMMON, V.WOTLK, 375, 390, 400, 410)
 	self:AddRecipeFlags(50945, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50945, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Shoulderpads -- 50946
-	AddRecipe(50946, 380, 38402, Q.UNCOMMON, V.WOTLK, 380, 395, 405, 415)
+	AddRecipe(50946, 380, 38402, Q.COMMON, V.WOTLK, 380, 395, 405, 415)
 	self:AddRecipeFlags(50946, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50946, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Gloves -- 50947
-	AddRecipe(50947, 375, 38403, Q.UNCOMMON, V.WOTLK, 375, 390, 400, 410)
+	AddRecipe(50947, 375, 38403, Q.COMMON, V.WOTLK, 375, 390, 400, 410)
 	self:AddRecipeFlags(50947, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50947, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Boots -- 50948
-	AddRecipe(50948, 370, 38404, Q.UNCOMMON, V.WOTLK, 370, 385, 395, 405)
+	AddRecipe(50948, 370, 38404, Q.COMMON, V.WOTLK, 370, 385, 395, 405)
 	self:AddRecipeFlags(50948, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50948, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Arctic Belt -- 50949
-	AddRecipe(50949, 380, 38405, Q.UNCOMMON, V.WOTLK, 380, 395, 405, 415)
+	AddRecipe(50949, 380, 38405, Q.COMMON, V.WOTLK, 380, 395, 405, 415)
 	self:AddRecipeFlags(50949, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(50949, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2027,7 +2027,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(50956, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Nerubian Legguards -- 50957
-	AddRecipe(50957, 370, 38422, Q.UNCOMMON, V.WOTLK, 370, 385, 395, 405)
+	AddRecipe(50957, 370, 38422, Q.COMMON, V.WOTLK, 370, 385, 395, 405)
 	self:AddRecipeFlags(50957, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(50957, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2057,7 +2057,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(50962, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Heavy Borean Armor Kit -- 50963
-	AddRecipe(50963, 395, 38376, Q.UNCOMMON, V.WOTLK, 395, 400, 402, 405)
+	AddRecipe(50963, 395, 38376, Q.COMMON, V.WOTLK, 395, 400, 402, 405)
 	self:AddRecipeFlags(50963, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(50963, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2067,7 +2067,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(50964, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Frosthide Leg Armor -- 50965
-	AddRecipe(50965, 425, 38373, Q.EPIC, V.WOTLK, 425, 435, 440, 445)
+	AddRecipe(50965, 425, 38373, Q.COMMON, V.WOTLK, 425, 435, 440, 445)
 	self:AddRecipeFlags(50965, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(50965, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2077,7 +2077,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(50966, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Icescale Leg Armor -- 50967
-	AddRecipe(50967, 425, 38374, Q.EPIC, V.WOTLK, 425, 435, 440, 445)
+	AddRecipe(50967, 425, 38374, Q.COMMON, V.WOTLK, 425, 435, 440, 445)
 	self:AddRecipeFlags(50967, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(50967, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2267,7 +2267,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(60640, 26998, 28700, 33581, 26911, 26961, 26996)
 
 	-- Pack of Endless Pockets -- 60643
-	AddRecipe(60643, 415, 44446, Q.RARE, V.WOTLK, 415, 420, 422, 425)
+	AddRecipe(60643, 415, 44446, Q.COMMON, V.WOTLK, 415, 420, 422, 425)
 	self:AddRecipeFlags(60643, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(60643, 26998, 28700, 33581, 26911, 26961, 26996)
 
@@ -2572,7 +2572,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeVendor(62177, 32515)
 
 	-- Earthen Leg Armor -- 62448
-	AddRecipe(62448, 425, 44963, Q.EPIC, V.WOTLK, 425, 435, 440, 445)
+	AddRecipe(62448, 425, 44963, Q.COMMON, V.WOTLK, 425, 435, 440, 445)
 	self:AddRecipeFlags(62448, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(62448, 26998, 28700, 33581, 26911, 26961, 26996)
 

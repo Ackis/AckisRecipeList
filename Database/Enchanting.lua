@@ -1441,7 +1441,7 @@ function addon:InitEnchanting()
 	self:AddRecipeTrainer(60616, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Runed Titanium Rod -- 60619
-	AddRecipe(60619, 425, 44452, Q.RARE, V.WOTLK, 425, 435, 445, 455)
+	AddRecipe(60619, 425, 44452, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
 	self:AddRecipeFlags(60619, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	self:AddRecipeTrainer(60619, 28693, 33583, 26990, 26954, 26906, 26980)
 

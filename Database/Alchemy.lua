@@ -1180,12 +1180,12 @@ function addon:InitAlchemy()
 	self:AddRecipeAcquire(56519, A.CUSTOM, 18)
 
 	-- Transmute: Skyflare Diamond -- 57425
-	AddRecipe(57425, 430, 41266, Q.RARE, V.WOTLK, 430, 440, 445, 450)
+	AddRecipe(57425, 430, 41266, Q.COMMON, V.WOTLK, 430, 440, 445, 450)
 	self:AddRecipeFlags(57425, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(57425, 26951, 26903, 28703, 26975, 26987, 33588)
 
 	-- Transmute: Earthsiege Diamond -- 57427
-	AddRecipe(57427, 425, 41334, Q.RARE, V.WOTLK, 425, 435, 440, 445)
+	AddRecipe(57427, 425, 41334, Q.COMMON, V.WOTLK, 425, 435, 440, 445)
 	self:AddRecipeFlags(57427, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(57427, 26951, 26903, 28703, 26975, 26987, 33588)
 
@@ -1200,7 +1200,7 @@ function addon:InitAlchemy()
 	self:AddRecipeTrainer(58871, 26951, 26903, 28703, 26975, 26987, 33588)
 
 	-- Transmute: Titanium -- 60350
-	AddRecipe(60350, 395, 41163, Q.UNCOMMON, V.WOTLK, 395, 405, 410, 415)
+	AddRecipe(60350, 395, 41163, Q.COMMON, V.WOTLK, 395, 405, 410, 415)
 	self:AddRecipeFlags(60350, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(60350, 26951, 26903, 28703, 26975, 26987, 33588)
 
@@ -1240,17 +1240,17 @@ function addon:InitAlchemy()
 	self:AddRecipeTrainer(60367, 26951, 26903, 28703, 26975, 26987, 33588)
 
 	-- Mercurial Alchemist Stone -- 60396
-	AddRecipe(60396, 400, 44322, Q.RARE, V.WOTLK, 400, 410, 415, 420)
+	AddRecipe(60396, 400, 44322, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60396, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.TRINKET)
 	self:AddRecipeTrainer(60396, 26951, 26903, 28703, 26975, 26987, 33588)
 
 	-- Indestructible Alchemist Stone -- 60403
-	AddRecipe(60403, 400, 44323, Q.RARE, V.WOTLK, 400, 410, 415, 420)
+	AddRecipe(60403, 400, 44323, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60403, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.TRINKET)
 	self:AddRecipeTrainer(60403, 26951, 26903, 28703, 26975, 26987, 33588)
 
 	-- Mighty Alchemist Stone -- 60405
-	AddRecipe(60405, 400, 44324, Q.RARE, V.WOTLK, 400, 410, 415, 420)
+	AddRecipe(60405, 400, 44324, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60405, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TRINKET)
 	self:AddRecipeTrainer(60405, 26951, 26903, 28703, 26975, 26987, 33588)
 
