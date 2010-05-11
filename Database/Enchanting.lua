@@ -562,7 +562,7 @@ function addon:InitEnchanting()
 	self:AddRecipeWorldDrop(20011, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Greater Agility -- 20012
-	AddRecipe(20012, 270, nil, Q.UNCOMMON, V.ORIG, 270, 290, 310, 330)
+	AddRecipe(20012, 270, nil, Q.COMMON, V.ORIG, 270, 290, 310, 330)
 	self:AddRecipeFlags(20012, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
 	self:AddRecipeTrainer(20012, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
@@ -572,7 +572,7 @@ function addon:InitEnchanting()
 	self:AddRecipeTrainer(20013, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Greater Resistance -- 20014
-	AddRecipe(20014, 265, nil, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
+	AddRecipe(20014, 265, nil, Q.COMMON, V.ORIG, 265, 285, 305, 325)
 	self:AddRecipeFlags(20014, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
 	self:AddRecipeTrainer(20014, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
@@ -582,7 +582,7 @@ function addon:InitEnchanting()
 	self:AddRecipeVendor(20015, 12022)
 
 	-- Enchant Shield - Vitality -- 20016
-	AddRecipe(20016, 280, nil, Q.UNCOMMON, V.ORIG, 280, 300, 320, 340)
+	AddRecipe(20016, 280, nil, Q.COMMON, V.ORIG, 280, 300, 320, 340)
 	self:AddRecipeFlags(20016, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
 	self:AddRecipeTrainer(20016, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
@@ -597,7 +597,7 @@ function addon:InitEnchanting()
 	self:AddRecipeWorldDrop(20020, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Boots - Greater Agility -- 20023
-	AddRecipe(20023, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
+	AddRecipe(20023, 295, nil, Q.COMMON, V.ORIG, 295, 310, 325, 340)
 	self:AddRecipeFlags(20023, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
 	self:AddRecipeTrainer(20023, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
@@ -617,7 +617,7 @@ function addon:InitEnchanting()
 	self:AddRecipeVendor(20026, 11189)
 
 	-- Enchant Chest - Major Mana -- 20028
-	AddRecipe(20028, 290, nil, Q.UNCOMMON, V.ORIG, 290, 305, 322, 340)
+	AddRecipe(20028, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
 	self:AddRecipeFlags(20028, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	self:AddRecipeTrainer(20028, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 

@@ -412,7 +412,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(28933, FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Sovereign Shadow Draenite -- 28936
-	AddRecipe(28936, 325, 23111, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
+	AddRecipe(28936, 325, 23111, Q.COMMON, V.TBC, 325, 325, 340, 355)
 	self:AddRecipeFlags(28936, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(28936, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
@@ -432,7 +432,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(28947, FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Rigid Golden Draenite -- 28948
-	AddRecipe(28948, 325, 23116, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
+	AddRecipe(28948, 325, 23116, Q.COMMON, V.TBC, 325, 325, 340, 355)
 	self:AddRecipeFlags(28948, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(28948, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
@@ -442,7 +442,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeTrainer(28950, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
 	-- Sparkling Azure Moonstone -- 28953
-	AddRecipe(28953, 305, 23119, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
+	AddRecipe(28953, 305, 23119, Q.COMMON, V.TBC, 305, 305, 325, 345)
 	self:AddRecipeFlags(28953, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(28953, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
@@ -842,7 +842,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeRepVendor(32874, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Smooth Golden Draenite -- 34069
-	AddRecipe(34069, 325, 28290, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
+	AddRecipe(34069, 325, 28290, Q.COMMON, V.TBC, 325, 325, 340, 355)
 	self:AddRecipeFlags(34069, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(34069, 33614, 26982, 28701, 18774, 26997, 18751, 26915, 19539, 19063, 33590, 33680, 26960)
 
