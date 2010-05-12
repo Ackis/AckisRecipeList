@@ -526,7 +526,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeTrainer(9954, 11177, 29506, 20125, 7230, 5164)
 
 	-- Orcish War Leggings -- 9957
-	AddRecipe(9957, 250, 7929, Q.UNCOMMON, V.ORIG, 250, 250, 260, 270)
+	AddRecipe(9957, 250, 7929, Q.COMMON, V.ORIG, 250, 250, 260, 270)
 	self:AddRecipeFlags(9957, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeQuest(9957, 2756)
 
@@ -736,19 +736,19 @@ function addon:InitBlacksmithing()
 	self:AddRecipeTrainer(16641, 3174, 29924, 16724, 6299, 2998, 26904, 3355, 19341, 26952, 16583, 33591, 3136, 4258, 514, 1241, 33609, 2836, 27034, 26988, 4596, 3557, 15400, 33675, 5511, 16823, 28694, 17245, 3478, 33631, 26981)
 
 	-- Thorium Armor -- 16642
-	AddRecipe(16642, 250, 12405, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)
+	AddRecipe(16642, 250, 12405, Q.COMMON, V.ORIG, 250, 270, 280, 290)
 	self:AddRecipeFlags(16642, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16642, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16642, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Belt -- 16643
-	AddRecipe(16643, 250, 12406, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)
+	AddRecipe(16643, 250, 12406, Q.COMMON, V.ORIG, 250, 270, 280, 290)
 	self:AddRecipeFlags(16643, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16643, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16643, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Bracers -- 16644
-	AddRecipe(16644, 255, 12408, Q.UNCOMMON, V.ORIG, 255, 275, 285, 295)
+	AddRecipe(16644, 255, 12408, Q.COMMON, V.ORIG, 255, 275, 285, 295)
 	self:AddRecipeFlags(16644, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16644, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16644, "Kalimdor", "Eastern Kingdoms")
@@ -789,13 +789,13 @@ function addon:InitBlacksmithing()
 	self:AddRecipeWorldDrop(16651, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Boots -- 16652
-	AddRecipe(16652, 280, 12409, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
+	AddRecipe(16652, 280, 12409, Q.COMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(16652, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16652, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16652, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Helm -- 16653
-	AddRecipe(16653, 280, 12410, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
+	AddRecipe(16653, 280, 12410, Q.COMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(16653, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16653, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16653, "Kalimdor", "Eastern Kingdoms")
@@ -842,7 +842,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeWorldDrop(16661, "Kalimdor", "Eastern Kingdoms")
 
 	-- Thorium Leggings -- 16662
-	AddRecipe(16662, 300, 12414, Q.UNCOMMON, V.ORIG, 300, 320, 330, 340)
+	AddRecipe(16662, 300, 12414, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(16662, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(16662, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeWorldDrop(16662, "Kalimdor", "Eastern Kingdoms")
@@ -933,7 +933,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeWorldDrop(16746, "Kalimdor", "Eastern Kingdoms")
 
 	-- Ornate Thorium Handaxe -- 16969
-	AddRecipe(16969, 275, 12773, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
+	AddRecipe(16969, 275, 12773, Q.COMMON, V.ORIG, 275, 300, 312, 325)
 	self:AddRecipeFlags(16969, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(16969, 3174, 17245, 6299, 2998, 33631, 3136, 4258, 514, 2836, 15400, 33609, 4596, 3557, 33675, 5511, 16823, 3355, 3478, 16724, 1241)
 	self:AddRecipeVendor(16969, 11278)

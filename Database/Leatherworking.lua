@@ -730,7 +730,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeMobDrop(19054, 10363)
 
 	-- Runic Leather Gauntlets -- 19055
-	AddRecipe(19055, 270, 15091, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
+	AddRecipe(19055, 270, 15091, Q.COMMON, V.ORIG, 270, 290, 300, 310)
 	self:AddRecipeFlags(19055, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(19055, 1385, 3703, 16688, 5784, 3365, 3967, 19187, 11097, 18754, 1632, 3605, 11098, 4588, 4212, 8153, 18771, 16728, 5127, 33612, 17442, 3549, 3007, 33635, 16278, 21087, 33681, 5564)
 	self:AddRecipeWorldDrop(19055, 2)
@@ -906,7 +906,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeTrainer(19092, 1385, 3703, 16688, 5784, 3365, 3967, 19187, 11097, 18754, 1632, 3605, 11098, 4588, 4212, 8153, 18771, 16728, 5127, 33612, 17442, 3549, 3007, 33635, 16278, 21087, 33681, 5564)
 
 	-- Onyxia Scale Cloak -- 19093
-	AddRecipe(19093, 300, 15138, Q.RARE, V.ORIG, 300, 320, 330, 340)
+	AddRecipe(19093, 300, 15138, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(19093, F.ALLIANCE, F.HORDE, F.RAID, F.QUEST, F.IBOE, F.RBOP, F.CLOAK)
 	self:AddRecipeQuest(19093, 7493, 7497)
 	self:AddRecipeAcquire(19093, A.CUSTOM, 10)
@@ -1012,7 +1012,7 @@ function addon:InitLeatherworking()
 	self:AddRecipeAcquire(22727, A.CUSTOM, 26)
 
 	-- Gordok Ogre Suit -- 22815
-	AddRecipe(22815, 275, 18258, Q.UNCOMMON, V.ORIG, 275, 285, 290, 385)
+	AddRecipe(22815, 275, 18258, Q.COMMON, V.ORIG, 275, 285, 290, 385)
 	self:AddRecipeFlags(22815, F.ALLIANCE, F.HORDE, F.INSTANCE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(22815, 5518)
 
