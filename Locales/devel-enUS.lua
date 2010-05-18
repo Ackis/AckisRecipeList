@@ -445,8 +445,8 @@ L["DISCOVERY_INSC_BOOK"] = "Discovered randomly by reading the Book of Glyph Mas
 -- Cooking/Fishing Daily Quests
 L["DAILY_COOKING_MEAT"] = "Choose Crate of Meat when completing any of these quests."
 L["DAILY_COOKING_FISH"] = "Choose Barrel of Fish when completing any of these quests."
-L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of theses quests."
-L["DAILY_COOKING_DAL"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
+L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of the BC fishing daily quests."
+L["DAILY_COOKING_DAL"] = "Randomly obtained by completing any of the cooking daily quests in Dalaran."
 -- Engineering Related
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
