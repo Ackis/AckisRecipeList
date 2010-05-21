@@ -1935,7 +1935,7 @@ function addon:InitBlacksmithing()
 
 	-- Hard Khorium Battleplate -- 46144
 	AddRecipe(46144, 365, 34377, Q.EPIC, V.TBC, 365, 375, 392, 410)
-	self:AddRecipeFlags(46144, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.DPS, F.PLATE)
+	self:AddRecipeFlags(46144, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
 	self:AddRecipeAcquire(46144, A.CUSTOM, 24)
 
 	-- Cobalt Legplates -- 52567
