@@ -3238,11 +3238,13 @@ do
 			entry:SetText("")
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
+			entry:Disable()
 
 			state.string_index = 0
 			state:Hide()
 			state:SetScript("OnEnter", nil)
 			state:SetScript("OnLeave", nil)
+			state:Disable()
 
 			state:ClearAllPoints()
 		end
@@ -3351,8 +3353,10 @@ do
 				cur_state.string_index = string_index
 				cur_state:SetScript("OnEnter", Button_OnEnter)
 				cur_state:SetScript("OnLeave", Button_OnLeave)
+				cur_state:Enable()
 			else
 				cur_state:Hide()
+				cur_state:Disable()
 			end
 			local cur_container = cur_state.container
 
@@ -3368,6 +3372,7 @@ do
 			cur_button:SetText(cur_entry.text)
 			cur_button:SetScript("OnEnter", Bar_OnEnter)
 			cur_button:SetScript("OnLeave", Bar_OnLeave)
+			cur_button:Enable()
 
 			button_index = button_index + 1
 			string_index = string_index + 1
