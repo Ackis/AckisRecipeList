@@ -1569,6 +1569,16 @@ function SearchBox:Reset()
 	ListFrame:Update(false, false)
 end
 
+-- If there is text in the search box, return the recipe's RELEVANT state.
+function SearchBox:MatchesRecipe(recipe)
+	local editbox_text = self:GetText()
+
+	if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
+		return recipe:HasState("RELEVANT")
+	end
+	return true
+end
+
 SearchBox:SetScript("OnEnterPressed",
 		    function(self)
 			    local searchtext = self:GetText()
@@ -3057,16 +3067,6 @@ do
 			insert_index = insert_index + 1
 		end
 		return insert_index
-	end
-
-	-- If there is text in the search box, return the recipe's RELEVANT state.
-	local function RecipeMatchesSearch(recipe)
-		local editbox_text = SearchBox:GetText()
-
-		if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-			return recipe:HasState("RELEVANT")
-		end
-		return true
 	end
 
 	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
