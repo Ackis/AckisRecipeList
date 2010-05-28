@@ -3674,6 +3674,7 @@ do
 		local orig_index = entry_index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
+		local search_box = MainPanel.search_editbox
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -3693,7 +3694,7 @@ do
 					local spell_id = sorted_recipes[index]
 					local recipe_entry = private.recipe_list[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
 						local t = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -3733,7 +3734,7 @@ do
 					local spell_id = sorted_recipes[index]
 					local recipe_entry = private.recipe_list[spell_id]
 
-					if recipe_entry:HasState("VISIBLE") and RecipeMatchesSearch(recipe_entry) then
+					if recipe_entry:HasState("VISIBLE") and search_box:MatchesRecipe(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local t = AcquireTable()
