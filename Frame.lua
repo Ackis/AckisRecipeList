@@ -3195,7 +3195,6 @@ do
 		local current_tab = addon.db.profile.current_tab
 		local search_box = MainPanel.search_editbox
 
-		local recipe_count = 0
 		local insert_index = 1
 
 		for i = 1, #self.entries do
@@ -3208,12 +3207,7 @@ do
 
 		ExpandButton:Contract()
 
-		if current_tab == VIEW_TABS["Acquisition"] then
-			recipe_count = AcquisitionTab:Initialize(expand_mode)
-		elseif current_tab == VIEW_TABS["Location"] then
-			recipe_count = LocationTab:Initialize(expand_mode)
-		else
-		end	-- Sort type.
+		local recipe_count = MainPanel.tabs[current_tab]:Initialize(expand_mode)
 
 		-- The list always starts at the top.
 		ScrollUpButton:Disable()
