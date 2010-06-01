@@ -1232,6 +1232,34 @@ function LocationTab:Initialize(expand_mode)
 	return recipe_count
 end
 
+function RecipesTab:Initialize(expand_mode)
+	local sorted_recipes = addon.sorted_recipes
+	local recipe_list = private.recipe_list
+	local search_box = MainPanel.search_editbox
+
+	local recipe_count = 0
+	local insert_index = 1
+
+	SortRecipeList(recipe_list, sorted_recipes)
+
+	for i = 1, #sorted_recipes do
+		local recipe_index = sorted_recipes[i]
+		local recipe = recipe_list[recipe_index]
+
+		if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+			local t = AcquireTable()
+
+			t.text = FormatRecipeText(recipe)
+			t.recipe_id = recipe_index
+
+			recipe_count = recipe_count + 1
+
+			insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+		end
+	end
+	return recipe_count
+end
+
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
 -------------------------------------------------------------------------------
@@ -3185,25 +3213,6 @@ do
 		elseif current_tab == VIEW_TABS["Location"] then
 			recipe_count = LocationTab:Initialize(expand_mode)
 		else
-			local sorted_recipes = addon.sorted_recipes
-
-			SortRecipeList(private.recipe_list, sorted_recipes)
-
-			for i = 1, #sorted_recipes do
-				local recipe_index = sorted_recipes[i]
-				local recipe = recipe_list[recipe_index]
-
-				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-					local t = AcquireTable()
-
-					t.text = FormatRecipeText(recipe)
-					t.recipe_id = recipe_index
-
-					recipe_count = recipe_count + 1
-
-					insert_index = self:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-				end
-			end
 		end	-- Sort type.
 
 		-- The list always starts at the top.
