@@ -249,6 +249,52 @@ local function SetTextColor(color_code, text)
 	return string.format("|cff%s%s|r", color_code or "ffffff", text)
 end
 
+local FormatRecipeText
+do
+	local SKILL_LEVEL_FORMAT = "[%d]"
+	local SPELL_ENCHANTING = GetSpellInfo(51313)
+
+	function FormatRecipeText(recipe_entry)
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
+		local recipe_name = recipe_entry.name
+
+		if Player.current_prof == SPELL_ENCHANTING then
+			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
+		end
+		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
+
+		local skill_level = Player["ProfessionLevel"]
+		local recipe_level = recipe_entry.skill_level
+		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
+		local has_faction = Player:HasProperRepLevel(rep_data)
+		local level_text
+		local difficulty = private.difficulty_colors
+
+		if not has_faction or recipe_level > skill_level then
+			level_text = string.format(SetTextColor(difficulty["impossible"], SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.trivial_level then
+			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.easy_level then
+			level_text = string.format(SetTextColor(difficulty["easy"], SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.medium_level then
+			level_text = string.format(SetTextColor(difficulty["medium"], SKILL_LEVEL_FORMAT), recipe_level)
+		elseif skill_level >= recipe_entry.optimal_level then
+			level_text = string.format(SetTextColor(difficulty["optimal"], SKILL_LEVEL_FORMAT), recipe_level)
+		else
+			addon:Debug("Skill level color fallback: %s.", recipe_string)
+			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
+		end
+		local skill_view = addon.db.profile.skill_view
+
+		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+
+		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
+			recipe_string = string.format("** %s **", recipe_string)
+		end
+		return recipe_string
+	end
+end	-- do block
+
 -------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
@@ -3080,49 +3126,6 @@ do
 		ListFrame.button_containers[i] = cur_container
 		ListFrame.state_buttons[i] = cur_state
 		ListFrame.entry_buttons[i] = cur_entry
-	end
-
-	local SKILL_LEVEL_FORMAT = "[%d]"
-	local SPELL_ENCHANTING = GetSpellInfo(51313)
-
-	local function FormatRecipeText(recipe_entry)
-		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
-		local recipe_name = recipe_entry.name
-
-		if Player.current_prof == SPELL_ENCHANTING then
-			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
-		end
-		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
-
-		local skill_level = Player["ProfessionLevel"]
-		local recipe_level = recipe_entry.skill_level
-		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-		local has_faction = Player:HasProperRepLevel(rep_data)
-		local level_text
-		local difficulty = private.difficulty_colors
-
-		if not has_faction or recipe_level > skill_level then
-			level_text = string.format(SetTextColor(difficulty["impossible"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.trivial_level then
-			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.easy_level then
-			level_text = string.format(SetTextColor(difficulty["easy"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.medium_level then
-			level_text = string.format(SetTextColor(difficulty["medium"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.optimal_level then
-			level_text = string.format(SetTextColor(difficulty["optimal"], SKILL_LEVEL_FORMAT), recipe_level)
-		else
-			addon:Debug("Skill level color fallback: %s.", recipe_string)
-			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
-		end
-		local skill_view = addon.db.profile.skill_view
-
-		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
-
-		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
-			recipe_string = string.format("** %s **", recipe_string)
-		end
-		return recipe_string
 	end
 
 	function ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, entry_expanded, expand_mode)
