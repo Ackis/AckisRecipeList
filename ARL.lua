@@ -1749,20 +1749,25 @@ function addon:ChatCommand(input)
 
 end
 
+-- Public API function to initialize all of the lookup lists - self-nils once run.
+-- @name AckisRecipeList:InitializeLookups()
+-- @usage if AckisRecipeList.InitializeLookups then AckisRecipeList:InitializeLookups() end
+function addon:InitializeLookups()
+	self:InitCustom(private.custom_list)
+	self:InitMob(private.mob_list)
+	self:InitQuest(private.quest_list)
+	self:InitReputation(private.reputation_list)
+	self:InitTrainer(private.trainer_list)
+	self:InitSeasons(private.seasonal_list)
+	self:InitVendor(private.vendor_list)
+
+	self.InitializeLookups = nil
+end
+
 -------------------------------------------------------------------------------
 -- Recipe Scanning Functions
 -------------------------------------------------------------------------------
 do
-	function addon:InitializeLookups()
-		self:InitCustom(private.custom_list)
-		self:InitMob(private.mob_list)
-		self:InitQuest(private.quest_list)
-		self:InitReputation(private.reputation_list)
-		self:InitTrainer(private.trainer_list)
-		self:InitSeasons(private.seasonal_list)
-		self:InitVendor(private.vendor_list)
-	end
-
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
 
@@ -1811,7 +1816,6 @@ do
 
 		if self.InitializeLookups then
 			self:InitializeLookups()
-			self.InitializeLookups = nil
 		end
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
