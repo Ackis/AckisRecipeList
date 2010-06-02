@@ -553,7 +553,7 @@ local function LoadRecipe()
 		end
 
 		for idx, prof in pairs(PROFESSIONS) do
-			addon:InitializeRecipe(prof)
+			addon:InitializeProfession(prof)
 		end
 	end
 	return recipe_list

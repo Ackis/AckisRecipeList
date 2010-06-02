@@ -1697,10 +1697,10 @@ end	-- do
 -------------------------------------------------------------------------------
 -- ARL Logic Functions
 -------------------------------------------------------------------------------
-function addon:InitializeRecipe(profession)
+function addon:InitializeProfession(profession)
 	if not profession then
 		--@alpha@
-		addon:Print("nil profession passed to InitializeRecipe()")
+		addon:Print("nil profession passed to InitializeProfession()")
 		--@end-alpha@
 		return
 	end
@@ -1815,7 +1815,7 @@ do
 		end
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		Player.totalRecipes = addon:InitializeRecipe(current_prof)
+		Player.totalRecipes = addon:InitializeProfession(current_prof)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
