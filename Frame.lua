@@ -795,7 +795,7 @@ do
 		end
 	end
 
-	local function Tooltip_AddWorldDrop(recipe_id, id_num, location, quality_color, addline_func)
+	local function Tooltip_AddWorldDrop(recipe_id, id_num, location, addline_func)
 		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
 
 		if location and drop_location ~= location then
@@ -807,6 +807,7 @@ do
 		if item_id then
 			_, _, _, item_level = GetItemInfo(item_id)
 		end
+		local _, _, _, quality_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
 		local type_color = string.gsub(quality_color, "|cff", "")
 
 		if type(id_num) == "string" then
@@ -825,7 +826,7 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe_id, acquire_id, location, quality_color, addline_func)
+	function addon:DisplayAcquireData(recipe_id, acquire_id, location, addline_func)
 		local recipe = private.recipe_list[recipe_id]
 
 		if not recipe then
@@ -855,7 +856,7 @@ do
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
-						Tooltip_AddWorldDrop(recipe_id, id_num, location, quality_color, addline_func)
+						Tooltip_AddWorldDrop(recipe_id, id_num, location, addline_func)
 					elseif acquire_type == A.CUSTOM then
 						addline_func(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 						--@alpha@
@@ -984,7 +985,7 @@ do
 		local acquire_id = list_entry.acquire_id
 		local location = list_entry.location_id
 
-		addon:DisplayAcquireData(recipe_id, acquire_id, location, quality_color, ttAdd)
+		addon:DisplayAcquireData(recipe_id, acquire_id, location, ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			-- Give the tooltip hint a unique color.
