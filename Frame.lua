@@ -932,7 +932,6 @@ do
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
-		local playerFaction = Player.faction
 		local acquire_id = list_entry.acquire_id
 		local location = list_entry.location_id
 
