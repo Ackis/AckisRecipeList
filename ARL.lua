@@ -930,6 +930,17 @@ do
 	end
 end	-- do
 
+-- Public API function for retrieving specific information about a recipe.
+-- @name AckisRecipeList:GetRecipeData
+-- @usage AckisRecipeList:GetRecipeData(28972, "profession")
+-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being queried.
+-- @param data Which member of the recipe table is being queried.
+-- @return Variable, depending upon which member of the recipe table is queried.
+function addon:GetRecipeData(spell_id, data)
+	local recipe = private.recipe_list[spell_id]
+	return recipe and recipe[data] or nil
+end
+
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeFlags
 -- @usage AckisRecipeList:AddRecipeFlags(28927, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
@@ -1693,6 +1704,7 @@ function addon:InitializeRecipe(profession)
 		--@end-alpha@
 		return
 	end
+
 	if profession == private.professions["Smelting"] then
 		profession = private.mining_name
 	end
@@ -1803,7 +1815,7 @@ do
 		end
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		Player.totalRecipes = addon:InitializeRecipe(Player.current_prof)
+		Player.totalRecipes = addon:InitializeRecipe(current_prof)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
