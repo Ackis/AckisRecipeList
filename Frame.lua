@@ -1017,44 +1017,43 @@ end	-- do
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
 local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
+MainPanel:SetHeight(447)
+MainPanel:SetFrameStrata("MEDIUM")
+MainPanel:SetToplevel(true)
+MainPanel:SetHitRectInsets(5, 5, 5, 5)
+
+MainPanel:EnableMouse(true)
+MainPanel:EnableKeyboard(true)
+MainPanel:SetMovable(true)
+MainPanel:SetClampedToScreen(true)
+
+MainPanel.is_expanded = false
+
+-- Let the user banish the MainPanel with the ESC key.
+table.insert(UISpecialFrames, "ARL_MainPanel")
+
+addon.Frame = MainPanel
+
+MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "BACKGROUND")
+MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+MainPanel.backdrop:SetAllPoints(MainPanel)
+MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+
+MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
+MainPanel.title_bar:ClearAllPoints()
+MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
+MainPanel.title_bar:SetJustifyH("CENTER")
+
+MainPanel:Hide()
+
+-------------------------------------------------------------------------------
+-- Tabs
+-------------------------------------------------------------------------------
 local AcquisitionTab, LocationTab, RecipesTab
 
--- For initial tab setting.
-local TranslateSortName
-
 do
-	MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
-	MainPanel:SetHeight(447)
-	MainPanel:SetFrameStrata("MEDIUM")
-	MainPanel:SetToplevel(true)
-	MainPanel:SetHitRectInsets(5, 5, 5, 5)
-
-	MainPanel:EnableMouse(true)
-	MainPanel:EnableKeyboard(true)
-	MainPanel:SetMovable(true)
-	MainPanel:SetClampedToScreen(true)
-
-	MainPanel.is_expanded = false
-
-	-- Let the user banish the MainPanel with the ESC key.
-	table.insert(UISpecialFrames, "ARL_MainPanel")
-
-	addon.Frame = MainPanel
-
-	MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "BACKGROUND")
-	MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-	MainPanel.backdrop:SetAllPoints(MainPanel)
-	MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
-
-	MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
-	MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
-	MainPanel.title_bar:ClearAllPoints()
-	MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-	MainPanel.title_bar:SetJustifyH("CENTER")
-
-	-------------------------------------------------------------------------------
-	-- Tabs
-	-------------------------------------------------------------------------------
 	local function Tab_Enable(self)
 		self.left:ClearAllPoints()
 		self.left:SetPoint("BOTTOMLEFT")
@@ -1150,130 +1149,129 @@ do
 	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
+	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+	-- necessary to ensure each is counted only once.
+	local recipe_registry = {}
+
+	function AcquisitionTab:Initialize(expand_mode)
+		local sorted_acquires = addon.sorted_acquires
+		local current_prof = Player.current_prof
+		local search_box = MainPanel.search_editbox
+
+		local recipe_count = 0
+		local insert_index = 1
+
+		twipe(recipe_registry)
+		SortAcquireList()
+
+		for index = 1, #sorted_acquires do
+			local acquire_type = sorted_acquires[index]
+			local count = 0
+
+			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
+			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
+				local recipe = private.recipe_list[spell_id]
+
+				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+					count = count + 1
+
+					if not recipe_registry[recipe] then
+						recipe_registry[recipe] = true
+						recipe_count = recipe_count + 1
+					end
+				end
+			end
+
+			if count > 0 then
+				local t = AcquireTable()
+
+				local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
+				local color_code = private.category_colors[acquire_str] or "ffffff"
+
+				t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
+				t.acquire_id = acquire_type
+
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+			end
+		end
+		return recipe_count
+	end
+
+	function LocationTab:Initialize(expand_mode)
+		local sorted_locations = addon.sorted_locations
+		local current_prof = Player.current_prof
+		local search_box = MainPanel.search_editbox
+
+		local recipe_count = 0
+		local insert_index = 1
+
+		twipe(recipe_registry)
+		SortLocationList()
+
+		for index = 1, #sorted_locations do
+			local loc_name = sorted_locations[index]
+			local count = 0
+
+			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
+				local recipe = private.recipe_list[spell_id]
+
+				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+					count = count + 1
+
+					if not recipe_registry[recipe] then
+						recipe_registry[recipe] = true
+						recipe_count = recipe_count + 1
+					end
+				end
+			end
+
+			if count > 0 then
+				local t = AcquireTable()
+
+				t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
+				t.location_id = loc_name
+
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+			end
+		end
+		return recipe_count
+	end
+
+	function RecipesTab:Initialize(expand_mode)
+		local sorted_recipes = addon.sorted_recipes
+		local recipe_list = private.recipe_list
+		local search_box = MainPanel.search_editbox
+
+		local recipe_count = 0
+		local insert_index = 1
+
+		SortRecipeList(recipe_list, sorted_recipes)
+
+		for i = 1, #sorted_recipes do
+			local recipe_index = sorted_recipes[i]
+			local recipe = recipe_list[recipe_index]
+
+			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
+				local t = AcquireTable()
+
+				t.text = FormatRecipeText(recipe)
+				t.recipe_id = recipe_index
+
+				recipe_count = recipe_count + 1
+
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+			end
+		end
+		return recipe_count
+	end
+
 	MainPanel.tabs = {
 		AcquisitionTab,
 		LocationTab,
 		RecipesTab,
 	}
-	MainPanel:Hide()
 end	-- do-block
-
--- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
--- necessary to ensure each is counted only once.
-local recipe_registry = {}
-
-function AcquisitionTab:Initialize(expand_mode)
-	local sorted_acquires = addon.sorted_acquires
-	local current_prof = Player.current_prof
-	local search_box = MainPanel.search_editbox
-
-	local recipe_count = 0
-	local insert_index = 1
-
-	twipe(recipe_registry)
-	SortAcquireList()
-
-	for index = 1, #sorted_acquires do
-		local acquire_type = sorted_acquires[index]
-		local count = 0
-
-		-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-		for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
-			local recipe = private.recipe_list[spell_id]
-
-			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-				count = count + 1
-
-				if not recipe_registry[recipe] then
-					recipe_registry[recipe] = true
-					recipe_count = recipe_count + 1
-				end
-			end
-		end
-
-		if count > 0 then
-			local t = AcquireTable()
-
-			local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
-			local color_code = private.category_colors[acquire_str] or "ffffff"
-
-			t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
-			t.acquire_id = acquire_type
-
-			insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-		end
-	end
-	return recipe_count
-end
-
-function LocationTab:Initialize(expand_mode)
-	local sorted_locations = addon.sorted_locations
-	local current_prof = Player.current_prof
-	local search_box = MainPanel.search_editbox
-
-	local recipe_count = 0
-	local insert_index = 1
-
-	twipe(recipe_registry)
-	SortLocationList()
-
-	for index = 1, #sorted_locations do
-		local loc_name = sorted_locations[index]
-		local count = 0
-
-		-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-		for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-			local recipe = private.recipe_list[spell_id]
-
-			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-				count = count + 1
-
-				if not recipe_registry[recipe] then
-					recipe_registry[recipe] = true
-					recipe_count = recipe_count + 1
-				end
-			end
-		end
-
-		if count > 0 then
-			local t = AcquireTable()
-
-			t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
-			t.location_id = loc_name
-
-			insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-		end
-	end
-	return recipe_count
-end
-
-function RecipesTab:Initialize(expand_mode)
-	local sorted_recipes = addon.sorted_recipes
-	local recipe_list = private.recipe_list
-	local search_box = MainPanel.search_editbox
-
-	local recipe_count = 0
-	local insert_index = 1
-
-	SortRecipeList(recipe_list, sorted_recipes)
-
-	for i = 1, #sorted_recipes do
-		local recipe_index = sorted_recipes[i]
-		local recipe = recipe_list[recipe_index]
-
-		if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-			local t = AcquireTable()
-
-			t.text = FormatRecipeText(recipe)
-			t.recipe_id = recipe_index
-
-			recipe_count = recipe_count + 1
-
-			insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
-		end
-	end
-	return recipe_count
-end
 
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
