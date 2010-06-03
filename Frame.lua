@@ -3205,7 +3205,7 @@ do
 	function ListFrame:Initialize(expand_mode)
 		local recipe_list = private.recipe_list
 		local sort_type = addon.db.profile.sorting
-		local current_tab = addon.db.profile.current_tab
+		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
 		local search_box = MainPanel.search_editbox
 
 		local insert_index = 1
@@ -3220,7 +3220,7 @@ do
 
 		ExpandButton:Contract()
 
-		local recipe_count = MainPanel.tabs[current_tab]:Initialize(expand_mode)
+		local recipe_count = current_tab:Initialize(expand_mode)
 
 		-- The list always starts at the top.
 		ScrollUpButton:Disable()
