@@ -1777,15 +1777,13 @@ do
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
 	function addon:Scan(textdump, is_refresh)
-		local scan_parent = self.scan_button:GetParent()
+		local current_prof, prof_level = GetTradeSkillLine()
 
-		-- The scan button is re-parented to whichever interface it's anchored to, whether it's TradeSkillFrame or a replacement AddOn,
-		-- so we make sure its parent exists and is visible before proceeding.
-		if not scan_parent or scan_parent == UIParent or not scan_parent:IsVisible() then
+		-- Bail if we haven't opened a tradeskill frame.
+		if current_prof == "UNKNOWN" then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
-		local current_prof, prof_level = GetTradeSkillLine()
 
 		-- Set the current profession and its level, and update the cached data.
 		Player.current_prof = current_prof
