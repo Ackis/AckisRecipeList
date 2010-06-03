@@ -788,33 +788,33 @@ function addon:TRADE_SKILL_CLOSE()
 end
 
 do
-	-- local last_update = 0
-	-- local updater = CreateFrame("Frame", nil, UIParent)
+	local last_update = 0
+	local updater = CreateFrame("Frame", nil, UIParent)
 
-	-- updater:Hide()
-	-- updater:SetScript("OnUpdate",
-	-- 		  function(self, elapsed)
-	-- 			  last_update = last_update + elapsed
+	updater:Hide()
+	updater:SetScript("OnUpdate",
+			  function(self, elapsed)
+				  last_update = last_update + elapsed
 
-	-- 			  addon:Debug("Running the updater's OnUpdate")
-	-- 			  if last_update >= 0.5 then
-	-- 				  addon:Scan(false, true)
-	-- 				  self:Hide()
-	-- 			  end
-	-- 		  end)
+				  if last_update >= 0.5 then
+					  local profession = GetTradeSkillLine()
+
+					  if profession ~= "UNKNOWN" then
+						  addon:Scan(false, true)
+					  end
+					  self:Hide()
+				  end
+			  end)
 
 	function addon:TRADE_SKILL_UPDATE(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
-		-- if not self.Frame:IsVisible() then
-		-- 	return
-		-- end
+		if not self.Frame:IsVisible() then
+			return
+		end
 
-		-- addon:Debug("Args are: %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", tostring(arg1), tostring(arg2), tostring(arg3), tostring(arg4),
-		-- 	    tostring(arg5), tostring(arg6), tostring(arg7), tostring(arg8), tostring(arg9), tostring(arg10))
-
-		-- if not updater:IsVisible() then
-		-- 	last_update = 0
-		-- 	updater:Show()
-		-- end
+		if not updater:IsVisible() then
+			last_update = 0
+			updater:Show()
+		end
 	end
 end
 
