@@ -1515,13 +1515,14 @@ MainPanel.mode_button:SetScript("OnClick",
 							end
 						end
 					end
-					local is_shown = TradeSkillFrame:IsVisible()
+					local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
+					local is_shown = trade_frame:IsVisible()
 
 					CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
 					addon:Scan()
 
 					if not is_shown then
-						TradeSkillFrame:Hide()
+						trade_frame:Hide()
 					end
 				end)
 
