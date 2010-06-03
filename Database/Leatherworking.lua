@@ -203,7 +203,7 @@ function addon:InitLeatherworking()
 	-- Barbaric Gloves -- 3771
 	AddRecipe(3771, 150, 4254, Q.UNCOMMON, V.ORIG, 150, 170, 180, 190)
 	self:AddRecipeFlags(3771, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(3771, 2)
+	self:AddRecipeWorldDrop(3771, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Leather Armor -- 3772
 	AddRecipe(3772, 155, 4255, Q.COMMON, V.ORIG, 155, 175, 185, 195)
@@ -213,7 +213,7 @@ function addon:InitLeatherworking()
 	-- Guardian Armor -- 3773
 	AddRecipe(3773, 175, 4256, Q.UNCOMMON, V.ORIG, 175, 195, 205, 215)
 	self:AddRecipeFlags(3773, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(3773, 2)
+	self:AddRecipeWorldDrop(3773, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Leather Belt -- 3774
 	AddRecipe(3774, 160, 4257, Q.COMMON, V.ORIG, 160, 180, 190, 200)
@@ -223,7 +223,7 @@ function addon:InitLeatherworking()
 	-- Guardian Belt -- 3775
 	AddRecipe(3775, 170, 4258, Q.RARE, V.ORIG, 170, 190, 200, 210)
 	self:AddRecipeFlags(3775, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(3775, 3)
+	self:AddRecipeWorldDrop(3775, "Kalimdor", "Eastern Kingdoms")
 
 	-- Green Leather Bracers -- 3776
 	AddRecipe(3776, 180, 4259, Q.COMMON, V.ORIG, 180, 200, 210, 220)
@@ -233,7 +233,7 @@ function addon:InitLeatherworking()
 	-- Guardian Leather Bracers -- 3777
 	AddRecipe(3777, 195, 4260, Q.UNCOMMON, V.ORIG, 195, 215, 225, 235)
 	self:AddRecipeFlags(3777, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(3777, 2)
+	self:AddRecipeWorldDrop(3777, "Kalimdor", "Eastern Kingdoms")
 
 	-- Gem-studded Leather Belt -- 3778
 	AddRecipe(3778, 185, 4262, Q.COMMON, V.ORIG, 185, 205, 215, 225)
@@ -243,7 +243,7 @@ function addon:InitLeatherworking()
 	-- Barbaric Belt -- 3779
 	AddRecipe(3779, 200, 4264, Q.RARE, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(3779, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(3779, 2)
+	self:AddRecipeWorldDrop(3779, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Armor Kit -- 3780
 	AddRecipe(3780, 150, 4265, Q.COMMON, V.ORIG, 150, 170, 180, 190)
@@ -317,7 +317,7 @@ function addon:InitLeatherworking()
 	-- Fine Leather Pants -- 7133
 	AddRecipe(7133, 105, 5958, Q.UNCOMMON, V.ORIG, 105, 130, 142, 155)
 	self:AddRecipeFlags(7133, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(7133, 2)
+	self:AddRecipeWorldDrop(7133, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dark Leather Pants -- 7135
 	AddRecipe(7135, 115, 5961, Q.COMMON, V.ORIG, 115, 140, 152, 165)
@@ -342,7 +342,7 @@ function addon:InitLeatherworking()
 	-- Guardian Cloak -- 7153
 	AddRecipe(7153, 185, 5965, Q.UNCOMMON, V.ORIG, 185, 205, 215, 225)
 	self:AddRecipeFlags(7153, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(7153, 2)
+	self:AddRecipeWorldDrop(7153, "Kalimdor", "Eastern Kingdoms")
 
 	-- Guardian Gloves -- 7156
 	AddRecipe(7156, 190, 5966, Q.COMMON, V.ORIG, 190, 210, 220, 230)
@@ -392,7 +392,7 @@ function addon:InitLeatherworking()
 	-- Rugged Leather Pants -- 9064
 	AddRecipe(9064, 35, 7280, Q.UNCOMMON, V.ORIG, 35, 65, 80, 95)
 	self:AddRecipeFlags(9064, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(9064, 2)
+	self:AddRecipeWorldDrop(9064, "Kalimdor", "Eastern Kingdoms")
 
 	-- Light Leather Bracers -- 9065
 	AddRecipe(9065, 70, 7281, Q.COMMON, V.ORIG, 70, 100, 115, 130)
@@ -437,12 +437,12 @@ function addon:InitLeatherworking()
 	-- Pilferer's Gloves -- 9148
 	AddRecipe(9148, 140, 7358, Q.UNCOMMON, V.ORIG, 140, 165, 177, 190)
 	self:AddRecipeFlags(9148, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(9148, 2)
+	self:AddRecipeWorldDrop(9148, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Earthen Gloves -- 9149
 	AddRecipe(9149, 145, 7359, Q.UNCOMMON, V.ORIG, 145, 170, 182, 195)
 	self:AddRecipeFlags(9149, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(9149, 2)
+	self:AddRecipeWorldDrop(9149, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Quiver -- 9193
 	AddRecipe(9193, 150, 7371, Q.COMMON, V.ORIG, 150, 170, 180, 190)
@@ -457,7 +457,7 @@ function addon:InitLeatherworking()
 	-- Dusky Leather Leggings -- 9195
 	AddRecipe(9195, 165, 7373, Q.UNCOMMON, V.ORIG, 165, 185, 195, 205)
 	self:AddRecipeFlags(9195, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(9195, 2)
+	self:AddRecipeWorldDrop(9195, "Kalimdor", "Eastern Kingdoms")
 
 	-- Dusky Leather Armor -- 9196
 	AddRecipe(9196, 175, 7374, Q.COMMON, V.ORIG, 175, 195, 205, 215)
@@ -467,7 +467,7 @@ function addon:InitLeatherworking()
 	-- Green Whelp Armor -- 9197
 	AddRecipe(9197, 175, 7375, Q.UNCOMMON, V.ORIG, 175, 195, 205, 215)
 	self:AddRecipeFlags(9197, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(9197, 2)
+	self:AddRecipeWorldDrop(9197, "Kalimdor", "Eastern Kingdoms")
 
 	-- Frost Leather Cloak -- 9198
 	AddRecipe(9198, 180, 7377, Q.COMMON, V.ORIG, 180, 200, 210, 220)
@@ -492,12 +492,12 @@ function addon:InitLeatherworking()
 	-- Dusky Boots -- 9207
 	AddRecipe(9207, 200, 7390, Q.RARE, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(9207, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(9207, 2)
+	self:AddRecipeWorldDrop(9207, "Kalimdor", "Eastern Kingdoms")
 
 	-- Swift Boots -- 9208
 	AddRecipe(9208, 200, 7391, Q.UNCOMMON, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(9208, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(9208, 2)
+	self:AddRecipeWorldDrop(9208, "Kalimdor", "Eastern Kingdoms")
 
 	-- Cured Thick Hide -- 10482
 	AddRecipe(10482, 200, 8172, Q.COMMON, V.ORIG, 200, 200, 200, 200)
@@ -512,7 +512,7 @@ function addon:InitLeatherworking()
 	-- Comfortable Leather Hat -- 10490
 	AddRecipe(10490, 200, 8174, Q.RARE, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(10490, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(10490, 2)
+	self:AddRecipeWorldDrop(10490, "Kalimdor", "Eastern Kingdoms")
 
 	-- Nightscape Tunic -- 10499
 	AddRecipe(10499, 205, 8175, Q.COMMON, V.ORIG, 205, 225, 235, 245)
@@ -547,7 +547,7 @@ function addon:InitLeatherworking()
 	-- Big Voodoo Robe -- 10520
 	AddRecipe(10520, 215, 8200, Q.UNCOMMON, V.ORIG, 215, 235, 245, 255)
 	self:AddRecipeFlags(10520, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(10520, 2)
+	self:AddRecipeWorldDrop(10520, "Kalimdor", "Eastern Kingdoms")
 
 	-- Tough Scorpid Breastplate -- 10525
 	AddRecipe(10525, 220, 8203, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
@@ -562,7 +562,7 @@ function addon:InitLeatherworking()
 	-- Big Voodoo Mask -- 10531
 	AddRecipe(10531, 220, 8201, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
 	self:AddRecipeFlags(10531, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(10531, 2)
+	self:AddRecipeWorldDrop(10531, "Kalimdor", "Eastern Kingdoms")
 
 	-- Tough Scorpid Bracers -- 10533
 	AddRecipe(10533, 220, 8205, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
@@ -612,12 +612,12 @@ function addon:InitLeatherworking()
 	-- Big Voodoo Pants -- 10560
 	AddRecipe(10560, 240, 8202, Q.UNCOMMON, V.ORIG, 240, 260, 270, 280)
 	self:AddRecipeFlags(10560, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(10560, 2)
+	self:AddRecipeWorldDrop(10560, "Kalimdor", "Eastern Kingdoms")
 
 	-- Big Voodoo Cloak -- 10562
 	AddRecipe(10562, 240, 8216, Q.UNCOMMON, V.ORIG, 240, 260, 270, 280)
 	self:AddRecipeFlags(10562, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeWorldDrop(10562, 2)
+	self:AddRecipeWorldDrop(10562, "Kalimdor", "Eastern Kingdoms")
 
 	-- Tough Scorpid Shoulders -- 10564
 	AddRecipe(10564, 240, 8207, Q.UNCOMMON, V.ORIG, 240, 260, 270, 280)
@@ -733,7 +733,7 @@ function addon:InitLeatherworking()
 	AddRecipe(19055, 270, 15091, Q.COMMON, V.ORIG, 270, 290, 300, 310)
 	self:AddRecipeFlags(19055, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(19055, 1385, 3703, 16688, 5784, 3365, 3967, 19187, 11097, 18754, 1632, 3605, 11098, 4588, 4212, 8153, 18771, 16728, 5127, 33612, 17442, 3549, 3007, 33635, 16278, 21087, 33681, 5564)
-	self:AddRecipeWorldDrop(19055, 2)
+	self:AddRecipeWorldDrop(19055, "Kalimdor", "Eastern Kingdoms")
 
 	-- Rugged Armor Kit -- 19058
 	AddRecipe(19058, 250, 15564, Q.COMMON, V.ORIG, 250, 255, 265, 275)
@@ -763,7 +763,7 @@ function addon:InitLeatherworking()
 	-- Chimeric Boots -- 19063
 	AddRecipe(19063, 275, 15073, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
 	self:AddRecipeFlags(19063, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(19063, 2)
+	self:AddRecipeWorldDrop(19063, "Kalimdor", "Eastern Kingdoms")
 
 	-- Heavy Scorpid Gauntlets -- 19064
 	AddRecipe(19064, 275, 15078, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
@@ -793,7 +793,7 @@ function addon:InitLeatherworking()
 	-- Heavy Scorpid Belt -- 19070
 	AddRecipe(19070, 280, 15082, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(19070, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(19070, 2)
+	self:AddRecipeWorldDrop(19070, "Kalimdor", "Eastern Kingdoms")
 
 	-- Wicked Leather Headband -- 19071
 	AddRecipe(19071, 280, 15086, Q.COMMON, V.ORIG, 280, 300, 310, 320)
@@ -808,7 +808,7 @@ function addon:InitLeatherworking()
 	-- Chimeric Leggings -- 19073
 	AddRecipe(19073, 280, 15072, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(19073, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(19073, 2)
+	self:AddRecipeWorldDrop(19073, "Kalimdor", "Eastern Kingdoms")
 
 	-- Frostsaber Leggings -- 19074
 	AddRecipe(19074, 285, 15069, Q.UNCOMMON, V.ORIG, 285, 305, 315, 325)
@@ -848,7 +848,7 @@ function addon:InitLeatherworking()
 	-- Chimeric Vest -- 19081
 	AddRecipe(19081, 290, 15075, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
 	self:AddRecipeFlags(19081, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeWorldDrop(19081, 2)
+	self:AddRecipeWorldDrop(19081, "Kalimdor", "Eastern Kingdoms")
 
 	-- Runic Leather Headband -- 19082
 	AddRecipe(19082, 290, 15094, Q.COMMON, V.ORIG, 290, 310, 320, 330)
@@ -1566,23 +1566,23 @@ function addon:InitLeatherworking()
 	-- Cobrascale Hood -- 35558
 	AddRecipe(35558, 365, 29502, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35558, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(35558, 4)
+	self:AddRecipeWorldDrop(35558, "Outland")
 
 	-- Cobrascale Gloves -- 35559
 	AddRecipe(35559, 365, 29503, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35559, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeMobDrop(35559, 24664)
-	self:AddRecipeWorldDrop(35559, 4)
+	self:AddRecipeWorldDrop(35559, "Outland")
 
 	-- Windscale Hood -- 35560
 	AddRecipe(35560, 365, 29504, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35560, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(35560, 4)
+	self:AddRecipeWorldDrop(35560, "Outland")
 
 	-- Hood of Primal Life -- 35561
 	AddRecipe(35561, 365, 29505, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35561, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
-	self:AddRecipeWorldDrop(35561, 4)
+	self:AddRecipeWorldDrop(35561, "Outland")
 
 	-- Gloves of the Living Touch -- 35562
 	AddRecipe(35562, 365, 29506, Q.EPIC, V.TBC, 365, 375, 385, 395)
@@ -1592,17 +1592,17 @@ function addon:InitLeatherworking()
 	-- Windslayer Wraps -- 35563
 	AddRecipe(35563, 365, 29507, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35563, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeWorldDrop(35563, 4)
+	self:AddRecipeWorldDrop(35563, "Outland")
 
 	-- Living Dragonscale Helm -- 35564
 	AddRecipe(35564, 365, 29508, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35564, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeWorldDrop(35564, 4)
+	self:AddRecipeWorldDrop(35564, "Outland")
 
 	-- Earthen Netherscale Boots -- 35567
 	AddRecipe(35567, 365, 29512, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35567, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeWorldDrop(35567, 4)
+	self:AddRecipeWorldDrop(35567, "Outland")
 
 	-- Windstrike Gloves -- 35568
 	AddRecipe(35568, 365, 29509, Q.EPIC, V.TBC, 365, 375, 385, 395)
@@ -1612,7 +1612,7 @@ function addon:InitLeatherworking()
 	-- Netherdrake Helm -- 35572
 	AddRecipe(35572, 365, 29510, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35572, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeWorldDrop(35572, 4)
+	self:AddRecipeWorldDrop(35572, "Outland")
 
 	-- Netherdrake Gloves -- 35573
 	AddRecipe(35573, 365, 29511, Q.EPIC, V.TBC, 365, 375, 385, 395)
@@ -1622,7 +1622,7 @@ function addon:InitLeatherworking()
 	-- Thick Netherscale Breastplate -- 35574
 	AddRecipe(35574, 365, 29514, Q.EPIC, V.TBC, 365, 375, 385, 395)
 	self:AddRecipeFlags(35574, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeWorldDrop(35574, 4)
+	self:AddRecipeWorldDrop(35574, "Outland")
 
 	-- Ebon Netherscale Breastplate -- 35575
 	AddRecipe(35575, 375, 29515, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
