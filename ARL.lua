@@ -1658,7 +1658,7 @@ do
 
 				if is_linked then
 					is_known = recipe:HasState("LINKED")
-				else 
+				else
 					is_known = recipe:HasState("KNOWN")
 				end
 
