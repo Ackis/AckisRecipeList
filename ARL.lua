@@ -1742,6 +1742,8 @@ function addon:ChatCommand(input)
 		self:ScanSkillLevelData()
 	elseif (input == strlower("scanprof")) then
 		self:ScanProfession("all")
+	elseif (input == strlower("tradelinks")) then
+		self:GenerateLinks()
 	else
 		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
