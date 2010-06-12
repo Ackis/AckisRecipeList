@@ -102,6 +102,8 @@ Ackis Recipe List has recently changed to use a GUI for change parameters.  Type
   Opens up filtering options.
 - /arl scan
   Performs a scan for missing recipes.  This is in place for those times when you cannot access the scan button.
+- /arl tradelinks
+  Prints out a list of all the profession tradeskill links.
 
 Clicking:
 Ackis Recipe List will behave differently depending on which modifying keys you use to click.
