@@ -3204,37 +3204,33 @@ do
 	end
 
 	function ListFrame:Initialize(expand_mode)
-		local recipe_list = private.recipe_list
-		local sort_type = addon.db.profile.sorting
-		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-		local search_box = MainPanel.search_editbox
-
-		local insert_index = 1
-
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
 		twipe(self.entries)
 
 		addon:UpdateFilters(MainPanel.is_linked)
+
 		Player:MarkExclusions()
 
 		ExpandButton:Contract()
-
-		local recipe_count = current_tab:Initialize(expand_mode)
 
 		-- The list always starts at the top.
 		ScrollUpButton:Disable()
 		self.scroll_bar:SetValue(0)
 
+		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+		local recipe_count = current_tab:Initialize(expand_mode)
+
 		local profile = addon.db.profile
 		local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
 		local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
-		local progress_bar = MainPanel.progress_bar
 
 		if not profile.includeexcluded and not profile.ignoreexclusionlist then
 			max_value = max_value - Player.excluded_recipes_known
 		end
+		local progress_bar = MainPanel.progress_bar
+
 		progress_bar:SetMinMaxValues(0, max_value)
 		progress_bar:SetValue(cur_value)
 
@@ -3626,7 +3622,6 @@ do
 	end
 
 	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
-
 		local _, _, _, hex_color = GetItemQualityColor(private.recipe_list[recipe_id].quality)
 		local drop_location = type(id_num) == "string" and BZ[id_num] or nil
 
