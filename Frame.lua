@@ -100,8 +100,8 @@ local CATEGORY_TEXT = {
 	["misc"]	= _G.MISCELLANEOUS
 }
 
-local MAINPANEL_NORMAL_WIDTH	= 293
-local MAINPANEL_EXPANDED_WIDTH	= 444
+local MAINPANEL_NORMAL_WIDTH	= 384
+local MAINPANEL_EXPANDED_WIDTH	= 768
 
 local FILTERMENU_SINGLE_WIDTH	= 136
 local FILTERMENU_DOUBLE_WIDTH	= 300
@@ -1018,10 +1018,10 @@ end	-- do
 -------------------------------------------------------------------------------
 local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
 MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
-MainPanel:SetHeight(447)
+MainPanel:SetHeight(512)
 MainPanel:SetFrameStrata("MEDIUM")
 MainPanel:SetToplevel(true)
-MainPanel:SetHitRectInsets(5, 5, 5, 5)
+MainPanel:SetHitRectInsets(0, 30, 0, 45)
 
 MainPanel:EnableMouse(true)
 MainPanel:EnableKeyboard(true)
@@ -1035,10 +1035,25 @@ table.insert(UISpecialFrames, "ARL_MainPanel")
 
 addon.Frame = MainPanel
 
-MainPanel.backdrop = MainPanel:CreateTexture("AckisRecipeList.bgTexture", "BACKGROUND")
-MainPanel.backdrop:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
-MainPanel.backdrop:SetAllPoints(MainPanel)
-MainPanel.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+local top_left = MainPanel:CreateTexture(nil, "ARTWORK")
+top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
+top_left:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 0, 0)
+MainPanel.top_left = top_left
+
+local top_right = MainPanel:CreateTexture(nil, "ARTWORK")
+top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
+top_right:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 0, 0)
+MainPanel.top_right = top_right
+
+local bottom_left = MainPanel:CreateTexture(nil, "ARTWORK")
+bottom_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotLeft")
+bottom_left:SetPoint("BOTTOMLEFT", MainPanel, "BOTTOMLEFT", 0, 0)
+MainPanel.bottom_left = bottom_left
+
+local bottom_right = MainPanel:CreateTexture(nil, "ARTWORK")
+bottom_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotRight")
+bottom_right:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", 0, 0)
+MainPanel.bottom_right = bottom_right
 
 MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
 MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
@@ -1047,6 +1062,19 @@ MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
 MainPanel.title_bar:SetJustifyH("CENTER")
 
 MainPanel:Hide()
+
+-------------------------------------------------------------------------------
+-- Widget Container frames.
+-------------------------------------------------------------------------------
+local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
+WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
+WidgetContainer:SetHeight(30)
+WidgetContainer:SetWidth(275)
+
+local WidgetContainer2 = CreateFrame("Frame", nil, MainPanel)
+WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
+WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -70)
+WidgetContainer2:SetHeight(30)
 
 -------------------------------------------------------------------------------
 -- Tabs
@@ -1145,7 +1173,7 @@ do
 		tab:SetScript("OnClick", Tab_OnClick)
 		return tab
 	end
-	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 3)
+	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
 	LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 	RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
@@ -1321,6 +1349,7 @@ MainPanel:SetScript("OnMouseUp",
 			    opts.offsety = y
 		    end)
 
+-- TODO: Fix this
 function MainPanel:HighlightCategory(target)
 	if not target then
 		self.filter_menu:Hide()
@@ -1330,10 +1359,10 @@ function MainPanel:HighlightCategory(target)
 		local toggle = "menu_toggle_" .. category
 
 		if target == category then
-			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["white"], CATEGORY_TEXT[category]))
+--			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["white"], CATEGORY_TEXT[category]))
 		elseif category ~= 0 and category ~= "texture" then
 			self[toggle]:SetChecked(false)
-			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
+--			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
 		end
 	end
 end
@@ -1344,19 +1373,29 @@ function MainPanel:ToggleState()
 	if self.is_expanded then
 		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
 
-		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
-		self.backdrop:SetAllPoints(self)
-		self.backdrop:SetTexCoord(0, (MAINPANEL_NORMAL_WIDTH/512), 0, (447/512))
+		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
+		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
+		self.bottom_left:Show()
+		self.bottom_right:Show()
 
-		self.progress_bar:SetWidth(195)
+		self.xclose_button:ClearAllPoints()
+		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -30, -8)
+
+		self.progress_bar:SetWidth(210)
+		self.close_button:SetWidth(111)
 	else
 		self:SetWidth(MAINPANEL_EXPANDED_WIDTH)
 
-		self.backdrop:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
-		self.backdrop:SetAllPoints(self)
-		self.backdrop:SetTexCoord(0, (MAINPANEL_EXPANDED_WIDTH/512), 0, (447/512))
+		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
+		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Right")
+		self.bottom_left:Hide()
+		self.bottom_right:Hide()
 
-		self.progress_bar:SetWidth(345)
+		self.xclose_button:ClearAllPoints()
+		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -84, -8)
+
+		self.progress_bar:SetWidth(203)
+		self.close_button:SetWidth(97)
 	end
 	self.is_expanded = not self.is_expanded
 
@@ -1543,100 +1582,6 @@ function MainPanel.mode_button:ChangeTexture(texture)
 	disabled:SetTexCoord(0, 1, 0, 1)
 	disabled:SetAllPoints(self)
 	self:SetDisabledTexture(disabled)
-end
-
--------------------------------------------------------------------------------
--- Widget Container frames.
--------------------------------------------------------------------------------
-local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
-WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
-WidgetContainer:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -39)
-WidgetContainer:SetHeight(30)
-
-local WidgetContainer2 = CreateFrame("Frame", nil, MainPanel)
-WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
-WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -70)
-WidgetContainer2:SetHeight(30)
-
--------------------------------------------------------------------------------
--- Create the expand button and set its scripts.
--------------------------------------------------------------------------------
-local ExpandButtonFrame = CreateFrame("Frame", nil, MainPanel)
-ExpandButtonFrame:SetWidth(50)
-ExpandButtonFrame:SetHeight(28)
-ExpandButtonFrame:SetPoint("LEFT", WidgetContainer2, "LEFT", 2, 0)
-
-ExpandButtonFrame.left = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-ExpandButtonFrame.left:SetWidth(8)
-ExpandButtonFrame.left:SetHeight(30)
-ExpandButtonFrame.left:SetPoint("TOPLEFT", ExpandButtonFrame, 0, 4)
-ExpandButtonFrame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
-
-ExpandButtonFrame.right = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-ExpandButtonFrame.right:SetWidth(8)
-ExpandButtonFrame.right:SetHeight(30)
-ExpandButtonFrame.right:SetPoint("TOPRIGHT", ExpandButtonFrame, 0, 4)
-ExpandButtonFrame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
-
-ExpandButtonFrame.middle = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
-ExpandButtonFrame.middle:SetHeight(30)
-ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
-ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
-ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
-
-local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
-
-MainPanel.expand_all_button = ExpandButton
-
-ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
-
-ExpandButton.text:ClearAllPoints()
-ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
-
-ExpandButton:SetScript("OnClick",
-		       function(self, mouse_button, down)
-			       local expanded = self.is_expanded
-			       local expand_mode
-
-			       if not expanded then
-				       if _G.IsShiftKeyDown() then
-					       expand_mode = "deep"
-				       else
-					       expand_mode = "normal"
-				       end
-			       end
-			       -- ListFrame:Update() must be called before the button can be expanded or contracted, since
-			       -- the button is contracted from there.
-			       -- If expand_mode is nil, that means expand nothing.
-			       ListFrame:Update(expand_mode, false)
-
-			       if expanded then
-				       self:Contract()
-			       else
-				       self:Expand()
-			       end
-		       end)
-
-function ExpandButton:Expand()
-	self.is_expanded = true
-
-	self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
-	self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
-	self:SetHighlightTexture("Interface\\BUTTONS\\UI-PlusButton-Hilight")
-	self:SetDisabledTexture("Interface\\BUTTONS\\UI-MinusButton-Disabled")
-
-	SetTooltipScripts(self, L["CONTRACTALL_DESC"])
-end
-
-function ExpandButton:Contract()
-	self.is_expanded = nil
-
-	self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-	self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-	self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	self:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-
-	SetTooltipScripts(self, L["EXPANDALL_DESC"])
 end
 
 -------------------------------------------------------------------------------
@@ -1842,10 +1787,91 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
+-- Create the expand button and set its scripts.
+-------------------------------------------------------------------------------
+local ExpandButtonFrame = CreateFrame("Frame", nil, MainPanel)
+ExpandButtonFrame:SetWidth(45)
+ExpandButtonFrame:SetHeight(20)
+ExpandButtonFrame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
+
+ExpandButtonFrame.left = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.left:SetWidth(8)
+ExpandButtonFrame.left:SetHeight(22)
+ExpandButtonFrame.left:SetPoint("TOPLEFT", ExpandButtonFrame, 0, 4)
+ExpandButtonFrame.left:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Left")
+
+ExpandButtonFrame.right = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.right:SetWidth(8)
+ExpandButtonFrame.right:SetHeight(22)
+ExpandButtonFrame.right:SetPoint("TOPRIGHT", ExpandButtonFrame, 0, 4)
+ExpandButtonFrame.right:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Right")
+
+ExpandButtonFrame.middle = ExpandButtonFrame:CreateTexture(nil, "BACKGROUND")
+ExpandButtonFrame.middle:SetHeight(22)
+ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
+ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
+ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
+
+local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
+
+MainPanel.expand_all_button = ExpandButton
+
+ExpandButton:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT", -3, -3)
+
+ExpandButton.text:ClearAllPoints()
+ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
+
+ExpandButton:SetScript("OnClick",
+		       function(self, mouse_button, down)
+			       local expanded = self.is_expanded
+			       local expand_mode
+
+			       if not expanded then
+				       if _G.IsShiftKeyDown() then
+					       expand_mode = "deep"
+				       else
+					       expand_mode = "normal"
+				       end
+			       end
+			       -- ListFrame:Update() must be called before the button can be expanded or contracted, since
+			       -- the button is contracted from there.
+			       -- If expand_mode is nil, that means expand nothing.
+			       ListFrame:Update(expand_mode, false)
+
+			       if expanded then
+				       self:Contract()
+			       else
+				       self:Expand()
+			       end
+		       end)
+
+function ExpandButton:Expand()
+	self.is_expanded = true
+
+	self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
+	self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
+	self:SetHighlightTexture("Interface\\BUTTONS\\UI-PlusButton-Hilight")
+	self:SetDisabledTexture("Interface\\BUTTONS\\UI-MinusButton-Disabled")
+
+	SetTooltipScripts(self, L["CONTRACTALL_DESC"])
+end
+
+function ExpandButton:Contract()
+	self.is_expanded = nil
+
+	self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+	self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	self:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+
+	SetTooltipScripts(self, L["EXPANDALL_DESC"])
+end
+
+-------------------------------------------------------------------------------
 -- "Display Exclusions" checkbox.
 -------------------------------------------------------------------------------
 local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-ExcludeToggle:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -5, -10)
+ExcludeToggle:SetPoint("LEFT", ExpandButtonFrame, "RIGHT", 0, 1)
 ExcludeToggle:SetHeight(16)
 ExcludeToggle:SetWidth(16)
 
@@ -1876,10 +1902,9 @@ SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
 -- "Skill Level" checkbox.
 -------------------------------------------------------------------------------
 local SkillToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-SkillToggle:SetPoint("TOPLEFT", ExcludeToggle, "BOTTOMLEFT", 0, 0)
+SkillToggle:SetPoint("TOPLEFT", SearchBox, "TOPRIGHT", 0, 0)
 SkillToggle:SetHeight(16)
 SkillToggle:SetWidth(16)
-
 
 SkillToggle.text = SkillToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
 SkillToggle.text:SetPoint("LEFT", SkillToggle, "RIGHT", 0, 0)
@@ -1908,7 +1933,7 @@ SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 -- Create the X-close button, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.xclose_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
-MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 5, -6)
+MainPanel.xclose_button:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -30, -8)
 
 MainPanel.xclose_button:SetScript("OnClick",
 				  function(self, button, down)
@@ -1918,8 +1943,8 @@ MainPanel.xclose_button:SetScript("OnClick",
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_toggle, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 74, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-MainPanel.filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", 0, 0)
+MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 65, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+MainPanel.filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
 
 MainPanel.filter_toggle:SetScript("OnClick",
 			   function(self, button, down)
@@ -1955,9 +1980,9 @@ MainPanel.filter_toggle:SetScript("OnClick",
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_reset and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 25, 74, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
+MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 22, 78, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
 					     L["RESET_DESC"], 1)
-MainPanel.filter_reset:SetPoint("TOPRIGHT", WidgetContainer2, "TOPRIGHT", 0, 2)
+MainPanel.filter_reset:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -95, 80)
 MainPanel.filter_reset:Hide()
 
 do
@@ -2043,7 +2068,6 @@ do
 			end
 			ChangeFilters = true
 		else
-			MainPanel[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[panel]))
 			ChangeFilters = false
 		end
 
@@ -2072,7 +2096,7 @@ do
 	end
 
 	function CreateFilterMenuButton(button_texture, category)
-		local button_size = 30
+		local button_size = 22
 		local cButton = CreateFrame("CheckButton", nil, MainPanel)
 
 		cButton:SetWidth(button_size)
@@ -2110,15 +2134,6 @@ do
 		checkedTexture:SetBlendMode('ADD')
 		cButton:SetCheckedTexture(checkedTexture)
 
-		-- Create the text object to go along with it
-		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlightSmallRight")
-		cbText:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
-		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
-		cbText:SetHeight(14)
-		cbText:SetWidth(100)
-		cbText:SetJustifyH("LEFT")
-		cButton.text = cbText
-
 		-- And throw up a tooltip
 		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[category])
 		cButton:Hide()
@@ -2128,28 +2143,28 @@ do
 end	-- do
 
 MainPanel.menu_toggle_general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
-MainPanel.menu_toggle_general:SetPoint("TOPRIGHT", MainPanel.filter_reset, "BOTTOMLEFT", -25, -18)
+MainPanel.menu_toggle_general:SetPoint("LEFT", WidgetContainer, "RIGHT", 5, 0)
 
 MainPanel.menu_toggle_obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
-MainPanel.menu_toggle_obtain:SetPoint("TOPLEFT", MainPanel.menu_toggle_general, "BOTTOMLEFT", 0, -8)
+MainPanel.menu_toggle_obtain:SetPoint("LEFT", MainPanel.menu_toggle_general, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_binding = CreateFilterMenuButton("INV_Belt_20", "binding")
-MainPanel.menu_toggle_binding:SetPoint("TOPLEFT", MainPanel.menu_toggle_obtain, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_binding:SetPoint("LEFT", MainPanel.menu_toggle_obtain, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_item = CreateFilterMenuButton("INV_Misc_EngGizmos_19", "item")
-MainPanel.menu_toggle_item:SetPoint("TOPLEFT", MainPanel.menu_toggle_binding, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_item:SetPoint("LEFT", MainPanel.menu_toggle_binding, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_quality = CreateFilterMenuButton("INV_Enchant_VoidCrystal", "quality")
-MainPanel.menu_toggle_quality:SetPoint("TOPLEFT", MainPanel.menu_toggle_item, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_quality:SetPoint("LEFT", MainPanel.menu_toggle_item, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
-MainPanel.menu_toggle_player:SetPoint("TOPLEFT", MainPanel.menu_toggle_quality, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_player:SetPoint("LEFT", MainPanel.menu_toggle_quality, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
-MainPanel.menu_toggle_rep:SetPoint("TOPLEFT", MainPanel.menu_toggle_player, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_rep:SetPoint("LEFT", MainPanel.menu_toggle_player, "RIGHT", 15, 0)
 
 MainPanel.menu_toggle_misc = CreateFilterMenuButton("Trade_Engineering", "misc")
-MainPanel.menu_toggle_misc:SetPoint("TOPLEFT", MainPanel.menu_toggle_rep, "BOTTOMLEFT", -0, -8)
+MainPanel.menu_toggle_misc:SetPoint("LEFT", MainPanel.menu_toggle_rep, "RIGHT", 15, 0)
 
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_menu and set its scripts.
@@ -2158,7 +2173,7 @@ MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
 MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
 MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
 MainPanel.filter_menu:SetFrameStrata("MEDIUM")
-MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -6, -102)
+MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -95, -122)
 MainPanel.filter_menu:EnableMouse(true)
 MainPanel.filter_menu:EnableKeyboard(true)
 MainPanel.filter_menu:SetMovable(false)
@@ -2858,10 +2873,10 @@ ListFrame = CreateFrame("Frame", "ARL_MainPanelScrollFrame", MainPanel)
 
 MainPanel.scroll_frame = ListFrame
 
-ListFrame:SetHeight(322)
-ListFrame:SetWidth(243)
-ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -97)
-
+ListFrame:SetHeight(325)
+ListFrame:SetWidth(290)
+ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 22, -75)
+ListFrame:SetBackdropColor(1, 1, 1)
 ListFrame:EnableMouse(true)
 ListFrame:EnableMouseWheel(true)
 
@@ -2877,8 +2892,7 @@ local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSm
 
 MainPanel.sort_button = SortToggle
 
--- SortToggle:SetPoint("LEFT", ExpandButtonFrame.right, "RIGHT", -2, -2)
-SortToggle:SetPoint("BOTTOMRIGHT", ListFrame, "TOPRIGHT", 3, 0)
+SortToggle:SetPoint("RIGHT", MainPanel.xclose_button, "LEFT", 5, 0)
 
 SortToggle:SetScript("OnClick",
 		     function(self, button, down)
@@ -2911,26 +2925,13 @@ end
 -------------------------------------------------------------------------------
 local ScrollBar = CreateFrame("Slider", nil, ListFrame)
 
-ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 2, -14)
-ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 2, 16)
+ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 10, -11)
+ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 10, 2)
 ScrollBar:SetWidth(24)
 
 ScrollBar:EnableMouseWheel(true)
 ScrollBar:SetOrientation("VERTICAL")
 
-ScrollBar:SetBackdrop({
-			      bgFile = "Interface\\Buttons\\UI-SliderBar-Background",
-			      edgeFile = "Interface\\Buttons\\UI-SliderBar-Border",
-			      tile = true,
-			      tileSize = 8,
-			      edgeSize = 8,
-			      insets = {
-				      left = 3,
-				      right = 3,
-				      top = 3,
-				      bottom = 3
-			      }
-		      })
 ScrollBar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
 ScrollBar:SetMinMaxValues(0, 1)
 ScrollBar:SetValueStep(1)
@@ -2943,9 +2944,9 @@ ListFrame.scroll_bar = ScrollBar
 -------------------------------------------------------------------------------
 local ScrollUpButton = CreateFrame("Button", nil, ScrollBar, "UIPanelScrollUpButtonTemplate")
 
-ScrollUpButton:SetHeight(18)
-ScrollUpButton:SetWidth(20)
-ScrollUpButton:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 4, 1)
+ScrollUpButton:SetHeight(16)
+ScrollUpButton:SetWidth(18)
+ScrollUpButton:SetPoint("BOTTOM", ScrollBar, "TOP", 0, -4)
 
 -------------------------------------------------------------------------------
 -- Create ListFrame.button_down, then set its scripts and textures.
@@ -2953,13 +2954,13 @@ ScrollUpButton:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 4, 1)
 -------------------------------------------------------------------------------
 local ScrollDownButton = CreateFrame("Button", nil, ScrollBar,"UIPanelScrollDownButtonTemplate")
 
-ScrollDownButton:SetHeight(18)
-ScrollDownButton:SetWidth(20)
-ScrollDownButton:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 4, -1)
+ScrollDownButton:SetHeight(16)
+ScrollDownButton:SetWidth(18)
+ScrollDownButton:SetPoint("TOP", ScrollBar, "BOTTOM", 0, 4)
 
 do
 	-- Number of visible lines in the scrollframe.
-	local NUM_RECIPE_LINES = 24
+	local NUM_RECIPE_LINES = 25
 	local SCROLL_DEPTH = 5
 
 	local function ScrollBar_Scroll(delta)
@@ -3139,18 +3140,22 @@ do
 
 		ListFrame:Update(nil, true)
 	end
+	local LISTFRAME_WIDTH = ListFrame:GetWidth()
 
+	-------------------------------------------------------------------------------
+	-- Create the state/entry buttons and the container frames which hold them.
+	-------------------------------------------------------------------------------
 	for i = 1, NUM_RECIPE_LINES do
 		local cur_container = CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
-		cur_container:SetWidth(224)
+		cur_container:SetWidth(LISTFRAME_WIDTH)
 
 		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "LEFT", "", 2)
-		local cur_entry = GenericCreateButton(nil, ListFrame, 16, 224, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 		if i == 1 then
-			cur_container:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -100)
+			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, 0)
 			cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
 			cur_entry:SetPoint("TOPLEFT", cur_state, "TOPRIGHT", -3, 0)
 		else
@@ -3238,9 +3243,9 @@ do
 
 		if (floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
 			local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
-			progress_bar.text:SetFormattedText("%d / %d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
+			progress_bar.text:SetFormattedText("%d/%d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
 		else
-			progress_bar.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
+			progress_bar.text:SetFormattedText("%s", L["NOT_YET_SCANNED"])
 		end
 	end
 
@@ -3828,11 +3833,11 @@ end	-- do
 -- Create MainPanel.progress_bar and set its scripts
 -------------------------------------------------------------------------------
 MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
-MainPanel.progress_bar:SetWidth(195)
-MainPanel.progress_bar:SetHeight(14)
+MainPanel.progress_bar:SetWidth(210)
+MainPanel.progress_bar:SetHeight(16)
 
 MainPanel.progress_bar:ClearAllPoints()
-MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 7)
+MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 19, 83)
 
 MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
 MainPanel.progress_bar:SetOrientation("HORIZONTAL")
@@ -3862,8 +3867,8 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.close_button = GenericCreateButton(nil, MainPanel, 22, 69, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
-MainPanel.close_button:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -4, 3)
+MainPanel.close_button = GenericCreateButton(nil, MainPanel, 19, 111, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, -1)
 
 MainPanel.close_button:SetScript("OnClick",
 				 function(self, button, down)
