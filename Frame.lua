@@ -1349,24 +1349,6 @@ MainPanel:SetScript("OnMouseUp",
 			    opts.offsety = y
 		    end)
 
--- TODO: Fix this
-function MainPanel:HighlightCategory(target)
-	if not target then
-		self.filter_menu:Hide()
-	end
-
-	for category in pairs(self.filter_menu) do
-		local toggle = "menu_toggle_" .. category
-
-		if target == category then
---			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["white"], CATEGORY_TEXT[category]))
-		elseif category ~= 0 and category ~= "texture" then
-			self[toggle]:SetChecked(false)
---			self[toggle].text:SetText(SetTextColor(BASIC_COLORS["yellow"], CATEGORY_TEXT[category]))
-		end
-	end
-end
-
 function MainPanel:ToggleState()
 	local x, y = self:GetLeft(), self:GetBottom()
 
@@ -1959,17 +1941,24 @@ MainPanel.filter_toggle:SetScript("OnClick",
 							   MainPanel["menu_toggle_" .. category]:Hide()
 						   end
 					   end
-					   MainPanel:HighlightCategory(nil)
 					   MainPanel.filter_reset:Hide()
+					   MainPanel.filter_menu:Hide()
 				   else
 					   -- Change the text and tooltip for the filter button
 					   self:SetText(L["FILTER_CLOSE"])
 					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
-					   -- Show the category buttons
+					   -- Show the category buttons. If one has been selected, show its information in the panel.
 					   for category in pairs(MainPanel.filter_menu) do
+						   local toggle = "menu_toggle_" .. category
+
 						   if category ~= 0 and category ~= "texture" then
-							   MainPanel["menu_toggle_" .. category]:Show()
+							   MainPanel[toggle]:Show()
+
+							   if MainPanel[toggle]:GetChecked() then
+								   MainPanel.filter_menu[category]:Show()
+								   MainPanel.filter_menu:Show()
+							   end
 						   end
 					   end
 					   MainPanel.filter_reset:Show()
@@ -2017,7 +2006,6 @@ do
 
 		if MainPanel:IsVisible() then
 			MainPanel:UpdateTitle()
-			MainPanel:HighlightCategory(nil)
 			ListFrame:Update(nil, false)
 		end
 	end
@@ -2055,19 +2043,23 @@ do
 
 		local toggle = "menu_toggle_" .. panel
 
-		if MainPanel[toggle]:GetChecked() then
+		if not MainPanel[toggle]:GetChecked() then
 			-- Display the selected filter_menu category frame
-			MainPanel:HighlightCategory(panel)
+			MainPanel[toggle]:SetChecked(true)
 			MainPanel.filter_menu[panel]:Show()
 
-			-- Hide all of the other filter_menu category frames
+			-- Hide all of the other filter_menu category frames, and un-check them as well.
 			for category in pairs(MainPanel.filter_menu) do
 				if category ~= panel and category ~= 0 and category ~= "texture" then
+					local tog = "menu_toggle_" .. category
+
+					MainPanel[tog]:SetChecked(false)
 					MainPanel.filter_menu[category]:Hide()
 				end
 			end
 			ChangeFilters = true
 		else
+			MainPanel[toggle]:SetChecked(false)
 			ChangeFilters = false
 		end
 
@@ -2103,6 +2095,8 @@ do
 		cButton:SetHeight(button_size)
 		cButton:SetScript("OnClick",
 				  function(self, button, down)
+					  -- The button must be unchecked for ToggleFilterMenu() to work correctly.
+					  cButton:SetChecked(false)
 					  ToggleFilterMenu(category)
 				  end)
 
