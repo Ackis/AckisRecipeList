@@ -1478,7 +1478,7 @@ end
 MainPanel.mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
 MainPanel.mode_button:SetWidth(64)
 MainPanel.mode_button:SetHeight(64)
-MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 1, -2)
+MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -3)
 MainPanel.mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 MainPanel.mode_button._normal = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
