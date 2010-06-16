@@ -1019,7 +1019,7 @@ MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
 MainPanel:SetHeight(512)
 MainPanel:SetFrameStrata("MEDIUM")
 MainPanel:SetToplevel(true)
-MainPanel:SetHitRectInsets(0, 30, 0, 45)
+MainPanel:SetHitRectInsets(0, 35, 0, 55)
 
 MainPanel:EnableMouse(true)
 MainPanel:EnableKeyboard(true)
@@ -1352,6 +1352,7 @@ function MainPanel:ToggleState()
 
 	if self.is_expanded then
 		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
+		self:SetHitRectInsets(0, 35, 0, 55)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
 		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
@@ -1365,6 +1366,7 @@ function MainPanel:ToggleState()
 		self.close_button:SetWidth(111)
 	else
 		self:SetWidth(MAINPANEL_EXPANDED_WIDTH)
+		self:SetHitRectInsets(0, 90, 0, 55)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
 		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Right")
