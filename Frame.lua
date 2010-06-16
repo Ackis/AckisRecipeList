@@ -2107,31 +2107,31 @@ do
 				  end)
 
 		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
-		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
+		bgTex:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
 		bgTex:SetHeight(button_size + 6)
 		bgTex:SetWidth(button_size + 4)
 		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
 		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
 
 		local iconTex = cButton:CreateTexture(nil, "BORDER")
-		iconTex:SetTexture('Interface/Icons/' .. button_texture)
+		iconTex:SetTexture("Interface/Icons/" .. button_texture)
 		iconTex:SetAllPoints(cButton)
 
 		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+		pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
 		pushedTexture:SetAllPoints(cButton)
 		cButton:SetPushedTexture(pushedTexture)
 
 		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+		highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
 		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode('ADD')
+		highlightTexture:SetBlendMode("ADD")
 		cButton:SetHighlightTexture(highlightTexture)
 
 		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+		checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
 		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode('ADD')
+		checkedTexture:SetBlendMode("ADD")
 		cButton:SetCheckedTexture(checkedTexture)
 
 		-- And throw up a tooltip
@@ -2706,27 +2706,27 @@ do
 		if texture == "wotlk_logo" then
 			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. texture)
 		else
-			iconTex:SetTexture('Interface/Glues/Common/' .. texture)
+			iconTex:SetTexture("Interface/Glues/Common/" .. texture)
 		end
 		iconTex:SetWidth(100)
 		iconTex:SetHeight(46)
 		iconTex:SetAllPoints(cButton)
 
 		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+		pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
 		pushedTexture:SetAllPoints(cButton)
 		cButton:SetPushedTexture(pushedTexture)
 
 		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+		highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
 		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode('ADD')
+		highlightTexture:SetBlendMode("ADD")
 		cButton:SetHighlightTexture(highlightTexture)
 
 		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+		checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
 		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode('ADD')
+		checkedTexture:SetBlendMode("ADD")
 		cButton:SetCheckedTexture(checkedTexture)
 
 		-- And throw up a tooltip
