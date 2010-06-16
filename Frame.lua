@@ -103,8 +103,6 @@ local CATEGORY_TEXT = {
 local MAINPANEL_NORMAL_WIDTH	= 384
 local MAINPANEL_EXPANDED_WIDTH	= 768
 
-local FILTERMENU_SINGLE_WIDTH	= 136
-local FILTERMENU_DOUBLE_WIDTH	= 300
 local FILTERMENU_HEIGHT		= 312
 
 local FILTERMENU_SMALL		= 112
@@ -1948,6 +1946,8 @@ MainPanel.filter_toggle:SetScript("OnClick",
 					   self:SetText(L["FILTER_CLOSE"])
 					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
+					   local found_active = false
+
 					   -- Show the category buttons. If one has been selected, show its information in the panel.
 					   for category in pairs(MainPanel.filter_menu) do
 						   local toggle = "menu_toggle_" .. category
@@ -1956,10 +1956,18 @@ MainPanel.filter_toggle:SetScript("OnClick",
 							   MainPanel[toggle]:Show()
 
 							   if MainPanel[toggle]:GetChecked() then
+								   found_active = true
 								   MainPanel.filter_menu[category]:Show()
 								   MainPanel.filter_menu:Show()
 							   end
 						   end
+					   end
+
+					   -- If nothing was checked, default to the general filters.
+					   if not found_active then
+						   MainPanel.menu_toggle_general:SetChecked(true)
+						   MainPanel.filter_menu.general:Show()
+						   MainPanel.filter_menu:Show()
 					   end
 					   MainPanel.filter_reset:Show()
 				   end
@@ -2064,25 +2072,9 @@ do
 		end
 
 		if ChangeFilters then
-			-- Depending on which panel we're showing, either display one column
-			-- or two column
-			if panel == "general" or panel == "obtain" or panel == "binding" or panel == "item" or panel == "misc" then
-				MainPanel.filter_menu.texture:ClearAllPoints()
-				MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
-				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			elseif panel == "player" or panel == "rep" or panel == "quality" then
-				MainPanel.filter_menu.texture:ClearAllPoints()
-				MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
-				MainPanel.filter_menu.texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
-				MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-				MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-			end
 			-- Change the filters to the current panel
 			MainPanel.filter_menu:Show()
 		else
-			-- We're hiding, don't bother changing anything
 			MainPanel.filter_menu:Hide()
 		end
 	end
@@ -2164,10 +2156,10 @@ MainPanel.menu_toggle_misc:SetPoint("LEFT", MainPanel.menu_toggle_rep, "RIGHT", 
 -- Create MainPanel.filter_menu and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
-MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
+MainPanel.filter_menu:SetWidth(300)
 MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
 MainPanel.filter_menu:SetFrameStrata("MEDIUM")
-MainPanel.filter_menu:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", -95, -122)
+MainPanel.filter_menu:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -135, -60)
 MainPanel.filter_menu:EnableMouse(true)
 MainPanel.filter_menu:EnableKeyboard(true)
 MainPanel.filter_menu:SetMovable(false)
@@ -2186,11 +2178,6 @@ MainPanel.filter_menu:SetScript("OnShow",
 					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
 				end)
 
-MainPanel.filter_menu.texture = MainPanel.filter_menu:CreateTexture(nil, "ARTWORK")
-MainPanel.filter_menu.texture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
-MainPanel.filter_menu.texture:SetAllPoints(MainPanel.filter_menu)
-MainPanel.filter_menu.texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-
 -------------------------------------------------------------------------------
 -- Function to initialize a check-button with the given values. Used in all of
 -- the sub-menus of MainPanel.filter_menu
@@ -2206,7 +2193,7 @@ do
 	}
 	function InitializeCheckButton(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 		-- set the position of the new checkbox
-		local xPos = 2 + ((col - 1) * 100)
+		local xPos = 2 + ((col - 1) * 175)
 		local yPos = -3 - ((row - 1) * 17)
 
 		if PUSHDOWN[scriptVal] then
@@ -2222,7 +2209,7 @@ do
 		cButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 		cButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 
-		cButton.text = cButton:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+		cButton.text = cButton:CreateFontString(nil, "OVERLAY", "QuestFontNormalSmall")
 		cButton.text:SetPoint("LEFT", cButton, "RIGHT", 0, 0)
 
 		-- depending if we're on the misc panel or not, set an alternative OnClick method
@@ -2736,62 +2723,41 @@ do
 		-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
 		-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
 		-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
-		local ShowPanel = false
+		local HidePanel = false
 
 		if whichrep == 1 then
 			if MainPanel.filter_menu.rep.toggle_originalwow:GetChecked() then
-				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Show()
 				MainPanel.filter_menu.rep.BC:Hide()
 				MainPanel.filter_menu.rep.LK:Hide()
 				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
 				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 			else
-				ShowPanel = false
+				HidePanel = true
 			end
 		elseif whichrep == 2 then
 			if MainPanel.filter_menu.rep.toggle_bc:GetChecked() then
-				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Hide()
 				MainPanel.filter_menu.rep.BC:Show()
 				MainPanel.filter_menu.rep.LK:Hide()
 				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
 				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
 			else
-				ShowPanel = false
+				HidePanel = true
 			end
 		else -- whichrep == 3 (WotLK)
 			if MainPanel.filter_menu.rep.toggle_wrath:GetChecked() then
-				ShowPanel = true
 				MainPanel.filter_menu.rep.Classic:Hide()
 				MainPanel.filter_menu.rep.BC:Hide()
 				MainPanel.filter_menu.rep.LK:Show()
 				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
 				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
 			else
-				ShowPanel = false
+				HidePanel = true
 			end
 		end
-		local texture = MainPanel.filter_menu.texture
-		texture:ClearAllPoints()
 
-		if ShowPanel then
-			MainPanel.filter_menu:SetWidth(FILTERMENU_DOUBLE_WIDTH)
-
-			texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_repcol]])
-			texture:SetAllPoints(MainPanel.filter_menu)
-			texture:SetTexCoord(0, (FILTERMENU_DOUBLE_WIDTH/512), 0, (FILTERMENU_HEIGHT/512))
-
-			MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-			MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-			MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -14)
-		else
-			MainPanel.filter_menu:SetWidth(FILTERMENU_SINGLE_WIDTH)
-
-			texture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
-			texture:SetAllPoints(MainPanel.filter_menu)
-			texture:SetTexCoord(0, (FILTERMENU_SINGLE_WIDTH/256), 0, (FILTERMENU_HEIGHT/512))
-
+		if HidePanel then
 			MainPanel.filter_menu.rep.Classic:Hide()
 			MainPanel.filter_menu.rep.BC:Hide()
 			MainPanel.filter_menu.rep.LK:Hide()
@@ -2804,9 +2770,9 @@ do
 	MainPanel.filter_menu.rep.toggle_originalwow = CreateExpansionButton("Glues-WoW-Logo", L["FILTERING_OLDWORLD_DESC"])
 	MainPanel.filter_menu.rep.toggle_originalwow:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
 	MainPanel.filter_menu.rep.toggle_originalwow:SetScript("OnClick",
-				    function()
-					    RepFilterSwitch(1)
-				    end)
+							       function()
+								       RepFilterSwitch(1)
+							       end)
 
 	MainPanel.filter_menu.rep.toggle_bc = CreateExpansionButton("GLUES-WOW-BCLOGO", L["FILTERING_BC_DESC"])
 	MainPanel.filter_menu.rep.toggle_bc:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
@@ -2815,7 +2781,7 @@ do
 							      RepFilterSwitch(2)
 						      end)
 
-	MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("wotlk_logo", L["FILTERING_WOTLK_DESC"])
+	MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("Glues-WOW-WotlkLogo", L["FILTERING_WOTLK_DESC"])
 	MainPanel.filter_menu.rep.toggle_wrath:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
 	MainPanel.filter_menu.rep.toggle_wrath:SetScript("OnClick",
 							 function()
@@ -2832,7 +2798,7 @@ MainPanel.filter_menu.rep.Classic:SetHeight(280)
 MainPanel.filter_menu.rep.Classic:EnableMouse(true)
 MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
 MainPanel.filter_menu.rep.Classic:SetMovable(false)
-MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
 MainPanel.filter_menu.rep.Classic:Hide()
 
 -------------------------------------------------------------------------------
@@ -2844,7 +2810,7 @@ MainPanel.filter_menu.rep.BC:SetHeight(280)
 MainPanel.filter_menu.rep.BC:EnableMouse(true)
 MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
 MainPanel.filter_menu.rep.BC:SetMovable(false)
-MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
 MainPanel.filter_menu.rep.BC:Hide()
 
 -------------------------------------------------------------------------------
@@ -2856,7 +2822,7 @@ MainPanel.filter_menu.rep.LK:SetHeight(280)
 MainPanel.filter_menu.rep.LK:EnableMouse(true)
 MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
 MainPanel.filter_menu.rep.LK:SetMovable(false)
-MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -7, -16)
+MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
 MainPanel.filter_menu.rep.LK:Hide()
 
 
@@ -4046,15 +4012,10 @@ function addon:InitializeFrame()
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
-
-	-------------------------------------------------------------------------------
-	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
-	-------------------------------------------------------------------------------
-
 	-------------------------------------------------------------------------------
 	-- Classic Reputations
 	-------------------------------------------------------------------------------
-	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.Classic, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.Classic, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
 							  _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_ClassicButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.Classic, "TOPLEFT", -2, -4)
 
@@ -4092,33 +4053,28 @@ function addon:InitializeFrame()
 
 	local ARL_RepArgentDawnCB = CreateFrame("CheckButton", "ARL_RepArgentDawnCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepArgentDawnCB, MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), "argentdawn", 2, 1, 0)
-	ARL_RepArgentDawnCBText:SetText(BFAC["Argent Dawn"])
-	ARL_RepArgentDawnCBText:SetFont(narrowFont, 11)
+	ARL_RepArgentDawnCB.text:SetText(BFAC["Argent Dawn"])
 
 	local ARL_RepCenarionCircleCB = CreateFrame("CheckButton", "ARL_RepCenarionCircleCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepCenarionCircleCB, MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), "cenarioncircle", 3, 1, 0)
-	ARL_RepCenarionCircleCBText:SetText(BFAC["Cenarion Circle"])
-	ARL_RepCenarionCircleCBText:SetFont(narrowFont, 11)
+	ARL_RepCenarionCircleCB.text:SetText(BFAC["Cenarion Circle"])
 
 	local ARL_RepThoriumCB = CreateFrame("CheckButton", "ARL_RepThoriumCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepThoriumCB, MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), "thoriumbrotherhood", 4, 1, 0)
-	ARL_RepThoriumCBText:SetText(BFAC["Thorium Brotherhood"])
-	ARL_RepThoriumCBText:SetFont(narrowFont, 11)
+	ARL_RepThoriumCB.text:SetText(BFAC["Thorium Brotherhood"])
 
 	local ARL_RepTimbermawCB = CreateFrame("CheckButton", "ARL_RepTimbermawCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepTimbermawCB, MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), "timbermaw", 5, 1, 0)
-	ARL_RepTimbermawCBText:SetText(BFAC["Timbermaw Hold"])
-	ARL_RepTimbermawCBText:SetFont(narrowFont, 11)
+	ARL_RepTimbermawCB.text:SetText(BFAC["Timbermaw Hold"])
 
 	local ARL_RepZandalarCB = CreateFrame("CheckButton", "ARL_RepZandalarCB", MainPanel.filter_menu.rep.Classic, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepZandalarCB, MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), "zandalar", 6, 1, 0)
-	ARL_RepZandalarCBText:SetText(BFAC["Zandalar Tribe"])
-	ARL_RepZandalarCBText:SetFont(narrowFont, 11)
+	ARL_RepZandalarCB.text:SetText(BFAC["Zandalar Tribe"])
 
 	-------------------------------------------------------------------------------
 	-- The Burning Crusade Reputations
 	-------------------------------------------------------------------------------
-	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.BC, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.BC, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
 						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_BCButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.BC, "TOPLEFT", -2, -4)
 
@@ -4183,78 +4139,64 @@ function addon:InitializeFrame()
 
 	local ARL_RepAldorCB = CreateFrame("CheckButton", "ARL_RepAldorCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepAldorCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), "aldor", 2, 1, 0)
-	ARL_RepAldorCBText:SetText(BFAC["The Aldor"])
-	ARL_RepAldorCBText:SetFont(narrowFont, 11)
+	ARL_RepAldorCB.text:SetText(BFAC["The Aldor"])
 
 	local ARL_RepAshtongueCB = CreateFrame("CheckButton", "ARL_RepAshtongueCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepAshtongueCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), "ashtonguedeathsworn", 3, 1, 0)
-	ARL_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
-	ARL_RepAshtongueCBText:SetFont(narrowFont, 11)
+	ARL_RepAshtongueCB.text:SetText(BFAC["Ashtongue Deathsworn"])
 
 	local ARL_RepCenarionExpeditionCB = CreateFrame("CheckButton", "ARL_RepCenarionExpeditionCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepCenarionExpeditionCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), "cenarionexpedition", 4, 1, 0)
-	ARL_RepCenarionExpeditionCBText:SetText(BFAC["Cenarion Expedition"])
-	ARL_RepCenarionExpeditionCBText:SetFont(narrowFont, 11)
+	ARL_RepCenarionExpeditionCB.text:SetText(BFAC["Cenarion Expedition"])
 
 	local ARL_RepConsortiumCB = CreateFrame("CheckButton", "ARL_RepConsortiumCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepConsortiumCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), "consortium", 5, 1, 0)
-	ARL_RepConsortiumCBText:SetText(BFAC["The Consortium"])
-	ARL_RepConsortiumCBText:SetFont(narrowFont, 11)
+	ARL_RepConsortiumCB.text:SetText(BFAC["The Consortium"])
 
 	local ARL_RepHonorHoldCB = CreateFrame("CheckButton", "ARL_RepHonorHoldCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepHonorHoldCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), "hellfire", 6, 1, 0)
-	ARL_RepHonorHoldCBText:SetText(HonorHold_Thrallmar_FactionText)
-	ARL_RepHonorHoldCBText:SetFont(narrowFont, 11)
+	ARL_RepHonorHoldCB.text:SetText(HonorHold_Thrallmar_FactionText)
 
 	local ARL_RepKeepersOfTimeCB = CreateFrame("CheckButton", "ARL_RepKeepersOfTimeCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepKeepersOfTimeCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), "keepersoftime", 7, 1, 0)
-	ARL_RepKeepersOfTimeCBText:SetText(BFAC["Keepers of Time"])
-	ARL_RepKeepersOfTimeCBText:SetFont(narrowFont, 11)
+	ARL_RepKeepersOfTimeCB.text:SetText(BFAC["Keepers of Time"])
 
 	local ARL_RepKurenaiCB = CreateFrame("CheckButton", "ARL_RepKurenaiCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepKurenaiCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), "nagrand", 8, 1, 0)
-	ARL_RepKurenaiCBText:SetText(Kurenai_Maghar_FactionText)
-	ARL_RepKurenaiCBText:SetFont(narrowFont, 11)
+	ARL_RepKurenaiCB.text:SetText(Kurenai_Maghar_FactionText)
 
 	local ARL_RepLowerCityCB = CreateFrame("CheckButton", "ARL_RepLowerCityCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepLowerCityCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), "lowercity", 9, 1, 0)
-	ARL_RepLowerCityCBText:SetText(BFAC["Lower City"])
-	ARL_RepLowerCityCBText:SetFont(narrowFont, 11)
+	ARL_RepLowerCityCB.text:SetText(BFAC["Lower City"])
 
 	local ARL_RepScaleSandsCB = CreateFrame("CheckButton", "ARL_RepScaleSandsCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepScaleSandsCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), "scaleofthesands", 10, 1, 0)
-	ARL_RepScaleSandsCBText:SetText(BFAC["The Scale of the Sands"])
-	ARL_RepScaleSandsCBText:SetFont(narrowFont, 11)
+	ARL_RepScaleSandsCB.text:SetText(BFAC["The Scale of the Sands"])
 
 	local ARL_RepScryersCB = CreateFrame("CheckButton", "ARL_RepScryersCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepScryersCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), "scryer", 11, 1, 0)
-	ARL_RepScryersCBText:SetText(BFAC["The Scryers"])
-	ARL_RepScryersCBText:SetFont(narrowFont, 11)
+	ARL_RepScryersCB.text:SetText(BFAC["The Scryers"])
 
 	local ARL_RepShatarCB = CreateFrame("CheckButton", "ARL_RepShatarCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepShatarCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), "shatar", 12, 1, 0)
-	ARL_RepShatarCBText:SetText(BFAC["The Sha'tar"])
-	ARL_RepShatarCBText:SetFont(narrowFont, 11)
+	ARL_RepShatarCB.text:SetText(BFAC["The Sha'tar"])
 
 	local ARL_RepShatteredSunCB = CreateFrame("CheckButton", "ARL_RepShatteredSunCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepShatteredSunCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), "shatteredsun", 13, 1, 0)
-	ARL_RepShatteredSunCBText:SetText(BFAC["Shattered Sun Offensive"])
-	ARL_RepShatteredSunCBText:SetFont(narrowFont, 11)
+	ARL_RepShatteredSunCB.text:SetText(BFAC["Shattered Sun Offensive"])
 
 	local ARL_RepSporeggarCB = CreateFrame("CheckButton", "ARL_RepSporeggarCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepSporeggarCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), "sporeggar", 14, 1, 0)
-	ARL_RepSporeggarCBText:SetText(BFAC["Sporeggar"])
-	ARL_RepSporeggarCBText:SetFont(narrowFont, 11)
+	ARL_RepSporeggarCB.text:SetText(BFAC["Sporeggar"])
 
 	local ARL_RepVioletEyeCB = CreateFrame("CheckButton", "ARL_RepVioletEyeCB", MainPanel.filter_menu.rep.BC, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepVioletEyeCB, MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), "violeteye", 15, 1, 0)
-	ARL_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
-	ARL_RepVioletEyeCBText:SetFont(narrowFont, 11)
+	ARL_RepVioletEyeCB.text:SetText(BFAC["The Violet Eye"])
 
 	-------------------------------------------------------------------------------
 	-- Wrath of the Lich King Reputations
 	-------------------------------------------------------------------------------
-	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.LK, 20, 140, "GameFontHighlight", "GameFontHighlightSmall",
+	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.LK, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
 						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 	ARL_Rep_LKButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.LK, "TOPLEFT", -2, -4)
 
@@ -4306,81 +4248,63 @@ function addon:InitializeFrame()
 
 	local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon1CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), "wrathcommon1", 2, 1, 0)
-	ARL_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
-	ARL_WrathCommon1CBText:SetFont(narrowFont, 11)
+	ARL_WrathCommon1CB.text:SetText(Vanguard_Expedition_FactionText)
 
 	local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepArgentCrusadeCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), "argentcrusade", 3, 1, 0)
-	ARL_RepArgentCrusadeCBText:SetText(BFAC["Argent Crusade"])
-	ARL_RepArgentCrusadeCBText:SetFont(narrowFont, 11)
+	ARL_RepArgentCrusadeCB.text:SetText(BFAC["Argent Crusade"])
 
 	local ARL_WrathCommon5CB = CreateFrame("CheckButton", "ARL_WrathCommon5CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon5CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), "wrathcommon5", 4, 1, 0)
-	ARL_WrathCommon5CBText:SetText(Explorer_Hand_FactionText)
-	ARL_WrathCommon5CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon5CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Explorer_Hand_FactionText))
+	ARL_WrathCommon5CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Explorer_Hand_FactionText))
 	ARL_WrathCommon5CB:Disable()
 
 	local ARL_RepFrenzyheartCB = CreateFrame("CheckButton", "ARL_RepFrenzyheartCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepFrenzyheartCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), "frenzyheart", 5, 1, 0)
-	ARL_RepFrenzyheartCBText:SetText(BFAC["Frenzyheart Tribe"])
-	ARL_RepFrenzyheartCBText:SetFont(narrowFont, 11)
+	ARL_RepFrenzyheartCB.text:SetText(BFAC["Frenzyheart Tribe"])
 
 	local ARL_RepKaluakCB = CreateFrame("CheckButton", "ARL_RepKaluakCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepKaluakCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), "kaluak", 6, 1, 0)
-	ARL_RepKaluakCBText:SetText(BFAC["The Kalu'ak"])
-	ARL_RepKaluakCBText:SetFont(narrowFont, 11)
+	ARL_RepKaluakCB.text:SetText(BFAC["The Kalu'ak"])
 
 	local ARL_RepKirinTorCB = CreateFrame("CheckButton", "ARL_RepKirinTorCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepKirinTorCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), "kirintor", 7, 1, 0)
-	ARL_RepKirinTorCBText:SetText(BFAC["Kirin Tor"])
-	ARL_RepKirinTorCBText:SetFont(narrowFont, 11)
+	ARL_RepKirinTorCB.text:SetText(BFAC["Kirin Tor"])
 
 	local ARL_RepEbonBladeCB = CreateFrame("CheckButton", "ARL_RepEbonBladeCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepEbonBladeCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), "ebonblade", 8, 1, 0)
-	ARL_RepEbonBladeCBText:SetText(BFAC["Knights of the Ebon Blade"])
-	ARL_RepEbonBladeCBText:SetFont(narrowFont, 11)
+	ARL_RepEbonBladeCB.text:SetText(BFAC["Knights of the Ebon Blade"])
 
 	local ARL_RepOraclesCB = CreateFrame("CheckButton", "ARL_RepOraclesCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepOraclesCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), "oracles", 9, 1, 0)
-	ARL_RepOraclesCBText:SetText(BFAC["The Oracles"])
-	ARL_RepOraclesCBText:SetFont(narrowFont, 11)
+	ARL_RepOraclesCB.text:SetText(BFAC["The Oracles"])
 
 	local ARL_WrathCommon2CB = CreateFrame("CheckButton", "ARL_WrathCommon2CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon2CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], SilverCov_Sunreaver_FactionText), "wrathcommon2", 10, 1, 0)
-	ARL_WrathCommon2CBText:SetText(SilverCov_Sunreaver_FactionText)
-	ARL_WrathCommon2CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon2CBText:SetText(SetTextColor(BASIC_COLORS["grey"], SilverCov_Sunreaver_FactionText))
+	ARL_WrathCommon2CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], SilverCov_Sunreaver_FactionText))
 	ARL_WrathCommon2CB:Disable()
 
 	local ARL_RepSonsOfHodirCB = CreateFrame("CheckButton", "ARL_RepSonsOfHodirCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepSonsOfHodirCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), "sonsofhodir", 11, 1, 0)
-	ARL_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
-	ARL_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
+	ARL_RepSonsOfHodirCB.text:SetText(BFAC["The Sons of Hodir"])
 
 	local ARL_WrathCommon4CB = CreateFrame("CheckButton", "ARL_WrathCommon4CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon4CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), "wrathcommon4", 12, 1, 0)
-	ARL_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
-	ARL_WrathCommon4CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon4CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Frostborn_Taunka_FactionText))
+	ARL_WrathCommon4CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Frostborn_Taunka_FactionText))
 	ARL_WrathCommon4CB:Disable()
 
 	local ARL_WrathCommon3CB = CreateFrame("CheckButton", "ARL_WrathCommon3CB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_WrathCommon3CB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), "wrathcommon3", 13, 1, 0)
-	ARL_WrathCommon3CBText:SetText(Valiance_Warsong_FactionText)
-	ARL_WrathCommon3CBText:SetFont(narrowFont, 11)
-	ARL_WrathCommon3CBText:SetText(SetTextColor(BASIC_COLORS["grey"], Valiance_Warsong_FactionText))
+	ARL_WrathCommon3CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Valiance_Warsong_FactionText))
 	ARL_WrathCommon3CB:Disable()
 
 	local ARL_RepWyrmrestCB = CreateFrame("CheckButton", "ARL_RepWyrmrestCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepWyrmrestCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), "wyrmrest", 14, 1, 0)
-	ARL_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
-	ARL_RepWyrmrestCBText:SetFont(narrowFont, 11)
+	ARL_RepWyrmrestCB.text:SetText(BFAC["The Wyrmrest Accord"])
 
 	local ARL_AshenVerdictCB = CreateFrame("CheckButton", "ARL_RepAshenVerdictCB", MainPanel.filter_menu.rep.LK, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_RepAshenVerdictCB, MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Ashen Verdict"]), "ashenverdict", 15, 1, 0)
-	ARL_RepAshenVerdictCBText:SetText(BFAC["The Ashen Verdict"])
-	ARL_RepAshenVerdictCBText:SetFont(narrowFont, 11)
+	ARL_RepAshenVerdictCB.text:SetText(BFAC["The Ashen Verdict"])
 
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
@@ -4403,7 +4327,7 @@ function addon:InitializeFrame()
 
 	local ARL_IgnoreCB = CreateFrame("CheckButton", "ARL_IgnoreCB", MainPanel.filter_menu.misc, "UICheckButtonTemplate")
 	InitializeCheckButton(ARL_IgnoreCB, MainPanel.filter_menu.misc, L["DISPLAY_EXCLUSION_DESC"], 0, 2, 1, 1)
-	ARL_IgnoreCBText:SetText(L["Display Exclusions"])
+	ARL_IgnoreCB.text:SetText(L["Display Exclusions"])
 
 	local ARL_MiscAltText = MainPanel.filter_menu.misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "GameFontNormal")
 	ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
