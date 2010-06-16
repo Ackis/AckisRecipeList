@@ -901,13 +901,13 @@ do
 		acquire_tip:ClearAllPoints()
 
 		if acquire_tip_anchor == "Right" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT")
+			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
 		elseif acquire_tip_anchor == "Left" then
 			acquire_tip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
 		elseif acquire_tip_anchor == "Top" then
 			acquire_tip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
 		elseif acquire_tip_anchor == "Bottom" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT")
+			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
 		elseif acquire_tip_anchor == "Mouse" then
 			local x, y = GetCursorPosition()
 			local uiscale = UIParent:GetEffectiveScale()
