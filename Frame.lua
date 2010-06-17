@@ -1984,6 +1984,15 @@ MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 22, 78, "GameFontNo
 MainPanel.filter_reset:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -95, 80)
 MainPanel.filter_reset:Hide()
 
+-- Set all the current options in the filter menu to make sure they are consistent with the SV options.
+local function UpdateFilterMarks()
+	for filter, info in pairs(FilterValueMap) do
+		if info.svroot then
+			info.cb:SetChecked(info.svroot[filter])
+		end
+	end
+end
+
 do
 	local function recursiveReset(t)
 		-- Thanks to Antiarc for this code
@@ -2016,6 +2025,7 @@ do
 
 		if MainPanel:IsVisible() then
 			MainPanel:UpdateTitle()
+			UpdateFilterMarks()
 			ListFrame:Update(nil, false)
 		end
 	end
@@ -2168,17 +2178,7 @@ MainPanel.filter_menu:SetMovable(false)
 MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
 MainPanel.filter_menu:Hide()
 
--- Set all the current options in the filter menu to make sure they are consistent with the SV options.
-MainPanel.filter_menu:SetScript("OnShow",
-				function()
-					for filter, info in pairs(FilterValueMap) do
-						if info.svroot then
-							info.cb:SetChecked(info.svroot[filter])
-						end
-					end
-					-- Miscellaneous Options
-					ARL_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-				end)
+MainPanel.filter_menu:SetScript("OnShow", UpdateFilterMarks)
 
 -------------------------------------------------------------------------------
 -- Function to initialize a check-button with the given values. Used in all of
