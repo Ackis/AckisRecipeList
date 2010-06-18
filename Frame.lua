@@ -2908,7 +2908,10 @@ do
 					    ScrollUpButton:Enable()
 					    ScrollDownButton:Enable()
 				    end
-				    ListFrame:Update(nil, true)
+
+				    if not ListFrame.initializing then
+					    ListFrame:Update(nil, true)
+				    end
 			    end)
 
 	local function Button_OnEnter(self)
@@ -3102,6 +3105,8 @@ do
 	end
 
 	function ListFrame:Initialize(expand_mode)
+		self.initializing = true
+
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
@@ -3140,6 +3145,7 @@ do
 		else
 			progress_bar.text:SetFormattedText("%s", L["NOT_YET_SCANNED"])
 		end
+		self.initializing = nil
 	end
 
 	-- Reset the current buttons/lines
