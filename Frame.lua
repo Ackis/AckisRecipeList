@@ -2766,9 +2766,14 @@ ListFrame = CreateFrame("Frame", "ARL_MainPanelScrollFrame", MainPanel)
 
 MainPanel.scroll_frame = ListFrame
 
-ListFrame:SetHeight(325)
-ListFrame:SetWidth(290)
+ListFrame:SetHeight(335)
+ListFrame:SetWidth(295)
 ListFrame:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 22, -75)
+ListFrame:SetBackdrop({
+			      bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
+			      tile = true,
+			      tileSize = 16,
+		      })
 ListFrame:SetBackdropColor(1, 1, 1)
 ListFrame:EnableMouse(true)
 ListFrame:EnableMouseWheel(true)
@@ -2818,8 +2823,8 @@ end
 -------------------------------------------------------------------------------
 local ScrollBar = CreateFrame("Slider", nil, ListFrame)
 
-ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 10, -11)
-ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 10, 2)
+ScrollBar:SetPoint("TOPLEFT", ListFrame, "TOPRIGHT", 5, -11)
+ScrollBar:SetPoint("BOTTOMLEFT", ListFrame, "BOTTOMRIGHT", 5, 12)
 ScrollBar:SetWidth(24)
 
 ScrollBar:EnableMouseWheel(true)
