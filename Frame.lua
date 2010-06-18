@@ -1119,10 +1119,10 @@ do
 			else
 				tab:ToBack()
 			end
-			addon.db.profile.current_tab = id_num
-			ListFrame:Update(nil, false)
-			PlaySound("igCharacterInfoTab")
 		end
+		addon.db.profile.current_tab = id_num
+		ListFrame:Update(nil, false)
+		PlaySound("igCharacterInfoTab")
 	end
 
 	local function CreateTab(id_num, text, ...)
@@ -3285,6 +3285,7 @@ do
 				_G.StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
+				addon:Debug("Current tab is %s", tostring(addon.db.profile.current_tab))
 				addon:Debug("recipes_total check for 0")
 				addon:Debug("recipes_total: " .. Player.recipes_total)
 				addon:Debug("recipes_total check for equal to recipes_total")
