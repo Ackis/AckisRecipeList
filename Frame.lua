@@ -3224,6 +3224,7 @@ do
 			entry:SetText("")
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
+			entry:SetWidth(LISTFRAME_WIDTH)
 			entry:Disable()
 
 			state.string_index = 0
@@ -3345,15 +3346,14 @@ do
 				cur_state:Disable()
 			end
 			local cur_container = cur_state.container
+			local cur_button = self.entry_buttons[button_index]
 
 			if cur_entry.type == "header" or cur_entry.type == "entry" then
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 0, 0)
 			elseif cur_entry.type == "subheader" or cur_entry.type == "subentry" then
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
+				cur_button:SetWidth(LISTFRAME_WIDTH - 15)
 			end
-
-			local cur_button = self.entry_buttons[button_index]
-
 			cur_button.string_index = string_index
 			cur_button:SetText(cur_entry.text)
 			cur_button:SetScript("OnEnter", Bar_OnEnter)
