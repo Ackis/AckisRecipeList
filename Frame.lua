@@ -3794,36 +3794,44 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create MainPanel.progress_bar and set its scripts
 -------------------------------------------------------------------------------
-MainPanel.progress_bar = CreateFrame("StatusBar", nil, MainPanel)
-MainPanel.progress_bar:SetWidth(210)
-MainPanel.progress_bar:SetHeight(16)
-
-MainPanel.progress_bar:ClearAllPoints()
-MainPanel.progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 19, 83)
-
-MainPanel.progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
-MainPanel.progress_bar:SetOrientation("HORIZONTAL")
-MainPanel.progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
-
-MainPanel.progress_bar.text = MainPanel.progress_bar:CreateFontString(nil, "ARTWORK")
-MainPanel.progress_bar.text:SetWidth(195)
-MainPanel.progress_bar.text:SetHeight(14)
-MainPanel.progress_bar.text:SetFontObject("GameFontHighlightSmall")
-
-MainPanel.progress_bar.text:ClearAllPoints()
-MainPanel.progress_bar.text:SetPoint("CENTER", MainPanel.progress_bar, "CENTER", 0, 0)
-MainPanel.progress_bar.text:SetJustifyH("CENTER")
-
--- Default values for the progressbar
 do
+	local progress_bar = CreateFrame("StatusBar", nil, MainPanel)
+
+	progress_bar:SetWidth(210)
+	progress_bar:SetHeight(20)
+
+	progress_bar:ClearAllPoints()
+	progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 19, 81)
+
+	progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+	progress_bar:SetOrientation("HORIZONTAL")
+	progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+
+	progress_bar.text = progress_bar:CreateFontString(nil, "ARTWORK")
+	progress_bar.text:SetWidth(195)
+	progress_bar.text:SetHeight(14)
+	progress_bar.text:SetFontObject("GameFontHighlightSmall")
+
+	progress_bar.text:ClearAllPoints()
+	progress_bar.text:SetPoint("CENTER", progress_bar, "CENTER", 0, 0)
+	progress_bar.text:SetJustifyH("CENTER")
+
+	-- Default values for the progressbar
 	local min_value = 0
 	local max_value = 100
 	local value = 50
 
-	MainPanel.progress_bar:SetMinMaxValues(min_value, max_value)
-	MainPanel.progress_bar:SetValue(value)
+	progress_bar:SetMinMaxValues(min_value, max_value)
+	progress_bar:SetValue(value)
 
-	MainPanel.progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
+	progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
+
+	progress_bar:SetBackdrop({
+					 bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
+					 tile = true,
+					 tileSize = 16,
+				 })
+	MainPanel.progress_bar = progress_bar
 end	-- do
 
 -------------------------------------------------------------------------------
