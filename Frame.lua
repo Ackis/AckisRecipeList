@@ -1376,7 +1376,7 @@ function MainPanel:ToggleState()
 		self.xclose_button:ClearAllPoints()
 		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -84, -8)
 
-		self.progress_bar:SetWidth(203)
+		self.progress_bar:SetWidth(201)
 		self.close_button:SetWidth(97)
 	end
 	self.is_expanded = not self.is_expanded
