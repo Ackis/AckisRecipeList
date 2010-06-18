@@ -1120,6 +1120,7 @@ do
 				tab:ToBack()
 			end
 		end
+		addon.db.profile.current_tab = id_num
 
 		-- If the MainPanel doesn't already have a current_tab, do not call ListFrame:Update() -
 		-- at this point, it's the first time the panel has been shown so the update will fire twice.
@@ -1127,7 +1128,6 @@ do
 			ListFrame:Update(nil, false)
 		end
 		MainPanel.current_tab = id_num
-		addon.db.profile.current_tab = id_num
 		PlaySound("igCharacterInfoTab")
 	end
 
