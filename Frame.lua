@@ -1014,52 +1014,55 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create the MainPanel and set its values
 -------------------------------------------------------------------------------
-local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
-MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
-MainPanel:SetHeight(512)
-MainPanel:SetFrameStrata("MEDIUM")
-MainPanel:SetToplevel(true)
-MainPanel:SetHitRectInsets(0, 35, 0, 55)
+local MainPanel
+do
+	MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+	MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
+	MainPanel:SetHeight(512)
+	MainPanel:SetFrameStrata("MEDIUM")
+	MainPanel:SetToplevel(true)
+	MainPanel:SetHitRectInsets(0, 35, 0, 55)
 
-MainPanel:EnableMouse(true)
-MainPanel:EnableKeyboard(true)
-MainPanel:SetMovable(true)
-MainPanel:SetClampedToScreen(true)
+	MainPanel:EnableMouse(true)
+	MainPanel:EnableKeyboard(true)
+	MainPanel:SetMovable(true)
+	MainPanel:SetClampedToScreen(true)
 
-MainPanel.is_expanded = false
+	MainPanel.is_expanded = false
 
--- Let the user banish the MainPanel with the ESC key.
-table.insert(UISpecialFrames, "ARL_MainPanel")
+	-- Let the user banish the MainPanel with the ESC key.
+	table.insert(UISpecialFrames, "ARL_MainPanel")
+	addon.Frame = MainPanel
 
-addon.Frame = MainPanel
+	local top_left = MainPanel:CreateTexture(nil, "ARTWORK")
+	top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
+	top_left:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 0, 0)
+	MainPanel.top_left = top_left
 
-local top_left = MainPanel:CreateTexture(nil, "ARTWORK")
-top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
-top_left:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 0, 0)
-MainPanel.top_left = top_left
+	local top_right = MainPanel:CreateTexture(nil, "ARTWORK")
+	top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
+	top_right:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 0, 0)
+	MainPanel.top_right = top_right
 
-local top_right = MainPanel:CreateTexture(nil, "ARTWORK")
-top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
-top_right:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", 0, 0)
-MainPanel.top_right = top_right
+	local bottom_left = MainPanel:CreateTexture(nil, "ARTWORK")
+	bottom_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotLeft")
+	bottom_left:SetPoint("BOTTOMLEFT", MainPanel, "BOTTOMLEFT", 0, 0)
+	MainPanel.bottom_left = bottom_left
 
-local bottom_left = MainPanel:CreateTexture(nil, "ARTWORK")
-bottom_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotLeft")
-bottom_left:SetPoint("BOTTOMLEFT", MainPanel, "BOTTOMLEFT", 0, 0)
-MainPanel.bottom_left = bottom_left
+	local bottom_right = MainPanel:CreateTexture(nil, "ARTWORK")
+	bottom_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotRight")
+	bottom_right:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", 0, 0)
+	MainPanel.bottom_right = bottom_right
 
-local bottom_right = MainPanel:CreateTexture(nil, "ARTWORK")
-bottom_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-BotRight")
-bottom_right:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", 0, 0)
-MainPanel.bottom_right = bottom_right
+	local title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
+	title_bar:SetFontObject("GameFontHighlightSmall")
+	title_bar:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 20, -20)
+	title_bar:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -40, -20)
+	title_bar:SetJustifyH("CENTER")
+	MainPanel.title_bar = title_bar
 
-MainPanel.title_bar = MainPanel:CreateFontString(nil, "ARTWORK")
-MainPanel.title_bar:SetFontObject("GameFontHighlightSmall")
-MainPanel.title_bar:ClearAllPoints()
-MainPanel.title_bar:SetPoint("TOP", MainPanel, "TOP", 20, -16)
-MainPanel.title_bar:SetJustifyH("CENTER")
-
-MainPanel:Hide()
+	MainPanel:Hide()
+end	-- do block
 
 -------------------------------------------------------------------------------
 -- Widget Container frames.
