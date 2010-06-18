@@ -1120,8 +1120,14 @@ do
 				tab:ToBack()
 			end
 		end
+
+		-- If the MainPanel doesn't already have a current_tab, do not call ListFrame:Update() -
+		-- at this point, it's the first time the panel has been shown so the update will fire twice.
+		if MainPanel.current_tab then
+			ListFrame:Update(nil, false)
+		end
+		MainPanel.current_tab = id_num
 		addon.db.profile.current_tab = id_num
-		ListFrame:Update(nil, false)
 		PlaySound("igCharacterInfoTab")
 	end
 
@@ -1307,11 +1313,14 @@ end	-- do-block
 -------------------------------------------------------------------------------
 MainPanel:SetScript("OnShow",
 		    function(self)
-			    local current_tab = self.tabs[addon.db.profile.current_tab]
-			    local on_click = current_tab:GetScript("OnClick")
+			    -- If there is no current tab, this is the first time the panel has been
+			    -- shown so things must be initialized.
+			    if not self.current_tab then
+				    local current_tab = self.tabs[addon.db.profile.current_tab]
+				    local on_click = current_tab:GetScript("OnClick")
 
-			    on_click(current_tab)
-
+				    on_click(current_tab)
+			    end
 			    self.sort_button:SetTextures()
 		    end)
 
