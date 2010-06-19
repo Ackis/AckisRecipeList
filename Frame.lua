@@ -1900,57 +1900,73 @@ MainPanel.xclose_button:SetScript("OnClick",
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_toggle, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.filter_toggle = GenericCreateButton(nil, MainPanel, 25, 65, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-MainPanel.filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
+do
+	local VALID_CATEGORY = {
+		["general"]	= true,
+		["obtain"]	= true,
+		["binding"]	= true,
+		["item"]	= true,
+		["quality"]	= true,
+		["player"]	= true,
+		["rep"]		= true,
+		["misc"]	= true,
+	}
 
-MainPanel.filter_toggle:SetScript("OnClick",
-			   function(self, button, down)
-				   if MainPanel.is_expanded then
-					   -- Change the text and tooltip for the filter button
-					   self:SetText(L["FILTER_OPEN"])
-					   SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
+	local function Toggle_OnClick(self, button, down)
+		if MainPanel.is_expanded then
+			-- Change the text and tooltip for the filter button
+			self:SetText(L["FILTER_OPEN"])
+			SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
 
-					   -- Hide the category buttons
-					   for category in pairs(MainPanel.filter_menu) do
-						   if category ~= 0 and category ~= "texture" then
-							   MainPanel["menu_toggle_" .. category]:Hide()
-						   end
-					   end
-					   MainPanel.filter_reset:Hide()
-					   MainPanel.filter_menu:Hide()
-				   else
-					   -- Change the text and tooltip for the filter button
-					   self:SetText(L["FILTER_CLOSE"])
-					   SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
+			-- Hide the category buttons
+			for category in pairs(MainPanel.filter_menu) do
+				if category ~= 0 and category ~= "texture" then
+					MainPanel["menu_toggle_" .. category]:Hide()
+				end
+			end
+			MainPanel.filter_reset:Hide()
+			MainPanel.filter_menu:Hide()
+		else
+			-- Change the text and tooltip for the filter button
+			self:SetText(L["FILTER_CLOSE"])
+			SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
-					   local found_active = false
+			local found_active = false
 
-					   -- Show the category buttons. If one has been selected, show its information in the panel.
-					   for category in pairs(MainPanel.filter_menu) do
-						   local toggle = "menu_toggle_" .. category
+			-- Show the category buttons. If one has been selected, show its information in the panel.
+			for category in pairs(MainPanel.filter_menu) do
+				local toggle = "menu_toggle_" .. category
 
-						   if category ~= 0 and category ~= "texture" then
-							   MainPanel[toggle]:Show()
+				if VALID_CATEGORY[category] then
+					MainPanel[toggle]:Show()
 
-							   if MainPanel[toggle]:GetChecked() then
-								   found_active = true
-								   MainPanel.filter_menu[category]:Show()
-								   MainPanel.filter_menu:Show()
-							   end
-						   end
-					   end
+					if MainPanel[toggle]:GetChecked() then
+						found_active = true
+						MainPanel.filter_menu[category]:Show()
+						MainPanel.filter_menu:Show()
+					end
+				end
+			end
 
-					   -- If nothing was checked, default to the general filters.
-					   if not found_active then
-						   MainPanel.menu_toggle_general:SetChecked(true)
-						   MainPanel.filter_menu.general:Show()
-						   MainPanel.filter_menu:Show()
-					   end
-					   MainPanel.filter_reset:Show()
-				   end
-				   MainPanel:ToggleState()
-			   end)
+			-- If nothing was checked, default to the general filters.
+			if not found_active then
+				MainPanel.menu_toggle_general:SetChecked(true)
+				MainPanel.filter_menu.general:Show()
+				MainPanel.filter_menu:Show()
+			end
+			MainPanel.filter_reset:Show()
+		end
+		MainPanel:ToggleState()
+	end
 
+	local filter_toggle = GenericCreateButton(nil, MainPanel, 25, 65, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+	filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
+
+	filter_toggle:SetScript("OnClick", Toggle_OnClick)
+	
+
+	MainPanel.filter_toggle = filter_toggle
+end	-- do-block
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_reset and set its scripts.
 -------------------------------------------------------------------------------
@@ -2008,158 +2024,11 @@ do
 end	-- do
 
 -------------------------------------------------------------------------------
--- Create the seven buttons for opening/closing the filter menus
--------------------------------------------------------------------------------
-local CreateFilterMenuButton
-do
-	local CATEGORY_TOOLTIP = {
-		["general"]	= L["FILTERING_GENERAL_DESC"],
-		["obtain"]	= L["FILTERING_OBTAIN_DESC"],
-		["binding"]	= L["FILTERING_BINDING_DESC"],
-		["item"]	= L["FILTERING_ITEM_DESC"],
-		["quality"]	= L["FILTERING_QUALITY_DESC"],
-		["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
-		["rep"]		= L["FILTERING_REP_DESC"],
-		["misc"]	= L["FILTERING_MISC_DESC"]
-	}
-
-	-- This manages the filter menu panel, as well as checking or unchecking the
-	-- buttons that got us here in the first place
-	local function ToggleFilterMenu(panel)
-		local ChangeFilters = false
-
-		MainPanel.filter_menu.rep.Classic:Hide()
-		MainPanel.filter_menu.rep.BC:Hide()
-		MainPanel.filter_menu.rep.LK:Hide()
-
-		MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-		MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-		MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-
-		local toggle = "menu_toggle_" .. panel
-
-		if not MainPanel[toggle]:GetChecked() then
-			-- Display the selected filter_menu category frame
-			MainPanel[toggle]:SetChecked(true)
-			MainPanel.filter_menu[panel]:Show()
-
-			-- Hide all of the other filter_menu category frames, and un-check them as well.
-			for category in pairs(MainPanel.filter_menu) do
-				if category ~= panel and category ~= 0 and category ~= "texture" then
-					local tog = "menu_toggle_" .. category
-
-					MainPanel[tog]:SetChecked(false)
-					MainPanel.filter_menu[category]:Hide()
-				end
-			end
-			ChangeFilters = true
-		else
-			MainPanel[toggle]:SetChecked(false)
-			ChangeFilters = false
-		end
-
-		if ChangeFilters then
-			-- Change the filters to the current panel
-			MainPanel.filter_menu:Show()
-		else
-			MainPanel.filter_menu:Hide()
-		end
-	end
-
-	function CreateFilterMenuButton(button_texture, category)
-		local button_size = 22
-		local cButton = CreateFrame("CheckButton", nil, MainPanel)
-
-		cButton:SetWidth(button_size)
-		cButton:SetHeight(button_size)
-		cButton:SetScript("OnClick",
-				  function(self, button, down)
-					  -- The button must be unchecked for ToggleFilterMenu() to work correctly.
-					  cButton:SetChecked(false)
-					  ToggleFilterMenu(category)
-				  end)
-
-		local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
-		bgTex:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
-		bgTex:SetHeight(button_size + 6)
-		bgTex:SetWidth(button_size + 4)
-		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
-		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
-
-		local iconTex = cButton:CreateTexture(nil, "BORDER")
-		iconTex:SetTexture("Interface/Icons/" .. button_texture)
-		iconTex:SetAllPoints(cButton)
-
-		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-		pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
-		pushedTexture:SetAllPoints(cButton)
-		cButton:SetPushedTexture(pushedTexture)
-
-		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
-		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode("ADD")
-		cButton:SetHighlightTexture(highlightTexture)
-
-		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
-		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode("ADD")
-		cButton:SetCheckedTexture(checkedTexture)
-
-		-- And throw up a tooltip
-		SetTooltipScripts(cButton, CATEGORY_TOOLTIP[category])
-		cButton:Hide()
-
-		return cButton
-	end
-end	-- do
-
-MainPanel.menu_toggle_general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
-MainPanel.menu_toggle_general:SetPoint("LEFT", WidgetContainer, "RIGHT", 5, 0)
-
-MainPanel.menu_toggle_obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
-MainPanel.menu_toggle_obtain:SetPoint("LEFT", MainPanel.menu_toggle_general, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_binding = CreateFilterMenuButton("INV_Belt_20", "binding")
-MainPanel.menu_toggle_binding:SetPoint("LEFT", MainPanel.menu_toggle_obtain, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_item = CreateFilterMenuButton("INV_Misc_EngGizmos_19", "item")
-MainPanel.menu_toggle_item:SetPoint("LEFT", MainPanel.menu_toggle_binding, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_quality = CreateFilterMenuButton("INV_Enchant_VoidCrystal", "quality")
-MainPanel.menu_toggle_quality:SetPoint("LEFT", MainPanel.menu_toggle_item, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
-MainPanel.menu_toggle_player:SetPoint("LEFT", MainPanel.menu_toggle_quality, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
-MainPanel.menu_toggle_rep:SetPoint("LEFT", MainPanel.menu_toggle_player, "RIGHT", 15, 0)
-
-MainPanel.menu_toggle_misc = CreateFilterMenuButton("Trade_Engineering", "misc")
-MainPanel.menu_toggle_misc:SetPoint("LEFT", MainPanel.menu_toggle_rep, "RIGHT", 15, 0)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu = CreateFrame("Frame", "ARL_FilterMenu", MainPanel)
-MainPanel.filter_menu:SetWidth(300)
-MainPanel.filter_menu:SetHeight(FILTERMENU_HEIGHT)
-MainPanel.filter_menu:SetFrameStrata("MEDIUM")
-MainPanel.filter_menu:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -135, -60)
-MainPanel.filter_menu:EnableMouse(true)
-MainPanel.filter_menu:EnableKeyboard(true)
-MainPanel.filter_menu:SetMovable(false)
-MainPanel.filter_menu:SetHitRectInsets(5, 5, 5, 5)
-MainPanel.filter_menu:Hide()
-
-MainPanel.filter_menu:SetScript("OnShow", UpdateFilterMarks)
-
--------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values. Used in all of
 -- the sub-menus of MainPanel.filter_menu
 -------------------------------------------------------------------------------
 local CreateCheckButton
+local GenerateCheckBoxes
 do
 	local function CheckButton_OnClick(self, button, down)
 		local script_val = self.script_val
@@ -2190,537 +2059,14 @@ do
 
 		return check
 	end
-end	-- do
 
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.general, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.general = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.general:SetWidth(FILTERMENU_SMALL)
-MainPanel.filter_menu.general:SetHeight(280)
-MainPanel.filter_menu.general:EnableMouse(true)
-MainPanel.filter_menu.general:EnableKeyboard(true)
-MainPanel.filter_menu.general:SetMovable(false)
-MainPanel.filter_menu.general:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.general:Hide()
-
--------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.general
--------------------------------------------------------------------------------
-MainPanel.filter_menu.general.specialty = CreateCheckButton(MainPanel.filter_menu.general, L["SPECIALTY_DESC"], "specialty", 1, 1)
-MainPanel.filter_menu.general.specialty.text:SetText(L["Specialties"])
-
-MainPanel.filter_menu.general.skill = CreateCheckButton(MainPanel.filter_menu.general, L["SKILL_DESC"], "skill", 1, 2)
-MainPanel.filter_menu.general.skill.text:SetText(_G.SKILL)
-
-MainPanel.filter_menu.general.faction = CreateCheckButton(MainPanel.filter_menu.general, L["FACTION_DESC"], "faction", 2, 1)
-MainPanel.filter_menu.general.faction.text:SetText(_G.FACTION)
-
-MainPanel.filter_menu.general.known = CreateCheckButton(MainPanel.filter_menu.general, L["KNOWN_DESC"], "known", 2, 2)
-MainPanel.filter_menu.general.known.text:SetText(L["Show Known"])
-
-MainPanel.filter_menu.general.unknown = CreateCheckButton(MainPanel.filter_menu.general, L["UNKNOWN_DESC"], "unknown", 3, 1)
-MainPanel.filter_menu.general.unknown.text:SetText(_G.UNKNOWN)
-
-MainPanel.filter_menu.general.retired = CreateCheckButton(MainPanel.filter_menu.general, L["RETIRED_DESC"], "retired", 3, 2)
-MainPanel.filter_menu.general.retired.text:SetText(L["Retired"])
-
--------------------------------------------------------------------------------
--- Create the Class toggle and CheckButtons for MainPanel.filter_menu.general
--------------------------------------------------------------------------------
-MainPanel.filter_menu.general.class_toggle = GenericCreateButton(nil, MainPanel.filter_menu.general, 20, 105, "GameFontHighlight", "GameFontHighlightSmall",
-								 L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
-MainPanel.filter_menu.general.class_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.general.unknown, "BOTTOMLEFT", -4, -10)
-MainPanel.filter_menu.general.class_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-MainPanel.filter_menu.general.class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-MainPanel.filter_menu.general.class_toggle:SetScript("OnClick",
-						     function(self, button)
-							     local classes = addon.db.profile.filters.classes
-							     local general = MainPanel.filter_menu.general
-							     local toggle = (button == "LeftButton") and true or false
-
-							     for class in pairs(classes) do
-								     classes[class] = toggle
-								     general[class]:SetChecked(toggle)
-							     end
-
-							     if toggle == false then
-								     local class = strlower(Player["Class"])
-								     classes[class] = true
-								     general[class]:SetChecked(true)
-							     end
-							     MainPanel:UpdateTitle()
-							     ListFrame:Update(nil, false)
-						     end)
-
-MainPanel.filter_menu.general.deathknight = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "deathknight", 6, 1)
-MainPanel.filter_menu.general.deathknight.text:SetText(LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"])
-
-MainPanel.filter_menu.general.druid = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "druid", 6, 2)
-MainPanel.filter_menu.general.druid.text:SetText(LOCALIZED_CLASS_NAMES_MALE["DRUID"])
-
-MainPanel.filter_menu.general.hunter = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "hunter", 7, 1)
-MainPanel.filter_menu.general.hunter.text:SetText(LOCALIZED_CLASS_NAMES_MALE["HUNTER"])
-
-MainPanel.filter_menu.general.mage = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "mage", 7, 2)
-MainPanel.filter_menu.general.mage.text:SetText(LOCALIZED_CLASS_NAMES_MALE["MAGE"])
-
-MainPanel.filter_menu.general.paladin = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "paladin", 8, 1)
-MainPanel.filter_menu.general.paladin.text:SetText(LOCALIZED_CLASS_NAMES_MALE["PALADIN"])
-
-MainPanel.filter_menu.general.priest = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "priest", 8, 2)
-MainPanel.filter_menu.general.priest.text:SetText(LOCALIZED_CLASS_NAMES_MALE["PRIEST"])
-
-MainPanel.filter_menu.general.rogue = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "rogue", 9, 1)
-MainPanel.filter_menu.general.rogue.text:SetText(LOCALIZED_CLASS_NAMES_MALE["ROGUE"])
-
-MainPanel.filter_menu.general.shaman = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "shaman", 9, 2)
-MainPanel.filter_menu.general.shaman.text:SetText(LOCALIZED_CLASS_NAMES_MALE["SHAMAN"])
-
-MainPanel.filter_menu.general.warlock = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "warlock", 10, 1)
-MainPanel.filter_menu.general.warlock.text:SetText(LOCALIZED_CLASS_NAMES_MALE["WARLOCK"])
-
-MainPanel.filter_menu.general.warrior = CreateCheckButton(MainPanel.filter_menu.general, L["CLASS_DESC"], "warrior", 10, 2)
-MainPanel.filter_menu.general.warrior.text:SetText(LOCALIZED_CLASS_NAMES_MALE["WARRIOR"])
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.obtain, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.obtain = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.obtain:SetWidth(FILTERMENU_SMALL)
-MainPanel.filter_menu.obtain:SetHeight(280)
-MainPanel.filter_menu.obtain:EnableMouse(true)
-MainPanel.filter_menu.obtain:EnableKeyboard(true)
-MainPanel.filter_menu.obtain:SetMovable(false)
-MainPanel.filter_menu.obtain:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.obtain:Hide()
-
--------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.obtain
--------------------------------------------------------------------------------
-MainPanel.filter_menu.obtain.instance = CreateCheckButton(MainPanel.filter_menu.obtain, L["INSTANCE_DESC"], "instance", 1, 1)
-MainPanel.filter_menu.obtain.instance.text:SetText(_G.INSTANCE)
-
-MainPanel.filter_menu.obtain.raid = CreateCheckButton(MainPanel.filter_menu.obtain, L["RAID_DESC"], "raid", 1, 2)
-MainPanel.filter_menu.obtain.raid.text:SetText(_G.RAID)
-
-MainPanel.filter_menu.obtain.quest = CreateCheckButton(MainPanel.filter_menu.obtain, L["QUEST_DESC"], "quest", 2, 1)
-MainPanel.filter_menu.obtain.quest.text:SetText(L["Quest"])
-
-MainPanel.filter_menu.obtain.seasonal = CreateCheckButton(MainPanel.filter_menu.obtain, L["SEASONAL_DESC"], "seasonal", 2, 2)
-MainPanel.filter_menu.obtain.seasonal.text:SetText(private.acquire_names[A.SEASONAL])
-
-MainPanel.filter_menu.obtain.trainer = CreateCheckButton(MainPanel.filter_menu.obtain, L["TRAINER_DESC"], "trainer", 3, 1)
-MainPanel.filter_menu.obtain.trainer.text:SetText(L["Trainer"])
-
-MainPanel.filter_menu.obtain.vendor = CreateCheckButton(MainPanel.filter_menu.obtain, L["VENDOR_DESC"], "vendor", 3, 2)
-MainPanel.filter_menu.obtain.vendor.text:SetText(L["Vendor"])
-
-MainPanel.filter_menu.obtain.pvp = CreateCheckButton(MainPanel.filter_menu.obtain, L["PVP_DESC"], "pvp", 4, 1)
-MainPanel.filter_menu.obtain.pvp.text:SetText(_G.PVP)
-
-MainPanel.filter_menu.obtain.discovery = CreateCheckButton(MainPanel.filter_menu.obtain, L["DISCOVERY_DESC"], "discovery", 4, 2)
-MainPanel.filter_menu.obtain.discovery.text:SetText(L["Discovery"])
-
-MainPanel.filter_menu.obtain.worlddrop = CreateCheckButton(MainPanel.filter_menu.obtain, L["WORLD_DROP_DESC"], "worlddrop", 5, 1)
-MainPanel.filter_menu.obtain.worlddrop.text:SetText(L["World Drop"])
-
-MainPanel.filter_menu.obtain.mobdrop = CreateCheckButton(MainPanel.filter_menu.obtain, L["MOB_DROP_DESC"], "mobdrop", 5, 2)
-MainPanel.filter_menu.obtain.mobdrop.text:SetText(L["Mob Drop"])
-
-MainPanel.filter_menu.obtain.originalwow = CreateCheckButton(MainPanel.filter_menu.obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 7, 1)
-MainPanel.filter_menu.obtain.originalwow.text:SetText(_G.EXPANSION_NAME0)
-
-MainPanel.filter_menu.obtain.bc = CreateCheckButton(MainPanel.filter_menu.obtain, L["BC_WOW_DESC"], "bc", 8, 1)
-MainPanel.filter_menu.obtain.bc.text:SetText(_G.EXPANSION_NAME1)
-
-MainPanel.filter_menu.obtain.wrath = CreateCheckButton(MainPanel.filter_menu.obtain, L["LK_WOW_DESC"], "wrath", 9, 1)
-MainPanel.filter_menu.obtain.wrath.text:SetText(_G.EXPANSION_NAME2)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.binding, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.binding = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.binding:SetWidth(FILTERMENU_LARGE)
-MainPanel.filter_menu.binding:SetHeight(280)
-MainPanel.filter_menu.binding:EnableMouse(true)
-MainPanel.filter_menu.binding:EnableKeyboard(true)
-MainPanel.filter_menu.binding:SetMovable(false)
-MainPanel.filter_menu.binding:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.binding:Hide()
-
--------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.binding
--------------------------------------------------------------------------------
-MainPanel.filter_menu.binding.itemboe = CreateCheckButton(MainPanel.filter_menu.binding, L["BOE_DESC"], "itemboe", 1, 1)
-MainPanel.filter_menu.binding.itemboe.text:SetText(L["BOEFilter"])
-
-MainPanel.filter_menu.binding.itembop = CreateCheckButton(MainPanel.filter_menu.binding, L["BOP_DESC"], "itembop", 2, 1)
-MainPanel.filter_menu.binding.itembop.text:SetText(L["BOPFilter"])
-
-MainPanel.filter_menu.binding.recipeboe = CreateCheckButton(MainPanel.filter_menu.binding, L["RECIPE_BOE_DESC"], "recipeboe", 3, 1)
-MainPanel.filter_menu.binding.recipeboe.text:SetText(L["RecipeBOEFilter"])
-
-MainPanel.filter_menu.binding.recipebop = CreateCheckButton(MainPanel.filter_menu.binding, L["RECIPE_BOP_DESC"], "recipebop", 4, 1)
-MainPanel.filter_menu.binding.recipebop.text:SetText(L["RecipeBOPFilter"])
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.item, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.item = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.item:SetWidth(FILTERMENU_LARGE)
-MainPanel.filter_menu.item:SetHeight(280)
-MainPanel.filter_menu.item:EnableMouse(true)
-MainPanel.filter_menu.item:EnableKeyboard(true)
-MainPanel.filter_menu.item:SetMovable(false)
-MainPanel.filter_menu.item:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.item:Hide()
-
--------------------------------------------------------------------------------
--- Create the Armor toggle and CheckButtons for MainPanel.filter_menu.item
--------------------------------------------------------------------------------
-MainPanel.filter_menu.item.armor_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR .. ":",
-							      "LEFT", L["ARMOR_TEXT_DESC"], 0)
-MainPanel.filter_menu.item.armor_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -4)
-MainPanel.filter_menu.item.armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-MainPanel.filter_menu.item.armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-MainPanel.filter_menu.item.armor_toggle:SetScript("OnClick",
-						  function(self, button)
-							  local armors = addon.db.profile.filters.item.armor
-							  local items = MainPanel.filter_menu.item
-							  local toggle = (button == "LeftButton") and true or false
-
-							  for armor in pairs(armors) do
-								  armors[armor] = toggle
-								  items[armor]:SetChecked(toggle)
-							  end
-							  MainPanel:UpdateTitle()
-							  ListFrame:Update(nil, false)
-						  end)
-
-MainPanel.filter_menu.item.cloth = CreateCheckButton(MainPanel.filter_menu.item, L["CLOTH_DESC"], "cloth", 2, 1)
-MainPanel.filter_menu.item.cloth.text:SetText(L["Cloth"])
-
-MainPanel.filter_menu.item.leather = CreateCheckButton(MainPanel.filter_menu.item, L["LEATHER_DESC"], "leather", 2, 2)
-MainPanel.filter_menu.item.leather.text:SetText(L["Leather"])
-
-MainPanel.filter_menu.item.mail = CreateCheckButton(MainPanel.filter_menu.item, L["MAIL_DESC"], "mail", 3, 1)
-MainPanel.filter_menu.item.mail.text:SetText(L["Mail"])
-
-MainPanel.filter_menu.item.plate = CreateCheckButton(MainPanel.filter_menu.item, L["PLATE_DESC"], "plate", 3, 2)
-MainPanel.filter_menu.item.plate.text:SetText(L["Plate"])
-
-MainPanel.filter_menu.item.cloak = CreateCheckButton(MainPanel.filter_menu.item, L["CLOAK_DESC"], "cloak", 4, 1)
-MainPanel.filter_menu.item.cloak.text:SetText(L["Cloak"])
-
-MainPanel.filter_menu.item.necklace = CreateCheckButton(MainPanel.filter_menu.item, L["NECKLACE_DESC"], "necklace", 4, 2)
-MainPanel.filter_menu.item.necklace.text:SetText(L["Necklace"])
-
-MainPanel.filter_menu.item.ring = CreateCheckButton(MainPanel.filter_menu.item, L["RING_DESC"], "ring", 5, 1)
-MainPanel.filter_menu.item.ring.text:SetText(L["Ring"])
-
-MainPanel.filter_menu.item.trinket = CreateCheckButton(MainPanel.filter_menu.item, L["TRINKET_DESC"], "trinket", 5, 2)
-MainPanel.filter_menu.item.trinket.text:SetText(L["Trinket"])
-
-MainPanel.filter_menu.item.shield = CreateCheckButton(MainPanel.filter_menu.item, L["SHIELD_DESC"], "shield", 6, 1)
-MainPanel.filter_menu.item.shield.text:SetText(L["Shield"])
-
--------------------------------------------------------------------------------
--- Create the Weapon toggle and CheckButtons for MainPanel.filter_menu.item
--------------------------------------------------------------------------------
-MainPanel.filter_menu.item.weapon_toggle = GenericCreateButton(nil, MainPanel.filter_menu.item, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":",
-							       "LEFT", L["WEAPON_TEXT_DESC"], 0)
-MainPanel.filter_menu.item.weapon_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.item, "TOPLEFT", -2, -122)
-
-MainPanel.filter_menu.item.weapon_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-MainPanel.filter_menu.item.weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-MainPanel.filter_menu.item.weapon_toggle:SetScript("OnClick",
-						   function(self, button)
-							   local weapons = addon.db.profile.filters.item.weapon
-							   local items = MainPanel.filter_menu.item
-							   local toggle = (button == "LeftButton") and true or false
-
-							   for weapon in pairs(weapons) do
-								   weapons[weapon] = toggle
-
-								   if FilterValueMap[weapon].svroot then
-									   items[weapon]:SetChecked(toggle)
-								   end
-							   end
-							   MainPanel:UpdateTitle()
-							   ListFrame:Update(nil, false)
-						   end)
-
-MainPanel.filter_menu.item.onehand = CreateCheckButton(MainPanel.filter_menu.item, L["ONEHAND_DESC"], "onehand", 9, 1)
-MainPanel.filter_menu.item.onehand.text:SetText(L["One Hand"])
-
-MainPanel.filter_menu.item.twohand = CreateCheckButton(MainPanel.filter_menu.item, L["TWOHAND_DESC"], "twohand", 9, 2)
-MainPanel.filter_menu.item.twohand.text:SetText(L["Two Hand"])
-
-MainPanel.filter_menu.item.dagger = CreateCheckButton(MainPanel.filter_menu.item, L["DAGGER_DESC"], "dagger", 10, 1)
-MainPanel.filter_menu.item.dagger.text:SetText(L["Dagger"])
-
-MainPanel.filter_menu.item.axe = CreateCheckButton(MainPanel.filter_menu.item, L["AXE_DESC"], "axe", 10, 2)
-MainPanel.filter_menu.item.axe.text:SetText(L["Axe"])
-
-MainPanel.filter_menu.item.mace = CreateCheckButton(MainPanel.filter_menu.item, L["MACE_DESC"], "mace", 11, 1)
-MainPanel.filter_menu.item.mace.text:SetText(L["Mace"])
-
-MainPanel.filter_menu.item.sword = CreateCheckButton(MainPanel.filter_menu.item, L["SWORD_DESC"], "sword", 11, 2)
-MainPanel.filter_menu.item.sword.text:SetText(L["Sword"])
-
-MainPanel.filter_menu.item.polearm = CreateCheckButton(MainPanel.filter_menu.item, L["POLEARM_DESC"], "polearm", 12, 1)
-MainPanel.filter_menu.item.polearm.text:SetText(L["Polearm"])
-
-MainPanel.filter_menu.item.fist = CreateCheckButton(MainPanel.filter_menu.item, L["FIST_DESC"], "fist", 12, 2)
-MainPanel.filter_menu.item.fist.text:SetText(L["Fist"])
-
-MainPanel.filter_menu.item.staff = CreateCheckButton(MainPanel.filter_menu.item, L["STAFF_DESC"], "staff", 13, 1)
-MainPanel.filter_menu.item.staff.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Staff"]))
-MainPanel.filter_menu.item.staff:Disable()
-
-MainPanel.filter_menu.item.wand = CreateCheckButton(MainPanel.filter_menu.item, L["WAND_DESC"], "wand", 13, 2)
-MainPanel.filter_menu.item.wand.text:SetText(L["Wand"])
-
-MainPanel.filter_menu.item.thrown = CreateCheckButton(MainPanel.filter_menu.item, L["THROWN_DESC"], "thrown", 14, 1)
-MainPanel.filter_menu.item.thrown.text:SetText(L["Thrown"])
-
-MainPanel.filter_menu.item.bow = CreateCheckButton(MainPanel.filter_menu.item, L["BOW_DESC"], "bow", 14, 2)
-MainPanel.filter_menu.item.bow.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Bow"]))
-MainPanel.filter_menu.item.bow:Disable()
-
-MainPanel.filter_menu.item.crossbow = CreateCheckButton(MainPanel.filter_menu.item, L["CROSSBOW_DESC"], "crossbow", 15, 1)
-MainPanel.filter_menu.item.crossbow.text:SetText(SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]))
-MainPanel.filter_menu.item.crossbow:Disable()
-
-MainPanel.filter_menu.item.ammo = CreateCheckButton(MainPanel.filter_menu.item, L["AMMO_DESC"], "ammo", 15, 2)
-MainPanel.filter_menu.item.ammo.text:SetText(L["Ammo"])
-
-MainPanel.filter_menu.item.gun = CreateCheckButton(MainPanel.filter_menu.item, L["GUN_DESC"], "gun", 16, 1)
-MainPanel.filter_menu.item.gun.text:SetText(L["Gun"])
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.quality, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.quality = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.quality:SetWidth(FILTERMENU_SMALL)
-MainPanel.filter_menu.quality:SetHeight(280)
-MainPanel.filter_menu.quality:EnableMouse(true)
-MainPanel.filter_menu.quality:EnableKeyboard(true)
-MainPanel.filter_menu.quality:SetMovable(false)
-MainPanel.filter_menu.quality:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.quality:Hide()
-
--------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.quality
--------------------------------------------------------------------------------
-MainPanel.filter_menu.quality.common = CreateCheckButton(MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY1_DESC), "common", 1, 1)
-MainPanel.filter_menu.quality.common.text:SetText(_G.ITEM_QUALITY1_DESC)
-
-MainPanel.filter_menu.quality.uncommon = CreateCheckButton(MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY2_DESC), "uncommon", 2, 1)
-MainPanel.filter_menu.quality.uncommon.text:SetText(_G.ITEM_QUALITY2_DESC)
-
-MainPanel.filter_menu.quality.rare = CreateCheckButton(MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY3_DESC), "rare", 3, 1)
-MainPanel.filter_menu.quality.rare.text:SetText(_G.ITEM_QUALITY3_DESC)
-
-MainPanel.filter_menu.quality.epic = CreateCheckButton(MainPanel.filter_menu.quality, string.format(L["QUALITY_GENERAL_DESC"], _G.ITEM_QUALITY4_DESC), "epic", 4, 1)
-MainPanel.filter_menu.quality.epic.text:SetText(_G.ITEM_QUALITY4_DESC)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.player, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.player = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.player:SetWidth(FILTERMENU_SMALL)
-MainPanel.filter_menu.player:SetHeight(280)
-MainPanel.filter_menu.player:EnableMouse(true)
-MainPanel.filter_menu.player:EnableKeyboard(true)
-MainPanel.filter_menu.player:SetMovable(false)
-MainPanel.filter_menu.player:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.player:Hide()
-
--------------------------------------------------------------------------------
--- Create the CheckButtons for MainPanel.filter_menu.player
--------------------------------------------------------------------------------
-MainPanel.filter_menu.player.tank = CreateCheckButton(MainPanel.filter_menu.player, L["TANKS_DESC"], "tank", 1, 1)
-MainPanel.filter_menu.player.tank.text:SetText(_G.TANK)
-
-MainPanel.filter_menu.player.melee = CreateCheckButton(MainPanel.filter_menu.player, L["MELEE_DPS_DESC"], "melee", 2, 1)
-MainPanel.filter_menu.player.melee.text:SetText(_G.MELEE)
-
-MainPanel.filter_menu.player.healer = CreateCheckButton(MainPanel.filter_menu.player, L["HEALERS_DESC"], "healer", 3, 1)
-MainPanel.filter_menu.player.healer.text:SetText(_G.HEALER)
-
-MainPanel.filter_menu.player.caster = CreateCheckButton(MainPanel.filter_menu.player, L["CASTER_DPS_DESC"], "caster", 4, 1)
-MainPanel.filter_menu.player.caster.text:SetText(_G.DAMAGER)
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.rep, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.rep = CreateFrame("Frame", nil, MainPanel.filter_menu)
-MainPanel.filter_menu.rep:SetWidth(FILTERMENU_SMALL)
-MainPanel.filter_menu.rep:SetHeight(280)
-MainPanel.filter_menu.rep:EnableMouse(true)
-MainPanel.filter_menu.rep:EnableKeyboard(true)
-MainPanel.filter_menu.rep:SetMovable(false)
-MainPanel.filter_menu.rep:SetPoint("TOPLEFT", MainPanel.filter_menu, "TOPLEFT", 17, -16)
-MainPanel.filter_menu.rep:Hide()
-
--------------------------------------------------------------------------------
--- Create the expansion toggles for MainPanel.filter_menu.rep
--------------------------------------------------------------------------------
-do
-	-------------------------------------------------------------------------------
-	-- Generic function to create expansion buttons in MainPanel.filter_menu.rep
-	-------------------------------------------------------------------------------
-	local function CreateExpansionButton(texture, tooltip_text)
-		local cButton = CreateFrame("CheckButton", nil, MainPanel.filter_menu.rep)
-		cButton:SetWidth(100)
-		cButton:SetHeight(46)
-		cButton:SetChecked(false)
-
-		local iconTex = cButton:CreateTexture(nil, "BORDER")
-
-		if texture == "wotlk_logo" then
-			iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. texture)
-		else
-			iconTex:SetTexture("Interface/Glues/Common/" .. texture)
-		end
-		iconTex:SetWidth(100)
-		iconTex:SetHeight(46)
-		iconTex:SetAllPoints(cButton)
-
-		local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-		pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
-		pushedTexture:SetAllPoints(cButton)
-		cButton:SetPushedTexture(pushedTexture)
-
-		local highlightTexture = cButton:CreateTexture()
-		highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
-		highlightTexture:SetAllPoints(cButton)
-		highlightTexture:SetBlendMode("ADD")
-		cButton:SetHighlightTexture(highlightTexture)
-
-		local checkedTexture = cButton:CreateTexture()
-		checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
-		checkedTexture:SetAllPoints(cButton)
-		checkedTexture:SetBlendMode("ADD")
-		cButton:SetCheckedTexture(checkedTexture)
-
-		-- And throw up a tooltip
-		SetTooltipScripts(cButton, tooltip_text)
-
-		return cButton
-	end
-
-	-------------------------------------------------------------------------------
-	-- Rep Filtering panel switcher
-	-------------------------------------------------------------------------------
-	local function RepFilterSwitch(whichrep)
-		-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
-		-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
-		-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
-		local HidePanel = false
-
-		if whichrep == 1 then
-			if MainPanel.filter_menu.rep.toggle_originalwow:GetChecked() then
-				MainPanel.filter_menu.rep.Classic:Show()
-				MainPanel.filter_menu.rep.BC:Hide()
-				MainPanel.filter_menu.rep.LK:Hide()
-				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-			else
-				HidePanel = true
-			end
-		elseif whichrep == 2 then
-			if MainPanel.filter_menu.rep.toggle_bc:GetChecked() then
-				MainPanel.filter_menu.rep.Classic:Hide()
-				MainPanel.filter_menu.rep.BC:Show()
-				MainPanel.filter_menu.rep.LK:Hide()
-				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-			else
-				HidePanel = true
-			end
-		else -- whichrep == 3 (WotLK)
-			if MainPanel.filter_menu.rep.toggle_wrath:GetChecked() then
-				MainPanel.filter_menu.rep.Classic:Hide()
-				MainPanel.filter_menu.rep.BC:Hide()
-				MainPanel.filter_menu.rep.LK:Show()
-				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-			else
-				HidePanel = true
-			end
-		end
-
-		if HidePanel then
-			MainPanel.filter_menu.rep.Classic:Hide()
-			MainPanel.filter_menu.rep.BC:Hide()
-			MainPanel.filter_menu.rep.LK:Hide()
-
-			MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-			MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-			MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+	function GenerateCheckBoxes(parent, source)
+		for section, data in pairs(source) do
+			parent[section] = CreateCheckButton(parent, data.tt, section, data.row, data.col)
+			parent[section].text:SetText(data.text)
 		end
 	end
-	MainPanel.filter_menu.rep.toggle_originalwow = CreateExpansionButton("Glues-WoW-Logo", L["FILTERING_OLDWORLD_DESC"])
-	MainPanel.filter_menu.rep.toggle_originalwow:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
-	MainPanel.filter_menu.rep.toggle_originalwow:SetScript("OnClick",
-							       function()
-								       RepFilterSwitch(1)
-							       end)
-
-	MainPanel.filter_menu.rep.toggle_bc = CreateExpansionButton("GLUES-WOW-BCLOGO", L["FILTERING_BC_DESC"])
-	MainPanel.filter_menu.rep.toggle_bc:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
-	MainPanel.filter_menu.rep.toggle_bc:SetScript("OnClick",
-						      function()
-							      RepFilterSwitch(2)
-						      end)
-
-	MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("Glues-WOW-WotlkLogo", L["FILTERING_WOTLK_DESC"])
-	MainPanel.filter_menu.rep.toggle_wrath:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
-	MainPanel.filter_menu.rep.toggle_wrath:SetScript("OnClick",
-							 function()
-								 RepFilterSwitch(3)
-							 end)
 end	-- do
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.rep.Classic, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.rep.Classic = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-MainPanel.filter_menu.rep.Classic:SetWidth(150)
-MainPanel.filter_menu.rep.Classic:SetHeight(280)
-MainPanel.filter_menu.rep.Classic:EnableMouse(true)
-MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
-MainPanel.filter_menu.rep.Classic:SetMovable(false)
-MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-MainPanel.filter_menu.rep.Classic:Hide()
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.rep.BC, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.rep.BC = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-MainPanel.filter_menu.rep.BC:SetWidth(150)
-MainPanel.filter_menu.rep.BC:SetHeight(280)
-MainPanel.filter_menu.rep.BC:EnableMouse(true)
-MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
-MainPanel.filter_menu.rep.BC:SetMovable(false)
-MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-MainPanel.filter_menu.rep.BC:Hide()
-
--------------------------------------------------------------------------------
--- Create MainPanel.filter_menu.rep.LK, and set its scripts.
--------------------------------------------------------------------------------
-MainPanel.filter_menu.rep.LK = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-MainPanel.filter_menu.rep.LK:SetWidth(150)
-MainPanel.filter_menu.rep.LK:SetHeight(280)
-MainPanel.filter_menu.rep.LK:EnableMouse(true)
-MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
-MainPanel.filter_menu.rep.LK:SetMovable(false)
-MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-MainPanel.filter_menu.rep.LK:Hide()
-
 
 -------------------------------------------------------------------------------
 -- Create the ListFrame and set its scripts.
@@ -3931,6 +3277,592 @@ local function InitializeFrame()
 	local Valiance_Warsong_FactionText = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
+
+	-------------------------------------------------------------------------------
+	-- Create the seven buttons for opening/closing the filter menus
+	-------------------------------------------------------------------------------
+	do
+		local CATEGORY_TOOLTIP = {
+			["general"]	= L["FILTERING_GENERAL_DESC"],
+			["obtain"]	= L["FILTERING_OBTAIN_DESC"],
+			["binding"]	= L["FILTERING_BINDING_DESC"],
+			["item"]	= L["FILTERING_ITEM_DESC"],
+			["quality"]	= L["FILTERING_QUALITY_DESC"],
+			["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
+			["rep"]		= L["FILTERING_REP_DESC"],
+			["misc"]	= L["FILTERING_MISC_DESC"]
+		}
+
+		-- This manages the filter menu panel, as well as checking or unchecking the
+		-- buttons that got us here in the first place
+		local function ToggleFilterMenu(panel)
+			local ChangeFilters = false
+
+			MainPanel.filter_menu.rep.Classic:Hide()
+			MainPanel.filter_menu.rep.BC:Hide()
+			MainPanel.filter_menu.rep.LK:Hide()
+
+			MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+			MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+			MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+
+			local toggle = "menu_toggle_" .. panel
+
+			if not MainPanel[toggle]:GetChecked() then
+				-- Display the selected filter_menu category frame
+				MainPanel[toggle]:SetChecked(true)
+				MainPanel.filter_menu[panel]:Show()
+
+				-- Hide all of the other filter_menu category frames, and un-check them as well.
+				for category in pairs(MainPanel.filter_menu) do
+					if category ~= panel and CATEGORY_TOOLTIP[category] then
+						local tog = "menu_toggle_" .. category
+
+						MainPanel[tog]:SetChecked(false)
+						MainPanel.filter_menu[category]:Hide()
+					end
+				end
+				ChangeFilters = true
+			else
+				MainPanel[toggle]:SetChecked(false)
+				ChangeFilters = false
+			end
+
+			if ChangeFilters then
+				-- Change the filters to the current panel
+				MainPanel.filter_menu:Show()
+			else
+				MainPanel.filter_menu:Hide()
+			end
+		end
+
+		local function CreateFilterMenuButton(button_texture, category)
+			local button_size = 22
+			local cButton = CreateFrame("CheckButton", nil, MainPanel)
+
+			cButton:SetWidth(button_size)
+			cButton:SetHeight(button_size)
+			cButton:SetScript("OnClick",
+					  function(self, button, down)
+						  -- The button must be unchecked for ToggleFilterMenu() to work correctly.
+						  cButton:SetChecked(false)
+						  ToggleFilterMenu(category)
+					  end)
+
+			local bgTex = cButton:CreateTexture(nil, "BACKGROUND")
+			bgTex:SetTexture("Interface/SpellBook/UI-Spellbook-SpellBackground")
+			bgTex:SetHeight(button_size + 6)
+			bgTex:SetWidth(button_size + 4)
+			bgTex:SetTexCoord(0, (43/64), 0, (43/64))
+			bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
+
+			local iconTex = cButton:CreateTexture(nil, "BORDER")
+			iconTex:SetTexture("Interface/Icons/" .. button_texture)
+			iconTex:SetAllPoints(cButton)
+
+			local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
+			pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
+			pushedTexture:SetAllPoints(cButton)
+			cButton:SetPushedTexture(pushedTexture)
+
+			local highlightTexture = cButton:CreateTexture()
+			highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
+			highlightTexture:SetAllPoints(cButton)
+			highlightTexture:SetBlendMode("ADD")
+			cButton:SetHighlightTexture(highlightTexture)
+
+			local checkedTexture = cButton:CreateTexture()
+			checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
+			checkedTexture:SetAllPoints(cButton)
+			checkedTexture:SetBlendMode("ADD")
+			cButton:SetCheckedTexture(checkedTexture)
+
+			-- And throw up a tooltip
+			SetTooltipScripts(cButton, CATEGORY_TOOLTIP[category])
+			cButton:Hide()
+
+			return cButton
+		end
+
+		local general = CreateFilterMenuButton("INV_Misc_Note_06", "general")
+		general:SetPoint("LEFT", WidgetContainer, "RIGHT", 5, 0)
+
+		local obtain = CreateFilterMenuButton("INV_Misc_Bag_07", "obtain")
+		obtain:SetPoint("LEFT", general, "RIGHT", 15, 0)
+
+		local binding = CreateFilterMenuButton("INV_Belt_20", "binding")
+		binding:SetPoint("LEFT", obtain, "RIGHT", 15, 0)
+
+		local item = CreateFilterMenuButton("INV_Misc_EngGizmos_19", "item")
+		item:SetPoint("LEFT", binding, "RIGHT", 15, 0)
+
+		local quality = CreateFilterMenuButton("INV_Enchant_VoidCrystal", "quality")
+		quality:SetPoint("LEFT", item, "RIGHT", 15, 0)
+
+		local player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
+		player:SetPoint("LEFT", quality, "RIGHT", 15, 0)
+
+		local rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
+		rep:SetPoint("LEFT", player, "RIGHT", 15, 0)
+
+		local misc = CreateFilterMenuButton("Trade_Engineering", "misc")
+		misc:SetPoint("LEFT", rep, "RIGHT", 15, 0)
+
+		-- Assign the buttons as members.
+		MainPanel.menu_toggle_general = general
+		MainPanel.menu_toggle_obtain = obtain
+		MainPanel.menu_toggle_binding = binding
+		MainPanel.menu_toggle_item = item
+		MainPanel.menu_toggle_quality = quality
+		MainPanel.menu_toggle_player = player
+		MainPanel.menu_toggle_rep = rep
+		MainPanel.menu_toggle_misc = misc
+	end	-- do
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local filter_menu = CreateFrame("Frame", nil, MainPanel)
+		filter_menu:SetWidth(300)
+		filter_menu:SetHeight(FILTERMENU_HEIGHT)
+		filter_menu:SetFrameStrata("MEDIUM")
+		filter_menu:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -135, -60)
+		filter_menu:EnableMouse(true)
+		filter_menu:EnableKeyboard(true)
+		filter_menu:SetMovable(false)
+		filter_menu:SetHitRectInsets(5, 5, 5, 5)
+		filter_menu:Hide()
+
+		filter_menu:SetScript("OnShow", UpdateFilterMarks)
+
+		function filter_menu:CreateSubMenu(name)
+			local submenu = CreateFrame("Frame", nil, self)
+
+			submenu:SetWidth(FILTERMENU_LARGE)
+			submenu:SetHeight(FILTERMENU_HEIGHT)
+			submenu:EnableMouse(true)
+			submenu:EnableKeyboard(true)
+			submenu:SetMovable(false)
+			submenu:SetPoint("TOPLEFT", self, "TOPLEFT", 17, -16)
+			submenu:Hide()
+
+			self[name] = submenu
+			return submenu
+		end
+
+		MainPanel.filter_menu = filter_menu
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.general, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local general_frame = MainPanel.filter_menu:CreateSubMenu("general")
+
+		-------------------------------------------------------------------------------
+		-- Create the general CheckButtons.
+		-------------------------------------------------------------------------------
+		local general_buttons = {
+			["specialty"]	= { tt = L["SPECIALTY_DESC"],	text = L["Specialties"],	row = 1, col = 1 },
+			["skill"]	= { tt = L["SKILL_DESC"],	text = _G.SKILL,		row = 1, col = 2 },
+			["faction"]	= { tt = L["FACTION_DESC"],	text = _G.FACTION,		row = 2, col = 1 },
+			["known"]	= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 2, col = 2 },
+			["unknown"]	= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 3, col = 1 },
+			["retired"]	= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 3, col = 2 },
+		}
+		GenerateCheckBoxes(general_frame, general_buttons)
+		general_buttons = nil
+
+		-------------------------------------------------------------------------------
+		-- Create the Class toggle and CheckButtons.
+		-------------------------------------------------------------------------------
+		local class_toggle = GenericCreateButton(nil, general_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
+		class_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.general.unknown, "BOTTOMLEFT", -4, -10)
+		class_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		class_toggle:SetScript("OnClick",
+				       function(self, button)
+					       local classes = addon.db.profile.filters.classes
+					       local toggle = (button == "LeftButton") and true or false
+
+					       for class in pairs(classes) do
+						       classes[class] = toggle
+						       general_frame[class]:SetChecked(toggle)
+					       end
+
+					       if toggle == false then
+						       local class = strlower(Player["Class"])
+						       classes[class] = true
+						       general_frame[class]:SetChecked(true)
+					       end
+					       MainPanel:UpdateTitle()
+					       ListFrame:Update(nil, false)
+				       end)
+
+		general_frame.class_toggle = class_toggle
+
+		local class_buttons = {
+			["deathknight"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 6,  col = 1 },
+			["druid"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 6,  col = 2 },
+			["hunter"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 7,  col = 1 },
+			["mage"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 7,  col = 2 },
+			["paladin"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["PALADIN"],		row = 8,  col = 1 },
+			["priest"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 8,  col = 2 },
+			["rogue"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 9,  col = 1 },
+			["shaman"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 9,  col = 2 },
+			["warlock"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],		row = 10, col = 1 },
+			["warrior"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],		row = 10, col = 2 },
+		}
+		GenerateCheckBoxes(general_frame, class_buttons)
+		class_buttons = nil
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.obtain, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local obtain_frame = MainPanel.filter_menu:CreateSubMenu("obtain")
+
+		-------------------------------------------------------------------------------
+		-- Create the CheckButtons
+		-------------------------------------------------------------------------------
+		local obtain_buttons = {
+			["instance"]	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 1, col = 1 },
+			["raid"]	= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 1, col = 2 },
+			["quest"]	= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 2, col = 1 },
+			["seasonal"]	= { tt = L["SEASONAL_DESC"],		text = private.acquire_names[A.SEASONAL],	row = 2, col = 2 },
+			["trainer"]	= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 3, col = 1 },
+			["vendor"]	= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 3, col = 2 },
+			["pvp"]		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 4, col = 1 },
+			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 4, col = 2 },
+			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 1 },
+			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 5, col = 2 },
+			["originalwow"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 7, col = 1 },
+			["bc"]		= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 8, col = 1 },
+			["wrath"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 9, col = 1 },
+		}
+		GenerateCheckBoxes(obtain_frame, obtain_buttons)
+		obtain_buttons = nil
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.binding, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local binding_frame = MainPanel.filter_menu:CreateSubMenu("binding")
+
+		-------------------------------------------------------------------------------
+		-- Create the CheckButtons
+		-------------------------------------------------------------------------------
+		local binding_buttons = {
+			["itemboe"]	= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 1, col = 1 },
+			["itembop"]	= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 2, col = 1 },
+			["recipeboe"]	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 3, col = 1 },
+			["recipebop"]	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 4, col = 1 },
+		}
+		GenerateCheckBoxes(binding_frame, binding_buttons)
+		binding_buttons = nil
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.item, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local item_frame = MainPanel.filter_menu:CreateSubMenu("item")
+
+		-------------------------------------------------------------------------------
+		-- Create the Armor toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local armor_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR .. ":", "LEFT", L["ARMOR_TEXT_DESC"], 0)
+		armor_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -4)
+		armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		armor_toggle:SetScript("OnClick",
+				       function(self, button)
+					       local armors = addon.db.profile.filters.item.armor
+					       local toggle = (button == "LeftButton") and true or false
+
+					       for armor in pairs(armors) do
+						       armors[armor] = toggle
+						       item_frame[armor]:SetChecked(toggle)
+					       end
+					       MainPanel:UpdateTitle()
+					       ListFrame:Update(nil, false)
+				       end)
+
+		item_frame.armor_toggle = armor_toggle
+
+		local armor_buttons = {
+			["cloth"]	= { tt = L["CLOTH_DESC"],	text = L["Cloth"],	row = 2, col = 1 },
+			["leather"]	= { tt = L["LEATHER_DESC"],	text = L["Leather"],	row = 2, col = 2 },
+			["mail"]	= { tt = L["MAIL_DESC"],	text = L["Mail"],	row = 3, col = 1 },
+			["plate"]	= { tt = L["PLATE_DESC"],	text = L["Plate"],	row = 3, col = 2 },
+			["cloak"]	= { tt = L["CLOAK_DESC"],	text = L["Cloak"],	row = 4, col = 1 },
+			["necklace"]	= { tt = L["NECKLACE_DESC"],	text = L["Necklace"],	row = 4, col = 2 },
+			["ring"]	= { tt = L["RING_DESC"],	text = L["Ring"],	row = 5, col = 1 },
+			["trinket"]	= { tt = L["TRINKET_DESC"],	text = L["Trinket"],	row = 5, col = 2 },
+			["shield"]	= { tt = L["SHIELD_DESC"],	text = L["Shield"],	row = 6, col = 1 },
+		}
+		GenerateCheckBoxes(item_frame, armor_buttons)
+		armor_buttons = nil
+
+		-------------------------------------------------------------------------------
+		-- Create the Weapon toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local weapon_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":", "LEFT", L["WEAPON_TEXT_DESC"], 0)
+		weapon_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -122)
+
+		weapon_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		weapon_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		weapon_toggle:SetScript("OnClick",
+					function(self, button)
+						local weapons = addon.db.profile.filters.item.weapon
+						local toggle = (button == "LeftButton") and true or false
+
+						for weapon in pairs(weapons) do
+							weapons[weapon] = toggle
+
+							if FilterValueMap[weapon].svroot then
+								item_frame[weapon]:SetChecked(toggle)
+							end
+						end
+						MainPanel:UpdateTitle()
+						ListFrame:Update(nil, false)
+					end)
+
+		item_frame.weapon_toggle = weapon_toggle
+
+		local weapon_buttons = {
+			["onehand"]	= { tt = L["ONEHAND_DESC"],	text = L["One Hand"],						row = 9,  col = 1 },
+			["twohand"]	= { tt = L["TWOHAND_DESC"],	text = L["Two Hand"],						row = 9,  col = 2 },
+			["dagger"]	= { tt = L["DAGGER_DESC"],	text = L["Dagger"],						row = 10, col = 1 },
+			["axe"]		= { tt = L["AXE_DESC"],		text = L["Axe"],						row = 10, col = 2 },
+			["mace"]	= { tt = L["MACE_DESC"],	text = L["Mace"],						row = 11, col = 1 },
+			["sword"]	= { tt = L["SWORD_DESC"],	text = L["Sword"],						row = 11, col = 2 },
+			["polearm"]	= { tt = L["POLEARM_DESC"],	text = L["Polearm"],						row = 12, col = 1 },
+			["fist"]	= { tt = L["FIST_DESC"],	text = L["Fist"],						row = 12, col = 2 },
+			["staff"]	= { tt = L["STAFF_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Staff"]),		row = 13, col = 1 },
+			["wand"]	= { tt = L["WAND_DESC"],	text = L["Wand"],						row = 13, col = 2 },
+			["thrown"]	= { tt = L["THROWN_DESC"],	text = L["Thrown"],						row = 14, col = 1 },
+			["bow"]		= { tt = L["BOW_DESC"],		text = SetTextColor(BASIC_COLORS["grey"], L["Bow"]),		row = 14, col = 2 },
+			["crossbow"]	= { tt = L["CROSSBOW_DESC"],	text = SetTextColor(BASIC_COLORS["grey"], L["Crossbow"]),	row = 15, col = 1 },
+			["ammo"]	= { tt = L["AMMO_DESC"],	text = L["Ammo"],						row = 15, col = 2 },
+			["gun"]		= { tt = L["GUN_DESC"],		text = L["Gun"],						row = 16, col = 1 },
+		}
+		GenerateCheckBoxes(item_frame, weapon_buttons)
+		weapon_buttons = nil
+
+		-- Some of these are disabled for now, since they currently have no recipes.
+		item_frame.staff:Disable()
+		item_frame.bow:Disable()
+		item_frame.crossbow:Disable()
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.quality, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local quality_frame = MainPanel.filter_menu:CreateSubMenu("quality")
+
+		-------------------------------------------------------------------------------
+		-- Create the CheckButtons
+		-------------------------------------------------------------------------------
+		local function QualityDesc(text)
+			return string.format(L["QUALITY_GENERAL_DESC"], text)
+		end
+
+		local quality_buttons = {
+			["common"]	= { tt = QualityDesc(_G.ITEM_QUALITY1_DESC),	text = _G.ITEM_QUALITY1_DESC,	row = 1, col = 1 },
+			["uncommon"]	= { tt = QualityDesc(_G.ITEM_QUALITY2_DESC),	text = _G.ITEM_QUALITY2_DESC,	row = 2, col = 1 },
+			["rare"]	= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 3, col = 1 },
+			["epic"]	= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 4, col = 1 },
+		}
+		GenerateCheckBoxes(quality_frame, quality_buttons)
+		quality_buttons = nil
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.player, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local player_frame = MainPanel.filter_menu:CreateSubMenu("player")
+
+		-------------------------------------------------------------------------------
+		-- Create the CheckButtons
+		-------------------------------------------------------------------------------
+		local role_buttons = {
+			["tank"]	= { tt = L["TANKS_DESC"],	text = _G.TANK,		row = 1, col = 1 },
+			["melee"]	= { tt = L["MELEE_DPS_DESC"],	text = _G.MELEE,	row = 2, col = 1 },
+			["healer"]	= { tt = L["HEALERS_DESC"],	text = _G.HEALER,	row = 3, col = 1 },
+			["caster"]	= { tt = L["CASTER_DPS_DESC"],	text = _G.DAMAGER,	row = 4, col = 1 },
+		}
+		GenerateCheckBoxes(player_frame, role_buttons)
+		role_buttons = nil
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.rep, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local rep_frame = MainPanel.filter_menu:CreateSubMenu("rep")
+	end
+
+	-------------------------------------------------------------------------------
+	-- Create the expansion toggles for MainPanel.filter_menu.rep
+	-------------------------------------------------------------------------------
+	do
+		-------------------------------------------------------------------------------
+		-- Generic function to create expansion buttons in MainPanel.filter_menu.rep
+		-------------------------------------------------------------------------------
+		local function CreateExpansionButton(texture, tooltip_text)
+			local cButton = CreateFrame("CheckButton", nil, MainPanel.filter_menu.rep)
+			cButton:SetWidth(100)
+			cButton:SetHeight(46)
+			cButton:SetChecked(false)
+
+			local iconTex = cButton:CreateTexture(nil, "BORDER")
+
+			if texture == "wotlk_logo" then
+				iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. texture)
+			else
+				iconTex:SetTexture("Interface/Glues/Common/" .. texture)
+			end
+			iconTex:SetWidth(100)
+			iconTex:SetHeight(46)
+			iconTex:SetAllPoints(cButton)
+
+			local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
+			pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
+			pushedTexture:SetAllPoints(cButton)
+			cButton:SetPushedTexture(pushedTexture)
+
+			local highlightTexture = cButton:CreateTexture()
+			highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
+			highlightTexture:SetAllPoints(cButton)
+			highlightTexture:SetBlendMode("ADD")
+			cButton:SetHighlightTexture(highlightTexture)
+
+			local checkedTexture = cButton:CreateTexture()
+			checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
+			checkedTexture:SetAllPoints(cButton)
+			checkedTexture:SetBlendMode("ADD")
+			cButton:SetCheckedTexture(checkedTexture)
+
+			-- And throw up a tooltip
+			SetTooltipScripts(cButton, tooltip_text)
+
+			return cButton
+		end
+
+		-------------------------------------------------------------------------------
+		-- Rep Filtering panel switcher
+		-------------------------------------------------------------------------------
+		local function RepFilterSwitch(whichrep)
+			-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
+			-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
+			-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
+			local HidePanel = false
+
+			if whichrep == 1 then
+				if MainPanel.filter_menu.rep.toggle_originalwow:GetChecked() then
+					MainPanel.filter_menu.rep.Classic:Show()
+					MainPanel.filter_menu.rep.BC:Hide()
+					MainPanel.filter_menu.rep.LK:Hide()
+					MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+					MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+				else
+					HidePanel = true
+				end
+			elseif whichrep == 2 then
+				if MainPanel.filter_menu.rep.toggle_bc:GetChecked() then
+					MainPanel.filter_menu.rep.Classic:Hide()
+					MainPanel.filter_menu.rep.BC:Show()
+					MainPanel.filter_menu.rep.LK:Hide()
+					MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+					MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+				else
+					HidePanel = true
+				end
+			else -- whichrep == 3 (WotLK)
+				if MainPanel.filter_menu.rep.toggle_wrath:GetChecked() then
+					MainPanel.filter_menu.rep.Classic:Hide()
+					MainPanel.filter_menu.rep.BC:Hide()
+					MainPanel.filter_menu.rep.LK:Show()
+					MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+					MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+				else
+					HidePanel = true
+				end
+			end
+
+			if HidePanel then
+				MainPanel.filter_menu.rep.Classic:Hide()
+				MainPanel.filter_menu.rep.BC:Hide()
+				MainPanel.filter_menu.rep.LK:Hide()
+
+				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
+				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+			end
+		end
+		MainPanel.filter_menu.rep.toggle_originalwow = CreateExpansionButton("Glues-WoW-Logo", L["FILTERING_OLDWORLD_DESC"])
+		MainPanel.filter_menu.rep.toggle_originalwow:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
+		MainPanel.filter_menu.rep.toggle_originalwow:SetScript("OnClick",
+								       function()
+									       RepFilterSwitch(1)
+								       end)
+
+		MainPanel.filter_menu.rep.toggle_bc = CreateExpansionButton("GLUES-WOW-BCLOGO", L["FILTERING_BC_DESC"])
+		MainPanel.filter_menu.rep.toggle_bc:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
+		MainPanel.filter_menu.rep.toggle_bc:SetScript("OnClick",
+							      function()
+								      RepFilterSwitch(2)
+							      end)
+
+		MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("Glues-WOW-WotlkLogo", L["FILTERING_WOTLK_DESC"])
+		MainPanel.filter_menu.rep.toggle_wrath:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
+		MainPanel.filter_menu.rep.toggle_wrath:SetScript("OnClick",
+								 function()
+									 RepFilterSwitch(3)
+								 end)
+	end	-- do
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.rep.Classic, and set its scripts.
+	-------------------------------------------------------------------------------
+	MainPanel.filter_menu.rep.Classic = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+	MainPanel.filter_menu.rep.Classic:SetWidth(150)
+	MainPanel.filter_menu.rep.Classic:SetHeight(280)
+	MainPanel.filter_menu.rep.Classic:EnableMouse(true)
+	MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
+	MainPanel.filter_menu.rep.Classic:SetMovable(false)
+	MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+	MainPanel.filter_menu.rep.Classic:Hide()
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.rep.BC, and set its scripts.
+	-------------------------------------------------------------------------------
+	MainPanel.filter_menu.rep.BC = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+	MainPanel.filter_menu.rep.BC:SetWidth(150)
+	MainPanel.filter_menu.rep.BC:SetHeight(280)
+	MainPanel.filter_menu.rep.BC:EnableMouse(true)
+	MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
+	MainPanel.filter_menu.rep.BC:SetMovable(false)
+	MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+	MainPanel.filter_menu.rep.BC:Hide()
+
+	-------------------------------------------------------------------------------
+	-- Create MainPanel.filter_menu.rep.LK, and set its scripts.
+	-------------------------------------------------------------------------------
+	MainPanel.filter_menu.rep.LK = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+	MainPanel.filter_menu.rep.LK:SetWidth(150)
+	MainPanel.filter_menu.rep.LK:SetHeight(280)
+	MainPanel.filter_menu.rep.LK:EnableMouse(true)
+	MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
+	MainPanel.filter_menu.rep.LK:SetMovable(false)
+	MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+	MainPanel.filter_menu.rep.LK:Hide()
 
 	-------------------------------------------------------------------------------
 	-- Classic Reputations
