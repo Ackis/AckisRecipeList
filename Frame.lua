@@ -73,21 +73,6 @@ local Player	= private.Player
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS = private.ordered_professions
 
--- To make tabbing between professions easier
-local PROFESSION_TEXTURES = {
-	"alchemy",	-- 1
-	"blacksmith",	-- 2
-	"cooking",	-- 3
-	"enchant",	-- 4
-	"engineer",	-- 5
-	"firstaid",	-- 6
-	"inscribe",	-- 7
-	"jewel",	-- 8
-	"leather",	-- 9
-	"runeforge",	-- 10
-	"smelting",	-- 11
-	"tailor",	-- 12
-}
 
 local MAINPANEL_NORMAL_WIDTH	= 384
 local MAINPANEL_EXPANDED_WIDTH	= 768
@@ -110,15 +95,6 @@ local A = private.acquire_types
 local A_MAX = 9
 
 local COMMON1 = private.common_flags_word1
-
-local BINDING_FLAGS = {
-	[COMMON1.IBOE] = L["BOEFilter"],
-	[COMMON1.IBOP] = L["BOPFilter"],
-	[COMMON1.IBOA] = L["BOAFilter"],
-	[COMMON1.RBOE] = L["RecipeBOEFilter"],
-	[COMMON1.RBOP] = L["RecipeBOPFilter"],
-	[COMMON1.RBOA] = L["RecipeBOAFilter"]
-}
 
 -------------------------------------------------------------------------------
 -- Define the static popups we're going to call when people haven't scanned or
@@ -842,6 +818,15 @@ do
 	-------------------------------------------------------------------------------
 	-- Main tooltip-generating function.
 	-------------------------------------------------------------------------------
+	local BINDING_FLAGS = {
+		[COMMON1.IBOE] = L["BOEFilter"],
+		[COMMON1.IBOP] = L["BOPFilter"],
+		[COMMON1.IBOA] = L["BOAFilter"],
+		[COMMON1.RBOE] = L["RecipeBOEFilter"],
+		[COMMON1.RBOP] = L["RecipeBOPFilter"],
+		[COMMON1.RBOA] = L["RecipeBOAFilter"]
+	}
+
 	function ListItem_ShowTooltip(owner, list_entry)
 		if not list_entry then
 			return
@@ -1364,25 +1349,42 @@ function MainPanel:ToggleState()
 	self:UpdateTitle()
 end
 
-function MainPanel:SetProfession()
-	local prev_profession = self.profession
+do
+	local PROFESSION_TEXTURES = {
+		"alchemy",	-- 1
+		"blacksmith",	-- 2
+		"cooking",	-- 3
+		"enchant",	-- 4
+		"engineer",	-- 5
+		"firstaid",	-- 6
+		"inscribe",	-- 7
+		"jewel",	-- 8
+		"leather",	-- 9
+		"runeforge",	-- 10
+		"smelting",	-- 11
+		"tailor",	-- 12
+	}
 
-	if Player.current_prof == private.mining_name then
-		self.profession = 11 -- Smelting
-	else
-		for index, name in ipairs(ORDERED_PROFESSIONS) do
-			if name == Player.current_prof then
-				self.profession = index
-				break
+	function MainPanel:SetProfession()
+		local prev_profession = self.profession
+
+		if Player.current_prof == private.mining_name then
+			self.profession = 11 -- Smelting
+		else
+			for index, name in ipairs(ORDERED_PROFESSIONS) do
+				if name == Player.current_prof then
+					self.profession = index
+					break
+				end
 			end
 		end
-	end
 
-	if self.profession ~= prev_profession then
-		self.prev_profession = self.profession
+		if self.profession ~= prev_profession then
+			self.prev_profession = self.profession
+		end
+		self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
 	end
-	self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
-end
+end	-- do-block
 
 function MainPanel:SetPosition()
 	local opts = addon.db.profile.frameopts
