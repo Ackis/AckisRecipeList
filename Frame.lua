@@ -89,17 +89,6 @@ local PROFESSION_TEXTURES = {
 	"tailor",	-- 12
 }
 
-local CATEGORY_TEXT = {
-	["general"]	= _G.GENERAL,
-	["obtain"]	= L["Obtain"],
-	["binding"]	= L["Binding"],
-	["item"]	= L["Item"],
-	["quality"]	= _G.QUALITY,
-	["player"]	= _G.ROLE,
-	["rep"]		= _G.REPUTATION,
-	["misc"]	= _G.MISCELLANEOUS
-}
-
 local MAINPANEL_NORMAL_WIDTH	= 384
 local MAINPANEL_EXPANDED_WIDTH	= 768
 
@@ -117,27 +106,9 @@ local BASIC_COLORS		= private.basic_colors
 
 local SF = private.recipe_state_flags
 
-local VIEW_TABS = {
-	["Acquisition"] = 1,
-	["Location"]	= 2,
-	["Name"]	= 3,
-}
-
-local TAB_NAMES = {
-	"Acquisition",
-	"Location",
-	"Name",
-}
-
--------------------------------------------------------------------------------
--- Acquire flag constants.
--------------------------------------------------------------------------------
 local A = private.acquire_types
 local A_MAX = 9
 
--------------------------------------------------------------------------------
--- Filter flag constants.
--------------------------------------------------------------------------------
 local COMMON1 = private.common_flags_word1
 
 local BINDING_FLAGS = {
@@ -1065,17 +1036,12 @@ do
 end	-- do block
 
 -------------------------------------------------------------------------------
--- Widget Container frames.
+-- Widget Container frame.
 -------------------------------------------------------------------------------
 local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
 WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
 WidgetContainer:SetHeight(30)
 WidgetContainer:SetWidth(275)
-
-local WidgetContainer2 = CreateFrame("Frame", nil, MainPanel)
-WidgetContainer2:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 15, -70)
-WidgetContainer2:SetPoint("TOPRIGHT", MainPanel, "TOPRIGHT", -5, -70)
-WidgetContainer2:SetHeight(30)
 
 -------------------------------------------------------------------------------
 -- Tabs
