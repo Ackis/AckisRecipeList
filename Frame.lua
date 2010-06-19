@@ -73,10 +73,6 @@ local Player	= private.Player
 -------------------------------------------------------------------------------
 local ORDERED_PROFESSIONS = private.ordered_professions
 
-
-local MAINPANEL_NORMAL_WIDTH	= 384
-local MAINPANEL_EXPANDED_WIDTH	= 768
-
 local FILTERMENU_HEIGHT		= 312
 
 local FILTERMENU_SMALL		= 112
@@ -973,7 +969,12 @@ end	-- do
 local MainPanel
 do
 	MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
-	MainPanel:SetWidth(MAINPANEL_NORMAL_WIDTH)
+
+	-- The panel width changes when contracting and expanding - store it for later use.
+	MainPanel.normal_width = 384
+	MainPanel.expanded_width = 768
+
+	MainPanel:SetWidth(MainPanel.normal_width)
 	MainPanel:SetHeight(512)
 	MainPanel:SetFrameStrata("MEDIUM")
 	MainPanel:SetToplevel(true)
@@ -1314,7 +1315,7 @@ function MainPanel:ToggleState()
 	local x, y = self:GetLeft(), self:GetBottom()
 
 	if self.is_expanded then
-		self:SetWidth(MAINPANEL_NORMAL_WIDTH)
+		self:SetWidth(self.normal_width)
 		self:SetHitRectInsets(0, 35, 0, 55)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
@@ -1328,7 +1329,7 @@ function MainPanel:ToggleState()
 		self.progress_bar:SetWidth(210)
 		self.close_button:SetWidth(111)
 	else
-		self:SetWidth(MAINPANEL_EXPANDED_WIDTH)
+		self:SetWidth(self.expanded_width)
 		self:SetHitRectInsets(0, 90, 0, 55)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
