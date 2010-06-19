@@ -144,7 +144,7 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
-local FilterValueMap		-- Assigned in addon:InitializeFrame()
+local FilterValueMap		-- Assigned in InitializeFrame()
 
 -------------------------------------------------------------------------------
 -- Upvalues
@@ -3919,7 +3919,7 @@ end
 -------------------------------------------------------------------------------
 -- Initializes runtime elements of MainPanel.
 -------------------------------------------------------------------------------
-function addon:InitializeFrame()
+local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
@@ -4392,9 +4392,13 @@ function addon:InitializeFrame()
 end
 
 -------------------------------------------------------------------------------
--- Displays the main recipe frame.
+-- Displays the main GUI frame.
 -------------------------------------------------------------------------------
 function MainPanel:Display(is_linked)
+	if InitializeFrame then
+		InitializeFrame()
+		InitializeFrame = nil
+	end
 	self:SetPosition()
 	self:SetProfession()
 	self:SetScale(addon.db.profile.frameopts.uiscale)
