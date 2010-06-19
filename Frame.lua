@@ -1325,9 +1325,6 @@ function MainPanel:ToggleState()
 
 		self.xclose_button:ClearAllPoints()
 		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -30, -8)
-
-		self.progress_bar:SetWidth(210)
-		self.close_button:SetWidth(111)
 	else
 		self:SetWidth(self.expanded_width)
 		self:SetHitRectInsets(0, 90, 0, 55)
@@ -1339,9 +1336,6 @@ function MainPanel:ToggleState()
 
 		self.xclose_button:ClearAllPoints()
 		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -84, -8)
-
-		self.progress_bar:SetWidth(201)
-		self.close_button:SetWidth(97)
 	end
 	self.is_expanded = not self.is_expanded
 
@@ -3708,25 +3702,34 @@ end	-- do
 -------------------------------------------------------------------------------
 do
 	local progress_bar = CreateFrame("StatusBar", nil, MainPanel)
-
-	progress_bar:SetWidth(210)
-	progress_bar:SetHeight(20)
-
-	progress_bar:ClearAllPoints()
-	progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 19, 81)
+	progress_bar:SetWidth(216)
+	progress_bar:SetHeight(18)
+	progress_bar:SetPoint("BOTTOMLEFT", MainPanel, 17, 80)
+	progress_bar:SetBackdrop({
+					 bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
+					 tile = true,
+					 tileSize = 16,
+				 })
 
 	progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
 	progress_bar:SetOrientation("HORIZONTAL")
 	progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
 
-	progress_bar.text = progress_bar:CreateFontString(nil, "ARTWORK")
-	progress_bar.text:SetWidth(195)
-	progress_bar.text:SetHeight(14)
-	progress_bar.text:SetFontObject("GameFontHighlightSmall")
+	local border = progress_bar:CreateTexture(nil, "OVERLAY")
+	border:SetWidth(288)
+	border:SetHeight(78)
+	border:SetPoint("TOPLEFT", progress_bar, "TOPLEFT", -36, 31)
+	border:SetTexture([[Interface\CastingBar\UI-CastingBar-Border]])
 
-	progress_bar.text:ClearAllPoints()
-	progress_bar.text:SetPoint("CENTER", progress_bar, "CENTER", 0, 0)
-	progress_bar.text:SetJustifyH("CENTER")
+	local text = progress_bar:CreateFontString(nil, "ARTWORK")
+	text:SetWidth(195)
+	text:SetHeight(14)
+	text:SetFontObject("GameFontHighlightSmall")
+	text:SetPoint("CENTER", progress_bar, "CENTER", 0, 0)
+	text:SetJustifyH("CENTER")
+	text:SetJustifyV("CENTER")
+
+	progress_bar.text = text
 
 	-- Default values for the progressbar
 	local min_value = 0
@@ -3738,19 +3741,14 @@ do
 
 	progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
 
-	progress_bar:SetBackdrop({
-					 bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
-					 tile = true,
-					 tileSize = 16,
-				 })
 	MainPanel.progress_bar = progress_bar
 end	-- do
 
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.close_button = GenericCreateButton(nil, MainPanel, 19, 111, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
-MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, -1)
+MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, 1)
 
 MainPanel.close_button:SetScript("OnClick",
 				 function(self, button, down)
