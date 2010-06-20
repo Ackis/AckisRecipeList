@@ -1920,7 +1920,7 @@ do
 
 			-- Hide the category buttons
 			for category in pairs(MainPanel.filter_menu) do
-				if category ~= 0 and category ~= "texture" then
+				if VALID_CATEGORY[category] then
 					MainPanel["menu_toggle_" .. category]:Hide()
 				end
 			end
