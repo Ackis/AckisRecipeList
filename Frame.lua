@@ -3057,9 +3057,9 @@ do
 					 tileSize = 16,
 				 })
 
-	progress_bar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+	progress_bar:SetStatusBarTexture([[Interface\CharacterFrame\BarFill]])
 	progress_bar:SetOrientation("HORIZONTAL")
-	progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+	progress_bar:SetStatusBarColor(0.47, 0.90, 1.0)
 
 	local border = progress_bar:CreateTexture(nil, "OVERLAY")
 	border:SetWidth(288)
