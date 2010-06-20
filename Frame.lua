@@ -3260,6 +3260,12 @@ function GenerateClickableTT(anchor)
 	tip:Show()
 end
 
+local EXPANSION_FRAMES = {
+	["expansion0"]	= true,
+	["expansion1"]	= true,
+	["expansion2"]	= true,
+}
+
 -------------------------------------------------------------------------------
 -- Initializes runtime elements of MainPanel.
 -------------------------------------------------------------------------------
@@ -3270,13 +3276,13 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	local isAlliance = (Player.faction == "Alliance")
 
-	local HonorHold_Thrallmar_FactionText = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
-	local Kurenai_Maghar_FactionText = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
-	local Vanguard_Expedition_FactionText = isAlliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]
-	local SilverCov_Sunreaver_FactionText = isAlliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]
-	local Valiance_Warsong_FactionText = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
-	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
-	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
+	local HonorHold_Thrallmar_Text = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
+	local Kurenai_Maghar_Text = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
+	local Vanguard_Expedition_Text = isAlliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]
+	local SilverCov_Sunreaver_Text = isAlliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]
+	local Valiance_Warsong_Text = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
+	local Frostborn_Taunka_Text = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
+	local Explorer_Hand_Text = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 
 	-------------------------------------------------------------------------------
 	-- Create the seven buttons for opening/closing the filter menus
@@ -3296,15 +3302,14 @@ local function InitializeFrame()
 		-- This manages the filter menu panel, as well as checking or unchecking the
 		-- buttons that got us here in the first place
 		local function ToggleFilterMenu(panel)
+			local rep_menu = MainPanel.filter_menu.rep
 			local ChangeFilters = false
 
-			MainPanel.filter_menu.rep.Classic:Hide()
-			MainPanel.filter_menu.rep.BC:Hide()
-			MainPanel.filter_menu.rep.LK:Hide()
-
-			MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-			MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-			MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
+			-- Make sure the expansion frames and toggle buttons are hidden/unchecked.
+			for expansion in pairs(EXPANSION_FRAMES) do
+				rep_menu[expansion]:Hide()
+				rep_menu["toggle_" .. expansion]:SetChecked(false)
+			end
 
 			local toggle = "menu_toggle_" .. panel
 
@@ -3538,9 +3543,9 @@ local function InitializeFrame()
 			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 4, col = 2 },
 			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 1 },
 			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 5, col = 2 },
-			["originalwow"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 7, col = 1 },
-			["bc"]		= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 8, col = 1 },
-			["wrath"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 9, col = 1 },
+			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 7, col = 1 },
+			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 8, col = 1 },
+			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 9, col = 1 },
 		}
 		GenerateCheckBoxes(obtain_frame, obtain_buttons)
 		obtain_buttons = nil
@@ -3706,20 +3711,47 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	do
 		local rep_frame = MainPanel.filter_menu:CreateSubMenu("rep")
-	end
 
-	-------------------------------------------------------------------------------
-	-- Create the expansion toggles for MainPanel.filter_menu.rep
-	-------------------------------------------------------------------------------
-	do
+		local EXPANSION_TOOLTIP = {
+			["expansion0"]	= L["FILTERING_OLDWORLD_DESC"],
+			["expansion1"]	= L["FILTERING_BC_DESC"],
+			["expansion2"]	= L["FILTERING_WOTLK_DESC"],
+		}
 		-------------------------------------------------------------------------------
-		-- Generic function to create expansion buttons in MainPanel.filter_menu.rep
+		-- This manages the WoW expansion reputation filter menu panel
 		-------------------------------------------------------------------------------
-		local function CreateExpansionButton(texture, tooltip_text)
-			local cButton = CreateFrame("CheckButton", nil, MainPanel.filter_menu.rep)
+		local function ToggleExpansionMenu(panel)
+			local toggle = "toggle_" .. panel
+
+			if not rep_frame[toggle]:GetChecked() then
+				rep_frame[toggle]:SetChecked(true)
+				rep_frame[panel]:Show()
+
+				-- Hide all of the other expansion frames, and un-check them as well.
+				for expansion in pairs(EXPANSION_FRAMES) do
+					if expansion ~= panel then
+						local tog = "toggle_" .. expansion
+
+						rep_frame[tog]:SetChecked(false)
+						rep_frame[expansion]:Hide()
+					end
+				end
+			else
+				rep_frame[toggle]:SetChecked(false)
+			end
+		end
+
+		-------------------------------------------------------------------------------
+		-- Generic function to create expansion buttons.
+		-------------------------------------------------------------------------------
+		function rep_frame:CreateExpansionButton(texture, expansion)
+			local cButton = CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(100)
 			cButton:SetHeight(46)
 			cButton:SetChecked(false)
+			cButton:SetScript("OnClick", function(self, button, down)
+							     ToggleExpansionMenu(expansion)
+						     end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
 
@@ -3750,380 +3782,224 @@ local function InitializeFrame()
 			cButton:SetCheckedTexture(checkedTexture)
 
 			-- And throw up a tooltip
-			SetTooltipScripts(cButton, tooltip_text)
+			SetTooltipScripts(cButton, EXPANSION_TOOLTIP[expansion])
 
 			return cButton
 		end
 
 		-------------------------------------------------------------------------------
-		-- Rep Filtering panel switcher
+		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
-		local function RepFilterSwitch(whichrep)
-			-- 1	MainPanel.filter_menu.rep.toggle_originalwow		Classic Rep
-			-- 2	MainPanel.filter_menu.rep.toggle_bc			Burning Crusade
-			-- 3	MainPanel.filter_menu.rep.toggle_wrath			Wrath of the Lich King
-			local HidePanel = false
+		local expansion0 = rep_frame:CreateExpansionButton("Glues-WoW-Logo", "expansion0")
+		expansion0:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
 
-			if whichrep == 1 then
-				if MainPanel.filter_menu.rep.toggle_originalwow:GetChecked() then
-					MainPanel.filter_menu.rep.Classic:Show()
-					MainPanel.filter_menu.rep.BC:Hide()
-					MainPanel.filter_menu.rep.LK:Hide()
-					MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-					MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-				else
-					HidePanel = true
-				end
-			elseif whichrep == 2 then
-				if MainPanel.filter_menu.rep.toggle_bc:GetChecked() then
-					MainPanel.filter_menu.rep.Classic:Hide()
-					MainPanel.filter_menu.rep.BC:Show()
-					MainPanel.filter_menu.rep.LK:Hide()
-					MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-					MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-				else
-					HidePanel = true
-				end
-			else -- whichrep == 3 (WotLK)
-				if MainPanel.filter_menu.rep.toggle_wrath:GetChecked() then
-					MainPanel.filter_menu.rep.Classic:Hide()
-					MainPanel.filter_menu.rep.BC:Hide()
-					MainPanel.filter_menu.rep.LK:Show()
-					MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-					MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-				else
-					HidePanel = true
-				end
-			end
+		local expansion1 = rep_frame:CreateExpansionButton("GLUES-WOW-BCLOGO", "expansion1")
+		expansion1:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
 
-			if HidePanel then
-				MainPanel.filter_menu.rep.Classic:Hide()
-				MainPanel.filter_menu.rep.BC:Hide()
-				MainPanel.filter_menu.rep.LK:Hide()
+		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
+		expansion2:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
 
-				MainPanel.filter_menu.rep.toggle_originalwow:SetChecked(false)
-				MainPanel.filter_menu.rep.toggle_bc:SetChecked(false)
-				MainPanel.filter_menu.rep.toggle_wrath:SetChecked(false)
-			end
-		end
-		MainPanel.filter_menu.rep.toggle_originalwow = CreateExpansionButton("Glues-WoW-Logo", L["FILTERING_OLDWORLD_DESC"])
-		MainPanel.filter_menu.rep.toggle_originalwow:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -10)
-		MainPanel.filter_menu.rep.toggle_originalwow:SetScript("OnClick",
-								       function()
-									       RepFilterSwitch(1)
-								       end)
-
-		MainPanel.filter_menu.rep.toggle_bc = CreateExpansionButton("GLUES-WOW-BCLOGO", L["FILTERING_BC_DESC"])
-		MainPanel.filter_menu.rep.toggle_bc:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -60)
-		MainPanel.filter_menu.rep.toggle_bc:SetScript("OnClick",
-							      function()
-								      RepFilterSwitch(2)
-							      end)
-
-		MainPanel.filter_menu.rep.toggle_wrath = CreateExpansionButton("Glues-WOW-WotlkLogo", L["FILTERING_WOTLK_DESC"])
-		MainPanel.filter_menu.rep.toggle_wrath:SetPoint("TOPLEFT", MainPanel.filter_menu.rep, "TOPLEFT", 0, -110)
-		MainPanel.filter_menu.rep.toggle_wrath:SetScript("OnClick",
-								 function()
-									 RepFilterSwitch(3)
-								 end)
+		rep_frame.toggle_expansion0 = expansion0
+		rep_frame.toggle_expansion1 = expansion1
+		rep_frame.toggle_expansion2 = expansion2
 	end	-- do
 
 	-------------------------------------------------------------------------------
-	-- Create MainPanel.filter_menu.rep.Classic, and set its scripts.
+	-- Used for the tooltip of every reputation checkbox.
 	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.Classic = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.Classic:SetWidth(150)
-	MainPanel.filter_menu.rep.Classic:SetHeight(280)
-	MainPanel.filter_menu.rep.Classic:EnableMouse(true)
-	MainPanel.filter_menu.rep.Classic:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.Classic:SetMovable(false)
-	MainPanel.filter_menu.rep.Classic:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-	MainPanel.filter_menu.rep.Classic:Hide()
+	local function ReputationDesc(text)
+		return string.format(L["SPECIFIC_REP_DESC"], text)
+	end
 
 	-------------------------------------------------------------------------------
-	-- Create MainPanel.filter_menu.rep.BC, and set its scripts.
+	-- Create MainPanel.filter_menu.rep.expansion0, and set its scripts.
 	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.BC = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.BC:SetWidth(150)
-	MainPanel.filter_menu.rep.BC:SetHeight(280)
-	MainPanel.filter_menu.rep.BC:EnableMouse(true)
-	MainPanel.filter_menu.rep.BC:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.BC:SetMovable(false)
-	MainPanel.filter_menu.rep.BC:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-	MainPanel.filter_menu.rep.BC:Hide()
+	do
+		local expansion0_frame = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+		expansion0_frame:SetWidth(150)
+		expansion0_frame:SetHeight(280)
+		expansion0_frame:EnableMouse(true)
+		expansion0_frame:EnableKeyboard(true)
+		expansion0_frame:SetMovable(false)
+		expansion0_frame:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+		expansion0_frame:Hide()
 
-	-------------------------------------------------------------------------------
-	-- Create MainPanel.filter_menu.rep.LK, and set its scripts.
-	-------------------------------------------------------------------------------
-	MainPanel.filter_menu.rep.LK = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
-	MainPanel.filter_menu.rep.LK:SetWidth(150)
-	MainPanel.filter_menu.rep.LK:SetHeight(280)
-	MainPanel.filter_menu.rep.LK:EnableMouse(true)
-	MainPanel.filter_menu.rep.LK:EnableKeyboard(true)
-	MainPanel.filter_menu.rep.LK:SetMovable(false)
-	MainPanel.filter_menu.rep.LK:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
-	MainPanel.filter_menu.rep.LK:Hide()
+		MainPanel.filter_menu.rep.expansion0 = expansion0_frame
 
-	-------------------------------------------------------------------------------
-	-- Classic Reputations
-	-------------------------------------------------------------------------------
-	local ARL_Rep_ClassicButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.Classic, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
-							  _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_ClassicButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.Classic, "TOPLEFT", -2, -4)
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local expansion0_buttons = {
+			["argentdawn"]		= { tt = ReputationDesc(BFAC["Argent Dawn"]),		text = BFAC["Argent Dawn"],		row = 2, col = 1 },
+			["cenarioncircle"]	= { tt = ReputationDesc(BFAC["Cenarion Circle"]),	text = BFAC["Cenarion Circle"],		row = 3, col = 1 },
+			["thoriumbrotherhood"]	= { tt = ReputationDesc(BFAC["Thorium Brotherhood"]),	text = BFAC["Thorium Brotherhood"],	row = 4, col = 1 },
+			["timbermaw"]		= { tt = ReputationDesc(BFAC["Timbermaw Hold"]),	text = BFAC["Timbermaw Hold"],		row = 5, col = 1 },
+			["zandalar"]		= { tt = ReputationDesc(BFAC["Zandalar Tribe"]),	text = BFAC["Zandalar Tribe"],		row = 6, col = 1 },
+		}
+		GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
-	ARL_Rep_ClassicButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_Rep_ClassicButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_Rep_ClassicButton:SetScript("OnClick",
-				   function(self,button)
-					   local filterdb = addon.db.profile.filters.rep
-					   if button == "LeftButton" then
-						   -- Set all Reputations to true
-						   filterdb.argentdawn = true
-						   filterdb.cenarioncircle = true
-						   filterdb.thoriumbrotherhood = true
-						   filterdb.timbermaw = true
-						   filterdb.zandalar = true
-					   elseif button == "RightButton" then
-						   -- Set all Reputations to false
-						   filterdb.argentdawn = false
-						   filterdb.cenarioncircle = false
-						   filterdb.thoriumbrotherhood = false
-						   filterdb.timbermaw = false
-						   filterdb.zandalar = false
-					   end
-					   -- Update the checkboxes with the new value
-					   ARL_RepArgentDawnCB:SetChecked(filterdb.argentdawn)
-					   ARL_RepCenarionCircleCB:SetChecked(filterdb.cenarioncircle)
-					   ARL_RepThoriumCB:SetChecked(filterdb.thoriumbrotherhood)
-					   ARL_RepTimbermawCB:SetChecked(filterdb.timbermaw)
-					   ARL_RepZandalarCB:SetChecked(filterdb.zandalar)
-					   -- Reset our title
-					   MainPanel:UpdateTitle()
-					   -- Use new filters
-					   ListFrame:Update(nil, false)
-				   end)
+		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -4)
 
-	local ARL_RepArgentDawnCB = CreateCheckButton(MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), "argentdawn", 2, 1)
-	ARL_RepArgentDawnCB.text:SetText(BFAC["Argent Dawn"])
+		expansion0_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		expansion0_toggle:SetScript("OnClick",
+					    function(self, button)
+						    local filterdb = addon.db.profile.filters.rep
 
-	local ARL_RepCenarionCircleCB = CreateCheckButton(MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), "cenarioncircle", 3, 1)
-	ARL_RepCenarionCircleCB.text:SetText(BFAC["Cenarion Circle"])
+						    if button == "LeftButton" then
+							    for reputation in pairs(expansion0_buttons) do
+								    filterdb[reputation] = true
+							    end
+						    elseif button == "RightButton" then
+							    for reputation in pairs(expansion0_buttons) do
+								    filterdb[reputation] = false
+							    end
+						    end
 
-	local ARL_RepThoriumCB = CreateCheckButton(MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), "thoriumbrotherhood", 4, 1)
-	ARL_RepThoriumCB.text:SetText(BFAC["Thorium Brotherhood"])
-
-	local ARL_RepTimbermawCB = CreateCheckButton(MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), "timbermaw", 5, 1)
-	ARL_RepTimbermawCB.text:SetText(BFAC["Timbermaw Hold"])
-
-	local ARL_RepZandalarCB = CreateCheckButton(MainPanel.filter_menu.rep.Classic, sformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), "zandalar", 6, 1)
-	ARL_RepZandalarCB.text:SetText(BFAC["Zandalar Tribe"])
+						    for reputation in pairs(expansion0_buttons) do
+							    expansion0_frame[reputation]:SetChecked(filterdb[reputation])
+						    end
+						    MainPanel:UpdateTitle()
+						    ListFrame:Update(nil, false)
+					    end)
+	end	-- do-block
 
 	-------------------------------------------------------------------------------
-	-- The Burning Crusade Reputations
+	-- Create MainPanel.filter_menu.rep.expansion1, and set its scripts.
 	-------------------------------------------------------------------------------
-	local ARL_Rep_BCButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.BC, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
-						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_BCButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.BC, "TOPLEFT", -2, -4)
+	do
+		local expansion1_frame = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+		expansion1_frame:SetWidth(150)
+		expansion1_frame:SetHeight(280)
+		expansion1_frame:EnableMouse(true)
+		expansion1_frame:EnableKeyboard(true)
+		expansion1_frame:SetMovable(false)
+		expansion1_frame:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+		expansion1_frame:Hide()
 
-	ARL_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_Rep_BCButton:SetScript("OnClick",
-				   function(self,button)
-					   local filterdb = addon.db.profile.filters.rep
-					   if button == "LeftButton" then
-						   -- Set all Reputations to true
-						   filterdb.aldor = true
-						   filterdb.ashtonguedeathsworn = true
-						   filterdb.cenarionexpedition = true
-						   filterdb.consortium = true
-						   filterdb.hellfire = true
-						   filterdb.keepersoftime = true
-						   filterdb.nagrand = true
-						   filterdb.lowercity = true
-						   filterdb.scaleofthesands = true
-						   filterdb.scryer = true
-						   filterdb.shatar = true
-						   filterdb.shatteredsun = true
-						   filterdb.sporeggar = true
-						   filterdb.violeteye = true
-					   elseif button == "RightButton" then
-						   -- Set all Reputations to false
-						   filterdb.aldor = false
-						   filterdb.ashtonguedeathsworn = false
-						   filterdb.cenarionexpedition = false
-						   filterdb.consortium = false
-						   filterdb.hellfire = false
-						   filterdb.keepersoftime = false
-						   filterdb.nagrand = false
-						   filterdb.lowercity = false
-						   filterdb.scaleofthesands = false
-						   filterdb.scryer = false
-						   filterdb.shatar = false
-						   filterdb.shatteredsun = false
-						   filterdb.sporeggar = false
-						   filterdb.violeteye = false
-					   end
-					   -- Update the checkboxes with the new value
-					   ARL_RepAldorCB:SetChecked(filterdb.aldor)
-					   ARL_RepAshtongueCB:SetChecked(filterdb.ashtonguedeathsworn)
-					   ARL_RepCenarionExpeditionCB:SetChecked(filterdb.cenarionexpedition)
-					   ARL_RepConsortiumCB:SetChecked(filterdb.consortium)
-					   ARL_RepHonorHoldCB:SetChecked(filterdb.hellfire)
-					   ARL_RepKeepersOfTimeCB:SetChecked(filterdb.keepersoftime)
-					   ARL_RepKurenaiCB:SetChecked(filterdb.nagrand)
-					   ARL_RepLowerCityCB:SetChecked(filterdb.lowercity)
-					   ARL_RepScaleSandsCB:SetChecked(filterdb.scaleofthesands)
-					   ARL_RepScryersCB:SetChecked(filterdb.scryer)
-					   ARL_RepShatarCB:SetChecked(filterdb.shatar)
-					   ARL_RepShatteredSunCB:SetChecked(filterdb.shatteredsun)
-					   ARL_RepSporeggarCB:SetChecked(filterdb.sporeggar)
-					   ARL_RepVioletEyeCB:SetChecked(filterdb.violeteye)
-					   -- Reset our title
-					   MainPanel:UpdateTitle()
-					   -- Use new filters
-					   ListFrame:Update(nil, false)
-				   end)
+		MainPanel.filter_menu.rep.expansion1 = expansion1_frame
 
-	local ARL_RepAldorCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), "aldor", 2, 1)
-	ARL_RepAldorCB.text:SetText(BFAC["The Aldor"])
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local expansion1_buttons = {
+			["aldor"]		= { tt = ReputationDesc(BFAC["The Aldor"]),			text = BFAC["The Aldor"],		row = 2,	col = 1 },
+			["ashtonguedeathsworn"]	= { tt = ReputationDesc(BFAC["Ashtongue Deathsworn"]),		text = BFAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
+			["cenarionexpedition"]	= { tt = ReputationDesc(BFAC["Cenarion Expedition"]),		text = BFAC["Cenarion Expedition"],	row = 4,	col = 1 },
+			["consortium"]		= { tt = ReputationDesc(BFAC["The Consortium"]),		text = BFAC["The Consortium"],		row = 5,	col = 1 },
+			["hellfire"]		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
+			["keepersoftime"]	= { tt = ReputationDesc(BFAC["Keepers of Time"]),		text = BFAC["Keepers of Time"],		row = 7,	col = 1 },
+			["nagrand"]		= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
+			["lowercity"]		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 9,	col = 1 },
+			["scaleofthesands"]	= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 10,	col = 1 },
+			["scryer"]		= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 11,	col = 1 },
+			["shatar"]		= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 12,	col = 1 },
+			["shatteredsun"]	= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
+			["sporeggar"]		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 14,	col = 1 },
+			["violeteye"]		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 15,	col = 1 },
+		}
+		GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
-	local ARL_RepAshtongueCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), "ashtonguedeathsworn", 3, 1)
-	ARL_RepAshtongueCB.text:SetText(BFAC["Ashtongue Deathsworn"])
+		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -4)
 
-	local ARL_RepCenarionExpeditionCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), "cenarionexpedition", 4, 1)
-	ARL_RepCenarionExpeditionCB.text:SetText(BFAC["Cenarion Expedition"])
+		expansion1_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		expansion1_toggle:SetScript("OnClick",
+					    function(self,button)
+						    local filterdb = addon.db.profile.filters.rep
 
-	local ARL_RepConsortiumCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), "consortium", 5, 1)
-	ARL_RepConsortiumCB.text:SetText(BFAC["The Consortium"])
+						    if button == "LeftButton" then
+							    for reputation in pairs(expansion1_buttons) do
+								    filterdb[reputation] = true
+							    end
+						    elseif button == "RightButton" then
+							    for reputation in pairs(expansion1_buttons) do
+								    filterdb[reputation] = false
+							    end
+						    end
 
-	local ARL_RepHonorHoldCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), "hellfire", 6, 1)
-	ARL_RepHonorHoldCB.text:SetText(HonorHold_Thrallmar_FactionText)
-
-	local ARL_RepKeepersOfTimeCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), "keepersoftime", 7, 1)
-	ARL_RepKeepersOfTimeCB.text:SetText(BFAC["Keepers of Time"])
-
-	local ARL_RepKurenaiCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), "nagrand", 8, 1)
-	ARL_RepKurenaiCB.text:SetText(Kurenai_Maghar_FactionText)
-
-	local ARL_RepLowerCityCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), "lowercity", 9, 1)
-	ARL_RepLowerCityCB.text:SetText(BFAC["Lower City"])
-
-	local ARL_RepScaleSandsCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), "scaleofthesands", 10, 1)
-	ARL_RepScaleSandsCB.text:SetText(BFAC["The Scale of the Sands"])
-
-	local ARL_RepScryersCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), "scryer", 11, 1)
-	ARL_RepScryersCB.text:SetText(BFAC["The Scryers"])
-
-	local ARL_RepShatarCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), "shatar", 12, 1)
-	ARL_RepShatarCB.text:SetText(BFAC["The Sha'tar"])
-
-	local ARL_RepShatteredSunCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), "shatteredsun", 13, 1)
-	ARL_RepShatteredSunCB.text:SetText(BFAC["Shattered Sun Offensive"])
-
-	local ARL_RepSporeggarCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), "sporeggar", 14, 1)
-	ARL_RepSporeggarCB.text:SetText(BFAC["Sporeggar"])
-
-	local ARL_RepVioletEyeCB = CreateCheckButton(MainPanel.filter_menu.rep.BC, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), "violeteye", 15, 1)
-	ARL_RepVioletEyeCB.text:SetText(BFAC["The Violet Eye"])
+						    for reputation in pairs(expansion1_buttons) do
+							    expansion1_frame[reputation]:SetChecked(filterdb[reputation])
+						    end
+						    MainPanel:UpdateTitle()
+						    ListFrame:Update(nil, false)
+					    end)
+	end	-- do-block
 
 	-------------------------------------------------------------------------------
-	-- Wrath of the Lich King Reputations
+	-- Create MainPanel.filter_menu.rep.expansion2, and set its scripts.
 	-------------------------------------------------------------------------------
-	local ARL_Rep_LKButton = GenericCreateButton("ARL_Rep_ClassicButton", MainPanel.filter_menu.rep.LK, 15, 120, "GameFontHighlight", "GameFontHighlightSmall",
-						     _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
-	ARL_Rep_LKButton:SetPoint("TOPLEFT", MainPanel.filter_menu.rep.LK, "TOPLEFT", -2, -4)
+	do
+		local expansion2_frame = CreateFrame("Frame", nil, MainPanel.filter_menu.rep)
+		expansion2_frame:SetWidth(150)
+		expansion2_frame:SetHeight(280)
+		expansion2_frame:EnableMouse(true)
+		expansion2_frame:EnableKeyboard(true)
+		expansion2_frame:SetMovable(false)
+		expansion2_frame:SetPoint("TOPRIGHT", MainPanel.filter_menu, "TOPRIGHT", -30, -16)
+		expansion2_frame:Hide()
 
-	ARL_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-	ARL_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	ARL_Rep_LKButton:SetScript("OnClick",
-				   function(self,button)
-					   local filterdb = addon.db.profile.filters.rep
-					   if button == "LeftButton" then
-						   -- Set all Reputations to true
-						   filterdb.argentcrusade = true
-						   filterdb.frenzyheart = true
-						   filterdb.ebonblade = true
-						   filterdb.kirintor = true
-						   filterdb.sonsofhodir = true
-						   filterdb.kaluak = true
-						   filterdb.oracles = true
-						   filterdb.wyrmrest = true
-						   filterdb.ashenverdict = true
-						   filterdb.wrathcommon1 = true
-					   elseif button == "RightButton" then
-						   -- Set all Reputations to false
-						   filterdb.argentcrusade = false
-						   filterdb.frenzyheart = false
-						   filterdb.ebonblade = false
-						   filterdb.kirintor = false
-						   filterdb.sonsofhodir = false
-						   filterdb.kaluak = false
-						   filterdb.oracles = false
-						   filterdb.wyrmrest = false
-						   filterdb.ashenverdict = false
-						   filterdb.wrathcommon1 = false
-					   end
-					   -- Update the checkboxes with the new value
-					   ARL_RepArgentCrusadeCB:SetChecked(filterdb.argentcrusade)
-					   ARL_RepFrenzyheartCB:SetChecked(filterdb.frenzyheart)
-					   ARL_RepEbonBladeCB:SetChecked(filterdb.ebonblade)
-					   ARL_RepKirinTorCB:SetChecked(filterdb.kirintor)
-					   ARL_RepSonsOfHodirCB:SetChecked(filterdb.sonsofhodir)
-					   ARL_RepKaluakCB:SetChecked(filterdb.kaluak)
-					   ARL_RepOraclesCB:SetChecked(filterdb.oracles)
-					   ARL_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
-					   ARL_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
-					   ARL_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
+		MainPanel.filter_menu.rep.expansion2 = expansion2_frame
 
-					   MainPanel:UpdateTitle()
-					   ListFrame:Update(nil, false)
-				   end)
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local function DisabledText(text)
+			return SetTextColor(BASIC_COLORS["grey"], text)
+		end
 
-	local ARL_WrathCommon1CB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), "wrathcommon1", 2, 1)
-	ARL_WrathCommon1CB.text:SetText(Vanguard_Expedition_FactionText)
+		local expansion2_buttons = {
+			["wrathcommon1"]	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
+			["argentcrusade"]	= { tt = ReputationDesc(BFAC["Argent Crusade"]),		text = BFAC["Argent Crusade"],			row = 3,	col = 1 },
+			["wrathcommon5"]	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
+			["frenzyheart"]		= { tt = ReputationDesc(BFAC["Frenzyheart Tribe"]),		text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
+			["kaluak"]		= { tt = ReputationDesc(BFAC["The Kalu'ak"]),			text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
+			["kirintor"]		= { tt = ReputationDesc(BFAC["Kirin Tor"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
+			["ebonblade"]		= { tt = ReputationDesc(BFAC["Knights of the Ebon Blade"]),	text = BFAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
+			["oracles"]		= { tt = ReputationDesc(BFAC["The Oracles"]),			text = BFAC["The Oracles"],			row = 9,	col = 1 },
+			["wrathcommon2"]	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
+			["sonsofhodir"]		= { tt = ReputationDesc(BFAC["The Sons of Hodir"]),		text = BFAC["The Sons of Hodir"],		row = 11,	col = 1 },
+			["wrathcommon4"]	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
+			["wrathcommon3"]	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
+			["wyrmrest"]		= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
+			["ashenverdict"]	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
+		}
+		GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
-	local ARL_RepArgentCrusadeCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), "argentcrusade", 3, 1)
-	ARL_RepArgentCrusadeCB.text:SetText(BFAC["Argent Crusade"])
+		-- Disable these for now, since they have no recipes.
+		expansion2_frame.wrathcommon2:Disable()
+		expansion2_frame.wrathcommon3:Disable()
+		expansion2_frame.wrathcommon4:Disable()
+		expansion2_frame.wrathcommon5:Disable()
 
-	local ARL_WrathCommon5CB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), "wrathcommon5", 4, 1)
-	ARL_WrathCommon5CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Explorer_Hand_FactionText))
-	ARL_WrathCommon5CB:Disable()
+		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -4)
 
-	local ARL_RepFrenzyheartCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), "frenzyheart", 5, 1)
-	ARL_RepFrenzyheartCB.text:SetText(BFAC["Frenzyheart Tribe"])
+		expansion2_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		expansion2_toggle:SetScript("OnClick",
+					   function(self,button)
+						    local filterdb = addon.db.profile.filters.rep
 
-	local ARL_RepKaluakCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), "kaluak", 6, 1)
-	ARL_RepKaluakCB.text:SetText(BFAC["The Kalu'ak"])
+						    if button == "LeftButton" then
+							    for reputation in pairs(expansion2_buttons) do
+								    filterdb[reputation] = true
+							    end
+						    elseif button == "RightButton" then
+							    for reputation in pairs(expansion2_buttons) do
+								    filterdb[reputation] = false
+							    end
+						    end
 
-	local ARL_RepKirinTorCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), "kirintor", 7, 1)
-	ARL_RepKirinTorCB.text:SetText(BFAC["Kirin Tor"])
-
-	local ARL_RepEbonBladeCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), "ebonblade", 8, 1)
-	ARL_RepEbonBladeCB.text:SetText(BFAC["Knights of the Ebon Blade"])
-
-	local ARL_RepOraclesCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), "oracles", 9, 1)
-	ARL_RepOraclesCB.text:SetText(BFAC["The Oracles"])
-
-	local ARL_WrathCommon2CB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], SilverCov_Sunreaver_FactionText), "wrathcommon2", 10, 1)
-	ARL_WrathCommon2CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], SilverCov_Sunreaver_FactionText))
-	ARL_WrathCommon2CB:Disable()
-
-	local ARL_RepSonsOfHodirCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), "sonsofhodir", 11, 1)
-	ARL_RepSonsOfHodirCB.text:SetText(BFAC["The Sons of Hodir"])
-
-	local ARL_WrathCommon4CB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), "wrathcommon4", 12, 1)
-	ARL_WrathCommon4CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Frostborn_Taunka_FactionText))
-	ARL_WrathCommon4CB:Disable()
-
-	local ARL_WrathCommon3CB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), "wrathcommon3", 13, 1)
-	ARL_WrathCommon3CB.text:SetText(SetTextColor(BASIC_COLORS["grey"], Valiance_Warsong_FactionText))
-	ARL_WrathCommon3CB:Disable()
-
-	local ARL_RepWyrmrestCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), "wyrmrest", 14, 1)
-	ARL_RepWyrmrestCB.text:SetText(BFAC["The Wyrmrest Accord"])
-
-	local ARL_RepAshenVerdictCB = CreateCheckButton(MainPanel.filter_menu.rep.LK, sformat(L["SPECIFIC_REP_DESC"], BFAC["The Ashen Verdict"]), "ashenverdict", 15, 1)
-	ARL_RepAshenVerdictCB.text:SetText(BFAC["The Ashen Verdict"])
+						    for reputation in pairs(expansion2_buttons) do
+							    expansion2_frame[reputation]:SetChecked(filterdb[reputation])
+						    end
+						    MainPanel:UpdateTitle()
+						    ListFrame:Update(nil, false)
+					   end)
+	end	-- do-block
 
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
@@ -4186,138 +4062,142 @@ local function InitializeFrame()
 	local filterdb = addon.db.profile.filters
 	local filter_menu = MainPanel.filter_menu
 
+	local expansion0 = filter_menu.rep.expansion0
+	local expansion1 = filter_menu.rep.expansion1
+	local expansion2 = filter_menu.rep.expansion2
+
 	FilterValueMap = {
 		------------------------------------------------------------------------------------------------
 		-- General Options
 		------------------------------------------------------------------------------------------------
-		["specialty"]		= { cb = filter_menu.general.specialty,			svroot = filterdb.general },
-		["skill"]		= { cb = filter_menu.general.skill,			svroot = filterdb.general },
-		["faction"]		= { cb = filter_menu.general.faction,			svroot = filterdb.general },
-		["known"]		= { cb = filter_menu.general.known,			svroot = filterdb.general },
-		["unknown"]		= { cb = filter_menu.general.unknown,			svroot = filterdb.general },
-		["retired"]		= { cb = filter_menu.general.retired,			svroot = filterdb.general },
+		["specialty"]		= { cb = filter_menu.general.specialty,		svroot = filterdb.general },
+		["skill"]		= { cb = filter_menu.general.skill,		svroot = filterdb.general },
+		["faction"]		= { cb = filter_menu.general.faction,		svroot = filterdb.general },
+		["known"]		= { cb = filter_menu.general.known,		svroot = filterdb.general },
+		["unknown"]		= { cb = filter_menu.general.unknown,		svroot = filterdb.general },
+		["retired"]		= { cb = filter_menu.general.retired,		svroot = filterdb.general },
 		------------------------------------------------------------------------------------------------
 		-- Classes
 		------------------------------------------------------------------------------------------------
-		["deathknight"]		= { cb = filter_menu.general.deathknight,		svroot = filterdb.classes },
-		["druid"]		= { cb = filter_menu.general.druid,			svroot = filterdb.classes },
-		["hunter"]		= { cb = filter_menu.general.hunter,			svroot = filterdb.classes },
-		["mage"]		= { cb = filter_menu.general.mage,			svroot = filterdb.classes },
-		["paladin"]		= { cb = filter_menu.general.paladin,			svroot = filterdb.classes },
-		["priest"]		= { cb = filter_menu.general.priest,			svroot = filterdb.classes },
-		["rogue"]		= { cb = filter_menu.general.rogue,			svroot = filterdb.classes },
-		["shaman"]		= { cb = filter_menu.general.shaman,			svroot = filterdb.classes },
-		["warlock"]		= { cb = filter_menu.general.warlock,			svroot = filterdb.classes },
-		["warrior"]		= { cb = filter_menu.general.warrior,			svroot = filterdb.classes },
+		["deathknight"]		= { cb = filter_menu.general.deathknight,	svroot = filterdb.classes },
+		["druid"]		= { cb = filter_menu.general.druid,		svroot = filterdb.classes },
+		["hunter"]		= { cb = filter_menu.general.hunter,		svroot = filterdb.classes },
+		["mage"]		= { cb = filter_menu.general.mage,		svroot = filterdb.classes },
+		["paladin"]		= { cb = filter_menu.general.paladin,		svroot = filterdb.classes },
+		["priest"]		= { cb = filter_menu.general.priest,		svroot = filterdb.classes },
+		["rogue"]		= { cb = filter_menu.general.rogue,		svroot = filterdb.classes },
+		["shaman"]		= { cb = filter_menu.general.shaman,		svroot = filterdb.classes },
+		["warlock"]		= { cb = filter_menu.general.warlock,		svroot = filterdb.classes },
+		["warrior"]		= { cb = filter_menu.general.warrior,		svroot = filterdb.classes },
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
-		["instance"]		= { cb = filter_menu.obtain.instance,			svroot = filterdb.obtain },
-		["raid"]		= { cb = filter_menu.obtain.raid,			svroot = filterdb.obtain },
-		["quest"]		= { cb = filter_menu.obtain.quest,			svroot = filterdb.obtain },
-		["seasonal"]		= { cb = filter_menu.obtain.seasonal,			svroot = filterdb.obtain },
-		["trainer"]		= { cb = filter_menu.obtain.trainer,			svroot = filterdb.obtain },
-		["vendor"]		= { cb = filter_menu.obtain.vendor,			svroot = filterdb.obtain },
-		["pvp"]			= { cb = filter_menu.obtain.pvp,			svroot = filterdb.obtain },
-		["discovery"]		= { cb = filter_menu.obtain.discovery,			svroot = filterdb.obtain },
-		["worlddrop"]		= { cb = filter_menu.obtain.worlddrop,			svroot = filterdb.obtain },
-		["mobdrop"]		= { cb = filter_menu.obtain.mobdrop,			svroot = filterdb.obtain },
-		["originalwow"]		= { cb = filter_menu.obtain.originalwow,		svroot = filterdb.obtain },
-		["bc"]			= { cb = filter_menu.obtain.bc,				svroot = filterdb.obtain },
-		["wrath"]		= { cb = filter_menu.obtain.wrath,			svroot = filterdb.obtain },
+		["instance"]		= { cb = filter_menu.obtain.instance,		svroot = filterdb.obtain },
+		["raid"]		= { cb = filter_menu.obtain.raid,		svroot = filterdb.obtain },
+		["quest"]		= { cb = filter_menu.obtain.quest,		svroot = filterdb.obtain },
+		["seasonal"]		= { cb = filter_menu.obtain.seasonal,		svroot = filterdb.obtain },
+		["trainer"]		= { cb = filter_menu.obtain.trainer,		svroot = filterdb.obtain },
+		["vendor"]		= { cb = filter_menu.obtain.vendor,		svroot = filterdb.obtain },
+		["pvp"]			= { cb = filter_menu.obtain.pvp,		svroot = filterdb.obtain },
+		["discovery"]		= { cb = filter_menu.obtain.discovery,		svroot = filterdb.obtain },
+		["worlddrop"]		= { cb = filter_menu.obtain.worlddrop,		svroot = filterdb.obtain },
+		["mobdrop"]		= { cb = filter_menu.obtain.mobdrop,		svroot = filterdb.obtain },
+		["expansion0"]		= { cb = filter_menu.obtain.expansion0,		svroot = filterdb.obtain },
+		["expansion1"]		= { cb = filter_menu.obtain.expansion1,		svroot = filterdb.obtain },
+		["expansion2"]		= { cb = filter_menu.obtain.expansion2,		svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
-		["itemboe"]		= { cb = filter_menu.binding.itemboe,			svroot = filterdb.binding },
-		["itembop"]		= { cb = filter_menu.binding.itembop,			svroot = filterdb.binding },
-		["recipeboe"]		= { cb = filter_menu.binding.recipeboe,			svroot = filterdb.binding },
-		["recipebop"]		= { cb = filter_menu.binding.recipebop,			svroot = filterdb.binding },
+		["itemboe"]		= { cb = filter_menu.binding.itemboe,		svroot = filterdb.binding },
+		["itembop"]		= { cb = filter_menu.binding.itembop,		svroot = filterdb.binding },
+		["recipeboe"]		= { cb = filter_menu.binding.recipeboe,		svroot = filterdb.binding },
+		["recipebop"]		= { cb = filter_menu.binding.recipebop,		svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
 		-- Armor Options
 		------------------------------------------------------------------------------------------------
-		["cloth"]		= { cb = filter_menu.item.cloth,			svroot = filterdb.item.armor },
-		["leather"]		= { cb = filter_menu.item.leather,			svroot = filterdb.item.armor },
-		["mail"]		= { cb = filter_menu.item.mail,				svroot = filterdb.item.armor },
-		["plate"]		= { cb = filter_menu.item.plate,			svroot = filterdb.item.armor },
-		["cloak"]		= { cb = filter_menu.item.cloak,			svroot = filterdb.item.armor },
-		["necklace"]		= { cb = filter_menu.item.necklace,			svroot = filterdb.item.armor },
-		["ring"]		= { cb = filter_menu.item.ring,				svroot = filterdb.item.armor },
-		["trinket"]		= { cb = filter_menu.item.trinket,			svroot = filterdb.item.armor },
-		["shield"]		= { cb = filter_menu.item.shield,			svroot = filterdb.item.armor },
+		["cloth"]		= { cb = filter_menu.item.cloth,		svroot = filterdb.item.armor },
+		["leather"]		= { cb = filter_menu.item.leather,		svroot = filterdb.item.armor },
+		["mail"]		= { cb = filter_menu.item.mail,			svroot = filterdb.item.armor },
+		["plate"]		= { cb = filter_menu.item.plate,		svroot = filterdb.item.armor },
+		["cloak"]		= { cb = filter_menu.item.cloak,		svroot = filterdb.item.armor },
+		["necklace"]		= { cb = filter_menu.item.necklace,		svroot = filterdb.item.armor },
+		["ring"]		= { cb = filter_menu.item.ring,			svroot = filterdb.item.armor },
+		["trinket"]		= { cb = filter_menu.item.trinket,		svroot = filterdb.item.armor },
+		["shield"]		= { cb = filter_menu.item.shield,		svroot = filterdb.item.armor },
 		------------------------------------------------------------------------------------------------
 		-- Weapon Options
 		------------------------------------------------------------------------------------------------
-		["onehand"]		= { cb = filter_menu.item.onehand,			svroot = filterdb.item.weapon },
-		["twohand"]		= { cb = filter_menu.item.twohand,			svroot = filterdb.item.weapon },
-		["dagger"]		= { cb = filter_menu.item.dagger,			svroot = filterdb.item.weapon },
-		["axe"]			= { cb = filter_menu.item.axe,				svroot = filterdb.item.weapon },
-		["mace"]		= { cb = filter_menu.item.mace,				svroot = filterdb.item.weapon },
-		["sword"]		= { cb = filter_menu.item.sword,			svroot = filterdb.item.weapon },
-		["polearm"]		= { cb = filter_menu.item.polearm,			svroot = filterdb.item.weapon },
-		["fist"]		= { cb = filter_menu.item.fist,				svroot = filterdb.item.weapon },
-		["staff"]		= { cb = filter_menu.item.staff,			svroot = nil },
-		["wand"]		= { cb = filter_menu.item.wand,				svroot = filterdb.item.weapon },
-		["thrown"]		= { cb = filter_menu.item.thrown,			svroot = filterdb.item.weapon },
-		["bow"]			= { cb = filter_menu.item.bow,				svroot = nil },
-		["crossbow"]		= { cb = filter_menu.item.crossbow,			svroot = nil },
-		["ammo"]		= { cb = filter_menu.item.ammo,				svroot = filterdb.item.weapon },
-		["gun"]			= { cb = filter_menu.item.gun,				svroot = filterdb.item.weapon },
+		["onehand"]		= { cb = filter_menu.item.onehand,		svroot = filterdb.item.weapon },
+		["twohand"]		= { cb = filter_menu.item.twohand,		svroot = filterdb.item.weapon },
+		["dagger"]		= { cb = filter_menu.item.dagger,		svroot = filterdb.item.weapon },
+		["axe"]			= { cb = filter_menu.item.axe,			svroot = filterdb.item.weapon },
+		["mace"]		= { cb = filter_menu.item.mace,			svroot = filterdb.item.weapon },
+		["sword"]		= { cb = filter_menu.item.sword,		svroot = filterdb.item.weapon },
+		["polearm"]		= { cb = filter_menu.item.polearm,		svroot = filterdb.item.weapon },
+		["fist"]		= { cb = filter_menu.item.fist,			svroot = filterdb.item.weapon },
+		["staff"]		= { cb = filter_menu.item.staff,		svroot = nil },
+		["wand"]		= { cb = filter_menu.item.wand,			svroot = filterdb.item.weapon },
+		["thrown"]		= { cb = filter_menu.item.thrown,		svroot = filterdb.item.weapon },
+		["bow"]			= { cb = filter_menu.item.bow,			svroot = nil },
+		["crossbow"]		= { cb = filter_menu.item.crossbow,		svroot = nil },
+		["ammo"]		= { cb = filter_menu.item.ammo,			svroot = filterdb.item.weapon },
+		["gun"]			= { cb = filter_menu.item.gun,			svroot = filterdb.item.weapon },
 		------------------------------------------------------------------------------------------------
 		-- Quality Options
 		------------------------------------------------------------------------------------------------
-		["common"]		= { cb = filter_menu.quality.common,			svroot = filterdb.quality },
-		["uncommon"]		= { cb = filter_menu.quality.uncommon,			svroot = filterdb.quality },
-		["rare"]		= { cb = filter_menu.quality.rare,			svroot = filterdb.quality },
-		["epic"]		= { cb = filter_menu.quality.epic,			svroot = filterdb.quality },
+		["common"]		= { cb = filter_menu.quality.common,		svroot = filterdb.quality },
+		["uncommon"]		= { cb = filter_menu.quality.uncommon,		svroot = filterdb.quality },
+		["rare"]		= { cb = filter_menu.quality.rare,		svroot = filterdb.quality },
+		["epic"]		= { cb = filter_menu.quality.epic,		svroot = filterdb.quality },
 		------------------------------------------------------------------------------------------------
 		-- Role Options
 		------------------------------------------------------------------------------------------------
-		["tank"]		= { cb = filter_menu.player.tank,			svroot = filterdb.player },
-		["melee"]		= { cb = filter_menu.player.melee,			svroot = filterdb.player },
-		["healer"]		= { cb = filter_menu.player.healer,			svroot = filterdb.player },
-		["caster"]		= { cb = filter_menu.player.caster,			svroot = filterdb.player },
+		["tank"]		= { cb = filter_menu.player.tank,		svroot = filterdb.player },
+		["melee"]		= { cb = filter_menu.player.melee,		svroot = filterdb.player },
+		["healer"]		= { cb = filter_menu.player.healer,		svroot = filterdb.player },
+		["caster"]		= { cb = filter_menu.player.caster,		svroot = filterdb.player },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
-		["argentdawn"]		= { cb = ARL_RepArgentDawnCB,		svroot = filterdb.rep },
-		["cenarioncircle"]	= { cb = ARL_RepCenarionCircleCB,	svroot = filterdb.rep },
-		["thoriumbrotherhood"]	= { cb = ARL_RepThoriumCB,		svroot = filterdb.rep },
-		["timbermaw"]		= { cb = ARL_RepTimbermawCB,		svroot = filterdb.rep },
-		["zandalar"]		= { cb = ARL_RepZandalarCB,		svroot = filterdb.rep },
+		["argentdawn"]		= { cb = expansion0.argentdawn,			svroot = filterdb.rep },
+		["cenarioncircle"]	= { cb = expansion0.cenarioncircle,		svroot = filterdb.rep },
+		["thoriumbrotherhood"]	= { cb = expansion0.thoriumbrotherhood,		svroot = filterdb.rep },
+		["timbermaw"]		= { cb = expansion0.timbermaw,			svroot = filterdb.rep },
+		["zandalar"]		= { cb = expansion0.zandalar,			svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
-		-- BC Rep Options
+		-- The Burning Crusade Rep Options
 		------------------------------------------------------------------------------------------------
-		["aldor"]		= { cb = ARL_RepAldorCB,		svroot = filterdb.rep },
-		["ashtonguedeathsworn"]	= { cb = ARL_RepAshtongueCB,		svroot = filterdb.rep },
-		["cenarionexpedition"]	= { cb = ARL_RepCenarionExpeditionCB,	svroot = filterdb.rep },
-		["consortium"]		= { cb = ARL_RepConsortiumCB,		svroot = filterdb.rep },
-		["hellfire"]		= { cb = ARL_RepHonorHoldCB,		svroot = filterdb.rep },
-		["keepersoftime"]	= { cb = ARL_RepKeepersOfTimeCB,	svroot = filterdb.rep },
-		["nagrand"]		= { cb = ARL_RepKurenaiCB,		svroot = filterdb.rep },
-		["lowercity"]		= { cb = ARL_RepLowerCityCB,		svroot = filterdb.rep },
-		["scaleofthesands"]	= { cb = ARL_RepScaleSandsCB,		svroot = filterdb.rep },
-		["scryer"]		= { cb = ARL_RepScryersCB,		svroot = filterdb.rep },
-		["shatar"]		= { cb = ARL_RepShatarCB,		svroot = filterdb.rep },
-		["shatteredsun"]	= { cb = ARL_RepShatteredSunCB,		svroot = filterdb.rep },
-		["sporeggar"]		= { cb = ARL_RepSporeggarCB,		svroot = filterdb.rep },
-		["violeteye"]		= { cb = ARL_RepVioletEyeCB,		svroot = filterdb.rep },
+		["aldor"]		= { cb = expansion1.aldor,			svroot = filterdb.rep },
+		["ashtonguedeathsworn"]	= { cb = expansion1.ashtonguedeathsworn,	svroot = filterdb.rep },
+		["cenarionexpedition"]	= { cb = expansion1.cenarionexpedition,		svroot = filterdb.rep },
+		["consortium"]		= { cb = expansion1.consortium,			svroot = filterdb.rep },
+		["hellfire"]		= { cb = expansion1.hellfire,			svroot = filterdb.rep },
+		["keepersoftime"]	= { cb = expansion1.keepersoftime,		svroot = filterdb.rep },
+		["nagrand"]		= { cb = expansion1.nagrand,			svroot = filterdb.rep },
+		["lowercity"]		= { cb = expansion1.lowercity,			svroot = filterdb.rep },
+		["scaleofthesands"]	= { cb = expansion1.scaleofthesands,		svroot = filterdb.rep },
+		["scryer"]		= { cb = expansion1.scryer,			svroot = filterdb.rep },
+		["shatar"]		= { cb = expansion1.shatar,			svroot = filterdb.rep },
+		["shatteredsun"]	= { cb = expansion1.shatteredsun,		svroot = filterdb.rep },
+		["sporeggar"]		= { cb = expansion1.sporeggar,			svroot = filterdb.rep },
+		["violeteye"]		= { cb = expansion1.violeteye,			svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
-		-- LK Rep Options
+		-- Wrath of The Lich King Rep Options
 		------------------------------------------------------------------------------------------------
-		["argentcrusade"]	= { cb = ARL_RepArgentCrusadeCB,	svroot = filterdb.rep },
-		["frenzyheart"]		= { cb = ARL_RepFrenzyheartCB,		svroot = filterdb.rep },
-		["ebonblade"]		= { cb = ARL_RepEbonBladeCB,		svroot = filterdb.rep },
-		["kirintor"]		= { cb = ARL_RepKirinTorCB,		svroot = filterdb.rep },
-		["sonsofhodir"]		= { cb = ARL_RepSonsOfHodirCB,		svroot = filterdb.rep },
-		["kaluak"]		= { cb = ARL_RepKaluakCB,		svroot = filterdb.rep },
-		["oracles"]		= { cb = ARL_RepOraclesCB,		svroot = filterdb.rep },
-		["wyrmrest"]		= { cb = ARL_RepWyrmrestCB,		svroot = filterdb.rep },
-		["ashenverdict"]	= { cb = ARL_RepAshenVerdictCB,		svroot = filterdb.rep },
-		["wrathcommon1"]	= { cb = ARL_WrathCommon1CB,		svroot = filterdb.rep },
-		["wrathcommon2"]	= { cb = ARL_WrathCommon2CB,		svroot = nil },
-		["wrathcommon3"]	= { cb = ARL_WrathCommon3CB,		svroot = nil },
-		["wrathcommon4"]	= { cb = ARL_WrathCommon4CB,		svroot = nil },
-		["wrathcommon5"]	= { cb = ARL_WrathCommon5CB,		svroot = nil },
+		["argentcrusade"]	= { cb = expansion2.argentcrusade,		svroot = filterdb.rep },
+		["frenzyheart"]		= { cb = expansion2.frenzyheart,		svroot = filterdb.rep },
+		["ebonblade"]		= { cb = expansion2.ebonblade,			svroot = filterdb.rep },
+		["kirintor"]		= { cb = expansion2.kirintor,			svroot = filterdb.rep },
+		["sonsofhodir"]		= { cb = expansion2.sonsofhodir,		svroot = filterdb.rep },
+		["kaluak"]		= { cb = expansion2.kaluak,			svroot = filterdb.rep },
+		["oracles"]		= { cb = expansion2.oracles,			svroot = filterdb.rep },
+		["wyrmrest"]		= { cb = expansion2.wyrmrest,			svroot = filterdb.rep },
+		["ashenverdict"]	= { cb = expansion2.ashenverdict,		svroot = filterdb.rep },
+		["wrathcommon1"]	= { cb = expansion2.wrathcommon1,		svroot = filterdb.rep },
+		["wrathcommon2"]	= { cb = expansion2.wrathcommon2,		svroot = nil },
+		["wrathcommon3"]	= { cb = expansion2.wrathcommon3,		svroot = nil },
+		["wrathcommon4"]	= { cb = expansion2.wrathcommon4,		svroot = nil },
+		["wrathcommon5"]	= { cb = expansion2.wrathcommon5,		svroot = nil },
 	}
 end
 
