@@ -3057,9 +3057,9 @@ do
 					 tileSize = 16,
 				 })
 
-	progress_bar:SetStatusBarTexture([[Interface\CharacterFrame\BarFill]])
+	progress_bar:SetStatusBarTexture([[Interface\TARGETINGFRAME\UI-StatusBar]])
 	progress_bar:SetOrientation("HORIZONTAL")
-	progress_bar:SetStatusBarColor(0.47, 0.90, 1.0)
+	progress_bar:SetStatusBarColor(0.37, 0.45, 1.0)
 
 	local border = progress_bar:CreateTexture(nil, "OVERLAY")
 	border:SetWidth(288)
