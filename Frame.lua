@@ -3742,9 +3742,14 @@ local function InitializeFrame()
 		-------------------------------------------------------------------------------
 		local function ToggleExpansionMenu(panel)
 			local toggle = "toggle_" .. panel
+			local button = rep_frame[toggle]
 
-			if not rep_frame[toggle]:GetChecked() then
-				rep_frame[toggle]:SetChecked(true)
+			button:SetChecked(not button:GetChecked())
+
+			if not button:GetChecked() then
+				addon:Debug("Not checked")
+
+				button:SetChecked(true)
 				rep_frame[panel]:Show()
 
 				-- Hide all of the other expansion frames, and un-check them as well.
@@ -3757,7 +3762,8 @@ local function InitializeFrame()
 					end
 				end
 			else
-				rep_frame[toggle]:SetChecked(false)
+				rep_frame[panel]:Hide()
+				button:SetChecked(false)
 			end
 		end
 
