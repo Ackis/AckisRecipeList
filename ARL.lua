@@ -273,9 +273,9 @@ function addon:OnInitialize()
 					discovery = true,
 					worlddrop = true,
 					mobdrop = true,
-					originalwow = true,
-					bc = true,
-					wrath = true,
+					expansion0 = true,
+					expansion1 = true,
+					expansion2 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Item Filters (Armor/Weapon)
@@ -1396,15 +1396,15 @@ do
 		local V = private.game_versions
 
 		-- Filter out game recipes
-		if not obtain_filters.originalwow and game_version == V.ORIG then
+		if not obtain_filters.expansion0 and game_version == V.ORIG then
 			return false
 		end
 
-		if not obtain_filters.bc and game_version == V.TBC then
+		if not obtain_filters.expansion1 and game_version == V.TBC then
 			return false
 		end
 
-		if not obtain_filters.wrath and game_version == V.WOTLK then
+		if not obtain_filters.expansion2 and game_version == V.WOTLK then
 			return false
 		end
 		local quality_filters = filter_db.quality
