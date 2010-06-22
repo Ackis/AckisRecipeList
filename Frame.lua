@@ -1622,7 +1622,7 @@ function SearchBox:Reset()
 
 	self:SetText(_G.SEARCH)
 	self:ClearFocus()
-	ListFrame:Update(false, false)
+	ListFrame:Update(nil, false)
 end
 
 -- If there is text in the search box, return the recipe's RELEVANT state.
@@ -1654,7 +1654,7 @@ SearchBox:SetScript("OnEnterPressed",
 			    self:HighlightText()
 			    self:AddHistoryLine(searchtext)
 			    SearchRecipes(searchtext)
-			    ListFrame:Update(false, false)
+			    ListFrame:Update(nil, false)
 		    end)
 
 SearchBox:SetScript("OnEditFocusGained",
@@ -1700,7 +1700,7 @@ do
 					  last_update = 0
 
 					  SearchRecipes(SearchBox:GetText())
-					  ListFrame:Update(false, false)
+					  ListFrame:Update(nil, false)
 					  self:Hide()
 				  end
 			  end)
