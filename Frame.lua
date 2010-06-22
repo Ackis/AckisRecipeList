@@ -381,16 +381,10 @@ end	-- do
 -- Sort functions
 -------------------------------------------------------------------------------
 local SortRecipeList
-local SortLocationList
-local SortAcquireList
 do
 	local recipe_list = private.recipe_list
-	local location_list = private.location_list
-	local acquire_list = private.acquire_list
 
 	addon.sorted_recipes = {}
-	addon.sorted_locations = {}
-	addon.sorted_acquires = {}
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -441,43 +435,6 @@ do
 		end
 		table.sort(sorted_recipes, sort_func)
 	end
-
-	local function Sort_Location(a, b)
-		local loc_a = location_list[a]
-		local loc_b = location_list[b]
-
-		return loc_a.name < loc_b.name
-	end
-
-	-- Sorts the location_list by name.
-	function SortLocationList()
-		local sorted_locations = addon.sorted_locations
-		twipe(sorted_locations)
-
-		for loc_name in pairs(private.location_list) do
-			table.insert(sorted_locations, loc_name)
-		end
-		table.sort(sorted_locations, Sort_Location)
-	end
-
-	local function Sort_Acquisition(a, b)
-		local acquire_a = acquire_list[a]
-		local acquire_b = acquire_list[b]
-
-		return acquire_a.name < acquire_b.name
-	end
-
-	-- Sorts the acquire_list by name.
-	function SortAcquireList()
-		local sorted_acquires = addon.sorted_acquires
-		twipe(sorted_acquires)
-
-		for acquire_name in pairs(private.acquire_list) do
-			table.insert(sorted_acquires, acquire_name)
-		end
-		table.sort(sorted_acquires, Sort_Acquisition)
-	end
-
 end	-- do
 
 -------------------------------------------------------------------------------
@@ -1140,8 +1097,14 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
+	-------------------------------------------------------------------------------
+	-- Variables used to hold tables for sorting the various tabs:
+	-- The tables are only sorted once, upon creation.
+	-------------------------------------------------------------------------------
+	local sorted_acquires
+	local sorted_locations
+
 	function AcquisitionTab:Initialize(expand_mode)
-		local sorted_acquires = addon.sorted_acquires
 		local current_prof = Player.current_prof
 		local search_box = MainPanel.search_editbox
 
@@ -1149,7 +1112,23 @@ do
 		local insert_index = 1
 
 		twipe(recipe_registry)
-		SortAcquireList()
+
+		if not sorted_acquires then
+			-- Sorting function: Only used once and then thrown away.
+			local function Sort_Acquisition(a, b)
+				local acquire_list = private.acquire_list
+				local acquire_a = acquire_list[a]
+				local acquire_b = acquire_list[b]
+
+				return acquire_a.name < acquire_b.name
+			end
+			sorted_acquires = {}
+
+			for acquire_name in pairs(private.acquire_list) do
+				table.insert(sorted_acquires, acquire_name)
+			end
+			table.sort(sorted_acquires, Sort_Acquisition)
+		end
 
 		for index = 1, #sorted_acquires do
 			local acquire_type = sorted_acquires[index]
@@ -1185,7 +1164,6 @@ do
 	end
 
 	function LocationTab:Initialize(expand_mode)
-		local sorted_locations = addon.sorted_locations
 		local current_prof = Player.current_prof
 		local search_box = MainPanel.search_editbox
 
@@ -1193,7 +1171,23 @@ do
 		local insert_index = 1
 
 		twipe(recipe_registry)
-		SortLocationList()
+
+		if not sorted_locations then
+			-- Sorting function: Only used once and then thrown away.
+			local function Sort_Location(a, b)
+				local location_list = private.location_list
+				local loc_a = location_list[a]
+				local loc_b = location_list[b]
+
+				return loc_a.name < loc_b.name
+			end
+			sorted_locations = {}
+
+			for loc_name in pairs(private.location_list) do
+				table.insert(sorted_locations, loc_name)
+			end
+			table.sort(sorted_locations, Sort_Location)
+		end
 
 		for index = 1, #sorted_locations do
 			local loc_name = sorted_locations[index]
