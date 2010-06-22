@@ -1083,6 +1083,8 @@ do
 		tab:ToBack()
 
 		tab:SetScript("OnClick", Tab_OnClick)
+
+		tab.expanded = {}
 		return tab
 	end
 	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
@@ -1141,6 +1143,8 @@ do
 						recipe_registry[recipe] = true
 						recipe_count = recipe_count + 1
 					end
+				else
+					self.expanded[spell_id] = nil
 				end
 			end
 
@@ -1149,11 +1153,14 @@ do
 
 				local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
 				local color_code = private.category_colors[acquire_str] or "ffffff"
+				local is_expanded = self.expanded[private.acquire_names[acquire_type]]
 
 				t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
 				t.acquire_id = acquire_type
 
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+			else
+				self.expanded[private.acquire_names[acquire_type]] = nil
 			end
 		end
 		return recipe_count
@@ -1200,16 +1207,22 @@ do
 						recipe_registry[recipe] = true
 						recipe_count = recipe_count + 1
 					end
+				else
+					self.expanded[spell_id] = nil
 				end
 			end
 
 			if count > 0 then
 				local t = AcquireTable()
 
+				local is_expanded = self.expanded[loc_name]
+
 				t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
 				t.location_id = loc_name
 
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+			else
+				self.expanded[loc_name] = nil
 			end
 		end
 		return recipe_count
@@ -1232,12 +1245,16 @@ do
 			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 				local t = AcquireTable()
 
+				local is_expanded = self.expanded[recipe_index]
+
 				t.text = FormatRecipeText(recipe)
 				t.recipe_id = recipe_index
 
 				recipe_count = recipe_count + 1
 
-				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", expand_mode, expand_mode)
+				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+			else
+				self.expanded[recipe_index] = nil
 			end
 		end
 		return recipe_count
@@ -1249,6 +1266,23 @@ do
 		RecipesTab,
 	}
 end	-- do-block
+
+-- Expands or collapses an entry in the current active tab.
+local function Tab_ModifyEntry(entry, expanded)
+	local current_tab = MainPanel.tabs[MainPanel.current_tab]
+
+	if entry.acquire_id then
+		current_tab.expanded[private.acquire_names[entry.acquire_id]] = expanded or nil
+	end
+
+	if entry.location_id then
+		current_tab.expanded[entry.location_id] = expanded or nil
+	end
+
+	if entry.recipe_id then
+		current_tab.expanded[entry.recipe_id] = expanded or nil
+	end
+end
 
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
@@ -2280,6 +2314,7 @@ do
 					if entry.type == "header" then
 						break
 					end
+					Tab_ModifyEntry(entry, false)
 					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
 					entry = ListFrame.entries[traverseIndex]
 
@@ -2287,6 +2322,7 @@ do
 						break
 					end
 				end
+				Tab_ModifyEntry(clicked_line, false)
 				clicked_line.is_expanded = false
 			else
 				ListFrame:ExpandEntry(clickedIndex)
@@ -2312,6 +2348,7 @@ do
 					return
 				end
 				parent.is_expanded = false
+				Tab_ModifyEntry(parent, false)
 
 				local child_index = parent_index + 1
 
@@ -2382,6 +2419,8 @@ do
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
+			Tab_ModifyEntry(entry, entry_expanded)
+
 			if entry_type == "header" or entry_type == "subheader" then
 				insert_index = self:ExpandEntry(insert_index, expand_mode)
 			else
@@ -2390,6 +2429,7 @@ do
 		else
 			entry.is_expanded = entry_expanded
 			table.insert(self.entries, insert_index, entry)
+
 			insert_index = insert_index + 1
 		end
 		return insert_index
@@ -2891,10 +2931,13 @@ do
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local search_box = MainPanel.search_editbox
+		local current_tab = MainPanel.tabs[MainPanel.current_tab]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
+
+		Tab_ModifyEntry(current_entry, true)
 
 		-- This entry was generated using sorting based on Acquisition.
 		if current_entry.acquire_id then
@@ -2923,7 +2966,7 @@ do
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand, expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or current_tab.expanded[spell_id], expand_all)
 					end
 				end
 			elseif current_entry.type == "subheader" then
@@ -2964,7 +3007,7 @@ do
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand, expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or current_tab.expanded[spell_id], expand_all)
 					end
 				end
 			elseif current_entry.type == "subheader" then
