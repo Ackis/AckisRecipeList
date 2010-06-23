@@ -1822,6 +1822,9 @@ do
 		-------------------------------------------------------------------------------
 		twipe(header_list)
 
+		-- Save the state of the "Have Materials" checkbox.
+		local have_materials = TradeSkillFrameAvailableFilterCheckButton:GetChecked()
+
 		if MRTUIUtils_PushFilterSelection then
 			MRTUIUtils_PushFilterSelection()
 		else
@@ -1890,6 +1893,9 @@ do
 					CollapseTradeSkillSubClass(i)
 				end
 			end
+			-- Restore the state of the "Have Materials" checkbox.
+			TradeSkillFrameAvailableFilterCheckButton:SetChecked(have_materials)
+			TradeSkillOnlyShowMakeable(have_materials)
 		end
 		Player.prev_count = Player.foundRecipes
 		Player.foundRecipes = recipes_found
