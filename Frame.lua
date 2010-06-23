@@ -2976,11 +2976,13 @@ do
 							expand = true
 							type = "entry"
 						end
+						local is_expanded = current_tab.expanded[spell_id] and current_tab.expanded[private.acquire_names[acquire_id]]
+
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or current_tab.expanded[spell_id], expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded, expand_all or is_expanded)
 					end
 				end
 			elseif current_entry.type == "subheader" then
@@ -3017,11 +3019,13 @@ do
 							expand = true
 							type = "entry"
 						end
+						local is_expanded = current_tab.expanded[spell_id] and current_tab.expanded[location_id]
+
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or current_tab.expanded[spell_id], expand_all)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded, expand_all or is_expanded)
 					end
 				end
 			elseif current_entry.type == "subheader" then
