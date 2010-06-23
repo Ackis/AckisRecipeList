@@ -84,6 +84,8 @@ local SpecialtyTable
 -- Set up the private intra-file namespace.
 local private	= select(2, ...)
 
+private.build_num = select(2, GetBuildInfo())
+
 private.custom_list	= {}
 private.mob_list	= {}
 private.quest_list	= {}
