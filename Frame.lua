@@ -1529,7 +1529,7 @@ MainPanel.mode_button:SetScript("OnClick",
 					addon:Scan()
 
 					if not is_shown then
-						trade_frame:Hide()
+						CloseTradeSkill()
 					end
 				end)
 
