@@ -1,6 +1,34 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Version 2.0 Release Candidate 1
+
+==== Changes to the recipe list panel:
+* Completely revamped the GUI: The main panel is wider, allowing more text to fit in the list without being truncated. 
+* The currently-selected filter category will now persist between expanding or collapsing the panel.
+* Removed the word "Miscellaneous" and the "Display Exclusions" checkbox from the Miscellaneous filter menu.
+* The lists for each tab will now retain the state of their entries - if a recipe is expanded in a tab it will remain so even if another tab is selected, the sorting method is changed, or the list panel is closed.
+
+==== Miscellaneous changes:
+* Many recipes have had their quality levels corrected.
+* The daily cooking quests in Dalaran have been linked to three cooking recipes.
+* Many tooltip phrases have been refined/corrected.
+* Many quests have been newly linked to recipes.
+* Recipe binding types for some recipes has been corrected.
+* More recipes have had World Drop locations added to them.
+* New slash command argument: "/arl tradelinks" - Prints a list of pre-generated tradeskill links.
+* The reputation levels required for several Thorium Brotherhood recipes have been fixed.
+* A massive code cleanup/simplification was undertaken which resulted in slightly lower memory usage before loading the GUI.
+
+==== Bug Fixes.
+* Fixed issue of highlight texture showing when not appropriate.
+* Determining whether or not a tradeskill frame is open is now accurate.
+* The recipe list will no longer refresh when players near you learn new recipes.
+* Fixed logic when clicking tabs so that the resulting actions will not occur multiple times.
+* The recipe list is only updated when selecting a tab after the first time the list is shown, to avoid updating twice.
+* The sorted lists for locations and acquisition types are now processed once, upon creation, instead of every time the list for those tabs is re-initialized.
+* Save the state of the "Have Materials" checkbox in the default TradeSkill UI before scanning, then restore it when done.
+
 === Version 1.1.0 Beta 2
 
 ==== Changes to the recipe list panel:
