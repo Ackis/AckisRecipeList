@@ -1791,7 +1791,8 @@ ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
 
 ExpandButton:SetScript("OnClick",
 		       function(self, mouse_button, down)
-			       local expanded = self.is_expanded
+			       local current_tab = MainPanel.tabs[MainPanel.current_tab]
+			       local expanded = current_tab.expand_button
 			       local expand_mode
 
 			       if not expanded then
@@ -1800,6 +1801,8 @@ ExpandButton:SetScript("OnClick",
 				       else
 					       expand_mode = "normal"
 				       end
+			       else
+				       table.wipe(current_tab.expanded)
 			       end
 			       -- ListFrame:Update() must be called before the button can be expanded or contracted, since
 			       -- the button is contracted from there.
@@ -1807,14 +1810,14 @@ ExpandButton:SetScript("OnClick",
 			       ListFrame:Update(expand_mode, false)
 
 			       if expanded then
-				       self:Contract()
+				       self:Contract(current_tab)
 			       else
-				       self:Expand()
+				       self:Expand(current_tab)
 			       end
 		       end)
 
-function ExpandButton:Expand()
-	self.is_expanded = true
+function ExpandButton:Expand(current_tab)
+	current_tab.expand_button = true
 
 	self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 	self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -1824,8 +1827,8 @@ function ExpandButton:Expand()
 	SetTooltipScripts(self, L["CONTRACTALL_DESC"])
 end
 
-function ExpandButton:Contract()
-	self.is_expanded = nil
+function ExpandButton:Contract(current_tab)
+	current_tab.expand_button = nil
 
 	self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 	self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
@@ -2455,19 +2458,24 @@ do
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
+		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+		local expanded_button = current_tab.expand_button
+
 		twipe(self.entries)
 
 		addon:UpdateFilters(MainPanel.is_linked)
 
 		Player:MarkExclusions()
 
-		ExpandButton:Contract()
-
+		if expanded_button then
+			ExpandButton:Expand(current_tab)
+		else
+			ExpandButton:Contract(current_tab)
+		end
 		-- The list always starts at the top.
 		ScrollUpButton:Disable()
 		self.scroll_bar:SetValue(0)
 
-		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
 		local recipe_count = current_tab:Initialize(expand_mode)
 
 		local profile = addon.db.profile
