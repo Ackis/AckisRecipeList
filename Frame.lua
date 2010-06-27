@@ -3114,17 +3114,6 @@ do
 	text:SetJustifyV("CENTER")
 
 	progress_bar.text = text
-
-	-- Default values for the progressbar
-	local min_value = 0
-	local max_value = 100
-	local value = 50
-
-	progress_bar:SetMinMaxValues(min_value, max_value)
-	progress_bar:SetValue(value)
-
-	progress_bar.text:SetFormattedText("%d / %d - %1.1f%%", value, max_value, value / max_value * 100)
-
 	MainPanel.progress_bar = progress_bar
 end	-- do
 
