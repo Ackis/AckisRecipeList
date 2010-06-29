@@ -2205,12 +2205,22 @@ do
 
 	ScrollUpButton:SetScript("OnClick",
 				 function(self, button, down)
-					 ScrollBar_Scroll(1)
+					 if _G.IsAltKeyDown() then
+						 local min_val = ScrollBar:GetMinMaxValues()
+						 ScrollBar:SetValue(min_val)
+					 else
+						 ScrollBar_Scroll(1)
+					 end
 				 end)
 
 	ScrollDownButton:SetScript("OnClick",
 				 function(self, button, down)
-					 ScrollBar_Scroll(-1)
+					 if _G.IsAltKeyDown() then
+						 local _, max_val = ScrollBar:GetMinMaxValues()
+						 ScrollBar:SetValue(max_val)
+					 else
+						 ScrollBar_Scroll(-1)
+					 end
 				 end)
 
 	ScrollBar:SetScript("OnMouseWheel",
