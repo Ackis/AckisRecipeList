@@ -2228,6 +2228,9 @@ do
 	ScrollBar:SetScript("OnValueChanged",
 			    function(self, value, ...)
 				    local min_val, max_val = self:GetMinMaxValues()
+				    local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+
+				    current_tab.scroll_value = value
 
 				    if value == min_val then
 					    ScrollUpButton:Disable()
@@ -2477,7 +2480,7 @@ do
 		end
 		-- The list always starts at the top.
 		ScrollUpButton:Disable()
-		self.scroll_bar:SetValue(0)
+		self.scroll_bar:SetValue(current_tab.scroll_value or 0)
 
 		local recipe_count = current_tab:Initialize(expand_mode)
 
