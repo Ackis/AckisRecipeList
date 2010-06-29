@@ -935,12 +935,13 @@ do
 	MainPanel:SetHeight(512)
 	MainPanel:SetFrameStrata("MEDIUM")
 	MainPanel:SetToplevel(true)
-	MainPanel:SetHitRectInsets(0, 35, 0, 55)
+	MainPanel:SetClampedToScreen(true)
+	MainPanel:SetClampRectInsets(0, -35, 0, 53)
 
+	MainPanel:SetHitRectInsets(0, 35, 0, 53)
 	MainPanel:EnableMouse(true)
 	MainPanel:EnableKeyboard(true)
 	MainPanel:SetMovable(true)
-	MainPanel:SetClampedToScreen(true)
 
 	MainPanel.is_expanded = false
 
@@ -1327,7 +1328,8 @@ function MainPanel:ToggleState()
 
 	if self.is_expanded then
 		self:SetWidth(self.normal_width)
-		self:SetHitRectInsets(0, 35, 0, 55)
+		self:SetHitRectInsets(0, 35, 0, 53)
+		self:SetClampRectInsets(0, -35, 0, 53)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
 		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
@@ -1338,7 +1340,8 @@ function MainPanel:ToggleState()
 		self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -30, -8)
 	else
 		self:SetWidth(self.expanded_width)
-		self:SetHitRectInsets(0, 90, 0, 55)
+		self:SetHitRectInsets(0, 90, 0, 53)
+		self:SetClampRectInsets(0, -90, 0, 53)
 
 		self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
 		self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Right")
