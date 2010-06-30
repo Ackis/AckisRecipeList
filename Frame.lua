@@ -1470,12 +1470,21 @@ ProfCycle:SetScript("OnClick",
 			    end
 			    local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
 			    local is_shown = trade_frame:IsVisible()
+			    local sfx
 
+			    PlaySound("igCharacterNPCSelect")
+
+			    -- If not shown, save the current sound effects setting then set it to 0.
+			    if not is_shown then
+				    sfx = tonumber(GetCVar("Sound_EnableSFX"))
+				    SetCVar("Sound_EnableSFX", 0)
+			    end
 			    CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
 			    addon:Scan()
 
 			    if not is_shown then
 				    CloseTradeSkill()
+				    SetCVar("Sound_EnableSFX", sfx)
 			    end
 		    end)
 
