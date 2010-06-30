@@ -2416,14 +2416,40 @@ do
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
-		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-		local expanded_button = current_tab["expand_button_"..MainPanel.profession]
-
 		twipe(self.entries)
 
 		addon:UpdateFilters(MainPanel.is_linked)
 
-		Player:MarkExclusions()
+		-------------------------------------------------------------------------------
+		-- Mark all exclusions in the recipe database to not be displayed, and update
+		-- the player's known and unknown counts.
+		-------------------------------------------------------------------------------
+		local exclusion_list = addon.db.profile.exclusionlist
+		local ignored = not addon.db.profile.ignoreexclusionlist
+		local recipe_list = private.recipe_list
+		local current_prof = ORDERED_PROFESSIONS[MainPanel.profession]
+		local known_count = 0
+		local unknown_count = 0
+
+		for spell_id in pairs(exclusion_list) do
+			local recipe = recipe_list[spell_id]
+
+			if recipe then
+				if recipe:HasState("KNOWN") and recipe.profession == current_prof then
+					known_count = known_count + 1
+				elseif recipe_profession == current_prof then
+					unknown_count = unknown_count + 1
+				end
+			end
+		end
+		Player.excluded_recipes_known = known_count
+		Player.excluded_recipes_unknown = unknown_count
+
+		-------------------------------------------------------------------------------
+		-- Initialize the expand button and entries for the current tab.
+		-------------------------------------------------------------------------------
+		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+		local expanded_button = current_tab["expand_button_"..MainPanel.profession]
 
 		if expanded_button then
 			ExpandButton:Expand(current_tab)
@@ -2432,6 +2458,9 @@ do
 		end
 		local recipe_count = current_tab:Initialize(expand_mode)
 
+		-------------------------------------------------------------------------------
+		-- Update the progress bar display.
+		-------------------------------------------------------------------------------
 		local profile = addon.db.profile
 		local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
 		local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered

@@ -63,32 +63,6 @@ local A_MAX = 9
 -------------------------------------------------------------------------------
 -- Functions
 -------------------------------------------------------------------------------
--- Marks all exclusions in the recipe database to not be displayed, updating the
--- player's known and unknown counts.
-function Player:MarkExclusions()
-	local exclusion_list = addon.db.profile.exclusionlist
-	local ignored = not addon.db.profile.ignoreexclusionlist
-	local recipe_list = private.recipe_list
-	local profession = self.current_prof
-	local known_count = 0
-	local unknown_count = 0
-	local SF = private.recipe_state_flags
-
-	for spell_id in pairs(exclusion_list) do
-		local recipe = recipe_list[spell_id]
-
-		if recipe then
-			if recipe:HasState("KNOWN") and recipe.profession == profession then
-				known_count = known_count + 1
-			elseif recipe_profession == profession then
-				unknown_count = unknown_count + 1
-			end
-		end
-	end
-	self.excluded_recipes_known = known_count
-	self.excluded_recipes_unknown = unknown_count
-end
-
 function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
 		return true
