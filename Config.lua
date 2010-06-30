@@ -25,6 +25,9 @@ local AceConfig 	= LibStub("AceConfig-3.0")
 local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
+-- Set up the private intra-file namespace.
+local private	= select(2, ...)
+
 local modularOptions = {}
 
 local function giveProfiles()
@@ -111,7 +114,7 @@ local function fullOptions()
 							name	= L["Reset All Filters"],
 							desc	= L["RESET_DESC"],
 							func	= function(info)
-									  addon.resetFilters()
+									  private.resetFilters()
 								  end,
 						},
 						spacer1 = {

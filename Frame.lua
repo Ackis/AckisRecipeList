@@ -1959,7 +1959,7 @@ do
 		end
 	end
 
-	function addon.resetFilters()
+	function private.resetFilters()
 		local filterdb = addon.db.profile.filters
 
 		-- Reset all filters to true.
@@ -1983,7 +1983,7 @@ do
 			ListFrame:Update(nil, false)
 		end
 	end
-	MainPanel.filter_reset:SetScript("OnClick", addon.resetFilters)
+	MainPanel.filter_reset:SetScript("OnClick", private.resetFilters)
 end	-- do
 
 -------------------------------------------------------------------------------
