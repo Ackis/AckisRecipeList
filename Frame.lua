@@ -1356,73 +1356,6 @@ function MainPanel:ToggleState()
 	self:UpdateTitle()
 end
 
-do
-	local PROFESSION_TEXTURES = {
-		"alchemy",	-- 1
-		"blacksmith",	-- 2
-		"cooking",	-- 3
-		"enchant",	-- 4
-		"engineer",	-- 5
-		"firstaid",	-- 6
-		"inscribe",	-- 7
-		"jewel",	-- 8
-		"leather",	-- 9
-		"runeforge",	-- 10
-		"smelting",	-- 11
-		"tailor",	-- 12
-	}
-
-	function MainPanel:SetProfession()
-		local prev_profession = self.profession
-
-		if Player.current_prof == private.mining_name then
-			self.profession = 11 -- Smelting
-		else
-			for index, name in ipairs(ORDERED_PROFESSIONS) do
-				if name == Player.current_prof then
-					self.profession = index
-					break
-				end
-			end
-		end
-
-		if self.profession ~= prev_profession then
-			self.prev_profession = self.profession
-		end
-		self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
-	end
-end	-- do-block
-
-function MainPanel:SetPosition()
-	local opts = addon.db.profile.frameopts
-	local FixedOffsetX = opts.offsetx
-
-	self:ClearAllPoints()
-
-	if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
-		if _G.ATSWFrame then
-			self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
-		elseif _G.CauldronFrame then
-			self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
-		elseif _G.Skillet then
-			self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
-		else
-			self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
-		end
-	else
-		if self.is_expanded then
-			if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-				FixedOffsetX = opts.offsetx
-			elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-				FixedOffsetX = opts.offsetx + 151/2
-			elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-				FixedOffsetX = opts.offsetx + 151
-			end
-		end
-		self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
-	end
-end
-
 function MainPanel:UpdateTitle()
 	if not self.is_expanded then
 		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, Player.current_prof)
@@ -4259,42 +4192,108 @@ end
 -------------------------------------------------------------------------------
 -- Displays the main GUI frame.
 -------------------------------------------------------------------------------
-function MainPanel:Display(is_linked)
-	if InitializeFrame then
-		InitializeFrame()
-		InitializeFrame = nil
+do
+	local PROFESSION_TEXTURES = {
+		"alchemy",	-- 1
+		"blacksmith",	-- 2
+		"cooking",	-- 3
+		"enchant",	-- 4
+		"engineer",	-- 5
+		"firstaid",	-- 6
+		"inscribe",	-- 7
+		"jewel",	-- 8
+		"leather",	-- 9
+		"runeforge",	-- 10
+		"smelting",	-- 11
+		"tailor",	-- 12
+	}
+
+	function MainPanel:Display(is_linked)
+		if InitializeFrame then
+			InitializeFrame()
+			InitializeFrame = nil
+		end
+		self.is_linked = is_linked
+
+		-------------------------------------------------------------------------------
+		-- Restore the panel's position on the screen.
+		-------------------------------------------------------------------------------
+		local opts = addon.db.profile.frameopts
+		local FixedOffsetX = opts.offsetx
+
+		self:ClearAllPoints()
+
+		if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
+			if _G.ATSWFrame then
+				self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
+			elseif _G.CauldronFrame then
+				self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
+			elseif _G.Skillet then
+				self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
+			else
+				self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
+			end
+		else
+			if self.is_expanded then
+				if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+					FixedOffsetX = opts.offsetx
+				elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+					FixedOffsetX = opts.offsetx + 151/2
+				elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+					FixedOffsetX = opts.offsetx + 151
+				end
+			end
+			self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+		end
+		self:SetScale(addon.db.profile.frameopts.uiscale)
+
+		-------------------------------------------------------------------------------
+		-- Set the profession.
+		-------------------------------------------------------------------------------
+		local prev_profession = self.profession
+
+		if Player.current_prof == private.mining_name then
+			self.profession = 11 -- Smelting
+		else
+			for index, name in ipairs(ORDERED_PROFESSIONS) do
+				if name == Player.current_prof then
+					self.profession = index
+					break
+				end
+			end
+		end
+
+		if self.profession ~= prev_profession then
+			self.prev_profession = self.profession
+		end
+		self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
+
+		local editbox = SearchBox
+
+		if self.profession ~= self.prev_profession then
+			editbox.prev_search = nil
+		end
+		editbox:SetText(editbox.prev_search or _G.SEARCH)
+
+		-- If there is no current tab, this is the first time the panel has been
+		-- shown so things must be initialized. In this case, ListFrame:Update()
+		-- will be called by the tab's OnClick handler.
+		if not self.current_tab then
+			local current_tab = self.tabs[addon.db.profile.current_tab]
+			local on_click = current_tab:GetScript("OnClick")
+
+			on_click(current_tab)
+
+			self.current_tab = addon.db.profile.current_tab
+		else
+			ListFrame:Update(nil, false)
+		end
+		self.sort_button:SetTextures()
+
+		self:UpdateTitle()
+		self:Show()
 	end
-	self:SetPosition()
-	self:SetProfession()
-	self:SetScale(addon.db.profile.frameopts.uiscale)
-
-	self.is_linked = is_linked
-
-	local editbox = SearchBox
-
-	if self.profession ~= self.prev_profession then
-		editbox.prev_search = nil
-	end
-	editbox:SetText(editbox.prev_search or _G.SEARCH)
-
-	-- If there is no current tab, this is the first time the panel has been
-	-- shown so things must be initialized. In this case, ListFrame:Update()
-	-- will be called by the tab's OnClick handler.
-	if not self.current_tab then
-		local current_tab = self.tabs[addon.db.profile.current_tab]
-		local on_click = current_tab:GetScript("OnClick")
-
-		on_click(current_tab)
-
-		self.current_tab = addon.db.profile.current_tab
-	else
-		ListFrame:Update(nil, false)
-	end
-	self.sort_button:SetTextures()
-
-	self:UpdateTitle()
-	self:Show()
-end
+end	-- do-block
 
 --------------------------------------------------------------------------------
 ---- Creates a new frame with the contents of a text dump so you can copy and paste
