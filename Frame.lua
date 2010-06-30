@@ -1391,7 +1391,7 @@ end
 local ProfCycle = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
 ProfCycle:SetWidth(64)
 ProfCycle:SetHeight(64)
-ProfCycle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -3)
+ProfCycle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -4)
 ProfCycle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 ProfCycle._normal = ProfCycle:CreateTexture(nil, "BACKGROUND")
