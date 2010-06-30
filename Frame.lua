@@ -1104,7 +1104,6 @@ do
 	local sorted_locations
 
 	function AcquisitionTab:Initialize(expand_mode)
-		local current_prof = Player.current_prof
 		local search_box = MainPanel.search_editbox
 
 		local recipe_count = 0
@@ -1168,7 +1167,6 @@ do
 	end
 
 	function LocationTab:Initialize(expand_mode)
-		local current_prof = Player.current_prof
 		local search_box = MainPanel.search_editbox
 
 		local recipe_count = 0
