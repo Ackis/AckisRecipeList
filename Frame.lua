@@ -1386,99 +1386,100 @@ function MainPanel:UpdateTitle()
 end
 
 -------------------------------------------------------------------------------
--- Create the MainPanel.mode_button and assign its values.
+-- Create the profession-cycling button and assign its values.
 -------------------------------------------------------------------------------
-MainPanel.mode_button = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
-MainPanel.mode_button:SetWidth(64)
-MainPanel.mode_button:SetHeight(64)
-MainPanel.mode_button:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -3)
-MainPanel.mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+local ProfCycle = CreateFrame("Button", nil, MainPanel, "UIPanelButtonTemplate")
+ProfCycle:SetWidth(64)
+ProfCycle:SetHeight(64)
+ProfCycle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 5, -3)
+ProfCycle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-MainPanel.mode_button._normal = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
-MainPanel.mode_button._pushed = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
-MainPanel.mode_button._disabled = MainPanel.mode_button:CreateTexture(nil, "BACKGROUND")
+ProfCycle._normal = ProfCycle:CreateTexture(nil, "BACKGROUND")
+ProfCycle._pushed = ProfCycle:CreateTexture(nil, "BACKGROUND")
+ProfCycle._disabled = ProfCycle:CreateTexture(nil, "BACKGROUND")
+
+MainPanel.prof_button = ProfCycle
 
 -------------------------------------------------------------------------------
--- MainPanel.mode_button scripts/functions.
+-- ProfCycle scripts/functions.
 -------------------------------------------------------------------------------
-MainPanel.mode_button:SetScript("OnClick",
-				function(self, button, down)
-					-- Known professions should be in Player.professions
+ProfCycle:SetScript("OnClick",
+		    function(self, button, down)
+			    -- Known professions should be in Player.professions
 
+			    -- This loop is gonna be weird. The reason is because we need to
+			    -- ensure that we cycle through all the known professions, but also
+			    -- that we do so in order. That means that if the currently displayed
+			    -- profession is the last one in the list, we're actually going to
+			    -- iterate completely once to get to the currently displayed profession
+			    -- and then iterate again to make sure we display the next one in line.
+			    -- Further, there is the nuance that the person may not know any
+			    -- professions yet at all. Users are so annoying.
+			    local startLoop = 0
+			    local endLoop = 0
+			    local displayProf = 0
 
-					-- This loop is gonna be weird. The reason is because we need to
-					-- ensure that we cycle through all the known professions, but also
-					-- that we do so in order. That means that if the currently displayed
-					-- profession is the last one in the list, we're actually going to
-					-- iterate completely once to get to the currently displayed profession
-					-- and then iterate again to make sure we display the next one in line.
-					-- Further, there is the nuance that the person may not know any
-					-- professions yet at all. User are so annoying.
-					local startLoop = 0
-					local endLoop = 0
-					local displayProf = 0
+			    local NUM_PROFESSIONS = 12
 
-					local NUM_PROFESSIONS = 12
+			    -- ok, so first off, if we've never done this before, there is no "current"
+			    -- and a single iteration will do nicely, thank you
+			    if button == "LeftButton" then
+				    -- normal profession switch
+				    if MainPanel.profession == 0 then
+					    startLoop = 1
+					    endLoop = NUM_PROFESSIONS + 1
+				    else
+					    startLoop = MainPanel.profession + 1
+					    endLoop = MainPanel.profession
+				    end
+				    local index = startLoop
 
-					-- ok, so first off, if we've never done this before, there is no "current"
-					-- and a single iteration will do nicely, thank you
-					if button == "LeftButton" then
-						-- normal profession switch
-						if MainPanel.profession == 0 then
-							startLoop = 1
-							endLoop = NUM_PROFESSIONS + 1
-						else
-							startLoop = MainPanel.profession + 1
-							endLoop = MainPanel.profession
-						end
-						local index = startLoop
+				    while index ~= endLoop do
+					    if index > NUM_PROFESSIONS then
+						    index = 1
+					    elseif Player.professions[ORDERED_PROFESSIONS[index]] then
+						    displayProf = index
+						    MainPanel.profession = index
+						    break
+					    else
+						    index = index + 1
+					    end
+				    end
+			    elseif button == "RightButton" then
+				    -- reverse profession switch
+				    if MainPanel.profession == 0 then
+					    startLoop = NUM_PROFESSIONS + 1
+					    endLoop = 0
+				    else
+					    startLoop = MainPanel.profession - 1
+					    endLoop = MainPanel.profession
+				    end
+				    local index = startLoop
 
-						while index ~= endLoop do
-							if index > NUM_PROFESSIONS then
-								index = 1
-							elseif Player.professions[ORDERED_PROFESSIONS[index]] then
-								displayProf = index
-								MainPanel.profession = index
-								break
-							else
-								index = index + 1
-							end
-						end
-					elseif button == "RightButton" then
-						-- reverse profession switch
-						if MainPanel.profession == 0 then
-							startLoop = NUM_PROFESSIONS + 1
-							endLoop = 0
-						else
-							startLoop = MainPanel.profession - 1
-							endLoop = MainPanel.profession
-						end
-						local index = startLoop
+				    while index ~= endLoop do
+					    if index < 1 then
+						    index = NUM_PROFESSIONS
+					    elseif Player.professions[ORDERED_PROFESSIONS[index]] then
+						    displayProf = index
+						    MainPanel.profession = index
+						    break
+					    else
+						    index = index - 1
+					    end
+				    end
+			    end
+			    local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
+			    local is_shown = trade_frame:IsVisible()
 
-						while index ~= endLoop do
-							if index < 1 then
-								index = NUM_PROFESSIONS
-							elseif Player.professions[ORDERED_PROFESSIONS[index]] then
-								displayProf = index
-								MainPanel.profession = index
-								break
-							else
-								index = index - 1
-							end
-						end
-					end
-					local trade_frame = _G.GnomeWorksFrame or _G.Skillet or _G.MRTSkillFrame or _G.ATSWFrame or _G.CauldronFrame or _G.TradeSkillFrame
-					local is_shown = trade_frame:IsVisible()
+			    CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
+			    addon:Scan()
 
-					CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
-					addon:Scan()
+			    if not is_shown then
+				    CloseTradeSkill()
+			    end
+		    end)
 
-					if not is_shown then
-						CloseTradeSkill()
-					end
-				end)
-
-function MainPanel.mode_button:ChangeTexture(texture)
+function ProfCycle:ChangeTexture(texture)
 	local normal, pushed, disabled = self._normal, self._pushed, self._disabled
 
 	normal:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. texture .. [[_up]])
@@ -4306,7 +4307,7 @@ do
 		if self.profession ~= prev_profession then
 			self.prev_profession = self.profession
 		end
-		self.mode_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
+		self.prof_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
 
 		local editbox = SearchBox
 
