@@ -71,7 +71,7 @@ local Player	= private.Player
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS = private.ordered_professions
+local ORDERED_PROFESSIONS	= private.ordered_professions
 
 local FILTERMENU_HEIGHT		= 312
 
@@ -199,7 +199,7 @@ do
 		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
 		local recipe_name = recipe_entry.name
 
-		if Player.current_prof == SPELL_ENCHANTING then
+		if ORDERED_PROFESSIONS[addon.Frame.profession] == SPELL_ENCHANTING then
 			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
 		end
 		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
@@ -1366,8 +1366,10 @@ function MainPanel:ToggleState()
 end
 
 function MainPanel:UpdateTitle()
+	local current_prof = ORDERED_PROFESSIONS[self.profession]
+
 	if not self.is_expanded then
-		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, Player.current_prof)
+		self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
 		return
 	end
 	local total, active = 0, 0
@@ -1380,7 +1382,7 @@ function MainPanel:UpdateTitle()
 			total = total + 1
 		end
 	end
-	self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, Player.current_prof, active, total, _G.FILTERS)
+	self.title_bar:SetFormattedText(SetTextColor(BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
 end
 
 -------------------------------------------------------------------------------
@@ -1514,12 +1516,14 @@ do
 		if not pattern then
 			return
 		end
+		local current_prof = ORDERED_PROFESSIONS[MainPanel.profession]
+
 		pattern = pattern:lower()
 
 		for index, entry in pairs(private.recipe_list) do
 			entry:RemoveState("RELEVANT")
 
-			if entry.profession == Player.current_prof then
+			if entry.profession == current_prof then
 				local found = false
 
 				for field in pairs(search_params) do
@@ -4215,7 +4219,7 @@ do
 		"tailor",	-- 12
 	}
 
-	function MainPanel:Display(is_linked)
+	function MainPanel:Display(profession, is_linked)
 		if InitializeFrame then
 			InitializeFrame()
 			InitializeFrame = nil
@@ -4259,11 +4263,11 @@ do
 		-------------------------------------------------------------------------------
 		local prev_profession = self.profession
 
-		if Player.current_prof == private.mining_name then
+		if profession == private.mining_name then
 			self.profession = 11 -- Smelting
 		else
 			for index, name in ipairs(ORDERED_PROFESSIONS) do
-				if name == Player.current_prof then
+				if name == profession then
 					self.profession = index
 					break
 				end

@@ -420,7 +420,7 @@ function addon:OnInitialize()
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
 				      local cprof = GetTradeSkillLine()
-				      local current_prof = Player.current_prof
+				      local current_prof = private.ordered_professions[addon.Frame.profession]
 
 				      if addon.Frame:IsVisible() then
 					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
@@ -1642,7 +1642,7 @@ do
 		local recipes_total_filtered = 0
 		local recipes_known_filtered = 0
 		local can_display = false
-		local current_profession = Player.current_prof
+		local current_profession = private.ordered_professions[self.Frame.profession]
 		local recipe_list = private.recipe_list
 		local SF = private.recipe_state_flags
 
@@ -1783,8 +1783,7 @@ do
 			return
 		end
 
-		-- Set the current profession and its level, and update the cached data.
-		Player.current_prof = current_prof
+		-- Set the current profession level, and update the cached data.
 		Player["ProfessionLevel"] = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
@@ -1796,7 +1795,7 @@ do
 		end
 
 		-- Get the current profession Specialty
-		local specialty = SpecialtyTable[Player.current_prof]
+		local specialty = SpecialtyTable[current_prof]
 
 		for index = 1, 25, 1 do
 			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
@@ -1910,9 +1909,9 @@ do
 		Player:SetReputationLevels()
 
 		if textdump then
-			self:DisplayTextDump(recipe_list, Player.current_prof)
+			self:DisplayTextDump(recipe_list, current_prof)
 		else
-			self.Frame:Display(is_linked)
+			self.Frame:Display(current_prof, is_linked)
 		end
 	end
 end

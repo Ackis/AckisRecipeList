@@ -390,8 +390,8 @@ function addon:SetupMap(single_recipe)
 	local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
 
 	-- Get the proper icon to put on the mini-map
-	--		for i, k in pairs(SORTED_PROFESSIONS) do
-	--			if (k["name"] == Player.current_prof) then
+	--		for i, k in pairs(ORDERED_PROFESSIONS) do
+	--			if (i == MainPanel.profession) then
 	--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
 	--				break
 	--			end
