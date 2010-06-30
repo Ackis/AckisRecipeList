@@ -1085,7 +1085,6 @@ do
 
 		tab:SetScript("OnClick", Tab_OnClick)
 
-		tab.expanded = {}
 		return tab
 	end
 	AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
@@ -1127,6 +1126,9 @@ do
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
+		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+
+		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
 		for index = 1, #sorted_acquires do
 			local acquire_type = sorted_acquires[index]
@@ -1144,7 +1146,7 @@ do
 						recipe_count = recipe_count + 1
 					end
 				else
-					self.expanded[spell_id] = nil
+					self[prof_name.." expanded"][spell_id] = nil
 				end
 			end
 
@@ -1153,14 +1155,14 @@ do
 
 				local acquire_str = string.gsub(private.acquire_strings[acquire_type]:lower(), "_", "")
 				local color_code = private.category_colors[acquire_str] or "ffffff"
-				local is_expanded = self.expanded[private.acquire_names[acquire_type]]
+				local is_expanded = self[prof_name.." expanded"][private.acquire_names[acquire_type]]
 
 				t.text = string.format("%s (%d)", SetTextColor(color_code, private.acquire_names[acquire_type]), count)
 				t.acquire_id = acquire_type
 
 				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self.expanded[private.acquire_names[acquire_type]] = nil
+				self[prof_name.." expanded"][private.acquire_names[acquire_type]] = nil
 			end
 		end
 		return recipe_count
@@ -1190,6 +1192,9 @@ do
 			end
 			table.sort(sorted_locations, Sort_Location)
 		end
+		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+
+		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
 		for index = 1, #sorted_locations do
 			local loc_name = sorted_locations[index]
@@ -1207,21 +1212,21 @@ do
 						recipe_count = recipe_count + 1
 					end
 				else
-					self.expanded[spell_id] = nil
+					self[prof_name.." expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
 				local t = AcquireTable()
 
-				local is_expanded = self.expanded[loc_name]
+				local is_expanded = self[prof_name.." expanded"][loc_name]
 
 				t.text = string.format("%s (%d)", SetTextColor(private.category_colors["location"], loc_name), count)
 				t.location_id = loc_name
 
 				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self.expanded[loc_name] = nil
+				self[prof_name.." expanded"][loc_name] = nil
 			end
 		end
 		return recipe_count
@@ -1234,6 +1239,9 @@ do
 
 		local recipe_count = 0
 		local insert_index = 1
+		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+
+		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
 		SortRecipeList(recipe_list, sorted_recipes)
 
@@ -1244,7 +1252,7 @@ do
 			if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 				local t = AcquireTable()
 
-				local is_expanded = self.expanded[recipe_index]
+				local is_expanded = self[prof_name.." expanded"][recipe_index]
 
 				t.text = FormatRecipeText(recipe)
 				t.recipe_id = recipe_index
@@ -1253,7 +1261,7 @@ do
 
 				insert_index = ListFrame:InsertEntry(t, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self.expanded[recipe_index] = nil
+				self[prof_name.." expanded"][recipe_index] = nil
 			end
 		end
 		return recipe_count
@@ -1269,17 +1277,18 @@ end	-- do-block
 -- Expands or collapses an entry in the current active tab.
 local function Tab_ModifyEntry(entry, expanded)
 	local current_tab = MainPanel.tabs[MainPanel.current_tab]
+	local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
 
 	if entry.acquire_id then
-		current_tab.expanded[private.acquire_names[entry.acquire_id]] = expanded or nil
+		current_tab[prof_name.." expanded"][private.acquire_names[entry.acquire_id]] = expanded or nil
 	end
 
 	if entry.location_id then
-		current_tab.expanded[entry.location_id] = expanded or nil
+		current_tab[prof_name.." expanded"][entry.location_id] = expanded or nil
 	end
 
 	if entry.recipe_id then
-		current_tab.expanded[entry.recipe_id] = expanded or nil
+		current_tab[prof_name.." expanded"][entry.recipe_id] = expanded or nil
 	end
 end
 
@@ -1726,7 +1735,7 @@ ExpandButton.text:SetPoint("LEFT", ExpandButton, "Right", 0, 0)
 ExpandButton:SetScript("OnClick",
 		       function(self, mouse_button, down)
 			       local current_tab = MainPanel.tabs[MainPanel.current_tab]
-			       local expanded = current_tab.expand_button
+			       local expanded = current_tab["expand_button_"..MainPanel.profession]
 			       local expand_mode
 
 			       if not expanded then
@@ -1736,7 +1745,9 @@ ExpandButton:SetScript("OnClick",
 					       expand_mode = "normal"
 				       end
 			       else
-				       table.wipe(current_tab.expanded)
+				       local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
+
+				       table.wipe(current_tab[prof_name.." expanded"])
 			       end
 			       -- ListFrame:Update() must be called before the button can be expanded or contracted, since
 			       -- the button is contracted from there.
@@ -1751,7 +1762,7 @@ ExpandButton:SetScript("OnClick",
 		       end)
 
 function ExpandButton:Expand(current_tab)
-	current_tab.expand_button = true
+	current_tab["expand_button_"..MainPanel.profession] = true
 
 	self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 	self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -1762,7 +1773,7 @@ function ExpandButton:Expand(current_tab)
 end
 
 function ExpandButton:Contract(current_tab)
-	current_tab.expand_button = nil
+	current_tab["expand_button_"..MainPanel.profession] = nil
 
 	self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 	self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
@@ -2167,11 +2178,12 @@ do
 	-- This can be called either from ListFrame's OnMouseWheel script, manually
 	-- sliding the thumb, or from clicking the up/down buttons.
 	ScrollBar:SetScript("OnValueChanged",
-			    function(self, value, ...)
+			    function(self, value)
 				    local min_val, max_val = self:GetMinMaxValues()
 				    local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+				    local member = "profession_"..MainPanel.profession.."_scroll_value"
 
-				    current_tab.scroll_value = value
+				    current_tab[member] = value
 
 				    if value == min_val then
 					    ScrollUpButton:Disable()
@@ -2183,10 +2195,7 @@ do
 					    ScrollUpButton:Enable()
 					    ScrollDownButton:Enable()
 				    end
-
-				    if not ListFrame.initializing then
-					    ListFrame:Update(nil, true)
-				    end
+				    ListFrame:Update(nil, true)
 			    end)
 
 	local function Button_OnEnter(self)
@@ -2400,13 +2409,11 @@ do
 	end
 
 	function ListFrame:Initialize(expand_mode)
-		self.initializing = true
-
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
 		local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-		local expanded_button = current_tab.expand_button
+		local expanded_button = current_tab["expand_button_"..MainPanel.profession]
 
 		twipe(self.entries)
 
@@ -2419,10 +2426,6 @@ do
 		else
 			ExpandButton:Contract(current_tab)
 		end
-		-- The list always starts at the top.
-		ScrollUpButton:Disable()
-		self.scroll_bar:SetValue(current_tab.scroll_value or 0)
-
 		local recipe_count = current_tab:Initialize(expand_mode)
 
 		local profile = addon.db.profile
@@ -2445,7 +2448,6 @@ do
 		else
 			progress_bar.text:SetFormattedText("%s", L["NOT_YET_SCANNED"])
 		end
-		self.initializing = nil
 	end
 
 	-- Reset the current buttons/lines
@@ -2543,9 +2545,15 @@ do
 		if num_entries <= NUM_RECIPE_LINES then
 			self.scroll_bar:Hide()
 		else
-			offset = self.scroll_bar:GetValue()
+			local max_val = num_entries - NUM_RECIPE_LINES
+			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+			local scroll_value = current_tab["profession_"..MainPanel.profession.."_scroll_value"] or 0
 
-			self.scroll_bar:SetMinMaxValues(0, math.max(0, num_entries - NUM_RECIPE_LINES))
+			scroll_value = math.max(0, math.min(scroll_value, max_val))
+			offset = scroll_value
+
+			self.scroll_bar:SetMinMaxValues(0, math.max(0, max_val))
+			self.scroll_bar:SetValue(scroll_value)
 			self.scroll_bar:Show()
 		end
 		self:ClearLines()
@@ -2901,6 +2909,7 @@ do
 		local expand_all = expand_mode == "deep"
 		local search_box = MainPanel.search_editbox
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -2931,7 +2940,7 @@ do
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = current_tab.expanded[spell_id] and current_tab.expanded[private.acquire_names[acquire_id]]
+						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]]
 
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
@@ -2974,7 +2983,7 @@ do
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = current_tab.expanded[spell_id] and current_tab.expanded[location_id]
+						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][location_id]
 
 						t.text = FormatRecipeText(recipe_entry)
 						t.recipe_id = spell_id
