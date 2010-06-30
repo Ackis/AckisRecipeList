@@ -3709,8 +3709,6 @@ local function InitializeFrame()
 			button:SetChecked(not button:GetChecked())
 
 			if not button:GetChecked() then
-				addon:Debug("Not checked")
-
 				button:SetChecked(true)
 				rep_frame[panel]:Show()
 
