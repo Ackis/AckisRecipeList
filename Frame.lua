@@ -543,7 +543,7 @@ do
 		spell_tip:SetBackdropColor(GameTooltip:GetBackdropColor())
 		spell_tip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
 		spell_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
-
+		spell_tip:SetClampedToScreen(true)
 		spell_tip:SetHyperlink(link)
 		spell_tip:Show()
 	end
@@ -823,6 +823,7 @@ do
 
 			acquire_tip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 		end
+		acquire_tip:SetClampedToScreen(true)
 
 		if _G.TipTac and _G.TipTac.AddModifiedTip then
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
