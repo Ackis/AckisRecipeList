@@ -2393,6 +2393,22 @@ do
 		if parent_entry then
 			if parent_entry ~= entry then
 				entry.parent = parent_entry
+
+				local recipe_id = parent_entry.recipe_id
+				local acquire_id = parent_entry.acquire_id
+				local location_id = parent_entry.location_id
+
+				if recipe_id then
+					entry.recipe_id = recipe_id
+				end
+
+				if acquire_id then
+					entry.acquire_id = acquire_id
+				end
+
+				if location_id then
+					entry.location_id = location_is
+				end
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
 			end
