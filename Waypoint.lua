@@ -481,7 +481,7 @@ function addon:SetupMap(single_recipe)
 	--		ARLMiniMap.icon:SetAllPoints()
 
 	for entry, spell_id in pairs(maplist) do
-		local name = string.format("%s (%s)", entry.name, recipe_list[spell_id].name)
+		local name = string.format("%s (%s)", entry.name or _G.UNKNOWN, recipe_list[spell_id].name)
 		local x = entry.coord_x
 		local y = entry.coord_y
 		local location = entry.location
