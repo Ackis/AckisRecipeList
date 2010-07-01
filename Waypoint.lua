@@ -56,10 +56,10 @@ local C2 = {}
 local C3 = {}
 local C4 = {}
 
-local c1 = {}
-local c2 = {}
-local c3 = {}
-local c4 = {}
+local KALIMDOR_ZONES = {}
+local EASTERN_KINGDOMS_ZONES = {}
+local OUTLAND_ZONES = {}
+local NORTHREND_ZONES = {}
 
 local function LoadZones(c, y, ...)
 	-- Fill up the list for normal lookup
@@ -73,234 +73,230 @@ local function LoadZones(c, y, ...)
 	end
 end
 
---	addon:Print("Loading zones for continent 1")
-LoadZones(C1, c1, GetMapZones(1))
---	addon:Print("Loading zones for continent 2")
-LoadZones(C2, c2, GetMapZones(2))
---	addon:Print("Loading zones for continent 3")
-LoadZones(C3, c3, GetMapZones(3))
---	addon:Print("Loading zones for continent 4")
-LoadZones(C4, c4, GetMapZones(4))
+LoadZones(C1, KALIMDOR_ZONES, GetMapZones(1))
+LoadZones(C2, EASTERN_KINGDOMS_ZONES, GetMapZones(2))
+LoadZones(C3, OUTLAND_ZONES, GetMapZones(3))
+LoadZones(C4, NORTHREND_ZONES, GetMapZones(4))
 
 local INSTANCE_LOCATIONS = {
 	[BZ["Ahn'kahet: The Old Kingdom"]] = {
-		["loc"] = c4[BZ["Dragonblight"]],
+		["loc"] = NORTHREND_ZONES[BZ["Dragonblight"]],
 		["c"] = 4,
 		["x"] = 28.49,
 		["y"] = 51.73,
 	},
 	[BZ["Auchenai Crypts"]] = {
-		["loc"] = c1[BZ["Terokkar Forest"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Terokkar Forest"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Azjol-Nerub"]] = {
-		["loc"] = c4[BZ["Dragonblight"]],
+		["loc"] = NORTHREND_ZONES[BZ["Dragonblight"]],
 		["c"] = 4,
 		["x"] = 26.01,
 		["y"] = 50.83,
 	},
 	[BZ["Blackrock Depths"]] = {
-		["loc"] = c1[BZ["Searing Gorge"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Searing Gorge"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Blackrock Spire"]] = {
-		["loc"] = c1[BZ["Searing Gorge"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Searing Gorge"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Blackwing Lair"]] = {
-		["loc"] = c1[BZ["Searing Gorge"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Searing Gorge"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Dire Maul"]] = {
-		["loc"] = c1[BZ["Feralas"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Feralas"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Drak'Tharon Keep"]] = {
-		["loc"] = c1[BZ["Zul'Drak"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Zul'Drak"]],
 		["c"] = 4,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Gnomeregan"]] = {
-		["loc"] = c1[BZ["Dun Morogh"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Dun Morogh"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Halls of Lightning"]] = {
-		["loc"] = c4[BZ["The Storm Peaks"]],
+		["loc"] = NORTHREND_ZONES[BZ["The Storm Peaks"]],
 		["c"] = 4,
 		["x"] = 45.40,
 		["y"] = 21.37,
 	},
 	[BZ["Halls of Stone"]] = {
-		["loc"] = c4[BZ["The Storm Peaks"]],
+		["loc"] = NORTHREND_ZONES[BZ["The Storm Peaks"]],
 		["c"] = 4,
 		["x"] = 39.49,
 		["y"] = 26.92,
 	},
 	[BZ["Karazhan"]] = {
-		["loc"] = c1[BZ["Deadwind Pass"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Deadwind Pass"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Magisters' Terrace"]] = {
-		["loc"] = c2[BZ["Isle of Quel'Danas"]],
+		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Isle of Quel'Danas"]],
 		["c"] = 2,
 		["x"] = 61.20,
 		["y"] = 30.89,
 	},
 	[BZ["Mana-Tombs"]] = {
-		["loc"] = c1[BZ["Terokkar Forest"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Terokkar Forest"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Oculus"]] = {
-		["loc"] = c4[BZ["Borean Tundra"]],
+		["loc"] = NORTHREND_ZONES[BZ["Borean Tundra"]],
 		["c"] = 4,
 		["x"] = 27.52,
 		["y"] = 26.71,
 	},
 	[BZ["Old Hillsbrad Foothills"]] = {
-		["loc"] = c1[BZ["Tanaris"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Onyxia's Lair"]] = {
-		["loc"] = c1[BZ["Dustwallow Marsh"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Dustwallow Marsh"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Ruins of Ahn'Qiraj"]] = {
-		["loc"] = c1[BZ["Tanaris"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Scholomance"]] = {
-		["loc"] = c1[BZ["Western Plaguelands"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Western Plaguelands"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Sethekk Halls"]] = {
-		["loc"] = c1[BZ["Terokkar Forest"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Terokkar Forest"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Shadow Labyrinth"]] = {
-		["loc"] = c1[BZ["Terokkar Forest"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Terokkar Forest"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Stratholme"]] = {
-		["loc"] = c1[BZ["Eastern Plaguelands"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Eastern Plaguelands"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Temple of Ahn'Qiraj"]] = {
-		["loc"] = c1[BZ["Tanaris"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Arcatraz"]] = {
-		["loc"] = c1[BZ["Netherstorm"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Netherstorm"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Black Morass"]] = {
-		["loc"] = c1[BZ["Tanaris"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
 		["c"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Botanica"]] = {
-		["loc"] = c1[BZ["Netherstorm"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Netherstorm"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Deadmines"]] = {
-		["loc"] = c1[BZ["Westfall"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Westfall"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Mechanar"]] = {
-		["loc"] = c1[BZ["Netherstorm"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Netherstorm"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Nexus"]] = {
-		["loc"] = c4[BZ["Borean Tundra"]],
+		["loc"] = NORTHREND_ZONES[BZ["Borean Tundra"]],
 		["c"] = 4,
 		["x"] = 27.50,
 		["y"] = 25.97,
 	},
 	[BZ["The Shattered Halls"]] = {
-		["loc"] = c1[BZ["Hellfire Peninsula"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Hellfire Peninsula"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Slave Pens"]] = {
-		["loc"] = c1[BZ["Zangarmarsh"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Zangarmarsh"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Steamvault"]] = {
-		["loc"] = c1[BZ["Zangarmarsh"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Zangarmarsh"]],
 		["c"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Temple of Atal'Hakkar"]] = {
-		["loc"] = c1[BZ["Swamp of Sorrows"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Swamp of Sorrows"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Violet Hold"]] = {
-		["loc"] = c4[BZ["Dalaran"]],
+		["loc"] = NORTHREND_ZONES[BZ["Dalaran"]],
 		["c"] = 4,
 		["x"] = 66.78,
 		["y"] = 68.19,
 	},
 	[BZ["Utgarde Keep"]] = {
-		["loc"] = c4[BZ["Howling Fjord"]],
+		["loc"] = NORTHREND_ZONES[BZ["Howling Fjord"]],
 		["c"] = 4,
 		["x"] = 57.28,
 		["y"] = 46.73,
 	},
 	[BZ["Utgarde Pinnacle"]] = {
-		["loc"] = c4[BZ["Howling Fjord"]],
+		["loc"] = NORTHREND_ZONES[BZ["Howling Fjord"]],
 		["c"] = 4,
 		["x"] = 57.26,
 		["y"] = 46.67,
 	},
 	[BZ["Zul'Gurub"]] = {
-		["loc"] = c1[BZ["Stranglethorn Vale"]],
+		["loc"] = KALIMDOR_ZONES[BZ["Stranglethorn Vale"]],
 		["c"] = 2,
 		["x"] = 0,
 		["y"] = 0,
@@ -487,18 +483,18 @@ function addon:SetupMap(single_recipe)
 		local location = entry.location
 		local continent, zone
 
-		if c1[location] then
+		if KALIMDOR_ZONES[location] then
 			continent = 1
-			zone = c1[location]
-		elseif c2[location] then
+			zone = KALIMDOR_ZONES[location]
+		elseif EASTERN_KINGDOMS_ZONES[location] then
 			continent = 2
-			zone = c2[location]
-		elseif c3[location] then
+			zone = EASTERN_KINGDOMS_ZONES[location]
+		elseif OUTLAND_ZONES[location] then
 			continent = 3
-			zone = c3[location]
-		elseif c4[location] then
+			zone = OUTLAND_ZONES[location]
+		elseif NORTHREND_ZONES[location] then
 			continent = 4
-			zone = c4[location]
+			zone = NORTHREND_ZONES[location]
 		elseif INSTANCE_LOCATIONS[location] then
 			local info = INSTANCE_LOCATIONS[location]
 
