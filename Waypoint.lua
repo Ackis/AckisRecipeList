@@ -514,22 +514,21 @@ function addon:SetupMap(single_recipe)
 		--@end-alpha@
 
 		if zone and continent then
-			--@alpha@
-			if x == 0 and y == 0 then
+			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location] then
 				addon:Debug("Location is \"0, 0\" for ID %d. Location: %s.", spell_id, location)
 			end
-			--@end-alpha@
+
 			local iconuid = TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
 
 			tinsert(iconlist, iconuid)
 		else
 			--@alpha@
 			if not zone then
-				self:Printf("No zone for ID %d. Location: %s.", spell_id, location)
+				self:Debug("No zone for ID %d. Location: %s.", spell_id, location)
 			end
 
 			if not continent then
-				self:Printf("No continent for ID %d. Location: %s.", spell_id, location)
+				self:Debug("No continent for ID %d. Location: %s.", spell_id, location)
 			end
 			--@end-alpha@
 		end
