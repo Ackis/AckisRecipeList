@@ -1902,12 +1902,53 @@ do
 		if is_refresh and Player.prev_count == recipes_found then
 			return
 		end
+
 		-------------------------------------------------------------------------------
-		-- Get the player's reputation levels.
+		-- Update the player's reputation levels.
 		-------------------------------------------------------------------------------
 		Player["Reputation"] = Player["Reputation"] or {}
-		Player:SetReputationLevels()
 
+		table.wipe(header_list)
+
+		-- Number of factions before expansion
+		local num_factions = GetNumFactions()
+
+		-- Expand all the headers, storing those which were collapsed.
+		for i = num_factions, 1, -1 do
+			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
+
+			if isCollapsed then
+				ExpandFactionHeader(i)
+				header_list[name] = true
+			end
+		end
+
+		-- Number of factions with everything expanded
+		num_factions = GetNumFactions()
+
+		-- Get the rep levels
+		for i = 1, num_factions, 1 do
+			local name, _, replevel = GetFactionInfo(i)
+
+			-- If the rep is greater than neutral
+			if replevel > 4 then
+				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
+				Player["Reputation"][name] = replevel - 4
+			end
+		end
+
+		-- Collapse the headers again
+		for i = num_factions, 1, -1 do
+			local name = GetFactionInfo(i)
+
+			if header_list[name] then
+				CollapseFactionHeader(i)
+			end
+		end
+
+		-------------------------------------------------------------------------------
+		-- Everything is ready - display the GUI or dump the list to text.
+		-------------------------------------------------------------------------------
 		if textdump then
 			self:DisplayTextDump(recipe_list, current_prof)
 		else
