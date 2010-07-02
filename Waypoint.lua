@@ -525,6 +525,10 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id)
 			end
 
 			if _G.TomTom then
+				addon:Debug("Adding TomTom waypoint: ")
+				addon:Debug("Continent: %s, Zone: %s, X: %s, Y: %s, Name: %s, minimap: %s, worldmap: %s",
+					    tostring(continent), tostring(zone), tostring(x), tostring(y), tostring(name), tostring(minimap), tostring(worldmap))
+
 				table.insert(iconlist, _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap))
 			elseif _G.Cartographer_Waypoints then
 				local pt = _G.NotePoint:new(zone, x/100, y/100, desc)
