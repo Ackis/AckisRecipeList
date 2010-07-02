@@ -167,42 +167,6 @@ local function fullOptions()
 							type	= "description",
 							name	= "\n",
 						},
-						header3 = {
-							order	= 40,
-							type	= "header",
-							name	= L["Sorting Options"],
-						},
-						sort_desc =	{
-							order	= 41,
-							type	= "description",
-							name	= L["SORTING_OPTIONS_DESC"] .. "\n",
-						},
-						sorting = {
-							order	= 45,
-							type	= "select",
-							name	= L["Sorting"],
-							desc	= L["SORTING_DESC"],
-							get	= function()
-									  return addon.db.profile.sorting
-								  end,
-							set	= function(info, name)
-									  addon.db.profile.sorting = name
-								  end,
-							values	= function()
-									  return {
-										  Name = _G.NAME,
-										  SkillAsc = L["Skill (Asc)"],
-										  SkillDesc = L["Skill (Desc)"],
-										  Acquisition = L["Acquisition"],
-										  Location = L["Location"]
-									  }
-								  end,
-						},
-						spacer3 = {
-							order	= 50,
-							type	= "description",
-							name	= "\n",
-						},
 						header4 = {
 							order	= 51,
 							type	= "header",
