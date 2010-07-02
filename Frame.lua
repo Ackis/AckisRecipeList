@@ -2247,7 +2247,7 @@ do
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
-				addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id)
+				addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
 			elseif _G.IsShiftKeyDown() then
 				local itemID = private.recipe_list[clicked_line.recipe_id].item_id
 
@@ -2397,6 +2397,7 @@ do
 				local recipe_id = parent_entry.recipe_id
 				local acquire_id = parent_entry.acquire_id
 				local location_id = parent_entry.location_id
+				local npc_id = parent_entry.npc_id
 
 				if recipe_id then
 					entry.recipe_id = recipe_id
@@ -2408,6 +2409,10 @@ do
 
 				if location_id then
 					entry.location_id = location_id
+				end
+
+				if npc_id then
+					entry.npc_id = npc_id
 				end
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
@@ -2730,6 +2735,7 @@ do
 
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"])..":", name)
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
@@ -2739,6 +2745,7 @@ do
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
@@ -2766,6 +2773,7 @@ do
 				       hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"])..":", name,
 				       type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], string.format(" (%d)", quantity)) or "")
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
@@ -2775,6 +2783,7 @@ do
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
@@ -2791,6 +2800,7 @@ do
 
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
@@ -2800,6 +2810,7 @@ do
 		t = AcquireTable()
 		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
 		t.recipe_id = recipe_id
+		t.npc_id = id_num
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
@@ -2869,12 +2880,14 @@ do
 		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION)..":",
 				       SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
 		t.recipe_id = recipe_id
+		t.npc_id = vendor_id
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
 		t = AcquireTable()
 		t.text = PADDING .. PADDING .. faction_strings[rep_level] .. name
 		t.recipe_id = recipe_id
+		t.npc_id = vendor_id
 
 		entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 
@@ -2890,6 +2903,7 @@ do
 		t = AcquireTable()
 		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
 		t.recipe_id = recipe_id
+		t.npc_id = vendor_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end

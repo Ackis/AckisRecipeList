@@ -380,7 +380,7 @@ local maplist = {}
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
-function addon:AddWaypoint(recipe_id, acquire_id, location_id)
+function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 	if not _G.TomTom and not _G.Cartographer_Waypoints then
 		return
 	end
@@ -408,23 +408,25 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id)
 		local recipe = recipe_list[recipe_id]
 
 		for acquire_type, acquire_info in pairs(recipe.acquire_data) do
-			for id_num, id_info in pairs(acquire_info) do
-				if not acquire_id or acquire_type == acquire_id then
-					if acquire_type == A.REPUTATION then
-						for rep_level, level_info in pairs(id_info) do
-							for vendor_id in pairs(level_info) do
-								local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
+			if not acquire_id or acquire_type == acquire_id then
+				for id_num, id_info in pairs(acquire_info) do
+					if not npc_id or id_num == npc_id then
+						if acquire_type == A.REPUTATION then
+							for rep_level, level_info in pairs(id_info) do
+								for vendor_id in pairs(level_info) do
+									local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
-								if waypoint and (not location_id or waypoint.location == location_id) then
-									maplist[waypoint] = recipe_id
+									if waypoint and (not location_id or waypoint.location == location_id) then
+										maplist[waypoint] = recipe_id
+									end
 								end
 							end
-						end
-					else
-						local waypoint = GetWaypoint(acquire_type, id_num, recipe)
+						else
+							local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
-						if waypoint and (not location_id or waypoint.location == location_id) then
-							maplist[waypoint] = recipe_id
+							if waypoint and (not location_id or waypoint.location == location_id) then
+								maplist[waypoint] = recipe_id
+							end
 						end
 					end
 				end
