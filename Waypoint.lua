@@ -329,28 +329,32 @@ local function GetWaypoint(acquire_type, id_num, recipe)
 
 	if acquire_type == A.TRAINER and maptrainer then
 		local trainer = private.trainer_list[id_num]
+		local trainer_faction = trainer.faction
 
-		if trainer.faction == BFAC[player_faction] or trainer.faction == FACTION_NEUTRAL then
+		if trainer_faction == BFAC[player_faction] or trainer_faction == FACTION_NEUTRAL then
 			waypoint = trainer
 		end
 	elseif acquire_type == A.VENDOR and mapvendor then
 		local vendor = private.vendor_list[id_num]
+		local vendor_faction = vendor.faction
 
-		if vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL then
+		if vendor_faction == BFAC[player_faction] or vendor_faction == FACTION_NEUTRAL then
 			waypoint = vendor
 		end
 	elseif acquire_type == A.REPUTATION and mapvendor then
 		local vendor = private.vendor_list[id_num]
+		local vendor_faction = vendor.faction
 
-		if vendor.faction == BFAC[player_faction] or vendor.faction == FACTION_NEUTRAL then
+		if vendor_faction == BFAC[player_faction] or vendor_faction == FACTION_NEUTRAL then
 			waypoint = vendor
 		end
 	elseif acquire_type == A.MOB_DROP and mapmob then
 		waypoint = private.mob_list[id_num]
 	elseif  acquire_type == A.QUEST and mapquest then
 		local quest = private.quest_list[id_num]
+		local quest_faction = quest.faction
 
-		if quest.faction == BFAC[player_faction] or quest.faction == FACTION_NEUTRAL then
+		if quest_faction == BFAC[player_faction] or quest_faction == FACTION_NEUTRAL then
 			waypoint = quest
 		end
 	elseif acquire_type == A.CUSTOM then
