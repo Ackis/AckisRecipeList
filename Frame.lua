@@ -2407,7 +2407,7 @@ do
 				end
 
 				if location_id then
-					entry.location_id = location_is
+					entry.location_id = location_id
 				end
 			else
 				addon:Debug("Attempting to parent an entry to itself.")
