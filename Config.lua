@@ -212,7 +212,7 @@ end
 local arlmap
 
 local function giveMap()
-	local has_tomtom = TomTom and true or false
+	local has_waypoints = _G.TomTom or _G.Cartographer_Waypoints or false
 
 	if not arlmap then
 		arlmap = {
@@ -231,7 +231,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Auto Scan Map"],
 					desc	= L["AUTOSCANMAP_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.autoscanmap end,
 					set	= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
 				},
@@ -240,7 +240,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= _G.WORLD_MAP,
 					desc	= L["WORLDMAP_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.worldmap end,
 					set	= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
 				},
@@ -249,7 +249,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Mini Map"],
 					desc	= L["MINIMAP_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.minimap end,
 					set	= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
 				},
@@ -258,7 +258,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Trainer"],
 					desc	= L["MAP_TRAINER_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.maptrainer end,
 					set	= function() addon.db.profile.maptrainer = not addon.db.profile.maptrainer end,
 				},
@@ -267,7 +267,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Vendor"],
 					desc	= L["MAP_VENDOR_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.mapvendor end,
 					set	= function() addon.db.profile.mapvendor = not addon.db.profile.mapvendor end,
 				},
@@ -276,7 +276,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Monster"],
 					desc	= L["MAP_MONSTER_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.mapmob end,
 					set	= function() addon.db.profile.mapmob = not addon.db.profile.mapmob end,
 				},
@@ -285,7 +285,7 @@ local function giveMap()
 					type	= "toggle",
 					name	= L["Quest"],
 					desc	= L["MAP_QUEST_DESC"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					get	= function() return addon.db.profile.mapquest end,
 					set	= function() addon.db.profile.mapquest = not addon.db.profile.mapquest end,
 				},
@@ -293,7 +293,7 @@ local function giveMap()
 					order	= 20,
 					type	= "execute",
 					name	= L["Clear Waypoints"],
-					disabled = not has_tomtom,
+					disabled = not has_waypoints,
 					desc	= L["CLEAR_WAYPOINTS_DESC"],
 					func	= function() addon:ClearMap() end,
 				},
