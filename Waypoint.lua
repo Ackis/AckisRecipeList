@@ -373,7 +373,7 @@ local maplist = {}
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID
 -- Output: Points are added to the maps
-function addon:SetupMap(single_recipe)
+function addon:AddWaypoint(recipe_id, acquire_id, location_id)
 	if not TomTom then
 		return
 	end
@@ -397,26 +397,28 @@ function addon:SetupMap(single_recipe)
 	local recipe_list = private.recipe_list
 
 	-- We're only getting a single recipe, not a bunch
-	if single_recipe then
-		local recipe = recipe_list[single_recipe]
+	if recipe_id then
+		local recipe = recipe_list[recipe_id]
 
 		for acquire_type, acquire_info in pairs(recipe.acquire_data) do
 			for id_num, id_info in pairs(acquire_info) do
-				if acquire_type == A.REPUTATION then
-					for rep_level, level_info in pairs(id_info) do
-						for vendor_id in pairs(level_info) do
-							local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
+				if not acquire_id or acquire_type == acquire_id then
+					if acquire_type == A.REPUTATION then
+						for rep_level, level_info in pairs(id_info) do
+							for vendor_id in pairs(level_info) do
+								local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
-							if waypoint then
-								maplist[waypoint] = single_recipe
+								if waypoint and (not location_id or waypoint.location == location_id) then
+									maplist[waypoint] = recipe_id
+								end
 							end
 						end
-					end
-				else
-					local waypoint = GetWaypoint(acquire_type, id_num, recipe)
+					else
+						local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
-					if waypoint then
-						maplist[waypoint] = single_recipe
+						if waypoint and (not location_id or waypoint.location == location_id) then
+							maplist[waypoint] = recipe_id
+						end
 					end
 				end
 			end
@@ -425,6 +427,7 @@ function addon:SetupMap(single_recipe)
 		local sorted_recipes = addon.sorted_recipes
 		local SF = private.recipe_state_flags
 		local editbox_text = addon.Frame.search_editbox:GetText()
+
 		-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
 		for i = 1, #sorted_recipes do
 			local recipe = recipe_list[sorted_recipes[i]]

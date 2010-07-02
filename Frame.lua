@@ -2247,7 +2247,7 @@ do
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() and _G.IsShiftKeyDown() then
-				addon:SetupMap(clicked_line.recipe_id)
+				addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id)
 			elseif _G.IsShiftKeyDown() then
 				local itemID = private.recipe_list[clicked_line.recipe_id].item_id
 

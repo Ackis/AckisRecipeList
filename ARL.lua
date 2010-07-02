@@ -435,7 +435,7 @@ function addon:OnInitialize()
 					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 						      -- If we have a different profession open we do a scan
 						      addon:Scan(false)
-						      addon:SetupMap()
+						      addon:AddWaypoint()
 					      end
 				      else
 					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
@@ -447,7 +447,7 @@ function addon:OnInitialize()
 					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 						      -- No modification
 						      addon:Scan(false)
-						      addon:SetupMap()
+						      addon:AddWaypoint()
 					      end
 				      end
 			      end)
