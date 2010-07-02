@@ -51,253 +51,253 @@ local F = private.filter_flags
 -------------------------------------------------------------------------------
 local FACTION_NEUTRAL		= BFAC["Neutral"]
 
-local C1 = {}
-local C2 = {}
-local C3 = {}
-local C4 = {}
+local KALIMDOR_NAMES = {}
+local EASTERN_KINGDOMS_NAMES = {}
+local OUTLAND_NAMES = {}
+local NORTHREND_NAMES = {}
 
-local KALIMDOR_ZONES = {}
-local EASTERN_KINGDOMS_ZONES = {}
-local OUTLAND_ZONES = {}
-local NORTHREND_ZONES = {}
+local KALIMDOR_IDNUMS = {}
+local EASTERN_KINGDOMS_IDNUMS = {}
+local OUTLAND_IDNUMS = {}
+local NORTHREND_IDNUMS = {}
 
-local function LoadZones(c, y, ...)
-	-- Fill up the list for normal lookup
-	for i = 1, select('#', ...), 1 do
-		c[i] = select(i, ...)
+local function LoadZones(continent, zone, ...)
+	-- Assign names to idnums
+	for id = 1, select('#', ...), 1 do
+		continent[id] = select(id, ...)
 	end
 
 	-- Reverse lookup to make work easier later on
-	for i in pairs(c) do
-		y[c[i]] = i
+	for id in pairs(continent) do
+		zone[continent[id]] = id
 	end
 end
 
-LoadZones(C1, KALIMDOR_ZONES, GetMapZones(1))
-LoadZones(C2, EASTERN_KINGDOMS_ZONES, GetMapZones(2))
-LoadZones(C3, OUTLAND_ZONES, GetMapZones(3))
-LoadZones(C4, NORTHREND_ZONES, GetMapZones(4))
+LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, GetMapZones(1))
+LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, GetMapZones(2))
+LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, GetMapZones(3))
+LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, GetMapZones(4))
 
 local INSTANCE_LOCATIONS = {
 	[BZ["Ahn'kahet: The Old Kingdom"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Dragonblight"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Dragonblight"]],
+		["continent"] = 4,
 		["x"] = 28.49,
 		["y"] = 51.73,
 	},
 	[BZ["Auchenai Crypts"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Terokkar Forest"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Azjol-Nerub"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Dragonblight"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Dragonblight"]],
+		["continent"] = 4,
 		["x"] = 26.01,
 		["y"] = 50.83,
 	},
 	[BZ["Blackrock Depths"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Searing Gorge"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Searing Gorge"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Blackrock Spire"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Searing Gorge"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Searing Gorge"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Blackwing Lair"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Searing Gorge"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Searing Gorge"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Dire Maul"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Feralas"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Feralas"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Drak'Tharon Keep"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Zul'Drak"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Zul'Drak"]],
+		["continent"] = 4,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Gnomeregan"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Dun Morogh"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Dun Morogh"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Halls of Lightning"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["The Storm Peaks"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["The Storm Peaks"]],
+		["continent"] = 4,
 		["x"] = 45.40,
 		["y"] = 21.37,
 	},
 	[BZ["Halls of Stone"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["The Storm Peaks"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["The Storm Peaks"]],
+		["continent"] = 4,
 		["x"] = 39.49,
 		["y"] = 26.92,
 	},
 	[BZ["Karazhan"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Deadwind Pass"]],
-		["c"] = 2,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Deadwind Pass"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Magisters' Terrace"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Isle of Quel'Danas"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Isle of Quel'Danas"]],
+		["continent"] = 2,
 		["x"] = 61.20,
 		["y"] = 30.89,
 	},
 	[BZ["Mana-Tombs"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Terokkar Forest"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Oculus"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Borean Tundra"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Borean Tundra"]],
+		["continent"] = 4,
 		["x"] = 27.52,
 		["y"] = 26.71,
 	},
 	[BZ["Old Hillsbrad Foothills"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Onyxia's Lair"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Dustwallow Marsh"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Dustwallow Marsh"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Ruins of Ahn'Qiraj"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Scholomance"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Western Plaguelands"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Western Plaguelands"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Sethekk Halls"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Terokkar Forest"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Shadow Labyrinth"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Terokkar Forest"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Terokkar Forest"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Stratholme"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Eastern Plaguelands"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Eastern Plaguelands"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["Temple of Ahn'Qiraj"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Arcatraz"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Netherstorm"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Black Morass"]] = {
-		["loc"] = KALIMDOR_ZONES[BZ["Tanaris"]],
-		["c"] = 1,
+		["zone"] = KALIMDOR_IDNUMS[BZ["Tanaris"]],
+		["continent"] = 1,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Botanica"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Netherstorm"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Deadmines"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Westfall"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Westfall"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Mechanar"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Netherstorm"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Netherstorm"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Nexus"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Borean Tundra"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Borean Tundra"]],
+		["continent"] = 4,
 		["x"] = 27.50,
 		["y"] = 25.97,
 	},
 	[BZ["The Shattered Halls"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Hellfire Peninsula"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Hellfire Peninsula"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Slave Pens"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Zangarmarsh"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Zangarmarsh"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Steamvault"]] = {
-		["loc"] = OUTLAND_ZONES[BZ["Zangarmarsh"]],
-		["c"] = 3,
+		["zone"] = OUTLAND_IDNUMS[BZ["Zangarmarsh"]],
+		["continent"] = 3,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Temple of Atal'Hakkar"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Swamp of Sorrows"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Swamp of Sorrows"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
 	[BZ["The Violet Hold"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Dalaran"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Dalaran"]],
+		["continent"] = 4,
 		["x"] = 66.78,
 		["y"] = 68.19,
 	},
 	[BZ["Utgarde Keep"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Howling Fjord"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Howling Fjord"]],
+		["continent"] = 4,
 		["x"] = 57.28,
 		["y"] = 46.73,
 	},
 	[BZ["Utgarde Pinnacle"]] = {
-		["loc"] = NORTHREND_ZONES[BZ["Howling Fjord"]],
-		["c"] = 4,
+		["zone"] = NORTHREND_IDNUMS[BZ["Howling Fjord"]],
+		["continent"] = 4,
 		["x"] = 57.26,
 		["y"] = 46.67,
 	},
 	[BZ["Zul'Gurub"]] = {
-		["loc"] = EASTERN_KINGDOMS_ZONES[BZ["Stranglethorn Vale"]],
-		["c"] = 2,
+		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Stranglethorn Vale"]],
+		["continent"] = 2,
 		["x"] = 0,
 		["y"] = 0,
 	},
@@ -483,25 +483,25 @@ function addon:SetupMap(single_recipe)
 		local location = entry.location
 		local continent, zone
 
-		if KALIMDOR_ZONES[location] then
+		if KALIMDOR_IDNUMS[location] then
 			continent = 1
-			zone = KALIMDOR_ZONES[location]
-		elseif EASTERN_KINGDOMS_ZONES[location] then
+			zone = KALIMDOR_IDNUMS[location]
+		elseif EASTERN_KINGDOMS_IDNUMS[location] then
 			continent = 2
-			zone = EASTERN_KINGDOMS_ZONES[location]
-		elseif OUTLAND_ZONES[location] then
+			zone = EASTERN_KINGDOMS_IDNUMS[location]
+		elseif OUTLAND_IDNUMS[location] then
 			continent = 3
-			zone = OUTLAND_ZONES[location]
-		elseif NORTHREND_ZONES[location] then
+			zone = OUTLAND_IDNUMS[location]
+		elseif NORTHREND_IDNUMS[location] then
 			continent = 4
-			zone = NORTHREND_ZONES[location]
+			zone = NORTHREND_IDNUMS[location]
 		elseif INSTANCE_LOCATIONS[location] then
 			local info = INSTANCE_LOCATIONS[location]
 
-			continent = info.c
+			zone = info.zone
+			continent = info.continent
 			x = info.x
 			y = info.y
-			zone = info.loc
 			name = name .. " (" .. location .. ")"
 		else
 			addon:Debug("No continent/zone map match for ID %d. Location: %s.", spell_id, location)
