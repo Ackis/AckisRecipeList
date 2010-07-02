@@ -380,7 +380,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id)
 	local worldmap = addon.db.profile.worldmap
 	local minimap = addon.db.profile.minimap
 
-	if not (worldmap or minimap) then
+	if not worldmap and not minimap then
 		return
 	end
 	local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
