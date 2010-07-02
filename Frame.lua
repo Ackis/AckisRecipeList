@@ -4334,7 +4334,8 @@ do
 		local prev_profession = self.profession
 
 		if profession == private.mining_name then
-			self.profession = 11 -- Smelting
+		 	self.profession = 11 -- Smelting
+			self.prof_name = profession
 		else
 			for index, name in ipairs(ORDERED_PROFESSIONS) do
 				if name == profession then
@@ -4342,6 +4343,7 @@ do
 					break
 				end
 			end
+			self.prof_name = nil
 		end
 
 		if self.profession ~= prev_profession then

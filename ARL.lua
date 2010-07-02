@@ -1642,7 +1642,7 @@ do
 		local recipes_total_filtered = 0
 		local recipes_known_filtered = 0
 		local can_display = false
-		local current_profession = private.ordered_professions[self.Frame.profession]
+		local current_profession = self.Frame.prof_name or private.ordered_professions[self.Frame.profession]
 		local recipe_list = private.recipe_list
 		local SF = private.recipe_state_flags
 
