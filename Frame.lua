@@ -1799,37 +1799,6 @@ function ExpandButton:Contract(current_tab)
 end
 
 -------------------------------------------------------------------------------
--- "Display Exclusions" checkbox.
--------------------------------------------------------------------------------
-local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
-ExcludeToggle:SetPoint("LEFT", ExpandButtonFrame, "RIGHT", 0, 1)
-ExcludeToggle:SetHeight(16)
-ExcludeToggle:SetWidth(16)
-
-ExcludeToggle.text = ExcludeToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-ExcludeToggle.text:SetPoint("LEFT", ExcludeToggle, "RIGHT", 0, 0)
-
-ExcludeToggle:SetScript("OnClick",
-			function(self, button, down)
-				addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
-				ListFrame:Update(nil, false)
-			end)
-
-ExcludeToggle:SetScript("OnShow",
-			function(self)
-				self:SetChecked(addon.db.profile.ignoreexclusionlist)
-			end)
-
-ExcludeToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-ExcludeToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-ExcludeToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-ExcludeToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-ExcludeToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-
-ExcludeToggle.text:SetText(L["Display Exclusions"])
-SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
-
--------------------------------------------------------------------------------
 -- "Skill Level" checkbox.
 -------------------------------------------------------------------------------
 local SkillToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
@@ -1861,6 +1830,37 @@ SkillToggle.text:SetText(_G.SKILL_LEVEL)
 SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 
 -------------------------------------------------------------------------------
+-- "Display Exclusions" checkbox.
+-------------------------------------------------------------------------------
+local ExcludeToggle = CreateFrame("CheckButton", nil, MainPanel, "UICheckButtonTemplate")
+ExcludeToggle:SetPoint("TOP", SkillToggle, "BOTTOM", 0, 1)
+ExcludeToggle:SetHeight(16)
+ExcludeToggle:SetWidth(16)
+
+ExcludeToggle.text = ExcludeToggle:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+ExcludeToggle.text:SetPoint("LEFT", ExcludeToggle, "RIGHT", 0, 0)
+
+ExcludeToggle:SetScript("OnClick",
+			function(self, button, down)
+				addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+				ListFrame:Update(nil, false)
+			end)
+
+ExcludeToggle:SetScript("OnShow",
+			function(self)
+				self:SetChecked(addon.db.profile.ignoreexclusionlist)
+			end)
+
+ExcludeToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+ExcludeToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+ExcludeToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+ExcludeToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+ExcludeToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+
+ExcludeToggle.text:SetText(L["Display Exclusions"])
+SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
+
+-------------------------------------------------------------------------------
 -- Create the X-close button, and set its scripts.
 -------------------------------------------------------------------------------
 MainPanel.xclose_button = CreateFrame("Button", nil, MainPanel, "UIPanelCloseButton")
@@ -1889,7 +1889,6 @@ do
 	local function Toggle_OnClick(self, button, down)
 		if MainPanel.is_expanded then
 			-- Change the text and tooltip for the filter button
-			self:SetText(L["FILTER_OPEN"])
 			SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
 
 			-- Hide the category buttons
@@ -1902,7 +1901,6 @@ do
 			MainPanel.filter_menu:Hide()
 		else
 			-- Change the text and tooltip for the filter button
-			self:SetText(L["FILTER_CLOSE"])
 			SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
 
 			local found_active = false
@@ -1931,14 +1929,27 @@ do
 			MainPanel.filter_reset:Show()
 		end
 		MainPanel:ToggleState()
+		self:SetTextures()
 	end
 
-	local filter_toggle = GenericCreateButton(nil, MainPanel, 25, 65, "GameFontNormalSmall", "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+	local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["FILTER_OPEN_DESC"], 2)
 	filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
 
 	filter_toggle:SetScript("OnClick", Toggle_OnClick)
-	
 
+	filter_toggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
+	
+	function filter_toggle:SetTextures()
+		if MainPanel.is_expanded then
+			self:SetNormalTexture([[Interface\BUTTONS\UI-SpellbookIcon-PrevPage-Up]])
+			self:SetPushedTexture([[Interface\BUTTONS\UI-SpellbookIcon-PrevPage-Down]])
+			self:SetDisabledTexture([[Interface\BUTTONS\UI-SpellbookIcon-PrevPage-Disabled]])
+		else
+			self:SetNormalTexture([[Interface\BUTTONS\UI-SpellbookIcon-NextPage-Up]])
+			self:SetPushedTexture([[Interface\BUTTONS\UI-SpellbookIcon-NextPage-Down]])
+			self:SetDisabledTexture([[Interface\BUTTONS\UI-SpellbookIcon-NextPage-Disabled]])
+		end
+	end
 	MainPanel.filter_toggle = filter_toggle
 end	-- do-block
 -------------------------------------------------------------------------------
@@ -2073,7 +2084,7 @@ local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSm
 
 MainPanel.sort_button = SortToggle
 
-SortToggle:SetPoint("RIGHT", MainPanel.xclose_button, "LEFT", 5, 0)
+SortToggle:SetPoint("LEFT", ExpandButtonFrame, "RIGHT", 0, 2)
 
 SortToggle:SetScript("OnClick",
 		     function(self, button, down)
@@ -2085,19 +2096,19 @@ SortToggle:SetScript("OnClick",
 			     ListFrame:Update(nil, false)
 		     end)
 
+SortToggle:SetHighlightTexture([[Interface\CHATFRAME\UI-ChatIcon-BlinkHilight]])
+
 function SortToggle:SetTextures()
 	local sort_type = addon.db.profile.sorting
 
 	if sort_type == "Ascending" then
-		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Up")
-		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Down")
-		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
-		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollDown-Disabled")
+		self:SetNormalTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollDown-Up]])
+		self:SetPushedTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollDown-Down]])
+		self:SetDisabledTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollDown-Disabled]])
 	else
-		self:SetNormalTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Up")
-		self:SetPushedTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Down")
-		self:SetHighlightTexture("Interface\\CHATFRAME\\UI-ChatIcon-BlinkHilight")
-		self:SetDisabledTexture("Interface\\CHATFRAME\\UI-ChatIcon-ScrollUp-Disabled")
+		self:SetNormalTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollUp-Up]])
+		self:SetPushedTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollUp-Down]])
+		self:SetDisabledTexture([[Interface\CHATFRAME\UI-ChatIcon-ScrollUp-Disabled]])
 	end
 end
 
@@ -4372,6 +4383,7 @@ do
 			ListFrame:Update(nil, false)
 		end
 		self.sort_button:SetTextures()
+		self.filter_toggle:SetTextures()
 
 		self:UpdateTitle()
 		self:Show()

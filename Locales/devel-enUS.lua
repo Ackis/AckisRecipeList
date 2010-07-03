@@ -349,9 +349,7 @@ L["HEALERS_DESC"]			= "Recipes that are used by healer players should be include
 L["SPECIFIC_REP_DESC"]		= "Include %s faction."
 
 -- ZJUI UI Elements (when different from the above ones) and their associated descriptions
-L["FILTER_OPEN"]			= "Filter >>>"
 L["FILTER_OPEN_DESC"]		= "Open filter option panel."
-L["FILTER_CLOSE"]			= "<<< Filter"
 L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
 L["EXPANDALL"]				= "+ All"
 L["EXPANDALL_DESC"]			= [[Expand all recipes listed below.
