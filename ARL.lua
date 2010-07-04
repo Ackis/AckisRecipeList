@@ -1006,12 +1006,11 @@ do
 				else
 					if acquire_type == A.TRAINER then
 						local trainer_list = private.trainer_list
+						local trainer = trainer_list[acquire_id]
 
-						if not trainer_list[acquire_id] then
+						if not trainer then
 							self:Debug("Spell ID "..spell_id..": TrainerID "..acquire_id.." does not exist in the database.")
 						else
-							local trainer = trainer_list[acquire_id]
-
 							acquire[acquire_id] = true
 
 							affiliation = trainer.faction
@@ -1022,12 +1021,11 @@ do
 						end
 					elseif acquire_type == A.VENDOR then
 						local vendor_list = private.vendor_list
+						local vendor = vendor_list[acquire_id]
 
-						if not vendor_list[acquire_id] then
+						if not vendor then
 							self:Debug("Spell ID "..spell_id..": VendorID "..acquire_id.." does not exist in the database.")
 						else
-							local vendor = vendor_list[acquire_id]
-
 							acquire[acquire_id] = true
 
 							affiliation = vendor.faction
@@ -1038,12 +1036,11 @@ do
 						end
 					elseif acquire_type == A.MOB_DROP then
 						local mob_list = private.mob_list
+						local mob = mob_list[acquire_id]
 
-						if not mob_list[acquire_id] then
+						if not mob then
 							self:Debug("Spell ID "..spell_id..": Mob ID "..acquire_id.." does not exist in the database.")
 						else
-							local mob = mob_list[acquire_id]
-
 							acquire[acquire_id] = true
 
 							affiliation = mob.faction
@@ -1054,12 +1051,11 @@ do
 						end
 					elseif acquire_type == A.QUEST then
 						local quest_list = private.quest_list
+						local quest = quest_list[acquire_id]
 
-						if not quest_list[acquire_id] then
+						if not quest then
 							self:Debug("Spell ID "..spell_id..": Quest ID "..acquire_id.." does not exist in the database.")
 						else
-							local quest = quest_list[acquire_id]
-
 							acquire[acquire_id] = true
 
 							affiliation = quest.faction
