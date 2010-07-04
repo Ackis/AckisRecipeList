@@ -390,15 +390,6 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 	if not worldmap and not minimap then
 		return
 	end
-	local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-	-- Get the proper icon to put on the mini-map
-	--		for i, k in pairs(ORDERED_PROFESSIONS) do
-	--			if (i == MainPanel.profession) then
-	--				icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-	--				break
-	--			end
-	--		end
 	table.wipe(maplist)
 
 	local recipe_list = private.recipe_list
@@ -527,7 +518,21 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			end
 
 			if _G.TomTom then
-				table.insert(iconlist, _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap))
+				local uid = _G.TomTom:AddZWaypoint(continent, zone, x, y, name, false, minimap, worldmap)
+				table.insert(iconlist, uid)
+
+				if _G.TomTom.ChangeWaypointIcon then
+					local icon_tex
+
+					-- Get the proper icon to put on the mini-map
+					for index, profession in pairs(private.ordered_professions) do
+						if index == self.Frame.profession then
+							icon_tex = "Interface\\AddOns\\AckisRecipeList\\img\\" .. private.profession_textures[index] .. "_up"
+							break
+						end
+					end
+					_G.TomTom:ChangeWaypointIcon(uid, minimap, worldmap, icon_tex)
+				end
 			elseif _G.Cartographer_Waypoints then
 				local pt = _G.NotePoint:new(zone, x/100, y/100, desc)
 				_G.Cartographer_Waypoints:AddWaypoint(pt)
