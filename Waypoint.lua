@@ -425,6 +425,8 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 							local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
 							if waypoint and (not location_id or waypoint.location == location_id) then
+								waypoint.waypoint_type = acquire_type
+								waypoint.waypoint_id = id_num
 								maplist[waypoint] = recipe_id
 							end
 						end
@@ -463,6 +465,8 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 							local waypoint = GetWaypoint(acquire_type, id_num, recipe)
 
 							if waypoint then
+								waypoint.waypoint_type = acquire_type
+								waypoint.waypoint_id = id_num
 								maplist[waypoint] = sorted_recipes[i]
 							end
 						end
@@ -473,11 +477,19 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 	end
 
 	for entry, spell_id in pairs(maplist) do
-		local name = string.format("%s (%s)", entry.name or _G.UNKNOWN, recipe_list[spell_id].name)
+		local name
 		local x = entry.coord_x
 		local y = entry.coord_y
 		local location = entry.location
 		local continent, zone
+
+		if entry.waypoint_type == A.QUEST then
+			name = string.format("Quest: %s (%s)", private.quest_names[entry.waypoint_id], recipe_list[spell_id].name)
+		else
+			name = string.format("%s (%s)", entry.name or _G.UNKNOWN, recipe_list[spell_id].name)
+		end
+		entry.waypoint_type = nil
+		entry.waypoint_id = nil
 
 		if KALIMDOR_IDNUMS[location] then
 			continent = 1
