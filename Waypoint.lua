@@ -472,22 +472,6 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		end
 	end
 
-	--		local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
-	--		ARLWorldMap:ClearAllPoints()
-	--		ARLWorldMap:SetWidth(8)
-	--		ARLWorldMap:SetHeight(8)
-	--		ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK")
-	--		ARLWorldMap.icon:SetTexture(icontext)
-	--		ARLWorldMap.icon:SetAllPoints()
-
-	--		local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-	--		ARLMiniMap:ClearAllPoints()
-	--		ARLMiniMap:SetWidth(8)
-	--		ARLMiniMap:SetHeight(8)
-	--		ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK")
-	--		ARLMiniMap.icon:SetTexture(icontext)
-	--		ARLMiniMap.icon:SetAllPoints()
-
 	for entry, spell_id in pairs(maplist) do
 		local name = string.format("%s (%s)", entry.name or _G.UNKNOWN, recipe_list[spell_id].name)
 		local x = entry.coord_x
@@ -516,18 +500,18 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			y = info.y
 			name = name .. " (" .. location .. ")"
 		else
-			addon:Debug("No continent/zone map match for ID %d. Location: %s.", spell_id, location)
+			self:Debug("No continent/zone map match for ID %d. Location: %s.", spell_id, location)
 		end
 
 		--@alpha@
 		if (x < -100) or (x > 100) or (y < -100) or (y > 100) then
-			addon:Debug("Invalid location coordinates for ID %d. Location: %s.", spell_id, location)
+			self:Debug("Invalid location coordinates for ID %d. Location: %s.", spell_id, location)
 		end
 		--@end-alpha@
 
 		if zone and continent then
 			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location] then
-				addon:Debug("Location is \"0, 0\" for ID %d. Location: %s.", spell_id, location)
+				self:Debug("Location is \"0, 0\" for ID %d. Location: %s.", spell_id, location)
 			end
 
 			if _G.TomTom then
