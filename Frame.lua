@@ -610,8 +610,6 @@ do
 			if type(quantity) == "number" then
 				addline_func(2, -2, true, L["LIMITED_SUPPLY"], type_color, string.format("(%d)", quantity), BASIC_COLORS["white"])
 			end
-		else
-			addline_func(0, -1, false, vendor.faction.." "..L["Vendor"], type_color)
 		end
 	end
 
@@ -647,8 +645,6 @@ do
 			end
 			addline_func(0, -1, false, L["Quest"], type_color, private.quest_names[id_num], name_color)
 			addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], coord_text, CATEGORY_COLORS["coords"])
-		else
-			addline_func(0, -1, false, quest.faction.." "..L["Quest"], type_color)
 		end
 	end
 
