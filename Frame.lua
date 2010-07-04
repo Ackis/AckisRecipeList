@@ -4281,21 +4281,6 @@ end
 -- Displays the main GUI frame.
 -------------------------------------------------------------------------------
 do
-	local PROFESSION_TEXTURES = {
-		"alchemy",	-- 1
-		"blacksmith",	-- 2
-		"cooking",	-- 3
-		"enchant",	-- 4
-		"engineer",	-- 5
-		"firstaid",	-- 6
-		"inscribe",	-- 7
-		"jewel",	-- 8
-		"leather",	-- 9
-		"runeforge",	-- 10
-		"smelting",	-- 11
-		"tailor",	-- 12
-	}
-
 	function MainPanel:Display(profession, is_linked)
 		if InitializeFrame then
 			InitializeFrame()
@@ -4356,7 +4341,7 @@ do
 		if self.profession ~= prev_profession then
 			self.prev_profession = self.profession
 		end
-		self.prof_button:ChangeTexture(PROFESSION_TEXTURES[self.profession])
+		self.prof_button:ChangeTexture(private.profession_textures[self.profession])
 
 		local editbox = SearchBox
 

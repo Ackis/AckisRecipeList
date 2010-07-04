@@ -62,6 +62,21 @@ private.ordered_professions = {
 	private.professions.Tailoring,		-- 12
 }
 
+private.profession_textures = {
+	"alchemy",	-- 1
+	"blacksmith",	-- 2
+	"cooking",	-- 3
+	"enchant",	-- 4
+	"engineer",	-- 5
+	"firstaid",	-- 6
+	"inscribe",	-- 7
+	"jewel",	-- 8
+	"leather",	-- 9
+	"runeforge",	-- 10
+	"smelting",	-- 11
+	"tailor",	-- 12
+}
+
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
