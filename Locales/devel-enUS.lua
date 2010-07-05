@@ -153,6 +153,9 @@ L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containi
 
 L["Recipes In Tooltips"]	= true
 L["UNIT_TOOLTIPS_DESC"]		= "Toggles whether or not to display unknown recipes in the tooltips of the vendors, trainers, or mobs which carry them."
+
+L["UNIT_MAX_TOOLTIPS_DESC"]	= "Maximum number of recipes to show in tooltips."
+
 L["TOOLTIP_HINT"]		= "Hide Hint Text"
 L["TOOLTIP_HINT_DESC"]		= "Hides the hint text at the bottom of the tooltip."
 

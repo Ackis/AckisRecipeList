@@ -679,10 +679,14 @@ local function giveDisplay()
 							  }
 						  end,
 				},
-				unit_tooltip = {
+				spacer2 = {
 					order	= 23,
+					type	= "description",
+					name	= "\n",
+				},
+				unit_tooltip = {
+					order	= 24,
 					type	= "toggle",
-					width	= "full",
 					name	= L["Recipes In Tooltips"],
 					desc	= L["UNIT_TOOLTIPS_DESC"],
 					get	= function()
@@ -692,10 +696,28 @@ local function giveDisplay()
 							  addon.db.profile.recipes_in_tooltips = not addon.db.profile.recipes_in_tooltips
 						  end,
 				},
+				unit_max_tooltip = {
+					order	= 25,
+					type	= "range",
+					name	= _G.MAXIMUM,
+					desc	= L["UNIT_MAX_TOOLTIPS_DESC"],
+					min	= 1,
+					max	= 50,
+					step	= 1,
+					bigStep = 5,
+					disabled= function()
+							  return not addon.db.profile.recipes_in_tooltips
+						  end,
+					get	= function()
+							  return addon.db.profile.max_recipes_in_tooltips
+						  end,
+					set	= function(info, v)
+							  addon.db.profile.max_recipes_in_tooltips = v
+						  end,
+				},
 				tooltip_hint = {
-					order	= 24,
+					order	= 26,
 					type	= "toggle",
-					width	= "full",
 					name	= L["TOOLTIP_HINT"],
 					desc	= L["TOOLTIP_HINT_DESC"],
 					get	= function()

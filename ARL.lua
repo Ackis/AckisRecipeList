@@ -223,6 +223,7 @@ function addon:OnInitialize()
 			spelltooltiplocation = "Right",
 			acquiretooltiplocation = "Right",
 			recipes_in_tooltips = true,
+			max_recipes_in_tooltips = 10,
 			hide_tooltip_hint = false,
 			hidepopup = false,
 			minimap = true,
@@ -505,6 +506,7 @@ function addon:OnInitialize()
 			       end
 			       local recipe_list = private.recipe_list
 			       local shifted = IsShiftKeyDown()
+			       local count = 0
 
 			       for spell_id in pairs(unit.item_list) do
 				       local recipe = recipe_list[spell_id]
@@ -519,7 +521,12 @@ function addon:OnInitialize()
 						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
 
 						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
+						       count = count + 1
 					       end
+				       end
+
+				       if count >= addon.db.profile.max_recipes_in_tooltips then
+					       break
 				       end
 			       end
 		       end)
