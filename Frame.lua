@@ -1092,6 +1092,26 @@ do
 	-- necessary to ensure each is counted only once.
 	local recipe_registry = {}
 
+	local function FactionTally(source_data, unit_list, location)
+		local good, bad = 0, 0
+		local count = 0
+
+		for id_num in pairs(source_data) do
+			local faction = unit_list[id_num].faction
+			local can_display = (not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"])
+
+			can_display = can_display and (not location or unit_list[id_num].location == location)
+
+			if can_display then
+				good = good + 1
+			else
+				bad = bad + 1
+			end
+			count = count + 1
+		end
+		return good, bad
+	end
+
 	-------------------------------------------------------------------------------
 	-- Variables used to hold tables for sorting the various tabs:
 	-- The tables are only sorted once, upon creation.
@@ -1202,11 +1222,52 @@ do
 				local recipe = private.recipe_list[spell_id]
 
 				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-					count = count + 1
+					local trainer_data = recipe.acquire_data[A.TRAINER]
+					local good_count, bad_count = 0, 0
+					local unbiased = addon.db.profile.filters.general.faction
 
-					if not recipe_registry[recipe] then
-						recipe_registry[recipe] = true
-						recipe_count = recipe_count + 1
+					if not unbiased then
+						if trainer_data then
+							local good, bad = FactionTally(trainer_data, private.trainer_list, loc_name)
+
+							if good == 0 and bad > 0 then
+								bad_count = bad_count + 1
+							else
+								good_count = good_count + 1
+							end
+						end
+						local vendor_data = recipe.acquire_data[A.VENDOR]
+
+						if vendor_data then
+							local good, bad = FactionTally(vendor_data, private.vendor_list, loc_name)
+
+							if good == 0 and bad > 0 then
+								bad_count = bad_count + 1
+							else
+								good_count = good_count + 1
+							end
+						end
+						local quest_data = recipe.acquire_data[A.QUEST]
+
+						if quest_data then
+							local good, bad = FactionTally(quest_data, private.quest_list, loc_name)
+
+							if good == 0 and bad > 0 then
+								bad_count = bad_count + 1
+							else
+								good_count = good_count + 1
+							end
+						end
+					end
+					local invisible = (good == 0 and bad > 0)
+
+					if unbiased or not invisible then
+						count = count + 1
+
+						if not recipe_registry[recipe] then
+							recipe_registry[recipe] = true
+							recipe_count = recipe_count + 1
+						end
 					end
 				else
 					self[prof_name.." expanded"][spell_id] = nil
