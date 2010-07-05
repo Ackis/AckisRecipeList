@@ -1094,20 +1094,17 @@ do
 
 	local function FactionTally(source_data, unit_list, location)
 		local good, bad = 0, 0
-		local count = 0
 
 		for id_num in pairs(source_data) do
-			local faction = unit_list[id_num].faction
-			local can_display = (not faction or faction == BFAC[Player.faction] or faction == BFAC["Neutral"])
+			local unit_faction = unit_list[id_num].faction
 
-			can_display = can_display and (not location or unit_list[id_num].location == location)
-
-			if can_display then
-				good = good + 1
-			else
-				bad = bad + 1
+			if not location or unit_list[id_num].location == location then
+				if not unit_faction or unit_faction == BFAC[Player.faction] or unit_faction == BFAC["Neutral"] then
+					good = good + 1
+				else
+					bad = bad + 1
+				end
 			end
-			count = count + 1
 		end
 		return good, bad
 	end
@@ -1224,9 +1221,9 @@ do
 				if recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
 					local trainer_data = recipe.acquire_data[A.TRAINER]
 					local good_count, bad_count = 0, 0
-					local unbiased = addon.db.profile.filters.general.faction
+					local fac_toggle = addon.db.profile.filters.general.faction
 
-					if not unbiased then
+					if not fac_toggle then
 						if trainer_data then
 							local good, bad = FactionTally(trainer_data, private.trainer_list, loc_name)
 
@@ -1259,9 +1256,8 @@ do
 							end
 						end
 					end
-					local invisible = (good == 0 and bad > 0)
 
-					if unbiased or not invisible then
+					if fac_toggle or not (good_count == 0 and bad_count > 0) then
 						count = count + 1
 
 						if not recipe_registry[recipe] then
