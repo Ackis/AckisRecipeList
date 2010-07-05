@@ -2262,14 +2262,10 @@ do
 					local _, itemLink = _G.GetItemInfo(itemID)
 
 					if itemLink then
-						if tonumber(private.build_num) < 12213 then
-							_G.ChatFrameEditBox:Insert(itemLink)
-						else
-							local edit_box = _G.ChatEdit_ChooseBoxForSend()
+						local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
-							_G.ChatEdit_ActivateChat(edit_box)
-							edit_box:Insert(itemLink)
-						end
+						_G.ChatEdit_ActivateChat(edit_box)
+						edit_box:Insert(itemLink)
 					else
 						addon:Print(L["NoItemLink"])
 					end
@@ -2277,14 +2273,10 @@ do
 					addon:Print(L["NoItemLink"])
 				end
 			elseif _G.IsControlKeyDown() then
-				if tonumber(private.build_num) < 12213 then
-					_G.ChatFrameEditBox:Insert(GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
-				else
-					local edit_box = _G.ChatEdit_ChooseBoxForSend()
+				local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
-					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
-				end
+				_G.ChatEdit_ActivateChat(edit_box)
+				edit_box:Insert(GetSpellLink(private.recipe_list[clicked_line.recipe_id].spell_id))
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
 				local recipe_id = clicked_line.recipe_id
