@@ -4281,38 +4281,6 @@ do
 		self.is_linked = is_linked
 
 		-------------------------------------------------------------------------------
-		-- Restore the panel's position on the screen.
-		-------------------------------------------------------------------------------
-		local opts = addon.db.profile.frameopts
-		local FixedOffsetX = opts.offsetx
-
-		self:ClearAllPoints()
-
-		if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
-			if _G.ATSWFrame then
-				self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
-			elseif _G.CauldronFrame then
-				self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
-			elseif _G.Skillet then
-				self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
-			else
-				self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
-			end
-		else
-			if self.is_expanded then
-				if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
-					FixedOffsetX = opts.offsetx
-				elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
-					FixedOffsetX = opts.offsetx + 151/2
-				elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
-					FixedOffsetX = opts.offsetx + 151
-				end
-			end
-			self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
-		end
-		self:SetScale(addon.db.profile.frameopts.uiscale)
-
-		-------------------------------------------------------------------------------
 		-- Set the profession.
 		-------------------------------------------------------------------------------
 		local prev_profession = self.profession
@@ -4361,6 +4329,42 @@ do
 		self:UpdateTitle()
 		self:Show()
 	end
+
+	-------------------------------------------------------------------------------
+	-- Restore the panel's position on the screen.
+	-------------------------------------------------------------------------------
+	local function Reset_Position(self)
+		local opts = addon.db.profile.frameopts
+		local FixedOffsetX = opts.offsetx
+
+		self:ClearAllPoints()
+
+		if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
+			if _G.ATSWFrame then
+				self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
+			elseif _G.CauldronFrame then
+				self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
+			elseif _G.Skillet then
+				self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
+			else
+				self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
+			end
+		else
+			if self.is_expanded then
+				if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
+					FixedOffsetX = opts.offsetx
+				elseif opts.anchorFrom == "TOP" or opts.anchorFrom == "CENTER" or opts.anchorFrom == "BOTTOM" then
+					FixedOffsetX = opts.offsetx + 151/2
+				elseif opts.anchorFrom == "TOPRIGHT" or opts.anchorFrom == "RIGHT" or opts.anchorFrom == "BOTTOMRIGHT" then
+					FixedOffsetX = opts.offsetx + 151
+				end
+			end
+			self:SetPoint(opts.anchorFrom, UIParent, opts.anchorTo, FixedOffsetX, opts.offsety)
+		end
+		self:SetScale(addon.db.profile.frameopts.uiscale)
+	end
+
+	MainPanel:SetScript("OnShow", Reset_Position)
 end	-- do-block
 
 --------------------------------------------------------------------------------
