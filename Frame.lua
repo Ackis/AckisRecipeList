@@ -2065,7 +2065,6 @@ end	-- do
 -- Function to create and initialize a check-button with the given values. Used in all of
 -- the sub-menus of MainPanel.filter_menu
 -------------------------------------------------------------------------------
-local CreateCheckButton
 local GenerateCheckBoxes
 do
 	local function CheckButton_OnClick(self, button, down)
@@ -2076,7 +2075,7 @@ do
 		ListFrame:Update(nil, false)
 	end
 
-	function CreateCheckButton(parent, ttText, scriptVal, row, col)
+	local function CreateCheckButton(parent, ttText, scriptVal, row, col)
 		-- set the position of the new checkbox
 		local xPos = 2 + ((col - 1) * 175)
 		local yPos = -3 - ((row - 1) * 17)
@@ -3285,8 +3284,18 @@ end
 
 local function SelectProfession(cell, arg, button)
 	local tskl_list = addon.db.global.tradeskill
+	local saved_link = tskl_list[click_info.realm][click_info.name][arg]
+
+	if click_info.realm ~= _G.GetRealmName() then
+		local player_guid = string.gsub(UnitGUID("player"), "0x0+", "")
+		local color, trade_id, cur_lev, max_lev, guid, bitmask = string.split(":", saved_link)
+		local trade_link = string.join(":", color, trade_id, cur_lev, max_lev, player_guid, bitmask)
+
+		addon:Printf("%s (%s): %s", click_info.name, click_info.realm, trade_link)
+	else
+		addon:Printf("%s: %s", click_info.name, saved_link)
+	end
 	click_info.modified = true
-	addon:Print(click_info.name .. "(" .. click_info.realm .. "):" .. tskl_list[click_info.realm][click_info.name][arg])
 end
 
 -------------------------------------------------------------------------------
