@@ -9,16 +9,26 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Clicking the profession-cycling button will now emit a sound.
 * Tooltips for list entries will no longer be clipped when close to the screen edge; instead, they will draw completely on-screen even if this results in an overlap over the list.
 * For recipes which have multiple sources, it is now possible to create a waypoint to a specific source.
+* Moved the sort-method toggle button to the right of the expand/collapse button so its position is consistent and always within reach no matter the state of the frame. Changed the look of the main panel's filter toggle button to accommodate.
+
+==== Database changes:
+* Corrected Penney Copperpinch - she is neutral, not strictly Horde-friendly.
+* Finally got around to adding world drop locations to the remaining recipes in Jewelcrafting.  All world drop recipes throughout the databases now have a location set.
 
 ==== Miscellaneous changes:
-* Corrected Penney Copperpinch - she is neutral, not strictly Horde-friendly.
 * Adjusted the main panel's mouse-interactive and screen-clamp areas.
 * Added support for Cartographer_Waypoints (and thereby Carbonite's waypoint system).
+* Added support for a possible TomTom-API addition to change a waypoint's icon to that of the recipe's profession.
+* Pressing the "Reset Window Position" button from the Display Options now works immediately.
+* Added a configurable (1-50) maximum for the number of unknown recipes to be shown in vendor/trainer/mob tooltips.
 
 ==== Bug Fixes.
-* Cycling through professions while the tradeskill UI is closed will no longer prevent the escape key from closing AddOn frames.
+* Cycling through professions while the tradeskill UI is closed will no longer prevent the escape key from closing AddOn frames, and will no longer produce the tradeskill-frame opening sound.
 * Creating waypoints (requires TomTom, Cartographer_Waypoints, or Carbonite) for recipes in instances will now work.
 * Creating waypoints no longer requires both minimap and worldmap points to be enabled - one or the other will work.
+* Waypoints for recipes acquired through quests will now show the quest name instead of "Unknown".
+* When viewing the Location tab, toggling the Faction filter off will now remove locations which only contain entries which are obtainable via the opposing faction.
+* List entries of the types "World Drop" or "Custom" will no longer show a tooltip hint for creating waypoints.
 
 == Version 2.0 Release Candidate 1
 
