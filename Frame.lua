@@ -902,7 +902,7 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
 
-			if (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+			if acquire_id ~= A.WORLD_DROP and acquire_id ~= A.CUSTOM and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
 			end
 		end
