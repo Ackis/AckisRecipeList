@@ -87,7 +87,7 @@ L["Map Issues"]			= true
 L["MAP_ISSUES_DESC"]		= "ARL relies on TomTom to add icons and waypoints to the World Map and the Mini-map.  You can customize these by going to the ARL configuration menu and scrolling to the display options.  If you do not have TomTom installed, nothing will be added.  Auto-adding icons is disabled by default."
 L["Game Commands"]		= true
 L["GAME_COMMANDS_DESC"]		= [[Command Line:
-Ackis Recipe List has recently changed to use a GUI for change parameters.  Type /arl to open up the GUI.  Acceptable commands include:
+Type /arl to open up the GUI.  Acceptable commands include:
 - /arl about
   Opens up the about panel, listing information about the mod.
 - /arl sort or /arl sorting
