@@ -303,11 +303,11 @@ do
 		this:EnableMouse(true)
 	end
 
-	function GenericCreateButton(bName, parentFrame, bHeight, bWidth, bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
-		local button = CreateFrame("Button", bName, parentFrame)
+	function GenericCreateButton(name, parent, height, width, font_object, label, justify_h, tip_text, noTextures)
+		local button = CreateFrame("Button", name, parent)
 
-		button:SetWidth(bWidth)
-		button:SetHeight(bHeight)
+		button:SetWidth(width)
+		button:SetHeight(height)
 
 		if noTextures == 0 then
 			button:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
@@ -365,13 +365,13 @@ do
 		button.text = text
 		text:SetPoint("LEFT", button, "LEFT", 7, 0)
 		text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
-		text:SetJustifyH(tAlign)
+		text:SetJustifyH(justify_h)
 
-		text:SetFontObject(bNormFont)
-		text:SetText(initText)
+		text:SetFontObject(font_object)
+		text:SetText(label)
 
-		if tooltipText and tooltipText ~= "" then
-			SetTooltipScripts(button, tooltipText)
+		if tip_text and tip_text ~= "" then
+			SetTooltipScripts(button, tip_text)
 		end
 		return button
 	end
@@ -1791,7 +1791,7 @@ ExpandButtonFrame.middle:SetPoint("LEFT", ExpandButtonFrame.left, "RIGHT")
 ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
 ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
 
-local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
+local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
 
 MainPanel.expand_all_button = ExpandButton
 
@@ -1985,7 +1985,7 @@ do
 		self:SetTextures()
 	end
 
-	local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["FILTER_OPEN_DESC"], 2)
+	local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "", "CENTER", L["FILTER_OPEN_DESC"], 2)
 	filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
 
 	filter_toggle:SetScript("OnClick", Toggle_OnClick)
@@ -2008,8 +2008,7 @@ end	-- do-block
 -------------------------------------------------------------------------------
 -- Create MainPanel.filter_reset and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 22, 78, "GameFontNormalSmall", "GameFontHighlightSmall", _G.RESET, "CENTER",
-					     L["RESET_DESC"], 1)
+MainPanel.filter_reset = GenericCreateButton(nil, MainPanel, 22, 78, "GameFontNormalSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
 MainPanel.filter_reset:SetPoint("BOTTOMRIGHT", MainPanel, "BOTTOMRIGHT", -95, 80)
 MainPanel.filter_reset:Hide()
 
@@ -2132,7 +2131,7 @@ ListFrame.entry_buttons = {}
 -------------------------------------------------------------------------------
 -- Sort-mode toggle button.
 -------------------------------------------------------------------------------
-local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "GameFontHighlightSmall", "", "CENTER", L["SORTING_DESC"], 2)
+local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "", "CENTER", L["SORTING_DESC"], 2)
 
 MainPanel.sort_button = SortToggle
 
@@ -2418,8 +2417,8 @@ do
 		cur_container:SetHeight(16)
 		cur_container:SetWidth(LISTFRAME_WIDTH)
 
-		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, "GameFontNormalSmall", "GameFontHighlightSmall", "", "LEFT", "", 2)
-		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, "GameFontNormalSmall", "", "LEFT", "", 2)
+		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", "", 0)
 
 		if i == 1 then
 			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, 0)
@@ -3219,7 +3218,7 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", "GameFontHighlightSmall", _G.EXIT, "CENTER", L["CLOSE_DESC"], 1)
+MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", _G.EXIT, "CENTER", L["CLOSE_DESC"], 1)
 MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, 1)
 
 MainPanel.close_button:SetScript("OnClick",
@@ -3618,7 +3617,7 @@ local function InitializeFrame()
 		-------------------------------------------------------------------------------
 		-- Create the Class toggle and CheckButtons.
 		-------------------------------------------------------------------------------
-		local class_toggle = GenericCreateButton(nil, general_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
+		local class_toggle = GenericCreateButton(nil, general_frame, 20, 105, "GameFontHighlight", L["Classes"] .. ":", "LEFT", L["CLASS_TEXT_DESC"], 0)
 		class_toggle:SetPoint("TOPLEFT", MainPanel.filter_menu.general.unknown, "BOTTOMLEFT", -4, -10)
 		class_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
@@ -3715,7 +3714,7 @@ local function InitializeFrame()
 		-------------------------------------------------------------------------------
 		-- Create the Armor toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local armor_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", _G.ARMOR .. ":", "LEFT", L["ARMOR_TEXT_DESC"], 0)
+		local armor_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", _G.ARMOR .. ":", "LEFT", L["ARMOR_TEXT_DESC"], 0)
 		armor_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -4)
 		armor_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		armor_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
@@ -3751,7 +3750,7 @@ local function InitializeFrame()
 		-------------------------------------------------------------------------------
 		-- Create the Weapon toggle and CheckButtons
 		-------------------------------------------------------------------------------
-		local weapon_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", "GameFontHighlightSmall", L["Weapon"] .. ":", "LEFT", L["WEAPON_TEXT_DESC"], 0)
+		local weapon_toggle = GenericCreateButton(nil, item_frame, 20, 105, "GameFontHighlight", L["Weapon"] .. ":", "LEFT", L["WEAPON_TEXT_DESC"], 0)
 		weapon_toggle:SetPoint("TOPLEFT", item_frame, "TOPLEFT", -2, -122)
 
 		weapon_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -3982,7 +3981,7 @@ local function InitializeFrame()
 		}
 		GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
-		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -4)
 
 		expansion0_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4045,7 +4044,7 @@ local function InitializeFrame()
 		}
 		GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
-		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -4)
 
 		expansion1_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
@@ -4118,7 +4117,7 @@ local function InitializeFrame()
 		expansion2_frame.wrathcommon4:Disable()
 		expansion2_frame.wrathcommon5:Disable()
 
-		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", "GameFontHighlightSmall", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -4)
 
 		expansion2_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
