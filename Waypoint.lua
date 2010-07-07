@@ -408,6 +408,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 									local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
 									if waypoint and (not location_id or waypoint.location == location_id) then
+										waypoint.waypoint_type = acquire_type
 										maplist[waypoint] = recipe_id
 									end
 								end
@@ -448,6 +449,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 									local waypoint = GetWaypoint(acquire_type, vendor_id, recipe)
 
 									if waypoint then
+										waypoint.waypoint_type = acquire_type
 										maplist[waypoint] = sorted_recipes[i]
 									end
 								end
