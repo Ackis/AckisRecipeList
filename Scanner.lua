@@ -1370,7 +1370,7 @@ do
 		local recipe_link = GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			if recipe.profession ~= GetSpellInfo(53428) then		-- Lets hide this output for runeforging.
+			if recipe.profession ~= private.runeforging_name then		-- Lets hide this output for runeforging.
 				self:Printf("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			end
 			return

@@ -484,7 +484,7 @@ function addon:OnInitialize()
 	PROFESSION_INITS[GetSpellInfo(51309)] = addon.InitTailoring
 	PROFESSION_INITS[GetSpellInfo(51311)] = addon.InitJewelcrafting
 	PROFESSION_INITS[GetSpellInfo(45363)] = addon.InitInscription
-	PROFESSION_INITS[GetSpellInfo(53428)] = addon.InitRuneforging
+	PROFESSION_INITS[private.runeforging_name] = addon.InitRuneforging
 
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
@@ -642,7 +642,7 @@ function addon:OnEnable()
 			[GetSpellInfo(51309)]	= false, -- Tailoring
 			[GetSpellInfo(51311)]	= false, -- Jewelcrafting
 			[GetSpellInfo(45363)]	= false, -- Inscription
-			[GetSpellInfo(53428)]	= false, -- Runeforging
+			[private.runeforging_name]	= false, -- Runeforging
 		}
 		Player:SetProfessions()
 

@@ -30,6 +30,12 @@ local private	= select(2, ...)
 -------------------------------------------------------------------------------
 -- Profession data.
 -------------------------------------------------------------------------------
+-- Needed for Smelting kludge.
+private.mining_name		= GetSpellInfo(32606)
+
+-- This is needed because the French translation is non-conformant.
+private.runeforging_name = GetLocale() == "frFR" and "Runeforger" or GetSpellInfo(53428)
+
 private.professions = {
 	["Alchemy"]		= GetSpellInfo(51304),
 	["Blacksmithing"]	= GetSpellInfo(51300),
@@ -40,12 +46,10 @@ private.professions = {
 	["Inscription"]		= GetSpellInfo(45363),
 	["Jewelcrafting"]	= GetSpellInfo(51311),
 	["Leatherworking"]	= GetSpellInfo(51302),
-	["Runeforging"]		= GetSpellInfo(53428),
+	["Runeforging"]		= private.runeforging_name,
 	["Smelting"]		= GetSpellInfo(2656),
 	["Tailoring"]		= GetSpellInfo(51309),
 }
-
-private.mining_name		= GetSpellInfo(32606)
 
 private.ordered_professions = {
 	private.professions.Alchemy, 		-- 1
