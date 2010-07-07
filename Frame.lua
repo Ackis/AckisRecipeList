@@ -306,8 +306,8 @@ do
 	function GenericCreateButton(name, parent, height, width, font_object, label, justify_h, tip_text, noTextures)
 		local button = CreateFrame("Button", name, parent)
 
-		button:SetWidth(width)
 		button:SetHeight(height)
+		button:SetWidth(width)
 
 		if noTextures == 0 then
 			button:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
@@ -360,15 +360,17 @@ do
 			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
 		end
 
-		local text = button:CreateFontString(nil, "ARTWORK")
-		button:SetFontString(text)
-		button.text = text
-		text:SetPoint("LEFT", button, "LEFT", 7, 0)
-		text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
-		text:SetJustifyH(justify_h)
+		if font_object then
+			local text = button:CreateFontString(nil, "ARTWORK")
+			button:SetFontString(text)
+			button.text = text
+			text:SetPoint("LEFT", button, "LEFT", 7, 0)
+			text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
+			text:SetJustifyH(justify_h)
 
-		text:SetFontObject(font_object)
-		text:SetText(label)
+			text:SetFontObject(font_object)
+			text:SetText(label)
+		end
 
 		if tip_text and tip_text ~= "" then
 			SetTooltipScripts(button, tip_text)
@@ -2417,7 +2419,7 @@ do
 		cur_container:SetHeight(16)
 		cur_container:SetWidth(LISTFRAME_WIDTH)
 
-		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, "GameFontNormalSmall", "", "LEFT", "", 2)
+		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, nil, nil, nil, nil, 2)
 		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", "", 0)
 
 		if i == 1 then
@@ -2587,7 +2589,6 @@ do
 			entry:Disable()
 
 			state.string_index = 0
-			state.text:SetFontObject(font_object)
 
 			state:Hide()
 			state:SetScript("OnEnter", nil)
