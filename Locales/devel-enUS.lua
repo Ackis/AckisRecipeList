@@ -354,10 +354,7 @@ L["QUALITY_GENERAL_DESC"]		= "Include %s quality recipe items in the scan."
 -------------------------------------------------------------------------------
 -- Player Type Filtering UI Elements and their associated descriptions
 -------------------------------------------------------------------------------
-L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
-L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
-L["CASTER_DPS_DESC"]			= "Recipes that are used by casting dps players should be included in the scan."
-L["HEALERS_DESC"]			= "Recipes that are used by healer players should be included in the scan."
+L["ROLE_DESC_FORMAT"]			= "Show recipes favored by %s classes."
 
 -------------------------------------------------------------------------------
 -- Reputation Filtering UI Elements and their associated description
@@ -369,15 +366,10 @@ L["SPECIFIC_REP_DESC"]		= "Include %s faction."
 -------------------------------------------------------------------------------
 L["FILTER_OPEN_DESC"]		= "Open filter option panel."
 L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
-L["EXPANDALL"]				= "+ All"
 L["EXPANDALL_DESC"]			= [[Expand all recipes listed below.
 Hold the Shift key to expand sub-entries.]]
-L["CONTRACTALL"]			= "- All"
 L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
-L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
-L["CLEAR_DESC"]				= "Clear search text"
-L["Close"]				= "Exit"
-L["CLOSE_DESC"]				= "Close the Ackis Recipe List Window."
+L["CLOSE_DESC"]				= "Close the Recipe List Window."
 L["RESET_DESC"]				= "Reset All Filters to default values."
 L["NOT_YET_SCANNED"]		= "Not yet scanned!"
 
@@ -390,7 +382,6 @@ L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link t
 L["CTRL_SHIFT_CLICK"]	= "Ctrl-Shift-Click to add the item to the map and mini-map."
 L["Obtained From"]		= true
 L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
-L["Required Skill"]		= true
 
 -------------------------------------------------------------------------------
 --Dataminer Strings
@@ -451,11 +442,6 @@ L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
 L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
-
--------------------------------------------------------------------------------
--- Drop Obtain Info
--------------------------------------------------------------------------------
-L["Unknown Zone"] = true
 
 -------------------------------------------------------------------------------
 -- Custom database strings:

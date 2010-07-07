@@ -862,7 +862,7 @@ do
 		else
 			color_2 = difficulty["trivial"]
 		end
-		ttAdd(0, -1, false, L["Required Skill"] .. " :", color_1, recipe.skill_level, color_2)
+		ttAdd(0, -1, false, string.format("%s:", _G.SKILL_LEVEL), color_1, recipe.skill_level, color_2)
 
 		-- Binding info
 		acquire_tip:AddSeparator()
@@ -3213,7 +3213,7 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Create the close button, and set its scripts.
 -------------------------------------------------------------------------------
-MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+MainPanel.close_button = GenericCreateButton(nil, MainPanel, 24, 111, "GameFontNormalSmall", "GameFontHighlightSmall", _G.EXIT, "CENTER", L["CLOSE_DESC"], 1)
 MainPanel.close_button:SetPoint("LEFT", MainPanel.progress_bar, "RIGHT", 3, 1)
 
 MainPanel.close_button:SetScript("OnClick",
@@ -3822,15 +3822,19 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	do
 		local player_frame = MainPanel.filter_menu:CreateSubMenu("player")
+		local tank_desc = string.format(L["ROLE_DESC_FORMAT"], _G.TANK)
+		local melee_desc = string.format(L["ROLE_DESC_FORMAT"], _G.MELEE)
+		local healer_desc = string.format(L["ROLE_DESC_FORMAT"], _G.HEALER)
+		local caster_desc = string.format(L["ROLE_DESC_FORMAT"], _G.DAMAGER)
 
 		-------------------------------------------------------------------------------
 		-- Create the CheckButtons
 		-------------------------------------------------------------------------------
 		local role_buttons = {
-			["tank"]	= { tt = L["TANKS_DESC"],	text = _G.TANK,		row = 1, col = 1 },
-			["melee"]	= { tt = L["MELEE_DPS_DESC"],	text = _G.MELEE,	row = 2, col = 1 },
-			["healer"]	= { tt = L["HEALERS_DESC"],	text = _G.HEALER,	row = 3, col = 1 },
-			["caster"]	= { tt = L["CASTER_DPS_DESC"],	text = _G.DAMAGER,	row = 4, col = 1 },
+			["tank"]	= { tt = tank_desc,	text = _G.TANK,		row = 1, col = 1 },
+			["melee"]	= { tt = melee_desc,	text = _G.MELEE,	row = 2, col = 1 },
+			["healer"]	= { tt = healer_desc,	text = _G.HEALER,	row = 3, col = 1 },
+			["caster"]	= { tt = caster_desc,	text = _G.DAMAGER,	row = 4, col = 1 },
 		}
 		GenerateCheckBoxes(player_frame, role_buttons)
 		role_buttons = nil
