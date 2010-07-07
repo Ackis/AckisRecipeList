@@ -475,11 +475,15 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		local y = entry.coord_y
 		local location = entry.location
 		local continent, zone
+		local recipe = recipe_list[spell_id]
+		local _, _, _, quality_color = GetItemQualityColor(recipe.quality)
+		local acquire_str = string.gsub(private.acquire_strings[entry.waypoint_type]:lower(), "_", "")
+		local color_code = private.category_colors[acquire_str] or "ffffff"
 
 		if entry.waypoint_type == A.QUEST then
-			name = string.format("Quest: %s (%s)", private.quest_names[entry.waypoint_id], recipe_list[spell_id].name)
+			name = string.format("Quest: |cff%s%s|r (%s%s|r)", color_code, private.quest_names[entry.waypoint_id], quality_color, recipe.name)
 		else
-			name = string.format("%s (%s)", entry.name or _G.UNKNOWN, recipe_list[spell_id].name)
+			name = string.format("|cff%s%s|r (%s%s|r)", color_code, entry.name or _G.UNKNOWN, quality_color, recipe.name)
 		end
 		entry.waypoint_type = nil
 		entry.waypoint_id = nil
