@@ -201,10 +201,12 @@ function addon:OnInitialize()
 				anchorTo = "",
 				anchorFrom = "",
 				uiscale = 1,
+				small_list_font = true,
 			},
 
 			-------------------------------------------------------------------------------
 			-- Tooltip Options
+			-------------------------------------------------------------------------------
 			tooltip = {
 				scale = 1,
 				acquire_fontsize = 11,

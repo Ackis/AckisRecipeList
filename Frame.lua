@@ -2572,11 +2572,15 @@ do
 
 	-- Reset the current buttons/lines
 	function ListFrame:ClearLines()
+		local font_object = addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal"
+
 		for i = 1, NUM_RECIPE_LINES do
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
 			entry.string_index = 0
+			entry.text:SetFontObject(font_object)
+
 			entry:SetText("")
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
@@ -2584,6 +2588,8 @@ do
 			entry:Disable()
 
 			state.string_index = 0
+			state.text:SetFontObject(font_object)
+
 			state:Hide()
 			state:SetScript("OnEnter", nil)
 			state:SetScript("OnLeave", nil)

@@ -606,6 +606,23 @@ local function giveDisplay()
 							  addon.Frame:SetScale(v)
 						  end,
 				},
+				small_list_font = {
+					order	= 4,
+					width	= "full",
+					type	= "toggle",
+					name	= L["Small Font"],
+					desc	= L["SMALL_FONT_DESC"],
+					get	= function()
+							  return addon.db.profile.frameopts.small_list_font
+						  end,
+					set	= function()
+							  addon.db.profile.frameopts.small_list_font = not addon.db.profile.frameopts.small_list_font
+
+							  if addon.Frame:IsVisible() then
+								  addon:Scan()
+							  end
+						  end,
+				},
 				closegui = {
 					width	= "full",
 					order	= 5,

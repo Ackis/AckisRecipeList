@@ -174,6 +174,9 @@ L["Sort"]			= true
 L["SORTING_DESC"]		= "Change the way in which displayed recipes are sorted."
 L["TOOLTIP_OPTIONS_DESC"]	= "Allows you to specify how the tooltips for ARL behave.  The acquire tooltip lists the different information on how to acquire the recipe, whereas the spell tooltip lists the recipe information itself."
 L["MAP_OPTIONS_DESC"]		= "Allows you to change how ARL integrates into the world map and into the mini-map."
+
+L["Small Font"]			= true
+L["SMALL_FONT_DESC"]		= "Toggle on to use a smaller font for entries in the recipe list."
 L["Right"]			= true
 L["Left"]			= true
 L["Top"]			= true
