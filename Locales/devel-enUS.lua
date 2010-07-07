@@ -52,7 +52,6 @@ Alt-click to remove all waypoints from the mini-map and world map.]]
 L["Text Dump"]			= true
 L["View Exclusion List"]	= true
 L["Clear Exclusion List"]	= true
-L["Reset All Filters"]		= true
 L["Scan Button Position"]	= true
 L["SCANBUTTONPOSITION_DESC"]	= "Allows you to customize where the scan button is placed on the tradeskill frame."
 L["VIEW_EXCLUSION_LIST_DESC"]	= "Prints out a list of all recipes on the exclusion list."

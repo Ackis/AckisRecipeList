@@ -113,15 +113,6 @@ local function fullOptions()
 									   return true
 								   end,
 						},
-						resetallfilters = {
-							order	= 16,
-							type	= "execute",
-							name	= L["Reset All Filters"],
-							desc	= L["RESET_DESC"],
-							func	= function(info)
-									  private.resetFilters()
-								  end,
-						},
 						spacer1 = {
 							order	= 19,
 							type	= "description",
