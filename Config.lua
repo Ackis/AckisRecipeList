@@ -571,7 +571,7 @@ local function giveDisplay()
 		displayoptions = {
 			order = 1,
 			type = "group",
-			name = L["Display Options"],
+			name = _G.DISPLAY_OPTIONS,
 			desc = L["DISPLAY_OPTIONS_DESC"],
 			args = {
 				display_desc =	{
@@ -602,18 +602,6 @@ local function giveDisplay()
 							  addon.db.profile.frameopts.uiscale = v
 							  addon.Frame:SetScale(v)
 						  end,
-				},
-				fontsize = {
-					order	= 4,
-					type	= "range",
-					name	= _G.FONT_SIZE,
-					desc	= L["FONT_SIZE_DESC"],
-					min		= 6,
-					max		= 20,
-					step	= 1,
-					bigStep = 1,
-					get	= function() return addon.db.profile.frameopts.fontsize end,
-					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
 				closegui = {
 					width	= "full",
@@ -655,6 +643,18 @@ local function giveDisplay()
 					order	= 12,
 					type	= "description",
 					name	= L["TOOLTIP_OPTIONS_DESC"] .. "\n",
+				},
+				fontsize = {
+					order	= 19,
+					type	= "range",
+					name	= _G.FONT_SIZE,
+					desc	= L["FONT_SIZE_DESC"],
+					min	= 6,
+					max	= 20,
+					step	= 1,
+					bigStep = 1,
+					get	= function() return addon.db.profile.frameopts.fontsize end,
+					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
 				tooltipscale = {
 					order	= 20,
@@ -776,7 +776,7 @@ function addon:SetupOptions()
 	-- Register the module options
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
-	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
+	self:RegisterModuleOptions("Display", giveDisplay(), _G.DISPLAY_OPTIONS)
 	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 

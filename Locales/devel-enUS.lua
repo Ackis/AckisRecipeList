@@ -29,7 +29,6 @@ L["Profile"]			= true
 L["About"]			= true
 L["Main Options"]		= true
 L["General Options"]		= true
-L["Display Options"]		= true
 L["Main Filter Options"]	= true
 L["Sorting Options"]		= true
 L["Profile Options"]		= true
