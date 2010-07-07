@@ -178,19 +178,16 @@ L["Skill (Desc)"]		= true
 L["Location"]			= true
 L["Acquisition"]		= true
 L["Unhandled Recipe"]		= true
-L["Mini Map"]			= true
-L["WORLDMAP_DESC"]		= "Do you want missing vendor recipes to appear on the world map."
-L["MINIMAP_DESC"]		= "Do you want missing vendor recipes to appear on the mini map."
+
+-- Waypoints
+L["WAYPOINT_TOGGLE_FORMAT"]	= "Create waypoints for %s recipes."
+L["WAYPOINT_MAP_FORMAT"]	= "Create waypoints for missing recipes on the %s."
 L["Clear Waypoints"]		= true
 L["CLEAR_WAYPOINTS_DESC"]	= "Remove all ARL waypoints from TomTom."
 L["Hide Pop-Up"]		= true
 L["HIDEPOPUP_DESC"]		= "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
 L["Auto Scan Map"]		= true
 L["AUTOSCANMAP_DESC"]		= "Auto show all waypoints when doing a recipe scan."
-L["MAP_TRAINER_DESC"]		= "Display trainers on the map."
-L["MAP_VENDOR_DESC"]		= "Display vendors on the map."
-L["MAP_MONSTER_DESC"]		= "Display monsters on the map."
-L["MAP_QUEST_DESC"]		= "Display quests on the map."
 L["SKILL_TOGGLE_DESC"]		= "Displays recipes according to their skill level rather than by name."
 
 -- Filter Config Options
@@ -1066,7 +1063,6 @@ L["Mixie Farshot"] = true
 L["Mo'arg Weaponsmith"] = true
 L["Modoru"] = true
 L["Molt Thorn"] = true
-L["Monster"] = true
 L["Montarr"] = true
 L["Moonrage Tailor"] = true
 L["Moordo"] = true
