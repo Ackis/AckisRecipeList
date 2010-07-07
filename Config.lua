@@ -35,14 +35,17 @@ local function giveProfiles()
 end
 
 local function ResetGUI()
+	local options = addon.db.profile.frameopts
+
 	addon.Frame:Hide()
-	addon.db.profile.frameopts.offsetx = 0
-	addon.db.profile.frameopts.offsety = 0
-	addon.db.profile.frameopts.anchorTo = ""
-	addon.db.profile.frameopts.anchorFrom = ""
-	addon.db.profile.frameopts.uiscale = 1
-	addon.db.profile.frameopts.tooltipscale = .9
-	addon.db.profile.frameopts.fontsize = 11
+
+	options.offsetx = 0
+	options.offsety = 0
+	options.anchorTo = ""
+	options.anchorFrom = ""
+	options.uiscale = 1
+	options.small_list_font = true
+
 	addon.Frame:Show()
 end
 
@@ -644,7 +647,7 @@ local function giveDisplay()
 					type	= "description",
 					name	= L["TOOLTIP_OPTIONS_DESC"] .. "\n",
 				},
-				fontsize = {
+				tooltip_fontsize = {
 					order	= 19,
 					type	= "range",
 					name	= _G.FONT_SIZE,
@@ -653,8 +656,12 @@ local function giveDisplay()
 					max	= 20,
 					step	= 1,
 					bigStep = 1,
-					get	= function() return addon.db.profile.frameopts.fontsize end,
-					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
+					get	= function()
+							  return addon.db.profile.tooltip.acquire_fontsize
+						  end,
+					set	= function(info, v)
+							  addon.db.profile.tooltip.acquire_fontsize = v
+						  end,
 				},
 				tooltipscale = {
 					order	= 20,
@@ -666,10 +673,10 @@ local function giveDisplay()
 					step	= .05,
 					bigStep = .05,
 					get	= function()
-							  return addon.db.profile.frameopts.tooltipscale
+							  return addon.db.profile.tooltip.scale
 						  end,
 					set	= function(info, v)
-							  addon.db.profile.frameopts.tooltipscale = v
+							  addon.db.profile.tooltip.scale = v
 						  end,
 				},
 				acquiretooltiplocation = {

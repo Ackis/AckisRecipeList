@@ -476,7 +476,7 @@ do
 	-- will do that for me.
 	local function ttAdd(
 			leftPad,		-- number of times to pad two spaces on left side
-			textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
+			textSize,		-- add to or subtract from addon.db.profile.tooltip.acquire_fontsize to get fontsize
 			narrow,			-- if 1, use ARIALN instead of FRITZQ
 			str1,			-- left-hand string
 			hexcolor1,		-- hex color code for left-hand side
@@ -490,7 +490,7 @@ do
 			local font = narrow and narrowFont or normalFont
 			local fontObj = narrow and narrowFontObj or normalFontObj
 
-			fontSize = addon.db.profile.frameopts.fontsize + textSize
+			fontSize = addon.db.profile.tooltip.acquire_fontsize + textSize
 
 			fontObj:SetFont(font, fontSize)
 			acquire_tip:SetFont(fontObj)
@@ -542,7 +542,7 @@ do
 		spell_tip:SetBackdrop(GameTooltip:GetBackdrop())
 		spell_tip:SetBackdropColor(GameTooltip:GetBackdropColor())
 		spell_tip:SetBackdropBorderColor(GameTooltip:GetBackdropBorderColor())
-		spell_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
+		spell_tip:SetScale(addon.db.profile.tooltip.scale)
 		spell_tip:SetClampedToScreen(true)
 		spell_tip:SetHyperlink(link)
 		spell_tip:Show()
@@ -828,7 +828,7 @@ do
 		local _, _, _, quality_color = GetItemQualityColor(recipe.quality)
 
 		acquire_tip:Clear()
-		acquire_tip:SetScale(addon.db.profile.frameopts.tooltipscale)
+		acquire_tip:SetScale(addon.db.profile.tooltip.scale)
 		acquire_tip:AddHeader()
 		acquire_tip:SetCell(1, 1, quality_color..recipe.name, "CENTER", 2)
 
