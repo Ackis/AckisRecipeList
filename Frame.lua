@@ -1987,7 +1987,7 @@ do
 		self:SetTextures()
 	end
 
-	local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "", "CENTER", L["FILTER_OPEN_DESC"], 2)
+	local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["FILTER_OPEN_DESC"], 2)
 	filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
 
 	filter_toggle:SetScript("OnClick", Toggle_OnClick)
@@ -2133,7 +2133,7 @@ ListFrame.entry_buttons = {}
 -------------------------------------------------------------------------------
 -- Sort-mode toggle button.
 -------------------------------------------------------------------------------
-local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, "GameFontNormalSmall", "", "CENTER", L["SORTING_DESC"], 2)
+local SortToggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["SORTING_DESC"], 2)
 
 MainPanel.sort_button = SortToggle
 
@@ -2420,7 +2420,7 @@ do
 		cur_container:SetWidth(LISTFRAME_WIDTH)
 
 		local cur_state = GenericCreateButton(nil, ListFrame, 16, 16, nil, nil, nil, nil, 2)
-		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", "", 0)
+		local cur_entry = GenericCreateButton(nil, ListFrame, 16, LISTFRAME_WIDTH, "GameFontNormalSmall", "Blort", "LEFT", nil, 0)
 
 		if i == 1 then
 			cur_container:SetPoint("TOPLEFT", ListFrame, "TOPLEFT", 0, 0)
