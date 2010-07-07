@@ -306,7 +306,7 @@ local INSTANCE_LOCATIONS = {
 local iconlist = {}
 
 -- Clears all the icons from the world map and the mini-map
-function addon:ClearMap()
+function addon:ClearWaypoints()
 	if _G.TomTom and _G.TomTom.RemoveWaypoint then
 		while iconlist[1] do
 			_G.TomTom:RemoveWaypoint(table.remove(iconlist))

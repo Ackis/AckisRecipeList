@@ -426,33 +426,21 @@ function addon:OnInitialize()
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
-				      local cprof = GetTradeSkillLine()
-				      local current_prof = private.ordered_professions[addon.Frame.profession]
+				      local cur_profession = GetTradeSkillLine()
+				      local prev_profession = addon.Frame.prof_name or private.ordered_professions[addon.Frame.profession]
 
-				      if addon.Frame:IsVisible() then
-					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						      -- Shift only (Text dump)
-						      addon:Scan(true)
-					      elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						      -- Alt only (Wipe icons from map)
-						      addon:ClearMap()
-					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() and current_prof == cprof then
-						      -- If we have the same profession open, then we close the scanned window
+				      local shift_key = _G.IsShiftKeyDown()
+				      local alt_key = _G.IsAltKeyDown()
+				      local ctrl_key = _G.IsControlKeyDown()
+
+				      if shift_key and not alt_key and not ctrl_key then
+					      addon:Scan(true)
+				      elseif not shift_key and alt_key and not ctrl_key then
+					      addon:ClearWaypoints()
+				      elseif not shift_key and not alt_key and not ctrl_key then
+					      if addon.Frame:IsVisible() and prev_profession == cur_profession then
 						      addon.Frame:Hide()
-					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						      -- If we have a different profession open we do a scan
-						      addon:Scan(false)
-						      addon:AddWaypoint()
-					      end
-				      else
-					      if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						      -- Shift only (Text dump)
-						      addon:Scan(true)
-					      elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						      -- Alt only (Wipe icons from map)
-						      addon:ClearMap()
-					      elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						      -- No modification
+					      else
 						      addon:Scan(false)
 						      addon:AddWaypoint()
 					      end
@@ -511,7 +499,7 @@ function addon:OnInitialize()
 				       return
 			       end
 			       local recipe_list = private.recipe_list
-			       local shifted = IsShiftKeyDown()
+			       local shifted = _G.IsShiftKeyDown()
 			       local count = 0
 
 			       for spell_id in pairs(unit.item_list) do

@@ -327,7 +327,9 @@ local function giveMap()
 					name	= L["Clear Waypoints"],
 					disabled = not has_waypoints,
 					desc	= L["CLEAR_WAYPOINTS_DESC"],
-					func	= function() addon:ClearMap() end,
+					func	= function()
+							  addon:ClearWaypoints()
+						  end,
 				},
 			},
 		}
