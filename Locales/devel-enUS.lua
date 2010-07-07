@@ -190,35 +190,20 @@ L["AUTOSCANMAP_DESC"]		= "Auto show all waypoints when doing a recipe scan."
 L["SKILL_TOGGLE_DESC"]		= "Displays recipes according to their skill level rather than by name."
 
 -- Filter Config Options
-L["Filtering Options"]		= true
 L["Obtain"]			= true
 L["Binding"]			= true
 L["Item"]			= true
 L["Weapon"]			= true
 
 -- Filter Configuration Descriptions
-L["FILTERING_OPTIONS_DESC"]					= "Allows you to customize which recipes are filtered."
-L["General Filtering Options"]				= true
 L["FILTERING_GENERAL_DESC"]					= "Configuration for several more general filter types."
-L["Obtain Filtering Options"]				= true
 L["FILTERING_OBTAIN_DESC"]					= "Configuration for which methods of obtaining recipes are included in the scan."
-L["Binding Filtering Options"]				= true
 L["FILTERING_BINDING_DESC"]					= "Configuration for which types of binding are included in the scan."
-L["Item Filtering Options"]					= true
 L["FILTERING_ITEM_DESC"]					= "Configuration for which item types are included in the scan."
-L["Armor Filtering Options"]				= true
-L["FILTERING_Armor_DESC"]					= "Configuration for which types of armor are included in the scan."
-L["Weapon Filtering Options"]				= true
-L["FILTERING_WEAPONS_DESC"]					= "Configuration for which types of weapons are included in the scan."
-L["Player Type Filtering Options"]			= true
 L["FILTERING_PLAYERTYPE_DESC"]				= "Configuration for items matching which player types are included in the scan."
-L["Reputation Filtering Options"]			= true
 L["FILTERING_REP_DESC"]						= "Configuration for which reputation reward recipes are included in the scan."
-L["Old World Rep. Filtering Options"]		= true
 L["FILTERING_OLDWORLD_DESC"]				= "Configuration for which Old World Reputation reward recipes are included in the scan."
-L["Burning Crusade Rep. Filtering Options"]	= true
 L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
-L["Lich King Rep. Filtering Options"]		= true
 L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
 L["REP_TEXT_DESC"]							= [[Left-click here to select all reputation filters.
 Right-click here to deselect all reputation filters.]]
