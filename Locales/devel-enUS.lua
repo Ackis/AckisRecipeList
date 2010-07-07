@@ -22,10 +22,14 @@ local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
 
 if not L then return end
 
+-------------------------------------------------------------------------------
 -- Command line options
+-------------------------------------------------------------------------------
 L["Profile"]			= true
 
+-------------------------------------------------------------------------------
 -- Config Options
+-------------------------------------------------------------------------------
 L["About"]			= true
 L["Main Options"]		= true
 L["General Options"]		= true
@@ -37,7 +41,9 @@ L["Map Options"]		= true
 L["ARL Documentation"]		= true
 L["Documentation"]		= true
 
+-------------------------------------------------------------------------------
 -- Config UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true
 L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing recipes.
@@ -61,7 +67,9 @@ L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."
 L["CSV"] = true
 L["BBCode"] = true
 
+-------------------------------------------------------------------------------
 -- UI Documentation
+-------------------------------------------------------------------------------
 L["Using Filters"]		= true
 L["USING_FILTERS_DESC"]		= [[Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
 With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
@@ -131,7 +139,9 @@ This is the functionality that occurs when you click on a recipe.
 - Ctrl-Shift Click
   Adds the specific recipe acquire methods to the World Map and Mini-map.]]
 
+-------------------------------------------------------------------------------
 -- Config UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["Include Filtered"]		= true
 L["FILTERCOUNT_DESC"]		= "Include filtered recipes in the count of total recipes."
 L["Include Excluded"]		= true
@@ -178,7 +188,9 @@ L["Location"]			= true
 L["Acquisition"]		= true
 L["Unhandled Recipe"]		= true
 
+-------------------------------------------------------------------------------
 -- Waypoints
+-------------------------------------------------------------------------------
 L["WAYPOINT_TOGGLE_FORMAT"]	= "Create waypoints for %s recipes."
 L["WAYPOINT_MAP_FORMAT"]	= "Create waypoints for missing recipes on the %s."
 L["Clear Waypoints"]		= true
@@ -189,13 +201,17 @@ L["Auto Scan Map"]		= true
 L["AUTOSCANMAP_DESC"]		= "Auto show all waypoints when doing a recipe scan."
 L["SKILL_TOGGLE_DESC"]		= "Displays recipes according to their skill level rather than by name."
 
+-------------------------------------------------------------------------------
 -- Filter Config Options
+-------------------------------------------------------------------------------
 L["Obtain"]			= true
 L["Binding"]			= true
 L["Item"]			= true
 L["Weapon"]			= true
 
+-------------------------------------------------------------------------------
 -- Filter Configuration Descriptions
+-------------------------------------------------------------------------------
 L["FILTERING_GENERAL_DESC"]					= "Configuration for several more general filter types."
 L["FILTERING_OBTAIN_DESC"]					= "Configuration for which methods of obtaining recipes are included in the scan."
 L["FILTERING_BINDING_DESC"]					= "Configuration for which types of binding are included in the scan."
@@ -216,7 +232,9 @@ L["ALT_TRADESKILL_DESC"] = [[This will display a list of alts which have had tra
 Clicking on the alt's name will output the tradeskill to chat.]]
 L["Other Realms"] = true
 
+-------------------------------------------------------------------------------
 -- General Filter UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
 L["Classes"]				= true
 L["CLASS_DESC"]				= "Include this class in the scan.  This will filter on two factors: 1) Can the class use the recipe and 2) can the class learn the recipe."
@@ -231,7 +249,9 @@ L["UNKNOWN_DESC"]			= "Include all unknown recipes in the scan."
 L["RETIRED_DESC"]			= "Include recipes which can no longer be acquired."
 L["Retired"]				= true
 
+-------------------------------------------------------------------------------
 -- Obtain Filter UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["INSTANCE_DESC"]			= "Recipes obtained from (5 man) instances should be included in the scan."
 L["RAID_DESC"]				= "Recipes obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
 L["Quest"]				= true
@@ -249,7 +269,9 @@ L["WORLD_DROP_DESC"]			= "Recipes that are World Drops should be included in the
 L["Mob Drop"]				= true
 L["MOB_DROP_DESC"]			= "Recipes that are Mob Drops should be included in the scan."
 
+-------------------------------------------------------------------------------
 -- Binding Filter UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["BOEFilter"]				= "Item Bind on Equip"
 L["BOE_DESC"]				= "Recipes that make Bind on Equip items should be included in the scan."
 L["BOPFilter"]				= "Item Bind on Pickup"
@@ -263,7 +285,9 @@ L["RECIPE_BOP_DESC"]		= "Recipes that are Bind on Pickup should be included in t
 L["RecipeBOAFilter"]		= "Recipe Bind to Account"
 L["RECIPE_BOA_DESC"]		= "Recipes that are Bind to Account should be included in the scan."
 
+-------------------------------------------------------------------------------
 -- Item - Armor UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["ARMOR_TEXT_DESC"]		= [[Left-click here to select all armor filters.
 Right-click here to deselect all armor filters.]]
 L["Cloth"]				= true
@@ -285,7 +309,9 @@ L["NECKLACE_DESC"]			= "Recipes that make necklaces should be included in the sc
 L["Shield"]					= true
 L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
 
+-------------------------------------------------------------------------------
 -- Item - Weapon UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["WEAPON_TEXT_DESC"]		= [[Left-click here to select all weapon filters.
 Right-click here to deselect all weapon filters.]]
 L["One Hand"]				= true
@@ -319,20 +345,28 @@ L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan
 L["Gun"]					= true
 L["GUN_DESC"]				= "Recipes that make guns should be included in the scan."
 
+-------------------------------------------------------------------------------
 -- Item Quality Filtering UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["FILTERING_QUALITY_DESC"]		= "Configuration for which recipe quality types are included in the scan."
 L["QUALITY_GENERAL_DESC"]		= "Include %s quality recipe items in the scan."
 
+-------------------------------------------------------------------------------
 -- Player Type Filtering UI Elements and their associated descriptions
+-------------------------------------------------------------------------------
 L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
 L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
 L["CASTER_DPS_DESC"]			= "Recipes that are used by casting dps players should be included in the scan."
 L["HEALERS_DESC"]			= "Recipes that are used by healer players should be included in the scan."
 
+-------------------------------------------------------------------------------
 -- Reputation Filtering UI Elements and their associated description
+-------------------------------------------------------------------------------
 L["SPECIFIC_REP_DESC"]		= "Include %s faction."
 
+-------------------------------------------------------------------------------
 -- ZJUI UI Elements (when different from the above ones) and their associated descriptions
+-------------------------------------------------------------------------------
 L["FILTER_OPEN_DESC"]		= "Open filter option panel."
 L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
 L["EXPANDALL"]				= "+ All"
@@ -347,7 +381,9 @@ L["CLOSE_DESC"]				= "Close the Ackis Recipe List Window."
 L["RESET_DESC"]				= "Reset All Filters to default values."
 L["NOT_YET_SCANNED"]		= "Not yet scanned!"
 
+-------------------------------------------------------------------------------
 -- Common Tool tip Strings (where different from above)
+-------------------------------------------------------------------------------
 L["CTRL_CLICK"]			= "Ctrl-Click to add this recipe's link to your chat."
 L["ALT_CLICK"]			= "Alt-Click to add/remove this recipe to your ignore list."
 L["SHIFT_CLICK"]		= "Shift-Click to add the item crafted by this recipe's link to your chat."
@@ -356,7 +392,9 @@ L["Obtained From"]		= true
 L["RECIPE_EXCLUDED"]	= "Recipe is in Exclusion list"
 L["Required Skill"]		= true
 
+-------------------------------------------------------------------------------
 --Dataminer Strings
+-------------------------------------------------------------------------------
 L["DATAMINER_SKILLELVEL"] = [[Recipe level different!
     Name: %s
 	ARL Level: %s
@@ -393,7 +431,9 @@ L["Auto Scan Vendors"] = true
 L["AUTOSCAN_VENDORS_DESC"] = "Turns on scanning at vendors to compare skill levels, and recipe acquire methods."
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
 
+-------------------------------------------------------------------------------
 -- Popup Strings
+-------------------------------------------------------------------------------
 L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan."
 L["ALL_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
 L["ARL_ALLKNOWN"]	= "You know all the recipes for this profession."
@@ -401,7 +441,9 @@ L["ARL_ALLEXCLUDED"] = "Although you have already scanned this profession, your 
 L["ARL_SEARCHFILTERED"] = "Your search has no results."
 L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/addons/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
 
+-------------------------------------------------------------------------------
 -- Error/warning Text
+-------------------------------------------------------------------------------
 L["MissingFromDB"] = [[": is missing from the database.
 Please inform the author of the add-on about this recipe."]]
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
@@ -410,10 +452,14 @@ L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a t
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 
+-------------------------------------------------------------------------------
 -- Drop Obtain Info
+-------------------------------------------------------------------------------
 L["Unknown Zone"] = true
 
+-------------------------------------------------------------------------------
 -- Custom database strings:
+-------------------------------------------------------------------------------
 -- Alchemy Discoveries
 L["DISCOVERY_ALCH_ELIXIRFLASK"] = "Discovered by making elixirs or flasks using Burning Crusade or higher ingredients."
 L["DISCOVERY_ALCH_POTION"] = "Discovered by making potions using Burning Crusade or higher ingredients."
@@ -422,22 +468,28 @@ L["DISCOVERY_ALCH_PROT"] = "Discovered by Major Protection Potions using Burning
 L["DISCOVERY_ALCH_WRATH"] = "Discovered by doing transmutes using Wrath of the Lich King ingredients."
 L["DISCOVERY_ALCH_NORTHREND_RESEARCH"] = "Obtained randomly by conducting Northrend alchemy research."
 L["DISCOVERY_ALCH_NORTHREND_XMUTE"] = "Discovered by doing transmutes using Northrend or higher ingredients (transmute tooltip mentions that there is a chance to discovery something)."
+
 -- Inscription Discoveries
 L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting minor inscription research."
 L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend inscription research."
 L["DISCOVERY_INSC_BOOK"] = "Discovered randomly by reading the Book of Glyph Mastery."
+
 -- Cooking/Fishing Daily Quests
 L["DAILY_COOKING_MEAT"] = "Choose Crate of Meat when completing any of these quests."
 L["DAILY_COOKING_FISH"] = "Choose Barrel of Fish when completing any of these quests."
 L["DAILY_FISHING_SHATT"] = "Randomly obtained by completing any of the BC fishing daily quests."
 L["DAILY_COOKING_DAL"] = "Randomly obtained by completing any of the cooking daily quests in Dalaran."
+
 -- Engineering Related
 L["ENG_GNOMER"] = "Dropped from mobs in Gnomeregan."
 L["ENG_FLOOR_ITEM_BRD"] = "The schematic can be found on the floor near Golem Lord Argelmach in Blackrock Depths. Only engineers with 300 skill may learn the schematic after clicking on it."
+
 -- Default
 L["DEFAULT_RECIPE"] = "Learned by default when learning the profession."
+
 -- Crafted by other professions
 L["CRAFTED_ENGINEERS"] = "Recipe is created by Engineers."
+
 -- Instances
 L["HENRY_STERN_RFD"] = "Obtained by talking to Henry Stern in Razorfen Downs."
 L["DM_CACHE"] = "Randomly obtained in Dire Maul (North) in Knot Thimblejack's cache."
@@ -445,9 +497,11 @@ L["BRD_RANDOM_ROOM"] = "There is a chance that you will find it in 5 different r
 L["SCHOLO_BOOK_SPAWN"] = "After you kill Jandice Barov in Scholomance, a book spawns that let's you learn this recipe"
 L["STRATH_BS_PLANS"] = "Blacksmith plans in Stratholme" -- Update
 L["DM_TRIBUTE"] = "DM Tribute Run - Chest" -- Update
+
 -- Quests
 L["ONYXIA_HEAD_QUEST"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
 L["EDGE_OF_MADNESS"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
+
 -- Raids
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
 L["SUNWELL_RANDOM"] = "Random Sunwell trash drop."
@@ -467,8 +521,9 @@ L["Custom44"] = "You can train this recipe if you have earned the \"Loremaster o
 L["Custom45"] = "You can train this recipe if you have earned the \"Northrend Dungeonmaster\" achievement"
 L["LIMITED_SUPPLY"] = "Sold in limited quantity."
 
+-------------------------------------------------------------------------------
 -- Monster/Quest/Trainer/Vendor strings:
-
+-------------------------------------------------------------------------------
 L["\"Cookie\" McWeaksauce"] = true
 L["Aaron Hollman"] = true
 L["Aayndia Floralwind"] = true
