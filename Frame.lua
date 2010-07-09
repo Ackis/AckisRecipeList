@@ -374,7 +374,7 @@ do
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
-	function SortRecipeList()
+	function SortRecipeList(recipe_list)
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
@@ -1266,7 +1266,7 @@ do
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
-		SortRecipeList()
+		SortRecipeList(recipe_list)
 
 		for i = 1, #sorted_recipes do
 			local recipe_index = sorted_recipes[i]
@@ -3014,7 +3014,7 @@ do
 				local recipe_list = private.acquire_list[acquire_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList()
+				SortRecipeList(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
@@ -3056,7 +3056,7 @@ do
 				local recipe_list = private.location_list[location_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList()
+				SortRecipeList(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
