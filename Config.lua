@@ -63,18 +63,44 @@ local function fullOptions()
 					name	= L["Main Options"],
 					desc	= L["MAIN_OPTIONS_DESC"],
 					args	= {
-						header1 = {
-							order	= 10,
-							type	= "header",
-							name	= L["General Options"],
-						},
 						version = {
 							order	= 11,
 							type	= "description",
 							name	= _G.GAME_VERSION_LABEL .. ": " .. addon.version .. "\n",
 						},
+						spacer1 = {
+							order	= 12,
+							type	= "description",
+							name	= "\n",
+						},
+						header1 = {
+							order	= 15,
+							type	= "header",
+							name	= L["Main Filter Options"],
+						},
+						mainfilter_desc = {
+							order	= 20,
+							type	= "description",
+							name	= L["MAINFILTER_OPTIONS_DESC"] .. "\n",
+						},
+						includefiltered = {
+							order	= 25,
+							type	= "toggle",
+							name	= L["Include Filtered"],
+							desc	= L["FILTERCOUNT_DESC"],
+							get	= function() return addon.db.profile.includefiltered end,
+							set	= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
+						},
+						includeexcluded = {
+							order	= 30,
+							type	= "toggle",
+							name	= L["Include Excluded"],
+							desc	= L["EXCLUDECOUNT_DESC"],
+							get	= function() return addon.db.profile.includeexcluded end,
+							set	= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
+						},
 						exclusionlist = {
-							order	= 14,
+							order	= 35,
 							type	= "execute",
 							name	= L["View Exclusion List"],
 							desc	= L["VIEW_EXCLUSION_LIST_DESC"],
@@ -93,7 +119,7 @@ local function fullOptions()
 								   end,
 						},
 						clearexclusionlist = {
-							order	= 15,
+							order	= 40,
 							type	= "execute",
 							name	= L["Clear Exclusion List"],
 							desc	= L["CLEAR_EXCLUSION_LIST_DESC"],
@@ -113,57 +139,12 @@ local function fullOptions()
 									   return true
 								   end,
 						},
-						spacer1 = {
-							order	= 19,
-							type	= "description",
-							name	= "\n",
-						},
-						header1a = {
-							order	= 20,
-							type	= "header",
-							name	= L["Main Filter Options"],
-						},
-						mainfilter_desc = {
-							order	= 21,
-							type	= "description",
-							name	= L["MAINFILTER_OPTIONS_DESC"] .. "\n",
-						},
-						includefiltered = {
-							order	= 22,
-							type	= "toggle",
-							name	= L["Include Filtered"],
-							desc	= L["FILTERCOUNT_DESC"],
-							get	= function() return addon.db.profile.includefiltered end,
-							set	= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
-						},
-						includeexcluded = {
-							order	= 23,
-							type	= "toggle",
-							name	= L["Include Excluded"],
-							desc	= L["EXCLUDECOUNT_DESC"],
-							get	= function() return addon.db.profile.includeexcluded end,
-							set	= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
-						},
-						ignoreexclusionlist = {
-							order	= 24,
-							type	= "toggle",
-							name	= L["Display Exclusions"],
-							desc	= L["DISPLAY_EXCLUSION_DESC"],
-							get	= function() return addon.db.profile.ignoreexclusionlist end,
-							set	= function()
-									  addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
-
-									  if addon.Frame:IsVisible() then
-										  addon:Scan()
-									  end
-								  end,
-						},
 						spacer2 = {
-							order	= 39,
+							order	= 45,
 							type	= "description",
 							name	= "\n",
 						},
-						header4 = {
+						header2 = {
 							order	= 51,
 							type	= "header",
 							name	= L["Text Dump Options"],
@@ -214,7 +195,7 @@ local function giveMap()
 		arlmap = {
 			order	= 1,
 			type	= "group",
-			name	= L["Map Options"],
+			name	= L["Waypoints"],
 			desc	= L["MAP_OPTIONS_DESC"],
 			args	= {
 				map_desc =	{
@@ -481,7 +462,7 @@ local function giveDocs()
 		documentation = {
 			order = 1,
 			type = "group",
-			name = L["ARL Documentation"],
+			name = L["Documentation"],
 			desc = L["ARL_DOC_DESC"],
 			args = {
 				header1 = {
@@ -562,223 +543,256 @@ end
 
 local displayoptions
 
+local SCAN_ANCHORS = {
+	TR = L["Top Right"],
+	TL = L["Top Left"],
+	BR = L["Bottom Right"],
+	BL = L["Bottom Left"]
+}
+
 local function giveDisplay()
 	if not displayoptions then
 		displayoptions = {
-			order = 1,
-			type = "group",
-			name = _G.DISPLAY_OPTIONS,
-			desc = L["DISPLAY_OPTIONS_DESC"],
+			order		= 1,
+			name		= _G.DISPLAY_OPTIONS,
+			type		= "group",
+			childGroups	= "tab",
 			args = {
-				display_desc =	{
-					order	= 1,
-					type	= "description",
-					name	= L["MAP_OPTIONS_DESC"] .. "\n",
-				},
-				scanbuttonlocation = {
-					order	= 2,
-					type	= "select",
-					name	= L["Scan Button Position"],
-					desc	= L["SCANBUTTONPOSITION_DESC"],
-					get	= function() return addon.db.profile.scanbuttonlocation end,
-					set	= function(info,name) addon.db.profile.scanbuttonlocation = name end,
-					values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
-				},
-				uiscale = {
-					order	= 3,
-					type	= "range",
-					name	= _G.UI_SCALE,
-					desc	= L["UI_SCALE_DESC"],
-					min	= .5,
-					max	= 1.5,
-					step	= .05,
-					bigStep = .05,
-					get	= function() return addon.db.profile.frameopts.uiscale end,
-					set	= function(info, v)
-							  addon.db.profile.frameopts.uiscale = v
-							  addon.Frame:SetScale(v)
-						  end,
-				},
-				small_list_font = {
-					order	= 4,
-					width	= "full",
-					type	= "toggle",
-					name	= L["Small Font"],
-					desc	= L["SMALL_FONT_DESC"],
-					get	= function()
-							  return addon.db.profile.frameopts.small_list_font
-						  end,
-					set	= function()
-							  addon.db.profile.frameopts.small_list_font = not addon.db.profile.frameopts.small_list_font
-
-							  if addon.Frame:IsVisible() then
-								  addon:Scan()
-							  end
-						  end,
-				},
-				closegui = {
-					width	= "full",
-					order	= 5,
-					type	= "toggle",
-					name	= L["Close GUI"],
-					desc	= L["CLOSEGUI_DESC"],
-					get	= function() return addon.db.profile.closeguionskillclose end,
-					set	= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
-				},
-				hidepopup = {
-					width	= "full",
-					order	= 6,
-					type	= "toggle",
-					name	= L["Hide Pop-Up"],
-					desc	= L["HIDEPOPUP_DESC"],
-					get	= function() return addon.db.profile.hidepopup end,
-					set	= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
-				},
-				resetguiwindow = {
-					width	= "double",
-					order	= 7,
-					type	= "execute",
-					name	= L["Reset Window Position"],
-					desc	= L["RESET_WINDOW_DESC"],
-					func	= function(info) ResetGUI() end,
-				},
-				spacer1 = {
+				-------------------------------------------------------------------------------
+				-- Main interface options.
+				-------------------------------------------------------------------------------
+				interface_tab = {
 					order	= 10,
-					type	= "description",
-					name	= "\n",
+					name	= _G.INTERFACE_OPTIONS,
+					type	= "group",
+					args	= {
+						display_desc = {
+							order	= 1,
+							name	= L["DISPLAY_OPTIONS_DESC"] .. "\n",
+							type	= "description",
+						},
+						scanbuttonlocation = {
+							order	= 2,
+							type	= "select",
+							name	= L["Scan Button Position"],
+							desc	= L["SCANBUTTONPOSITION_DESC"],
+							get	= function()
+									  return addon.db.profile.scanbuttonlocation
+								  end,
+							set	= function(info, name)
+									  addon.db.profile.scanbuttonlocation = name
+								  end,
+							values	= function()
+									  return SCAN_ANCHORS
+								  end,
+						},
+						uiscale = {
+							order	= 3,
+							type	= "range",
+							name	= _G.UI_SCALE,
+							desc	= L["UI_SCALE_DESC"],
+							min	= .5,
+							max	= 1.5,
+							step	= .05,
+							bigStep = .05,
+							get	= function()
+									  return addon.db.profile.frameopts.uiscale
+								  end,
+							set	= function(info, v)
+									  addon.db.profile.frameopts.uiscale = v
+									  addon.Frame:SetScale(v)
+								  end,
+						},
+						small_list_font = {
+							order	= 4,
+							width	= "full",
+							type	= "toggle",
+							name	= L["Small Font"],
+							desc	= L["SMALL_FONT_DESC"],
+							get	= function()
+									  return addon.db.profile.frameopts.small_list_font
+								  end,
+							set	= function(info, value)
+									  addon.db.profile.frameopts.small_list_font = value
+
+									  if addon.Frame:IsVisible() then
+										  addon:Scan()
+									  end
+								  end,
+						},
+						closegui = {
+							width	= "full",
+							order	= 5,
+							type	= "toggle",
+							name	= L["Close GUI"],
+							desc	= L["CLOSEGUI_DESC"],
+							get	= function()
+									  return addon.db.profile.closeguionskillclose
+								  end,
+							set	= function(info, value)
+									  addon.db.profile.closeguionskillclose = value
+								  end,
+						},
+						hidepopup = {
+							width	= "full",
+							order	= 6,
+							type	= "toggle",
+							name	= L["Hide Pop-Up"],
+							desc	= L["HIDEPOPUP_DESC"],
+							get	= function()
+									  return addon.db.profile.hidepopup
+								  end,
+							set	= function(info, value)
+									  addon.db.profile.hidepopup = value
+								  end,
+						},
+						resetguiwindow = {
+							width	= "double",
+							order	= 7,
+							type	= "execute",
+							name	= L["Reset Window Position"],
+							desc	= L["RESET_WINDOW_DESC"],
+							func	= ResetGUI,
+						},
+					},
 				},
-				tooltip_header = {
-					order	= 11,
-					type	= "header",
-					name	= L["Tooltip Options"],
-				},
-				tooltip_desc =	{
-					order	= 12,
-					type	= "description",
-					name	= L["TOOLTIP_OPTIONS_DESC"] .. "\n",
-				},
-				tooltip_fontsize = {
-					order	= 19,
-					type	= "range",
-					name	= _G.FONT_SIZE,
-					desc	= L["FONT_SIZE_DESC"],
-					min	= 6,
-					max	= 20,
-					step	= 1,
-					bigStep = 1,
-					get	= function()
-							  return addon.db.profile.tooltip.acquire_fontsize
-						  end,
-					set	= function(info, v)
-							  addon.db.profile.tooltip.acquire_fontsize = v
-						  end,
-				},
-				tooltipscale = {
+				-------------------------------------------------------------------------------
+				-- Tooltip options
+				-------------------------------------------------------------------------------
+				tooltip_tab = {
 					order	= 20,
-					type	= "range",
-					name	= L["Tooltip Scale"],
-					desc	= L["TOOLTIP_SCALE_DESC"],
-					min	= .5,
-					max	= 1.5,
-					step	= .05,
-					bigStep = .05,
-					get	= function()
-							  return addon.db.profile.tooltip.scale
-						  end,
-					set	= function(info, v)
-							  addon.db.profile.tooltip.scale = v
-						  end,
-				},
-				acquiretooltiplocation = {
-					order	= 21,
-					type	= "select",
-					name	= L["Tooltip (Acquire) Position"],
-					desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
-					get	= function()
-							  return addon.db.profile.acquiretooltiplocation
-						  end,
-					set	= function(info, name)
-							  addon.db.profile.acquiretooltiplocation = name
-						  end,
-					values	= function()
-							  return {
-								  Right = L["Right"],
-								  Left = L["Left"],
-								  Top = L["Top"],
-								  Bottom = L["Bottom"],
-								  Off = _G.OFF,
-								  Mouse = _G.MOUSE_LABEL
-							  }
-						  end,
-				},
-				spelltooltiplocation = {
-					order	= 22,
-					type	= "select",
-					name	= L["Tooltip (Recipe) Position"],
-					desc	= L["SPELLTOOLTIPPOSITION_DESC"],
-					get	= function()
-							  return addon.db.profile.spelltooltiplocation
-						  end,
-					set	= function(info,name)
-							  addon.db.profile.spelltooltiplocation = name
-						  end,
-					values	= function()
-							  return {
-								  Right = L["Right"],
-								  Left = L["Left"],
-								  Top = L["Top"],
-								  Bottom = L["Bottom"],
-								  Off = _G.OFF
-							  }
-						  end,
-				},
-				spacer2 = {
-					order	= 23,
-					type	= "description",
-					name	= "\n",
-				},
-				unit_tooltip = {
-					order	= 24,
-					type	= "toggle",
-					name	= L["Recipes In Tooltips"],
-					desc	= L["UNIT_TOOLTIPS_DESC"],
-					get	= function()
-							  return addon.db.profile.recipes_in_tooltips
-						  end,
-					set	= function()
-							  addon.db.profile.recipes_in_tooltips = not addon.db.profile.recipes_in_tooltips
-						  end,
-				},
-				unit_max_tooltip = {
-					order	= 25,
-					type	= "range",
-					name	= _G.MAXIMUM,
-					desc	= L["UNIT_MAX_TOOLTIPS_DESC"],
-					min	= 1,
-					max	= 50,
-					step	= 1,
-					bigStep = 5,
-					disabled= function()
-							  return not addon.db.profile.recipes_in_tooltips
-						  end,
-					get	= function()
-							  return addon.db.profile.max_recipes_in_tooltips
-						  end,
-					set	= function(info, v)
-							  addon.db.profile.max_recipes_in_tooltips = v
-						  end,
-				},
-				tooltip_hint = {
-					order	= 26,
-					type	= "toggle",
-					name	= L["TOOLTIP_HINT"],
-					desc	= L["TOOLTIP_HINT_DESC"],
-					get	= function()
-							  return addon.db.profile.hide_tooltip_hint
-						  end,
-					set	= function(info, value)
-							  addon.db.profile.hide_tooltip_hint = value
-						  end,
+					name	= L["Tooltip Options"],
+					type	= "group",
+					args	= {
+						tooltip_desc =	{
+							order	= 12,
+							type	= "description",
+							name	= L["TOOLTIP_OPTIONS_DESC"] .. "\n",
+						},
+						tooltip_fontsize = {
+							order	= 19,
+							type	= "range",
+							name	= _G.FONT_SIZE,
+							desc	= L["FONT_SIZE_DESC"],
+							min	= 6,
+							max	= 20,
+							step	= 1,
+							bigStep = 1,
+							get	= function()
+									  return addon.db.profile.tooltip.acquire_fontsize
+								  end,
+							set	= function(info, v)
+									  addon.db.profile.tooltip.acquire_fontsize = v
+								  end,
+						},
+						tooltipscale = {
+							order	= 20,
+							type	= "range",
+							name	= L["Tooltip Scale"],
+							desc	= L["TOOLTIP_SCALE_DESC"],
+							min	= .5,
+							max	= 1.5,
+							step	= .05,
+							bigStep = .05,
+							get	= function()
+									  return addon.db.profile.tooltip.scale
+								  end,
+							set	= function(info, v)
+									  addon.db.profile.tooltip.scale = v
+								  end,
+						},
+						acquiretooltiplocation = {
+							order	= 21,
+							type	= "select",
+							name	= L["Tooltip (Acquire) Position"],
+							desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
+							get	= function()
+									  return addon.db.profile.acquiretooltiplocation
+								  end,
+							set	= function(info, name)
+									  addon.db.profile.acquiretooltiplocation = name
+								  end,
+							values	= function()
+									  return {
+										  Right = L["Right"],
+										  Left = L["Left"],
+										  Top = L["Top"],
+										  Bottom = L["Bottom"],
+										  Off = _G.OFF,
+										  Mouse = _G.MOUSE_LABEL
+									  }
+								  end,
+						},
+						spelltooltiplocation = {
+							order	= 22,
+							type	= "select",
+							name	= L["Tooltip (Recipe) Position"],
+							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
+							get	= function()
+									  return addon.db.profile.spelltooltiplocation
+								  end,
+							set	= function(info,name)
+									  addon.db.profile.spelltooltiplocation = name
+								  end,
+							values	= function()
+									  return {
+										  Right = L["Right"],
+										  Left = L["Left"],
+										  Top = L["Top"],
+										  Bottom = L["Bottom"],
+										  Off = _G.OFF
+									  }
+								  end,
+						},
+						spacer2 = {
+							order	= 23,
+							type	= "description",
+							name	= "\n",
+						},
+						unit_tooltip = {
+							order	= 24,
+							type	= "toggle",
+							name	= L["Recipes In Tooltips"],
+							desc	= L["UNIT_TOOLTIPS_DESC"],
+							get	= function()
+									  return addon.db.profile.recipes_in_tooltips
+								  end,
+							set	= function(info, value)
+									  addon.db.profile.recipes_in_tooltips = value
+								  end,
+						},
+						unit_max_tooltip = {
+							order	= 25,
+							type	= "range",
+							name	= _G.MAXIMUM,
+							desc	= L["UNIT_MAX_TOOLTIPS_DESC"],
+							min	= 1,
+							max	= 50,
+							step	= 1,
+							bigStep = 5,
+							disabled= function()
+									  return not addon.db.profile.recipes_in_tooltips
+								  end,
+							get	= function()
+									  return addon.db.profile.max_recipes_in_tooltips
+								  end,
+							set	= function(info, v)
+									  addon.db.profile.max_recipes_in_tooltips = v
+								  end,
+						},
+						tooltip_hint = {
+							order	= 26,
+							type	= "toggle",
+							name	= L["TOOLTIP_HINT"],
+							desc	= L["TOOLTIP_HINT_DESC"],
+							get	= function()
+									  return addon.db.profile.hide_tooltip_hint
+								  end,
+							set	= function(info, value)
+									  addon.db.profile.hide_tooltip_hint = value
+								  end,
+						},
+					},
 				},
 			},
 		}
@@ -791,13 +805,16 @@ function addon:SetupOptions()
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
 	-- Register the module options
-	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
-	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
 	self:RegisterModuleOptions("Display", giveDisplay(), _G.DISPLAY_OPTIONS)
-	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
-	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 
-	-- Add in the about panel to the Bliz options (not apart of the ace3 config)
+	if _G.TomTom or _G.Cartographer_Waypoints then
+		self:RegisterModuleOptions("Waypoint", giveMap(), L["Waypoints"])
+	end
+	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
+	self:RegisterModuleOptions("Documentation", giveDocs(), L["Documentation"])
+	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
+
+	-- Add in the about panel to the Bliz options (not a part of the ace3 config)
 	if LibStub:GetLibrary("LibAboutPanel", true) then
 		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
 	else

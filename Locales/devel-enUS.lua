@@ -37,7 +37,7 @@ L["Main Filter Options"]	= true
 L["Sorting Options"]		= true
 L["Profile Options"]		= true
 L["Tooltip Options"]		= true
-L["Map Options"]		= true
+L["Waypoints"]			= true
 L["ARL Documentation"]		= true
 L["Documentation"]		= true
 
