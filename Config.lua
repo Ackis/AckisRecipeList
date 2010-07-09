@@ -139,7 +139,7 @@ local function fullOptions()
 									   return true
 								   end,
 						},
-						spacer2 = {
+						spacer1 = {
 							order	= 45,
 							type	= "description",
 							name	= "\n",
@@ -179,7 +179,7 @@ local function fullOptions()
 		}
 
 		for k,v in pairs(modularOptions) do
-			options.args[k] = (type(v) == "function") and v() or v
+		 	options.args[k] = (type(v) == "function") and v() or v
 		end
 
 	end
@@ -188,7 +188,7 @@ end
 
 local arlmap
 
-local function giveMap()
+local function GetMapOptions()
 	local has_waypoints = _G.TomTom or _G.Cartographer_Waypoints or false
 
 	if not arlmap then
@@ -321,7 +321,7 @@ end
 
 local datamine
 
-local function giveDatamine()
+local function GetDatamineOptions()
 	if not datamine then
 		datamine = {
 			order	= 1,
@@ -457,7 +457,7 @@ end
 
 local documentation
 
-local function giveDocs()
+local function GetDocumentation()
 	if not documentation then
 		documentation = {
 			order = 1,
@@ -550,7 +550,7 @@ local SCAN_ANCHORS = {
 	BL = L["Bottom Left"]
 }
 
-local function giveDisplay()
+local function GetDisplayOptions()
 	if not displayoptions then
 		displayoptions = {
 			order		= 1,
@@ -744,7 +744,7 @@ local function giveDisplay()
 									  }
 								  end,
 						},
-						spacer2 = {
+						spacer1 = {
 							order	= 23,
 							type	= "description",
 							name	= "\n",
@@ -805,13 +805,13 @@ function addon:SetupOptions()
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
 	-- Register the module options
-	self:RegisterModuleOptions("Display", giveDisplay(), _G.DISPLAY_OPTIONS)
+	self:RegisterModuleOptions("Display", GetDisplayOptions(), _G.DISPLAY_OPTIONS)
 
 	if _G.TomTom or _G.Cartographer_Waypoints then
-		self:RegisterModuleOptions("Waypoint", giveMap(), L["Waypoints"])
+		self:RegisterModuleOptions("Waypoint", GetMapOptions(), L["Waypoints"])
 	end
-	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
-	self:RegisterModuleOptions("Documentation", giveDocs(), L["Documentation"])
+	self:RegisterModuleOptions("Datamining", GetDatamineOptions(), L["Datamine Options"])
+	self:RegisterModuleOptions("Documentation", GetDocumentation(), L["Documentation"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
 	-- Add in the about panel to the Bliz options (not a part of the ace3 config)
