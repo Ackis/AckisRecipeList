@@ -333,9 +333,10 @@ end	-- do
 -------------------------------------------------------------------------------
 local SortRecipeList
 do
-	local recipe_list = private.recipe_list
-
 	addon.sorted_recipes = {}
+
+	local recipe_list = private.recipe_list
+	local sorted_recipes = addon.sorted_recipes
 
 	local function Sort_SkillAsc(a, b)
 		local reca, recb = recipe_list[a], recipe_list[b]
@@ -373,7 +374,7 @@ do
 	}
 
 	-- Sorts the recipe_list according to configuration settings.
-	function SortRecipeList(recipe_list, sorted_recipes)
+	function SortRecipeList()
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
@@ -1265,7 +1266,7 @@ do
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
-		SortRecipeList(recipe_list, sorted_recipes)
+		SortRecipeList()
 
 		for i = 1, #sorted_recipes do
 			local recipe_index = sorted_recipes[i]
@@ -3013,7 +3014,7 @@ do
 				local recipe_list = private.acquire_list[acquire_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList(recipe_list, sorted_recipes)
+				SortRecipeList()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
@@ -3055,7 +3056,7 @@ do
 				local recipe_list = private.location_list[location_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList(recipe_list, sorted_recipes)
+				SortRecipeList()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
