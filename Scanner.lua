@@ -842,7 +842,7 @@ do
 		return reca.spell_id < recb.spell_id
 	end
 
-	local function SortRecipeList()
+	local function SortRecipesByID()
 		local sorted_recipes = addon.sorted_recipes
 		table.wipe(sorted_recipes)
 
@@ -872,7 +872,7 @@ do
 				recipe_list[i] = master_list[i]
 			end
 		end
-		SortRecipeList()
+		SortRecipesByID()
 		table.wipe(output)
 
 		-- Parse the entire recipe database
@@ -1043,7 +1043,7 @@ do
 				recipe_list[i] = master_list[i]
 			end
 		end
-		SortRecipeList()
+		SortRecipesByID()
 		table.wipe(output)
 
 		for index, id in ipairs(addon.sorted_recipes) do
