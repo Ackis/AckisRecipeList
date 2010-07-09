@@ -70,12 +70,12 @@ To add a recipe to the exclusion (ignore) list, just alt-click on it from the re
 
 ===Reporting Bugs
 When reporting a bug, please make sure you do the following:
-# Download the latest version, available from [[http://www.wowace.com/projects/arl/files/]].
-# Make sure there is not a bug report filed for your issue already.  You can check these at [[http://www.wowace.com/projects/arl/tickets/]].
+# Download the latest version, available from [[http://www.wowace.com/addons/arl/files/]].
+# Make sure there is not a bug report filed for your issue already.  You can check these at [[http://www.wowace.com/addons/arl/tickets/]].
 # Disable addons such as Skillet or ATSW.
-# Read the bug reporting documentation at [[http://www.wowace.com/projects/arl/pages/feedback/]]
+# Read the bug reporting documentation at [[http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/]]
 # If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
-# You have found a bug that no one has reported before.  Create a new ticket at [[http://www.wowace.com/projects/arl/tickets/]] with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, we don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
+# You have found a bug that no one has reported before.  Create a new ticket at [[http://www.wowace.com/addons/arl/tickets/]] with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, we don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
 When posting a bug report, do NOT include all of the addons that any error catcher may list.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to an author via a PM.  Post them as a ticket which we can address and track easily.
 
 ===Common Issues
