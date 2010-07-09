@@ -144,6 +144,18 @@ if MissingLibraries() then
 	return
 end
 
+-------------------------------------------------------------------------------
+-- Functions common to most files in the AddOn.
+-------------------------------------------------------------------------------
+function private.SetTextColor(color_code, text)
+	return string.format("|cff%s%s|r", color_code or "ffffff", text)
+end
+
+
+
+-------------------------------------------------------------------------------
+-- Debugger.
+-------------------------------------------------------------------------------
 function addon:Debug(...)
 	if debugger then
 		debugger:AddMessage(string.format(...))

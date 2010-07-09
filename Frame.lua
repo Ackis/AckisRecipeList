@@ -149,7 +149,10 @@ local FilterValueMap		-- Assigned in InitializeFrame()
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
+local SetTextColor = private.SetTextColor
+
 local ListFrame
+local MainPanel
 
 -------------------------------------------------------------------------------
 -- Table cache mechanism
@@ -184,12 +187,6 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
--- Common to many functions throughout the file.
--------------------------------------------------------------------------------
-local function SetTextColor(color_code, text)
-	return string.format("|cff%s%s|r", color_code or "ffffff", text)
-end
-
 local FormatRecipeText
 do
 	local SKILL_LEVEL_FORMAT = "[%d]"
