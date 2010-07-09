@@ -62,13 +62,17 @@ embeds.xml
 # Localization files
 locale.xml
 
+# Constants should be loaded first - many files use them in their main chunk.
 Constants.lua
-ARL.lua
+
+core.lua
 Config.lua
 Waypoint.lua
-Frame.lua
 Scanner.lua
 Player.lua
+
+# User Interface files
+Frame.lua
 
 # Database files
 database.xml
