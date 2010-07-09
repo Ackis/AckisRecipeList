@@ -187,53 +187,6 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
-local FormatRecipeText
-do
-	local SKILL_LEVEL_FORMAT = "[%d]"
-	local SPELL_ENCHANTING = GetSpellInfo(51313)
-
-	function FormatRecipeText(recipe_entry)
-		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
-		local recipe_name = recipe_entry.name
-
-		if ORDERED_PROFESSIONS[addon.Frame.profession] == SPELL_ENCHANTING then
-			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
-		end
-		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
-
-		local skill_level = Player["ProfessionLevel"]
-		local recipe_level = recipe_entry.skill_level
-		local rep_data = recipe_entry.acquire_data[A.REPUTATION]
-		local has_faction = Player:HasProperRepLevel(rep_data)
-		local level_text
-		local difficulty = private.difficulty_colors
-
-		if not has_faction or recipe_level > skill_level then
-			level_text = string.format(SetTextColor(difficulty["impossible"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.trivial_level then
-			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.easy_level then
-			level_text = string.format(SetTextColor(difficulty["easy"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.medium_level then
-			level_text = string.format(SetTextColor(difficulty["medium"], SKILL_LEVEL_FORMAT), recipe_level)
-		elseif skill_level >= recipe_entry.optimal_level then
-			level_text = string.format(SetTextColor(difficulty["optimal"], SKILL_LEVEL_FORMAT), recipe_level)
-		else
-			addon:Debug("Skill level color fallback: %s.", recipe_string)
-			level_text = string.format(SetTextColor(difficulty["trivial"], SKILL_LEVEL_FORMAT), recipe_level)
-		end
-		local skill_view = addon.db.profile.skill_view
-
-		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
-
-		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
-			recipe_string = string.format("** %s **", recipe_string)
-		end
-		return recipe_string
-	end
-end	-- do block
-
--------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
 -------------------------------------------------------------------------------
 local SetTooltipScripts
@@ -1324,7 +1277,7 @@ do
 
 				local is_expanded = self[prof_name.." expanded"][recipe_index]
 
-				t.text = FormatRecipeText(recipe)
+				t.text = recipe:GetDisplayName()
 				t.recipe_id = recipe_index
 
 				recipe_count = recipe_count + 1
@@ -3078,7 +3031,7 @@ do
 						end
 						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]]
 
-						t.text = FormatRecipeText(recipe_entry)
+						t.text = recipe_entry:GetDisplayName()
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
@@ -3121,7 +3074,7 @@ do
 						end
 						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][location_id]
 
-						t.text = FormatRecipeText(recipe_entry)
+						t.text = recipe_entry:GetDisplayName()
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
