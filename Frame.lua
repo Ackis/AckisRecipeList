@@ -836,7 +836,7 @@ do
 
 		-- check if the recipe is excluded
 		if addon.db.profile.exclusionlist[recipe_id] then
-			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "|cffff0000")
+			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
 
 		-- Add in skill level requirement, colored correctly
