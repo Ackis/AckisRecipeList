@@ -990,7 +990,6 @@ WidgetContainer:SetWidth(275)
 -- Tabs
 -------------------------------------------------------------------------------
 local AcquisitionTab, LocationTab, RecipesTab
-
 do
 	local function Tab_Enable(self)
 		self.left:ClearAllPoints()
@@ -1036,6 +1035,23 @@ do
 		PlaySound("igCharacterInfoTab")
 	end
 
+	-- Expands or collapses a list entry in the current active tab.
+	local function Tab_ModifyEntry(self, entry, expanded)
+		local member = ORDERED_PROFESSIONS[MainPanel.profession] .. " expanded"
+
+		if entry.acquire_id then
+			self[member][private.acquire_names[entry.acquire_id]] = expanded or nil
+		end
+
+		if entry.location_id then
+			self[member][entry.location_id] = expanded or nil
+		end
+
+		if entry.recipe_id then
+			self[member][entry.recipe_id] = expanded or nil
+		end
+	end
+
 	local function CreateTab(id_num, text, ...)
 		local tab = CreateFrame("Button", nil, MainPanel)
 
@@ -1079,6 +1095,7 @@ do
 
 		tab.ToFront = Tab_Enable
 		tab.ToBack = Tab_Disable
+		tab.ModifyEntry = Tab_ModifyEntry
 
 		tab:ToBack()
 
@@ -1329,24 +1346,6 @@ do
 		RecipesTab,
 	}
 end	-- do-block
-
--- Expands or collapses an entry in the current active tab.
-local function Tab_ModifyEntry(entry, expanded)
-	local current_tab = MainPanel.tabs[MainPanel.current_tab]
-	local prof_name = ORDERED_PROFESSIONS[MainPanel.profession]
-
-	if entry.acquire_id then
-		current_tab[prof_name.." expanded"][private.acquire_names[entry.acquire_id]] = expanded or nil
-	end
-
-	if entry.location_id then
-		current_tab[prof_name.." expanded"][entry.location_id] = expanded or nil
-	end
-
-	if entry.recipe_id then
-		current_tab[prof_name.." expanded"][entry.recipe_id] = expanded or nil
-	end
-end
 
 -------------------------------------------------------------------------------
 -- MainPanel scripts/functions.
@@ -2259,7 +2258,7 @@ do
 	ScrollBar:SetScript("OnValueChanged",
 			    function(self, value)
 				    local min_val, max_val = self:GetMinMaxValues()
-				    local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+				    local current_tab = MainPanel.tabs[MainPanel.current_tab]
 				    local member = "profession_"..MainPanel.profession.."_scroll_value"
 
 				    current_tab[member] = value
@@ -2351,6 +2350,7 @@ do
 
 				local check_type = clicked_line.type
 				local entry = ListFrame.entries[traverseIndex]
+				local current_tab = MainPanel.tabs[MainPanel.current_tab]
 
 				-- get rid of our expanded lines
 				while entry and entry.type ~= check_type do
@@ -2358,7 +2358,7 @@ do
 					if entry.type == "header" then
 						break
 					end
-					Tab_ModifyEntry(entry, false)
+					current_tab:ModifyEntry(entry, false)
 					ReleaseTable(table.remove(ListFrame.entries, traverseIndex))
 					entry = ListFrame.entries[traverseIndex]
 
@@ -2366,7 +2366,7 @@ do
 						break
 					end
 				end
-				Tab_ModifyEntry(clicked_line, false)
+				current_tab:ModifyEntry(clicked_line, false)
 				clicked_line.is_expanded = false
 			else
 				ListFrame:ExpandEntry(clickedIndex)
@@ -2391,8 +2391,10 @@ do
 					addon:Debug("clicked_line (%s): parent wasn't found in ListFrame.entries", clicked_line.text)
 					return
 				end
+				local current_tab = MainPanel.tabs[MainPanel.current_tab]
+
 				parent.is_expanded = false
-				Tab_ModifyEntry(parent, false)
+				current_tab:ModifyEntry(parent, false)
 
 				local child_index = parent_index + 1
 
@@ -2481,10 +2483,12 @@ do
 		-- If we have acquire information for this entry, push the data table into the list
 		-- and start processing the acquires.
 		if expand_mode then
+			local current_tab = MainPanel.tabs[MainPanel.current_tab]
+
 			entry.is_expanded = true
 			table.insert(self.entries, insert_index, entry)
 
-			Tab_ModifyEntry(entry, entry_expanded)
+			current_tab:ModifyEntry(entry, entry_expanded)
 
 			if entry_type == "header" or entry_type == "subheader" then
 				insert_index = self:ExpandEntry(insert_index, expand_mode)
@@ -2672,7 +2676,7 @@ do
 			self.scroll_bar:Hide()
 		else
 			local max_val = num_entries - NUM_RECIPE_LINES
-			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
+			local current_tab = MainPanel.tabs[MainPanel.current_tab]
 			local scroll_value = current_tab["profession_"..MainPanel.profession.."_scroll_value"] or 0
 
 			scroll_value = math.max(0, math.min(scroll_value, max_val))
@@ -3050,7 +3054,7 @@ do
 		-- value should be the index of the next button after the expansion occurs
 		entry_index = entry_index + 1
 
-		Tab_ModifyEntry(current_entry, true)
+		current_tab:ModifyEntry(current_entry, true)
 
 		-- This entry was generated using sorting based on Acquisition.
 		if current_entry.acquire_id then
