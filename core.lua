@@ -1,24 +1,19 @@
 --[[
 ************************************************************************
-ARL.lua
+core.lua
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
-Authors: Ackis, Zhinjio, Jim-Bim, Torhal, Pompachomp
-************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-**AckisRecipeList** provides an interface for scanning professions for missing recipes.
-There are a set of functions which allow you make use of the ARL database outside of ARL.
-ARL supports all professions currently in World of Warcraft 3.3.2
 @class file
-@name ARL.lua
-@release 1.0
+@name core.lua
+@release 2.0
 ************************************************************************
 ]]
 
