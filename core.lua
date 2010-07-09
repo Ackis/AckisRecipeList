@@ -29,7 +29,7 @@ local pairs, ipairs = _G.pairs, _G.ipairs
 local select = _G.select
 
 local table = _G.table
-local twipe = table.wipe
+
 local tconcat = table.concat
 local tinsert = table.insert
 
@@ -170,7 +170,7 @@ do
 	local output = {}
 
 	function addon:DumpMembers(match)
-		twipe(output)
+		table.wipe(output)
 		tinsert(output, "Addon Object members.\n")
 
 		local count = 0
@@ -1871,7 +1871,7 @@ do
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
 		-------------------------------------------------------------------------------
-		twipe(header_list)
+		table.wipe(header_list)
 
 		-- Save the state of the "Have Materials" checkbox.
 		local have_materials = TradeSkillFrameAvailableFilterCheckButton:GetChecked()
@@ -2129,7 +2129,7 @@ do
 	---Dumps the recipe database in a format that is readable to humans.
 	function addon:GetTextDump(profession)
 		local output = addon.db.profile.textdumpformat
-		twipe(text_table)
+		table.wipe(text_table)
 
 		if not output or output == "Comma" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  ", UnitName("player"), profession))
@@ -2206,7 +2206,7 @@ do
 
 				-- Find out which unique acquire methods we have
 				local acquire_data = recipe["acquire_data"]
-				twipe(acquire_list)
+				table.wipe(acquire_list)
 
 				for acquire_type in pairs(acquire_data) do
 					acquire_list[ACQUIRE_NAMES[acquire_type]] = true

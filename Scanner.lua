@@ -20,7 +20,7 @@ This source code is released under All Rights Reserved.
 local _G = getfenv(0)
 
 local table = _G.table
-local tconcat, tinsert, tsort, twipe = table.concat, table.insert, table.sort, table.wipe
+local tconcat, tinsert, tsort = table.concat, table.insert, table.sort
 
 local string = _G.string
 
@@ -571,7 +571,7 @@ do
 			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		twipe(reverse_lookup)
+		table.wipe(reverse_lookup)
 
 		for i in pairs(recipe_list) do
 			--if t[recipe_list[i].name] then addon:Print("Dupe: " .. i) end
@@ -618,7 +618,7 @@ do
 		SetTrainerServiceTypeFilter("unavailable", 1)
 		SetTrainerServiceTypeFilter("used", 1)
 
-		twipe(info)
+		table.wipe(info)
 
 		-- Get the skill levels from the trainer
 		for i = 1, GetNumTrainerServices(), 1 do
@@ -632,7 +632,7 @@ do
 		end
 		local found = false
 
-		twipe(output)
+		table.wipe(output)
 
 		for i in pairs(recipe_list) do
 			local i_name = recipe_list[i].name
@@ -696,16 +696,16 @@ do
 		if GetNumTrainerServices() == 0 then
 			self:Print("Warning: Trainer is bugged, reporting 0 trainer items.")
 		end
-		twipe(info)
+		table.wipe(info)
 
 		-- Get all the names of recipes from the trainer
 		for i = 1, GetNumTrainerServices(), 1 do
 			local name = GetTrainerServiceInfo(i)
 			info[name] = true
 		end
-		twipe(teach)
-		twipe(noteach)
-		twipe(output)
+		table.wipe(teach)
+		table.wipe(noteach)
+		table.wipe(output)
 
 		-- Dump out trainer info
 		tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
@@ -844,7 +844,7 @@ do
 
 	local function SortRecipeList()
 		local sorted_recipes = addon.sorted_recipes
-		twipe(sorted_recipes)
+		table.wipe(sorted_recipes)
 
 		for n, v in pairs(recipe_list) do
 			tinsert(sorted_recipes, n)
@@ -859,7 +859,7 @@ do
 			addon:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		twipe(recipe_list)
+		table.wipe(recipe_list)
 
 		if prof_name == private.professions["Smelting"]:lower() then
 			prof_name = private.mining_name:lower()
@@ -873,7 +873,7 @@ do
 			end
 		end
 		SortRecipeList()
-		twipe(output)
+		table.wipe(output)
 
 		-- Parse the entire recipe database
 		for index, id in ipairs(addon.sorted_recipes) do
@@ -1031,7 +1031,7 @@ do
 			addon:Print(L["DATAMINE_NODB_ERROR"])
 			return
 		end
-		twipe(recipe_list)
+		table.wipe(recipe_list)
 
 		if prof_name == private.professions["Smelting"]:lower() then
 			prof_name = private.mining_name:lower()
@@ -1044,7 +1044,7 @@ do
 			end
 		end
 		SortRecipeList()
-		twipe(output)
+		table.wipe(output)
 
 		for index, id in ipairs(addon.sorted_recipes) do
 			RecipeDump(id, false)
@@ -1053,7 +1053,7 @@ do
 	end
 
 	function addon:DumpRecipe(id_num)
-		twipe(output)
+		table.wipe(output)
 		RecipeDump(id_num, true)
 		addon:DisplayTextDump(nil, nil, tconcat(output, "\n"))
 	end
@@ -1139,7 +1139,7 @@ do
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -7), 16)		-- Get the NPC ID
 		local added = false
 
-		twipe(output)
+		table.wipe(output)
 
 		tinsert(output, "Vendor Name: "..targetname.." NPC ID: "..targetID)
 		-- Parse all the items on the merchant
@@ -1229,7 +1229,7 @@ do
 			self:Print(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		twipe(output)
+		table.wipe(output)
 
 		-- Parse the entire recipe database
 		for i in pairs(recipe_list) do
@@ -1339,7 +1339,7 @@ do
 		local recipe_name = recipe.name
 		local game_vers = private.game_versions[recipe.genesis]
 
-		twipe(output)
+		table.wipe(output)
 
 		if not game_vers then
 			tinsert(output, "No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
@@ -1763,9 +1763,9 @@ do
 		local FS = private.filter_strings
 		local flag_format = "F.%s"
 
-		twipe(missing_flags)
-		twipe(extra_flags)
-		twipe(output)
+		table.wipe(missing_flags)
+		table.wipe(extra_flags)
+		table.wipe(output)
 
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then

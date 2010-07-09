@@ -33,7 +33,6 @@ local select = _G.select
 local type = _G.type
 
 local table = _G.table
-local twipe = table.wipe
 
 local ipairs, pairs = _G.ipairs, _G.pairs
 
@@ -170,7 +169,7 @@ do
 	-- Cleans the table and stores it in the cache
 	function ReleaseTable(tbl)
 		if not tbl then return end
-		twipe(tbl)
+		table.wipe(tbl)
 		table.insert(table_cache, tbl)
 	end
 end	-- do block
@@ -380,7 +379,7 @@ do
 
 		local sort_func = RECIPE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
 
-		twipe(sorted_recipes)
+		table.wipe(sorted_recipes)
 
 		for n, v in pairs(recipe_list) do
 			table.insert(sorted_recipes, n)
@@ -1091,7 +1090,7 @@ do
 		local recipe_count = 0
 		local insert_index = 1
 
-		twipe(recipe_registry)
+		table.wipe(recipe_registry)
 
 		if not sorted_acquires then
 			-- Sorting function: Only used once and then thrown away.
@@ -1157,7 +1156,7 @@ do
 		local recipe_count = 0
 		local insert_index = 1
 
-		twipe(recipe_registry)
+		table.wipe(recipe_registry)
 
 		if not sorted_locations then
 			-- Sorting function: Only used once and then thrown away.
@@ -2458,7 +2457,7 @@ do
 		for i = 1, #self.entries do
 			ReleaseTable(self.entries[i])
 		end
-		twipe(self.entries)
+		table.wipe(self.entries)
 
 		addon:UpdateFilters(MainPanel.is_linked)
 
@@ -3234,7 +3233,7 @@ local function SelectName(cell, arg, button)
 			tskl_list[click_info.realm] = nil
 		end
 		local anchor = click_info.anchor
-		twipe(click_info)
+		table.wipe(click_info)
 		click_info.anchor = anchor
 		GenerateClickableTT()
 		return
@@ -4133,14 +4132,14 @@ local function InitializeFrame()
 					 if clicktip then
 						 if not click_info.modified then
 							 clicktip = QTip:Release(clicktip)
-							 twipe(click_info)
+							 table.wipe(click_info)
 						 else
-							 twipe(click_info)
+							 table.wipe(click_info)
 							 GenerateClickableTT(this)
 						 end
 					 else
 						 clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
-						 twipe(click_info)
+						 table.wipe(click_info)
 
 						 if _G.TipTac and _G.TipTac.AddModifiedTip then
 							 _G.TipTac:AddModifiedTip(clicktip, true)
@@ -4151,7 +4150,7 @@ local function InitializeFrame()
 	ARL_MiscAltBtn:SetScript("OnHide",
 				 function(this, button)
 					 clicktip = QTip:Release(clicktip)
-					 twipe(click_info)
+					 table.wipe(click_info)
 				 end)
 
 	-------------------------------------------------------------------------------
