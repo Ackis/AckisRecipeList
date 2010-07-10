@@ -532,7 +532,7 @@ function private.InitializeListFrame()
 				addon.db.profile.addonversion = addon.version
 				showpopup = true
 			end
-			local editbox_text = SearchBox:GetText()
+			local editbox_text = MainPanel.search_editbox:GetText()
 
 			if Player.recipes_total == 0 then
 				if showpopup then
