@@ -141,38 +141,16 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 }
 
 -------------------------------------------------------------------------------
--- Variables
--------------------------------------------------------------------------------
-local FilterValueMap		-- Assigned in InitializeFrame()
-
--------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
 local SetTextColor = private.SetTextColor
+local AcquireTable = private.AcquireTable
+local ReleaseTable = private.ReleaseTable
 
 local ListFrame
 local MainPanel
 
--------------------------------------------------------------------------------
--- Table cache mechanism
--------------------------------------------------------------------------------
-local AcquireTable, ReleaseTable
-do
-	local table_cache = {}
-
-	-- Returns a table
-	function AcquireTable()
-		local tbl = table.remove(table_cache) or {}
-		return tbl
-	end
-
-	-- Cleans the table and stores it in the cache
-	function ReleaseTable(tbl)
-		if not tbl then return end
-		table.wipe(tbl)
-		table.insert(table_cache, tbl)
-	end
-end	-- do block
+local FilterValueMap		-- Assigned in InitializeFrame()
 
 -------------------------------------------------------------------------------
 -- Close all possible pop-up windows
@@ -325,67 +303,6 @@ do
 			SetTooltipScripts(button, tip_text)
 		end
 		return button
-	end
-end	-- do
-
--------------------------------------------------------------------------------
--- Sort functions
--------------------------------------------------------------------------------
-local SortRecipeList
-do
-	addon.sorted_recipes = {}
-
-	local recipe_list = private.recipe_list
-	local sorted_recipes = addon.sorted_recipes
-
-	local function Sort_SkillAsc(a, b)
-		local reca, recb = recipe_list[a], recipe_list[b]
-
-		if reca.skill_level == recb.skill_level then
-			return reca.name < recb.name
-		else
-			return reca.skill_level < recb.skill_level
-		end
-	end
-
-	local function Sort_SkillDesc(a, b)
-		local reca, recb = recipe_list[a], recipe_list[b]
-
-		if reca.skill_level == recb.skill_level then
-			return reca.name < recb.name
-		else
-			return recb.skill_level < reca.skill_level
-		end
-	end
-
-	local function Sort_NameAsc(a, b)
-		return recipe_list[a].name < recipe_list[b].name
-	end
-
-	local function Sort_NameDesc(a, b)
-		return recipe_list[a].name > recipe_list[b].name
-	end
-
-	local RECIPE_SORT_FUNCS = {
-		["SkillAscending"]	= Sort_SkillAsc,
-		["SkillDescending"]	= Sort_SkillDesc,
-		["NameAscending"]	= Sort_NameAsc,
-		["NameDescending"]	= Sort_NameDesc,
-	}
-
-	-- Sorts the recipe_list according to configuration settings.
-	function SortRecipeList(recipe_list)
-		local sort_type = addon.db.profile.sorting
-		local skill_view = addon.db.profile.skill_view
-
-		local sort_func = RECIPE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
-
-		table.wipe(sorted_recipes)
-
-		for n, v in pairs(recipe_list) do
-			table.insert(sorted_recipes, n)
-		end
-		table.sort(sorted_recipes, sort_func)
 	end
 end	-- do
 
@@ -2653,7 +2570,7 @@ do
 				local recipe_list = private.acquire_list[acquire_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList(recipe_list)
+				private.SortRecipeList(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
@@ -2695,7 +2612,7 @@ do
 				local recipe_list = private.location_list[location_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				SortRecipeList(recipe_list)
+				private.SortRecipeList(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
