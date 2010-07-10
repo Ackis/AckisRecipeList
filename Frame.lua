@@ -137,9 +137,11 @@ StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 -------------------------------------------------------------------------------
 -- Upvalues
 -------------------------------------------------------------------------------
-local SetTextColor = private.SetTextColor
 local AcquireTable = private.AcquireTable
 local ReleaseTable = private.ReleaseTable
+local SetTextColor = private.SetTextColor
+local GenericCreateButton = private.GenericCreateButton
+local SetTooltipScripts = private.SetTooltipScripts
 
 local MainPanel
 
@@ -155,149 +157,6 @@ function addon:ClosePopups()
 	_G.StaticPopup_Hide("ARL_ALLEXCLUDED")
 	_G.StaticPopup_Hide("ARL_SEARCHFILTERED")
 end
-
--------------------------------------------------------------------------------
--- Sets show and hide scripts as well as text for a tooltip for the given frame.
--------------------------------------------------------------------------------
-local SetTooltipScripts
-do
-	local HIGHLIGHT_FONT_COLOR = _G.HIGHLIGHT_FONT_COLOR
-
-	local function Show_Tooltip(frame, motion)
-		GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
-		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
-		GameTooltip:Show()
-	end
-
-	local function Hide_Tooltip()
-		GameTooltip:Hide()
-	end
-
-	function SetTooltipScripts(frame, textLabel)
-		frame.tooltip_text = textLabel
-
-		frame:SetScript("OnEnter", Show_Tooltip)
-		frame:SetScript("OnLeave", Hide_Tooltip)
-	end
-end	-- do
-
--------------------------------------------------------------------------------
--- Generic function for creating buttons.
--------------------------------------------------------------------------------
-local GenericCreateButton
-do
-	-- I hate stretchy buttons. Thanks very much to ckknight for this code
-	-- (found in RockConfig)
-
-	-- when pressed, the button should look pressed
-	local function button_OnMouseDown(this)
-		if this:IsEnabled() then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-		end
-	end
-
-	-- when depressed, return to normal
-	local function button_OnMouseUp(this)
-		if this:IsEnabled() then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		end
-	end
-
-	local function button_Disable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this:__Disable()
-		this:EnableMouse(false)
-	end
-
-	local function button_Enable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this:__Enable()
-		this:EnableMouse(true)
-	end
-
-	function GenericCreateButton(name, parent, height, width, font_object, label, justify_h, tip_text, noTextures)
-		local button = CreateFrame("Button", name, parent)
-
-		button:SetHeight(height)
-		button:SetWidth(width)
-
-		if noTextures == 0 then
-			button:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-		elseif noTextures == 1 then
-			local left = button:CreateTexture(nil, "BACKGROUND")
-			button.left = left
-			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			local middle = button:CreateTexture(nil, "BACKGROUND")
-			button.middle = middle
-			middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			local right = button:CreateTexture(nil, "BACKGROUND")
-			button.right = right
-			right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-
-			left:SetPoint("TOPLEFT")
-			left:SetPoint("BOTTOMLEFT")
-			left:SetWidth(12)
-			left:SetTexCoord(0, 0.09375, 0, 0.6875)
-
-			right:SetPoint("TOPRIGHT")
-			right:SetPoint("BOTTOMRIGHT")
-			right:SetWidth(12)
-			right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
-
-			middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
-			middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
-			middle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
-
-			button:SetScript("OnMouseDown", button_OnMouseDown)
-			button:SetScript("OnMouseUp", button_OnMouseUp)
-
-			button.__Enable = button.Enable
-			button.__Disable = button.Disable
-			button.Enable = button_Enable
-			button.Disable = button_Disable
-
-			local highlight = button:CreateTexture(nil, "OVERLAY", "UIPanelButtonHighlightTexture")
-			button:SetHighlightTexture(highlight)
-		elseif noTextures == 2 then
-			button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-			button:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-		elseif noTextures == 3 then
-			button:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			button:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-		end
-
-		if font_object then
-			local text = button:CreateFontString(nil, "ARTWORK")
-			button:SetFontString(text)
-			button.text = text
-			text:SetPoint("LEFT", button, "LEFT", 7, 0)
-			text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
-			text:SetJustifyH(justify_h)
-
-			text:SetFontObject(font_object)
-			text:SetText(label)
-		end
-
-		if tip_text and tip_text ~= "" then
-			SetTooltipScripts(button, tip_text)
-		end
-		return button
-	end
-end	-- do
 
 -------------------------------------------------------------------------------
 -- Create the MainPanel and set its values
@@ -2157,7 +2016,9 @@ local function InitializeFrame()
 	ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 	ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 	ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+
 	SetTooltipScripts(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+
 	ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 	ARL_MiscAltBtn:SetScript("OnClick",
 				 function(this, button)
