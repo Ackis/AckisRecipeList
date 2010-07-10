@@ -449,10 +449,12 @@ do
 	local location_list = private.location_list
 
 	local search_params = {
-		["item_id"]	= true,
-		["name"]	= true,
-		["specialty"]	= true,
-		["skill_level"]	= true,
+		"name",
+		"skill_level",
+		--@debug@
+		-- "item_id",
+		--@end-debug@
+		"specialty",
 	}
 	-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
 	function SearchRecipes(pattern)
@@ -469,7 +471,7 @@ do
 			if entry.profession == current_prof then
 				local found = false
 
-				for field in pairs(search_params) do
+				for index, field in ipairs(search_params) do
 					local str = entry[field] and tostring(entry[field]):lower() or nil
 
 					if str and str:find(pattern) then
