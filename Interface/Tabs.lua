@@ -166,7 +166,7 @@ function private.InitializeTabs()
 			local unit_faction = unit_list[id_num].faction
 
 			if not location or unit_list[id_num].location == location then
-				if not unit_faction or unit_faction == BFAC[Player.faction] or unit_faction == BFAC["Neutral"] then
+				if not unit_faction or unit_faction == BFAC[private.Player.faction] or unit_faction == BFAC["Neutral"] then
 					good = good + 1
 				else
 					bad = bad + 1
