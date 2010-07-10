@@ -537,15 +537,16 @@ SearchBox:SetHistoryLines(10)
 
 -- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
 function SearchBox:Reset()
-	local recipe_list = private.recipe_list
-
-	for index, recipe in pairs(recipe_list) do
+	for index, recipe in pairs(private.recipe_list) do
 		recipe:RemoveState("RELEVANT")
 	end
 	self.prev_search = nil
 
 	self:SetText(_G.SEARCH)
-	self:ClearFocus()
+
+	if self:HasFocus() then
+	 	self:HighlightText()
+	end
 	MainPanel.list_frame:Update(nil, false)
 end
 
@@ -568,31 +569,25 @@ SearchBox:SetScript("OnEnterPressed",
 				    self:Reset()
 				    return
 			    end
+			    self:HighlightText()
 
 			    if searchtext == _G.SEARCH then
-				    self:HighlightText()
 				    return
 			    end
 			    self.prev_search = searchtext
 
-			    self:HighlightText()
 			    self:AddHistoryLine(searchtext)
 			    SearchRecipes(searchtext)
 			    MainPanel.list_frame:Update(nil, false)
 		    end)
 
-SearchBox:SetScript("OnEditFocusGained",
-		    function(self)
-			    if self:GetText() == _G.SEARCH then
-				    self:HighlightText()
-			    end
-		    end)
+SearchBox:SetScript("OnEditFocusGained", SearchBox.HighlightText)
 
 SearchBox:SetScript("OnEditFocusLost",
 		    function(self)
 			    local text = self:GetText()
 
-			    if text == "" then
+			    if text == "" or text == _G.SEARCH then
 				    self:Reset()
 				    return
 			    end
