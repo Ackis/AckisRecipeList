@@ -4,5 +4,6 @@
 
 <Include file="Interface\Common.lua"/>
 <Include file="Interface\Tabs.lua"/>
+<Include file="Interface\List.lua"/>
 
 </Ui>
