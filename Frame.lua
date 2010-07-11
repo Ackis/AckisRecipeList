@@ -790,7 +790,7 @@ SkillToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
 SkillToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 SkillToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 
-SkillToggle.text:SetText(_G.SKILL_LEVEL)
+SkillToggle.text:SetText(_G.SKILL)
 SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 
 -------------------------------------------------------------------------------
