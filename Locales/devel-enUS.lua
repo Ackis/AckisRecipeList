@@ -441,7 +441,7 @@ L["MissingFromDB"] = [[": is missing from the database.
 Please inform the author of the add-on about this recipe."]]
 L["UnknownTradeSkill"] = "You have opened up a trade skill window which is not supported by this add-on.  The trade skill is %s.  Please provide the author of the add-on with this information."
 L["OpenTradeSkillWindow"] = "Please open trade skill window to scan."
-L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://wow.curseforge.com/projects/ackis-recipe-list/tickets/ and include the spell ID and the profession in which you were scanning."
+L["SpellIDCache"] = "Spell ID: %s is not in your local cache.  Please submit a ticket at http://www.wowace.com/addons/arl/tickets/ and include the spell ID and the profession in which you were scanning."
 L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
 L["MISSING_LIBRARY"] = "%s is missing.  Addon cannot run."
 
