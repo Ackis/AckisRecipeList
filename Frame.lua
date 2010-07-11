@@ -680,7 +680,7 @@ end	-- do
 -- Create the expand button and set its scripts.
 -------------------------------------------------------------------------------
 local ExpandButtonFrame = CreateFrame("Frame", nil, MainPanel)
-ExpandButtonFrame:SetWidth(45)
+
 ExpandButtonFrame:SetHeight(20)
 ExpandButtonFrame:SetPoint("TOPLEFT", SearchBox, "BOTTOMLEFT", -12, -5)
 
@@ -703,6 +703,9 @@ ExpandButtonFrame.middle:SetPoint("RIGHT", ExpandButtonFrame.right, "LEFT")
 ExpandButtonFrame.middle:SetTexture("Interface\\QuestFrame\\UI-QuestLogSortTab-Middle")
 
 local ExpandButton = GenericCreateButton(nil, MainPanel, 16, 16, "GameFontNormalSmall", _G.ALL, "LEFT", L["EXPANDALL_DESC"], 2)
+
+-- Make sure the button frame is large enough to hold the localized word for "All"
+ExpandButtonFrame:SetWidth(27 + ExpandButton:GetFontString():GetStringWidth())
 
 MainPanel.expand_button = ExpandButton
 
