@@ -624,6 +624,10 @@ SearchBox:SetScript("OnEditFocusLost",
 				    self:Reset()
 				    return
 			    end
+
+			    -- Ensure that the highlight is cleared.
+			    self:SetText(text)
+
 			    self:AddHistoryLine(text)
 		    end)
 
