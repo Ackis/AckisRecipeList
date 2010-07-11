@@ -537,6 +537,37 @@ MainPanel.search_editbox = SearchBox
 SearchBox:SetText(_G.SEARCH)
 SearchBox:SetHistoryLines(10)
 
+-- Allow removal of focus from the SearchBox by clicking on the WorldFrame.
+do
+	local old_x, old_y, click_time
+
+	WorldFrame:HookScript("OnMouseDown",
+			      function(frame, ...)
+				      if not SearchBox:HasFocus() then
+					      return
+				      end
+				      old_x, old_y = GetCursorPosition()
+				      click_time = GetTime()
+			      end)
+
+	WorldFrame:HookScript("OnMouseUp",
+			      function(frame, ...)
+				      if not SearchBox:HasFocus() then
+					      return
+				      end
+				      local x, y = GetCursorPosition()
+
+				      if not old_x or not old_y or not x or not y or not click_time then
+					      SearchBox:ClearFocus()
+					      return
+				      end
+
+				      if (math.abs(x - old_x) + math.abs(y - old_y)) <= 5 and GetTime() - click_time < .5 then
+					      SearchBox:ClearFocus()
+				      end
+			      end)
+end
+
 -- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
 function SearchBox:Reset()
 	for index, recipe in pairs(private.recipe_list) do
