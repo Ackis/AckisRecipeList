@@ -789,7 +789,7 @@ do
 end
 
 function addon:TRADE_SKILL_CLOSE()
-	if addon.db.profile.closeguionskillclose then
+	if self.Frame and addon.db.profile.closeguionskillclose then
 		self.Frame:Hide()
 	end
 
