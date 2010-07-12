@@ -434,7 +434,12 @@ function addon:OnInitialize()
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
 				      local cur_profession = GetTradeSkillLine()
-				      local prev_profession = addon.Frame.prof_name or private.ordered_professions[addon.Frame.profession]
+				      local MainPanel = addon.Frame
+				      local prev_profession
+
+				      if MainPanel then
+					      prev_profession = MainPanel.prof_name or private.ordered_professions[MainPanel.profession]
+				      end
 
 				      local shift_key = _G.IsShiftKeyDown()
 				      local alt_key = _G.IsAltKeyDown()
@@ -445,8 +450,8 @@ function addon:OnInitialize()
 				      elseif not shift_key and alt_key and not ctrl_key then
 					      addon:ClearWaypoints()
 				      elseif not shift_key and not alt_key and not ctrl_key then
-					      if addon.Frame:IsVisible() and prev_profession == cur_profession then
-						      addon.Frame:Hide()
+					      if MainPanel and MainPanel:IsVisible() and prev_profession == cur_profession then
+						      MainPanel:Hide()
 					      else
 						      addon:Scan(false)
 						      addon:AddWaypoint()
@@ -706,7 +711,9 @@ end
 
 ---Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
-	addon.Frame:Hide()
+	if addon.Frame then
+		addon.Frame:Hide()
+	end
 
 	-- Remove the option from Manufac
 	if Manufac then
@@ -811,7 +818,7 @@ do
 			  end)
 
 	function addon:TRADE_SKILL_UPDATE(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
-		if not self.Frame:IsVisible() then
+		if not self.Frame or not self.Frame:IsVisible() then
 			return
 		end
 
@@ -2004,6 +2011,9 @@ do
 		if textdump then
 			self:DisplayTextDump(recipe_list, current_prof)
 		else
+			if private.InitializeFrame then
+				private.InitializeFrame()
+			end
 			self.Frame:Display(current_prof, is_linked)
 		end
 	end

@@ -5,5 +5,5 @@
 <Include file="Interface\Common.lua"/>
 <Include file="Interface\Tabs.lua"/>
 <Include file="Interface\List.lua"/>
-
+<Include file="Interface\FilterMenus.lua"/>
 </Ui>
