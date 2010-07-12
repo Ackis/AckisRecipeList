@@ -1389,7 +1389,7 @@ do
 					elseif acquire_type == A.QUEST then
 						Tooltip_AddQuest(id_num, location, addline_func)
 					elseif acquire_type == A.SEASONAL then
-						color_1 = CATEGORY_COLORS["seasonal"]
+						local color_1 = CATEGORY_COLORS["seasonal"]
 						addline_func(0, -1, 0, private.acquire_names[A.SEASONAL], color_1, private.seasonal_list[id_num].name, color_1)
 					elseif acquire_type == A.REPUTATION then
 						for rep_level, level_info in pairs(info) do

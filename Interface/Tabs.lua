@@ -48,7 +48,7 @@ function private.InitializeTabs()
 		self:Disable()
 	end
 
-	function Tab_Disable(self)
+	local function Tab_Disable(self)
 		self.left:ClearAllPoints()
 		self.left:SetPoint("TOPLEFT")
 		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
