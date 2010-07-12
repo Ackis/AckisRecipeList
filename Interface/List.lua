@@ -5,6 +5,9 @@ local _G = getfenv(0)
 
 local string = _G.string
 local table = _G.table
+local math = _G.math
+
+local pairs = _G.pairs
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -470,7 +473,7 @@ function private.InitializeListFrame()
 
 		local percentage = cur_value / max_value * 100
 
-		if (floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
+		if (math.floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
 			local results = string.format(_G.SINGLE_PAGE_RESULTS_TEMPLATE, recipe_count)
 			progress_bar.text:SetFormattedText("%d/%d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
 		else
@@ -554,7 +557,7 @@ function private.InitializeListFrame()
 				_G.StaticPopup_Show("ARL_SEARCHFILTERED")
 			else
 				addon:Print(L["NO_DISPLAY"])
-				addon:Debug("Current tab is %s", tostring(addon.db.profile.current_tab))
+				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
 				addon:Debug("recipes_total check for 0")
 				addon:Debug("recipes_total: " .. Player.recipes_total)
 				addon:Debug("recipes_total check for equal to recipes_total")
@@ -1296,7 +1299,7 @@ do
 		end
 	end
 
-	local function Tooltip_AddRepVendor(id_num, location, rep_id, rep_level, vendor_id, addline_func)
+	local function Tooltip_AddRepVendor(id_num, location, rep_level, vendor_id, addline_func)
 		local rep_vendor = private.vendor_list[vendor_id]
 
 		if location and rep_vendor.location ~= location then
@@ -1394,7 +1397,7 @@ do
 					elseif acquire_type == A.REPUTATION then
 						for rep_level, level_info in pairs(info) do
 							for vendor_id in pairs(level_info) do
-								Tooltip_AddRepVendor(id_num, location, rep_id, rep_level, vendor_id, addline_func)
+								Tooltip_AddRepVendor(id_num, location, rep_level, vendor_id, addline_func)
 							end
 						end
 					elseif acquire_type == A.WORLD_DROP then
@@ -1517,7 +1520,7 @@ do
 		color_1 = BASIC_COLORS["normal"]
 
 		for flag, label in pairs(BINDING_FLAGS) do
-			if bit.band(recipe.flags.common1, flag) == flag then
+			if _G.bit.band(recipe.flags.common1, flag) == flag then
 				ttAdd(0, -1, true, label, color_1)
 			end
 		end
