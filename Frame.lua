@@ -70,8 +70,6 @@ local SetTextColor = private.SetTextColor
 local GenericCreateButton = private.GenericCreateButton
 local SetTooltipScripts = private.SetTooltipScripts
 
-local MainPanel
-
 local A = private.acquire_types
 
 -------------------------------------------------------------------------------
@@ -143,9 +141,6 @@ function addon:ClosePopups()
 	_G.StaticPopup_Hide("ARL_SEARCHFILTERED")
 end
 
--------------------------------------------------------------------------------
--- Initializes runtime elements of MainPanel.
--------------------------------------------------------------------------------
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
@@ -205,14 +200,6 @@ function private.InitializeFrame()
 
 		MainPanel:Hide()
 	end	-- do block
-
-	-------------------------------------------------------------------------------
-	-- Widget Container frame.
-	-------------------------------------------------------------------------------
-	local WidgetContainer = CreateFrame("Frame", nil, MainPanel)
-	WidgetContainer:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
-	WidgetContainer:SetHeight(30)
-	WidgetContainer:SetWidth(275)
 
 	-------------------------------------------------------------------------------
 	-- MainPanel scripts/functions.
@@ -612,7 +599,7 @@ function private.InitializeFrame()
 	SearchBox:SetFontObject(ChatFontSmall)
 	SearchBox:SetWidth(130)
 	SearchBox:SetHeight(12)
-	SearchBox:SetPoint("TOPLEFT", WidgetContainer, "TOPLEFT", 0, 0)
+	SearchBox:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 75, -39)
 	SearchBox:Show()
 
 	MainPanel.search_editbox = SearchBox
@@ -988,7 +975,7 @@ function private.InitializeFrame()
 		end
 
 		local filter_toggle = GenericCreateButton(nil, MainPanel, 24, 24, nil, nil, nil, L["FILTER_OPEN_DESC"], 2)
-		filter_toggle:SetPoint("TOPRIGHT", WidgetContainer, "TOPRIGHT", -2, -2)
+		filter_toggle:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 323, -41)
 
 		filter_toggle:SetScript("OnClick", Toggle_OnClick)
 
