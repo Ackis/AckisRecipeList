@@ -410,20 +410,139 @@ function private.InitializeListFrame()
 		return insert_index
 	end
 
+	-------------------------------------------------------------------------------
+	-- Filter flag data and functions for ListFrame:Initialize()
+	-------------------------------------------------------------------------------
 	do
-		-------------------------------------------------------------------------------
-		-- Filter flag data and functions for ListFrame:Initialize()
-		-------------------------------------------------------------------------------
-		local CLASS1 = private.class_flags_word1
-		local REP1 = private.rep_flags_word1
-		local REP2 = private.rep_flags_word2
+		local filter_db		= addon.db.profile.filters
+
+		local binding_filters	= filter_db.binding
+		local player_filters	= filter_db.player
+		local armor_filters	= filter_db.item.armor
+		local weapon_filters	= filter_db.item.weapon
+		local obtain_filters	= filter_db.obtain
+
+		local V = private.game_versions
+		local EXPANSION_FILTERS = {
+			[V.ORIG]	= "expansion0",
+			[V.TBC]		= "expansion1",
+			[V.WOTLK]	= "expansion2",
+		}
+
+		local Q = private.item_qualities
+		local QUALITY_FILTERS = {
+			[Q.COMMON]	= "common",
+			[Q.UNCOMMON]	= "uncommon",
+			[Q.RARE]	= "rare",
+			[Q.EPIC]	= "epic",
+		}
+		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
 		local ITEM1 = private.item_flags_word1
+		local HARD_FILTERS = {
+			------------------------------------------------------------------------------------------------
+			-- Binding flags.
+			------------------------------------------------------------------------------------------------
+			["itemboe"]	= { flag = COMMON1.IBOE,	index = 1,	sv_root = binding_filters },
+			["itembop"]	= { flag = COMMON1.IBOP,	index = 1,	sv_root = binding_filters },
+			["itemboa"]	= { flag = COMMON1.IBOA,	index = 1,	sv_root = binding_filters },
+			["recipeboe"]	= { flag = COMMON1.RBOE,	index = 1,	sv_root = binding_filters },
+			["recipebop"]	= { flag = COMMON1.RBOP,	index = 1,	sv_root = binding_filters },
+			["recipeboa"]	= { flag = COMMON1.RBOA,	index = 1,	sv_root = binding_filters },
+			------------------------------------------------------------------------------------------------
+			-- Player Type flags.
+			------------------------------------------------------------------------------------------------
+			["melee"]	= { flag = COMMON1.DPS,		index = 1,	sv_root = player_filters },
+			["tank"]	= { flag = COMMON1.TANK,	index = 1,	sv_root = player_filters },
+			["healer"]	= { flag = COMMON1.HEALER,	index = 1,	sv_root = player_filters },
+			["caster"]	= { flag = COMMON1.CASTER,	index = 1,	sv_root = player_filters },
+			------------------------------------------------------------------------------------------------
+			-- Armor flags.
+			------------------------------------------------------------------------------------------------
+			["cloth"]	= { flag = ITEM1.CLOTH,		index = 5,	sv_root = armor_filters },
+			["leather"]	= { flag = ITEM1.LEATHER,	index = 5,	sv_root = armor_filters },
+			["mail"]	= { flag = ITEM1.MAIL,		index = 5,	sv_root = armor_filters },
+			["plate"]	= { flag = ITEM1.PLATE,		index = 5,	sv_root = armor_filters },
+			["trinket"]	= { flag = ITEM1.TRINKET,	index = 5,	sv_root = armor_filters },
+			["cloak"]	= { flag = ITEM1.CLOAK,		index = 5,	sv_root = armor_filters },
+			["ring"]	= { flag = ITEM1.RING,		index = 5,	sv_root = armor_filters },
+			["necklace"]	= { flag = ITEM1.NECK,		index = 5,	sv_root = armor_filters },
+			["shield"]	= { flag = ITEM1.SHIELD,	index = 5,	sv_root = armor_filters },
+			------------------------------------------------------------------------------------------------
+			-- Weapon flags.
+			------------------------------------------------------------------------------------------------
+			["onehand"]	= { flag = ITEM1.ONE_HAND,	index = 5,	sv_root = weapon_filters },
+			["twohand"]	= { flag = ITEM1.TWO_HAND,	index = 5,	sv_root = weapon_filters },
+			["axe"]		= { flag = ITEM1.AXE,		index = 5,	sv_root = weapon_filters },
+			["sword"]	= { flag = ITEM1.SWORD,		index = 5,	sv_root = weapon_filters },
+			["mace"]	= { flag = ITEM1.MACE,		index = 5,	sv_root = weapon_filters },
+			["polearm"]	= { flag = ITEM1.POLEARM,	index = 5,	sv_root = weapon_filters },
+			["dagger"]	= { flag = ITEM1.DAGGER,	index = 5,	sv_root = weapon_filters },
+			["fist"]	= { flag = ITEM1.FIST,		index = 5,	sv_root = weapon_filters },
+			["gun"]		= { flag = ITEM1.GUN,		index = 5,	sv_root = weapon_filters },
+			["staff"]	= { flag = ITEM1.STAFF,		index = 5,	sv_root = weapon_filters },
+			["wand"]	= { flag = ITEM1.WAND,		index = 5,	sv_root = weapon_filters },
+			["thrown"]	= { flag = ITEM1.THROWN,	index = 5,	sv_root = weapon_filters },
+			["bow"]		= { flag = ITEM1.BOW,		index = 5,	sv_root = weapon_filters },
+			["crossbow"]	= { flag = ITEM1.XBOW,		index = 5,	sv_root = weapon_filters },
+			["ammo"]	= { flag = ITEM1.AMMO,		index = 5,	sv_root = weapon_filters },
+		}
 
-		-- HardFilterFlags and SoftFilterFlags are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
-		-- Its keys and values are populated the first time CanDisplayRecipe() is called.
-		local HardFilterFlags, SoftFilterFlags, RepFilterFlags, RepFilterFlags2
+		local SOFT_FILTERS = {
+			["trainer"]	= { flag = COMMON1.TRAINER,	index = 1,	sv_root = obtain_filters },
+			["vendor"]	= { flag = COMMON1.VENDOR,	index = 1,	sv_root = obtain_filters },
+			["instance"]	= { flag = COMMON1.INSTANCE,	index = 1,	sv_root = obtain_filters },
+			["raid"]	= { flag = COMMON1.RAID,	index = 1,	sv_root = obtain_filters },
+			["seasonal"]	= { flag = COMMON1.SEASONAL,	index = 1,	sv_root = obtain_filters },
+			["quest"]	= { flag = COMMON1.QUEST,	index = 1,	sv_root = obtain_filters },
+			["pvp"]		= { flag = COMMON1.PVP,		index = 1,	sv_root = obtain_filters },
+			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	index = 1,	sv_root = obtain_filters },
+			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
+			["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
+		}
 
-		local ClassFilterFlags = {
+		local REP1 = private.rep_flags_word1
+		local REP_FILTERS = {
+			[REP1.ARGENTDAWN]		= "argentdawn",
+			[REP1.CENARION_CIRCLE]		= "cenarioncircle",
+			[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
+			[REP1.TIMBERMAW_HOLD]		= "timbermaw",
+			[REP1.ZANDALAR]			= "zandalar",
+			[REP1.ALDOR]			= "aldor",
+			[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
+			[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
+			[REP1.HELLFIRE]			= "hellfire",
+			[REP1.CONSORTIUM]		= "consortium",
+			[REP1.KOT]			= "keepersoftime",
+			[REP1.LOWERCITY]		= "lowercity",
+			[REP1.NAGRAND]			= "nagrand",
+			[REP1.SCALE_SANDS]		= "scaleofthesands",
+			[REP1.SCRYER]			= "scryer",
+			[REP1.SHATAR]			= "shatar",
+			[REP1.SHATTEREDSUN]		= "shatteredsun",
+			[REP1.SPOREGGAR]		= "sporeggar",
+			[REP1.VIOLETEYE]		= "violeteye",
+			[REP1.ARGENTCRUSADE]		= "argentcrusade",
+			[REP1.FRENZYHEART]		= "frenzyheart",
+			[REP1.EBONBLADE]		= "ebonblade",
+			[REP1.KIRINTOR]			= "kirintor",
+			[REP1.HODIR]			= "sonsofhodir",
+			[REP1.KALUAK]			= "kaluak",
+			[REP1.ORACLES]			= "oracles",
+			[REP1.WYRMREST]			= "wyrmrest",
+			[REP1.WRATHCOMMON1]		= "wrathcommon1",
+			[REP1.WRATHCOMMON2]		= "wrathcommon2",
+			[REP1.WRATHCOMMON3]		= "wrathcommon3",
+			[REP1.WRATHCOMMON4]		= "wrathcommon4",
+			[REP1.WRATHCOMMON5]		= "wrathcommon5",
+		}
+
+		local REP2 = private.rep_flags_word2
+		local REP_FILTERS_2 = {
+			[REP2.ASHEN_VERDICT]	= "ashenverdict",
+		}
+
+		local CLASS1 = private.class_flags_word1
+		local CLASS_FILTERS = {
 			["deathknight"]	= CLASS1.DK,
 			["druid"]	= CLASS1.DRUID,
 			["hunter"]	= CLASS1.HUNTER,
@@ -442,15 +561,11 @@ function private.InitializeListFrame()
 			if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
 				return false
 			end
-			local filter_db = addon.db.profile.filters
 			local general_filters = filter_db.general
 
-			-- See Documentation file for logic explanation
 			-------------------------------------------------------------------------------
-			-- Stage 1
-			-- Loop through exclusive flags (hard filters)
-			-- If one of these does not pass we do not display the recipe
-			-- So to be more efficient we'll just leave this function if there's a false
+			-- Stage 1 - Loop through exclusive flags (hard filters).
+			-- If one of these does not pass, the recipe is not displayed.
 			-------------------------------------------------------------------------------
 
 			-- Display both horde and alliance factions?
@@ -476,103 +591,24 @@ function private.InitializeListFrame()
 			if not general_filters.retired and bit.band(recipe.flags.common1, COMMON1.RETIRED) == COMMON1.RETIRED then
 				return false
 			end
-			local obtain_filters = filter_db.obtain
 			local game_version = private.game_versions[recipe.genesis]
-			local V = private.game_versions
 
-			-- Filter out game recipes
-			if not obtain_filters.expansion0 and game_version == V.ORIG then
-				return false
-			end
-
-			if not obtain_filters.expansion1 and game_version == V.TBC then
-				return false
-			end
-
-			if not obtain_filters.expansion2 and game_version == V.WOTLK then
+			-- Expansion filters.
+			if not obtain_filters[EXPANSION_FILTERS[game_version]] then
 				return false
 			end
 			local quality_filters = filter_db.quality
 			local recipe_quality = recipe.quality
-			local Q = private.item_qualities
 
-			-- Filter out certain recipe quality types.
-			if not quality_filters.common and recipe_quality == Q.COMMON then
-				return false
-			end
-
-			if not quality_filters.uncommon and recipe_quality == Q.UNCOMMON then
-				return false
-			end
-
-			if not quality_filters.rare and recipe_quality == Q.RARE then
-				return false
-			end
-
-			if not quality_filters.epic and recipe_quality == Q.EPIC then
+			-- Quality filters.
+			if not quality_filters[QUALITY_FILTERS[recipe_quality]] then
 				return false
 			end
 
 			-------------------------------------------------------------------------------
 			-- Check the hard filter flags
 			-------------------------------------------------------------------------------
-			if not HardFilterFlags then
-				local binding_filters	= filter_db.binding
-				local player_filters	= filter_db.player
-				local armor_filters	= filter_db.item.armor
-				local weapon_filters	= filter_db.item.weapon
-
-				HardFilterFlags = {
-					------------------------------------------------------------------------------------------------
-					-- Binding flags.
-					------------------------------------------------------------------------------------------------
-					["itemboe"]	= { flag = COMMON1.IBOE,	index = 1,	sv_root = binding_filters },
-					["itembop"]	= { flag = COMMON1.IBOP,	index = 1,	sv_root = binding_filters },
-					["itemboa"]	= { flag = COMMON1.IBOA,	index = 1,	sv_root = binding_filters },
-					["recipeboe"]	= { flag = COMMON1.RBOE,	index = 1,	sv_root = binding_filters },
-					["recipebop"]	= { flag = COMMON1.RBOP,	index = 1,	sv_root = binding_filters },
-					["recipeboa"]	= { flag = COMMON1.RBOA,	index = 1,	sv_root = binding_filters },
-					------------------------------------------------------------------------------------------------
-					-- Player Type flags.
-					------------------------------------------------------------------------------------------------
-					["melee"]	= { flag = COMMON1.DPS,		index = 1,	sv_root = player_filters },
-					["tank"]	= { flag = COMMON1.TANK,	index = 1,	sv_root = player_filters },
-					["healer"]	= { flag = COMMON1.HEALER,	index = 1,	sv_root = player_filters },
-					["caster"]	= { flag = COMMON1.CASTER,	index = 1,	sv_root = player_filters },
-					------------------------------------------------------------------------------------------------
-					-- Armor flags.
-					------------------------------------------------------------------------------------------------
-					["cloth"]	= { flag = ITEM1.CLOTH,		index = 5,	sv_root = armor_filters },
-					["leather"]	= { flag = ITEM1.LEATHER,	index = 5,	sv_root = armor_filters },
-					["mail"]	= { flag = ITEM1.MAIL,		index = 5,	sv_root = armor_filters },
-					["plate"]	= { flag = ITEM1.PLATE,		index = 5,	sv_root = armor_filters },
-					["trinket"]	= { flag = ITEM1.TRINKET,	index = 5,	sv_root = armor_filters },
-					["cloak"]	= { flag = ITEM1.CLOAK,		index = 5,	sv_root = armor_filters },
-					["ring"]	= { flag = ITEM1.RING,		index = 5,	sv_root = armor_filters },
-					["necklace"]	= { flag = ITEM1.NECK,		index = 5,	sv_root = armor_filters },
-					["shield"]	= { flag = ITEM1.SHIELD,	index = 5,	sv_root = armor_filters },
-					------------------------------------------------------------------------------------------------
-					-- Weapon flags.
-					------------------------------------------------------------------------------------------------
-					["onehand"]	= { flag = ITEM1.ONE_HAND,	index = 5,	sv_root = weapon_filters },
-					["twohand"]	= { flag = ITEM1.TWO_HAND,	index = 5,	sv_root = weapon_filters },
-					["axe"]		= { flag = ITEM1.AXE,		index = 5,	sv_root = weapon_filters },
-					["sword"]	= { flag = ITEM1.SWORD,		index = 5,	sv_root = weapon_filters },
-					["mace"]	= { flag = ITEM1.MACE,		index = 5,	sv_root = weapon_filters },
-					["polearm"]	= { flag = ITEM1.POLEARM,	index = 5,	sv_root = weapon_filters },
-					["dagger"]	= { flag = ITEM1.DAGGER,	index = 5,	sv_root = weapon_filters },
-					["fist"]	= { flag = ITEM1.FIST,		index = 5,	sv_root = weapon_filters },
-					["gun"]		= { flag = ITEM1.GUN,		index = 5,	sv_root = weapon_filters },
-					["staff"]	= { flag = ITEM1.STAFF,		index = 5,	sv_root = weapon_filters },
-					["wand"]	= { flag = ITEM1.WAND,		index = 5,	sv_root = weapon_filters },
-					["thrown"]	= { flag = ITEM1.THROWN,	index = 5,	sv_root = weapon_filters },
-					["bow"]		= { flag = ITEM1.BOW,		index = 5,	sv_root = weapon_filters },
-					["crossbow"]	= { flag = ITEM1.XBOW,		index = 5,	sv_root = weapon_filters },
-					["ammo"]	= { flag = ITEM1.AMMO,		index = 5,	sv_root = weapon_filters },
-				}
-			end
-
-			for filter, data in pairs(HardFilterFlags) do
+			for filter, data in pairs(HARD_FILTERS) do
 				local bitfield = recipe.flags[private.flag_members[data.index]]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
@@ -581,55 +617,12 @@ function private.InitializeListFrame()
 			end
 
 			-------------------------------------------------------------------------------
-			-- Check the reputation filter flags
+			-- Check the reputation filter flags - _all_ of the pertinent reputation or
+			-- class flags must be toggled off or the recipe is still shown.
 			-------------------------------------------------------------------------------
-			if not RepFilterFlags then
-				RepFilterFlags = {
-					[REP1.ARGENTDAWN]		= "argentdawn",
-					[REP1.CENARION_CIRCLE]		= "cenarioncircle",
-					[REP1.THORIUM_BROTHERHOOD]	= "thoriumbrotherhood",
-					[REP1.TIMBERMAW_HOLD]		= "timbermaw",
-					[REP1.ZANDALAR]			= "zandalar",
-					[REP1.ALDOR]			= "aldor",
-					[REP1.ASHTONGUE]		= "ashtonguedeathsworn",
-					[REP1.CENARION_EXPEDITION]	= "cenarionexpedition",
-					[REP1.HELLFIRE]			= "hellfire",
-					[REP1.CONSORTIUM]		= "consortium",
-					[REP1.KOT]			= "keepersoftime",
-					[REP1.LOWERCITY]		= "lowercity",
-					[REP1.NAGRAND]			= "nagrand",
-					[REP1.SCALE_SANDS]		= "scaleofthesands",
-					[REP1.SCRYER]			= "scryer",
-					[REP1.SHATAR]			= "shatar",
-					[REP1.SHATTEREDSUN]		= "shatteredsun",
-					[REP1.SPOREGGAR]		= "sporeggar",
-					[REP1.VIOLETEYE]		= "violeteye",
-					[REP1.ARGENTCRUSADE]		= "argentcrusade",
-					[REP1.FRENZYHEART]		= "frenzyheart",
-					[REP1.EBONBLADE]		= "ebonblade",
-					[REP1.KIRINTOR]			= "kirintor",
-					[REP1.HODIR]			= "sonsofhodir",
-					[REP1.KALUAK]			= "kaluak",
-					[REP1.ORACLES]			= "oracles",
-					[REP1.WYRMREST]			= "wyrmrest",
-					[REP1.WRATHCOMMON1]		= "wrathcommon1",
-					[REP1.WRATHCOMMON2]		= "wrathcommon2",
-					[REP1.WRATHCOMMON3]		= "wrathcommon3",
-					[REP1.WRATHCOMMON4]		= "wrathcommon4",
-					[REP1.WRATHCOMMON5]		= "wrathcommon5",
-				}
-			end
-
-			if not RepFilterFlags2 then
-				RepFilterFlags2 = {
-					[REP2.ASHEN_VERDICT]	= "ashenverdict",
-				}
-			end
-
-			-- Now we check to see if _all_ of the pertinent reputation or class flags are toggled off. If even one is toggled on, we still show the recipe.
 			local toggled_off, toggled_on = 0, 0
 
-			for flag, name in pairs(RepFilterFlags) do
+			for flag, name in pairs(REP_FILTERS) do
 				local bitfield = recipe.flags.reputation1
 
 				if bitfield and bit.band(bitfield, flag) == flag then
@@ -647,7 +640,7 @@ function private.InitializeListFrame()
 
 			toggled_off, toggled_on = 0, 0
 
-			for flag, name in pairs(RepFilterFlags2) do
+			for flag, name in pairs(REP_FILTERS_2) do
 				local bitfield = recipe.flags.reputation2
 
 				if bitfield and bit.band(bitfield, flag) == flag then
@@ -670,7 +663,7 @@ function private.InitializeListFrame()
 
 			toggled_off, toggled_on = 0, 0
 
-			for class, flag in pairs(ClassFilterFlags) do
+			for class, flag in pairs(CLASS_FILTERS) do
 				local bitfield = recipe.flags.class1
 
 				if bitfield and bit.band(bitfield, flag) == flag then
@@ -691,22 +684,7 @@ function private.InitializeListFrame()
 			-- loop through nonexclusive (soft filters) flags until one is true
 			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 			------------------------------------------------------------------------------------------------
-			if not SoftFilterFlags then
-				SoftFilterFlags = {
-					["trainer"]	= { flag = COMMON1.TRAINER,	index = 1,	sv_root = obtain_filters },
-					["vendor"]	= { flag = COMMON1.VENDOR,	index = 1,	sv_root = obtain_filters },
-					["instance"]	= { flag = COMMON1.INSTANCE,	index = 1,	sv_root = obtain_filters },
-					["raid"]	= { flag = COMMON1.RAID,	index = 1,	sv_root = obtain_filters },
-					["seasonal"]	= { flag = COMMON1.SEASONAL,	index = 1,	sv_root = obtain_filters },
-					["quest"]	= { flag = COMMON1.QUEST,	index = 1,	sv_root = obtain_filters },
-					["pvp"]		= { flag = COMMON1.PVP,		index = 1,	sv_root = obtain_filters },
-					["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	index = 1,	sv_root = obtain_filters },
-					["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
-					["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
-				}
-			end
-
-			for filter, data in pairs(SoftFilterFlags) do
+			for filter, data in pairs(SOFT_FILTERS) do
 				local bitfield = recipe.flags[private.flag_members[data.index]]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
