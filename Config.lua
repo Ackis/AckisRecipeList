@@ -36,8 +36,7 @@ end
 
 local function ResetGUI()
 	local options = addon.db.profile.frameopts
-
-	addon.Frame:Hide()
+	local MainPanel = addon.Frame
 
 	options.offsetx = 0
 	options.offsety = 0
@@ -46,7 +45,10 @@ local function ResetGUI()
 	options.uiscale = 1
 	options.small_list_font = true
 
-	addon.Frame:Show()
+	if MainPanel then
+		MainPanel:Hide()
+		MainPanel:Show()
+	end
 end
 
 local options
