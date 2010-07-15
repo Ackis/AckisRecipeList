@@ -520,8 +520,8 @@ function addon:OnInitialize()
 			      end)
 
 	scan_button:SetScript("OnEnter",
-			      function(this)
-				      GameTooltip_SetDefaultAnchor(GameTooltip, this)
+			      function(self)
+				      GameTooltip_SetDefaultAnchor(GameTooltip, self)
 				      GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
 				      GameTooltip:Show()
 			      end)

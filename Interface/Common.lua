@@ -129,37 +129,37 @@ do
 	-- (found in RockConfig)
 
 	-- when pressed, the button should look pressed
-	local function button_OnMouseDown(this)
-		if this:IsEnabled() then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+	local function button_OnMouseDown(self)
+		if self:IsEnabled() then
+			self.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+			self.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
+			self.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Down]])
 		end
 	end
 
 	-- when depressed, return to normal
-	local function button_OnMouseUp(this)
-		if this:IsEnabled() then
-			this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-			this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+	local function button_OnMouseUp(self)
+		if self:IsEnabled() then
+			self.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			self.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			self.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
 		end
 	end
 
-	local function button_Disable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
-		this:__Disable()
-		this:EnableMouse(false)
+	local function button_Disable(self)
+		self.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		self.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		self.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Disabled]])
+		self:__Disable()
+		self:EnableMouse(false)
 	end
 
-	local function button_Enable(this)
-		this.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		this:__Enable()
-		this:EnableMouse(true)
+	local function button_Enable(self)
+		self.left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		self.middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		self.right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		self:__Enable()
+		self:EnableMouse(true)
 	end
 
 	function private.GenericCreateButton(name, parent, height, width, font_object, label, justify_h, tip_text, noTextures)
