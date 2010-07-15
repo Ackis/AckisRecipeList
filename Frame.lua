@@ -270,40 +270,91 @@ function private.InitializeFrame()
 		MainPanel:SetScript("OnShow", Reset_Position)
 	end	-- do-block
 
-	function MainPanel:ToggleState()
-		local x, y = self:GetLeft(), self:GetBottom()
+	do
+		local VALID_CATEGORY = {
+			["general"]	= true,
+			["obtain"]	= true,
+			["binding"]	= true,
+			["item"]	= true,
+			["quality"]	= true,
+			["player"]	= true,
+			["rep"]		= true,
+			["misc"]	= true,
+		}
 
-		if self.is_expanded then
-			self:SetWidth(self.normal_width)
-			self:SetHitRectInsets(0, 35, 0, 53)
-			self:SetClampRectInsets(0, -35, 0, 53)
+		function MainPanel:ToggleState()
+			local x, y = self:GetLeft(), self:GetBottom()
 
-			self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
-			self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
-			self.bottom_left:Show()
-			self.bottom_right:Show()
+			if self.is_expanded then
+				-- Hide the category buttons
+				for category in pairs(self.filter_menu) do
+					if VALID_CATEGORY[category] then
+						self["menu_toggle_" .. category]:Hide()
+					end
+				end
+				self.filter_reset:Hide()
+				self.filter_menu:Hide()
 
-			self.xclose_button:ClearAllPoints()
-			self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -30, -8)
-		else
-			self:SetWidth(self.expanded_width)
-			self:SetHitRectInsets(0, 90, 0, 53)
-			self:SetClampRectInsets(0, -90, 0, 53)
+				PlaySound("igCharacterInfoClose")
 
-			self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
-			self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Right")
-			self.bottom_left:Hide()
-			self.bottom_right:Hide()
+				self:SetWidth(self.normal_width)
+				self:SetHitRectInsets(0, 35, 0, 53)
+				self:SetClampRectInsets(0, -35, 0, 53)
 
-			self.xclose_button:ClearAllPoints()
-			self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -84, -8)
+				self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
+				self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopRight")
+				self.bottom_left:Show()
+				self.bottom_right:Show()
+
+				self.xclose_button:ClearAllPoints()
+				self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -30, -8)
+			else
+				local found_active = false
+
+				-- Show the category buttons. If one has been selected, show its information in the panel.
+				for category in pairs(MainPanel.filter_menu) do
+					local toggle = "menu_toggle_" .. category
+
+					if VALID_CATEGORY[category] then
+						MainPanel[toggle]:Show()
+
+						if MainPanel[toggle]:GetChecked() then
+							found_active = true
+							MainPanel.filter_menu[category]:Show()
+							MainPanel.filter_menu:Show()
+						end
+					end
+				end
+
+				-- If nothing was checked, default to the general filters.
+				if not found_active then
+					MainPanel.menu_toggle_general:SetChecked(true)
+					MainPanel.filter_menu.general:Show()
+					MainPanel.filter_menu:Show()
+				end
+				MainPanel.filter_reset:Show()
+
+				PlaySound("igCharacterInfoOpen")
+
+				self:SetWidth(self.expanded_width)
+				self:SetHitRectInsets(0, 90, 0, 53)
+				self:SetClampRectInsets(0, -90, 0, 53)
+
+				self.top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left")
+				self.top_right:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Right")
+				self.bottom_left:Hide()
+				self.bottom_right:Hide()
+
+				self.xclose_button:ClearAllPoints()
+				self.xclose_button:SetPoint("TOPRIGHT", self, "TOPRIGHT", -84, -8)
+			end
+			self.is_expanded = not self.is_expanded
+
+			self:ClearAllPoints()
+			self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
+			self:UpdateTitle()
 		end
-		self.is_expanded = not self.is_expanded
-
-		self:ClearAllPoints()
-		self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
-		self:UpdateTitle()
-	end
+	end	-- do-block
 
 	function MainPanel:UpdateTitle()
 		local current_prof = ORDERED_PROFESSIONS[self.profession]
@@ -849,66 +900,13 @@ function private.InitializeFrame()
 	-- Create MainPanel.filter_toggle, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local VALID_CATEGORY = {
-			["general"]	= true,
-			["obtain"]	= true,
-			["binding"]	= true,
-			["item"]	= true,
-			["quality"]	= true,
-			["player"]	= true,
-			["rep"]		= true,
-			["misc"]	= true,
-		}
-
 		local function Toggle_OnClick(self, button, down)
 			-- The first time this button is clicked, everything in the expanded section of the MainPanel must be created.
 			if private.InitializeFilterPanel then
 				private.InitializeFilterPanel()
 			end
+			SetTooltipScripts(self, MainPanel.is_expanded and L["FILTER_OPEN_DESC"] or L["FILTER_CLOSE_DESC"])
 
-			if MainPanel.is_expanded then
-				-- Change the text and tooltip for the filter button
-				SetTooltipScripts(self, L["FILTER_OPEN_DESC"])
-
-				-- Hide the category buttons
-				for category in pairs(MainPanel.filter_menu) do
-					if VALID_CATEGORY[category] then
-						MainPanel["menu_toggle_" .. category]:Hide()
-					end
-				end
-				MainPanel.filter_reset:Hide()
-				MainPanel.filter_menu:Hide()
-				PlaySound("igCharacterInfoClose")
-			else
-				-- Change the text and tooltip for the filter button
-				SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
-
-				local found_active = false
-
-				-- Show the category buttons. If one has been selected, show its information in the panel.
-				for category in pairs(MainPanel.filter_menu) do
-					local toggle = "menu_toggle_" .. category
-
-					if VALID_CATEGORY[category] then
-						MainPanel[toggle]:Show()
-
-						if MainPanel[toggle]:GetChecked() then
-							found_active = true
-							MainPanel.filter_menu[category]:Show()
-							MainPanel.filter_menu:Show()
-						end
-					end
-				end
-
-				-- If nothing was checked, default to the general filters.
-				if not found_active then
-					MainPanel.menu_toggle_general:SetChecked(true)
-					MainPanel.filter_menu.general:Show()
-					MainPanel.filter_menu:Show()
-				end
-				MainPanel.filter_reset:Show()
-				PlaySound("igCharacterInfoOpen")
-			end
 			MainPanel:ToggleState()
 			self:SetTextures()
 		end
