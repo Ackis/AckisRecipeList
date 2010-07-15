@@ -941,6 +941,7 @@ function private.InitializeFrame()
 				end
 				MainPanel.filter_reset:Hide()
 				MainPanel.filter_menu:Hide()
+				PlaySound("igCharacterInfoClose")
 			else
 				-- Change the text and tooltip for the filter button
 				SetTooltipScripts(self, L["FILTER_CLOSE_DESC"])
@@ -969,6 +970,7 @@ function private.InitializeFrame()
 					MainPanel.filter_menu:Show()
 				end
 				MainPanel.filter_reset:Show()
+				PlaySound("igCharacterInfoOpen")
 			end
 			MainPanel:ToggleState()
 			self:SetTextures()
