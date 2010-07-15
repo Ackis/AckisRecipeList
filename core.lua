@@ -145,6 +145,66 @@ if MissingLibraries() then
 end
 
 -------------------------------------------------------------------------------
+-- Define the static popups we're going to call when people haven't scanned or
+-- when current filters are blocking all recipes from being displayed.
+-------------------------------------------------------------------------------
+StaticPopupDialogs["ARL_NOTSCANNED"] = {
+	text = L["NOTSCANNED"],
+	button1 = _G.OKAY,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+StaticPopupDialogs["ARL_ALLFILTERED"] = {
+	text = L["ALL_FILTERED"],
+	button1 = _G.OKAY,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+StaticPopupDialogs["ARL_ALLKNOWN"] = {
+	text = L["ARL_ALLKNOWN"],
+	button1 = _G.OKAY,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
+	text = L["ARL_ALLEXCLUDED"],
+	button1 = _G.OKAY,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
+	text = L["ARL_SEARCHFILTERED"],
+	button1 = _G.OKAY,
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
+	hideOnEscape = 1
+}
+
+-------------------------------------------------------------------------------
+-- Close all possible pop-up windows
+-------------------------------------------------------------------------------
+function addon:ClosePopups()
+	_G.StaticPopup_Hide("ARL_NOTSCANNED")
+	_G.StaticPopup_Hide("ARL_ALLFILTERED")
+	_G.StaticPopup_Hide("ARL_ALLKNOWN")
+	_G.StaticPopup_Hide("ARL_ALLEXCLUDED")
+	_G.StaticPopup_Hide("ARL_SEARCHFILTERED")
+end
+
+-------------------------------------------------------------------------------
 -- Functions common to most files in the AddOn.
 -------------------------------------------------------------------------------
 function private.SetTextColor(color_code, text)

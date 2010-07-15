@@ -11,9 +11,6 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-**AckisRecipeList** provides an interface for scanning professions for missing recipes.
-There are a set of functions which allow you make use of the ARL database outside of ARL.
-ARL supports all professions currently in World of Warcraft 3.3.2
 @class file
 @name Frame.lua
 ************************************************************************
@@ -80,66 +77,6 @@ local ORDERED_PROFESSIONS	= private.ordered_professions
 local FACTION_HORDE		= BFAC["Horde"]
 local FACTION_ALLIANCE		= BFAC["Alliance"]
 local FACTION_NEUTRAL		= BFAC["Neutral"]
-
--------------------------------------------------------------------------------
--- Define the static popups we're going to call when people haven't scanned or
--- when current filters are blocking all recipes from being displayed.
--------------------------------------------------------------------------------
-StaticPopupDialogs["ARL_NOTSCANNED"] = {
-	text = L["NOTSCANNED"],
-	button1 = _G.OKAY,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
-	hideOnEscape = 1
-}
-
-StaticPopupDialogs["ARL_ALLFILTERED"] = {
-	text = L["ALL_FILTERED"],
-	button1 = _G.OKAY,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
-	hideOnEscape = 1
-}
-
-StaticPopupDialogs["ARL_ALLKNOWN"] = {
-	text = L["ARL_ALLKNOWN"],
-	button1 = _G.OKAY,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
-	hideOnEscape = 1
-}
-
-StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
-	text = L["ARL_ALLEXCLUDED"],
-	button1 = _G.OKAY,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
-	hideOnEscape = 1
-}
-
-StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
-	text = L["ARL_SEARCHFILTERED"],
-	button1 = _G.OKAY,
-	timeout = 0,
-	exclusive = 1,
-	whileDead = 1,
-	hideOnEscape = 1
-}
-
--------------------------------------------------------------------------------
--- Close all possible pop-up windows
--------------------------------------------------------------------------------
-function addon:ClosePopups()
-	_G.StaticPopup_Hide("ARL_NOTSCANNED")
-	_G.StaticPopup_Hide("ARL_ALLFILTERED")
-	_G.StaticPopup_Hide("ARL_ALLKNOWN")
-	_G.StaticPopup_Hide("ARL_ALLEXCLUDED")
-	_G.StaticPopup_Hide("ARL_SEARCHFILTERED")
-end
 
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
