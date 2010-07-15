@@ -945,53 +945,48 @@ do
 
 		return bitfield and (bit.band(bitfield, value) == value) or false
 	end
+	local SKILL_LEVEL_FORMAT = "[%d]"
+	local SPELL_ENCHANTING = GetSpellInfo(51313)
 
-	local Recipe_GetDisplayName
-	do
-		local SKILL_LEVEL_FORMAT = "[%d]"
-		local SPELL_ENCHANTING = GetSpellInfo(51313)
+	local function Recipe_GetDisplayName(recipe_entry)
+		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
+		local recipe_name = recipe_entry.name
 
-		function Recipe_GetDisplayName(recipe_entry)
-			local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
-			local recipe_name = recipe_entry.name
-
-			if private.ordered_professions[addon.Frame.profession] == SPELL_ENCHANTING then
-				recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
-			end
-			local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
-			local skill_level = Player["ProfessionLevel"]
-			local recipe_level = recipe_entry.skill_level
-			local has_faction = Player:HasProperRepLevel(recipe_entry.acquire_data[A.REPUTATION])
-
-			local diff_color
-
-			if not has_faction or recipe_level > skill_level then
-				diff_color = "impossible"
-			elseif skill_level >= recipe_entry.trivial_level then
-				diff_color = "trivial"
-			elseif skill_level >= recipe_entry.easy_level then
-				diff_color = "easy"
-			elseif skill_level >= recipe_entry.medium_level then
-				diff_color = "medium"
-			elseif skill_level >= recipe_entry.optimal_level then
-				diff_color = "optimal"
-			else
-				addon:Debug("Skill level color fallback: %s.", recipe_string)
-				diff_color = "trivial"
-			end
-			local level_text = string.format(private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT), recipe_level)
-
-			local skill_view = addon.db.profile.skill_view
-
-			recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
-
-			if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
-				recipe_string = string.format("** %s **", recipe_string)
-			end
-			return recipe_string
+		if private.ordered_professions[addon.Frame.profession] == SPELL_ENCHANTING then
+			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
 		end
-	end	-- do block
+		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
+		local skill_level = Player["ProfessionLevel"]
+		local recipe_level = recipe_entry.skill_level
+		local has_faction = Player:HasProperRepLevel(recipe_entry.acquire_data[A.REPUTATION])
 
+		local diff_color
+
+		if not has_faction or recipe_level > skill_level then
+			diff_color = "impossible"
+		elseif skill_level >= recipe_entry.trivial_level then
+			diff_color = "trivial"
+		elseif skill_level >= recipe_entry.easy_level then
+			diff_color = "easy"
+		elseif skill_level >= recipe_entry.medium_level then
+			diff_color = "medium"
+		elseif skill_level >= recipe_entry.optimal_level then
+			diff_color = "optimal"
+		else
+			addon:Debug("Skill level color fallback: %s.", recipe_string)
+			diff_color = "trivial"
+		end
+		local level_text = string.format(private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT), recipe_level)
+
+		local skill_view = addon.db.profile.skill_view
+
+		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+
+		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
+			recipe_string = string.format("** %s **", recipe_string)
+		end
+		return recipe_string
+	end
 
 	--- Adds a tradeskill recipe into the specified recipe database
 	-- @name AckisRecipeList:AddRecipe
