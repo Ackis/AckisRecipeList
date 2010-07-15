@@ -844,12 +844,6 @@ function private.InitializeFrame()
 				      self:SetChecked(addon.db.profile.skill_view)
 			      end)
 
-	SkillToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	SkillToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	SkillToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	SkillToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-	SkillToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-
 	SkillToggle.text:SetText(_G.SKILL)
 	SetTooltipScripts(SkillToggle, L["SKILL_TOGGLE_DESC"], 1)
 
@@ -874,12 +868,6 @@ function private.InitializeFrame()
 				function(self)
 					self:SetChecked(addon.db.profile.ignoreexclusionlist)
 				end)
-
-	ExcludeToggle:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	ExcludeToggle:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	ExcludeToggle:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	ExcludeToggle:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-	ExcludeToggle:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 
 	ExcludeToggle.text:SetText(L["Display Exclusions"])
 	SetTooltipScripts(ExcludeToggle, L["DISPLAY_EXCLUSION_DESC"], 1)
