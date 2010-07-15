@@ -1,6 +1,6 @@
 --[[
 ************************************************************************
-Frame.lua
+Panel.lua
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
@@ -12,7 +12,7 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 This source code is released under All Rights Reserved.
 ************************************************************************
 @class file
-@name Frame.lua
+@name Panel.lua
 ************************************************************************
 ]]--
 

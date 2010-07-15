@@ -73,7 +73,6 @@ Player.lua
 
 # User Interface files
 interface.xml
-Frame.lua
 
 # Database files
 database.xml

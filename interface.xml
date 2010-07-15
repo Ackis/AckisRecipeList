@@ -6,4 +6,5 @@
 <Include file="Interface\Tabs.lua"/>
 <Include file="Interface\List.lua"/>
 <Include file="Interface\FilterMenus.lua"/>
+<Include file="Interface\Panel.lua"/>
 </Ui>
