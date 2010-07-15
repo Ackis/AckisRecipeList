@@ -82,32 +82,31 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
 	-------------------------------------------------------------------------------
-	local MainPanel
+	local MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
+
+	-- The panel width changes when contracting and expanding - store it for later use.
+	MainPanel.normal_width = 384
+	MainPanel.expanded_width = 768
+
+	MainPanel:SetWidth(MainPanel.normal_width)
+	MainPanel:SetHeight(512)
+	MainPanel:SetFrameStrata("MEDIUM")
+	MainPanel:SetToplevel(true)
+	MainPanel:SetClampedToScreen(true)
+	MainPanel:SetClampRectInsets(0, -35, 0, 53)
+
+	MainPanel:SetHitRectInsets(0, 35, 0, 53)
+	MainPanel:EnableMouse(true)
+	MainPanel:EnableKeyboard(true)
+	MainPanel:SetMovable(true)
+
+	MainPanel.is_expanded = false
+
+	-- Let the user banish the MainPanel with the ESC key.
+	table.insert(UISpecialFrames, "ARL_MainPanel")
+	addon.Frame = MainPanel
+
 	do
-		MainPanel = CreateFrame("Frame", "ARL_MainPanel", UIParent)
-
-		-- The panel width changes when contracting and expanding - store it for later use.
-		MainPanel.normal_width = 384
-		MainPanel.expanded_width = 768
-
-		MainPanel:SetWidth(MainPanel.normal_width)
-		MainPanel:SetHeight(512)
-		MainPanel:SetFrameStrata("MEDIUM")
-		MainPanel:SetToplevel(true)
-		MainPanel:SetClampedToScreen(true)
-		MainPanel:SetClampRectInsets(0, -35, 0, 53)
-
-		MainPanel:SetHitRectInsets(0, 35, 0, 53)
-		MainPanel:EnableMouse(true)
-		MainPanel:EnableKeyboard(true)
-		MainPanel:SetMovable(true)
-
-		MainPanel.is_expanded = false
-
-		-- Let the user banish the MainPanel with the ESC key.
-		table.insert(UISpecialFrames, "ARL_MainPanel")
-		addon.Frame = MainPanel
-
 		local top_left = MainPanel:CreateTexture(nil, "ARTWORK")
 		top_left:SetTexture("Interface\\QuestFrame\\UI-QuestLog-TopLeft")
 		top_left:SetPoint("TOPLEFT", MainPanel, "TOPLEFT", 0, 0)
@@ -179,60 +178,60 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
-	do
-		function MainPanel:Display(profession, is_linked)
-			self.is_linked = is_linked
+	function MainPanel:Display(profession, is_linked)
+		self.is_linked = is_linked
 
-			-------------------------------------------------------------------------------
-			-- Set the profession.
-			-------------------------------------------------------------------------------
-			local prev_profession = self.profession
+		-------------------------------------------------------------------------------
+		-- Set the profession.
+		-------------------------------------------------------------------------------
+		local prev_profession = self.profession
 
-			if profession == private.mining_name then
-				self.profession = 11 -- Smelting
-				self.prof_name = profession
-			else
-				for index, name in ipairs(ORDERED_PROFESSIONS) do
-					if name == profession then
-						self.profession = index
-						break
-					end
+		if profession == private.mining_name then
+			self.profession = 11 -- Smelting
+			self.prof_name = profession
+		else
+			for index, name in ipairs(ORDERED_PROFESSIONS) do
+				if name == profession then
+					self.profession = index
+					break
 				end
-				self.prof_name = nil
 			end
-
-			if self.profession ~= prev_profession then
-				self.prev_profession = self.profession
-			end
-			self.prof_button:ChangeTexture(private.profession_textures[self.profession])
-
-			local editbox = self.search_editbox
-
-			if self.profession ~= self.prev_profession then
-				editbox.prev_search = nil
-			end
-			editbox:SetText(editbox.prev_search or _G.SEARCH)
-
-			-- If there is no current tab, this is the first time the panel has been
-			-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
-			-- will be called by the tab's OnClick handler.
-			if not self.current_tab then
-				local current_tab = self.tabs[addon.db.profile.current_tab]
-				local on_click = current_tab:GetScript("OnClick")
-
-				on_click(current_tab)
-
-				self.current_tab = addon.db.profile.current_tab
-			else
-				MainPanel.list_frame:Update(nil, false)
-			end
-			self.sort_button:SetTextures()
-			self.filter_toggle:SetTextures()
-
-			self:UpdateTitle()
-			self:Show()
+			self.prof_name = nil
 		end
 
+		if self.profession ~= prev_profession then
+			self.prev_profession = self.profession
+		end
+		self.prof_button:ChangeTexture(private.profession_textures[self.profession])
+
+		local editbox = self.search_editbox
+
+		if self.profession ~= self.prev_profession then
+			editbox.prev_search = nil
+		end
+		editbox:SetText(editbox.prev_search or _G.SEARCH)
+
+		-- If there is no current tab, this is the first time the panel has been
+		-- shown so things must be initialized. In this case, MainPanel.list_frame:Update()
+		-- will be called by the tab's OnClick handler.
+		if not self.current_tab then
+			local current_tab = self.tabs[addon.db.profile.current_tab]
+			local on_click = current_tab:GetScript("OnClick")
+
+			on_click(current_tab)
+
+			self.current_tab = addon.db.profile.current_tab
+		else
+			MainPanel.list_frame:Update(nil, false)
+		end
+		self.sort_button:SetTextures()
+		self.filter_toggle:SetTextures()
+
+		self:UpdateTitle()
+		self:Show()
+	end
+
+	do
 		-------------------------------------------------------------------------------
 		-- Restore the panel's position on the screen.
 		-------------------------------------------------------------------------------
