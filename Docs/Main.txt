@@ -21,19 +21,6 @@ Ackis Recipe List es un addon que escanea tus habilidades comerciales y provee i
 =====Traditional Chinese (zhTW)
 詳細的專業技能配方查詢插件。.
 
-==Donations
-Ackis has setup a donation site via [[https://www.paypal.com/cgi-bin/webscr?cancel_return=http%3A%2F%2Fwow.curse.com%2Fdownloads%2Fwow-addons%2Fdetails%2Farl.aspx&return=http%3A%2F%2Fwow.curse.com%2Fdownloads%2Fwow-addons%2Fdetails%2Farl.aspx&cn=Add+special+instructions+to+the+addon+author%28s%29&business=jpasula%40shaw.ca&item_name=Ackis+Recipe+List+%28from+Curse.com%29&bn=PP-DonationsBF%3Abtn_donateCC_LG.gif%3ANonHosted&cmd=_donations&rm=1&no_shipping=1&currency_code=USD&lc=US|Paypal]].  Feel free to donate if you like this AddOn - we have put countless hours of time and effort into it along with many people who have helped us.  We did not write this AddOn with the intent to make any money from it.  It was written to help us (and others) with some needs that we saw in-game, and with our goal to make it filled with information it's become a massive project.
-
-If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
-* Volunteer time at your local animal shelter such as the [[http://www.aspca.org/|Society for Prevention of Cruelty for Animals (SPCA)]] or a [[http://www.edmontonhumanesociety.com/|local humane shelter]] or drop a few bucks off for them.  If you do this, please let [[http://www.wowace.com/home/send-private-message/|Ackis]] know.
-* Send [[http://www.wowace.com/home/send-private-message/|Ackis]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
-* Send some gold to one of the authors in-game or help out with some achievements, or even send a message saying thanks. :)
-** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
-** [[http://eu.wowarmory.com/character-sheet.xml?r=Aegwynn&n=Ascalia|Ascalia Aegwynn (EU)]] Jim-Bim
-** [[http://www.wowarmory.com/character-sheet.xml?r=Nathrezim&n=Miksta|Miksta Nathrezim (US)]] [[http://www.wowarmory.com/character-sheet.xml?r=Nathrezim&n=Pompalicious|Pompalicious Nathrezim (US)]] Pompachomp
-** [[http://www.wowarmory.com/character-sheet.xml?r=Azuremyst&n=Torhal|Torhal Azuremyst (US)]] Torhal
-** [[http://www.wowarmory.com/character-sheet.xml?r=Eldre%27Thalas&n=Munnin|Munnin Eldre-Thalas (US)]] Zhinjio
-
 ==Where to get it
 * [[http://www.wowace.com/addons/arl/files/|WoW Ace]] - Alpha Quality
 * [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse]] - Stable release
