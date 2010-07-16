@@ -21,11 +21,6 @@ Ackis Recipe List es un addon que escanea tus habilidades comerciales y provee i
 =====Traditional Chinese (zhTW)
 詳細的專業技能配方查詢插件。.
 
-=====Youtube Video
-YouTube video of ARL in action:
-
-<<youtube jZR5DLkRJBY>>
-
 ==Donations
 Ackis has setup a donation site via [[https://www.paypal.com/cgi-bin/webscr?cancel_return=http%3A%2F%2Fwow.curse.com%2Fdownloads%2Fwow-addons%2Fdetails%2Farl.aspx&return=http%3A%2F%2Fwow.curse.com%2Fdownloads%2Fwow-addons%2Fdetails%2Farl.aspx&cn=Add+special+instructions+to+the+addon+author%28s%29&business=jpasula%40shaw.ca&item_name=Ackis+Recipe+List+%28from+Curse.com%29&bn=PP-DonationsBF%3Abtn_donateCC_LG.gif%3ANonHosted&cmd=_donations&rm=1&no_shipping=1&currency_code=USD&lc=US|Paypal]].  Feel free to donate if you like this AddOn - we have put countless hours of time and effort into it along with many people who have helped us.  We did not write this AddOn with the intent to make any money from it.  It was written to help us (and others) with some needs that we saw in-game, and with our goal to make it filled with information it's become a massive project.
 
