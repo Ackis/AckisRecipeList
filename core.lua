@@ -667,19 +667,6 @@ function addon:OnEnable()
 		}
 	end
 
---[[
-	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
-	if (Skillet) and (Skillet.GetNumTradeSkills) and
-	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
-	(Skillet.GetTradeSkillRecipeLink) and (Skillet.ExpandTradeSkillSubClass) then
-		self:Print("Enabling Skillet advanced features.")
-		GetNumTradeSkills = function(...) return Skillet:GetNumTradeSkills(...) end
-		GetTradeSkillLine = function(...) return Skillet:GetTradeSkillLine(...) end
-		GetTradeSkillInfo = function(...) return Skillet:GetTradeSkillInfo(...) end
-		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
-		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
-	end
-]]--
 	-------------------------------------------------------------------------------
 	-- Initialize the player's data.
 	-------------------------------------------------------------------------------
