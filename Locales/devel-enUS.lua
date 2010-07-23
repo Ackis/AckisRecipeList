@@ -458,8 +458,8 @@ L["DISCOVERY_ALCH_NORTHREND_RESEARCH"] = "Obtained randomly by conducting Northr
 L["DISCOVERY_ALCH_NORTHREND_XMUTE"] = "Discovered by doing transmutes using Northrend or higher ingredients (transmute tooltip mentions that there is a chance to discovery something)."
 
 -- Inscription Discoveries
-L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting minor inscription research."
-L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend inscription research."
+L["DISCOVERY_INSC_MINOR"] = "Obtained randomly by conducting Minor Inscription Research."
+L["DISCOVERY_INSC_NORTHREND"] = "Obtained randomly by conducting Northrend Inscription Research."
 L["DISCOVERY_INSC_BOOK"] = "Discovered randomly by reading the Book of Glyph Mastery."
 
 -- Cooking/Fishing Daily Quests
