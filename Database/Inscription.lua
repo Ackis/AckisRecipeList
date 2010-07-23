@@ -1046,7 +1046,7 @@ function addon:InitInscription()
 	-- Glyph of Raise Dead -- 57228
 	AddRecipe(57228, 300, 43673, Q.COMMON, V.WOTLK, 300, 305, 310, 315)
 	self:AddRecipeFlags(57228, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(57228, A.CUSTOM, 15)
+	self:AddRecipeAcquire(57228, A.CUSTOM, 14)
 
 	-- Glyph of Corpse Explosion -- 57229
 	AddRecipe(57229, 300, 43671, Q.COMMON, V.WOTLK, 300, 305, 310, 315)
