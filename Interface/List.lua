@@ -436,7 +436,9 @@ function private.InitializeListFrame()
 			[Q.RARE]	= "rare",
 			[Q.EPIC]	= "epic",
 		}
-		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value of its saved_var.
+
+		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value
+		-- of its saved_var.
 		local ITEM1 = private.item_flags_word1
 		local HARD_FILTERS = {
 			------------------------------------------------------------------------------------------------
@@ -984,8 +986,8 @@ function private.InitializeListFrame()
 		button_index = 1
 		string_index = button_index + offset
 
-		-- This function could possibly have been called from a mouse click or by scrolling.
-		-- Since, in those cases, the list entries have changed, the mouse is likely over a different entry - a tooltip should be generated for it.
+		-- This function could possibly have been called from a mouse click or by scrolling. Since, in those cases, the list entries have
+		-- changed, the mouse is likely over a different entry - a tooltip should be generated for it.
 		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
 			local cur_state = self.state_buttons[button_index]
 			local cur_button = self.entry_buttons[button_index]
@@ -1054,7 +1056,8 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING,
+				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1092,7 +1095,8 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING,
+				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1109,7 +1113,8 @@ function private.InitializeListFrame()
 		end
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":", SetTextColor(private.reputation_colors["hostile"], mob.name))
+		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"])..":",
+				       SetTextColor(private.reputation_colors["hostile"], mob.name))
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1119,7 +1124,8 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location),
+				       coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = id_num
 
@@ -1150,7 +1156,8 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s %s", PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
+		t.text = string.format("%s%s%s %s", PADDING, PADDING,
+				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
 		t.recipe_id = recipe_id
 
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
@@ -1159,7 +1166,8 @@ function private.InitializeListFrame()
 	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local t = AcquireTable()
 
-		t.text = string.format("%s%s %s", PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL])..":",
+		t.text = string.format("%s%s %s", PADDING,
+				       hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.acquire_names[A.SEASONAL])..":",
 				       SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
 		t.recipe_id = recipe_id
 
@@ -1212,7 +1220,8 @@ function private.InitializeListFrame()
 			return entry_index
 		end
 		t = AcquireTable()
-		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
+		t.text = string.format("%s%s%s%s %s", PADDING, PADDING, PADDING,
+				       hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
 		t.recipe_id = recipe_id
 		t.npc_id = vendor_id
 
@@ -1249,29 +1258,32 @@ function private.InitializeListFrame()
 		local obtain_filters = addon.db.profile.filters.obtain
 
 		for id_num, info in pairs(acquire_data) do
+			local func
+
 			if acquire_type == A.TRAINER and obtain_filters.trainer then
-				entry_index = ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				func = ExpandTrainerData
 			elseif acquire_type == A.VENDOR and (obtain_filters.vendor or obtain_filters.pvp) then
-				entry_index = ExpandVendorData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				func = ExpandVendorData
 			elseif acquire_type == A.MOB_DROP and (obtain_filters.mobdrop or obtain_filters.instance or obtain_filters.raid) then
-				entry_index = ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				func = ExpandMobData
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
-				entry_index = ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				func = ExpandQuestData
 			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-				entry_index = ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				func = ExpandSeasonalData
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
-						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num, rep_level, recipe_id, hide_location, hide_type)
+						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num,
+										    rep_level, recipe_id, hide_location, hide_type)
 					end
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
 				if not hide_type then
-					entry_index = ExpandWorldDropData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+					func = ExpandWorldDropData
 				end
 			elseif acquire_type == A.CUSTOM then
 				if not hide_type then
-					entry_index = ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+					func = ExpandCustomData
 				end
 				--@alpha@
 			elseif acquire_type > A_MAX then
@@ -1282,6 +1294,10 @@ function private.InitializeListFrame()
 
 				entry_index = ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 				--@end-alpha@
+			end
+
+			if func then
+				entry_index = func(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 			end
 		end	-- for
 		return entry_index
@@ -1325,19 +1341,22 @@ function private.InitializeListFrame()
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]]
+						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
+								     and current_tab[prof_name.." expanded"][private.acquire_names[acquire_id]])
 
 						t.text = recipe_entry:GetDisplayName()
 						t.recipe_id = spell_id
 						t.acquire_id = acquire_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded, expand_all or is_expanded)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded,
+									       expand_all or is_expanded)
 					end
 				end
 			elseif current_entry.type == "subheader" then
 				for acquire_type, acquire_data in pairs(private.recipe_list[current_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
-						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data, current_entry.recipe_id, false, true)
+						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data,
+										current_entry.recipe_id, false, true)
 					end
 				end
 			end
@@ -1368,13 +1387,15 @@ function private.InitializeListFrame()
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = current_tab[prof_name.." expanded"][spell_id] and current_tab[prof_name.." expanded"][location_id]
+						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
+								     and current_tab[prof_name.." expanded"][location_id])
 
 						t.text = recipe_entry:GetDisplayName()
 						t.recipe_id = spell_id
 						t.location_id = location_id
 
-						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded, expand_all or is_expanded)
+						entry_index = self:InsertEntry(t, current_entry, entry_index, type, expand or is_expanded,
+									       expand_all or is_expanded)
 					end
 				end
 			elseif current_entry.type == "subheader" then
@@ -1382,8 +1403,8 @@ function private.InitializeListFrame()
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
+					-- Only expand an acquisition entry if it is from this location.
 					for id_num, info in pairs(acquire_data) do
-						-- Only expand an acquisition entry if it is from this location.
 						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
 							entry_index = ExpandTrainerData(entry_index, "subentry", current_entry,
 											id_num, current_entry.recipe_id, true)
@@ -1397,7 +1418,8 @@ function private.InitializeListFrame()
 							entry_index = ExpandQuestData(entry_index, "subentry", current_entry,
 										      id_num, current_entry.recipe_id, true)
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
-							-- Hide the acquire type for this - it will already show up in the location list as "World Events".
+							-- Hide the acquire type for this - it will already show up in the location list as
+							-- "World Events".
 							entry_index = ExpandSeasonalData(entry_index, "subentry", current_entry,
 											 id_num, current_entry.recipe_id, true, true)
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
