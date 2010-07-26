@@ -38,7 +38,6 @@ L["Sorting Options"]		= true
 L["Profile Options"]		= true
 L["Tooltip Options"]		= true
 L["Waypoints"]			= true
-L["ARL Documentation"]		= true
 L["Documentation"]		= true
 
 -------------------------------------------------------------------------------
@@ -59,7 +58,6 @@ L["CLEAR_EXCLUSION_LIST_DESC"]	= "Removes all recipes from the exclusion list."
 L["MAINFILTER_OPTIONS_DESC"]	= "Allows you to specify how ARL handles different filters."
 L["DISPLAY_OPTIONS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
-L["ARL_DOC_DESC"]		= "Documentation for Ackis Recipe List"
 L["Text Dump Options"] = true
 L["TEXTDUMP_OPTIONS_DESC"] = "Options to change the behaviour of the text dump."
 L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."

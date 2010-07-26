@@ -198,7 +198,6 @@ local function GetMapOptions()
 			order	= 1,
 			type	= "group",
 			name	= L["Waypoints"],
-			desc	= L["MAP_OPTIONS_DESC"],
 			args	= {
 				map_desc =	{
 					order	= 1,
@@ -329,7 +328,6 @@ local function GetDatamineOptions()
 			order	= 1,
 			type	= "group",
 			name	= L["Datamine Options"],
-			desc	= L["DATAMINE_OPTIONS_DESC"],
 			args = {
 				datamine_desc =	{
 					order	= 1,
@@ -465,75 +463,64 @@ local function GetDocumentation()
 			order = 1,
 			type = "group",
 			name = L["Documentation"],
-			desc = L["ARL_DOC_DESC"],
 			args = {
-				header1 = {
-					order	= 1,
-					type	= "header",
-					name	= L["ARL Documentation"],
-				},
-				desc1 = {
-					order	= 2,
-					type	= "description",
-					name	= L["ARL_DOC_DESC"],
-				},
 				header2 = {
-					order	= 3,
+					order	= 1,
 					type	= "header",
 					name	= L["Using Filters"],
 				},
 				desc2 = {
-					order	= 4,
+					order	= 2,
 					type	= "description",
 					name	= L["USING_FILTERS_DESC"],
 				},
 				header3 = {
-					order	= 5,
+					order	= 3,
 					type	= "header",
 					name	= L["Common Issues"],
 				},
 				desc3 = {
-					order	= 6,
+					order	= 4,
 					type	= "description",
 					name	= L["COMMON_ISSUES_DESC"],
 				},
 				header4 = {
-					order	= 7,
+					order	= 5,
 					type	= "header",
 					name	= L["Reporting Bugs"],
 				},
 				desc4 = {
-					order	= 8,
+					order	= 6,
 					type	= "description",
 					name	= L["REPORTING_BUGS_DESC"],
 				},
 				header5 = {
-					order	= 9,
+					order	= 7,
 					type	= "header",
 					name	= L["Exclusion Issues"],
 				},
 				desc5 = {
-					order	= 10,
+					order	= 8,
 					type	= "description",
 					name	= L["EXCLUSION_ISSUES_DESC"],
 				},
 				header6 = {
-					order	= 11,
+					order	= 9,
 					type	= "header",
 					name	= L["Map Issues"],
 				},
 				desc6 = {
-					order	= 12,
+					order	= 10,
 					type	= "description",
 					name	= L["MAP_ISSUES_DESC"],
 				},
 				header7 = {
-					order	= 13,
+					order	= 11,
 					type	= "header",
 					name	= L["Game Commands"],
 				},
 				desc7 = {
-					order	= 14,
+					order	= 12,
 					type	= "description",
 					name	= L["GAME_COMMANDS_DESC"],
 				},
