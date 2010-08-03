@@ -1879,13 +1879,13 @@ function addon:InitTailoring()
 	-- Wispcloak -- 56016
 	AddRecipe(56016, 420, 41609, Q.COMMON, V.WOTLK, 420, 435, 445, 455)
 	self:AddRecipeFlags(56016, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeTrainer(56016, 26914, 26969, 26964, 28699)
+	self:AddRecipeTrainer(56016, 26914, 26964, 28699)
 	self:AddRecipeAcquire(56016, A.CUSTOM, 45)
 
 	-- Deathchill Cloak -- 56017
 	AddRecipe(56017, 420, 41610, Q.COMMON, V.WOTLK, 420, 435, 445, 455)
 	self:AddRecipeFlags(56017, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeTrainer(56017, 26914, 26969, 26964, 28699)
+	self:AddRecipeTrainer(56017, 26914, 26964, 28699)
 	self:AddRecipeAcquire(56017, A.CUSTOM, 44)
 
 	-- Hat of Wintry Doom -- 56018
