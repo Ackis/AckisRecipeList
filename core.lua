@@ -1898,6 +1898,8 @@ do
 			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n", UnitName("player"), profession))
+		elseif output == "XML" then
+			tinsert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
 		end
 
 		local recipe_list = private.recipe_list
