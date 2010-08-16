@@ -1936,7 +1936,11 @@ do
 					end
 				--XML
 				elseif output == "XML" then
-					tinsert(text_table, "<rname>"..recipe.name.."</rname>")
+					tinsert(text_table, "<recipe>")
+					tinsert(text_table, "  <id>..recipe_id..</id>")
+					tinsert(text_table, "  <name>"..recipe.name.."</name>")
+					tinsert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
+					tinsert(text_table, "  <known>"..is_known.."</known>")
 				--Name
 				elseif output == "Name" then
 					tinsert(text_table, recipe.name.."\n")
@@ -2003,6 +2007,8 @@ do
 					end
 				elseif output == "BBCode" then
 					tinsert(text_table, "\n[/list]")
+				elseif output == "XML" then
+					tinsert(text_table, "</recipe>")
 				end
 			end
 		end	-- for
