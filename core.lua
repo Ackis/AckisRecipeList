@@ -1943,7 +1943,7 @@ do
 					tinsert(text_table, "  <known>"..is_known.."</known>")
 				--Name
 				elseif output == "Name" then
-					tinsert(text_table, recipe.name.."\n")
+					tinsert(text_table, recipe.name)
 				end
 
 				-- Add in all the filter flags
