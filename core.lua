@@ -1941,6 +1941,7 @@ do
 					tinsert(text_table, "  <name>"..recipe.name.."</name>")
 					tinsert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
 					tinsert(text_table, "  <known>"..is_known.."</known>")
+					tinsert(text_table, "  <flags>")
 				--Name
 				elseif output == "Name" then
 					tinsert(text_table, recipe.name)
@@ -1964,7 +1965,9 @@ do
 								prev = true
 								-- BBCode
 							elseif output == "BBCode" then
-								tinsert(text_table, "[*]" .. filter_names[private.filter_flags[flag_name]])
+								tinsert(text_table, "[*]"..filter_names[private.filter_flags[flag_name]])
+							elseif output == "XML" then
+								tinsert(text_table, "    <flag>"..filter_names[private.filter_flags[flag_name]].."</flag>")
 							end
 						end
 					end
@@ -1974,6 +1977,8 @@ do
 					tinsert(text_table, "\",\"")
 				elseif output == "BBCode" then
 					tinsert(text_table, "[/list]\nAcquire Methods:\n[list]")
+				elseif output == "XML" then
+					tinsert(text_table, "  </flags>")
 				end
 
 				-- Find out which unique acquire methods we have
