@@ -1979,6 +1979,7 @@ do
 					tinsert(text_table, "[/list]\nAcquire Methods:\n[list]")
 				elseif output == "XML" then
 					tinsert(text_table, "  </flags>")
+					tinsert(text_table, "  <acquire>")
 				end
 
 				-- Find out which unique acquire methods we have
@@ -2001,6 +2002,8 @@ do
 						prev = true
 					elseif output == "BBCode" then
 						tinsert(text_table, "[*] " .. i)
+					elseif output == "XML" then
+						tinsert(text_table, "<acquiremethod>"..i.."</acquiremethod>")
 					end
 				end
 
@@ -2013,6 +2016,7 @@ do
 				elseif output == "BBCode" then
 					tinsert(text_table, "\n[/list]")
 				elseif output == "XML" then
+					tinsert(text_table, "  </acquire>")
 					tinsert(text_table, "</recipe>")
 				end
 			end
