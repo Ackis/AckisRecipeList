@@ -63,6 +63,7 @@ L["TEXTDUMP_OPTIONS_DESC"] = "Options to change the behaviour of the text dump."
 L["TEXT_DUMP_DESC"] = "Change how the text dump text appears."
 L["CSV"] = true
 L["BBCode"] = true
+L["XML"] = true
 
 -------------------------------------------------------------------------------
 -- UI Documentation

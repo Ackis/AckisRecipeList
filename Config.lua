@@ -172,6 +172,7 @@ local function fullOptions()
 										  Name = _G.NAME,
 										  Comma = L["CSV"],
 										  BBCode = L["BBCode"],
+										  XML = L["XML"],
 									  }
 								  end,
 						},

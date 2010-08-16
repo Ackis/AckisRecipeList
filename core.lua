@@ -1396,7 +1396,7 @@ end	-- do block
 -- @param coord_y Y coordinate of where the entry is found
 -- @param faction Faction identifier for the entry
 -- @return None, array is passed as a reference
---For individual database structures, see Documentation.lua
+-- For individual database structures, see Documentation.lua
 do
 	local FACTION_NAMES = {
 		[1]	= BFAC["Neutral"],
@@ -1489,7 +1489,7 @@ function addon:ChatCommand(input)
 
 end
 
--- Public API function to initialize all of the lookup lists - self-nils once run.
+--- Public API function to initialize all of the lookup lists - self-nils once run.
 -- @name AckisRecipeList:InitializeLookups()
 -- @usage if AckisRecipeList.InitializeLookups then AckisRecipeList:InitializeLookups() end
 function addon:InitializeLookups()
@@ -1776,7 +1776,7 @@ end	-- do
 
 do
 	-------------------------------------------------------------------------------
-	-- Provides a string of comma separated values for all recipe information
+	-- Dumps recipe output in the format requested by the user
 	-------------------------------------------------------------------------------
 	local text_table = {}
 	local acquire_list = {}
@@ -1899,6 +1899,7 @@ do
 		elseif output == "BBCode" then
 			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n", UnitName("player"), profession))
 		end
+
 		local recipe_list = private.recipe_list
 		local SF = private.recipe_state_flags
 
@@ -1931,6 +1932,9 @@ do
 					elseif is_known then
 						tinsert(text_table, "\nRecipe Flags:\n[list]")
 					end
+				--XML
+				elseif output == "XML" then
+					tinsert(text_table, "<rname>"..recipe.name.."</rname>")
 				--Name
 				elseif output == "Name" then
 					tinsert(text_table, recipe.name.."\n")
