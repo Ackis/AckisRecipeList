@@ -1940,7 +1940,7 @@ do
 					tinsert(text_table, "  <id>..recipe_id..</id>")
 					tinsert(text_table, "  <name>"..recipe.name.."</name>")
 					tinsert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
-					tinsert(text_table, "  <known>"..is_known.."</known>")
+					tinsert(text_table, "  <known>"..tostring(is_known).."</known>")
 					tinsert(text_table, "  <flags>")
 				--Name
 				elseif output == "Name" then
@@ -2008,11 +2008,12 @@ do
 				end
 
 				if not output or output == "Comma" then
-					if is_known then
-						tinsert(text_table, "\",true\n")
-					else
-						tinsert(text_table, "\",false\n")
-					end
+					tinsert(text_table, "\","..tostring(is_known).."\n")
+					--if is_known then
+					--	tinsert(text_table, "\",true\n")
+					--else
+					--	tinsert(text_table, "\",false\n")
+					--end
 				elseif output == "BBCode" then
 					tinsert(text_table, "\n[/list]")
 				elseif output == "XML" then
