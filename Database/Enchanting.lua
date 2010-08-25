@@ -1538,7 +1538,7 @@ function addon:InitEnchanting()
 	-- Enchant Gloves - Angler -- 71692
 	AddRecipe(71692, 375, nil, Q.UNCOMMON, V.WOTLK, 375, 385, 392, 400)
 	self:AddRecipeFlags(71692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
-	self:AddRecipeMobDrop(71692, 26343)
+	self:AddRecipeMobDrop(71692, 26343, 26336, 26344)
 
 	return num_recipes
 end
