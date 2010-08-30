@@ -965,7 +965,9 @@ do
 		elseif skill_level >= recipe_entry.optimal_level then
 			diff_color = "optimal"
 		else
+			--@debug@
 			addon:Debug("Skill level color fallback: %s.", recipe_string)
+			--@end-debug@
 			diff_color = "trivial"
 		end
 		local level_text = string.format(private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT), recipe_level)
@@ -1888,7 +1890,7 @@ do
 		end
 	end	-- do
 
-	---Dumps the recipe database in a format that is readable to humans.
+	---Dumps the recipe database in a format that is readable to humans (or machines)
 	function addon:GetTextDump(profession)
 		local output = addon.db.profile.textdumpformat
 		table.wipe(text_table)
