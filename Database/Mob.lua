@@ -80,6 +80,8 @@ function addon:InitMob(DB)
 
 	-- Dragonblight
 	AddMob(26343,	L["Indu'le Fisherman"],			BZ["Dragonblight"], 40.2, 65.5)
+	AddMob(26336,	L["Indu'le Mystic"],			BZ["Dragonblight"], 40.2, 65.5)
+	AddMob(26344,	L["Indu'le Warrior"],			BZ["Dragonblight"], 40.2, 65.5)
 	AddMob(27333,	L["Onslaught Mason"],			BZ["Dragonblight"], 85.8, 36.0)
 
 	-- Duskwood
