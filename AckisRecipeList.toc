@@ -32,6 +32,7 @@
 ## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
 
 ## Interface: 30300
+## X-Compatible-With: 30300
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
