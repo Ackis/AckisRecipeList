@@ -1277,12 +1277,12 @@ function addon:InitJewelcrafting()
 
 	-- Pendant of Sunfire -- 46125
 	AddRecipe(46125, 365, 34359, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46125, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.NECK)
+	self:AddRecipeFlags(46125, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.NECK)
 	self:AddRecipeAcquire(46125, A.CUSTOM, 24)
 
 	-- Amulet of Flowing Life -- 46126
 	AddRecipe(46126, 365, 34360, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46126, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.NECK)
+	self:AddRecipeFlags(46126, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.NECK)
 	self:AddRecipeAcquire(46126, A.CUSTOM, 24)
 
 	-- Hard Khorium Choker -- 46127

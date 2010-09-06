@@ -1613,7 +1613,7 @@ function addon:InitTailoring()
 
 	-- Sunfire Robe -- 46130
 	AddRecipe(46130, 365, 34364, Q.EPIC, V.TBC, 365, 375, 392, 410)
-	self:AddRecipeFlags(46130, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(46130, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(46130, A.CUSTOM, 24)
 
 	-- Robe of Eternal Light -- 46131

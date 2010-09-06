@@ -1893,7 +1893,7 @@ function addon:InitLeatherworking()
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
 	AddRecipe(46133, 365, 34374, Q.EPIC, V.TBC, 365, 375, 392, 410)
-	self:AddRecipeFlags(46133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(46133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeAcquire(46133, A.CUSTOM, 24)
 
 	-- Gloves of Immortal Dusk -- 46134
