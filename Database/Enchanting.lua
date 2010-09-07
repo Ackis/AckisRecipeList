@@ -343,7 +343,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Shield - Lesser Block -- 13689
 	AddRecipe(13689, 195, nil, Q.UNCOMMON, V.ORIG, 195, 215, 235, 255)
-	self:AddRecipeFlags(13689, F.ALLIANCE, F.HORDE, F.INSTANCE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
+	self:AddRecipeFlags(13689, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
 	self:AddRecipeWorldDrop(13689, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Striking -- 13693
