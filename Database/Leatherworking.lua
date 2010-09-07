@@ -787,7 +787,7 @@ function addon:InitLeatherworking()
 
 	-- Warbear Harness -- 19068
 	AddRecipe(19068, 275, 15064, Q.COMMON, V.ORIG, 275, 295, 305, 315)
-	self:AddRecipeFlags(19068, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER, F.TIMBERMAW_HOLD)
+	self:AddRecipeFlags(19068, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP, F.DPS, F.LEATHER, F.TIMBERMAW_HOLD)
 	self:AddRecipeRepVendor(19068, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Heavy Scorpid Belt -- 19070
