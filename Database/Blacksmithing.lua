@@ -2141,27 +2141,27 @@ function addon:InitBlacksmithing()
 	-- Corroded Saronite Edge -- 55183
 	AddRecipe(55183, 415, 41186, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
 	self:AddRecipeFlags(55183, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeTrainer(55183, 11146, 29505, 11178)
+	self:AddRecipeTrainer(55183, 11146, 29505, 11178, 20124)
 
 	-- Corroded Saronite Woundbringer -- 55184
 	AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
 	self:AddRecipeFlags(55184, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeTrainer(55184, 11146, 29505, 11178)
+	self:AddRecipeTrainer(55184, 11146, 29505, 11178, 20124)
 
 	-- Saronite Mindcrusher -- 55185
 	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
 	self:AddRecipeFlags(55185, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
-	self:AddRecipeTrainer(55185, 11146, 29505, 11178)
+	self:AddRecipeTrainer(55185, 11146, 29505, 11178, 20124)
 
 	-- Chestplate of Conquest -- 55186
 	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9788)
 	self:AddRecipeFlags(55186, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeTrainer(55186, 29506, 5164, 11177)
+	self:AddRecipeTrainer(55186, 29506, 5164, 11177, 20125)
 
 	-- Legplates of Conquest -- 55187
 	AddRecipe(55187, 415, 41190, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9788)
 	self:AddRecipeFlags(55187, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeTrainer(55187, 29506, 5164, 11177)
+	self:AddRecipeTrainer(55187, 29506, 5164, 11177, 20125)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	AddRecipe(55200, 380, 41239, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
