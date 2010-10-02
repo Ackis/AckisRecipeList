@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 ************************************************************************
 Seasonal.lua
 Seasonal data for all of AckisRecipeList
