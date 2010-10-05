@@ -897,6 +897,7 @@ L["Haughty Modiste"] = true
 L["Heldan Galesong"] = true
 L["Helenia Olden"] = true
 L["Hgarth"] = true
+L["High Admiral \"Shelly\" Jorrik"] = true
 L["High Enchanter Bardolan"] = true
 L["Highlord Darion Mograine"] = true
 L["Hillsbrad Tailor"] = true
