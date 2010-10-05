@@ -1888,7 +1888,7 @@ function addon:InitLeatherworking()
 
 	-- Leather Gauntlets of the Sun -- 46132
 	AddRecipe(46132, 365, 34372, Q.EPIC, V.TBC, 365, 375, 392, 410)
-	self:AddRecipeFlags(46132, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.LEATHER)
+	self:AddRecipeFlags(46132, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeAcquire(46132, A.CUSTOM, 24)
 
 	-- Fletcher's Gloves of the Phoenix -- 46133
