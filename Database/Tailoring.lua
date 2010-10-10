@@ -1501,7 +1501,7 @@ function addon:InitTailoring()
 
 	-- Belt of Blasting -- 36315
 	AddRecipe(36315, 375, 30038, Q.EPIC, V.TBC, 375, 385, 390, 395)
-	self:AddRecipeFlags(36315, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeFlags(36315, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeAcquire(36315, A.CUSTOM, 37, A.CUSTOM, 43)
 
 	-- Belt of the Long Road -- 36316
