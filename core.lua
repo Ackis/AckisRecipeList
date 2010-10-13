@@ -1542,7 +1542,7 @@ do
 		local specialty = SpecialtyTable[current_prof]
 
 		for index = 1, 25, 1 do
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+			local spellName = GetSpellBookItemName(index, BOOKTYPE_SPELL)
 
 			if not spellName or index == 25 then
 				Player["Specialty"] = nil

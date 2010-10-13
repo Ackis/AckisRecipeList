@@ -114,7 +114,7 @@ function Player:SetProfessions()
 	end
 
 	for index = 1, 25, 1 do
-		local spell_name = GetSpellName(index, BOOKTYPE_SPELL)
+		local spell_name = GetSpellBookItemName(index, BOOKTYPE_SPELL)
 
 		if not spell_name or index == 25 then
 			break
