@@ -42,18 +42,32 @@ function private.InitializeTabs()
 	local function Tab_Enable(self)
 		self.left:ClearAllPoints()
 		self.left:SetPoint("BOTTOMLEFT")
-		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
-		self.middle:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
-		self.right:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-ActiveTab")
+
+		self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		self.left:SetTexCoord(0, 0.15625, 0, 0.546875)
+
+		self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		self.middle:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
+
+		self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		self.right:SetTexCoord(0.84375, 1, 0, 0.546875)
+
 		self:Disable()
 	end
 
 	local function Tab_Disable(self)
 		self.left:ClearAllPoints()
 		self.left:SetPoint("TOPLEFT")
-		self.left:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
-		self.middle:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
-		self.right:SetTexture("Interface\\PAPERDOLLINFOFRAME\\UI-Character-InactiveTab")
+
+		self.left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+		self.left:SetTexCoord(0, 0.15625, 0, 1)
+
+		self.middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+		self.middle:SetTexCoord(0.15625, 0.84375, 0, 1)
+
+		self.right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InactiveTab")
+		self.right:SetTexCoord(0.84375, 1, 0, 1)
+
 		self:Enable()
 	end
 
@@ -111,20 +125,17 @@ function private.InitializeTabs()
 		tab.left = tab:CreateTexture(nil, "BORDER")
 		tab.left:SetWidth(20)
 		tab.left:SetHeight(32)
-		tab.left:SetTexCoord(0, 0.15625, 0, 1)
 
 		tab.right = tab:CreateTexture(nil, "BORDER")
 		tab.right:SetWidth(20)
 		tab.right:SetHeight(32)
 		tab.right:SetPoint("TOP", tab.left)
 		tab.right:SetPoint("RIGHT", tab)
-		tab.right:SetTexCoord(0.84375, 1, 0, 1)
 
 		tab.middle = tab:CreateTexture(nil, "BORDER")
 		tab.middle:SetHeight(32)
 		tab.middle:SetPoint("LEFT", tab.left, "RIGHT")
 		tab.middle:SetPoint("RIGHT", tab.right, "LEFT")
-		tab.middle:SetTexCoord(0.15625, 0.84375, 0, 1)
 
 		tab:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight", "ADD")
 
