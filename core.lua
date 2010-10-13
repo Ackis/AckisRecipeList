@@ -1566,25 +1566,18 @@ do
 		table.wipe(header_list)
 
 		-- Save the state of the "Have Materials" checkbox.
-		local have_materials = TradeSkillFrameAvailableFilterCheckButton:GetChecked()
+		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
 
 		if MRTUIUtils_PushFilterSelection then
 			MRTUIUtils_PushFilterSelection()
 		else
-			if not Skillet and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-				TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
+			if not Skillet and have_materials then
+				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
 			end
-
-			-- Clear the inventory slot filter
-			UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
-			UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
+			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
+			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
 			SetTradeSkillInvSlotFilter(0, 1, 1)
-
-			-- Clear the sub-classes filters
-			UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
-			UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
-			SetTradeSkillSubClassFilter(0, 1, 1)
 
 			-- Expand all headers so we can see all the recipes there are
 			for i = GetNumTradeSkills(), 1, -1 do
@@ -1637,7 +1630,7 @@ do
 				end
 			end
 			-- Restore the state of the "Have Materials" checkbox.
-			TradeSkillFrameAvailableFilterCheckButton:SetChecked(have_materials)
+			TradeSkillFrame.filterTbl.hasMaterials = have_materials
 			TradeSkillOnlyShowMakeable(have_materials)
 		end
 		Player.prev_count = Player.foundRecipes
