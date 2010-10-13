@@ -283,7 +283,7 @@ function addon:InitBlacksmithing()
 	-- Solid Iron Maul -- 3494
 	AddRecipe(3494, 155, 3851, Q.COMMON, V.ORIG, 155, 180, 192, 205)
 	self:AddRecipeFlags(3494, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.MACE)
-	self:AddRecipeVendor(3494, 9179, 8878, 1471)
+	self:AddRecipeLimitedVendor(3494, 9179, 1, 8878, 1, 1471, 1, 26081, 1)
 
 	-- Golden Iron Destroyer -- 3495
 	AddRecipe(3495, 170, 3852, Q.UNCOMMON, V.ORIG, 170, 195, 207, 220)
