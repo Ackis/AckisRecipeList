@@ -104,25 +104,39 @@ function Player:HasRecipeFaction(recipe)
 	return true
 end
 
--- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
--- TODO: Make the AddOn actually detect when a profession is learned/unlearned, then call this function. -Torhal
-function Player:SetProfessions()
-	local profession_list = self.professions
+do
+	local known_professions = {
+		["prof1"]	= false,
+		["prof2"]	= false,
+		["archaeology"]	= false,
+		["fishing"]	= false,
+		["cooking"]	= false,
+		["firstaid"]	= false,
+	}
 
-	for i in pairs(profession_list) do
-		profession_list[i] = false
-	end
+	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
+	function Player:SetProfessions()
+		local profession_list = self.professions
 
-	for index = 1, 25, 1 do
-		local spell_name = GetSpellBookItemName(index, BOOKTYPE_SPELL)
-
-		if not spell_name or index == 25 then
-			break
+		for i in pairs(profession_list) do
+			profession_list[i] = false
 		end
+		local known = known_professions
 
-		-- Check for false in the profession_list - a nil entry means we don't care about the spell.
-		if profession_list[spell_name] == false then
-			profession_list[spell_name] = true
+		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = GetProfessions()
+
+		for profession, index in pairs(known_professions) do
+			if index then
+				local name, icon, rank, maxrank, numspells, spelloffset, skillline = GetProfessionInfo(index)
+
+				if name == private.mining_name then
+					name = private.professions["Smelting"]
+				end
+
+				if profession_list[name] == false then
+					profession_list[name] = true
+				end
+			end
 		end
 	end
-end
+end	-- do-block
