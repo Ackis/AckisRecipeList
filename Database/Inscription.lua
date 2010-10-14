@@ -778,11 +778,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(57165, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARRIOR, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(57165, 26916, 26995, 30716, 30717, 33603, 30721, 30706, 30722, 30709, 26959, 30710, 28702, 33615, 30715, 33679, 26977, 30713, 30711)
 
-	-- Glyph of Last Stand -- 57166
-	AddRecipe(57166, 385, 43426, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57166, F.ALLIANCE, F.HORDE, F.DISC, F.WARRIOR, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(57166, A.CUSTOM, 15)
-
 	-- Glyph of Sunder Armor -- 57167
 	AddRecipe(57167, 140, 43427, Q.COMMON, V.WOTLK, 140, 145, 150, 155)
 	self:AddRecipeFlags(57167, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARRIOR, F.IBOE, F.RBOP, F.TANK)
@@ -792,11 +787,6 @@ function addon:InitInscription()
 	AddRecipe(57168, 320, 43428, Q.COMMON, V.WOTLK, 320, 325, 330, 335)
 	self:AddRecipeFlags(57168, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARRIOR, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(57168, 26995, 28702, 33615, 26959, 30721, 33603, 33679, 30722, 26916, 26977)
-
-	-- Glyph of Taunt -- 57169
-	AddRecipe(57169, 385, 43429, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57169, F.ALLIANCE, F.HORDE, F.DISC, F.WARRIOR, F.IBOE, F.RBOP, F.TANK)
-	self:AddRecipeAcquire(57169, A.CUSTOM, 15)
 
 	-- Glyph of Victory Rush -- 57170
 	AddRecipe(57170, 385, 43431, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
@@ -938,11 +928,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(57211, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(57211, A.CUSTOM, 15)
 
-	-- Glyph of Dark Command -- 57212
-	AddRecipe(57212, 385, 43538, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57212, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(57212, A.CUSTOM, 15)
-
 	-- Glyph of Death Grip -- 57213
 	AddRecipe(57213, 285, 43541, Q.COMMON, V.WOTLK, 285, 290, 295, 300)
 	self:AddRecipeFlags(57213, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOE, F.RBOP)
@@ -967,11 +952,6 @@ function addon:InitInscription()
 	AddRecipe(57217, 320, 43544, Q.COMMON, V.WOTLK, 320, 330, 335, 340)
 	self:AddRecipeFlags(57217, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(57217, A.CUSTOM, 14)
-
-	-- Glyph of Icebound Fortitude -- 57218
-	AddRecipe(57218, 385, 43545, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57218, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(57218, A.CUSTOM, 15)
 
 	-- Glyph of Icy Touch -- 57219
 	AddRecipe(57219, 280, 43546, Q.COMMON, V.WOTLK, 280, 285, 290, 295)
@@ -1223,11 +1203,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(57272, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARLOCK, F.IBOE, F.RBOP, F.CASTER)
 	self:AddRecipeTrainer(57272, 26916, 26995, 30716, 30717, 33603, 30721, 30706, 30722, 30709, 26959, 30710, 28702, 33615, 30715, 33679, 26977, 30713, 30711)
 
-	-- Glyph of Siphon Life -- 57273
-	AddRecipe(57273, 385, 42469, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57273, F.ALLIANCE, F.HORDE, F.DISC, F.WARLOCK, F.IBOE, F.RBOP, F.CASTER)
-	self:AddRecipeAcquire(57273, A.CUSTOM, 15)
-
 	-- Glyph of Soulstone -- 57274
 	AddRecipe(57274, 240, 42470, Q.COMMON, V.WOTLK, 240, 245, 250, 255)
 	self:AddRecipeFlags(57274, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARLOCK, F.IBOE, F.RBOP, F.CASTER)
@@ -1313,11 +1288,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(57716, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(57716, 26977, 26916, 26959, 26995, 33603, 28702)
 
-	-- Glyph of Fire Blast -- 57719
-	AddRecipe(57719, 385, 42740, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
-	self:AddRecipeFlags(57719, F.ALLIANCE, F.HORDE, F.DISC, F.MAGE, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(57719, A.CUSTOM, 15)
-
 	-- Glyph of Aquatic Form -- 58286
 	AddRecipe(58286, 75, 43316, Q.COMMON, V.WOTLK, 75, 105, 110, 115)
 	self:AddRecipeFlags(58286, F.ALLIANCE, F.HORDE, F.DISC, F.DRUID, F.IBOE, F.RBOP)
@@ -1358,11 +1328,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(58299, F.ALLIANCE, F.HORDE, F.DISC, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeAcquire(58299, A.CUSTOM, 14)
 
-	-- Glyph of Possessed Strength -- 58300
-	AddRecipe(58300, 75, 43354, Q.COMMON, V.WOTLK, 75, 80, 85, 90)
-	self:AddRecipeFlags(58300, F.ALLIANCE, F.HORDE, F.DISC, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(58300, A.CUSTOM, 14)
-
 	-- Glyph of Mend Pet -- 58301
 	AddRecipe(58301, 75, 43350, Q.COMMON, V.WOTLK, 75, 80, 85, 90)
 	self:AddRecipeFlags(58301, F.ALLIANCE, F.HORDE, F.DISC, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
@@ -1377,11 +1342,6 @@ function addon:InitInscription()
 	AddRecipe(58303, 75, 43339, Q.COMMON, V.WOTLK, 75, 80, 85, 90)
 	self:AddRecipeFlags(58303, F.ALLIANCE, F.HORDE, F.DISC, F.MAGE, F.IBOE, F.RBOP, F.CASTER)
 	self:AddRecipeAcquire(58303, A.CUSTOM, 14)
-
-	-- Glyph of Fire Ward -- 58305
-	AddRecipe(58305, 95, 43357, Q.COMMON, V.WOTLK, 95, 105, 110, 115)
-	self:AddRecipeFlags(58305, F.ALLIANCE, F.HORDE, F.DISC, F.MAGE, F.IBOE, F.RBOP, F.CASTER)
-	self:AddRecipeAcquire(58305, A.CUSTOM, 14)
 
 	-- Glyph of Frost Armor -- 58306
 	AddRecipe(58306, 75, 43359, Q.COMMON, V.WOTLK, 75, 80, 85, 90)
@@ -1968,11 +1928,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(64266, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(64266, 26916, 30715, 30716, 30717, 33603, 30721, 30706, 30722, 30709, 26959, 30710, 28702, 30711, 26995, 33679, 26977, 30713, 33615)
 
-	-- Glyph of Disease -- 64267
-	AddRecipe(64267, 280, 45805, Q.COMMON, V.WOTLK, 280, 285, 290, 295)
-	self:AddRecipeFlags(64267, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(64267, 26916, 30715, 30716, 30717, 33603, 30721, 30706, 30722, 30709, 26959, 30710, 28702, 30711, 26995, 33679, 26977, 30713, 33615)
-
 	-- Glyph of Berserk -- 64268
 	AddRecipe(64268, 425, 45601, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
 	self:AddRecipeFlags(64268, F.ALLIANCE, F.HORDE, F.DISC, F.DRUID, F.IBOE, F.RBOP)
@@ -2103,11 +2058,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(64298, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(64298, A.CUSTOM, 40)
 
-	-- Glyph of Unholy Blight -- 64299
-	AddRecipe(64299, 425, 45803, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(64299, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(64299, A.CUSTOM, 40)
-
 	-- Glyph of Howling Blast -- 64300
 	AddRecipe(64300, 425, 45806, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
 	self:AddRecipeFlags(64300, F.ALLIANCE, F.HORDE, F.DISC, F.DK, F.IBOE, F.RBOP)
@@ -2193,11 +2143,6 @@ function addon:InitInscription()
 	self:AddRecipeFlags(64318, F.ALLIANCE, F.HORDE, F.DISC, F.WARLOCK, F.IBOE, F.RBOP)
 	self:AddRecipeAcquire(64318, A.CUSTOM, 40)
 
-	-- Glyph of Survival Instincts -- 65245
-	AddRecipe(65245, 425, 46372, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
-	self:AddRecipeFlags(65245, F.ALLIANCE, F.HORDE, F.DISC, F.DRUID, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(65245, A.CUSTOM, 40)
-
 	-- Glyph of Claw -- 67600
 	AddRecipe(67600, 100, 48720, Q.COMMON, V.WOTLK, 100, 105, 110, 115)
 	self:AddRecipeFlags(67600, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOE, F.RBOP)
@@ -2212,11 +2157,6 @@ function addon:InitInscription()
 	AddRecipe(69385, 440, 49632, Q.COMMON, V.WOTLK, 440, 440, 442, 460)
 	self:AddRecipeFlags(69385, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(69385, 26977, 26916, 28702, 26995, 33603, 26959)
-
-	-- Glyph of Rapid Rejuvenation -- 71015
-	AddRecipe(71015, 375, 50125, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
-	self:AddRecipeFlags(71015, F.ALLIANCE, F.HORDE, F.VENDOR, F.DRUID, F.IBOE, F.RBOE, F.HEALER)
-	self:AddRecipeVendor(71015, 28723)
 
 	-- Glyph of Eternal Water -- 71101
 	AddRecipe(71101, 250, 50045, Q.COMMON, V.WOTLK, 250, 255, 260, 265)
