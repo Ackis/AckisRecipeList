@@ -1013,7 +1013,7 @@ do
 			["item_id"]		= item_id,
 			["quality"]		= quality,
 			["profession"]		= GetSpellInfo(profession),
-			["name"]		= GetSpellInfo(spell_id),
+			["name"]		= GetSpellInfo(spell_id) or ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id)),
 			["flags"]		= {},
 			["acquire_data"]	= {},
 			["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
