@@ -1529,17 +1529,6 @@ function addon:InitEngineering()
 	self:AddRecipeFlags(68067, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP)
 	self:AddRecipeWorldDrop(68067, "Northrend")
 
-	-- Shatter Rounds -- 72952
-	AddRecipe(72952, 450, 52020, Q.EPIC, V.WOTLK, 450, 450, 450, 460, 20222)
-	self:AddRecipeFlags(72952, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.AMMO, F.ASHEN_VERDICT)
-	self:AddRecipeRepVendor(72952, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-
-	-- Iceblade Arrow -- 72953
-	AddRecipe(72953, 450, 52021, Q.EPIC, V.WOTLK, 450, 450, 450, 460, 20219)
-	self:AddRecipeFlags(72953, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.AMMO, F.ASHEN_VERDICT)
-	self:AddRecipeRepVendor(72953, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-
-
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
