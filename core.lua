@@ -1472,8 +1472,6 @@ function addon:ChatCommand(input)
 		end
 	elseif (input == strlower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-	elseif (input == strlower(_G.FILTER)) then
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
 	elseif (input == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (input == strlower(L["Scan"])) then
