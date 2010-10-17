@@ -1159,17 +1159,17 @@ function addon:InitTailoring()
 	self:AddRecipeVendor(26751, 22208, 29512)
 
 	-- Spellfire Belt -- 26752
-	AddRecipe(26752, 355, 21846, Q.COMMON, V.TBC, 355, 365, 370, 375, 26797)
+	AddRecipe(26752, 355, 21846, Q.COMMON, V.TBC, 355, 365, 370, 375)
 	self:AddRecipeFlags(26752, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26752, 22213, 29511)
 
 	-- Spellfire Gloves -- 26753
-	AddRecipe(26753, 365, 21847, Q.COMMON, V.TBC, 365, 375, 380, 385, 26797)
+	AddRecipe(26753, 365, 21847, Q.COMMON, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(26753, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26753, 22213, 29511)
 
 	-- Spellfire Robe -- 26754
-	AddRecipe(26754, 375, 21848, Q.COMMON, V.TBC, 375, 385, 390, 395, 26797)
+	AddRecipe(26754, 375, 21848, Q.COMMON, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(26754, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26754, 22213, 29511)
 
@@ -1180,17 +1180,17 @@ function addon:InitTailoring()
 	self:AddRecipeVendor(26755, 22213, 29511)
 
 	-- Frozen Shadoweave Shoulders -- 26756
-	AddRecipe(26756, 355, 21869, Q.COMMON, V.TBC, 355, 365, 370, 375, 26801)
+	AddRecipe(26756, 355, 21869, Q.COMMON, V.TBC, 355, 365, 370, 375)
 	self:AddRecipeFlags(26756, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26756, 22212, 29510)
 
 	-- Frozen Shadoweave Boots -- 26757
-	AddRecipe(26757, 365, 21870, Q.COMMON, V.TBC, 365, 375, 380, 385, 26801)
+	AddRecipe(26757, 365, 21870, Q.COMMON, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(26757, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26757, 22212, 29510)
 
 	-- Frozen Shadoweave Robe -- 26758
-	AddRecipe(26758, 375, 21871, Q.COMMON, V.TBC, 375, 385, 390, 395, 26801)
+	AddRecipe(26758, 375, 21871, Q.COMMON, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(26758, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26758, 22212, 29510)
 
@@ -1200,17 +1200,17 @@ function addon:InitTailoring()
 	self:AddRecipeVendor(26759, 22212, 29510)
 
 	-- Primal Mooncloth Belt -- 26760
-	AddRecipe(26760, 355, 21873, Q.COMMON, V.TBC, 355, 365, 370, 375, 26798)
+	AddRecipe(26760, 355, 21873, Q.COMMON, V.TBC, 355, 365, 370, 375)
 	self:AddRecipeFlags(26760, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26760, 22208, 29512)
 
 	-- Primal Mooncloth Shoulders -- 26761
-	AddRecipe(26761, 365, 21874, Q.COMMON, V.TBC, 365, 375, 380, 385, 26798)
+	AddRecipe(26761, 365, 21874, Q.COMMON, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(26761, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26761, 22208, 29512)
 
 	-- Primal Mooncloth Robe -- 26762
-	AddRecipe(26762, 375, 21875, Q.COMMON, V.TBC, 375, 385, 390, 395, 26798)
+	AddRecipe(26762, 375, 21875, Q.COMMON, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(26762, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeVendor(26762, 22208, 29512)
 
