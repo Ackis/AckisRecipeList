@@ -1595,92 +1595,92 @@ function addon:InitLeatherworking()
 	self:AddRecipeWorldDrop(35574, "Outland")
 
 	-- Ebon Netherscale Breastplate -- 35575
-	AddRecipe(35575, 375, 29515, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35575, 375, 29515, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35575, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35575, 7866, 7867, 29508)
 
 	-- Ebon Netherscale Belt -- 35576
-	AddRecipe(35576, 375, 29516, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35576, 375, 29516, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35576, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35576, 7866, 7867, 29508)
 
 	-- Ebon Netherscale Bracers -- 35577
-	AddRecipe(35577, 375, 29517, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35577, 375, 29517, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35577, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35577, 7866, 7867, 29508)
 
 	-- Netherstrike Breastplate -- 35580
-	AddRecipe(35580, 375, 29519, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35580, 375, 29519, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35580, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35580, 7866, 7867, 29508)
 
 	-- Netherstrike Belt -- 35582
-	AddRecipe(35582, 375, 29520, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35582, 375, 29520, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35582, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35582, 7866, 7867, 29508)
 
 	-- Netherstrike Bracers -- 35584
-	AddRecipe(35584, 375, 29521, Q.COMMON, V.TBC, 375, 385, 395, 405, 10657)
+	AddRecipe(35584, 375, 29521, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35584, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35584, 7866, 7867, 29508)
 
 	-- Windhawk Hauberk -- 35585
-	AddRecipe(35585, 375, 29522, Q.COMMON, V.TBC, 375, 385, 395, 405, 10661)
+	AddRecipe(35585, 375, 29522, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35585, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(35585, 29509, 7870, 7871)
 
 	-- Windhawk Belt -- 35587
-	AddRecipe(35587, 375, 29524, Q.COMMON, V.TBC, 375, 385, 395, 405, 10661)
+	AddRecipe(35587, 375, 29524, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35587, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(35587, 29509, 7870, 7871)
 
 	-- Windhawk Bracers -- 35588
-	AddRecipe(35588, 375, 29523, Q.COMMON, V.TBC, 375, 385, 395, 405, 10661)
+	AddRecipe(35588, 375, 29523, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35588, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(35588, 29509, 7870, 7871)
 
 	-- Primalstrike Vest -- 35589
-	AddRecipe(35589, 375, 29525, Q.COMMON, V.TBC, 375, 385, 395, 405, 10659)
+	AddRecipe(35589, 375, 29525, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35589, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(35589, 7869, 29507, 7868)
 
 	-- Primalstrike Belt -- 35590
-	AddRecipe(35590, 375, 29526, Q.COMMON, V.TBC, 375, 385, 395, 405, 10659)
+	AddRecipe(35590, 375, 29526, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35590, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(35590, 7869, 29507, 7868)
 
 	-- Primalstrike Bracers -- 35591
-	AddRecipe(35591, 375, 29527, Q.COMMON, V.TBC, 375, 385, 395, 405, 10659)
+	AddRecipe(35591, 375, 29527, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35591, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(35591, 7869, 29507, 7868)
 
 	-- Blackstorm Leggings -- 36074
-	AddRecipe(36074, 260, 29964, Q.COMMON, V.TBC, 260, 280, 290, 300, 10659)
+	AddRecipe(36074, 260, 29964, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36074, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(36074, 7869, 29507, 7868)
 
 	-- Wildfeather Leggings -- 36075
-	AddRecipe(36075, 260, 29970, Q.COMMON, V.TBC, 260, 280, 290, 300, 10661)
+	AddRecipe(36075, 260, 29970, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36075, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(36075, 29509, 7870, 7871)
 
 	-- Dragonstrike Leggings -- 36076
-	AddRecipe(36076, 260, 29971, Q.COMMON, V.TBC, 260, 280, 290, 300, 10657)
+	AddRecipe(36076, 260, 29971, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36076, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36076, 7866, 7867, 29508)
 
 	-- Primalstorm Breastplate -- 36077
-	AddRecipe(36077, 330, 29973, Q.COMMON, V.TBC, 330, 350, 360, 370, 10659)
+	AddRecipe(36077, 330, 29973, Q.COMMON, V.TBC, 330, 350, 360, 370)
 	self:AddRecipeFlags(36077, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
 	self:AddRecipeTrainer(36077, 7869, 29507, 7868)
 
 	-- Living Crystal Breastplate -- 36078
-	AddRecipe(36078, 330, 29974, Q.COMMON, V.TBC, 330, 350, 360, 370, 10661)
+	AddRecipe(36078, 330, 29974, Q.COMMON, V.TBC, 330, 350, 360, 370)
 	self:AddRecipeFlags(36078, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.LEATHER)
 	self:AddRecipeTrainer(36078, 29509, 7870, 7871)
 
 	-- Golden Dragonstrike Breastplate -- 36079
-	AddRecipe(36079, 330, 29975, Q.COMMON, V.TBC, 330, 350, 360, 370, 10657)
+	AddRecipe(36079, 330, 29975, Q.COMMON, V.TBC, 330, 350, 360, 370)
 	self:AddRecipeFlags(36079, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36079, 7866, 7867, 29508)
 
