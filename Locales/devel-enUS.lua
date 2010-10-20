@@ -507,6 +507,7 @@ L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 L["Custom44"] = "You can train this recipe if you have earned the \"Loremaster of Northrend\" achievement"
 L["Custom45"] = "You can train this recipe if you have earned the \"Northrend Dungeonmaster\" achievement"
 L["LIMITED_SUPPLY"] = "Sold in limited quantity."
+L["BUGGED"] = "THIS RECIPE IS BUGGED CURRENTLY IN THE LATEST BUILD ON LIVE"
 
 -------------------------------------------------------------------------------
 -- Monster/Quest/Trainer/Vendor strings:
