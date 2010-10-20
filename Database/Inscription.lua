@@ -2143,6 +2143,11 @@ function addon:InitInscription()
 	AddRecipe(71102, 375, 50077, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
 	self:AddRecipeFlags(71102, F.VENDOR, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.WARLOCK)
 	self:AddRecipeVendor(71102, 28723)
+	
+	-- Glyph of Living Bomb -- 94000
+	AddRecipe(94000, 390, 63539, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
+	self:AddRecipeFlags(94000, F.DISC, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
+	self:AddRecipeAcquire(94000, A.CUSTOM, 15)
 
 	return num_recipes
 end
