@@ -376,8 +376,9 @@ function addon:InitInscription()
 	-- Glyph of Mage Armor -- 56984
 	AddRecipe(56984, 325, 42749, Q.COMMON, V.WOTLK, 325, 330, 335, 340)
 	self:AddRecipeFlags(56984, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE, F.IBOE, F.RBOP, F.CASTER)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 	self:AddRecipeTrainer(56984, 26995, 28702, 33615, 26959, 30721, 33603, 33679, 30722, 26916, 26977)
-
+		
 	-- Glyph of Molten Armor -- 56986
 	AddRecipe(56986, 385, 42751, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
 	self:AddRecipeFlags(56986, F.ALLIANCE, F.HORDE, F.DISC, F.MAGE, F.IBOE, F.RBOP, F.CASTER)
