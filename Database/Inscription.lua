@@ -2148,6 +2148,16 @@ function addon:InitInscription()
 	AddRecipe(94000, 390, 63539, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
 	self:AddRecipeFlags(94000, F.DISC, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
 	self:AddRecipeAcquire(94000, A.CUSTOM, 15)
+	
+	-- Vanishing Powder -- 92026
+	AddRecipe(92026, 75, 64670, Q.COMMON, V.WOTLK, 75, 90, 100, 110)
+	self:AddRecipeFlags(92026, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(92026, 30706, 30713, 30717, 28702)
+	
+	-- Glyph of Death Wish -- 94405
+	AddRecipe(94405, 150, 67483, Q.COMMON, V.WOTLK, 150, 155, 160, 165)
+	self:AddRecipeFlags(94405, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
+	self:AddRecipeTrainer(94405, 30706, 30713, 30717, 28702)
 
 	return num_recipes
 end
