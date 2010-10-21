@@ -1598,31 +1598,37 @@ function addon:InitLeatherworking()
 	AddRecipe(35575, 375, 29515, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35575, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35575, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35575, A.CUSTOM, 46)
 
 	-- Ebon Netherscale Belt -- 35576
 	AddRecipe(35576, 375, 29516, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35576, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35576, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35576, A.CUSTOM, 46)
 
 	-- Ebon Netherscale Bracers -- 35577
 	AddRecipe(35577, 375, 29517, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35577, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(35577, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35577, A.CUSTOM, 46)
 
 	-- Netherstrike Breastplate -- 35580
 	AddRecipe(35580, 375, 29519, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35580, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35580, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35580, A.CUSTOM, 46)
 
 	-- Netherstrike Belt -- 35582
 	AddRecipe(35582, 375, 29520, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35582, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35582, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35582, A.CUSTOM, 46)
 
 	-- Netherstrike Bracers -- 35584
 	AddRecipe(35584, 375, 29521, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35584, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(35584, 7866, 7867, 29508)
+	self:AddRecipeAcquire(35584, A.CUSTOM, 46)
 
 	-- Windhawk Hauberk -- 35585
 	AddRecipe(35585, 375, 29522, Q.COMMON, V.TBC, 375, 385, 395, 405)
