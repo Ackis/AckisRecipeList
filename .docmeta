@@ -16,6 +16,10 @@
  output-page: "Feedback and Bug Reporting"
 -
  type: creole
+ input-file: Docs/Donations.txt
+ output-page: "Donations"
+-
+ type: creole
  input-file: Docs/Main.txt
  output-page: "Main"
 -
