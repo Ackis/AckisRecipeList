@@ -19,6 +19,9 @@ Ackis Recipe List es un addon que escanea tus habilidades comerciales y provee i
 =====Traditional Chinese (zhTW)
 詳細的專業技能配方查詢插件。.
 
+==Donations
+If you wish to donate, please see the [[http://www.wowace.com/addons/arl/pages/donations/|donation]] page or donate via [[http://www.pledgie.com/campaigns/13809 | Plegie]].
+
 ==Where to get it
 * [[http://www.wowace.com/addons/arl/files/|WoW Ace]] - Alpha Quality
 * [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse]] - Stable release
