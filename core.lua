@@ -626,8 +626,9 @@ function addon:OnEnable()
 		scan_button:SetParent(SkilletFrame)
 		Skillet:AddButtonToTradeskillWindow(scan_button)
 		scan_button:SetWidth(80)
-	elseif MRTUIUtils_RegisterWindowOnShow then
-		MRTUIUtils_RegisterWindowOnShow(function()
+	elseif MRTAPI then
+		MRTAPI:RegisterHandler("TradeSkillWindowOnShow",
+						function()
 							scan_button:SetParent(MRTSkillFrame)
 							scan_button:ClearAllPoints()
 							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
@@ -1566,8 +1567,8 @@ do
 		-- Save the state of the "Have Materials" checkbox.
 		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
 
-		if MRTUIUtils_PushFilterSelection then
-			MRTUIUtils_PushFilterSelection()
+		if MRTAPI and MRTAPI:PushFilterSelection() then
+			-- MrTrader saved the state for us
 		else
 			if not Skillet and have_materials then
 				TradeSkillFrame.filterTbl.hasMaterials = false
@@ -1616,8 +1617,8 @@ do
 
 		-- Close all the headers we've opened
 		-- If Mr Trader is installed use that API
-		if MRTUIUtils_PopFilterSelection then
-			MRTUIUtils_PopFilterSelection()
+		if MRTAPI and MRTAPI:PopFilterSelection() then
+			-- MrTrader restored the state for us
 		else
 			-- Collapse all headers that were collapsed before
 			for i = GetNumTradeSkills(), 1, -1 do
