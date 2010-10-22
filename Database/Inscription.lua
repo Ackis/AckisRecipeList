@@ -2143,21 +2143,51 @@ function addon:InitInscription()
 	AddRecipe(71102, 375, 50077, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
 	self:AddRecipeFlags(71102, F.VENDOR, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.WARLOCK)
 	self:AddRecipeVendor(71102, 28723)
-	
-	-- Glyph of Living Bomb -- 94000
-	AddRecipe(94000, 390, 63539, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
-	self:AddRecipeFlags(94000, F.DISC, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
-	self:AddRecipeAcquire(94000, A.CUSTOM, 15)
-	
+
 	-- Vanishing Powder -- 92026
 	AddRecipe(92026, 75, 64670, Q.COMMON, V.WOTLK, 75, 90, 100, 110)
 	self:AddRecipeFlags(92026, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(92026, 30706, 30713, 30717, 28702)
-	
+
+	-- Glyph of Blind -- 92579
+	AddRecipe(92579, 180, 64493, Q.COMMON, V.WOTLK, 180, 185, 190, 195)
+	self:AddRecipeFlags(92579, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.ROGUE)
+	self:AddRecipeTrainer(92579, 30706, 30713, 30717, 28702)
+
+	-- Glyph of Living Bomb -- 94000
+	AddRecipe(94000, 390, 63539, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
+	self:AddRecipeFlags(94000, F.DISC, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
+	self:AddRecipeAcquire(94000, A.CUSTOM, 15)
+
+	-- Glyph of Tiger's Fury -- 94401
+	AddRecipe(94401, 120, 67487, Q.COMMON, V.WOTLK, 120, 125, 130, 135)
+	self:AddRecipeFlags(94401, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
+	self:AddRecipeTrainer(94401, 30706, 30713, 30717, 28702)
+
+	-- Glyph of Lacerate -- 94402
+	AddRecipe(94402, 330, 67484, Q.COMMON, V.WOTLK, 330, 335, 340, 345)
+	self:AddRecipeFlags(94402, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
+	self:AddRecipeTrainer(94402, 30706, 30713, 30717, 28702)
+
+	-- Glyph of Faerie Fire -- 94403
+	AddRecipe(94403, 120, 67485, Q.COMMON, V.WOTLK, 120, 125, 130, 135)
+	self:AddRecipeFlags(94403, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
+	self:AddRecipeTrainer(94403, 30706, 30713, 30717, 28702)
+
+	-- Glyph of Feral Charge -- 94404
+	AddRecipe(94404, 150, 67486, Q.COMMON, V.WOTLK, 150, 155, 160, 165)
+	self:AddRecipeFlags(94404, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
+	self:AddRecipeTrainer(94404, 30706, 30713, 30717, 28702)
+
 	-- Glyph of Death Wish -- 94405
 	AddRecipe(94405, 150, 67483, Q.COMMON, V.WOTLK, 150, 155, 160, 165)
 	self:AddRecipeFlags(94405, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94405, 30706, 30713, 30717, 28702)
+
+	-- Glyph of Intercept -- 94406
+	AddRecipe(94406, 250, 67482, Q.COMMON, V.WOTLK, 250, 255, 260, 265)
+	self:AddRecipeFlags(94406, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
+	self:AddRecipeTrainer(94406, 30706, 30713, 30717, 28702)
 
 	return num_recipes
 end
