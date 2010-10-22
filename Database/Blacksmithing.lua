@@ -1594,84 +1594,100 @@ function addon:InitBlacksmithing()
 	self:AddRecipeVendor(32657, 16583, 19373)
 
 	-- Nether Chain Shirt -- 34529
-	AddRecipe(34529, 350, 23563, Q.COMMON, V.TBC, 350, 360, 370, 380, 9788)
+	AddRecipe(34529, 350, 23563, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(34529, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Twisting Nether Chain Shirt -- 34530
-	AddRecipe(34530, 375, 23564, Q.COMMON, V.TBC, 375, 385, 395, 405, 9788)
+	AddRecipe(34530, 375, 23564, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34530, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(34530, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Breastplate of Kings -- 34533
-	AddRecipe(34533, 350, 28483, Q.COMMON, V.TBC, 350, 360, 370, 380, 9788)
+	AddRecipe(34533, 350, 28483, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34533, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(34533, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Bulwark of Kings -- 34534
-	AddRecipe(34534, 375, 28484, Q.COMMON, V.TBC, 375, 385, 395, 405, 9788)
+	AddRecipe(34534, 375, 28484, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34534, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(34534, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Fireguard -- 34535
-	AddRecipe(34535, 350, 28425, Q.COMMON, V.TBC, 350, 360, 370, 380, 17039)
+	AddRecipe(34535, 350, 28425, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34535, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(34535, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Blazeguard -- 34537
-	AddRecipe(34537, 375, 28426, Q.COMMON, V.TBC, 375, 385, 395, 405, 17039)
+	AddRecipe(34537, 375, 28426, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34537, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(34537, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Lionheart Blade -- 34538
-	AddRecipe(34538, 350, 28428, Q.COMMON, V.TBC, 350, 360, 370, 380, 17039)
+	AddRecipe(34538, 350, 28428, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(34538, 7232, 29505, 11146, 7231, 11178, 20124)
-
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	
 	-- Lionheart Champion -- 34540
-	AddRecipe(34540, 375, 28429, Q.COMMON, V.TBC, 375, 385, 395, 405, 17039)
+	AddRecipe(34540, 375, 28429, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34540, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(34540, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- The Planar Edge -- 34541
-	AddRecipe(34541, 350, 28431, Q.COMMON, V.TBC, 350, 360, 370, 380, 17041)
+	AddRecipe(34541, 350, 28431, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34541, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(34541, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Black Planar Edge -- 34542
-	AddRecipe(34542, 375, 28432, Q.COMMON, V.TBC, 375, 385, 395, 405, 17041)
+	AddRecipe(34542, 375, 28432, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34542, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(34542, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Lunar Crescent -- 34543
-	AddRecipe(34543, 350, 28434, Q.COMMON, V.TBC, 350, 360, 370, 380, 17041)
+	AddRecipe(34543, 350, 28434, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34543, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(34543, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Mooncleaver -- 34544
-	AddRecipe(34544, 375, 28435, Q.COMMON, V.TBC, 375, 385, 395, 405, 17041)
+	AddRecipe(34544, 375, 28435, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34544, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(34544, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Drakefist Hammer -- 34545
-	AddRecipe(34545, 350, 28437, Q.COMMON, V.TBC, 350, 360, 370, 380, 17040)
+	AddRecipe(34545, 350, 28437, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34545, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(34545, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Dragonmaw -- 34546
-	AddRecipe(34546, 375, 28438, Q.COMMON, V.TBC, 375, 385, 395, 405, 17040)
+	AddRecipe(34546, 375, 28438, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34546, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(34546, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Thunder -- 34547
-	AddRecipe(34547, 350, 28440, Q.COMMON, V.TBC, 350, 360, 370, 380, 17040)
+	AddRecipe(34547, 350, 28440, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34547, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(34547, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Deep Thunder -- 34548
-	AddRecipe(34548, 375, 28441, Q.COMMON, V.TBC, 375, 385, 395, 405, 17040)
+	AddRecipe(34548, 375, 28441, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34548, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(34548, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Fel Weightstone -- 34607
 	AddRecipe(34607, 300, 28420, Q.COMMON, V.TBC, 300, 300, 305, 310)
@@ -1704,109 +1720,128 @@ function addon:InitBlacksmithing()
 	self:AddRecipeTrainer(34983, 28694, 26988, 16823, 33675, 29924, 33631, 33609, 26952, 16583, 33591, 26904, 26981, 26564, 19341, 27034)
 
 	-- Earthforged Leggings -- 36122
-	AddRecipe(36122, 260, 30069, Q.COMMON, V.TBC, 260, 280, 290, 300, 9788)
+	AddRecipe(36122, 260, 30069, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36122, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(36122, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Windforged Leggings -- 36124
-	AddRecipe(36124, 260, 30070, Q.COMMON, V.TBC, 260, 280, 290, 300, 9788)
+	AddRecipe(36124, 260, 30070, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36124, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36124, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Light Earthforged Blade -- 36125
-	AddRecipe(36125, 260, 30071, Q.COMMON, V.TBC, 260, 280, 290, 300, 9787)
+	AddRecipe(36125, 260, 30071, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36125, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36125, 7232, 29505, 11146, 7231, 11178, 20124)
-
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	
 	-- Light Skyforged Axe -- 36126
-	AddRecipe(36126, 260, 30072, Q.COMMON, V.TBC, 260, 280, 290, 300, 9787)
+	AddRecipe(36126, 260, 30072, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36126, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36126, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Light Emberforged Hammer -- 36128
-	AddRecipe(36128, 260, 30073, Q.COMMON, V.TBC, 260, 280, 290, 300, 9787)
+	AddRecipe(36128, 260, 30073, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36128, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36128, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Heavy Earthforged Breastplate -- 36129
-	AddRecipe(36129, 330, 30074, Q.COMMON, V.TBC, 330, 340, 350, 360, 9788)
+	AddRecipe(36129, 330, 30074, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36129, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeTrainer(36129, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Stormforged Hauberk -- 36130
-	AddRecipe(36130, 330, 30076, Q.COMMON, V.TBC, 330, 340, 350, 360, 9788)
+	AddRecipe(36130, 330, 30076, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36130, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36130, 11177, 29506, 20125, 7230, 5164)
-
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	
 	-- Windforged Rapier -- 36131
-	AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360, 17039)
+	AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36131, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36131, 7232, 29505, 11146, 7231, 11178, 20124)
 
 	-- Stoneforged Claymore -- 36133
-	AddRecipe(36133, 330, 30086, Q.COMMON, V.TBC, 330, 340, 350, 360, 17039)
+	AddRecipe(36133, 330, 30086, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36133, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(36133, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Stormforged Axe -- 36134
-	AddRecipe(36134, 330, 30087, Q.COMMON, V.TBC, 330, 340, 350, 360, 17041)
+	AddRecipe(36134, 330, 30087, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36134, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36134, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Skyforged Great Axe -- 36135
-	AddRecipe(36135, 330, 30088, Q.COMMON, V.TBC, 330, 340, 350, 360, 17041)
+	AddRecipe(36135, 330, 30088, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36135, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(36135, 7232, 29505, 11146, 7231, 11178, 20124)
 
 	-- Lavaforged Warhammer -- 36136
-	AddRecipe(36136, 330, 30089, Q.COMMON, V.TBC, 330, 340, 350, 360, 17040)
+	AddRecipe(36136, 330, 30089, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36136, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36136, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Great Earthforged Hammer -- 36137
-	AddRecipe(36137, 330, 30093, Q.COMMON, V.TBC, 330, 340, 350, 360, 17040)
+	AddRecipe(36137, 330, 30093, Q.COMMON, V.TBC, 330, 340, 350, 360
 	self:AddRecipeFlags(36137, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(36137, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Embrace of the Twisting Nether -- 36256
-	AddRecipe(36256, 375, 23565, Q.COMMON, V.TBC, 375, 385, 395, 405, 9788)
+	AddRecipe(36256, 375, 23565, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36256, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36256, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Bulwark of the Ancient Kings -- 36257
-	AddRecipe(36257, 375, 28485, Q.COMMON, V.TBC, 375, 385, 395, 405, 9788)
+	AddRecipe(36257, 375, 28485, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36257, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(36257, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Blazefury -- 36258
-	AddRecipe(36258, 375, 28427, Q.COMMON, V.TBC, 375, 385, 395, 405, 17039)
+	AddRecipe(36258, 375, 28427, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36258, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36258, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Lionheart Executioner -- 36259
-	AddRecipe(36259, 375, 28430, Q.COMMON, V.TBC, 375, 385, 395, 405, 17039)
+	AddRecipe(36259, 375, 28430, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36259, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(36259, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Wicked Edge of the Planes -- 36260
-	AddRecipe(36260, 375, 28433, Q.COMMON, V.TBC, 375, 385, 395, 405, 17041)
+	AddRecipe(36260, 375, 28433, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36260, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36260, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Bloodmoon -- 36261
-	AddRecipe(36261, 375, 28436, Q.COMMON, V.TBC, 375, 385, 395, 405, 17041)
+	AddRecipe(36261, 375, 28436, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36261, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(36261, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Dragonstrike -- 36262
-	AddRecipe(36262, 375, 28439, Q.COMMON, V.TBC, 375, 385, 395, 405, 17040)
+	AddRecipe(36262, 375, 28439, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36262, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36262, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Stormherald -- 36263
-	AddRecipe(36263, 375, 28442, Q.COMMON, V.TBC, 375, 385, 395, 405, 17040)
+	AddRecipe(36263, 375, 28442, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36263, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(36263, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Belt of the Guardian -- 36389
 	AddRecipe(36389, 375, 30034, Q.EPIC, V.TBC, 375, 385, 395, 405)
@@ -2139,29 +2174,34 @@ function addon:InitBlacksmithing()
 	self:AddRecipeTrainer(55182, 33591, 26988, 26981, 27034, 26952, 26904, 28694, 29924, 26564)
 
 	-- Corroded Saronite Edge -- 55183
-	AddRecipe(55183, 415, 41186, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
+	AddRecipe(55183, 415, 41186, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55183, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(55183, 11146, 29505, 11178, 20124)
-
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	
 	-- Corroded Saronite Woundbringer -- 55184
-	AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
+	AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55184, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(55184, 11146, 29505, 11178, 20124)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Saronite Mindcrusher -- 55185
-	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9787)
+	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55185, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(55185, 11146, 29505, 11178, 20124)
-
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	
 	-- Chestplate of Conquest -- 55186
-	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9788)
+	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55186, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(55186, 29506, 5164, 11177, 20125)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Legplates of Conquest -- 55187
-	AddRecipe(55187, 415, 41190, Q.COMMON, V.WOTLK, 415, 420, 425, 430, 9788)
+	AddRecipe(55187, 415, 41190, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55187, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(55187, 29506, 5164, 11177, 20125)
+	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	AddRecipe(55200, 380, 41239, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
