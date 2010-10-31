@@ -18,8 +18,6 @@ optional-dependencies:
  - tiptac
 
 ignore:
- - .pkgmeta
- - .docmeta
  - Docs
  - Tools
  - Locales/testenUS.lua
