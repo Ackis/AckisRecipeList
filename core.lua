@@ -476,14 +476,18 @@ function addon:OnInitialize()
 		return
 	end
 	local version = GetAddOnMetadata("AckisRecipeList", "Version")
-
-	-- @alpha@
-	version = version .. "-Alpha"
-	-- @end-alpha@
+	local debug_version = false
+	local alpha_version = false
 
 	-- @debug@
-	version = "Devel"
+	debug_version = true
 	-- @end-debug
+
+	-- @alpha@
+	alpha_version = true
+	-- @end-alpha@
+
+	version = debug and "Devel" or (alpha and version .. "-Alpha") or version
 
 	self.version = version
 
