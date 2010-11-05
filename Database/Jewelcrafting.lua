@@ -1522,11 +1522,6 @@ function addon:InitJewelcrafting()
 	self:AddRecipeFlags(53968, F.VENDOR, F.CASTER, F.RBOP, F.IBOE, F.PVP, F.HEALER, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(53968, 32294, 30489, 32296)
 
-	-- Shifting Twilight Opal -- 53969
-	AddRecipe(53969, 390, 40029, Q.COMMON, V.WOTLK, 390, 410, 425, 440)
-	self:AddRecipeFlags(53969, F.RBOP, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.TRAINER)
-	self:AddRecipeTrainer(53969, 26915, 28701, 26960, 26982, 26997, 33590)
-
 	-- Defender's Twilight Opal -- 53972
 	AddRecipe(53972, 390, 40032, Q.RARE, V.WOTLK, 390, 410, 425, 440)
 	self:AddRecipeFlags(53972, F.MOB_DROP, F.RBOP, F.TANK, F.IBOE, F.ALLIANCE, F.HORDE)
