@@ -106,8 +106,9 @@ function addon:InitInscription()
 	-- Scroll of Intellect VI -- 50602
 	AddRecipe(50602, 310, 33458, Q.COMMON, V.WOTLK, 310, 310, 315, 320)
 	self:AddRecipeFlags(50602, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
+	self:AddRecipeAcquire(50602, A.CUSTOM, 46)
 	self:AddRecipeTrainer(50602, 26995, 30716, 28702, 33603, 30706, 30722, 30709, 26977, 26959, 30721, 30711, 33615, 30717, 33679, 30713, 26916, 30710, 30715)
-
+	
 	-- Scroll of Intellect VII -- 50603
 	AddRecipe(50603, 360, 37091, Q.COMMON, V.WOTLK, 360, 365, 370, 375)
 	self:AddRecipeFlags(50603, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
