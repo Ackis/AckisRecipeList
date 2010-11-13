@@ -1153,6 +1153,7 @@ function addon:InitEngineering()
 	AddRecipe(43676, 335, 20475, Q.UNCOMMON, V.TBC, 335, 335, 345, 355)
 	self:AddRecipeFlags(43676, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(43676, 19707)
+	self:AddRecipeAcquire(43676, A.CUSTOM, 46)
 
 	-- Flying Machine -- 44155
 	AddRecipe(44155, 300, 34060, Q.COMMON, V.TBC, 300, 330, 340, 350)
