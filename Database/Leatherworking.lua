@@ -1648,16 +1648,19 @@ function addon:InitLeatherworking()
 	-- Primalstrike Vest -- 35589
 	AddRecipe(35589, 375, 29525, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35589, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(35589, A.CUSTOM, 46)
 	self:AddRecipeTrainer(35589, 7869, 29507, 7868)
 
 	-- Primalstrike Belt -- 35590
 	AddRecipe(35590, 375, 29526, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35590, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(35590, A.CUSTOM, 46)
 	self:AddRecipeTrainer(35590, 7869, 29507, 7868)
 
 	-- Primalstrike Bracers -- 35591
 	AddRecipe(35591, 375, 29527, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(35591, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(35591, A.CUSTOM, 46)
 	self:AddRecipeTrainer(35591, 7869, 29507, 7868)
 
 	-- Blackstorm Leggings -- 36074
