@@ -1,7 +1,7 @@
 --[[
 ************************************************************************
 Scanner.lua
-In-game tooltip-scanner for datamining.
+Vendor/trainer scanning for Ackis Recipe List.
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
@@ -12,6 +12,7 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
+--- Vendor/trainer scanning for Ackis Recipe List.
 @class file
 @name core.lua
 @release 2.0
