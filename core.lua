@@ -991,7 +991,7 @@ do
 		return recipe_string
 	end
 
-	--- Adds a tradeskill recipe into the specified recipe database
+	---Adds a tradeskill recipe into the specified recipe database
 	-- @name AckisRecipeList:AddRecipe
 	-- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
 	-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being added to the database
