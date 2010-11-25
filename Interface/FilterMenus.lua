@@ -713,7 +713,7 @@ function private.InitializeFilterPanel()
 		expansion2:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -110)
 
 		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CataLogo", "expansion3")
-		expansion2:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -160)
+		expansion3:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -160)
 
 		rep_frame.toggle_expansion0 = expansion0
 		rep_frame.toggle_expansion1 = expansion1
