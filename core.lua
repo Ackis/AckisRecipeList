@@ -1047,7 +1047,7 @@ do
 	end
 end	-- do
 
--- Public API function for retrieving specific information about a recipe.
+--- Public API function for retrieving specific information about a recipe.
 -- @name AckisRecipeList:GetRecipeData
 -- @usage AckisRecipeList:GetRecipeData(28972, "profession")
 -- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being queried.
@@ -1709,12 +1709,12 @@ end
 -------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
----- Creates a new frame with the contents of a text dump so you can copy and paste
---- Code borrowed from Antiarc (Chatter) with permission
---- @name AckisRecipeList:DisplayTextDump
---- @param RecipeDB The database (array) which you wish read data from.
---- @param profession Which profession are you displaying data for
---- @param text The text to be dumped
+--- Creates a new frame with the contents of a text dump so you can copy and paste
+-- Code borrowed from Antiarc (Chatter) with permission
+-- @name AckisRecipeList:DisplayTextDump
+-- @param RecipeDB The database (array) which you wish read data from.
+-- @param profession Which profession are you displaying data for
+-- @param text The text to be dumped
 --------------------------------------------------------------------------------
 do
 	local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
