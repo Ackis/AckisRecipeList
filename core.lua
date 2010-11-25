@@ -12,6 +12,7 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
+--- Ackis Recipe List provides functionality to scan your professions and determine which recipes you are missing.
 @class file
 @name core.lua
 @release 2.0
