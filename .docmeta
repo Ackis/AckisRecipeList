@@ -31,10 +31,14 @@
  input-file: Docs/Localization.txt
  output-page: "API/Localization"
 -
+ type: creole
+ input-file: Docs/API.txt
+ output-page: "API"
+-
  type: luadoc
  input-file: core.lua
- output-page: API
+ output-page: API/Core
 -
  type: luadoc
  input-file: Scanner.lua
- output-page: API/In-game Datamining
+ output-page: API/Scanner
