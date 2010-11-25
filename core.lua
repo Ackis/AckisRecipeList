@@ -12,10 +12,11 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
---- Ackis Recipe List provides functionality to scan your professions and determine which recipes you are missing.
-@class file
-@name core.lua
-@release 2.0
+--- Ackis Recipe List provides functionality to scan your professions.
+-- It will determine which recipes you are missing.
+-- @class file
+-- @name core.lua
+-- @release 2.0
 ************************************************************************
 ]]
 
@@ -996,9 +997,9 @@ do
 	---Adds a tradeskill recipe into the specified recipe database
 	-- @name AckisRecipeList:AddRecipe
 	-- @usage AckisRecipeList:AddRecipe(28927, 305, 23109, Q.UNCOMMON, V.TBC, 305, 305, 325, 345)
-	-- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being added to the database
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
 	-- @param skill_level The skill level at which the recipe can be initially learned
-	-- @param item_id The [[http://www.wowwiki.com/ItemLink|Item ID]] that is created by the recipe, or nil
+	-- @param item_id The [[http://www.wowpedia.org/ItemLink|Item ID]] that is created by the recipe, or nil
 	-- @param quality The quality/rarity of the recipe
 	-- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
 	-- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
@@ -1052,7 +1053,7 @@ end	-- do
 --- Public API function for retrieving specific information about a recipe.
 -- @name AckisRecipeList:GetRecipeData
 -- @usage AckisRecipeList:GetRecipeData(28972, "profession")
--- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe being queried.
+-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being queried.
 -- @param data Which member of the recipe table is being queried.
 -- @return Variable, depending upon which member of the recipe table is queried.
 function addon:GetRecipeData(spell_id, data)
@@ -1063,7 +1064,7 @@ end
 --- Adds filtering flags to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeFlags
 -- @usage AckisRecipeList:AddRecipeFlags(28927, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ALDOR)
--- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which the filter flags are being added to
+-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which the filter flags are being added to
 -- @param ... A listing of filtering flags.  See [[API/database-documentation]] for a listing of filter flags
 -- @return None, array is passed as a reference.
 function addon:AddRecipeFlags(spell_id, ...)
@@ -1098,7 +1099,7 @@ end
 --- Adds acquire methods to a specific tradeskill.
 -- @name AckisRecipeList:AddRecipeAcquire
 -- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
--- @param spell_id The [[http://www.wowwiki.com/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
 -- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
 -- @return None, array is passed as a reference.
 do

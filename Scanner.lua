@@ -1249,7 +1249,7 @@ do
 end	-- do
 --- Parses a specific recipe in the database, and scanning its tooltip
 -- @name AckisRecipeList:TooltipScanRecipe
--- @param spell_id The [[[http://www.wowwiki.com/SpellLink|Spell ID]]] of the recipe being added to the database
+-- @param spell_id The [[[http://www.wowpedia.org/SpellLink|Spell ID]]] of the recipe being added to the database
 -- @param is_vendor Boolean to determine if we're viewing a vendor or not
 -- @param is_largescan Boolean to determine if we're doing a large scan
 -- @return Recipe has its tooltips scanned
