@@ -1003,7 +1003,7 @@ do
 	-- @param quality The quality/rarity of the recipe
 	-- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
 	-- @param specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
-	-- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, or WoTLK
+	-- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, WoTLK, or Cata
 	-- @param optimal_level Level at which recipe is considered orange
 	-- @param medium_level Level at which recipe is considered yellow
 	-- @param easy_level Level at which recipe is considered green

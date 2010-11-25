@@ -1436,3 +1436,7 @@ L["Zorbin Fandazzle"] = true
 L["Zula Slagfury"] = true
 L["Zurai"] = true
 L["Zurii"] = true
+
+
+L["FILTERING_CATA_DESC"] = "Configuration for which Cataclysm Reputation reward recipes are included in the scan."
+L["CATA_WOW_DESC"] = "Recipes available with Cataclysm,"

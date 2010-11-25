@@ -45,6 +45,7 @@ local EXPANSION_FRAMES = {
 	["expansion0"]	= true,
 	["expansion1"]	= true,
 	["expansion2"]	= true,
+	["expansion3"]	= true,
 }
 
 local CATEGORY_TOOLTIP = {
@@ -446,6 +447,7 @@ function private.InitializeFilterPanel()
 			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 7, col = 1 },
 			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 8, col = 1 },
 			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 9, col = 1 },
+			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 10, col = 1 },
 		}
 		GenerateCheckBoxes(obtain_frame, obtain_buttons)
 		obtain_buttons = nil
@@ -622,6 +624,7 @@ function private.InitializeFilterPanel()
 			["expansion0"]	= L["FILTERING_OLDWORLD_DESC"],
 			["expansion1"]	= L["FILTERING_BC_DESC"],
 			["expansion2"]	= L["FILTERING_WOTLK_DESC"],
+			["expansion3"]	= L["FILTERING_CATA_DESC"],
 		}
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
@@ -709,9 +712,13 @@ function private.InitializeFilterPanel()
 		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
 		expansion2:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -110)
 
+		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CataLogo", "expansion3")
+		expansion2:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 0, -160)
+
 		rep_frame.toggle_expansion0 = expansion0
 		rep_frame.toggle_expansion1 = expansion1
 		rep_frame.toggle_expansion2 = expansion2
+		rep_frame.toggle_expansion3 = expansion3
 	end	-- do
 
 	-------------------------------------------------------------------------------
@@ -919,6 +926,60 @@ function private.InitializeFilterPanel()
 
 						    for reputation in pairs(expansion2_buttons) do
 							    expansion2_frame[reputation]:SetChecked(filterdb[reputation])
+						    end
+						    MainPanel:UpdateTitle()
+						    MainPanel.list_frame:Update(nil, false)
+					   end)
+	end	-- do-block
+
+	-------------------------------------------------------------------------------
+	-- Create FilterPanel.rep.expansion3, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local expansion3_frame = CreateFrame("Frame", nil, FilterPanel.rep)
+		expansion3_frame:SetWidth(150)
+		expansion3_frame:SetHeight(280)
+		expansion3_frame:EnableMouse(true)
+		expansion3_frame:EnableKeyboard(true)
+		expansion3_frame:SetMovable(false)
+		expansion3_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", -30, -16)
+		expansion3_frame:Hide()
+
+		FilterPanel.rep.expansion3 = expansion3_frame
+
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local function DisabledText(text)
+			return SetTextColor(private.basic_colors["grey"], text)
+		end
+
+		local expansion3_buttons = {
+			["wrathcommon1"]	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
+		}
+		GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
+
+		local expansion3_toggle = GenericCreateButton(nil, expansion3_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
+		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -4)
+
+		expansion3_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		expansion3_toggle:SetScript("OnClick",
+					   function(self,button)
+						    local filterdb = addon.db.profile.filters.rep
+
+						    if button == "LeftButton" then
+							    for reputation in pairs(expansion3_buttons) do
+								    filterdb[reputation] = true
+							    end
+						    elseif button == "RightButton" then
+							    for reputation in pairs(expansion3_buttons) do
+								    filterdb[reputation] = false
+							    end
+						    end
+
+						    for reputation in pairs(expansion3_buttons) do
+							    expansion3_frame[reputation]:SetChecked(filterdb[reputation])
 						    end
 						    MainPanel:UpdateTitle()
 						    MainPanel.list_frame:Update(nil, false)
@@ -1163,6 +1224,7 @@ function private.InitializeFilterPanel()
 	local expansion0 = FilterPanel.rep.expansion0
 	local expansion1 = FilterPanel.rep.expansion1
 	local expansion2 = FilterPanel.rep.expansion2
+	local expansion3 = FilterPanel.rep.expansion3
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------
@@ -1203,6 +1265,7 @@ function private.InitializeFilterPanel()
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },
+		["expansion3"]		= { cb = FilterPanel.obtain.expansion3,		svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
@@ -1296,6 +1359,9 @@ function private.InitializeFilterPanel()
 		["wrathcommon3"]	= { cb = expansion2.wrathcommon3,		svroot = nil },
 		["wrathcommon4"]	= { cb = expansion2.wrathcommon4,		svroot = nil },
 		["wrathcommon5"]	= { cb = expansion2.wrathcommon5,		svroot = nil },
+		------------------------------------------------------------------------------------------------
+		-- Cataclysm Rep Options
+		------------------------------------------------------------------------------------------------
 	}
 	private.InitializeFilterPanel = nil
 end
