@@ -1,6 +1,7 @@
 --[[
 ************************************************************************
 core.lua
+Core functions for Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
