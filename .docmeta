@@ -40,5 +40,5 @@
  output-page: API/Frame
 -
  type: luadoc
- input-file: Datamine.lua
+ input-file: Scanner.lua
  output-page: API/In-game Datamining
