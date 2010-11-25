@@ -1,5 +1,5 @@
 ==What it does
-Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[http://www.wowwiki.com/Runeforge | Runeforging]].
+Ackis Recipe List is an addon which will scan your trade skills and provide information on how to obtain recipes.  It works for all tradeskills including [[http://www.wowpedia.org/Runeforge | Runeforging]].
 
 =====French (frFR)
 Ackis Recipe List est un addon qui analyse vos métiers et fournit des informations sur la façon d'obtenir les recettes manquantes. Il fonctionne pour tous les métiers, y compris Runeforge.
