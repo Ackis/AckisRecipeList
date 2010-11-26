@@ -496,7 +496,7 @@ function addon:OnInitialize()
 	alpha_version = true
 	-- @end-alpha@
 
-	version = debug and "Devel" or (alpha and version .. "-Alpha") or version
+	version = debug_version and "Devel" or (alpha_version and version .. "-Alpha") or version
 
 	self.version = version
 
