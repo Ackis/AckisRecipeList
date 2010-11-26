@@ -734,8 +734,8 @@ function private.InitializeFilterPanel()
 	local Valiance_Warsong_Text = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
 	local Frostborn_Taunka_Text = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_Text = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
-	local Tol_Barad = isalliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
-	local Wildhammer_Dragonmaw = salliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
+	local Tol_Barad = isAlliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
+	local Wildhammer_Dragonmaw = isAlliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
 
 	-------------------------------------------------------------------------------
 	-- Used for the tooltip of every reputation checkbox.
@@ -959,20 +959,20 @@ function private.InitializeFilterPanel()
 		local expansion3_buttons = {
 			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = Wildhammer_Dragonmaw,			row = 2,	col = 1 },
 			["catacommon2"]		= { tt = ReputationDesc(Tol_Barad),				text = Tol_Barad,				row = 3,	col = 1 },
-			["guardiansofhyjal"]	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
-			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
-			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
-			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
+			["guardiansofhyjal"]	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
+			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Ramhaken"],		row = 5,	col = 1 },
+			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Earthen Ring"],			row = 6,	col = 1 },
+			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Therazane"],			row = 7,	col = 1 },
 		}
 		GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
 		-- Disable them as the data isn't in yet.
-		expansion2_frame.catacommon1:Disable()
-		expansion2_frame.catacommon2:Disable()
-		expansion2_frame.guardiansofhyjal:Disable()
-		expansion2_frame.ramkahen:Disable()
-		expansion2_frame.earthenring:Disable()
-		expansion2_frame.therazane:Disable()
+		expansion3_frame.catacommon1:Disable()
+		expansion3_frame.catacommon2:Disable()
+		expansion3_frame.guardiansofhyjal:Disable()
+		expansion3_frame.ramkahen:Disable()
+		expansion3_frame.earthenring:Disable()
+		expansion3_frame.therazane:Disable()
 
 		local expansion3_toggle = GenericCreateButton(nil, expansion3_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -4)
