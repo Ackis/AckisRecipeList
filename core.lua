@@ -453,6 +453,12 @@ function addon:OnInitialize()
 					wrathcommon4 = true,
 					wrathcommon5 = true,
 					ashenverdict = true,
+					catacommon1 = true,
+					catacommon2 = true,
+					guardiansofhyjal = true,
+					ramkahen = true,
+					earthenring = true,
+					therazane = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Class Filters

@@ -541,6 +541,12 @@ function private.InitializeListFrame()
 		local REP2 = private.rep_flags_word2
 		local REP_FILTERS_2 = {
 			[REP2.ASHEN_VERDICT]	= "ashenverdict",
+			[REP2.CATACOMMON1]	= "catacommon1"
+			[REP2.CATACOMMON2]	= "catacommon2"
+			[REP2.GUARDIANS]	= "guardiansofhyjal"
+			[REP2.RAMKAHEN]		= "ramkahen"
+			[REP2.EARTHEN_RING]	= "earthenring"
+			[REP2.THERAZANE]	= "therazane"
 		}
 
 		local CLASS1 = private.class_flags_word1
