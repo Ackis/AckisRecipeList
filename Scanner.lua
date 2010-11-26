@@ -1170,9 +1170,10 @@ do
 						end
 
 						-- Check the database to see if the vendor is listed as an acquire method.
-						local acquire = recipe_list[spell_id].acquire_data
-						local vendor_data = acquire[A.VENDOR]
-						local rep_data = acquire[A.REPUTATION]
+						local entry = recipe_list[spell_id]
+						local acquire = entry and entry.acquire_data or nil
+						local vendor_data = acquire and acquire[A.VENDOR] or nil
+						local rep_data = acquire and acquire[A.REPUTATION] or nil
 						local found = false
 
 						if vendor_data then
@@ -1200,7 +1201,7 @@ do
 
 						if not found then
 							added = true
-							tinsert(output, string.format("Vendor ID missing from \"%s\" %d.", recipe_list[spell_id].name, spell_id))
+							tinsert(output, string.format("Vendor ID missing from \"%s\" %d.", entry and entry.name or _G.UNKNOWN, spell_id))
 						end
 					else
 						--@debug@
