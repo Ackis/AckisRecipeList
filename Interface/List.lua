@@ -783,7 +783,7 @@ function private.InitializeListFrame()
 				if recipe then
 					if recipe:HasState("KNOWN") and recipe.profession == current_prof then
 						known_count = known_count + 1
-					elseif recipe_profession == current_prof then
+					elseif recipe.profession == current_prof then
 						unknown_count = unknown_count + 1
 					end
 				end
