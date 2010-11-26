@@ -185,6 +185,8 @@ private.filter_strings = {
 	[117]	= "EBONBLADE",		[118]	= "KIRINTOR",		[119]	= "HODIR",		[120]	= "KALUAK",
 	[121]	= "ORACLES",		[122]	= "WYRMREST",		[123]	= "WRATHCOMMON1",	[124]	= "WRATHCOMMON2",
 	[125]	= "WRATHCOMMON3",	[126]	= "WRATHCOMMON4",	[127]	= "WRATHCOMMON5",	[128]	= "ASHEN_VERDICT",
+	[129]	= "CATACOMMON1"		[130]	= "CATACOMMON2"		[131]	= "GUARDIANS"		[132]	= "RAMKAHEN"
+	[133] = "EARTHEN_RING"		[134] = "THERAZANE"
 }
 
 -------------------------------------------------------------------------------
@@ -275,6 +277,12 @@ private.rep_flags_word1 = {
 -------------------------------------------------------------------------------
 private.rep_flags_word2 = {
 	ASHEN_VERDICT		= 0x00000001,
+	CATACOMMON1		= 0x00000002,
+	CATACOMMON2		= 0x00000004,
+	GUARDIANS		= 0x00000008,
+	RAMKAHEN		= 0x00000010,
+	EARTHEN_RING		= 0x00000020,
+	THERAZANE		= 0x00000040,
 }
 
 -------------------------------------------------------------------------------
@@ -427,6 +435,14 @@ private.faction_ids = {
 	["ARGENTCRUSADE"]	= 1106,
 	["HODIR"]		= 1119,
 	["ASHEN_VERDICT"]	= 1156,
+	--EARTHEN_RING		= 1135,
+	--GUARDIANS		= 1158,
+	--THERAZANE		= 1171,
+	--DRAGONMAW		= 1172,
+	--RAMKAHEN		= 1173,
+	--WILDHAMMER		= 1174,
+	--WARDENS		= 1177,
+	--HELLSCREAM		= 1178,
 }
 
 private.faction_strings = {
@@ -463,6 +479,14 @@ private.faction_strings = {
 	[1106]	= "ARGENTCRUSADE",
 	[1119]	= "HODIR",
 	[1156]	= "ASHEN_VERDICT",
+	--[1135] = "EARTHEN_RING",
+	--[1158] = GUARDIANS,
+	--[1171] = THERAZANE,
+	--[1172] = DRAGONMAW,
+	--[1173] = RAMKAHEN,
+	--[1174] = WILDHAMMER,
+	--[1177] = WARDENS,
+	--[1178] = HELLSCREAM,
 }
 
 -------------------------------------------------------------------------------
