@@ -7,7 +7,9 @@ local string = _G.string
 local table = _G.table
 local math = _G.math
 
+local bit = _G.bit
 local pairs = _G.pairs
+local type = _G.type
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
