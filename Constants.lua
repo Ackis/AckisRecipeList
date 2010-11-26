@@ -140,16 +140,18 @@ private.filter_flags = {
 	["XBOW"]		= 77,		["AMMO"]	= 78,		["FIST"]	= 79,		["GUN"]		= 80,
 	["RESERVED_81"]		= 81,		["RESERVED_82"]	= 82,		["RESERVED_83"]	= 83,		["RESERVED_84"]	= 84,
 	["RESERVED_85"]		= 85,		["RESERVED_86"]	= 86,		["RESERVED_87"]	= 87,		["RESERVED_88"]	= 88,
-	["RESERVED_89"]		= 89,		["RESERVED_90"]	= 90,		["RESERVED_91"]	= 91,		["RESERVED_92"]	= 92,
-	["RESERVED_93"]		= 93,		["RESERVED_94"]	= 94,		["RESERVED_95"]	= 95,		["ARGENTDAWN"]	= 96,
-	["CENARION_CIRCLE"]	= 97,		["THORIUM_BROTHERHOOD"]	= 98,	["TIMBERMAW_HOLD"] = 99,	["ZANDALAR"]    = 100,
+	["RESERVED_89"]		= 89,		["RESERVED_90"]	= 90,		["RESERVED_91"]		= 91,	["RESERVED_92"]	= 92,
+	["RESERVED_93"]		= 93,		["RESERVED_94"]	= 94,		["RESERVED_95"]		= 95,	["ARGENTDAWN"]	= 96,
+	["CENARION_CIRCLE"]	= 97,		["THORIUM_BROTHERHOOD"]	= 98,	["TIMBERMAW_HOLD"] 	= 99,	["ZANDALAR"]    = 100,
 	["ALDOR"]		= 101,		["ASHTONGUE"]	= 102,		["CENARION_EXPEDITION"] = 103,	["HELLFIRE"]    = 104,
-	["CONSORTIUM"]		= 105,		["KOT"]		= 106,		["LOWERCITY"]	= 107,		["NAGRAND"]     = 108,
-	["SCALE_SANDS"]		= 109,		["SCRYER"]	= 110,		["SHATAR"]	= 111,		["SHATTEREDSUN"]= 112,
-	["SPOREGGAR"]		= 113,		["VIOLETEYE"]	= 114,		["ARGENTCRUSADE"] = 115,	["FRENZYHEART"] = 116,
-	["EBONBLADE"]		= 117,		["KIRINTOR"]	= 118,		["HODIR"]	= 119,		["KALUAK"]	= 120,
+	["CONSORTIUM"]		= 105,		["KOT"]		= 106,		["LOWERCITY"]		= 107,	["NAGRAND"]     = 108,
+	["SCALE_SANDS"]		= 109,		["SCRYER"]	= 110,		["SHATAR"]		= 111,	["SHATTEREDSUN"]= 112,
+	["SPOREGGAR"]		= 113,		["VIOLETEYE"]	= 114,		["ARGENTCRUSADE"] 	= 115,	["FRENZYHEART"] = 116,
+	["EBONBLADE"]		= 117,		["KIRINTOR"]	= 118,		["HODIR"]		= 119,	["KALUAK"]	= 120,
 	["ORACLES"]		= 121,		["WYRMREST"]	= 122,		["WRATHCOMMON1"]	= 123,	["WRATHCOMMON2"]= 124,
 	["WRATHCOMMON3"]	= 125,		["WRATHCOMMON4"]= 126,		["WRATHCOMMON5"]	= 127,	["ASHEN_VERDICT"]=128,
+	["CATACOMMON1"]		= 129,		["CATACOMMON2"]	= 130,		["GUARDIANS"]		= 131,	["RAMKAHEN"]	= 132,
+	["EARTHEN_RING"]	= 133,		["THERAZANE"]	= 133,
 }
 
 private.filter_strings = {
@@ -186,7 +188,7 @@ private.filter_strings = {
 	[121]	= "ORACLES",		[122]	= "WYRMREST",		[123]	= "WRATHCOMMON1",	[124]	= "WRATHCOMMON2",
 	[125]	= "WRATHCOMMON3",	[126]	= "WRATHCOMMON4",	[127]	= "WRATHCOMMON5",	[128]	= "ASHEN_VERDICT",
 	[129]	= "CATACOMMON1"		[130]	= "CATACOMMON2"		[131]	= "GUARDIANS"		[132]	= "RAMKAHEN"
-	[133] = "EARTHEN_RING"		[134] = "THERAZANE"
+	[133]	= "EARTHEN_RING"	[134] = "THERAZANE"
 }
 
 -------------------------------------------------------------------------------
@@ -435,14 +437,14 @@ private.faction_ids = {
 	["ARGENTCRUSADE"]	= 1106,
 	["HODIR"]		= 1119,
 	["ASHEN_VERDICT"]	= 1156,
-	--EARTHEN_RING		= 1135,
-	--GUARDIANS		= 1158,
-	--THERAZANE		= 1171,
-	--DRAGONMAW		= 1172,
-	--RAMKAHEN		= 1173,
-	--WILDHAMMER		= 1174,
-	--WARDENS		= 1177,
-	--HELLSCREAM		= 1178,
+	EARTHEN_RING		= 1135,
+	GUARDIANS		= 1158,
+	THERAZANE		= 1171,
+	DRAGONMAW		= 1172,
+	RAMKAHEN		= 1173,
+	WILDHAMMER		= 1174,
+	WARDENS			= 1177,
+	HELLSCREAM		= 1178,
 }
 
 private.faction_strings = {
@@ -479,14 +481,14 @@ private.faction_strings = {
 	[1106]	= "ARGENTCRUSADE",
 	[1119]	= "HODIR",
 	[1156]	= "ASHEN_VERDICT",
-	--[1135] = "EARTHEN_RING",
-	--[1158] = GUARDIANS,
-	--[1171] = THERAZANE,
-	--[1172] = DRAGONMAW,
-	--[1173] = RAMKAHEN,
-	--[1174] = WILDHAMMER,
-	--[1177] = WARDENS,
-	--[1178] = HELLSCREAM,
+	[1135] = "EARTHEN_RING",
+	[1158] = GUARDIANS,
+	[1171] = THERAZANE,
+	[1172] = DRAGONMAW,
+	[1173] = RAMKAHEN,
+	[1174] = WILDHAMMER,
+	[1177] = WARDENS,
+	[1178] = HELLSCREAM,
 }
 
 -------------------------------------------------------------------------------

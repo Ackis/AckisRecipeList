@@ -734,8 +734,8 @@ function private.InitializeFilterPanel()
 	local Valiance_Warsong_Text = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
 	local Frostborn_Taunka_Text = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_Text = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
-	local Tol_Barad = isalliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
-	local Wildhammer_Dragonmaw = salliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
+	local Tol_Barad = isAlliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
+	local Wildhammer_Dragonmaw = isAlliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
 
 	-------------------------------------------------------------------------------
 	-- Used for the tooltip of every reputation checkbox.
