@@ -377,8 +377,7 @@ function addon:InitInscription()
 	-- Glyph of Mage Armor -- 56984
 	AddRecipe(56984, 325, 42749, Q.COMMON, V.WOTLK, 325, 330, 335, 340)
 	self:AddRecipeFlags(56984, F.CASTER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE)
-	self:AddRecipeTrainer(56984, 26959, 30721, 33603, 30722, 33679, 26995, 26977, 26916, 28702, 33615)
-	self:AddRecipeAcquire(56984, A.CUSTOM, 46)
+	self:AddRecipeTrainer(56984, 26959, 30721, 33603, 30722, 33679, 26995, 26977, 26916, 28702, 33615)	
 
 	-- Glyph of Molten Armor -- 56986
 	AddRecipe(56986, 385, 42751, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
@@ -1863,7 +1862,7 @@ function addon:InitInscription()
 	-- Glyph of Furious Sundering -- 64255
 	AddRecipe(64255, 425, 45793, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
 	self:AddRecipeFlags(64255, F.RBOP, F.IBOE, F.DISC, F.ALLIANCE, F.HORDE, F.WARRIOR)
-	self:AddRecipeAcquire(64255, A.CUSTOM, 40)
+	self:AddRecipeAcquire(64255, A.CUSTOM, 14)
 
 	-- Glyph of Barkskin -- 64256
 	AddRecipe(64256, 425, 45623, Q.COMMON, V.WOTLK, 425, 430, 435, 440)
@@ -2194,6 +2193,21 @@ function addon:InitInscription()
 	AddRecipe(94406, 250, 67482, Q.COMMON, V.WOTLK, 250, 255, 260, 265)
 	self:AddRecipeFlags(94406, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94406, 30706, 30713, 30717, 28702)
+	
+	-- Glyph of the Treant -- 95215
+	AddRecipe(95215, 155, 68039, Q.COMMON, V.WOTLK, 155, 155, 160, 165)
+	self:AddRecipeFlags(95215, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
+	self:AddRecipeAcquire(95215, A.CUSTOM, 14)
 
+	-- Glyph of Armors -- 95710
+	AddRecipe(95710, 155, 63416, Q.COMMON, V.WOTLK, 155, 155, 160, 165)
+	self:AddRecipeFlags(95710, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
+	self:AddRecipeAcquire(95710, A.CUSTOM, 14)	
+	
+	-- Glyph of the Long Word -- 95825
+	AddRecipe(95825, 390, 66918, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
+	self:AddRecipeFlags(95825, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.PALADIN)
+	self:AddRecipeAcquire(95825, A.CUSTOM, 15)	
+	
 	return num_recipes
 end
