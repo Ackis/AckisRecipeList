@@ -584,6 +584,7 @@ L["Arthur Denny"] = true
 L["Arthur Henslowe"] = true
 L["Arthur Moore"] = true
 L["Artificer Daelo"] = true
+L["Arugi"] = true
 L["Asarnan"] = true
 L["Ashtongue Warrior"] = true
 L["Aska Mistrunner"] = true
@@ -1439,4 +1440,4 @@ L["Zurii"] = true
 
 
 L["FILTERING_CATA_DESC"] = "Configuration for which Cataclysm Reputation reward recipes are included in the scan."
-L["CATA_WOW_DESC"] = "Recipes available with Cataclysm,"
+L["CATA_WOW_DESC"] = "Recipes available with Cataclysm."
