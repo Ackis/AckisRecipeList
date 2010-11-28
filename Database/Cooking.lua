@@ -908,6 +908,82 @@ function addon:InitCooking()
 	AddRecipe(65454, 45, 46691, Q.COMMON, V.WOTLK, 45, 55, 60, 65)
 	self:AddRecipeFlags(65454, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(65454, A.SEASONAL, 6)
+	
+	--[[-----------------------------------------------------------------------------------------------------------------
+	-- CATACLYSM RECIPES
+	---------------------------------------------------------------------------------------------------------------------
+	
+	-- Whitecrest Gumbo -- 88047
+	AddRecipe(88047, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88047)
+	self:AddRecipeAcquire(88047)
+	
+	-- Lavascale Filet -- 88024
+	AddRecipe(88024, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88024)
+	self:AddRecipeAcquire(88024)
+	
+	-- Feathered Lure -- 87646
+	AddRecipe(87646)
+	self:AddRecipeFlags(87646)
+	self:AddRecipeAcquire(87646)
+	
+	-- Lavascale Minestrone -- 88025
+	AddRecipe(88025, 450, , , , 450, 515, 520, 525)
+	self:AddRecipeFlags(88025)
+	self:AddRecipeAcquire(88025)
+	
+	-- Salted Eye -- 88035
+	AddRecipe(88035, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88035)
+	self:AddRecipeAcquire(88035)
+	
+	-- Broiled Mountain Trout -- 88012
+	AddRecipe(88012, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88012)
+	self:AddRecipeAcquire(88012)
+	
+	-- Lightly Fried Lurker -- 88028
+	AddRecipe(88028, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88028)
+	self:AddRecipeAcquire(88028)
+	
+	-- Seasoned Crab -- 88037
+	AddRecipe(88037, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88037)
+	self:AddRecipeAcquire(88037)
+	
+	-- Starfire Espresso -- 88045
+	AddRecipe(88045, 450, , , , 450, 455, 460, 465)
+	self:AddRecipeFlags(88045)
+	self:AddRecipeAcquire(88045)
+	
+	-- Highland Spirits -- 88022
+	AddRecipe(88022, 450, , , , 450, 455, 460, 465)
+	self:AddRecipeFlags(88022)
+	self:AddRecipeAcquire(88022)
+	
+	-- Lurker Lunch -- 88030
+	AddRecipe(88030, 450, , , , 450, 465, 477, 490)
+	self:AddRecipeFlags(88030)
+	self:AddRecipeAcquire(88030)
+	
+	-- Blackened Surprise -- 88006 -- don't see it on trainer
+	AddRecipe(88006, 425, Q.COMMON, V.CATA, 425, 450, 457, 465)
+	self:AddRecipeFlags(88006, F.HORDE, F.TRAINER, F.IBOE)
+	self:AddRecipeTrainer(88006, 46709)
+	
+	-- Darkbrew Lager -- don't see it on trainer
+	AddRecipe()
+	self:AddRecipeFlags()
+	self:AddRecipeAcquire()
+	
+]]--
+	-- Venison Jerky -- 93741
+	AddRecipe(93741, 40, 67230, Q.COMMON, V.WOTLK, 40, 80, 100, 120)
+	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
+	self:AddRecipeTrainer(93741, 3399)
+
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
