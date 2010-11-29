@@ -429,6 +429,7 @@ function private.InitializeListFrame()
 			[V.ORIG]	= "expansion0",
 			[V.TBC]		= "expansion1",
 			[V.WOTLK]	= "expansion2",
+			[V.CATA]	= "expansion3",
 		}
 
 		local Q = private.item_qualities
