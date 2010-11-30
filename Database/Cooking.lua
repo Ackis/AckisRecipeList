@@ -980,7 +980,7 @@ function addon:InitCooking()
 	
 ]]--
 	-- Venison Jerky -- 93741
-	AddRecipe(93741, 40, 67230, Q.COMMON, V.WOTLK, 40, 80, 100, 120)
+	AddRecipe(93741, 40, 67230, Q.COMMON, V.CATA, 40, 80, 100, 120)
 	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
 	self:AddRecipeTrainer(93741, 3399)
 
