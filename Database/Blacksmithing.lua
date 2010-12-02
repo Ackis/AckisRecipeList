@@ -2189,8 +2189,7 @@ function addon:InitBlacksmithing()
 	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55185, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(55185, 11146, 29505, 11178, 20124)
-	self:AddRecipeAcquire(55185, A.CUSTOM, 46)
-	
+		
 	-- Chestplate of Conquest -- 55186
 	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55186, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
