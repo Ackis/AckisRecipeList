@@ -2194,6 +2194,11 @@ function addon:InitInscription()
 	self:AddRecipeFlags(94406, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94406, 30706, 30713, 30717, 28702)
 	
+	-- Glyph of Vanish -- 94711
+	AddRecipe(94711, 430, 63420, Q.COMMON, V.CATA, 430, 430, 435, 440)
+	self:AddRecipeFlags(94711, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.ROGUE)
+	self:AddRecipeAcquire(94711, A.CUSTOM, 40)
+	
 	-- Glyph of the Treant -- 95215
 	AddRecipe(95215, 155, 68039, Q.COMMON, V.WOTLK, 155, 155, 160, 165)
 	self:AddRecipeFlags(95215, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
