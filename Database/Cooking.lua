@@ -909,67 +909,68 @@ function addon:InitCooking()
 	self:AddRecipeFlags(65454, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(65454, A.SEASONAL, 6)
 	
-	--[[-----------------------------------------------------------------------------------------------------------------
+	------------------------------------------------------------------------------------------------------------------
 	-- CATACLYSM RECIPES
 	---------------------------------------------------------------------------------------------------------------------
 	
 	-- Whitecrest Gumbo -- 88047
-	AddRecipe(88047, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88047)
-	self:AddRecipeAcquire(88047)
+	AddRecipe(88047, 450, 62656, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88047, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88047, 49701, 49737)
 	
 	-- Lavascale Filet -- 88024
-	AddRecipe(88024, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88024)
-	self:AddRecipeAcquire(88024)
+	AddRecipe(88024, 450, 62654, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88024, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88024, 49701, 49737)
 	
-	-- Feathered Lure -- 87646
-	AddRecipe(87646)
-	self:AddRecipeFlags(87646)
-	self:AddRecipeAcquire(87646)
+	-- -- Feathered Lure -- 87646
+	-- AddRecipe(87646)
+	-- self:AddRecipeFlags(87646)
+	-- self:AddRecipeVendor(87646, 49701, 49737)
 	
 	-- Lavascale Minestrone -- 88025
-	AddRecipe(88025, 450, , , , 450, 515, 520, 525)
-	self:AddRecipeFlags(88025)
-	self:AddRecipeAcquire(88025)
+	AddRecipe(88025, 450, 62663, Q.UNCOMMON, V.CATA, 450, 515, 520, 525)
+	self:AddRecipeFlags(88025, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88025, 49701, 49737)
 	
 	-- Salted Eye -- 88035
-	AddRecipe(88035, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88035)
-	self:AddRecipeAcquire(88035)
+	AddRecipe(88035, 450, 62653, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88035, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88035, 49701, 49737)
 	
 	-- Broiled Mountain Trout -- 88012
-	AddRecipe(88012, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88012)
-	self:AddRecipeAcquire(88012)
+	AddRecipe(88012, 450, 62655, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88012, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88012, 49701, 49737)
 	
 	-- Lightly Fried Lurker -- 88028
-	AddRecipe(88028, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88028)
-	self:AddRecipeAcquire(88028)
+	AddRecipe(88028, 450, 62651, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88028, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88028, 49701, 49737)
 	
 	-- Seasoned Crab -- 88037
-	AddRecipe(88037, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88037)
-	self:AddRecipeAcquire(88037)
+	AddRecipe(88037, 450, 62652, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88037, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88037, 49701, 49737)
 	
 	-- Starfire Espresso -- 88045
-	AddRecipe(88045, 450, , , , 450, 455, 460, 465)
-	self:AddRecipeFlags(88045)
-	self:AddRecipeAcquire(88045)
+	AddRecipe(88045, 450, 62675, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
+	self:AddRecipeFlags(88045, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88045, 49701, 49737)
 	
 	-- Highland Spirits -- 88022
-	AddRecipe(88022, 450, , , , 450, 455, 460, 465)
-	self:AddRecipeFlags(88022)
-	self:AddRecipeAcquire(88022)
+	AddRecipe(88022, 450, 62674, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
+	self:AddRecipeFlags(88022, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88022, 49701, 49737)
 	
 	-- Lurker Lunch -- 88030
-	AddRecipe(88030, 450, , , , 450, 465, 477, 490)
-	self:AddRecipeFlags(88030)
-	self:AddRecipeAcquire(88030)
+	AddRecipe(88030, 450, 62657, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	self:AddRecipeFlags(88030, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88030, 49701, 49737)
 	
+	--[[
 	-- Blackened Surprise -- 88006 -- don't see it on trainer
-	AddRecipe(88006, 425, Q.COMMON, V.CATA, 425, 450, 457, 465)
+	AddRecipe(88006, 425, , Q.COMMON, V.CATA, 425, 450, 457, 465)
 	self:AddRecipeFlags(88006, F.HORDE, F.TRAINER, F.IBOE)
 	self:AddRecipeTrainer(88006, 46709)
 	
@@ -978,12 +979,106 @@ function addon:InitCooking()
 	self:AddRecipeFlags()
 	self:AddRecipeAcquire()
 	
+	-- Hearty Seafood Soup -- 88021
+	AddRecipe(88021, 475, 62659, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	self:AddRecipeFlags(88021, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88021, 49701, 49737)
+	
+	-- Pickled Guppy -- 88033
+	AddRecipe(88033, 475, 62660, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	self:AddRecipeFlags(88033, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88033, 49701, 49737)
+	
+	-- Tender Baked Turtle -- 88046
+	AddRecipe(88046, 475, 62658, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	self:AddRecipeFlags(88046, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88046, 49701, 49737)
+	
+	-- Broiled Dragon Feast
+	AddRecipe()
+	self:AddRecipeFlags()
+	
+	
+	-- Fish Fry
+	AddRecipe()
+	self:AddRecipeFlags()
+	
+	
+	-- Baked Rockfish -- 88003
+	AddRecipe(88003, 500, 62661, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88003, 49701, 49737)
+	
+	-- Basilisk Liverdog -- 88004
+	AddRecipe(88004, 500, 62665, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88004, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88004, 49701, 49737)
+	
+	-- Beer-Basted Crocolisk -- 88005
+	AddRecipe(88005, 500, 62670, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88005, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88005, 49701, 49737)
+	
+	-- Blackbelly Sushi -- 88034
+	AddRecipe(88034, 500, 62668, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88034, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88034, 49701, 49737)
+	
+	-- Crocolisk Au Gratin -- 88014
+	AddRecipe(88014, 500, 62664, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88014, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88014, 49701, 49737)
+	
+	-- Delicious Sagefish Tail -- 88016
+	AddRecipe(88016, 500, 62666, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88016, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88016, 49701, 49737)
+	
+	-- Grilled Dragon -- 88020
+	AddRecipe(88020, 500, 62662, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88020, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88020, 49701, 49737)
+	
+	-- Mushroom Sauce Mudfish -- 88031
+	AddRecipe(88031, 500, 62667, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88031, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88031, 49701, 49737)
+	
+	-- Severed Sagefish Head -- 88039
+	AddRecipe(88039, 500, 62671, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88039, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88039, 49701, 49737)
+	
+	-- Skewered Eeel -- 88042
+	AddRecipe(88042, 500, 62669, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	self:AddRecipeFlags(88042, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88042, 49701, 49737)
+	
+	-- Chocolate Cookie -- 88013
+	AddRecipe(88013, 505, 62680, Q.UNCOMMON, V.CATA, 505, 510, 512, 515)
+	self:AddRecipeFlags(88013, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88013, 49701, 49737)
+	
+	-- Fortune Cookie
+	AddRecipe()
+	self:AddRecipeFlags()
+	
+	
+	-- Seafood Magnifique Feast
+	AddRecipe()
+	self:AddRecipeFlags()
+	
+	
+	-- South Island Iced Tea
+	AddRecipe()
+	self:AddRecipeFlags()	
+	
+	
 ]]--
 	-- Venison Jerky -- 93741
 	AddRecipe(93741, 40, 67230, Q.COMMON, V.CATA, 40, 80, 100, 120)
 	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
 	self:AddRecipeTrainer(93741, 3399)
-
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
