@@ -2145,17 +2145,17 @@ function addon:InitInscription()
 	self:AddRecipeVendor(71102, 28723)
 	
 	-- Glyph of Colossus Smash -- 89815
-	AddRecipe(89815, 430, 63481, Q.COMMON, V.WOTLK, 430, 430, 435, 440)
+	AddRecipe(89815, 430, 63481, Q.COMMON, V.CATA, 430, 430, 435, 440)
 	self:AddRecipeFlags(89815, F.VENDOR, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeAcquire(89815, A.CUSTOM, 40)
 
 	-- Vanishing Powder -- 92026
-	AddRecipe(92026, 75, 64670, Q.COMMON, V.WOTLK, 75, 90, 100, 110)
+	AddRecipe(92026, 75, 64670, Q.COMMON, V.CATA, 75, 90, 100, 110)
 	self:AddRecipeFlags(92026, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(92026, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Blind -- 92579
-	AddRecipe(92579, 180, 64493, Q.COMMON, V.WOTLK, 180, 185, 190, 195)
+	AddRecipe(92579, 180, 64493, Q.COMMON, V.CATA, 180, 185, 190, 195)
 	self:AddRecipeFlags(92579, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.ROGUE)
 	self:AddRecipeTrainer(92579, 30706, 30713, 30717, 28702)
 
@@ -2165,32 +2165,32 @@ function addon:InitInscription()
 	self:AddRecipeAcquire(94000, A.CUSTOM, 15)
 
 	-- Glyph of Tiger's Fury -- 94401
-	AddRecipe(94401, 120, 67487, Q.COMMON, V.WOTLK, 120, 125, 130, 135)
+	AddRecipe(94401, 120, 67487, Q.COMMON, V.CATA, 120, 125, 130, 135)
 	self:AddRecipeFlags(94401, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
 	self:AddRecipeTrainer(94401, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Lacerate -- 94402
-	AddRecipe(94402, 330, 67484, Q.COMMON, V.WOTLK, 330, 335, 340, 345)
+	AddRecipe(94402, 330, 67484, Q.COMMON, V.CATA, 330, 335, 340, 345)
 	self:AddRecipeFlags(94402, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
 	self:AddRecipeTrainer(94402, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Faerie Fire -- 94403
-	AddRecipe(94403, 120, 67485, Q.COMMON, V.WOTLK, 120, 125, 130, 135)
+	AddRecipe(94403, 120, 67485, Q.COMMON, V.CATA, 120, 125, 130, 135)
 	self:AddRecipeFlags(94403, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
 	self:AddRecipeTrainer(94403, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Feral Charge -- 94404
-	AddRecipe(94404, 150, 67486, Q.COMMON, V.WOTLK, 150, 155, 160, 165)
+	AddRecipe(94404, 150, 67486, Q.COMMON, V.CATA, 150, 155, 160, 165)
 	self:AddRecipeFlags(94404, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
 	self:AddRecipeTrainer(94404, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Death Wish -- 94405
-	AddRecipe(94405, 150, 67483, Q.COMMON, V.WOTLK, 150, 155, 160, 165)
+	AddRecipe(94405, 150, 67483, Q.COMMON, V.CATA, 150, 155, 160, 165)
 	self:AddRecipeFlags(94405, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94405, 30706, 30713, 30717, 28702)
 
 	-- Glyph of Intercept -- 94406
-	AddRecipe(94406, 250, 67482, Q.COMMON, V.WOTLK, 250, 255, 260, 265)
+	AddRecipe(94406, 250, 67482, Q.COMMON, V.CATA, 250, 255, 260, 265)
 	self:AddRecipeFlags(94406, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94406, 30706, 30713, 30717, 28702)
 	
@@ -2200,17 +2200,17 @@ function addon:InitInscription()
 	self:AddRecipeAcquire(94711, A.CUSTOM, 40)
 	
 	-- Glyph of the Treant -- 95215
-	AddRecipe(95215, 155, 68039, Q.COMMON, V.WOTLK, 155, 155, 160, 165)
+	AddRecipe(95215, 155, 68039, Q.COMMON, V.CATA, 155, 155, 160, 165)
 	self:AddRecipeFlags(95215, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
 	self:AddRecipeAcquire(95215, A.CUSTOM, 14)
 
 	-- Glyph of Armors -- 95710
-	AddRecipe(95710, 155, 63416, Q.COMMON, V.WOTLK, 155, 155, 160, 165)
+	AddRecipe(95710, 155, 63416, Q.COMMON, V.CATA, 155, 155, 160, 165)
 	self:AddRecipeFlags(95710, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
 	self:AddRecipeAcquire(95710, A.CUSTOM, 14)	
 	
 	-- Glyph of the Long Word -- 95825
-	AddRecipe(95825, 390, 66918, Q.COMMON, V.WOTLK, 390, 390, 397, 405)
+	AddRecipe(95825, 390, 66918, Q.COMMON, V.CATA, 390, 390, 397, 405)
 	self:AddRecipeFlags(95825, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.PALADIN)
 	self:AddRecipeAcquire(95825, A.CUSTOM, 15)	
 	
