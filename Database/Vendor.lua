@@ -404,4 +404,6 @@ function addon:InitVendor(DB)
 	AddVendor(34079,	L["Captain O'Neal"],			BZ["Stormwind City"],		75.7, 66.6, ALLIANCE)
 	AddVendor(37687,	L["Alchemist Finklestein"],		BZ["Icecrown Citadel"],		   0,	 0, NEUTRAL)
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],			41.0, 28.5, NEUTRAL)
+	AddVendor(49701,	L["Bario Matalli"],				BZ["Stormwind City"], 	50.9, 71.4, ALLIANCE)
+	AddVendor(49737,	L["Shazdar"],					BZ["Orgrimmar"],		57.2, 62.0, HORDE)
 end
