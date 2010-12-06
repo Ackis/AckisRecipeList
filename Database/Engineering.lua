@@ -1,4 +1,4 @@
---[[
+﻿--[[
 ************************************************************************
 Engineering.lua
 Engineering data for all of Ackis Recipe List
@@ -1449,11 +1449,6 @@ function addon:InitEngineering()
 	AddRecipe(63750, 250, 45631, Q.COMMON, V.WOTLK, 250, 270, 280, 290)
 	self:AddRecipeFlags(63750, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TRINKET)
 	self:AddRecipeTrainer(63750, 11017, 11025, 17634, 3494, 1702, 25277, 17637, 1676, 26907, 33634, 26955, 16726, 5518, 11037, 33611, 8736, 16667, 3290, 26991, 11031, 28697, 5174, 33586, 17222)
-
-	-- Springy Arachnoweave -- 63765
-	AddRecipe(63765, 380, nil, Q.COMMON, V.WOTLK, 380, 380, 382, 385)
-	self:AddRecipeFlags(63765, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(63765, 26907, 25277, 26991, 28697, 26955, 33586)
 
 	-- Reticulated Armor Webbing -- 63770
 	AddRecipe(63770, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 402, 405)
