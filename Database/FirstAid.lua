@@ -135,27 +135,20 @@ function addon:InitFirstAid()
 	self:AddRecipeFlags(45546, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeWorldDrop(45546, "Northrend")
 
-	--[[--------------------------------------------------------------------------------------
-	-- CATACLYSM RECIPES  --- theres some weird upgrade shit.
-	--------------------------------------------------------------------------------------
-	
 	-- Embersilk Bandage -- 74556
 	AddRecipe(74556, 425, 34722, Q.COMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(74556, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(74556, 28706)
-	
+
 	-- Heavy Embersilk Bandage -- 74557
 	AddRecipe(74557, 475, 53050, Q.COMMON, V.CATA, 475, 485, 505, 525)
 	self:AddRecipeFlags(74557, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(74557, 28706)
-	
+
 	-- Dense Embersilk Bandage -- 74558
 	AddRecipe(74558, 525, 53051, Q.COMMON, V.CATA, 525, 525, 530, 535)
 	self:AddRecipeFlags(74558, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(74558, 28706)
-	
-	----------------------------------------------------------------------------------------
-	]]--
-	
+
 	return num_recipes
 end
