@@ -1377,12 +1377,12 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- Cataclysm Rep Options
 		------------------------------------------------------------------------------------------------
-		["catacommon1"]		= { cb = expansion2.catacommon1,		svroot = nil },
-		["catacommon2"]		= { cb = expansion2.catacommon2,		svroot = nil },
-		["guardiansofhyjal"]	= { cb = expansion2.guardiansofhyjal,		svroot = nil },
-		["ramkahen"]		= { cb = expansion2.ramkahen,			svroot = nil },
-		["earthenring"]		= { cb = expansion2.earthenring,		svroot = nil },
-		["therazane"]		= { cb = expansion2.therazane,			svroot = nil },
+		["catacommon1"]		= { cb = expansion3.catacommon1,		svroot = nil },
+		["catacommon2"]		= { cb = expansion3.catacommon2,		svroot = nil },
+		["guardiansofhyjal"]	= { cb = expansion3.guardiansofhyjal,		svroot = nil },
+		["ramkahen"]		= { cb = expansion3.ramkahen,			svroot = nil },
+		["earthenring"]		= { cb = expansion3.earthenring,		svroot = nil },
+		["therazane"]		= { cb = expansion3.therazane,			svroot = nil },
 	}
 	private.InitializeFilterPanel = nil
 end
