@@ -355,6 +355,7 @@ function addon:OnInitialize()
 					expansion0 = true,
 					expansion1 = true,
 					expansion2 = true,
+					expansion3 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Item Filters (Armor/Weapon)
