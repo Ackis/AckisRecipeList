@@ -121,7 +121,7 @@ private.filter_flags = {
 	["ALLIANCE"]		= 1,		["HORDE"]	= 2,		["TRAINER"]	= 3,		["VENDOR"]	= 4,
 	["INSTANCE"]		= 5,		["RAID"]	= 6,		["SEASONAL"]	= 7,		["QUEST"]	= 8,
 	["PVP"]			= 9,		["WORLD_DROP"]	= 10,		["MOB_DROP"]	= 11,		["DISC"]	= 12,
-	["RETIRED"]		= 13,		["RESERVED_14"]	= 14,		["RESERVED_15"]	= 15,		["RESERVED_16"]	= 16,
+	["RETIRED"]		= 13,		["ACHIEVEMENT"]	= 14,		["RESERVED_15"]	= 15,		["RESERVED_16"]	= 16,
 	["RESERVED_17"]		= 17,		["RESERVED_18"]	= 18,		["RESERVED_19"]	= 19,		["RESERVED_20"]	= 20,
 	["DK"]			= 21,		["DRUID"]	= 22,		["HUNTER"]	= 23,		["MAGE"]	= 24,
 	["PALADIN"]		= 25,		["PRIEST"]	= 26,		["SHAMAN"]	= 27,		["ROGUE"]	= 28,
@@ -158,7 +158,7 @@ private.filter_strings = {
 	[1]	= "ALLIANCE",		[2]	= "HORDE",		[3]	= "TRAINER",		[4]	= "VENDOR",
 	[5]	= "INSTANCE",		[6]	= "RAID",		[7]	= "SEASONAL",		[8]	= "QUEST",
 	[9]	= "PVP",		[10]	= "WORLD_DROP",		[11]	= "MOB_DROP",		[12]	= "DISC",
-	[13]	= "RETIRED",		[14]	= "RESERVED_14",	[15]	= "RESERVED_15",	[16]	= "RESERVED_16",
+	[13]	= "RETIRED",		[14]	= "ACHIEVEMENT",	[15]	= "RESERVED_15",	[16]	= "RESERVED_16",
 	[17]	= "RESERVED_17",	[18]	= "RESERVED_18",	[19]	= "RESERVED_19",	[20]	= "RESERVED_20",
 	[21]	= "DK",			[22]	= "DRUID",		[23]	= "HUNTER",		[24]	= "MAGE",
 	[25]	= "PALADIN",		[26]	= "PRIEST",		[27]	= "SHAMAN",		[28]	= "ROGUE",
@@ -218,6 +218,7 @@ private.common_flags_word1 = {
 	TANK		= 0x00100000,	-- 21
 	HEALER		= 0x00200000,	-- 22
 	CASTER		= 0x00400000,	-- 23
+	ACHIEVEMENT	= 0x00800000,	-- 24
 }
 
 -------------------------------------------------------------------------------
@@ -358,7 +359,8 @@ private.acquire_types = {
 	["SEASONAL"]	= 5,
 	["REPUTATION"]	= 6,
 	["WORLD_DROP"]	= 7,
-	["CUSTOM"]	= 8,
+	["ACHIEVEMENT"]	= 8,
+	["CUSTOM"]	= 9,
 }
 
 private.acquire_strings = {
@@ -369,7 +371,8 @@ private.acquire_strings = {
 	[5]	= "SEASONAL",
 	[6]	= "REPUTATION",
 	[7]	= "WORLD_DROP",
-	[8]	= "CUSTOM",
+	[8]	= "ACHIEVEMENT",
+	[9]	= "CUSTOM",
 }
 
 private.acquire_names = {
@@ -380,7 +383,8 @@ private.acquire_names = {
 	[5]	= _G.GetCategoryInfo(155),
 	[6]	= _G.REPUTATION,
 	[7]	= L["World Drop"],
-	[8]	= _G.MISCELLANEOUS,
+	[8]	= _G.ACHIEVEMENTS,
+	[9]	= _G.MISCELLANEOUS,
 }
 
 -------------------------------------------------------------------------------
@@ -532,6 +536,7 @@ private.basic_colors = {
 -- Colors used in tooltips and the recipe list.
 private.category_colors = {
 	-- Acquire type colors
+	["achievement"]	= "faeb98",
 	["custom"]	= "73b7ff",
 	["mobdrop"]	= "962626",
 	["quest"]	= "dbdb2c",

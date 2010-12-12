@@ -444,10 +444,11 @@ function private.InitializeFilterPanel()
 			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 4, col = 2 },
 			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 1 },
 			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 5, col = 2 },
-			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 7, col = 1 },
-			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 8, col = 1 },
-			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 9, col = 1 },
-			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 10, col = 1 },
+			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,			        row = 6, col = 1 },
+			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 8, col = 1 },
+			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 9, col = 1 },
+			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 10, col = 1 },
+			["expansion3"]	= { tt = L["CATA_WOW_DESC"],		text = _G.EXPANSION_NAME3,			row = 11, col = 1 },
 		}
 		GenerateCheckBoxes(obtain_frame, obtain_buttons)
 		obtain_buttons = nil
@@ -1277,6 +1278,7 @@ function private.InitializeFilterPanel()
 		["discovery"]		= { cb = FilterPanel.obtain.discovery,		svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
 		["mobdrop"]		= { cb = FilterPanel.obtain.mobdrop,		svroot = filterdb.obtain },
+		["achievement"]		= { cb = FilterPanel.obtain.achievement,	svroot = filterdb.obtain },
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },

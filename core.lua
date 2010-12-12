@@ -352,6 +352,7 @@ function addon:OnInitialize()
 					discovery = true,
 					worlddrop = true,
 					mobdrop = true,
+					achievement = true,
 					expansion0 = true,
 					expansion1 = true,
 					expansion2 = true,
@@ -1285,12 +1286,16 @@ do
 				addon:Debug("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
 			else
 				if not unit_list then
-					location = type(id_num) == "string" and BZ[id_num] or nil
+					local id_type = type(id_num)
+
+					location = id_type == "string" and BZ[id_num] or nil
 
 					if location then
 						affiliation = "world_drop"
 					else
-						addon:Debug("WORLD_DROP with no location: %d %s", spell_id, private.recipe_list[spell_id].name)
+						if id_type == "string" then
+							addon:Debug("WORLD_DROP with no location: %d %s", spell_id, private.recipe_list[spell_id].name)
+						end
 					end
 				else
 					local unit = unit_list[id_num]
@@ -1340,6 +1345,10 @@ do
 
 	function addon:AddRecipeQuest(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.QUEST, "Quest", private.quest_list, ...)
+	end
+
+	function addon:AddRecipeAchievement(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.ACHIEVEMENT, "Achievement", nil, ...)
 	end
 
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.

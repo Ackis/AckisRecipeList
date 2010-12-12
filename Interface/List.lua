@@ -503,6 +503,7 @@ function private.InitializeListFrame()
 			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	index = 1,	sv_root = obtain_filters },
 			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	index = 1,	sv_root = obtain_filters },
 			["discovery"]	= { flag = COMMON1.DISC,	index = 1,	sv_root = obtain_filters },
+			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	index = 1,	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.rep_flags_word1
@@ -1263,6 +1264,18 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
 	end
 
+	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+		local _, achievement_name = GetAchievementInfo(id_num)
+		local t = AcquireTable()
+
+		t.text = string.format("%s%s %s", PADDING,
+				       hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS)..":",
+				       SetTextColor(BASIC_COLORS["normal"], achievement_name))
+		t.recipe_id = recipe_id
+
+		return ListFrame:InsertEntry(t, parent_entry, entry_index, entry_type, true)
+	end
+
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 
@@ -1295,6 +1308,8 @@ function private.InitializeListFrame()
 					func = ExpandCustomData
 				end
 				--@alpha@
+			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
+				func = ExpandAchievementData
 			elseif acquire_type > A_MAX then
 				local t = AcquireTable()
 
@@ -1346,7 +1361,7 @@ function private.InitializeListFrame()
 						local expand = false
 						local type = "subheader"
 
-						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM then
+						if acquire_id == A.WORLD_DROP or acquire_id == A.CUSTOM or acquire_id == A.ACHIEVEMENT then
 							expand = true
 							type = "entry"
 						end
@@ -1736,6 +1751,17 @@ do
 		end
 	end
 
+	local function Tooltip_AddAchievement(recipe_id, id_num, addline_func)
+		local recipe = private.recipe_list[recipe_id]
+		local _, achievement_name, _, _, _, _, _, achievement_desc = GetAchievementInfo(id_num)
+
+		-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
+		if recipe:IsFlagged("common1", "ACHIEVEMENT") then
+			addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
+		end
+		addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["custom"])
+	end
+
 	-------------------------------------------------------------------------------
 	-- Public API function for displaying a recipe's acquire data.
 	-- * The addline_func paramater must be a function which accepts the same
@@ -1775,6 +1801,8 @@ do
 					elseif acquire_type == A.CUSTOM then
 						addline_func(0, -1, false, private.custom_list[id_num].name, CATEGORY_COLORS["custom"])
 						--@alpha@
+					elseif acquire_type == A.ACHIEVEMENT then
+						Tooltip_AddAchievement(recipe_id, id_num, addline_func)
 					elseif can_display then
 						-- Unhandled
 						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
@@ -1923,7 +1951,7 @@ do
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], color_1)
 			ttAdd(0, -1, 0, L["SHIFT_CLICK"], color_1)
 
-			if acquire_id ~= A.WORLD_DROP and acquire_id ~= A.CUSTOM and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+			if acquire_id ~= A.WORLD_DROP and acquire_id ~= A.CUSTOM and acquire_id ~= A.ACHIEVEMENT and (_G.TomTom or _G.Cartographer_Waypoints) and (addon.db.profile.worldmap or addon.db.profile.minimap) then
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], color_1)
 			end
 		end

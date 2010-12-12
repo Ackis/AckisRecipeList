@@ -269,6 +269,7 @@ L["World Drop"]				= true
 L["WORLD_DROP_DESC"]			= "Recipes that are World Drops should be included in the scan."
 L["Mob Drop"]				= true
 L["MOB_DROP_DESC"]			= "Recipes that are Mob Drops should be included in the scan."
+L["ACHIEVEMENT_DESC"]			= "Recipes obtained via Achievements should be included in the scan."
 
 -------------------------------------------------------------------------------
 -- Binding Filter UI Elements and their associated descriptions
