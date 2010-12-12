@@ -984,10 +984,11 @@ function addon:InitCooking()
 	self:AddRecipeFlags(88046, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(88046, 49701, 49737)
 
-	-- -- Broiled Dragon Feast -- 88011 -- ACHIEVEMENT
-	-- AddRecipe(88011, 500, 62289, Q.RARE, V.CATA, 500, 500, 500, 525)
-	-- self:AddRecipeFlags(88011, F.ALLIANCE, F.HORDE)
-
+	-- Broiled Dragon Feast -- 88011
+	AddRecipe(88011, 500, 62289, Q.RARE, V.CATA, 500, 500, 500, 525)
+	self:AddRecipeFlags(88011, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
+	self:AddRecipeAchievement(88011, 5467)
+	
 	-- Fish Fry -- 88018
 	AddRecipe(88018, 500, 62677, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
 	self:AddRecipeFlags(88018, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
@@ -1053,9 +1054,9 @@ function addon:InitCooking()
 	self:AddRecipeFlags(88019, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(88019, 49701, 49737)
 
-	-- Seafood Magnifique Feast -- ACHIEVEMENT
-	AddRecipe(88036, 525, 62800, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(88036, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	-- Seafood Magnifique Feast -- 88036
+	AddRecipe(88036, 525, 62290, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(88036, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
 	self:AddRecipeAchievement(88036, 5036)
 
 	-- South Island Iced Tea -- 88044
