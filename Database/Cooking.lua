@@ -1053,9 +1053,10 @@ function addon:InitCooking()
 	self:AddRecipeFlags(88019, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(88019, 49701, 49737)
 
-	-- -- Seafood Magnifique Feast -- ACHIEVEMENT
-	-- AddRecipe()
-	-- self:AddRecipeFlags()
+	-- Seafood Magnifique Feast -- ACHIEVEMENT
+	AddRecipe(88036, 525, 62800, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(88036, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	self:AddRecipeAchievement(88036, 5036)
 
 	-- South Island Iced Tea -- 88044
 	AddRecipe(88044, 525, 62672, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
