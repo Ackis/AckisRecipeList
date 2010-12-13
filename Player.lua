@@ -101,7 +101,8 @@ end
 do
 	local known_professions = {
 		["prof1"]	= false,
-		["prof2"]	= false,		
+		["prof2"]	= false,
+		--["archaeology"]	= false,		-- return value for GetProfessions(), it's just not used in arl
 		["fishing"]	= false,
 		["cooking"]	= false,
 		["firstaid"]	= false,
