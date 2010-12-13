@@ -1314,5 +1314,220 @@ function addon:InitAlchemy()
 	self:AddRecipeFlags(67025, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS)
 	self:AddRecipeTrainer(67025, 26951, 26903, 28703, 26975, 26987, 33588)
 
+	-- Draught of War -- 93935
+	AddRecipe(93935, 425, 67415, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self: AddRecipeFlags(93935, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(93935, 4160, 5499, 28703, 5177, 3347)
+
+	-- Earthen Potion -- 80478
+	AddRecipe(80478, 450, 58090, Q.COMMON, V.CATA, 450, 455, 460, 465)
+	self: AddRecipeFlags(80478, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80478, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Ghost Elixir -- 80477
+	AddRecipe(80477, 450, 58084, Q.COMMON, V.CATA, 450, 455, 460, 465)
+	self: AddRecipeFlags(80477, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80477, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Deathblood Venom -- 80479
+	AddRecipe(80479, 455, 58142, Q.COMMON, V.CATA, 455, 460, 465, 470)
+	self: AddRecipeFlags(80479, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80479, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of the Naga -- 80480
+	AddRecipe(80480, 455, 58089, Q.COMMON, V.CATA, 455, 460, 465, 470)
+	self: AddRecipeFlags(80480, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80480, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Volcanic Potion -- 80481
+	AddRecipe(80481, 460, 58091, Q.COMMON, V.CATA, 460, 465, 470, 475)
+	self: AddRecipeFlags(80481, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80481, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Potion of Illusion -- 80269
+	AddRecipe(80269, 460, 58489, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	self:AddRecipeFlags(80269, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80269, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of the Cobra -- 80484
+	AddRecipe(80484, 465, 58092, Q.COMMON, V.CATA, 465, 470, 475, 480)
+	self:AddRecipeFlags(80484, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80484, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Potion of Concentration -- 80482
+	AddRecipe(80482, 465, 57194, Q.COMMON, V.CATA, 465, 470, 475, 480)
+	self: AddRecipeFlags(80482, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80482, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Deepstone Oil -- 80486
+	AddRecipe(80486, 470, 56850, Q.COMMON, V.CATA, 470, 475, 480, 485)
+	self:AddRecipeFlags(80486, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80486, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Mysterious Potion -- 80487
+	AddRecipe(80487, 470, 57099, Q.COMMON, V.CATA, 470, 475, 480, 485)
+	self: AddRecipeFlags(80487, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80487, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of Deep Earth -- 80488
+	AddRecipe(80488, 475, 58093, Q.COMMON, V.CATA, 475, 480, 485, 490)
+	self: AddRecipeFlags(80488, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80488, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Mighty Rejuvenation Potion -- 80490
+	AddRecipe(80490, 475, 57193, Q.COMMON, V.CATA, 475, 480, 485, 490)
+	self: AddRecipeFlags(80490, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80490, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of Impossible Accuracy -- 80491
+	AddRecipe(80491, 480, 58094, Q.COMMON, V.CATA, 480, 485, 490, 495)
+	self: AddRecipeFlags(80491, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80491, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Prismatic Elixir -- 80492
+	AddRecipe(80492, 480, 58143, Q.COMMON, V.CATA, 480, 485, 490, 495)
+	self: AddRecipeFlags(80492, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80492, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Mythical Mana Potion -- 80494
+	AddRecipe(80494, 485, 57192, Q.COMMON, V.CATA, 485, 490, 495, 500)
+	self: AddRecipeFlags(80494, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80494, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Potion of the Tol'vir -- 80495
+	AddRecipe(80495, 485, 58145, Q.COMMON, V.CATA, 485, 490, 495, 500)
+	self:AddRecipeFlags(80495, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80495, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Living Elements -- 78866
+	AddRecipe(78866, 485, nil, Q.COMMON, V.CATA, 485, 510, 515, 520)
+	self: AddRecipeFlags(78866, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78866, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of Mighty Speed -- 80493
+	AddRecipe(80493, 490, 58144, Q.COMMON, V.CATA, 490, 495, 500, 505)
+	self: AddRecipeFlags(80493, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80493, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Golemblood Potion -- 80496
+	AddRecipe(80496, 490, 58146, Q.COMMON, V.CATA, 490, 495, 500, 505)
+	self: AddRecipeFlags(80496, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80496, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Elixir of the Master -- 80497
+	AddRecipe(80497, 495, 58148, Q.COMMON, V.CATA, 495, 500, 505, 510)
+	self: AddRecipeFlags(80497, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80497, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Mystical Healing Potion -- 80498
+	AddRecipe(80498, 495, 57191, Q.COMMON, V.CATA, 495, 500, 505, 510)
+	self: AddRecipeFlags(80498, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80498, 4160, 5499, 28703, 5177, 3347)
+
+	-- Flask of Enhancement -- 80724
+	AddRecipe(80724, 500, 58149, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self: AddRecipeFlags(80724, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80724, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Flask of Flowing Water -- 94162
+	AddRecipe(94162, 500, 67438, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self: AddRecipeFlags(94162, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(94162, 4160, 5499, 28703, 5177, 3347)
+
+	-- Flask of Steelskin -- 80719
+	AddRecipe(80719, 500, 58085, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self: AddRecipeFlags(80719, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80719, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Lifebound Alchemist Stone -- 80508
+	AddRecipe(80508, 500, 58483, Q.COMMON, V.CATA, 500, 510, 512, 515)
+	self: AddRecipeFlags(80508, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80508, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Dream Emerald -- 80251
+	AddRecipe(80251, 505, 52192, Q.COMMON, V.CATA, 505, 510, 515, 520)
+	self: AddRecipeFlags(80251, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80251, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Flask of the Draconic Mind -- 80720
+	AddRecipe(80720, 505, 58086, Q.COMMON, V.CATA, 505, 510, 515, 520)
+	self: AddRecipeFlags(80720, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80720, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Ember Topaz -- 80250
+	AddRecipe(80250, 510, 52193, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self: AddRecipeFlags(80250, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80250, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Flask of the Winds -- 80721
+	AddRecipe(80721, 510, 58087, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self: AddRecipeFlags(80721, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80721, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Flask of the Titanic Strength -- 80723
+	AddRecipe(80723, 510, 58088, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self: AddRecipeFlags(80723, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80723, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Demonseye -- 80248
+	AddRecipe(80248, 515, 52194, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self: AddRecipeFlags(80248, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80248, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Ocean Sapphire -- 80246
+	AddRecipe(80246, 515, 52191, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self: AddRecipeFlags(80246, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80246, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Amberjewel -- 80247
+	AddRecipe(80247, 520, 52195, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self: AddRecipeFlags(80247, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80247, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Pyrium Bar -- 80244
+	AddRecipe(80244, 520, 51950, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(80244, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80244, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Big Cauldron of Battle -- 92688
+	AddRecipe(92688, 525, 65460, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(92688, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
+	self:AddRecipeAchievement(92688, 5024)
+
+	-- Cauldron of Battle -- 92643
+	AddRecipe(92643, 525, 62288, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(92643, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
+	self:AddRecipeAchievement(92643, 5465)
+
+	-- Vial of the Sands -- 93328
+	AddRecipe(93328, 525, 65891, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(93328, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(93328, A.CUSTOM, 47)
+
+	-- Transmute: Inferno Ruby -- 80245
+	AddRecipe(80245, 525, 52190, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(80245, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80245, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Shadowspirit Diamond -- 80237
+	AddRecipe(80237, 525, 52303, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(80237, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80237, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Transmute: Truegold -- 80243
+	AddRecipe(80243, 525, 58480, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(80243, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80243, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Potion of Deepholm -- 80725
+	AddRecipe(80725, 525, 58487, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(80725, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80725, 4160, 4611, 5499, 28703, 5177, 3347)
+
+	-- Potion of Treasure Finding -- 80726
+	AddRecipe(80726, 525, 58488, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(80726, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(80726, 4160, 5499, 28703, 5177, 3347)
+
 	return num_recipes
 end
