@@ -101,8 +101,7 @@ end
 do
 	local known_professions = {
 		["prof1"]	= false,
-		["prof2"]	= false,
-		["archaeology"]	= false,
+		["prof2"]	= false,		
 		["fishing"]	= false,
 		["cooking"]	= false,
 		["firstaid"]	= false,
