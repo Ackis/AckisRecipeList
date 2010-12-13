@@ -42,7 +42,7 @@ private.professions = {
 	["Runeforging"]		= private.runeforging_name,
 	["Smelting"]		= GetSpellInfo(2656),
 	["Tailoring"]		= GetSpellInfo(51309),
-	["Archaeology"]		= GetSpellInfo(89727),
+	--["Archaeology"]		= GetSpellInfo(89727),
 }
 
 private.ordered_professions = {
@@ -58,7 +58,7 @@ private.ordered_professions = {
 	private.professions.Runeforging,	-- 10
 	private.professions.Smelting,		-- 11
 	private.professions.Tailoring,		-- 12
-	private.professions.Archaeology		-- 13
+	--private.professions.Archaeology		-- 13
 }
 
 private.profession_textures = {
