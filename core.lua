@@ -1538,6 +1538,7 @@ end
 do
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
+	local ARCH = GetSpellInfo(78670)
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
@@ -1550,6 +1551,9 @@ do
 		-- Bail if we haven't opened a tradeskill frame.
 		if current_prof == "UNKNOWN" then
 			self:Print(L["OpenTradeSkillWindow"])
+			return
+		-- Bail if we're looking at Archaeology
+		elseif current_prof == ARCH then
 			return
 		end
 
