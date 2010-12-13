@@ -69,6 +69,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 44, L["Custom44"])
 	self:addLookupList(DB, 45, L["Custom45"])
 	self:addLookupList(DB, 46, L["BUGGED"])
+	self:addLookupList(DB, 47, L["ARCH_DROP"])
 	
 --self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"])
 --[[
