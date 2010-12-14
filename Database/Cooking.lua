@@ -920,7 +920,7 @@ function addon:InitCooking()
 	self:AddRecipeVendor(88024, 49701, 49737)
 
 	-- Lavascale Minestrone -- 88025
-	AddRecipe(88025, 450, 62663, Q.UNCOMMON, V.CATA, 450, 515, 520, 525)
+	AddRecipe(88025, 500, 62663, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
 	self:AddRecipeFlags(88025, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(88025, 49701, 49737)
 
