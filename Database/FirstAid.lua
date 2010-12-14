@@ -145,10 +145,15 @@ function addon:InitFirstAid()
 	self:AddRecipeFlags(74557, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(74557, 28706)
 
-	-- Dense Embersilk Bandage -- 74558
+	-- Field Bandage: Dense Embersilk Bandage -- 74558
 	AddRecipe(74558, 525, 53051, Q.COMMON, V.CATA, 525, 525, 530, 535)
 	self:AddRecipeFlags(74558, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(74558, 28706)
+	
+	-- Dense Embersilk Bandage -- 88893
+	AddRecipe(88893, 525, 53051, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(88893, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(88893, 28706)
 
 	return num_recipes
 end
