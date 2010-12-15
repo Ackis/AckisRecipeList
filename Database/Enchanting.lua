@@ -1540,10 +1540,190 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(71692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
 	self:AddRecipeMobDrop(71692, 26343, 26336, 26344)
 
-	-- Enchant Gloves - Mighty Strength -- 74254
-	AddRecipe(74254, 525, 64415, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	self:AddRecipeFlags(74254, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
-	self:AddRecipeVendor(74254, 50134, 50146)
+	-- Enchant Boots - Earthen Vitality -- 74189
+	AddRecipe(74189, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74189, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74189, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Mighty Stats -- 74191
+	AddRecipe(74191, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74191, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74191, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Mastery -- 74132
+	AddRecipe(74132, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74132, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74132, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Speed -- 74193
+	AddRecipe(74193, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
+	self:AddRecipeFlags(74193, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74193, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Greater Spell Piercing -- 74192
+	AddRecipe(74192, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
+	self:AddRecipeFlags(74192, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74192, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Avalanche -- 74197
+	AddRecipe(74197, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
+	self:AddRecipeFlags(74197, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74197, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Mending -- 74195
+	AddRecipe(74195, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
+	self:AddRecipeFlags(74195, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74195, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Haste -- 74199
+	AddRecipe(74199, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
+	self:AddRecipeFlags(74199, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74199, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Haste -- 74198
+	AddRecipe(74198, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
+	self:AddRecipeFlags(74198, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74198, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Critical Strike -- 74201
+	AddRecipe(74201, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
+	self:AddRecipeFlags(74201, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74201, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Stamina -- 74200
+	AddRecipe(74200, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
+	self:AddRecipeFlags(74200, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74200, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Intellect -- 74202
+	AddRecipe(74202, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
+	self:AddRecipeFlags(74202, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74202, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Shield - Protection -- 74207
+	AddRecipe(74207, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
+	self:AddRecipeFlags(74207, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74207, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant 2H Weapon - Mighty Agility -- 95471
+	AddRecipe(95471, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(95471, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(95471, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Exceptional Strength -- 74212
+	AddRecipe(74212, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(74212, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74212, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Elemental Slayer -- 74211
+	AddRecipe(74211, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(74211, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74211, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Agility -- 74216
+	AddRecipe(74216, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74216, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74216, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Greater Stamina -- 74218
+	AddRecipe(74218, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74218, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74218, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Intellect -- 74217
+	AddRecipe(74217, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74217, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74217, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Strength -- 74215
+	AddRecipe(74215, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74215, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74215, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Major Agility -- 74213
+	AddRecipe(74213, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
+	self:AddRecipeFlags(74213, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74213, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Mighty Resilience -- 74214
+	AddRecipe(74214, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
+	self:AddRecipeFlags(74214, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74214, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Greater Expertise -- 74220
+	AddRecipe(74220, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
+	self:AddRecipeFlags(74220, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74220, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Hurricane -- 74223
+	AddRecipe(74223, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
+	self:AddRecipeFlags(74223, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74223, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Shield - Blocking -- 74226
+	AddRecipe(74226, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
+	self:AddRecipeFlags(74226, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74226, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Heartsong -- 74225
+	AddRecipe(74225, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
+	self:AddRecipeFlags(74225, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74225, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Dodge -- 74229
+	AddRecipe(74229, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
+	self:AddRecipeFlags(74229, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74229, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Critical Strike -- 74230
+	AddRecipe(74230, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
+	self:AddRecipeFlags(74230, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74230, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Precision -- 74232
+	AddRecipe(74232, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
+	self:AddRecipeFlags(74232, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74232, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Exceptional Spirit -- 74231
+	AddRecipe(74231, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
+	self:AddRecipeFlags(74231, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74231, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Protection -- 74234
+	AddRecipe(74234, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
+	self:AddRecipeFlags(74234, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74234, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Off-Hand - Superior Intellect -- 74235
+	AddRecipe(74235, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
+	self:AddRecipeFlags(74235, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74235, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Precision -- 74236
+	AddRecipe(74236, 505, nil, Q.COMMON, V.CATA, 505, 510, 512, 515)
+	self:AddRecipeFlags(74236, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74236, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Exceptional Spirit -- 74237
+	AddRecipe(74237, 505, nil, Q.COMMON, V.CATA, 505, 515, 525, 535)
+	self:AddRecipeFlags(74237, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74237, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Mastery -- 74238
+	AddRecipe(74238, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74238, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74238, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Greater Expertise -- 74239
+	AddRecipe(74239, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74239, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74239, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Greater Intellect -- 74240
+	AddRecipe(74240, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74240, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74240, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Runed Elementium Rod - 92370
 	AddRecipe(92370, 515, 65359, Q.COMMON, V.CATA, 515, 525, 525, 525)
@@ -1559,6 +1739,66 @@ function addon:InitEnchanting()
 	AddRecipe(93843, 525, 67312, Q.RARE, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(93843, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(93843, 50134)
+
+	-- Enchant Boots - Assassin's Step -- 74252
+	AddRecipe(74252, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74252, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74252, 50134, 50146)
+
+	-- Enchant Boots - Lavawalker -- 74253
+	AddRecipe(74253, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74253, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74253, 50134, 50146)
+
+	-- Enchant Bracer - Greater Critical Strike -- 74248
+	AddRecipe(74248, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74248, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74248, 50134, 50146)
+
+	-- Enchant Bracer - Greater Speed -- 74256
+	AddRecipe(74256, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74256, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74256, 50134, 50146)
+
+	-- Enchant Chest - Greater Stamina -- 74251
+	AddRecipe(74251, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74251, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74251, 50134, 50146)
+
+	-- Enchant Chest - Peerless Stats -- 74250
+	AddRecipe(74250, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74250, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74250, 50134, 50146)
+
+	-- Enchant Cloak - Greater Critical Strike -- 74247
+	AddRecipe(74247, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74247, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74247, 50134, 50146)
+
+	-- Enchant Gloves - Greater Mastery -- 74255
+	AddRecipe(74255, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74255, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74255, 50134, 50146)
+
+	-- Enchant Gloves - Mighty Strength -- 74254
+	AddRecipe(74254, 525, 64415, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74254, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74254, 50134, 50146)
+
+	-- Enchant Weapon - Landslide -- 74246
+	AddRecipe(74246, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74246, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74246, 50134, 50146)
+
+	-- Enchant Weapon - Power Torrent -- 74242
+	AddRecipe(74242, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74242, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74242, 50134, 50146)
+
+	-- Enchant Weapon - Windwalk -- 74244
+	AddRecipe(74244, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74244, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74244, 50134, 50146)
 
 	return num_recipes
 end
