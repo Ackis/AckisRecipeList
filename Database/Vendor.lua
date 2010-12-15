@@ -406,6 +406,6 @@ function addon:InitVendor(DB)
 	AddVendor(40160,	L["Frozo the Renowned"],		BZ["Dalaran"],			41.0, 28.5, NEUTRAL)
 	AddVendor(49701,	L["Bario Matalli"],			BZ["Stormwind City"], 		50.9, 71.4, ALLIANCE)
 	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],		57.2, 62.0, HORDE)
-	AddVendor(50134,	L["Senthii"],				BZ["Twilight Highlands"],	78.7, 77.0, HORDE)
+	AddVendor(50134,	L["Senthii"],				BZ["Twilight Highlands"],	78.7, 77.0, ALLIANCE)
 	AddVendor(50146,	L["Agatian Fallanos"],			BZ["Twilight Highlands"],	76.7, 49.5, HORDE)
 end
