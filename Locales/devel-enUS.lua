@@ -508,9 +508,11 @@ L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 L["Custom44"] = "You can train this recipe if you have earned the \"Loremaster of Northrend\" achievement"
 L["Custom45"] = "You can train this recipe if you have earned the \"Northrend Dungeonmaster\" achievement"
 L["LIMITED_SUPPLY"] = "Sold in limited quantity."
-L["BUGGED"] = "THIS RECIPE IS BUGGED CURRENTLY IN THE LATEST BUILD ON LIVE"
-L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology"
-L["REMOVED_FROM_GAME"] = "This recipe has been removed from the game"
+L["BUGGED"] = "THIS RECIPE IS BUGGED CURRENTLY IN THE LATEST BUILD ON LIVE."
+L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology."
+L["REMOVED_FROM_GAME"] = "This recipe has been removed from the game."
+L["VASHJ'IR_RANDOM_INSC"] = "This recipe drops from mobs in Vashj'ir."
+L["DEEPHOLM_RANDOM_INSC"] = "This recipe drops from mobs in Deepholm."
 
 -------------------------------------------------------------------------------
 -- Monster/Quest/Trainer/Vendor strings:
@@ -1134,6 +1136,7 @@ L["Neferatti"] = true
 L["Neii"] = true
 L["Nemiha"] = true
 L["Nergal"] = true
+L["Nerog"] = true
 L["Nerrist"] = true
 L["Nessa Shadowsong"] = true
 L["Nexus Stalker"] = true
