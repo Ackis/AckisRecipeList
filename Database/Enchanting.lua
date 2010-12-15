@@ -1540,5 +1540,15 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(71692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
 	self:AddRecipeMobDrop(71692, 26343, 26336, 26344)
 
+	-- Enchanted Lantern -- 93841
+	AddRecipe(93841, 525, 67308, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(93841, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(93841, 50146)
+
+	-- Magic Lamp -- 93843
+	AddRecipe(93843, 525, 67312, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(93843, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(93843, 50134)
+
 	return num_recipes
 end
