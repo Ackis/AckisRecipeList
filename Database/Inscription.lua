@@ -108,7 +108,7 @@ function addon:InitInscription()
 	self:AddRecipeFlags(50602, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
 	self:AddRecipeAcquire(50602, A.CUSTOM, 46)
 	self:AddRecipeTrainer(50602, 26995, 30716, 28702, 33603, 30706, 30722, 30709, 26977, 26959, 30721, 30711, 33615, 30717, 33679, 30713, 26916, 30710, 30715)
-	
+
 	-- Scroll of Intellect VII -- 50603
 	AddRecipe(50603, 360, 37091, Q.COMMON, V.WOTLK, 360, 365, 370, 375)
 	self:AddRecipeFlags(50603, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
@@ -377,7 +377,7 @@ function addon:InitInscription()
 	-- Glyph of Mage Armor -- 56984
 	AddRecipe(56984, 325, 42749, Q.COMMON, V.WOTLK, 325, 330, 335, 340)
 	self:AddRecipeFlags(56984, F.CASTER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER, F.MAGE)
-	self:AddRecipeTrainer(56984, 26959, 30721, 33603, 30722, 33679, 26995, 26977, 26916, 28702, 33615)	
+	self:AddRecipeTrainer(56984, 26959, 30721, 33603, 30722, 33679, 26995, 26977, 26916, 28702, 33615)
 
 	-- Glyph of Molten Armor -- 56986
 	AddRecipe(56986, 385, 42751, Q.COMMON, V.WOTLK, 385, 390, 397, 405)
@@ -2143,7 +2143,7 @@ function addon:InitInscription()
 	AddRecipe(71102, 375, 50077, Q.COMMON, V.WOTLK, 375, 380, 382, 385)
 	self:AddRecipeFlags(71102, F.VENDOR, F.RBOE, F.CASTER, F.IBOE, F.ALLIANCE, F.HORDE, F.WARLOCK)
 	self:AddRecipeVendor(71102, 28723)
-	
+
 	-- Glyph of Colossus Smash -- 89815
 	AddRecipe(89815, 430, 63481, Q.COMMON, V.CATA, 430, 430, 435, 440)
 	self:AddRecipeFlags(89815, F.VENDOR, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
@@ -2193,12 +2193,12 @@ function addon:InitInscription()
 	AddRecipe(94406, 250, 67482, Q.COMMON, V.CATA, 250, 255, 260, 265)
 	self:AddRecipeFlags(94406, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
 	self:AddRecipeTrainer(94406, 30706, 30713, 30717, 28702)
-	
+
 	-- Glyph of Vanish -- 94711
 	AddRecipe(94711, 430, 63420, Q.COMMON, V.CATA, 430, 430, 435, 440)
 	self:AddRecipeFlags(94711, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.ROGUE)
 	self:AddRecipeAcquire(94711, A.CUSTOM, 40)
-	
+
 	-- Glyph of the Treant -- 95215
 	AddRecipe(95215, 155, 68039, Q.COMMON, V.CATA, 155, 155, 160, 165)
 	self:AddRecipeFlags(95215, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.DRUID)
@@ -2207,12 +2207,176 @@ function addon:InitInscription()
 	-- Glyph of Armors -- 95710
 	AddRecipe(95710, 155, 63416, Q.COMMON, V.CATA, 155, 155, 160, 165)
 	self:AddRecipeFlags(95710, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.MAGE)
-	self:AddRecipeAcquire(95710, A.CUSTOM, 14)	
-	
+	self:AddRecipeAcquire(95710, A.CUSTOM, 14)
+
 	-- Glyph of the Long Word -- 95825
 	AddRecipe(95825, 390, 66918, Q.COMMON, V.CATA, 390, 390, 397, 405)
 	self:AddRecipeFlags(95825, F.DISC, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.PALADIN)
-	self:AddRecipeAcquire(95825, A.CUSTOM, 15)	
-	
+	self:AddRecipeAcquire(95825, A.CUSTOM, 15)
+
+	-- Blackfallow Ink -- 86004
+	AddRecipe(86004, 425, 61978, Q.COMMON, V.CATA, 425, 440, 445, 450)
+	self:AddRecipeFlags(86004, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86004, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Intellect IX -- 89368
+	AddRecipe(89368, 445, 63305, Q.COMMON, V.CATA, 445, 450, 455, 460)
+	self:AddRecipeFlags(89368, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89368, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Protection IX -- 89373
+	AddRecipe(89373, 450, 63308, Q.COMMON, V.CATA, 450, 455, 460, 465)
+	self:AddRecipeFlags(89373, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89373, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Mysterious Fortune Card -- 86609
+	AddRecipe(86609, 450, 60838, Q.COMMON, V.CATA, 450, 460, 467, 475)
+	self:AddRecipeFlags(86609, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86609, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Spirit IX -- 89371
+	AddRecipe(89371, 455, 63307, Q.COMMON, V.CATA, 455, 460, 465, 470)
+	self:AddRecipeFlags(89371, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89371, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Stamina IX -- 89372
+	AddRecipe(89372, 460, 63306, Q.COMMON, V.CATA, 460, 465, 470, 475)
+	self:AddRecipeFlags(89372, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89372, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Adventurer's Journal -- 89367
+	AddRecipe(89367, 460, 62237, Q.COMMON, V.CATA, 460, 475, 480, 485)
+	self:AddRecipeFlags(89367, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89367, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Strength IX -- 89369
+	AddRecipe(89369, 465, 63304, Q.COMMON, V.CATA, 465, 470, 475, 480)
+	self:AddRecipeFlags(89369, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89369, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Scroll of Agility IX -- 89370
+	AddRecipe(89370, 470, 63303, Q.COMMON, V.CATA, 470, 475, 480, 485)
+	self:AddRecipeFlags(89370, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(89370, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Dust of Disappearance -- 92027
+	AddRecipe(92027, 475, 63388, Q.COMMON, V.CATA, 475, 475, 487, 500)
+	self:AddRecipeFlags(92027, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(92027, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Inferno Ink -- 86005
+	AddRecipe(86005, 475, 61981, Q.COMMON, V.CATA, 475, 480, 482, 485)
+	self:AddRecipeFlags(86005, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86005, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Lord Rottington's Pressed Wisp Book -- 86640
+	AddRecipe(86640, 475, 62233, Q.COMMON, V.CATA, 475, 485, 487, 490)
+	self:AddRecipeFlags(86640, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86640, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Book of Blood -- 86616
+	AddRecipe(86616, 475, 62231, Q.COMMON, V.CATA, 475, 485, 487, 490)
+	self:AddRecipeFlags(86616, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86616, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Origami Slime -- 86644
+	AddRecipe(86644, 480, 62239, Q.COMMON, V.CATA, 480, 480, 480, 490)
+	self:AddRecipeFlags(86644, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(86644, A.CUSTOM, 49)
+
+	-- Manual of the Planes -- 86648
+	AddRecipe(86648, 480, 62241, Q.COMMON, V.CATA, 480, 500, 502, 505)
+	self:AddRecipeFlags(86648, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86648, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Etched Horn -- 86647
+	AddRecipe(86647, 480, 62240, Q.COMMON, V.CATA, 480, 500, 502, 505)
+	self:AddRecipeFlags(86647, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86647, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Origami Rock -- 86645
+	AddRecipe(86645, 490, 62238, Q.COMMON, V.CATA, 490, 490, 490, 500)
+	self:AddRecipeFlags(86645, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(86645, A.CUSTOM, 50)
+
+	-- Swiftsteel Inscription -- 86375
+	AddRecipe(86375, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(86375, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86375, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Lionsmane Inscription -- 86401
+	AddRecipe(86401, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(86401, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86401, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Inscription of the Earth Prince -- 86402
+	AddRecipe(86402, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(86402, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86402, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Felfire Inscription -- 86403
+	AddRecipe(86403, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(86403, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86403, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- -- Origami Beetle -- 86646 NOT IN GAME ATM
+	-- AddRecipe(86646, 500, Q.COMMON, , V.CATA, 500, 500, 500, 510)
+	-- self:AddRecipeFlags()
+
+	-- Runescroll of Fortitude II -- 85785
+	AddRecipe(85785, 500, 62251, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self:AddRecipeFlags(85785, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(85785, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Forged Documents -- 86654
+	AddRecipe(86654, 500, 63276, Q.COMMON, V.CATA, 500, 510, 522, 535)
+	self:AddRecipeFlags(86654, F.TRAINER, F.RBOE, F.IBOE, F.HORDE)
+	self:AddRecipeTrainer(86654, 30706, 30711, 46716, 28702)
+
+	-- Forged Documents -- 89244
+	AddRecipe(89244, 500, 62056, Q.COMMON, V.CATA, 500, 510, 522, 535)
+	self:AddRecipeFlags(89244, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE)
+	self:AddRecipeTrainer(89244, 30713, 30717, 30715, 28702)
+
+	-- Runed Dragonscale -- 86649
+	AddRecipe(86649, 505, 62242, Q.COMMON, V.CATA, 505, 515, 520, 525)
+	self:AddRecipeFlags(86649, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86649, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Dungeoneering Guide -- 86641
+	AddRecipe(86641, 510, 62234, Q.COMMON, V.CATA, 510, 520, 525, 530)
+	self:AddRecipeFlags(86641, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86641, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Divine Companion -- 86642
+	AddRecipe(86642, 510, 62235, Q.COMMON, V.CATA, 510, 520, 525, 530)
+	self:AddRecipeFlags(86642, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86642, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Battle Tome -- 86643
+	AddRecipe(86643, 510, 62236, Q.COMMON, V.CATA, 510, 520, 525, 530)
+	self:AddRecipeFlags(86643, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86643, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Tattooed Eyeball -- 86652
+	AddRecipe(86652, 515, 62244, Q.COMMON, V.CATA, 515, 525, 530, 535)
+	self:AddRecipeFlags(86652, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86652, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Silver Inlaid Leaf -- 86653
+	AddRecipe(86653, 515, 62245, Q.COMMON, V.CATA, 515, 525, 530, 535)
+	self:AddRecipeFlags(86653, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86653, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Notched Jawbone -- 86650
+	AddRecipe(86650, 515, 62243, Q.COMMON, V.CATA, 515, 525, 530, 535)
+	self:AddRecipeFlags(86650, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86650, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
+	-- Darkmoon Card of Destruction -- 86615
+	AddRecipe(86615, 525, 61987, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(86615, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(86615, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
+
 	return num_recipes
 end
