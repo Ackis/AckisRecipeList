@@ -470,8 +470,9 @@ function addon:InitCooking()
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
-	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeQuest(25659, 8586)
+	--self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
+	--self:AddRecipeQuest(25659, 8586)
 
 	-- Smoked Sagefish -- 25704
 	AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
