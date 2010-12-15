@@ -217,10 +217,8 @@ function addon:InitCooking()
 
 	-- Dig Rat Stew -- 6417
 	AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
-	--self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
-	--self:AddRecipeVendor(6417, 3392)
-	--self:AddRecipeQuest(6417, 862)
+	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.RETIRED, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(6417, A.CUSTOM, 48)
 
 	-- Crispy Lizard Tail -- 6418
 	AddRecipe(6418, 100, 5479, Q.COMMON, V.ORIG, 100, 140, 160, 180)
@@ -306,8 +304,7 @@ function addon:InitCooking()
 	AddRecipe(9513, 60, 7676, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
 	self:AddRecipeFlags(9513, F.ALLIANCE, F.HORDE, F.VENDOR, F.ROGUE, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(9513, 6779)
-	--self:AddRecipeQuest(9513, 2359, 2478)
-
+	
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
 	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
@@ -470,10 +467,9 @@ function addon:InitCooking()
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
-	--self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOE)
-	--self:AddRecipeQuest(25659, 8586)
-
+	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.QUEST, F.IBOE, F.RBOE)
+	self:AddRecipeAcquire(25659, A.CUSTOM, 48)
+	
 	-- Smoked Sagefish -- 25704
 	AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
 	self:AddRecipeFlags(25704, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
