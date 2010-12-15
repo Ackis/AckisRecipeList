@@ -534,7 +534,7 @@ function addon:InitEnchanting()
 	-- Enchanted Thorium -- 17180
 	AddRecipe(17180, 250, 12655, Q.COMMON, V.ORIG, 250, 250, 255, 260)
 	self:AddRecipeFlags(17180, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(17180, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
+	self:AddRecipeTrainer(17180, 3345, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchanted Leather -- 17181
 	AddRecipe(17181, 250, 12810, Q.COMMON, V.ORIG, 250, 250, 255, 260)
@@ -815,12 +815,12 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Brawn -- 27899
 	AddRecipe(27899, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
 	self:AddRecipeFlags(27899, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeTrainer(27899, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(27899, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Stats -- 27905
 	AddRecipe(27905, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
 	self:AddRecipeFlags(27905, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(27905, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(27905, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Major Defense -- 27906
 	AddRecipe(27906, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
@@ -871,7 +871,7 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Tough Shield -- 27944
 	AddRecipe(27944, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
 	self:AddRecipeFlags(27944, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	self:AddRecipeTrainer(27944, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(27944, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Shield - Intellect -- 27945
 	AddRecipe(27945, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
@@ -911,12 +911,12 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Exceptional Health -- 27957
 	AddRecipe(27957, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
 	self:AddRecipeFlags(27957, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(27957, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(27957, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Exceptional Mana -- 27958
 	AddRecipe(27958, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
 	self:AddRecipeFlags(27958, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(27958, 28693, 26980, 33583, 26954, 26906, 26990)
+	self:AddRecipeTrainer(27958, 3345, 28693, 26980, 33583, 26954, 26906, 26990)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
 	AddRecipe(27960, 345, nil, Q.COMMON, V.TBC, 345, 355, 367, 380)
@@ -927,7 +927,7 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Major Armor -- 27961
 	AddRecipe(27961, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
 	self:AddRecipeFlags(27961, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	self:AddRecipeTrainer(27961, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(27961, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Major Resistance -- 27962
 	AddRecipe(27962, 330, nil, Q.UNCOMMON, V.TBC, 330, 340, 355, 370)
@@ -1007,17 +1007,17 @@ function addon:InitEnchanting()
 	-- Prismatic Sphere -- 28027
 	AddRecipe(28027, 325, 22460, Q.COMMON, V.TBC, 325, 325, 330, 335)
 	self:AddRecipeFlags(28027, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(28027, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(28027, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Void Sphere -- 28028
 	AddRecipe(28028, 350, 22459, Q.COMMON, V.TBC, 350, 370, 375, 380)
 	self:AddRecipeFlags(28028, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(28028, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(28028, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Runed Fel Iron Rod -- 32664
 	AddRecipe(32664, 300, 22461, Q.COMMON, V.TBC, 300, 310, 325, 340)
 	self:AddRecipeFlags(32664, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(32664, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(32664, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Runed Adamantite Rod -- 32665
 	AddRecipe(32665, 350, 22462, Q.COMMON, V.TBC, 350, 370, 375, 380)
@@ -1027,18 +1027,18 @@ function addon:InitEnchanting()
 	-- Runed Eternium Rod -- 32667
 	AddRecipe(32667, 375, 22463, Q.COMMON, V.TBC, 375, 375, 377, 385)
 	self:AddRecipeFlags(32667, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(32667, 28693, 26980, 33583, 26954, 26906, 26990)
+	self:AddRecipeTrainer(32667, 3345, 28693, 26980, 33583, 26954, 26906, 26990)
 	self:AddRecipeVendor(32667, 19663)
 
 	-- Enchant Chest - Major Spirit -- 33990
 	AddRecipe(33990, 320, nil, Q.COMMON, V.TBC, 320, 330, 345, 360)
 	self:AddRecipeFlags(33990, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(33990, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(33990, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Restore Mana Prime -- 33991
 	AddRecipe(33991, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
 	self:AddRecipeFlags(33991, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(33991, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(33991, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Major Resilience -- 33992
 	AddRecipe(33992, 345, nil, Q.UNCOMMON, V.TBC, 345, 355, 367, 380)
@@ -1048,7 +1048,7 @@ function addon:InitEnchanting()
 	-- Enchant Gloves - Blasting -- 33993
 	AddRecipe(33993, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
 	self:AddRecipeFlags(33993, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(33993, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(33993, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Precise Strikes -- 33994
 	AddRecipe(33994, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
@@ -1058,12 +1058,12 @@ function addon:InitEnchanting()
 	-- Enchant Gloves - Major Strength -- 33995
 	AddRecipe(33995, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
 	self:AddRecipeFlags(33995, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeTrainer(33995, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(33995, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Assault -- 33996
 	AddRecipe(33996, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
 	self:AddRecipeFlags(33996, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeTrainer(33996, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(33996, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Major Spellpower -- 33997
 	AddRecipe(33997, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
@@ -1078,12 +1078,12 @@ function addon:InitEnchanting()
 	-- Enchant Bracer - Major Intellect -- 34001
 	AddRecipe(34001, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
 	self:AddRecipeFlags(34001, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(34001, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(34001, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Assault -- 34002
 	AddRecipe(34002, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
 	self:AddRecipeFlags(34002, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeTrainer(34002, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(34002, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Spell Penetration -- 34003
 	AddRecipe(34003, 325, nil, Q.UNCOMMON, V.TBC, 325, 335, 350, 365)
@@ -1093,7 +1093,7 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Greater Agility -- 34004
 	AddRecipe(34004, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
 	self:AddRecipeFlags(34004, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	self:AddRecipeTrainer(34004, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(34004, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Greater Arcane Resistance -- 34005
 	AddRecipe(34005, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
@@ -1128,12 +1128,12 @@ function addon:InitEnchanting()
 	-- Nexus Transformation -- 42613
 	AddRecipe(42613, 300, 22448, Q.COMMON, V.TBC, 300, 300, 300, 305)
 	self:AddRecipeFlags(42613, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(42613, 18773, 18753, 19252, 33676, 33610, 19540)
+	self:AddRecipeTrainer(42613, 3345, 18773, 18753, 19252, 33676, 33610, 19540)
 
 	-- Small Prismatic Shard -- 42615
 	AddRecipe(42615, 335, 22448, Q.COMMON, V.TBC, 335, 335, 335, 335)
 	self:AddRecipeFlags(42615, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(42615, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(42615, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Weapon - Greater Agility -- 42620
 	AddRecipe(42620, 350, nil, Q.COMMON, V.TBC, 350, 360, 367, 375)
@@ -1148,7 +1148,7 @@ function addon:InitEnchanting()
 	-- Enchant Shield - Resilience -- 44383
 	AddRecipe(44383, 330, nil, Q.COMMON, V.TBC, 330, 340, 355, 370)
 	self:AddRecipeFlags(44383, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
-	self:AddRecipeTrainer(44383, 18773, 18753, 19252, 19540, 33610, 33676)
+	self:AddRecipeTrainer(44383, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Superior Frost Resistance -- 44483
 	AddRecipe(44483, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
@@ -1158,22 +1158,22 @@ function addon:InitEnchanting()
 	-- Enchant Gloves - Expertise -- 44484
 	AddRecipe(44484, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
 	self:AddRecipeFlags(44484, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	self:AddRecipeTrainer(44484, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44484, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Precision -- 44488
 	AddRecipe(44488, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
 	self:AddRecipeFlags(44488, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44488, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44488, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Shield - Defense -- 44489
 	AddRecipe(44489, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
 	self:AddRecipeFlags(44489, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
-	self:AddRecipeTrainer(44489, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44489, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Mighty Health -- 44492
 	AddRecipe(44492, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(44492, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44492, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44492, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Nature Resistance -- 44494
 	AddRecipe(44494, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
@@ -1183,32 +1183,32 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Superior Agility -- 44500
 	AddRecipe(44500, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(44500, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
-	self:AddRecipeTrainer(44500, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44500, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Gatherer -- 44506
 	AddRecipe(44506, 375, nil, Q.COMMON, V.WOTLK, 375, 375, 380, 390)
 	self:AddRecipeFlags(44506, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44506, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44506, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Greater Spirit -- 44508
 	AddRecipe(44508, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
 	self:AddRecipeFlags(44508, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(44508, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44508, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Greater Mana Restoration -- 44509
 	AddRecipe(44509, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
 	self:AddRecipeFlags(44509, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(44509, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44509, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Exceptional Spirit -- 44510
 	AddRecipe(44510, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
 	self:AddRecipeFlags(44510, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeTrainer(44510, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44510, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Greater Assault -- 44513
 	AddRecipe(44513, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(44513, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(44513, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44513, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Icebreaker -- 44524
 	AddRecipe(44524, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
@@ -1218,17 +1218,17 @@ function addon:InitEnchanting()
 	-- Enchant Boots - Greater Fortitude -- 44528
 	AddRecipe(44528, 385, nil, Q.COMMON, V.WOTLK, 385, 385, 390, 400)
 	self:AddRecipeFlags(44528, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44528, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44528, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Major Agility -- 44529
 	AddRecipe(44529, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
 	self:AddRecipeFlags(44529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(44529, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44529, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Exceptional Intellect -- 44555
 	AddRecipe(44555, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 392, 400)
 	self:AddRecipeFlags(44555, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44555, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44555, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Fire Resistance -- 44556
 	AddRecipe(44556, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
@@ -1248,12 +1248,12 @@ function addon:InitEnchanting()
 	-- Enchant Cloak - Spell Piercing -- 44582
 	AddRecipe(44582, 395, nil, Q.COMMON, V.WOTLK, 395, 395, 402, 410)
 	self:AddRecipeFlags(44582, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.CLOAK)
-	self:AddRecipeTrainer(44582, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44582, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Greater Vitality -- 44584
 	AddRecipe(44584, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
 	self:AddRecipeFlags(44584, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44584, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44584, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Exceptional Resilience -- 44588
 	AddRecipe(44588, 410, nil, Q.UNCOMMON, V.WOTLK, 410, 435, 445, 455)
@@ -1263,7 +1263,7 @@ function addon:InitEnchanting()
 	-- Enchant Boots - Superior Agility -- 44589
 	AddRecipe(44589, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
 	self:AddRecipeFlags(44589, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(44589, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44589, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Shadow Resistance -- 44590
 	AddRecipe(44590, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
@@ -1278,12 +1278,12 @@ function addon:InitEnchanting()
 	-- Enchant Gloves - Exceptional Spellpower -- 44592
 	AddRecipe(44592, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
 	self:AddRecipeFlags(44592, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(44592, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44592, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Major Spirit -- 44593
 	AddRecipe(44593, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
 	self:AddRecipeFlags(44593, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(44593, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44593, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
 	AddRecipe(44595, 430, 44473, Q.RARE, V.WOTLK, 430, 440, 450, 460)
@@ -1298,12 +1298,12 @@ function addon:InitEnchanting()
 	-- Enchant Bracers - Expertise -- 44598
 	AddRecipe(44598, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
 	self:AddRecipeFlags(44598, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	self:AddRecipeTrainer(44598, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44598, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Greater Stats -- 44616
 	AddRecipe(44616, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
 	self:AddRecipeFlags(44616, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44616, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44616, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Giant Slayer -- 44621
 	AddRecipe(44621, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
@@ -1313,7 +1313,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Super Stats -- 44623
 	AddRecipe(44623, 370, nil, Q.COMMON, V.WOTLK, 370, 380, 390, 400)
 	self:AddRecipeFlags(44623, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(44623, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44623, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Armsman -- 44625
 	AddRecipe(44625, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
@@ -1323,12 +1323,12 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Exceptional Spellpower -- 44629
 	AddRecipe(44629, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(44629, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeTrainer(44629, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44629, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
 	AddRecipe(44630, 390, nil, Q.COMMON, V.WOTLK, 390, 400, 410, 420)
 	self:AddRecipeFlags(44630, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
-	self:AddRecipeTrainer(44630, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44630, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Shadow Armor -- 44631
 	AddRecipe(44631, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
@@ -1338,12 +1338,12 @@ function addon:InitEnchanting()
 	-- Enchant Weapon - Exceptional Agility -- 44633
 	AddRecipe(44633, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
 	self:AddRecipeFlags(44633, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeTrainer(44633, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44633, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Greater Spellpower -- 44635
 	AddRecipe(44635, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(44635, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(44635, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44635, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Ring - Greater Spellpower -- 44636
 	AddRecipe(44636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
@@ -1353,7 +1353,7 @@ function addon:InitEnchanting()
 	-- Enchant Ring - Assault -- 44645
 	AddRecipe(44645, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
 	self:AddRecipeFlags(44645, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.RING)
-	self:AddRecipeTrainer(44645, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(44645, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Void Shatter -- 45765
 	AddRecipe(45765, 375, 22449, Q.COMMON, V.TBC, 375, 375, 375, 375)
@@ -1383,7 +1383,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Greater Defense -- 47766
 	AddRecipe(47766, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
 	self:AddRecipeFlags(47766, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	self:AddRecipeTrainer(47766, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(47766, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Greater Speed -- 47898
 	AddRecipe(47898, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
@@ -1398,7 +1398,7 @@ function addon:InitEnchanting()
 	-- Enchant Chest - Super Health -- 47900
 	AddRecipe(47900, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
 	self:AddRecipeFlags(47900, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(47900, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(47900, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Tuskarr's Vitality -- 47901
 	AddRecipe(47901, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
@@ -1423,52 +1423,52 @@ function addon:InitEnchanting()
 	-- Enchant Ring - Stamina -- 59636
 	AddRecipe(59636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
 	self:AddRecipeFlags(59636, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
-	self:AddRecipeTrainer(59636, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(59636, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Assault -- 60606
 	AddRecipe(60606, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 395, 405)
 	self:AddRecipeFlags(60606, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(60606, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60606, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Speed -- 60609
 	AddRecipe(60609, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
 	self:AddRecipeFlags(60609, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
-	self:AddRecipeTrainer(60609, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60609, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Striking -- 60616
 	AddRecipe(60616, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
 	self:AddRecipeFlags(60616, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(60616, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60616, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Runed Titanium Rod -- 60619
 	AddRecipe(60619, 425, 44452, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
 	self:AddRecipeFlags(60619, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(60619, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60619, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Greater Potency -- 60621
 	AddRecipe(60621, 380, nil, Q.COMMON, V.WOTLK, 380, 390, 400, 410)
 	self:AddRecipeFlags(60621, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	self:AddRecipeTrainer(60621, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60621, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Icewalker -- 60623
 	AddRecipe(60623, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
 	self:AddRecipeFlags(60623, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(60623, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60623, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Shield - Greater Intellect -- 60653
 	AddRecipe(60653, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
 	self:AddRecipeFlags(60653, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
-	self:AddRecipeTrainer(60653, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60653, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Major Agility -- 60663
 	AddRecipe(60663, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
 	self:AddRecipeFlags(60663, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
-	self:AddRecipeTrainer(60663, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60663, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Crusher -- 60668
 	AddRecipe(60668, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
 	self:AddRecipeFlags(60668, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(60668, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(60668, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Massacre -- 60691
 	AddRecipe(60691, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
@@ -1513,7 +1513,7 @@ function addon:InitEnchanting()
 	-- Enchant Staff - Spellpower -- 62959
 	AddRecipe(62959, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
 	self:AddRecipeFlags(62959, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
-	self:AddRecipeTrainer(62959, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(62959, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Lesser Accuracy -- 63746
 	AddRecipe(63746, 225, nil, Q.COMMON, V.WOTLK, 225, 245, 265, 285)
@@ -1533,7 +1533,7 @@ function addon:InitEnchanting()
 	-- Abyssal Shatter -- 69412
 	AddRecipe(69412, 445, 49640, Q.COMMON, V.WOTLK, 445, 445, 447, 450)
 	self:AddRecipeFlags(69412, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(69412, 28693, 33583, 26990, 26954, 26906, 26980)
+	self:AddRecipeTrainer(69412, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Angler -- 71692
 	AddRecipe(71692, 375, nil, Q.UNCOMMON, V.WOTLK, 375, 385, 392, 400)
