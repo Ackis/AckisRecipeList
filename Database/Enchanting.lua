@@ -1540,8 +1540,13 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(71692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
 	self:AddRecipeMobDrop(71692, 26343, 26336, 26344)
 
+	-- Enchant Gloves - Mighty Strength -- 74254
+	AddRecipe(74254, 525, 64415, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74254, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74254, 50134, 50146)
+
 	-- Runed Elementium Rod - 92370
-	AddRecipe(92370, 515, 65359, Q.COMMONG, V.CATA, 515, 525, 525, 525)
+	AddRecipe(92370, 515, 65359, Q.COMMON, V.CATA, 515, 525, 525, 525)
 	self:AddRecipeFlags(92370, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
 	self:AddRecipeVendor(92370, 50134, 50146)
 
