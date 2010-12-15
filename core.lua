@@ -812,26 +812,23 @@ do
 	local GetTradeSkillListLink = _G.GetTradeSkillListLink
 	local UnitName = _G.UnitName
 	local GetRealmName = _G.GetRealmName
-	local IsTradeSkillLinked = _G.IsTradeSkillLinked
 
 	function addon:TRADE_SKILL_SHOW()
-		-- If this is our own skill, save it, if not don't save it
-		if not IsTradeSkillLinked() then
-			local tradelink = GetTradeSkillListLink()
+		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
+		local tradelink = GetTradeSkillListLink()
 
-			if tradelink then
-				local pname = UnitName("player")
-				local prealm = GetRealmName()
-				local tradename = GetTradeSkillLine()
+		local pname = UnitName("player")
+		local prealm = GetRealmName()
+		local tradename = GetTradeSkillLine()
 
-				-- Actual alt information saved here. -Torhal
-				addon.db.global.tradeskill = addon.db.global.tradeskill or {}
-				addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
-				addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
+		-- Actual alt information saved here. -Torhal
+		addon.db.global.tradeskill = addon.db.global.tradeskill or {}
+		addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
+		addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
+		
+		-- If this is our own skill, save it. Otherwise, make sure it's gone.
+		addon.db.global.tradeskill[prealm][pname][tradename] = (not is_linked) and tradelink or nil
 
-				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
-			end
-		end
 		local scan_button = self.scan_button
 		local scan_parent = scan_button:GetParent()
 
@@ -1557,7 +1554,7 @@ do
 		Player["ProfessionLevel"] = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
-		local is_linked = IsTradeSkillLinked()
+		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
 		if not is_linked and Player.professions[current_prof] then
 			Player.professions[current_prof] = prof_level
