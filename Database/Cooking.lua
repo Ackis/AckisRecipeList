@@ -303,9 +303,9 @@ function addon:InitCooking()
 
 	-- Thistle Tea -- 9513
 	AddRecipe(9513, 60, 7676, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
-	self:AddRecipeFlags(9513, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.ROGUE, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(9513, F.ALLIANCE, F.HORDE, F.VENDOR, F.ROGUE, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(9513, 6779)
-	self:AddRecipeQuest(9513, 2359, 2478)
+	--self:AddRecipeQuest(9513, 2359, 2478)
 
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
