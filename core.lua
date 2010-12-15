@@ -1260,6 +1260,10 @@ do
 		local cur_var = 1
 		local recipe = private.recipe_list[spell_id]
 
+		if not recipe then
+			addon:Debug("GenericAddRecipeAcquire(): No recipe found for Spell ID %d.", spell_id)
+			return
+		end
 		local acquire_data = recipe.acquire_data
 		acquire_data[acquire_type] = acquire_data[acquire_type] or {}
 
