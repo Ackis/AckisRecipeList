@@ -217,9 +217,10 @@ function addon:InitCooking()
 
 	-- Dig Rat Stew -- 6417
 	AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
-	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(6417, 3392)
-	self:AddRecipeQuest(6417, 862)
+	--self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOE, F.RBOP)
+	--self:AddRecipeVendor(6417, 3392)
+	--self:AddRecipeQuest(6417, 862)
 
 	-- Crispy Lizard Tail -- 6418
 	AddRecipe(6418, 100, 5479, Q.COMMON, V.ORIG, 100, 140, 160, 180)
