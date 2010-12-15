@@ -372,6 +372,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 33681, L["Korim"], BZ["Shattrath City"], 37.6, 28.0, 0)
 	self:addLookupList(DB, 33682, L["Fono"], BZ["Shattrath City"], 36.0, 48.5, 0)
 	self:addLookupList(DB, 33684, L["Weaver Aoa"], BZ["Shattrath City"], 37.6, 27.2, 0)
+	self:addLookupList(DB, 45540, L["Krenk Choplimb"], BZ["Orgrimmar"], 37.5, 87.3, 2)
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, 2)
 
 end

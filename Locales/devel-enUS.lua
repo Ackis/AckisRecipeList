@@ -1445,3 +1445,4 @@ L["Zurii"] = true
 
 L["FILTERING_CATA_DESC"] = "Configuration for which Cataclysm Reputation reward recipes are included in the scan."
 L["CATA_WOW_DESC"] = "Recipes available with Cataclysm."
+L["Krenk Choplimb"] = true
