@@ -510,6 +510,7 @@ L["Custom45"] = "You can train this recipe if you have earned the \"Northrend Du
 L["LIMITED_SUPPLY"] = "Sold in limited quantity."
 L["BUGGED"] = "THIS RECIPE IS BUGGED CURRENTLY IN THE LATEST BUILD ON LIVE"
 L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while collecting artifacts for Archaeology"
+L["REMOVED_FROM_GAME"] = "This recipe has been removed from the game"
 
 -------------------------------------------------------------------------------
 -- Monster/Quest/Trainer/Vendor strings:
