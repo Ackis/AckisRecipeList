@@ -1475,6 +1475,191 @@ function addon:InitEngineering()
 	self:AddRecipeFlags(68067, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.RBOP)
 	self:AddRecipeWorldDrop(68067, "Northrend")
 
+	-- Cardboard Assassin -- 84425
+	AddRecipe(84425, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(84425, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(84425, 11017, 5518)
+
+	-- Grounded Plasma Shield -- 84427
+	AddRecipe(84427, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(84427, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(84427, 11017, 5518)
+
+	-- Invisibility Field -- 84424
+	AddRecipe(84424, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(84424, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(84424, 11017, 5518)
+
+	-- Quickflip Deflection Plates -- 82177
+	AddRecipe(82177, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(82177, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82177, 11017, 5518)
+
+	-- Spinal Healing Injector -- 82200
+	AddRecipe(82200, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(82200, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82200, 11017, 5518)
+
+	-- Synapse Springs -- 82175
+	AddRecipe(82175, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(82175, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82175, 11017, 5518)
+
+	-- Tazik Shocker -- 82180
+	AddRecipe(82180, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(82180, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82180, 11017, 5518)
+
+	-- Z50 Mana Gulper -- 82201
+	AddRecipe(82201, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
+	self:AddRecipeFlags(82201, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82201, 11017, 5518)
+
+	-- Explosive Bolts -- 82207
+	AddRecipe(82207, 425, nil, Q.COMMON, V.CATA, 425, 425, 452, 480)
+	self:AddRecipeFlags(82207, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(82207, 11017, 5518)
+
+	-- Handful of Obsidium Bolts -- 84403
+	AddRecipe(84403, 425, 60224, Q.COMMON, V.CATA, 425, 435, 442, 450)
+	self:AddRecipeFlags(84403, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84403, 11017, 5518)
+
+	-- Electrostatic Condenser -- 95703
+	AddRecipe(95703, 440, 67494, Q.COMMON, V.CATA, 440, 450, 452, 455)
+	self:AddRecipeFlags(95703, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(95703, 11017, 5518)
+
+	-- Authentic Jr. Engineer Goggles -- 84406
+	AddRecipe(84406, 440, 60222, Q.COMMON, V.CATA, 440, 455, 457, 460)
+	self:AddRecipeFlags(84406, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84406, 11017, 5518)
+
+	-- Electrified Ether -- 94748
+	AddRecipe(94748, 445, 67749, Q.COMMON, V.CATA, 445, 455, 460, 465)
+	self:AddRecipeFlags(94748, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(94748, 11017, 5518)
+
+	-- R19 Threatfinder -- 84408
+	AddRecipe(84408, 450, 59595, Q.COMMON, V.CATA, 450, 470, 472, 475)
+	self:AddRecipeFlags(84408, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84408, 11017, 5518)
+
+	-- Safety Catch Removal Kit -- 84410
+	AddRecipe(84410, 450, 59596, Q.COMMON, V.CATA, 450, 470, 472, 475)
+	self:AddRecipeFlags(84410, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84410, 11017, 5518)
+
+	-- Volatile Seaforium Blastpack -- 84409
+	AddRecipe(84409, 455, 60853, Q.COMMON, V.CATA, 455, 460, 467, 475)
+	self:AddRecipeFlags(84409, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84409, 11017, 5518)
+
+	-- High-Powered Bolt Gun -- 84411
+	AddRecipe(84411, 465, 60223, Q.COMMON, V.CATA, 465, 465, 465, 480)
+	self:AddRecipeFlags(84411, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84411, 11017, 5518)
+
+	-- Lure Master Tackle Box -- 84415
+	AddRecipe(84415, 475, 60218, Q.COMMON, V.CATA, 475, 490, 492, 495)
+	self:AddRecipeFlags(84415, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84415, 11017, 5518)
+
+	-- De-Weaponized Mechanical Companion -- 84413
+	AddRecipe(84413, 475, 60216, Q.COMMON, V.CATA, 475, 495, 497, 500)
+	self:AddRecipeFlags(84413, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84413, 11017, 5518)
+
+	-- Elementium Toolbox -- 84416
+	AddRecipe(84416, 475, 60217, Q.COMMON, V.CATA, 475, 495, 497, 500)
+	self:AddRecipeFlags(84416, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84416, 11017, 5518)
+
+	-- Personal World Destroyer -- 84412
+	AddRecipe(84412, 475, 59597, Q.COMMON, V.CATA, 475, 495, 497, 500)
+	self:AddRecipeFlags(84412, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84412, 11017, 5518)
+
+	-- Elementium Dragonling -- 84418
+	AddRecipe(84418, 475, 60403, Q.COMMON, V.CATA, 475, 505, 507, 510)
+	self:AddRecipeFlags(84418, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84418, 11017, 5518)
+
+	-- Loot-a-Rang -- 84421
+	AddRecipe(84421, 490, 60854, Q.COMMON, V.CATA, 490, 495, 497, 500)
+	self:AddRecipeFlags(84421, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84421, 11017, 5518)
+
+	-- Finely-Tuned Throat Needler -- 84420
+	AddRecipe(84420, 490, 59598, Q.COMMON, V.CATA, 490, 510, 512, 515)
+	self:AddRecipeFlags(84420, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84420, 11017, 5518)
+
+	-- Volatile Thunderstick -- 84417
+	AddRecipe(84417, 495, 59599, Q.COMMON, V.CATA, 495, 515, 517, 520)
+	self:AddRecipeFlags(84417, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84417, 11017, 5518)
+
+	-- Goblin Barbecue -- 84429
+	AddRecipe(84429, 505, 60858, Q.COMMON, V.CATA, 505, 505, 505, 515)
+	self:AddRecipeFlags(84429, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84429, 11017, 5518)
+
+	-- Heat-Treated Spinning Lure -- 84430
+	AddRecipe(84430, 510, 68049, Q.COMMON, V.CATA, 510, 510, 520, 540)
+	self:AddRecipeFlags(84430, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84430, 11017, 5518)
+
+	-- Gnomish X-Ray Scope -- 84428
+	AddRecipe(84428, 515, 59594, Q.COMMON, V.CATA, 515, 525, 530, 535)
+	self:AddRecipeFlags(84428, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84428, 11017, 5518)
+
+	-- Kickback 5000 -- 84432
+	AddRecipe(84432, 525, 59367, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(84432, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84432, 11017, 5518)
+
+	-- Agile Bio-Optic Killshades -- 81722
+	AddRecipe(81722, 525, 59455, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81722, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81722, 11017, 5518)
+
+	-- Deadly Bio-Optic Killshades -- 81716
+	AddRecipe(81716, 525, 59456, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81716, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81716, 11017, 5518)
+
+	-- Lightweight Bio-Optic Killshades -- 81725
+	AddRecipe(81725, 525, 59449, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81725, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81725, 11017, 5518)
+
+	-- Reinforced Bio-Optic Killshades -- 81714
+	AddRecipe(81714, 525, 59359, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81714, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81714, 11017, 5518)
+
+	-- Camouflage Bio-Optic Killshades -- 81724
+	AddRecipe(81724, 525, 59453, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81724, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81724, 11017, 5518)
+
+	-- Specialized Bio-Optic Killshades -- 81715
+	AddRecipe(81715, 525, 59448, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81715, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81715, 11017, 5518)
+
+	-- Energized Bio-Optic Killshades -- 81720
+	AddRecipe(81720, 525, 59458, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(81720, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(81720, 11017, 5518)
+
+	-- Overpowered Chicken Splitter -- 84431
+	AddRecipe(84431, 525, 59364, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(84431, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84431, 11017, 5518)
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
