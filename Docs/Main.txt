@@ -117,7 +117,6 @@ Currently, the mod works with:
 * [[http://www.wowace.com/addons/arl/pages/api/|API]]
 * [[http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
 * [[http://www.wowace.com/addons/arl/pages/in-game-documentation/|In-game Documentation]]
-* [[http://www.wowace.com/addons/arl/pages/api/database-documentation/|Database Documentation]]
 * [[http://www.wowace.com/addons/arl/pages/api/localization/|Localization]]
 
 ==Acknowledgments
