@@ -113,6 +113,8 @@ Currently, the mod works with:
 * [[http://wow.curse.com/downloads/wow-addons/details/cauldron.aspx|Cauldron]]
 * [[http://wow.curse.com/downloads/wow-addons/details/mrtrader.aspx|Mr Trader]]
 
+If your mod should be on this list, please submit a [[http://www.wowace.com/addons/arl/tickets/ | ticket]].
+
 ==Detailed Documentation
 * [[http://www.wowace.com/addons/arl/pages/api/|API]]
 * [[http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
