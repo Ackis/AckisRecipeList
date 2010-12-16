@@ -178,5 +178,25 @@ function addon:InitSmelting()
 	self:AddRecipeFlags(70524, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(70524, 28698)
 
+	-- Smelt Obsidium -- 84038
+	AddRecipe(84038, 425, 54849, Q.COMMON, V.CATA, 425, 425, 437, 475)
+	self:AddRecipeFlags(84038, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84038, 3357, 16663, 5513, 4254)
+
+	-- Smelt Elementium -- 74530
+	AddRecipe(74530, 475, 52186, Q.COMMON, V.CATA, 475, 475, 475, 500)
+	self:AddRecipeFlags(74530, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(74530, 3357, 16663, 5513, 4254)
+
+	-- Smelt Hardened Elementium -- 74537
+	AddRecipe(74537, 500, 53039, Q.COMMON, V.CATA, 500, 500, 500, 525)
+	self:AddRecipeFlags(74537, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(74537, 3357, 16663, 5513, 4254)
+
+	-- Smelt Pyrite -- 74529
+	AddRecipe(74529, 525, 51950, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(74529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(74529, 3357, 16663, 5513, 4254)
+
 	return num_recipes
 end
