@@ -675,7 +675,7 @@ do
 		local targetname = UnitName("target")	-- Get its name
 		local targetID = tonumber(string.sub(UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
 
-		if not IsTradeskillTrainer() then		-- Are we at a trade skill trainer?
+		if not IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
 			if not autoscan then
 				self:Print(L["DATAMINER_SKILLLEVEL_ERROR"])
 			end
@@ -737,7 +737,7 @@ do
 					teachflag = true
 
 					if not recipe:IsFlagged("common1", "TRAINER") then
-						tinsert(output, ": Trainer flag needs to be set.")
+						tinsert(output, spell_id..": Trainer flag needs to be set.")
 					end
 				end
 			else
