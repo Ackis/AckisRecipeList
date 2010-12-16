@@ -1,9 +1,5 @@
 -
  type: creole
- input-file: Docs/Documentation.txt
- output-page: "API/Database Documentation"
--
- type: creole
  input-file: Docs/Datamine.txt
  output-page: "API/In-game Datamining Overview"
 -
