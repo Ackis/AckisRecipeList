@@ -963,7 +963,7 @@ function addon:InitCooking()
 	self:AddRecipeTrainer(88006, 46709)
 
 	-- Darkbrew Lager -- 88015
-	AddRecipe(88015, 430, 62790, Q.COMMON, V.CATA, 430, 430, 435, 440)
+	AddRecipe(88015, 415, 62790, Q.COMMON, V.CATA, 415, 430, 435, 440)
 	self:AddRecipeFlags(88015, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
 	self:AddRecipeTrainer(88015, 46709)
 
