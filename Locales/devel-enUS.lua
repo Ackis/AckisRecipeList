@@ -30,7 +30,7 @@ L["Profile"]			= true
 -------------------------------------------------------------------------------
 -- Config Options
 -------------------------------------------------------------------------------
-L["About"]			= true
+L["About"]			= true 
 L["Main Options"]		= true
 L["General Options"]		= true
 L["Main Filter Options"]	= true
