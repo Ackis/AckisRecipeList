@@ -73,6 +73,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 48, L["REMOVED_FROM_GAME"])
 	self:addLookupList(DB, 49, L["VASHJ'IR_RANDOM_INSC"])
 	self:addLookupList(DB, 50, L["DEEPHOLM_RANDOM_INSC"])
+	self:addLookupList(DB, 51, L["ENG_DISC"])
 	
 --self:addLookupList(DB, 28, L["BT_HYJAL_RANDOM"])
 --[[

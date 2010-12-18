@@ -513,6 +513,7 @@ L["ARCH_DROP"] = "This recipe is a random drop from a \"Canopic Jar\" while coll
 L["REMOVED_FROM_GAME"] = "This recipe has been removed from the game."
 L["VASHJ'IR_RANDOM_INSC"] = "This recipe drops from mobs in Vashj'ir."
 L["DEEPHOLM_RANDOM_INSC"] = "This recipe drops from mobs in Deepholm."
+L["ENG_DISC"] = "This is discovered randomly while crafting other Engineering items."
 
 -------------------------------------------------------------------------------
 -- Monster/Quest/Trainer/Vendor strings:
