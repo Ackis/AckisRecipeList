@@ -1477,48 +1477,48 @@ function addon:InitEngineering()
 
 	-- Cardboard Assassin -- 84425
 	AddRecipe(84425, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(84425, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(84425, 11017, 5518)
+	self:AddRecipeFlags(84425, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(34425, A.CUSTOM, 51)
 
 	-- Grounded Plasma Shield -- 84427
 	AddRecipe(84427, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(84427, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(84427, 11017, 5518)
+	self:AddRecipeFlags(84427, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(34427, A.CUSTOM, 51)
 
 	-- Invisibility Field -- 84424
 	AddRecipe(84424, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(84424, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(84424, 11017, 5518)
+	self:AddRecipeFlags(84424, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(34424, A.CUSTOM, 51)
 
 	-- Quickflip Deflection Plates -- 82177
 	AddRecipe(82177, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(82177, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82177, 11017, 5518)
+	self:AddRecipeFlags(82177, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82177, A.CUSTOM, 51)
 
 	-- Spinal Healing Injector -- 82200
 	AddRecipe(82200, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(82200, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82200, 11017, 5518)
+	self:AddRecipeFlags(82200, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82200, A.CUSTOM, 51)
 
 	-- Synapse Springs -- 82175
 	AddRecipe(82175, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(82175, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82175, 11017, 5518)
+	self:AddRecipeFlags(82175, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82175, A.CUSTOM, 51)
 
 	-- Tazik Shocker -- 82180
 	AddRecipe(82180, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(82180, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82180, 11017, 5518)
+	self:AddRecipeFlags(82180, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82180, A.CUSTOM, 51)
 
 	-- Z50 Mana Gulper -- 82201
 	AddRecipe(82201, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
-	self:AddRecipeFlags(82201, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82201, 11017, 5518)
+	self:AddRecipeFlags(82201, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82201, A.CUSTOM, 51)
 
 	-- Explosive Bolts -- 82207
 	AddRecipe(82207, 425, nil, Q.COMMON, V.CATA, 425, 425, 452, 480)
-	self:AddRecipeFlags(82207, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	self:AddRecipeTrainer(82207, 11017, 5518)
+	self:AddRecipeFlags(82207, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
+	self:AddRecipeAcquire(82207, A.CUSTOM, 51)
 
 	-- Handful of Obsidium Bolts -- 84403
 	AddRecipe(84403, 425, 60224, Q.COMMON, V.CATA, 425, 435, 442, 450)
@@ -1568,7 +1568,7 @@ function addon:InitEngineering()
 	-- De-Weaponized Mechanical Companion -- 84413
 	AddRecipe(84413, 475, 60216, Q.COMMON, V.CATA, 475, 495, 497, 500)
 	self:AddRecipeFlags(84413, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(84413, 11017, 5518)
+	self:AddRecipeTrainer(84413, 29514, 7944)
 
 	-- Elementium Toolbox -- 84416
 	AddRecipe(84416, 475, 60217, Q.COMMON, V.CATA, 475, 495, 497, 500)
@@ -1578,7 +1578,7 @@ function addon:InitEngineering()
 	-- Personal World Destroyer -- 84412
 	AddRecipe(84412, 475, 59597, Q.COMMON, V.CATA, 475, 495, 497, 500)
 	self:AddRecipeFlags(84412, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(84412, 11017, 5518)
+	self:AddRecipeTrainer(84412, 29513)
 
 	-- Elementium Dragonling -- 84418
 	AddRecipe(84418, 475, 60403, Q.COMMON, V.CATA, 475, 505, 507, 510)

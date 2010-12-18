@@ -2563,7 +2563,360 @@ function addon:InitBlacksmithing()
 	AddRecipe(70568, 450, 49907, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
 	self:AddRecipeFlags(70568, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ASHEN_VERDICT)
 	self:AddRecipeRepVendor(70568, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-
+	
+	--------------------------------------------------------------------------------------------------------
+	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
+	-------------------------------------------------------------------------------------------------------
+	-- -- Folded Obsidium
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Gauntlets
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium GAuntlets
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Shield
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Gauntlets
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Decapitator's Razor
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Cold-Forged Shank
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Obsidium Bladespear
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Shield
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Obsidium Skeleton Key
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fire-Etched Dagger
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Lifeforce Hammer
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Obsidium Executioner
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Legguards
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Shield Spike
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Legguards
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Legguards
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Breastplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Breastplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Redsteel Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormforged Breastplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Obsidium Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Rod
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Pyrium Weapon Chain
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Gauntlets
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Gauntlets
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Girdle of Pain
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Elementium Girdle
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Light Elementium Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Deathplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Elementium Hauberk
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Light Elementium Chestguard
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Bonesplitter
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Gutslicer
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Hammer
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Earthguard
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Stormshield
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Poleaxe
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Shank
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Elementium Spellblade
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Forged Elementium Mindcrusher
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ebonsteel Belt Buckle
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Pyrium Shield Spike
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Breastplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Pyrium Legguards
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Breastplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ornate Pyrium Legguards
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()

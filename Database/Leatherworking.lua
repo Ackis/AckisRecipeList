@@ -2623,7 +2623,397 @@ function addon:InitLeatherworking()
 	AddRecipe(70561, 450, 49897, Q.EPIC, V.WOTLK, 450, 460, 465, 470)
 	self:AddRecipeFlags(70561, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ASHEN_VERDICT)
 	self:AddRecipeRepVendor(70561, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-
+	
+	--------------------------------------------------------------------------------------------------------
+	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
+	-------------------------------------------------------------------------------------------------------
+	-- -- Savage Leather
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Savage Armor Kit
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hardened Scale Cloak
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Savage Cloak
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Heavy Savage Leather
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Scorched Leg Armor
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Twilight Leg Armor
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Chestguard
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Heavy Savage Armor Kit
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Leggings
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Leggings
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Tsunami Chestguard
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkbrand Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Cloak of Beasts
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Cloak of War
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Lightning Lash
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Stormleather Sash
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- --Dragonkiller Tunic
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dragonscale Leg Armor
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Twilight Scale Chestguard
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Razor-Edged Cloak
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Twilight Dragonscale Cloak
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Savage Leather -- HMMM
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Charscale Leg Reinforcements
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dragonbone Leg Reinforcements
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Draconic Embossment - Agility
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Draconic Embossment - Intellect
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Draconic Embossment - Stamina
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Draconic Embossment - Strength
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Braces
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Legs
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Chest
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Belt of Nefarious Whispers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Corded Viper Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Assassin's Chestplate
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Charscale Leg Armor
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Chestguard of Nature's Fury
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Chest
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Dragonscale Legs
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Chest
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Leather Legs
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Chest
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Scale Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Helm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bloodied Wyrmhide Legs
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	
+	
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()

@@ -2097,6 +2097,302 @@ function addon:InitTailoring()
 	AddRecipe(75597, 450, 54797, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
 	self:AddRecipeFlags(75597, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(75597, 40160)
+	
+	--------------------------------------------------------------------------------------------------------
+	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
+	-------------------------------------------------------------------------------------------------------
+	-- -- Embersilk Net -- 75247
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Bolt of Embersilk Cloth -- 74964
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Belt -- 75248
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Bracers -- 75249
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Enchanted Spellthread -- 75250
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Boots -- 75252
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Leggings
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Ghostly Spellthread
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Cowl
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Deathsilk Robes
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Master's Spellthread
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Sancitified Spellthread
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Leggings
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Otherworldly Bag
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Embersilk Bag
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Cowl
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Spiritmend Robe
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Hyjal Expedition Bag
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Darkglow Embroidery
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Lightweave Embroidery
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Swordguard Embroidery
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Bracers
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Black Embersilk Gown
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Azshara
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Hyjal
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- High Society Top Hat
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Deepholm
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Shoulders
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Ragnaros
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Skywall
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Boots
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Gloves
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Belt of the Depths
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Breeches of Mended Nightmares
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dreamless Belt
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Flame-Ascended Pantaloons
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Powerful Enchanted Spellthread
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- --Powerful Ghostly Spellthread
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Dream of Destruction
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Cowl
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Pants
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Emberfire Robe
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Cowl
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Pants
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Fireweave Robe
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	-- -- Illusionary Bag
+	-- AddRecipe(, , , , V.CATA, , , , )
+	-- self:AddRecipeFlags()
+	
+	
+	
+	
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
