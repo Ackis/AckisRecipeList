@@ -1478,17 +1478,17 @@ function addon:InitEngineering()
 	-- Cardboard Assassin -- 84425
 	AddRecipe(84425, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84425, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(34425, A.CUSTOM, 51)
+	self:AddRecipeAcquire(84425, A.CUSTOM, 51)
 
 	-- Grounded Plasma Shield -- 84427
 	AddRecipe(84427, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84427, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(34427, A.CUSTOM, 51)
+	self:AddRecipeAcquire(84427, A.CUSTOM, 51)
 
 	-- Invisibility Field -- 84424
 	AddRecipe(84424, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84424, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(34424, A.CUSTOM, 51)
+	self:AddRecipeAcquire(84424, A.CUSTOM, 51)
 
 	-- Quickflip Deflection Plates -- 82177
 	AddRecipe(82177, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
