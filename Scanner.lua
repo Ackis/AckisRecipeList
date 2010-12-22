@@ -797,7 +797,8 @@ function addon:GenerateLinks()
 ]]--
 	local bitmap = {}
 	bitmap[45542] = "8bffAA" -- First Aid  100%   17/17 recipes
-	bitmap[51296] = "2/6///7///9f///7//////////g///B" -- Cooking  98.2%  166/169 recipes
+	--bitmap[51296] = "2/6///7///9f///7//////////g///B" -- Cooking  98.2%  166/169 recipes
+	bitmap[51296] = "GEgAGAjmFAwBAxAzfex//DgAgPA6HtgAI8lC"
 	--bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/TolD" -- Engineering (53)
 	bitmap[51306] = "4/////////////3nFA+///9+/P7//f//n//9dgdJgHA87/3f/Tol3B" -- Engineering
 	bitmap[51302] = "e+//ff////d//u//v//n+vv7/+ujr7/9////bg/+////f344//dA4I8j/X//B4/vu5/////////////////nvA8/M8/D" -- Leatherworking  85.4%   451/528 recipes
