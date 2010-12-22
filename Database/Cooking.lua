@@ -167,14 +167,13 @@ function addon:InitCooking()
 
 	-- Hot Lion Chops -- 3398
 	AddRecipe(3398, 125, 3727, Q.COMMON, V.ORIG, 125, 175, 195, 215)
-	self:AddRecipeFlags(3398, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3398, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3398, 3489, 12245)
-	self:AddRecipeQuest(3398, 501)
 
 	-- Tasty Lion Steak -- 3399
 	AddRecipe(3399, 150, 3728, Q.COMMON, V.ORIG, 150, 190, 210, 230)
-	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(3399, 564)
+	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, Q.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeAcquire(3399, A.CUSTOM, 48)
 
 	-- Soothing Turtle Bisque -- 3400
 	AddRecipe(3400, 175, 3729, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -304,7 +303,7 @@ function addon:InitCooking()
 	AddRecipe(9513, 60, 7676, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
 	self:AddRecipeFlags(9513, F.ALLIANCE, F.HORDE, F.VENDOR, F.ROGUE, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(9513, 6779)
-	
+
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
 	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
@@ -469,7 +468,7 @@ function addon:InitCooking()
 	AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
 	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.QUEST, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(25659, A.CUSTOM, 48)
-	
+
 	-- Smoked Sagefish -- 25704
 	AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
 	self:AddRecipeFlags(25704, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
@@ -986,7 +985,7 @@ function addon:InitCooking()
 	AddRecipe(88011, 500, 62289, Q.RARE, V.CATA, 500, 500, 500, 525)
 	self:AddRecipeFlags(88011, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
 	self:AddRecipeAchievement(88011, 5467)
-	
+
 	-- Fish Fry -- 88018
 	AddRecipe(88018, 500, 62677, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
 	self:AddRecipeFlags(88018, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
