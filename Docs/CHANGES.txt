@@ -1,6 +1,24 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Version 2.1 Release
+
+==== Recipe Database:
+* Updated all Cataclysm recipes.  Old recipes are still being reworked with new acquire methods.
+
+==== Bug Fixes:
+* Bug with the recipe dataminer fixed which prevented spell IDs of some recipes from being displayed.
+* Cooking tradeskill link fixed
+* GenericAddRecipeAcquire made more fault-tolerant.
+* Fixed a bug with tradeskills from the guild roster.
+
+==== New Features:
+
+* Added support for recipes obtained via achievements.
+
+==== Miscellaneous changes:
+* Database external documentation removed.  It was outdated and will be replaced slowly by luadoc within the code.
+
 == Version 2.0 Release
 
 ==== Changes to the recipe list panel:
@@ -16,7 +34,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Waypoint descriptions are now colored by acquisition type and item quality.
 
 
-==== Bug Fixes.
+==== Bug Fixes:
 * Resetting the main panel's position no longer resets the tooltip scale or font size.
 * Added a work-around for the French localization of the Runeforging "profession" not being conformant with other locales.
 * Fixed tooltip colorcode for excluded recipes.
