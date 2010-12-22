@@ -1566,7 +1566,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(84415, 11017, 5518)
 
 	-- De-Weaponized Mechanical Companion -- 84413
-	AddRecipe(84413, 475, 60216, Q.COMMON, V.CATA, 475, 495, 497, 500)
+	AddRecipe(84413, 475, 60216, Q.COMMON, V.CATA, 475, 495, 497, 500, 20219)
 	self:AddRecipeFlags(84413, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(84413, 29514, 7944)
 
@@ -1576,7 +1576,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(84416, 11017, 5518)
 
 	-- Personal World Destroyer -- 84412
-	AddRecipe(84412, 475, 59597, Q.COMMON, V.CATA, 475, 495, 497, 500)
+	AddRecipe(84412, 475, 59597, Q.COMMON, V.CATA, 475, 495, 497, 500, 20222)
 	self:AddRecipeFlags(84412, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(84412, 29513)
 
