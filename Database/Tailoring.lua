@@ -2097,302 +2097,301 @@ function addon:InitTailoring()
 	AddRecipe(75597, 450, 54797, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
 	self:AddRecipeFlags(75597, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(75597, 40160)
-	
-	--------------------------------------------------------------------------------------------------------
-	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
-	-------------------------------------------------------------------------------------------------------
-	-- -- Embersilk Net -- 75247
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bolt of Embersilk Cloth -- 74964
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Belt -- 75248
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Bracers -- 75249
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Enchanted Spellthread -- 75250
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Boots -- 75252
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Leggings
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ghostly Spellthread
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Cowl
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Deathsilk Robes
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Master's Spellthread
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Sancitified Spellthread
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Leggings
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Otherworldly Bag
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Embersilk Bag
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Cowl
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Spiritmend Robe
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hyjal Expedition Bag
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkglow Embroidery
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Lightweave Embroidery
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Swordguard Embroidery
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Black Embersilk Gown
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Azshara
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Hyjal
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- High Society Top Hat
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Deepholm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Ragnaros
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Skywall
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Belt of the Depths
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Breeches of Mended Nightmares
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dreamless Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Flame-Ascended Pantaloons
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Powerful Enchanted Spellthread
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- --Powerful Ghostly Spellthread
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dream of Destruction
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Cowl
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Pants
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Emberfire Robe
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Cowl
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Pants
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fireweave Robe
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Illusionary Bag
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	
-	
+
+	-- Embersilk Net -- 75247
+	AddRecipe(75247, 425, 54442, Q.COMMON, V.CATA, 425, 435, 445, 455)
+	self:AddRecipeFlags(75247, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75247, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Bolt of Embersilk Cloth -- 74964
+	AddRecipe(74964, 425, 53643, Q.COMMON, V.CATA, 425, 440, 445, 450)
+	self:AddRecipeFlags(74964, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(74964, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Belt -- 75248
+	AddRecipe(75248, 445, 54471, Q.COMMON, V.CATA, 445, 455, 460, 465)
+	self:AddRecipeFlags(75248, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75248, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Bracers -- 75249
+	AddRecipe(75249, 445, 54473, Q.COMMON, V.CATA, 445, 455, 460, 465)
+	self:AddRecipeFlags(75249, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75249, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Enchanted Spellthread -- 75250
+	AddRecipe(75250, 450, 54447, Q.COMMON, V.CATA, 450, 465, 467, 470)
+	self:AddRecipeFlags(75250, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75250, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Boots -- 75252
+	AddRecipe(75252, 455, 54477, Q.COMMON, V.CATA, 455, 460, 465, 470)
+	self:AddRecipeFlags(75252, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75252, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Shoulders -- 75251
+	AddRecipe(75251, 455, 54474, Q.COMMON, V.CATA, 455, 460, 465, 470)
+	self:AddRecipeFlags(75251, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75251, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Leggings -- 75254
+	AddRecipe(75254, 460, 54472, Q.COMMON, V.CATA, 460, 465, 470, 475)
+	self:AddRecipeFlags(75254, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75254, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Gloves -- 75253
+	AddRecipe(75253, 460, 54478, Q.COMMON, V.CATA, 460, 470, 472, 475)
+	self:AddRecipeFlags(75253, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75253, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Ghostly Spellthread -- 75255
+	AddRecipe(75255, 460, 54449, Q.COMMON, V.CATA, 460, 470, 472, 475)
+	self:AddRecipeFlags(75255, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75255, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Cowl -- 75256
+	AddRecipe(75256, 465, 54476, Q.COMMON, V.CATA, 465, 470, 475, 480)
+	self:AddRecipeFlags(75256, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75256, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Deathsilk Robes -- 75257
+	AddRecipe(75257, 465, 54475, Q.COMMON, V.CATA, 465, 475, 477, 480)
+	self:AddRecipeFlags(75257, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75257, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Belt -- 75258
+	AddRecipe(75258, 470, 54481, Q.COMMON, V.CATA, 470, 475, 480, 485)
+	self:AddRecipeFlags(75258, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75258, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Bracers -- 75259
+	AddRecipe(75259, 470, 54480, Q.COMMON, V.CATA, 470, 475, 480, 485)
+	self:AddRecipeFlags(75259, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75259, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Master's Spellthread -- 75154
+	AddRecipe(75154, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 475)
+	self:AddRecipeFlags(75154, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75154, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Sancitified Spellthread -- 75155
+	AddRecipe(75155, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 475)
+	self:AddRecipeFlags(75155, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75155, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Boots -- 75261
+	AddRecipe(75261, 475, 54482, Q.COMMON, V.CATA, 475, 480, 485, 490)
+	self:AddRecipeFlags(75261, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75261, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Shoulders -- 75260
+	AddRecipe(75260, 475, 54479, Q.COMMON, V.CATA, 475, 485, 487, 490)
+	self:AddRecipeFlags(75260, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75260, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Gloves -- 75262
+	AddRecipe(75262, 480, 54484, Q.COMMON, V.CATA, 480, 485, 490, 495)
+	self:AddRecipeFlags(75262, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75262, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Leggings -- 75263
+	AddRecipe(75263, 480, 54483, Q.COMMON, V.CATA, 480, 485, 490, 495)
+	self:AddRecipeFlags(75263, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75263, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Otherworldly Bag -- 75265
+	AddRecipe(75265, 480, 54445, Q.COMMON, V.CATA, 480, 490, 492, 495)
+	self:AddRecipeFlags(75265, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75265, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Embersilk Bag -- 75264
+	AddRecipe(75264, 480, 54443, Q.COMMON, V.CATA, 480, 490, 492, 495)
+	self:AddRecipeFlags(75264, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75264, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Cowl -- 75266
+	AddRecipe(75266, 485, 54485, Q.COMMON, V.CATA, 485, 500, 502, 505)
+	self:AddRecipeFlags(75266, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75266, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Spiritmend Robe -- 75267
+	AddRecipe(75267, 485, 54486, Q.COMMON, V.CATA, 485, 500, 502, 505)
+	self:AddRecipeFlags(75267, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75267, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Hyjal Expedition Bag -- 75268
+	AddRecipe(75268, 490, 54446, Q.COMMON, V.CATA, 490, 500, 502, 505)
+	self:AddRecipeFlags(75268, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75268, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Darkglow Embroidery -- 75175
+	AddRecipe(75175, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 500)
+	self:AddRecipeFlags(75175, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75175, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Lightweave Embroidery -- 75172
+	AddRecipe(75172, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 500)
+	self:AddRecipeFlags(75172, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75172, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Swordguard Embroidery -- 75178
+	AddRecipe(75178, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 500)
+	self:AddRecipeFlags(75178, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75178, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Emberfire Bracers -- 75270
+	AddRecipe(75270, 500, 54501, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self:AddRecipeFlags(75270, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75270, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Fireweave Bracers -- 75290
+	AddRecipe(75290, 500, 54488, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self:AddRecipeFlags(75290, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75290, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Black Embersilk Gown -- 75288
+	AddRecipe(75288, 500, 54441, Q.RARE, V.CATA, 500, 505, 510, 515)
+	self:AddRecipeFlags(75288, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75288, 50386, 50433)
+
+	-- Dream of Azshara -- 75146
+	AddRecipe(75146, 500, 54440, Q.COMMON, V.CATA, 500, 525, 530, 535)
+	self:AddRecipeFlags(75146, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75146, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Dream of Hyjal -- 75144
+	AddRecipe(75144, 500, 54440, Q.COMMON, V.CATA, 500, 525, 530, 535)
+	self:AddRecipeFlags(75144, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75144, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- -- High Society Top Hat -- 75289 -- NOT IN GAME YET? DUNNO WHAT THE SOURCE IS
+	-- AddRecipe(75289, 500, Q.COMMON, , V.CATA, 500, 530, 535, 540)
+	-- self:AddRecipeFlags(75289)
+
+
+	-- Emberfire Shoulders -- 75291
+	AddRecipe(75291, 505, 54502, Q.COMMON, V.CATA, 505, 510, 515, 520)
+	self:AddRecipeFlags(75291, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75291, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Dream of Deepholm -- 75142
+	AddRecipe(75142, 505, 54440, Q.COMMON, V.CATA, 505, 525, 530, 535)
+	self:AddRecipeFlags(75142, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75142, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Emberfire Belt -- 75293
+	AddRecipe(75293, 510, 54500, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(75293, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75293, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Fireweave Belt -- 75269
+	AddRecipe(75269, 510, 54489, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(75269, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75269, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Fireweave Shoulders -- 75292
+	AddRecipe(75292, 510, 54487, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(75292, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75292, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Dream of Ragnaros -- 75145
+	AddRecipe(75145, 510, 54440, Q.COMMON, V.CATA, 510, 525, 530, 535)
+	self:AddRecipeFlags(75145, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75145, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Emberfire Gloves -- 75295
+	AddRecipe(75295, 515, 54497, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(75295, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75295, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Fireweave Boots -- 75294
+	AddRecipe(75294, 515, 54490, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(75294, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75294, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Dream of Skywall -- 75141
+	AddRecipe(75141, 515, 54440, Q.COMMON, V.CATA, 515, 525, 530, 535)
+	self:AddRecipeFlags(75141, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75141, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Emberfire Boots -- 75297
+	AddRecipe(75297, 520, 54499, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(75297, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75297, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Fireweave Gloves -- 75296
+	AddRecipe(75296, 520, 54492, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(75296, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(75296, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Belt of the Depths -- 75298
+	AddRecipe(75298, 525, 54504, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75298, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75298, 50386, 50433)
+
+	-- Breeches of Mended Nightmares -- 75300
+	AddRecipe(75300, 525, 54505, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75300, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75300, 50386, 50433)
+
+	-- Dreamless Belt -- 75299
+	AddRecipe(75299, 525, 54503, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75299, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75299, 50386, 50433)
+
+	-- Flame-Ascended Pantaloons -- 75301
+	AddRecipe(75301, 525, 54506, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75301, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75301, 50386, 50433)
+
+	-- Powerful Enchanted Spellthread -- 75309
+	AddRecipe(75309, 525, 54448, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75309, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75309, 50386, 50433)
+
+	--Powerful Ghostly Spellthread -- 75310
+	AddRecipe(75310, 525, 54450, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75310, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75310, 50386, 50433)
+
+	-- Dream of Destruction -- 94743
+	AddRecipe(94743, 525, 54440, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(94743, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(94743, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
+
+	-- Emberfire Cowl -- 75306
+	AddRecipe(75306, 525, 54496, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75306, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75306, 50386, 50433)
+
+	-- Emberfire Pants -- 75307
+	AddRecipe(75307, 525, 54498, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75307, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75307, 50386, 50433)
+
+	-- Emberfire Robe -- 75305
+	AddRecipe(75305, 525, 54495, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75305, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75305, 50386, 50433)
+
+	-- Fireweave Cowl -- 75304
+	AddRecipe(75304, 525, 54493, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75304, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75304, 50386, 50433)
+
+	-- Fireweave Pants -- 75302
+	AddRecipe(75302, 525, 54491, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75302, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75302, 50386, 50433)
+
+	-- Fireweave Robe -- 75303
+	AddRecipe(75303, 525, 54494, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75303, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75303, 50386, 50433)
+
+	-- Illusionary Bag -- 75308
+	AddRecipe(75308, 525, 54444, Q.RARE, V.CATA, 525, 525, 530, 535)
+	self:AddRecipeFlags(75308, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(75308, 50386, 50433)
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
