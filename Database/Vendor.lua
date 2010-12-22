@@ -408,4 +408,6 @@ function addon:InitVendor(DB)
 	AddVendor(49737,	L["Shazdar"],				BZ["Orgrimmar"],		57.2, 62.0, HORDE)
 	AddVendor(50134,	L["Senthii"],				BZ["Twilight Highlands"],	78.7, 77.0, ALLIANCE)
 	AddVendor(50146,	L["Agatian Fallanos"],			BZ["Twilight Highlands"],	76.7, 49.5, HORDE)
+	AddVendor(50386,	L["Sal Ferraga"],			BZ["Twilight Highlands"],	78.6, 76.9, ALLIANCE)
+	AddVendor(50433,	L["Aristaleon Sunweaver"],			BZ["Twilight Highlands"],	75.2, 50.1, HORDE)
 end
