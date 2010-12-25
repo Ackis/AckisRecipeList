@@ -1622,37 +1622,37 @@ function addon:InitEngineering()
 
 	-- Agile Bio-Optic Killshades -- 81722
 	AddRecipe(81722, 525, 59455, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81722, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81722, F.ALLIANCE, F.HORDE, F.TRAINER, F.ROGUE, F.DRUID, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81722, 11017, 5518)
 
 	-- Deadly Bio-Optic Killshades -- 81716
 	AddRecipe(81716, 525, 59456, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81716, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81716, F.ALLIANCE, F.HORDE, F.TRAINER, F.HUNTER, F.SHAMAN, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81716, 11017, 5518)
 
 	-- Lightweight Bio-Optic Killshades -- 81725
 	AddRecipe(81725, 525, 59449, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81725, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81725, F.ALLIANCE, F.HORDE, F.TRAINER, F.PRIEST, F.MAGE, F.WARLOCK, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81725, 11017, 5518)
 
 	-- Reinforced Bio-Optic Killshades -- 81714
 	AddRecipe(81714, 525, 59359, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81714, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81714, F.ALLIANCE, F.HORDE, F.TRAINER, F.WARRIOR, F.PALADIN, F.DEATHKNIGHT, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81714, 11017, 5518)
 
 	-- Camouflage Bio-Optic Killshades -- 81724
 	AddRecipe(81724, 525, 59453, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81724, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81724, F.ALLIANCE, F.HORDE, F.TRAINER, F.DRUID, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81724, 11017, 5518)
 
 	-- Specialized Bio-Optic Killshades -- 81715
 	AddRecipe(81715, 525, 59448, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81715, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81715, F.ALLIANCE, F.HORDE, F.TRAINER, F.PALADIN, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81715, 11017, 5518)
 
 	-- Energized Bio-Optic Killshades -- 81720
 	AddRecipe(81720, 525, 59458, Q.COMMON, V.CATA, 525, 525, 530, 535)
-	self:AddRecipeFlags(81720, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(81720, F.ALLIANCE, F.HORDE, F.TRAINER, F.SHAMAN, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(81720, 11017, 5518)
 
 	-- Overpowered Chicken Splitter -- 84431
