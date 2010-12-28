@@ -1635,7 +1635,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(34538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(34538, 7232, 29505, 11146, 7231, 11178, 20124)
 	self:AddRecipeAcquire(34538, A.CUSTOM, 46)
-	
+
 	-- Lionheart Champion -- 34540
 	AddRecipe(34540, 375, 28429, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34540, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
@@ -1737,7 +1737,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(36125, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36125, 7232, 29505, 11146, 7231, 11178, 20124)
 	self:AddRecipeAcquire(36125, A.CUSTOM, 46)
-	
+
 	-- Light Skyforged Axe -- 36126
 	AddRecipe(36126, 260, 30072, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36126, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
@@ -1761,7 +1761,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(36130, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36130, 11177, 29506, 20125, 7230, 5164)
 	self:AddRecipeAcquire(36130, A.CUSTOM, 46)
-	
+
 	-- Windforged Rapier -- 36131
 	AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36131, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
@@ -2179,7 +2179,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeFlags(55183, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(55183, 11146, 29505, 11178, 20124)
 	self:AddRecipeAcquire(55183, A.CUSTOM, 46)
-	
+
 	-- Corroded Saronite Woundbringer -- 55184
 	AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55184, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
@@ -2190,7 +2190,7 @@ function addon:InitBlacksmithing()
 	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55185, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(55185, 11146, 29505, 11178, 20124, 3355)
-		
+
 	-- Chestplate of Conquest -- 55186
 	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55186, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
@@ -2563,360 +2563,357 @@ function addon:InitBlacksmithing()
 	AddRecipe(70568, 450, 49907, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
 	self:AddRecipeFlags(70568, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.PLATE, F.ASHEN_VERDICT)
 	self:AddRecipeRepVendor(70568, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-	
-	--------------------------------------------------------------------------------------------------------
-	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
-	-------------------------------------------------------------------------------------------------------
-	-- -- Folded Obsidium
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Gauntlets
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium GAuntlets
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Shield
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Gauntlets
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Decapitator's Razor
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Cold-Forged Shank
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Obsidium Bladespear
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Shield
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Obsidium Skeleton Key
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Fire-Etched Dagger
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Lifeforce Hammer
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Obsidium Executioner
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Legguards
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Shield Spike
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Legguards
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Legguards
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Breastplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Breastplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Redsteel Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormforged Breastplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Obsidium Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Rod
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Pyrium Weapon Chain
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Gauntlets
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Gauntlets
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Girdle of Pain
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Elementium Girdle
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Light Elementium Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Deathplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Elementium Hauberk
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Light Elementium Chestguard
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Bonesplitter
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Gutslicer
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Hammer
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Earthguard
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Stormshield
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Poleaxe
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Shank
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Elementium Spellblade
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Forged Elementium Mindcrusher
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ebonsteel Belt Buckle
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Pyrium Shield Spike
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Breastplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Pyrium Legguards
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Breastplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Ornate Pyrium Legguards
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
+
+	-- Folded Obsidium -- 76178
+	AddRecipe(76178, 425, nil, Q.COMMON, V.CATA, 425, 450, 452, 455)
+	self:AddRecipeFlags(76178, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76178, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Gauntlets -- 76281
+	AddRecipe(76281, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76281, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76281, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Gauntlets -- 76180
+	AddRecipe(76180, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76180, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76180, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Shield -- 76291
+	AddRecipe(76291, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76291, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76291, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Bracers -- 76262
+	AddRecipe(76262, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76262, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76262, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Gauntlets -- 76263
+	AddRecipe(76263, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76263, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76263, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Bracers -- 76280
+	AddRecipe(76280, 425, nil, Q.COMMON, V.CATA, 425, 460, 462, 465)
+	self:AddRecipeFlags(76280, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76280, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Belt -- 76181
+	AddRecipe(76181, 425, nil, Q.COMMON, V.CATA, 425, 470, 472, 475)
+	self:AddRecipeFlags(76181, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76181, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Belt -- 76264
+	AddRecipe(76264, 425, nil, Q.COMMON, V.CATA, 425, 470, 472, 475)
+	self:AddRecipeFlags(76264, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76264, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Belt -- 76283
+	AddRecipe(76283, 425, nil, Q.COMMON, V.CATA, 425, 470, 472, 475)
+	self:AddRecipeFlags(76283, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76283, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Decapitator's Razor -- 76433
+	AddRecipe(76433, 425, nil, Q.COMMON, V.CATA, 425, 475, 477, 480)
+	self:AddRecipeFlags(76433, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76433, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Cold-Forged Shank -- 76434
+	AddRecipe(76434, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76434, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76434, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Obsidium Bladespear -- 76474
+	AddRecipe(76474, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76474, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76474, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Boots -- 76182
+	AddRecipe(76182, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76182, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76182, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Boots -- 76265
+	AddRecipe(76265, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76265, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76265, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Boots -- 76285
+	AddRecipe(76285, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76285, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76285, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Shield -- 76293
+	AddRecipe(76293, 425, nil, Q.COMMON, V.CATA, 425, 480, 482, 485)
+	self:AddRecipeFlags(76293, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76293, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Obsidium Skeleton Key -- 76438
+	AddRecipe(76438, 425, nil, Q.COMMON, V.CATA, 425, 480, 485, 490)
+	self:AddRecipeFlags(76438, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76438, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Fire-Etched Dagger -- 76435
+	AddRecipe(76435, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76435, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76435, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Shoulders -- 76258
+	AddRecipe(76258, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76258, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76258, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Lifeforce Hammer -- 76436
+	AddRecipe(76436, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76436, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76436, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Obsidium Executioner -- 76437
+	AddRecipe(76437, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76437, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76437, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Legguards -- 76287
+	AddRecipe(76287, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76287, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76287, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Shoulders -- 76286
+	AddRecipe(76286, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76286, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76286, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Shoulders -- 76266
+	AddRecipe(76266, 425, nil, Q.COMMON, V.CATA, 425, 490, 492, 495)
+	self:AddRecipeFlags(76266, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76266, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Helm -- 76260
+	AddRecipe(76260, 425, nil, Q.COMMON, V.CATA, 425, 500, 502, 505)
+	self:AddRecipeFlags(76260, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76260, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Helm -- 76288
+	AddRecipe(76288, 425, nil, Q.COMMON, V.CATA, 425, 500, 502, 505)
+	self:AddRecipeFlags(76288, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76288, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Elementium Shield Spike -- 76441
+	AddRecipe(76441, 425, nil, Q.COMMON, V.CATA, 425, 500, 502, 505)
+	self:AddRecipeFlags(76441, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76441, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Legguards -- 76259
+	AddRecipe(76259, 425, nil, Q.COMMON, V.CATA, 425, 500, 502, 505)
+	self:AddRecipeFlags(76259, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76259, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Legguards -- 76267
+	AddRecipe(76267, 425, nil, Q.COMMON, V.CATA, 425, 500, 502, 505)
+	self:AddRecipeFlags(76267, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76267, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Breastplate -- 76270
+	AddRecipe(76270, 425, nil, Q.COMMON, V.CATA, 425, 510, 512, 515)
+	self:AddRecipeFlags(76270, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76270, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Breastplate -- 76261
+	AddRecipe(76261, 425, nil, Q.COMMON, V.CATA, 425, 510, 512, 515)
+	self:AddRecipeFlags(76261, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76261, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Redsteel Helm -- 76269
+	AddRecipe(76269, 425, nil, Q.COMMON, V.CATA, 425, 510, 512, 515)
+	self:AddRecipeFlags(76269, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76269, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Stormforged Breastplate -- 76289
+	AddRecipe(76289, 425, nil, Q.COMMON, V.CATA, 425, 510, 512, 515)
+	self:AddRecipeFlags(76289, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76289, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Hardened Obsidium Bracers -- 76179
+	AddRecipe(76179, 440, nil, Q.COMMON, V.CATA, 440, 460, 462, 465)
+	self:AddRecipeFlags(76179, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(76179, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Elementium Rod -- 92375
+	AddRecipe(92375, 475, nil, Q.COMMON, V.CATA, 475, 480, 485, 490)
+	self:AddRecipeFlags(92375, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(92375, 28694, 26988, 16669, 4258, 11178, 26564, 3136, 26981, 5164, 16823, 29505, 11146)
+
+	-- Pyrium Weapon Chain -- 76442
+	AddRecipe(76442, 500, nil, Q.COMMON, V.CATA, 500, 505, 510, 515)
+	self:AddRecipeFlags(76442, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76442, 50382, 50375)
+
+	-- Bloodied Pyrium Bracers -- 76456
+	AddRecipe(76456, 500, nil, Q.COMMON, V.CATA, 500, 510, 512, 515)
+	self:AddRecipeFlags(76456, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76456, 50382, 50375)
+
+	-- Ornate Pyrium Bracers -- 76465
+	AddRecipe(76465, 500, nil, Q.COMMON, V.CATA, 500, 510, 512, 515)
+	self:AddRecipeFlags(76465, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76465, 50382, 50375)
+
+	-- Bloodied Pyrium Gauntlets -- 76457
+	AddRecipe(76457, 505, nil, Q.COMMON, V.CATA, 505, 515, 517, 520)
+	self:AddRecipeFlags(76457, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76457, 50382, 50375)
+
+	-- Ornate Pyrium Gauntlets -- 76466
+	AddRecipe(76466, 505, nil, Q.COMMON, V.CATA, 505, 515, 517, 520)
+	self:AddRecipeFlags(76466, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76466, 50382, 50375)
+
+	-- Elementium Girdle of Pain -- 76446
+	AddRecipe(76446, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	self:AddRecipeFlags(76446, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76446, 50382, 50375)
+
+	-- Hardened Elementium Girdle -- 76444
+	AddRecipe(76444, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	self:AddRecipeFlags(76444, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76444, 50382, 50375)
+
+	-- Light Elementium Belt -- 76448
+	AddRecipe(76448, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	self:AddRecipeFlags(76448, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76448, 50382, 50375)
+
+	-- Bloodied Pyrium Belt -- 76458
+	AddRecipe(76458, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	self:AddRecipeFlags(76458, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76458, 50382, 50375)
+
+	-- Ornate Pyrium Belt -- 76467
+	AddRecipe(76467, 510, nil, Q.COMMON, V.CATA, 510, 520, 522, 525)
+	self:AddRecipeFlags(76467, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76467, 50382, 50375)
+
+	-- Elementium Deathplate -- 76445
+	AddRecipe(76445, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(76445, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76445, 50382, 50375)
+
+	-- Hardened Elementium Hauberk -- 76443
+	AddRecipe(76443, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(76443, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76443, 50382, 50375)
+
+	-- Light Elementium Chestguard -- 76447
+	AddRecipe(76447, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(76447, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76447, 50382, 50375)
+
+	-- Elementium Bonesplitter -- 76452
+	AddRecipe(76452, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(76452, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76452, 50382, 50375)
+
+	-- Elementium Gutslicer -- 94718
+	AddRecipe(94718, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(94718, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(94718, 50382, 50375)
+
+	-- Elementium Hammer -- 76450
+	AddRecipe(76450, 515, nil, Q.COMMON, V.CATA, 515, 515, 515, 525)
+	self:AddRecipeFlags(76450, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76450, 50382, 50375)
+
+	-- Bloodied Pyrium Boots -- 76459
+	AddRecipe(76459, 515, nil, Q.COMMON, V.CATA, 515, 525, 527, 530)
+	self:AddRecipeFlags(76459, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76459, 50382, 50375)
+
+	-- Ornate Pyrium Boots -- 76468
+	AddRecipe(76468, 515, nil, Q.COMMON, V.CATA, 515, 525, 527, 530)
+	self:AddRecipeFlags(76468, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76468, 50382, 50375)
+
+	-- Elementium Earthguard -- 76454
+	AddRecipe(76454, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(76454, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76454, 50382, 50375)
+
+	-- Elementium Stormshield -- 76455
+	AddRecipe(76455, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(76455, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76455, 50382, 50375)
+
+	-- Elementium Poleaxe -- 76451
+	AddRecipe(76451, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(76451, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76451, 50382, 50375)
+
+	-- Elementium Shank -- 76453
+	AddRecipe(76453, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(76453, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76453, 50382, 50375)
+
+	-- Elementium Spellblade -- 76449
+	AddRecipe(76449, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(76449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76449, 50382, 50375)
+
+	-- Forged Elementium Mindcrusher -- 94732
+	AddRecipe(94732, 520, nil, Q.COMMON, V.CATA, 520, 520, 520, 525)
+	self:AddRecipeFlags(94732, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(94732, 50382, 50375)
+
+	-- Bloodied Pyrium Shoulders -- 76461
+	AddRecipe(76461, 520, nil, Q.COMMON, V.CATA, 525, 530, 532, 535)
+	self:AddRecipeFlags(76461, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76461, 50382, 50375)
+
+	-- Ornate Pyrium Shoulders -- 76469
+	AddRecipe(76469, 520, nil, Q.COMMON, V.CATA, 520, 530, 532, 535)
+	self:AddRecipeFlags(76469, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76469, 50382, 50375)
+
+	-- Ebonsteel Belt Buckle -- 76439
+	AddRecipe(76439, 525, nil, Q.COMMON, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(76439, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76439, 50382, 50375)
+
+	-- Pyrium Shield Spike -- 76440
+	AddRecipe(76440, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(76440, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76440, 50382, 50375)
+
+	-- Bloodied Pyrium Breastplate -- 76464
+	AddRecipe(76464, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76464, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76464, 50382, 50375)
+
+	-- Bloodied Pyrium Helm -- 76463
+	AddRecipe(76463, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76463, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76463, 50382, 50375)
+
+	-- Bloodied Pyrium Legguards -- 76462
+	AddRecipe(76462, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76462, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76462, 50382, 50375)
+
+	-- Ornate Pyrium Breastplate -- 76472
+	AddRecipe(76472, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76472, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76472, 50382, 50375)
+
+	-- Ornate Pyrium Helm -- 76471
+	AddRecipe(76471, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76471, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76471, 50382, 50375)
+
+	-- Ornate Pyrium Legguards -- 76470
+	AddRecipe(76470, 525, nil, Q.COMMON, V.CATA, 525, 535, 537, 540)
+	self:AddRecipeFlags(76470, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(76470, 50382, 50375)
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
