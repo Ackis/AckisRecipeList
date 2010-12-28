@@ -2623,397 +2623,391 @@ function addon:InitLeatherworking()
 	AddRecipe(70561, 450, 49897, Q.EPIC, V.WOTLK, 450, 460, 465, 470)
 	self:AddRecipeFlags(70561, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.MAIL, F.ASHEN_VERDICT)
 	self:AddRecipeRepVendor(70561, FAC.ASHEN_VERDICT, REP.HONORED, 37687)
-	
-	--------------------------------------------------------------------------------------------------------
-	-- POMPACHOMP WILL BE ADDING THESE IN, just commited skeleton code for now ----------------------------
-	-------------------------------------------------------------------------------------------------------
-	-- -- Savage Leather
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Savage Armor Kit
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Hardened Scale Cloak
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Savage Cloak
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Heavy Savage Leather
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Scorched Leg Armor
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Twilight Leg Armor
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Chestguard
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Heavy Savage Armor Kit
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Leggings
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Leggings
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Tsunami Chestguard
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Darkbrand Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Cloak of Beasts
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Cloak of War
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Lightning Lash
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Stormleather Sash
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- --Dragonkiller Tunic
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dragonscale Leg Armor
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Twilight Scale Chestguard
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Razor-Edged Cloak
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Twilight Dragonscale Cloak
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
+
+	-- Savage Leather -- 84950
+	AddRecipe(84950, 425, 52976, Q.COMMON, V.CATA, 425, 435, 440, 445)
+	self:AddRecipeFlags(84950, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(84950, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Savage Armor Kit -- 78379
+	AddRecipe(78379, 425, 56477, Q.COMMON, V.CATA, 425, 450, 452, 455)
+	self:AddRecipeFlags(78379, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78379, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Bracers -- 78398
+	AddRecipe(78398, 425, 56483, Q.COMMON, V.CATA, 425, 460, 465, 470)
+	self:AddRecipeFlags(78398, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78398, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Hardened Scale Cloak -- 78405
+	AddRecipe(78405, 425, 56489, Q.COMMON, V.CATA, 425, 460, 465, 470)
+	self:AddRecipeFlags(78405, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78405, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Boots -- 78410
+	AddRecipe(78410, 425, nil, Q.COMMON, V.CATA, 425, 460, 465, 470)
+	self:AddRecipeFlags(78410, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78410, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Shoulders -- 78415
+	AddRecipe(78415, 425, nil, Q.COMMON, V.CATA, 425, 465, 470, 475)
+	self:AddRecipeFlags(78415, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78415, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Belt -- 78416
+	AddRecipe(78416, 425, nil, Q.COMMON, V.CATA, 425, 465, 470, 475)
+	self:AddRecipeFlags(78416, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78416, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Savage Cloak -- 78380
+	AddRecipe(78380, 425, nil, Q.COMMON, V.CATA, 425, 470, 475, 480)
+	self:AddRecipeFlags(78380, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78380, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Bracers -- 78388
+	AddRecipe(78388, 425, nil, Q.COMMON, V.CATA, 425, 470, 475, 480)
+	self:AddRecipeFlags(78388, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78388, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Gloves -- 78399
+	AddRecipe(78399, 425, nil, Q.COMMON, V.CATA, 425, 475, 480, 485)
+	self:AddRecipeFlags(78399, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78399, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Boots -- 78407
+	AddRecipe(78407, 425, nil, Q.COMMON, V.CATA, 425, 475, 480, 485)
+	self:AddRecipeFlags(78407, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78407, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Belt -- 78396
+	AddRecipe(78396, 425, nil, Q.COMMON, V.CATA, 425, 480, 485, 490)
+	self:AddRecipeFlags(78396, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78396, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Heavy Savage Leather -- 78436
+	AddRecipe(78436, 425, nil, Q.COMMON, V.CATA, 425, 485, 487, 490)
+	self:AddRecipeFlags(78436, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78436, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Scorched Leg Armor -- 78419
+	AddRecipe(78419, 425, nil, Q.COMMON, V.CATA, 425, 485, 490, 495)
+	self:AddRecipeFlags(78419, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78419, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Shoulders -- 78411
+	AddRecipe(78411, 425, nil, Q.COMMON, V.CATA, 425, 485, 490, 495)
+	self:AddRecipeFlags(78411, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78411, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Gloves -- 78406
+	AddRecipe(78406, 425, nil, Q.COMMON, V.CATA, 425, 485, 490, 495)
+	self:AddRecipeFlags(78406, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78406, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Twilight Leg Armor -- 78420
+	AddRecipe(78420, 425, nil, Q.COMMON, V.CATA, 425, 490, 495, 500)
+	self:AddRecipeFlags(78420, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78420, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Chestguard -- 78428
+	AddRecipe(78428, 425, nil, Q.COMMON, V.CATA, 425, 490, 495, 500)
+	self:AddRecipeFlags(78428, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78428, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Heavy Savage Armor Kit -- 78437
+	AddRecipe(78437, 425, nil, Q.COMMON, V.CATA, 425, 490, 495, 500)
+	self:AddRecipeFlags(78437, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78437, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Leggings -- 78427
+	AddRecipe(78427, 425, nil, Q.COMMON, V.CATA, 425, 490, 495, 500)
+	self:AddRecipeFlags(78427, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78427, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Leggings -- 78433
+	AddRecipe(78433, 425, nil, Q.COMMON, V.CATA, 425, 495, 500, 505)
+	self:AddRecipeFlags(78433, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78433, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Helm -- 78432
+	AddRecipe(78432, 425, nil, Q.COMMON, V.CATA, 425, 495, 500, 505)
+	self:AddRecipeFlags(78432, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78432, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Tsunami Chestguard -- 78423
+	AddRecipe(78423, 425, nil, Q.COMMON, V.CATA, 425, 500, 505, 510)
+	self:AddRecipeFlags(78423, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78423, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Darkbrand Helm -- 78424
+	AddRecipe(78424, 425, nil, Q.COMMON, V.CATA, 425, 500, 505, 510)
+	self:AddRecipeFlags(78424, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78424, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Cloak of Beasts -- 78438
+	AddRecipe(78438, 425, nil, Q.COMMON, V.CATA, 425, 505, 510, 515)
+	self:AddRecipeFlags(78438, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78438, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Cloak of War -- 78439
+	AddRecipe(78439, 425, nil, Q.COMMON, V.CATA, 425, 505, 510, 515)
+	self:AddRecipeFlags(78439, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(78439, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Lightning Lash -- 78460
+	AddRecipe(78460, 425, nil, Q.COMMON, V.CATA, 425, 520, 525, 530)
+	self:AddRecipeFlags(78460, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78460, 50381, 50172)
+
+	-- Stormleather Sash -- 78462
+	AddRecipe(78462, 425, nil, Q.COMMON, V.CATA, 425, 520, 525, 530)
+	self:AddRecipeFlags(78462, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78462, 50381, 50172)
+
+	--Dragonkiller Tunic -- 78490
+	AddRecipe(78490, 425, nil, Q.COMMON, V.CATA, 425, 530, 535, 540)
+	self:AddRecipeFlags(78490, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78490, 50381, 50172)
+
+	-- Dragonscale Leg Armor -- 78477
+	AddRecipe(78477, 425, nil, Q.COMMON, V.CATA, 425, 530, 535, 540)
+	self:AddRecipeFlags(78477, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78477, 50381, 50172)
+
+	-- Twilight Scale Chestguard -- 78489
+	AddRecipe(78489, 425, nil, Q.COMMON, V.CATA, 425, 530, 535, 540)
+	self:AddRecipeFlags(78489, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78489, 50381, 50172)
+
+	-- Razor-Edged Cloak -- 78475
+	AddRecipe(78475, 425, nil, Q.COMMON, V.CATA, 425, 530, 535, 540)
+	self:AddRecipeFlags(78475, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78475, 50381, 50172)
+
+	-- Twilight Dragonscale Cloak -- 78476
+	AddRecipe(78476, 425, nil, Q.COMMON, V.CATA, 425, 530, 535, 540)
+	self:AddRecipeFlags(78476, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78476, 50381, 50172)
+
 	-- -- Savage Leather -- HMMM
-	-- AddRecipe(, , , , V.CATA, , , , )
+	-- AddRecipe(, , , Q.COMMON, V.CATA, , , , )
 	-- self:AddRecipeFlags()
-	
-	
-	-- -- Charscale Leg Reinforcements
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Dragonbone Leg Reinforcements
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Draconic Embossment - Agility
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Draconic Embossment - Intellect
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Draconic Embossment - Stamina
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Draconic Embossment - Strength
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Braces
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Bracers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Boots
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Gloves
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Legs
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Chest
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Shoulders
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Belt of Nefarious Whispers
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Corded Viper Belt
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Assassin's Chestplate
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Charscale Leg Armor
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Chestguard of Nature's Fury
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Chest
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Dragonscale Legs
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Chest
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Leather Legs
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Chest
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Scale Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Helm
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	-- -- Bloodied Wyrmhide Legs
-	-- AddRecipe(, , , , V.CATA, , , , )
-	-- self:AddRecipeFlags()
-	
-	
-	
-	
+
+	-- Charscale Leg Reinforcements -- 85068
+	AddRecipe(85068, 465, nil, Q.COMMON, V.CATA, 465, 465, 465, 470)
+	self:AddRecipeFlags(85068, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85068, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Dragonbone Leg Reinforcements -- 85067
+	AddRecipe(85067, 465, nil, Q.COMMON, V.CATA, 465, 465, 465, 470)
+	self:AddRecipeFlags(85067, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85067, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Draconic Embossment - Agility -- 85008
+	AddRecipe(85008, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(85008, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85008, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Draconic Embossment - Intellect -- 85010
+	AddRecipe(85010, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(85010, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85010, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Draconic Embossment - Stamina -- 85007
+	AddRecipe(85007, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(85007, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85007, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Draconic Embossment - Strength -- 85009
+	AddRecipe(85009, 500, nil, Q.COMMON, V.CATA, 500, 500, 500, 505)
+	self:AddRecipeFlags(85009, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(85009, 3967, 4588, 28700, 5127, 3365, 33581, 29507, 26998, 5564, 4212, 3007)
+
+	-- Bloodied Dragonscale Bracers -- 78450
+	AddRecipe(78450, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78450, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78450, 50381, 50172)
+
+	-- Bloodied Dragonscale Shoulders -- 78451
+	AddRecipe(78451, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78451, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78451, 50381, 50172)
+
+	-- Bloodied Leather Bracers -- 78446
+	AddRecipe(78446, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78446, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78446, 50381, 50172)
+
+	-- Bloodied Leather Gloves -- 78447
+	AddRecipe(78447, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78447, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78447, 50381, 50172)
+
+	-- Bloodied Scale Bracers -- 78448
+	AddRecipe(78448, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78448, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78448, 50381, 50172)
+
+	-- Bloodied Scale Gloves -- 78449
+	AddRecipe(78449, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78449, 50381, 50172)
+
+	-- Bloodied Wyrmhide Belt -- 78445
+	AddRecipe(78445, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78445, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78445, 50381, 50172)
+
+	-- Bloodied Wyrmhide Bracers -- 78444
+	AddRecipe(78444, 510, nil, Q.COMMON, V.CATA, 510, 515, 520, 525)
+	self:AddRecipeFlags(78444, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78444, 50381, 50172)
+
+	-- Bloodied Dragonscale Boots -- 78458
+	AddRecipe(78458, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78458, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78458, 50381, 50172)
+
+	-- Bloodied Dragonscale Gloves -- 78459
+	AddRecipe(78459, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78459, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78459, 50381, 50172)
+
+	-- Bloodied Leather Boots -- 78454
+	AddRecipe(78454, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78454, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78454, 50381, 50172)
+
+	-- Bloodied Leather Shoulders -- 78455
+	AddRecipe(78455, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78455, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78455, 50381, 50172)
+
+	-- Bloodied Scale Belt -- 78457
+	AddRecipe(78457, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78457, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78457, 50381, 50172)
+
+	-- Bloodied Scale Boots -- 78456
+	AddRecipe(78456, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78456, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78456, 50381, 50172)
+
+	-- Bloodied Wyrmhide Boots -- 78453
+	AddRecipe(78453, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78453, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78453, 50381, 50172)
+
+	-- Bloodied Wyrmhide Gloves -- 78452
+	AddRecipe(78452, 515, nil, Q.COMMON, V.CATA, 515, 520, 525, 530)
+	self:AddRecipeFlags(78452, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78452, 50381, 50172)
+
+	-- Bloodied Dragonscale Belt -- 78473
+	AddRecipe(78473, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78473, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78473, 50381, 50172)
+
+	-- Bloodied Dragonscale Helm -- 78474
+	AddRecipe(78474, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78474, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78474, 50381, 50172)
+
+	-- Bloodied Leather Belt -- 78468
+	AddRecipe(78468, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78468, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78468, 50381, 50172)
+
+	-- Bloodied Leather Helm -- 78469
+	AddRecipe(78469, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78469, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78469, 50381, 50172)
+
+	-- Bloodied Scale Legs -- 78471
+	AddRecipe(78471, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78471, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78471, 50381, 50172)
+
+	-- Bloodied Scale Shoulders -- 78470
+	AddRecipe(78470, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78470, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78470, 50381, 50172)
+
+	-- Bloodied Wyrmhide Chest -- 78467
+	AddRecipe(78467, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78467, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78467, 50381, 50172)
+
+	-- Bloodied Wyrmhide Shoulders -- 78464
+	AddRecipe(78464, 520, nil, Q.COMMON, V.CATA, 520, 525, 530, 535)
+	self:AddRecipeFlags(78464, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78464, 50381, 50172)
+
+	-- Belt of Nefarious Whispers -- 78461
+	AddRecipe(78461, 525, nil, Q.COMMON, V.CATA, 525, 525, 525, 530)
+	self:AddRecipeFlags(78461, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78461, 50381, 50172)
+
+	-- Corded Viper Belt -- 78463
+	AddRecipe(78463, 525, nil, Q.COMMON, V.CATA, 525, 525, 525, 530)
+	self:AddRecipeFlags(78463, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78463, 50381, 50172)
+
+	-- Assassin's Chestplate -- 78488
+	AddRecipe(78488, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78488, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78488, 50381, 50172)
+
+	-- Charscale Leg Armor -- 78478
+	AddRecipe(78478, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78478, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78478, 50381, 50172)
+
+	-- Chestguard of Nature's Fury -- 78487
+	AddRecipe(78487, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78487, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78487, 50381, 50172)
+
+	-- Bloodied Dragonscale Chest -- 78486
+	AddRecipe(78486, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78486, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78486, 50381, 50172)
+
+	-- Bloodied Dragonscale Legs -- 78485
+	AddRecipe(78485, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78485, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78485, 50381, 50172)
+
+	-- Bloodied Leather Chest -- 78481
+	AddRecipe(78481, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78481, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78481, 50381, 50172)
+
+	-- Bloodied Leather Legs -- 78482
+	AddRecipe(78482, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78482, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78482, 50381, 50172)
+
+	-- Bloodied Scale Chest -- 78483
+	AddRecipe(78483, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78483, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78483, 50381, 50172)
+
+	-- Bloodied Scale Helm -- 78484
+	AddRecipe(78484, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78484, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78484, 50381, 50172)
+
+	-- Bloodied Wyrmhide Helm -- 78480
+	AddRecipe(78480, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78480, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78480, 50381, 50172)
+
+	-- Bloodied Wyrmhide Legs -- 78479
+	AddRecipe(78479, 525, nil, Q.COMMON, V.CATA, 525, 530, 535, 540)
+	self:AddRecipeFlags(78479, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(78479, 50381, 50172)
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
