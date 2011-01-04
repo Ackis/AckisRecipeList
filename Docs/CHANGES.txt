@@ -4,17 +4,17 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Version 2.1 Release
 
 ==== Recipe Database:
-* Updated all Cataclysm recipes.  Old recipes are still being reworked with new acquire methods.
+* Recipes new to Cataclysm have been added, and old recipes are still being reworked with new acquire methods or deleted as appropriate.
 
 ==== Bug Fixes:
 * Bug with the recipe dataminer fixed which prevented spell IDs of some recipes from being displayed.
 * Cooking tradeskill link fixed
 * GenericAddRecipeAcquire made more fault-tolerant.
-* Fixed a bug with tradeskills from the guild roster.
+* Guild-linked tradeskills will now be handled the same as regular linked tradeskills - they will not be counted as being known by the player.
 
 ==== New Features:
-
 * Added support for recipes obtained via achievements.
+* Searching for recipes by reputation name is now possible.
 
 ==== Miscellaneous changes:
 * Database external documentation removed.  It was outdated and will be replaced slowly by luadoc within the code.
