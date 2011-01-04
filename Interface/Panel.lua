@@ -501,6 +501,7 @@ function private.InitializeFrame()
 	do
 		local acquire_names = private.acquire_names
 		local location_list = private.location_list
+		local reputation_list = private.reputation_list
 
 		local search_params = {
 			"name",
@@ -554,6 +555,28 @@ function private.InitializeFrame()
 							for spell_id in pairs(location_list[location_name].recipes) do
 								if spell_id == entry.spell_id then
 									local str = location_name:lower()
+
+									if str and str:find(pattern) then
+										entry:AddState("RELEVANT")
+										breakout = true
+										break
+									end
+								end
+							end
+
+							if breakout then
+								break
+							end
+						end
+					end
+
+					if not found then
+						for acquire_type, acquire_data in pairs(entry.acquire_data) do
+							if acquire_type == A.REPUTATION then
+								local breakout = false
+
+								for id_num, info in pairs(acquire_data) do
+									local str = reputation_list[id_num].name:lower()
 
 									if str and str:find(pattern) then
 										entry:AddState("RELEVANT")
