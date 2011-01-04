@@ -958,12 +958,12 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion3_buttons = {
-			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = Wildhammer_Dragonmaw,			row = 2,	col = 1 },
-			["catacommon2"]		= { tt = ReputationDesc(Tol_Barad),				text = Tol_Barad,				row = 3,	col = 1 },
+			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),			row = 2,	col = 1 },
+			["catacommon2"]		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
 			["guardiansofhyjal"]	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
-			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Ramkahen"],		row = 5,	col = 1 },
-			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Earthen Ring"],			row = 6,	col = 1 },
-			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Therazane"],			row = 7,	col = 1 },
+			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),		row = 5,	col = 1 },
+			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),			row = 6,	col = 1 },
+			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
 		}
 		GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
