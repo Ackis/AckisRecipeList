@@ -414,4 +414,7 @@ function addon:InitVendor(DB)
 	AddVendor(50382,	L["Brundall Chiselgut"],			BZ["Twilight Highlands"],	79.1, 76.5, ALLIANCE)
 	AddVendor(50386,	L["Sal Ferraga"],			BZ["Twilight Highlands"],	78.6, 76.9, ALLIANCE)
 	AddVendor(50433,	L["Aristaleon Sunweaver"],			BZ["Twilight Highlands"],	75.2, 50.1, HORDE)
+	AddVendor(50480,	L["Isabel Jones"],			BZ["Stormwind City"],	63.7, 61.3, ALLIANCE)
+	AddVendor(50482,	L["Marith Lazuria"],			BZ["Orgrimmar"],	72.5, 36.2, HORDE)
+	
 end
