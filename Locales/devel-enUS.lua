@@ -1011,7 +1011,6 @@ L["Kriggon Talsone"] = true
 L["Krinkle Goodsteel"] = true
 L["Kristen Smythe"] = true
 L["Krugosh"] = true
-L["Krulmoo Fullmoon"] = true
 L["Krunn"] = true
 L["Kul Inkspiller"] = true
 L["Kul'de"] = true
