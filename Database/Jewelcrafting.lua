@@ -2885,30 +2885,5 @@ function addon:InitJewelcrafting()
 	self:AddRecipeFlags(73280, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73280, "Kalimdor", "Eastern Kingdoms")
 	
-	-- Figurine - Demon Panther -- 73640
-	AddRecipe(73640, 475, nil, Q.RARE, V.CATA, 475, 475, 475, 475)
-	self:AddRecipeFlags(73640, F.WORLD_DROP, F.QUEST, F.RBOP, F.IBOP, F.ALLIANCE, F.HORDE)
-	self:AddRecipeWorldDrop(73640, "Kalimdor", "Eastern Kingdoms")
-	
-	-- Figurine - Dream Owl -- 73643
-	AddRecipe(73643, 475, nil, Q.RARE, V.CATA, 475, 475, 475, 475)
-	self:AddRecipeFlags(73643, F.WORLD_DROP, F.QUEST, F.RBOP, F.IBOP, F.ALLIANCE, F.HORDE)
-	self:AddRecipeWorldDrop(73643, "Kalimdor", "Eastern Kingdoms")
-	
-	-- Figurine - Earthen Guardian -- 73641
-	AddRecipe(73641, 475, nil, Q.RARE, V.CATA, 475, 475, 475, 475)
-	self:AddRecipeFlags(73641, F.WORLD_DROP, F.QUEST, F.RBOP, F.IBOP, F.ALLIANCE, F.HORDE)
-	self:AddRecipeWorldDrop(73641, "Kalimdor", "Eastern Kingdoms")
-	
-	-- Figurine - Jeweled Serpent -- 73642
-	AddRecipe(73642, 475, nil, Q.RARE, V.CATA, 475, 475, 475, 475)
-	self:AddRecipeFlags(73642, F.WORLD_DROP, F.QUEST, F.RBOP, F.IBOP, F.ALLIANCE, F.HORDE)
-	self:AddRecipeWorldDrop(73642, "Kalimdor", "Eastern Kingdoms")
-	
-	-- Figurine - King of Boars -- 73639
-	AddRecipe(73639, 475, nil, Q.RARE, V.CATA, 475, 475, 475, 475)
-	self:AddRecipeFlags(73639, F.WORLD_DROP, F.QUEST, F.RBOP, F.IBOP, F.ALLIANCE, F.HORDE)
-	self:AddRecipeWorldDrop(73639, "Kalimdor", "Eastern Kingdoms")
-	
 	return num_recipes
 end
