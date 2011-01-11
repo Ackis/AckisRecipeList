@@ -2884,6 +2884,23 @@ function addon:InitJewelcrafting()
 	AddRecipe(73280, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73280, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73280, "Kalimdor", "Eastern Kingdoms")
+
+	--[[
+	-- Agile Shadowspirit Diamond -- 96255
+	AddRecipe(96255, 525, 68778, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(96255, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeVendor(96255
+
+	-- Reverberating Shadowspirit Diamond -- 96256
+	AddRecipe(96256, 525, 68779, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(96256, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeVendor(96256
+
+	-- Burning Shadowspirit Diamond -- 96256
+	AddRecipe(96256, 525, 68780, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(96256, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeVendor(96256
+	]]--
 	
 	return num_recipes
 end
