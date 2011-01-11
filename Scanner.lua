@@ -1148,6 +1148,7 @@ do
 
 		table.wipe(output)
 
+		tinsert(output, "ARL Version: @project-version@")
 		tinsert(output, "Vendor Name: "..targetname.." NPC ID: "..targetID)
 		-- Parse all the items on the merchant
 		for i = 1, GetMerchantNumItems(), 1 do
