@@ -1487,33 +1487,62 @@ function addon:InitializeProfession(profession)
 	end
 end
 
+-- Code snippet stolen from GearGuage by Torhal
+local function StrSplit(input)
+	if not input then return nil, nil end
+	local arg1, arg2, var1
+
+	arg1, var1 = input:match("^([^%s]+)%s*(.*)$")
+	arg1 = (arg1 and arg1:lower() or input:lower())
+
+	if var1 then
+		local var2
+		arg2, var2 = var1:match("^([^%s]+)%s*(.*)$")
+		arg2 = (arg2 and arg2:lower() or var1:lower())
+	end
+	return arg1, arg2
+end
+
 -- Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
 
+	local arg1, arg2 = StrSplit(input)
+
 	-- Open About panel if there's no parameters or if we do /arl about
-	if not input or (input and input:trim() == "") or input == strlower(L["Sorting"]) or input == strlower(L["Sort"])  or input == strlower(_G.DISPLAY) then
+	if not arg1 or (arg1 and arg1:trim() == "") or arg1 == strlower(L["Sorting"]) or arg1 == strlower(L["Sort"]) or arg1 == strlower(_G.DISPLAY) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-	elseif (input == strlower(L["About"])) then
+	elseif (arg1 == strlower(L["About"])) then
 		if (self.optionsFrame["About"]) then
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 		else
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		end
-	elseif (input == strlower(L["Profile"])) then
+	elseif (arg1 == strlower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-	elseif (input == strlower(L["Documentation"])) then
+	elseif (arg1 == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
-	elseif (input == strlower(L["Scan"])) then
-		self:Scan(false)
-	elseif (input == strlower("scandata")) then
+	elseif (arg1 == strlower(L["Scan"])) then
+		if not arg2 then
+			self:Print("To run a scan from a command line you need to specify the profession like: /arl scan enchanting")
+		else
+			CastSpellByName(profession)
+			-- If the ARL window is shown, hide it.
+			if ARL.Frame and ARL.Frame:IsVisible() then
+				ARL.Frame:Hide()
+			-- If not, run the scan.
+			else
+				self:Scan(false, false)
+			end
+		end
+	elseif (arg1 == strlower("scandata")) then
 		self:ScanSkillLevelData()
-	elseif (input == strlower("scanprof")) then
+	elseif (arg1 == strlower("scanprof")) then
 		self:ScanProfession("all")
-	elseif (input == strlower("tradelinks")) then
+	elseif (arg1 == strlower("tradelinks")) then
 		self:GenerateLinks()
 	else
 		-- What happens when we get here?
-		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
+		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
 	end
 
 end
