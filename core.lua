@@ -1525,7 +1525,7 @@ function addon:ChatCommand(input)
 		if not arg2 then
 			self:Print("To run a scan from a command line you need to specify the profession like: /arl scan enchanting")
 		else
-			CastSpellByName(profession)
+			CastSpellByName(arg2)
 			-- If the ARL window is shown, hide it.
 			if ARL.Frame and ARL.Frame:IsVisible() then
 				ARL.Frame:Hide()
