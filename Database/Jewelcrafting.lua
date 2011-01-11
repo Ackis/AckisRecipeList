@@ -2288,44 +2288,44 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(68253, 33680, 33637, 19065, 28701)
 	
 	-- Jasper Ring -- 73494
-	AddRecipe(73494, 425, nil, Q.COMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73494, 425, 52306, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73494, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73494, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 		
 	-- Alicite Pendant -- 73496
-	AddRecipe(73496, 435, nil, Q.COMMON, V.CATA, 435, 450, 467, 485)
+	AddRecipe(73496, 435, 52307, Q.UNCOMMON, V.CATA, 435, 450, 467, 485)
 	self:AddRecipeFlags(73496, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73496, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 	
 	-- Jeweler's Ruby Monocle -- 73625
-	AddRecipe(73625, 450, nil, Q.RARE, V.CATA, 450, 480, 490, 500)
+	AddRecipe(73625, 450, 52485, Q.RARE, V.CATA, 450, 480, 490, 500)
 	self:AddRecipeFlags(73625, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73625, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Hessonite Band -- 73495
-	AddRecipe(73495, 450, nil, Q.COMMON, V.CATA, 450, 485, 495, 505)
+	AddRecipe(73495, 450, 52308, Q.UNCOMMON, V.CATA, 450, 485, 495, 505)
 	self:AddRecipeFlags(73495, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73495, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 	
 	-- Jeweler's Sapphire Monocle -- 73626
-	AddRecipe(73626, 455, nil, Q.RARE, V.CATA, 455, 485, 495, 505)
+	AddRecipe(73626, 455, 52486, Q.RARE, V.CATA, 455, 485, 495, 505)
 	self:AddRecipeFlags(73626, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73626, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Carnelian Spikes -- 73620
-	AddRecipe(73620, 460, nil, Q.COMMON, V.CATA, 460, 470, 475, 480)
+	AddRecipe(73620, 460, 52492, Q.COMMON, V.CATA, 460, 470, 475, 480)
 	self:AddRecipeFlags(73620, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73620, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 	
 	-- Jeweler's Emerald Monocle -- 73627
-	AddRecipe(73627, 460, nil, Q.RARE, V.CATA, 460, 490, 500, 510)
+	AddRecipe(73627, 460, 52487, Q.RARE, V.CATA, 460, 490, 500, 510)
 	self:AddRecipeFlags(73627, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73627, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Nightstone Choker -- 73497
-	AddRecipe(73497, 460, nil, Q.COMMON, V.CATA, 460, 495, 505, 515)
+	AddRecipe(73497, 460, 52309, Q.COMMON, V.CATA, 460, 495, 505, 515)
 	self:AddRecipeFlags(73497, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	self:AddRecipeTrainer(73497, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
+	self:AddRecipeTrainer(73497, 26997, 19778, 26982, 19063, 33614, 18751, 19775, 46675, 18774, 44582, 28701)
 	
 	-- Accurate Demonseye -- 73360
 	AddRecipe(73360, 465, nil, Q.RARE, V.CATA, 465, 500, 507, 515)
@@ -2717,17 +2717,17 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(73401, 50480, 50482)
 	
 	-- Sparkling Chimera's Eye -- 73402
-	AddRecipe(73402, 500, nil, Q.EPIC, V.CATA, 500, 505, 507, 510)
+	AddRecipe(73402, 500, 52262, Q.EPIC, V.CATA, 500, 505, 507, 510)
 	self:AddRecipeFlags(73402, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73402, 50480, 50482)
 	
 	-- Stormy Chimera's Eye -- 73403
-	AddRecipe(73403, 500, nil, Q.EPIC, V.CATA, 500, 505, 507, 510)
+	AddRecipe(73403, 500, 52263, Q.EPIC, V.CATA, 500, 505, 507, 510)
 	self:AddRecipeFlags(73403, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73403, 50480, 50482)
 	
 	-- Subtle Chimera's Eye -- 73405
-	AddRecipe(73405, 500, nil, Q.EPIC, V.CATA, 500, 505, 507, 510)
+	AddRecipe(73405, 500, 52265, Q.EPIC, V.CATA, 500, 505, 507, 510)
 	self:AddRecipeFlags(73405, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73405, 50480, 50482)
 	
@@ -2736,152 +2736,152 @@ function addon:InitJewelcrafting()
 	-- self:AddRecipeFlags()
 	
 	-- Band of Blades -- 73498
-	AddRecipe(73498, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73498, 525, 52318, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73498, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73498, 50480, 50482)
 	
 	-- Brazen Elementium Medallion -- 73521
-	AddRecipe(73521, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73521, 525, 52350, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73521, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73521, 50480, 50482)
 	
 	-- Elementium Destroyer's Ring -- 73520
-	AddRecipe(73520, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73520, 525, 52348, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73520, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73520, 50480, 50482)
 	
 	-- Elementium Guardian -- 73506
-	AddRecipe(73506, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73506, 525, 52323, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73506, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73506, 50480, 50482)
 	
 	-- Elementium Moebius Band -- 73503
-	AddRecipe(73503, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73503, 525, 52320, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73503, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73503, 50480, 50482)
 	
 	-- Entwined Elementium Choker -- 73504
-	AddRecipe(73504, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73504, 525, 52321, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73504, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73504, 50480, 50482)
 	
 	-- Eye of Many Deaths -- 73505
-	AddRecipe(73505, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73505, 525, 52322, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73505, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73505, 50480, 50482)
 	
 	-- Ring of Warring Elements -- 73502
-	AddRecipe(73502, 525, nil, Q.EPIC, V.CATA, 525, 525, 525, 525)
+	AddRecipe(73502, 525, 52319, Q.EPIC, V.CATA, 525, 525, 525, 525)
 	self:AddRecipeFlags(73502, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(73502, 50480, 50482)
 	
 	-- Deadly Hessonite -- 73262
-	AddRecipe(73262, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73262, 425, 52109, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73262, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73262, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Defender's Hessonite -- 73242
-	AddRecipe(73242, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73242, 425, 52097, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73242, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73242, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Deft Hessonite -- 73265
-	AddRecipe(73265, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73265, 425, 52112, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73265, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73265, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Fierce Hessonite -- 73264
-	AddRecipe(73264, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73264, 425, 52111, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73264, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73264, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Fine Hessonite -- 73269
-	AddRecipe(73269, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73269, 425, 52116, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73269, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73269, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Flashing Carnelian -- 73224
-	AddRecipe(73224, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73224, 425, 52083, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73224, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73224, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Forceful Jasper -- 73277
-	AddRecipe(73277, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73277, 425, 52124, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73277, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73277, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Guardian's Nightstone -- 73244
-	AddRecipe(73244, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73244, 425, 52099, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73244, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73244, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Inscribed Hessonite -- 73260
-	AddRecipe(73260, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73260, 425, 52108, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73260, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73260, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Keen Hessonite -- 73271
-	AddRecipe(73271, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73271, 425, 52118, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73271, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73271, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Lightning Jasper -- 73278
-	AddRecipe(73278, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73278, 425, 52125, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73278, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73278, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Nimble Jasper -- 73273
-	AddRecipe(73273, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73273, 425, 52120, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73273, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73273, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Piercing Jasper -- 73275
-	AddRecipe(73275, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73275, 425, 52122, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73275, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73275, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Polished Hessonite -- 73258
-	AddRecipe(73258, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73258, 425, 52106, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73258, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73258, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Potent Hessonite -- 73263
-	AddRecipe(73263, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73263, 425, 52110, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73263, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73263, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Purified Nightstone -- 73245
-	AddRecipe(73245, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73245, 425, 52100, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73245, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73245, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Regal Jasper -- 73272
-	AddRecipe(73272, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73272, 425, 52119, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73272, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73272, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Retaliating Nightstone -- 73248
-	AddRecipe(73248, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73248, 425, 52103, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73248, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73248, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Steady Jasper -- 73276
-	AddRecipe(73276, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73276, 425, 52123, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73276, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73276, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Stormy Zephyrite -- 73229
-	AddRecipe(73229, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73229, 425, 52088, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73229, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73229, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Subtle Alicite -- 73231
-	AddRecipe(73231, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73231, 425, 52090, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73231, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73231, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Zen Jasper -- 73280
-	AddRecipe(73280, 425, nil, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73280, 425, 52127, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73280, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeWorldDrop(73280, "Kalimdor", "Eastern Kingdoms")
 
