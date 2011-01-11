@@ -2378,5 +2378,10 @@ function addon:InitInscription()
 	self:AddRecipeFlags(86615, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(86615, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
 
+	-- Glyph of Dark Succor -- 96284
+	--AddRecipe(96284, 525, 68793, Q.COMMON, V.CATA, 525, 525, 530, 535)
+	--self:AddRecipeFlags(96284, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeTrainer(96284
+
 	return num_recipes
 end
