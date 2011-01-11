@@ -2250,7 +2250,7 @@ function addon:InitTailoring()
 
 	-- Black Embersilk Gown -- 75288
 	AddRecipe(75288, 500, 54441, Q.RARE, V.CATA, 500, 505, 510, 515)
-	self:AddRecipeFlags(75288, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeFlags(75288, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(75288, 50386, 50433)
 
 	-- Dream of Azshara -- 75146
