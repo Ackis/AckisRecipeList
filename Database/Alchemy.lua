@@ -1529,5 +1529,22 @@ function addon:InitAlchemy()
 	self: AddRecipeFlags(80726, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(80726, 4160, 5499, 28703, 5177, 3347)
 
+	--[[
+	-- Volatile Alchemist Stone -- 96252
+	AddRecipe(96252, 525, 68775, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(96252, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	--self:AddRecipeTrainer(96252,
+
+	-- Quicksilver Alchemist Stone -- 96253
+	AddRecipe(96253, 525, 68776, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(96253, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	--self:AddRecipeTrainer(96253,
+
+	-- Vibrant Alchemist Stone -- 96254
+	AddRecipe(96254, 525, 68777, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	self: AddRecipeFlags(96254, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	--self:AddRecipeTrainer(96254,
+	]]--
+
 	return num_recipes
 end

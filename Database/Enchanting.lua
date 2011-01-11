@@ -1800,5 +1800,22 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(74244, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
 	self:AddRecipeVendor(74244, 50134, 50146)
 
+	--[[
+	-- Enchant Bracer - Major Strength -- 96261
+	AddRecipe(96261, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96261, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	--self:AddRecipeVendor(96261,
+
+	-- Enchant Bracer - Mighty Intellect -- 96262
+	AddRecipe(96262, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96262, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	--self:AddRecipeVendor(96262,
+
+	-- Enchant Bracer - Agility -- 96264
+	AddRecipe(96264, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96264, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	--self:AddRecipeVendor(96264,
+	]]--
+
 	return num_recipes
 end
