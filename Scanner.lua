@@ -713,6 +713,7 @@ do
 		table.wipe(output)
 
 		-- Dump out trainer info
+		tinsert(output, "ARL Version: @project-version@")
 		tinsert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
 
 		local teachflag = false
