@@ -20,7 +20,7 @@ local MODNAME	= "Ackis Recipe List"
 
 local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
 
-if not L then return end
+if not L then return end 
 
 -------------------------------------------------------------------------------
 -- Command line options
