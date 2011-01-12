@@ -378,5 +378,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 46675, L["Lugrah"], BZ["Orgrimmar"], 72.5, 34.5, 2)
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, 2)
 	self:addLookupList(DB, 46716, L["Nerog"], BZ["Orgrimmar"], 55.2, 56.7, 2)
+	self:addLookupList(DB, 49879, L["Doc Zapnozzle"], BZ["Azshara"], 57.0, 50.7, 2)
+	self:addLookupList(DB, 50574, L["Amelia Atherton"], BZ["Gilneas"], 36.8, 65.7, 1)
 	
 end
