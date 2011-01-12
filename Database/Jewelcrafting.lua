@@ -2288,12 +2288,12 @@ function addon:InitJewelcrafting()
 	self:AddRecipeVendor(68253, 33680, 33637, 19065, 28701)
 	
 	-- Jasper Ring -- 73494
-	AddRecipe(73494, 425, 52306, Q.UNCOMMON, V.CATA, 425, 450, 467, 485)
+	AddRecipe(73494, 425, 52306, Q.COMMON, V.CATA, 425, 450, 467, 485)
 	self:AddRecipeFlags(73494, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73494, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 		
 	-- Alicite Pendant -- 73496
-	AddRecipe(73496, 435, 52307, Q.UNCOMMON, V.CATA, 435, 450, 467, 485)
+	AddRecipe(73496, 435, 52307, Q.COMMON, V.CATA, 435, 450, 467, 485)
 	self:AddRecipeFlags(73496, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73496, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 	
@@ -2303,7 +2303,7 @@ function addon:InitJewelcrafting()
 	self:AddRecipeWorldDrop(73625, "Kalimdor", "Eastern Kingdoms")
 	
 	-- Hessonite Band -- 73495
-	AddRecipe(73495, 450, 52308, Q.UNCOMMON, V.CATA, 450, 485, 495, 505)
+	AddRecipe(73495, 450, 52308, Q.COMMON, V.CATA, 450, 485, 495, 505)
 	self:AddRecipeFlags(73495, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73495, 26997, 19778, 26982, 19063, 19775, 46675, 44582, 28701)
 	
@@ -2888,18 +2888,18 @@ function addon:InitJewelcrafting()
 	--[[
 	-- Agile Shadowspirit Diamond -- 96255
 	AddRecipe(96255, 525, 68778, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96255, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeVendor(96255
+	self:AddRecipeFlags(96255, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeWorldDrop(96255
 
 	-- Reverberating Shadowspirit Diamond -- 96256
 	AddRecipe(96256, 525, 68779, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96256, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeVendor(96256
+	self:AddRecipeFlags(96256, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeWorldDrop(96256
 
 	-- Burning Shadowspirit Diamond -- 96256
 	AddRecipe(96256, 525, 68780, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96256, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeVendor(96256
+	self:AddRecipeFlags(96256, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	--self:AddRecipeWorldDrop(96256
 	]]--
 	
 	return num_recipes
