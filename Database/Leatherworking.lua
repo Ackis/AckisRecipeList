@@ -351,13 +351,13 @@ function addon:InitLeatherworking()
 
 	-- Deviate Scale Cloak -- 7953
 	AddRecipe(7953, 90, 6466, Q.COMMON, V.ORIG, 90, 120, 135, 150)
-	self:AddRecipeFlags(7953, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	self:AddRecipeLimitedVendor(7953, 5783, 2)
+	self:AddRecipeFlags(7953, F.ALLIANCE, F.HORDE, F.VENDOR, Q.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeAcquire(7953, A.CUSTOM, 48)
 
 	-- Deviate Scale Gloves -- 7954
 	AddRecipe(7954, 105, 6467, Q.COMMON, V.ORIG, 105, 130, 142, 155)
-	self:AddRecipeFlags(7954, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeLimitedVendor(7954, 5783, 1)
+	self:AddRecipeFlags(7954, F.ALLIANCE, F.HORDE, F.VENDOR, Q.RETIRED, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(7954, A.CUSTOM, 48)
 
 	-- Deviate Scale Belt -- 7955
 	AddRecipe(7955, 115, 6468, Q.UNCOMMON, V.ORIG, 115, 140, 152, 165)

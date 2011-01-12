@@ -340,7 +340,7 @@ function addon:InitTailoring()
 	AddRecipe(6688, 115, 5763, Q.COMMON, V.ORIG, 115, 140, 157, 175)
 	self:AddRecipeFlags(6688, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(6688, 450, 2264)
-	self:AddRecipeLimitedVendor(6688, 777, 1, 1454, 1, 1474, 1, 3005, 1, 3364, 1, 3485, 1, 3537, 1, 3683, 1, 4189, 2, 4577, 1, 5944, 1)
+	self:AddRecipeLimitedVendor(6688, 777, 1, 1454, 1, 1474, 1, 3005, 1, 3364, 1, 3485, 1, 3537, 1, 4189, 2, 4577, 1)
 
 	-- Lesser Wizard's Robe -- 6690
 	AddRecipe(6690, 135, 5766, Q.COMMON, V.ORIG, 135, 155, 170, 185)
@@ -391,7 +391,7 @@ function addon:InitTailoring()
 	-- Blue Overalls -- 7639
 	AddRecipe(7639, 100, 6263, Q.COMMON, V.ORIG, 100, 125, 142, 160)
 	self:AddRecipeFlags(7639, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeLimitedVendor(7639, 843, 1, 1347, 1, 2394, 1, 3364, 1, 5944, 1)
+	self:AddRecipeLimitedVendor(7639, 843, 1, 1347, 1, 2394, 1, 3364, 1)
 
 	-- Greater Adept's Robe -- 7643
 	AddRecipe(7643, 115, 6264, Q.COMMON, V.ORIG, 115, 140, 157, 175)
