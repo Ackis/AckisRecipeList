@@ -1,6 +1,16 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== Under development:
+
+==== Recipe Database:
+* 4.0.6 recipes have been added.
+* First aid trainers have been updated.  Most of the recipes are availible from all 33 trainers except a few cataclysm which are only availible from 31 trainers.  I think this is a bug so there may be two erroneous trainers for a few first aid recipes.
+* A bunch of jewelcrafting recipes have had the items they craft linked to them.
+
+==== New Features:
+* A new slash command has been added: /arl scan <profession>  This will scan the profession from a slash command, without requiring you to open up the tradeskill window yourself.  Due to limitations, this will basically fire off the tradeskill for you so that window will open up.
+
 == Version 2.1 Release
 
 ==== Recipe Database:

@@ -1515,11 +1515,6 @@ function addon:InitEngineering()
 	self:AddRecipeFlags(82201, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
 	self:AddRecipeAcquire(82201, A.CUSTOM, 51)
 
-	-- Explosive Bolts -- 82207
-	AddRecipe(82207, 425, nil, Q.COMMON, V.CATA, 425, 425, 452, 480)
-	self:AddRecipeFlags(82207, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82207, A.CUSTOM, 51)
-
 	-- Handful of Obsidium Bolts -- 84403
 	AddRecipe(84403, 425, 60224, Q.COMMON, V.CATA, 425, 435, 442, 450)
 	self:AddRecipeFlags(84403, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
