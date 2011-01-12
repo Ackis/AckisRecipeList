@@ -153,7 +153,7 @@ function addon:InitAlchemy()
 	-- Shadow Oil -- 3449
 	AddRecipe(3449, 165, 3824, Q.COMMON, V.ORIG, 165, 190, 210, 230)
 	self:AddRecipeFlags(3449, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeLimitedVendor(3449, 2481, 1, 4878, 1)
+	self:AddRecipeLimitedVendor(3449, 4878, 1)
 
 	-- Elixir of Fortitude -- 3450
 	AddRecipe(3450, 175, 3825, Q.COMMON, V.ORIG, 175, 195, 215, 235)
@@ -194,7 +194,7 @@ function addon:InitAlchemy()
 	-- Rage Potion -- 6617
 	AddRecipe(6617, 60, 5631, Q.COMMON, V.ORIG, 60, 90, 110, 130)
 	self:AddRecipeFlags(6617, F.ALLIANCE, F.HORDE, F.VENDOR, F.DRUID, F.WARRIOR, F.IBOE, F.RBOE, F.DPS, F.TANK)
-	self:AddRecipeVendor(6617, 1685, 3335, 1669, 3499)
+	self:AddRecipeVendor(6617, 1685, 3335, 3499)
 
 	-- Great Rage Potion -- 6618
 	AddRecipe(6618, 175, 5633, Q.COMMON, V.ORIG, 175, 195, 215, 235)
