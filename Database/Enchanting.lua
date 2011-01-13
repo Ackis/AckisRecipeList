@@ -67,7 +67,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Chest - Minor Absorption -- 7426
 	AddRecipe(7426, 40, nil, Q.COMMON, V.ORIG, 40, 90, 110, 130)
-	self:AddRecipeFlags(7426, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(7426, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(7426, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Bracer - Minor Deflection -- 7428
@@ -77,7 +77,7 @@ function addon:InitEnchanting()
 
 	-- Enchant Chest - Minor Mana -- 7443
 	AddRecipe(7443, 20, nil, Q.UNCOMMON, V.ORIG, 20, 80, 100, 120)
-	self:AddRecipeFlags(7443, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(7443, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.HEALER)
 	self:AddRecipeWorldDrop(7443, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Resistance -- 7454
@@ -1802,19 +1802,19 @@ function addon:InitEnchanting()
 
 	--[[
 	-- Enchant Bracer - Major Strength -- 96261
-	AddRecipe(96261, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
-	self:AddRecipeFlags(96261, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
-	--self:AddRecipeVendor(96261,
+	AddRecipe(96261, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96261, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96261, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Mighty Intellect -- 96262
-	AddRecipe(96262, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
-	self:AddRecipeFlags(96262, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
-	--self:AddRecipeVendor(96262,
+	AddRecipe(96262, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96262, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96262, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Agility -- 96264
-	AddRecipe(96264, 525, nil, Q.COMMON, V.CATA, 525, 525, 532, 540)
-	self:AddRecipeFlags(96264, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
-	--self:AddRecipeVendor(96264,
+	AddRecipe(96264, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(96264, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96264, "Kalimdor", "Eastern Kingdoms")
 	]]--
 
 	return num_recipes
