@@ -360,7 +360,7 @@ function addon:InitCooking()
 	-- Monster Omelet -- 15933
 	AddRecipe(15933, 225, 12218, Q.COMMON, V.ORIG, 225, 250, 262, 275)
 	self:AddRecipeFlags(15933, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15933, 2803, 2806, 11187)
+	self:AddRecipeVendor(15933, 2803, 11187)
 
 	-- Crispy Bat Wing -- 15935
 	AddRecipe(15935, 1, 12224, Q.COMMON, V.ORIG, 1, 45, 65, 85)
@@ -420,7 +420,7 @@ function addon:InitCooking()
 	-- Undermine Clam Chowder -- 20626
 	AddRecipe(20626, 225, 16766, Q.COMMON, V.ORIG, 225, 250, 262, 275)
 	self:AddRecipeFlags(20626, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(20626, 8139)
+	self:AddRecipeAcquire(20626, A.CUSTOM, 48)
 
 	-- Mithril Head Trout -- 20916
 	AddRecipe(20916, 175, 8364, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -773,12 +773,12 @@ function addon:InitCooking()
 	-- Charred Bear Kabobs -- 46684
 	AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
 	self:AddRecipeFlags(46684, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(46684, 2803, 2806)
+	self:AddRecipeVendor(46684, 2803)
 
 	-- Juicy Bear Burger -- 46688
 	AddRecipe(46688, 250, 35565, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
 	self:AddRecipeFlags(46688, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(46688, 2803, 2806)
+	self:AddRecipeVendor(46688, 2803)
 
 	-- Kungaloosh -- 53056
 	AddRecipe(53056, 375, 39520, Q.COMMON, V.WOTLK, 375, 375, 387, 400)
