@@ -863,7 +863,6 @@ L["Ghak Healtouch"] = true
 L["Gharash"] = true
 L["Gidge Spellweaver"] = true
 L["Gigget Zipcoil"] = true
-L["Gikkix"] = true
 L["Gimble Thistlefuzz"] = true
 L["Gina MacGregor"] = true
 L["Gloria Femmel"] = true

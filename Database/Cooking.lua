@@ -370,7 +370,7 @@ function addon:InitCooking()
 	-- Spotted Yellowtail -- 18238
 	AddRecipe(18238, 225, 6887, Q.COMMON, V.ORIG, 225, 250, 262, 275)
 	self:AddRecipeFlags(18238, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18238, 8137)
+	self:AddRecipeAcquire(18238, A.CUSTOM, 48)
 
 	-- Cooked Glossy Mightfish -- 18239
 	AddRecipe(18239, 225, 13927, Q.COMMON, V.ORIG, 225, 250, 262, 275)
@@ -380,7 +380,7 @@ function addon:InitCooking()
 	-- Grilled Squid -- 18240
 	AddRecipe(18240, 240, 13928, Q.COMMON, V.ORIG, 240, 265, 277, 290)
 	self:AddRecipeFlags(18240, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(18240, 8137)
+	self:AddRecipeAcquire(18240, A.CUSTOM, 48)
 
 	-- Filet of Redgill -- 18241
 	AddRecipe(18241, 225, 13930, Q.COMMON, V.ORIG, 225, 250, 262, 275)
@@ -395,12 +395,12 @@ function addon:InitCooking()
 	-- Nightfin Soup -- 18243
 	AddRecipe(18243, 250, 13931, Q.COMMON, V.ORIG, 250, 275, 285, 295)
 	self:AddRecipeFlags(18243, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(18243, 8137)
+	self:AddRecipeAcquire(18243, A.CUSTOM, 48)
 
 	-- Poached Sunscale Salmon -- 18244
 	AddRecipe(18244, 250, 13932, Q.COMMON, V.ORIG, 250, 275, 285, 295)
 	self:AddRecipeFlags(18244, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18244, 8137)
+	self:AddRecipeAcquire(18244, A.CUSTOM, 48)
 
 	-- Lobster Stew -- 18245
 	AddRecipe(18245, 275, 13933, Q.COMMON, V.ORIG, 275, 300, 312, 325)
