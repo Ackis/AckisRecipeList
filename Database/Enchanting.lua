@@ -799,13 +799,13 @@ function addon:InitEnchanting()
 
 	-- Brilliant Wizard Oil -- 25129
 	AddRecipe(25129, 300, 20749, Q.COMMON, V.ORIG, 300, 310, 320, 330)
-	self:AddRecipeFlags(25129, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
-	self:AddRecipeRepVendor(25129, FAC.ZANDALAR, REP.HONORED, 14921)
+	self:AddRecipeFlags(25129, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
+	self:AddRecipeAcquire(25129, A.CUSTOM, 48)
 
 	-- Brilliant Mana Oil -- 25130
 	AddRecipe(25130, 300, 20748, Q.COMMON, V.ORIG, 300, 310, 320, 330)
-	self:AddRecipeFlags(25130, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
-	self:AddRecipeRepVendor(25130, FAC.ZANDALAR, REP.FRIENDLY, 14921)
+	self:AddRecipeFlags(25130, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
+	self:AddRecipeAcquire(25130, A.CUSTOM, 48)
 
 	-- Enchant 2H Weapon - Agility -- 27837
 	AddRecipe(27837, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
