@@ -2145,9 +2145,9 @@ function addon:InitInscription()
 	self:AddRecipeVendor(71102, 28723)
 
 	-- Glyph of Colossus Smash -- 89815
-	--AddRecipe(89815, 430, 63481, Q.COMMON, V.CATA, 430, 430, 435, 440)
-	--self:AddRecipeFlags(89815, F.VENDOR, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
-	--self:AddRecipeAcquire(89815, A.CUSTOM, 40)
+	AddRecipe(89815, 430, 63481, Q.COMMON, V.CATA, 430, 430, 435, 440)
+	self:AddRecipeFlags(89815, F.VENDOR, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
+	self:AddRecipeAcquire(89815, A.CUSTOM, 48)
 
 	-- Vanishing Powder -- 92026
 	AddRecipe(92026, 75, 64670, Q.COMMON, V.CATA, 75, 90, 100, 110)
