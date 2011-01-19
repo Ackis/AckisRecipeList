@@ -1019,7 +1019,6 @@ L["Kylene"] = true
 L["Kzixx"] = true
 L["Lady Alistra"] = true
 L["Lady Palanseer"] = true
-L["Laird"] = true
 L["Lalla Brightweave"] = true
 L["Landraelanis"] = true
 L["Lanolis Dewdrop"] = true

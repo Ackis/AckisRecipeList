@@ -205,8 +205,8 @@ function addon:InitCooking()
 
 	-- Fillet of Frenzy -- 6415
 	AddRecipe(6415, 50, 5476, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(6415, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(6415, 4200)
+	self:AddRecipeFlags(6415, F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeAcquire(6415, A.CUSTOM, 48)
 
 	-- Strider Stew -- 6416
 	AddRecipe(6416, 50, 5477, Q.COMMON, V.ORIG, 50, 90, 110, 130)
