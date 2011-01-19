@@ -1066,6 +1066,11 @@ function addon:InitCooking()
 	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
 	self:AddRecipeTrainer(93741, 3399)
 
+	-- Feathered Lure -- 87646
+	--AddRecipe(87646, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
+	--self:AddRecipeFlags(87646, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	--self:AddRecipeVendor(87646, 49701, 49737)
+
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
