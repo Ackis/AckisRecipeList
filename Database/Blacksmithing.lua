@@ -1766,7 +1766,8 @@ function addon:InitBlacksmithing()
 	AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36131, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36131, 7232, 29505, 11146, 7231, 11178, 20124)
-
+	self:AddRecipeAcquire(36131, A.CUSTOM, 46)
+	
 	-- Stoneforged Claymore -- 36133
 	AddRecipe(36133, 330, 30086, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36133, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
@@ -1783,7 +1784,8 @@ function addon:InitBlacksmithing()
 	AddRecipe(36135, 330, 30088, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36135, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(36135, 7232, 29505, 11146, 7231, 11178, 20124)
-
+	self:AddRecipeAcquire(36135, A.CUSTOM, 46)
+	
 	-- Lavaforged Warhammer -- 36136
 	AddRecipe(36136, 330, 30089, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36136, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
