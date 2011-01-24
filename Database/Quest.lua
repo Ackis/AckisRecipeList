@@ -60,7 +60,6 @@ function addon:InitQuest(DB)
 	end
 
 	AddQuest(22,	BZ["Westfall"],			55.77,	30.92,	ALLIANCE)
-	AddQuest(38,	BZ["Westfall"],			55.77,	30.92,	ALLIANCE)
 	AddQuest(90,	BZ["Duskwood"],			73.8,	43.7,	ALLIANCE)
 	AddQuest(92,	BZ["Redridge Mountains"],	22.7,	44.0,	ALLIANCE)
 	AddQuest(93,	BZ["Duskwood"],			73.8,	43.7,	ALLIANCE)
