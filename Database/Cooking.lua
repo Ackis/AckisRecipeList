@@ -77,11 +77,11 @@ function addon:InitCooking()
 	self:AddRecipeQuest(2542, 22)
 
 	-- Westfall Stew -- 2543
-	AddRecipe(2543, 75, 733, Q.COMMON, V.ORIG, 75, 115, 135, 155)
-	self:AddRecipeFlags(2543, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE)
+	AddRecipe(2543, 50, 733, Q.COMMON, V.ORIG, 50, 115, 135, 155)
+	self:AddRecipeFlags(2543, F.ALLIANCE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(2543, 340)
-	self:AddRecipeQuest(2543, 38)
-
+	self:AddRecipeWorldDrop(2543, "Westfall")
+	
 	-- Crab Cake -- 2544
 	AddRecipe(2544, 75, 2683, Q.COMMON, V.ORIG, 75, 115, 135, 155)
 	self:AddRecipeFlags(2544, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -89,7 +89,7 @@ function addon:InitCooking()
 
 	-- Cooked Crab Claw -- 2545
 	AddRecipe(2545, 85, 2682, Q.COMMON, V.ORIG, 85, 125, 145, 165)
-	self:AddRecipeFlags(2545, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(2545, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(2545, 340)
 	self:AddRecipeWorldDrop(2545, "Darkshore", "Westfall")
 
