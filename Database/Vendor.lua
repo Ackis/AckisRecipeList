@@ -39,7 +39,7 @@ function addon:InitVendor(DB)
 	end
 
 	AddVendor(66,		L["Tharynn Bouden"],			BZ["Elwynn Forest"],		41.9, 67.1, ALLIANCE)
-	AddVendor(340,		L["Kendor Kabonka"],			BZ["Stormwind City"],		77.5, 53.5, ALLIANCE)
+	AddVendor(340,		L["Kendor Kabonka"],			BZ["Stormwind City"],		76.6, 53.7, ALLIANCE)
 	AddVendor(734,		L["Corporal Bluth"],			BZ["Stranglethorn Vale"],	38.0,  3.0, ALLIANCE)
 	AddVendor(777,		L["Amy Davenport"],			BZ["Redridge Mountains"],	29.1, 47.5, ALLIANCE)
 	AddVendor(843,		L["Gina MacGregor"],			BZ["Westfall"],			57.6, 54.0, ALLIANCE)
