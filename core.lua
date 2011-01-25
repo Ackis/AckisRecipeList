@@ -1642,6 +1642,7 @@ do
 
 		-- Save the state of the "Have Materials" checkbox.
 		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
+		-- Save the state of the "Have Skillup" checkbox.
 		local have_skillup = TradeSkillFrame.filterTbl.hasSkillUp
 
 		if MRTAPI and MRTAPI:PushFilterSelection() then
@@ -1651,7 +1652,7 @@ do
 				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
 			end
-			if not Skillet and have_materials then
+			if not Skillet and have_skillup then
 				TradeSkillFrame.filterTbl.hasSkillUp = false
 				TradeSkillOnlyShowSkillUps(false)			
 			end
