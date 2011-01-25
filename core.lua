@@ -1698,6 +1698,7 @@ do
 					-- This is only done for recipes which when you learn the higher rank, you lose the
 					-- ability to learn the lower rank.
 					if overwritemap[SpellID] then
+					self:Print("Overwrite spell found." .. SpellID)
 						local overwriterecipe = recipe_list[SpellID]
 						if overwriterecipe then
 							togglerecipe(overwriterecipe, is_linked)
