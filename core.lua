@@ -1533,6 +1533,7 @@ do
 			if not arg2 then
 				self:Print(L["COMMAND_LINE_SCAN"])
 			else
+				self:Print("DEBUG: Casting spell: " .. arg2)
 				CastSpellByName(arg2)
 				-- If the ARL window is shown, hide it.
 				if ARL.Frame and ARL.Frame:IsVisible() then
