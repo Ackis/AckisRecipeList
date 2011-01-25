@@ -8,20 +8,20 @@ We have developed some In-game documentation.
 ===Command Line
 Ackis Recipe List has recently changed to use a GUI for change parameters.  Type **/arl** to open up the GUI.  Acceptable commands include:
 * Opens up the about panel, listing information about the mod:
- <<code>>/arl about<</code>>
-* Opens up the sorting options:
+<<code>>/arl about<</code>>
+** Opens up the sorting options:
  <<code>>/arl sort<</code>> or <<code>>/arl sorting<</code>>
-* Opens up in-game documentation regarding ARL:
+** Scan a profession:
+ <<code>>/arl scan profession<</code>>
+** Opens up in-game documentation regarding ARL:
  <<code>>/arl documentation<</code>>
-* Opens up display options:
+** Opens up display options:
  <<code>>/arl display<</code>>
-* Opens up profile options:
+** Opens up profile options:
  <<code>>/arl profile<</code>>
-* Opens up filtering options:
+** Opens up filtering options:
  <<code>>/arl filter<</code>>
-* Performs a scan for missing recipes.  This is in place for those times when you cannot access the scan button.
- <<code>>/arl scan<</code>>
-* Prints out a list of all the profession tradeskill links:
+** Prints out a list of all the profession tradeskill links:
  <<code>>/arl tradelinks<</code>>
 
 ===Clicking
