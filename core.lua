@@ -1659,9 +1659,9 @@ do
 				TradeSkillFrame.filterTbl.hasSkillUp = false
 				TradeSkillOnlyShowSkillUps(false)
 			end
-			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
-			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
-			SetTradeSkillInvSlotFilter(0, 1, 1)
+			--UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
+			--UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
+			--SetTradeSkillInvSlotFilter(0, 1, 1)
 			TradeSkillUpdateFilterBar()
 			TradeSkillFrame_Update()
 
