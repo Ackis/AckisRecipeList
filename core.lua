@@ -1623,7 +1623,7 @@ do
 
 		-- Save the state of the "Have Materials" checkbox.
 		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
-		local have_skillip = TradeSkillFrame.filterTbl.hasSkillUp
+		local have_skillup = TradeSkillFrame.filterTbl.hasSkillUp
 
 		if MRTAPI and MRTAPI:PushFilterSelection() then
 			-- MrTrader saved the state for us
@@ -1693,9 +1693,9 @@ do
 			end
 			-- Restore the state of the "Have Materials" checkbox.
 			TradeSkillFrame.filterTbl.hasMaterials = have_materials
-			TradeSkillFrame.filterTbl.hasSkillUp = have_skillip
+			TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
 			TradeSkillOnlyShowMakeable(have_materials)
-			TradeSkillOnlyShowSkillUps(have_skillip)
+			TradeSkillOnlyShowSkillUps(have_skillup)
 			TradeSkillFrame_Update()
 		end
 		Player.prev_count = Player.foundRecipes
