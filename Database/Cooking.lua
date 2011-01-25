@@ -72,9 +72,8 @@ function addon:InitCooking()
 
 	-- Goretusk Liver Pie -- 2542
 	AddRecipe(2542, 50, 724, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(2542, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(2542, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(2542, 340)
-	self:AddRecipeQuest(2542, 22)
 
 	-- Westfall Stew -- 2543
 	AddRecipe(2543, 50, 733, Q.COMMON, V.ORIG, 50, 115, 135, 155)
@@ -100,9 +99,8 @@ function addon:InitCooking()
 
 	-- Redridge Goulash -- 2547
 	AddRecipe(2547, 100, 1082, Q.COMMON, V.ORIG, 100, 135, 155, 175)
-	self:AddRecipeFlags(2547, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(2547, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(2547, 340)
-	self:AddRecipeQuest(2547, 92)
 
 	-- Succulent Pork Ribs -- 2548
 	AddRecipe(2548, 110, 2685, Q.COMMON, V.ORIG, 110, 130, 150, 170)
@@ -112,9 +110,8 @@ function addon:InitCooking()
 
 	-- Seasoned Wolf Kabob -- 2549
 	AddRecipe(2549, 100, 1017, Q.COMMON, V.ORIG, 100, 140, 160, 180)
-	self:AddRecipeFlags(2549, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(2549, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(2549, 340)
-	self:AddRecipeQuest(2549, 90)
 
 	-- Beer Basted Boar Ribs -- 2795
 	AddRecipe(2795, 10, 2888, Q.COMMON, V.ORIG, 10, 60, 80, 100)
@@ -124,46 +121,39 @@ function addon:InitCooking()
 
 	-- Crocolisk Steak -- 3370
 	AddRecipe(3370, 80, 3662, Q.COMMON, V.ORIG, 80, 120, 140, 160)
-	self:AddRecipeFlags(3370, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3370, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3370, 340)
-	self:AddRecipeQuest(3370, 385)
 
 	-- Blood Sausage -- 3371
 	AddRecipe(3371, 60, 3220, Q.COMMON, V.ORIG, 60, 100, 120, 140)
-	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3371, 340)
-	self:AddRecipeQuest(3371, 418)
 
 	-- Murloc Fin Soup -- 3372
 	AddRecipe(3372, 90, 3663, Q.COMMON, V.ORIG, 90, 130, 150, 170)
-	self:AddRecipeFlags(3372, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3372, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3372, 340)
-	self:AddRecipeQuest(3372, 127)
 
 	-- Crocolisk Gumbo -- 3373
 	AddRecipe(3373, 120, 3664, Q.COMMON, V.ORIG, 120, 160, 180, 200)
-	self:AddRecipeFlags(3373, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3373, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3373, 340)
-	self:AddRecipeQuest(3373, 471)
 
 	-- Curiously Tasty Omelet -- 3376
 	AddRecipe(3376, 130, 3665, Q.COMMON, V.ORIG, 130, 170, 190, 210)
-	self:AddRecipeFlags(3376, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3376, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3376, 1148, 2821, 340)
-	self:AddRecipeQuest(3376, 296)
 
 	-- Gooey Spider Cake -- 3377
 	AddRecipe(3377, 110, 3666, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3377, 340)
-	self:AddRecipeQuest(3377, 93)
 
 	-- Big Bear Steak -- 3397
 	AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3397, 3960)
 	self:AddRecipeLimitedVendor(3397, 12246, 1)
-	self:AddRecipeQuest(3397, 498)
 
 	-- Hot Lion Chops -- 3398
 	AddRecipe(3398, 125, 3727, Q.COMMON, V.ORIG, 125, 175, 195, 215)
@@ -177,21 +167,20 @@ function addon:InitCooking()
 
 	-- Soothing Turtle Bisque -- 3400
 	AddRecipe(3400, 175, 3729, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(3400, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(3400, 555, 7321)
+	self:AddRecipeFlags(3400, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeAcquire(3400, A.CUSTOM, 48)
 
 	-- Barbecued Buzzard Wing -- 4094
 	AddRecipe(4094, 175, 4457, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(4094, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(4094, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeTrainer(4094, 2818)
 	self:AddRecipeVendor(4094, 2814)
 	self:AddRecipeLimitedVendor(4094, 12246, 1)
-	self:AddRecipeQuest(4094, 703)
 
 	-- Kaldorei Spider Kabob -- 6412
 	AddRecipe(6412, 10, 5472, Q.COMMON, V.ORIG, 10, 50, 70, 90)
-	self:AddRecipeFlags(6412, F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(6412, 4161)
+	self:AddRecipeFlags(6412, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeAcquire(6412, A.CUSTOM, 48)
 
 	-- Scorpid Surprise -- 6413
 	AddRecipe(6413, 20, 5473, Q.COMMON, V.ORIG, 20, 60, 80, 100)
@@ -210,9 +199,8 @@ function addon:InitCooking()
 
 	-- Strider Stew -- 6416
 	AddRecipe(6416, 50, 5477, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(6416, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(6416, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(6416, 3482)
-	self:AddRecipeQuest(6416, 2178)
 
 	-- Dig Rat Stew -- 6417
 	AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
