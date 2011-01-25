@@ -1639,6 +1639,7 @@ do
 			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
 			SetTradeSkillInvSlotFilter(0, 1, 1)
+			TradeSkillFrame_Update()
 
 			-- Expand all headers so we can see all the recipes there are
 			for i = GetNumTradeSkills(), 1, -1 do
@@ -1695,6 +1696,7 @@ do
 			TradeSkillFrame.filterTbl.hasSkillUp = have_skillip
 			TradeSkillOnlyShowMakeable(have_materials)
 			TradeSkillOnlyShowSkillUps(have_skillip)
+			TradeSkillFrame_Update()
 		end
 		Player.prev_count = Player.foundRecipes
 		Player.foundRecipes = recipes_found
