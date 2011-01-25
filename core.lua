@@ -1488,6 +1488,8 @@ function addon:InitializeProfession(profession)
 end
 
 do
+	local fa = GetSpellInfo(45542)
+
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
 		if not input then return nil, nil end
@@ -1498,7 +1500,6 @@ do
 
 		if var1 then
 			-- Small hack to get code to work with first aid.
-			local fa = GetSpellInfo(45542)
 			if var1:lower() == fa:lower() then
 				arg2 = var1
 			else
