@@ -1499,8 +1499,8 @@ do
 		if var1 then
 			-- Small hack to get code to work with first aid.
 			local fa = L["First Aid"]
-			if var2:lower() == fa:lower() then
-				arg2 = var2
+			if var1:lower() == fa:lower() then
+				arg2 = var1
 			else
 				local var2
 				arg2, var2 = var1:match("^([^%s]+)%s*(.*)$")
