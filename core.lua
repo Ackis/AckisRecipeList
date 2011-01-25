@@ -1650,18 +1650,19 @@ do
 			-- MrTrader saved the state for us
 		else
 			if not Skillet and have_materials then
+			self:Print("Have mats")
 				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
-				TradeSkillUpdateFilterBar()
 			end
 			if not Skillet and have_skillup then
+			self:Print("Have skill")
 				TradeSkillFrame.filterTbl.hasSkillUp = false
 				TradeSkillOnlyShowSkillUps(false)
-				TradeSkillUpdateFilterBar()
 			end
 			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
 			SetTradeSkillInvSlotFilter(0, 1, 1)
+			TradeSkillUpdateFilterBar()
 			TradeSkillFrame_Update()
 
 			-- Expand all headers so we can see all the recipes there are
@@ -1728,12 +1729,11 @@ do
 			-- Restore the state of the "Have Materials" checkbox.
 			TradeSkillFrame.filterTbl.hasMaterials = have_materials
 			TradeSkillOnlyShowMakeable(have_materials)
-			TradeSkillUpdateFilterBar()
 			-- Restore the state of "Have Skillup" checkbox.
 			TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
 			TradeSkillOnlyShowSkillUps(have_skillup)
-			TradeSkillUpdateFilterBar()
 
+			TradeSkillUpdateFilterBar()
 			TradeSkillFrame_Update()
 ]]--
 		end
