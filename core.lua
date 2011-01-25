@@ -1623,6 +1623,7 @@ do
 
 		-- Save the state of the "Have Materials" checkbox.
 		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
+		local have_skillip = TradeSkillFrame.filterTbl.hasSkillUp
 
 		if MRTAPI and MRTAPI:PushFilterSelection() then
 			-- MrTrader saved the state for us
@@ -1630,6 +1631,10 @@ do
 			if not Skillet and have_materials then
 				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
+			end
+			if not Skillet and have_materials then
+				TradeSkillFrame.filterTbl.hasSkillUp = false
+				TradeSkillOnlyShowSkillUps(false)			
 			end
 			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
@@ -1687,7 +1692,9 @@ do
 			end
 			-- Restore the state of the "Have Materials" checkbox.
 			TradeSkillFrame.filterTbl.hasMaterials = have_materials
+			TradeSkillFrame.filterTbl.hasSkillUp = have_skillip
 			TradeSkillOnlyShowMakeable(have_materials)
+			TradeSkillOnlyShowSkillUps(have_skillip)
 		end
 		Player.prev_count = Player.foundRecipes
 		Player.foundRecipes = recipes_found
