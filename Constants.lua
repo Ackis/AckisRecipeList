@@ -551,6 +551,18 @@ private.category_colors = {
 
 }
 
+-- Listing of recipes which overwrite other recipes when you learn them.
+-- For example, when you learn Darkglow Embroidery Rank 2 (75175),
+-- you no longer know Darkglow Embroidery Rank 1 (55769)
+
+private.spell_overwrite_map = {
+	-------------------------------------------------------------------------------
+	-- Tailoring
+	-------------------------------------------------------------------------------
+	[75175] = 55769,	[75172] = 55642,	[75178] = 55777,
+
+}
+
 -------------------------------------------------------------------------------
 -- Mined via Data-tools
 -- Table is Public Domain now
