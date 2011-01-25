@@ -1653,10 +1653,12 @@ do
 			if not Skillet and have_materials then
 				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
+				TradeSkillUpdateFilterBar()
 			end
 			if not Skillet and have_skillup then
 				TradeSkillFrame.filterTbl.hasSkillUp = false
-				TradeSkillOnlyShowSkillUps(false)			
+				TradeSkillOnlyShowSkillUps(false)
+				TradeSkillUpdateFilterBar()
 			end
 			UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
@@ -1725,9 +1727,13 @@ do
 			end
 			-- Restore the state of the "Have Materials" checkbox.
 			TradeSkillFrame.filterTbl.hasMaterials = have_materials
-			TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
 			TradeSkillOnlyShowMakeable(have_materials)
+			TradeSkillUpdateFilterBar()
+			-- Restore the state of "Have Skillup" checkbox.
+			TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
 			TradeSkillOnlyShowSkillUps(have_skillup)
+			TradeSkillUpdateFilterBar()
+
 			TradeSkillFrame_Update()
 		end
 		Player.prev_count = Player.foundRecipes
