@@ -1523,7 +1523,7 @@ function addon:ChatCommand(input)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (arg1 == strlower(L["Scan"])) then
 		if not arg2 then
-			self:Print("To run a scan from a command line you need to specify the profession like: /arl scan enchanting")
+			self:Print(L["COMMAND_LINE_SCAN"])
 		else
 			CastSpellByName(arg2)
 			-- If the ARL window is shown, hide it.

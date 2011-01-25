@@ -1456,3 +1456,4 @@ L["CATA_WOW_DESC"] = "Recipes available with Cataclysm."
 L["Krenk Choplimb"] = true
 L["Agatian Fallanos"] = true
 L["Senthii"] = true
+L["COMMAND_LINE_SCAN"] = "To run a scan from a command line you need to specify the profession like: /arl scan enchanting"
