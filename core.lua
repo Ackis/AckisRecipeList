@@ -1645,6 +1645,10 @@ do
 		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
 		-- Save the state of the "Have Skillup" checkbox.
 		local have_skillup = TradeSkillFrame.filterTbl.hasSkillUp
+		-- Save the state of the subClassValue
+		local subclass = TradeSkillFrame.filterTbl.subClassValue
+		-- Save the state of the slotValue
+		local slot = TradeSkillFrame.filterTbl.slotValue 
 
 		if MRTAPI and MRTAPI:PushFilterSelection() then
 			-- MrTrader saved the state for us
@@ -1661,7 +1665,7 @@ do
 			end
 			--UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			--UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
-			--SetTradeSkillInvSlotFilter(0, 1, 1)
+			SetTradeSkillInvSlotFilter(0, 1, 1)
 			TradeSkillUpdateFilterBar()
 			TradeSkillFrame_Update()
 
