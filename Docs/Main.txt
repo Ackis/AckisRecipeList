@@ -41,6 +41,8 @@ Ackis Recipe List has recently changed to use a GUI for change parameters.  Type
 <<code>>/arl about<</code>>
 ** Opens up the sorting options:
  <<code>>/arl sort<</code>> or <<code>>/arl sorting<</code>>
+** Scan a profession:
+ <<code>>/arl scan profession<</code>>
 ** Opens up in-game documentation regarding ARL:
  <<code>>/arl documentation<</code>>
 ** Opens up display options:
