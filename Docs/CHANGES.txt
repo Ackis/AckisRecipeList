@@ -14,6 +14,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 ==== Bug Fixes:
 * We didn't account for the Has Skill up filter.  Now we do.
 * Filters should properly reset after we muck with them during a scan.
+* Don't show rank 1 recipes when you know rank 2 recipes.
 
 == Version 2.1 Release
 
