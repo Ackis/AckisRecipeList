@@ -1498,7 +1498,7 @@ do
 
 		if var1 then
 			-- Small hack to get code to work with first aid.
-			local fa = L["First Aid"]
+			local fa = GetSpellInfo(45542)
 			if var1:lower() == fa:lower() then
 				arg2 = var1
 			else
