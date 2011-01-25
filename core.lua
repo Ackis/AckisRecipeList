@@ -1654,12 +1654,10 @@ do
 			-- MrTrader saved the state for us
 		else
 			if not Skillet and have_materials then
-			self:Print("Have mats")
 				TradeSkillFrame.filterTbl.hasMaterials = false
 				TradeSkillOnlyShowMakeable(false)
 			end
 			if not Skillet and have_skillup then
-			self:Print("Have skill")
 				TradeSkillFrame.filterTbl.hasSkillUp = false
 				TradeSkillOnlyShowSkillUps(false)
 			end
