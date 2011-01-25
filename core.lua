@@ -1579,7 +1579,7 @@ do
 	local header_list = {}
 
 	-- Toggles a recipe ot known state if it's your own
-	local togglerecipe(recipe, is_linked)
+	local function togglerecipe(recipe, is_linked)
 		if not is_linked then
 			recipe:AddState("KNOWN")
 			recipe:RemoveState("LINKED")
