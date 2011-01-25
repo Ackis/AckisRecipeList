@@ -1724,6 +1724,7 @@ do
 					CollapseTradeSkillSubClass(i)
 				end
 			end
+--[[
 			-- Restore the state of the "Have Materials" checkbox.
 			TradeSkillFrame.filterTbl.hasMaterials = have_materials
 			TradeSkillOnlyShowMakeable(have_materials)
@@ -1734,6 +1735,7 @@ do
 			TradeSkillUpdateFilterBar()
 
 			TradeSkillFrame_Update()
+]]--
 		end
 		Player.prev_count = Player.foundRecipes
 		Player.foundRecipes = recipes_found
