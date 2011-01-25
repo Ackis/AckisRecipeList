@@ -1699,11 +1699,12 @@ do
 					-- ability to learn the lower rank.
 					if overwritemap[SpellID] then
 					self:Print("Overwrite spell found." .. SpellID)
-						local overwriterecipe = recipe_list[SpellID]
+						self:Print("Marking " .. overwritemap[SpellID])
+						local overwriterecipe = recipe_list[overwritemap[SpellID]]
 						if overwriterecipe then
 							togglerecipe(overwriterecipe, is_linked)
 						else
-							self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
+							self:Debug(tradeName .. " " .. overwritemap[SpellID] .. L["MissingFromDB"])
 						end
 					else
 						togglerecipe(recipe, is_linked)
