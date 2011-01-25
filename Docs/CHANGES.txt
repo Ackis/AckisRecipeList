@@ -11,6 +11,10 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 ==== New Features:
 * A new slash command has been added: /arl scan <profession>  This will scan the profession from a slash command, without requiring you to open up the tradeskill window yourself.  Due to limitations, this will basically fire off the tradeskill for you so that window will open up.
 
+==== Bug Fixes:
+* We didn't account for the Has Skill up filter.  Now we do.
+* Filters should properly reset after we muck with them during a scan.
+
 == Version 2.1 Release
 
 ==== Recipe Database:
