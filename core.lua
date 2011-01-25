@@ -1577,6 +1577,16 @@ end
 do
 	-- List of tradeskill headers, used in addon:Scan()
 	local header_list = {}
+
+	-- Toggles a recipe ot known state if it's your own
+	local togglerecipe(recipe, is_linked)
+		if not is_linked then
+			recipe:AddState("KNOWN")
+			recipe:RemoveState("LINKED")
+		else
+			recipe:AddState("LINKED")
+		end
+	end
 	
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
@@ -1663,6 +1673,7 @@ do
 		local recipe_list = private.recipe_list
 		local recipes_found = 0
 		local SF = private.recipe_state_flags
+		local overwritemap = private.spell_overwrite_map
 
 		for i = 1, GetNumTradeSkills() do
 			local tradeName, tradeType = GetTradeSkillInfo(i)
@@ -1670,17 +1681,26 @@ do
 			if tradeType ~= "header" then
 				-- Get the trade skill link for the specified recipe
 				local SpellLink = GetTradeSkillRecipeLink(i)
+				-- Spell ID of the recipe being scanned.
 				local SpellString = strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-				local recipe = recipe_list[tonumber(SpellString)]
+				local SpellID = tonumber(SpellString)
+				local recipe = recipe_list[SpellID]
 
 				if recipe then
-					if not is_linked then
-						recipe:AddState("KNOWN")
-						recipe:RemoveState("LINKED")
+					-- Mark the first rank of the spell as known if we know rank 2 for certain recipes.
+					-- This is only done for recipes which when you learn the higher rank, you lose the
+					-- ability to learn the lower rank.
+					if overwritemap[SpellID] then
+						local overwriterecipe = recipe_list[SpellID]
+						if overwriterecipe then
+							togglerecipe(overwriterecipe, is_linked)
+						else
+							self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
+						end
 					else
-						recipe:AddState("LINKED")
+						togglerecipe(recipe, is_linked)
+						recipes_found = recipes_found + 1
 					end
-					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
 				end
