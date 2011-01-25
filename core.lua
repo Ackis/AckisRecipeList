@@ -1700,7 +1700,6 @@ do
 
 					-- If we have it in the mapping, set the lower rank spell to known
 					if overwritemap[SpellID] then
-						self:Print("Marking " .. overwritemap[SpellID])
 						local overwriterecipe = recipe_list[overwritemap[SpellID]]
 						if overwriterecipe then
 							togglerecipe(overwriterecipe, is_linked)
