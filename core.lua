@@ -1697,6 +1697,8 @@ do
 					-- Mark the first rank of the spell as known if we know rank 2 for certain recipes.
 					-- This is only done for recipes which when you learn the higher rank, you lose the
 					-- ability to learn the lower rank.
+
+					-- If we have it in the mapping, set the lower rank spell to known
 					if overwritemap[SpellID] then
 					self:Print("Overwrite spell found." .. SpellID)
 						self:Print("Marking " .. overwritemap[SpellID])
@@ -1706,10 +1708,10 @@ do
 						else
 							self:Debug(tradeName .. " " .. overwritemap[SpellID] .. L["MissingFromDB"])
 						end
-					else
-						togglerecipe(recipe, is_linked)
-						recipes_found = recipes_found + 1
 					end
+					-- Toggle spell to known
+					togglerecipe(recipe, is_linked)
+					recipes_found = recipes_found + 1
 				else
 					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
 				end
