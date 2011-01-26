@@ -1362,7 +1362,6 @@ L["Traugh"] = true
 L["Truk Wildbeard"] = true
 L["Tunkk"] = true
 L["Twilight Fire Guard"] = true
-L["Ulthaan"] = true
 L["Ulthir"] = true
 L["Una"] = true
 L["Unchained Doombringer"] = true
