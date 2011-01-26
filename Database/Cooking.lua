@@ -110,8 +110,9 @@ function addon:InitCooking()
 
 	-- Seasoned Wolf Kabob -- 2549
 	AddRecipe(2549, 100, 1017, Q.COMMON, V.ORIG, 100, 140, 160, 180)
-	self:AddRecipeFlags(2549, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(2549, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(2549, 340)
+	self:AddRecipeQuest(2549, 26620)
 
 	-- Beer Basted Boar Ribs -- 2795
 	AddRecipe(2795, 10, 2888, Q.COMMON, V.ORIG, 10, 60, 80, 100)
@@ -126,9 +127,10 @@ function addon:InitCooking()
 
 	-- Blood Sausage -- 3371
 	AddRecipe(3371, 60, 3220, Q.COMMON, V.ORIG, 60, 100, 120, 140)
-	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3371, 340)
-
+	self:AddRecipeQuest(3371, 26860)
+	
 	-- Murloc Fin Soup -- 3372
 	AddRecipe(3372, 90, 3663, Q.COMMON, V.ORIG, 90, 130, 150, 170)
 	self:AddRecipeFlags(3372, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
@@ -146,13 +148,13 @@ function addon:InitCooking()
 
 	-- Gooey Spider Cake -- 3377
 	AddRecipe(3377, 110, 3666, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3377, 340)
-
+	self:AddRecipeQuest(3377, 26623)
+	
 	-- Big Bear Steak -- 3397
 	AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
 	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3397, 3960)
 	self:AddRecipeLimitedVendor(3397, 12246, 1)
 
 	-- Hot Lion Chops -- 3398
@@ -215,7 +217,7 @@ function addon:InitCooking()
 	-- Lean Venison -- 6419
 	AddRecipe(6419, 110, 5480, Q.COMMON, V.ORIG, 110, 150, 170, 190)
 	self:AddRecipeFlags(6419, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(6419, 3960, 12245)
+	self:AddRecipeLimitedVendor(6419, 12245, 1)
 
 	-- Boiled Clams -- 6499
 	AddRecipe(6499, 50, 5525, Q.COMMON, V.ORIG, 50, 90, 110, 130)
@@ -571,13 +573,15 @@ function addon:InitCooking()
 	-- Mok'Nathal Shortribs -- 38867
 	AddRecipe(38867, 335, 31672, Q.COMMON, V.TBC, 335, 355, 365, 375)
 	self:AddRecipeFlags(38867, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(38867, 20916, 21113)
+	self:AddRecipeVendor(38867, 21113)
+	self:AddRecipeLimitedVendor(38867, 20916, 1)
 	self:AddRecipeQuest(38867, 10860)
 
 	-- Crunchy Serpent -- 38868
 	AddRecipe(38868, 335, 31673, Q.COMMON, V.TBC, 335, 355, 365, 375)
 	self:AddRecipeFlags(38868, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(38868, 20916, 21113)
+	self:AddRecipeVendor(38868, 21113)
+	self:AddRecipeLimitedVendor(38868, 20916, 1)
 	self:AddRecipeQuest(38868, 10860)
 
 	-- Stewed Trout -- 42296
