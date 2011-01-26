@@ -303,9 +303,8 @@ function addon:InitEngineering()
 
 	-- Flash Bomb -- 8243
 	AddRecipe(8243, 185, 4852, Q.UNCOMMON, V.ORIG, 185, 185, 205, 225)
-	self:AddRecipeFlags(8243, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.QUEST, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(8243, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
 	self:AddRecipeMobDrop(8243, 7800)
-	self:AddRecipeQuest(8243, 1559)
 
 	-- Practice Lock -- 8334
 	AddRecipe(8334, 100, 6712, Q.COMMON, V.ORIG, 100, 115, 122, 130)

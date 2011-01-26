@@ -183,13 +183,13 @@ function addon:InitAlchemy()
 
 	-- Discolored Healing Potion -- 4508
 	AddRecipe(4508, 50, 4596, Q.UNCOMMON, V.ORIG, 50, 80, 100, 120)
-	self:AddRecipeFlags(4508, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeQuest(4508, 429)
+	self:AddRecipeFlags(4508, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	self:AddRecipeAcquire(4508, A.CUSTOM, 48)
 
 	-- Lesser Stoneshield Potion -- 4942
 	AddRecipe(4942, 215, 4623, Q.COMMON, V.ORIG, 215, 230, 250, 270)
-	self:AddRecipeFlags(4942, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeQuest(4942, 715)
+	self:AddRecipeFlags(4942, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	self:AddRecipeAcquire(4942, A.CUSTOM, 48)
 
 	-- Rage Potion -- 6617
 	AddRecipe(6617, 60, 5631, Q.COMMON, V.ORIG, 60, 90, 110, 130)
@@ -293,8 +293,8 @@ function addon:InitAlchemy()
 
 	-- Restorative Potion -- 11452
 	AddRecipe(11452, 210, 9030, Q.COMMON, V.ORIG, 210, 225, 245, 265)
-	self:AddRecipeFlags(11452, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(11452, 2203, 2501)
+	self:AddRecipeFlags(11452, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(11452, A.CUSTOM, 48)
 
 	-- Magic Resistance Potion -- 11453
 	AddRecipe(11453, 210, 9036, Q.UNCOMMON, V.ORIG, 210, 225, 245, 265)
