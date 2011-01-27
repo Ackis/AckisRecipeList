@@ -38,3 +38,7 @@
  type: luadoc
  input-file: Scanner.lua
  output-page: API/Scanner
+-
+ type: creole
+ input-file: Docs/Youtube.txt
+ output-page: "Youtube Reviews of Ackis Recipe List"

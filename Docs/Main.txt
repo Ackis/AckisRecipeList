@@ -120,6 +120,7 @@ If your mod should be on this list, please submit a [[http://www.wowace.com/addo
 * [[http://www.wowace.com/addons/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
 * [[http://www.wowace.com/addons/arl/pages/in-game-documentation/|In-game Documentation]]
 * [[http://www.wowace.com/addons/arl/pages/api/localization/|Localization]]
+* [[http://www.wowace.com/addons/arl/pages/api/youtube/|Youtube Reviews/Videos]]
 
 ==Acknowledgments
 * Ideas for the mod came from FGTradeLacker (original mod no longer updated, however someone has taken over updating the recipes for it).
