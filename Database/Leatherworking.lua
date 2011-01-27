@@ -361,8 +361,8 @@ function addon:InitLeatherworking()
 
 	-- Deviate Scale Belt -- 7955
 	AddRecipe(7955, 115, 6468, Q.UNCOMMON, V.ORIG, 115, 140, 152, 165)
-	self:AddRecipeFlags(7955, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
-	self:AddRecipeQuest(7955, 1487)
+	self:AddRecipeFlags(7955, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
+	self:AddRecipeAcquire(7955, A.CUSTOM, 48)
 
 	-- Moonglow Vest -- 8322
 	AddRecipe(8322, 90, 6709, Q.UNCOMMON, V.ORIG, 90, 115, 130, 145)
