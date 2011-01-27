@@ -1,16 +1,29 @@
-== Video 1
+If you have content for this page, please drop me a line an I'll get it added.
+
+== External Reviews
+
+* [[http://www.wow.com/2009/05/31/addon-spotlight-ackis-recipe-list/ | WoW.com]]
+* [[http://www.wowfix.com/article-36634 | WoWFix.com]]
+* [[http://www.wowdaily.info/a.asp?a=2015098 | WoWDaily.info]]
+* [[http://www.maniasarcania.com/2008/01/22/ackis-recipe-list-not-just-for-recipes/ | Mania's Arania]]
+* [[http://wow.buffed.de/features/3863/ackis-recipe-list | Buffed.de]]
+* [[https://www.ohloh.net/p/ackisrecipelist | Ohloh.net - Code Statistics]]
+
+== Youtube Videos
+
+=== Video 1
 
 Looks at an older version of the mod.
 
 <<youtube jZR5DLkRJBY>>
 
-== Video 2
+=== Video 2
 
 No sound but goes through a newer version.
 
 <<youtube 6Jhcb-ZpRFg>>
 
-== Video 3
+=== Video 3
 
 From Brazil.
 
