@@ -65,6 +65,8 @@ Currently, the mod works with:
 * Everyone who has helped me with localizations.
 
 ==External Reviews==
+If you would like to see YouTube videos of ARL in action, please check out the [http://www.wowace.com/addons/arl/pages/youtube-and-external-reviews/ project] page.
+
 * [http://www.wow.com/2009/05/31/addon-spotlight-ackis-recipe-list/ WoW.com]
 * [http://www.wowfix.com/article-36634 WoWFix.com]
 * [http://www.wowdaily.info/a.asp?a=2015098 WoWDaily.info]
