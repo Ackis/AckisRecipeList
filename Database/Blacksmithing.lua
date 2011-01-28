@@ -273,7 +273,7 @@ function addon:InitBlacksmithing()
 	-- Hardened Iron Shortsword -- 3492
 	AddRecipe(3492, 160, 3849, Q.COMMON, V.ORIG, 160, 185, 197, 210)
 	self:AddRecipeFlags(3492, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeVendor(3492, 2843, 5512)
+	self:AddRecipeLimitedVendor(3492, 2843, 1, 5512, 1)
 
 	-- Jade Serpentblade -- 3493
 	AddRecipe(3493, 175, 3850, Q.UNCOMMON, V.ORIG, 175, 200, 212, 225)
@@ -293,7 +293,7 @@ function addon:InitBlacksmithing()
 	-- Moonsteel Broadsword -- 3496
 	AddRecipe(3496, 180, 3853, Q.COMMON, V.ORIG, 180, 205, 217, 230)
 	self:AddRecipeFlags(3496, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TWO_HAND, F.SWORD)
-	self:AddRecipeVendor(3496, 2482)
+	self:AddRecipeLimitedVendor(3496, 2482, 1)
 
 	-- Frost Tiger Blade -- 3497
 	AddRecipe(3497, 200, 3854, Q.UNCOMMON, V.ORIG, 200, 210, 215, 220)
@@ -303,7 +303,7 @@ function addon:InitBlacksmithing()
 	-- Massive Iron Axe -- 3498
 	AddRecipe(3498, 185, 3855, Q.COMMON, V.ORIG, 185, 210, 222, 235)
 	self:AddRecipeFlags(3498, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS, F.TWO_HAND, F.AXE)
-	self:AddRecipeVendor(3498, 2483, 1146)
+	self:AddRecipeLimitedVendor(3498, 2483, 1, 1146, 1)
 
 	-- Shadow Crescent Axe -- 3500
 	AddRecipe(3500, 200, 3856, Q.UNCOMMON, V.ORIG, 200, 225, 237, 250)

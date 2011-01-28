@@ -258,7 +258,7 @@ function addon:InitEngineering()
 	-- Mechanical Dragonling -- 3969
 	AddRecipe(3969, 200, 4396, Q.COMMON, V.ORIG, 200, 220, 230, 240)
 	self:AddRecipeFlags(3969, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TRINKET)
-	self:AddRecipeVendor(3969, 2687)
+	self:AddRecipeLimitedVendor(3969, 2687, 1)
 
 	-- Gnomish Cloaking Device -- 3971
 	AddRecipe(3971, 200, 4397, Q.COMMON, V.ORIG, 200, 220, 230, 240)
@@ -289,7 +289,7 @@ function addon:InitEngineering()
 	-- Accurate Scope -- 3979
 	AddRecipe(3979, 180, 4407, Q.COMMON, V.ORIG, 180, 200, 210, 220)
 	self:AddRecipeFlags(3979, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(3979, 2685)
+	self:AddRecipeLimitedVendor(3979, 2685, 1)
 
 	-- Ornate Spyglass -- 6458
 	AddRecipe(6458, 135, 5507, Q.COMMON, V.ORIG, 135, 160, 172, 185)
@@ -386,7 +386,7 @@ function addon:InitEngineering()
 	-- Deadly Scope -- 12597
 	AddRecipe(12597, 210, 10546, Q.COMMON, V.ORIG, 210, 230, 240, 250)
 	self:AddRecipeFlags(12597, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(12597, 8679, 9544)
+	self:AddRecipeLimitedVendor(12597, 8679, 1, 9544, 1)
 
 	-- Mithril Casing -- 12599
 	AddRecipe(12599, 215, 10561, Q.COMMON, V.ORIG, 215, 215, 235, 255)
@@ -681,7 +681,7 @@ function addon:InitEngineering()
 	-- Green Firework -- 23068
 	AddRecipe(23068, 150, 9313, Q.COMMON, V.ORIG, 150, 150, 162, 175)
 	self:AddRecipeFlags(23068, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(23068, 2838, 3495)
+	self:AddRecipeLimitedVendor(23068, 2838, 1, 3495, 1)
 
 	-- EZ-Thro Dynamite II -- 23069
 	AddRecipe(23069, 200, 18588, Q.COMMON, V.ORIG, 200, 200, 210, 220)

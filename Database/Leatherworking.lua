@@ -238,7 +238,7 @@ function addon:InitLeatherworking()
 	-- Gem-studded Leather Belt -- 3778
 	AddRecipe(3778, 185, 4262, Q.COMMON, V.ORIG, 185, 205, 215, 225)
 	self:AddRecipeFlags(3778, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeVendor(3778, 2699)
+	self:AddRecipeLimitedVendor(3778, 2699, 1)
 
 	-- Barbaric Belt -- 3779
 	AddRecipe(3779, 200, 4264, Q.RARE, V.ORIG, 200, 220, 230, 240)
@@ -307,7 +307,7 @@ function addon:InitLeatherworking()
 	AddRecipe(6705, 190, 5783, Q.UNCOMMON, V.ORIG, 190, 210, 220, 230)
 	self:AddRecipeFlags(6705, F.ALLIANCE, F.HORDE, F.VENDOR, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	self:AddRecipeMobDrop(6705, 2636, 1561)
-	self:AddRecipeVendor(6705, 4897)
+	self:AddRecipeLimitedVendor(6705, 4897, 1)
 
 	-- Handstitched Leather Vest -- 7126
 	AddRecipe(7126, 1, 5957, Q.COMMON, V.ORIG, 1, 40, 55, 70)
@@ -974,7 +974,7 @@ function addon:InitLeatherworking()
 	-- Shadowskin Gloves -- 22711
 	AddRecipe(22711, 200, 18238, Q.COMMON, V.ORIG, 200, 210, 220, 230)
 	self:AddRecipeFlags(22711, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeVendor(22711, 2699)
+	self:AddRecipeLimitedVendor(22711, 2699, 1)
 
 	-- Core Armor Kit -- 22727
 	AddRecipe(22727, 300, 18251, Q.RARE, V.ORIG, 300, 320, 330, 340)
