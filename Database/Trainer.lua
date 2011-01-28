@@ -31,8 +31,8 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 1317, L["Lucan Cordell"], BZ["Stormwind City"], 53.0, 74.3, 1)
 	self:addLookupList(DB, 1346, L["Georgio Bolero"], BZ["Stormwind City"], 53.2, 81.5, 1)
 	self:addLookupList(DB, 1355, L["Cook Ghilm"], BZ["Dun Morogh"], 68.4, 54.5, 1)
-	self:addLookupList(DB, 1382, L["Mudduk"], BZ["Stranglethorn Vale"], 31.4, 28.0, 2)
-	self:addLookupList(DB, 1385, L["Brawn"], BZ["Stranglethorn Vale"], 31.7, 28.8, 2)
+	self:addLookupList(DB, 1382, L["Mudduk"], BZ["Northern Stranglethorn"], 37.2, 49.2, 2)  -- UPDATED
+	self:addLookupList(DB, 1385, L["Brawn"], BZ["Northern Stranglethorn"], 37.8, 50.4, 2)  -- UPDATED
 	self:addLookupList(DB, 1386, L["Rogvar"], BZ["Swamp of Sorrows"], 48.4, 55.7, 2)
 	self:addLookupList(DB, 1430, L["Tomas"], BZ["Elwynn Forest"], 44.3, 66.0, 1)  ---confirm
 	self:addLookupList(DB, 1470, L["Ghak Healtouch"], BZ["Loch Modan"], 37.0, 49.2, 1)
@@ -48,11 +48,11 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 2329, L["Michelle Belle"], BZ["Elwynn Forest"], 43.4, 65.6, 1)
 	self:addLookupList(DB, 2391, L["Serge Hinott"], BZ["Hillsbrad Foothills"], 61.6, 19.2, 2)
 	self:addLookupList(DB, 2399, L["Daryl Stack"], BZ["Hillsbrad Foothills"], 63.7, 20.8, 2)
-	self:addLookupList(DB, 2627, L["Grarnik Goodstitch"], BZ["Stranglethorn Vale"], 28.7, 76.8, 0)
+	self:addLookupList(DB, 2627, L["Grarnik Goodstitch"], BZ["The Cape of Stranglethorn"], 43.6, 73.0, 0)   -- UPDATED
 	self:addLookupList(DB, 2798, L["Pand Stonebinder"], BZ["Thunder Bluff"], 29.4, 21.5, 2)
 	self:addLookupList(DB, 2818, L["Slagg"], BZ["Arathi Highlands"], 74.1, 33.8, 2)
-	self:addLookupList(DB, 2836, L["Brikk Keencraft"], BZ["Stranglethorn Vale"], 29.0, 75.5, 0)
-	self:addLookupList(DB, 2837, L["Jaxin Chong"], BZ["Stranglethorn Vale"], 28.1, 78.0, 0)
+	self:addLookupList(DB, 2836, L["Brikk Keencraft"], BZ["The Cape of Stranglethorn"], 44.1, 70.9, 0)   -- UPDATED
+	self:addLookupList(DB, 2837, L["Jaxin Chong"], BZ["The Cape of Stranglethorn"], 42.6, 74.8, 0)   -- UPDATED
 	self:addLookupList(DB, 2998, L["Karn Stonehoof"], BZ["Thunder Bluff"], 39.0, 56.5, 2)
 	self:addLookupList(DB, 3001, L["Brek Stonehoof"], BZ["Thunder Bluff"], 34.5, 57.6, 2)
 	self:addLookupList(DB, 3004, L["Tepa"], BZ["Thunder Bluff"], 44.3, 45.0, 2)
@@ -78,9 +78,9 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 3365, L["Karolek"], BZ["Orgrimmar"], 62.8, 44.5, 2)
 	self:addLookupList(DB, 3373, L["Arnok"], BZ["Orgrimmar"], 34.1, 84.4, 2)
 	self:addLookupList(DB, 3399, L["Zamja"], BZ["Orgrimmar"], 57.5, 53.7, 2)
-	self:addLookupList(DB, 3478, L["Traugh"], BZ["Northern Barrens"], 48.3, 56.2, 2)
-	self:addLookupList(DB, 3484, L["Kil'hala"], BZ["Northern Barrens"], 49.9, 61.2, 2)
-	self:addLookupList(DB, 3494, L["Tinkerwiz"], BZ["Northern Barrens"], 68.5, 69.2, 0)
+	self:addLookupList(DB, 3478, L["Traugh"], BZ["Northern Barrens"], 48.3, 56.2, 2)   -- UPDATED
+	self:addLookupList(DB, 3484, L["Kil'hala"], BZ["Northern Barrens"], 49.9, 61.2, 2)   -- UPDATED
+	self:addLookupList(DB, 3494, L["Tinkerwiz"], BZ["Northern Barrens"], 68.5, 69.2, 0)  -- UPDATED
 	self:addLookupList(DB, 3523, L["Bowen Brisboise"], BZ["Tirisfal Glades"], 52.6, 55.6, 2)
 	self:addLookupList(DB, 3549, L["Shelene Rhobart"], BZ["Tirisfal Glades"], 65.5, 61.0, 2)
 	self:addLookupList(DB, 3555, L["Johan Focht"], BZ["Silverpine Forest"], 43.4, 40.5, 2)
@@ -88,7 +88,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 3603, L["Cyndra Kindwhisper"], BZ["Teldrassil"], 57.6, 60.7, 1)
 	self:addLookupList(DB, 3605, L["Nadyia Maneweaver"], BZ["Teldrassil"], 41.8, 49.5, 1)
 	self:addLookupList(DB, 3606, L["Alanna Raveneye"], BZ["Teldrassil"], 36.8, 34.2, 1)
-	self:addLookupList(DB, 3704, L["Mahani"], BZ["Southern Barrens"], 41.5, 46.9, 2)
+	self:addLookupList(DB, 3704, L["Mahani"], BZ["Southern Barrens"], 41.5, 46.9, 2)   -- UPDATED
 	self:addLookupList(DB, 3964, L["Kylanna"], BZ["Ashenvale"], 50.8, 67.1, 1)
 	self:addLookupList(DB, 3967, L["Aayndia Floralwind"], BZ["Ashenvale"], 35.9, 52.1, 1)
 	self:addLookupList(DB, 4159, L["Me'lynn"], BZ["Darnassus"], 61.7, 23.0, 1)
@@ -137,22 +137,22 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 7230, L["Shayis Steelfury"], BZ["Orgrimmar"], 80.3, 23.2, 2)
 	self:addLookupList(DB, 7231, L["Kelgruk Bloodaxe"], BZ["Orgrimmar"], 81.9, 18.3, 2)
 	self:addLookupList(DB, 7232, L["Borgus Steelhand"], BZ["Stormwind City"], 59.8, 34.8, 1)
-	self:addLookupList(DB, 7406, L["Oglethorpe Obnoticus"], BZ["Stranglethorn Vale"], 28.3, 76.3, 0)
+	self:addLookupList(DB, 7406, L["Oglethorpe Obnoticus"], BZ["The Cape of Stranglethorn"], 43.0, 72.1, 0)   -- UPDATED
 	self:addLookupList(DB, 7866, L["Peter Galen"], BZ["Azshara"], 37.5, 65.5, 1)
 	self:addLookupList(DB, 7867, L["Thorkaf Dragoneye"], BZ["Badlands"], 62.6, 57.6, 2)
 	self:addLookupList(DB, 7868, L["Sarah Tanner"], BZ["Searing Gorge"], 63.7, 75.7, 1)
 	self:addLookupList(DB, 7869, L["Brumn Winterhoof"], BZ["Arathi Highlands"], 28.2, 45.0, 2)
 	self:addLookupList(DB, 7870, L["Caryssia Moonhunter"], BZ["Feralas"], 89.4, 46.5, 1) ---confirm
-	self:addLookupList(DB, 7871, L["Se'Jib"], BZ["Stranglethorn Vale"], 36.6, 34.2, 2)
+	self:addLookupList(DB, 7871, L["Se'Jib"], BZ["Northern Stranglethorn"], 45.3, 58.7, 2)   -- UPDATED
 	self:addLookupList(DB, 7944, L["Tinkmaster Overspark"], BZ["Ironforge"], 69.8, 50.0, 1)
 	self:addLookupList(DB, 7948, L["Kylanna Windwhisper"], BZ["Feralas"], 32.6, 43.8, 1)
 	self:addLookupList(DB, 7949, L["Xylinnia Starshine"], BZ["Feralas"], 31.6, 44.3, 1)
 	self:addLookupList(DB, 8126, L["Nixx Sprocketspring"], BZ["Tanaris"], 52.5, 27.3, 0)
 	self:addLookupList(DB, 8128, L["Pikkle"], BZ["Tanaris"], 51.1, 28.1, 0)
 	self:addLookupList(DB, 8153, L["Narv Hidecrafter"], BZ["Desolace"], 55.3, 56.3, 2)
-	self:addLookupList(DB, 8306, L["Duhng"], BZ["Northern Barrens"], 55.4, 61.3, 2)
+	self:addLookupList(DB, 8306, L["Duhng"], BZ["Northern Barrens"], 55.4, 61.3, 2)   -- UPDATED
 	self:addLookupList(DB, 8736, L["Buzzek Bracketswing"], BZ["Tanaris"], 52.3, 27.7, 0)
-	self:addLookupList(DB, 8738, L["Vazario Linkgrease"], BZ["Northern Barrens"], 68.5, 69.2, 0)
+	self:addLookupList(DB, 8738, L["Vazario Linkgrease"], BZ["Northern Barrens"], 68.5, 69.2, 0)   -- UPDATED
 	self:addLookupList(DB, 9584, L["Jalane Ayrole"], BZ["Stormwind City"], 40.6, 83.9, 1)
 	self:addLookupList(DB, 11017, L["Roxxik"], BZ["Orgrimmar"], 76.0, 25.1, 2)
 	self:addLookupList(DB, 11025, L["Mukdrak"], BZ["Durotar"], 52.2, 40.8, 2)

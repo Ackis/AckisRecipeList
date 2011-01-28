@@ -40,13 +40,13 @@ function addon:InitVendor(DB)
 
 	AddVendor(66,		L["Tharynn Bouden"],			BZ["Elwynn Forest"],		41.9, 67.1, ALLIANCE)
 	AddVendor(340,		L["Kendor Kabonka"],			BZ["Stormwind City"],		76.6, 53.7, ALLIANCE)
-	AddVendor(734,		L["Corporal Bluth"],			BZ["Stranglethorn Vale"],	38.0,  3.0, ALLIANCE)
+	AddVendor(734,		L["Corporal Bluth"],			BZ["Northern Stranglethorn"],	47.5,  10.3, ALLIANCE) -- UPDATED
 	AddVendor(777,		L["Amy Davenport"],			BZ["Redridge Mountains"],	29.1, 47.5, ALLIANCE)
 	AddVendor(843,		L["Gina MacGregor"],			BZ["Westfall"],			57.6, 54.0, ALLIANCE)
 	AddVendor(989,		L["Banalash"],				BZ["Swamp of Sorrows"],		44.7, 56.7, HORDE)
-	AddVendor(1146,		L["Vharr"],				BZ["Stranglethorn Vale"],	32.3, 28.0, HORDE)
-	AddVendor(1148,		L["Nerrist"],				BZ["Stranglethorn Vale"],	32.7, 29.2, HORDE)
-	AddVendor(1149,		L["Uthok"],				BZ["Stranglethorn Vale"],	31.6, 28.0, HORDE)
+	AddVendor(1146,		L["Vharr"],				BZ["Northern Stranglethorn"],	38.7, 49.2, HORDE)   -- UPDATED
+	AddVendor(1148,		L["Nerrist"],				BZ["Northern Stranglethorn"],	39.2, 51.0, HORDE)  -- UPDATED
+	AddVendor(1149,		L["Uthok"],				BZ["Northern Stranglethorn"],	37.5, 49.2, HORDE)   -- UPDATED
 	AddVendor(1250,		L["Drake Lindgren"],			BZ["Elwynn Forest"],		83.3, 66.7, ALLIANCE)
 	AddVendor(1286,		L["Edna Mullby"],			BZ["Stormwind City"],		64.6, 71.5, ALLIANCE)
 	AddVendor(1313,		L["Maria Lumere"],			BZ["Stormwind City"],		55.7, 85.5, ALLIANCE)
@@ -67,24 +67,24 @@ function addon:InitVendor(DB)
 	AddVendor(2394,		L["Mallen Swain"],			BZ["Hillsbrad Foothills"],	62.0, 20.9, HORDE)
 	AddVendor(2397,		L["Derak Nightfall"],			BZ["Hillsbrad Foothills"],	63.0, 18.5, HORDE)
 	AddVendor(2480,		L["Bro'kin"],				BZ["Alterac Mountains"],	38.3, 38.8, NEUTRAL)
-	AddVendor(2482,		L["Zarena Cromwind"],			BZ["Stranglethorn Vale"],	28.4, 75.5, NEUTRAL)
-	AddVendor(2483,		L["Jaquilina Dramet"],			BZ["Stranglethorn Vale"],	35.7, 10.7, NEUTRAL)
-	AddVendor(2663,		L["Narkk"],				BZ["Stranglethorn Vale"],	28.2, 74.5, NEUTRAL)
-	AddVendor(2664,		L["Kelsey Yance"],			BZ["The Cape of Stranglethorn"],	42.8, 69.1, NEUTRAL)
+	AddVendor(2482,		L["Zarena Cromwind"],			BZ["The Cape of Stranglethorn"],	43.0, 70.7, NEUTRAL)  -- UPDATED
+	AddVendor(2483,		L["Jaquilina Dramet"],			BZ["Northern Stranglethorn"],	43.7, 23.1, NEUTRAL) -- UPDATED
+	AddVendor(2663,		L["Narkk"],				BZ["The Cape of Stranglethorn"],	42.7, 69.2, NEUTRAL)   -- UPDATED
+	AddVendor(2664,		L["Kelsey Yance"],			BZ["The Cape of Stranglethorn"],	42.8, 69.1, NEUTRAL)   -- UPDATED
 	AddVendor(2668,		L["Danielle Zipstitch"],		BZ["Duskwood"],			75.8, 45.5, ALLIANCE)
 	AddVendor(2669,		L["Sheri Zipstitch"],			BZ["Duskwood"],			75.7, 45.5, ALLIANCE)
-	AddVendor(2670,		L["Xizk Goodstitch"],			BZ["Stranglethorn Vale"],	28.7, 76.8, NEUTRAL)
-	AddVendor(2672,		L["Cowardly Crosby"],			BZ["Stranglethorn Vale"],	27.0, 82.5, NEUTRAL)
+	AddVendor(2670,		L["Xizk Goodstitch"],			BZ["The Cape of Stranglethorn"],	43.6, 73.0, NEUTRAL)  -- UPDATED
+	AddVendor(2672,		L["Cowardly Crosby"],			BZ["The Cape of Stranglethorn"],	40.9, 82.5, NEUTRAL)   -- UPDATED
 	AddVendor(2679,		L["Wenna Silkbeard"],			BZ["Wetlands"],			25.7, 25.8, ALLIANCE)
 	AddVendor(2682,		L["Fradd Swiftgear"],			BZ["Wetlands"],			26.4, 25.8, ALLIANCE)
 	AddVendor(2683,		L["Namdo Bizzfizzle"],			BZ["Gnomeregan"],		   0,	 0, ALLIANCE)
 	AddVendor(2684,		L["Rizz Loosebolt"],			BZ["Alterac Mountains"],	47.4, 35.3, NEUTRAL)
-	AddVendor(2685,		L["Mazk Snipeshot"],			BZ["Stranglethorn Vale"],	28.5, 75.1, NEUTRAL)
-	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Stranglethorn Vale"],	51.0, 35.3, NEUTRAL)
+	AddVendor(2685,		L["Mazk Snipeshot"],			BZ["The Cape of Stranglethorn"],	43.2, 70.2, NEUTRAL)  -- UPDATED
+	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Northern Stranglethorn"],	67.5, 61.5, NEUTRAL)  -- UPDATED
 	AddVendor(2688,		L["Ruppo Zipcoil"],			BZ["The Hinterlands"],		34.3, 37.9, NEUTRAL)
 	AddVendor(2697,		L["Clyde Ranthal"],			BZ["Redridge Mountains"],	88.9, 70.9, ALLIANCE)
 	AddVendor(2698,		L["George Candarte"],			BZ["Hillsbrad Foothills"],	92.0, 38.4, HORDE)
-	AddVendor(2699,		L["Rikqiz"],				BZ["Stranglethorn Vale"],	28.5, 76.0, NEUTRAL)
+	AddVendor(2699,		L["Rikqiz"],				BZ["The Cape of Stranglethorn"],	43.2, 71.7, NEUTRAL)   -- UPDATED
 	AddVendor(2803,		L["Malygen"],				BZ["Felwood"],			62.3, 25.6, ALLIANCE)
 	AddVendor(2810,		L["Hammon Karwn"],			BZ["Arathi Highlands"],		46.5, 47.3, ALLIANCE)
 	AddVendor(2812,		L["Drovnar Strongbrew"],		BZ["Arathi Highlands"],		46.4, 47.1, ALLIANCE)
@@ -92,10 +92,10 @@ function addon:InitVendor(DB)
 	AddVendor(2816,		L["Androd Fadran"],			BZ["Arathi Highlands"],		45.0, 46.9, ALLIANCE)
 	AddVendor(2819,		L["Tunkk"],				BZ["Arathi Highlands"],		74.8, 34.5, HORDE)
 	AddVendor(2821,		L["Keena"],				BZ["Arathi Highlands"],		74.0, 32.7, HORDE)
-	AddVendor(2838,		L["Crazk Sparks"],			BZ["Stranglethorn Vale"],	28.3, 76.7, NEUTRAL)
-	AddVendor(2843,		L["Jutak"],				BZ["Stranglethorn Vale"],	27.5, 77.5, NEUTRAL)
-	AddVendor(2846,		L["Blixrez Goodstitch"],		BZ["Stranglethorn Vale"],	28.2, 77.5, NEUTRAL)
-	AddVendor(2848,		L["Glyx Brewright"],			BZ["Stranglethorn Vale"],	28.1, 78.0, NEUTRAL)
+	AddVendor(2838,		L["Crazk Sparks"],			BZ["The Cape of Stranglethorn"],	43.0, 72.8, NEUTRAL)   -- UPDATED
+	AddVendor(2843,		L["Jutak"],				BZ["The Cape of Stranglethorn"],	41.6, 74.1, NEUTRAL)   -- UPDATED
+	AddVendor(2846,		L["Blixrez Goodstitch"],		BZ["The Cape of Stranglethorn"],	42.8, 74.1, NEUTRAL)   -- UPDATED
+	AddVendor(2848,		L["Glyx Brewright"],			BZ["The Cape of Stranglethorn"],	42.6, 74.9, NEUTRAL)   -- UPDATED
 	AddVendor(3005,		L["Mahu"],				BZ["Thunder Bluff"],		43.8, 44.6, HORDE)
 	AddVendor(3012,		L["Nata Dawnstrider"],			BZ["Thunder Bluff"],		46.5, 38.8, HORDE)
 	AddVendor(3027,		L["Naal Mistrunner"],			BZ["Thunder Bluff"],		51.1, 52.2, HORDE)
@@ -113,13 +113,13 @@ function addon:InitVendor(DB)
 	AddVendor(3367,		L["Felika"],				BZ["Orgrimmar"],		60.5, 50.7, HORDE)
 	AddVendor(3400,		L["Xen'to"],				BZ["Orgrimmar"],		57.5, 53.2, HORDE)
 	AddVendor(3413,		L["Sovik"],				BZ["Orgrimmar"],		75.6, 25.2, HORDE)
-	AddVendor(3482,		L["Tari'qa"],				BZ["Northern Barrens"],		49.0, 58.2, HORDE)
-	AddVendor(3485,		L["Wrahk"],				BZ["Northern Barrens"],		50.0, 61.1, HORDE)
-	AddVendor(3489,		L["Zargh"],				BZ["Northern Barrens"],		50.6, 57.8, HORDE)
-	AddVendor(3490,		L["Hula'mahi"],				BZ["Northern Barrens"],		48.6, 58.4, HORDE)
-	AddVendor(3495,		L["Gagsprocket"],			BZ["Northern Barrens"],		68.4, 69.2, NEUTRAL)
-	AddVendor(3497,		L["Kilxx"],				BZ["Northern Barrens"],		68.6, 72.5, NEUTRAL)
-	AddVendor(3499,		L["Ranik"],				BZ["Northern Barrens"],		67.1, 73.5, NEUTRAL)
+	AddVendor(3482,		L["Tari'qa"],				BZ["Northern Barrens"],		49.0, 58.2, HORDE)   -- UPDATED
+	AddVendor(3485,		L["Wrahk"],				BZ["Northern Barrens"],		50.0, 61.1, HORDE)   -- UPDATED
+	AddVendor(3489,		L["Zargh"],				BZ["Northern Barrens"],		50.6, 57.8, HORDE)   -- UPDATED
+	AddVendor(3490,		L["Hula'mahi"],				BZ["Northern Barrens"],		48.6, 58.4, HORDE)   -- UPDATED
+	AddVendor(3495,		L["Gagsprocket"],			BZ["Northern Barrens"],		68.4, 69.2, NEUTRAL)   -- UPDATED
+	AddVendor(3497,		L["Kilxx"],				BZ["Northern Barrens"],		68.6, 72.5, NEUTRAL)   -- UPDATED
+	AddVendor(3499,		L["Ranik"],				BZ["Northern Barrens"],		67.1, 73.5, NEUTRAL)   -- UPDATED
 	AddVendor(3522,		L["Constance Brisboise"],		BZ["Tirisfal Glades"],		52.6, 55.7, HORDE)
 	AddVendor(3537,		L["Zixil"],				BZ["Hillsbrad Foothills"],	53.5, 38.3, NEUTRAL)
 	AddVendor(3550,		L["Martine Tramblay"],			BZ["Tirisfal Glades"],		65.8, 59.7, HORDE)
@@ -195,11 +195,11 @@ function addon:InitVendor(DB)
 	AddVendor(8176,		L["Gharash"],				BZ["Swamp of Sorrows"],		45.5, 51.6, HORDE)
 	AddVendor(8177,		L["Rartar"],				BZ["Swamp of Sorrows"],		45.4, 57.0, HORDE)
 	AddVendor(8178,		L["Nina Lightbrew"],			BZ["Blasted Lands"],		66.9, 18.3, ALLIANCE)
-	AddVendor(8307,		L["Tarban Hearthgrain"],		BZ["Northern Barrens"],		55.1, 61.7, HORDE)
+	AddVendor(8307,		L["Tarban Hearthgrain"],		BZ["Northern Barrens"],		55.1, 61.7, HORDE)  -- UPDATED
 	AddVendor(8363,		L["Shadi Mistrunner"],			BZ["Thunder Bluff"],		40.4, 63.6, HORDE)
 	AddVendor(8508,		L["Gretta Ganter"],			BZ["Dun Morogh"],		31.5, 44.7, ALLIANCE)
 	AddVendor(8678,		L["Jubie Gadgetspring"],		BZ["Azshara"],			45.3, 90.9, NEUTRAL)
-	AddVendor(8679,		L["Knaz Blunderflame"],			BZ["Stranglethorn Vale"],	51.0, 35.3, NEUTRAL)
+	AddVendor(8679,		L["Knaz Blunderflame"],			BZ["Northern Stranglethorn"],	67.7, 61.1, NEUTRAL)   -- UPDATED
 	AddVendor(8681,		L["Outfitter Eric"],			BZ["Ironforge"],		43.2, 29.2, ALLIANCE)
 	AddVendor(8878,		L["Muuran"],				BZ["Desolace"],			55.6, 56.5, HORDE)
 	AddVendor(9179,		L["Jazzrik"],				BZ["Badlands"],			42.5, 52.6, HORDE)
@@ -238,7 +238,7 @@ function addon:InitVendor(DB)
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],		   0,	 0, NEUTRAL)
 	AddVendor(14637,	L["Zorbin Fandazzle"],			BZ["Feralas"],			44.8, 43.4, NEUTRAL)
 	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],		79.3, 79.1, HORDE)
-	AddVendor(14921,	L["Rin'wosho the Trader"],		BZ["Stranglethorn Vale"],	15.1, 16.0, NEUTRAL)
+	AddVendor(14921,	L["Rin'wosho the Trader"],		BZ["Stranglethorn Vale"],	15.1, 16.0, NEUTRAL)  -- NEEDS TO BE UPDATED
 	AddVendor(15165,	L["Haughty Modiste"],			BZ["Tanaris"],			66.5, 22.3, NEUTRAL)
 	AddVendor(15176,	L["Vargus"],				BZ["Silithus"],			51.2, 38.8, NEUTRAL)
 	AddVendor(15179,	L["Mishta"],				BZ["Silithus"],			49.9, 36.5, NEUTRAL)
