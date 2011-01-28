@@ -94,7 +94,7 @@ local function fullOptions()
 							set	= function()
 										addon.db.profile.includefiltered = not addon.db.profile.includefiltered
 										if ARL.Frame and ARL.Frame:IsVisible() then
-											addon:Scan(false, true)
+											addon:Scan(false, false)
 										end
 									end,
 						},
@@ -107,7 +107,7 @@ local function fullOptions()
 							set	= function()
 										addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded
 										if ARL.Frame and ARL.Frame:IsVisible() then
-											addon:Scan(false, true)
+											addon:Scan(false, false)
 										end
 									end,
 						},
