@@ -810,8 +810,10 @@ function private.InitializeListFrame()
 			-- Update the progress bar display.
 			-------------------------------------------------------------------------------
 			local profile = addon.db.profile
-			local max_value = profile.includefiltered and Player.recipes_total or Player.recipes_total_filtered
-			local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
+			local max_value = profile.includefiltered and Player.recipes_total or (Player.recipes_total_filtered + (Player.recipes_known - Player.recipes_known_filtered))
+			--local cur_value = profile.includefiltered and Player.recipes_known or Player.recipes_known_filtered
+			-- Current value will always be what we know regardless of filters.
+			local cur_value = Player.recipes_known
 
 			if not profile.includeexcluded and not profile.ignoreexclusionlist then
 				max_value = max_value - Player.excluded_recipes_known
