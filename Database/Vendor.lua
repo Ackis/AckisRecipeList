@@ -238,7 +238,6 @@ function addon:InitVendor(DB)
 	AddVendor(14371,	L["Shen'dralar Provisioner"],		BZ["Dire Maul"],		   0,	 0, NEUTRAL)
 	AddVendor(14637,	L["Zorbin Fandazzle"],			BZ["Feralas"],			44.8, 43.4, NEUTRAL)
 	AddVendor(14738,	L["Otho Moji'ko"],			BZ["The Hinterlands"],		79.3, 79.1, HORDE)
-	AddVendor(14921,	L["Rin'wosho the Trader"],		BZ["Stranglethorn Vale"],	15.1, 16.0, NEUTRAL)  -- NEEDS TO BE UPDATED
 	AddVendor(15165,	L["Haughty Modiste"],			BZ["Tanaris"],			66.5, 22.3, NEUTRAL)
 	AddVendor(15176,	L["Vargus"],				BZ["Silithus"],			51.2, 38.8, NEUTRAL)
 	AddVendor(15179,	L["Mishta"],				BZ["Silithus"],			49.9, 36.5, NEUTRAL)

@@ -755,13 +755,13 @@ function addon:InitEngineering()
 
 	-- Bloodvine Goggles -- 24356
 	AddRecipe(24356, 300, 19999, Q.COMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:AddRecipeRepVendor(24356, FAC.ZANDALAR, REP.HONORED, 14921)
+	self:AddRecipeFlags(24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(24356, A.CUSTOM, 48)
 
 	-- Bloodvine Lens -- 24357
 	AddRecipe(24357, 300, 19998, Q.COMMON, V.ORIG, 300, 320, 330, 340)
-	self:AddRecipeFlags(24357, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LEATHER, F.ZANDALAR)
-	self:AddRecipeRepVendor(24357, FAC.ZANDALAR, REP.FRIENDLY, 14921)
+	self:AddRecipeFlags(24357, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
+	self:AddRecipeAcquire(24357, A.CUSTOM, 48)
 
 	-- Tranquil Mechanical Yeti -- 26011
 	AddRecipe(26011, 250, 21277, Q.COMMON, V.ORIG, 250, 320, 330, 340)

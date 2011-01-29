@@ -588,23 +588,23 @@ function addon:InitAlchemy()
 
 	-- Mageblood Elixir -- 24365
 	AddRecipe(24365, 275, 20007, Q.COMMON, V.ORIG, 275, 290, 310, 330)
-	self:AddRecipeFlags(24365, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ZANDALAR)
-	self:AddRecipeRepVendor(24365, FAC.ZANDALAR, REP.REVERED, 14921)
+	self:AddRecipeFlags(24365, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeAcquire(24365, A.CUSTOM, 48)
 
 	-- Greater Dreamless Sleep Potion -- 24366
 	AddRecipe(24366, 275, 20002, Q.COMMON, V.ORIG, 275, 290, 310, 330)
-	self:AddRecipeFlags(24366, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:AddRecipeRepVendor(24366, FAC.ZANDALAR, REP.FRIENDLY, 14921)
+	self:AddRecipeFlags(24366, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(24366, A.CUSTOM, 48)
 
 	-- Living Action Potion -- 24367
 	AddRecipe(24367, 285, 20008, Q.COMMON, V.ORIG, 285, 300, 320, 340)
-	self:AddRecipeFlags(24367, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:AddRecipeRepVendor(24367, FAC.ZANDALAR, REP.EXALTED, 14921)
+	self:AddRecipeFlags(24367, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(24367, A.CUSTOM, 48)
 
 	-- Mighty Troll's Blood Elixir -- 24368
 	AddRecipe(24368, 290, 20004, Q.COMMON, V.ORIG, 290, 305, 325, 345)
-	self:AddRecipeFlags(24368, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ZANDALAR)
-	self:AddRecipeRepVendor(24368, FAC.ZANDALAR, REP.HONORED, 14921)
+	self:AddRecipeFlags(24368, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(24368, A.CUSTOM, 48)
 
 	-- Transmute: Elemental Fire -- 25146
 	AddRecipe(25146, 300, 7068, Q.COMMON, V.ORIG, 300, 301, 305, 310)

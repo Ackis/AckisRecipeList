@@ -1072,18 +1072,18 @@ function addon:InitTailoring()
 
 	-- Bloodvine Vest -- 24091
 	AddRecipe(24091, 300, 19682, Q.COMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(24091, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:AddRecipeRepVendor(24091, FAC.ZANDALAR, REP.REVERED, 14921)
+	self:AddRecipeFlags(24091, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(24091, A.CUSTOM, 48)
 
 	-- Bloodvine Leggings -- 24092
 	AddRecipe(24092, 300, 19683, Q.COMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(24092, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:AddRecipeRepVendor(24092, FAC.ZANDALAR, REP.HONORED, 14921)
+	self:AddRecipeFlags(24092, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(24092, A.CUSTOM, 48)
 
 	-- Bloodvine Boots -- 24093
 	AddRecipe(24093, 300, 19684, Q.COMMON, V.ORIG, 300, 315, 330, 345)
-	self:AddRecipeFlags(24093, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH, F.ZANDALAR)
-	self:AddRecipeRepVendor(24093, FAC.ZANDALAR, REP.FRIENDLY, 14921)
+	self:AddRecipeFlags(24093, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(24093, A.CUSTOM, 48)
 
 	-- Runed Stygian Leggings -- 24901
 	AddRecipe(24901, 300, 20538, Q.RARE, V.ORIG, 300, 315, 330, 345)
@@ -2173,7 +2173,7 @@ function addon:InitTailoring()
 	self:AddRecipeFlags(75154, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(75154, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
 
-	-- Sancitified Spellthread -- 75155
+	-- Sanctified Spellthread -- 75155
 	AddRecipe(75155, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 475)
 	self:AddRecipeFlags(75155, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(75155, 28699, 1346, 44783, 9584, 5153, 4576, 16640, 3363, 4159, 45559, 33613)
