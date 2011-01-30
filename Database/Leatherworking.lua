@@ -601,8 +601,8 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Shoulders -- 10564
 	AddRecipe(10564, 240, 8207, Q.UNCOMMON, V.ORIG, 240, 260, 270, 280)
-	self:AddRecipeFlags(10564, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeMobDrop(10564, 5623, 7805, 7883)
+	self:AddRecipeFlags(10564, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeAcquire(10564, A.CUSTOM, 48)
 
 	-- Wild Leather Boots -- 10566
 	AddRecipe(10566, 245, 8213, Q.UNCOMMON, V.ORIG, 245, 265, 275, 285)
@@ -616,8 +616,8 @@ function addon:InitLeatherworking()
 
 	-- Tough Scorpid Helm -- 10570
 	AddRecipe(10570, 250, 8208, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)
-	self:AddRecipeFlags(10570, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeMobDrop(10570, 5623, 7805, 7883)
+	self:AddRecipeFlags(10570, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeAcquire(10570, A.CUSTOM, 48)
 
 	-- Wild Leather Leggings -- 10572
 	AddRecipe(10572, 250, 8212, Q.UNCOMMON, V.ORIG, 250, 270, 280, 290)

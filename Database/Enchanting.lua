@@ -423,8 +423,8 @@ function addon:InitEnchanting()
 
 	-- Enchant Cloak - Lesser Agility -- 13882
 	AddRecipe(13882, 225, nil, Q.UNCOMMON, V.ORIG, 225, 245, 265, 285)
-	self:AddRecipeFlags(13882, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	self:AddRecipeMobDrop(13882, 5623, 7805, 2246)
+	self:AddRecipeFlags(13882, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeAcquire(13882, A.CUSTOM, 48)
 
 	-- Enchant Gloves - Strength -- 13887
 	AddRecipe(13887, 225, nil, Q.COMMON, V.ORIG, 225, 245, 265, 285)

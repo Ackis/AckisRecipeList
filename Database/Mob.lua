@@ -29,10 +29,6 @@ function addon:InitMob(DB)
 		addon:addLookupList(DB, mob_id, mob_name, zone, coord_x, coord_y, faction)
 	end
 
-	-- Alterac Mountains
-	AddMob(2242,	L["Syndicate Spy"],			BZ["Alterac Mountains"], 63.0, 40.6)
-	AddMob(2246,	L["Syndicate Assassin"],		BZ["Alterac Mountains"], 40.6, 16.8)
-
 	-- Arathi Highlands
 	AddMob(2556,	L["Witherbark Headhunter"],		BZ["Arathi Highlands"], 70.5, 70.4)
 	AddMob(2557,	L["Witherbark Shadow Hunter"],		BZ["Arathi Highlands"], 70.3, 78.9)
@@ -113,7 +109,7 @@ function addon:InitMob(DB)
 	AddMob(27676,	L["Silverbrook Defender"],		BZ["Grizzly Hills"], 24.6, 33.3)
 
 	-- Hillsbrad Foothills
-	AddMob(2434,	L["Shadowy Assassin"],			BZ["Hillsbrad Foothills"], 52.7, 52.8)
+	AddMob(2242,	L["Syndicate Spy"],			BZ["Hillsbrad Foothills"], 56.0, 24.2)
 	AddMob(2264,	L["Hillsbrad Tailor"],			BZ["Hillsbrad Foothills"], 36.6, 44.4)
 	AddMob(2374,	L["Torn Fin Muckdweller"],		BZ["Hillsbrad Foothills"], 31.5, 72.1)
 	AddMob(2375,	L["Torn Fin Coastrunner"],		BZ["Hillsbrad Foothills"], 25.1, 70.5)
@@ -217,9 +213,6 @@ function addon:InitMob(DB)
 	AddMob(5616,	L["Wastewander Thief"],			BZ["Tanaris"], 63.0, 29.9)
 	AddMob(5617,	L["Wastewander Shadow Mage"],		BZ["Tanaris"], 60.0, 37.4)
 	AddMob(5618,	L["Wastewander Bandit"],		BZ["Tanaris"], 63.6, 30.6)
-	AddMob(5623,	L["Wastewander Assassin"],		BZ["Tanaris"], 58.6, 36.1)
-	AddMob(7805,	L["Wastewander Scofflaw"],		BZ["Tanaris"], 66.1, 35.0)
-	AddMob(7883,	L["Andre Firebeard"],			BZ["Tanaris"], 73.4, 47.1)
 
 	-- Terokkar Forest
 	AddMob(16810,	L["Bonechewer Backbreaker"],		BZ["Terokkar Forest"], 66.0, 55.2)

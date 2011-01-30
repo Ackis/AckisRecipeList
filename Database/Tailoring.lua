@@ -360,7 +360,7 @@ function addon:InitTailoring()
 	-- Black Silk Pack -- 6695
 	AddRecipe(6695, 185, 5765, Q.UNCOMMON, V.ORIG, 185, 205, 220, 235)
 	self:AddRecipeFlags(6695, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeMobDrop(6695, 4834, 2434, 2242)
+	self:AddRecipeMobDrop(6695, 4834, 2242)
 
 	-- Brown Linen Robe -- 7623
 	AddRecipe(7623, 30, 6238, Q.COMMON, V.ORIG, 30, 55, 72, 90)
