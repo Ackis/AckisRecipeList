@@ -1086,7 +1086,6 @@ L["Melaris"] = true
 L["Mera Mistrunner"] = true
 L["Miall"] = true
 L["Miao'zan"] = true
-L["Micha Yance"] = true
 L["Michael Schwan"] = true
 L["Michelle Belle"] = true
 L["Mildred Fletcher"] = true

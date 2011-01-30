@@ -137,8 +137,8 @@ function addon:InitJewelcrafting()
 
 	-- Heavy Iron Knuckles -- 25612
 	AddRecipe(25612, 125, 20954, Q.COMMON, V.TBC, 125, 155, 170, 185)
-	self:AddRecipeFlags(25612, F.VENDOR, F.RBOE, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.FIST, F.ONE_HAND)
-	self:AddRecipeLimitedVendor(25612, 2381, 1, 2393, 1)
+	self:AddRecipeFlags(25612, F.VENDOR, F.RBOE, F.IBOE, F.DPS, F.HORDE, F.FIST, F.ONE_HAND)
+	self:AddRecipeLimitedVendor(25612, 2393, 1)
 
 	-- Golden Dragon Ring -- 25613
 	AddRecipe(25613, 135, 20955, Q.COMMON, V.TBC, 135, 165, 180, 195)
@@ -152,8 +152,8 @@ function addon:InitJewelcrafting()
 
 	-- Blazing Citrine Ring -- 25617
 	AddRecipe(25617, 150, 20958, Q.COMMON, V.TBC, 150, 180, 195, 210)
-	self:AddRecipeFlags(25617, F.VENDOR, F.RBOE, F.CASTER, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.RING)
-	self:AddRecipeLimitedVendor(25617, 2381, 1, 9636, 1)
+	self:AddRecipeFlags(25617, F.VENDOR, F.RBOE, F.CASTER, F.IBOE, F.HEALER, F.HORDE, F.RING)
+	self:AddRecipeLimitedVendor(25617, 9636, 1)
 
 	-- Jade Pendant of Blasting -- 25618
 	AddRecipe(25618, 160, 20966, Q.UNCOMMON, V.TBC, 160, 190, 205, 220)
