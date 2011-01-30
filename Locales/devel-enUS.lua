@@ -1210,7 +1210,6 @@ L["Ribbly's Crony"] = true
 L["Rift Keeper"] = true
 L["Rift Lord"] = true
 L["Rikqiz"] = true
-L["Rizz Loosebolt"] = true
 L["Rogvar"] = true
 L["Rohok"] = true
 L["Rollick MacKreel"] = true

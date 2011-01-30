@@ -65,7 +65,7 @@ function addon:InitVendor(DB)
 	AddVendor(2393,		L["Christoph Jeffcoat"],		BZ["Hillsbrad Foothills"],	62.4, 19.1, HORDE)
 	AddVendor(2394,		L["Mallen Swain"],			BZ["Hillsbrad Foothills"],	62.0, 20.9, HORDE)
 	AddVendor(2397,		L["Derak Nightfall"],			BZ["Hillsbrad Foothills"],	63.0, 18.5, HORDE)
-	AddVendor(2480,		L["Bro'kin"],				BZ["Alterac Mountains"],	38.3, 38.8, NEUTRAL)
+	AddVendor(2480,		L["Bro'kin"],				BZ["Hillsbrad Foothills"],	44.0, 21.8, NEUTRAL)
 	AddVendor(2482,		L["Zarena Cromwind"],			BZ["The Cape of Stranglethorn"],	43.0, 70.7, NEUTRAL)  -- UPDATED
 	AddVendor(2483,		L["Jaquilina Dramet"],			BZ["Northern Stranglethorn"],	43.7, 23.1, NEUTRAL) -- UPDATED
 	AddVendor(2663,		L["Narkk"],				BZ["The Cape of Stranglethorn"],	42.7, 69.2, NEUTRAL)   -- UPDATED
@@ -77,7 +77,6 @@ function addon:InitVendor(DB)
 	AddVendor(2679,		L["Wenna Silkbeard"],			BZ["Wetlands"],			25.7, 25.8, ALLIANCE)
 	AddVendor(2682,		L["Fradd Swiftgear"],			BZ["Wetlands"],			26.4, 25.8, ALLIANCE)
 	AddVendor(2683,		L["Namdo Bizzfizzle"],			BZ["Gnomeregan"],		   0,	 0, ALLIANCE)
-	AddVendor(2684,		L["Rizz Loosebolt"],			BZ["Alterac Mountains"],	47.4, 35.3, NEUTRAL)
 	AddVendor(2685,		L["Mazk Snipeshot"],			BZ["The Cape of Stranglethorn"],	43.2, 70.2, NEUTRAL)  -- UPDATED
 	AddVendor(2687,		L["Gnaz Blunderflame"],			BZ["Northern Stranglethorn"],	67.5, 61.5, NEUTRAL)  -- UPDATED
 	AddVendor(2688,		L["Ruppo Zipcoil"],			BZ["The Hinterlands"],		34.3, 37.9, NEUTRAL)
@@ -176,8 +175,8 @@ function addon:InitVendor(DB)
 	AddVendor(6576,		L["Brienna Starglow"],			BZ["Feralas"],			89.0, 45.9, ALLIANCE)
 	AddVendor(6730,		L["Jinky Twizzlefixxit"],		BZ["Thousand Needles"],		77.7, 77.8, NEUTRAL)
 	AddVendor(6731,		L["Harlown Darkweave"],			BZ["Ashenvale"],		18.2, 60.0, ALLIANCE)
-	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Alterac Mountains"],	86.0, 80.1, NEUTRAL)
-	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Alterac Mountains"],	86.1, 79.7, NEUTRAL)
+	AddVendor(6777,		L["Zan Shivsproket"],			BZ["Hillsbrad Foothills"],	71.5, 45.5, NEUTRAL)
+	AddVendor(6779,		L["Smudge Thunderwood"],		BZ["Hillsbrad Foothills"],	71.5, 45.5, NEUTRAL)
 	AddVendor(7733,		L["Innkeeper Fizzgrimble"],		BZ["Tanaris"],			52.5, 27.9, NEUTRAL)
 	AddVendor(7852,		L["Pratt McGrubben"],			BZ["Feralas"],			30.6, 42.7, ALLIANCE)
 	AddVendor(7854,		L["Jangdor Swiftstrider"],		BZ["Feralas"],			74.5, 42.9, HORDE)
