@@ -202,8 +202,8 @@ function addon:InitEngineering()
 
 	-- Ice Deflector -- 3957
 	AddRecipe(3957, 155, 4386, Q.COMMON, V.ORIG, 155, 175, 185, 195)
-	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeLimitedVendor(3957, 2684, 1)
+	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
+	self:AddRecipeAcquire(3957, A.CUSTOM, 48)
 
 	-- Iron Strut -- 3958
 	AddRecipe(3958, 160, 4387, Q.COMMON, V.ORIG, 160, 160, 170, 180)
