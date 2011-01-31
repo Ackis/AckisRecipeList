@@ -1101,17 +1101,19 @@ function addon:AddRecipeFlags(spell_id, ...)
 	end
 end
 
---- Adds acquire methods to a specific tradeskill.
--- @name AckisRecipeList:AddRecipeAcquire
--- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
--- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
--- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
--- @return None, array is passed as a reference.
 do
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 
+	--- Adds acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeAcquire
+	-- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
+	-- @return None, array is passed as a reference.
+
 	function addon:AddRecipeAcquire(spell_id, ...)
+
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
 		local i = 1				-- Index for which variables we're parsing through
 		local recipe_list = private.recipe_list
