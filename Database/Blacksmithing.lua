@@ -507,18 +507,18 @@ function addon:InitBlacksmithing()
 
 	-- Ornate Mithril Pants -- 9945
 	AddRecipe(9945, 220, 7926, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
-	self:AddRecipeFlags(9945, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeQuest(9945, 2761)
+	self:AddRecipeFlags(9945, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeAcquire(9945, A.CUSTOM, 48)
 
 	-- Ornate Mithril Gloves -- 9950
 	AddRecipe(9950, 220, 7927, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
-	self:AddRecipeFlags(9950, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeQuest(9950, 2762)
+	self:AddRecipeFlags(9950, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	self:AddRecipeAcquire(9950, A.CUSTOM, 48)
 
 	-- Ornate Mithril Shoulder -- 9952
 	AddRecipe(9952, 225, 7928, Q.UNCOMMON, V.ORIG, 225, 245, 255, 265)
-	self:AddRecipeFlags(9952, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeQuest(9952, 2763)
+	self:AddRecipeFlags(9952, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeAcquire(9952, A.CUSTOM, 48)
 
 	-- Truesilver Gauntlets -- 9954
 	AddRecipe(9954, 225, 7938, Q.COMMON, V.ORIG, 225, 245, 255, 265)

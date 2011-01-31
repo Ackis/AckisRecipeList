@@ -289,12 +289,6 @@ local INSTANCE_LOCATIONS = {
 		["x"] = 57.26,
 		["y"] = 46.67,
 	},
-	[BZ["Zul'Gurub"]] = {
-		["zone"] = EASTERN_KINGDOMS_IDNUMS[BZ["Stranglethorn Vale"]],
-		["continent"] = 2,
-		["x"] = 0,
-		["y"] = 0,
-	},
 }
 
 local iconlist = {}

@@ -196,10 +196,12 @@ function addon:InitMob(DB)
 	AddMob(4029,	L["Blackened Ancient"],			BZ["Stonetalon Mountains"], 33.0, 70.7)
 	AddMob(4030,	L["Vengeful Ancient"],			BZ["Stonetalon Mountains"], 33.0, 72.4)
 
-	-- Stranglethorn Vale
-	AddMob(674,	L["Venture Co. Strip Miner"],		BZ["Stranglethorn Vale"], 40.5, 43.7)
-	AddMob(938,	L["Kurzen Commando"],			BZ["Stranglethorn Vale"], 47.2, 7.6)
-	AddMob(1561,	L["Bloodsail Raider"],			BZ["Stranglethorn Vale"], 27.0, 69.9)
+	-- Northern Stranglethorn
+	AddMob(674,	L["Venture Co. Strip Miner"],		BZ["Northern Stranglethorn"], 54.1, 70.6)
+	AddMob(938,	L["Kurzen Commando"],			BZ["Northern Stranglethorn"], 60.9, 16.3)
+	
+	-- The Cape of Stranglethorn
+	AddMob(1561,	L["Bloodsail Raider"],			BZ["The Cape of Stranglethorn"], 44.0, 63.8)
 
 	-- Swamp of Sorrows
 	AddMob(764,	L["Swampwalker"],			BZ["Swamp of Sorrows"], 51.0, 36.7)
