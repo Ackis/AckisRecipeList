@@ -263,7 +263,7 @@ function addon:InitTailoring()
 	-- Icy Cloak -- 3862
 	AddRecipe(3862, 200, 4327, Q.COMMON, V.ORIG, 200, 220, 235, 250)
 	self:AddRecipeFlags(3862, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOAK)
-	self:AddRecipeLimitedVendor(3862, 2381, 1, 6567, 1)
+	self:AddRecipeLimitedVendor(3862, 6567, 1)
 
 	-- Spider Belt -- 3863
 	AddRecipe(3863, 180, 4328, Q.UNCOMMON, V.ORIG, 180, 200, 215, 230)

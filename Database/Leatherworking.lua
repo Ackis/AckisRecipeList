@@ -301,7 +301,7 @@ function addon:InitLeatherworking()
 	AddRecipe(6704, 170, 5782, Q.UNCOMMON, V.ORIG, 170, 190, 200, 210)
 	self:AddRecipeFlags(6704, F.ALLIANCE, F.HORDE, F.VENDOR, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.LEATHER)
 	self:AddRecipeMobDrop(6704, 938, 1160)
-	self:AddRecipeLimitedVendor(6704, 2381, 1, 2393, 1, 2846, 1)
+	self:AddRecipeLimitedVendor(6704, 2393, 1, 2846, 1)
 
 	-- Murloc Scale Bracers -- 6705
 	AddRecipe(6705, 190, 5783, Q.UNCOMMON, V.ORIG, 190, 210, 220, 230)
