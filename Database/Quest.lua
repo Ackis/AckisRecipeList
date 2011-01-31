@@ -61,7 +61,6 @@ function addon:InitQuest(DB)
 
 	AddQuest(384,	BZ["Dun Morogh"],		46.8,	52.5,	ALLIANCE)
 	AddQuest(769,	BZ["Thunder Bluff"],		44.1,	44.6,	HORDE)
-	AddQuest(862,	BZ["The Barrens"],		55.3,	31.8,	HORDE)
 	AddQuest(1578,	BZ["Ironforge"],		48.5,	43.0,	ALLIANCE)
 	AddQuest(1582,	BZ["Darnassus"],		64.3,	21.9,	ALLIANCE)
 	AddQuest(1618,	BZ["Ironforge"],		48.5,	43.0,	ALLIANCE)

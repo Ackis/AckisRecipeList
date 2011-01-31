@@ -269,7 +269,7 @@ function addon:InitAlchemy()
 	-- Elixir of Giant Growth -- 8240
 	AddRecipe(8240, 90, 6662, Q.UNCOMMON, V.ORIG, 90, 120, 140, 160)
 	self:AddRecipeFlags(8240, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeWorldDrop(8240, "The Barrens")
+	self:AddRecipeWorldDrop(8240, "Northern Barrens", "Southern Barrens")
 
 	-- Greater Mana Potion -- 11448
 	AddRecipe(11448, 205, 6149, Q.COMMON, V.ORIG, 205, 220, 240, 260)

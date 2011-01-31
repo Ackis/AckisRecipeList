@@ -277,7 +277,7 @@ function addon:InitCooking()
 	-- Savory Deviate Delight -- 8238
 	AddRecipe(8238, 85, 6657, Q.UNCOMMON, V.ORIG, 85, 125, 145, 165)
 	self:AddRecipeFlags(8238, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(8238, "The Barrens")
+	self:AddRecipeWorldDrop(8238, "Northern Barrens", "Southern Barrens")
 
 	-- Herb Baked Egg -- 8604
 	AddRecipe(8604, 1, 6888, Q.COMMON, V.ORIG, 1, 45, 65, 85)
