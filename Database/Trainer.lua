@@ -371,9 +371,12 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 33681, L["Korim"], BZ["Shattrath City"], 37.6, 28.0, 0)
 	self:addLookupList(DB, 33682, L["Fono"], BZ["Shattrath City"], 36.0, 48.5, 0)
 	self:addLookupList(DB, 33684, L["Weaver Aoa"], BZ["Shattrath City"], 37.6, 27.2, 0)
+	self:addLookupList(DB, 37072, L["Rogg"], BZ["Orgrimmar"], 44.5, 78.0, 2)    -- UPDATED
 	self:addLookupList(DB, 44582, L["Theresa Denman"], BZ["Stormwind City"], 63.5, 61.6, 1)
+	self:addLookupList(DB, 44781, L["Opuno Ironhorn"], BZ["Orgrimmar"], 40.6, 49.4, 2)   -- UPDATED
 	self:addLookupList(DB, 44783, L["Hiwahi Three-Feathers"], BZ["Orgrimmar"], 38.8, 50.5, 2)
 	self:addLookupList(DB, 45540, L["Krenk Choplimb"], BZ["Orgrimmar"], 37.5, 87.3, 2)
+	self:addLookupList(DB, 45548, L["Kark Helmbreaker"], BZ["Orgrimmar"], 36.0, 83.0, 2)  -- UPDATED
 	self:addLookupList(DB, 45559, L["Nivi Weavewell"], BZ["Orgrimmar"], 41.1, 79.7, 2)
 	self:addLookupList(DB, 46675, L["Lugrah"], BZ["Orgrimmar"], 72.5, 34.5, 2)
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, 2)
