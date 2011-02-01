@@ -670,6 +670,12 @@ function addon:OnEnable()
 		scan_button:ClearAllPoints()
 		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
 		scan_button:SetWidth(90)
+	elseif BPM_ShowTrainerFrame then
+		scan_button:SetParent(BPM_ShowTrainerFrame)
+		scan_button:ClearAllPoints()
+		scan_button:SetPoint("RIGHT", BPM_ShowTrainerFrame, "LEFT", 4, 0)
+		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
+		scan_button:Show()
 	end
 
 	local buttonparent = scan_button:GetParent()
