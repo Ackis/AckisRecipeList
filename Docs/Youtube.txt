@@ -2,7 +2,9 @@ If you have content for this page, please drop me a line an I'll get it added.
 
 == External Reviews
 
-* [[http://www.wow.com/2009/05/31/addon-spotlight-ackis-recipe-list/ | WoW.com]]
+* [[http://www.wow.com/2009/05/31/addon-spotlight-ackis-recipe-list/ | WoW.com Addon Spotlight]]
+* [[http://wow.joystiq.com/2009/05/31/addon-spotlight-ackis-recipe-list/ | Joystiq.com Addon Spotlight]] - Same as above link but on their new host.
+* [[http://wow.joystiq.com/2011/02/01/the-queue-ackis-arrakis/ | Joystiq.com - The Queue - Ackis != Arrakis]]
 * [[http://www.wowfix.com/article-36634 | WoWFix.com]]
 * [[http://www.wowdaily.info/a.asp?a=2015098 | WoWDaily.info]]
 * [[http://www.maniasarcania.com/2008/01/22/ackis-recipe-list-not-just-for-recipes/ | Mania's Arania]]
