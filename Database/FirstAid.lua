@@ -134,7 +134,7 @@ function addon:InitFirstAid()
 	AddRecipe(45546, 400, 34722, Q.UNCOMMON, V.WOTLK, 400, 400, 430, 470)
 	self:AddRecipeFlags(45546, F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeWorldDrop(45546, "Northrend")
-	self:AddRecipeTrainer(74556, 28706, 45540)
+	self:AddRecipeTrainer(45546, 28706, 45540)
 
 	-- Embersilk Bandage -- 74556
 	AddRecipe(74556, 425, 34722, Q.COMMON, V.CATA, 425, 450, 467, 485)
