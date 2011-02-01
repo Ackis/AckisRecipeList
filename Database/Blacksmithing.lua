@@ -2867,7 +2867,7 @@ function addon:InitBlacksmithing()
 	self:AddRecipeVendor(94732, 50382, 50375)
 
 	-- Bloodied Pyrium Shoulders -- 76461
-	AddRecipe(76461, 520, nil, Q.COMMON, V.CATA, 525, 530, 532, 535)
+	AddRecipe(76461, 520, nil, Q.COMMON, V.CATA, 520, 530, 532, 535)
 	self:AddRecipeFlags(76461, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(76461, 50382, 50375)
 
