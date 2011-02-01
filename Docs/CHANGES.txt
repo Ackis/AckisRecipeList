@@ -9,12 +9,13 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * A bunch of jewelcrafting recipes have had the items they craft linked to them.
 
 ==== New Features:
-* A new slash command has been added: /arl scan <profession>  This will scan the profession from a slash command, without requiring you to open up the tradeskill window yourself.  Due to limitations, this will basically fire off the tradeskill for you so that window will open up.
+* A new slash command has been added: /arl scan <profession>  This will scan the profession from a slash command, without requiring you to open up the tradeskill window yourself.  Due to limitations, this will basically fire off the tradeskill for you so that window will open up. (Ticket 1145)
 
 ==== Bug Fixes:
 * We didn't account for the Has Skill up filter.  Now we do.
-* Filters should properly reset after we muck with them during a scan.
-* Don't show rank 1 recipes when you know rank 2 recipes.
+* Filters should properly reset after we muck with them during a scan. (Ticket 1161)
+* Don't show rank 1 recipes when you know rank 2 recipes. (Ticket 1147)
+* Scan button will no longer be hidden when you have Broker Profession_Menu installed. (Ticket 1170)
 
 == Version 2.1 Release
 
