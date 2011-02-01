@@ -1074,7 +1074,6 @@ L["Martine Tramblay"] = true
 L["Mary Edras"] = true
 L["Masat T'andr"] = true
 L["Master Chef Mouldier"] = true
-L["Master Craftsman Omarion"] = true
 L["Master Elemental Shaper Krixix"] = true
 L["Mathar G'ochar"] = true
 L["Matt Johnson"] = true
