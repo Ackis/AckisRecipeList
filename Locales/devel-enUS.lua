@@ -620,7 +620,6 @@ L["Blackrock Slayer"] = true
 L["Blackrock Soldier"] = true
 L["Blacksmith Calypso"] = true
 L["Blackwater Deckhand"] = true
-L["Blimo Gadgetspring"] = true
 L["Blixrez Goodstitch"] = true
 L["Blizrik Buckshot"] = true
 L["Bloodmaul Geomancer"] = true
