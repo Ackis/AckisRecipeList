@@ -691,8 +691,8 @@ function addon:InitLeatherworking()
 
 	-- Chimeric Gloves -- 19053
 	AddRecipe(19053, 265, 15074, Q.COMMON, V.ORIG, 265, 285, 295, 305)
-	self:AddRecipeFlags(19053, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.LEATHER)
-	self:AddRecipeVendor(19053, 12957)
+	self:AddRecipeFlags(19053, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.LEATHER)
+	self:AddRecipeAcquire(19053, A.CUSTOM, 48)
 
 	-- Red Dragonscale Breastplate -- 19054
 	AddRecipe(19054, 300, 15047, Q.RARE, V.ORIG, 300, 320, 330, 340)
@@ -797,8 +797,8 @@ function addon:InitLeatherworking()
 
 	-- Blue Dragonscale Breastplate -- 19077
 	AddRecipe(19077, 285, 15048, Q.COMMON, V.ORIG, 285, 305, 315, 325)
-	self:AddRecipeFlags(19077, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeVendor(19077, 12957)
+	self:AddRecipeFlags(19077, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeAcquire(19077, A.CUSTOM, 48)
 
 	-- Living Leggings -- 19078
 	AddRecipe(19078, 285, 15060, Q.RARE, V.ORIG, 285, 305, 315, 325)

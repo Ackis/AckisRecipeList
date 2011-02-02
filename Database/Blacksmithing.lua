@@ -562,8 +562,8 @@ function addon:InitBlacksmithing()
 
 	-- Ornate Mithril Breastplate -- 9972
 	AddRecipe(9972, 260, 7935, Q.UNCOMMON, V.ORIG, 260, 260, 270, 280)
-	self:AddRecipeFlags(9972, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeQuest(9972, 2773)
+	self:AddRecipeFlags(9972, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeAcquire(9972, A.CUSTOM, 48)
 
 	-- Truesilver Breastplate -- 9974
 	AddRecipe(9974, 245, 7939, Q.COMMON, V.ORIG, 245, 265, 275, 285)
@@ -572,13 +572,13 @@ function addon:InitBlacksmithing()
 
 	-- Ornate Mithril Boots -- 9979
 	AddRecipe(9979, 265, 7936, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
-	self:AddRecipeFlags(9979, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeQuest(9979, 2772)
+	self:AddRecipeFlags(9979, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
+	self:AddRecipeAcquire(9979, A.CUSTOM, 48)
 
 	-- Ornate Mithril Helm -- 9980
 	AddRecipe(9980, 265, 7937, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
-	self:AddRecipeFlags(9980, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeQuest(9980, 2771)
+	self:AddRecipeFlags(9980, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
+	self:AddRecipeAcquire(9980, A.CUSTOM, 48)
 
 	-- Copper Claymore -- 9983
 	AddRecipe(9983, 30, 7955, Q.COMMON, V.ORIG, 30, 70, 90, 110)
@@ -662,8 +662,8 @@ function addon:InitBlacksmithing()
 
 	-- Golden Scale Gauntlets -- 11643
 	AddRecipe(11643, 205, 9366, Q.UNCOMMON, V.ORIG, 205, 225, 235, 245)
-	self:AddRecipeFlags(11643, F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeQuest(11643, 2758)
+	self:AddRecipeFlags(11643, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeAcquire(11643, A.CUSTOM, 48)
 
 	-- Silvered Bronze Leggings -- 12259
 	AddRecipe(12259, 155, 10423, Q.UNCOMMON, V.ORIG, 155, 180, 192, 205)
@@ -807,8 +807,8 @@ function addon:InitBlacksmithing()
 
 	-- Fiery Plate Gauntlets -- 16655
 	AddRecipe(16655, 290, 12631, Q.RARE, V.ORIG, 290, 310, 320, 330)
-	self:AddRecipeFlags(16655, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeQuest(16655, 5124)
+	self:AddRecipeFlags(16655, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	self:AddRecipeAcquire(16655, A.CUSTOM, 48)
 
 	-- Radiant Boots -- 16656
 	AddRecipe(16656, 290, 12419, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
@@ -864,8 +864,8 @@ function addon:InitBlacksmithing()
 
 	-- Demon Forged Breastplate -- 16667
 	AddRecipe(16667, 285, 12628, Q.RARE, V.ORIG, 285, 305, 315, 325)
-	self:AddRecipeFlags(16667, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeQuest(16667, 5127)
+	self:AddRecipeFlags(16667, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	self:AddRecipeAcquire(16667, A.CUSTOM, 48)
 
 	-- Whitesoul Helm -- 16724
 	AddRecipe(16724, 300, 12633, Q.RARE, V.ORIG, 300, 320, 330, 340)
@@ -941,8 +941,8 @@ function addon:InitBlacksmithing()
 
 	-- Dawn's Edge -- 16970
 	AddRecipe(16970, 275, 12774, Q.RARE, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(16970, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
-	self:AddRecipeQuest(16970, 5306)
+	self:AddRecipeFlags(16970, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
+	self:AddRecipeAcquire(16970, A.CUSTOM, 48)
 
 	-- Huge Thorium Battleaxe -- 16971
 	AddRecipe(16971, 280, 12775, Q.COMMON, V.ORIG, 280, 305, 317, 330)
@@ -952,13 +952,13 @@ function addon:InitBlacksmithing()
 
 	-- Enchanted Battlehammer -- 16973
 	AddRecipe(16973, 280, 12776, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
-	self:AddRecipeFlags(16973, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
-	self:AddRecipeQuest(16973, 5305)
+	self:AddRecipeFlags(16973, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
+	self:AddRecipeAcquire(16973, A.CUSTOM, 48)
 
 	-- Blazing Rapier -- 16978
 	AddRecipe(16978, 280, 12777, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
-	self:AddRecipeFlags(16978, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
-	self:AddRecipeQuest(16978, 5307)
+	self:AddRecipeFlags(16978, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
+	self:AddRecipeAcquire(16978, A.CUSTOM, 48)
 
 	-- Serenity -- 16983
 	AddRecipe(16983, 285, 12781, Q.UNCOMMON, V.ORIG, 285, 310, 322, 335)
