@@ -420,8 +420,8 @@ function addon:InitEngineering()
 
 	-- Deepdive Helmet -- 12617
 	AddRecipe(12617, 230, 10506, Q.COMMON, V.ORIG, 230, 250, 260, 270)
-	self:AddRecipeFlags(12617, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeVendor(12617, 8678)
+	self:AddRecipeFlags(12617, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.CLOTH)
+	self:AddRecipeAcquire(12617, A.CUSTOM, 48)
 
 	-- Rose Colored Goggles -- 12618
 	AddRecipe(12618, 230, 10503, Q.COMMON, V.ORIG, 230, 250, 260, 270)
