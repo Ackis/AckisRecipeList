@@ -963,7 +963,6 @@ L["Joseph Moore"] = true
 L["Joseph Wilson"] = true
 L["Josephine Lister"] = true
 L["Josric Fame"] = true
-L["Jubie Gadgetspring"] = true
 L["Jun'ha"] = true
 L["Juno Dufrain"] = true
 L["Timofey Oshenko"] = true

@@ -196,7 +196,6 @@ function addon:InitVendor(DB)
 	AddVendor(8307,		L["Tarban Hearthgrain"],		BZ["Northern Barrens"],		55.1, 61.7, HORDE)  -- UPDATED
 	AddVendor(8363,		L["Shadi Mistrunner"],			BZ["Thunder Bluff"],		40.4, 63.6, HORDE)
 	AddVendor(8508,		L["Gretta Ganter"],			BZ["Dun Morogh"],		31.5, 44.7, ALLIANCE)
-	AddVendor(8678,		L["Jubie Gadgetspring"],		BZ["Azshara"],			45.3, 90.9, NEUTRAL)
 	AddVendor(8679,		L["Knaz Blunderflame"],			BZ["Northern Stranglethorn"],	67.7, 61.1, NEUTRAL)   -- UPDATED
 	AddVendor(8681,		L["Outfitter Eric"],			BZ["Ironforge"],		43.2, 29.2, ALLIANCE)
 	AddVendor(8878,		L["Muuran"],				BZ["Desolace"],			55.6, 56.5, HORDE)
