@@ -164,7 +164,7 @@ function addon:InitCooking()
 
 	-- Tasty Lion Steak -- 3399
 	AddRecipe(3399, 150, 3728, Q.COMMON, V.ORIG, 150, 190, 210, 230)
-	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, Q.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(3399, A.CUSTOM, 48)
 
 	-- Soothing Turtle Bisque -- 3400
@@ -359,7 +359,7 @@ function addon:InitCooking()
 
 	-- Spotted Yellowtail -- 18238
 	AddRecipe(18238, 225, 6887, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(18238, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(18238, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(18238, A.CUSTOM, 48)
 
 	-- Cooked Glossy Mightfish -- 18239
@@ -369,7 +369,7 @@ function addon:InitCooking()
 
 	-- Grilled Squid -- 18240
 	AddRecipe(18240, 240, 13928, Q.COMMON, V.ORIG, 240, 265, 277, 290)
-	self:AddRecipeFlags(18240, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeFlags(18240, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
 	self:AddRecipeAcquire(18240, A.CUSTOM, 48)
 
 	-- Filet of Redgill -- 18241
@@ -384,12 +384,12 @@ function addon:InitCooking()
 
 	-- Nightfin Soup -- 18243
 	AddRecipe(18243, 250, 13931, Q.COMMON, V.ORIG, 250, 275, 285, 295)
-	self:AddRecipeFlags(18243, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(18243, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeAcquire(18243, A.CUSTOM, 48)
 
 	-- Poached Sunscale Salmon -- 18244
 	AddRecipe(18244, 250, 13932, Q.COMMON, V.ORIG, 250, 275, 285, 295)
-	self:AddRecipeFlags(18244, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(18244, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(18244, A.CUSTOM, 48)
 
 	-- Lobster Stew -- 18245
@@ -409,7 +409,7 @@ function addon:InitCooking()
 
 	-- Undermine Clam Chowder -- 20626
 	AddRecipe(20626, 225, 16766, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(20626, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeFlags(20626, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
 	self:AddRecipeAcquire(20626, A.CUSTOM, 48)
 
 	-- Mithril Head Trout -- 20916
