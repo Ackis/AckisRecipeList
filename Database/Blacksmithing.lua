@@ -432,7 +432,7 @@ function addon:InitBlacksmithing()
 
 	-- Barbaric Iron Breastplate -- 9813
 	AddRecipe(9813, 160, 7914, Q.UNCOMMON, V.ORIG, 160, 185, 197, 210)
-	self:AddRecipeFlags(9813, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.DPS, F.MAIL)
+	self:AddRecipeFlags(9813, F.HORDE, F.QUEST, F.IBOP, F.RBOE, F.DPS, F.MAIL)
 	self:AddRecipeQuest(9813, 2751)
 
 	-- Barbaric Iron Helm -- 9814
@@ -527,8 +527,8 @@ function addon:InitBlacksmithing()
 
 	-- Orcish War Leggings -- 9957
 	AddRecipe(9957, 250, 7929, Q.COMMON, V.ORIG, 250, 250, 260, 270)
-	self:AddRecipeFlags(9957, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	self:AddRecipeQuest(9957, 2756)
+	self:AddRecipeFlags(9957, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
+	self:AddRecipeAcquire(9957, A.CUSTOM, 48)
 
 	-- Heavy Mithril Breastplate -- 9959
 	AddRecipe(9959, 230, 7930, Q.COMMON, V.ORIG, 230, 250, 260, 270)
