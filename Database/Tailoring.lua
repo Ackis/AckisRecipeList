@@ -863,8 +863,8 @@ function addon:InitTailoring()
 
 	-- Robe of Winter Night -- 18436
 	AddRecipe(18436, 285, 14136, Q.RARE, V.ORIG, 285, 300, 315, 330)
-	self:AddRecipeFlags(18436, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeMobDrop(18436, 7437)
+	self:AddRecipeFlags(18436, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddRecipeAcquire(18436, A.CUSTOM, 48)
 
 	-- Felcloth Boots -- 18437
 	AddRecipe(18437, 285, 14108, Q.COMMON, V.ORIG, 285, 300, 315, 330)

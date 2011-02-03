@@ -518,8 +518,8 @@ function addon:InitAlchemy()
 
 	-- Greater Arcane Protection Potion -- 17577
 	AddRecipe(17577, 290, 13461, Q.UNCOMMON, V.ORIG, 290, 305, 325, 345)
-	self:AddRecipeFlags(17577, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeMobDrop(17577, 7437)
+	self:AddRecipeFlags(17577, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE)
+	self:AddRecipeAcquire(17577, A.CUSTOM, 48)
 
 	-- Greater Shadow Protection Potion -- 17578
 	AddRecipe(17578, 290, 13459, Q.UNCOMMON, V.ORIG, 290, 305, 325, 345)
