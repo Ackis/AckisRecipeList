@@ -446,7 +446,7 @@ function addon:InitEngineering()
 	-- Mithril Mechanical Dragonling -- 12624
 	AddRecipe(12624, 250, 10576, Q.COMMON, V.ORIG, 250, 270, 280, 290)
 	self:AddRecipeFlags(12624, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TRINKET)
-	self:AddRecipeLimitedVendor(12624, 2688. 1, 35826, 1)
+	self:AddRecipeLimitedVendor(12624, 2688, 1, 35826, 1)
 
 	-- Goblin Rocket Fuel Recipe -- 12715
 	AddRecipe(12715, 205, 10644, Q.COMMON, V.ORIG, 205, 205, 205, 205, 20222)
