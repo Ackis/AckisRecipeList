@@ -122,7 +122,7 @@ function addon:InitCooking()
 
 	-- Crocolisk Steak -- 3370
 	AddRecipe(3370, 80, 3662, Q.COMMON, V.ORIG, 80, 120, 140, 160)
-	self:AddRecipeFlags(3370, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(3370, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3370, 340)
 
 	-- Blood Sausage -- 3371
@@ -400,7 +400,7 @@ function addon:InitCooking()
 	-- Mightfish Steak -- 18246
 	AddRecipe(18246, 275, 13934, Q.COMMON, V.ORIG, 275, 300, 312, 325)
 	self:AddRecipeFlags(18246, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18246, 7947, 8145)
+	self:AddRecipeVendor(18246, 7947, 8145, 2664)
 
 	-- Baked Salmon -- 18247
 	AddRecipe(18247, 275, 13935, Q.COMMON, V.ORIG, 275, 300, 312, 325)
