@@ -499,7 +499,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(12895, 7944, 7406, 29514)
 
 	-- Gnomish Goggles -- 12897
-	AddRecipe(12897, 210, 10545, Q.COMMON, V.ORIG, 210, 230, 240, 250, 20219)
+	AddRecipe(12897, 215, 10545, Q.COMMON, V.ORIG, 215, 230, 240, 250, 20219)
 	self:AddRecipeFlags(12897, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
 	self:AddRecipeTrainer(12897, 7944, 7406, 29514)
 
@@ -519,7 +519,7 @@ function addon:InitEngineering()
 	self:AddRecipeTrainer(12903, 7944, 7406, 29514)
 
 	-- Gnomish Rocket Boots -- 12905
-	AddRecipe(12905, 225, 10724, Q.COMMON, V.ORIG, 225, 245, 255, 265, 20219)
+	AddRecipe(12905, 210, 10724, Q.COMMON, V.ORIG, 210, 245, 255, 265, 20219)
 	self:AddRecipeFlags(12905, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeTrainer(12905, 7944, 7406, 29514)
 
