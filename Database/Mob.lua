@@ -199,7 +199,7 @@ function addon:InitMob(DB)
 	-- Northern Stranglethorn
 	AddMob(674,	L["Venture Co. Strip Miner"],		BZ["Northern Stranglethorn"], 54.1, 70.6)
 	AddMob(938,	L["Kurzen Commando"],			BZ["Northern Stranglethorn"], 60.9, 16.3)
-	
+
 	-- The Cape of Stranglethorn
 	AddMob(1561,	L["Bloodsail Raider"],			BZ["The Cape of Stranglethorn"], 44.0, 63.8)
 

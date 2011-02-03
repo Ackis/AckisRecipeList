@@ -131,5 +131,5 @@ function addon:InitQuest(DB)
 	AddQuest(26620,	BZ["Duskwood"],			73.8,	43.6,	ALLIANCE)
 	AddQuest(26623,	BZ["Duskwood"],			73.8,	43.6,	ALLIANCE)
 	AddQuest(26860,	BZ["Loch Modan"],			34.9,	49.1,	ALLIANCE)
-	
+
 end

@@ -80,7 +80,7 @@ function addon:InitCooking()
 	self:AddRecipeFlags(2543, F.ALLIANCE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(2543, 340)
 	self:AddRecipeWorldDrop(2543, "Westfall")
-	
+
 	-- Crab Cake -- 2544
 	AddRecipe(2544, 75, 2683, Q.COMMON, V.ORIG, 75, 115, 135, 155)
 	self:AddRecipeFlags(2544, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
@@ -130,7 +130,7 @@ function addon:InitCooking()
 	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3371, 340)
 	self:AddRecipeQuest(3371, 26860)
-	
+
 	-- Murloc Fin Soup -- 3372
 	AddRecipe(3372, 90, 3663, Q.COMMON, V.ORIG, 90, 130, 150, 170)
 	self:AddRecipeFlags(3372, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
@@ -151,7 +151,7 @@ function addon:InitCooking()
 	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(3377, 340)
 	self:AddRecipeQuest(3377, 26623)
-	
+
 	-- Big Bear Steak -- 3397
 	AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
 	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
