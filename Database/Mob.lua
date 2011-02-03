@@ -275,7 +275,6 @@ function addon:InitMob(DB)
 
 	-- Winterspring
 	AddMob(7428,	L["Frostmaul Giant"],			BZ["Winterspring"], 58.5, 70.0)
-	AddMob(7437,	L["Cobalt Mageweaver"],			BZ["Winterspring"], 59.5, 49.2)
 	AddMob(7438,	L["Winterfall Ursa"],			BZ["Winterspring"], 67.5, 36.3)
 	AddMob(7440,	L["Winterfall Den Watcher"],		BZ["Winterspring"], 68.0, 35.5)
 	AddMob(7524,	L["Anguished Highborne"],		BZ["Winterspring"], 50.7, 41.9)
