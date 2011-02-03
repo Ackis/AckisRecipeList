@@ -764,12 +764,12 @@ function addon:InitCooking()
 
 	-- Charred Bear Kabobs -- 46684
 	AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
-	self:AddRecipeFlags(46684, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeFlags(46684, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
 	self:AddRecipeVendor(46684, 2803)
 
 	-- Juicy Bear Burger -- 46688
 	AddRecipe(46688, 250, 35565, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
-	self:AddRecipeFlags(46688, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeFlags(46688, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(46688, 2803)
 
 	-- Kungaloosh -- 53056
