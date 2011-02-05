@@ -583,8 +583,8 @@ function addon:InitAlchemy()
 
 	-- Gurubashi Mojo Madness -- 24266
 	AddRecipe(24266, 300, 19931, Q.RARE, V.ORIG, 300, 315, 322, 330)
-	self:AddRecipeFlags(24266, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(24266, A.CUSTOM, 11)
+	self:AddRecipeFlags(24266, F.ALLIANCE, F.HORDE, F.RAID, F.RETIRED, F.IBOE, F.RBOP)
+	self:AddRecipeAcquire(24266, A.CUSTOM, 48)
 
 	-- Mageblood Elixir -- 24365
 	AddRecipe(24365, 275, 20007, Q.COMMON, V.ORIG, 275, 290, 310, 330)
