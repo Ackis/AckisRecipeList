@@ -488,7 +488,6 @@ L["DM_TRIBUTE"] = "DM Tribute Run - Chest" -- Update
 
 -- Quests
 L["ONYXIA_HEAD_QUEST"] = "Quest to obtain the recipe opens up after turning in the Head of Onyxia."
-L["EDGE_OF_MADNESS"] = "Obtained by clicking on a tablet in Zul'Gurub in the Edge of Madness."
 
 -- Raids
 L["AQ40_RANDOM_BOP"] = "Random BoP drop off of bosses in AQ40."
