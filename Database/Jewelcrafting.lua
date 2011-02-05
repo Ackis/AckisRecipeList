@@ -1115,12 +1115,12 @@ function addon:InitJewelcrafting()
 
 	-- Amulet of Flowing Life -- 46126
 	AddRecipe(46126, 365, 34360, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46126, F.CASTER, F.RBOP, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.NECK)
+	self:AddRecipeFlags(46126, F.CASTER, F.RBOE, F.IBOP, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.NECK)
 	self:AddRecipeAcquire(46126, A.CUSTOM, 24)
 
 	-- Hard Khorium Choker -- 46127
 	AddRecipe(46127, 365, 34358, Q.EPIC, V.TBC, 365, 375, 380, 385)
-	self:AddRecipeFlags(46127, F.RBOP, F.DPS, F.ALLIANCE, F.IBOP, F.HORDE, F.RAID, F.NECK)
+	self:AddRecipeFlags(46127, F.RBOE, F.DPS, F.ALLIANCE, F.IBOP, F.HORDE, F.RAID, F.NECK)
 	self:AddRecipeAcquire(46127, A.CUSTOM, 24)
 
 	-- Quick Dawnstone -- 46403
