@@ -9,7 +9,7 @@ Project revision: @project-revision@
 Project version: @project-version@
 ************************************************************************
 Format:
-	self:addLookupList(DB, Rep ID, Rep Name)
+	self:addLookupList(DB, Custom ID, Custom Name)
 ************************************************************************
 Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
@@ -42,23 +42,23 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 17, L["ENG_FLOOR_ITEM_BRD"], BZ["Blackrock Depths"], 0, 0)
 	self:addLookupList(DB, 18, L["DISCOVERY_ALCH_NORTHREND_RESEARCH"])
 	self:addLookupList(DB, 19, L["DISCOVERY_ALCH_NORTHREND_XMUTE"])
-
+	--self:addLookupList(DB, 20, )
+	--self:addLookupList(DB, 21, )
 	self:addLookupList(DB, 22, L["AQ40_RANDOM_BOP"], BZ["Temple of Ahn'Qiraj"], 0, 0)
 	self:addLookupList(DB, 23, L["DM_CACHE"], BZ["Dire Maul"], 59.04, 48.82)
 	self:addLookupList(DB, 24, L["SUNWELL_RANDOM"], BZ["Sunwell Plateau"], 0, 0)
 	self:addLookupList(DB, 25, L["BRD_RANDOM_ROOM"], BZ["Blackrock Depths"], 0, 0)
 	self:addLookupList(DB, 26, L["MC_RANDOM"], BZ["Molten Core"], 0, 0)
 	self:addLookupList(DB, 27, L["HYJAL_RANDOM"], BZ["Hyjal Summit"], 0, 0)
-
+	--self:addLookupList(DB, 28, )
 	self:addLookupList(DB, 29, L["ZA_RANDOM"], BZ["Zul'Aman"], 0, 0)
 	self:addLookupList(DB, 30, L["SCHOLO_BOOK_SPAWN"], BZ["Scholomance"], 0, 0)
 	self:addLookupList(DB, 31, L["STRATH_BS_PLANS"], BZ["Stratholme"], 0, 0)
 	self:addLookupList(DB, 32, L["DM_TRIBUTE"], BZ["Dire Maul"], 59.04, 48.82)
-
+	--self:addLookupList(DB, 33, )
 	self:addLookupList(DB, 34, L["BT_RANDOM"], BZ["Black Temple"], 0, 0)
 	self:addLookupList(DB, 35, L["Custom35"])
 	self:addLookupList(DB, 36, L["Custom36"])
-
 	self:addLookupList(DB, 37, L["SSC_RANDOM"], BZ["Serpentshrine Cavern"], 0, 0)
 	self:addLookupList(DB, 38, L["DAILY_COOKING_DAL"], BZ["Dalaran"], 0, 0)
 	self:addLookupList(DB, 39, L["ULDUAR_RANDOM"], BZ["Ulduar"], 0, 0)
@@ -79,7 +79,6 @@ function addon:InitCustom(DB)
 --[[
 L["Custom35"] = "Drops from dragons in Ogri'la and Blade's Edge Mountains Summon Bosses"
 L["Custom36"] = "From a NPC in Dalaran sewers after doing The Taste Test" -- Update
-L["Custom38"] = "Randomly obtained by completing the cooking daily quest in Dalaran."
 L["Custom41"] = "Removed from the game when Naxx 40 was taken out."
 ]]--
 end
