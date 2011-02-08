@@ -3000,22 +3000,25 @@ function addon:InitJewelcrafting()
 	self:AddRecipeFlags(73232, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeTrainer(73232, 26997, 26960, 19778, 26982, 19063, 33614, 18751, 19775, 46675, 33590, 26915, 18774, 44582, 28701)
 
-	--[[
 	-- Agile Shadowspirit Diamond -- 96255
-	AddRecipe(96255, 525, 68778, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96255, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeWorldDrop(96255
+	AddRecipe(96255, 490, 68778, Q.RARE, V.CATA, 490, 515, 520, 525)
+	self:AddRecipeFlags(96255, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeWorldDrop(96255, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	-- Reverberating Shadowspirit Diamond -- 96256
-	AddRecipe(96256, 525, 68779, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96256, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeWorldDrop(96256
+	AddRecipe(96256, 490, 68779, Q.RARE, V.CATA, 490, 515, 520, 525)
+	self:AddRecipeFlags(96256, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeWorldDrop(96256, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
-	-- Burning Shadowspirit Diamond -- 96256
-	AddRecipe(96256, 525, 68780, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(96256, F.WORLD_DROP, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeWorldDrop(96256
-	]]--
+	-- Burning Shadowspirit Diamond -- 96257
+	AddRecipe(96257, 490, 68780, Q.RARE, V.CATA, 490, 515, 520, 525)
+	self:AddRecipeFlags(96257, F.WORLD_DROP, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeWorldDrop(96257, "Kalimdor", "Eastern Kingdoms", "Deepholm")
+
+	-- Vivid Dream Emerald -- 96226
+	AddRecipe(96226, 465, 68741, Q.RARE, V.CATA, 465, 500, 507, 515)
+	self:AddRecipeFlags(96226, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeVendor(96226, 50480, 50482)
 
 	return num_recipes
 end

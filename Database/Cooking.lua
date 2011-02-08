@@ -1059,9 +1059,14 @@ function addon:InitCooking()
 	self:AddRecipeTrainer(93741, 3399)
 
 	-- Feathered Lure -- 87646
-	--AddRecipe(87646, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
-	--self:AddRecipeFlags(87646, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	--self:AddRecipeVendor(87646, 49701, 49737)
+	AddRecipe(87646, 450, nil, Q.UNCOMMON, V.CATA, 450, 450, 455, 470)
+	self:AddRecipeFlags(87646, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(87646, 49701, 49737)
+	
+	-- Scalding Murglesnout -- 96133
+	AddRecipe(96133, 500, 68687, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
+	self:AddRecipeFlags(96133, F.VENDOR, F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(96133, 49701, 49737)	
 
 	-- Some recipes are only availible to specific factions.
 	-- We only add the faction specific recipes if the user is part of that faction

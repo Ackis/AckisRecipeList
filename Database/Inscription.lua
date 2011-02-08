@@ -106,7 +106,6 @@ function addon:InitInscription()
 	-- Scroll of Intellect VI -- 50602
 	AddRecipe(50602, 310, 33458, Q.COMMON, V.WOTLK, 310, 310, 315, 320)
 	self:AddRecipeFlags(50602, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
-	self:AddRecipeAcquire(50602, A.CUSTOM, 46)
 	self:AddRecipeTrainer(50602, 26995, 30716, 28702, 33603, 30706, 30722, 30709, 26977, 26959, 30721, 30711, 33615, 30717, 33679, 30713, 26916, 30710, 30715)
 
 	-- Scroll of Intellect VII -- 50603
@@ -2147,7 +2146,7 @@ function addon:InitInscription()
 	-- Glyph of Colossus Smash -- 89815
 	AddRecipe(89815, 430, 63481, Q.COMMON, V.CATA, 430, 430, 435, 440)
 	self:AddRecipeFlags(89815, F.VENDOR, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE, F.WARRIOR)
-	self:AddRecipeAcquire(89815, A.CUSTOM, 48)
+	self:AddRecipeVendor(89815, 28723)
 
 	-- Vanishing Powder -- 92026
 	AddRecipe(92026, 75, 64670, Q.COMMON, V.CATA, 75, 90, 100, 110)
@@ -2381,7 +2380,7 @@ function addon:InitInscription()
 	-- Glyph of Dark Succor -- 96284
 	--AddRecipe(96284, 525, 68793, Q.COMMON, V.CATA, 525, 525, 530, 535)
 	--self:AddRecipeFlags(96284, F.TRAINER, F.RBOE, F.IBOE, F.ALLIANCE, F.HORDE)
-	--self:AddRecipeTrainer(96284
+	--self:AddRecipeTrainer(96284, 30713, 30717, 30715, 30706, 30711, 46716, 28702)
 
 	return num_recipes
 end

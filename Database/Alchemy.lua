@@ -1529,22 +1529,20 @@ function addon:InitAlchemy()
 	self: AddRecipeFlags(80726, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	self:AddRecipeTrainer(80726, 4160, 5499, 28703, 5177, 3347)
 
-	--[[
 	-- Volatile Alchemist Stone -- 96252
-	AddRecipe(96252, 525, 68775, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	AddRecipe(96252, 510, 68775, Q.EPIC, V.CATA, 510, 510, 512, 515)
 	self: AddRecipeFlags(96252, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	--self:AddRecipeTrainer(96252,
+	self:AddRecipeTrainer(96252, 4160, 4611, 5499, 28703, 5177, 3347)
 
 	-- Quicksilver Alchemist Stone -- 96253
-	AddRecipe(96253, 525, 68776, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	AddRecipe(96253, 510, 68776, Q.EPIC, V.CATA, 510, 510, 512, 515)
 	self: AddRecipeFlags(96253, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	--self:AddRecipeTrainer(96253,
+	self:AddRecipeTrainer(96253, 4160, 4611, 5499, 28703, 5177, 3347)
 
 	-- Vibrant Alchemist Stone -- 96254
-	AddRecipe(96254, 525, 68777, Q.EPIC, V.CATA, 525, 525, 530, 535)
+	AddRecipe(96254, 510, 68777, Q.EPIC, V.CATA, 510, 510, 512, 515)
 	self: AddRecipeFlags(96254, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	--self:AddRecipeTrainer(96254,
-	]]--
+	self:AddRecipeTrainer(96254, 4160, 4611, 5499, 28703, 5177, 3347)
 
 	return num_recipes
 end

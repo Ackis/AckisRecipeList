@@ -1800,22 +1800,20 @@ function addon:InitEnchanting()
 	self:AddRecipeFlags(74244, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
 	self:AddRecipeVendor(74244, 50134, 50146)
 
-	--[[
 	-- Enchant Bracer - Major Strength -- 96261
-	AddRecipe(96261, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	AddRecipe(96261, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
 	self:AddRecipeFlags(96261, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(96261, "Kalimdor", "Eastern Kingdoms")
+	self:AddRecipeWorldDrop(96261, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	-- Enchant Bracer - Mighty Intellect -- 96262
-	AddRecipe(96262, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	AddRecipe(96262, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
 	self:AddRecipeFlags(96262, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(96262, "Kalimdor", "Eastern Kingdoms")
+	self:AddRecipeWorldDrop(96262, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	-- Enchant Bracer - Agility -- 96264
-	AddRecipe(96264, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	AddRecipe(96264, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
 	self:AddRecipeFlags(96264, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(96264, "Kalimdor", "Eastern Kingdoms")
-	]]--
+	self:AddRecipeWorldDrop(96264, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	return num_recipes
 end
