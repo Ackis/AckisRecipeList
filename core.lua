@@ -1359,6 +1359,10 @@ do
 		GenericAddRecipeAcquire(spell_id, A.ACHIEVEMENT, "Achievement", nil, ...)
 	end
 
+	function addon:AddRecipeRetired(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.RETIRED, nil, nil, ...)
+	end
+
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.
 	function addon:AddRecipeRepVendor(spell_id, faction_id, rep_level, ...)
 		local num_vars = select('#', ...)
