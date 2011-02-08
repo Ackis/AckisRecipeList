@@ -53,7 +53,7 @@ function addon:InitBlacksmithing()
 	-- Rough Sharpening Stone -- 2660
 	AddRecipe(2660, 1, 2862, Q.COMMON, V.ORIG, 1, 15, 35, 55)
 	self:AddRecipeFlags(2660, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(2660, A.CUSTOM, 8)
+	self:AddRecipeCustom(2660, 8)
 
 	-- Copper Chain Belt -- 2661
 	AddRecipe(2661, 35, 2851, Q.COMMON, V.ORIG, 35, 75, 95, 115)
@@ -68,7 +68,7 @@ function addon:InitBlacksmithing()
 	-- Copper Bracers -- 2663
 	AddRecipe(2663, 1, 2853, Q.COMMON, V.ORIG, 1, 20, 40, 60)
 	self:AddRecipeFlags(2663, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(2663, A.CUSTOM, 8)
+	self:AddRecipeCustom(2663, 8)
 
 	-- Runed Copper Bracers -- 2664
 	AddRecipe(2664, 90, 2854, Q.COMMON, V.ORIG, 90, 115, 127, 140)
@@ -153,7 +153,7 @@ function addon:InitBlacksmithing()
 	-- Rough Weightstone -- 3115
 	AddRecipe(3115, 1, 3239, Q.COMMON, V.ORIG, 1, 15, 35, 55)
 	self:AddRecipeFlags(3115, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(3115, A.CUSTOM, 8)
+	self:AddRecipeCustom(3115, 8)
 
 	-- Coarse Weightstone -- 3116
 	AddRecipe(3116, 65, 3240, Q.COMMON, V.ORIG, 65, 65, 72, 80)
@@ -508,17 +508,17 @@ function addon:InitBlacksmithing()
 	-- Ornate Mithril Pants -- 9945
 	AddRecipe(9945, 220, 7926, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
 	self:AddRecipeFlags(9945, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(9945, A.CUSTOM, 48)
+	self:AddRecipeCustom(9945, 48)
 
 	-- Ornate Mithril Gloves -- 9950
 	AddRecipe(9950, 220, 7927, Q.UNCOMMON, V.ORIG, 220, 240, 250, 260)
 	self:AddRecipeFlags(9950, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeAcquire(9950, A.CUSTOM, 48)
+	self:AddRecipeCustom(9950, 48)
 
 	-- Ornate Mithril Shoulder -- 9952
 	AddRecipe(9952, 225, 7928, Q.UNCOMMON, V.ORIG, 225, 245, 255, 265)
 	self:AddRecipeFlags(9952, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(9952, A.CUSTOM, 48)
+	self:AddRecipeCustom(9952, 48)
 
 	-- Truesilver Gauntlets -- 9954
 	AddRecipe(9954, 225, 7938, Q.COMMON, V.ORIG, 225, 245, 255, 265)
@@ -528,7 +528,7 @@ function addon:InitBlacksmithing()
 	-- Orcish War Leggings -- 9957
 	AddRecipe(9957, 250, 7929, Q.COMMON, V.ORIG, 250, 250, 260, 270)
 	self:AddRecipeFlags(9957, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.MAIL)
-	self:AddRecipeAcquire(9957, A.CUSTOM, 48)
+	self:AddRecipeCustom(9957, 48)
 
 	-- Heavy Mithril Breastplate -- 9959
 	AddRecipe(9959, 230, 7930, Q.COMMON, V.ORIG, 230, 250, 260, 270)
@@ -563,7 +563,7 @@ function addon:InitBlacksmithing()
 	-- Ornate Mithril Breastplate -- 9972
 	AddRecipe(9972, 260, 7935, Q.UNCOMMON, V.ORIG, 260, 260, 270, 280)
 	self:AddRecipeFlags(9972, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(9972, A.CUSTOM, 48)
+	self:AddRecipeCustom(9972, 48)
 
 	-- Truesilver Breastplate -- 9974
 	AddRecipe(9974, 245, 7939, Q.COMMON, V.ORIG, 245, 265, 275, 285)
@@ -573,12 +573,12 @@ function addon:InitBlacksmithing()
 	-- Ornate Mithril Boots -- 9979
 	AddRecipe(9979, 265, 7936, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
 	self:AddRecipeFlags(9979, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(9979, A.CUSTOM, 48)
+	self:AddRecipeCustom(9979, 48)
 
 	-- Ornate Mithril Helm -- 9980
 	AddRecipe(9980, 265, 7937, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
 	self:AddRecipeFlags(9980, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(9980, A.CUSTOM, 48)
+	self:AddRecipeCustom(9980, 48)
 
 	-- Copper Claymore -- 9983
 	AddRecipe(9983, 30, 7955, Q.COMMON, V.ORIG, 30, 70, 90, 110)
@@ -658,12 +658,12 @@ function addon:InitBlacksmithing()
 	-- Inlaid Mithril Cylinder -- 11454
 	AddRecipe(11454, 200, 9060, Q.COMMON, V.ORIG, 200, 225, 237, 250)
 	self:AddRecipeFlags(11454, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(11454, A.CUSTOM, 9)
+	self:AddRecipeCustom(11454, 9)
 
 	-- Golden Scale Gauntlets -- 11643
 	AddRecipe(11643, 205, 9366, Q.UNCOMMON, V.ORIG, 205, 225, 235, 245)
 	self:AddRecipeFlags(11643, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeAcquire(11643, A.CUSTOM, 48)
+	self:AddRecipeCustom(11643, 48)
 
 	-- Silvered Bronze Leggings -- 12259
 	AddRecipe(12259, 155, 10423, Q.UNCOMMON, V.ORIG, 155, 180, 192, 205)
@@ -673,7 +673,7 @@ function addon:InitBlacksmithing()
 	-- Rough Copper Vest -- 12260
 	AddRecipe(12260, 1, 10421, Q.COMMON, V.ORIG, 1, 15, 35, 55)
 	self:AddRecipeFlags(12260, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(12260, A.CUSTOM, 8)
+	self:AddRecipeCustom(12260, 8)
 
 	-- Golden Rod -- 14379
 	AddRecipe(14379, 150, 11128, Q.COMMON, V.ORIG, 150, 155, 157, 160)
@@ -693,7 +693,7 @@ function addon:InitBlacksmithing()
 	-- Dark Iron Mail -- 15293
 	AddRecipe(15293, 270, 11606, Q.UNCOMMON, V.ORIG, 270, 290, 300, 310)
 	self:AddRecipeFlags(15293, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(15293, A.CUSTOM, 25)
+	self:AddRecipeCustom(15293, 25)
 
 	-- Dark Iron Sunderer -- 15294
 	AddRecipe(15294, 275, 11607, Q.RARE, V.ORIG, 275, 295, 305, 315)
@@ -703,7 +703,7 @@ function addon:InitBlacksmithing()
 	-- Dark Iron Shoulders -- 15295
 	AddRecipe(15295, 280, 11605, Q.UNCOMMON, V.ORIG, 280, 300, 310, 320)
 	self:AddRecipeFlags(15295, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeAcquire(15295, A.CUSTOM, 25)
+	self:AddRecipeCustom(15295, 25)
 
 	-- Dark Iron Plate -- 15296
 	AddRecipe(15296, 285, 11604, Q.RARE, V.ORIG, 285, 305, 315, 325)
@@ -808,7 +808,7 @@ function addon:InitBlacksmithing()
 	-- Fiery Plate Gauntlets -- 16655
 	AddRecipe(16655, 290, 12631, Q.RARE, V.ORIG, 290, 310, 320, 330)
 	self:AddRecipeFlags(16655, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeAcquire(16655, A.CUSTOM, 48)
+	self:AddRecipeCustom(16655, 48)
 
 	-- Radiant Boots -- 16656
 	AddRecipe(16656, 290, 12419, Q.UNCOMMON, V.ORIG, 290, 310, 320, 330)
@@ -865,7 +865,7 @@ function addon:InitBlacksmithing()
 	-- Demon Forged Breastplate -- 16667
 	AddRecipe(16667, 285, 12628, Q.RARE, V.ORIG, 285, 305, 315, 325)
 	self:AddRecipeFlags(16667, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeAcquire(16667, A.CUSTOM, 48)
+	self:AddRecipeCustom(16667, 48)
 
 	-- Whitesoul Helm -- 16724
 	AddRecipe(16724, 300, 12633, Q.RARE, V.ORIG, 300, 320, 330, 340)
@@ -942,7 +942,7 @@ function addon:InitBlacksmithing()
 	-- Dawn's Edge -- 16970
 	AddRecipe(16970, 275, 12774, Q.RARE, V.ORIG, 275, 300, 312, 325)
 	self:AddRecipeFlags(16970, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
-	self:AddRecipeAcquire(16970, A.CUSTOM, 48)
+	self:AddRecipeCustom(16970, 48)
 
 	-- Huge Thorium Battleaxe -- 16971
 	AddRecipe(16971, 280, 12775, Q.COMMON, V.ORIG, 280, 305, 317, 330)
@@ -953,17 +953,17 @@ function addon:InitBlacksmithing()
 	-- Enchanted Battlehammer -- 16973
 	AddRecipe(16973, 280, 12776, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
 	self:AddRecipeFlags(16973, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.TANK, F.TWO_HAND, F.MACE)
-	self:AddRecipeAcquire(16973, A.CUSTOM, 48)
+	self:AddRecipeCustom(16973, 48)
 
 	-- Blazing Rapier -- 16978
 	AddRecipe(16978, 280, 12777, Q.UNCOMMON, V.ORIG, 280, 305, 317, 330)
 	self:AddRecipeFlags(16978, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.ONE_HAND, F.SWORD)
-	self:AddRecipeAcquire(16978, A.CUSTOM, 48)
+	self:AddRecipeCustom(16978, 48)
 
 	-- Serenity -- 16983
 	AddRecipe(16983, 285, 12781, Q.UNCOMMON, V.ORIG, 285, 310, 322, 335)
 	self:AddRecipeFlags(16983, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.ONE_HAND, F.MACE)
-	self:AddRecipeAcquire(16983, A.CUSTOM, 31)
+	self:AddRecipeCustom(16983, 31)
 
 	-- Volcanic Hammer -- 16984
 	AddRecipe(16984, 290, 12792, Q.UNCOMMON, V.ORIG, 290, 315, 327, 340)
@@ -973,7 +973,7 @@ function addon:InitBlacksmithing()
 	-- Corruption -- 16985
 	AddRecipe(16985, 290, 12782, Q.COMMON, V.ORIG, 290, 315, 327, 340)
 	self:AddRecipeFlags(16985, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP, F.RBOE, F.DPS, F.HEALER, F.CASTER, F.TWO_HAND, F.SWORD)
-	self:AddRecipeAcquire(16985, A.CUSTOM, 31)
+	self:AddRecipeCustom(16985, 31)
 
 	-- Hammer of the Titans -- 16988
 	AddRecipe(16988, 300, 12796, Q.RARE, V.ORIG, 300, 320, 330, 340)
@@ -1073,12 +1073,12 @@ function addon:InitBlacksmithing()
 	-- Edge of Winter -- 21913
 	AddRecipe(21913, 190, 17704, Q.UNCOMMON, V.ORIG, 190, 215, 227, 240)
 	self:AddRecipeFlags(21913, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.ONE_HAND, F.AXE)
-	self:AddRecipeAcquire(21913, A.SEASONAL, 1)
+	self:AddRecipeSeason(21913, 1)
 
 	-- Elemental Sharpening Stone -- 22757
 	AddRecipe(22757, 300, 18262, Q.RARE, V.ORIG, 300, 300, 310, 320)
 	self:AddRecipeFlags(22757, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(22757, A.CUSTOM, 26)
+	self:AddRecipeCustom(22757, 26)
 
 	-- Heavy Timbermaw Belt -- 23628
 	AddRecipe(23628, 290, 19043, Q.COMMON, V.ORIG, 290, 310, 320, 330)
@@ -1138,32 +1138,32 @@ function addon:InitBlacksmithing()
 	-- Bloodsoul Breastplate -- 24136
 	AddRecipe(24136, 300, 19690, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24136, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeAcquire(24136, A.CUSTOM, 48)
+	self:AddRecipeCustom(24136, 48)
 
 	-- Bloodsoul Shoulders -- 24137
 	AddRecipe(24137, 300, 19691, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24137, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeAcquire(24137, A.CUSTOM, 48)
+	self:AddRecipeCustom(24137, 48)
 
 	-- Bloodsoul Gauntlets -- 24138
 	AddRecipe(24138, 300, 19692, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24138, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeAcquire(24138, A.CUSTOM, 48)
+	self:AddRecipeCustom(24138, 48)
 
 	-- Darksoul Breastplate -- 24139
 	AddRecipe(24139, 300, 19693, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24139, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(24139, A.CUSTOM, 48)
+	self:AddRecipeCustom(24139, 48)
 
 	-- Darksoul Leggings -- 24140
 	AddRecipe(24140, 300, 19694, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24140, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(24140, A.CUSTOM, 48)
+	self:AddRecipeCustom(24140, 48)
 
 	-- Darksoul Shoulders -- 24141
 	AddRecipe(24141, 300, 19695, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24141, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(24141, A.CUSTOM, 48)
+	self:AddRecipeCustom(24141, 48)
 
 	-- Dark Iron Boots -- 24399
 	AddRecipe(24399, 300, 20039, Q.COMMON, V.ORIG, 300, 320, 330, 340)
@@ -1233,17 +1233,17 @@ function addon:InitBlacksmithing()
 	-- Icebane Breastplate -- 28242
 	AddRecipe(28242, 300, 22669, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(28242, F.ALLIANCE, F.HORDE, F.RETIRED, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(28242, A.CUSTOM, 41)
+	self:AddRecipeCustom(28242, 41)
 
 	-- Icebane Gauntlets -- 28243
 	AddRecipe(28243, 300, 22670, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(28243, F.ALLIANCE, F.HORDE, F.RETIRED, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(28243, A.CUSTOM, 41)
+	self:AddRecipeCustom(28243, 41)
 
 	-- Icebane Bracers -- 28244
 	AddRecipe(28244, 300, 22671, Q.EPIC, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(28244, F.ALLIANCE, F.HORDE, F.RETIRED, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(28244, A.CUSTOM, 41)
+	self:AddRecipeCustom(28244, 41)
 
 	-- Ironvine Breastplate -- 28461
 	AddRecipe(28461, 300, 22762, Q.COMMON, V.ORIG, 300, 320, 330, 340)
@@ -1595,97 +1595,97 @@ function addon:InitBlacksmithing()
 	AddRecipe(34529, 350, 23563, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.HEALER, F.CASTER, F.MAIL)
 	self:AddRecipeTrainer(34529, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(34529, A.CUSTOM, 46)
+	self:AddRecipeCustom(34529, 46)
 
 	-- Twisting Nether Chain Shirt -- 34530
 	AddRecipe(34530, 375, 23564, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34530, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(34530, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(34530, A.CUSTOM, 46)
+	self:AddRecipeCustom(34530, 46)
 
 	-- Breastplate of Kings -- 34533
 	AddRecipe(34533, 350, 28483, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34533, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(34533, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(34533, A.CUSTOM, 46)
+	self:AddRecipeCustom(34533, 46)
 
 	-- Bulwark of Kings -- 34534
 	AddRecipe(34534, 375, 28484, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34534, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(34534, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(34534, A.CUSTOM, 46)
+	self:AddRecipeCustom(34534, 46)
 
 	-- Fireguard -- 34535
 	AddRecipe(34535, 350, 28425, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34535, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(34535, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34535, A.CUSTOM, 46)
+	self:AddRecipeCustom(34535, 46)
 
 	-- Blazeguard -- 34537
 	AddRecipe(34537, 375, 28426, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34537, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(34537, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34537, A.CUSTOM, 46)
+	self:AddRecipeCustom(34537, 46)
 
 	-- Lionheart Blade -- 34538
 	AddRecipe(34538, 350, 28428, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(34538, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34538, A.CUSTOM, 46)
+	self:AddRecipeCustom(34538, 46)
 
 	-- Lionheart Champion -- 34540
 	AddRecipe(34540, 375, 28429, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34540, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(34540, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34540, A.CUSTOM, 46)
+	self:AddRecipeCustom(34540, 46)
 
 	-- The Planar Edge -- 34541
 	AddRecipe(34541, 350, 28431, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34541, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(34541, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34541, A.CUSTOM, 46)
+	self:AddRecipeCustom(34541, 46)
 
 	-- Black Planar Edge -- 34542
 	AddRecipe(34542, 375, 28432, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34542, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(34542, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34542, A.CUSTOM, 46)
+	self:AddRecipeCustom(34542, 46)
 
 	-- Lunar Crescent -- 34543
 	AddRecipe(34543, 350, 28434, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34543, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(34543, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34543, A.CUSTOM, 46)
+	self:AddRecipeCustom(34543, 46)
 
 	-- Mooncleaver -- 34544
 	AddRecipe(34544, 375, 28435, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34544, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(34544, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34544, A.CUSTOM, 46)
+	self:AddRecipeCustom(34544, 46)
 
 	-- Drakefist Hammer -- 34545
 	AddRecipe(34545, 350, 28437, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34545, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(34545, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34545, A.CUSTOM, 46)
+	self:AddRecipeCustom(34545, 46)
 
 	-- Dragonmaw -- 34546
 	AddRecipe(34546, 375, 28438, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34546, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(34546, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34546, A.CUSTOM, 46)
+	self:AddRecipeCustom(34546, 46)
 
 	-- Thunder -- 34547
 	AddRecipe(34547, 350, 28440, Q.COMMON, V.TBC, 350, 360, 370, 380)
 	self:AddRecipeFlags(34547, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(34547, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34547, A.CUSTOM, 46)
+	self:AddRecipeCustom(34547, 46)
 
 	-- Deep Thunder -- 34548
 	AddRecipe(34548, 375, 28441, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(34548, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(34548, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(34548, A.CUSTOM, 46)
+	self:AddRecipeCustom(34548, 46)
 
 	-- Fel Weightstone -- 34607
 	AddRecipe(34607, 300, 28420, Q.COMMON, V.TBC, 300, 300, 305, 310)
@@ -1721,147 +1721,147 @@ function addon:InitBlacksmithing()
 	AddRecipe(36122, 260, 30069, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36122, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(36122, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36122, A.CUSTOM, 46)
+	self:AddRecipeCustom(36122, 46)
 
 	-- Windforged Leggings -- 36124
 	AddRecipe(36124, 260, 30070, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36124, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36124, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36124, A.CUSTOM, 46)
+	self:AddRecipeCustom(36124, 46)
 
 	-- Light Earthforged Blade -- 36125
 	AddRecipe(36125, 260, 30071, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36125, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36125, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36125, A.CUSTOM, 46)
+	self:AddRecipeCustom(36125, 46)
 
 	-- Light Skyforged Axe -- 36126
 	AddRecipe(36126, 260, 30072, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36126, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36126, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36126, A.CUSTOM, 46)
+	self:AddRecipeCustom(36126, 46)
 
 	-- Light Emberforged Hammer -- 36128
 	AddRecipe(36128, 260, 30073, Q.COMMON, V.TBC, 260, 280, 290, 300)
 	self:AddRecipeFlags(36128, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36128, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36128, A.CUSTOM, 46)
+	self:AddRecipeCustom(36128, 46)
 
 	-- Heavy Earthforged Breastplate -- 36129
 	AddRecipe(36129, 330, 30074, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36129, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.TANK, F.PLATE)
 	self:AddRecipeTrainer(36129, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36129, A.CUSTOM, 46)
+	self:AddRecipeCustom(36129, 46)
 
 	-- Stormforged Hauberk -- 36130
 	AddRecipe(36130, 330, 30076, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36130, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36130, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36130, A.CUSTOM, 46)
+	self:AddRecipeCustom(36130, 46)
 
 	-- Windforged Rapier -- 36131
 	AddRecipe(36131, 330, 30077, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36131, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36131, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36131, A.CUSTOM, 46)
+	self:AddRecipeCustom(36131, 46)
 
 	-- Stoneforged Claymore -- 36133
 	AddRecipe(36133, 330, 30086, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36133, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(36133, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36133, A.CUSTOM, 46)
+	self:AddRecipeCustom(36133, 46)
 
 	-- Stormforged Axe -- 36134
 	AddRecipe(36134, 330, 30087, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36134, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36134, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36134, A.CUSTOM, 46)
+	self:AddRecipeCustom(36134, 46)
 
 	-- Skyforged Great Axe -- 36135
 	AddRecipe(36135, 330, 30088, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36135, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(36135, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36135, A.CUSTOM, 46)
+	self:AddRecipeCustom(36135, 46)
 
 	-- Lavaforged Warhammer -- 36136
 	AddRecipe(36136, 330, 30089, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36136, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36136, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36136, A.CUSTOM, 46)
+	self:AddRecipeCustom(36136, 46)
 
 	-- Great Earthforged Hammer -- 36137
 	AddRecipe(36137, 330, 30093, Q.COMMON, V.TBC, 330, 340, 350, 360)
 	self:AddRecipeFlags(36137, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(36137, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36137, A.CUSTOM, 46)
+	self:AddRecipeCustom(36137, 46)
 
 	-- Embrace of the Twisting Nether -- 36256
 	AddRecipe(36256, 375, 23565, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36256, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.MAIL)
 	self:AddRecipeTrainer(36256, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36256, A.CUSTOM, 46)
+	self:AddRecipeCustom(36256, 46)
 
 	-- Bulwark of the Ancient Kings -- 36257
 	AddRecipe(36257, 375, 28485, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36257, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(36257, 11177, 29506, 20125, 7230, 5164)
-	self:AddRecipeAcquire(36257, A.CUSTOM, 46)
+	self:AddRecipeCustom(36257, 46)
 
 	-- Blazefury -- 36258
 	AddRecipe(36258, 375, 28427, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36258, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(36258, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36258, A.CUSTOM, 46)
+	self:AddRecipeCustom(36258, 46)
 
 	-- Lionheart Executioner -- 36259
 	AddRecipe(36259, 375, 28430, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36259, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.SWORD)
 	self:AddRecipeTrainer(36259, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36259, A.CUSTOM, 46)
+	self:AddRecipeCustom(36259, 46)
 
 	-- Wicked Edge of the Planes -- 36260
 	AddRecipe(36260, 375, 28433, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36260, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
 	self:AddRecipeTrainer(36260, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36260, A.CUSTOM, 46)
+	self:AddRecipeCustom(36260, 46)
 
 	-- Bloodmoon -- 36261
 	AddRecipe(36261, 375, 28436, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36261, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.AXE)
 	self:AddRecipeTrainer(36261, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36261, A.CUSTOM, 46)
+	self:AddRecipeCustom(36261, 46)
 
 	-- Dragonstrike -- 36262
 	AddRecipe(36262, 375, 28439, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36262, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.ONE_HAND, F.MACE)
 	self:AddRecipeTrainer(36262, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36262, A.CUSTOM, 46)
+	self:AddRecipeCustom(36262, 46)
 
 	-- Stormherald -- 36263
 	AddRecipe(36263, 375, 28442, Q.COMMON, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36263, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.TWO_HAND, F.MACE)
 	self:AddRecipeTrainer(36263, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeAcquire(36263, A.CUSTOM, 46)
+	self:AddRecipeCustom(36263, 46)
 
 	-- Belt of the Guardian -- 36389
 	AddRecipe(36389, 375, 30034, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36389, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(36389, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36389, 37, 43)
 
 	-- Red Belt of Battle -- 36390
 	AddRecipe(36390, 375, 30032, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36390, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(36390, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36390, 37, 43)
 
 	-- Boots of the Protector -- 36391
 	AddRecipe(36391, 375, 30033, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36391, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(36391, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36391, 37, 43)
 
 	-- Red Havoc Boots -- 36392
 	AddRecipe(36392, 375, 30031, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(36392, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(36392, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36392, 37, 43)
 
 	-- Wildguard Breastplate -- 38473
 	AddRecipe(38473, 375, 31364, Q.EPIC, V.TBC, 375, 385, 395, 405)
@@ -1916,22 +1916,22 @@ function addon:InitBlacksmithing()
 	-- Swiftsteel Bracers -- 41132
 	AddRecipe(41132, 375, 32568, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(41132, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(41132, A.CUSTOM, 27, A.CUSTOM, 34)
+	self:AddRecipeCustom(41132, 27, 34)
 
 	-- Swiftsteel Shoulders -- 41133
 	AddRecipe(41133, 375, 32570, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(41133, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(41133, A.CUSTOM, 34)
+	self:AddRecipeCustom(41133, 34)
 
 	-- Dawnsteel Bracers -- 41134
 	AddRecipe(41134, 375, 32571, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(41134, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(41134, A.CUSTOM, 34)
+	self:AddRecipeCustom(41134, 34)
 
 	-- Dawnsteel Shoulders -- 41135
 	AddRecipe(41135, 375, 32573, Q.EPIC, V.TBC, 375, 385, 395, 405)
 	self:AddRecipeFlags(41135, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(41135, A.CUSTOM, 27, A.CUSTOM, 34)
+	self:AddRecipeCustom(41135, 27, 34)
 
 	-- Ragesteel Shoulders -- 42662
 	AddRecipe(42662, 365, 33173, Q.RARE, V.TBC, 365, 375, 385, 395)
@@ -1956,22 +1956,22 @@ function addon:InitBlacksmithing()
 	-- Sunblessed Gauntlets -- 46140
 	AddRecipe(46140, 365, 34380, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46140, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(46140, A.CUSTOM, 24)
+	self:AddRecipeCustom(46140, 24)
 
 	-- Hard Khorium Battlefists -- 46141
 	AddRecipe(46141, 365, 34378, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46141, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(46141, A.CUSTOM, 24)
+	self:AddRecipeCustom(46141, 24)
 
 	-- Sunblessed Breastplate -- 46142
 	AddRecipe(46142, 365, 34379, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46142, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(46142, A.CUSTOM, 24)
+	self:AddRecipeCustom(46142, 24)
 
 	-- Hard Khorium Battleplate -- 46144
 	AddRecipe(46144, 365, 34377, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46144, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(46144, A.CUSTOM, 24)
+	self:AddRecipeCustom(46144, 24)
 
 	-- Cobalt Legplates -- 52567
 	AddRecipe(52567, 370, 39086, Q.COMMON, V.WOTLK, 370, 375, 380, 385)
@@ -2177,13 +2177,13 @@ function addon:InitBlacksmithing()
 	AddRecipe(55183, 415, 41186, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55183, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(55183, 11146, 29505, 11178, 20124)
-	self:AddRecipeAcquire(55183, A.CUSTOM, 46)
+	self:AddRecipeCustom(55183, 46)
 
 	-- Corroded Saronite Woundbringer -- 55184
 	AddRecipe(55184, 415, 41187, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55184, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
 	self:AddRecipeTrainer(55184, 11146, 29505, 11178, 20124)
-	self:AddRecipeAcquire(55184, A.CUSTOM, 46)
+	self:AddRecipeCustom(55184, 46)
 
 	-- Saronite Mindcrusher -- 55185
 	AddRecipe(55185, 415, 41188, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
@@ -2194,13 +2194,13 @@ function addon:InitBlacksmithing()
 	AddRecipe(55186, 415, 41189, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55186, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(55186, 29506, 5164, 11177, 20125)
-	self:AddRecipeAcquire(55186, A.CUSTOM, 46)
+	self:AddRecipeCustom(55186, 46)
 
 	-- Legplates of Conquest -- 55187
 	AddRecipe(55187, 415, 41190, Q.COMMON, V.WOTLK, 415, 420, 425, 430)
 	self:AddRecipeFlags(55187, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.PLATE)
 	self:AddRecipeTrainer(55187, 29506, 5164, 11177, 20125)
-	self:AddRecipeAcquire(55187, A.CUSTOM, 46)
+	self:AddRecipeCustom(55187, 46)
 
 	-- Sturdy Cobalt Quickblade -- 55200
 	AddRecipe(55200, 380, 41239, Q.COMMON, V.WOTLK, 380, 385, 390, 395)
@@ -2506,32 +2506,32 @@ function addon:InitBlacksmithing()
 	-- Belt of the Titans -- 63187
 	AddRecipe(63187, 450, 45088, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63187, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(63187, A.CUSTOM, 39)
+	self:AddRecipeCustom(63187, 39)
 
 	-- Battlelord's Plate Boots -- 63188
 	AddRecipe(63188, 450, 45089, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63188, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(63188, A.CUSTOM, 39)
+	self:AddRecipeCustom(63188, 39)
 
 	-- Plate Girdle of Righteousness -- 63189
 	AddRecipe(63189, 450, 45090, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63189, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(63189, A.CUSTOM, 39)
+	self:AddRecipeCustom(63189, 39)
 
 	-- Treads of Destiny -- 63190
 	AddRecipe(63190, 450, 45091, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63190, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-	self:AddRecipeAcquire(63190, A.CUSTOM, 39)
+	self:AddRecipeCustom(63190, 39)
 
 	-- Indestructible Plate Girdle -- 63191
 	AddRecipe(63191, 450, 45092, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63191, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(63191, A.CUSTOM, 39)
+	self:AddRecipeCustom(63191, 39)
 
 	-- Spiked Deathdealers -- 63192
 	AddRecipe(63192, 450, 45093, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	self:AddRecipeFlags(63192, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(63192, A.CUSTOM, 39)
+	self:AddRecipeCustom(63192, 39)
 
 	-- Puresteel Legplates -- 70562
 	AddRecipe(70562, 450, 49902, Q.EPIC, V.WOTLK, 450, 475, 487, 500)
@@ -2923,64 +2923,64 @@ function addon:InitBlacksmithing()
 		-- Breastplate of the White Knight (Ally) -- 67091
 		AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67091, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-		self:AddRecipeAcquire(67091, A.CUSTOM, 42)
+		self:AddRecipeCustom(67091, 42)
 
 		-- Saronite Swordbreakers (Ally) -- 67092
 		AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67092, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-		self:AddRecipeAcquire(67092, A.CUSTOM, 42)
+		self:AddRecipeCustom(67092, 42)
 
 		-- Titanium Razorplate (Ally) -- 67093
 		AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67093, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-		self:AddRecipeAcquire(67093, A.CUSTOM, 42)
+		self:AddRecipeCustom(67093, 42)
 
 		-- Titanium Spikeguards (Ally) -- 67094
 		AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67094, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-		self:AddRecipeAcquire(67094, A.CUSTOM, 42)
+		self:AddRecipeCustom(67094, 42)
 
 		-- Sunforged Breastplate (Ally) -- 67095
 		AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67095, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
-		self:AddRecipeAcquire(67095, A.CUSTOM, 42)
+		self:AddRecipeCustom(67095, 42)
 
 		-- Sunforged Bracers (Ally) -- 67096
 		AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67096, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
-		self:AddRecipeAcquire(67096, A.CUSTOM, 42)
+		self:AddRecipeCustom(67096, 42)
 
 	elseif faction == BFAC["Horde"] then
 
 		-- Breastplate of the White Knight -- 67130
 		AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67130, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-		self:AddRecipeAcquire(67130, A.CUSTOM, 42)
+		self:AddRecipeCustom(67130, 42)
 
 		-- Saronite Swordbreakers -- 67131
 		AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67131, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
-		self:AddRecipeAcquire(67131, A.CUSTOM, 42)
+		self:AddRecipeCustom(67131, 42)
 
 		-- Titanium Razorplate -- 67132
 		AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67132, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-		self:AddRecipeAcquire(67132, A.CUSTOM, 42)
+		self:AddRecipeCustom(67132, 42)
 
 		-- Titanium Spikeguards -- 67133
 		AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67133, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
-		self:AddRecipeAcquire(67133, A.CUSTOM, 42)
+		self:AddRecipeCustom(67133, 42)
 
 		-- Sunforged Breastplate -- 67134
 		AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67134, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-		self:AddRecipeAcquire(67134, A.CUSTOM, 42)
+		self:AddRecipeCustom(67134, 42)
 
 		-- Sunforged Bracers -- 67135
 		AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67135, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
-		self:AddRecipeAcquire(67135, A.CUSTOM, 42)
+		self:AddRecipeCustom(67135, 42)
 	end
 	return num_recipes
 end

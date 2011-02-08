@@ -53,7 +53,7 @@ function addon:InitJewelcrafting()
 	-- Delicate Copper Wire -- 25255
 	AddRecipe(25255, 1, 20816, Q.COMMON, V.TBC, 1, 20, 35, 50)
 	self:AddRecipeFlags(25255, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER)
-	self:AddRecipeAcquire(25255, A.CUSTOM, 8)
+	self:AddRecipeCustom(25255, 8)
 
 	-- Bronze Setting -- 25278
 	AddRecipe(25278, 50, 20817, Q.COMMON, V.TBC, 50, 70, 80, 90)
@@ -123,7 +123,7 @@ function addon:InitJewelcrafting()
 	-- Braided Copper Ring -- 25493
 	AddRecipe(25493, 1, 20906, Q.COMMON, V.TBC, 1, 30, 45, 60)
 	self:AddRecipeFlags(25493, F.CASTER, F.RBOP, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.TRAINER, F.RING)
-	self:AddRecipeAcquire(25493, A.CUSTOM, 8)
+	self:AddRecipeCustom(25493, 8)
 
 	-- Barbaric Iron Collar -- 25498
 	AddRecipe(25498, 110, 20909, Q.COMMON, V.TBC, 110, 140, 155, 170)
@@ -318,7 +318,7 @@ function addon:InitJewelcrafting()
 	-- Woven Copper Ring -- 26925
 	AddRecipe(26925, 1, 21931, Q.COMMON, V.TBC, 1, 30, 45, 60)
 	self:AddRecipeFlags(26925, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.TRAINER, F.RING)
-	self:AddRecipeAcquire(26925, A.CUSTOM, 8)
+	self:AddRecipeCustom(26925, 8)
 
 	-- Heavy Copper Ring -- 26926
 	AddRecipe(26926, 5, 21932, Q.COMMON, V.TBC, 5, 35, 50, 65)
@@ -708,7 +708,7 @@ function addon:InitJewelcrafting()
 	-- Rough Stone Statue -- 32259
 	AddRecipe(32259, 1, 25498, Q.COMMON, V.TBC, 1, 30, 40, 50)
 	self:AddRecipeFlags(32259, F.RBOP, F.ALLIANCE, F.IBOP, F.HORDE, F.TRAINER)
-	self:AddRecipeAcquire(32259, A.CUSTOM, 8)
+	self:AddRecipeCustom(32259, 8)
 
 	-- Coarse Stone Statue -- 32801
 	AddRecipe(32801, 50, 25880, Q.COMMON, V.TBC, 50, 70, 80, 90)
@@ -853,12 +853,12 @@ function addon:InitJewelcrafting()
 	-- Veiled Shadow Draenite -- 39466
 	AddRecipe(39466, 325, 31866, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
 	self:AddRecipeFlags(39466, F.MOB_DROP, F.RBOE, F.CASTER, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE)
-	self:AddRecipeAcquire(39466, A.CUSTOM, 35)
+	self:AddRecipeCustom(39466, 35)
 
 	-- Deadly Flame Spessarite -- 39467
 	AddRecipe(39467, 325, 31869, Q.UNCOMMON, V.TBC, 325, 325, 340, 355)
 	self:AddRecipeFlags(39467, F.MOB_DROP, F.RBOE, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE)
-	self:AddRecipeAcquire(39467, A.CUSTOM, 35)
+	self:AddRecipeCustom(39467, 35)
 
 	-- Veiled Nightseye -- 39470
 	AddRecipe(39470, 350, 31867, Q.RARE, V.TBC, 350, 350, 365, 380)
@@ -898,7 +898,7 @@ function addon:InitJewelcrafting()
 	AddRecipe(39714, 375, 32199, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39714, F.VENDOR, F.RBOP, F.TANK, F.IBOE, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39714, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39714, A.CUSTOM, 27)
+	self:AddRecipeCustom(39714, 27)
 
 	-- Solid Empyrean Sapphire -- 39715
 	AddRecipe(39715, 375, 32200, Q.COMMON, V.TBC, 375, 375, 380, 385)
@@ -916,7 +916,7 @@ function addon:InitJewelcrafting()
 	AddRecipe(39718, 375, 32203, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39718, F.VENDOR, F.CASTER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39718, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39718, A.CUSTOM, 27)
+	self:AddRecipeCustom(39718, 27)
 
 	-- Smooth Lionseye -- 39720
 	AddRecipe(39720, 375, 32205, Q.COMMON, V.TBC, 375, 375, 380, 385)
@@ -934,19 +934,19 @@ function addon:InitJewelcrafting()
 	AddRecipe(39724, 375, 32209, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39724, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39724, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39724, A.CUSTOM, 27)
+	self:AddRecipeCustom(39724, 27)
 
 	-- Sovereign Shadowsong Amethyst -- 39727
 	AddRecipe(39727, 375, 32211, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39727, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39727, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39727, A.CUSTOM, 27)
+	self:AddRecipeCustom(39727, 27)
 
 	-- Shifting Shadowsong Amethyst -- 39728
 	AddRecipe(39728, 375, 32212, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39728, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39728, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39728, A.CUSTOM, 27)
+	self:AddRecipeCustom(39728, 27)
 
 	-- Timeless Shadowsong Amethyst -- 39731
 	AddRecipe(39731, 375, 32215, Q.COMMON, V.TBC, 375, 375, 380, 385)
@@ -958,7 +958,7 @@ function addon:InitJewelcrafting()
 	AddRecipe(39733, 375, 32217, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39733, F.VENDOR, F.RBOP, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39733, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39733, A.CUSTOM, 27)
+	self:AddRecipeCustom(39733, 27)
 
 	-- Potent Pyrestone -- 39734
 	AddRecipe(39734, 375, 32218, Q.COMMON, V.TBC, 375, 375, 380, 385)
@@ -976,7 +976,7 @@ function addon:InitJewelcrafting()
 	AddRecipe(39737, 375, 32221, Q.COMMON, V.TBC, 375, 375, 380, 385)
 	self:AddRecipeFlags(39737, F.VENDOR, F.CASTER, F.RBOP, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.SHATTEREDSUN)
 	self:AddRecipeRepVendor(39737, FAC.SHATTEREDSUN, REP.EXALTED, 27666, 25950)
-	self:AddRecipeAcquire(39737, A.CUSTOM, 27)
+	self:AddRecipeCustom(39737, 27)
 
 	-- Deadly Pyrestone -- 39738
 	AddRecipe(39738, 375, 32222, Q.COMMON, V.TBC, 375, 375, 380, 385)
@@ -1096,32 +1096,32 @@ function addon:InitJewelcrafting()
 	-- Loop of Forged Power -- 46122
 	AddRecipe(46122, 365, 34362, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46122, F.CASTER, F.RBOP, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.RING)
-	self:AddRecipeAcquire(46122, A.CUSTOM, 24)
+	self:AddRecipeCustom(46122, 24)
 
 	-- Ring of Flowing Life -- 46123
 	AddRecipe(46123, 365, 34363, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46123, F.CASTER, F.RBOP, F.IBOE, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.RING)
-	self:AddRecipeAcquire(46123, A.CUSTOM, 24)
+	self:AddRecipeCustom(46123, 24)
 
 	-- Hard Khorium Band -- 46124
 	AddRecipe(46124, 365, 34361, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46124, F.RBOP, F.IBOE, F.DPS, F.ALLIANCE, F.HORDE, F.RAID, F.RING)
-	self:AddRecipeAcquire(46124, A.CUSTOM, 24)
+	self:AddRecipeCustom(46124, 24)
 
 	-- Pendant of Sunfire -- 46125
 	AddRecipe(46125, 365, 34359, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46125, F.RBOE, F.CASTER, F.HEALER, F.ALLIANCE, F.IBOP, F.HORDE, F.RAID, F.NECK)
-	self:AddRecipeAcquire(46125, A.CUSTOM, 24)
+	self:AddRecipeCustom(46125, 24)
 
 	-- Amulet of Flowing Life -- 46126
 	AddRecipe(46126, 365, 34360, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46126, F.CASTER, F.RBOE, F.IBOP, F.HEALER, F.ALLIANCE, F.HORDE, F.RAID, F.NECK)
-	self:AddRecipeAcquire(46126, A.CUSTOM, 24)
+	self:AddRecipeCustom(46126, 24)
 
 	-- Hard Khorium Choker -- 46127
 	AddRecipe(46127, 365, 34358, Q.EPIC, V.TBC, 365, 375, 380, 385)
 	self:AddRecipeFlags(46127, F.RBOE, F.DPS, F.ALLIANCE, F.IBOP, F.HORDE, F.RAID, F.NECK)
-	self:AddRecipeAcquire(46127, A.CUSTOM, 24)
+	self:AddRecipeCustom(46127, 24)
 
 	-- Quick Dawnstone -- 46403
 	AddRecipe(46403, 350, 35315, Q.RARE, V.TBC, 350, 350, 365, 380)

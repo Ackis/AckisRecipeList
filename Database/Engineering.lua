@@ -53,12 +53,12 @@ function addon:InitEngineering()
 	-- Rough Blasting Powder -- 3918
 	AddRecipe(3918, 1, 4357, Q.COMMON, V.ORIG, 1, 20, 30, 40)
 	self:AddRecipeFlags(3918, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(3918, A.CUSTOM, 8)
+	self:AddRecipeCustom(3918, 8)
 
 	-- Rough Dynamite -- 3919
 	AddRecipe(3919, 1, 4358, Q.COMMON, V.ORIG, 1, 30, 45, 60)
 	self:AddRecipeFlags(3919, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(3919, A.CUSTOM, 8)
+	self:AddRecipeCustom(3919, 8)
 
 	-- Handful of Copper Bolts -- 3922
 	AddRecipe(3922, 30, 4359, Q.COMMON, V.ORIG, 30, 45, 52, 60)
@@ -203,7 +203,7 @@ function addon:InitEngineering()
 	-- Ice Deflector -- 3957
 	AddRecipe(3957, 155, 4386, Q.COMMON, V.ORIG, 155, 175, 185, 195)
 	self:AddRecipeFlags(3957, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(3957, A.CUSTOM, 48)
+	self:AddRecipeCustom(3957, 48)
 
 	-- Iron Strut -- 3958
 	AddRecipe(3958, 160, 4387, Q.COMMON, V.ORIG, 160, 160, 170, 180)
@@ -421,7 +421,7 @@ function addon:InitEngineering()
 	-- Deepdive Helmet -- 12617
 	AddRecipe(12617, 230, 10506, Q.COMMON, V.ORIG, 230, 250, 260, 270)
 	self:AddRecipeFlags(12617, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.CLOTH)
-	self:AddRecipeAcquire(12617, A.CUSTOM, 48)
+	self:AddRecipeCustom(12617, 48)
 
 	-- Rose Colored Goggles -- 12618
 	AddRecipe(12618, 230, 10503, Q.COMMON, V.ORIG, 230, 250, 260, 270)
@@ -551,12 +551,12 @@ function addon:InitEngineering()
 	-- Pet Bombling -- 15628
 	AddRecipe(15628, 205, 11825, Q.UNCOMMON, V.ORIG, 205, 205, 205, 205)
 	self:AddRecipeFlags(15628, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(15628, A.CUSTOM, 16)
+	self:AddRecipeCustom(15628, 16)
 
 	-- Lil' Smoky -- 15633
 	AddRecipe(15633, 205, 11826, Q.UNCOMMON, V.ORIG, 205, 205, 205, 205)
 	self:AddRecipeFlags(15633, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(15633, A.CUSTOM, 16)
+	self:AddRecipeCustom(15633, 16)
 
 	-- Salt Shaker -- 19567
 	AddRecipe(19567, 250, 15846, Q.COMMON, V.ORIG, 250, 270, 280, 290)
@@ -646,27 +646,27 @@ function addon:InitEngineering()
 	-- Snowmaster 9000 -- 21940
 	AddRecipe(21940, 190, 17716, Q.UNCOMMON, V.ORIG, 190, 190, 210, 230)
 	self:AddRecipeFlags(21940, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(21940, A.SEASONAL, 1)
+	self:AddRecipeSeason(21940, 1)
 
 	-- Field Repair Bot 74A -- 22704
 	AddRecipe(22704, 300, 18232, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(22704, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(22704, A.CUSTOM, 17)
+	self:AddRecipeCustom(22704, 17)
 
 	-- Biznicks 247x128 Accurascope -- 22793
 	AddRecipe(22793, 300, 18283, Q.RARE, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(22793, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(22793, A.CUSTOM, 26)
+	self:AddRecipeCustom(22793, 26)
 
 	-- Core Marksman Rifle -- 22795
 	AddRecipe(22795, 300, 18282, Q.RARE, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(22795, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.GUN)
-	self:AddRecipeAcquire(22795, A.CUSTOM, 26)
+	self:AddRecipeCustom(22795, 26)
 
 	-- Force Reactive Disk -- 22797
 	AddRecipe(22797, 300, 18168, Q.RARE, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(22797, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.SHIELD, F.ONE_HAND)
-	self:AddRecipeAcquire(22797, A.CUSTOM, 26)
+	self:AddRecipeCustom(22797, 26)
 
 	-- Red Firework -- 23066
 	AddRecipe(23066, 150, 9318, Q.COMMON, V.ORIG, 150, 150, 162, 175)
@@ -711,7 +711,7 @@ function addon:InitEngineering()
 	-- Major Recombobulator -- 23079
 	AddRecipe(23079, 275, 18637, Q.UNCOMMON, V.ORIG, 275, 285, 290, 295)
 	self:AddRecipeFlags(23079, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.TRINKET)
-	self:AddRecipeAcquire(23079, A.CUSTOM, 32)
+	self:AddRecipeCustom(23079, 32)
 
 	-- Powerful Seaforium Charge -- 23080
 	AddRecipe(23080, 275, 18594, Q.COMMON, V.ORIG, 275, 275, 285, 295)
@@ -756,12 +756,12 @@ function addon:InitEngineering()
 	-- Bloodvine Goggles -- 24356
 	AddRecipe(24356, 300, 19999, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24356, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(24356, A.CUSTOM, 48)
+	self:AddRecipeCustom(24356, 48)
 
 	-- Bloodvine Lens -- 24357
 	AddRecipe(24357, 300, 19998, Q.COMMON, V.ORIG, 300, 320, 330, 340)
 	self:AddRecipeFlags(24357, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LEATHER)
-	self:AddRecipeAcquire(24357, A.CUSTOM, 48)
+	self:AddRecipeCustom(24357, 48)
 
 	-- Tranquil Mechanical Yeti -- 26011
 	AddRecipe(26011, 250, 21277, Q.COMMON, V.ORIG, 250, 320, 330, 340)
@@ -772,85 +772,85 @@ function addon:InitEngineering()
 	AddRecipe(26416, 125, 21558, Q.UNCOMMON, V.ORIG, 125, 125, 137, 150)
 	self:AddRecipeFlags(26416, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26416, 15909)
-	self:AddRecipeAcquire(26416, A.SEASONAL, 2)
+	self:AddRecipeSeason(26416, 2)
 
 	-- Small Green Rocket -- 26417
 	AddRecipe(26417, 125, 21559, Q.UNCOMMON, V.ORIG, 125, 125, 137, 150)
 	self:AddRecipeFlags(26417, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26417, 15909)
-	self:AddRecipeAcquire(26417, A.SEASONAL, 2)
+	self:AddRecipeSeason(26417, 2)
 
 	-- Small Red Rocket -- 26418
 	AddRecipe(26418, 125, 21557, Q.UNCOMMON, V.ORIG, 125, 125, 137, 150)
 	self:AddRecipeFlags(26418, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26418, 15909)
-	self:AddRecipeAcquire(26418, A.SEASONAL, 2)
+	self:AddRecipeSeason(26418, 2)
 
 	-- Large Blue Rocket -- 26420
 	AddRecipe(26420, 175, 21589, Q.UNCOMMON, V.ORIG, 175, 175, 187, 200)
 	self:AddRecipeFlags(26420, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26420, 15909)
-	self:AddRecipeAcquire(26420, A.SEASONAL, 2)
+	self:AddRecipeSeason(26420, 2)
 
 	-- Large Green Rocket -- 26421
 	AddRecipe(26421, 175, 21590, Q.UNCOMMON, V.ORIG, 175, 175, 187, 200)
 	self:AddRecipeFlags(26421, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26421, 15909)
-	self:AddRecipeAcquire(26421, A.SEASONAL, 2)
+	self:AddRecipeSeason(26421, 2)
 
 	-- Large Red Rocket -- 26422
 	AddRecipe(26422, 175, 21592, Q.UNCOMMON, V.ORIG, 175, 175, 187, 200)
 	self:AddRecipeFlags(26422, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26422, 15909)
-	self:AddRecipeAcquire(26422, A.SEASONAL, 2)
+	self:AddRecipeSeason(26422, 2)
 
 	-- Blue Rocket Cluster -- 26423
 	AddRecipe(26423, 225, 21571, Q.UNCOMMON, V.ORIG, 225, 225, 237, 250)
 	self:AddRecipeFlags(26423, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26423, 15909)
-	self:AddRecipeAcquire(26423, A.SEASONAL, 2)
+	self:AddRecipeSeason(26423, 2)
 
 	-- Green Rocket Cluster -- 26424
 	AddRecipe(26424, 225, 21574, Q.UNCOMMON, V.ORIG, 225, 225, 237, 250)
 	self:AddRecipeFlags(26424, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26424, 15909)
-	self:AddRecipeAcquire(26424, A.SEASONAL, 2)
+	self:AddRecipeSeason(26424, 2)
 
 	-- Red Rocket Cluster -- 26425
 	AddRecipe(26425, 225, 21576, Q.UNCOMMON, V.ORIG, 225, 225, 237, 250)
 	self:AddRecipeFlags(26425, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26425, 15909)
-	self:AddRecipeAcquire(26425, A.SEASONAL, 2)
+	self:AddRecipeSeason(26425, 2)
 
 	-- Large Blue Rocket Cluster -- 26426
 	AddRecipe(26426, 275, 21714, Q.UNCOMMON, V.ORIG, 275, 275, 280, 285)
 	self:AddRecipeFlags(26426, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26426, 15909)
-	self:AddRecipeAcquire(26426, A.SEASONAL, 2)
+	self:AddRecipeSeason(26426, 2)
 
 	-- Large Green Rocket Cluster -- 26427
 	AddRecipe(26427, 275, 21716, Q.UNCOMMON, V.ORIG, 275, 275, 280, 285)
 	self:AddRecipeFlags(26427, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26427, 15909)
-	self:AddRecipeAcquire(26427, A.SEASONAL, 2)
+	self:AddRecipeSeason(26427, 2)
 
 	-- Large Red Rocket Cluster -- 26428
 	AddRecipe(26428, 275, 21718, Q.UNCOMMON, V.ORIG, 275, 275, 280, 285)
 	self:AddRecipeFlags(26428, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26428, 15909)
-	self:AddRecipeAcquire(26428, A.SEASONAL, 2)
+	self:AddRecipeSeason(26428, 2)
 
 	-- Firework Launcher -- 26442
 	AddRecipe(26442, 225, 21569, Q.UNCOMMON, V.ORIG, 225, 245, 255, 265)
 	self:AddRecipeFlags(26442, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26442, 15909)
-	self:AddRecipeAcquire(26442, A.SEASONAL, 2)
+	self:AddRecipeSeason(26442, 2)
 
 	-- Firework Cluster Launcher -- 26443
 	AddRecipe(26443, 275, 21570, Q.UNCOMMON, V.ORIG, 275, 295, 305, 315)
 	self:AddRecipeFlags(26443, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26443, 15909)
-	self:AddRecipeAcquire(26443, A.SEASONAL, 2)
+	self:AddRecipeSeason(26443, 2)
 
 	-- Steam Tonk Controller -- 28327
 	AddRecipe(28327, 275, 22728, Q.COMMON, V.ORIG, 275, 275, 280, 285)
@@ -1152,7 +1152,7 @@ function addon:InitEngineering()
 	AddRecipe(43676, 335, 20475, Q.UNCOMMON, V.TBC, 335, 335, 345, 355)
 	self:AddRecipeFlags(43676, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(43676, 19707)
-	self:AddRecipeAcquire(43676, A.CUSTOM, 46)
+	self:AddRecipeCustom(43676, 46)
 
 	-- Flying Machine -- 44155
 	AddRecipe(44155, 300, 34060, Q.COMMON, V.TBC, 300, 330, 340, 350)
@@ -1172,57 +1172,57 @@ function addon:InitEngineering()
 	-- Wonderheal XT68 Shades -- 46106
 	AddRecipe(46106, 375, 35183, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46106, F.ALLIANCE, F.HORDE, F.RAID, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
-	self:AddRecipeAcquire(46106, A.CUSTOM, 24)
+	self:AddRecipeCustom(46106, 24)
 
 	-- Justicebringer 3000 Specs -- 46107
 	AddRecipe(46107, 375, 35185, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46107, F.ALLIANCE, F.HORDE, F.RAID, F.PALADIN, F.IBOP, F.RBOP, F.PLATE)
-	self:AddRecipeAcquire(46107, A.CUSTOM, 24)
+	self:AddRecipeCustom(46107, 24)
 
 	-- Powerheal 9000 Lens -- 46108
 	AddRecipe(46108, 375, 35181, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46108, F.ALLIANCE, F.HORDE, F.RAID, F.PRIEST, F.IBOP, F.RBOP, F.CLOTH)
-	self:AddRecipeAcquire(46108, A.CUSTOM, 24)
+	self:AddRecipeCustom(46108, 24)
 
 	-- Hyper-Magnified Moon Specs -- 46109
 	AddRecipe(46109, 375, 35182, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46109, F.ALLIANCE, F.HORDE, F.RAID, F.DRUID, F.IBOP, F.RBOP, F.LEATHER)
-	self:AddRecipeAcquire(46109, A.CUSTOM, 24)
+	self:AddRecipeCustom(46109, 24)
 
 	-- Primal-Attuned Goggles -- 46110
 	AddRecipe(46110, 375, 35184, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46110, F.ALLIANCE, F.HORDE, F.RAID, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(46110, A.CUSTOM, 24)
+	self:AddRecipeCustom(46110, 24)
 
 	-- Annihilator Holo-Gogs -- 46111
 	AddRecipe(46111, 375, 34847, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46111, F.ALLIANCE, F.HORDE, F.RAID, F.MAGE, F.PRIEST, F.WARLOCK, F.IBOP, F.RBOP, F.CLOTH)
-	self:AddRecipeAcquire(46111, A.CUSTOM, 24)
+	self:AddRecipeCustom(46111, 24)
 
 	-- Lightning Etched Specs -- 46112
 	AddRecipe(46112, 375, 34355, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46112, F.ALLIANCE, F.HORDE, F.RAID, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(46112, A.CUSTOM, 24)
+	self:AddRecipeCustom(46112, 24)
 
 	-- Surestrike Goggles v3.0 -- 46113
 	AddRecipe(46113, 375, 34356, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46113, F.ALLIANCE, F.HORDE, F.RAID, F.HUNTER, F.SHAMAN, F.IBOP, F.RBOP, F.MAIL)
-	self:AddRecipeAcquire(46113, A.CUSTOM, 24)
+	self:AddRecipeCustom(46113, 24)
 
 	-- Mayhem Projection Goggles -- 46114
 	AddRecipe(46114, 375, 34354, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46114, F.ALLIANCE, F.HORDE, F.RAID, F.DK, F.PALADIN, F.WARRIOR, F.IBOP, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeAcquire(46114, A.CUSTOM, 24)
+	self:AddRecipeCustom(46114, 24)
 
 	-- Hard Khorium Goggles -- 46115
 	AddRecipe(46115, 375, 34357, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46115, F.ALLIANCE, F.HORDE, F.RAID, F.PALADIN, F.WARRIOR, F.IBOP, F.RBOP, F.TANK, F.PLATE)
-	self:AddRecipeAcquire(46115, A.CUSTOM, 24)
+	self:AddRecipeCustom(46115, 24)
 
 	-- Quad Deathblow X44 Goggles -- 46116
 	AddRecipe(46116, 375, 34353, Q.EPIC, V.TBC, 375, 390, 410, 430)
 	self:AddRecipeFlags(46116, F.ALLIANCE, F.HORDE, F.RAID, F.DRUID, F.ROGUE, F.IBOP, F.RBOP, F.LEATHER)
-	self:AddRecipeAcquire(46116, A.CUSTOM, 24)
+	self:AddRecipeCustom(46116, 24)
 
 	-- Rocket Boots Xtreme Lite -- 46697
 	AddRecipe(46697, 355, 35581, Q.RARE, V.TBC, 355, 365, 375, 385)
@@ -1477,42 +1477,42 @@ function addon:InitEngineering()
 	-- Cardboard Assassin -- 84425
 	AddRecipe(84425, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84425, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(84425, A.CUSTOM, 51)
+	self:AddRecipeCustom(84425, 51)
 
 	-- Grounded Plasma Shield -- 84427
 	AddRecipe(84427, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84427, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(84427, A.CUSTOM, 51)
+	self:AddRecipeCustom(84427, 51)
 
 	-- Invisibility Field -- 84424
 	AddRecipe(84424, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(84424, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(84424, A.CUSTOM, 51)
+	self:AddRecipeCustom(84424, 51)
 
 	-- Quickflip Deflection Plates -- 82177
 	AddRecipe(82177, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(82177, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82177, A.CUSTOM, 51)
+	self:AddRecipeCustom(82177, 51)
 
 	-- Spinal Healing Injector -- 82200
 	AddRecipe(82200, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(82200, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82200, A.CUSTOM, 51)
+	self:AddRecipeCustom(82200, 51)
 
 	-- Synapse Springs -- 82175
 	AddRecipe(82175, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(82175, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82175, A.CUSTOM, 51)
+	self:AddRecipeCustom(82175, 51)
 
 	-- Tazik Shocker -- 82180
 	AddRecipe(82180, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(82180, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82180, A.CUSTOM, 51)
+	self:AddRecipeCustom(82180, 51)
 
 	-- Z50 Mana Gulper -- 82201
 	AddRecipe(82201, 425, nil, Q.COMMON, V.CATA, 425, 425, 437, 450)
 	self:AddRecipeFlags(82201, F.ALLIANCE, F.HORDE, F.DISC, F.IBOP, F.RBOP)
-	self:AddRecipeAcquire(82201, A.CUSTOM, 51)
+	self:AddRecipeCustom(82201, 51)
 
 	-- Handful of Obsidium Bolts -- 84403
 	AddRecipe(84403, 425, 60224, Q.COMMON, V.CATA, 425, 435, 442, 450)
@@ -1663,7 +1663,7 @@ function addon:InitEngineering()
 		-- Mekgineer's Chopper -- 60867
 		AddRecipe(60867, 450, 44413, Q.EPIC, V.WOTLK, 450, 480, 485, 490)
 		self:AddRecipeFlags(60867, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
-		self:AddRecipeAcquire(60867, A.REPUTATION, FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, A.REPUTATION, FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32773)
+		self:AddRecipeRepVendor(60867, FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, 32773)
 	elseif faction == BFAC["Horde"] then
 
 		-- Mechano-hog -- 60866

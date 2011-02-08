@@ -53,7 +53,7 @@ function addon:InitFirstAid()
 	-- Linen Bandage -- 3275
 	AddRecipe(3275, 1, 1251, Q.COMMON, V.ORIG, 1, 30, 45, 60)
 	self:AddRecipeFlags(3275, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(3275, A.CUSTOM, 8)
+	self:AddRecipeCustom(3275, 8)
 
 	-- Heavy Linen Bandage -- 3276
 	AddRecipe(3276, 40, 2581, Q.COMMON, V.ORIG, 40, 50, 75, 100)

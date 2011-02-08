@@ -53,7 +53,7 @@ function addon:InitCooking()
 	-- Charred Wolf Meat -- 2538
 	AddRecipe(2538, 1, 2679, Q.COMMON, V.ORIG, 1, 45, 65, 85)
 	self:AddRecipeFlags(2538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(2538, A.CUSTOM, 8)
+	self:AddRecipeCustom(2538, 8)
 
 	-- Spiced Wolf Meat -- 2539
 	AddRecipe(2539, 10, 2680, Q.COMMON, V.ORIG, 10, 50, 70, 90)
@@ -63,7 +63,7 @@ function addon:InitCooking()
 	-- Roasted Boar Meat -- 2540
 	AddRecipe(2540, 1, 2681, Q.COMMON, V.ORIG, 1, 45, 65, 85)
 	self:AddRecipeFlags(2540, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(2540, A.CUSTOM, 8)
+	self:AddRecipeCustom(2540, 8)
 
 	-- Coyote Steak -- 2541
 	AddRecipe(2541, 50, 2684, Q.COMMON, V.ORIG, 50, 90, 110, 130)
@@ -165,12 +165,12 @@ function addon:InitCooking()
 	-- Tasty Lion Steak -- 3399
 	AddRecipe(3399, 150, 3728, Q.COMMON, V.ORIG, 150, 190, 210, 230)
 	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(3399, A.CUSTOM, 48)
+	self:AddRecipeCustom(3399, 48)
 
 	-- Soothing Turtle Bisque -- 3400
 	AddRecipe(3400, 175, 3729, Q.COMMON, V.ORIG, 175, 215, 235, 255)
 	self:AddRecipeFlags(3400, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(3400, A.CUSTOM, 48)
+	self:AddRecipeCustom(3400, 48)
 
 	-- Barbecued Buzzard Wing -- 4094
 	AddRecipe(4094, 175, 4457, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -182,7 +182,7 @@ function addon:InitCooking()
 	-- Kaldorei Spider Kabob -- 6412
 	AddRecipe(6412, 10, 5472, Q.COMMON, V.ORIG, 10, 50, 70, 90)
 	self:AddRecipeFlags(6412, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(6412, A.CUSTOM, 48)
+	self:AddRecipeCustom(6412, 48)
 
 	-- Scorpid Surprise -- 6413
 	AddRecipe(6413, 20, 5473, Q.COMMON, V.ORIG, 20, 60, 80, 100)
@@ -197,7 +197,7 @@ function addon:InitCooking()
 	-- Fillet of Frenzy -- 6415
 	AddRecipe(6415, 50, 5476, Q.COMMON, V.ORIG, 50, 90, 110, 130)
 	self:AddRecipeFlags(6415, F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(6415, A.CUSTOM, 48)
+	self:AddRecipeCustom(6415, 48)
 
 	-- Strider Stew -- 6416
 	AddRecipe(6416, 50, 5477, Q.COMMON, V.ORIG, 50, 90, 110, 130)
@@ -207,7 +207,7 @@ function addon:InitCooking()
 	-- Dig Rat Stew -- 6417
 	AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
 	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.RETIRED, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(6417, A.CUSTOM, 48)
+	self:AddRecipeCustom(6417, 48)
 
 	-- Crispy Lizard Tail -- 6418
 	AddRecipe(6418, 100, 5479, Q.COMMON, V.ORIG, 100, 140, 160, 180)
@@ -282,7 +282,7 @@ function addon:InitCooking()
 	-- Herb Baked Egg -- 8604
 	AddRecipe(8604, 1, 6888, Q.COMMON, V.ORIG, 1, 45, 65, 85)
 	self:AddRecipeFlags(8604, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(8604, A.CUSTOM, 8)
+	self:AddRecipeCustom(8604, 8)
 
 	-- Smoked Bear Meat -- 8607
 	AddRecipe(8607, 40, 6890, Q.COMMON, V.ORIG, 40, 80, 100, 120)
@@ -297,7 +297,7 @@ function addon:InitCooking()
 	-- Goldthorn Tea -- 13028
 	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
 	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(13028, A.CUSTOM, 13)
+	self:AddRecipeCustom(13028, 13)
 
 	-- Lean Wolf Steak -- 15853
 	AddRecipe(15853, 125, 12209, Q.COMMON, V.ORIG, 125, 165, 185, 205)
@@ -410,7 +410,7 @@ function addon:InitCooking()
 	-- Undermine Clam Chowder -- 20626
 	AddRecipe(20626, 225, 16766, Q.COMMON, V.ORIG, 225, 250, 262, 275)
 	self:AddRecipeFlags(20626, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(20626, A.CUSTOM, 48)
+	self:AddRecipeCustom(20626, 48)
 
 	-- Mithril Head Trout -- 20916
 	AddRecipe(20916, 175, 8364, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -421,13 +421,13 @@ function addon:InitCooking()
 	AddRecipe(21143, 1, 17197, Q.COMMON, V.ORIG, 1, 45, 65, 85)
 	self:AddRecipeFlags(21143, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(21143, 23064, 23010, 13435, 13432, 13429, 13433, 23012, 13420)
-	self:AddRecipeAcquire(21143, A.SEASONAL, 1)
+	self:AddRecipeSeason(21143, 1)
 
 	-- Egg Nog -- 21144
 	AddRecipe(21144, 35, 17198, Q.COMMON, V.ORIG, 35, 75, 95, 115)
 	self:AddRecipeFlags(21144, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(21144, 23064, 23010, 13435, 13432, 13429, 13433, 23012, 13420)
-	self:AddRecipeAcquire(21144, A.SEASONAL, 1)
+	self:AddRecipeSeason(21144, 1)
 
 	-- Spider Sausage -- 21175
 	AddRecipe(21175, 200, 17222, Q.COMMON, V.ORIG, 200, 225, 237, 250)
@@ -457,7 +457,7 @@ function addon:InitCooking()
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
 	AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
 	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(25659, A.CUSTOM, 48)
+	self:AddRecipeCustom(25659, 48)
 
 	-- Smoked Sagefish -- 25704
 	AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
@@ -603,43 +603,43 @@ function addon:InitCooking()
 	AddRecipe(43707, 325, 33825, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
 	self:AddRecipeFlags(43707, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeQuest(43707, 11381, 11377, 11379, 11380)
-	self:AddRecipeAcquire(43707, A.CUSTOM, 6)
+	self:AddRecipeCustom(43707, 6)
 
 	-- Stormchops -- 43758
 	AddRecipe(43758, 300, 33866, Q.RARE, V.TBC, 300, 320, 330, 340)
 	self:AddRecipeFlags(43758, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(43758, 11381, 11377, 11379, 11380, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeAcquire(43758, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
+	self:AddRecipeCustom(43758, 5, 6, 38)
 
 	-- Broiled Bloodfin -- 43761
 	AddRecipe(43761, 300, 33867, Q.UNCOMMON, V.TBC, 300, 320, 330, 340)
 	self:AddRecipeFlags(43761, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(43761, 11381, 11377, 11379, 11380)
-	self:AddRecipeAcquire(43761, A.CUSTOM, 6)
+	self:AddRecipeCustom(43761, 6)
 
 	-- Spicy Hot Talbuk -- 43765
 	AddRecipe(43765, 325, 33872, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
 	self:AddRecipeFlags(43765, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeQuest(43765, 11381, 11377, 11379, 11380)
-	self:AddRecipeAcquire(43765, A.CUSTOM, 5)
+	self:AddRecipeCustom(43765, 5)
 
 	-- Kibler's Bits -- 43772
 	AddRecipe(43772, 300, 33874, Q.UNCOMMON, V.TBC, 300, 345, 355, 365)
 	self:AddRecipeFlags(43772, F.ALLIANCE, F.HORDE, F.QUEST, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
 	self:AddRecipeQuest(43772, 11381, 11377, 11379, 11380)
-	self:AddRecipeAcquire(43772, A.CUSTOM, 5, A.CUSTOM, 6)
+	self:AddRecipeCustom(43772, 5, 6)
 
 	-- Delicious Chocolate Cake -- 43779
 	AddRecipe(43779, 1, 33924, Q.RARE, V.TBC, 1, 50, 62, 75)
 	self:AddRecipeFlags(43779, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(43779, 11381, 11377, 11379, 11380, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeAcquire(43779, A.CUSTOM, 5, A.CUSTOM, 6, A.CUSTOM, 38)
+	self:AddRecipeCustom(43779, 5, 6, 38)
 
 	-- Hot Apple Cider -- 45022
 	AddRecipe(45022, 325, 34411, Q.COMMON, V.WOTLK, 325, 325, 325, 325)
 	self:AddRecipeFlags(45022, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
 	self:AddRecipeVendor(45022, 13420, 13433)
-	self:AddRecipeAcquire(45022, A.SEASONAL, 1)
+	self:AddRecipeSeason(45022, 1)
 
 	-- Mammoth Meal -- 45549
 	AddRecipe(45549, 350, 34748, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
@@ -760,7 +760,7 @@ function addon:InitCooking()
 	AddRecipe(45695, 100, 34832, Q.UNCOMMON, V.WOTLK, 100, 100, 105, 110)
 	self:AddRecipeFlags(45695, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(45695, 11666, 11668, 11667, 11669, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeAcquire(45695, A.CUSTOM, 7, A.CUSTOM, 38)
+	self:AddRecipeCustom(45695, 7, 38)
 
 	-- Charred Bear Kabobs -- 46684
 	AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
@@ -776,7 +776,7 @@ function addon:InitCooking()
 	AddRecipe(53056, 375, 39520, Q.COMMON, V.WOTLK, 375, 375, 387, 400)
 	self:AddRecipeFlags(53056, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
 	self:AddRecipeQuest(53056, 13571)
-	self:AddRecipeAcquire(53056, A.CUSTOM, 36)
+	self:AddRecipeCustom(53056, 36)
 
 	-- Northern Stew -- 57421
 	AddRecipe(57421, 350, 34747, Q.COMMON, V.WOTLK, 350, 350, 362, 365)
@@ -896,7 +896,7 @@ function addon:InitCooking()
 	-- Bread of the Dead -- 65454
 	AddRecipe(65454, 45, 46691, Q.COMMON, V.WOTLK, 45, 55, 60, 65)
 	self:AddRecipeFlags(65454, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(65454, A.SEASONAL, 6)
+	self:AddRecipeSeason(65454, 6)
 
 	-- Whitecrest Gumbo -- 88047
 	AddRecipe(88047, 450, 62656, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
@@ -1078,54 +1078,54 @@ function addon:InitCooking()
 		-- Pumpkin Pie -- 62044
 		AddRecipe(62044, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
 		self:AddRecipeFlags(62044, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeAcquire(62044, A.SEASONAL, 5)
+		self:AddRecipeSeason(62044, 5)
 
 		-- Slow-Roasted Turkey -- 62045
 		AddRecipe(62045, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355)
 		self:AddRecipeFlags(62045, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-		self:AddRecipeAcquire(62045, A.SEASONAL, 5)
+		self:AddRecipeSeason(62045, 5)
 
 		-- Cranberry Chutney -- 62049
 		AddRecipe(62049, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235)
 		self:AddRecipeFlags(62049, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeAcquire(62049, A.SEASONAL, 5)
+		self:AddRecipeSeason(62049, 5)
 
 		-- Spice Bread Stuffing -- 62050
 		AddRecipe(62050, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115)
 		self:AddRecipeFlags(62050, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOE)
-		self:AddRecipeAcquire(62050, A.SEASONAL, 5)
+		self:AddRecipeSeason(62050, 5)
 
 		-- Candied Sweet Potato -- 62051
 		AddRecipe(62051, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
 		self:AddRecipeFlags(62051, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
-		self:AddRecipeAcquire(62051, A.SEASONAL, 5)
+		self:AddRecipeSeason(62051, 5)
 
 	elseif faction == BFAC["Horde"] then
 
 		-- Candied Sweet Potato -- 66034
 		AddRecipe(66034, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
 		self:AddRecipeFlags(66034, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
-		self:AddRecipeAcquire(66034, A.SEASONAL, 5)
+		self:AddRecipeSeason(66034, 5)
 
 		-- Cranberry Chutney -- 66035
 		AddRecipe(66035, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235)
 		self:AddRecipeFlags(66035, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeAcquire(66035, A.SEASONAL, 5)
+		self:AddRecipeSeason(66035, 5)
 
 		-- Pumpkin Pie -- 66036
 		AddRecipe(66036, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
 		self:AddRecipeFlags(66036, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeAcquire(66036, A.SEASONAL, 5)
+		self:AddRecipeSeason(66036, 5)
 
 		-- Slow-Roasted Turkey -- 66037
 		AddRecipe(66037, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355)
 		self:AddRecipeFlags(66037, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-		self:AddRecipeAcquire(66037, A.SEASONAL, 5)
+		self:AddRecipeSeason(66037, 5)
 
 		-- Spice Bread Stuffing -- 66038
 		AddRecipe(66038, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115)
 		self:AddRecipeFlags(66038, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-		self:AddRecipeAcquire(66038, A.SEASONAL, 5)
+		self:AddRecipeSeason(66038, 5)
 	end
 	return num_recipes
 end

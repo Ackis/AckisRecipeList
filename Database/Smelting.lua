@@ -51,7 +51,7 @@ function addon:InitSmelting()
 	-- Smelt Copper -- 2657
 	AddRecipe(2657, 1, 2840, Q.COMMON, V.ORIG, 1, 25, 47, 70)
 	self:AddRecipeFlags(2657, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(2657, A.CUSTOM, 8)
+	self:AddRecipeCustom(2657, 8)
 
 	-- Smelt Silver -- 2658
 	AddRecipe(2658, 75, 2842, Q.COMMON, V.ORIG, 75, 115, 122, 130)
@@ -151,7 +151,7 @@ function addon:InitSmelting()
 	-- Smelt Hardened Khorium -- 46353
 	AddRecipe(46353, 375, 35128, Q.RARE, V.WOTLK, 375, 375, 375, 375)
 	self:AddRecipeFlags(46353, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(46353, A.CUSTOM, 24)
+	self:AddRecipeCustom(46353, 24)
 
 	-- Smelt Cobalt -- 49252
 	AddRecipe(49252, 350, 36916, Q.COMMON, V.WOTLK, 350, 350, 362, 375)

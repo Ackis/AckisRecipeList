@@ -53,12 +53,12 @@ function addon:InitAlchemy()
 	-- Elixir of Lion's Strength -- 2329
 	AddRecipe(2329, 1, 2454, Q.COMMON, V.ORIG, 1, 55, 75, 95)
 	self:AddRecipeFlags(2329, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(2329, A.CUSTOM, 8)
+	self:AddRecipeCustom(2329, 8)
 
 	-- Minor Healing Potion -- 2330
 	AddRecipe(2330, 1, 118, Q.COMMON, V.ORIG, 1, 55, 75, 95)
 	self:AddRecipeFlags(2330, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(2330, A.CUSTOM, 8)
+	self:AddRecipeCustom(2330, 8)
 
 	-- Minor Mana Potion -- 2331
 	AddRecipe(2331, 25, 2455, Q.COMMON, V.ORIG, 25, 65, 85, 105)
@@ -184,12 +184,12 @@ function addon:InitAlchemy()
 	-- Discolored Healing Potion -- 4508
 	AddRecipe(4508, 50, 4596, Q.UNCOMMON, V.ORIG, 50, 80, 100, 120)
 	self:AddRecipeFlags(4508, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(4508, A.CUSTOM, 48)
+	self:AddRecipeCustom(4508, 48)
 
 	-- Lesser Stoneshield Potion -- 4942
 	AddRecipe(4942, 215, 4623, Q.COMMON, V.ORIG, 215, 230, 250, 270)
 	self:AddRecipeFlags(4942, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(4942, A.CUSTOM, 48)
+	self:AddRecipeCustom(4942, 48)
 
 	-- Rage Potion -- 6617
 	AddRecipe(6617, 60, 5631, Q.COMMON, V.ORIG, 60, 90, 110, 130)
@@ -219,7 +219,7 @@ function addon:InitAlchemy()
 	-- Elixir of Minor Defense -- 7183
 	AddRecipe(7183, 1, 5997, Q.COMMON, V.ORIG, 1, 55, 75, 95)
 	self:AddRecipeFlags(7183, F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	self:AddRecipeAcquire(7183, A.CUSTOM, 8)
+	self:AddRecipeCustom(7183, 8)
 
 	-- Holy Protection Potion -- 7255
 	AddRecipe(7255, 100, 6051, Q.COMMON, V.ORIG, 100, 130, 150, 170)
@@ -294,7 +294,7 @@ function addon:InitAlchemy()
 	-- Restorative Potion -- 11452
 	AddRecipe(11452, 210, 9030, Q.COMMON, V.ORIG, 210, 225, 245, 265)
 	self:AddRecipeFlags(11452, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(11452, A.CUSTOM, 48)
+	self:AddRecipeCustom(11452, 48)
 
 	-- Magic Resistance Potion -- 11453
 	AddRecipe(11453, 210, 9036, Q.UNCOMMON, V.ORIG, 210, 225, 245, 265)
@@ -304,7 +304,7 @@ function addon:InitAlchemy()
 	-- Goblin Rocket Fuel -- 11456
 	AddRecipe(11456, 210, 9061, Q.COMMON, V.ORIG, 210, 225, 245, 265)
 	self:AddRecipeFlags(11456, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(11456, A.CUSTOM, 9)
+	self:AddRecipeCustom(11456, 9)
 
 	-- Superior Healing Potion -- 11457
 	AddRecipe(11457, 215, 3928, Q.COMMON, V.ORIG, 215, 230, 250, 270)
@@ -519,7 +519,7 @@ function addon:InitAlchemy()
 	-- Greater Arcane Protection Potion -- 17577
 	AddRecipe(17577, 290, 13461, Q.UNCOMMON, V.ORIG, 290, 305, 325, 345)
 	self:AddRecipeFlags(17577, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(17577, A.CUSTOM, 48)
+	self:AddRecipeCustom(17577, 48)
 
 	-- Greater Shadow Protection Potion -- 17578
 	AddRecipe(17578, 290, 13459, Q.UNCOMMON, V.ORIG, 290, 305, 325, 345)
@@ -569,12 +569,12 @@ function addon:InitAlchemy()
 	-- Elixir of Frost Power -- 21923
 	AddRecipe(21923, 190, 17708, Q.COMMON, V.ORIG, 190, 210, 230, 250)
 	self:AddRecipeFlags(21923, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(21923, A.SEASONAL, 1)
+	self:AddRecipeSeason(21923, 1)
 
 	-- Major Rejuvenation Potion -- 22732
 	AddRecipe(22732, 300, 18253, Q.RARE, V.ORIG, 300, 310, 320, 330)
 	self:AddRecipeFlags(22732, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(22732, A.CUSTOM, 26)
+	self:AddRecipeCustom(22732, 26)
 
 	-- Elixir of Greater Water Breathing -- 22808
 	AddRecipe(22808, 215, 18294, Q.COMMON, V.ORIG, 215, 230, 250, 270)
@@ -584,27 +584,27 @@ function addon:InitAlchemy()
 	-- Gurubashi Mojo Madness -- 24266
 	AddRecipe(24266, 300, 19931, Q.RARE, V.ORIG, 300, 315, 322, 330)
 	self:AddRecipeFlags(24266, F.ALLIANCE, F.HORDE, F.RAID, F.RETIRED, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(24266, A.CUSTOM, 48)
+	self:AddRecipeCustom(24266, 48)
 
 	-- Mageblood Elixir -- 24365
 	AddRecipe(24365, 275, 20007, Q.COMMON, V.ORIG, 275, 290, 310, 330)
 	self:AddRecipeFlags(24365, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(24365, A.CUSTOM, 48)
+	self:AddRecipeCustom(24365, 48)
 
 	-- Greater Dreamless Sleep Potion -- 24366
 	AddRecipe(24366, 275, 20002, Q.COMMON, V.ORIG, 275, 290, 310, 330)
 	self:AddRecipeFlags(24366, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(24366, A.CUSTOM, 48)
+	self:AddRecipeCustom(24366, 48)
 
 	-- Living Action Potion -- 24367
 	AddRecipe(24367, 285, 20008, Q.COMMON, V.ORIG, 285, 300, 320, 340)
 	self:AddRecipeFlags(24367, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(24367, A.CUSTOM, 48)
+	self:AddRecipeCustom(24367, 48)
 
 	-- Mighty Troll's Blood Elixir -- 24368
 	AddRecipe(24368, 290, 20004, Q.COMMON, V.ORIG, 290, 305, 325, 345)
 	self:AddRecipeFlags(24368, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(24368, A.CUSTOM, 48)
+	self:AddRecipeCustom(24368, 48)
 
 	-- Transmute: Elemental Fire -- 25146
 	AddRecipe(25146, 300, 7068, Q.COMMON, V.ORIG, 300, 301, 305, 310)
@@ -776,62 +776,62 @@ function addon:InitAlchemy()
 	-- Transmute: Primal Shadow to Water -- 28580
 	AddRecipe(28580, 375, 21885, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28580, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28580, A.CUSTOM, 3)
+	self:AddRecipeCustom(28580, 3)
 
 	-- Transmute: Primal Water to Shadow -- 28581
 	AddRecipe(28581, 375, 22456, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28581, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28581, A.CUSTOM, 3)
+	self:AddRecipeCustom(28581, 3)
 
 	-- Transmute: Primal Mana to Fire -- 28582
 	AddRecipe(28582, 375, 21884, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28582, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28582, A.CUSTOM, 3)
+	self:AddRecipeCustom(28582, 3)
 
 	-- Transmute: Primal Fire to Mana -- 28583
 	AddRecipe(28583, 375, 22457, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28583, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28583, A.CUSTOM, 3)
+	self:AddRecipeCustom(28583, 3)
 
 	-- Transmute: Primal Life to Earth -- 28584
 	AddRecipe(28584, 375, 22452, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28584, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28584, A.CUSTOM, 3)
+	self:AddRecipeCustom(28584, 3)
 
 	-- Transmute: Primal Earth to Life -- 28585
 	AddRecipe(28585, 375, 21886, Q.UNCOMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28585, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28585, A.CUSTOM, 3)
+	self:AddRecipeCustom(28585, 3)
 
 	-- Super Rejuvenation Potion -- 28586
 	AddRecipe(28586, 375, 22850, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28586, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28586, A.CUSTOM, 2)
+	self:AddRecipeCustom(28586, 2)
 
 	-- Flask of Fortification -- 28587
 	AddRecipe(28587, 375, 22851, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28587, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK)
-	self:AddRecipeAcquire(28587, A.CUSTOM, 1)
+	self:AddRecipeCustom(28587, 1)
 
 	-- Flask of Mighty Restoration -- 28588
 	AddRecipe(28588, 375, 22853, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28588, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(28588, A.CUSTOM, 1)
+	self:AddRecipeCustom(28588, 1)
 
 	-- Flask of Relentless Assault -- 28589
 	AddRecipe(28589, 375, 22854, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28589, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(28589, A.CUSTOM, 1)
+	self:AddRecipeCustom(28589, 1)
 
 	-- Flask of Blinding Light -- 28590
 	AddRecipe(28590, 375, 22861, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28590, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(28590, A.CUSTOM, 1)
+	self:AddRecipeCustom(28590, 1)
 
 	-- Flask of Pure Death -- 28591
 	AddRecipe(28591, 375, 22866, Q.COMMON, V.TBC, 375, 375, 377, 380)
 	self:AddRecipeFlags(28591, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(28591, A.CUSTOM, 1)
+	self:AddRecipeCustom(28591, 1)
 
 	-- Transmute: Primal Might -- 29688
 	AddRecipe(29688, 350, 23571, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
@@ -917,27 +917,27 @@ function addon:InitAlchemy()
 	-- Cauldron of Major Arcane Protection -- 41458
 	AddRecipe(41458, 360, 32839, Q.COMMON, V.TBC, 360, 360, 370, 380)
 	self:AddRecipeFlags(41458, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(41458, A.CUSTOM, 4)
+	self:AddRecipeCustom(41458, 4)
 
 	-- Cauldron of Major Fire Protection -- 41500
 	AddRecipe(41500, 360, 32849, Q.COMMON, V.TBC, 360, 360, 370, 380)
 	self:AddRecipeFlags(41500, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(41500, A.CUSTOM, 4)
+	self:AddRecipeCustom(41500, 4)
 
 	-- Cauldron of Major Frost Protection -- 41501
 	AddRecipe(41501, 360, 32850, Q.COMMON, V.TBC, 360, 360, 370, 380)
 	self:AddRecipeFlags(41501, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(41501, A.CUSTOM, 4)
+	self:AddRecipeCustom(41501, 4)
 
 	-- Cauldron of Major Nature Protection -- 41502
 	AddRecipe(41502, 360, 32851, Q.COMMON, V.TBC, 360, 360, 370, 380)
 	self:AddRecipeFlags(41502, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(41502, A.CUSTOM, 4)
+	self:AddRecipeCustom(41502, 4)
 
 	-- Cauldron of Major Shadow Protection -- 41503
 	AddRecipe(41503, 360, 32852, Q.COMMON, V.TBC, 360, 360, 370, 380)
 	self:AddRecipeFlags(41503, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(41503, A.CUSTOM, 4)
+	self:AddRecipeCustom(41503, 4)
 
 	-- Flask of Chromatic Wonder -- 42736
 	AddRecipe(42736, 375, 33208, Q.UNCOMMON, V.TBC, 375, 390, 397, 405)
@@ -972,62 +972,62 @@ function addon:InitAlchemy()
 	-- Transmute: Eternal Life to Shadow -- 53771
 	AddRecipe(53771, 405, 35627, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53771, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53771, A.CUSTOM, 19)
+	self:AddRecipeCustom(53771, 19)
 
 	-- Transmute: Eternal Life to Fire -- 53773
 	AddRecipe(53773, 405, 36860, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53773, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53773, A.CUSTOM, 19)
+	self:AddRecipeCustom(53773, 19)
 
 	-- Transmute: Eternal Fire to Water -- 53774
 	AddRecipe(53774, 405, 35622, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53774, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53774, A.CUSTOM, 19)
+	self:AddRecipeCustom(53774, 19)
 
 	-- Transmute: Eternal Fire to Life -- 53775
 	AddRecipe(53775, 405, 35625, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53775, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53775, A.CUSTOM, 19)
+	self:AddRecipeCustom(53775, 19)
 
 	-- Transmute: Eternal Air to Water -- 53776
 	AddRecipe(53776, 405, 35622, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53776, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53776, A.CUSTOM, 19)
+	self:AddRecipeCustom(53776, 19)
 
 	-- Transmute: Eternal Air to Earth -- 53777
 	AddRecipe(53777, 405, 35624, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53777, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53777, A.CUSTOM, 19)
+	self:AddRecipeCustom(53777, 19)
 
 	-- Transmute: Eternal Shadow to Earth -- 53779
 	AddRecipe(53779, 405, 35624, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53779, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53779, A.CUSTOM, 19)
+	self:AddRecipeCustom(53779, 19)
 
 	-- Transmute: Eternal Shadow to Life -- 53780
 	AddRecipe(53780, 405, 35625, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53780, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53780, A.CUSTOM, 19)
+	self:AddRecipeCustom(53780, 19)
 
 	-- Transmute: Eternal Earth to Air -- 53781
 	AddRecipe(53781, 405, 35623, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53781, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53781, A.CUSTOM, 19)
+	self:AddRecipeCustom(53781, 19)
 
 	-- Transmute: Eternal Earth to Shadow -- 53782
 	AddRecipe(53782, 405, 35627, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53782, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53782, A.CUSTOM, 19)
+	self:AddRecipeCustom(53782, 19)
 
 	-- Transmute: Eternal Water to Air -- 53783
 	AddRecipe(53783, 405, 35623, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53783, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53783, A.CUSTOM, 19)
+	self:AddRecipeCustom(53783, 19)
 
 	-- Transmute: Eternal Water to Fire -- 53784
 	AddRecipe(53784, 405, 36860, Q.UNCOMMON, V.WOTLK, 405, 405, 415, 425)
 	self:AddRecipeFlags(53784, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53784, A.CUSTOM, 19)
+	self:AddRecipeCustom(53784, 19)
 
 	-- Pygmy Oil -- 53812
 	AddRecipe(53812, 375, 40195, Q.COMMON, V.WOTLK, 375, 380, 385, 390)
@@ -1082,7 +1082,7 @@ function addon:InitAlchemy()
 	-- Crazy Alchemist's Potion -- 53895
 	AddRecipe(53895, 400, 40077, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(53895, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53895, A.CUSTOM, 18)
+	self:AddRecipeCustom(53895, 18)
 
 	-- Elixir of Mighty Fortitude -- 53898
 	AddRecipe(53898, 390, 40078, Q.COMMON, V.WOTLK, 390, 400, 405, 410)
@@ -1117,7 +1117,7 @@ function addon:InitAlchemy()
 	-- Powerful Rejuvenation Potion -- 53904
 	AddRecipe(53904, 400, 40087, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(53904, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(53904, A.CUSTOM, 18)
+	self:AddRecipeCustom(53904, 18)
 
 	-- Indestructible Potion -- 53905
 	AddRecipe(53905, 395, 40093, Q.COMMON, V.WOTLK, 395, 405, 410, 415)
@@ -1162,22 +1162,22 @@ function addon:InitAlchemy()
 	-- Elixir of Protection -- 54220
 	AddRecipe(54220, 400, 40097, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(54220, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(54220, A.CUSTOM, 18)
+	self:AddRecipeCustom(54220, 18)
 
 	-- Potion of Speed -- 54221
 	AddRecipe(54221, 400, 40211, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(54221, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(54221, A.CUSTOM, 18)
+	self:AddRecipeCustom(54221, 18)
 
 	-- Potion of Wild Magic -- 54222
 	AddRecipe(54222, 400, 40212, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(54222, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeAcquire(54222, A.CUSTOM, 18)
+	self:AddRecipeCustom(54222, 18)
 
 	-- Elixir of Mighty Mageblood -- 56519
 	AddRecipe(56519, 400, 40109, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(56519, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(56519, A.CUSTOM, 18)
+	self:AddRecipeCustom(56519, 18)
 
 	-- Transmute: Skyflare Diamond -- 57425
 	AddRecipe(57425, 430, 41266, Q.COMMON, V.WOTLK, 430, 440, 445, 450)
@@ -1207,32 +1207,32 @@ function addon:InitAlchemy()
 	-- Elixir of Accuracy -- 60354
 	AddRecipe(60354, 400, 44325, Q.COMMON, V.WOTLK, 400, 415, 422, 430)
 	self:AddRecipeFlags(60354, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(60354, A.CUSTOM, 18)
+	self:AddRecipeCustom(60354, 18)
 
 	-- Elixir of Deadly Strikes -- 60355
 	AddRecipe(60355, 400, 44327, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60355, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(60355, A.CUSTOM, 18)
+	self:AddRecipeCustom(60355, 18)
 
 	-- Elixir of Mighty Defense -- 60356
 	AddRecipe(60356, 400, 44328, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60356, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.TANK)
-	self:AddRecipeAcquire(60356, A.CUSTOM, 18)
+	self:AddRecipeCustom(60356, 18)
 
 	-- Elixir of Expertise -- 60357
 	AddRecipe(60357, 400, 44329, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60357, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(60357, A.CUSTOM, 18)
+	self:AddRecipeCustom(60357, 18)
 
 	-- Elixir of Armor Piercing -- 60365
 	AddRecipe(60365, 400, 44330, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60365, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeAcquire(60365, A.CUSTOM, 18)
+	self:AddRecipeCustom(60365, 18)
 
 	-- Elixir of Lightning Speed -- 60366
 	AddRecipe(60366, 400, 44331, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(60366, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(60366, A.CUSTOM, 18)
+	self:AddRecipeCustom(60366, 18)
 
 	-- Elixir of Mighty Thoughts -- 60367
 	AddRecipe(60367, 395, 44332, Q.COMMON, V.WOTLK, 395, 405, 410, 415)
@@ -1272,7 +1272,7 @@ function addon:InitAlchemy()
 	-- Elixir of Water Walking -- 62410
 	AddRecipe(62410, 400, 8827, Q.COMMON, V.WOTLK, 400, 410, 415, 420)
 	self:AddRecipeFlags(62410, F.ALLIANCE, F.HORDE, F.DISC, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(62410, A.CUSTOM, 18)
+	self:AddRecipeCustom(62410, 18)
 
 	-- Elixir of Minor Accuracy -- 63732
 	AddRecipe(63732, 135, 45621, Q.COMMON, V.WOTLK, 135, 160, 180, 200)
@@ -1502,7 +1502,7 @@ function addon:InitAlchemy()
 	-- Vial of the Sands -- 93328
 	AddRecipe(93328, 525, 65891, Q.EPIC, V.CATA, 525, 525, 530, 535)
 	self: AddRecipeFlags(93328, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(93328, A.CUSTOM, 47)
+	self:AddRecipeCustom(93328, 47)
 
 	-- Transmute: Inferno Ruby -- 80245
 	AddRecipe(80245, 525, 52190, Q.COMMON, V.CATA, 525, 525, 530, 535)

@@ -63,7 +63,7 @@ function addon:InitTailoring()
 	-- Linen Cloak -- 2387
 	AddRecipe(2387, 1, 2570, Q.COMMON, V.ORIG, 1, 35, 47, 60)
 	self:AddRecipeFlags(2387, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
-	self:AddRecipeAcquire(2387, A.CUSTOM, 8)
+	self:AddRecipeCustom(2387, 8)
 
 	-- Red Linen Robe -- 2389
 	AddRecipe(2389, 40, 2572, Q.UNCOMMON, V.ORIG, 40, 65, 82, 100)
@@ -128,7 +128,7 @@ function addon:InitTailoring()
 	-- Bolt of Linen Cloth -- 2963
 	AddRecipe(2963, 1, 2996, Q.COMMON, V.ORIG, 1, 25, 37, 50)
 	self:AddRecipeFlags(2963, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOTH)
-	self:AddRecipeAcquire(2963, A.CUSTOM, 8)
+	self:AddRecipeCustom(2963, 8)
 
 	-- Bolt of Woolen Cloth -- 2964
 	AddRecipe(2964, 75, 2997, Q.COMMON, V.ORIG, 75, 90, 97, 105)
@@ -323,7 +323,7 @@ function addon:InitTailoring()
 	-- Brown Linen Shirt -- 3915
 	AddRecipe(3915, 1, 4344, Q.COMMON, V.ORIG, 1, 35, 47, 60)
 	self:AddRecipeFlags(3915, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeAcquire(3915, A.CUSTOM, 8)
+	self:AddRecipeCustom(3915, 8)
 
 	-- Pearl-clasped Cloak -- 6521
 	AddRecipe(6521, 90, 5542, Q.COMMON, V.ORIG, 90, 115, 132, 150)
@@ -536,7 +536,7 @@ function addon:InitTailoring()
 	-- Simple Linen Pants -- 12044
 	AddRecipe(12044, 1, 10045, Q.COMMON, V.ORIG, 1, 35, 47, 60)
 	self:AddRecipeFlags(12044, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOTH)
-	self:AddRecipeAcquire(12044, A.CUSTOM, 8)
+	self:AddRecipeCustom(12044, 8)
 
 	-- Simple Linen Boots -- 12045
 	AddRecipe(12045, 20, 10046, Q.COMMON, V.ORIG, 20, 50, 67, 85)
@@ -706,9 +706,7 @@ function addon:InitTailoring()
 	-- Shadoweave Mask -- 12086
 	AddRecipe(12086, 245, 10025, Q.UNCOMMON, V.ORIG, 245, 260, 275, 290)
 	self:AddRecipeFlags(12086, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	--self:AddRecipeAcquire(12086, A.CUSTOM, 48)
 	self:AddRecipeCustom(12086, 48)
-	--self:AddRecipeRetired(12086)
 
 	-- Cindercloth Boots -- 12088
 	AddRecipe(12088, 245, 10044, Q.COMMON, V.ORIG, 245, 260, 275, 290)
@@ -866,7 +864,7 @@ function addon:InitTailoring()
 	-- Robe of Winter Night -- 18436
 	AddRecipe(18436, 285, 14136, Q.RARE, V.ORIG, 285, 300, 315, 330)
 	self:AddRecipeFlags(18436, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(18436, A.CUSTOM, 48)
+	self:AddRecipeCustom(18436, 48)
 
 	-- Felcloth Boots -- 18437
 	AddRecipe(18437, 285, 14108, Q.COMMON, V.ORIG, 285, 300, 315, 330)
@@ -1000,12 +998,12 @@ function addon:InitTailoring()
 	-- Green Holiday Shirt -- 21945
 	AddRecipe(21945, 190, 17723, Q.COMMON, V.ORIG, 190, 200, 205, 210)
 	self:AddRecipeFlags(21945, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(21945, A.SEASONAL, 1)
+	self:AddRecipeSeason(21945, 1)
 
 	-- Flarecore Wraps -- 22759
 	AddRecipe(22759, 300, 18263, Q.RARE, V.ORIG, 300, 320, 335, 350)
 	self:AddRecipeFlags(22759, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(22759, A.CUSTOM, 26)
+	self:AddRecipeCustom(22759, 26)
 
 	-- Gordok Ogre Suit -- 22813
 	AddRecipe(22813, 275, 18258, Q.COMMON, V.ORIG, 275, 285, 290, 295)
@@ -1015,27 +1013,27 @@ function addon:InitTailoring()
 	-- Belt of the Archmage -- 22866
 	AddRecipe(22866, 300, 18405, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22866, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(22866, A.CUSTOM, 23)
+	self:AddRecipeCustom(22866, 23)
 
 	-- Felcloth Gloves -- 22867
 	AddRecipe(22867, 300, 18407, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22867, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(22867, A.CUSTOM, 23)
+	self:AddRecipeCustom(22867, 23)
 
 	-- Inferno Gloves -- 22868
 	AddRecipe(22868, 300, 18408, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22868, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(22868, A.CUSTOM, 23)
+	self:AddRecipeCustom(22868, 23)
 
 	-- Mooncloth Gloves -- 22869
 	AddRecipe(22869, 300, 18409, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22869, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(22869, A.CUSTOM, 23)
+	self:AddRecipeCustom(22869, 23)
 
 	-- Cloak of Warding -- 22870
 	AddRecipe(22870, 300, 18413, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(22870, F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
-	self:AddRecipeAcquire(22870, A.CUSTOM, 23)
+	self:AddRecipeCustom(22870, 23)
 
 	-- Mooncloth Robe -- 22902
 	AddRecipe(22902, 300, 18486, Q.COMMON, V.ORIG, 300, 315, 330, 345)
@@ -1075,17 +1073,17 @@ function addon:InitTailoring()
 	-- Bloodvine Vest -- 24091
 	AddRecipe(24091, 300, 19682, Q.COMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(24091, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(24091, A.CUSTOM, 48)
+	self:AddRecipeCustom(24091, 48)
 
 	-- Bloodvine Leggings -- 24092
 	AddRecipe(24092, 300, 19683, Q.COMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(24092, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(24092, A.CUSTOM, 48)
+	self:AddRecipeCustom(24092, 48)
 
 	-- Bloodvine Boots -- 24093
 	AddRecipe(24093, 300, 19684, Q.COMMON, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(24093, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(24093, A.CUSTOM, 48)
+	self:AddRecipeCustom(24093, 48)
 
 	-- Runed Stygian Leggings -- 24901
 	AddRecipe(24901, 300, 20538, Q.RARE, V.ORIG, 300, 315, 330, 345)
@@ -1111,24 +1109,24 @@ function addon:InitTailoring()
 	AddRecipe(26086, 280, 21341, Q.RARE, V.ORIG, 280, 300, 315, 330)
 	self:AddRecipeFlags(26086, F.ALLIANCE, F.HORDE, F.INSTANCE, F.WARLOCK, F.IBOE, F.RBOP)
 	self:AddRecipeMobDrop(26086, 10503)
-	self:AddRecipeAcquire(26086, A.CUSTOM, 30)
+	self:AddRecipeCustom(26086, 30)
 
 	-- Core Felcloth Bag -- 26087
 	AddRecipe(26087, 300, 21342, Q.RARE, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(26087, F.ALLIANCE, F.HORDE, F.RAID, F.WARLOCK, F.IBOE, F.RBOE)
-	self:AddRecipeAcquire(26087, A.CUSTOM, 26)
+	self:AddRecipeCustom(26087, 26)
 
 	-- Festival Dress -- 26403
 	AddRecipe(26403, 250, 21154, Q.UNCOMMON, V.ORIG, 250, 265, 280, 295)
 	self:AddRecipeFlags(26403, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeVendor(26403, 15909)
-	self:AddRecipeAcquire(26403, A.SEASONAL, 2)
+	self:AddRecipeSeason(26403, 2)
 
 	-- Festive Red Pant Suit -- 26407
 	AddRecipe(26407, 250, 21542, Q.UNCOMMON, V.ORIG, 250, 265, 280, 295)
 	self:AddRecipeFlags(26407, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP)
 	self:AddRecipeVendor(26407, 15909)
-	self:AddRecipeAcquire(26407, A.SEASONAL, 2)
+	self:AddRecipeSeason(26407, 2)
 
 	-- Bolt of Netherweave -- 26745
 	AddRecipe(26745, 300, 21840, Q.COMMON, V.TBC, 300, 305, 315, 325)
@@ -1335,22 +1333,22 @@ function addon:InitTailoring()
 	-- Glacial Gloves -- 28205
 	AddRecipe(28205, 300, 22654, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(28205, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(28205, A.CUSTOM, 41)
+	self:AddRecipeCustom(28205, 41)
 
 	-- Glacial Vest -- 28207
 	AddRecipe(28207, 300, 22652, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(28207, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(28207, A.CUSTOM, 41)
+	self:AddRecipeCustom(28207, 41)
 
 	-- Glacial Cloak -- 28208
 	AddRecipe(28208, 300, 22658, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(28208, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.RAID, F.IBOE, F.RBOP, F.CLOAK)
-	self:AddRecipeAcquire(28208, A.CUSTOM, 41)
+	self:AddRecipeCustom(28208, 41)
 
 	-- Glacial Wrists -- 28209
 	AddRecipe(28209, 300, 22655, Q.EPIC, V.ORIG, 300, 315, 330, 345)
 	self:AddRecipeFlags(28209, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(28209, A.CUSTOM, 41)
+	self:AddRecipeCustom(28209, 41)
 
 	-- Gaea's Embrace -- 28210
 	AddRecipe(28210, 300, 22660, Q.COMMON, V.ORIG, 300, 315, 330, 345)
@@ -1500,22 +1498,22 @@ function addon:InitTailoring()
 	-- Belt of Blasting -- 36315
 	AddRecipe(36315, 375, 30038, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(36315, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(36315, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36315, 37, 43)
 
 	-- Belt of the Long Road -- 36316
 	AddRecipe(36316, 375, 30036, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(36316, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(36316, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36316, 37, 43)
 
 	-- Boots of Blasting -- 36317
 	AddRecipe(36317, 375, 30037, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(36317, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(36317, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36317, 37, 43)
 
 	-- Boots of the Long Road -- 36318
 	AddRecipe(36318, 375, 30035, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(36318, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(36318, A.CUSTOM, 37, A.CUSTOM, 43)
+	self:AddRecipeCustom(36318, 37, 43)
 
 	-- Shadowcloth -- 36686
 	AddRecipe(36686, 350, 24272, Q.COMMON, V.TBC, 350, 350, 355, 360)
@@ -1570,54 +1568,54 @@ function addon:InitTailoring()
 	-- Bracers of Nimble Thought -- 41205
 	AddRecipe(41205, 375, 32586, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(41205, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(41205, A.CUSTOM, 34)
+	self:AddRecipeCustom(41205, 34)
 
 	-- Mantle of Nimble Thought -- 41206
 	AddRecipe(41206, 375, 32587, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(41206, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(41206, A.CUSTOM, 27, A.CUSTOM, 34)
+	self:AddRecipeCustom(41206, 27, 34)
 
 	-- Swiftheal Wraps -- 41207
 	AddRecipe(41207, 375, 32584, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(41207, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(41207, A.CUSTOM, 27, A.CUSTOM, 34)
+	self:AddRecipeCustom(41207, 27, 34)
 
 	-- Swiftheal Mantle -- 41208
 	AddRecipe(41208, 375, 32585, Q.EPIC, V.TBC, 375, 385, 390, 395)
 	self:AddRecipeFlags(41208, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(41208, A.CUSTOM, 34)
+	self:AddRecipeCustom(41208, 34)
 
 	-- Green Winter Clothes -- 44950
 	AddRecipe(44950, 250, 34087, Q.UNCOMMON, V.TBC, 250, 250, 250, 250)
 	self:AddRecipeFlags(44950, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeVendor(44950, 13420)
-	self:AddRecipeAcquire(44950, A.SEASONAL, 1)
+	self:AddRecipeSeason(44950, 1)
 
 	-- Red Winter Clothes -- 44958
 	AddRecipe(44958, 250, 34085, Q.UNCOMMON, V.TBC, 250, 250, 250, 250)
 	self:AddRecipeFlags(44958, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.CLOTH)
 	self:AddRecipeVendor(44958, 13433)
-	self:AddRecipeAcquire(44958, A.SEASONAL, 1)
+	self:AddRecipeSeason(44958, 1)
 
 	-- Sunfire Handwraps -- 46128
 	AddRecipe(46128, 365, 34366, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46128, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(46128, A.CUSTOM, 24)
+	self:AddRecipeCustom(46128, 24)
 
 	-- Hands of Eternal Light -- 46129
 	AddRecipe(46129, 365, 34367, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46129, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(46129, A.CUSTOM, 24)
+	self:AddRecipeCustom(46129, 24)
 
 	-- Sunfire Robe -- 46130
 	AddRecipe(46130, 365, 34364, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46130, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(46130, A.CUSTOM, 24)
+	self:AddRecipeCustom(46130, 24)
 
 	-- Robe of Eternal Light -- 46131
 	AddRecipe(46131, 365, 34365, Q.EPIC, V.TBC, 365, 375, 392, 410)
 	self:AddRecipeFlags(46131, F.ALLIANCE, F.HORDE, F.RAID, F.IBOP, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(46131, A.CUSTOM, 24)
+	self:AddRecipeCustom(46131, 24)
 
 	-- Dress Shoes -- 49677
 	AddRecipe(49677, 250, 6836, Q.COMMON, V.TBC, 250, 255, 270, 285)
@@ -1878,13 +1876,13 @@ function addon:InitTailoring()
 	AddRecipe(56016, 420, 41609, Q.COMMON, V.WOTLK, 420, 435, 445, 455)
 	self:AddRecipeFlags(56016, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	self:AddRecipeTrainer(56016, 26914, 28699)
-	self:AddRecipeAcquire(56016, A.CUSTOM, 45)
+	self:AddRecipeCustom(56016, 45)
 
 	-- Deathchill Cloak -- 56017
 	AddRecipe(56017, 420, 41610, Q.COMMON, V.WOTLK, 420, 435, 445, 455)
 	self:AddRecipeFlags(56017, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	self:AddRecipeTrainer(56017, 26914, 28699)
-	self:AddRecipeAcquire(56017, A.CUSTOM, 44)
+	self:AddRecipeCustom(56017, 44)
 
 	-- Hat of Wintry Doom -- 56018
 	AddRecipe(56018, 425, 41984, Q.COMMON, V.WOTLK, 425, 435, 440, 445)
@@ -2034,22 +2032,22 @@ function addon:InitTailoring()
 	-- Sash of Ancient Power -- 63203
 	AddRecipe(63203, 450, 45102, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(63203, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(63203, A.CUSTOM, 39)
+	self:AddRecipeCustom(63203, 39)
 
 	-- Spellslinger's Slippers -- 63204
 	AddRecipe(63204, 450, 45566, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(63204, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(63204, A.CUSTOM, 39)
+	self:AddRecipeCustom(63204, 39)
 
 	-- Cord of the White Dawn -- 63205
 	AddRecipe(63205, 450, 45104, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(63205, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(63205, A.CUSTOM, 39)
+	self:AddRecipeCustom(63205, 39)
 
 	-- Savior's Slippers -- 63206
 	AddRecipe(63206, 450, 45567, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
 	self:AddRecipeFlags(63206, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(63206, A.CUSTOM, 39)
+	self:AddRecipeCustom(63206, 39)
 
 	-- Spidersilk Drape -- 63742
 	AddRecipe(63742, 125, 45626, Q.COMMON, V.WOTLK, 125, 150, 167, 185)
@@ -2400,42 +2398,42 @@ function addon:InitTailoring()
 		-- Royal Moonshroud Robe -- 67064
 		AddRecipe(67064, 450, 47605, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67064, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67064, A.CUSTOM, 42)
+		self:AddRecipeCustom(67064, 42)
 
 		-- Royal Moonshroud Bracers -- 67065
 		AddRecipe(67065, 450, 47587, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67065, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67065,  A.CUSTOM, 42)
+		self:AddRecipeCustom(67065, 42)
 
 		-- Merlin's Robe -- 67066
 		AddRecipe(67066, 450, 47603, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67066, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67066,  A.CUSTOM, 42)
+		self:AddRecipeCustom(67066, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67079
 		AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67079, F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67079,  A.CUSTOM, 42)
+		self:AddRecipeCustom(67079, 42)
 	elseif faction == BFAC["Horde"] then
 		-- Royal Moonshroud Robe -- 67144
 		AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67144, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67144, A.CUSTOM, 42)
+		self:AddRecipeCustom(67144, 42)
 
 		-- Bejeweled Wizard's Bracers -- 67145
 		AddRecipe(67145, 450, 47586, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67145, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67145, A.CUSTOM, 42)
+		self:AddRecipeCustom(67145, 42)
 
 		-- Merlin's Robe -- 67146
 		AddRecipe(67146, 450, 47604, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67146, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67146, A.CUSTOM, 42)
+		self:AddRecipeCustom(67146, 42)
 
 		-- Royal Moonshroud Bracers -- 67147
 		AddRecipe(67147, 450, 47588, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 		self:AddRecipeFlags(67147, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-		self:AddRecipeAcquire(67147, A.CUSTOM, 42)
+		self:AddRecipeCustom(67147, 42)
 	end
 	return num_recipes
 end
