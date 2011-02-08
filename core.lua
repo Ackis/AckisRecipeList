@@ -1117,7 +1117,6 @@ do
 	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
 	-- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
 	-- @return None, array is passed as a reference.
-
 	function addon:AddRecipeAcquire(spell_id, ...)
 
 		local numvars = select('#', ...)	-- Find out how many flags we're adding
@@ -1424,24 +1423,25 @@ do
 	end
 end	-- do block
 
---- Adds an item to a specific database listing (ie: vendor, mob, etc)
--- @name AckisRecipeList:addLookupList
--- @usage AckisRecipeList:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
--- @param DB Database which the entry will be stored
--- @param ID Unique identified for the entry
--- @param name Name of the entry
--- @param location Location of the entry in the world
--- @param coord_x X coordinate of where the entry is found
--- @param coord_y Y coordinate of where the entry is found
--- @param faction Faction identifier for the entry
--- @return None, array is passed as a reference
--- For individual database structures, see Documentation.lua
 do
 	local FACTION_NAMES = {
 		[1]	= BFAC["Neutral"],
 		[2]	= BFAC["Alliance"],
 		[3]	= BFAC["Horde"]
 	}
+
+	--- Adds an item to a specific database listing (ie: vendor, mob, etc)
+	-- @name AckisRecipeList:addLookupList
+	-- @usage AckisRecipeList:addLookupList(DB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+	-- @param DB Database which the entry will be stored
+	-- @param ID Unique identified for the entry
+	-- @param name Name of the entry
+	-- @param location Location of the entry in the world
+	-- @param coord_x X coordinate of where the entry is found
+	-- @param coord_y Y coordinate of where the entry is found
+	-- @param faction Faction identifier for the entry
+	-- @return None, array is passed as a reference
+	-- For individual database structures, see Documentation.lua
 	function addon:addLookupList(DB, ID, name, location, coord_x, coord_y, faction)
 		if DB[ID] then
 			self:Debug("Duplicate lookup: %d - %s.", ID, name)
