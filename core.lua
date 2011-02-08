@@ -1993,6 +1993,12 @@ do
 					[126]	= (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
 					[127]	= (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
 					[128]	= BFAC["The Ashen Verdict"],
+					[129]	= (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
+					[130]	= (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
+					[131]	= BFAC["Guardians of Hyjal"],
+					[132]	= BFAC["Ramkahen"],
+					[133]	= BFAC["The Earthen Ring"],
+					[134]	= BFAC["Therazane"],
 				}
 			end
 			return FILTER_NAMES
