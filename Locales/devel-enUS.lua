@@ -28,7 +28,7 @@ if not L then return end
 L["Profile"]			= true
 
 -------------------------------------------------------------------------------
--- Config Options
+-- Config Options 
 -------------------------------------------------------------------------------
 L["About"]			= true 
 L["Main Options"]		= true
@@ -664,6 +664,7 @@ L["Captured Gnome"] = true
 L["Carolai Anise"] = true
 L["Carter Tiffens"] = true
 L["Caryssia Moonhunter"] = true
+L["Casandra Downs"] = true
 L["Catarina Stanford"] = true
 L["Catherine Leland"] = true
 L["Celie Steelwing"] = true
@@ -1357,6 +1358,7 @@ L["Tunkk"] = true
 L["Twilight Fire Guard"] = true
 L["Ulthir"] = true
 L["Una"] = true
+L["Una Kobuna"] = true
 L["Unchained Doombringer"] = true
 L["Uriku"] = true
 L["Uthok"] = true
