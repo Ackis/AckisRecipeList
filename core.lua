@@ -1111,12 +1111,7 @@ do
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 
-	--- Adds acquire methods to a specific tradeskill.
-	-- @name AckisRecipeList:AddRecipeAcquire
-	-- @usage AckisRecipeList:AddRecipeAcquire(28927, A.REPUTATION, FAC.ALDOR, REP.HONORED, 19321)
-	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
-	-- @param ... A listing of acquire methods.  See [[API/database-documentation]] for a listing of acquire methods and how they work
-	-- @return None, array is passed as a reference.
+	-- Helper function to add all recipe acquire information.  Called via a wrapper function.
 	local function GenericAddRecipeAcquire(spell_id, acquire_type, type_string, unit_list, ...)
 		local num_vars = select('#', ...)
 		local cur_var = 1
@@ -1186,30 +1181,72 @@ do
 		end
 	end
 
+	--- Adds mob drop acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeMobDrop
+	-- @usage AckisRecipeList::AddRecipeMobDrop(28564, 24664)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of monsters that drop that recipe.
+	-- @return None.
 	function addon:AddRecipeMobDrop(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.MOB_DROP, "Mob", private.mob_list, ...)
 	end
 
+	--- Adds trainer acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeTrainer
+	-- @usage AckisRecipeList:AddRecipeTrainer(33732, 18802, 19052, 33674, 27023, 33608, 16588, 27029)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of trainers that teach the recipe.
+	-- @return None.
 	function addon:AddRecipeTrainer(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.TRAINER, "Trainer", private.trainer_list, ...)
 	end
 
+	--- Adds vendor acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeVendor
+	-- @usage AckisRecipeList:AddRecipeVendor(39639, 18821, 18822)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of vendors that sell the recipe.
+	-- @return None.
 	function addon:AddRecipeVendor(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Vendor", private.vendor_list, ...)
 	end
 
+	--- Adds limited supply vendor acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeLimitedVendor
+	-- @usage AckisRecipeList:AddRecipeLimitedVendor(3449, 4878, 1)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of limited supply vendors that sell the recipe followed by the amount they sell.
+	-- @return None.	
 	function addon:AddRecipeLimitedVendor(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Limited Vendor", private.vendor_list, ...)
 	end
 
+	--- Adds world drop acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeWorldDrop
+	-- @usage AckisRecipeList:AddRecipeWorldDrop(3450, "Kalimdor", "Eastern Kingdoms")
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of the zones where the recipe drops from.
+	-- @return None.
 	function addon:AddRecipeWorldDrop(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.WORLD_DROP, nil, nil, ...)
 	end
 
+	--- Adds quest reward acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeQuest
+	-- @usage AckisRecipeList:AddRecipeQuest(66659, 14151)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of quests that reward the recipe.
+	-- @return None.
 	function addon:AddRecipeQuest(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.QUEST, "Quest", private.quest_list, ...)
 	end
 
+	--- Adds achievement reward acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeAchievement
+	-- @usage AckisRecipeList:AddRecipeAchievement(92688, 5024)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of achievments that reward the recipe.
+	-- @return None.
 	function addon:AddRecipeAchievement(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.ACHIEVEMENT, "Achievement", nil, ...)
 	end
@@ -1224,11 +1261,25 @@ do
 	end
 ]]--
 
+	--- Adds vendor acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeVendor
+	-- @usage AckisRecipeList:
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of vendors that sell the recipe.
+	-- @return None.
 	function addon:AddRecipeCustom(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.CUSTOM, "Custom", private.custom_list, ...)
 	end
 
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.
+	--- Adds acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeRepVendor
+	-- @usage AckisRecipeList:AddRecipeRepVendor(28927, FAC.ALDOR, REP.HONORED, 19321)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param faction_id Reputation faction used.
+	-- @param rep_level Level of reputation required.
+	-- @param ... A listing of vendors associated with that faction level.
+	-- @return None.
 	function addon:AddRecipeRepVendor(spell_id, faction_id, rep_level, ...)
 		local num_vars = select('#', ...)
 		local cur_var = 1
