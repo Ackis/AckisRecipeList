@@ -1261,11 +1261,11 @@ do
 	end
 ]]--
 
-	--- Adds vendor acquire methods to a specific tradeskill.
-	-- @name AckisRecipeList:AddRecipeVendor
-	-- @usage AckisRecipeList:
+	--- Adds custom acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeCustom
+	-- @usage AckisRecipeList:AddRecipeCustom(12086, 48)
 	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
-	-- @param ... A listing of vendors that sell the recipe.
+	-- @param ... A listing of custom entries for that recipe.
 	-- @return None.
 	function addon:AddRecipeCustom(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.CUSTOM, "Custom", private.custom_list, ...)
