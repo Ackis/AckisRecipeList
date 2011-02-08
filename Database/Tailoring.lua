@@ -706,7 +706,8 @@ function addon:InitTailoring()
 	-- Shadoweave Mask -- 12086
 	AddRecipe(12086, 245, 10025, Q.UNCOMMON, V.ORIG, 245, 260, 275, 290)
 	self:AddRecipeFlags(12086, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeAcquire(12086, A.CUSTOM, 48)
+	--self:AddRecipeAcquire(12086, A.CUSTOM, 48)
+	self:AddRecipeCustom(12086, 48)
 	--self:AddRecipeRetired(12086)
 
 	-- Cindercloth Boots -- 12088
