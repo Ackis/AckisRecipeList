@@ -18,6 +18,8 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Filters should properly reset after we muck with them during a scan. (Ticket 1161)
 * Don't show rank 1 recipes when you know rank 2 recipes. (Ticket 1147)
 * Scan button will no longer be hidden when you have Broker Profession_Menu installed. (Ticket 1170)
+* Removed references of " /arl filter" from the documentation.
+* Fixed an issue with Cataclysm faction filters.  If only they actually had recipes this time.
 
 == Version 2.1 Release
 
