@@ -1360,7 +1360,11 @@ do
 	end
 
 	function addon:AddRecipeRetired(spell_id, ...)
-		GenericAddRecipeAcquire(spell_id, A.RETIRED, nil, nil, ...)
+		local retired_db = {
+			[1] = "Retired in Wrath",
+			[2] = "Retired in Cata",
+		}
+		GenericAddRecipeAcquire(spell_id, A.RETIRED, "Retired", retired_db, 1)
 	end
 
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.
