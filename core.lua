@@ -1271,6 +1271,16 @@ do
 		GenericAddRecipeAcquire(spell_id, A.CUSTOM, "Custom", private.custom_list, ...)
 	end
 
+	--- Adds seasonal acquire methods to a specific tradeskill.
+	-- @name AckisRecipeList:AddRecipeSeason
+	-- @usage AckisRecipeList:AddRecipeSeason(21143, 1)
+	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
+	-- @param ... A listing of seasonal events where the recipe can be obtained.
+	-- @return None.
+	function addon:AddRecipeSeason(spell_id, ...)
+		GenericAddRecipeAcquire(spell_id, A.SEASONAL, "Seasonal", private.seasonal_list, ...)
+	end
+
 	-- This function can NOT use GenericAddRecipeAcquire() - reputation vendors are more complicated than the other acquire types.
 	--- Adds acquire methods to a specific tradeskill.
 	-- @name AckisRecipeList:AddRecipeRepVendor
