@@ -359,6 +359,7 @@ private.acquire_types = {
 	["WORLD_DROP"]	= 7,
 	["ACHIEVEMENT"]	= 8,
 	["CUSTOM"]	= 9,
+	["RETIRED"]	= 10,
 }
 
 private.acquire_strings = {
@@ -371,6 +372,7 @@ private.acquire_strings = {
 	[7]	= "WORLD_DROP",
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
+	[10]	= "RETIRED",
 }
 
 private.acquire_names = {
@@ -383,6 +385,7 @@ private.acquire_names = {
 	[7]	= L["World Drop"],
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
+	[10]	= L["Retired"],
 }
 
 -------------------------------------------------------------------------------
