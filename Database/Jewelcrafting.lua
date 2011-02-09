@@ -3019,6 +3019,11 @@ function addon:InitJewelcrafting()
 	AddRecipe(96226, 465, 68741, Q.RARE, V.CATA, 465, 500, 507, 515)
 	self:AddRecipeFlags(96226, F.VENDOR, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
 	self:AddRecipeVendor(96226, 50480, 50482)
+	
+	-- Reckless Hessonite -- 73266
+	AddRecipe(73266, 450, 68741, Q.COMMON, V.CATA, 450, 450, 467, 485)
+	self:AddRecipeFlags(73266, F.TRAINER, F.RBOP, F.IBOE, F.ALLIANCE, F.HORDE)
+	self:AddRecipeTrainer(73266, 26997, 26960, 19778, 26982, 19063, 33614, 18751, 19775, 46675, 33590, 26915, 18774, 44582, 28701)	
 
 	return num_recipes
 end
