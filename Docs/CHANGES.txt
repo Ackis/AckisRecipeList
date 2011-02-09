@@ -1,9 +1,12 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== Under development:
+== Version 2.2.1 Release
 
-== Version 2.2 Beta
+==== Recipe Database:
+* Properly detect the new Cooking recipe: Feathered Lure
+
+== Version 2.2.0 Release
 
 ==== Recipe Database:
 * 4.0.6 recipes have been added.
