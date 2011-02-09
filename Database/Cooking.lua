@@ -1058,10 +1058,10 @@ function addon:InitCooking()
 	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
 	self:AddRecipeTrainer(93741, 3399)
 
-	-- Feathered Lure -- 87646
-	AddRecipe(87646, 450, nil, Q.UNCOMMON, V.CATA, 450, 450, 455, 470)
-	self:AddRecipeFlags(87646, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(87646, 49701, 49737)
+	-- Feathered Lure -- 88017
+	AddRecipe(88017, 450, nil, Q.UNCOMMON, V.CATA, 450, 450, 455, 470)
+	self:AddRecipeFlags(88017, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(88017, 49701, 49737)
 	
 	-- Scalding Murglesnout -- 96133
 	AddRecipe(96133, 500, 68687, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
