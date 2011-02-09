@@ -1,6 +1,12 @@
 ==ARL Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== In Development
+
+==== Recipe Database:
+* Updated quests for recipes.
+* Added new JC recipe: Reckless Hessonite
+
 == Version 2.2.1 Release
 
 ==== Recipe Database:
@@ -9,7 +15,16 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Version 2.2.0 Release
 
 ==== Recipe Database:
-* 4.0.6 recipes have been added.
+* 4.0.6 recipes have been added:
+** Cooking - Feathered Lure
+** Cooking - Scalding Murglesnout
+** JC - Vivid Dream Emerald
+** JC - Agile Shadowspirit Diamond
+** JC - Burning Shadowspirit Diamond
+** JC - Reverberating Shadowspirit Diamond
+** Alchemy - Quicksilver, Vibrant and Volatile Alchemist Stones
+** Enchanting - Enchant Bracher: Agility, Major Strength and Mighty Intellect
+** Inscription - Glyph of Dark Succor
 * First aid trainers have been updated.  Most of the recipes are availible from all 33 trainers except a few cataclysm which are only availible from 31 trainers.  I think this is a bug so there may be two erroneous trainers for a few first aid recipes.
 * A bunch of jewelcrafting recipes have had the items they craft linked to them.
 * Added new API functions for custom strings and seasonal recipes.  Updated API documentation.
