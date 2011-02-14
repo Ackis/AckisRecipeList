@@ -7,6 +7,9 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Updated quests for recipes.
 * Added new JC recipe: Reckless Hessonite
 
+==== Backend:
+* Switched to AceLocal 3.1
+
 == Version 2.2.1 Release
 
 ==== Recipe Database:

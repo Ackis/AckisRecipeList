@@ -62,7 +62,7 @@ _G.AckisRecipeList = addon
 _G.ARL = addon
 --@end-alpha@
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.1"):GetLocale(MODNAME)
 local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
@@ -121,7 +121,7 @@ addon.optionsFrame = {}
 local MissingLibraries
 do
 	local REQUIRED_LIBS = {
-		"AceLocale-3.0",
+		"AceLocale-3.1",
 		"LibBabble-Boss-3.0",
 		"LibBabble-Faction-3.0",
 		"LibBabble-Zone-3.0",
