@@ -22,7 +22,7 @@ This source code is released under All Rights Reserved.
 -------------------------------------------------------------------------------
 local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.1"):GetLocale(MODNAME)
 
 local private	= select(2, ...)
 
