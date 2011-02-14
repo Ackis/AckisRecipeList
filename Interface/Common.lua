@@ -12,7 +12,7 @@ local string = _G.string
 local LibStub = LibStub
 
 local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.1"):GetAddon(MODNAME)
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -- Set up the private intra-file namespace.
 local private	= select(2, ...)
