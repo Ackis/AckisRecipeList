@@ -18,7 +18,7 @@ local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.1"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
 
 -- Set up the private intra-file namespace.
