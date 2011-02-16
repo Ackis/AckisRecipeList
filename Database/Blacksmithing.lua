@@ -44,7 +44,7 @@ local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optim
 	addon:AddRecipe(spell_id, skill_level, item_id, quality, 2018, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
-function addon:InitBlacksmithing()
+function addon:InitBlacksmithing() 
 	if initialized then
 		return num_recipes
 	end
