@@ -2981,6 +2981,9 @@ function addon:InitBlacksmithing()
 		AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 		self:AddRecipeFlags(67135, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 		self:AddRecipeCustom(67135, 42)
-	end
+
+	end --endif
+
 	return num_recipes
+
 end
