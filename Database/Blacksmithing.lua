@@ -1647,9 +1647,8 @@ function addon:InitBlacksmithing()
 
 	-- Black Planar Edge -- 34542
 	AddRecipe(34542, 375, 28432, Q.COMMON, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(34542, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
-	self:AddRecipeTrainer(34542, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeCustom(34542, 46)
+	self:AddRecipeFlags(34542, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.AXE)
+	self:AddRecipeCustom(34542, 48)
 
 	-- Lunar Crescent -- 34543
 	AddRecipe(34543, 350, 28434, Q.COMMON, V.TBC, 350, 360, 370, 380)
@@ -1809,9 +1808,8 @@ function addon:InitBlacksmithing()
 
 	-- Blazefury -- 36258
 	AddRecipe(36258, 375, 28427, Q.COMMON, V.TBC, 375, 385, 395, 405)
-	self:AddRecipeFlags(36258, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
-	self:AddRecipeTrainer(36258, 7232, 29505, 11146, 7231, 11178, 20124)
-	self:AddRecipeCustom(36258, 46)
+	self:AddRecipeFlags(36258, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOP, F.RBOP, F.DPS, F.ONE_HAND, F.SWORD)
+	self:AddRecipeCustom(36258, 48)
 
 	-- Lionheart Executioner -- 36259
 	AddRecipe(36259, 375, 28430, Q.COMMON, V.TBC, 375, 385, 395, 405)
