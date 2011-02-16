@@ -25,7 +25,7 @@ These translations are released under the Public Domain.
 ************************************************************************
 ]]--
 
-local L = LibStub("AceLocale-3.1"):NewLocale("Ackis Recipe List", "frFR", false)
+local L = LibStub("AceLocale-3.0"):NewLocale("Ackis Recipe List", "frFR", false)
 
 if not L then return end
 

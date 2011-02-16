@@ -58,7 +58,7 @@ local GetSpellInfo = GetSpellInfo
 local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L		= LibStub("AceLocale-3.1"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Set up the private intra-file namespace.
 local private	= select(2, ...)
