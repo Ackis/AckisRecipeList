@@ -1805,8 +1805,8 @@ function addon:InitLeatherworking()
 
 	-- Quiver of a Thousand Feathers -- 44359
 	AddRecipe(44359, 350, 34105, Q.COMMON, V.TBC, 350, 360, 370, 380)
-	self:AddRecipeFlags(44359, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LOWERCITY)
-	self:AddRecipeRepVendor(44359, FAC.LOWERCITY, REP.REVERED, 21655)
+	self:AddRecipeFlags(44359, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.LOWERCITY)
+	self:AddRecipeCustom(44359, 48)
 
 	-- Glove Reinforcements -- 44770
 	AddRecipe(44770, 350, 34207, Q.COMMON, V.TBC, 350, 355, 360, 365)
