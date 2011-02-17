@@ -4,7 +4,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == Under Development
 
 ==== Backend:
-* Reverted switch to AceLocal 3.1
+* Reverted switch to AceLocale 3.1
 
 == Version 2.2.2 Release
 
@@ -13,7 +13,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 * Added new JC recipe: Reckless Hessonite
 
 ==== Backend:
-* Switched to AceLocal 3.1
+* Switched to AceLocale 3.1
 
 == Version 2.2.1 Release
 
@@ -31,7 +31,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 ** JC - Burning Shadowspirit Diamond
 ** JC - Reverberating Shadowspirit Diamond
 ** Alchemy - Quicksilver, Vibrant and Volatile Alchemist Stones
-** Enchanting - Enchant Bracher: Agility, Major Strength and Mighty Intellect
+** Enchanting - Enchant Bracer: Agility, Major Strength and Mighty Intellect
 ** Inscription - Glyph of Dark Succor
 * First aid trainers have been updated.  Most of the recipes are availible from all 33 trainers except a few cataclysm which are only availible from 31 trainers.  I think this is a bug so there may be two erroneous trainers for a few first aid recipes.
 * A bunch of jewelcrafting recipes have had the items they craft linked to them.
