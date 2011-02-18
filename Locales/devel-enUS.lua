@@ -900,7 +900,6 @@ L["Harklan Moongrove"] = true
 L["Harlown Darkweave"] = true
 L["Harn Longcast"] = true
 L["Haughty Modiste"] = true
-L["Heldan Galesong"] = true
 L["Helenia Olden"] = true
 L["Hgarth"] = true
 L["High Admiral \"Shelly\" Jorrik"] = true

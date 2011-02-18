@@ -232,7 +232,7 @@ function addon:InitCooking()
 	-- Clam Chowder -- 6501
 	AddRecipe(6501, 90, 5526, Q.COMMON, V.ORIG, 90, 130, 150, 170)
 	self:AddRecipeFlags(6501, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(6501, 4305, 4307)
+	self:AddRecipeVendor(6501, 4305)
 
 	-- Giant Clam Scorcho -- 7213
 	AddRecipe(7213, 175, 6038, Q.COMMON, V.ORIG, 175, 215, 235, 255)
@@ -267,12 +267,12 @@ function addon:InitCooking()
 	-- Rainbow Fin Albacore -- 7827
 	AddRecipe(7827, 50, 5095, Q.COMMON, V.ORIG, 50, 90, 110, 130)
 	self:AddRecipeFlags(7827, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7827, 4305, 4307, 5748, 5494, 3333, 4553, 3178, 10118, 3497, 5942)
+	self:AddRecipeVendor(7827, 4305, 5748, 5494, 3333, 4553, 3178, 10118, 3497, 5942)
 
 	-- Rockscale Cod -- 7828
 	AddRecipe(7828, 175, 4594, Q.COMMON, V.ORIG, 175, 190, 210, 230)
 	self:AddRecipeFlags(7828, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7828, 4307, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
+	self:AddRecipeVendor(7828, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
 
 	-- Savory Deviate Delight -- 8238
 	AddRecipe(8238, 85, 6657, Q.UNCOMMON, V.ORIG, 85, 125, 145, 165)
@@ -415,7 +415,7 @@ function addon:InitCooking()
 	-- Mithril Head Trout -- 20916
 	AddRecipe(20916, 175, 8364, Q.COMMON, V.ORIG, 175, 215, 235, 255)
 	self:AddRecipeFlags(20916, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(20916, 4307, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
+	self:AddRecipeVendor(20916, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
 
 	-- Gingerbread Cookie -- 21143
 	AddRecipe(21143, 1, 17197, Q.COMMON, V.ORIG, 1, 45, 65, 85)
