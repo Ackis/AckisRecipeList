@@ -338,8 +338,7 @@ function addon:InitTailoring()
 
 	-- Red Woolen Bag -- 6688
 	AddRecipe(6688, 115, 5763, Q.COMMON, V.ORIG, 115, 140, 157, 175)
-	self:AddRecipeFlags(6688, F.ALLIANCE, F.HORDE, F.VENDOR, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeMobDrop(6688, 450, 2264)
+	self:AddRecipeFlags(6688, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
 	self:AddRecipeLimitedVendor(6688, 777, 1, 1454, 1, 1474, 1, 3005, 1, 3364, 1, 3485, 1, 3537, 1, 4189, 2, 4577, 1)
 
 	-- Lesser Wizard's Robe -- 6690
@@ -350,7 +349,7 @@ function addon:InitTailoring()
 	-- Robes of Arcana -- 6692
 	AddRecipe(6692, 150, 5770, Q.UNCOMMON, V.ORIG, 150, 170, 185, 200)
 	self:AddRecipeFlags(6692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
-	self:AddRecipeMobDrop(6692, 10760, 910, 2337)
+	self:AddRecipeMobDrop(6692, 10760)
 
 	-- Green Silk Pack -- 6693
 	AddRecipe(6693, 175, 5764, Q.UNCOMMON, V.ORIG, 175, 195, 210, 225)

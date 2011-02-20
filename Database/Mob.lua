@@ -41,7 +41,6 @@ function addon:InitMob(DB)
 	AddMob(3919,	L["Withered Ancient"],			BZ["Ashenvale"], 58.5, 36.1)
 
 	-- Azshara
-	AddMob(6138,	L["Arkkoran Oracle"],			BZ["Azshara"], 78.0, 41.8)
 	AddMob(6144,	L["Son of Arkkoroc"],			BZ["Azshara"], 65.5, 54.4)
 	AddMob(6146,	L["Cliff Breaker"],			BZ["Azshara"], 66.0, 13.2)
 	AddMob(6201,	L["Legashi Rogue"],			BZ["Azshara"], 50.1, 19.6)
@@ -68,9 +67,6 @@ function addon:InitMob(DB)
 	AddMob(7037,	L["Thaurissan Firewalker"],		BZ["Burning Steppes"], 61.1, 42.0)
 	AddMob(10119,	L["Volchan"],				BZ["Burning Steppes"], 73.0, 49.3)
 
-	-- Darkshore
-	AddMob(2337,	L["Dark Strand Voidcaller"],		BZ["Darkshore"], 56.2, 26.0)
-
 	-- Deadwind Pass
 	AddMob(7372,	L["Deadwind Warlock"],			BZ["Deadwind Pass"], 59.8, 74.4)
 
@@ -79,9 +75,6 @@ function addon:InitMob(DB)
 	AddMob(26336,	L["Indu'le Mystic"],			BZ["Dragonblight"], 40.2, 65.5)
 	AddMob(26344,	L["Indu'le Warrior"],			BZ["Dragonblight"], 40.2, 65.5)
 	AddMob(27333,	L["Onslaught Mason"],			BZ["Dragonblight"], 85.8, 36.0)
-
-	-- Duskwood
-	AddMob(910,	L["Defias Enchanter"],			BZ["Duskwood"], 49.5, 75.6)
 
 	-- Dustwallow Marsh
 	AddMob(4364,	L["Strashaz Warrior"],			BZ["Dustwallow Marsh"], 76.5, 22.3)
@@ -110,7 +103,6 @@ function addon:InitMob(DB)
 
 	-- Hillsbrad Foothills
 	AddMob(2242,	L["Syndicate Spy"],			BZ["Hillsbrad Foothills"], 56.0, 24.2)
-	AddMob(2264,	L["Hillsbrad Tailor"],			BZ["Hillsbrad Foothills"], 36.6, 44.4)
 	AddMob(2374,	L["Torn Fin Muckdweller"],		BZ["Hillsbrad Foothills"], 31.5, 72.1)
 	AddMob(2375,	L["Torn Fin Coastrunner"],		BZ["Hillsbrad Foothills"], 25.1, 70.5)
 	AddMob(2376,	L["Torn Fin Oracle"],			BZ["Hillsbrad Foothills"], 42.0, 68.0)
@@ -262,7 +254,6 @@ function addon:InitMob(DB)
 	AddMob(4494,	L["Scarlet Spellbinder"],		BZ["Western Plaguelands"], 52.7, 38.4)
 
 	-- Westfall
-	AddMob(450,	L["Defias Renegade Mage"],		BZ["Westfall"], 53.0, 78.8)
 	AddMob(590,	L["Defias Looter"],			BZ["Westfall"], 37.5, 58.4)
 
 	-- Wetlands

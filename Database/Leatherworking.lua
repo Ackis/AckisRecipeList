@@ -807,8 +807,8 @@ function addon:InitLeatherworking()
 
 	-- Stormshroud Armor -- 19079
 	AddRecipe(19079, 285, 15056, Q.RARE, V.ORIG, 285, 305, 315, 325)
-	self:AddRecipeFlags(19079, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
-	self:AddRecipeMobDrop(19079, 6138)
+	self:AddRecipeFlags(19079, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
+	self:AddRecipeCustom(19079, 48)
 
 	-- Warbear Woolies -- 19080
 	AddRecipe(19080, 285, 15065, Q.COMMON, V.ORIG, 285, 305, 315, 325)
