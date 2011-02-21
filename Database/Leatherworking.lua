@@ -682,7 +682,7 @@ function addon:InitLeatherworking()
 	-- Heavy Scorpid Vest -- 19051
 	AddRecipe(19051, 265, 15076, Q.UNCOMMON, V.ORIG, 265, 285, 295, 305)
 	self:AddRecipeFlags(19051, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.MAIL)
-	self:AddRecipeMobDrop(19051, 5981, 6005)
+	self:AddRecipeMobDrop(19051, 6005)
 
 	-- Wicked Leather Bracers -- 19052
 	AddRecipe(19052, 265, 15084, Q.COMMON, V.ORIG, 265, 285, 295, 305)
@@ -857,13 +857,13 @@ function addon:InitLeatherworking()
 
 	-- Blue Dragonscale Shoulders -- 19089
 	AddRecipe(19089, 295, 15049, Q.RARE, V.ORIG, 295, 315, 325, 335)
-	self:AddRecipeFlags(19089, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
-	self:AddRecipeMobDrop(19089, 6146)
+	self:AddRecipeFlags(19089, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.MAIL)
+	self:AddRecipeCustom(19089, 48)
 
 	-- Stormshroud Shoulders -- 19090
 	AddRecipe(19090, 295, 15058, Q.RARE, V.ORIG, 295, 315, 325, 335)
-	self:AddRecipeFlags(19090, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
-	self:AddRecipeMobDrop(19090, 6144)
+	self:AddRecipeFlags(19090, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.TANK, F.LEATHER)
+	self:AddRecipeCustom(19090, 48)
 
 	-- Runic Leather Pants -- 19091
 	AddRecipe(19091, 300, 15095, Q.COMMON, V.ORIG, 300, 320, 330, 340)

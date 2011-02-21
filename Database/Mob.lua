@@ -40,11 +40,6 @@ function addon:InitMob(DB)
 	AddMob(3834,	L["Crazed Ancient"],			BZ["Ashenvale"], 59.4, 43.0)
 	AddMob(3919,	L["Withered Ancient"],			BZ["Ashenvale"], 58.5, 36.1)
 
-	-- Azshara
-	AddMob(6144,	L["Son of Arkkoroc"],			BZ["Azshara"], 65.5, 54.4)
-	AddMob(6146,	L["Cliff Breaker"],			BZ["Azshara"], 66.0, 13.2)
-	AddMob(6201,	L["Legashi Rogue"],			BZ["Azshara"], 50.1, 19.6)
-
 	-- Blade's Edge Mountains
 	AddMob(16952,	L["Anger Guard"],			BZ["Blade's Edge Mountains"], 72.0, 40.5)
 	AddMob(19952,	L["Bloodmaul Geomancer"],		BZ["Blade's Edge Mountains"], 45.0, 68.5)
@@ -56,7 +51,6 @@ function addon:InitMob(DB)
 	AddMob(23386,	L["Gan'arg Analyzer"],			BZ["Blade's Edge Mountains"], 33.0, 52.5)
 
 	-- Blasted Lands
-	AddMob(5981,	L["Portal Seeker"],			BZ["Blasted Lands"], 51.1, 34.0)
 	AddMob(6005,	L["Shadowsworn Thug"],			BZ["Blasted Lands"], 63.8, 32.0)
 
 	-- Burning Steppes
@@ -90,7 +84,6 @@ function addon:InitMob(DB)
 	AddMob(9451,	L["Scarlet Archmage"],			BZ["Eastern Plaguelands"], 81.5, 75.4)
 
 	-- Felwood
-	AddMob(7106,	L["Jadefire Rogue"],			BZ["Felwood"], 37.5, 66.5)
 	AddMob(7158,	L["Deadwood Shaman"],			BZ["Felwood"], 62.5, 10.3)
 	AddMob(7441,	L["Winterfall Totemic"],		BZ["Felwood"], 41.5, 42.7)
 
@@ -108,7 +101,6 @@ function addon:InitMob(DB)
 	AddMob(2376,	L["Torn Fin Oracle"],			BZ["Hillsbrad Foothills"], 42.0, 68.0)
 	AddMob(2377,	L["Torn Fin Tidehunter"],		BZ["Hillsbrad Foothills"], 39.0, 69.0)
 	AddMob(14276,	L["Scargil"],				BZ["Hillsbrad Foothills"], 26.6, 71.2)
-
 
 	-- Icecrown
 	AddMob(30921,	L["Skeletal Runesmith"],		BZ["Icecrown"], 60.0, 73.1)

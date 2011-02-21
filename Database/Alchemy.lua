@@ -488,8 +488,8 @@ function addon:InitAlchemy()
 
 	-- Elixir of the Mongoose -- 17571
 	AddRecipe(17571, 280, 13452, Q.UNCOMMON, V.ORIG, 280, 295, 315, 335)
-	self:AddRecipeFlags(17571, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeMobDrop(17571, 6201, 7106)
+	self:AddRecipeFlags(17571, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeCustom(17571, 48)
 
 	-- Purification Potion -- 17572
 	AddRecipe(17572, 285, 13462, Q.COMMON, V.ORIG, 285, 300, 320, 340)
