@@ -626,7 +626,6 @@ L["Bombus Finespindle"] = true
 L["Bonechewer Backbreaker"] = true
 L["Booker Kells"] = true
 L["Borgosh Corebender"] = true
-L["Borgus Steelhand"] = true
 L["Borto"] = true
 L["Borus Ironbender"] = true
 L["Borya"] = true

@@ -522,8 +522,8 @@ function addon:InitBlacksmithing()
 
 	-- Truesilver Gauntlets -- 9954
 	AddRecipe(9954, 225, 7938, Q.COMMON, V.ORIG, 225, 245, 255, 265)
-	self:AddRecipeFlags(9954, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.PLATE)
-	self:AddRecipeTrainer(9954, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeFlags(9954, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.DPS, F.PLATE)
+	self:AddRecipeCustom(9954, 48)
 
 	-- Orcish War Leggings -- 9957
 	AddRecipe(9957, 250, 7929, Q.COMMON, V.ORIG, 250, 250, 260, 270)
@@ -567,8 +567,8 @@ function addon:InitBlacksmithing()
 
 	-- Truesilver Breastplate -- 9974
 	AddRecipe(9974, 245, 7939, Q.COMMON, V.ORIG, 245, 265, 275, 285)
-	self:AddRecipeFlags(9974, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.PLATE)
-	self:AddRecipeTrainer(9974, 11177, 29506, 20125, 7230, 5164)
+	self:AddRecipeFlags(9974, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.PLATE)
+	self:AddRecipeCustom(9974, 48)
 
 	-- Ornate Mithril Boots -- 9979
 	AddRecipe(9979, 265, 7936, Q.UNCOMMON, V.ORIG, 265, 265, 275, 285)
@@ -622,8 +622,8 @@ function addon:InitBlacksmithing()
 
 	-- The Shatterer -- 10003
 	AddRecipe(10003, 235, 7954, Q.COMMON, V.ORIG, 235, 260, 272, 285)
-	self:AddRecipeFlags(10003, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
-	self:AddRecipeTrainer(10003, 7232, 29505, 11146, 11178, 20124)
+	self:AddRecipeFlags(10003, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.MACE)
+	self:AddRecipeCustom(10003, 48)
 
 	-- Dazzling Mithril Rapier -- 10005
 	AddRecipe(10005, 240, 7944, Q.UNCOMMON, V.ORIG, 240, 265, 277, 290)
@@ -632,8 +632,8 @@ function addon:InitBlacksmithing()
 
 	-- Phantom Blade -- 10007
 	AddRecipe(10007, 245, 7961, Q.COMMON, V.ORIG, 245, 270, 282, 295)
-	self:AddRecipeFlags(10007, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
-	self:AddRecipeTrainer(10007, 7232, 29505, 11146, 11178, 20124)
+	self:AddRecipeFlags(10007, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.ONE_HAND, F.SWORD)
+	self:AddRecipeCustom(10007, 48)
 
 	-- Runed Mithril Hammer -- 10009
 	AddRecipe(10009, 245, 7946, Q.RARE, V.ORIG, 245, 270, 282, 295)
@@ -642,8 +642,8 @@ function addon:InitBlacksmithing()
 
 	-- Blight -- 10011
 	AddRecipe(10011, 250, 7959, Q.COMMON, V.ORIG, 250, 275, 287, 300)
-	self:AddRecipeFlags(10011, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.POLEARM)
-	self:AddRecipeTrainer(10011, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeFlags(10011, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.POLEARM)
+	self:AddRecipeCustom(10011, 48)
 
 	-- Ebon Shiv -- 10013
 	AddRecipe(10013, 255, 7947, Q.COMMON, V.ORIG, 255, 280, 292, 305)
@@ -652,8 +652,8 @@ function addon:InitBlacksmithing()
 
 	-- Truesilver Champion -- 10015
 	AddRecipe(10015, 260, 7960, Q.COMMON, V.ORIG, 260, 285, 297, 310)
-	self:AddRecipeFlags(10015, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
-	self:AddRecipeTrainer(10015, 7232, 29505, 11146, 7231, 11178, 20124)
+	self:AddRecipeFlags(10015, F.ALLIANCE, F.HORDE, F.TRAINER, F.RETIRED, F.IBOE, F.RBOP, F.TWO_HAND, F.SWORD)
+	self:AddRecipeCustom(10015, 48)
 
 	-- Inlaid Mithril Cylinder -- 11454
 	AddRecipe(11454, 200, 9060, Q.COMMON, V.ORIG, 200, 225, 237, 250)

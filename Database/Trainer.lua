@@ -136,7 +136,6 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 6299, L["Delfrum Flintbeard"], BZ["Darkshore"], 38.2, 41.0, 1)
 	self:addLookupList(DB, 7230, L["Shayis Steelfury"], BZ["Orgrimmar"], 80.3, 23.2, 2)
 	self:addLookupList(DB, 7231, L["Kelgruk Bloodaxe"], BZ["Orgrimmar"], 81.9, 18.3, 2)
-	self:addLookupList(DB, 7232, L["Borgus Steelhand"], BZ["Stormwind City"], 59.8, 34.8, 1)
 	self:addLookupList(DB, 7406, L["Oglethorpe Obnoticus"], BZ["The Cape of Stranglethorn"], 43.0, 72.1, 0)   -- UPDATED
 	self:addLookupList(DB, 7866, L["Peter Galen"], BZ["Azshara"], 37.5, 65.5, 1)
 	self:addLookupList(DB, 7867, L["Thorkaf Dragoneye"], BZ["Badlands"], 62.6, 57.6, 2)
