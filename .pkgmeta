@@ -20,7 +20,7 @@ optional-dependencies:
 ignore:
  - Docs
  - Tools
- - Locales/testenUS.lua
+ - Locales/devel-enUS.lua
 
 tools-used:
  - data-tools

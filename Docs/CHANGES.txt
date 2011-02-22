@@ -5,6 +5,7 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 ==== Backend:
 * Reverted switch to AceLocale 3.1
+* Ignore devel-enUS.lua for packages versions.  It's not needed.
 
 == Version 2.2.2 Release
 
