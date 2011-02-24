@@ -94,7 +94,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 4159, L["Me'lynn"], BZ["Darnassus"], 61.7, 23.0, 1)
 	self:addLookupList(DB, 4160, L["Ainethil"], BZ["Darnassus"], 55.0, 23.8, 1)
 	self:addLookupList(DB, 4193, L["Grondal Moonbreeze"], BZ["Darkshore"], 38.2, 40.5, 1)
-	self:addLookupList(DB, 4210, L["Alegorn"], BZ["Darnassus"], 49.2, 21.2, 1)
+	self:addLookupList(DB, 4210, L["Alegorn"], BZ["Darnassus"], 50.0, 36.6, 1) -- UPDATED
 	self:addLookupList(DB, 4211, L["Dannelor"], BZ["Darnassus"], 51.7, 12.6, 1)
 	self:addLookupList(DB, 4212, L["Telonis"], BZ["Darnassus"], 64.5, 21.3, 1)
 	self:addLookupList(DB, 4213, L["Taladan"], BZ["Darnassus"], 58.6, 13.2, 1)
