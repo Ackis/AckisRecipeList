@@ -17,8 +17,9 @@
 local _G = getfenv(0)
 
 local table = _G.table
-
 local string = _G.string
+
+local pairs, select = _G.pairs, _G.select
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
