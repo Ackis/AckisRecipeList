@@ -43,7 +43,6 @@ local SF		= private.recipe_state_flags
 local COMMON1		= private.common_flags_word1
 
 local A			= private.acquire_types
-local A_MAX		= 9
 
 local FACTION_NEUTRAL	= BFAC["Neutral"]
 
@@ -1280,6 +1279,7 @@ function private.InitializeListFrame()
 
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
+		local num_acquire_types = #private.acquire_strings
 
 		for id_num, info in pairs(acquire_data) do
 			local func
@@ -1312,7 +1312,7 @@ function private.InitializeListFrame()
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
-			elseif acquire_type > A_MAX then
+			elseif acquire_type > num_acquire_types then
 				local t = AcquireTable()
 
 				t.text = "Unhandled Acquire Case - Type: " .. acquire_type
