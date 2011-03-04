@@ -496,7 +496,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			continent = info.continent
 			x = info.x
 			y = info.y
-			name = name .. " (" .. location .. ")"
+			name = ("%s (%s)"):format(name, location)
 		else
 			self:Debug("No continent/zone map match for ID %d. Location: %s.", spell_id, location)
 		end
