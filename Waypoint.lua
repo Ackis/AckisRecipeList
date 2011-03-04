@@ -529,7 +529,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 					_G.TomTom:ChangeWaypointIcon(uid, minimap, worldmap, icon_tex)
 				end
 			elseif _G.Cartographer_Waypoints then
-				local pt = _G.NotePoint:new(zone, x/100, y/100, desc)
+				local pt = _G.NotePoint:new(zone, x/100, y/100, name)
 				_G.Cartographer_Waypoints:AddWaypoint(pt)
 				table.insert(iconlist, pt.WaypointID)
 			end
