@@ -68,10 +68,10 @@ local function LoadZones(continent, zone, ...)
 	end
 end
 
-LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, GetMapZones(1))
-LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, GetMapZones(2))
-LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, GetMapZones(3))
-LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, GetMapZones(4))
+LoadZones(KALIMDOR_NAMES, KALIMDOR_IDNUMS, _G.GetMapZones(1))
+LoadZones(EASTERN_KINGDOMS_NAMES, EASTERN_KINGDOMS_IDNUMS, _G.GetMapZones(2))
+LoadZones(OUTLAND_NAMES, OUTLAND_IDNUMS, _G.GetMapZones(3))
+LoadZones(NORTHREND_NAMES, NORTHREND_IDNUMS, _G.GetMapZones(4))
 
 local INSTANCE_LOCATIONS = {
 	[BZ["Ahn'kahet: The Old Kingdom"]] = {
@@ -465,7 +465,7 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		local location = entry.location
 		local continent, zone
 		local recipe = recipe_list[spell_id]
-		local _, _, _, quality_color = GetItemQualityColor(recipe.quality)
+		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
 		local acquire_str = string.gsub(private.acquire_strings[entry.waypoint_type]:lower(), "_", "")
 		local color_code = private.category_colors[acquire_str] or "ffffff"
 
