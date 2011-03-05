@@ -344,8 +344,6 @@ function private.InitializeFilterPanel()
 
 	FilterPanel:SetScript("OnShow", UpdateFilterMarks)
 
-	FilterPanel.value_map = {}
-
 	function FilterPanel:CreateSubMenu(name)
 		local submenu = CreateFrame("Frame", nil, self)
 
