@@ -738,13 +738,27 @@ function private.InitializeFilterPanel()
 	local Tol_Barad = isAlliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
 	local Wildhammer_Dragonmaw = isAlliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
 
-	-------------------------------------------------------------------------------
 	-- Used for the tooltip of every reputation checkbox.
-	-------------------------------------------------------------------------------
 	local function ReputationDesc(text)
 		return string.format(L["SPECIFIC_REP_DESC"], text)
 	end
 
+	-- Toggle the SavedVariables and CheckButtons for the given expansion frame.
+	local function ToggleExpansionCheckBoxes(handler, button)
+		local filterdb = addon.db.profile.filters.rep
+		local check_value = (button == "LeftButton") and true or false
+
+		for reputation in pairs(handler.buttons) do
+			local check_button = handler.frame[reputation]
+
+			if check_button:IsEnabled() then
+				filterdb[reputation] = check_value
+				check_button:SetChecked(check_value)
+			end
+		end
+		MainPanel:UpdateTitle()
+		MainPanel.list_frame:Update(nil, false)
+	end
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.rep.expansion0, and set its scripts.
 	-------------------------------------------------------------------------------
@@ -774,29 +788,13 @@ function private.InitializeFilterPanel()
 
 		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -4)
-
 		expansion0_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		expansion0_toggle:SetScript("OnClick",
-					    function(self, button)
-						    local filterdb = addon.db.profile.filters.rep
 
-						    if button == "LeftButton" then
-							    for reputation in pairs(expansion0_buttons) do
-								    filterdb[reputation] = true
-							    end
-						    elseif button == "RightButton" then
-							    for reputation in pairs(expansion0_buttons) do
-								    filterdb[reputation] = false
-							    end
-						    end
+		expansion0_toggle.buttons = expansion0_buttons
+		expansion0_toggle.frame = expansion0_frame
 
-						    for reputation in pairs(expansion0_buttons) do
-							    expansion0_frame[reputation]:SetChecked(filterdb[reputation])
-						    end
-						    MainPanel:UpdateTitle()
-						    MainPanel.list_frame:Update(nil, false)
-					    end)
+		expansion0_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -837,29 +835,13 @@ function private.InitializeFilterPanel()
 
 		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -4)
-
 		expansion1_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		expansion1_toggle:SetScript("OnClick",
-					    function(self,button)
-						    local filterdb = addon.db.profile.filters.rep
 
-						    if button == "LeftButton" then
-							    for reputation in pairs(expansion1_buttons) do
-								    filterdb[reputation] = true
-							    end
-						    elseif button == "RightButton" then
-							    for reputation in pairs(expansion1_buttons) do
-								    filterdb[reputation] = false
-							    end
-						    end
+		expansion1_toggle.buttons = expansion1_buttons
+		expansion1_toggle.frame = expansion1_frame
 
-						    for reputation in pairs(expansion1_buttons) do
-							    expansion1_frame[reputation]:SetChecked(filterdb[reputation])
-						    end
-						    MainPanel:UpdateTitle()
-						    MainPanel.list_frame:Update(nil, false)
-					    end)
+		expansion1_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -910,29 +892,13 @@ function private.InitializeFilterPanel()
 
 		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -4)
-
 		expansion2_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		expansion2_toggle:SetScript("OnClick",
-					   function(self,button)
-						    local filterdb = addon.db.profile.filters.rep
 
-						    if button == "LeftButton" then
-							    for reputation in pairs(expansion2_buttons) do
-								    filterdb[reputation] = true
-							    end
-						    elseif button == "RightButton" then
-							    for reputation in pairs(expansion2_buttons) do
-								    filterdb[reputation] = false
-							    end
-						    end
+		expansion2_toggle.buttons = expansion2_buttons
+		expansion2_toggle.frame = expansion2_frame
 
-						    for reputation in pairs(expansion2_buttons) do
-							    expansion2_frame[reputation]:SetChecked(filterdb[reputation])
-						    end
-						    MainPanel:UpdateTitle()
-						    MainPanel.list_frame:Update(nil, false)
-					   end)
+		expansion2_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -977,29 +943,13 @@ function private.InitializeFilterPanel()
 
 		local expansion3_toggle = GenericCreateButton(nil, expansion3_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -4)
-
 		expansion3_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		expansion3_toggle:SetScript("OnClick",
-					   function(self,button)
-						    local filterdb = addon.db.profile.filters.rep
 
-						    if button == "LeftButton" then
-							    for reputation in pairs(expansion3_buttons) do
-								    filterdb[reputation] = true
-							    end
-						    elseif button == "RightButton" then
-							    for reputation in pairs(expansion3_buttons) do
-								    filterdb[reputation] = false
-							    end
-						    end
+		expansion3_toggle.buttons = expansion3_buttons
+		expansion3_toggle.frame = expansion3_frame
 
-						    for reputation in pairs(expansion3_buttons) do
-							    expansion3_frame[reputation]:SetChecked(filterdb[reputation])
-						    end
-						    MainPanel:UpdateTitle()
-						    MainPanel.list_frame:Update(nil, false)
-					   end)
+		expansion3_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
