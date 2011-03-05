@@ -12,7 +12,7 @@ local pairs = _G.pairs
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local LibStub = _G.LibStub
 
 local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
@@ -22,7 +22,7 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip	= LibStub("LibQTip-1.0")
 
 -- Set up the private intra-file namespace.
-local private	= select(2, ...)
+local private	= _G.select(2, ...)
 
 local Player	= private.Player
 
@@ -79,7 +79,7 @@ do
 		local xPos = 2 + ((col - 1) * 175)
 		local yPos = -3 - ((row - 1) * 17)
 
-		local check = CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
+		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
 		check:SetPoint("TOPLEFT", parent, "TOPLEFT", xPos, yPos)
 		check:SetHeight(24)
 		check:SetWidth(24)
@@ -245,7 +245,7 @@ function private.InitializeFilterPanel()
 
 	local function CreateFilterMenuButton(button_texture, category)
 		local button_size = 22
-		local cButton = CreateFrame("CheckButton", nil, MainPanel)
+		local cButton = _G.CreateFrame("CheckButton", nil, MainPanel)
 
 		cButton:SetWidth(button_size)
 		cButton:SetHeight(button_size)
@@ -331,7 +331,7 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- Main filter_menu frame.
 	-------------------------------------------------------------------------------
-	local FilterPanel = CreateFrame("Frame", nil, MainPanel)
+	local FilterPanel = _G.CreateFrame("Frame", nil, MainPanel)
 	FilterPanel:SetWidth(300)
 	FilterPanel:SetHeight(FILTERMENU_HEIGHT)
 	FilterPanel:SetFrameStrata("MEDIUM")
@@ -345,7 +345,7 @@ function private.InitializeFilterPanel()
 	FilterPanel:SetScript("OnShow", UpdateFilterMarks)
 
 	function FilterPanel:CreateSubMenu(name)
-		local submenu = CreateFrame("Frame", nil, self)
+		local submenu = _G.CreateFrame("Frame", nil, self)
 
 		submenu:SetWidth(FILTERMENU_WIDTH)
 		submenu:SetHeight(FILTERMENU_HEIGHT)
@@ -408,16 +408,16 @@ function private.InitializeFilterPanel()
 	general_frame.class_toggle = class_toggle
 
 	local class_buttons = {
-		["deathknight"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 6,  col = 1 },
-		["druid"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 6,  col = 2 },
-		["hunter"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 7,  col = 1 },
-		["mage"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 7,  col = 2 },
-		["paladin"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["PALADIN"],		row = 8,  col = 1 },
-		["priest"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 8,  col = 2 },
-		["rogue"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 9,  col = 1 },
-		["shaman"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 9,  col = 2 },
-		["warlock"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],		row = 10, col = 1 },
-		["warrior"]	= { tt = L["CLASS_DESC"],	text = LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],		row = 10, col = 2 },
+		["deathknight"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 6,  col = 1 },
+		["druid"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 6,  col = 2 },
+		["hunter"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 7,  col = 1 },
+		["mage"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 7,  col = 2 },
+		["paladin"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 8,  col = 1 },
+		["priest"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 8,  col = 2 },
+		["rogue"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 9,  col = 1 },
+		["shaman"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 9,  col = 2 },
+		["warlock"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 10, col = 1 },
+		["warrior"]	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 10, col = 2 },
 	}
 	GenerateCheckBoxes(general_frame, class_buttons)
 	class_buttons = nil
@@ -442,7 +442,7 @@ function private.InitializeFilterPanel()
 			["discovery"]	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 4, col = 2 },
 			["worlddrop"]	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 1 },
 			["mobdrop"]	= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 5, col = 2 },
-			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,			        row = 6, col = 1 },
+			["achievement"]	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 6, col = 1 },
 			["expansion0"]	= { tt = L["ORIGINAL_WOW_DESC"],	text = _G.EXPANSION_NAME0,			row = 8, col = 1 },
 			["expansion1"]	= { tt = L["BC_WOW_DESC"],		text = _G.EXPANSION_NAME1,			row = 9, col = 1 },
 			["expansion2"]	= { tt = L["LK_WOW_DESC"],		text = _G.EXPANSION_NAME2,			row = 10, col = 1 },
@@ -657,7 +657,7 @@ function private.InitializeFilterPanel()
 		-- Generic function to create expansion buttons.
 		-------------------------------------------------------------------------------
 		function rep_frame:CreateExpansionButton(texture, expansion)
-			local cButton = CreateFrame("CheckButton", nil, self)
+			local cButton = _G.CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(100)
 			cButton:SetHeight(46)
 			cButton:SetChecked(false)
@@ -761,7 +761,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.rep.expansion0, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local expansion0_frame = CreateFrame("Frame", nil, FilterPanel.rep)
+		local expansion0_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
 		expansion0_frame:SetWidth(150)
 		expansion0_frame:SetHeight(280)
 		expansion0_frame:EnableMouse(true)
@@ -799,7 +799,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.rep.expansion1, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local expansion1_frame = CreateFrame("Frame", nil, FilterPanel.rep)
+		local expansion1_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
 		expansion1_frame:SetWidth(150)
 		expansion1_frame:SetHeight(280)
 		expansion1_frame:EnableMouse(true)
@@ -846,7 +846,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.rep.expansion2, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local expansion2_frame = CreateFrame("Frame", nil, FilterPanel.rep)
+		local expansion2_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
 		expansion2_frame:SetWidth(150)
 		expansion2_frame:SetHeight(280)
 		expansion2_frame:EnableMouse(true)
@@ -903,7 +903,7 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.rep.expansion3, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local expansion3_frame = CreateFrame("Frame", nil, FilterPanel.rep)
+		local expansion3_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
 		expansion3_frame:SetWidth(150)
 		expansion3_frame:SetHeight(280)
 		expansion3_frame:EnableMouse(true)
@@ -953,7 +953,7 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
 	-------------------------------------------------------------------------------
-	FilterPanel.misc = CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel)
+	FilterPanel.misc = _G.CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel)
 	FilterPanel.misc:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel.misc:SetHeight(280)
 	FilterPanel.misc:EnableMouse(true)
@@ -969,7 +969,7 @@ function private.InitializeFilterPanel()
 	ARL_MiscAltText:SetWidth(95)
 	ARL_MiscAltText:SetJustifyH("LEFT")
 
-	local ARL_MiscAltBtn = CreateFrame("Button", "ARL_MiscAltBtn", FilterPanel.misc)
+	local ARL_MiscAltBtn = _G.CreateFrame("Button", "ARL_MiscAltBtn", FilterPanel.misc)
 	ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
 	ARL_MiscAltBtn:SetHeight(22)
 	ARL_MiscAltBtn:SetWidth(22)
