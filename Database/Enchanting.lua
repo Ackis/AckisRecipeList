@@ -1,6 +1,7 @@
 --[[
 ************************************************************************
 Enchanting.lua
+Enchanting data for all of Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@
@@ -11,26 +12,26 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]] --
+]]--
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME = "Ackis Recipe List"
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local FOLDER_NAME, private = ...
+local private	= select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.filter_flags
-local A = private.acquire_types
-local Q = private.item_qualities
-local REP = private.rep_levels
-local FAC = private.faction_ids
-local V = private.game_versions
+local F		= private.filter_flags
+local A		= private.acquire_types
+local Q		= private.item_qualities
+local REP	= private.rep_levels
+local FAC	= private.faction_ids
+local V		= private.game_versions
 
 local initialized = false
 local num_recipes = 0
@@ -40,7 +41,7 @@ local num_recipes = 0
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
 	num_recipes = num_recipes + 1
-	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 7411, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
+	addon:AddRecipe(spell_id, skill_level, item_id, quality, 7411, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitEnchanting()
@@ -49,1772 +50,1770 @@ function addon:InitEnchanting()
 	end
 	initialized = true
 
-	local recipe
-
 	-- Enchant Bracer - Minor Health -- 7418
-	recipe = AddRecipe(7418, 1, nil, Q.COMMON, V.ORIG, 1, 70, 90, 110)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddCustom(8)
+	AddRecipe(7418, 1, nil, Q.COMMON, V.ORIG, 1, 70, 90, 110)
+	self:AddRecipeFlags(7418, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeCustom(7418, 8)
 
 	-- Enchant Chest - Minor Health -- 7420
-	recipe = AddRecipe(7420, 15, nil, Q.COMMON, V.ORIG, 15, 70, 90, 110)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7420, 15, nil, Q.COMMON, V.ORIG, 15, 70, 90, 110)
+	self:AddRecipeFlags(7420, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(7420, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Runed Copper Rod -- 7421
-	recipe = AddRecipe(7421, 1, 6218, Q.COMMON, V.ORIG, 1, 5, 7, 10)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddCustom(8)
+	AddRecipe(7421, 1, 6218, Q.COMMON, V.ORIG, 1, 5, 7, 10)
+	self:AddRecipeFlags(7421, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeCustom(7421, 8)
 
 	-- Enchant Chest - Minor Absorption -- 7426
-	recipe = AddRecipe(7426, 40, nil, Q.COMMON, V.ORIG, 40, 90, 110, 130)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7426, 40, nil, Q.COMMON, V.ORIG, 40, 90, 110, 130)
+	self:AddRecipeFlags(7426, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(7426, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Bracer - Minor Deflection -- 7428
-	recipe = AddRecipe(7428, 1, nil, Q.COMMON, V.ORIG, 1, 80, 100, 120)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddCustom(8)
+	AddRecipe(7428, 1, nil, Q.COMMON, V.ORIG, 1, 80, 100, 120)
+	self:AddRecipeFlags(7428, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
+	self:AddRecipeCustom(7428, 8)
 
 	-- Enchant Chest - Minor Mana -- 7443
-	recipe = AddRecipe(7443, 20, nil, Q.UNCOMMON, V.ORIG, 20, 80, 100, 120)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(7443, 20, nil, Q.UNCOMMON, V.ORIG, 20, 80, 100, 120)
+	self:AddRecipeFlags(7443, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CASTER, F.HEALER)
+	self:AddRecipeWorldDrop(7443, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Resistance -- 7454
-	recipe = AddRecipe(7454, 45, nil, Q.COMMON, V.ORIG, 45, 95, 115, 135)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7454, 45, nil, Q.COMMON, V.ORIG, 45, 95, 115, 135)
+	self:AddRecipeFlags(7454, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(7454, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Bracer - Minor Stamina -- 7457
-	recipe = AddRecipe(7457, 50, nil, Q.COMMON, V.ORIG, 50, 100, 120, 140)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7457, 50, nil, Q.COMMON, V.ORIG, 50, 100, 120, 140)
+	self:AddRecipeFlags(7457, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(7457, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant 2H Weapon - Minor Impact -- 7745
-	recipe = AddRecipe(7745, 100, nil, Q.COMMON, V.ORIG, 100, 130, 150, 170)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7745, 100, nil, Q.COMMON, V.ORIG, 100, 130, 150, 170)
+	self:AddRecipeFlags(7745, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeTrainer(7745, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 16160, 33676, 4213, 3345, 3011, 5695, 7949, 1317)
 
 	-- Enchant Chest - Lesser Health -- 7748
-	recipe = AddRecipe(7748, 60, nil, Q.COMMON, V.ORIG, 60, 105, 125, 145)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7748, 60, nil, Q.COMMON, V.ORIG, 60, 105, 125, 145)
+	self:AddRecipeFlags(7748, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(7748, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Bracer - Minor Spirit -- 7766
-	recipe = AddRecipe(7766, 60, nil, Q.UNCOMMON, V.ORIG, 60, 105, 125, 145)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(7766, 60, nil, Q.UNCOMMON, V.ORIG, 60, 105, 125, 145)
+	self:AddRecipeFlags(7766, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(7766, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Protection -- 7771
-	recipe = AddRecipe(7771, 70, nil, Q.COMMON, V.ORIG, 70, 110, 130, 150)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7771, 70, nil, Q.COMMON, V.ORIG, 70, 110, 130, 150)
+	self:AddRecipeFlags(7771, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(7771, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Chest - Lesser Mana -- 7776
-	recipe = AddRecipe(7776, 80, nil, Q.UNCOMMON, V.ORIG, 80, 115, 135, 155)
-	recipe:AddFlags(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(3346, 5757)
+	AddRecipe(7776, 80, nil, Q.UNCOMMON, V.ORIG, 80, 115, 135, 155)
+	self:AddRecipeFlags(7776, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(7776, 3346, 5757)
 
 	-- Enchant Bracer - Minor Agility -- 7779
-	recipe = AddRecipe(7779, 80, nil, Q.COMMON, V.ORIG, 80, 115, 135, 155)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7779, 80, nil, Q.COMMON, V.ORIG, 80, 115, 135, 155)
+	self:AddRecipeFlags(7779, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(7779, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 16160, 33676, 4213, 3345, 3011, 5695, 7949, 1317)
 
 	-- Enchant Bracer - Minor Strength -- 7782
-	recipe = AddRecipe(7782, 80, nil, Q.UNCOMMON, V.ORIG, 80, 115, 135, 155)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(7782, 80, nil, Q.UNCOMMON, V.ORIG, 80, 115, 135, 155)
+	self:AddRecipeFlags(7782, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeWorldDrop(7782, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Minor Beastslayer -- 7786
-	recipe = AddRecipe(7786, 90, nil, Q.UNCOMMON, V.ORIG, 90, 120, 140, 160)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(7786, 90, nil, Q.UNCOMMON, V.ORIG, 90, 120, 140, 160)
+	self:AddRecipeFlags(7786, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(7786, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Minor Striking -- 7788
-	recipe = AddRecipe(7788, 90, nil, Q.COMMON, V.ORIG, 90, 120, 140, 160)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7788, 90, nil, Q.COMMON, V.ORIG, 90, 120, 140, 160)
+	self:AddRecipeFlags(7788, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(7788, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 16160, 33676, 4213, 3345, 3011, 5695, 7949, 1317)
 
 	-- Enchant 2H Weapon - Lesser Intellect -- 7793
-	recipe = AddRecipe(7793, 100, nil, Q.COMMON, V.ORIG, 100, 130, 150, 170)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
-	recipe:AddVendor(3012, 3346, 5158, 5758)
+	AddRecipe(7793, 100, nil, Q.COMMON, V.ORIG, 100, 130, 150, 170)
+	self:AddRecipeFlags(7793, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
+	self:AddRecipeVendor(7793, 3012, 5158, 3346, 5758)
 
 	-- Runed Silver Rod -- 7795
-	recipe = AddRecipe(7795, 100, 6339, Q.COMMON, V.ORIG, 100, 130, 150, 170)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7795, 100, 6339, Q.COMMON, V.ORIG, 100, 130, 150, 170)
+	self:AddRecipeFlags(7795, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(7795, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 16160, 33676, 4213, 3345, 3011, 5695, 7949, 1317)
 
 	-- Enchant Chest - Health -- 7857
-	recipe = AddRecipe(7857, 120, nil, Q.COMMON, V.ORIG, 120, 145, 165, 185)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7857, 120, nil, Q.COMMON, V.ORIG, 120, 145, 165, 185)
+	self:AddRecipeFlags(7857, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(7857, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Bracer - Lesser Spirit -- 7859
-	recipe = AddRecipe(7859, 120, nil, Q.UNCOMMON, V.ORIG, 120, 145, 165, 185)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(7859, 120, nil, Q.UNCOMMON, V.ORIG, 120, 145, 165, 185)
+	self:AddRecipeFlags(7859, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(7859, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Lesser Fire Resistance -- 7861
-	recipe = AddRecipe(7861, 125, nil, Q.COMMON, V.ORIG, 125, 150, 170, 190)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7861, 125, nil, Q.COMMON, V.ORIG, 125, 150, 170, 190)
+	self:AddRecipeFlags(7861, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(7861, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Boots - Minor Stamina -- 7863
-	recipe = AddRecipe(7863, 125, nil, Q.COMMON, V.ORIG, 125, 150, 170, 190)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(7863, 125, nil, Q.COMMON, V.ORIG, 125, 150, 170, 190)
+	self:AddRecipeFlags(7863, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(7863, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Boots - Minor Agility -- 7867
-	recipe = AddRecipe(7867, 125, nil, Q.UNCOMMON, V.ORIG, 125, 150, 170, 190)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddVendor(3012, 3537)
+	AddRecipe(7867, 125, nil, Q.UNCOMMON, V.ORIG, 125, 150, 170, 190)
+	self:AddRecipeFlags(7867, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeVendor(7867, 3012, 3537)
 
 	-- Enchant Shield - Minor Stamina -- 13378
-	recipe = AddRecipe(13378, 105, nil, Q.COMMON, V.ORIG, 105, 130, 150, 170)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13378, 105, nil, Q.COMMON, V.ORIG, 105, 130, 150, 170)
+	self:AddRecipeFlags(13378, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeTrainer(13378, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 1317, 4213, 33676, 3011, 3345, 7949, 16160, 5695)
 
 	-- Enchant 2H Weapon - Lesser Spirit -- 13380
-	recipe = AddRecipe(13380, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13380, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
+	self:AddRecipeFlags(13380, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
+	self:AddRecipeWorldDrop(13380, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Minor Agility -- 13419
-	recipe = AddRecipe(13419, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	recipe:AddVendor(3954, 12043)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13419, 110, nil, Q.UNCOMMON, V.ORIG, 110, 135, 155, 175)
+	self:AddRecipeFlags(13419, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeVendor(13419, 3954, 12043)
+	self:AddRecipeWorldDrop(13419, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Lesser Protection -- 13421
-	recipe = AddRecipe(13421, 115, nil, Q.COMMON, V.ORIG, 115, 140, 160, 180)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13421, 115, nil, Q.COMMON, V.ORIG, 115, 140, 160, 180)
+	self:AddRecipeFlags(13421, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(13421, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Shield - Lesser Protection -- 13464
-	recipe = AddRecipe(13464, 115, nil, Q.UNCOMMON, V.ORIG, 115, 140, 160, 180)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13464, 115, nil, Q.UNCOMMON, V.ORIG, 115, 140, 160, 180)
+	self:AddRecipeFlags(13464, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeWorldDrop(13464, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Shield - Lesser Spirit -- 13485
-	recipe = AddRecipe(13485, 130, nil, Q.COMMON, V.ORIG, 130, 155, 175, 195)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13485, 130, nil, Q.COMMON, V.ORIG, 130, 155, 175, 195)
+	self:AddRecipeFlags(13485, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
+	self:AddRecipeTrainer(13485, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Bracer - Lesser Stamina -- 13501
-	recipe = AddRecipe(13501, 130, nil, Q.COMMON, V.ORIG, 130, 155, 175, 195)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13501, 130, nil, Q.COMMON, V.ORIG, 130, 155, 175, 195)
+	self:AddRecipeFlags(13501, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13501, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Weapon - Lesser Striking -- 13503
-	recipe = AddRecipe(13503, 140, nil, Q.COMMON, V.ORIG, 140, 165, 185, 205)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13503, 140, nil, Q.COMMON, V.ORIG, 140, 165, 185, 205)
+	self:AddRecipeFlags(13503, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(13503, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Cloak - Lesser Shadow Resistance -- 13522
-	recipe = AddRecipe(13522, 135, nil, Q.UNCOMMON, V.ORIG, 135, 160, 180, 200)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13522, 135, nil, Q.UNCOMMON, V.ORIG, 135, 160, 180, 200)
+	self:AddRecipeFlags(13522, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeWorldDrop(13522, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant 2H Weapon - Lesser Impact -- 13529
-	recipe = AddRecipe(13529, 145, nil, Q.COMMON, V.ORIG, 145, 170, 190, 210)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13529, 145, nil, Q.COMMON, V.ORIG, 145, 170, 190, 210)
+	self:AddRecipeFlags(13529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeTrainer(13529, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Bracer - Lesser Strength -- 13536
-	recipe = AddRecipe(13536, 140, nil, Q.UNCOMMON, V.ORIG, 140, 165, 185, 205)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddVendor(3954, 12043)
+	AddRecipe(13536, 140, nil, Q.UNCOMMON, V.ORIG, 140, 165, 185, 205)
+	self:AddRecipeFlags(13536, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeVendor(13536, 3954, 12043)
 
 	-- Enchant Chest - Lesser Absorption -- 13538
-	recipe = AddRecipe(13538, 140, nil, Q.COMMON, V.ORIG, 140, 165, 185, 205)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13538, 140, nil, Q.COMMON, V.ORIG, 140, 165, 185, 205)
+	self:AddRecipeFlags(13538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13538, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Chest - Mana -- 13607
-	recipe = AddRecipe(13607, 145, nil, Q.COMMON, V.ORIG, 145, 170, 190, 210)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13607, 145, nil, Q.COMMON, V.ORIG, 145, 170, 190, 210)
+	self:AddRecipeFlags(13607, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13607, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Gloves - Mining -- 13612
-	recipe = AddRecipe(13612, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(1051, 1052, 1053, 1054, 1364)
+	AddRecipe(13612, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
+	self:AddRecipeFlags(13612, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13612, 1054, 1051, 1052, 1364, 1053)
 
 	-- Enchant Gloves - Herbalism -- 13617
-	recipe = AddRecipe(13617, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(3834, 3919, 4028, 4029, 4030)
+	AddRecipe(13617, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
+	self:AddRecipeFlags(13617, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13617, 4029, 3834, 3919, 4028, 4030)
 
 	-- Enchant Gloves - Fishing -- 13620
-	recipe = AddRecipe(13620, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(2374, 2375, 2376, 2377, 14276)
+	AddRecipe(13620, 145, nil, Q.UNCOMMON, V.ORIG, 145, 170, 190, 210)
+	self:AddRecipeFlags(13620, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13620, 2377, 2374, 2375, 2376, 14276)
 
 	-- Enchant Bracer - Lesser Intellect -- 13622
-	recipe = AddRecipe(13622, 150, nil, Q.COMMON, V.ORIG, 150, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13622, 150, nil, Q.COMMON, V.ORIG, 150, 175, 195, 215)
+	self:AddRecipeFlags(13622, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13622, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Chest - Minor Stats -- 13626
-	recipe = AddRecipe(13626, 150, nil, Q.COMMON, V.ORIG, 150, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13626, 150, nil, Q.COMMON, V.ORIG, 150, 175, 195, 215)
+	self:AddRecipeFlags(13626, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13626, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Runed Golden Rod -- 13628
-	recipe = AddRecipe(13628, 150, 11130, Q.COMMON, V.ORIG, 150, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13628, 150, 11130, Q.COMMON, V.ORIG, 150, 175, 195, 215)
+	self:AddRecipeFlags(13628, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(13628, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 4616, 5695, 1317, 4213, 3345, 3011, 33676, 7949, 16160)
 
 	-- Enchant Shield - Lesser Stamina -- 13631
-	recipe = AddRecipe(13631, 155, nil, Q.COMMON, V.ORIG, 155, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13631, 155, nil, Q.COMMON, V.ORIG, 155, 175, 195, 215)
+	self:AddRecipeFlags(13631, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeTrainer(13631, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Defense -- 13635
-	recipe = AddRecipe(13635, 155, nil, Q.COMMON, V.ORIG, 155, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13635, 155, nil, Q.COMMON, V.ORIG, 155, 175, 195, 215)
+	self:AddRecipeFlags(13635, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	self:AddRecipeTrainer(13635, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Lesser Agility -- 13637
-	recipe = AddRecipe(13637, 160, nil, Q.COMMON, V.ORIG, 160, 180, 200, 220)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13637, 160, nil, Q.COMMON, V.ORIG, 160, 180, 200, 220)
+	self:AddRecipeFlags(13637, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13637, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Chest - Greater Health -- 13640
-	recipe = AddRecipe(13640, 160, nil, Q.COMMON, V.ORIG, 160, 180, 200, 220)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13640, 160, nil, Q.COMMON, V.ORIG, 160, 180, 200, 220)
+	self:AddRecipeFlags(13640, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13640, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Spirit -- 13642
-	recipe = AddRecipe(13642, 165, nil, Q.COMMON, V.ORIG, 165, 185, 205, 225)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13642, 165, nil, Q.COMMON, V.ORIG, 165, 185, 205, 225)
+	self:AddRecipeFlags(13642, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(13642, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Lesser Stamina -- 13644
-	recipe = AddRecipe(13644, 170, nil, Q.COMMON, V.ORIG, 170, 190, 210, 230)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13644, 170, nil, Q.COMMON, V.ORIG, 170, 190, 210, 230)
+	self:AddRecipeFlags(13644, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13644, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Lesser Deflection -- 13646
-	recipe = AddRecipe(13646, 170, nil, Q.UNCOMMON, V.ORIG, 170, 190, 210, 230)
-	recipe:AddFlags(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddLimitedVendor(2821, 1)
+	AddRecipe(13646, 170, nil, Q.UNCOMMON, V.ORIG, 170, 190, 210, 230)
+	self:AddRecipeFlags(13646, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeLimitedVendor(13646, 2821, 1)
 
 	-- Enchant Bracer - Stamina -- 13648
-	recipe = AddRecipe(13648, 170, nil, Q.COMMON, V.ORIG, 170, 190, 210, 230)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13648, 170, nil, Q.COMMON, V.ORIG, 170, 190, 210, 230)
+	self:AddRecipeFlags(13648, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13648, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Weapon - Lesser Beastslayer -- 13653
-	recipe = AddRecipe(13653, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13653, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
+	self:AddRecipeFlags(13653, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(13653, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Lesser Elemental Slayer -- 13655
-	recipe = AddRecipe(13655, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13655, 175, nil, Q.UNCOMMON, V.ORIG, 175, 195, 215, 235)
+	self:AddRecipeFlags(13655, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(13655, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Cloak - Fire Resistance -- 13657
-	recipe = AddRecipe(13657, 175, nil, Q.COMMON, V.ORIG, 175, 195, 215, 235)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13657, 175, nil, Q.COMMON, V.ORIG, 175, 195, 215, 235)
+	self:AddRecipeFlags(13657, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(13657, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Shield - Spirit -- 13659
-	recipe = AddRecipe(13659, 180, nil, Q.COMMON, V.ORIG, 180, 200, 220, 240)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13659, 180, nil, Q.COMMON, V.ORIG, 180, 200, 220, 240)
+	self:AddRecipeFlags(13659, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
+	self:AddRecipeTrainer(13659, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Strength -- 13661
-	recipe = AddRecipe(13661, 180, nil, Q.COMMON, V.ORIG, 180, 200, 220, 240)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13661, 180, nil, Q.COMMON, V.ORIG, 180, 200, 220, 240)
+	self:AddRecipeFlags(13661, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13661, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Chest - Greater Mana -- 13663
-	recipe = AddRecipe(13663, 185, nil, Q.COMMON, V.ORIG, 185, 205, 225, 245)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13663, 185, nil, Q.COMMON, V.ORIG, 185, 205, 225, 245)
+	self:AddRecipeFlags(13663, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13663, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Lesser Spirit -- 13687
-	recipe = AddRecipe(13687, 190, nil, Q.UNCOMMON, V.ORIG, 190, 210, 230, 250)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13687, 190, nil, Q.UNCOMMON, V.ORIG, 190, 210, 230, 250)
+	self:AddRecipeFlags(13687, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(13687, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Shield - Lesser Block -- 13689
-	recipe = AddRecipe(13689, 195, nil, Q.UNCOMMON, V.ORIG, 195, 215, 235, 255)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13689, 195, nil, Q.UNCOMMON, V.ORIG, 195, 215, 235, 255)
+	self:AddRecipeFlags(13689, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
+	self:AddRecipeWorldDrop(13689, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Weapon - Striking -- 13693
-	recipe = AddRecipe(13693, 195, nil, Q.COMMON, V.ORIG, 195, 215, 235, 255)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13693, 195, nil, Q.COMMON, V.ORIG, 195, 215, 235, 255)
+	self:AddRecipeFlags(13693, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(13693, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant 2H Weapon - Impact -- 13695
-	recipe = AddRecipe(13695, 200, nil, Q.COMMON, V.ORIG, 200, 220, 240, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13695, 200, nil, Q.COMMON, V.ORIG, 200, 220, 240, 260)
+	self:AddRecipeFlags(13695, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeTrainer(13695, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Gloves - Skinning -- 13698
-	recipe = AddRecipe(13698, 200, nil, Q.UNCOMMON, V.ORIG, 200, 220, 240, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(2556, 2557, 2558, 2606)
+	AddRecipe(13698, 200, nil, Q.UNCOMMON, V.ORIG, 200, 220, 240, 260)
+	self:AddRecipeFlags(13698, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13698, 2556, 2558, 2557, 2606)
 
 	-- Enchant Chest - Lesser Stats -- 13700
-	recipe = AddRecipe(13700, 200, nil, Q.COMMON, V.ORIG, 200, 220, 240, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13700, 200, nil, Q.COMMON, V.ORIG, 200, 220, 240, 260)
+	self:AddRecipeFlags(13700, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13700, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Runed Truesilver Rod -- 13702
-	recipe = AddRecipe(13702, 200, 11145, Q.COMMON, V.ORIG, 200, 220, 240, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13702, 200, 11145, Q.COMMON, V.ORIG, 200, 220, 240, 260)
+	self:AddRecipeFlags(13702, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(13702, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Greater Defense -- 13746
-	recipe = AddRecipe(13746, 205, nil, Q.COMMON, V.ORIG, 205, 225, 245, 265)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13746, 205, nil, Q.COMMON, V.ORIG, 205, 225, 245, 265)
+	self:AddRecipeFlags(13746, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	self:AddRecipeTrainer(13746, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Resistance -- 13794
-	recipe = AddRecipe(13794, 205, nil, Q.COMMON, V.ORIG, 205, 225, 245, 265)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13794, 205, nil, Q.COMMON, V.ORIG, 205, 225, 245, 265)
+	self:AddRecipeFlags(13794, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(13794, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Gloves - Agility -- 13815
-	recipe = AddRecipe(13815, 210, nil, Q.COMMON, V.ORIG, 210, 230, 250, 270)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13815, 210, nil, Q.COMMON, V.ORIG, 210, 230, 250, 270)
+	self:AddRecipeFlags(13815, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13815, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Shield - Stamina -- 13817
-	recipe = AddRecipe(13817, 210, nil, Q.UNCOMMON, V.ORIG, 210, 230, 250, 270)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13817, 210, nil, Q.UNCOMMON, V.ORIG, 210, 230, 250, 270)
+	self:AddRecipeFlags(13817, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeWorldDrop(13817, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Intellect -- 13822
-	recipe = AddRecipe(13822, 210, nil, Q.COMMON, V.ORIG, 210, 230, 250, 270)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13822, 210, nil, Q.COMMON, V.ORIG, 210, 230, 250, 270)
+	self:AddRecipeFlags(13822, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13822, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Stamina -- 13836
-	recipe = AddRecipe(13836, 215, nil, Q.COMMON, V.ORIG, 215, 235, 255, 275)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13836, 215, nil, Q.COMMON, V.ORIG, 215, 235, 255, 275)
+	self:AddRecipeFlags(13836, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13836, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Gloves - Advanced Mining -- 13841
-	recipe = AddRecipe(13841, 215, nil, Q.UNCOMMON, V.ORIG, 215, 235, 255, 275)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(674)
+	AddRecipe(13841, 215, nil, Q.UNCOMMON, V.ORIG, 215, 235, 255, 275)
+	self:AddRecipeFlags(13841, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13841, 674)
 
 	-- Enchant Bracer - Greater Spirit -- 13846
-	recipe = AddRecipe(13846, 220, nil, Q.UNCOMMON, V.ORIG, 220, 240, 260, 280)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13846, 220, nil, Q.UNCOMMON, V.ORIG, 220, 240, 260, 280)
+	self:AddRecipeFlags(13846, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(13846, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Superior Health -- 13858
-	recipe = AddRecipe(13858, 220, nil, Q.COMMON, V.ORIG, 220, 240, 260, 280)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13858, 220, nil, Q.COMMON, V.ORIG, 220, 240, 260, 280)
+	self:AddRecipeFlags(13858, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13858, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Gloves - Advanced Herbalism -- 13868
-	recipe = AddRecipe(13868, 225, nil, Q.UNCOMMON, V.ORIG, 225, 245, 265, 285)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(764, 765, 766, 1081, 14448)
+	AddRecipe(13868, 225, nil, Q.UNCOMMON, V.ORIG, 225, 245, 265, 285)
+	self:AddRecipeFlags(13868, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(13868, 764, 766, 14448, 1081, 765)
 
 	-- Enchant Cloak - Lesser Agility -- 13882
-	recipe = AddRecipe(13882, 225, nil, Q.UNCOMMON, V.ORIG, 225, 245, 265, 285)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	recipe:AddCustom(48)
+	AddRecipe(13882, 225, nil, Q.UNCOMMON, V.ORIG, 225, 245, 265, 285)
+	self:AddRecipeFlags(13882, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RETIRED, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeCustom(13882, 48)
 
 	-- Enchant Gloves - Strength -- 13887
-	recipe = AddRecipe(13887, 225, nil, Q.COMMON, V.ORIG, 225, 245, 265, 285)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13887, 225, nil, Q.COMMON, V.ORIG, 225, 245, 265, 285)
+	self:AddRecipeFlags(13887, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13887, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Minor Speed -- 13890
-	recipe = AddRecipe(13890, 225, nil, Q.COMMON, V.ORIG, 225, 245, 265, 285)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13890, 225, nil, Q.COMMON, V.ORIG, 225, 245, 265, 285)
+	self:AddRecipeFlags(13890, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13890, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Weapon - Fiery Weapon -- 13898
-	recipe = AddRecipe(13898, 265, nil, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(9024)
+	AddRecipe(13898, 265, nil, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
+	self:AddRecipeFlags(13898, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(13898, 9024)
 
 	-- Enchant Shield - Greater Spirit -- 13905
-	recipe = AddRecipe(13905, 230, nil, Q.COMMON, V.ORIG, 230, 250, 270, 290)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13905, 230, nil, Q.COMMON, V.ORIG, 230, 250, 270, 290)
+	self:AddRecipeFlags(13905, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
+	self:AddRecipeTrainer(13905, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Weapon - Demonslaying -- 13915
-	recipe = AddRecipe(13915, 230, nil, Q.UNCOMMON, V.ORIG, 230, 250, 270, 290)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13915, 230, nil, Q.UNCOMMON, V.ORIG, 230, 250, 270, 290)
+	self:AddRecipeFlags(13915, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(13915, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Superior Mana -- 13917
-	recipe = AddRecipe(13917, 230, nil, Q.COMMON, V.ORIG, 230, 250, 270, 290)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13917, 230, nil, Q.COMMON, V.ORIG, 230, 250, 270, 290)
+	self:AddRecipeFlags(13917, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13917, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Deflection -- 13931
-	recipe = AddRecipe(13931, 235, nil, Q.UNCOMMON, V.ORIG, 235, 255, 275, 295)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
-	recipe:AddVendor(989, 4229)
+	AddRecipe(13931, 235, nil, Q.UNCOMMON, V.ORIG, 235, 255, 275, 295)
+	self:AddRecipeFlags(13931, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK)
+	self:AddRecipeVendor(13931, 989, 4229)
 
 	-- Enchant Shield - Frost Resistance -- 13933
-	recipe = AddRecipe(13933, 235, nil, Q.UNCOMMON, V.ORIG, 235, 255, 275, 295)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13933, 235, nil, Q.UNCOMMON, V.ORIG, 235, 255, 275, 295)
+	self:AddRecipeFlags(13933, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeWorldDrop(13933, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Boots - Agility -- 13935
-	recipe = AddRecipe(13935, 235, nil, Q.COMMON, V.ORIG, 235, 255, 275, 295)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13935, 235, nil, Q.COMMON, V.ORIG, 235, 255, 275, 295)
+	self:AddRecipeFlags(13935, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13935, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant 2H Weapon - Greater Impact -- 13937
-	recipe = AddRecipe(13937, 240, nil, Q.COMMON, V.ORIG, 240, 260, 280, 300)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13937, 240, nil, Q.COMMON, V.ORIG, 240, 260, 280, 300)
+	self:AddRecipeFlags(13937, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeTrainer(13937, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Bracer - Greater Strength -- 13939
-	recipe = AddRecipe(13939, 240, nil, Q.COMMON, V.ORIG, 240, 260, 280, 300)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13939, 240, nil, Q.COMMON, V.ORIG, 240, 260, 280, 300)
+	self:AddRecipeFlags(13939, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(13939, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Chest - Stats -- 13941
-	recipe = AddRecipe(13941, 245, nil, Q.COMMON, V.ORIG, 245, 265, 285, 305)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13941, 245, nil, Q.COMMON, V.ORIG, 245, 265, 285, 305)
+	self:AddRecipeFlags(13941, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13941, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Weapon - Greater Striking -- 13943
-	recipe = AddRecipe(13943, 245, nil, Q.COMMON, V.ORIG, 245, 265, 285, 305)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13943, 245, nil, Q.COMMON, V.ORIG, 245, 265, 285, 305)
+	self:AddRecipeFlags(13943, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(13943, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Greater Stamina -- 13945
-	recipe = AddRecipe(13945, 245, nil, Q.UNCOMMON, V.ORIG, 245, 265, 285, 305)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13945, 245, nil, Q.UNCOMMON, V.ORIG, 245, 265, 285, 305)
+	self:AddRecipeFlags(13945, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(13945, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Riding Skill -- 13947
-	recipe = AddRecipe(13947, 250, nil, Q.UNCOMMON, V.ORIG, 250, 270, 290, 310)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(13947, 250, nil, Q.UNCOMMON, V.ORIG, 250, 270, 290, 310)
+	self:AddRecipeFlags(13947, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(13947, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Minor Haste -- 13948
-	recipe = AddRecipe(13948, 250, nil, Q.COMMON, V.ORIG, 250, 270, 290, 310)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(13948, 250, nil, Q.COMMON, V.ORIG, 250, 270, 290, 310)
+	self:AddRecipeFlags(13948, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(13948, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Lesser Magic Wand -- 14293
-	recipe = AddRecipe(14293, 10, 11287, Q.COMMON, V.ORIG, 10, 75, 95, 115)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(14293, 10, 11287, Q.COMMON, V.ORIG, 10, 75, 95, 115)
+	self:AddRecipeFlags(14293, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
+	self:AddRecipeTrainer(14293, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Greater Magic Wand -- 14807
-	recipe = AddRecipe(14807, 70, 11288, Q.COMMON, V.ORIG, 70, 110, 130, 150)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(14807, 70, 11288, Q.COMMON, V.ORIG, 70, 110, 130, 150)
+	self:AddRecipeFlags(14807, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
+	self:AddRecipeTrainer(14807, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Lesser Mystic Wand -- 14809
-	recipe = AddRecipe(14809, 155, 11289, Q.COMMON, V.ORIG, 155, 175, 195, 215)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(14809, 155, 11289, Q.COMMON, V.ORIG, 155, 175, 195, 215)
+	self:AddRecipeFlags(14809, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
+	self:AddRecipeTrainer(14809, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Greater Mystic Wand -- 14810
-	recipe = AddRecipe(14810, 175, 11290, Q.COMMON, V.ORIG, 175, 195, 215, 235)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND, F.WAND)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(14810, 175, 11290, Q.COMMON, V.ORIG, 175, 195, 215, 235)
+	self:AddRecipeFlags(14810, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.WAND)
+	self:AddRecipeTrainer(14810, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Smoking Heart of the Mountain -- 15596
-	recipe = AddRecipe(15596, 265, 45050, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.TRINKET)
-	recipe:AddMobDrop(9025)
+	AddRecipe(15596, 265, 45050, Q.UNCOMMON, V.ORIG, 265, 285, 305, 325)
+	self:AddRecipeFlags(15596, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOP, F.RBOP, F.TRINKET)
+	self:AddRecipeMobDrop(15596, 9025)
 
 	-- Enchanted Thorium -- 17180
-	recipe = AddRecipe(17180, 250, 12655, Q.COMMON, V.ORIG, 250, 250, 255, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(17180, 250, 12655, Q.COMMON, V.ORIG, 250, 250, 255, 260)
+	self:AddRecipeFlags(17180, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(17180, 3345, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchanted Leather -- 17181
-	recipe = AddRecipe(17181, 250, 12810, Q.COMMON, V.ORIG, 250, 250, 255, 260)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER, F.LEATHER)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(17181, 250, 12810, Q.COMMON, V.ORIG, 250, 250, 255, 260)
+	self:AddRecipeFlags(17181, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.LEATHER)
+	self:AddRecipeTrainer(17181, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Greater Intellect -- 20008
-	recipe = AddRecipe(20008, 255, nil, Q.COMMON, V.ORIG, 255, 275, 295, 315)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20008, 255, nil, Q.COMMON, V.ORIG, 255, 275, 295, 315)
+	self:AddRecipeFlags(20008, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(20008, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Bracer - Superior Spirit -- 20009
-	recipe = AddRecipe(20009, 270, nil, Q.UNCOMMON, V.ORIG, 270, 290, 310, 330)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(20009, 270, nil, Q.UNCOMMON, V.ORIG, 270, 290, 310, 330)
+	self:AddRecipeFlags(20009, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(20009, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Bracer - Superior Strength -- 20010
-	recipe = AddRecipe(20010, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddMobDrop(7372)
+	AddRecipe(20010, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
+	self:AddRecipeFlags(20010, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeMobDrop(20010, 7372)
 
 	-- Enchant Bracer - Superior Stamina -- 20011
-	recipe = AddRecipe(20011, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(20011, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20011, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(20011, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Gloves - Greater Agility -- 20012
-	recipe = AddRecipe(20012, 270, nil, Q.COMMON, V.ORIG, 270, 290, 310, 330)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20012, 270, nil, Q.COMMON, V.ORIG, 270, 290, 310, 330)
+	self:AddRecipeFlags(20012, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(20012, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Gloves - Greater Strength -- 20013
-	recipe = AddRecipe(20013, 295, nil, Q.COMMON, V.ORIG, 295, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20013, 295, nil, Q.COMMON, V.ORIG, 295, 310, 325, 340)
+	self:AddRecipeFlags(20013, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(20013, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Greater Resistance -- 20014
-	recipe = AddRecipe(20014, 265, nil, Q.COMMON, V.ORIG, 265, 285, 305, 325)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20014, 265, nil, Q.COMMON, V.ORIG, 265, 285, 305, 325)
+	self:AddRecipeFlags(20014, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(20014, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Cloak - Superior Defense -- 20015
-	recipe = AddRecipe(20015, 285, nil, Q.COMMON, V.ORIG, 285, 300, 317, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
-	recipe:AddVendor(12022)
+	AddRecipe(20015, 285, nil, Q.COMMON, V.ORIG, 285, 300, 317, 335)
+	self:AddRecipeFlags(20015, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.TANK, F.CLOAK)
+	self:AddRecipeVendor(20015, 12022)
 
 	-- Enchant Shield - Vitality -- 20016
-	recipe = AddRecipe(20016, 280, nil, Q.COMMON, V.ORIG, 280, 300, 320, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20016, 280, nil, Q.COMMON, V.ORIG, 280, 300, 320, 340)
+	self:AddRecipeFlags(20016, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
+	self:AddRecipeTrainer(20016, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Shield - Greater Stamina -- 20017
-	recipe = AddRecipe(20017, 265, nil, Q.COMMON, V.ORIG, 265, 285, 305, 325)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHIELD)
-	recipe:AddVendor(4229, 4561)
+	AddRecipe(20017, 265, nil, Q.COMMON, V.ORIG, 265, 285, 305, 325)
+	self:AddRecipeFlags(20017, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHIELD)
+	self:AddRecipeVendor(20017, 4229, 4561)
 
 	-- Enchant Boots - Greater Stamina -- 20020
-	recipe = AddRecipe(20020, 260, nil, Q.UNCOMMON, V.ORIG, 260, 280, 300, 320)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(20020, 260, nil, Q.UNCOMMON, V.ORIG, 260, 280, 300, 320)
+	self:AddRecipeFlags(20020, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(20020, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Boots - Greater Agility -- 20023
-	recipe = AddRecipe(20023, 295, nil, Q.COMMON, V.ORIG, 295, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20023, 295, nil, Q.COMMON, V.ORIG, 295, 310, 325, 340)
+	self:AddRecipeFlags(20023, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(20023, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Boots - Spirit -- 20024
-	recipe = AddRecipe(20024, 275, nil, Q.UNCOMMON, V.ORIG, 275, 295, 315, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Eastern Kingdoms", "Kalimdor")
+	AddRecipe(20024, 275, nil, Q.UNCOMMON, V.ORIG, 275, 295, 315, 335)
+	self:AddRecipeFlags(20024, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(20024, "Kalimdor", "Eastern Kingdoms")
 
 	-- Enchant Chest - Greater Stats -- 20025
-	recipe = AddRecipe(20025, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(20025, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20025, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(20025, "Outland")
 
 	-- Enchant Chest - Major Health -- 20026
-	recipe = AddRecipe(20026, 275, nil, Q.COMMON, V.ORIG, 275, 295, 315, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(11189)
+	AddRecipe(20026, 275, nil, Q.COMMON, V.ORIG, 275, 295, 315, 335)
+	self:AddRecipeFlags(20026, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(20026, 11189)
 
 	-- Enchant Chest - Major Mana -- 20028
-	recipe = AddRecipe(20028, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(20028, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(20028, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(20028, 3606, 19540, 11072, 11073, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 33610, 1317, 16160, 33676, 4213, 3345, 3011, 4616, 7949, 5695)
 
 	-- Enchant Weapon - Icy Chill -- 20029
-	recipe = AddRecipe(20029, 285, nil, Q.UNCOMMON, V.ORIG, 285, 300, 317, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(7524)
+	AddRecipe(20029, 285, nil, Q.UNCOMMON, V.ORIG, 285, 300, 317, 335)
+	self:AddRecipeFlags(20029, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(20029, 7524)
 
 	-- Enchant 2H Weapon - Superior Impact -- 20030
-	recipe = AddRecipe(20030, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(10317)
+	AddRecipe(20030, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
+	self:AddRecipeFlags(20030, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.TWO_HAND)
+	self:AddRecipeMobDrop(20030, 10317)
 
 	-- Enchant Weapon - Superior Striking -- 20031
-	recipe = AddRecipe(20031, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(9216)
+	AddRecipe(20031, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20031, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(20031, 9216)
 
 	-- Enchant Weapon - Lifestealing -- 20032
-	recipe = AddRecipe(20032, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(10499)
+	AddRecipe(20032, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20032, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(20032, 10499)
 
 	-- Enchant Weapon - Unholy Weapon -- 20033
-	recipe = AddRecipe(20033, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(10398, 16810)
+	AddRecipe(20033, 295, nil, Q.UNCOMMON, V.ORIG, 295, 310, 325, 340)
+	self:AddRecipeFlags(20033, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(20033, 10398, 16810)
 
 	-- Enchant Weapon - Crusader -- 20034
-	recipe = AddRecipe(20034, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(4494, 9451)
+	AddRecipe(20034, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20034, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(20034, 4494, 9451)
 
 	-- Enchant 2H Weapon - Major Spirit -- 20035
-	recipe = AddRecipe(20035, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(10469)
+	AddRecipe(20035, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20035, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
+	self:AddRecipeMobDrop(20035, 10469)
 
 	-- Enchant 2H Weapon - Major Intellect -- 20036
-	recipe = AddRecipe(20036, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(10422)
+	AddRecipe(20036, 300, nil, Q.UNCOMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(20036, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.TWO_HAND)
+	self:AddRecipeMobDrop(20036, 10422)
 
 	-- Runed Arcanite Rod -- 20051
-	recipe = AddRecipe(20051, 290, 16207, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
-	recipe:AddVendor(12022)
+	AddRecipe(20051, 290, 16207, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(20051, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
+	self:AddRecipeVendor(20051, 12022)
 
 	-- Enchant Weapon - Winter's Might -- 21931
-	recipe = AddRecipe(21931, 190, nil, Q.UNCOMMON, V.ORIG, 190, 210, 230, 250)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddSeason(1)
+	AddRecipe(21931, 190, nil, Q.UNCOMMON, V.ORIG, 190, 210, 230, 250)
+	self:AddRecipeFlags(21931, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeSeason(21931, 1)
 
 	-- Enchant Weapon - Spellpower -- 22749
-	recipe = AddRecipe(22749, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(26)
+	AddRecipe(22749, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(22749, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeCustom(22749, 26)
 
 	-- Enchant Weapon - Healing Power -- 22750
-	recipe = AddRecipe(22750, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(26)
+	AddRecipe(22750, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(22750, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeCustom(22750, 26)
 
 	-- Enchant Weapon - Strength -- 23799
-	recipe = AddRecipe(23799, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
+	AddRecipe(23799, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(23799, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeRepVendor(23799, FAC.THORIUM_BROTHERHOOD, REP.FRIENDLY, 12944)
 
 	-- Enchant Weapon - Agility -- 23800
-	recipe = AddRecipe(23800, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD, F.TIMBERMAW_HOLD, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
+	AddRecipe(23800, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(23800, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TIMBERMAW_HOLD)
+	self:AddRecipeRepVendor(23800, FAC.TIMBERMAW_HOLD, REP.HONORED, 11557)
 
 	-- Enchant Bracer - Mana Regeneration -- 23801
-	recipe = AddRecipe(23801, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN, F.ARGENTDAWN)
-	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.HONORED, 10856, 10857, 11536)
+	AddRecipe(23801, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(23801, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	self:AddRecipeRepVendor(23801, FAC.ARGENTDAWN, REP.HONORED, 10856, 11536, 10857)
 
 	-- Enchant Bracer - Healing Power -- 23802
-	recipe = AddRecipe(23802, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN, F.ARGENTDAWN)
-	recipe:AddRepVendor(FAC.ARGENTDAWN, REP.REVERED, 10856, 10857, 11536)
+	AddRecipe(23802, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(23802, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ARGENTDAWN)
+	self:AddRecipeRepVendor(23802, FAC.ARGENTDAWN, REP.REVERED, 10856, 11536, 10857)
 
 	-- Enchant Weapon - Mighty Spirit -- 23803
-	recipe = AddRecipe(23803, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
+	AddRecipe(23803, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(23803, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeRepVendor(23803, FAC.THORIUM_BROTHERHOOD, REP.HONORED, 12944)
 
 	-- Enchant Weapon - Mighty Intellect -- 23804
-	recipe = AddRecipe(23804, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.THORIUM_BROTHERHOOD, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
+	AddRecipe(23804, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(23804, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.HEALER, F.CASTER, F.TWO_HAND, F.THORIUM_BROTHERHOOD)
+	self:AddRecipeRepVendor(23804, FAC.THORIUM_BROTHERHOOD, REP.REVERED, 12944)
 
 	-- Enchant Gloves - Threat -- 25072
-	recipe = AddRecipe(25072, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
-	recipe:AddMobDrop(15275)
-	recipe:AddRepVendor(FAC.SHATAR, REP.EXALTED, 21432)
+	AddRecipe(25072, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25072, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.SHATAR)
+	self:AddRecipeMobDrop(25072, 15275)
+	self:AddRecipeRepVendor(25072, FAC.SHATAR, REP.EXALTED, 21432)
 
 	-- Enchant Gloves - Shadow Power -- 25073
-	recipe = AddRecipe(25073, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	AddRecipe(25073, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25073, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25073, 22)
 
 	-- Enchant Gloves - Frost Power -- 25074
-	recipe = AddRecipe(25074, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	AddRecipe(25074, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25074, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25074, 22)
 
 	-- Enchant Gloves - Fire Power -- 25078
-	recipe = AddRecipe(25078, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	AddRecipe(25078, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25078, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25078, 22)
 
 	-- Enchant Gloves - Healing Power -- 25079
-	recipe = AddRecipe(25079, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(22)
+	AddRecipe(25079, 300, nil, Q.RARE, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25079, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25079, 22)
 
 	-- Enchant Gloves - Superior Agility -- 25080
-	recipe = AddRecipe(25080, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.KOT)
-	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
-	recipe:AddCustom(22)
+	AddRecipe(25080, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(25080, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.DPS, F.KOT)
+	self:AddRecipeRepVendor(25080, FAC.KEEPERS_OF_TIME, REP.EXALTED, 21643)
+	self:AddRecipeCustom(25080, 22)
 
 	-- Enchant Cloak - Greater Fire Resistance -- 25081
-	recipe = AddRecipe(25081, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE, F.CENARION_CIRCLE, F.CLOAK)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.FRIENDLY, 15419)
+	AddRecipe(25081, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25081, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.CENARION_CIRCLE)
+	self:AddRecipeRepVendor(25081, FAC.CENARION_CIRCLE, REP.FRIENDLY, 15419)
 
 	-- Enchant Cloak - Greater Nature Resistance -- 25082
-	recipe = AddRecipe(25082, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_CIRCLE, F.CENARION_CIRCLE, F.CLOAK)
-	recipe:AddRepVendor(FAC.CENARION_CIRCLE, REP.HONORED, 15419)
+	AddRecipe(25082, 300, nil, Q.COMMON, V.ORIG, 300, 310, 325, 340)
+	self:AddRecipeFlags(25082, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK, F.CENARION_CIRCLE)
+	self:AddRecipeRepVendor(25082, FAC.CENARION_CIRCLE, REP.HONORED, 15419)
 
 	-- Enchant Cloak - Stealth -- 25083
-	recipe = AddRecipe(25083, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CENARION_EXPEDITION, F.CLOAK)
-	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
-	recipe:AddCustom(22)
+	AddRecipe(25083, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(25083, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOE, F.CLOAK, F.CENARION_EXPEDITION)
+	self:AddRecipeRepVendor(25083, FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
+	self:AddRecipeCustom(25083, 22)
 
 	-- Enchant Cloak - Subtlety -- 25084
-	recipe = AddRecipe(25084, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HELLFIRE, F.CLOAK)
-	recipe:AddMobDrop(15276)
-	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.EXALTED, 17657)
-	recipe:AddRepVendor(FAC.THRALLMAR, REP.EXALTED, 17585)
+	AddRecipe(25084, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(25084, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK, F.HELLFIRE)
+	self:AddRecipeMobDrop(25084, 15276)
+	self:AddRecipeRepVendor(25084, FAC.HONOR_HOLD, REP.EXALTED, 17657)
+	self:AddRecipeRepVendor(25084, FAC.THRALLMAR, REP.EXALTED, 17585)
 
 	-- Enchant Cloak - Dodge -- 25086
-	recipe = AddRecipe(25086, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.LOWERCITY, F.CLOAK)
-	recipe:AddRepVendor(FAC.LOWERCITY, REP.EXALTED, 21655)
-	recipe:AddCustom(22)
+	AddRecipe(25086, 300, nil, Q.RARE, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(25086, F.ALLIANCE, F.HORDE, F.VENDOR, F.RAID, F.IBOE, F.RBOP, F.TANK, F.CLOAK, F.LOWERCITY)
+	self:AddRecipeRepVendor(25086, FAC.LOWERCITY, REP.EXALTED, 21655)
+	self:AddRecipeCustom(25086, 22)
 
 	-- Minor Wizard Oil -- 25124
-	recipe = AddRecipe(25124, 45, 20744, Q.COMMON, V.ORIG, 45, 55, 65, 75)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 5757, 5758, 15419, 16635, 16722, 18753, 18773, 18951, 19234, 19537, 19540, 19663, 26569, 27030, 27054, 27147, 28714)
+	AddRecipe(25124, 45, 20744, Q.COMMON, V.ORIG, 45, 55, 65, 75)
+	self:AddRecipeFlags(25124, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeVendor(25124, 28714, 15419, 4617, 18951, 5757, 16722, 27030, 19234, 3012, 5758, 26569, 18773, 4228, 5158, 16635, 19663, 3346, 1318, 27054, 27147, 19537, 18753, 19540)
 
 	-- Minor Mana Oil -- 25125
-	recipe = AddRecipe(25125, 150, 20745, Q.COMMON, V.ORIG, 150, 160, 170, 180)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 5757, 5758, 15419, 16635, 16722, 18753, 18773, 18951, 19234, 19537, 19540, 19663, 26569, 27030, 27054, 27147, 28714)
+	AddRecipe(25125, 150, 20745, Q.COMMON, V.ORIG, 150, 160, 170, 180)
+	self:AddRecipeFlags(25125, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(25125, 28714, 15419, 4617, 18951, 5757, 16722, 27030, 19234, 3012, 5758, 26569, 18773, 4228, 5158, 16635, 19663, 3346, 1318, 27054, 27147, 19537, 18753, 19540)
 
 	-- Lesser Wizard Oil -- 25126
-	recipe = AddRecipe(25126, 200, 20746, Q.COMMON, V.ORIG, 200, 210, 220, 230)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(1318, 3012, 3346, 4228, 4617, 5158, 5757, 5758, 15419, 16635, 16722, 18753, 18773, 18951, 19234, 19537, 19540, 19663, 26569, 27030, 27054, 27147, 28714)
+	AddRecipe(25126, 200, 20746, Q.COMMON, V.ORIG, 200, 210, 220, 230)
+	self:AddRecipeFlags(25126, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeVendor(25126, 28714, 15419, 4617, 18951, 5757, 16722, 27030, 19234, 3012, 5758, 26569, 18773, 4228, 5158, 16635, 19663, 3346, 1318, 27054, 27147, 19537, 18753, 19540)
 
 	-- Lesser Mana Oil -- 25127
-	recipe = AddRecipe(25127, 250, 20747, Q.COMMON, V.ORIG, 250, 260, 270, 280)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(15419)
+	AddRecipe(25127, 250, 20747, Q.COMMON, V.ORIG, 250, 260, 270, 280)
+	self:AddRecipeFlags(25127, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(25127, 15419)
 
 	-- Wizard Oil -- 25128
-	recipe = AddRecipe(25128, 275, 20750, Q.COMMON, V.ORIG, 275, 285, 295, 305)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(15419)
+	AddRecipe(25128, 275, 20750, Q.COMMON, V.ORIG, 275, 285, 295, 305)
+	self:AddRecipeFlags(25128, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeVendor(25128, 15419)
 
 	-- Brilliant Wizard Oil -- 25129
-	recipe = AddRecipe(25129, 300, 20749, Q.COMMON, V.ORIG, 300, 310, 320, 330)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	AddRecipe(25129, 300, 20749, Q.COMMON, V.ORIG, 300, 310, 320, 330)
+	self:AddRecipeFlags(25129, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25129, 48)
 
 	-- Brilliant Mana Oil -- 25130
-	recipe = AddRecipe(25130, 300, 20748, Q.COMMON, V.ORIG, 300, 310, 320, 330)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddCustom(48)
+	AddRecipe(25130, 300, 20748, Q.COMMON, V.ORIG, 300, 310, 320, 330)
+	self:AddRecipeFlags(25130, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeCustom(25130, 48)
 
 	-- Enchant 2H Weapon - Agility -- 27837
-	recipe = AddRecipe(27837, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TIMBERMAW_HOLD, F.TIMBERMAW_HOLD, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
+	AddRecipe(27837, 290, nil, Q.COMMON, V.ORIG, 290, 305, 322, 340)
+	self:AddRecipeFlags(27837, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.TIMBERMAW_HOLD)
+	self:AddRecipeRepVendor(27837, FAC.TIMBERMAW_HOLD, REP.FRIENDLY, 11557)
 
 	-- Enchant Bracer - Brawn -- 27899
-	recipe = AddRecipe(27899, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(27899, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
+	self:AddRecipeFlags(27899, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(27899, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Stats -- 27905
-	recipe = AddRecipe(27905, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(27905, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
+	self:AddRecipeFlags(27905, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(27905, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Major Defense -- 27906
-	recipe = AddRecipe(27906, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddMobDrop(22822, 23008)
+	AddRecipe(27906, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
+	self:AddRecipeFlags(27906, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK)
+	self:AddRecipeMobDrop(27906, 22822, 23008)
 
 	-- Enchant Bracer - Superior Healing -- 27911
-	recipe = AddRecipe(27911, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
-	recipe:AddFlags(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.HELLFIRE)
-	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
-	recipe:AddRepVendor(FAC.THRALLMAR, REP.FRIENDLY, 17585)
+	AddRecipe(27911, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
+	self:AddRecipeFlags(27911, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.HELLFIRE)
+	self:AddRecipeRepVendor(27911, FAC.HONOR_HOLD, REP.FRIENDLY, 17657)
+	self:AddRecipeRepVendor(27911, FAC.THRALLMAR, REP.FRIENDLY, 17585)
 
 	-- Enchant Bracer - Restore Mana Prime -- 27913
-	recipe = AddRecipe(27913, 335, nil, Q.UNCOMMON, V.TBC, 335, 345, 360, 375)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(27913, 335, nil, Q.UNCOMMON, V.TBC, 335, 345, 360, 375)
+	self:AddRecipeFlags(27913, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeWorldDrop(27913, "Outland")
 
 	-- Enchant Bracer - Fortitude -- 27914
-	recipe = AddRecipe(27914, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(17803)
+	AddRecipe(27914, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(27914, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeMobDrop(27914, 17803)
 
 	-- Enchant Bracer - Spellpower -- 27917
-	recipe = AddRecipe(27917, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 385, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(19952)
+	AddRecipe(27917, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 385, 400)
+	self:AddRecipeFlags(27917, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeMobDrop(27917, 19952)
 
 	-- Enchant Ring - Striking -- 27920
-	recipe = AddRecipe(27920, 360, nil, Q.COMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM, F.RING)
-	recipe:AddRepVendor(FAC.CONSORTIUM, REP.REVERED, 17518)
+	AddRecipe(27920, 360, nil, Q.COMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(27920, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.RING, F.CONSORTIUM)
+	self:AddRecipeRepVendor(27920, FAC.CONSORTIUM, REP.REVERED, 17518)
 
 	-- Enchant Ring - Spellpower -- 27924
-	recipe = AddRecipe(27924, 360, nil, Q.COMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT, F.RING)
-	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
+	AddRecipe(27924, 360, nil, Q.COMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(27924, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING, F.KOT)
+	self:AddRecipeRepVendor(27924, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Ring - Healing Power -- 27926
-	recipe = AddRecipe(27926, 370, nil, Q.COMMON, V.TBC, 370, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR, F.RING)
-	recipe:AddRepVendor(FAC.SHATAR, REP.REVERED, 21432)
+	AddRecipe(27926, 370, nil, Q.COMMON, V.TBC, 370, 380, 385, 390)
+	self:AddRecipeFlags(27926, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING, F.SHATAR)
+	self:AddRecipeRepVendor(27926, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Enchant Ring - Stats -- 27927
-	recipe = AddRecipe(27927, 375, nil, Q.COMMON, V.TBC, 375, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.LOWERCITY, F.RING)
-	recipe:AddRepVendor(FAC.LOWERCITY, REP.HONORED, 21655)
+	AddRecipe(27927, 375, nil, Q.COMMON, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(27927, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.RING, F.LOWERCITY)
+	self:AddRecipeRepVendor(27927, FAC.LOWERCITY, REP.HONORED, 21655)
 
 	-- Enchant Shield - Tough Shield -- 27944
-	recipe = AddRecipe(27944, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(27944, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
+	self:AddRecipeFlags(27944, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
+	self:AddRecipeTrainer(27944, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Shield - Intellect -- 27945
-	recipe = AddRecipe(27945, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
-	recipe:AddVendor(18664)
+	AddRecipe(27945, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
+	self:AddRecipeFlags(27945, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.SHIELD)
+	self:AddRecipeVendor(27945, 18664)
 
 	-- Enchant Shield - Shield Block -- 27946
-	recipe = AddRecipe(27946, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(27946, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
+	self:AddRecipeFlags(27946, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.TANK, F.SHIELD)
+	self:AddRecipeWorldDrop(27946, "Outland")
 
 	-- Enchant Shield - Resistance -- 27947
-	recipe = AddRecipe(27947, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(27947, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 375, 380)
+	self:AddRecipeFlags(27947, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeWorldDrop(27947, "Outland")
 
 	-- Enchant Boots - Vitality -- 27948
-	recipe = AddRecipe(27948, 305, nil, Q.UNCOMMON, V.TBC, 305, 315, 330, 345)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddMobDrop(24664)
+	AddRecipe(27948, 305, nil, Q.UNCOMMON, V.TBC, 305, 315, 330, 345)
+	self:AddRecipeFlags(27948, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeMobDrop(27948, 24664)
 
 	-- Enchant Boots - Fortitude -- 27950
-	recipe = AddRecipe(27950, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
-	recipe:AddMobDrop(18317)
+	AddRecipe(27950, 320, nil, Q.UNCOMMON, V.TBC, 320, 330, 345, 360)
+	self:AddRecipeFlags(27950, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP)
+	self:AddRecipeMobDrop(27950, 18317)
 
 	-- Enchant Boots - Dexterity -- 27951
-	recipe = AddRecipe(27951, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddMobDrop(18521)
+	AddRecipe(27951, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
+	self:AddRecipeFlags(27951, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeMobDrop(27951, 18521)
 
 	-- Enchant Boots - Surefooted -- 27954
-	recipe = AddRecipe(27954, 370, nil, Q.UNCOMMON, V.TBC, 370, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.CASTER)
-	recipe:AddMobDrop(16472)
+	AddRecipe(27954, 370, nil, Q.UNCOMMON, V.TBC, 370, 380, 385, 390)
+	self:AddRecipeFlags(27954, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.CASTER)
+	self:AddRecipeMobDrop(27954, 16472)
 
 	-- Enchant Chest - Exceptional Health -- 27957
-	recipe = AddRecipe(27957, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(27957, 315, nil, Q.COMMON, V.TBC, 315, 325, 340, 355)
+	self:AddRecipeFlags(27957, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(27957, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Exceptional Mana -- 27958
-	recipe = AddRecipe(27958, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(27958, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
+	self:AddRecipeFlags(27958, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(27958, 3345, 28693, 26980, 33583, 26954, 26906, 26990)
 
 	-- Enchant Chest - Exceptional Stats -- 27960
-	recipe = AddRecipe(27960, 345, nil, Q.COMMON, V.TBC, 345, 355, 367, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HELLFIRE)
-	recipe:AddRepVendor(FAC.HONOR_HOLD, REP.REVERED, 17657)
-	recipe:AddRepVendor(FAC.THRALLMAR, REP.REVERED, 17585)
+	AddRecipe(27960, 345, nil, Q.COMMON, V.TBC, 345, 355, 367, 380)
+	self:AddRecipeFlags(27960, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HELLFIRE)
+	self:AddRecipeRepVendor(27960, FAC.HONOR_HOLD, REP.REVERED, 17657)
+	self:AddRecipeRepVendor(27960, FAC.THRALLMAR, REP.REVERED, 17585)
 
 	-- Enchant Cloak - Major Armor -- 27961
-	recipe = AddRecipe(27961, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(27961, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
+	self:AddRecipeFlags(27961, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeTrainer(27961, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Major Resistance -- 27962
-	recipe = AddRecipe(27962, 330, nil, Q.UNCOMMON, V.TBC, 330, 340, 355, 370)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(27962, 330, nil, Q.UNCOMMON, V.TBC, 330, 340, 355, 370)
+	self:AddRecipeFlags(27962, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeWorldDrop(27962, "Outland")
 
 	-- Enchant Weapon - Major Striking -- 27967
-	recipe = AddRecipe(27967, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CONSORTIUM, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
+	AddRecipe(27967, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
+	self:AddRecipeFlags(27967, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.CONSORTIUM)
+	self:AddRecipeRepVendor(27967, FAC.CONSORTIUM, REP.HONORED, 20242, 23007)
 
 	-- Enchant Weapon - Major Intellect -- 27968
-	recipe = AddRecipe(27968, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(20136)
+	AddRecipe(27968, 340, nil, Q.UNCOMMON, V.TBC, 340, 350, 365, 380)
+	self:AddRecipeFlags(27968, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND, F.HEALER, F.CASTER)
+	self:AddRecipeMobDrop(27968, 20136)
 
 	-- Enchant 2H Weapon - Savagery -- 27971
-	recipe = AddRecipe(27971, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(17465)
+	AddRecipe(27971, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(27971, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
+	self:AddRecipeMobDrop(27971, 17465)
 
 	-- Enchant Weapon - Potency -- 27972
-	recipe = AddRecipe(27972, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(27972, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(27972, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(27972, "Outland")
 
 	-- Enchant Weapon - Major Spellpower -- 27975
-	recipe = AddRecipe(27975, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(22242)
+	AddRecipe(27975, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(27975, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(27975, 22242)
 
 	-- Enchant 2H Weapon - Major Agility -- 27977
-	recipe = AddRecipe(27977, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(20880)
+	AddRecipe(27977, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(27977, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
+	self:AddRecipeMobDrop(27977, 20880)
 
 	-- Enchant Weapon - Sunfire -- 27981
-	recipe = AddRecipe(27981, 375, nil, Q.RARE, V.TBC, 375, 375, 375, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(16524)
+	AddRecipe(27981, 375, nil, Q.RARE, V.TBC, 375, 375, 375, 390)
+	self:AddRecipeFlags(27981, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(27981, 16524)
 
 	-- Enchant Weapon - Soulfrost -- 27982
-	recipe = AddRecipe(27982, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(15688)
+	AddRecipe(27982, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(27982, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(27982, 15688)
 
 	-- Enchant Weapon - Mongoose -- 27984
-	recipe = AddRecipe(27984, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.TWO_HAND)
-	recipe:AddMobDrop(15687)
+	AddRecipe(27984, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(27984, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeMobDrop(27984, 15687)
 
 	-- Enchant Weapon - Spellsurge -- 28003
-	recipe = AddRecipe(28003, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(28003, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(28003, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(28003, "Outland")
 
 	-- Enchant Weapon - Battlemaster -- 28004
-	recipe = AddRecipe(28004, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(28004, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(28004, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeWorldDrop(28004, "Outland")
 
 	-- Superior Mana Oil -- 28016
-	recipe = AddRecipe(28016, 310, 22521, Q.COMMON, V.TBC, 310, 310, 320, 330)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722, 19663)
+	AddRecipe(28016, 310, 22521, Q.COMMON, V.TBC, 310, 310, 320, 330)
+	self:AddRecipeFlags(28016, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(28016, 19663, 16722, 16635)
 
 	-- Superior Wizard Oil -- 28019
-	recipe = AddRecipe(28019, 340, 22522, Q.COMMON, V.TBC, 340, 340, 350, 360)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddVendor(16635, 16722, 19663)
+	AddRecipe(28019, 340, 22522, Q.COMMON, V.TBC, 340, 340, 350, 360)
+	self:AddRecipeFlags(28019, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeVendor(28019, 19663, 16722, 16635)
 
 	-- Large Prismatic Shard -- 28022
-	recipe = AddRecipe(28022, 335, 22449, Q.COMMON, V.TBC, 335, 335, 335, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	recipe:AddVendor(16635, 16722, 19663)
+	AddRecipe(28022, 335, 22449, Q.COMMON, V.TBC, 335, 335, 335, 335)
+	self:AddRecipeFlags(28022, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	self:AddRecipeVendor(28022, 19663, 16722, 16635)
 
 	-- Prismatic Sphere -- 28027
-	recipe = AddRecipe(28027, 325, 22460, Q.COMMON, V.TBC, 325, 325, 330, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(28027, 325, 22460, Q.COMMON, V.TBC, 325, 325, 330, 335)
+	self:AddRecipeFlags(28027, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(28027, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Void Sphere -- 28028
-	recipe = AddRecipe(28028, 350, 22459, Q.COMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(28028, 350, 22459, Q.COMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(28028, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(28028, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Runed Fel Iron Rod -- 32664
-	recipe = AddRecipe(32664, 300, 22461, Q.COMMON, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(32664, 300, 22461, Q.COMMON, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(32664, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(32664, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Runed Adamantite Rod -- 32665
-	recipe = AddRecipe(32665, 350, 22462, Q.COMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
-	recipe:AddVendor(18960, 19004)
+	AddRecipe(32665, 350, 22462, Q.COMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(32665, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOE)
+	self:AddRecipeVendor(32665, 18960, 19004)
 
 	-- Runed Eternium Rod -- 32667
-	recipe = AddRecipe(32667, 375, 22463, Q.COMMON, V.TBC, 375, 375, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
-	recipe:AddVendor(19663)
+	AddRecipe(32667, 375, 22463, Q.COMMON, V.TBC, 375, 375, 377, 385)
+	self:AddRecipeFlags(32667, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(32667, 3345, 28693, 26980, 33583, 26954, 26906, 26990)
+	self:AddRecipeVendor(32667, 19663)
 
 	-- Enchant Chest - Major Spirit -- 33990
-	recipe = AddRecipe(33990, 320, nil, Q.COMMON, V.TBC, 320, 330, 345, 360)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(33990, 320, nil, Q.COMMON, V.TBC, 320, 330, 345, 360)
+	self:AddRecipeFlags(33990, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(33990, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Restore Mana Prime -- 33991
-	recipe = AddRecipe(33991, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(33991, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(33991, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(33991, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Chest - Major Resilience -- 33992
-	recipe = AddRecipe(33992, 345, nil, Q.UNCOMMON, V.TBC, 345, 355, 367, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Outland")
+	AddRecipe(33992, 345, nil, Q.UNCOMMON, V.TBC, 345, 355, 367, 380)
+	self:AddRecipeFlags(33992, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(33992, "Outland")
 
 	-- Enchant Gloves - Blasting -- 33993
-	recipe = AddRecipe(33993, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(33993, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
+	self:AddRecipeFlags(33993, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(33993, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Precise Strikes -- 33994
-	recipe = AddRecipe(33994, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
-	recipe:AddRepVendor(FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
+	AddRecipe(33994, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(33994, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CENARION_EXPEDITION)
+	self:AddRecipeRepVendor(33994, FAC.CENARION_EXPEDITION, REP.REVERED, 17904)
 
 	-- Enchant Gloves - Major Strength -- 33995
-	recipe = AddRecipe(33995, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(33995, 340, nil, Q.COMMON, V.TBC, 340, 350, 365, 380)
+	self:AddRecipeFlags(33995, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(33995, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Assault -- 33996
-	recipe = AddRecipe(33996, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(33996, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
+	self:AddRecipeFlags(33996, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(33996, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Gloves - Major Spellpower -- 33997
-	recipe = AddRecipe(33997, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
-	recipe:AddRepVendor(FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
+	AddRecipe(33997, 360, nil, Q.UNCOMMON, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(33997, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.KOT)
+	self:AddRecipeRepVendor(33997, FAC.KEEPERS_OF_TIME, REP.HONORED, 21643)
 
 	-- Enchant Gloves - Major Healing -- 33999
-	recipe = AddRecipe(33999, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR)
-	recipe:AddRepVendor(FAC.SHATAR, REP.HONORED, 21432)
+	AddRecipe(33999, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(33999, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR)
+	self:AddRecipeRepVendor(33999, FAC.SHATAR, REP.HONORED, 21432)
 
 	-- Enchant Bracer - Major Intellect -- 34001
-	recipe = AddRecipe(34001, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(34001, 305, nil, Q.COMMON, V.TBC, 305, 315, 330, 345)
+	self:AddRecipeFlags(34001, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	self:AddRecipeTrainer(34001, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Bracer - Assault -- 34002
-	recipe = AddRecipe(34002, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(34002, 300, nil, Q.COMMON, V.TBC, 300, 310, 325, 340)
+	self:AddRecipeFlags(34002, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeTrainer(34002, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Spell Penetration -- 34003
-	recipe = AddRecipe(34003, 325, nil, Q.UNCOMMON, V.TBC, 325, 335, 350, 365)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CASTER, F.CONSORTIUM, F.CLOAK)
-	recipe:AddRepVendor(FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
+	AddRecipe(34003, 325, nil, Q.UNCOMMON, V.TBC, 325, 335, 350, 365)
+	self:AddRecipeFlags(34003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CASTER, F.CLOAK, F.CONSORTIUM)
+	self:AddRecipeRepVendor(34003, FAC.CONSORTIUM, REP.FRIENDLY, 20242, 23007)
 
 	-- Enchant Cloak - Greater Agility -- 34004
-	recipe = AddRecipe(34004, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(34004, 310, nil, Q.COMMON, V.TBC, 310, 320, 335, 350)
+	self:AddRecipeFlags(34004, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS, F.CLOAK)
+	self:AddRecipeTrainer(34004, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Greater Arcane Resistance -- 34005
-	recipe = AddRecipe(34005, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddMobDrop(19796)
+	AddRecipe(34005, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(34005, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeMobDrop(34005, 19796)
 
 	-- Enchant Cloak - Greater Shadow Resistance -- 34006
-	recipe = AddRecipe(34006, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddMobDrop(18870)
+	AddRecipe(34006, 350, nil, Q.RARE, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(34006, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeMobDrop(34006, 18870)
 
 	-- Enchant Boots - Cat's Swiftness -- 34007
-	recipe = AddRecipe(34007, 360, nil, Q.RARE, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
-	recipe:AddMobDrop(24664)
+	AddRecipe(34007, 360, nil, Q.RARE, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(34007, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.DPS)
+	self:AddRecipeMobDrop(34007, 24664)
 
 	-- Enchant Boots - Boar's Speed -- 34008
-	recipe = AddRecipe(34008, 360, nil, Q.RARE, V.TBC, 360, 370, 377, 385)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
-	recipe:AddMobDrop(24664)
+	AddRecipe(34008, 360, nil, Q.RARE, V.TBC, 360, 370, 377, 385)
+	self:AddRecipeFlags(34008, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeMobDrop(34008, 24664)
 
 	-- Enchant Shield - Major Stamina -- 34009
-	recipe = AddRecipe(34009, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.SHIELD)
-	recipe:AddVendor(19663)
+	AddRecipe(34009, 325, nil, Q.COMMON, V.TBC, 325, 335, 350, 365)
+	self:AddRecipeFlags(34009, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.SHIELD)
+	self:AddRecipeVendor(34009, 19663)
 
 	-- Enchant Weapon - Major Healing -- 34010
-	recipe = AddRecipe(34010, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.SHATAR, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.SHATAR, REP.REVERED, 21432)
+	AddRecipe(34010, 350, nil, Q.UNCOMMON, V.TBC, 350, 370, 375, 380)
+	self:AddRecipeFlags(34010, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND, F.SHATAR)
+	self:AddRecipeRepVendor(34010, FAC.SHATAR, REP.REVERED, 21432)
 
 	-- Nexus Transformation -- 42613
-	recipe = AddRecipe(42613, 300, 22448, Q.COMMON, V.TBC, 300, 300, 300, 305)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(42613, 300, 22448, Q.COMMON, V.TBC, 300, 300, 300, 305)
+	self:AddRecipeFlags(42613, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(42613, 3345, 18773, 18753, 19252, 33676, 33610, 19540)
 
 	-- Small Prismatic Shard -- 42615
-	recipe = AddRecipe(42615, 335, 22448, Q.COMMON, V.TBC, 335, 335, 335, 335)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(42615, 335, 22448, Q.COMMON, V.TBC, 335, 335, 335, 335)
+	self:AddRecipeFlags(42615, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(42615, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Weapon - Greater Agility -- 42620
-	recipe = AddRecipe(42620, 350, nil, Q.COMMON, V.TBC, 350, 360, 367, 375)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.VIOLETEYE, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddRepVendor(FAC.VIOLETEYE, REP.EXALTED, 18255)
+	AddRecipe(42620, 350, nil, Q.COMMON, V.TBC, 350, 360, 367, 375)
+	self:AddRecipeFlags(42620, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND, F.VIOLETEYE)
+	self:AddRecipeRepVendor(42620, FAC.VIOLETEYE, REP.EXALTED, 18255)
 
 	-- Enchant Weapon - Executioner -- 42974
-	recipe = AddRecipe(42974, 375, 33307, Q.RARE, V.TBC, 375, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(29)
+	AddRecipe(42974, 375, 33307, Q.RARE, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(42974, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeCustom(42974, 29)
 
 	-- Enchant Shield - Resilience -- 44383
-	recipe = AddRecipe(44383, 330, nil, Q.COMMON, V.TBC, 330, 340, 355, 370)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
-	recipe:AddTrainer(3345, 18753, 18773, 19252, 19540, 33610, 33676)
+	AddRecipe(44383, 330, nil, Q.COMMON, V.TBC, 330, 340, 355, 370)
+	self:AddRecipeFlags(44383, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
+	self:AddRecipeTrainer(44383, 3345, 18773, 18753, 19252, 19540, 33610, 33676)
 
 	-- Enchant Cloak - Superior Frost Resistance -- 44483
-	recipe = AddRecipe(44483, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddMobDrop(32289)
+	AddRecipe(44483, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
+	self:AddRecipeFlags(44483, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeMobDrop(44483, 32289)
 
 	-- Enchant Gloves - Expertise -- 44484
-	recipe = AddRecipe(44484, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44484, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
+	self:AddRecipeFlags(44484, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
+	self:AddRecipeTrainer(44484, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Precision -- 44488
-	recipe = AddRecipe(44488, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44488, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
+	self:AddRecipeFlags(44488, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44488, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Shield - Defense -- 44489
-	recipe = AddRecipe(44489, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44489, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	self:AddRecipeFlags(44489, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK, F.SHIELD)
+	self:AddRecipeTrainer(44489, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Mighty Health -- 44492
-	recipe = AddRecipe(44492, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44492, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(44492, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44492, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Nature Resistance -- 44494
-	recipe = AddRecipe(44494, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddMobDrop(32290)
+	AddRecipe(44494, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
+	self:AddRecipeFlags(44494, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeMobDrop(44494, 32290)
 
 	-- Enchant Cloak - Superior Agility -- 44500
-	recipe = AddRecipe(44500, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44500, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(44500, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
+	self:AddRecipeTrainer(44500, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Gatherer -- 44506
-	recipe = AddRecipe(44506, 375, nil, Q.COMMON, V.WOTLK, 375, 375, 380, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44506, 375, nil, Q.COMMON, V.WOTLK, 375, 375, 380, 390)
+	self:AddRecipeFlags(44506, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44506, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Greater Spirit -- 44508
-	recipe = AddRecipe(44508, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44508, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
+	self:AddRecipeFlags(44508, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(44508, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Greater Mana Restoration -- 44509
-	recipe = AddRecipe(44509, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44509, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	self:AddRecipeFlags(44509, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(44509, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Exceptional Spirit -- 44510
-	recipe = AddRecipe(44510, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44510, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
+	self:AddRecipeFlags(44510, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(44510, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Greater Assault -- 44513
-	recipe = AddRecipe(44513, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44513, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(44513, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(44513, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Icebreaker -- 44524
-	recipe = AddRecipe(44524, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(44524, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
+	self:AddRecipeFlags(44524, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(44524, 32514)
 
 	-- Enchant Boots - Greater Fortitude -- 44528
-	recipe = AddRecipe(44528, 385, nil, Q.COMMON, V.WOTLK, 385, 385, 390, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44528, 385, nil, Q.COMMON, V.WOTLK, 385, 385, 390, 400)
+	self:AddRecipeFlags(44528, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44528, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Major Agility -- 44529
-	recipe = AddRecipe(44529, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44529, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
+	self:AddRecipeFlags(44529, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(44529, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Exceptional Intellect -- 44555
-	recipe = AddRecipe(44555, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 392, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44555, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 392, 400)
+	self:AddRecipeFlags(44555, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44555, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Fire Resistance -- 44556
-	recipe = AddRecipe(44556, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddMobDrop(30921)
+	AddRecipe(44556, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
+	self:AddRecipeFlags(44556, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeMobDrop(44556, 30921)
 
 	-- Enchant Bracers - Greater Assault -- 44575
-	recipe = AddRecipe(44575, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(32514)
+	AddRecipe(44575, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(44575, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeVendor(44575, 32514)
 
 	-- Enchant Weapon - Lifeward -- 44576
-	recipe = AddRecipe(44576, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(44576, 425, nil, Q.RARE, V.WOTLK, 425, 435, 445, 455)
+	self:AddRecipeFlags(44576, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(44576, 32514)
 
 	-- Enchant Cloak - Spell Piercing -- 44582
-	recipe = AddRecipe(44582, 395, nil, Q.COMMON, V.WOTLK, 395, 395, 402, 410)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.CLOAK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44582, 395, nil, Q.COMMON, V.WOTLK, 395, 395, 402, 410)
+	self:AddRecipeFlags(44582, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CASTER, F.CLOAK)
+	self:AddRecipeTrainer(44582, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Greater Vitality -- 44584
-	recipe = AddRecipe(44584, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44584, 405, nil, Q.COMMON, V.WOTLK, 405, 415, 425, 435)
+	self:AddRecipeFlags(44584, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44584, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Chest - Exceptional Resilience -- 44588
-	recipe = AddRecipe(44588, 410, nil, Q.UNCOMMON, V.WOTLK, 410, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(32514)
+	AddRecipe(44588, 410, nil, Q.UNCOMMON, V.WOTLK, 410, 435, 445, 455)
+	self:AddRecipeFlags(44588, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(44588, 32514)
 
 	-- Enchant Boots - Superior Agility -- 44589
-	recipe = AddRecipe(44589, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44589, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
+	self:AddRecipeFlags(44589, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(44589, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Superior Shadow Resistance -- 44590
-	recipe = AddRecipe(44590, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddMobDrop(32349)
+	AddRecipe(44590, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
+	self:AddRecipeFlags(44590, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeMobDrop(44590, 32349)
 
 	-- Enchant Cloak - Titanweave -- 44591
-	recipe = AddRecipe(44591, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
-	recipe:AddVendor(32514)
+	AddRecipe(44591, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
+	self:AddRecipeFlags(44591, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
+	self:AddRecipeVendor(44591, 32514)
 
 	-- Enchant Gloves - Exceptional Spellpower -- 44592
-	recipe = AddRecipe(44592, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44592, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
+	self:AddRecipeFlags(44592, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(44592, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Major Spirit -- 44593
-	recipe = AddRecipe(44593, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44593, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	self:AddRecipeFlags(44593, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(44593, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Scourgebane -- 44595
-	recipe = AddRecipe(44595, 430, 44473, Q.RARE, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(44595, 430, 44473, Q.RARE, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(44595, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(44595, 32514)
 
 	-- Enchant Cloak - Superior Arcane Resistance -- 44596
-	recipe = AddRecipe(44596, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
-	recipe:AddMobDrop(31702, 32297)
+	AddRecipe(44596, 400, nil, Q.UNCOMMON, V.WOTLK, 400, 415, 425, 435)
+	self:AddRecipeFlags(44596, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.RBOE, F.CLOAK)
+	self:AddRecipeMobDrop(44596, 31702, 32297)
 
 	-- Enchant Bracers - Expertise -- 44598
-	recipe = AddRecipe(44598, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44598, 415, nil, Q.COMMON, V.WOTLK, 415, 425, 435, 445)
+	self:AddRecipeFlags(44598, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TANK)
+	self:AddRecipeTrainer(44598, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Greater Stats -- 44616
-	recipe = AddRecipe(44616, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44616, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
+	self:AddRecipeFlags(44616, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44616, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Giant Slayer -- 44621
-	recipe = AddRecipe(44621, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(44621, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(44621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(44621, 32514)
 
 	-- Enchant Chest - Super Stats -- 44623
-	recipe = AddRecipe(44623, 370, nil, Q.COMMON, V.WOTLK, 370, 380, 390, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44623, 370, nil, Q.COMMON, V.WOTLK, 370, 380, 390, 400)
+	self:AddRecipeFlags(44623, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(44623, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Armsman -- 44625
-	recipe = AddRecipe(44625, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddVendor(32514)
+	AddRecipe(44625, 435, nil, Q.UNCOMMON, V.WOTLK, 435, 445, 455, 465)
+	self:AddRecipeFlags(44625, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK)
+	self:AddRecipeVendor(44625, 32514)
 
 	-- Enchant Weapon - Exceptional Spellpower -- 44629
-	recipe = AddRecipe(44629, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44629, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(44629, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(44629, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Greater Savagery -- 44630
-	recipe = AddRecipe(44630, 390, nil, Q.COMMON, V.WOTLK, 390, 400, 410, 420)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44630, 390, nil, Q.COMMON, V.WOTLK, 390, 400, 410, 420)
+	self:AddRecipeFlags(44630, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
+	self:AddRecipeTrainer(44630, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Shadow Armor -- 44631
-	recipe = AddRecipe(44631, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
-	recipe:AddVendor(32514)
+	AddRecipe(44631, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(44631, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
+	self:AddRecipeVendor(44631, 32514)
 
 	-- Enchant Weapon - Exceptional Agility -- 44633
-	recipe = AddRecipe(44633, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44633, 410, nil, Q.COMMON, V.WOTLK, 410, 420, 430, 440)
+	self:AddRecipeFlags(44633, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(44633, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Greater Spellpower -- 44635
-	recipe = AddRecipe(44635, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44635, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(44635, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeTrainer(44635, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Ring - Greater Spellpower -- 44636
-	recipe = AddRecipe(44636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
+	self:AddRecipeFlags(44636, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
+	self:AddRecipeTrainer(44636, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Ring - Assault -- 44645
-	recipe = AddRecipe(44645, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.RING)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(44645, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
+	self:AddRecipeFlags(44645, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.RING)
+	self:AddRecipeTrainer(44645, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Void Shatter -- 45765
-	recipe = AddRecipe(45765, 375, 22449, Q.COMMON, V.TBC, 375, 375, 375, 375)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHATTEREDSUN)
-	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
+	AddRecipe(45765, 375, 22449, Q.COMMON, V.TBC, 375, 375, 375, 375)
+	self:AddRecipeFlags(45765, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.SHATTEREDSUN)
+	self:AddRecipeRepVendor(45765, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Weapon - Deathfrost -- 46578
-	recipe = AddRecipe(46578, 350, 35498, Q.RARE, V.TBC, 350, 350, 357, 365)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddSeason(4)
+	AddRecipe(46578, 350, 35498, Q.RARE, V.TBC, 350, 350, 357, 365)
+	self:AddRecipeFlags(46578, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeSeason(46578, 4)
 
 	-- Enchant Chest - Defense -- 46594
-	recipe = AddRecipe(46594, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 385, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHATTEREDSUN)
-	recipe:AddRepVendor(FAC.SHATTEREDSUN, REP.HONORED, 25032)
+	AddRecipe(46594, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 385, 400)
+	self:AddRecipeFlags(46594, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.TANK, F.SHATTEREDSUN)
+	self:AddRecipeRepVendor(46594, FAC.SHATTEREDSUN, REP.HONORED, 25032)
 
 	-- Enchant Cloak - Steelweave -- 47051
-	recipe = AddRecipe(47051, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.CLOAK, F.CLOAK)
-	recipe:AddMobDrop(24560)
+	AddRecipe(47051, 375, nil, Q.RARE, V.TBC, 375, 380, 385, 390)
+	self:AddRecipeFlags(47051, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.TANK, F.CLOAK)
+	self:AddRecipeMobDrop(47051, 24560)
 
 	-- Enchant Cloak - Mighty Armor -- 47672
-	recipe = AddRecipe(47672, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddVendor(32514)
+	AddRecipe(47672, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(47672, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeVendor(47672, 32514)
 
 	-- Enchant Chest - Greater Defense -- 47766
-	recipe = AddRecipe(47766, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(47766, 400, nil, Q.COMMON, V.WOTLK, 400, 410, 420, 430)
+	self:AddRecipeFlags(47766, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
+	self:AddRecipeTrainer(47766, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Greater Speed -- 47898
-	recipe = AddRecipe(47898, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddVendor(32514)
+	AddRecipe(47898, 430, nil, Q.UNCOMMON, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(47898, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeVendor(47898, 32514)
 
 	-- Enchant Cloak - Wisdom -- 47899
-	recipe = AddRecipe(47899, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
-	recipe:AddVendor(32514)
+	AddRecipe(47899, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(47899, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
+	self:AddRecipeVendor(47899, 32514)
 
 	-- Enchant Chest - Super Health -- 47900
-	recipe = AddRecipe(47900, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(47900, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	self:AddRecipeFlags(47900, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(47900, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Tuskarr's Vitality -- 47901
-	recipe = AddRecipe(47901, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(32514)
+	AddRecipe(47901, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(47901, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(47901, 32514)
 
 	-- Enchant Weapon - Accuracy -- 59619
-	recipe = AddRecipe(59619, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(59619, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(59619, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(59619, 32514)
 
 	-- Enchant Weapon - Berserking -- 59621
-	recipe = AddRecipe(59621, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(59621, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(59621, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(59621, 32514)
 
 	-- Enchant Weapon - Black Magic -- 59625
-	recipe = AddRecipe(59625, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(59625, 440, nil, Q.RARE, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(59625, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(59625, 32514)
 
 	-- Enchant Ring - Stamina -- 59636
-	recipe = AddRecipe(59636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(59636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
+	self:AddRecipeFlags(59636, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.RING)
+	self:AddRecipeTrainer(59636, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Assault -- 60606
-	recipe = AddRecipe(60606, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 395, 405)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60606, 375, nil, Q.COMMON, V.WOTLK, 375, 385, 395, 405)
+	self:AddRecipeFlags(60606, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(60606, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Speed -- 60609
-	recipe = AddRecipe(60609, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60609, 350, nil, Q.COMMON, V.WOTLK, 350, 360, 370, 380)
+	self:AddRecipeFlags(60609, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.CLOAK)
+	self:AddRecipeTrainer(60609, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Bracers - Striking -- 60616
-	recipe = AddRecipe(60616, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60616, 360, nil, Q.COMMON, V.WOTLK, 360, 370, 380, 390)
+	self:AddRecipeFlags(60616, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(60616, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Runed Titanium Rod -- 60619
-	recipe = AddRecipe(60619, 425, 44452, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60619, 425, 44452, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	self:AddRecipeFlags(60619, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(60619, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Weapon - Greater Potency -- 60621
-	recipe = AddRecipe(60621, 380, nil, Q.COMMON, V.WOTLK, 380, 390, 400, 410)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60621, 380, nil, Q.COMMON, V.WOTLK, 380, 390, 400, 410)
+	self:AddRecipeFlags(60621, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeTrainer(60621, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Icewalker -- 60623
-	recipe = AddRecipe(60623, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60623, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
+	self:AddRecipeFlags(60623, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(60623, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Shield - Greater Intellect -- 60653
-	recipe = AddRecipe(60653, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60653, 395, nil, Q.COMMON, V.WOTLK, 395, 405, 415, 425)
+	self:AddRecipeFlags(60653, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.SHIELD)
+	self:AddRecipeTrainer(60653, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Cloak - Major Agility -- 60663
-	recipe = AddRecipe(60663, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60663, 420, nil, Q.COMMON, V.WOTLK, 420, 430, 440, 450)
+	self:AddRecipeFlags(60663, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS, F.CLOAK)
+	self:AddRecipeTrainer(60663, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Crusher -- 60668
-	recipe = AddRecipe(60668, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(60668, 425, nil, Q.COMMON, V.WOTLK, 425, 435, 445, 455)
+	self:AddRecipeFlags(60668, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(60668, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant 2H Weapon - Massacre -- 60691
-	recipe = AddRecipe(60691, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(60691, 430, nil, Q.RARE, V.WOTLK, 430, 440, 450, 460)
+	self:AddRecipeFlags(60691, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TWO_HAND)
+	self:AddRecipeVendor(60691, 32514)
 
 	-- Enchant Chest - Powerful Stats -- 60692
-	recipe = AddRecipe(60692, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(32514)
+	AddRecipe(60692, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(60692, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(60692, 32514)
 
 	-- Enchant Weapon - Superior Potency -- 60707
-	recipe = AddRecipe(60707, 435, nil, Q.RARE, V.WOTLK, 435, 445, 455, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(60707, 435, nil, Q.RARE, V.WOTLK, 435, 445, 455, 465)
+	self:AddRecipeFlags(60707, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(60707, 32514)
 
 	-- Enchant Weapon - Mighty Spellpower -- 60714
-	recipe = AddRecipe(60714, 435, nil, Q.RARE, V.WOTLK, 435, 445, 455, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddVendor(32514)
+	AddRecipe(60714, 435, nil, Q.RARE, V.WOTLK, 435, 445, 455, 465)
+	self:AddRecipeFlags(60714, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeVendor(60714, 32514)
 
 	-- Enchant Boots - Greater Assault -- 60763
-	recipe = AddRecipe(60763, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddVendor(32514)
+	AddRecipe(60763, 440, nil, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(60763, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeVendor(60763, 32514)
 
 	-- Enchant Bracers - Superior Spellpower -- 60767
-	recipe = AddRecipe(60767, 440, 44498, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddVendor(32514)
+	AddRecipe(60767, 440, 44498, Q.UNCOMMON, V.WOTLK, 440, 450, 460, 470)
+	self:AddRecipeFlags(60767, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	self:AddRecipeVendor(60767, 32514)
 
 	-- Enchant Bracers - Major Stamina -- 62256
-	recipe = AddRecipe(62256, 450, 44944, Q.RARE, V.WOTLK, 450, 460, 470, 480)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(32514)
+	AddRecipe(62256, 450, 44944, Q.RARE, V.WOTLK, 450, 460, 470, 480)
+	self:AddRecipeFlags(62256, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(62256, 32514)
 
 	-- Enchant Staff - Greater Spellpower -- 62948
-	recipe = AddRecipe(62948, 450, nil, Q.RARE, V.WOTLK, 450, 455, 460, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
-	recipe:AddVendor(32514)
+	AddRecipe(62948, 450, nil, Q.RARE, V.WOTLK, 450, 455, 460, 465)
+	self:AddRecipeFlags(62948, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
+	self:AddRecipeVendor(62948, 32514)
 
 	-- Enchant Staff - Spellpower -- 62959
-	recipe = AddRecipe(62959, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(62959, 385, nil, Q.COMMON, V.WOTLK, 385, 395, 405, 415)
+	self:AddRecipeFlags(62959, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.STAFF)
+	self:AddRecipeTrainer(62959, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Boots - Lesser Accuracy -- 63746
-	recipe = AddRecipe(63746, 225, nil, Q.COMMON, V.WOTLK, 225, 245, 265, 285)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddTrainer(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11072, 11073, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33676)
+	AddRecipe(63746, 225, nil, Q.COMMON, V.WOTLK, 225, 245, 265, 285)
+	self:AddRecipeFlags(63746, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	self:AddRecipeTrainer(63746, 3606, 19540, 11072, 5695, 18753, 11074, 5157, 19251, 16725, 19252, 16633, 18773, 16160, 4616, 11073, 33676, 4213, 3345, 3011, 33610, 7949, 1317)
 
 	-- Enchant Weapon - Blade Ward -- 64441
-	recipe = AddRecipe(64441, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(39)
+	AddRecipe(64441, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
+	self:AddRecipeFlags(64441, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.TANK, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeCustom(64441, 39)
 
 	-- Enchant Weapon - Blood Draining -- 64579
-	recipe = AddRecipe(64579, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
-	recipe:AddCustom(39)
+	AddRecipe(64579, 450, nil, Q.EPIC, V.WOTLK, 450, 455, 460, 465)
+	self:AddRecipeFlags(64579, F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOP, F.ONE_HAND, F.TWO_HAND)
+	self:AddRecipeCustom(64579, 39)
 
 	-- Abyssal Shatter -- 69412
-	recipe = AddRecipe(69412, 445, 49640, Q.COMMON, V.WOTLK, 445, 445, 447, 450)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
+	AddRecipe(69412, 445, 49640, Q.COMMON, V.WOTLK, 445, 445, 447, 450)
+	self:AddRecipeFlags(69412, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	self:AddRecipeTrainer(69412, 3345, 28693, 33583, 26990, 26954, 26906, 26980)
 
 	-- Enchant Gloves - Angler -- 71692
-	recipe = AddRecipe(71692, 375, nil, Q.UNCOMMON, V.WOTLK, 375, 385, 392, 400)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
-	recipe:AddMobDrop(26336, 26343, 26344)
-
-	-- Enchant Gloves - Mastery -- 74132
-	recipe = AddRecipe(74132, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(71692, 375, nil, Q.UNCOMMON, V.WOTLK, 375, 385, 392, 400)
+	self:AddRecipeFlags(71692, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RBOP)
+	self:AddRecipeMobDrop(71692, 26343, 26336, 26344)
 
 	-- Enchant Boots - Earthen Vitality -- 74189
-	recipe = AddRecipe(74189, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74189, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74189, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74189, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Chest - Mighty Stats -- 74191
-	recipe = AddRecipe(74191, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74191, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74191, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74191, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
-	-- Enchant Cloak - Greater Spell Piercing -- 74192
-	recipe = AddRecipe(74192, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	-- Enchant Gloves - Mastery -- 74132
+	AddRecipe(74132, 425, nil, Q.COMMON, V.CATA, 425, 440, 450, 460)
+	self:AddRecipeFlags(74132, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74132, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Bracer - Speed -- 74193
-	recipe = AddRecipe(74193, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74193, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
+	self:AddRecipeFlags(74193, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74193, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
-	-- Enchant Weapon - Mending -- 74195
-	recipe = AddRecipe(74195, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	-- Enchant Cloak - Greater Spell Piercing -- 74192
+	AddRecipe(74192, 435, nil, Q.COMMON, V.CATA, 435, 450, 460, 470)
+	self:AddRecipeFlags(74192, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74192, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Weapon - Avalanche -- 74197
-	recipe = AddRecipe(74197, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74197, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
+	self:AddRecipeFlags(74197, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74197, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
-	-- Enchant Gloves - Haste -- 74198
-	recipe = AddRecipe(74198, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	-- Enchant Weapon - Mending -- 74195
+	AddRecipe(74195, 450, nil, Q.COMMON, V.CATA, 450, 460, 462, 465)
+	self:AddRecipeFlags(74195, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74195, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Boots - Haste -- 74199
-	recipe = AddRecipe(74199, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74199, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
+	self:AddRecipeFlags(74199, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74199, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
-	-- Enchant Chest - Stamina -- 74200
-	recipe = AddRecipe(74200, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	-- Enchant Gloves - Haste -- 74198
+	AddRecipe(74198, 455, nil, Q.COMMON, V.CATA, 455, 465, 475, 485)
+	self:AddRecipeFlags(74198, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74198, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Bracer - Critical Strike -- 74201
-	recipe = AddRecipe(74201, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74201, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
+	self:AddRecipeFlags(74201, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74201, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Stamina -- 74200
+	AddRecipe(74200, 460, nil, Q.COMMON, V.CATA, 460, 470, 480, 490)
+	self:AddRecipeFlags(74200, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74200, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Cloak - Intellect -- 74202
-	recipe = AddRecipe(74202, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(74202, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
+	self:AddRecipeFlags(74202, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74202, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant Shield - Protection -- 74207
-	recipe = AddRecipe(74207, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Weapon - Elemental Slayer -- 74211
-	recipe = AddRecipe(74211, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Gloves - Exceptional Strength -- 74212
-	recipe = AddRecipe(74212, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Boots - Major Agility -- 74213
-	recipe = AddRecipe(74213, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Chest - Mighty Resilience -- 74214
-	recipe = AddRecipe(74214, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Ring - Strength -- 74215
-	recipe = AddRecipe(74215, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Ring - Agility -- 74216
-	recipe = AddRecipe(74216, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Ring - Intellect -- 74217
-	recipe = AddRecipe(74217, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Ring - Greater Stamina -- 74218
-	recipe = AddRecipe(74218, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Gloves - Greater Expertise -- 74220
-	recipe = AddRecipe(74220, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Weapon - Hurricane -- 74223
-	recipe = AddRecipe(74223, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Weapon - Heartsong -- 74225
-	recipe = AddRecipe(74225, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Shield - Blocking -- 74226
-	recipe = AddRecipe(74226, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Bracer - Dodge -- 74229
-	recipe = AddRecipe(74229, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Cloak - Critical Strike -- 74230
-	recipe = AddRecipe(74230, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Chest - Exceptional Spirit -- 74231
-	recipe = AddRecipe(74231, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Bracer - Precision -- 74232
-	recipe = AddRecipe(74232, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Cloak - Protection -- 74234
-	recipe = AddRecipe(74234, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Off-Hand - Superior Intellect -- 74235
-	recipe = AddRecipe(74235, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Boots - Precision -- 74236
-	recipe = AddRecipe(74236, 505, nil, Q.COMMON, V.CATA, 505, 510, 512, 515)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Bracer - Exceptional Spirit -- 74237
-	recipe = AddRecipe(74237, 505, nil, Q.COMMON, V.CATA, 505, 515, 525, 535)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Boots - Mastery -- 74238
-	recipe = AddRecipe(74238, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Bracer - Greater Expertise -- 74239
-	recipe = AddRecipe(74239, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Cloak - Greater Intellect -- 74240
-	recipe = AddRecipe(74240, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
-
-	-- Enchant Weapon - Power Torrent -- 74242
-	recipe = AddRecipe(74242, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Weapon - Windwalk -- 74244
-	recipe = AddRecipe(74244, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Weapon - Landslide -- 74246
-	recipe = AddRecipe(74246, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Cloak - Greater Critical Strike -- 74247
-	recipe = AddRecipe(74247, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Bracer - Greater Critical Strike -- 74248
-	recipe = AddRecipe(74248, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Chest - Peerless Stats -- 74250
-	recipe = AddRecipe(74250, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Chest - Greater Stamina -- 74251
-	recipe = AddRecipe(74251, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Boots - Assassin's Step -- 74252
-	recipe = AddRecipe(74252, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Boots - Lavawalker -- 74253
-	recipe = AddRecipe(74253, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Gloves - Mighty Strength -- 74254
-	recipe = AddRecipe(74254, 525, 64415, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Gloves - Greater Mastery -- 74255
-	recipe = AddRecipe(74255, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchant Bracer - Greater Speed -- 74256
-	recipe = AddRecipe(74256, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Runed Elementium Rod -- 92370
-	recipe = AddRecipe(92370, 515, 65359, Q.COMMON, V.CATA, 515, 525, 525, 525)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.RBOP)
-	recipe:AddVendor(50134, 50146)
-
-	-- Enchanted Lantern -- 93841
-	recipe = AddRecipe(93841, 525, 67308, Q.RARE, V.CATA, 525, 525, 525, 525)
-	recipe:AddFlags(F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50146)
-
-	-- Magic Lamp -- 93843
-	recipe = AddRecipe(93843, 525, 67312, Q.RARE, V.CATA, 525, 525, 525, 525)
-	recipe:AddFlags(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP)
-	recipe:AddVendor(50134)
+	AddRecipe(74207, 465, nil, Q.COMMON, V.CATA, 465, 475, 485, 495)
+	self:AddRecipeFlags(74207, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74207, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
 
 	-- Enchant 2H Weapon - Mighty Agility -- 95471
-	recipe = AddRecipe(95471, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
-	recipe:AddTrainer(1317, 3011, 3345, 4213, 4616, 5157, 16633, 28693)
+	AddRecipe(95471, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(95471, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(95471, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Exceptional Strength -- 74212
+	AddRecipe(74212, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(74212, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74212, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Elemental Slayer -- 74211
+	AddRecipe(74211, 470, nil, Q.COMMON, V.CATA, 470, 480, 490, 500)
+	self:AddRecipeFlags(74211, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74211, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Agility -- 74216
+	AddRecipe(74216, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74216, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74216, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Greater Stamina -- 74218
+	AddRecipe(74218, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74218, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74218, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Intellect -- 74217
+	AddRecipe(74217, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74217, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74217, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Ring - Strength -- 74215
+	AddRecipe(74215, 475, nil, Q.COMMON, V.CATA, 475, 475, 475, 495)
+	self:AddRecipeFlags(74215, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74215, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Major Agility -- 74213
+	AddRecipe(74213, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
+	self:AddRecipeFlags(74213, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74213, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Mighty Resilience -- 74214
+	AddRecipe(74214, 475, nil, Q.COMMON, V.CATA, 475, 485, 495, 505)
+	self:AddRecipeFlags(74214, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74214, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Gloves - Greater Expertise -- 74220
+	AddRecipe(74220, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
+	self:AddRecipeFlags(74220, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74220, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Hurricane -- 74223
+	AddRecipe(74223, 480, nil, Q.COMMON, V.CATA, 480, 490, 500, 510)
+	self:AddRecipeFlags(74223, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74223, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Shield - Blocking -- 74226
+	AddRecipe(74226, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
+	self:AddRecipeFlags(74226, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74226, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Weapon - Heartsong -- 74225
+	AddRecipe(74225, 485, nil, Q.COMMON, V.CATA, 485, 495, 505, 515)
+	self:AddRecipeFlags(74225, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74225, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Dodge -- 74229
+	AddRecipe(74229, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
+	self:AddRecipeFlags(74229, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74229, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Critical Strike -- 74230
+	AddRecipe(74230, 490, nil, Q.COMMON, V.CATA, 490, 500, 510, 520)
+	self:AddRecipeFlags(74230, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74230, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Precision -- 74232
+	AddRecipe(74232, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
+	self:AddRecipeFlags(74232, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74232, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Chest - Exceptional Spirit -- 74231
+	AddRecipe(74231, 495, nil, Q.COMMON, V.CATA, 495, 505, 515, 525)
+	self:AddRecipeFlags(74231, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74231, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Protection -- 74234
+	AddRecipe(74234, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
+	self:AddRecipeFlags(74234, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74234, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Off-Hand - Superior Intellect -- 74235
+	AddRecipe(74235, 500, nil, Q.COMMON, V.CATA, 500, 510, 520, 530)
+	self:AddRecipeFlags(74235, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74235, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Precision -- 74236
+	AddRecipe(74236, 505, nil, Q.COMMON, V.CATA, 505, 510, 512, 515)
+	self:AddRecipeFlags(74236, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74236, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Exceptional Spirit -- 74237
+	AddRecipe(74237, 505, nil, Q.COMMON, V.CATA, 505, 515, 525, 535)
+	self:AddRecipeFlags(74237, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74237, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Boots - Mastery -- 74238
+	AddRecipe(74238, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74238, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74238, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Bracer - Greater Expertise -- 74239
+	AddRecipe(74239, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74239, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74239, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Enchant Cloak - Greater Intellect -- 74240
+	AddRecipe(74240, 510, nil, Q.COMMON, V.CATA, 510, 520, 530, 540)
+	self:AddRecipeFlags(74240, F.HORDE, F.ALLIANCE, F.TRAINER, F.IBOP, F.RBOP)
+	self:AddRecipeTrainer(74240, 28693, 5157, 3345, 4616, 1317, 16633, 4213, 3011)
+
+	-- Runed Elementium Rod - 92370
+	AddRecipe(92370, 515, 65359, Q.COMMON, V.CATA, 515, 525, 525, 525)
+	self:AddRecipeFlags(92370, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(92370, 50134, 50146)
+
+	-- Enchanted Lantern -- 93841
+	AddRecipe(93841, 525, 67308, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(93841, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(93841, 50146)
+
+	-- Magic Lamp -- 93843
+	AddRecipe(93843, 525, 67312, Q.RARE, V.CATA, 525, 525, 525, 525)
+	self:AddRecipeFlags(93843, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP)
+	self:AddRecipeVendor(93843, 50134)
+
+	-- Enchant Boots - Assassin's Step -- 74252
+	AddRecipe(74252, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74252, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74252, 50134, 50146)
+
+	-- Enchant Boots - Lavawalker -- 74253
+	AddRecipe(74253, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74253, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74253, 50134, 50146)
+
+	-- Enchant Bracer - Greater Critical Strike -- 74248
+	AddRecipe(74248, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74248, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74248, 50134, 50146)
+
+	-- Enchant Bracer - Greater Speed -- 74256
+	AddRecipe(74256, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74256, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74256, 50134, 50146)
+
+	-- Enchant Chest - Greater Stamina -- 74251
+	AddRecipe(74251, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74251, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74251, 50134, 50146)
+
+	-- Enchant Chest - Peerless Stats -- 74250
+	AddRecipe(74250, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74250, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74250, 50134, 50146)
+
+	-- Enchant Cloak - Greater Critical Strike -- 74247
+	AddRecipe(74247, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74247, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74247, 50134, 50146)
+
+	-- Enchant Gloves - Greater Mastery -- 74255
+	AddRecipe(74255, 525, nil, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74255, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74255, 50134, 50146)
+
+	-- Enchant Gloves - Mighty Strength -- 74254
+	AddRecipe(74254, 525, 64415, Q.UNCOMMON, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74254, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74254, 50134, 50146)
+
+	-- Enchant Weapon - Landslide -- 74246
+	AddRecipe(74246, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74246, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74246, 50134, 50146)
+
+	-- Enchant Weapon - Power Torrent -- 74242
+	AddRecipe(74242, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74242, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74242, 50134, 50146)
+
+	-- Enchant Weapon - Windwalk -- 74244
+	AddRecipe(74244, 525, nil, Q.RARE, V.CATA, 525, 525, 532, 540)
+	self:AddRecipeFlags(74244, F.HORDE, F.ALLIANCE, F.VENDOR, F.IBOP, F.RBOP)
+	self:AddRecipeVendor(74244, 50134, 50146)
 
 	-- Enchant Bracer - Major Strength -- 96261
-	recipe = AddRecipe(96261, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	AddRecipe(96261, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
+	self:AddRecipeFlags(96261, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96261, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	-- Enchant Bracer - Mighty Intellect -- 96262
-	recipe = AddRecipe(96262, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	AddRecipe(96262, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
+	self:AddRecipeFlags(96262, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96262, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	-- Enchant Bracer - Agility -- 96264
-	recipe = AddRecipe(96264, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
-	recipe:AddFlags(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
+	AddRecipe(96264, 515, nil, Q.RARE, V.CATA, 515, 525, 532, 540)
+	self:AddRecipeFlags(96264, F.HORDE, F.ALLIANCE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	self:AddRecipeWorldDrop(96264, "Kalimdor", "Eastern Kingdoms", "Deepholm")
 
 	return num_recipes
 end
