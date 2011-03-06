@@ -1,7 +1,6 @@
 --[[
 ************************************************************************
 Cooking.lua
-Cooking data for all of Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@
@@ -12,26 +11,26 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]]--
+]] --
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local MODNAME = "Ackis Recipe List"
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local private	= select(2, ...)
+local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F		= private.filter_flags
-local A		= private.acquire_types
-local Q		= private.item_qualities
-local REP	= private.rep_levels
-local FAC	= private.faction_ids
-local V		= private.game_versions
+local F = private.filter_flags
+local A = private.acquire_types
+local Q = private.item_qualities
+local REP = private.rep_levels
+local FAC = private.faction_ids
+local V = private.game_versions
 
 local initialized = false
 local num_recipes = 0
@@ -41,7 +40,7 @@ local num_recipes = 0
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
 	num_recipes = num_recipes + 1
-	addon:AddRecipe(spell_id, skill_level, item_id, quality, 2550, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
+	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2550, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitCooking()
@@ -50,1082 +49,1050 @@ function addon:InitCooking()
 	end
 	initialized = true
 
+	local recipe
+
 	-- Charred Wolf Meat -- 2538
-	AddRecipe(2538, 1, 2679, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(2538, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeCustom(2538, 8)
+	recipe = AddRecipe(2538, 1, 2679, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddCustom(8)
 
 	-- Spiced Wolf Meat -- 2539
-	AddRecipe(2539, 10, 2680, Q.COMMON, V.ORIG, 10, 50, 70, 90)
-	self:AddRecipeFlags(2539, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(2539, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(2539, 10, 2680, Q.COMMON, V.ORIG, 10, 50, 70, 90)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Roasted Boar Meat -- 2540
-	AddRecipe(2540, 1, 2681, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(2540, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeCustom(2540, 8)
+	recipe = AddRecipe(2540, 1, 2681, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddCustom(8)
 
 	-- Coyote Steak -- 2541
-	AddRecipe(2541, 50, 2684, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(2541, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(2541, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(2541, 50, 2684, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Goretusk Liver Pie -- 2542
-	AddRecipe(2542, 50, 724, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(2542, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(2542, 340)
+	recipe = AddRecipe(2542, 50, 724, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
 
 	-- Westfall Stew -- 2543
-	AddRecipe(2543, 50, 733, Q.COMMON, V.ORIG, 50, 115, 135, 155)
-	self:AddRecipeFlags(2543, F.ALLIANCE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(2543, 340)
-	self:AddRecipeWorldDrop(2543, "Westfall")
+	recipe = AddRecipe(2543, 50, 733, Q.COMMON, V.ORIG, 50, 115, 135, 155)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddVendor(340)
+	recipe:AddWorldDrop("Westfall")
 
 	-- Crab Cake -- 2544
-	AddRecipe(2544, 75, 2683, Q.COMMON, V.ORIG, 75, 115, 135, 155)
-	self:AddRecipeFlags(2544, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(2544, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(2544, 75, 2683, Q.COMMON, V.ORIG, 75, 115, 135, 155)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Cooked Crab Claw -- 2545
-	AddRecipe(2545, 85, 2682, Q.COMMON, V.ORIG, 85, 125, 145, 165)
-	self:AddRecipeFlags(2545, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(2545, 340)
-	self:AddRecipeWorldDrop(2545, "Darkshore", "Westfall")
+	recipe = AddRecipe(2545, 85, 2682, Q.COMMON, V.ORIG, 85, 125, 145, 165)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddVendor(340)
+	recipe:AddWorldDrop("Darkshore", "Westfall")
 
 	-- Dry Pork Ribs -- 2546
-	AddRecipe(2546, 80, 2687, Q.COMMON, V.ORIG, 80, 120, 140, 160)
-	self:AddRecipeFlags(2546, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(2546, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(2546, 80, 2687, Q.COMMON, V.ORIG, 80, 120, 140, 160)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Redridge Goulash -- 2547
-	AddRecipe(2547, 100, 1082, Q.COMMON, V.ORIG, 100, 135, 155, 175)
-	self:AddRecipeFlags(2547, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(2547, 340)
+	recipe = AddRecipe(2547, 100, 1082, Q.COMMON, V.ORIG, 100, 135, 155, 175)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
 
 	-- Succulent Pork Ribs -- 2548
-	AddRecipe(2548, 110, 2685, Q.COMMON, V.ORIG, 110, 130, 150, 170)
-	self:AddRecipeFlags(2548, F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(2548, 340)
-	self:AddRecipeWorldDrop(2548, "Loch Modan", "Redridge Mountains")
+	recipe = AddRecipe(2548, 110, 2685, Q.COMMON, V.ORIG, 110, 130, 150, 170)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddVendor(340)
+	recipe:AddWorldDrop("Loch Modan", "Redridge Mountains")
 
 	-- Seasoned Wolf Kabob -- 2549
-	AddRecipe(2549, 100, 1017, Q.COMMON, V.ORIG, 100, 140, 160, 180)
-	self:AddRecipeFlags(2549, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(2549, 340)
-	self:AddRecipeQuest(2549, 26620)
+	recipe = AddRecipe(2549, 100, 1017, Q.COMMON, V.ORIG, 100, 140, 160, 180)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
+	recipe:AddQuest(26620)
 
 	-- Beer Basted Boar Ribs -- 2795
-	AddRecipe(2795, 10, 2888, Q.COMMON, V.ORIG, 10, 60, 80, 100)
-	self:AddRecipeFlags(2795, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(2795, 340)
-	self:AddRecipeQuest(2795, 384)
+	recipe = AddRecipe(2795, 10, 2888, Q.COMMON, V.ORIG, 10, 60, 80, 100)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
+	recipe:AddQuest(384)
 
 	-- Crocolisk Steak -- 3370
-	AddRecipe(3370, 80, 3662, Q.COMMON, V.ORIG, 80, 120, 140, 160)
-	self:AddRecipeFlags(3370, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3370, 340)
+	recipe = AddRecipe(3370, 80, 3662, Q.COMMON, V.ORIG, 80, 120, 140, 160)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
 
 	-- Blood Sausage -- 3371
-	AddRecipe(3371, 60, 3220, Q.COMMON, V.ORIG, 60, 100, 120, 140)
-	self:AddRecipeFlags(3371, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3371, 340)
-	self:AddRecipeQuest(3371, 26860)
+	recipe = AddRecipe(3371, 60, 3220, Q.COMMON, V.ORIG, 60, 100, 120, 140)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
+	recipe:AddQuest(26860)
 
 	-- Murloc Fin Soup -- 3372
-	AddRecipe(3372, 90, 3663, Q.COMMON, V.ORIG, 90, 130, 150, 170)
-	self:AddRecipeFlags(3372, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3372, 340)
+	recipe = AddRecipe(3372, 90, 3663, Q.COMMON, V.ORIG, 90, 130, 150, 170)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
 
 	-- Crocolisk Gumbo -- 3373
-	AddRecipe(3373, 120, 3664, Q.COMMON, V.ORIG, 120, 160, 180, 200)
-	self:AddRecipeFlags(3373, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3373, 340)
+	recipe = AddRecipe(3373, 120, 3664, Q.COMMON, V.ORIG, 120, 160, 180, 200)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
 
 	-- Curiously Tasty Omelet -- 3376
-	AddRecipe(3376, 130, 3665, Q.COMMON, V.ORIG, 130, 170, 190, 210)
-	self:AddRecipeFlags(3376, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3376, 1148, 2821, 340)
+	recipe = AddRecipe(3376, 130, 3665, Q.COMMON, V.ORIG, 130, 170, 190, 210)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340, 1148, 2821)
 
 	-- Gooey Spider Cake -- 3377
-	AddRecipe(3377, 110, 3666, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(3377, F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3377, 340)
-	self:AddRecipeQuest(3377, 26623)
+	recipe = AddRecipe(3377, 110, 3666, Q.COMMON, V.ORIG, 110, 150, 170, 190)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(340)
+	recipe:AddQuest(26623)
 
 	-- Big Bear Steak -- 3397
-	AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(3397, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeLimitedVendor(3397, 12246, 1)
+	recipe = AddRecipe(3397, 110, 3726, Q.COMMON, V.ORIG, 110, 150, 170, 190)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Hot Lion Chops -- 3398
-	AddRecipe(3398, 125, 3727, Q.COMMON, V.ORIG, 125, 175, 195, 215)
-	self:AddRecipeFlags(3398, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(3398, 3489, 12245)
+	recipe = AddRecipe(3398, 125, 3727, Q.COMMON, V.ORIG, 125, 175, 195, 215)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(3489, 12245)
 
 	-- Tasty Lion Steak -- 3399
-	AddRecipe(3399, 150, 3728, Q.COMMON, V.ORIG, 150, 190, 210, 230)
-	self:AddRecipeFlags(3399, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeCustom(3399, 48)
+	recipe = AddRecipe(3399, 150, 3728, Q.COMMON, V.ORIG, 150, 190, 210, 230)
+	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddCustom(48)
 
 	-- Soothing Turtle Bisque -- 3400
-	AddRecipe(3400, 175, 3729, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(3400, F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeCustom(3400, 48)
+	recipe = AddRecipe(3400, 175, 3729, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddCustom(48)
 
 	-- Barbecued Buzzard Wing -- 4094
-	AddRecipe(4094, 175, 4457, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(4094, F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(4094, 2818)
-	self:AddRecipeVendor(4094, 2814)
-	self:AddRecipeLimitedVendor(4094, 12246, 1)
+	recipe = AddRecipe(4094, 175, 4457, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddTrainer(2818)
+	recipe:AddVendor(2814)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Kaldorei Spider Kabob -- 6412
-	AddRecipe(6412, 10, 5472, Q.COMMON, V.ORIG, 10, 50, 70, 90)
-	self:AddRecipeFlags(6412, F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeCustom(6412, 48)
+	recipe = AddRecipe(6412, 10, 5472, Q.COMMON, V.ORIG, 10, 50, 70, 90)
+	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddCustom(48)
 
 	-- Scorpid Surprise -- 6413
-	AddRecipe(6413, 20, 5473, Q.COMMON, V.ORIG, 20, 60, 80, 100)
-	self:AddRecipeFlags(6413, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(6413, 3881)
+	recipe = AddRecipe(6413, 20, 5473, Q.COMMON, V.ORIG, 20, 60, 80, 100)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(3881)
 
 	-- Roasted Kodo Meat -- 6414
-	AddRecipe(6414, 35, 5474, Q.COMMON, V.ORIG, 35, 75, 95, 115)
-	self:AddRecipeFlags(6414, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(6414, 3081)
+	recipe = AddRecipe(6414, 35, 5474, Q.COMMON, V.ORIG, 35, 75, 95, 115)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(3081)
 
 	-- Fillet of Frenzy -- 6415
-	AddRecipe(6415, 50, 5476, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(6415, F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeCustom(6415, 48)
+	recipe = AddRecipe(6415, 50, 5476, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddCustom(48)
 
 	-- Strider Stew -- 6416
-	AddRecipe(6416, 50, 5477, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(6416, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(6416, 3482)
+	recipe = AddRecipe(6416, 50, 5477, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(3482)
 
 	-- Dig Rat Stew -- 6417
-	AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
-	self:AddRecipeFlags(6417, F.ALLIANCE, F.HORDE, F.RETIRED, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeCustom(6417, 48)
+	recipe = AddRecipe(6417, 90, 44977, Q.COMMON, V.WOTLK, 90, 130, 150, 170)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOP)
+	recipe:AddCustom(48)
 
 	-- Crispy Lizard Tail -- 6418
-	AddRecipe(6418, 100, 5479, Q.COMMON, V.ORIG, 100, 140, 160, 180)
-	self:AddRecipeFlags(6418, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(6418, 3482)
+	recipe = AddRecipe(6418, 100, 5479, Q.COMMON, V.ORIG, 100, 140, 160, 180)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(3482)
 
 	-- Lean Venison -- 6419
-	AddRecipe(6419, 110, 5480, Q.COMMON, V.ORIG, 110, 150, 170, 190)
-	self:AddRecipeFlags(6419, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeLimitedVendor(6419, 12245, 1)
+	recipe = AddRecipe(6419, 110, 5480, Q.COMMON, V.ORIG, 110, 150, 170, 190)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddLimitedVendor(12245, 1)
 
 	-- Boiled Clams -- 6499
-	AddRecipe(6499, 50, 5525, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(6499, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(6499, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(6499, 50, 5525, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Goblin Deviled Clams -- 6500
-	AddRecipe(6500, 125, 5527, Q.COMMON, V.ORIG, 125, 165, 185, 205)
-	self:AddRecipeFlags(6500, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(6500, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(6500, 125, 5527, Q.COMMON, V.ORIG, 125, 165, 185, 205)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Clam Chowder -- 6501
-	AddRecipe(6501, 90, 5526, Q.COMMON, V.ORIG, 90, 130, 150, 170)
-	self:AddRecipeFlags(6501, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(6501, 4305)
+	recipe = AddRecipe(6501, 90, 5526, Q.COMMON, V.ORIG, 90, 130, 150, 170)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(4305)
 
 	-- Giant Clam Scorcho -- 7213
-	AddRecipe(7213, 175, 6038, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(7213, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(7213, 2664)
+	recipe = AddRecipe(7213, 175, 6038, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2664)
 
 	-- Brilliant Smallfish -- 7751
-	AddRecipe(7751, 1, 6290, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(7751, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7751, 5940, 8508, 5494, 3550, 66, 4265, 3029, 4574, 1684)
+	recipe = AddRecipe(7751, 1, 6290, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(66, 1684, 3029, 3550, 4265, 4574, 5494, 5940, 8508)
 
 	-- Slitherskin Mackerel -- 7752
-	AddRecipe(7752, 1, 787, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(7752, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7752, 5162, 4305, 3550, 5942, 10118)
+	recipe = AddRecipe(7752, 1, 787, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(3550, 4305, 5162, 5942, 10118)
 
 	-- Longjaw Mud Snapper -- 7753
-	AddRecipe(7753, 50, 4592, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(7753, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7753, 5748, 1684, 4574, 66, 4265, 5940, 3027, 5162)
+	recipe = AddRecipe(7753, 50, 4592, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(66, 1684, 3027, 4265, 4574, 5162, 5748, 5940)
 
 	-- Loch Frenzy Delight -- 7754
-	AddRecipe(7754, 50, 6316, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(7754, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7754, 1684)
+	recipe = AddRecipe(7754, 50, 6316, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(1684)
 
 	-- Bristle Whisker Catfish -- 7755
-	AddRecipe(7755, 100, 4593, Q.COMMON, V.ORIG, 100, 140, 160, 180)
-	self:AddRecipeFlags(7755, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7755, 3497, 4553, 2383, 3027, 2397, 5494, 3029)
+	recipe = AddRecipe(7755, 100, 4593, Q.COMMON, V.ORIG, 100, 140, 160, 180)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2383, 2397, 3027, 3029, 3497, 4553, 5494)
 
 	-- Rainbow Fin Albacore -- 7827
-	AddRecipe(7827, 50, 5095, Q.COMMON, V.ORIG, 50, 90, 110, 130)
-	self:AddRecipeFlags(7827, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7827, 4305, 5748, 5494, 3333, 4553, 3178, 10118, 3497, 5942)
+	recipe = AddRecipe(7827, 50, 5095, Q.COMMON, V.ORIG, 50, 90, 110, 130)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(3178, 3333, 3497, 4305, 4553, 5494, 5748, 5942, 10118)
 
 	-- Rockscale Cod -- 7828
-	AddRecipe(7828, 175, 4594, Q.COMMON, V.ORIG, 175, 190, 210, 230)
-	self:AddRecipeFlags(7828, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(7828, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
+	recipe = AddRecipe(7828, 175, 4594, Q.COMMON, V.ORIG, 175, 190, 210, 230)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2383, 2664, 3178, 3333, 4574, 5162, 12033, 12962)
 
 	-- Savory Deviate Delight -- 8238
-	AddRecipe(8238, 85, 6657, Q.UNCOMMON, V.ORIG, 85, 125, 145, 165)
-	self:AddRecipeFlags(8238, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
-	self:AddRecipeWorldDrop(8238, "Northern Barrens", "Southern Barrens")
+	recipe = AddRecipe(8238, 85, 6657, Q.UNCOMMON, V.ORIG, 85, 125, 145, 165)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOE)
+	recipe:AddWorldDrop("Northern Barrens", "Southern Barrens")
 
 	-- Herb Baked Egg -- 8604
-	AddRecipe(8604, 1, 6888, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(8604, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeCustom(8604, 8)
+	recipe = AddRecipe(8604, 1, 6888, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddCustom(8)
 
 	-- Smoked Bear Meat -- 8607
-	AddRecipe(8607, 40, 6890, Q.COMMON, V.ORIG, 40, 80, 100, 120)
-	self:AddRecipeFlags(8607, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(8607, 1465, 3556)
+	recipe = AddRecipe(8607, 40, 6890, Q.COMMON, V.ORIG, 40, 80, 100, 120)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(1465, 3556)
 
 	-- Thistle Tea -- 9513
-	AddRecipe(9513, 60, 7676, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
-	self:AddRecipeFlags(9513, F.ALLIANCE, F.HORDE, F.VENDOR, F.ROGUE, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(9513, 6779)
+	recipe = AddRecipe(9513, 60, 7676, Q.UNCOMMON, V.ORIG, 60, 100, 120, 140)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.ROGUE)
+	recipe:AddVendor(6779)
 
 	-- Goldthorn Tea -- 13028
-	AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
-	self:AddRecipeFlags(13028, F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
-	self:AddRecipeCustom(13028, 13)
+	recipe = AddRecipe(13028, 175, 10841, Q.COMMON, V.ORIG, 175, 175, 190, 205)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.INSTANCE, F.IBOE, F.RBOP)
+	recipe:AddCustom(13)
 
 	-- Lean Wolf Steak -- 15853
-	AddRecipe(15853, 125, 12209, Q.COMMON, V.ORIG, 125, 165, 185, 205)
-	self:AddRecipeFlags(15853, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeLimitedVendor(15853, 12246, 1)
+	recipe = AddRecipe(15853, 125, 12209, Q.COMMON, V.ORIG, 125, 165, 185, 205)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Roast Raptor -- 15855
-	AddRecipe(15855, 175, 12210, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(15855, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15855, 1148, 734, 12245, 2821, 4897, 2810, 4879)
+	recipe = AddRecipe(15855, 175, 12210, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(734, 1148, 2810, 2821, 4879, 4897, 12245)
 
 	-- Hot Wolf Ribs -- 15856
-	AddRecipe(15856, 175, 13851, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(15856, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15856, 8145, 7947)
-	self:AddRecipeLimitedVendor(15856, 12246, 1)
+	recipe = AddRecipe(15856, 175, 13851, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(7947, 8145)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Jungle Stew -- 15861
-	AddRecipe(15861, 175, 12212, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(15861, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15861, 1148, 734, 12245)
+	recipe = AddRecipe(15861, 175, 12212, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(734, 1148, 12245)
 
 	-- Carrion Surprise -- 15863
-	AddRecipe(15863, 175, 12213, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(15863, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15863, 12245, 4879, 989, 9636)
+	recipe = AddRecipe(15863, 175, 12213, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(989, 4879, 9636, 12245)
 
 	-- Mystery Stew -- 15865
-	AddRecipe(15865, 175, 12214, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(15865, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15865, 4897, 8150)
-	self:AddRecipeLimitedVendor(15865, 12246, 1)
+	recipe = AddRecipe(15865, 175, 12214, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(4897, 8150)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Dragonbreath Chili -- 15906
-	AddRecipe(15906, 200, 12217, Q.COMMON, V.ORIG, 200, 225, 237, 250)
-	self:AddRecipeFlags(15906, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(15906, 4897, 4879)
-	self:AddRecipeLimitedVendor(15906, 12246, 1)
+	recipe = AddRecipe(15906, 200, 12217, Q.COMMON, V.ORIG, 200, 225, 237, 250)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(4879, 4897)
+	recipe:AddLimitedVendor(12246, 1)
 
 	-- Heavy Kodo Stew -- 15910
-	AddRecipe(15910, 200, 12215, Q.COMMON, V.ORIG, 200, 225, 237, 250)
-	self:AddRecipeFlags(15910, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15910, 12245, 9636, 8150)
+	recipe = AddRecipe(15910, 200, 12215, Q.COMMON, V.ORIG, 200, 225, 237, 250)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(8150, 9636, 12245)
 
 	-- Spiced Chili Crab -- 15915
-	AddRecipe(15915, 225, 12216, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(15915, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15915, 4305, 1149, 989)
+	recipe = AddRecipe(15915, 225, 12216, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(989, 1149, 4305)
 
 	-- Monster Omelet -- 15933
-	AddRecipe(15933, 225, 12218, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(15933, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15933, 2803, 11187)
+	recipe = AddRecipe(15933, 225, 12218, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2803, 11187)
 
 	-- Crispy Bat Wing -- 15935
-	AddRecipe(15935, 1, 12224, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(15935, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(15935, 2118)
+	recipe = AddRecipe(15935, 1, 12224, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2118)
 
 	-- Spotted Yellowtail -- 18238
-	AddRecipe(18238, 225, 6887, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(18238, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(18238, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(18238, 225, 6887, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Cooked Glossy Mightfish -- 18239
-	AddRecipe(18239, 225, 13927, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(18239, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18239, 2664)
+	recipe = AddRecipe(18239, 225, 13927, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2664)
 
 	-- Grilled Squid -- 18240
-	AddRecipe(18240, 240, 13928, Q.COMMON, V.ORIG, 240, 265, 277, 290)
-	self:AddRecipeFlags(18240, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeTrainer(18240, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(18240, 240, 13928, Q.COMMON, V.ORIG, 240, 265, 277, 290)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Filet of Redgill -- 18241
-	AddRecipe(18241, 225, 13930, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(18241, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18241, 2664)
+	recipe = AddRecipe(18241, 225, 13930, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2664)
 
 	-- Hot Smoked Bass -- 18242
-	AddRecipe(18242, 240, 13929, Q.COMMON, V.ORIG, 240, 265, 277, 290)
-	self:AddRecipeFlags(18242, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(18242, 2664)
+	recipe = AddRecipe(18242, 240, 13929, Q.COMMON, V.ORIG, 240, 265, 277, 290)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2664)
 
 	-- Nightfin Soup -- 18243
-	AddRecipe(18243, 250, 13931, Q.COMMON, V.ORIG, 250, 275, 285, 295)
-	self:AddRecipeFlags(18243, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(18243, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(18243, 250, 13931, Q.COMMON, V.ORIG, 250, 275, 285, 295)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Poached Sunscale Salmon -- 18244
-	AddRecipe(18244, 250, 13932, Q.COMMON, V.ORIG, 250, 275, 285, 295)
-	self:AddRecipeFlags(18244, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
-	self:AddRecipeTrainer(18244, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(18244, 250, 13932, Q.COMMON, V.ORIG, 250, 275, 285, 295)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Lobster Stew -- 18245
-	AddRecipe(18245, 275, 13933, Q.COMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(18245, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18245, 7947, 8145)
+	recipe = AddRecipe(18245, 275, 13933, Q.COMMON, V.ORIG, 275, 300, 312, 325)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(7947, 8145)
 
 	-- Mightfish Steak -- 18246
-	AddRecipe(18246, 275, 13934, Q.COMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(18246, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18246, 7947, 8145, 2664)
+	recipe = AddRecipe(18246, 275, 13934, Q.COMMON, V.ORIG, 275, 300, 312, 325)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2664, 7947, 8145)
 
 	-- Baked Salmon -- 18247
-	AddRecipe(18247, 275, 13935, Q.COMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(18247, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(18247, 7947, 8145)
+	recipe = AddRecipe(18247, 275, 13935, Q.COMMON, V.ORIG, 275, 300, 312, 325)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(7947, 8145)
 
 	-- Undermine Clam Chowder -- 20626
-	AddRecipe(20626, 225, 16766, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(20626, F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
-	self:AddRecipeCustom(20626, 48)
+	recipe = AddRecipe(20626, 225, 16766, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddCustom(48)
 
 	-- Mithril Head Trout -- 20916
-	AddRecipe(20916, 175, 8364, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(20916, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(20916, 2664, 3333, 12962, 2383, 12033, 3178, 4574, 5162)
+	recipe = AddRecipe(20916, 175, 8364, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(2383, 2664, 3178, 3333, 4574, 5162, 12033, 12962)
 
 	-- Gingerbread Cookie -- 21143
-	AddRecipe(21143, 1, 17197, Q.COMMON, V.ORIG, 1, 45, 65, 85)
-	self:AddRecipeFlags(21143, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(21143, 23064, 23010, 13435, 13432, 13429, 13433, 23012, 13420)
-	self:AddRecipeSeason(21143, 1)
+	recipe = AddRecipe(21143, 1, 17197, Q.COMMON, V.ORIG, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
+	recipe:AddSeason(1)
 
 	-- Egg Nog -- 21144
-	AddRecipe(21144, 35, 17198, Q.COMMON, V.ORIG, 35, 75, 95, 115)
-	self:AddRecipeFlags(21144, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(21144, 23064, 23010, 13435, 13432, 13429, 13433, 23012, 13420)
-	self:AddRecipeSeason(21144, 1)
+	recipe = AddRecipe(21144, 35, 17198, Q.COMMON, V.ORIG, 35, 75, 95, 115)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(13420, 13429, 13432, 13433, 13435, 23010, 23012, 23064)
+	recipe:AddSeason(1)
 
 	-- Spider Sausage -- 21175
-	AddRecipe(21175, 200, 17222, Q.COMMON, V.ORIG, 200, 225, 237, 250)
-	self:AddRecipeFlags(21175, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(21175, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(21175, 200, 17222, Q.COMMON, V.ORIG, 200, 225, 237, 250)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Tender Wolf Steak -- 22480
-	AddRecipe(22480, 225, 18045, Q.COMMON, V.ORIG, 225, 250, 262, 275)
-	self:AddRecipeFlags(22480, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(22480, 4782, 8125, 7733)
+	recipe = AddRecipe(22480, 225, 18045, Q.COMMON, V.ORIG, 225, 250, 262, 275)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(4782, 7733, 8125)
 
 	-- Runn Tum Tuber Surprise -- 22761
-	AddRecipe(22761, 275, 18254, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
-	self:AddRecipeFlags(22761, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeMobDrop(22761, 14354)
+	recipe = AddRecipe(22761, 275, 18254, Q.UNCOMMON, V.ORIG, 275, 300, 312, 325)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddMobDrop(14354)
 
 	-- Heavy Crocolisk Stew -- 24418
-	AddRecipe(24418, 150, 20074, Q.COMMON, V.ORIG, 150, 160, 180, 200)
-	self:AddRecipeFlags(24418, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(24418, 4879)
+	recipe = AddRecipe(24418, 150, 20074, Q.COMMON, V.ORIG, 150, 160, 180, 200)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(4879)
 
 	-- Smoked Desert Dumplings -- 24801
-	AddRecipe(24801, 285, 20452, Q.COMMON, V.ORIG, 285, 310, 322, 335)
-	self:AddRecipeFlags(24801, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeQuest(24801, 8313)
+	recipe = AddRecipe(24801, 285, 20452, Q.COMMON, V.ORIG, 285, 310, 322, 335)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddQuest(8313)
 
 	-- Dirge's Kickin' Chimaerok Chops -- 25659
-	AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
-	self:AddRecipeFlags(25659, F.ALLIANCE, F.HORDE, F.RETIRED, F.QUEST, F.IBOE, F.RBOE)
-	self:AddRecipeCustom(25659, 48)
+	recipe = AddRecipe(25659, 300, 21023, Q.EPIC, V.ORIG, 300, 325, 337, 350)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.RETIRED, F.IBOE, F.RBOE)
+	recipe:AddCustom(48)
 
 	-- Smoked Sagefish -- 25704
-	AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
-	self:AddRecipeFlags(25704, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(25704, 2397, 16718, 3085, 17246, 3027, 14738, 5160, 4265, 8307, 4223, 5483, 3400, 2664, 4553, 19195, 26868, 16253, 12033, 16677)
+	recipe = AddRecipe(25704, 80, 21072, Q.COMMON, V.ORIG, 80, 120, 140, 160)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868)
 
 	-- Sagefish Delight -- 25954
-	AddRecipe(25954, 175, 21217, Q.COMMON, V.ORIG, 175, 215, 235, 255)
-	self:AddRecipeFlags(25954, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(25954, 2397, 16718, 3085, 17246, 3027, 14738, 5160, 4265, 8307, 4223, 5483, 3400, 2664, 4553, 19195, 26868, 16253, 12033, 16677)
+	recipe = AddRecipe(25954, 175, 21217, Q.COMMON, V.ORIG, 175, 215, 235, 255)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2397, 2664, 3027, 3085, 3400, 4223, 4265, 4553, 5160, 5483, 8307, 12033, 14738, 16253, 16677, 16718, 17246, 19195, 26868)
 
 	-- Crunchy Spider Surprise -- 28267
-	AddRecipe(28267, 60, 22645, Q.COMMON, V.TBC, 60, 100, 120, 140)
-	self:AddRecipeFlags(28267, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(28267, 16253, 18427)
-	self:AddRecipeQuest(28267, 9171)
+	recipe = AddRecipe(28267, 60, 22645, Q.COMMON, V.TBC, 60, 100, 120, 140)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(16253, 18427)
+	recipe:AddQuest(9171)
 
 	-- Lynx Steak -- 33276
-	AddRecipe(33276, 1, 27635, Q.COMMON, V.TBC, 1, 45, 65, 85)
-	self:AddRecipeFlags(33276, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33276, 16262)
+	recipe = AddRecipe(33276, 1, 27635, Q.COMMON, V.TBC, 1, 45, 65, 85)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(16262)
 
 	-- Roasted Moongraze Tenderloin -- 33277
-	AddRecipe(33277, 1, 24105, Q.COMMON, V.TBC, 1, 45, 65, 85)
-	self:AddRecipeFlags(33277, F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(33277, 9454)
+	recipe = AddRecipe(33277, 1, 24105, Q.COMMON, V.TBC, 1, 45, 65, 85)
+	recipe:AddFilters(F.ALLIANCE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddQuest(9454)
 
 	-- Bat Bites -- 33278
-	AddRecipe(33278, 50, 27636, Q.COMMON, V.TBC, 50, 90, 110, 130)
-	self:AddRecipeFlags(33278, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33278, 16253)
+	recipe = AddRecipe(33278, 50, 27636, Q.COMMON, V.TBC, 50, 90, 110, 130)
+	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(16253)
 
 	-- Buzzard Bites -- 33279
-	AddRecipe(33279, 300, 27651, Q.COMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(33279, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(33279, 9356)
+	recipe = AddRecipe(33279, 300, 27651, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddQuest(9356)
 
 	-- Ravager Dog -- 33284
-	AddRecipe(33284, 300, 27655, Q.COMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(33284, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33284, 16585, 16826)
+	recipe = AddRecipe(33284, 300, 27655, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(16585, 16826)
 
 	-- Sporeling Snack -- 33285
-	AddRecipe(33285, 310, 27656, Q.COMMON, V.TBC, 310, 330, 340, 350)
-	self:AddRecipeFlags(33285, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33285, 18382)
+	recipe = AddRecipe(33285, 310, 27656, Q.COMMON, V.TBC, 310, 330, 340, 350)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18382)
 
 	-- Blackened Basilisk -- 33286
-	AddRecipe(33286, 315, 27657, Q.COMMON, V.TBC, 315, 335, 345, 355)
-	self:AddRecipeFlags(33286, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33286, 18957, 19038)
+	recipe = AddRecipe(33286, 315, 27657, Q.COMMON, V.TBC, 315, 335, 345, 355)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18957, 19038)
 
 	-- Roasted Clefthoof -- 33287
-	AddRecipe(33287, 325, 27658, Q.COMMON, V.TBC, 325, 345, 355, 365)
-	self:AddRecipeFlags(33287, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(33287, 20096, 20097)
+	recipe = AddRecipe(33287, 325, 27658, Q.COMMON, V.TBC, 325, 345, 355, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddVendor(20096, 20097)
 
 	-- Warp Burger -- 33288
-	AddRecipe(33288, 325, 27659, Q.COMMON, V.TBC, 325, 345, 355, 365)
-	self:AddRecipeFlags(33288, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(33288, 18957, 19038)
+	recipe = AddRecipe(33288, 325, 27659, Q.COMMON, V.TBC, 325, 345, 355, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddVendor(18957, 19038)
 
 	-- Talbuk Steak -- 33289
-	AddRecipe(33289, 325, 27660, Q.COMMON, V.TBC, 325, 345, 355, 365)
-	self:AddRecipeFlags(33289, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33289, 20096, 20097)
+	recipe = AddRecipe(33289, 325, 27660, Q.COMMON, V.TBC, 325, 345, 355, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(20096, 20097)
 
 	-- Blackened Trout -- 33290
-	AddRecipe(33290, 300, 27661, Q.COMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(33290, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
-	self:AddRecipeVendor(33290, 18015, 20028)
+	recipe = AddRecipe(33290, 300, 27661, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE)
+	recipe:AddVendor(18015, 20028)
 
 	-- Feltail Delight -- 33291
-	AddRecipe(33291, 300, 27662, Q.COMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(33291, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33291, 18011, 20028)
+	recipe = AddRecipe(33291, 300, 27662, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18011, 20028)
 
 	-- Blackened Sporefish -- 33292
-	AddRecipe(33292, 310, 27663, Q.COMMON, V.TBC, 310, 330, 340, 350)
-	self:AddRecipeFlags(33292, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33292, 18911)
+	recipe = AddRecipe(33292, 310, 27663, Q.COMMON, V.TBC, 310, 330, 340, 350)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18911)
 
 	-- Grilled Mudfish -- 33293
-	AddRecipe(33293, 320, 27664, Q.COMMON, V.TBC, 320, 340, 350, 360)
-	self:AddRecipeFlags(33293, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(33293, 20096, 20097)
+	recipe = AddRecipe(33293, 320, 27664, Q.COMMON, V.TBC, 320, 340, 350, 360)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddVendor(20096, 20097)
 
 	-- Poached Bluefish -- 33294
-	AddRecipe(33294, 320, 27665, Q.COMMON, V.TBC, 320, 340, 350, 360)
-	self:AddRecipeFlags(33294, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33294, 20096, 20097)
+	recipe = AddRecipe(33294, 320, 27665, Q.COMMON, V.TBC, 320, 340, 350, 360)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(20096, 20097)
 
 	-- Golden Fish Sticks -- 33295
-	AddRecipe(33295, 325, 27666, Q.COMMON, V.TBC, 325, 345, 355, 365)
-	self:AddRecipeFlags(33295, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33295, 18960, 19296)
+	recipe = AddRecipe(33295, 325, 27666, Q.COMMON, V.TBC, 325, 345, 355, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18960, 19296)
 
 	-- Spicy Crawdad -- 33296
-	AddRecipe(33296, 350, 27667, Q.COMMON, V.TBC, 350, 370, 375, 380)
-	self:AddRecipeFlags(33296, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(33296, 18960, 19296)
+	recipe = AddRecipe(33296, 350, 27667, Q.COMMON, V.TBC, 350, 370, 375, 380)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18960, 19296)
 
 	-- Clam Bar -- 36210
-	AddRecipe(36210, 300, 30155, Q.COMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(36210, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(36210, 18382)
+	recipe = AddRecipe(36210, 300, 30155, Q.COMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(18382)
 
 	-- Spice Bread -- 37836
-	AddRecipe(37836, 1, 30816, Q.COMMON, V.TBC, 1, 30, 35, 38)
-	self:AddRecipeFlags(37836, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(37836, 1355, 4210, 19369, 16719, 3399, 19185, 8306, 5482, 16676, 1430, 18988, 4552, 3026, 16253, 18987, 1699, 16277, 3067, 18993, 6286, 1382, 17246, 5159, 3087)
+	recipe = AddRecipe(37836, 1, 30816, Q.COMMON, V.TBC, 1, 30, 35, 38)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(1355, 1382, 1430, 1699, 3026, 3067, 3087, 3399, 4210, 4552, 5159, 5482, 6286, 8306, 16253, 16277, 16676, 16719, 17246, 18987, 18988, 18993, 19185, 19369)
 
 	-- Mok'Nathal Shortribs -- 38867
-	AddRecipe(38867, 335, 31672, Q.COMMON, V.TBC, 335, 355, 365, 375)
-	self:AddRecipeFlags(38867, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(38867, 21113)
-	self:AddRecipeLimitedVendor(38867, 20916, 1)
-	self:AddRecipeQuest(38867, 10860)
+	recipe = AddRecipe(38867, 335, 31672, Q.COMMON, V.TBC, 335, 355, 365, 375)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(21113)
+	recipe:AddLimitedVendor(20916, 1)
+	recipe:AddQuest(10860)
 
 	-- Crunchy Serpent -- 38868
-	AddRecipe(38868, 335, 31673, Q.COMMON, V.TBC, 335, 355, 365, 375)
-	self:AddRecipeFlags(38868, F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(38868, 21113)
-	self:AddRecipeLimitedVendor(38868, 20916, 1)
-	self:AddRecipeQuest(38868, 10860)
+	recipe = AddRecipe(38868, 335, 31673, Q.COMMON, V.TBC, 335, 355, 365, 375)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(21113)
+	recipe:AddLimitedVendor(20916, 1)
+	recipe:AddQuest(10860)
 
 	-- Stewed Trout -- 42296
-	AddRecipe(42296, 320, 33048, Q.COMMON, V.TBC, 320, 335, 345, 355)
-	self:AddRecipeFlags(42296, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(42296, 19186)
+	recipe = AddRecipe(42296, 320, 33048, Q.COMMON, V.TBC, 320, 335, 345, 355)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(19186)
 
 	-- Fisherman's Feast -- 42302
-	AddRecipe(42302, 350, 33052, Q.COMMON, V.TBC, 350, 375, 380, 385)
-	self:AddRecipeFlags(42302, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(42302, 19186)
+	recipe = AddRecipe(42302, 350, 33052, Q.COMMON, V.TBC, 350, 375, 380, 385)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(19186)
 
 	-- Hot Buttered Trout -- 42305
-	AddRecipe(42305, 350, 33053, Q.COMMON, V.TBC, 350, 375, 380, 385)
-	self:AddRecipeFlags(42305, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(42305, 19186)
+	recipe = AddRecipe(42305, 350, 33053, Q.COMMON, V.TBC, 350, 375, 380, 385)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(19186)
 
 	-- Skullfish Soup -- 43707
-	AddRecipe(43707, 325, 33825, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
-	self:AddRecipeFlags(43707, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(43707, 11381, 11377, 11379, 11380)
-	self:AddRecipeCustom(43707, 6)
+	recipe = AddRecipe(43707, 325, 33825, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddQuest(11377, 11379, 11380, 11381)
+	recipe:AddCustom(6)
 
 	-- Stormchops -- 43758
-	AddRecipe(43758, 300, 33866, Q.RARE, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(43758, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(43758, 11381, 11377, 11379, 11380, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeCustom(43758, 5, 6, 38)
+	recipe = AddRecipe(43758, 300, 33866, Q.RARE, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
+	recipe:AddCustom(5, 6, 38)
 
 	-- Broiled Bloodfin -- 43761
-	AddRecipe(43761, 300, 33867, Q.UNCOMMON, V.TBC, 300, 320, 330, 340)
-	self:AddRecipeFlags(43761, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(43761, 11381, 11377, 11379, 11380)
-	self:AddRecipeCustom(43761, 6)
+	recipe = AddRecipe(43761, 300, 33867, Q.UNCOMMON, V.TBC, 300, 320, 330, 340)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(11377, 11379, 11380, 11381)
+	recipe:AddCustom(6)
 
 	-- Spicy Hot Talbuk -- 43765
-	AddRecipe(43765, 325, 33872, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
-	self:AddRecipeFlags(43765, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(43765, 11381, 11377, 11379, 11380)
-	self:AddRecipeCustom(43765, 5)
+	recipe = AddRecipe(43765, 325, 33872, Q.UNCOMMON, V.TBC, 325, 335, 345, 355)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddQuest(11377, 11379, 11380, 11381)
+	recipe:AddCustom(5)
 
 	-- Kibler's Bits -- 43772
-	AddRecipe(43772, 300, 33874, Q.UNCOMMON, V.TBC, 300, 345, 355, 365)
-	self:AddRecipeFlags(43772, F.ALLIANCE, F.HORDE, F.QUEST, F.HUNTER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeQuest(43772, 11381, 11377, 11379, 11380)
-	self:AddRecipeCustom(43772, 5, 6)
+	recipe = AddRecipe(43772, 300, 33874, Q.UNCOMMON, V.TBC, 300, 345, 355, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.DPS, F.HUNTER)
+	recipe:AddQuest(11377, 11379, 11380, 11381)
+	recipe:AddCustom(5, 6)
 
 	-- Delicious Chocolate Cake -- 43779
-	AddRecipe(43779, 1, 33924, Q.RARE, V.TBC, 1, 50, 62, 75)
-	self:AddRecipeFlags(43779, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(43779, 11381, 11377, 11379, 11380, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeCustom(43779, 5, 6, 38)
+	recipe = AddRecipe(43779, 1, 33924, Q.RARE, V.TBC, 1, 50, 62, 75)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(11377, 11379, 11380, 11381, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
+	recipe:AddCustom(5, 6, 38)
 
 	-- Hot Apple Cider -- 45022
-	AddRecipe(45022, 325, 34411, Q.COMMON, V.WOTLK, 325, 325, 325, 325)
-	self:AddRecipeFlags(45022, F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45022, 13420, 13433)
-	self:AddRecipeSeason(45022, 1)
+	recipe = AddRecipe(45022, 325, 34411, Q.COMMON, V.WOTLK, 325, 325, 325, 325)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(13420, 13433)
+	recipe:AddSeason(1)
 
 	-- Mammoth Meal -- 45549
-	AddRecipe(45549, 350, 34748, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45549, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(45549, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45549, 350, 34748, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Shoveltusk Steak -- 45550
-	AddRecipe(45550, 350, 34749, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45550, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(45550, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45550, 350, 34749, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Worm Delight -- 45551
-	AddRecipe(45551, 350, 34750, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45551, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45551, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45551, 350, 34750, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Roasted Worg -- 45552
-	AddRecipe(45552, 350, 34751, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45552, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45552, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45552, 350, 34751, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Rhino Dogs -- 45553
-	AddRecipe(45553, 350, 34752, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45553, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45553, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45553, 350, 34752, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Great Feast -- 45554
-	AddRecipe(45554, 375, 34753, Q.COMMON, V.WOTLK, 375, 375, 400, 425)
-	self:AddRecipeFlags(45554, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(45554, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45554, 375, 34753, Q.COMMON, V.WOTLK, 375, 375, 400, 425)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Mega Mammoth Meal -- 45555
-	AddRecipe(45555, 400, 34754, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45555, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(45555, 31031, 31032, 33595)
+	recipe = AddRecipe(45555, 400, 34754, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Tender Shoveltusk Steak -- 45556
-	AddRecipe(45556, 400, 34755, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45556, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45556, 31031, 31032, 33595)
+	recipe = AddRecipe(45556, 400, 34755, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spiced Worm Burger -- 45557
-	AddRecipe(45557, 400, 34756, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45557, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45557, 31031, 31032, 33595)
+	recipe = AddRecipe(45557, 400, 34756, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Very Burnt Worg -- 45558
-	AddRecipe(45558, 400, 34757, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45558, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45558, 31031, 31032, 33595)
+	recipe = AddRecipe(45558, 400, 34757, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Mighty Rhino Dogs -- 45559
-	AddRecipe(45559, 400, 34758, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45559, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45559, 31031, 31032, 33595)
+	recipe = AddRecipe(45559, 400, 34758, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Smoked Rockfin -- 45560
-	AddRecipe(45560, 350, 34759, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
-	self:AddRecipeFlags(45560, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45560, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45560, 350, 34759, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Grilled Bonescale -- 45561
-	AddRecipe(45561, 350, 34760, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
-	self:AddRecipeFlags(45561, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45561, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45561, 350, 34760, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Sauteed Goby -- 45562
-	AddRecipe(45562, 350, 34761, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
-	self:AddRecipeFlags(45562, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45562, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45562, 350, 34761, Q.COMMON, V.WOTLK, 350, 350, 365, 380)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Grilled Sculpin -- 45563
-	AddRecipe(45563, 350, 34762, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45563, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeTrainer(45563, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45563, 350, 34762, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Smoked Salmon -- 45564
-	AddRecipe(45564, 350, 34763, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45564, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(45564, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45564, 350, 34763, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Poached Nettlefish -- 45565
-	AddRecipe(45565, 350, 34764, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45565, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45565, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45565, 350, 34764, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Pickled Fangtooth -- 45566
-	AddRecipe(45566, 350, 34765, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45566, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45566, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45566, 350, 34765, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Poached Northern Sculpin -- 45567
-	AddRecipe(45567, 400, 34766, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45567, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(45567, 31031, 31032, 33595)
+	recipe = AddRecipe(45567, 400, 34766, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Firecracker Salmon -- 45568
-	AddRecipe(45568, 400, 34767, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45568, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(45568, 31031, 31032, 33595)
+	recipe = AddRecipe(45568, 400, 34767, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Baked Manta Ray -- 45569
-	AddRecipe(45569, 350, 42942, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(45569, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(45569, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(45569, 350, 42942, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Imperial Manta Steak -- 45570
-	AddRecipe(45570, 400, 34769, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45570, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45570, 31031, 31032, 33595)
+	recipe = AddRecipe(45570, 400, 34769, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spicy Blue Nettlefish -- 45571
-	AddRecipe(45571, 400, 34768, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(45571, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(45571, 31031, 31032, 33595)
+	recipe = AddRecipe(45571, 400, 34768, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Captain Rumsey's Lager -- 45695
-	AddRecipe(45695, 100, 34832, Q.UNCOMMON, V.WOTLK, 100, 100, 105, 110)
-	self:AddRecipeFlags(45695, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(45695, 11666, 11668, 11667, 11669, 13100, 13101, 13102, 13103, 13107, 13112, 13113,	13114, 13115, 13116)
-	self:AddRecipeCustom(45695, 7, 38)
+	recipe = AddRecipe(45695, 100, 34832, Q.UNCOMMON, V.WOTLK, 100, 100, 105, 110)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(11666, 11667, 11668, 11669, 13100, 13101, 13102, 13103, 13107, 13112, 13113, 13114, 13115, 13116)
+	recipe:AddCustom(7, 38)
 
 	-- Charred Bear Kabobs -- 46684
-	AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
-	self:AddRecipeFlags(46684, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
-	self:AddRecipeVendor(46684, 2803)
+	recipe = AddRecipe(46684, 250, 35563, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.DPS)
+	recipe:AddVendor(2803)
 
 	-- Juicy Bear Burger -- 46688
-	AddRecipe(46688, 250, 35565, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
-	self:AddRecipeFlags(46688, F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(46688, 2803)
+	recipe = AddRecipe(46688, 250, 35565, Q.COMMON, V.WOTLK, 250, 275, 285, 295)
+	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOE, F.HEALER, F.CASTER)
+	recipe:AddVendor(2803)
 
 	-- Kungaloosh -- 53056
-	AddRecipe(53056, 375, 39520, Q.COMMON, V.WOTLK, 375, 375, 387, 400)
-	self:AddRecipeFlags(53056, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(53056, 13571)
-	self:AddRecipeCustom(53056, 36)
+	recipe = AddRecipe(53056, 375, 39520, Q.COMMON, V.WOTLK, 375, 375, 387, 400)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(13571)
+	recipe:AddCustom(36)
 
 	-- Northern Stew -- 57421
-	AddRecipe(57421, 350, 34747, Q.COMMON, V.WOTLK, 350, 350, 362, 365)
-	self:AddRecipeFlags(57421, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
-	self:AddRecipeQuest(57421, 13088, 13087, 13089, 13090)
+	recipe = AddRecipe(57421, 350, 34747, Q.COMMON, V.WOTLK, 350, 350, 362, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP)
+	recipe:AddQuest(13087, 13088, 13089, 13090)
 
 	-- Fish Feast -- 57423
-	AddRecipe(57423, 450, 43015, Q.UNCOMMON, V.WOTLK, 450, 455, 460, 465)
-	self:AddRecipeFlags(57423, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57423, 31031, 31032, 33595)
+	recipe = AddRecipe(57423, 450, 43015, Q.UNCOMMON, V.WOTLK, 450, 455, 460, 465)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spicy Fried Herring -- 57433
-	AddRecipe(57433, 400, 42993, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57433, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57433, 31031, 31032, 33595)
+	recipe = AddRecipe(57433, 400, 42993, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Rhinolicious Wormsteak -- 57434
-	AddRecipe(57434, 400, 42994, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57434, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
-	self:AddRecipeVendor(57434, 31031, 31032, 33595)
+	recipe = AddRecipe(57434, 400, 42994, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS, F.TANK)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Critter Bites -- 57435
-	AddRecipe(57435, 400, 43004, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57435, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57435, 31031, 31032, 33595)
+	recipe = AddRecipe(57435, 400, 43004, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Hearty Rhino -- 57436
-	AddRecipe(57436, 400, 42995, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57436, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57436, 31031, 31032, 33595)
+	recipe = AddRecipe(57436, 400, 42995, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Snapper Extreme -- 57437
-	AddRecipe(57437, 400, 42996, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57437, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57437, 31031, 31032, 33595)
+	recipe = AddRecipe(57437, 400, 42996, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Blackened Worg Steak -- 57438
-	AddRecipe(57438, 400, 42997, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57438, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57438, 31031, 31032, 33595)
+	recipe = AddRecipe(57438, 400, 42997, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Cuttlesteak -- 57439
-	AddRecipe(57439, 400, 42998, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57439, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeVendor(57439, 31031, 31032, 33595)
+	recipe = AddRecipe(57439, 400, 42998, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Spiced Mammoth Treats -- 57440
-	AddRecipe(57440, 400, 43005, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57440, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57440, 31031, 31032, 33595)
+	recipe = AddRecipe(57440, 400, 43005, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Blackened Dragonfin -- 57441
-	AddRecipe(57441, 400, 42999, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57441, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57441, 31031, 31032, 33595)
+	recipe = AddRecipe(57441, 400, 42999, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Dragonfin Filet -- 57442
-	AddRecipe(57442, 400, 43000, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57442, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
-	self:AddRecipeVendor(57442, 31031, 31032, 33595)
+	recipe = AddRecipe(57442, 400, 43000, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Tracker Snacks -- 57443
-	AddRecipe(57443, 400, 43001, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(57443, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(57443, 31031, 31032, 33595)
+	recipe = AddRecipe(57443, 400, 43001, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Dalaran Clam Chowder -- 58065
-	AddRecipe(58065, 350, 43268, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
-	self:AddRecipeFlags(58065, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeTrainer(58065, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(58065, 350, 43268, Q.COMMON, V.WOTLK, 350, 350, 382, 415)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Tasty Cupcake -- 58512
-	AddRecipe(58512, 350, 43490, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
-	self:AddRecipeFlags(58512, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58512, "Northrend")
+	recipe = AddRecipe(58512, 350, 43490, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddWorldDrop("Northrend")
 
 	-- Last Week's Mammoth -- 58521
-	AddRecipe(58521, 350, 43488, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
-	self:AddRecipeFlags(58521, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58521, "Northrend")
+	recipe = AddRecipe(58521, 350, 43488, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddWorldDrop("Northrend")
 
 	-- Bad Clams -- 58523
-	AddRecipe(58523, 350, 43491, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
-	self:AddRecipeFlags(58523, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58523, "Northrend")
+	recipe = AddRecipe(58523, 350, 43491, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddWorldDrop("Northrend")
 
 	-- Haunted Herring -- 58525
-	AddRecipe(58525, 350, 43492, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
-	self:AddRecipeFlags(58525, F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
-	self:AddRecipeWorldDrop(58525, "Northrend")
+	recipe = AddRecipe(58525, 350, 43492, Q.UNCOMMON, V.WOTLK, 350, 350, 357, 365)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE, F.RBOP)
+	recipe:AddWorldDrop("Northrend")
 
 	-- Gigantic Feast -- 58527
-	AddRecipe(58527, 425, 43478, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
-	self:AddRecipeFlags(58527, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(58527, 31031, 31032, 33595)
+	recipe = AddRecipe(58527, 425, 43478, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Small Feast -- 58528
-	AddRecipe(58528, 425, 43480, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
-	self:AddRecipeFlags(58528, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(58528, 31031, 31032, 33595)
+	recipe = AddRecipe(58528, 425, 43480, Q.UNCOMMON, V.WOTLK, 425, 435, 455, 475)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Worg Tartare -- 62350
-	AddRecipe(62350, 400, 44953, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
-	self:AddRecipeFlags(62350, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(62350, 31031, 31032, 33595)
+	recipe = AddRecipe(62350, 400, 44953, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(31031, 31032, 33595)
 
 	-- Clamlette Magnifique -- 64054
-	AddRecipe(64054, 250, 33004, Q.COMMON, V.WOTLK, 250, 250, 275, 300)
-	self:AddRecipeFlags(64054, F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeQuest(64054, 6610)
+	recipe = AddRecipe(64054, 250, 33004, Q.COMMON, V.WOTLK, 250, 250, 275, 300)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddQuest(6610)
 
 	-- Black Jelly -- 64358
-	AddRecipe(64358, 400, 45932, Q.COMMON, V.WOTLK, 400, 400, 412, 425)
-	self:AddRecipeFlags(64358, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
-	self:AddRecipeTrainer(64358, 29631, 26972, 26989, 26953, 33587, 28705, 26905)
+	recipe = AddRecipe(64358, 400, 45932, Q.COMMON, V.WOTLK, 400, 400, 412, 425)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
+	recipe:AddTrainer(26905, 26953, 26972, 26989, 28705, 29631, 33587)
 
 	-- Bread of the Dead -- 65454
-	AddRecipe(65454, 45, 46691, Q.COMMON, V.WOTLK, 45, 55, 60, 65)
-	self:AddRecipeFlags(65454, F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	self:AddRecipeSeason(65454, 6)
+	recipe = AddRecipe(65454, 45, 46691, Q.COMMON, V.WOTLK, 45, 55, 60, 65)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddSeason(6)
 
-	-- Whitecrest Gumbo -- 88047
-	AddRecipe(88047, 450, 62656, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88047, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88047, 49701, 49737)
+	-- Candied Sweet Potato -- 66034
+	recipe = AddRecipe(66034, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
+	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
+	recipe:AddSeason(5)
 
-	-- Lavascale Filet -- 88024
-	AddRecipe(88024, 450, 62654, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88024, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88024, 49701, 49737)
+	-- Cranberry Chutney -- 66035
+	recipe = AddRecipe(66035, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235)
+	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddSeason(5)
 
-	-- Lavascale Minestrone -- 88025
-	AddRecipe(88025, 500, 62663, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88025, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88025, 49701, 49737)
+	-- Pumpkin Pie -- 66036
+	recipe = AddRecipe(66036, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
+	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
+	recipe:AddSeason(5)
 
-	-- Salted Eye -- 88035
-	AddRecipe(88035, 450, 62653, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88035, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88035, 49701, 49737)
+	-- Slow-Roasted Turkey -- 66037
+	recipe = AddRecipe(66037, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355)
+	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
+	recipe:AddSeason(5)
 
-	-- Broiled Mountain Trout -- 88012
-	AddRecipe(88012, 450, 62655, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88012, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88012, 49701, 49737)
-
-	-- Lightly Fried Lurker -- 88028
-	AddRecipe(88028, 450, 62651, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88028, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88028, 49701, 49737)
-
-	-- Seasoned Crab -- 88037
-	AddRecipe(88037, 450, 62652, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88037, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88037, 49701, 49737)
-
-	-- Starfire Espresso -- 88045
-	AddRecipe(88045, 450, 62675, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
-	self:AddRecipeFlags(88045, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88045, 49701, 49737)
-
-	-- Highland Spirits -- 88022
-	AddRecipe(88022, 450, 62674, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
-	self:AddRecipeFlags(88022, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88022, 49701, 49737)
-
-	-- Lurker Lunch -- 88030
-	AddRecipe(88030, 450, 62657, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
-	self:AddRecipeFlags(88030, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88030, 49701, 49737)
-
-	-- Blackened Surprise -- 88006
-	AddRecipe(88006, 425, 62676, Q.COMMON, V.CATA, 425, 450, 457, 465)
-	self:AddRecipeFlags(88006, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	self:AddRecipeTrainer(88006, 46709)
-
-	-- Darkbrew Lager -- 88015
-	AddRecipe(88015, 415, 62790, Q.COMMON, V.CATA, 415, 430, 435, 440)
-	self:AddRecipeFlags(88015, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
-	self:AddRecipeTrainer(88015, 46709)
-
-	-- Hearty Seafood Soup -- 88021
-	AddRecipe(88021, 475, 62659, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
-	self:AddRecipeFlags(88021, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88021, 49701, 49737)
-
-	-- Pickled Guppy -- 88033
-	AddRecipe(88033, 475, 62660, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
-	self:AddRecipeFlags(88033, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88033, 49701, 49737)
-
-	-- Tender Baked Turtle -- 88046
-	AddRecipe(88046, 475, 62658, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
-	self:AddRecipeFlags(88046, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88046, 49701, 49737)
-
-	-- Broiled Dragon Feast -- 88011
-	AddRecipe(88011, 500, 62289, Q.RARE, V.CATA, 500, 500, 500, 525)
-	self:AddRecipeFlags(88011, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
-	self:AddRecipeAchievement(88011, 5467)
-
-	-- Fish Fry -- 88018
-	AddRecipe(88018, 500, 62677, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
-	self:AddRecipeFlags(88018, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88018, 49701, 49737)
+	-- Spice Bread Stuffing -- 66038
+	recipe = AddRecipe(66038, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115)
+	recipe:AddFilters(F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
+	recipe:AddSeason(5)
 
 	-- Baked Rockfish -- 88003
-	AddRecipe(88003, 500, 62661, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88003, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88003, 49701, 49737)
+	recipe = AddRecipe(88003, 500, 62661, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
 	-- Basilisk Liverdog -- 88004
-	AddRecipe(88004, 500, 62665, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88004, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88004, 49701, 49737)
+	recipe = AddRecipe(88004, 500, 62665, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
 	-- Beer-Basted Crocolisk -- 88005
-	AddRecipe(88005, 500, 62670, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88005, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88005, 49701, 49737)
+	recipe = AddRecipe(88005, 500, 62670, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
-	-- Blackbelly Sushi -- 88034
-	AddRecipe(88034, 500, 62668, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88034, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88034, 49701, 49737)
+	-- Blackened Surprise -- 88006
+	recipe = AddRecipe(88006, 425, 62676, Q.COMMON, V.CATA, 425, 450, 457, 465)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(46709)
 
-	-- Crocolisk Au Gratin -- 88014
-	AddRecipe(88014, 500, 62664, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88014, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88014, 49701, 49737)
+	-- Broiled Dragon Feast -- 88011
+	recipe = AddRecipe(88011, 500, 62289, Q.RARE, V.CATA, 500, 500, 500, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddAchievement(5467)
 
-	-- Delicious Sagefish Tail -- 88016
-	AddRecipe(88016, 500, 62666, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88016, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88016, 49701, 49737)
-
-	-- Grilled Dragon -- 88020
-	AddRecipe(88020, 500, 62662, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88020, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88020, 49701, 49737)
-
-	-- Mushroom Sauce Mudfish -- 88031
-	AddRecipe(88031, 500, 62667, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88031, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88031, 49701, 49737)
-
-	-- Severed Sagefish Head -- 88039
-	AddRecipe(88039, 500, 62671, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88039, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88039, 49701, 49737)
-
-	-- Skewered Eeel -- 88042
-	AddRecipe(88042, 500, 62669, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
-	self:AddRecipeFlags(88042, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88042, 49701, 49737)
+	-- Broiled Mountain Trout -- 88012
+	recipe = AddRecipe(88012, 450, 62655, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
 	-- Chocolate Cookie -- 88013
-	AddRecipe(88013, 505, 62680, Q.UNCOMMON, V.CATA, 505, 510, 512, 515)
-	self:AddRecipeFlags(88013, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88013, 49701, 49737)
+	recipe = AddRecipe(88013, 505, 62680, Q.UNCOMMON, V.CATA, 505, 510, 512, 515)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
-	-- Fortune Cookie -- 88019
-	AddRecipe(88019, 525, 62649, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(88019, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88019, 49701, 49737)
+	-- Crocolisk Au Gratin -- 88014
+	recipe = AddRecipe(88014, 500, 62664, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
-	-- Seafood Magnifique Feast -- 88036
-	AddRecipe(88036, 525, 62290, Q.RARE, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(88036, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP, F.RBOP)
-	self:AddRecipeAchievement(88036, 5036)
+	-- Darkbrew Lager -- 88015
+	recipe = AddRecipe(88015, 415, 62790, Q.COMMON, V.CATA, 415, 430, 435, 440)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(46709)
 
-	-- South Island Iced Tea -- 88044
-	AddRecipe(88044, 525, 62672, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
-	self:AddRecipeFlags(88044, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88044, 49701, 49737)
-
-	-- Venison Jerky -- 93741
-	AddRecipe(93741, 40, 67230, Q.COMMON, V.CATA, 40, 80, 100, 120)
-	self:AddRecipeFlags(93741, F.TRAINER, F.ALLIANCE, F.HORDE, F.IBOE)
-	self:AddRecipeTrainer(93741, 3399)
+	-- Delicious Sagefish Tail -- 88016
+	recipe = AddRecipe(88016, 500, 62666, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
 	-- Feathered Lure -- 88017
-	AddRecipe(88017, 450, nil, Q.UNCOMMON, V.CATA, 450, 450, 455, 470)
-	self:AddRecipeFlags(88017, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(88017, 49701, 49737)
-	
+	recipe = AddRecipe(88017, 450, nil, Q.UNCOMMON, V.CATA, 450, 450, 455, 470)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Fish Fry -- 88018
+	recipe = AddRecipe(88018, 500, 62677, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Fortune Cookie -- 88019
+	recipe = AddRecipe(88019, 525, 62649, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Grilled Dragon -- 88020
+	recipe = AddRecipe(88020, 500, 62662, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Hearty Seafood Soup -- 88021
+	recipe = AddRecipe(88021, 475, 62659, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Highland Spirits -- 88022
+	recipe = AddRecipe(88022, 450, 62674, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Lavascale Fillet -- 88024
+	recipe = AddRecipe(88024, 450, 62654, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Lavascale Minestrone -- 88025
+	recipe = AddRecipe(88025, 500, 62663, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Lightly Fried Lurker -- 88028
+	recipe = AddRecipe(88028, 450, 62651, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Lurker Lunch -- 88030
+	recipe = AddRecipe(88030, 450, 62657, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Mushroom Sauce Mudfish -- 88031
+	recipe = AddRecipe(88031, 500, 62667, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Pickled Guppy -- 88033
+	recipe = AddRecipe(88033, 475, 62660, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Blackbelly Sushi -- 88034
+	recipe = AddRecipe(88034, 500, 62668, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Salted Eye -- 88035
+	recipe = AddRecipe(88035, 450, 62653, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Seafood Magnifique Feast -- 88036
+	recipe = AddRecipe(88036, 525, 62290, Q.RARE, V.CATA, 525, 525, 525, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RBOP, F.ACHIEVEMENT)
+	recipe:AddAchievement(5036)
+
+	-- Seasoned Crab -- 88037
+	recipe = AddRecipe(88037, 450, 62652, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Severed Sagefish Head -- 88039
+	recipe = AddRecipe(88039, 500, 62671, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Skewered Eel -- 88042
+	recipe = AddRecipe(88042, 500, 62669, Q.UNCOMMON, V.CATA, 500, 515, 520, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- South Island Iced Tea -- 88044
+	recipe = AddRecipe(88044, 525, 62672, Q.UNCOMMON, V.CATA, 525, 525, 525, 525)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Starfire Espresso -- 88045
+	recipe = AddRecipe(88045, 450, 62675, Q.UNCOMMON, V.CATA, 450, 455, 460, 465)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Tender Baked Turtle -- 88046
+	recipe = AddRecipe(88046, 475, 62658, Q.UNCOMMON, V.CATA, 475, 490, 497, 505)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Whitecrest Gumbo -- 88047
+	recipe = AddRecipe(88047, 450, 62656, Q.UNCOMMON, V.CATA, 450, 465, 477, 490)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
+
+	-- Venison Jerky -- 93741
+	recipe = AddRecipe(93741, 40, 67230, Q.COMMON, V.CATA, 40, 80, 100, 120)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE)
+	recipe:AddTrainer(3399)
+
 	-- Scalding Murglesnout -- 96133
-	AddRecipe(96133, 500, 68687, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
-	self:AddRecipeFlags(96133, F.VENDOR, F.ALLIANCE, F.HORDE, F.IBOE, F.RBOP)
-	self:AddRecipeVendor(96133, 49701, 49737)	
+	recipe = AddRecipe(96133, 500, 68687, Q.UNCOMMON, V.CATA, 500, 500, 500, 510)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
+	recipe:AddVendor(49701, 49737)
 
-	-- Some recipes are only availible to specific factions.
-	-- We only add the faction specific recipes if the user is part of that faction
-	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-	local _,faction = UnitFactionGroup("player")
-
-	if faction == BFAC["Alliance"] then
-
-		-- Pumpkin Pie -- 62044
-		AddRecipe(62044, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
-		self:AddRecipeFlags(62044, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeSeason(62044, 5)
-
-		-- Slow-Roasted Turkey -- 62045
-		AddRecipe(62045, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355)
-		self:AddRecipeFlags(62045, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-		self:AddRecipeSeason(62045, 5)
-
-		-- Cranberry Chutney -- 62049
-		AddRecipe(62049, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235)
-		self:AddRecipeFlags(62049, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeSeason(62049, 5)
-
-		-- Spice Bread Stuffing -- 62050
-		AddRecipe(62050, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115)
-		self:AddRecipeFlags(62050, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOE)
-		self:AddRecipeSeason(62050, 5)
-
-		-- Candied Sweet Potato -- 62051
-		AddRecipe(62051, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
-		self:AddRecipeFlags(62051, F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
-		self:AddRecipeSeason(62051, 5)
-
-	elseif faction == BFAC["Horde"] then
-
-		-- Candied Sweet Potato -- 66034
-		AddRecipe(66034, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295)
-		self:AddRecipeFlags(66034, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP)
-		self:AddRecipeSeason(66034, 5)
-
-		-- Cranberry Chutney -- 66035
-		AddRecipe(66035, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235)
-		self:AddRecipeFlags(66035, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeSeason(66035, 5)
-
-		-- Pumpkin Pie -- 66036
-		AddRecipe(66036, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175)
-		self:AddRecipeFlags(66036, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-		self:AddRecipeSeason(66036, 5)
-
-		-- Slow-Roasted Turkey -- 66037
-		AddRecipe(66037, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355)
-		self:AddRecipeFlags(66037, F.HORDE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-		self:AddRecipeSeason(66037, 5)
-
-		-- Spice Bread Stuffing -- 66038
-		AddRecipe(66038, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115)
-		self:AddRecipeFlags(66038, F.HORDE, F.SEASONAL, F.IBOE, F.RBOE)
-		self:AddRecipeSeason(66038, 5)
-	end
 	return num_recipes
 end
