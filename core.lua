@@ -1385,13 +1385,13 @@ do
 				arg2 = (arg2 and arg2:lower() or var1:lower())
 			end
 		end
-		return arg1, arg2, var2 -- Ackis: var2 doesn't exist at this point. I'm not sure what you're trying to do with it so I'm not fucking with it. -Torhal
+		return arg1, arg2
 	end
 
 	-- Determines what to do when the slash command is called.
 	function addon:ChatCommand(input)
 
-		local arg1, arg2, arg3 = StrSplit(input)
+		local arg1, arg2 = StrSplit(input)
 
 		-- Open About panel if there's no parameters or if we do /arl about
 		if not arg1 or (arg1 and arg1:trim() == "") or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
