@@ -338,6 +338,10 @@ function recipe_prototype:AddFilters(...)
 		if not self.flags[member_name] then
 			self.flags[member_name] = 0
 		end
+
+		if bit.band(self.flags[member_name], bitfield[flag_name]) == bitfield[flag_name] then
+			return
+		end
 		self.flags[member_name] = bit.bxor(self.flags[member_name], bitfield[flag_name])
 	end
 end

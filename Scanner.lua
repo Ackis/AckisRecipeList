@@ -629,6 +629,17 @@ do
 			if info[i_name] and info[i_name] ~= recipe_list[i].skill_level then
 				found = true
 				table.insert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, info[i_name]))
+				recipe_list[i].skill_level = info[i_name]
+
+				local skill_level = recipe_list[i].skill_level
+				local optimal_level = recipe_list[i].optimal_level
+
+				if optimal_level > skill_level or optimal_level < skill_level then
+					recipe_list[i].optimal_level = skill_level
+					recipe_list[i].medium_level = skill_level + 10
+					recipe_list[i].easy_level = skill_level + 15
+					recipe_list[i].trivial_level = skill_level + 20
+				end
 			end
 		end
 		table.insert(output, "Trainer Skill Level Scan Complete.")
@@ -657,7 +668,7 @@ do
 			return
 		end
 		local targetname = _G.UnitName("target")	-- Get its name
-		local targetID = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
+		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
 
 		if not _G.IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
 			if not autoscan then
@@ -698,7 +709,7 @@ do
 
 		-- Dump out trainer info
 		table.insert(output, "ARL Version: @project-version@")
-		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
+		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, trainer_id))
 
 		local teachflag = false
 		local noteachflag = false
@@ -709,7 +720,7 @@ do
 
 			if train_data then
 				for id_num in pairs(train_data) do
-					if id_num == targetID then
+					if id_num == trainer_id then
 						found = true
 						break
 					end
@@ -718,10 +729,12 @@ do
 
 			if info[recipe.name] then
 				if not found then
+					recipe:AddTrainer(trainer_id)
 					table.insert(teach, spell_id)
 					teachflag = true
 
 					if not recipe:IsFlagged("common1", "TRAINER") then
+						recipe:AddFilters(F.TRAINER)
 						table.insert(output, spell_id..": Trainer flag needs to be set.")
 					end
 				end
@@ -734,7 +747,7 @@ do
 		end
 
 		if teachflag then
-			table.insert(output, "Missing entries (need to be added):")
+			table.insert(output, "Trainer is missing from the following entries:")
 			table.sort(teach)
 
 			for i in ipairs(teach) do
@@ -743,7 +756,7 @@ do
 		end
 
 		if noteachflag then
-			table.insert(output, "Extra entries (need to be removed):")
+			table.insert(output, "Trainer does not teach the following entries (should be removed):")
 			table.sort(noteach)
 
 			for i in ipairs(noteach) do
