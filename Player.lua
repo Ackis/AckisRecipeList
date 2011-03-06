@@ -40,7 +40,18 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local private	= _G.select(2, ...)
 
-local Player	= private.Player
+------------------------------------------------------------------------------
+-- Data which is stored regarding a players statistics (luadoc copied from Collectinator, needs updating)
+------------------------------------------------------------------------------
+-- @class table
+-- @name Player
+-- @field known_filtered Total number of items known filtered during the scan.
+-- @field Faction Player's faction
+-- @field Class Player's class
+-- @field ["Reputation"] Listing of players reputation levels
+local Player = {}
+private.Player = Player
+private.player_name = _G.UnitName("player")
 
 -------------------------------------------------------------------------------
 -- Constants
