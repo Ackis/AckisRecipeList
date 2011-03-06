@@ -4,8 +4,8 @@ Vendor.lua
 Vendor data for all of Ackis Recipe List
 ************************************************************************
 File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
+File hash: @file-abbreviated-hash@
+Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
 Format:
