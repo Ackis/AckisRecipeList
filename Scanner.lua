@@ -734,7 +734,7 @@ do
 		end
 
 		if teachflag then
-			table.insert(output, "Missing entries (need to be added):")
+			table.insert(output, "Trainer is missing from the following entries:")
 			table.sort(teach)
 
 			for i in ipairs(teach) do
@@ -743,7 +743,7 @@ do
 		end
 
 		if noteachflag then
-			table.insert(output, "Extra entries (need to be removed):")
+			table.insert(output, "Trainer does not teach the following entries (should be removed):")
 			table.sort(noteach)
 
 			for i in ipairs(noteach) do
