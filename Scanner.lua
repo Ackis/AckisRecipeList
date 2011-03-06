@@ -953,10 +953,10 @@ do
 		table.insert(output, ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
 													     recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
-		table.wipe(sorted_data)
-		table.wipe(reverse_map)
-
 		for table_index, bits in ipairs(private.bit_flags) do
+			table.wipe(sorted_data)
+			table.wipe(reverse_map)
+
 			for flag_name, flag in pairs(bits) do
 				local bitfield = recipe.flags[private.flag_members[table_index]]
 
