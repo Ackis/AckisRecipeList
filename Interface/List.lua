@@ -1045,7 +1045,7 @@ function private.InitializeListFrame()
 	local function ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
 
-		if not CanDisplayFaction(trainer.faction) then
+		if not trainer or not CanDisplayFaction(trainer.faction) then
 			return entry_index
 		end
 
@@ -1609,7 +1609,7 @@ do
 	local function Tooltip_AddTrainer(id_num, location, addline_func)
 		local trainer = private.trainer_list[id_num]
 
-		if location and trainer.location ~= location then
+		if not trainer or (location and trainer.location ~= location) then
 			return
 		end
 		local display_tip, name_color = GetTipFactionInfo(trainer.faction)
