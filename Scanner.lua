@@ -935,6 +935,9 @@ do
 		[A.QUEST]	= "recipe:AddQuest(%s)",
 	}
 
+	local sorted_data = {}
+	local reverse_map = {}
+
 	local function RecipeDump(id, single)
 		local recipe = private.recipe_list[id or 1]
 
@@ -950,15 +953,28 @@ do
 		table.insert(output, ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
 													     recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
+		table.wipe(sorted_data)
+		table.wipe(reverse_map)
+
 		for table_index, bits in ipairs(private.bit_flags) do
 			for flag_name, flag in pairs(bits) do
 				local bitfield = recipe.flags[private.flag_members[table_index]]
 
 				if bitfield and bit.band(bitfield, flag) == flag then
+					table.insert(sorted_data, flag)
+					reverse_map[flag] = flag_name
+				end
+			end
+			table.sort(sorted_data)
+
+			for index, flag in ipairs(sorted_data) do
+				local bitfield = recipe.flags[private.flag_members[table_index]]
+
+				if bitfield and bit.band(bitfield, flag) == flag then
 					if not flag_string then
-						flag_string = ("F.%s"):format(FILTER_STRINGS[private.filter_flags[flag_name]])
+						flag_string = ("F.%s"):format(FILTER_STRINGS[private.filter_flags[reverse_map[flag]]])
 					else
-						flag_string = ("%s, F.%s"):format(flag_string, FILTER_STRINGS[private.filter_flags[flag_name]])
+						flag_string = ("%s, F.%s"):format(flag_string, FILTER_STRINGS[private.filter_flags[reverse_map[flag]]])
 					end
 				end
 			end
