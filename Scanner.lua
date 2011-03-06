@@ -629,6 +629,17 @@ do
 			if info[i_name] and info[i_name] ~= recipe_list[i].skill_level then
 				found = true
 				table.insert(output, L["DATAMINER_SKILLELVEL"]:format(i_name, recipe_list[i].skill_level, info[i_name]))
+				recipe_list[i].skill_level = info[i_name]
+
+				local skill_level = recipe_list[i].skill_level
+				local optimal_level = recipe_list[i].optimal_level
+
+				if optimal_level > skill_level or optimal_level < skill_level then
+					recipe_list[i].optimal_level = skill_level
+					recipe_list[i].medium_level = skill_level + 10
+					recipe_list[i].easy_level = skill_level + 15
+					recipe_list[i].trivial_level = skill_level + 20
+				end
 			end
 		end
 		table.insert(output, "Trainer Skill Level Scan Complete.")
