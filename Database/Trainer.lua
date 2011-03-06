@@ -391,7 +391,7 @@ function addon:InitTrainer(DB)
 	self:addLookupList(DB, 46709, L["Arugi"], BZ["Orgrimmar"], 56.5, 61.5, HORDE)
 	self:addLookupList(DB, 46716, L["Nerog"], BZ["Orgrimmar"], 55.2, 56.7, HORDE)
 	self:addLookupList(DB, 47405, L["The Chef"], BZ["Tirisfal Glades"], 61.2, 52.6, HORDE)
-	self:addLookupList(DB, 47418, L["Runda"], L["Durotar"], 52.8, 42.0, HORDE)
+	self:addLookupList(DB, 47418, L["Runda"], BZ["Durotar"], 52.8, 42.0, HORDE)
 	self:addLookupList(DB, 49879, L["Doc Zapnozzle"], BZ["Azshara"], 57.0, 50.7, HORDE)
 	self:addLookupList(DB, 50574, L["Amelia Atherton"], BZ["Gilneas"], 36.8, 65.7, ALLIANCE)
 
