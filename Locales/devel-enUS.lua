@@ -20,17 +20,17 @@ local MODNAME	= "Ackis Recipe List"
 
 local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
 
-if not L then return end 
+if not L then return end
 
 -------------------------------------------------------------------------------
--- Command line options 
+-- Command line options
 -------------------------------------------------------------------------------
 L["Profile"]			= true
 
 -------------------------------------------------------------------------------
--- Config Options 
+-- Config Options
 -------------------------------------------------------------------------------
-L["About"]			= true 
+L["About"]			= true
 L["Main Options"]		= true
 L["General Options"]		= true
 L["Main Filter Options"]	= true
@@ -1323,6 +1323,7 @@ L["Thaddeus Webb"] = true
 L["Thamner Pol"] = true
 L["Tharynn Bouden"] = true
 L["Thaurissan Firewalker"] = true
+L["The Chef"] = true
 L["Theramore Infiltrator"] = true
 L["Theramore Marine"] = true
 L["Theramore Preserver"] = true
@@ -1432,6 +1433,7 @@ L["Zansoa"] = true
 L["Zantasia"] = true
 L["Zap Farflinger"] = true
 L["Zaralda"] = true
+L["Zarbo Porkpatty"] = true
 L["Zarena Cromwind"] = true
 L["Zargh"] = true
 L["Zarrin"] = true
