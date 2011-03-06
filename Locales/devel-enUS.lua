@@ -1218,6 +1218,7 @@ L["Rosemary Bovard"] = true
 L["Rosina Rivet"] = true
 L["Rotting Behemoth"] = true
 L["Roxxik"] = true
+L["Runda"] = true
 L["Rungor"] = true
 L["Ruppo Zipcoil"] = true
 L["Saenorion"] = true
