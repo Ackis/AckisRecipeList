@@ -668,7 +668,7 @@ do
 			return
 		end
 		local targetname = _G.UnitName("target")	-- Get its name
-		local targetID = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
+		local trainer_id = tonumber(string.sub(_G.UnitGUID("target"), -12, -9), 16)	-- Get the NPC ID
 
 		if not _G.IsTradeskillTrainer() then	-- Are we at a trade skill trainer?
 			if not autoscan then
@@ -709,7 +709,7 @@ do
 
 		-- Dump out trainer info
 		table.insert(output, "ARL Version: @project-version@")
-		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, targetID))
+		table.insert(output, L["DATAMINER_TRAINER_INFO"]:format(targetname, trainer_id))
 
 		local teachflag = false
 		local noteachflag = false
@@ -720,7 +720,7 @@ do
 
 			if train_data then
 				for id_num in pairs(train_data) do
-					if id_num == targetID then
+					if id_num == trainer_id then
 						found = true
 						break
 					end
@@ -729,10 +729,12 @@ do
 
 			if info[recipe.name] then
 				if not found then
+					recipe:AddTrainer(trainer_id)
 					table.insert(teach, spell_id)
 					teachflag = true
 
 					if not recipe:IsFlagged("common1", "TRAINER") then
+						recipe:AddFilters(F.TRAINER)
 						table.insert(output, spell_id..": Trainer flag needs to be set.")
 					end
 				end
