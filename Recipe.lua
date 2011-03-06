@@ -27,7 +27,6 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 local A		= private.acquire_types
-local F 	= private.filter_flags
 local SF	= private.recipe_state_flags
 
 -----------------------------------------------------------------------
@@ -95,7 +94,7 @@ end
 -- @param ... A listing of filtering flags.  See [[API/database-documentation]] for a listing of filter flags
 -- @return None, array is passed as a reference.
 function addon:AddRecipeFlags(spell_id, ...)
-	private.recipe_list[spell_id]:AddFlags(...)
+	private.recipe_list[spell_id]:AddFilters(...)
 end
 
 do
@@ -315,7 +314,7 @@ do
 	end
 end -- do-block
 
-function recipe_prototype:AddFlags(...)
+function recipe_prototype:AddFilters(...)
 	local num_flags = select('#',...)
 
 	for index = 1, num_flags, 1 do

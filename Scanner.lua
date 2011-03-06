@@ -979,7 +979,7 @@ do
 				end
 			end
 		end
-		table.insert(output, ("recipe:AddFlags(%s)"):format(flag_string))
+		table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
 
 		flag_string = nil
 
