@@ -60,8 +60,23 @@ local A = private.acquire_types
 local F = private.filter_flags
 
 -------------------------------------------------------------------------------
--- Functions
+-- Player methods.
 -------------------------------------------------------------------------------
+function Player:Initialize()
+	self.faction = UnitFactionGroup("player")
+	self.Class = select(2, UnitClass("player"))
+	self:SetProfessions()
+
+	-------------------------------------------------------------------------------
+	-- Set the scanned state for all professions to false.
+	-------------------------------------------------------------------------------
+	self.has_scanned = {}
+
+	for profession in pairs(self.professions) do
+		self.has_scanned[profession] = false
+	end
+end
+
 function Player:HasProperRepLevel(rep_data)
 	if not rep_data then
 		return true
@@ -115,6 +130,22 @@ do
 
 	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
 	function Player:SetProfessions()
+		if not self.professions then
+			self.professions = {
+				[_G.GetSpellInfo(51304)] = false, -- Alchemy
+				[_G.GetSpellInfo(51300)] = false, -- Blacksmithing
+				[_G.GetSpellInfo(51296)] = false, -- Cooking
+				[_G.GetSpellInfo(51313)] = false, -- Enchanting
+				[_G.GetSpellInfo(51306)] = false, -- Engineering
+				[_G.GetSpellInfo(45542)] = false, -- First Aid
+				[_G.GetSpellInfo(51302)] = false, -- Leatherworking
+				[_G.GetSpellInfo(2656)] = false, -- Smelting
+				[_G.GetSpellInfo(51309)] = false, -- Tailoring
+				[_G.GetSpellInfo(51311)] = false, -- Jewelcrafting
+				[_G.GetSpellInfo(45363)] = false, -- Inscription
+				[private.runeforging_name] = false, -- Runeforging
+			}
+		end
 		local profession_list = self.professions
 
 		for i in pairs(profession_list) do
