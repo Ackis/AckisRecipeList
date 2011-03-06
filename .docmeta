@@ -39,6 +39,10 @@
  input-file: Scanner.lua
  output-page: API/Scanner
 -
+ type: luadoc
+ input-file: Recipe.lua
+ output-page: API/Recipe
+-
  type: creole
  input-file: Docs/Youtube.txt
  output-page: "Youtube and External Reviews"
