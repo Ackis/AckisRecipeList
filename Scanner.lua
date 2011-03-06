@@ -925,8 +925,6 @@ do
 	local Q = private.item_quality_names
 	local V = private.game_version_names
 
-	local NUM_FILTER_FLAGS = 128
-
 	local FUNCTION_FORMATS = {
 		[A.ACHIEVEMENT]	= "recipe:AddAchievement(%s)",
 		[A.CUSTOM]	= "recipe:AddCustom(%s)",
@@ -950,7 +948,7 @@ do
 
 		table.insert(output, ("-- %s -- %d"):format(recipe.name, recipe.spell_id))
 		table.insert(output, ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
-												        recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
+													     recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
 
 		for table_index, bits in ipairs(private.bit_flags) do
 			for flag_name, flag in pairs(bits) do
@@ -995,7 +993,6 @@ do
 				local values
 				local is_limited = false
 
---				[A.VENDOR]	= "recipe:AddVendor(%s)",
 				for id_num in pairs(acquire_info) do
 					local vendor = private.vendor_list[id_num]
 					local quantity = vendor.item_list[recipe.spell_id]
