@@ -1349,7 +1349,7 @@ function addon:InitEnchanting()
 	-- Enchant Ring - Greater Spellpower -- 44636
 	recipe = AddRecipe(44636, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.RING)
-	recipe:AddTrainer(26906, 26954, 26980, 26990, 28693, 33583)
+	recipe:AddTrainer(3345, 26906, 26954, 26980, 26990, 28693, 33583)
 
 	-- Enchant Ring - Assault -- 44645
 	recipe = AddRecipe(44645, 400, nil, Q.COMMON, V.WOTLK, 400, 400, 407, 415)
