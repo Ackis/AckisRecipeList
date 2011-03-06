@@ -999,7 +999,15 @@ do
 						local rep_string = ("REP.%s"):format(REP_LEVELS[rep_level or 1])
 						local values
 
-						for vendor_id in pairs(level_info) do
+						table.wipe(sorted_data)
+						table.wipe(reverse_map)
+
+						for id_num in pairs(level_info) do
+							table.insert(sorted_data, id_num)
+						end
+						table.sort(sorted_data)
+
+						for index, vendor_id in ipairs(sorted_data) do
 							values = values and (values..", "..vendor_id) or vendor_id
 						end
 						table.insert(output, ("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
@@ -1009,7 +1017,15 @@ do
 				local values
 				local is_limited = false
 
+				table.wipe(sorted_data)
+				table.wipe(reverse_map)
+
 				for id_num in pairs(acquire_info) do
+					table.insert(sorted_data, id_num)
+				end
+				table.sort(sorted_data)
+
+				for index, id_num in ipairs(sorted_data) do
 					local vendor = private.vendor_list[id_num]
 					local quantity = vendor.item_list[recipe.spell_id]
 					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
@@ -1030,7 +1046,15 @@ do
 			elseif FUNCTION_FORMATS[acquire_type] then
 				local values
 
+				table.wipe(sorted_data)
+				table.wipe(reverse_map)
+
 				for id_num in pairs(acquire_info) do
+					table.insert(sorted_data, id_num)
+				end
+				table.sort(sorted_data)
+
+				for index, id_num in ipairs(sorted_data) do
 					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
 					values = values and (values..", "..saved_id) or saved_id
 				end
