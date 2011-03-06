@@ -101,75 +101,7 @@ end
 do
 	-- Helper function to add all recipe acquire information.  Called via a wrapper function.
 	local function GenericAddRecipeAcquire(spell_id, acquire_type, type_string, unit_list, ...)
-		local recipe = private.recipe_list[spell_id]
-
-		if not recipe then
-			addon:Debug("GenericAddRecipeAcquire(): No recipe found for Spell ID %d.", spell_id)
-			return
-		end
-		local location_list = private.location_list
-		local acquire_list = private.acquire_list
-		local acquire_data = recipe.acquire_data
-		acquire_data[acquire_type] = acquire_data[acquire_type] or {}
-
-		local acquire = acquire_data[acquire_type]
-
-		local num_vars = select('#', ...)
-		local cur_var = 1
-
-		while cur_var <= num_vars do
-			local location, affiliation
-			local id_num = select(cur_var, ...)
-			cur_var = cur_var + 1
-
-			-- A quantity of true means unlimited - normal vendor item.
-			local quantity = true
-
-			if type_string == "Limited Vendor" then
-				quantity = select(cur_var, ...)
-				cur_var = cur_var + 1
-			end
-			acquire[id_num] = true
-
-			if unit_list and not unit_list[id_num] then
-				addon:Debug("Spell ID %d: %s ID %d does not exist in the database.", spell_id, type_string, id_num)
-			else
-				if not unit_list then
-					local id_type = type(id_num)
-
-					location = id_type == "string" and BZ[id_num] or nil
-
-					if location then
-						affiliation = "world_drop"
-					else
-						if id_type == "string" then
-							addon:Debug("WORLD_DROP with no location: %d %s", spell_id, private.recipe_list[spell_id].name)
-						end
-					end
-				else
-					local unit = unit_list[id_num]
-
-					affiliation = unit.faction
-					location = unit.location
-
-					unit.item_list = unit.item_list or {}
-					unit.item_list[spell_id] = quantity
-				end
-			end
-			acquire_list[acquire_type] = acquire_list[acquire_type] or {}
-			acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
-
-			acquire_list[acquire_type].name = private.acquire_names[acquire_type]
-			acquire_list[acquire_type].recipes[spell_id] = affiliation or true
-
-			if location then
-				location_list[location] = location_list[location] or {}
-				location_list[location].recipes = location_list[location].recipes or {}
-
-				location_list[location].name = location
-				location_list[location].recipes[spell_id] = affiliation or true
-			end
-		end
+		private.recipe_list[spell_id]:AddAcquireData(acquire_type, type_string, unit_list, ...)
 	end
 
 	--- Adds mob drop acquire methods to a specific tradeskill.
@@ -282,68 +214,7 @@ do
 	-- @param ... A listing of vendors associated with that faction level.
 	-- @return None.
 	function addon:AddRecipeRepVendor(spell_id, faction_id, rep_level, ...)
-		local location_list = private.location_list
-		local acquire_list = private.acquire_list
-
-		local num_vars = select('#', ...)
-		local cur_var = 1
-
-		local recipe = private.recipe_list[spell_id]
-		local vendor_list = private.vendor_list
-
-		local acquire_data = recipe.acquire_data
-		acquire_data[A.REPUTATION] = acquire_data[A.REPUTATION] or {}
-
-		local acquire = acquire_data[A.REPUTATION]
-		acquire[faction_id] = acquire[faction_id] or {}
-
-		local faction = acquire[faction_id]
-		faction[rep_level] = faction[rep_level] or {}
-
-		while cur_var <= num_vars do
-			local location, affiliation
-			local vendor_id = select(cur_var, ...)
-			cur_var = cur_var + 1
-
-			if not private.reputation_list[faction_id] then
-				--@alpha@
-				self:Printf("Spell ID %d: Faction ID %d does not exist in the database.", spell_id, faction_id)
-				--@end-alpha@
-			else
-				if not vendor_id then
-					--@alpha@
-					self:Print("Spell ID "..spell_id..": Reputation Vendor ID is nil.")
-					--@end-alpha@
-				elseif not vendor_list[vendor_id] then
-					--@alpha@
-					self:Print("Spell ID "..spell_id..": Reputation Vendor ID "..vendor_id.." does not exist in the database.")
-					--@end-alpha@
-				else
-					faction[rep_level][vendor_id] = true
-
-					local rep_vendor = vendor_list[vendor_id]
-
-					affiliation = rep_vendor.faction
-					location = rep_vendor.location
-
-					rep_vendor.item_list = rep_vendor.item_list or {}
-					rep_vendor.item_list[spell_id] = true
-				end
-			end
-			acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
-			acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
-
-			acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
-			acquire_list[A.REPUTATION].recipes[spell_id] = affiliation or true
-
-			if location then
-				location_list[location] = location_list[location] or {}
-				location_list[location].recipes = location_list[location].recipes or {}
-
-				location_list[location].name = location
-				location_list[location].recipes[spell_id] = affiliation or true
-			end
-		end
+		private.recipe_list[spell_id]:AddRepVendor(faction_id, rep_level, ...)
 	end
 end	-- do block
 
@@ -472,6 +343,168 @@ function recipe_prototype:AddFlags(...)
 	end
 end
 
+function recipe_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
+	local location_list = private.location_list
+	local acquire_list = private.acquire_list
+	self.acquire_data[acquire_type] = self.acquire_data[acquire_type] or {}
+
+	local acquire = self.acquire_data[acquire_type]
+
+	local num_vars = select('#', ...)
+	local cur_var = 1
+
+	while cur_var <= num_vars do
+		local location, affiliation
+		local id_num = select(cur_var, ...)
+		cur_var = cur_var + 1
+
+		-- A quantity of true means unlimited - normal vendor item.
+		local quantity = true
+
+		if type_string == "Limited Vendor" then
+			quantity = select(cur_var, ...)
+			cur_var = cur_var + 1
+		end
+		acquire[id_num] = true
+
+		if unit_list and not unit_list[id_num] then
+			addon:Debug("Spell ID %d: %s ID %d does not exist in the database.", self.spell_id, type_string, id_num)
+		else
+			if not unit_list then
+				local id_type = type(id_num)
+
+				location = id_type == "string" and BZ[id_num] or nil
+
+				if location then
+					affiliation = "world_drop"
+				else
+					if id_type == "string" then
+						addon:Debug("WORLD_DROP with no location: %d %s", self.spell_id, self.name)
+					end
+				end
+			else
+				local unit = unit_list[id_num]
+
+				affiliation = unit.faction
+				location = unit.location
+
+				unit.item_list = unit.item_list or {}
+				unit.item_list[self.spell_id] = quantity
+			end
+		end
+		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
+		acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
+
+		acquire_list[acquire_type].name = private.acquire_names[acquire_type]
+		acquire_list[acquire_type].recipes[self.spell_id] = affiliation or true
+
+		if location then
+			location_list[location] = location_list[location] or {}
+			location_list[location].recipes = location_list[location].recipes or {}
+
+			location_list[location].name = location
+			location_list[location].recipes[self.spell_id] = affiliation or true
+		end
+	end
+end
+
+function recipe_prototype:AddMobDrop(...)
+	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
+end
+
+function recipe_prototype:AddTrainer(...)
+	self:AddAcquireData(A.TRAINER, "Trainer", private.trainer_list, ...)
+end
+
+function recipe_prototype:AddVendor(...)
+	self:AddAcquireData(A.VENDOR, "Vendor", private.vendor_list, ...)
+end
+
+function recipe_prototype:AddLimitedVendor(...)
+	self:AddAcquireData(A.VENDOR, "Limited Vendor", private.vendor_list, ...)
+end
+
+function recipe_prototype:AddWorldDrop(...)
+	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
+end
+
+function recipe_prototype:AddQuest(...)
+	self:AddAcquireData(A.QUEST, "Quest", private.quest_list, ...)
+end
+
+function recipe_prototype:AddAchievement(...)
+	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", nil, ...)
+end
+
+function recipe_prototype:AddCustom(...)
+	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
+end
+
+function recipe_prototype:AddSeason(...)
+	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
+end
+
+function recipe_prototype:AddRepVendor(faction_id, rep_level, ...)
+	local location_list = private.location_list
+	local acquire_list = private.acquire_list
+	local vendor_list = private.vendor_list
+
+	self.acquire_data[A.REPUTATION] = self.acquire_data[A.REPUTATION] or {}
+
+	local acquire = self.acquire_data[A.REPUTATION]
+	acquire[faction_id] = acquire[faction_id] or {}
+
+	local faction = acquire[faction_id]
+	faction[rep_level] = faction[rep_level] or {}
+
+	local num_vars = select('#', ...)
+	local cur_var = 1
+
+	while cur_var <= num_vars do
+		local location, affiliation
+		local vendor_id = select(cur_var, ...)
+		cur_var = cur_var + 1
+
+		if not private.reputation_list[faction_id] then
+			--@alpha@
+			self:Printf("Spell ID %d: Faction ID %d does not exist in the database.", self.spell_id, faction_id)
+			--@end-alpha@
+		else
+			if not vendor_id then
+				--@alpha@
+				self:Printf("Spell ID %d: Reputation Vendor ID is nil.", self.spell_id)
+				--@end-alpha@
+			elseif not vendor_list[vendor_id] then
+				--@alpha@
+				self:Printf("Spell ID %d: Reputation Vendor ID %d does not exist in the database.", self.spell_id, vendor_id)
+				--@end-alpha@
+			else
+				faction[rep_level][vendor_id] = true
+
+				local rep_vendor = vendor_list[vendor_id]
+
+				affiliation = rep_vendor.faction
+				location = rep_vendor.location
+
+				rep_vendor.item_list = rep_vendor.item_list or {}
+				rep_vendor.item_list[self.spell_id] = true
+			end
+		end
+		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
+		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
+
+		acquire_list[A.REPUTATION].name = private.acquire_names[A.REPUTATION]
+		acquire_list[A.REPUTATION].recipes[self.spell_id] = affiliation or true
+
+		if location then
+			location_list[location] = location_list[location] or {}
+			location_list[location].recipes = location_list[location].recipes or {}
+
+			location_list[location].name = location
+			location_list[location].recipes[self.spell_id] = affiliation or true
+		end
+	end
+end
 --- Public API function for retrieving specific information about a recipe.
 -- @name AckisRecipeList:GetRecipeData
 -- @usage AckisRecipeList:GetRecipeData(28972, "profession")
