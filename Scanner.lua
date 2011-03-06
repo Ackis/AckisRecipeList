@@ -1015,7 +1015,7 @@ do
 				end
 			elseif acquire_type == A.VENDOR then
 				local values
-				local is_limited = false
+				local limited_values
 
 				table.wipe(sorted_data)
 				table.wipe(reverse_map)
@@ -1031,17 +1031,18 @@ do
 					local saved_id = (type(id_num) == "string" and ("\""..id_num.."\"") or id_num)
 
 					if type(quantity) == "number" then
-						is_limited = true
-						values = values and (values..", "..saved_id..", "..quantity) or (saved_id..", "..quantity)
+						limited_values = limited_values and (limited_values..", "..saved_id..", "..quantity) or (saved_id..", "..quantity)
 					else
 						values = values and (values..", "..saved_id) or saved_id
 					end
 				end
 
-				if is_limited then
-					table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(values))
-				else
+				if values then
 					table.insert(output, ("recipe:AddVendor(%s)"):format(values))
+				end
+
+				if limited_values then
+					table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(limited_values))
 				end
 			elseif FUNCTION_FORMATS[acquire_type] then
 				local values
