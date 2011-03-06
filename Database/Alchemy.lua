@@ -721,6 +721,7 @@ function addon:InitAlchemy()
 	AddRecipe(28568, 350, 22452, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
 	self:AddRecipeFlags(28568, F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.NAGRAND)
 	self:AddRecipeRepVendor(28568, FAC.KURENAI, REP.REVERED, 20240)
+	self:AddRecipeRepVendor(28568, FAC.MAGHAR, REP.REVERED, 20241)
 
 	-- Transmute: Primal Water to Air -- 28569
 	AddRecipe(28569, 350, 22451, Q.UNCOMMON, V.TBC, 350, 365, 372, 380)
