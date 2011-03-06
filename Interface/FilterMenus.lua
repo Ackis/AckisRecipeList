@@ -666,29 +666,24 @@ function private.InitializeFilterPanel()
 						     end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
-
-			if texture == "wotlk_logo" then
-				iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. texture)
-			else
-				iconTex:SetTexture("Interface/Glues/Common/" .. texture)
-			end
+			iconTex:SetTexture(([[Interface\Glues\Common\%s]]):format(texture))
 			iconTex:SetWidth(100)
 			iconTex:SetHeight(46)
 			iconTex:SetAllPoints(cButton)
 
 			local pushedTexture = cButton:CreateTexture(nil, "ARTWORK")
-			pushedTexture:SetTexture("Interface/Buttons/UI-Quickslot-Depress")
+			pushedTexture:SetTexture([[Interface\Buttons\UI-Quickslot-Depress]])
 			pushedTexture:SetAllPoints(cButton)
 			cButton:SetPushedTexture(pushedTexture)
 
 			local highlightTexture = cButton:CreateTexture()
-			highlightTexture:SetTexture("Interface/Buttons/ButtonHilight-Square")
+			highlightTexture:SetTexture([[Interface\Buttons\ButtonHilight-Square]])
 			highlightTexture:SetAllPoints(cButton)
 			highlightTexture:SetBlendMode("ADD")
 			cButton:SetHighlightTexture(highlightTexture)
 
 			local checkedTexture = cButton:CreateTexture()
-			checkedTexture:SetTexture("Interface/Buttons/CheckButtonHilight")
+			checkedTexture:SetTexture([[Interface\Buttons\CheckButtonHilight]])
 			checkedTexture:SetAllPoints(cButton)
 			checkedTexture:SetBlendMode("ADD")
 			cButton:SetCheckedTexture(checkedTexture)
@@ -786,7 +781,7 @@ function private.InitializeFilterPanel()
 
 		local expansion0_toggle = GenericCreateButton(nil, expansion0_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion0_toggle:SetPoint("TOPLEFT", expansion0_frame, "TOPLEFT", -2, -4)
-		expansion0_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion0_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
 		expansion0_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		expansion0_toggle.buttons = expansion0_buttons
@@ -833,7 +828,7 @@ function private.InitializeFilterPanel()
 
 		local expansion1_toggle = GenericCreateButton(nil, expansion1_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion1_toggle:SetPoint("TOPLEFT", expansion1_frame, "TOPLEFT", -2, -4)
-		expansion1_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion1_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
 		expansion1_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		expansion1_toggle.buttons = expansion1_buttons
@@ -890,7 +885,7 @@ function private.InitializeFilterPanel()
 
 		local expansion2_toggle = GenericCreateButton(nil, expansion2_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion2_toggle:SetPoint("TOPLEFT", expansion2_frame, "TOPLEFT", -2, -4)
-		expansion2_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion2_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
 		expansion2_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		expansion2_toggle.buttons = expansion2_buttons
@@ -922,11 +917,11 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion3_buttons = {
-			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),			row = 2,	col = 1 },
+			["catacommon1"]		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
 			["catacommon2"]		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
 			["guardiansofhyjal"]	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
-			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),		row = 5,	col = 1 },
-			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),			row = 6,	col = 1 },
+			["ramkahen"]		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),			row = 5,	col = 1 },
+			["earthenring"]		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),		row = 6,	col = 1 },
 			["therazane"]		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
 		}
 		GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
@@ -941,7 +936,7 @@ function private.InitializeFilterPanel()
 
 		local expansion3_toggle = GenericCreateButton(nil, expansion3_frame, 15, 120, "GameFontHighlight", _G.REPUTATION .. ":", "LEFT", L["REP_TEXT_DESC"], 0)
 		expansion3_toggle:SetPoint("TOPLEFT", expansion3_frame, "TOPLEFT", -2, -4)
-		expansion3_toggle:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		expansion3_toggle:SetHighlightTexture([[Interface\Buttons\UI-PlusButton-Hilight]])
 		expansion3_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 		expansion3_toggle.buttons = expansion3_buttons
@@ -973,10 +968,10 @@ function private.InitializeFilterPanel()
 	ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
 	ARL_MiscAltBtn:SetHeight(22)
 	ARL_MiscAltBtn:SetWidth(22)
-	ARL_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
-	ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
-	ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
-	ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+	ARL_MiscAltBtn:SetNormalTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Up]])
+	ARL_MiscAltBtn:SetPushedTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Down]])
+	ARL_MiscAltBtn:SetDisabledTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Disabled]])
+	ARL_MiscAltBtn:SetHighlightTexture([[Interface\Buttons\UI-Common-MouseHilight]])
 
 	SetTooltipScripts(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
 

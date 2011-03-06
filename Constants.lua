@@ -12,36 +12,41 @@
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
+-- Upvalued Lua API
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local LibStub = _G.LibStub
 
 local MODNAME	= "Ackis Recipe List"
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local private	= select(2, ...)
+local private	= _G.select(2, ...)
 
 -------------------------------------------------------------------------------
 -- Profession data.
 -------------------------------------------------------------------------------
 -- Needed for Smelting kludge.
-private.mining_name		= GetSpellInfo(32606)
+private.mining_name		= _G.GetSpellInfo(32606)
 
 -- This is needed because the French translation is non-conformant.
-private.runeforging_name = GetLocale() == "frFR" and "Runeforger" or GetSpellInfo(53428)
+private.runeforging_name = _G.GetLocale() == "frFR" and "Runeforger" or _G.GetSpellInfo(53428)
 
 private.professions = {
-	["Alchemy"]		= GetSpellInfo(51304),
-	["Blacksmithing"]	= GetSpellInfo(51300),
-	["Cooking"]		= GetSpellInfo(51296),
-	["Enchanting"]		= GetSpellInfo(51313),
-	["Engineering"]		= GetSpellInfo(51306),
-	["FirstAid"]		= GetSpellInfo(45542),
-	["Inscription"]		= GetSpellInfo(45363),
-	["Jewelcrafting"]	= GetSpellInfo(51311),
-	["Leatherworking"]	= GetSpellInfo(51302),
+	["Alchemy"]		= _G.GetSpellInfo(51304),
+	["Blacksmithing"]	= _G.GetSpellInfo(51300),
+	["Cooking"]		= _G.GetSpellInfo(51296),
+	["Enchanting"]		= _G.GetSpellInfo(51313),
+	["Engineering"]		= _G.GetSpellInfo(51306),
+	["FirstAid"]		= _G.GetSpellInfo(45542),
+	["Inscription"]		= _G.GetSpellInfo(45363),
+	["Jewelcrafting"]	= _G.GetSpellInfo(51311),
+	["Leatherworking"]	= _G.GetSpellInfo(51302),
 	["Runeforging"]		= private.runeforging_name,
-	["Smelting"]		= GetSpellInfo(2656),
-	["Tailoring"]		= GetSpellInfo(51309),	
+	["Smelting"]		= _G.GetSpellInfo(2656),
+	["Tailoring"]		= _G.GetSpellInfo(51309),
 }
 
 private.ordered_professions = {
@@ -56,7 +61,7 @@ private.ordered_professions = {
 	private.professions.Leatherworking, 	-- 9
 	private.professions.Runeforging,	-- 10
 	private.professions.Smelting,		-- 11
-	private.professions.Tailoring,		-- 12	
+	private.professions.Tailoring,		-- 12
 }
 
 private.profession_textures = {
@@ -500,7 +505,7 @@ private.faction_strings = {
 -- Colors.
 -------------------------------------------------------------------------------
 local function RGBtoHEX(r, g, b)
-	return string.format("%02x%02x%02x", r * 255, g * 255, b * 255)
+	return ("%02x%02x%02x"):format(r * 255, g * 255, b * 255)
 end
 
 local function GetColorsFromTable(dict)
@@ -564,7 +569,6 @@ private.spell_overwrite_map = {
 	-------------------------------------------------------------------------------
 	[75175] = 55769,	[75172] = 55642,	[75178] = 55777,
 	[75154] = 56034,	[75155] = 56039,
-
 }
 
 -------------------------------------------------------------------------------

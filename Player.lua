@@ -30,17 +30,17 @@ local pairs = _G.pairs
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local LibStub = LibStub
+local LibStub = _G.LibStub
 
-local MODNAME		= "Ackis Recipe List"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME	= "Ackis Recipe List"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local private		= select(2, ...)
+local private	= _G.select(2, ...)
 
-local Player		= private.Player
+local Player	= private.Player
 
 -------------------------------------------------------------------------------
 -- Constants
@@ -96,7 +96,7 @@ do
 	local known_professions = {
 		["prof1"]	= false,
 		["prof2"]	= false,
-		--["archaeology"]	= false,		-- return value for GetProfessions(), it's just not used in arl
+		["archaeology"]	= false,
 		["fishing"]	= false,
 		["cooking"]	= false,
 		["firstaid"]	= false,
@@ -111,19 +111,16 @@ do
 		end
 		local known = known_professions
 
-		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = GetProfessions()
+		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
 
 		for profession, index in pairs(known_professions) do
 			if index then
-				local name, icon, rank, maxrank, numspells, spelloffset, skillline = GetProfessionInfo(index)
+				local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
 
 				if name == private.mining_name then
 					name = private.professions["Smelting"]
 				end
-
-				if profession_list[name] == false then
-					profession_list[name] = true
-				end
+				profession_list[name] = true
 			end
 		end
 	end
