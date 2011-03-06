@@ -347,16 +347,16 @@ local function GetWaypoint(acquire_type, id_num, recipe)
 			waypoint = quest
 		end
 	elseif acquire_type == A.CUSTOM then
-		if recipe:IsFlagged("common1", "TRAINER") and maptrainer then
+		if recipe:HasFilter("common1", "TRAINER") and maptrainer then
 			waypoint = private.custom_list[id_num]
-		elseif recipe:IsFlagged("common1", "VENDOR") and mapvendor then
+		elseif recipe:HasFilter("common1", "VENDOR") and mapvendor then
 			waypoint = private.custom_list[id_num]
-		elseif recipe:IsFlagged("common1", "QUEST") and mapquest then
+		elseif recipe:HasFilter("common1", "QUEST") and mapquest then
 			waypoint = private.custom_list[id_num]
-		elseif recipe:IsFlagged("common1", "INSTANCE") or
-			recipe:IsFlagged("common1", "RAID") or
-			recipe:IsFlagged("common1", "WORLD_DROP") or
-			recipe:IsFlagged("common1", "MOB_DROP") then
+		elseif recipe:HasFilter("common1", "INSTANCE") or
+			recipe:HasFilter("common1", "RAID") or
+			recipe:HasFilter("common1", "WORLD_DROP") or
+			recipe:HasFilter("common1", "MOB_DROP") then
 				waypoint = private.custom_list[id_num]
 		end
 	end

@@ -107,8 +107,8 @@ function Player:HasProperRepLevel(rep_data)
 end
 
 function Player:HasRecipeFaction(recipe)
-	local flagged_horde = recipe:IsFlagged("common1", "HORDE")
-	local flagged_alliance = recipe:IsFlagged("common1", "ALLIANCE")
+	local flagged_horde = recipe:HasFilter("common1", "HORDE")
+	local flagged_alliance = recipe:HasFilter("common1", "ALLIANCE")
 
 	if self.faction == BFAC["Alliance"] and flagged_horde and not flagged_alliance then
 		return false

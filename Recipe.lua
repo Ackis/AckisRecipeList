@@ -259,7 +259,7 @@ do
 		item1 = private.item_flags_word1,
 	}
 
-	function recipe_prototype:IsFlagged(field_name, flag_name)
+	function recipe_prototype:HasFilter(field_name, flag_name)
 		local bitfield = self.flags[field_name]
 		local bitset = BITFIELD_MAP[field_name]
 		local value = bitset[flag_name]

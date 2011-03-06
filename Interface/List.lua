@@ -1758,7 +1758,7 @@ do
 		local _, achievement_name, _, _, _, _, _, achievement_desc = GetAchievementInfo(id_num)
 
 		-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
-		if recipe:IsFlagged("common1", "ACHIEVEMENT") then
+		if recipe:HasFilter("common1", "ACHIEVEMENT") then
 			addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
 		end
 		addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["custom"])

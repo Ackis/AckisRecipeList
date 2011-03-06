@@ -733,7 +733,7 @@ do
 					table.insert(teach, spell_id)
 					teachflag = true
 
-					if not recipe:IsFlagged("common1", "TRAINER") then
+					if not recipe:HasFilter("common1", "TRAINER") then
 						recipe:AddFilters(F.TRAINER)
 						table.insert(output, spell_id..": Trainer flag needs to be set.")
 					end
@@ -1479,11 +1479,11 @@ do
 		elseif not item_id then
 			-- We are dealing with a recipe that does not have an item to learn it from.
 			-- Lets check the recipe flags to see if we have a data error and the item should exist
-			if not recipe:IsFlagged("common1", "RETIRED") then
-				if (recipe:IsFlagged("common1", "VENDOR") or recipe:IsFlagged("common1", "INSTANCE") or recipe:IsFlagged("common1", "RAID")) then
+			if not recipe:HasFilter("common1", "RETIRED") then
+				if (recipe:HasFilter("common1", "VENDOR") or recipe:HasFilter("common1", "INSTANCE") or recipe:HasFilter("common1", "RAID")) then
 					table.insert(output, string.format("%s: %d", recipe.name, spell_id))
 					table.insert(output, "    No match found in the SPELL_TO_RECIPE_MAP table.")
-				elseif recipe:IsFlagged("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
+				elseif recipe:HasFilter("common1", "TRAINER") and recipe.quality ~= private.item_qualities["COMMON"] then
 					local QS = private.item_quality_names
 
 					table.insert(output, string.format("%s: %d", recipe.name, spell_id))
@@ -1838,16 +1838,16 @@ do
 		-- If we're a vendor scan,  do some extra checks
 		if scan_data.is_vendor then
 			-- Check to see if the vendor flag is set
-			if not recipe:IsFlagged("common1", "VENDOR") then
+			if not recipe:HasFilter("common1", "VENDOR") then
 				table.insert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
 			end
 
 			-- Check to see if we're in a PVP zone
 			local subzone_text = _G.GetSubZoneText()
 
-			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:IsFlagged("common1", "PVP") then
+			if (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") and not recipe:HasFilter("common1", "PVP") then
 				table.insert(missing_flags, string.format(flag_format, FS[F.PVP]))
-			elseif recipe:IsFlagged("common1", "PVP") and not (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") then
+			elseif recipe:HasFilter("common1", "PVP") and not (subzone_text == "Wintergrasp Fortress" or subzone_text == "Halaa") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.PVP]))
 			end
 		end
@@ -1855,55 +1855,55 @@ do
 		-- -- If we've picked up at least one class flag
 		if scan_data.found_class then
 			for k, v in ipairs(ORDERED_CLASS_TYPES) do
-				if scan_data[v] and not recipe:IsFlagged("class1", FS[CLASS_TYPES[v]]) then
+				if scan_data[v] and not recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
 					table.insert(missing_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
-				elseif not scan_data[v] and recipe:IsFlagged("class1", FS[CLASS_TYPES[v]]) then
+				elseif not scan_data[v] and recipe:HasFilter("class1", FS[CLASS_TYPES[v]]) then
 					table.insert(extra_flags, string.format(flag_format, FS[CLASS_TYPES[v]]))
 				end
 			end
 		end
 
-		if scan_data.item_bop and not recipe:IsFlagged("common1", "IBOP") then
+		if scan_data.item_bop and not recipe:HasFilter("common1", "IBOP") then
 			table.insert(missing_flags, string.format(flag_format, FS[F.IBOP]))
 
-			if recipe:IsFlagged("common1", "IBOE") then
+			if recipe:HasFilter("common1", "IBOE") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.IBOE]))
 			end
 
-			if recipe:IsFlagged("common1", "IBOA") then
+			if recipe:HasFilter("common1", "IBOA") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
-		elseif not recipe:IsFlagged("common1", "IBOE") and not scan_data.item_bop then
+		elseif not recipe:HasFilter("common1", "IBOE") and not scan_data.item_bop then
 			table.insert(missing_flags, string.format(flag_format, FS[F.IBOE]))
 
-			if recipe:IsFlagged("common1", "IBOP") then
+			if recipe:HasFilter("common1", "IBOP") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.IBOP]))
 			end
 
-			if recipe:IsFlagged("common1", "IBOA") then
+			if recipe:HasFilter("common1", "IBOA") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.IBOA]))
 			end
 		end
 
-		if scan_data.recipe_bop and not recipe:IsFlagged("common1", "RBOP") then
+		if scan_data.recipe_bop and not recipe:HasFilter("common1", "RBOP") then
 			table.insert(missing_flags, string.format(flag_format, FS[F.RBOP]))
 
-			if recipe:IsFlagged("common1", "RBOE") then
+			if recipe:HasFilter("common1", "RBOE") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.RBOE]))
 			end
 
-			if recipe:IsFlagged("common1", "RBOA") then
+			if recipe:HasFilter("common1", "RBOA") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
 
-		elseif not recipe:IsFlagged("common1", "TRAINER") and not recipe:IsFlagged("common1", "RBOE") and not scan_data.recipe_bop then
+		elseif not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "RBOE") and not scan_data.recipe_bop then
 			table.insert(missing_flags, string.format(flag_format, FS[F.RBOE]))
 
-			if recipe:IsFlagged("common1", "RBOP") then
+			if recipe:HasFilter("common1", "RBOP") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.RBOP]))
 			end
 
-			if recipe:IsFlagged("common1", "RBOA") then
+			if recipe:HasFilter("common1", "RBOA") then
 				table.insert(extra_flags, string.format(flag_format, FS[F.RBOA]))
 			end
 		end
@@ -1911,17 +1911,17 @@ do
 		for k, v in ipairs(ORDERED_ROLE_TYPES) do
 			local role_string = FS[ROLE_TYPES[v]]
 
-			if scan_data[v] and not recipe:IsFlagged("common1", role_string) then
+			if scan_data[v] and not recipe:HasFilter("common1", role_string) then
 				table.insert(missing_flags, string.format(flag_format, role_string))
-			elseif not scan_data[v] and recipe:IsFlagged("common1", role_string) then
+			elseif not scan_data[v] and recipe:HasFilter("common1", role_string) then
 				table.insert(extra_flags, string.format(flag_format, role_string))
 			end
 		end
 
 		for k, v in ipairs(ORDERED_ITEM_TYPES) do
-			if scan_data[v] and not recipe:IsFlagged("item1", FS[ITEM_TYPES[v]]) then
+			if scan_data[v] and not recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
 				table.insert(missing_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
-			elseif not scan_data[v] and recipe:IsFlagged("item1", FS[ITEM_TYPES[v]]) then
+			elseif not scan_data[v] and recipe:HasFilter("item1", FS[ITEM_TYPES[v]]) then
 				table.insert(extra_flags, string.format(flag_format, FS[ITEM_TYPES[v]]))
 			end
 		end
@@ -1930,7 +1930,7 @@ do
 		local repid = scan_data.repid
 		local found_problem = false
 
-		if repid and not recipe:IsFlagged("reputation1", FS[repid]) and not recipe:IsFlagged("reputation2", FS[repid]) then
+		if repid and not recipe:HasFilter("reputation1", FS[repid]) and not recipe:HasFilter("reputation2", FS[repid]) then
 			table.insert(missing_flags, repid)
 
 			local rep_data = acquire_data[A.REPUTATION]
@@ -1958,31 +1958,31 @@ do
 		for acquire_type in pairs(acquire_data) do
 			local flag = ACQUIRE_TO_FILTER_MAP[acquire_type]
 
-			if flag and not recipe:IsFlagged("common1", FS[flag]) then
+			if flag and not recipe:HasFilter("common1", FS[flag]) then
 				table.insert(missing_flags, string.format(flag_format, FS[flag]))
 			end
 		end
 
-		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:IsFlagged("common1", "VENDOR") then
+		if (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) and not recipe:HasFilter("common1", "VENDOR") then
 			table.insert(missing_flags, string.format(flag_format, FS[F.VENDOR]))
 		end
 
-		if recipe:IsFlagged("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
+		if recipe:HasFilter("common1", "VENDOR") and not (acquire_data[A.VENDOR] or acquire_data[A.REPUTATION]) then
 			table.insert(extra_flags, string.format(flag_format, FS[F.VENDOR]))
 		end
 
-		if acquire_data[A.TRAINER] and not recipe:IsFlagged("common1", "TRAINER") then
+		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
 			table.insert(missing_flags, string.format(flag_format, FS[F.TRAINER]))
 		end
 
-		if recipe:IsFlagged("common1", "TRAINER") and not acquire_data[A.TRAINER] then
+		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] then
 			if not acquire_data[A.CUSTOM] then
 				table.insert(extra_flags, string.format(flag_format, FS[F.TRAINER]))
 			end
 		end
 
 		for flag, acquire_type in pairs(FILTER_TO_ACQUIRE_MAP) do
-			if recipe:IsFlagged("common1", FS[flag]) and not acquire_data[acquire_type] then
+			if recipe:HasFilter("common1", FS[flag]) and not acquire_data[acquire_type] then
 				table.insert(extra_flags, string.format(flag_format, FS[flag]))
 			end
 		end
@@ -2014,27 +2014,27 @@ do
 		end
 
 		-- Check to see if we have a horde/alliance flag,  all recipes must have one of these
-		if not recipe:IsFlagged("common1", "ALLIANCE") and not recipe:IsFlagged("common1", "HORDE") then
+		if not recipe:HasFilter("common1", "ALLIANCE") and not recipe:HasFilter("common1", "HORDE") then
 			found_problem = true
 			table.insert(output, "    Horde or Alliance not selected.")
 		end
 
 		-- Check to see if we have an obtain method flag,  all recipes must have at least one of these
-		if (not recipe:IsFlagged("common1", "TRAINER") and not recipe:IsFlagged("common1", "VENDOR") and not recipe:IsFlagged("common1", "INSTANCE") and not recipe:IsFlagged("common1", "RAID")
-		    and not recipe:IsFlagged("common1", "SEASONAL") and not recipe:IsFlagged("common1", "QUEST") and not recipe:IsFlagged("common1", "PVP") and not recipe:IsFlagged("common1", "WORLD_DROP")
-		    and not recipe:IsFlagged("common1", "MOB_DROP") and not recipe:IsFlagged("common1", "DISC")) then
+		if (not recipe:HasFilter("common1", "TRAINER") and not recipe:HasFilter("common1", "VENDOR") and not recipe:HasFilter("common1", "INSTANCE") and not recipe:HasFilter("common1", "RAID")
+		    and not recipe:HasFilter("common1", "SEASONAL") and not recipe:HasFilter("common1", "QUEST") and not recipe:HasFilter("common1", "PVP") and not recipe:HasFilter("common1", "WORLD_DROP")
+		    and not recipe:HasFilter("common1", "MOB_DROP") and not recipe:HasFilter("common1", "DISC")) then
 			found_problem = true
 			table.insert(output, "    No obtain flag.")
 		end
 
 		-- Check for recipe binding information,  all recipes must have one of these
-		if not recipe:IsFlagged("common1", "RBOE") and not recipe:IsFlagged("common1", "RBOP") and not recipe:IsFlagged("common1", "RBOA") then
+		if not recipe:HasFilter("common1", "RBOE") and not recipe:HasFilter("common1", "RBOP") and not recipe:HasFilter("common1", "RBOA") then
 			found_problem = true
 			table.insert(output, "    No recipe binding information.")
 		end
 
 		-- Check for item binding information,  all recipes must have one of these
-		if not recipe:IsFlagged("common1", "IBOE") and not recipe:IsFlagged("common1", "IBOP") and not recipe:IsFlagged("common1", "IBOA") then
+		if not recipe:HasFilter("common1", "IBOE") and not recipe:HasFilter("common1", "IBOP") and not recipe:HasFilter("common1", "IBOA") then
 			found_problem = true
 			table.insert(output, "    No item binding information.")
 		end
