@@ -25,30 +25,16 @@ This source code is released under All Rights Reserved.
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local tostring = _G.tostring
-local tonumber = _G.tonumber
-
+-- Functions
 local pairs, ipairs = _G.pairs, _G.ipairs
 local select = _G.select
+local tonumber, tostring = _G.tonumber, _G.tostring
+local type = _G.type
 
-local table = _G.table
-
-local tconcat = table.concat
-local tinsert = table.insert
-
+-- Libraries
 local bit = _G.bit
-
 local string = _G.string
-local strformat = string.format
-local strfind = string.find
-local strmatch = string.match
-local strlower = string.lower
-
--------------------------------------------------------------------------------
--- Localized Blizzard API.
--------------------------------------------------------------------------------
-local GetNumTradeSkills = _G.GetNumTradeSkills
-local GetSpellInfo = _G.GetSpellInfo
+local table = _G.table
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -82,7 +68,7 @@ local SpecialtyTable
 -- Set up the private intra-file namespace.
 local private	= select(2, ...)
 
-private.build_num = select(2, GetBuildInfo())
+private.build_num = select(2, _G.GetBuildInfo())
 
 private.custom_list	= {}
 private.mob_list	= {}
@@ -120,7 +106,7 @@ do
 		for idx, lib in ipairs(REQUIRED_LIBS) do
 			if not LibStub:GetLibrary(lib, true) then
 				missing = true
-				addon:Print(strformat(L["MISSING_LIBRARY"], lib))
+				addon:Print(L["MISSING_LIBRARY"]:format(lib))
 			end
 		end
 		return missing
@@ -139,7 +125,7 @@ end
 -- Define the static popups we're going to call when people haven't scanned or
 -- when current filters are blocking all recipes from being displayed.
 -------------------------------------------------------------------------------
-StaticPopupDialogs["ARL_NOTSCANNED"] = {
+_G.StaticPopupDialogs["ARL_NOTSCANNED"] = {
 	text = L["NOTSCANNED"],
 	button1 = _G.OKAY,
 	timeout = 0,
@@ -148,7 +134,7 @@ StaticPopupDialogs["ARL_NOTSCANNED"] = {
 	hideOnEscape = 1
 }
 
-StaticPopupDialogs["ARL_ALLFILTERED"] = {
+_G.StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	text = L["ALL_FILTERED"],
 	button1 = _G.OKAY,
 	timeout = 0,
@@ -157,7 +143,7 @@ StaticPopupDialogs["ARL_ALLFILTERED"] = {
 	hideOnEscape = 1
 }
 
-StaticPopupDialogs["ARL_ALLKNOWN"] = {
+_G.StaticPopupDialogs["ARL_ALLKNOWN"] = {
 	text = L["ARL_ALLKNOWN"],
 	button1 = _G.OKAY,
 	timeout = 0,
@@ -166,7 +152,7 @@ StaticPopupDialogs["ARL_ALLKNOWN"] = {
 	hideOnEscape = 1
 }
 
-StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
+_G.StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 	text = L["ARL_ALLEXCLUDED"],
 	button1 = _G.OKAY,
 	timeout = 0,
@@ -175,7 +161,7 @@ StaticPopupDialogs["ARL_ALLEXCLUDED"] = {
 	hideOnEscape = 1
 }
 
-StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
+_G.StaticPopupDialogs["ARL_SEARCHFILTERED"] = {
 	text = L["ARL_SEARCHFILTERED"],
 	button1 = _G.OKAY,
 	timeout = 0,
@@ -199,10 +185,8 @@ end
 -- Functions common to most files in the AddOn.
 -------------------------------------------------------------------------------
 function private.SetTextColor(color_code, text)
-	return string.format("|cff%s%s|r", color_code or "ffffff", text)
+	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
-
-
 
 -------------------------------------------------------------------------------
 -- Debugger.
@@ -222,7 +206,7 @@ do
 
 	function addon:DumpMembers(match)
 		table.wipe(output)
-		tinsert(output, "Addon Object members.\n")
+		table.insert(output, "Addon Object members.\n")
 
 		local count = 0
 
@@ -230,12 +214,12 @@ do
 			local val_type = type(value)
 
 			if not match or val_type == match then
-				tinsert(output, key.. " ("..val_type..")")
+				table.insert(output, ("%s (%s)"):format(key, val_type))
 				count = count + 1
 			end
 		end
-		tinsert(output, string.format("\n%d found\n", count))
-		self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+		table.insert(output, ("\n%d found\n"):format(count))
+		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
 	end
 end	-- do
 
@@ -474,7 +458,7 @@ function addon:OnInitialize()
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
-	local version = GetAddOnMetadata("AckisRecipeList", "Version")
+	local version = _G.GetAddOnMetadata("AckisRecipeList", "Version")
 	local debug_version = false
 	local alpha_version = false
 
@@ -499,13 +483,13 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button
 	-------------------------------------------------------------------------------
-	local scan_button = CreateFrame("Button", nil, UIParent, "UIPanelButtonTemplate")
+	local scan_button = _G.CreateFrame("Button", nil, _G.UIParent, "UIPanelButtonTemplate")
 	scan_button:SetHeight(20)
 
 	scan_button:RegisterForClicks("LeftButtonUp")
 	scan_button:SetScript("OnClick",
 			      function(self, button, down)
-				      local cur_profession = GetTradeSkillLine()
+				      local cur_profession = _G.GetTradeSkillLine()
 				      local MainPanel = addon.Frame
 				      local prev_profession
 
@@ -533,11 +517,13 @@ function addon:OnInitialize()
 
 	scan_button:SetScript("OnEnter",
 			      function(self)
-				      GameTooltip_SetDefaultAnchor(GameTooltip, self)
-				      GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
-				      GameTooltip:Show()
+				      local tooltip = _G.GameTooltip
+
+				      _G.GameTooltip_SetDefaultAnchor(tooltip, self)
+				      tooltip:SetText(L["SCAN_RECIPES_DESC"])
+				      tooltip:Show()
 			      end)
-	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 	scan_button:SetText(L["Scan"])
 
 	self.scan_button = scan_button
@@ -561,7 +547,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
-        GameTooltip:HookScript("OnTooltipSetUnit",
+        _G.GameTooltip:HookScript("OnTooltipSetUnit",
 		       function(self)
 			       if not addon.db.profile.recipes_in_tooltips then
 				       return
@@ -571,7 +557,7 @@ function addon:OnInitialize()
 			       if not unit then
 				       return
 			       end
-			       local guid = UnitGUID(unit)
+			       local guid = _G.UnitGUID(unit)
 
 			       if not guid then
 				       return
@@ -582,23 +568,24 @@ function addon:OnInitialize()
 			       if not unit or not unit.item_list then
 				       return
 			       end
+			       local player = private.Player
 			       local recipe_list = private.recipe_list
 			       local shifted = _G.IsShiftKeyDown()
 			       local count = 0
 
 			       for spell_id in pairs(unit.item_list) do
 				       local recipe = recipe_list[spell_id]
-				       local recipe_prof = GetSpellInfo(recipe.profession)
-				       local scanned = Player.has_scanned[recipe_prof]
+				       local recipe_prof = _G.GetSpellInfo(recipe.profession)
+				       local scanned = player.has_scanned[recipe_prof]
 
 				       if scanned then
-					       local skill_level = Player.professions[recipe_prof]
+					       local skill_level = player.professions[recipe_prof]
 					       local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and Player:HasRecipeFaction(recipe) then
-						       local _, _, _, hex = GetItemQualityColor(recipe.quality)
+					       if ((not recipe:HasState("KNOWN") and has_level) or shifted) and player:HasRecipeFaction(recipe) then
+						       local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
 
-						       self:AddLine(string.format("%s: %s%s|r (%d)", recipe.profession, hex, recipe.name, recipe.skill_level))
+						       self:AddLine(("%s: %s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
 						       count = count + 1
 					       end
 				       end
@@ -629,39 +616,39 @@ function addon:OnEnable()
 	-------------------------------------------------------------------------------
 	local scan_button = self.scan_button
 
-	if Skillet and Skillet:IsActive() then
-		scan_button:SetParent(SkilletFrame)
-		Skillet:AddButtonToTradeskillWindow(scan_button)
+	if _G.Skillet and _G.Skillet:IsActive() then
+		scan_button:SetParent(_G.SkilletFrame)
+		_G.Skillet:AddButtonToTradeskillWindow(scan_button)
 		scan_button:SetWidth(80)
-	elseif MRTAPI then
-		MRTAPI:RegisterHandler("TradeSkillWindowOnShow",
+	elseif _G.MRTAPI then
+		_G.MRTAPI:RegisterHandler("TradeSkillWindowOnShow",
 						function()
-							scan_button:SetParent(MRTSkillFrame)
+							scan_button:SetParent(_G.MRTSkillFrame)
 							scan_button:ClearAllPoints()
-							scan_button:SetPoint("RIGHT", MRTSkillFrameCloseButton, "LEFT", 4, 0)
+							scan_button:SetPoint("RIGHT", _G.MRTSkillFrameCloseButton, "LEFT", 4, 0)
 							scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 							scan_button:Show()
 						end)
-  	elseif ATSWFrame then
-		scan_button:SetParent(ATSWFrame)
+  	elseif _G.ATSWFrame then
+		scan_button:SetParent(_G.ATSWFrame)
 		scan_button:ClearAllPoints()
 
-		if TradeJunkieMain and TJ_OpenButtonATSW then
-			scan_button:SetPoint("RIGHT", TJ_OpenButtonATSW, "LEFT", 0, 0)
+		if _G.TradeJunkieMain and _G.TJ_OpenButtonATSW then
+			scan_button:SetPoint("RIGHT", _G.TJ_OpenButtonATSW, "LEFT", 0, 0)
 		else
-			scan_button:SetPoint("RIGHT", ATSWOptionsButton, "LEFT", 0, 0)
+			scan_button:SetPoint("RIGHT", _G.ATSWOptionsButton, "LEFT", 0, 0)
 		end
-		scan_button:SetHeight(ATSWOptionsButton:GetHeight())
-		scan_button:SetWidth(ATSWOptionsButton:GetWidth())
-	elseif CauldronFrame then
-		scan_button:SetParent(CauldronFrame)
+		scan_button:SetHeight(_G.ATSWOptionsButton:GetHeight())
+		scan_button:SetWidth(_G.ATSWOptionsButton:GetWidth())
+	elseif _G.CauldronFrame then
+		scan_button:SetParent(_G.CauldronFrame)
 		scan_button:ClearAllPoints()
-		scan_button:SetPoint("TOP", CauldronFrame, "TOPRIGHT", -58, -52)
+		scan_button:SetPoint("TOP", _G.CauldronFrame, "TOPRIGHT", -58, -52)
 		scan_button:SetWidth(90)
-	elseif BPM_ShowTrainerFrame then
-		scan_button:SetParent(BPM_ShowTrainerFrame)
+	elseif _G.BPM_ShowTrainerFrame then
+		scan_button:SetParent(_G.BPM_ShowTrainerFrame)
 		scan_button:ClearAllPoints()
-		scan_button:SetPoint("RIGHT", BPM_ShowTrainerFrame, "LEFT", 4, 0)
+		scan_button:SetPoint("RIGHT", _G.BPM_ShowTrainerFrame, "LEFT", 4, 0)
 		scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		scan_button:Show()
 	end
@@ -676,8 +663,8 @@ function addon:OnEnable()
 	scan_button:Enable()
 
 	-- Add an option so that ARL will work with Manufac
-	if Manufac then
-		Manufac.options.args.ARLScan = {
+	if _G.Manufac then
+		_G.Manufac.options.args.ARLScan = {
 			type = 'execute',
 			name = L["Scan"],
 			desc = L["SCAN_RECIPES_DESC"],
@@ -692,42 +679,42 @@ function addon:OnEnable()
 	-------------------------------------------------------------------------------
 	do
 		local AlchemySpec = {
-			[GetSpellInfo(28674)] = 28674,
-			[GetSpellInfo(28678)] = 28678,
-			[GetSpellInfo(28676)] = 28676,
+			[_G.GetSpellInfo(28674)] = 28674,
+			[_G.GetSpellInfo(28678)] = 28678,
+			[_G.GetSpellInfo(28676)] = 28676,
 		}
 
 		local BlacksmithSpec = {
-			[GetSpellInfo(9788)] = 9788,	-- Armorsmith
-			[GetSpellInfo(17041)] = 17041,	-- Master Axesmith
-			[GetSpellInfo(17040)] = 17040,	-- Master Hammersmith
-			[GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
-			[GetSpellInfo(9787)] = 9787,	-- Weaponsmith
+			[_G.GetSpellInfo(9788)] = 9788,		-- Armorsmith
+			[_G.GetSpellInfo(17041)] = 17041,	-- Master Axesmith
+			[_G.GetSpellInfo(17040)] = 17040,	-- Master Hammersmith
+			[_G.GetSpellInfo(17039)] = 17039,	-- Master Swordsmith
+			[_G.GetSpellInfo(9787)] = 9787,		-- Weaponsmith
 		}
 
 		local EngineeringSpec = {
-			[GetSpellInfo(20219)] = 20219, -- Gnomish
-			[GetSpellInfo(20222)] = 20222, -- Goblin
+			[_G.GetSpellInfo(20219)] = 20219, -- Gnomish
+			[_G.GetSpellInfo(20222)] = 20222, -- Goblin
 		}
 
 		local LeatherworkSpec = {
-			[GetSpellInfo(10657)] = 10657, -- Dragonscale
-			[GetSpellInfo(10659)] = 10659, -- Elemental
-			[GetSpellInfo(10661)] = 10661, -- Tribal
+			[_G.GetSpellInfo(10657)] = 10657, -- Dragonscale
+			[_G.GetSpellInfo(10659)] = 10659, -- Elemental
+			[_G.GetSpellInfo(10661)] = 10661, -- Tribal
 		}
 
 		local TailorSpec = {
-			[GetSpellInfo(26797)] = 26797, -- Spellfire
-			[GetSpellInfo(26801)] = 26801, -- Shadoweave
-			[GetSpellInfo(26798)] = 26798, -- Primal Mooncloth
+			[_G.GetSpellInfo(26797)] = 26797, -- Spellfire
+			[_G.GetSpellInfo(26801)] = 26801, -- Shadoweave
+			[_G.GetSpellInfo(26798)] = 26798, -- Primal Mooncloth
 		}
 
 		SpecialtyTable = {
-			[GetSpellInfo(51304)] = AlchemySpec,
-			[GetSpellInfo(51300)] = BlacksmithSpec,
-			[GetSpellInfo(51306)] = EngineeringSpec,
-			[GetSpellInfo(51302)] = LeatherworkSpec,
-			[GetSpellInfo(51309)] = TailorSpec,
+			[_G.GetSpellInfo(51304)] = AlchemySpec,
+			[_G.GetSpellInfo(51300)] = BlacksmithSpec,
+			[_G.GetSpellInfo(51306)] = EngineeringSpec,
+			[_G.GetSpellInfo(51302)] = LeatherworkSpec,
+			[_G.GetSpellInfo(51309)] = TailorSpec,
 		}
 
 		-- Populate the Specialty table with all Specialties, adding alchemy even though no recipes have alchemy filters
@@ -746,8 +733,8 @@ function addon:OnDisable()
 	end
 
 	-- Remove the option from Manufac
-	if Manufac then
-		Manufac.options.args.ARLScan = nil
+	if _G.Manufac then
+		_G.Manufac.options.args.ARLScan = nil
 	end
 end
 
@@ -777,37 +764,37 @@ do
 
 		local pname = UnitName("player")
 		local prealm = GetRealmName()
-		local tradename = GetTradeSkillLine()
+		local tradename = _G.GetTradeSkillLine()
 
 		-- Actual alt information saved here. -Torhal
 		addon.db.global.tradeskill = addon.db.global.tradeskill or {}
 		addon.db.global.tradeskill[prealm] = addon.db.global.tradeskill[prealm] or {}
 		addon.db.global.tradeskill[prealm][pname] = addon.db.global.tradeskill[prealm][pname] or {}
-		
+
 		-- If this is our own skill, save it. Otherwise, make sure it's gone.
 		addon.db.global.tradeskill[prealm][pname][tradename] = (not is_linked) and tradelink or nil
 
 		local scan_button = self.scan_button
 		local scan_parent = scan_button:GetParent()
 
-		if not scan_parent or scan_parent == UIParent then
-			scan_button:SetParent(TradeSkillFrame)
+		if not scan_parent or scan_parent == _G.UIParent then
+			scan_button:SetParent(_G.TradeSkillFrame)
 			scan_parent = scan_button:GetParent()
 		end
 
-		if scan_parent == TradeSkillFrame then
+		if scan_parent == _G.TradeSkillFrame then
 			scan_button:ClearAllPoints()
 
 			local loc = addon.db.profile.scanbuttonlocation
 
 			if loc == "TR" then
-				scan_button:SetPoint("RIGHT", TradeSkillFrameCloseButton, "LEFT",4,0)
+				scan_button:SetPoint("RIGHT", _G.TradeSkillFrameCloseButton, "LEFT",4,0)
 			elseif loc == "TL" then
-				scan_button:SetPoint("LEFT", TradeSkillFramePortrait, "RIGHT",2,12)
+				scan_button:SetPoint("LEFT", _G.TradeSkillFramePortrait, "RIGHT",2,12)
 			elseif loc == "BR" then
-				scan_button:SetPoint("TOP", TradeSkillCancelButton, "BOTTOM",0,-5)
+				scan_button:SetPoint("TOP", _G.TradeSkillCancelButton, "BOTTOM",0,-5)
 			elseif loc == "BL" then
-				scan_button:SetPoint("TOP", TradeSkillCreateAllButton, "BOTTOM",0,-5)
+				scan_button:SetPoint("TOP", _G.TradeSkillCreateAllButton, "BOTTOM",0,-5)
 			end
 			scan_button:SetWidth(scan_button:GetTextWidth() + 10)
 		end
@@ -820,14 +807,14 @@ function addon:TRADE_SKILL_CLOSE()
 		self.Frame:Hide()
 	end
 
-	if not Skillet then
+	if not _G.Skillet then
 		addon.scan_button:Hide()
 	end
 end
 
 do
 	local last_update = 0
-	local updater = CreateFrame("Frame", nil, UIParent)
+	local updater = _G.CreateFrame("Frame", nil, _G.UIParent)
 
 	updater:Hide()
 	updater:SetScript("OnUpdate",
@@ -835,7 +822,7 @@ do
 				  last_update = last_update + elapsed
 
 				  if last_update >= 0.5 then
-					  local profession = GetTradeSkillLine()
+					  local profession = _G.GetTradeSkillLine()
 
 					  if profession ~= "UNKNOWN" then
 						  addon:Scan(false, true)
@@ -913,19 +900,19 @@ do
 		return bitfield and (bit.band(bitfield, value) == value) or false
 	end
 	local SKILL_LEVEL_FORMAT = "[%d]"
-	local SPELL_ENCHANTING = GetSpellInfo(51313)
+	local SPELL_ENCHANTING = _G.GetSpellInfo(51313)
 
 	local function Recipe_GetDisplayName(recipe_entry)
-		local _, _, _, quality_color = GetItemQualityColor(recipe_entry.quality)
+		local _, _, _, quality_color = _G.GetItemQualityColor(recipe_entry.quality)
 		local recipe_name = recipe_entry.name
 
 		if private.ordered_professions[addon.Frame.profession] == SPELL_ENCHANTING then
 			recipe_name = string.gsub(recipe_name, _G.ENSCRIBE.." ", "")
 		end
-		local recipe_string = string.format("%s%s|r", quality_color, recipe_name)
-		local skill_level = Player["ProfessionLevel"]
+		local recipe_string = ("%s%s|r"):format(quality_color, recipe_name)
+		local has_faction = private.Player:HasProperRepLevel(recipe_entry.acquire_data[A.REPUTATION])
+		local skill_level = private.Player["ProfessionLevel"]
 		local recipe_level = recipe_entry.skill_level
-		local has_faction = Player:HasProperRepLevel(recipe_entry.acquire_data[A.REPUTATION])
 
 		local diff_color
 
@@ -945,14 +932,14 @@ do
 			--@end-debug@
 			diff_color = "trivial"
 		end
-		local level_text = string.format(private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT), recipe_level)
+		local level_text = private.SetTextColor(private.difficulty_colors[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
 
 		local skill_view = addon.db.profile.skill_view
 
-		recipe_string = skill_view and string.format("%s - %s", level_text, recipe_string) or string.format("%s - %s", recipe_string, level_text)
+		recipe_string = skill_view and ("%s - %s"):format(level_text, recipe_string) or ("%s - %s"):format(recipe_string, level_text)
 
 		if addon.db.profile.exclusionlist[recipe_entry.spell_id] then
-			recipe_string = string.format("** %s **", recipe_string)
+			recipe_string = ("** %s **"):format(recipe_string)
 		end
 		return recipe_string
 	end
@@ -987,8 +974,8 @@ do
 			["skill_level"]		= skill_level,
 			["item_id"]		= item_id,
 			["quality"]		= quality,
-			["profession"]		= GetSpellInfo(profession),
-			["name"]		= GetSpellInfo(spell_id) or ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id)),
+			["profession"]		= _G.GetSpellInfo(profession),
+			["name"]		= _G.GetSpellInfo(spell_id) or ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id)),
 			["flags"]		= {},
 			["acquire_data"]	= {},
 			["specialty"]		= specialty,			-- Assumption: there will only be 1 speciality for a trade skill
@@ -1007,7 +994,7 @@ do
 		}
 
 		if not recipe.name then
-			self:Print(strformat(L["SpellIDCache"], spell_id))
+			self:Print(L["SpellIDCache"]:format(spell_id))
 		end
 		recipe_list[spell_id] = recipe
 	end
@@ -1168,7 +1155,7 @@ do
 	-- @usage AckisRecipeList:AddRecipeLimitedVendor(3449, 4878, 1)
 	-- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe which acquire methods are being added to
 	-- @param ... A listing of limited supply vendors that sell the recipe followed by the amount they sell.
-	-- @return None.	
+	-- @return None.
 	function addon:AddRecipeLimitedVendor(spell_id, ...)
 		GenericAddRecipeAcquire(spell_id, A.VENDOR, "Limited Vendor", private.vendor_list, ...)
 	end
@@ -1378,7 +1365,7 @@ function addon:InitializeProfession(profession)
 end
 
 do
-	local fa = GetSpellInfo(45542)
+	local fa = _G.GetSpellInfo(45542)
 
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
@@ -1398,7 +1385,7 @@ do
 				arg2 = (arg2 and arg2:lower() or var1:lower())
 			end
 		end
-		return arg1, arg2, var2
+		return arg1, arg2, var2 -- Ackis: var2 doesn't exist at this point. I'm not sure what you're trying to do with it so I'm not fucking with it. -Torhal
 	end
 
 	-- Determines what to do when the slash command is called.
@@ -1407,44 +1394,41 @@ do
 		local arg1, arg2, arg3 = StrSplit(input)
 
 		-- Open About panel if there's no parameters or if we do /arl about
-		if not arg1 or (arg1 and arg1:trim() == "") or arg1 == strlower(L["Sorting"]) or arg1 == strlower(L["Sort"]) or arg1 == strlower(_G.DISPLAY) then
-			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-		elseif (arg1 == strlower(L["About"])) then
-			if (self.optionsFrame["About"]) then
-				InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
+		if not arg1 or (arg1 and arg1:trim() == "") or arg1 == L["Sorting"]:lower() or arg1 == L["Sort"]:lower() or arg1 == _G.DISPLAY:lower() then
+			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+		elseif arg1 == L["About"]:lower() then
+			if self.optionsFrame["About"] then
+				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 			else
-				InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 			end
-		elseif (arg1 == strlower(L["Profile"])) then
-			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-		elseif (arg1 == strlower(L["Documentation"])) then
-			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
-		elseif (arg1 == strlower(L["Scan"])) then
+		elseif arg1 == L["Profile"]:lower() then
+			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
+		elseif arg1 == L["Documentation"]:lower() then
+			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
+		elseif arg1 == L["Scan"]:lower() then
 			if not arg2 then
 				self:Print(L["COMMAND_LINE_SCAN"])
 			else
-				CastSpellByName(arg2)
-				-- If the ARL window is shown, hide it.
-				if ARL.Frame and ARL.Frame:IsVisible() then
-					ARL.Frame:Hide()
-				-- If not, run the scan.
+				_G.CastSpellByName(arg2)
+
+				if self.Frame and self.Frame:IsVisible() then
+					self.Frame:Hide()
 				else
 					self:Scan(false, false)
 				end
 			end
-		elseif (arg1 == strlower("scandata")) then
+		elseif arg1 == "scandata" then
 			self:ScanSkillLevelData()
-		elseif (arg1 == strlower("scanprof")) then
+		elseif arg1 == "scanprof" then
 			self:ScanProfession("all")
-		elseif (arg1 == strlower("tradelinks")) then
+		elseif arg1 == "tradelinks" then
 			self:GenerateLinks()
 		else
 			-- What happens when we get here?
 			LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", arg1)
 		end
-
 	end
-
 end
 
 --- Public API function to initialize all of the lookup lists - self-nils once run.
@@ -1478,43 +1462,44 @@ do
 			recipe:AddState("LINKED")
 		end
 	end
-	
+
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	-- @name AckisRecipeList:Scan
 	-- @usage AckisRecipeList:Scan(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI
 	-- @return A frame with either the text dump, or the ARL frame
 	function addon:Scan(textdump, is_refresh)
-		local current_prof, prof_level = GetTradeSkillLine()
+		local current_prof, prof_level = _G.GetTradeSkillLine()
 
 		-- Bail if we haven't opened a tradeskill frame.
 		if current_prof == "UNKNOWN" then
 			self:Print(L["OpenTradeSkillWindow"])
 			return
 		end
+		local player = private.Player
 
 		-- Set the current profession level, and update the cached data.
-		Player["ProfessionLevel"] = prof_level
+		player["ProfessionLevel"] = prof_level
 
 		-- Make sure we're only updating a profession the character actually knows - this could be a scan from a tradeskill link.
 		local is_linked = _G.IsTradeSkillLinked() or _G.IsTradeSkillGuild()
 
-		if not is_linked and Player.professions[current_prof] then
-			Player.professions[current_prof] = prof_level
-			Player.has_scanned[current_prof] = true
+		if not is_linked and player.professions[current_prof] then
+			player.professions[current_prof] = prof_level
+			player.has_scanned[current_prof] = true
 		end
 
 		-- Get the current profession Specialty
 		local specialty = SpecialtyTable[current_prof]
 
 		for index = 1, 25, 1 do
-			local spellName = GetSpellBookItemName(index, BOOKTYPE_SPELL)
+			local spellName = _G.GetSpellBookItemName(index, _G.BOOKTYPE_SPELL)
 
 			if not spellName or index == 25 then
-				Player["Specialty"] = nil
+				player["Specialty"] = nil
 				break
 			elseif specialty and specialty[spellName] then
-				Player["Specialty"] = specialty[spellName]
+				player["Specialty"] = specialty[spellName]
 				break
 			end
 		end
@@ -1524,46 +1509,43 @@ do
 		end
 		-- Add the recipes to the database
 		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		Player.totalRecipes = addon:InitializeProfession(current_prof)
+		player.totalRecipes = addon:InitializeProfession(current_prof)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know
 		-------------------------------------------------------------------------------
 		table.wipe(header_list)
 
-		-- Save the state of the "Have Materials" checkbox.
-		local have_materials = TradeSkillFrame.filterTbl.hasMaterials
-		-- Save the state of the "Have Skillup" checkbox.
-		local have_skillup = TradeSkillFrame.filterTbl.hasSkillUp
-		-- Save the state of the subClassValue
-		local subclass = TradeSkillFrame.filterTbl.subClassValue
-		-- Save the state of the slotValue
-		local slot = TradeSkillFrame.filterTbl.slotValue 
+		-- Save the current state of the TradeSkillFrame so it can be restored after we muck with it.
+		local have_materials = _G.TradeSkillFrame.filterTbl.hasMaterials
+		local have_skillup = _G.TradeSkillFrame.filterTbl.hasSkillUp
+		local subclass = _G.TradeSkillFrame.filterTbl.subClassValue
+		local slot = _G.TradeSkillFrame.filterTbl.slotValue
 
-		if MRTAPI and MRTAPI:PushFilterSelection() then
+		if _G.MRTAPI and _G.MRTAPI:PushFilterSelection() then
 			-- MrTrader saved the state for us
 		else
-			if not Skillet and have_materials then
-				TradeSkillFrame.filterTbl.hasMaterials = false
-				TradeSkillOnlyShowMakeable(false)
+			if not _G.Skillet and have_materials then
+				_G.TradeSkillFrame.filterTbl.hasMaterials = false
+				_G.TradeSkillOnlyShowMakeable(false)
 			end
-			if not Skillet and have_skillup then
-				TradeSkillFrame.filterTbl.hasSkillUp = false
-				TradeSkillOnlyShowSkillUps(false)
+			if not _G.Skillet and have_skillup then
+				_G.TradeSkillFrame.filterTbl.hasSkillUp = false
+				_G.TradeSkillOnlyShowSkillUps(false)
 			end
 			--UIDropDownMenu_Initialize(TradeSkillFilterDropDown, TradeSkillInvSlotDropDown_Initialize)
 			--UIDropDownMenu_SetSelectedID(TradeSkillFilterDropDown, 1)
-			SetTradeSkillInvSlotFilter(0, 1, 1)
-			TradeSkillUpdateFilterBar()
-			TradeSkillFrame_Update()
+			_G.SetTradeSkillInvSlotFilter(0, 1, 1)
+			_G.TradeSkillUpdateFilterBar()
+			_G.TradeSkillFrame_Update()
 
 			-- Expand all headers so we can see all the recipes there are
-			for i = GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+			for i = _G.GetNumTradeSkills(), 1, -1 do
+				local name, tradeType, _, isExpanded = _G.GetTradeSkillInfo(i)
 
 				if tradeType == "header" and not isExpanded then
 					header_list[name] = true
-					ExpandTradeSkillSubClass(i)
+					_G.ExpandTradeSkillSubClass(i)
 				end
 			end
 		end
@@ -1572,16 +1554,16 @@ do
 		local SF = private.recipe_state_flags
 		local overwritemap = private.spell_overwrite_map
 
-		for i = 1, GetNumTradeSkills() do
-			local tradeName, tradeType = GetTradeSkillInfo(i)
+		for i = 1, _G.GetNumTradeSkills() do
+			local tradeName, tradeType = _G.GetTradeSkillInfo(i)
 
 			if tradeType ~= "header" then
 				-- Get the trade skill link for the specified recipe
-				local SpellLink = GetTradeSkillRecipeLink(i)
+				local spell_link = _G.GetTradeSkillRecipeLink(i)
 				-- Spell ID of the recipe being scanned.
-				local SpellString = strmatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-				local SpellID = tonumber(SpellString)
-				local recipe = recipe_list[SpellID]
+				local spell_string = spell_link:match("^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
+				local spell_id = tonumber(spell_string)
+				local recipe = recipe_list[spell_id]
 
 				if recipe then
 					-- Mark the first rank of the spell as known if we know rank 2 for certain recipes.
@@ -1589,95 +1571,94 @@ do
 					-- ability to learn the lower rank.
 
 					-- If we have it in the mapping, set the lower rank spell to known
-					if overwritemap[SpellID] then
-						local overwriterecipe = recipe_list[overwritemap[SpellID]]
+					if overwritemap[spell_id] then
+						local overwriterecipe = recipe_list[overwritemap[spell_id]]
 						if overwriterecipe then
 							togglerecipe(overwriterecipe, is_linked)
 						else
-							self:Debug(tradeName .. " " .. overwritemap[SpellID] .. L["MissingFromDB"])
+							self:Debug(tradeName .. " " .. overwritemap[spell_id] .. L["MissingFromDB"])
 						end
 					end
 					-- Toggle spell to known
 					togglerecipe(recipe, is_linked)
 					recipes_found = recipes_found + 1
 				else
-					self:Debug(tradeName .. " " .. SpellString .. L["MissingFromDB"])
+					self:Debug(tradeName .. " " .. spell_string .. L["MissingFromDB"])
 				end
 			end
 		end
 
 		-- Close all the headers we've opened
 		-- If Mr Trader is installed use that API
-		if MRTAPI and MRTAPI:PopFilterSelection() then
+		if _G.MRTAPI and _G.MRTAPI:PopFilterSelection() then
 			-- MrTrader restored the state for us
 		else
 			-- Collapse all headers that were collapsed before
-			for i = GetNumTradeSkills(), 1, -1 do
-				local name, tradeType, _, isExpanded = GetTradeSkillInfo(i)
+			for i = _G.GetNumTradeSkills(), 1, -1 do
+				local name, tradeType, _, isExpanded = _G.GetTradeSkillInfo(i)
 
 				if header_list[name] then
-					CollapseTradeSkillSubClass(i)
+					_G.CollapseTradeSkillSubClass(i)
 				end
 			end
 
-			-- Restore the state of the "Have Materials" checkbox.
-			TradeSkillFrame.filterTbl.hasMaterials = have_materials
-			TradeSkillOnlyShowMakeable(have_materials)
-			-- Restore the state of "Have Skillup" checkbox.
-			TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
-			TradeSkillOnlyShowSkillUps(have_skillup)
+			-- Restore the state of the things we changed.
+			_G.TradeSkillFrame.filterTbl.hasMaterials = have_materials
+			_G.TradeSkillOnlyShowMakeable(have_materials)
+			_G.TradeSkillFrame.filterTbl.hasSkillUp = have_skillup
+			_G.TradeSkillOnlyShowSkillUps(have_skillup)
 
-			TradeSkillUpdateFilterBar()
-			TradeSkillFrame_Update()
+			_G.TradeSkillUpdateFilterBar()
+			_G.TradeSkillFrame_Update()
 
 		end
-		Player.prev_count = Player.foundRecipes
-		Player.foundRecipes = recipes_found
+		player.prev_count = player.foundRecipes
+		player.foundRecipes = recipes_found
 
-		if is_refresh and Player.prev_count == recipes_found then
+		if is_refresh and player.prev_count == recipes_found then
 			return
 		end
 
 		-------------------------------------------------------------------------------
 		-- Update the player's reputation levels.
 		-------------------------------------------------------------------------------
-		Player["Reputation"] = Player["Reputation"] or {}
+		player["Reputation"] = player["Reputation"] or {}
 
 		table.wipe(header_list)
 
 		-- Number of factions before expansion
-		local num_factions = GetNumFactions()
+		local num_factions = _G.GetNumFactions()
 
 		-- Expand all the headers, storing those which were collapsed.
 		for i = num_factions, 1, -1 do
-			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
+			local name, _, _, _, _, _, _, _, _, isCollapsed = _G.GetFactionInfo(i)
 
 			if isCollapsed then
-				ExpandFactionHeader(i)
+				_G.ExpandFactionHeader(i)
 				header_list[name] = true
 			end
 		end
 
 		-- Number of factions with everything expanded
-		num_factions = GetNumFactions()
+		num_factions = _G.GetNumFactions()
 
 		-- Get the rep levels
 		for i = 1, num_factions, 1 do
-			local name, _, replevel = GetFactionInfo(i)
+			local name, _, replevel = _G.GetFactionInfo(i)
 
 			-- If the rep is greater than neutral
 			if replevel > 4 then
 				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it correspond here
-				Player["Reputation"][name] = replevel - 4
+				player["Reputation"][name] = replevel - 4
 			end
 		end
 
 		-- Collapse the headers again
 		for i = num_factions, 1, -1 do
-			local name = GetFactionInfo(i)
+			local name = _G.GetFactionInfo(i)
 
 			if header_list[name] then
-				CollapseFactionHeader(i)
+				_G.CollapseFactionHeader(i)
 			end
 		end
 
@@ -1708,7 +1689,7 @@ end
 -- @param text The text to be dumped
 --------------------------------------------------------------------------------
 do
-	local copy_frame = CreateFrame("Frame", "ARLCopyFrame", UIParent)
+	local copy_frame = _G.CreateFrame("Frame", "ARLCopyFrame", _G.UIParent)
 	copy_frame:SetBackdrop({
 				       bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
 				       edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
@@ -1725,21 +1706,21 @@ do
 	copy_frame:SetBackdropColor(0, 0, 0, 1)
 	copy_frame:SetWidth(750)
 	copy_frame:SetHeight(400)
-	copy_frame:SetPoint("CENTER", UIParent, "CENTER")
+	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
 	copy_frame:SetFrameStrata("DIALOG")
 
-	table.insert(UISpecialFrames, "ARLCopyFrame")
+	table.insert(_G.UISpecialFrames, "ARLCopyFrame")
 
-	local scrollArea = CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+	local scrollArea = _G.CreateFrame("ScrollFrame", "ARLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
 	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
 	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
 
-	local edit_box = CreateFrame("EditBox", nil, copy_frame)
+	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
 	edit_box:SetMultiLine(true)
 	edit_box:SetMaxLetters(0)
 	edit_box:EnableMouse(true)
 	edit_box:SetAutoFocus(true)
-	edit_box:SetFontObject(ChatFontNormal)
+	edit_box:SetFontObject("ChatFontNormal")
 	edit_box:SetWidth(650)
 	edit_box:SetHeight(270)
 	edit_box:SetScript("OnEscapePressed",
@@ -1750,7 +1731,7 @@ do
 
 	scrollArea:SetScrollChild(edit_box)
 
-	local close = CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	local close = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
 	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
 
 	copy_frame:Hide()
@@ -1782,7 +1763,7 @@ do
 
 		function GetFilterNames()
 			if not FILTER_NAMES then
-				local is_alliance = (Player.faction == "Alliance")
+				local is_alliance = (private.Player.faction == "Alliance")
 
 				FILTER_NAMES = {
 					[1]	= BFAC["Alliance"],
@@ -1893,12 +1874,12 @@ do
 		table.wipe(text_table)
 
 		if not output or output == "Comma" then
-			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  ", UnitName("player"), profession))
-			tinsert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.player_name, profession))
+			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
 		elseif output == "BBCode" then
-			tinsert(text_table, strformat("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n", UnitName("player"), profession))
+			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.player_name, profession))
 		elseif output == "XML" then
-			tinsert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
+			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
 		end
 
 		local recipe_list = private.recipe_list
@@ -1906,44 +1887,44 @@ do
 
 		for recipe_id in pairs(recipe_list) do
 			local recipe = recipe_list[recipe_id]
-			local recipe_prof = GetSpellInfo(recipe.profession)
+			local recipe_prof = _G.GetSpellInfo(recipe.profession)
 			local is_known = recipe:HasState("KNOWN")
 
 			if recipe_prof == profession then
 				-- CSV
 				if not output or output == "Comma" then
 					-- Add Spell ID, Name and Skill Level to the list
-					tinsert(text_table, recipe_id)
-					tinsert(text_table, ",")
-					tinsert(text_table, recipe.name)
-					tinsert(text_table, ",")
-					tinsert(text_table, recipe.skill_level)
-					tinsert(text_table, ",\"")
+					table.insert(text_table, recipe_id)
+					table.insert(text_table, ",")
+					table.insert(text_table, recipe.name)
+					table.insert(text_table, ",")
+					table.insert(text_table, recipe.skill_level)
+					table.insert(text_table, ",\"")
 				-- BBCode
 				elseif output == "BBCode" then
 					-- Make the entry red
 					if not is_known then
-						tinsert(text_table, "[color=red]")
+						table.insert(text_table, "[color=red]")
 					end
-					tinsert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
+					table.insert(text_table, "\n[b]" .. recipe_id .. "[/b] - " .. recipe.name .. " (" .. recipe.skill_level .. ")\n")
 
 					-- Close Color tag
 					if not is_known then
-						tinsert(text_table, "[/color]\nRecipe Flags:\n[list]")
+						table.insert(text_table, "[/color]\nRecipe Flags:\n[list]")
 					elseif is_known then
-						tinsert(text_table, "\nRecipe Flags:\n[list]")
+						table.insert(text_table, "\nRecipe Flags:\n[list]")
 					end
 				--XML
 				elseif output == "XML" then
-					tinsert(text_table, "<recipe>")
-					tinsert(text_table, "  <id>..recipe_id..</id>")
-					tinsert(text_table, "  <name>"..recipe.name.."</name>")
-					tinsert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
-					tinsert(text_table, "  <known>"..tostring(is_known).."</known>")
-					tinsert(text_table, "  <flags>")
+					table.insert(text_table, "<recipe>")
+					table.insert(text_table, "  <id>..recipe_id..</id>")
+					table.insert(text_table, "  <name>"..recipe.name.."</name>")
+					table.insert(text_table, "  <skilllevel>..recipe.skill_level..</skilllevel>")
+					table.insert(text_table, "  <known>"..tostring(is_known).."</known>")
+					table.insert(text_table, "  <flags>")
 				--Name
 				elseif output == "Name" then
-					tinsert(text_table, recipe.name)
+					table.insert(text_table, recipe.name)
 				end
 
 				-- Add in all the filter flags
@@ -1958,27 +1939,27 @@ do
 						if bitfield and bit.band(bitfield, flag) == flag then
 							if not output or output == "Comma" then
 								if prev then
-									tinsert(text_table, ",")
+									table.insert(text_table, ",")
 								end
-								tinsert(text_table, filter_names[private.filter_flags[flag_name]])
+								table.insert(text_table, filter_names[private.filter_flags[flag_name]])
 								prev = true
 								-- BBCode
 							elseif output == "BBCode" then
-								tinsert(text_table, "[*]"..filter_names[private.filter_flags[flag_name]])
+								table.insert(text_table, "[*]"..filter_names[private.filter_flags[flag_name]])
 							elseif output == "XML" then
-								tinsert(text_table, "    <flag>"..filter_names[private.filter_flags[flag_name]].."</flag>")
+								table.insert(text_table, "    <flag>"..filter_names[private.filter_flags[flag_name]].."</flag>")
 							end
 						end
 					end
 				end
 
 				if not output or output == "Comma" then
-					tinsert(text_table, "\",\"")
+					table.insert(text_table, "\",\"")
 				elseif output == "BBCode" then
-					tinsert(text_table, "[/list]\nAcquire Methods:\n[list]")
+					table.insert(text_table, "[/list]\nAcquire Methods:\n[list]")
 				elseif output == "XML" then
-					tinsert(text_table, "  </flags>")
-					tinsert(text_table, "  <acquire>")
+					table.insert(text_table, "  </flags>")
+					table.insert(text_table, "  <acquire>")
 				end
 
 				-- Find out which unique acquire methods we have
@@ -1995,32 +1976,32 @@ do
 				for i in pairs(acquire_list) do
 					if not output or output == "Comma" then
 						if prev then
-							tinsert(text_table, ",")
+							table.insert(text_table, ",")
 						end
-						tinsert(text_table, i)
+						table.insert(text_table, i)
 						prev = true
 					elseif output == "BBCode" then
-						tinsert(text_table, "[*] " .. i)
+						table.insert(text_table, "[*] " .. i)
 					elseif output == "XML" then
-						tinsert(text_table, "<acquiremethod>"..i.."</acquiremethod>")
+						table.insert(text_table, "<acquiremethod>"..i.."</acquiremethod>")
 					end
 				end
 
 				if not output or output == "Comma" then
-					tinsert(text_table, "\","..tostring(is_known).."\n")
+					table.insert(text_table, "\","..tostring(is_known).."\n")
 					--if is_known then
-					--	tinsert(text_table, "\",true\n")
+					--	table.insert(text_table, "\",true\n")
 					--else
-					--	tinsert(text_table, "\",false\n")
+					--	table.insert(text_table, "\",false\n")
 					--end
 				elseif output == "BBCode" then
-					tinsert(text_table, "\n[/list]")
+					table.insert(text_table, "\n[/list]")
 				elseif output == "XML" then
-					tinsert(text_table, "  </acquire>")
-					tinsert(text_table, "</recipe>")
+					table.insert(text_table, "  </acquire>")
+					table.insert(text_table, "</recipe>")
 				end
 			end
 		end	-- for
-		return tconcat(text_table, "")
+		return table.concat(text_table, "")
 	end
 end
