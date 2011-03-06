@@ -134,7 +134,7 @@ function addon:InitFirstAid()
 	-- Heavy Frostweave Bandage -- 45546
 	recipe = AddRecipe(45546, 400, 34722, Q.UNCOMMON, V.WOTLK, 400, 400, 430, 470)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.WORLD_DROP, F.IBOE, F.RBOP)
-	recipe:AddTrainer(2798, 4591, 5759, 5939, 5943, 28706, 45540)
+	recipe:AddTrainer(2798, 4591, 5759, 5939, 5943, 26956, 28706, 29233, 33589, 45540)
 	recipe:AddWorldDrop("Northrend")
 
 	-- Embersilk Bandage -- 74556
