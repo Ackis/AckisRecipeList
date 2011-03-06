@@ -218,7 +218,7 @@ function addon:InitAlchemy()
 
 	-- Elixir of Minor Defense -- 7183
 	AddRecipe(7183, 1, 5997, Q.COMMON, V.ORIG, 1, 55, 75, 95)
-	self:AddRecipeFlags(7183, F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
+	self:AddRecipeFlags(7183, F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.TANK)
 	self:AddRecipeCustom(7183, 8)
 
 	-- Holy Protection Potion -- 7255
