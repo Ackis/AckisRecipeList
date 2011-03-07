@@ -2068,23 +2068,43 @@ function addon:InitTailoring()
 	recipe = AddRecipe(64730, 405, 45810, Q.COMMON, V.WOTLK, 405, 410, 415, 420)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP, F.HEALER, F.CASTER, F.CLOAK)
 	recipe:AddTrainer(3363, 26914, 26964, 26969, 27001, 28699, 33580, 44783, 45559)
+	
+	-- Royal Moonshroud Robe -- 67064 -- TORHAL: Add the strict faction flag thing to this recipe.
+	recipe = AddRecipe(67064, 450, 47605, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddCustom(42)
 
-	-- Royal Moonshroud Robe -- 67144
+	-- Royal Moonshroud Bracers -- 67065 -- TORHAL: Add the strict faction flag thing to this recipe.
+	recipe = AddRecipe(67065, 450, 47587, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddCustom(42)
+
+	-- Merlin's Robe -- 67066 -- TORHAL: Add the strict faction flag thing to this recipe.
+	recipe = AddRecipe(67066, 450, 47603, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddCustom(42)
+
+	-- Bejeweled Wizard's Bracers -- 67079 -- TORHAL: Add the strict faction flag thing to this recipe.
+	recipe = AddRecipe(67079, 450, 47585, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
+	self:AddCustom(42)
+
+	-- Royal Moonshroud Robe -- 67144 -- TORHAL: Add the strict faction flag thing to this recipe.
 	recipe = AddRecipe(67144, 450, 47606, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
-	-- Bejeweled Wizard's Bracers -- 67145
+	-- Bejeweled Wizard's Bracers -- 67145 -- TORHAL: Add the strict faction flag thing to this recipe.
 	recipe = AddRecipe(67145, 450, 47586, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
-	-- Merlin's Robe -- 67146
+	-- Merlin's Robe -- 67146 -- TORHAL: Add the strict faction flag thing to this recipe.
 	recipe = AddRecipe(67146, 450, 47604, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
 
-	-- Royal Moonshroud Bracers -- 67147
+	-- Royal Moonshroud Bracers -- 67147 -- TORHAL: Add the strict faction flag thing to this recipe.
 	recipe = AddRecipe(67147, 450, 47588, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.CLOTH)
 	recipe:AddCustom(42)
