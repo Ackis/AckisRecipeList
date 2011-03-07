@@ -21,7 +21,7 @@ local MODNAME	= "Ackis Recipe List"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local private	= select(2, ...)
+local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
@@ -39,7 +39,7 @@ local num_recipes = 0
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id)
 	num_recipes = num_recipes + 1
-	addon:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
+	return addon:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
 end
 
 function addon:InitRuneforging()
@@ -48,55 +48,57 @@ function addon:InitRuneforging()
 	end
 	initialized = true
 
+	local recipe
+
 	-- Rune of Swordshattering -- 53323
-	AddRecipe(53323, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53323, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53323, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53323, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Lichbane -- 53331
-	AddRecipe(53331, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53331, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53331, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53331, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Cinderglacier -- 53341
-	AddRecipe(53341, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53341, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53341, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53341, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Spellshattering -- 53342
-	AddRecipe(53342, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53342, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53342, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53342, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Razorice -- 53343
-	AddRecipe(53343, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53343, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53343, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53343, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Fallen Crusader -- 53344
-	AddRecipe(53344, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(53344, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(53344, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(53344, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Swordbreaking -- 54446
-	AddRecipe(54446, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(54446, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(54446, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(54446, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of Spellbreaking -- 54447
-	AddRecipe(54447, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(54447, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(54447, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(54447, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Stoneskin Gargoyle -- 62158
-	AddRecipe(62158, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(62158, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(62158, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(62158, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	-- Rune of the Nerubian Carapace -- 70164
-	AddRecipe(70164, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
-	self:AddRecipeFlags(70164, F.ALLIANCE, F.HORDE, F.TRAINER, F.DK, F.IBOP, F.RBOP, F.TWO_HAND)
-	self:AddRecipeTrainer(70164, 29194, 29195, 29196, 31084)
+	recipe = AddRecipe(70164, 1, nil, Q.COMMON, V.WOTLK, 1, 1, 1, 1)
+	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
+	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	return num_recipes
 end
