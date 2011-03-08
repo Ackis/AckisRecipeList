@@ -25,9 +25,12 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BFAC 	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A		= private.acquire_types
 local SF	= private.recipe_state_flags
+
+private.num_recipes = {}
 
 -----------------------------------------------------------------------
 -- Local constants.
@@ -52,7 +55,7 @@ local recipe_meta = {
 -- @param easy_level Level at which recipe is considered green
 -- @param trivial_level Level at which recipe is considered grey
 -- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
 	local recipe_list = private.recipe_list
 
 	if recipe_list[spell_id] then
@@ -79,11 +82,20 @@ function addon:AddRecipe(spell_id, skill_level, item_id, quality, profession, sp
 		trivial_level = trivial_level or skill_level + 20,
 	}, recipe_meta)
 
-	if not recipe.name then
+	if not recipe.name or recipe.name == "" then
 		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
 		self:Print(L["SpellIDCache"]:format(spell_id))
 	end
 	recipe_list[spell_id] = recipe
+	recipe.required_faction = required_faction
+
+	if required_faction and private.Player.faction ~= BFAC[required_faction] then
+		recipe.is_ignored = true
+	end
+
+	if not recipe.is_ignored then
+		private.num_recipes[recipe.profession] = (private.num_recipes[recipe.profession] or 0) + 1
+	end
 	return recipe
 end
 

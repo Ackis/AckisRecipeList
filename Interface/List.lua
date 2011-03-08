@@ -731,7 +731,7 @@ function private.InitializeListFrame()
 			for recipe_id, recipe in pairs(recipe_list) do
 				recipe:RemoveState("VISIBLE")
 
-				if recipe.profession == current_prof then
+				if recipe.profession == current_prof and not recipe.is_ignored then
 					local is_known
 
 					if MainPanel.is_linked then

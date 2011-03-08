@@ -963,8 +963,24 @@ do
 		local genesis = private.game_versions[recipe.genesis]
 
 		table.insert(output, ("-- %s -- %d"):format(recipe.name, recipe.spell_id))
-		table.insert(output, ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(recipe.spell_id, recipe.skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
-													     recipe.optimal_level, recipe.medium_level, recipe.easy_level, recipe.trivial_level, specialty))
+
+		local spell_id = recipe.spell_id
+		local skill_level = recipe.skill_level
+		local optimal_level = recipe.optimal_level
+		local medium_level = recipe.medium_level
+		local easy_level = recipe.easy_level
+		local trivial_level = recipe.trivial_level
+		local required_faction = recipe.required_faction
+
+		if recipe.required_faction then
+			table.insert(output,
+				     ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
+													     optimal_level, medium_level, easy_level, trivial_level, specialty, required_faction))
+		else
+			table.insert(output,
+				     ("recipe = AddRecipe(%d, %d, %s, Q.%s, V.%s, %d, %d, %d, %d%s)"):format(spell_id, skill_level, tostring(recipe.item_id), Q[recipe.quality], V[genesis],
+													     optimal_level, medium_level, easy_level, trivial_level, specialty))
+		end
 
 		for table_index, bits in ipairs(private.bit_flags) do
 			table.wipe(sorted_data)

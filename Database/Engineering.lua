@@ -36,8 +36,8 @@ local V		= private.game_versions
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 4036, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty, required_faction)
+	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 4036, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
 end
 
 function addon:InitEngineering()
@@ -1407,13 +1407,13 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.HUNTER, F.SHAMAN, F.MAIL)
 	recipe:AddTrainer(25277, 26907, 26955, 26991, 28697, 33586)
 
-	-- Mechano-Hog -- 60866 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(60866, 450, 41508, Q.EPIC, V.WOTLK, 450, 480, 485, 490)
+	-- Mechano-Hog -- 60866
+	recipe = AddRecipe(60866, 450, 41508, Q.EPIC, V.WOTLK, 450, 480, 485, 490, "Horde")
 	recipe:AddFilters(F.HORDE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.HORDE_EXPEDITION, REP.EXALTED, 32565, 32774)
-	
-	-- Mekgineer's Chopper -- 60867 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(60867, 450, 44413, Q.EPIC, V.WOTLK, 450, 480, 485, 490)
+
+	-- Mekgineer's Chopper -- 60867
+	recipe = AddRecipe(60867, 450, 44413, Q.EPIC, V.WOTLK, 450, 480, 485, 490, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE, F.RBOP, F.WRATHCOMMON1)
 	recipe:AddRepVendor(FAC.ALLIANCE_VANGUARD, REP.EXALTED, 32564, 32773)
 

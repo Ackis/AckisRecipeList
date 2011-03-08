@@ -35,8 +35,8 @@ local V		= private.game_versions
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
-local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2018, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
+local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty, required_faction)
+	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2018, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level, required_faction)
 end
 
 function addon:InitBlacksmithing()
@@ -2482,64 +2482,64 @@ function addon:InitBlacksmithing()
 	recipe = AddRecipe(63192, 450, 45093, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(39)
-	
-	-- Breastplate of the White Knight -- 67091 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+
+	-- Breastplate of the White Knight -- 67091
+	recipe = AddRecipe(67091, 450, 47591, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Saronite Swordbreakers -- 67092 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Saronite Swordbreakers -- 67092
+	recipe = AddRecipe(67092, 450, 47570, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Titanium Razorplate -- 67093 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Titanium Razorplate -- 67093
+	recipe = AddRecipe(67093, 450, 47589, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Titanium Spikeguards -- 67094 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Titanium Spikeguards -- 67094
+	recipe = AddRecipe(67094, 450, 47572, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Sunforged Breastplate -- 67095 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	-- Sunforged Breastplate
+	recipe = AddRecipe(67095, 450, 47593, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Sunforged Bracers -- 67096 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Sunforged Bracers -- 67096
+	recipe = AddRecipe(67096, 450, 47574, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Breastplate of the White Knight -- 67130 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Breastplate of the White Knight -- 67130
+	recipe = AddRecipe(67130, 450, 47592, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Saronite Swordbreakers -- 67131 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Saronite Swordbreakers -- 67131
+	recipe = AddRecipe(67131, 450, 47571, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.TANK, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Titanium Razorplate -- 67132 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Titanium Razorplate -- 67132
+	recipe = AddRecipe(67132, 450, 47590, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Titanium Spikeguards -- 67133 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Titanium Spikeguards -- 67133
+	recipe = AddRecipe(67133, 450, 47573, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.DPS, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Sunforged Breastplate -- 67134 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475)
+	-- Sunforged Breastplate -- 67134
+	recipe = AddRecipe(67134, 450, 47594, Q.EPIC, V.WOTLK, 450, 460, 467, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 
-	-- Sunforged Bracers -- 67135 -- TORHAL: Add the strict faction flag thing to this recipe.
-	recipe = AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475)
+	-- Sunforged Bracers -- 67135
+	recipe = AddRecipe(67135, 450, 47575, Q.EPIC, V.WOTLK, 450, 455, 465, 475, "Horde")
 	recipe:AddFilters(F.HORDE, F.RAID, F.IBOE, F.RBOE, F.HEALER, F.CASTER, F.PLATE)
 	recipe:AddCustom(42)
 
