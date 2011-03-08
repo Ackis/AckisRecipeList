@@ -3063,6 +3063,5 @@ function addon:InitLeatherworking()
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 26998, 28700, 29507, 33581)
 
 	self.InitLeatherworking = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end
 

@@ -149,5 +149,4 @@ function addon:InitFirstAid()
 	recipe:AddTrainer(2326, 2327, 2329, 2798, 3181, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 16272, 16662, 16731, 17214, 17424, 18990, 18991, 19184, 19478, 22477, 23734, 26956, 26992, 28706, 29233, 33589, 33621, 45540, 49879, 50574)
 
 	self.InitFirstAid = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end

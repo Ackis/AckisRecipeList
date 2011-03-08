@@ -1538,5 +1538,4 @@ function addon:InitAlchemy()
 	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26951, 26975, 27023, 27029, 28703, 33588)
 
 	self.InitAlchemy = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end

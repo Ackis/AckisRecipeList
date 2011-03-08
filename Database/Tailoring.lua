@@ -2416,5 +2416,4 @@ function addon:InitTailoring()
 	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
 
 	self.InitTailoring = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end
