@@ -191,5 +191,4 @@ function addon:InitSmelting()
 	recipe:AddTrainer(3357, 4254, 5513, 16663)
 
 	self.InitSmelting = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end

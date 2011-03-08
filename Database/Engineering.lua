@@ -1658,5 +1658,4 @@ function addon:InitEngineering()
 	recipe:AddTrainer(5518, 11017)
 
 	self.InitEngineering = nil
-	private.profession_init_funcs[recipe.profession] = nil
 end
