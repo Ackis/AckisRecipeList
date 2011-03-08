@@ -907,10 +907,7 @@ function addon:InitializeProfession(profession)
 	local func = PROFESSION_INIT_FUNCS[profession]
 
 	if func then
-		return func(addon)
-	else
-		addon:Print(L["UnknownTradeSkill"]:format(profession))
-		return 0
+		func(addon)
 	end
 end
 
@@ -1057,9 +1054,7 @@ do
 		if self.InitializeLookups then
 			self:InitializeLookups()
 		end
-		-- Add the recipes to the database
-		-- TODO: Figure out what this variable was supposed to be for - it isn't used anywhere. -Torhal
-		player.totalRecipes = addon:InitializeProfession(current_prof)
+		addon:InitializeProfession(current_prof)
 
 		-------------------------------------------------------------------------------
 		-- Scan all recipes and mark the ones we know

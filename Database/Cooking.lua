@@ -32,23 +32,14 @@ local REP = private.rep_levels
 local FAC = private.faction_ids
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2550, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitCooking()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Charred Wolf Meat -- 2538
@@ -1155,6 +1146,6 @@ function addon:InitCooking()
 
 	end
 
-	return num_recipes
 
+	self.InitCooking = nil
 end

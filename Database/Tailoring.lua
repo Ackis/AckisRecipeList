@@ -32,23 +32,14 @@ local REP = private.rep_levels
 local FAC = private.faction_ids
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 3908, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitTailoring()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Brown Linen Vest -- 2385
@@ -2424,5 +2415,5 @@ function addon:InitTailoring()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(1346, 3363, 4159, 4576, 5153, 9584, 16640, 28699, 33613, 44783, 45559)
 
-	return num_recipes
+	self.InitTailoring = nil
 end

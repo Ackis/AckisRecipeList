@@ -32,23 +32,14 @@ local REP = private.rep_levels
 local FAC = private.faction_ids
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 3273, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitFirstAid()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Linen Bandage -- 3275
@@ -157,5 +148,5 @@ function addon:InitFirstAid()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(2326, 2327, 2329, 2798, 3181, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 16272, 16662, 16731, 17214, 17424, 18990, 18991, 19184, 19478, 22477, 23734, 26956, 26992, 28706, 29233, 33589, 33621, 45540, 49879, 50574)
 
-	return num_recipes
+	self.InitFirstAid = nil
 end

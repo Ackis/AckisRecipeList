@@ -12,44 +12,35 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]]--
+]] --
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local MODNAME = "Ackis Recipe List"
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F		= private.filter_flags
-local A		= private.acquire_types
-local Q		= private.item_qualities
-local REP	= private.rep_levels
-local FAC	= private.faction_ids
-local V		= private.game_versions
-
-local initialized = false
-local num_recipes = 0
+local F = private.filter_flags
+local A = private.acquire_types
+local Q = private.item_qualities
+local REP = private.rep_levels
+local FAC = private.faction_ids
+local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2108, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitLeatherworking()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-	
 	local recipe
 
 	-- Handstitched Leather Boots -- 2149
@@ -3071,5 +3062,6 @@ function addon:InitLeatherworking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3007, 3365, 3967, 4212, 4588, 5127, 5564, 26998, 28700, 29507, 33581)
 
-	return num_recipes
+	self.InitLeatherworking = nil
 end
+

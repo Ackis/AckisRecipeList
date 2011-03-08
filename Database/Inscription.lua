@@ -35,23 +35,14 @@ local REP = private.rep_levels
 local FAC = private.faction_ids
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 45357, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitInscription()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Scroll of Stamina -- 45382
@@ -2383,5 +2374,5 @@ function addon:InitInscription()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30711, 30713, 30715, 30717, 46716)
 
-	return num_recipes
+	self.InitInscription = nil
 end

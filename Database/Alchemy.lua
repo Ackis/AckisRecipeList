@@ -32,23 +32,14 @@ local REP = private.rep_levels
 local FAC = private.faction_ids
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 51304, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitAlchemy()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Elixir of Lion's Strength -- 2329
@@ -1546,5 +1537,5 @@ function addon:InitAlchemy()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP)
 	recipe:AddTrainer(1386, 2132, 3009, 3184, 3347, 4160, 4611, 5177, 5499, 26951, 26975, 27023, 27029, 28703, 33588)
 
-	return num_recipes
+	self.InitAlchemy = nil
 end

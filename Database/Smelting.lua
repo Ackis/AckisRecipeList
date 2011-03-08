@@ -30,23 +30,14 @@ local A = private.acquire_types
 local Q = private.item_qualities
 local V = private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 32606, nil, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitSmelting()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Smelt Copper -- 2657
@@ -199,5 +190,5 @@ function addon:InitSmelting()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(3357, 4254, 5513, 16663)
 
-	return num_recipes
+	self.InitSmelting = nil
 end

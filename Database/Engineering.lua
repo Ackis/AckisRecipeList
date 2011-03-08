@@ -33,23 +33,14 @@ local REP	= private.rep_levels
 local FAC	= private.faction_ids
 local V		= private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 4036, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
 function addon:InitEngineering()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-	
 	local recipe
 
 	-- Rough Blasting Powder -- 3918
@@ -1666,5 +1657,5 @@ function addon:InitEngineering()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOE, F.RBOP)
 	recipe:AddTrainer(5518, 11017)
 
-	return num_recipes
+	self.InitEngineering = nil
 end

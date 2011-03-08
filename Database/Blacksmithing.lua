@@ -32,23 +32,14 @@ local REP	= private.rep_levels
 local FAC	= private.faction_ids
 local V		= private.game_versions
 
-local initialized = false
-local num_recipes = 0
-
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id, skill_level, item_id, quality, genesis, optimal_level, medium_level, easy_level, trivial_level, specialty)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, skill_level, item_id, quality, 2018, specialty, genesis, optimal_level, medium_level, easy_level, trivial_level)
 end
 
-function addon:InitBlacksmithing() 
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-	
+function addon:InitBlacksmithing()
 	local recipe
 
 	-- Rough Sharpening Stone -- 2660
@@ -2932,7 +2923,5 @@ function addon:InitBlacksmithing()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(50375, 50382)
 
-
-	return num_recipes
-
+	self.InitBlacksmithing = nil
 end

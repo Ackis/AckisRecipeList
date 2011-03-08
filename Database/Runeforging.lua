@@ -12,42 +12,33 @@ Please see http://www.wowace.com/addons/arl/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
-]]--
+]] --
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME	= "Ackis Recipe List"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local MODNAME = "Ackis Recipe List"
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local FOLDER_NAME, private = ...
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F		= private.filter_flags
-local A		= private.acquire_types
-local Q		= private.item_qualities
-local V		= private.game_versions
-
-local initialized = false
-local num_recipes = 0
+local F = private.filter_flags
+local A = private.acquire_types
+local Q = private.item_qualities
+local V = private.game_versions
 
 --------------------------------------------------------------------------------------------------------------------
 -- Counter and wrapper function
 --------------------------------------------------------------------------------------------------------------------
 local function AddRecipe(spell_id)
-	num_recipes = num_recipes + 1
 	return addon:AddRecipe(spell_id, 1, nil, Q.COMMON, 53428, nil, V.WOTLK, 1, 1, 1, 1)
 end
 
 function addon:InitRuneforging()
-	if initialized then
-		return num_recipes
-	end
-	initialized = true
-
 	local recipe
 
 	-- Rune of Swordshattering -- 53323
@@ -100,5 +91,5 @@ function addon:InitRuneforging()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER, F.IBOP, F.RBOP, F.DK, F.TWO_HAND)
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
-	return num_recipes
+	self.InitRuneforging = nil
 end
