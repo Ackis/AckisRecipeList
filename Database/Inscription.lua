@@ -2250,12 +2250,12 @@ function addon:InitInscription()
 	recipe:AddTrainer(28702, 30706, 30711, 30713, 30715, 30717, 46716)
 
 	-- Forged Documents -- 86654
-	recipe = AddRecipe(86654, 500, 63276, Q.COMMON, V.CATA, 500, 510, 522, 535)
+	recipe = AddRecipe(86654, 500, 63276, Q.COMMON, V.CATA, 500, 510, 522, 535, "Horde")
 	recipe:AddFilters(F.HORDE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30706, 30711, 46716)
 
 	-- Forged Documents -- 89244
-	recipe = AddRecipe(89244, 500, 62056, Q.COMMON, V.CATA, 500, 510, 522, 535)
+	recipe = AddRecipe(89244, 500, 62056, Q.COMMON, V.CATA, 500, 510, 522, 535, "Alliance")
 	recipe:AddFilters(F.ALLIANCE, F.TRAINER, F.IBOE, F.RBOE)
 	recipe:AddTrainer(28702, 30713, 30715, 30717, 46716)
 
