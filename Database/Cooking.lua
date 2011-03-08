@@ -870,31 +870,6 @@ function addon:InitCooking()
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
 	recipe:AddVendor(31031, 31032, 33595)
 
-	-- Pumpkin Pie -- 62044
-	recipe = AddRecipe(62044, 100, 44839, Q.COMMON, V.WOTLK, 100, 150, 162, 175, "Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
-
-	-- Slow-Roasted Turkey -- 62045
-	recipe = AddRecipe(62045, 330, 44839, Q.COMMON, V.WOTLK, 330, 330, 342, 355, "Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.DPS)
-	recipe:AddSeason(5)
-
-	-- Cranberry Chutney -- 62049
-	recipe = AddRecipe(62049, 210, 44840, Q.COMMON, V.WOTLK, 210, 210, 222, 235, "Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP, F.HEALER, F.CASTER)
-	recipe:AddSeason(5)
-
-	-- Spice Bread Stuffing -- 62050
-	recipe = AddRecipe(62050, 90, 44837, Q.COMMON, V.WOTLK, 90, 90, 102, 115, "Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOE)
-	recipe:AddSeason(5)
-
-	-- Candied Sweet Potato -- 62051
-	recipe = AddRecipe(62051, 270, 44839, Q.COMMON, V.WOTLK, 270, 270, 282, 295, "Alliance")
-	recipe:AddFilters(F.ALLIANCE, F.SEASONAL, F.IBOE, F.RBOP)
-	recipe:AddSeason(5)
-
 	-- Worg Tartare -- 62350
 	recipe = AddRecipe(62350, 400, 44953, Q.UNCOMMON, V.WOTLK, 400, 400, 420, 460)
 	recipe:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.RBOP)
