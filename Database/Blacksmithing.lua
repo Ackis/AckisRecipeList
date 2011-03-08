@@ -2924,4 +2924,5 @@ function addon:InitBlacksmithing()
 	recipe:AddVendor(50375, 50382)
 
 	self.InitBlacksmithing = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end

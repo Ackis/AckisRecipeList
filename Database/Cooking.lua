@@ -1111,4 +1111,5 @@ function addon:InitCooking()
 	recipe:AddSeason(5)
 
 	self.InitCooking = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end

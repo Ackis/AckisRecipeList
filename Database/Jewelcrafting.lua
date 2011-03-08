@@ -3010,4 +3010,5 @@ function addon:InitJewelcrafting()
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
 	self.InitJewelcrafting = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end

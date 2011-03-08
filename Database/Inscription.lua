@@ -2375,4 +2375,5 @@ function addon:InitInscription()
 	recipe:AddTrainer(28702, 30706, 30711, 30713, 30715, 30717, 46716)
 
 	self.InitInscription = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end

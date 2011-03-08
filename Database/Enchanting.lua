@@ -1808,4 +1808,5 @@ function addon:InitEnchanting()
 	recipe:AddWorldDrop("Deepholm", "Eastern Kingdoms", "Kalimdor")
 
 	self.InitEnchanting = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end

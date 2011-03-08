@@ -92,4 +92,5 @@ function addon:InitRuneforging()
 	recipe:AddTrainer(29194, 29195, 29196, 31084)
 
 	self.InitRuneforging = nil
+	private.profession_init_funcs[recipe.profession] = nil
 end
